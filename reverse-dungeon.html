@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reverse Dungeon — Adaptive Defense Simulator (Prototype)</title>
+<style>
+  :root {
+    --bg: #0e0d12;
+    --panel: #18161f;
+    --panel-2: #221f2c;
+    --ink: #e8e4f0;
+    --muted: #8a829c;
+    --accent: #b072ff;
+    --hero: #6fd1ff;
+    --mob: #ff7a7a;
+    --boss: #ffb347;
+    --good: #6fe39d;
+    --bad: #ff5d5d;
+    --warn: #ffd166;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-monospace, "JetBrains Mono", Consolas, monospace;
+    font-size: 13px;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 12px;
+    padding: 12px;
+  }
+  h1 { font-size: 16px; margin: 0 0 8px 0; letter-spacing: 1px; }
+  h2 { font-size: 12px; margin: 0 0 6px 0; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; }
+  .stage { background: var(--panel); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 10px; min-height: 540px; }
+  .header { display: flex; justify-content: space-between; align-items: center; }
+  #canvas { background: #07060a; border-radius: 6px; width: 100%; height: 360px; display: block; }
+  .log { background: #07060a; border-radius: 6px; flex: 1; padding: 8px 10px; overflow-y: auto; max-height: 200px; line-height: 1.5; }
+  .log .ev { color: var(--ink); }
+  .log .dmg { color: var(--bad); }
+  .log .heal { color: var(--good); }
+  .log .sys { color: var(--accent); }
+  .log .loot { color: var(--warn); }
+  .log .info { color: var(--muted); }
+
+  .side { display: flex; flex-direction: column; gap: 12px; }
+  .card { background: var(--panel); border-radius: 8px; padding: 12px; }
+  .row { display: flex; gap: 6px; flex-wrap: wrap; }
+  button {
+    background: var(--panel-2);
+    color: var(--ink);
+    border: 1px solid #2c2838;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    flex: 1;
+    min-width: 0;
+  }
+  button:hover:not(:disabled) { background: #2a2638; }
+  button:disabled { opacity: 0.4; cursor: not-allowed; }
+  button.primary { background: var(--accent); color: #1a1126; border-color: var(--accent); font-weight: 700; }
+
+  .bar { background: #0a0810; height: 10px; border-radius: 5px; overflow: hidden; }
+  .bar > span { display: block; height: 100%; background: var(--accent); transition: width 120ms linear; }
+  .bar.hp > span { background: var(--good); }
+  .bar.mob > span { background: var(--mob); }
+
+  .units { display: flex; flex-direction: column; gap: 6px; }
+  .unit { background: var(--panel-2); padding: 6px 8px; border-radius: 6px; font-size: 12px; }
+  .unit .name { display: flex; justify-content: space-between; }
+  .unit.dead { opacity: 0.35; text-decoration: line-through; }
+  .tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; background: #2a2438; color: var(--muted); margin-left: 6px; }
+
+  .inventory { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .slot { background: var(--panel-2); border-radius: 6px; padding: 8px; text-align: center; min-height: 70px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; border: 1px solid transparent; }
+  .slot:hover:not(.empty) { border-color: var(--warn); }
+  .slot.empty { opacity: 0.35; cursor: default; }
+  .slot .icon { font-size: 18px; }
+  .slot .label { font-size: 10px; color: var(--muted); }
+
+  .small { font-size: 11px; color: var(--muted); }
+  .corr { color: var(--accent); font-weight: 700; }
+
+  .end-screen { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(7,6,10,0.85); border-radius: 8px; flex-direction: column; gap: 10px; }
+  .stage-wrap { position: relative; }
+</style>
+</head>
+<body>
+
+<div class="stage-wrap">
+  <div class="stage">
+    <div class="header">
+      <h1>REVERSE DUNGEON · ADAPTIVE DEFENSE SIMULATOR <span class="small">— prototype</span></h1>
+      <div class="small">Tick: <span id="tick">0</span> · Room: <span id="room">1</span>/<span id="rooms-total">0</span></div>
+    </div>
+    <canvas id="canvas" width="900" height="360"></canvas>
+    <div>
+      <h2>Combat Log</h2>
+      <div class="log" id="log"></div>
+    </div>
+  </div>
+  <div class="end-screen" id="end">
+    <h1 id="end-title">—</h1>
+    <div id="end-reason" class="small"></div>
+    <button class="primary" style="max-width:200px" onclick="newRun()">Start New Run</button>
+  </div>
+</div>
+
+<div class="side">
+  <div class="card">
+    <h2>Corruption</h2>
+    <div class="bar"><span id="corr-bar" style="width:0%"></span></div>
+    <div class="small" style="margin-top:4px"><span class="corr" id="corr-val">0</span> / 100</div>
+  </div>
+
+  <div class="card">
+    <h2>Interventions</h2>
+    <div class="row" id="abilities"></div>
+    <div class="small" style="margin-top:6px">Spend corruption to disrupt heroes mid-run.</div>
+  </div>
+
+  <div class="card">
+    <h2>Corrupted Loot <span class="small">(max 3)</span></h2>
+    <div class="inventory" id="inv"></div>
+    <div class="small" style="margin-top:6px">Single-use. Click to deploy.</div>
+  </div>
+
+  <div class="card">
+    <h2>Heroes</h2>
+    <div class="units" id="heroes"></div>
+  </div>
+
+  <div class="card">
+    <h2>Current Room</h2>
+    <div class="units" id="enemies"></div>
+  </div>
+
+  <div class="card">
+    <button class="primary" onclick="newRun()">Restart Run</button>
+  </div>
+</div>
+
+<script>
+/* ==========================================================================
+   REVERSE DUNGEON — Single-file prototype
+   Core loop: heroes auto-run a linear dungeon; player spends corruption and
+   uses corrupted loot to disrupt them. Tick-based combat, console log feedback.
+   ========================================================================== */
+
+const TICK_MS = 100;            // game tick rate
+const ROOM_ADVANCE_DELAY = 12;  // ticks between rooms
+const INVENTORY_MAX = 3;
+const CORRUPTION_MAX = 100;
+const CORRUPTION_PASSIVE = 0.4; // per tick
+const LOOT_DROP_CHANCE = 0.5;
+
+/* ---------- Data definitions ---------- */
+
+const HERO_TEMPLATES = {
+  tank:  { hp: 60, atk: 6,  def: 4, speed: 0.7, trait: "Iron Wall" },
+  rogue: { hp: 35, atk: 10, def: 1, speed: 1.6, trait: "Quickstep" },
+  mage:  { hp: 30, atk: 12, def: 0, speed: 1.0, trait: "Arcane Burst" }
+};
+
+const HERO_NAMES = ["Aric","Brella","Cinder","Doran","Elka","Fenn","Gale","Hask"];
+
+const MOB_TEMPLATES = {
+  slime:    { hp: 18, atk: 3,  def: 0, speed: 0.8, color: "#7be39d" },
+  brute:    { hp: 40, atk: 7,  def: 2, speed: 0.5, color: "#c97a7a" },
+  assassin: { hp: 14, atk: 9,  def: 0, speed: 1.5, color: "#ffb347" }
+};
+
+const ABILITIES = [
+  { id:"spike",  name:"Spike Burst",  cost: 25, cd: 60, desc:"AoE 8 damage to all heroes." },
+  { id:"heal",   name:"Dark Heal",    cost: 20, cd: 50, desc:"Heal all mobs in room +15." },
+  { id:"fear",   name:"Fear Pulse",   cost: 30, cd: 80, desc:"Stun all heroes for 30 ticks." }
+];
+
+const ITEMS = [
+  { id:"blade", name:"Cursed Blade",  icon:"🗡", desc:"Deal 22 damage to a random hero." },
+  { id:"phyl",  name:"Blood Phylactery", icon:"🩸", desc:"Heal all defenders in room to full." },
+  { id:"hex",   name:"Hex Stone",     icon:"🌀", desc:"Stun all heroes for 50 ticks." }
+];
+
+/* ---------- Game state ---------- */
+
+let game = null;
+let timer = null;
+
+function rnd(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+function chance(p) { return Math.random() < p; }
+function clamp(v,lo,hi){ return Math.max(lo, Math.min(hi,v)); }
+
+function makeHero(cls, name) {
+  const t = HERO_TEMPLATES[cls];
+  return {
+    kind:"hero", name, cls, trait: t.trait,
+    hp: t.hp, maxHp: t.hp,
+    atk: t.atk, def: t.def, speed: t.speed,
+    cd: Math.random() * (1 / t.speed) * 10, // attack countdown ticks
+    stun: 0, alive: true
+  };
+}
+
+function makeMob(type) {
+  const t = MOB_TEMPLATES[type];
+  return {
+    kind:"mob", name: type[0].toUpperCase()+type.slice(1), type,
+    hp: t.hp, maxHp: t.hp,
+    atk: t.atk, def: t.def, speed: t.speed, color: t.color,
+    cd: Math.random() * (1 / t.speed) * 10,
+    stun: 0, alive: true
+  };
+}
+
+function makeBoss() {
+  return {
+    kind:"boss", name:"Hollow Warden", type:"boss",
+    hp: 110, maxHp: 110,
+    atk: 10, def: 3, speed: 0.9, color: "#ffb347",
+    cd: 5, stun: 0, alive: true,
+    aoeCd: 40 // ticks to next AoE
+  };
+}
+
+function makeRoom(index, total) {
+  if (index === total - 1) {
+    return { type:"boss", enemies: [makeBoss()], cleared:false };
+  }
+  // 2–4 mobs of mixed types
+  const count = 2 + Math.floor(Math.random() * 2) + (index >= total-2 ? 1 : 0);
+  const types = Object.keys(MOB_TEMPLATES);
+  const enemies = [];
+  for (let i = 0; i < count; i++) enemies.push(makeMob(rnd(types)));
+  return { type:"mobs", enemies, cleared:false };
+}
+
+function makeDungeon(rooms = 6) {
+  const arr = [];
+  for (let i = 0; i < rooms; i++) arr.push(makeRoom(i, rooms));
+  return { rooms: arr, idx: 0 };
+}
+
+function makeParty() {
+  const sizes = [2, 3, 3];
+  const size = rnd(sizes);
+  const classes = ["tank","rogue","mage"];
+  const party = [];
+  const usedNames = new Set();
+  for (let i = 0; i < size; i++) {
+    const cls = i === 0 ? "tank" : rnd(classes);
+    let name;
+    do { name = rnd(HERO_NAMES); } while (usedNames.has(name));
+    usedNames.add(name);
+    party.push(makeHero(cls, name));
+  }
+  return party;
+}
+
+function newRun() {
+  game = {
+    tick: 0,
+    dungeon: makeDungeon(6),
+    heroes: makeParty(),
+    corruption: 10,
+    inventory: [],
+    abilityCds: {}, // id -> ticks remaining
+    advanceTimer: 0,
+    state: "running", // "running" | "won" | "lost"
+    floatingTexts: []
+  };
+  ABILITIES.forEach(a => game.abilityCds[a.id] = 0);
+  document.getElementById("end").style.display = "none";
+  log(`A party of ${game.heroes.length} heroes enters the dungeon.`, "sys");
+  game.heroes.forEach(h => log(`  · ${h.name} the ${h.cls} [${h.trait}]`, "info"));
+  if (timer) clearInterval(timer);
+  timer = setInterval(step, TICK_MS);
+  render();
+}
+
+/* ---------- Combat tick ---------- */
+
+function pickTarget(side) {
+  const alive = side.filter(u => u.alive);
+  if (alive.length === 0) return null;
+  return alive[Math.floor(Math.random() * alive.length)];
+}
+
+function applyDamage(attacker, target) {
+  const dmg = Math.max(1, attacker.atk - target.def);
+  target.hp -= dmg;
+  spawnFloat(target, `-${dmg}`, "#ff7a7a");
+  if (attacker.kind === "hero") {
+    log(`${attacker.name} hits ${target.name} for ${dmg}.`, "dmg");
+    // damage to mobs feeds corruption a tiny bit (player feels powerless)
+    gainCorruption(0.3);
+  } else {
+    log(`${target.name} takes ${dmg} from ${attacker.name}.`, "dmg");
+    gainCorruption(0.6);
+  }
+  if (target.hp <= 0) killUnit(target, attacker);
+}
+
+function killUnit(unit, killer) {
+  unit.hp = 0;
+  unit.alive = false;
+  log(`${killer ? killer.name : "Something"} killed ${unit.name}.`, "sys");
+  if (unit.kind === "hero") {
+    if (chance(LOOT_DROP_CHANCE)) tryDropLoot(unit);
+  }
+}
+
+function tryDropLoot(hero) {
+  const tpl = rnd(ITEMS);
+  if (game.inventory.length >= INVENTORY_MAX) {
+    log(`${hero.name} drops a corrupted ${tpl.name}, but your reliquary is full.`, "loot");
+    return;
+  }
+  game.inventory.push({ ...tpl, uid: Math.random().toString(36).slice(2,7) });
+  log(`Loot acquired: ${tpl.name}.`, "loot");
+}
+
+function step() {
+  if (!game || game.state !== "running") return;
+  game.tick++;
+
+  const room = game.dungeon.rooms[game.dungeon.idx];
+  const heroes = game.heroes;
+  const enemies = room.enemies;
+
+  // Passive corruption
+  gainCorruption(CORRUPTION_PASSIVE);
+
+  // Cooldowns
+  for (const id in game.abilityCds) {
+    if (game.abilityCds[id] > 0) game.abilityCds[id]--;
+  }
+
+  // If room cleared, count down to advance
+  if (room.cleared) {
+    game.advanceTimer--;
+    if (game.advanceTimer <= 0) advanceRoom();
+    decayFloats();
+    render();
+    return;
+  }
+
+  // Tick all units
+  const allUnits = [...heroes, ...enemies];
+  for (const u of allUnits) {
+    if (!u.alive) continue;
+    if (u.stun > 0) { u.stun--; continue; }
+    u.cd -= u.speed * 0.4;
+    if (u.cd <= 0) {
+      const targets = u.kind === "hero" ? enemies : heroes;
+      const t = pickTarget(targets);
+      if (t) applyDamage(u, t);
+      u.cd = 6 / u.speed; // reset
+    }
+  }
+
+  // Boss AoE
+  for (const e of enemies) {
+    if (e.kind === "boss" && e.alive) {
+      e.aoeCd--;
+      if (e.aoeCd <= 0) {
+        log(`${e.name} unleashes a Hollow Wave!`, "sys");
+        for (const h of heroes.filter(x => x.alive)) {
+          const dmg = Math.max(1, 6 - h.def);
+          h.hp -= dmg;
+          spawnFloat(h, `-${dmg}`, "#ffb347");
+          if (h.hp <= 0) killUnit(h, e);
+        }
+        e.aoeCd = 50;
+      }
+    }
+  }
+
+  // Check win/lose
+  if (heroes.every(h => !h.alive)) {
+    endRun(true, "All heroes have fallen. The dungeon endures.");
+    return;
+  }
+  if (enemies.every(e => !e.alive)) {
+    room.cleared = true;
+    game.advanceTimer = ROOM_ADVANCE_DELAY;
+    log(`Room ${game.dungeon.idx + 1} cleared by the heroes.`, "info");
+  }
+
+  decayFloats();
+  render();
+}
+
+function advanceRoom() {
+  game.dungeon.idx++;
+  if (game.dungeon.idx >= game.dungeon.rooms.length) {
+    endRun(false, "The heroes reached the heart of the dungeon. You lost this run.");
+    return;
+  }
+  log(`Heroes advance to Room ${game.dungeon.idx + 1}.`, "sys");
+  // small heal between rooms (so the run isn't trivially attritioned)
+  game.heroes.forEach(h => {
+    if (h.alive) {
+      const heal = Math.floor(h.maxHp * 0.15);
+      h.hp = Math.min(h.maxHp, h.hp + heal);
+      spawnFloat(h, `+${heal}`, "#6fe39d");
+    }
+  });
+}
+
+function endRun(playerWon, reason) {
+  game.state = playerWon ? "won" : "lost";
+  clearInterval(timer);
+  log(reason, "sys");
+  const end = document.getElementById("end");
+  document.getElementById("end-title").textContent = playerWon ? "YOU WIN" : "HEROES PREVAIL";
+  document.getElementById("end-title").style.color = playerWon ? "var(--good)" : "var(--bad)";
+  document.getElementById("end-reason").textContent = reason;
+  end.style.display = "flex";
+  render();
+}
+
+/* ---------- Corruption / abilities ---------- */
+
+function gainCorruption(n) {
+  game.corruption = clamp(game.corruption + n, 0, CORRUPTION_MAX);
+}
+
+function useAbility(id) {
+  if (game.state !== "running") return;
+  const ab = ABILITIES.find(a => a.id === id);
+  if (!ab) return;
+  if (game.corruption < ab.cost) { log(`Not enough corruption for ${ab.name}.`, "info"); return; }
+  if (game.abilityCds[id] > 0) { log(`${ab.name} on cooldown.`, "info"); return; }
+  game.corruption -= ab.cost;
+  game.abilityCds[id] = ab.cd;
+
+  const room = game.dungeon.rooms[game.dungeon.idx];
+  if (id === "spike") {
+    log(`Player casts ${ab.name}!`, "sys");
+    for (const h of game.heroes.filter(x => x.alive)) {
+      const dmg = 8;
+      h.hp -= dmg;
+      spawnFloat(h, `-${dmg}`, "#b072ff");
+      log(`Spike Burst hits ${h.name} for ${dmg}.`, "dmg");
+      if (h.hp <= 0) killUnit(h, { name: "Spike Burst" });
+    }
+  } else if (id === "heal") {
+    log(`Player casts ${ab.name}!`, "sys");
+    for (const e of room.enemies.filter(x => x.alive)) {
+      const heal = 15;
+      e.hp = Math.min(e.maxHp, e.hp + heal);
+      spawnFloat(e, `+${heal}`, "#6fe39d");
+    }
+  } else if (id === "fear") {
+    log(`Player casts ${ab.name}!`, "sys");
+    for (const h of game.heroes.filter(x => x.alive)) {
+      h.stun = Math.max(h.stun, 30);
+      spawnFloat(h, `STUN`, "#ffd166");
+    }
+  }
+  render();
+}
+
+/* ---------- Items ---------- */
+
+function useItem(uid) {
+  if (game.state !== "running") return;
+  const idx = game.inventory.findIndex(i => i.uid === uid);
+  if (idx === -1) return;
+  const item = game.inventory[idx];
+  game.inventory.splice(idx, 1);
+  const room = game.dungeon.rooms[game.dungeon.idx];
+
+  if (item.id === "blade") {
+    const t = pickTarget(game.heroes);
+    if (t) {
+      const dmg = 22;
+      t.hp -= dmg;
+      spawnFloat(t, `-${dmg}`, "#ff5d5d");
+      log(`You unleash ${item.name} on ${t.name} for ${dmg}!`, "loot");
+      if (t.hp <= 0) killUnit(t, { name: item.name });
+    }
+  } else if (item.id === "phyl") {
+    log(`You shatter ${item.name}.`, "loot");
+    for (const e of room.enemies.filter(x => x.alive)) {
+      const heal = e.maxHp - e.hp;
+      e.hp = e.maxHp;
+      if (heal > 0) spawnFloat(e, `+${heal}`, "#6fe39d");
+    }
+  } else if (item.id === "hex") {
+    log(`You hurl ${item.name}.`, "loot");
+    for (const h of game.heroes.filter(x => x.alive)) {
+      h.stun = Math.max(h.stun, 50);
+      spawnFloat(h, `HEX`, "#b072ff");
+    }
+  }
+  render();
+}
+
+/* ---------- Floating text (visual feedback) ---------- */
+
+function spawnFloat(unit, text, color) {
+  game.floatingTexts.push({ unit, text, color, t: 16 });
+}
+function decayFloats() {
+  game.floatingTexts = game.floatingTexts.filter(f => --f.t > 0);
+}
+
+/* ---------- Rendering ---------- */
+
+const cv = document.getElementById("canvas");
+const ctx = cv.getContext("2d");
+
+function drawScene() {
+  ctx.clearRect(0,0,cv.width,cv.height);
+  ctx.fillStyle = "#0a0810";
+  ctx.fillRect(0,0,cv.width,cv.height);
+
+  // Draw rooms as a corridor
+  const rooms = game.dungeon.rooms;
+  const pad = 20;
+  const roomW = (cv.width - pad*2) / rooms.length;
+  for (let i = 0; i < rooms.length; i++) {
+    const r = rooms[i];
+    const x = pad + i * roomW;
+    const y = 40;
+    const h = cv.height - 80;
+    ctx.strokeStyle = i === game.dungeon.idx ? "#b072ff" : "#2a2438";
+    ctx.lineWidth = i === game.dungeon.idx ? 2 : 1;
+    ctx.strokeRect(x+4, y, roomW-8, h);
+    ctx.fillStyle = "#8a829c";
+    ctx.font = "10px monospace";
+    ctx.fillText(`Room ${i+1}${r.type==="boss"?" · BOSS":""}${r.cleared?" ✓":""}`, x+10, y-8);
+
+    // Draw enemies
+    const enemiesAlive = r.enemies.filter(e => e.alive);
+    if (i === game.dungeon.idx) {
+      drawUnits(r.enemies, x+roomW*0.55, y+30, h-60, true);
+    } else if (i < game.dungeon.idx) {
+      ctx.fillStyle = "#3a3450";
+      ctx.font = "10px monospace";
+      ctx.fillText("(cleared)", x+12, y+h/2);
+    } else {
+      // upcoming room: faint preview
+      ctx.fillStyle = "#2a2438";
+      ctx.font = "10px monospace";
+      ctx.fillText(r.type === "boss" ? "BOSS" : `${r.enemies.length} mobs`, x+12, y+h/2);
+    }
+    // Heroes only in current room
+    if (i === game.dungeon.idx) {
+      drawUnits(game.heroes, x+roomW*0.18, y+30, h-60, false);
+    }
+  }
+
+  // Floating texts
+  for (const f of game.floatingTexts) {
+    if (!f.unit._screen) continue;
+    ctx.fillStyle = f.color;
+    ctx.font = "bold 12px monospace";
+    const offY = (16 - f.t) * 1.2;
+    ctx.fillText(f.text, f.unit._screen.x, f.unit._screen.y - 18 - offY);
+  }
+}
+
+function drawUnits(arr, x, y, h, isEnemy) {
+  const live = arr.filter(u => u.alive);
+  const total = arr.length;
+  for (let i = 0; i < total; i++) {
+    const u = arr[i];
+    const cy = y + (h * (i+1)) / (total+1);
+    u._screen = { x, y: cy };
+    // body
+    ctx.beginPath();
+    ctx.arc(x, cy, 12, 0, Math.PI*2);
+    if (!u.alive) {
+      ctx.fillStyle = "#2a2438";
+    } else if (u.kind === "hero") {
+      ctx.fillStyle = u.cls === "tank" ? "#6fd1ff" : u.cls === "rogue" ? "#cfa1ff" : "#a3e3ff";
+    } else if (u.kind === "boss") {
+      ctx.fillStyle = u.color;
+    } else {
+      ctx.fillStyle = u.color;
+    }
+    ctx.fill();
+    if (u.stun > 0 && u.alive) {
+      ctx.strokeStyle = "#ffd166"; ctx.lineWidth = 2; ctx.stroke();
+    }
+    // hp bar
+    const bw = 36, bh = 4;
+    ctx.fillStyle = "#1a1626";
+    ctx.fillRect(x - bw/2, cy + 16, bw, bh);
+    ctx.fillStyle = u.kind === "hero" ? "#6fe39d" : "#ff7a7a";
+    ctx.fillRect(x - bw/2, cy + 16, bw * Math.max(0, u.hp/u.maxHp), bh);
+    // label
+    ctx.fillStyle = "#e8e4f0";
+    ctx.font = "10px monospace";
+    ctx.textAlign = "center";
+    const label = u.kind === "hero" ? `${u.name}` : u.name;
+    ctx.fillText(label, x, cy + 30);
+    ctx.textAlign = "start";
+  }
+}
+
+function renderUnits() {
+  // Heroes panel
+  const hWrap = document.getElementById("heroes");
+  hWrap.innerHTML = "";
+  for (const h of game.heroes) {
+    const div = document.createElement("div");
+    div.className = "unit" + (h.alive ? "" : " dead");
+    div.innerHTML = `
+      <div class="name"><span>${h.name} <span class="tag">${h.cls}</span></span><span>${Math.max(0,Math.ceil(h.hp))}/${h.maxHp}</span></div>
+      <div class="bar hp"><span style="width:${100 * Math.max(0, h.hp/h.maxHp)}%"></span></div>
+      <div class="small">ATK ${h.atk} · DEF ${h.def} · SPD ${h.speed}${h.stun>0?` · STUN ${h.stun}`:""}</div>
+    `;
+    hWrap.appendChild(div);
+  }
+  // Enemies panel
+  const eWrap = document.getElementById("enemies");
+  eWrap.innerHTML = "";
+  const room = game.dungeon.rooms[game.dungeon.idx];
+  if (!room) return;
+  for (const e of room.enemies) {
+    const div = document.createElement("div");
+    div.className = "unit" + (e.alive ? "" : " dead");
+    const tag = e.kind === "boss" ? "boss" : e.type;
+    div.innerHTML = `
+      <div class="name"><span>${e.name} <span class="tag">${tag}</span></span><span>${Math.max(0,Math.ceil(e.hp))}/${e.maxHp}</span></div>
+      <div class="bar mob"><span style="width:${100 * Math.max(0, e.hp/e.maxHp)}%"></span></div>
+      <div class="small">ATK ${e.atk} · DEF ${e.def} · SPD ${e.speed}</div>
+    `;
+    eWrap.appendChild(div);
+  }
+}
+
+function renderHud() {
+  document.getElementById("tick").textContent = game.tick;
+  document.getElementById("room").textContent = game.dungeon.idx + 1;
+  document.getElementById("rooms-total").textContent = game.dungeon.rooms.length;
+  document.getElementById("corr-bar").style.width = (100 * game.corruption / CORRUPTION_MAX) + "%";
+  document.getElementById("corr-val").textContent = Math.floor(game.corruption);
+
+  // Abilities
+  const wrap = document.getElementById("abilities");
+  wrap.innerHTML = "";
+  for (const a of ABILITIES) {
+    const cd = game.abilityCds[a.id];
+    const btn = document.createElement("button");
+    btn.disabled = cd > 0 || game.corruption < a.cost || game.state !== "running";
+    btn.title = `${a.desc} · cost ${a.cost}`;
+    btn.innerHTML = `<div>${a.name}</div><div class="small">${cd>0 ? `cd ${cd}` : `${a.cost} corr`}</div>`;
+    btn.onclick = () => useAbility(a.id);
+    wrap.appendChild(btn);
+  }
+
+  // Inventory
+  const inv = document.getElementById("inv");
+  inv.innerHTML = "";
+  for (let i = 0; i < INVENTORY_MAX; i++) {
+    const item = game.inventory[i];
+    const slot = document.createElement("div");
+    slot.className = "slot" + (item ? "" : " empty");
+    if (item) {
+      slot.title = item.desc;
+      slot.innerHTML = `<div class="icon">${item.icon}</div><div class="label">${item.name}</div>`;
+      slot.onclick = () => useItem(item.uid);
+    } else {
+      slot.innerHTML = `<div class="icon">·</div><div class="label">empty</div>`;
+    }
+    inv.appendChild(slot);
+  }
+}
+
+function render() {
+  drawScene();
+  renderUnits();
+  renderHud();
+}
+
+/* ---------- Logging ---------- */
+
+const MAX_LOG = 80;
+function log(msg, kind="ev") {
+  const wrap = document.getElementById("log");
+  const div = document.createElement("div");
+  div.className = kind;
+  div.textContent = msg;
+  wrap.appendChild(div);
+  while (wrap.childNodes.length > MAX_LOG) wrap.removeChild(wrap.firstChild);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+
+/* ---------- Boot ---------- */
+
+newRun();
+</script>
+</body>
+</html>
