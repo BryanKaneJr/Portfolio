@@ -17,6 +17,7 @@
     --good: #6fe39d;
     --bad: #ff5d5d;
     --warn: #ffd166;
+    --trap: #ff8c42;
   }
   * { box-sizing: border-box; }
   html, body { height: 100%; margin: 0; }
@@ -41,6 +42,7 @@
   .log .heal { color: var(--good); }
   .log .sys { color: var(--accent); }
   .log .loot { color: var(--warn); }
+  .log .trap { color: var(--trap); }
   .log .info { color: var(--muted); }
 
   .side { display: flex; flex-direction: column; gap: 12px; }
@@ -61,6 +63,10 @@
   button:hover:not(:disabled) { background: #2a2638; }
   button:disabled { opacity: 0.4; cursor: not-allowed; }
   button.primary { background: var(--accent); color: #1a1126; border-color: var(--accent); font-weight: 700; }
+  button.trap { background: #2a1a14; border-color: var(--trap); color: var(--trap); font-weight: 700; }
+  button.trap:hover:not(:disabled) { background: #3a261c; }
+  button.pick { background: var(--panel-2); border: 1px solid #2c2838; padding: 12px; text-align: left; }
+  button.pick.selected { border-color: var(--accent); background: #2a1f3d; }
 
   .bar { background: #0a0810; height: 10px; border-radius: 5px; overflow: hidden; }
   .bar > span { display: block; height: 100%; background: var(--accent); transition: width 120ms linear; }
@@ -72,6 +78,9 @@
   .unit .name { display: flex; justify-content: space-between; }
   .unit.dead { opacity: 0.35; text-decoration: line-through; }
   .tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; background: #2a2438; color: var(--muted); margin-left: 6px; }
+  .tag.buff { background: #1f3d2a; color: var(--good); }
+  .tag.debuff { background: #3d1f1f; color: var(--bad); }
+  .tag.dot { background: #2a3d1f; color: #a3ff8a; }
 
   .inventory { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
   .slot { background: var(--panel-2); border-radius: 6px; padding: 8px; text-align: center; min-height: 70px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; border: 1px solid transparent; }
@@ -83,8 +92,13 @@
   .small { font-size: 11px; color: var(--muted); }
   .corr { color: var(--accent); font-weight: 700; }
 
-  .end-screen { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(7,6,10,0.85); border-radius: 8px; flex-direction: column; gap: 10px; }
+  .overlay { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(7,6,10,0.9); border-radius: 8px; flex-direction: column; gap: 14px; padding: 24px; }
+  .overlay.show { display: flex; }
+  .overlay h1 { color: var(--accent); }
+  .pick-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; max-width: 700px; width: 100%; }
   .stage-wrap { position: relative; }
+
+  .trap-card { background: var(--panel-2); border-radius: 6px; padding: 8px 10px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 </style>
 </head>
 <body>
@@ -101,10 +115,20 @@
       <div class="log" id="log"></div>
     </div>
   </div>
-  <div class="end-screen" id="end">
+
+  <!-- Loadout selection overlay -->
+  <div class="overlay" id="loadout">
+    <h1>CHOOSE YOUR DARK POWERS</h1>
+    <div class="small">Pick <span id="loadout-need">2</span> to wield this run.</div>
+    <div class="pick-grid" id="pick-grid"></div>
+    <button class="primary" id="loadout-confirm" style="max-width:240px" disabled>Begin Run</button>
+  </div>
+
+  <!-- End-of-run overlay -->
+  <div class="overlay" id="end">
     <h1 id="end-title">—</h1>
     <div id="end-reason" class="small"></div>
-    <button class="primary" style="max-width:200px" onclick="newRun()">Start New Run</button>
+    <button class="primary" style="max-width:200px" onclick="openLoadout()">Choose Powers · New Run</button>
   </div>
 </div>
 
@@ -116,15 +140,21 @@
   </div>
 
   <div class="card">
-    <h2>Interventions</h2>
+    <h2>Dark Powers <span class="small">(loadout)</span></h2>
     <div class="row" id="abilities"></div>
-    <div class="small" style="margin-top:6px">Spend corruption to disrupt heroes mid-run.</div>
+    <div class="small" style="margin-top:6px">Spend corruption to break the heroes' rhythm.</div>
   </div>
 
   <div class="card">
-    <h2>Corrupted Loot <span class="small">(max 3)</span></h2>
+    <h2>Room Trap</h2>
+    <div id="trap-wrap"></div>
+    <div class="small" style="margin-top:6px">Each room hides one trap. Single-use per room.</div>
+  </div>
+
+  <div class="card">
+    <h2>Corrupted Relics <span class="small">(max 3)</span></h2>
     <div class="inventory" id="inv"></div>
-    <div class="small" style="margin-top:6px">Single-use. Click to deploy.</div>
+    <div class="small" style="margin-top:6px">Twisted hero gear. Single-use. Click to deploy.</div>
   </div>
 
   <div class="card">
@@ -138,25 +168,26 @@
   </div>
 
   <div class="card">
-    <button class="primary" onclick="newRun()">Restart Run</button>
+    <button class="primary" onclick="openLoadout()">Restart · Pick Loadout</button>
   </div>
 </div>
 
 <script>
 /* ==========================================================================
-   REVERSE DUNGEON — Single-file prototype
-   Core loop: heroes auto-run a linear dungeon; player spends corruption and
-   uses corrupted loot to disrupt them. Tick-based combat, console log feedback.
+   REVERSE DUNGEON — single-file prototype
+   v2: Villain Intervention layer — Dark Powers loadout, Room Traps,
+       Corrupted Relics. Built on the v1 tick-based combat loop.
    ========================================================================== */
 
-const TICK_MS = 100;            // game tick rate
-const ROOM_ADVANCE_DELAY = 12;  // ticks between rooms
+const TICK_MS = 100;
+const ROOM_ADVANCE_DELAY = 12;
 const INVENTORY_MAX = 3;
 const CORRUPTION_MAX = 100;
-const CORRUPTION_PASSIVE = 0.4; // per tick
+const CORRUPTION_PASSIVE = 0.4;
 const LOOT_DROP_CHANCE = 0.5;
+const LOADOUT_SIZE = 2;
 
-/* ---------- Data definitions ---------- */
+/* ---------- Heroes / mobs / boss ---------- */
 
 const HERO_TEMPLATES = {
   tank:  { hp: 60, atk: 6,  def: 4, speed: 0.7, trait: "Iron Wall" },
@@ -172,26 +203,75 @@ const MOB_TEMPLATES = {
   assassin: { hp: 14, atk: 9,  def: 0, speed: 1.5, color: "#ffb347" }
 };
 
-const ABILITIES = [
-  { id:"spike",  name:"Spike Burst",  cost: 25, cd: 60, desc:"AoE 8 damage to all heroes." },
-  { id:"heal",   name:"Dark Heal",    cost: 20, cd: 50, desc:"Heal all mobs in room +15." },
-  { id:"fear",   name:"Fear Pulse",   cost: 30, cd: 80, desc:"Stun all heroes for 30 ticks." }
+/* ---------- Villain layer ---------- */
+
+const DARK_POWERS = [
+  { id:"surge", name:"Blood Surge",    cost: 25, cd: 70,
+    desc:"Heal all defenders +20 HP and grant +3 ATK for 50 ticks." },
+  { id:"chain", name:"Chain Collapse", cost: 30, cd: 70,
+    desc:"Strike every hero in the room for 12 dark damage." },
+  { id:"grip",  name:"Shadow Grip",    cost: 25, cd: 60,
+    desc:"Seize one hero — 50 tick stun." }
 ];
 
-const ITEMS = [
-  { id:"blade", name:"Cursed Blade",  icon:"🗡", desc:"Deal 22 damage to a random hero." },
-  { id:"phyl",  name:"Blood Phylactery", icon:"🩸", desc:"Heal all defenders in room to full." },
-  { id:"hex",   name:"Hex Stone",     icon:"🌀", desc:"Stun all heroes for 50 ticks." }
+const TRAP_TEMPLATES = {
+  spike:  { id:"spike",  name:"Spike Floor", icon:"⛓",
+            desc:"All heroes take 9 damage." },
+  poison: { id:"poison", name:"Poison Vent", icon:"☠",
+            desc:"All heroes take 2 dmg/tick for 30 ticks." }
+};
+
+const RELICS = [
+  { id:"rot",   name:"Rot Flask",  icon:"🧪",
+    desc:"All heroes take 18 corruption damage." },
+  { id:"bone",  name:"Bone Ward",  icon:"🦴",
+    desc:"Heal all defenders to full and grant +3 DEF for 50 ticks." },
+  { id:"chaos", name:"Chaos Orb",  icon:"🌀",
+    desc:"Stun all heroes for 35 ticks and deal 5 damage." }
 ];
 
-/* ---------- Game state ---------- */
+/* ---------- State ---------- */
 
 let game = null;
 let timer = null;
 
-function rnd(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-function chance(p) { return Math.random() < p; }
-function clamp(v,lo,hi){ return Math.max(lo, Math.min(hi,v)); }
+const rnd = arr => arr[Math.floor(Math.random() * arr.length)];
+const chance = p => Math.random() < p;
+const clamp = (v,lo,hi) => Math.max(lo, Math.min(hi,v));
+
+/* ---------- Buff / DoT helpers (lightweight, reused everywhere) ---------- */
+
+function addBuff(unit, stat, amount, ticks, label) {
+  unit.buffs = unit.buffs || [];
+  unit.buffs.push({ stat, amount, ticks, label });
+}
+function effectiveStat(unit, stat) {
+  let v = unit[stat];
+  if (unit.buffs) for (const b of unit.buffs) if (b.stat === stat) v += b.amount;
+  return Math.max(0, v);
+}
+function tickBuffs(unit) {
+  if (!unit.buffs || unit.buffs.length === 0) return;
+  for (const b of unit.buffs) b.ticks--;
+  unit.buffs = unit.buffs.filter(b => b.ticks > 0);
+}
+function addDot(unit, dmg, ticks, source) {
+  unit.dots = unit.dots || [];
+  unit.dots.push({ dmg, ticks, source });
+}
+function tickDots(unit) {
+  if (!unit.dots || unit.dots.length === 0 || !unit.alive) return;
+  for (const d of unit.dots) {
+    if (d.ticks <= 0) continue;
+    unit.hp -= d.dmg;
+    spawnFloat(unit, `-${d.dmg}`, "#a3ff8a");
+    d.ticks--;
+    if (unit.hp <= 0 && unit.alive) killUnit(unit, { name: d.source });
+  }
+  unit.dots = unit.dots.filter(d => d.ticks > 0);
+}
+
+/* ---------- Constructors ---------- */
 
 function makeHero(cls, name) {
   const t = HERO_TEMPLATES[cls];
@@ -199,8 +279,9 @@ function makeHero(cls, name) {
     kind:"hero", name, cls, trait: t.trait,
     hp: t.hp, maxHp: t.hp,
     atk: t.atk, def: t.def, speed: t.speed,
-    cd: Math.random() * (1 / t.speed) * 10, // attack countdown ticks
-    stun: 0, alive: true
+    cd: Math.random() * (1 / t.speed) * 10,
+    stun: 0, alive: true,
+    buffs: [], dots: []
   };
 }
 
@@ -211,7 +292,8 @@ function makeMob(type) {
     hp: t.hp, maxHp: t.hp,
     atk: t.atk, def: t.def, speed: t.speed, color: t.color,
     cd: Math.random() * (1 / t.speed) * 10,
-    stun: 0, alive: true
+    stun: 0, alive: true,
+    buffs: [], dots: []
   };
 }
 
@@ -221,20 +303,22 @@ function makeBoss() {
     hp: 110, maxHp: 110,
     atk: 10, def: 3, speed: 0.9, color: "#ffb347",
     cd: 5, stun: 0, alive: true,
-    aoeCd: 40 // ticks to next AoE
+    aoeCd: 40,
+    buffs: [], dots: []
   };
 }
 
 function makeRoom(index, total) {
+  const trapTypes = Object.keys(TRAP_TEMPLATES);
+  const trap = { ...TRAP_TEMPLATES[rnd(trapTypes)], used: false };
   if (index === total - 1) {
-    return { type:"boss", enemies: [makeBoss()], cleared:false };
+    return { type:"boss", enemies: [makeBoss()], cleared:false, trap };
   }
-  // 2–4 mobs of mixed types
   const count = 2 + Math.floor(Math.random() * 2) + (index >= total-2 ? 1 : 0);
   const types = Object.keys(MOB_TEMPLATES);
   const enemies = [];
   for (let i = 0; i < count; i++) enemies.push(makeMob(rnd(types)));
-  return { type:"mobs", enemies, cleared:false };
+  return { type:"mobs", enemies, cleared:false, trap };
 }
 
 function makeDungeon(rooms = 6) {
@@ -259,24 +343,44 @@ function makeParty() {
   return party;
 }
 
-function newRun() {
+/* ---------- Run lifecycle ---------- */
+
+function newRun(loadout) {
   game = {
     tick: 0,
     dungeon: makeDungeon(6),
     heroes: makeParty(),
     corruption: 10,
     inventory: [],
-    abilityCds: {}, // id -> ticks remaining
+    abilityCds: {},
     advanceTimer: 0,
-    state: "running", // "running" | "won" | "lost"
-    floatingTexts: []
+    state: "running",
+    floatingTexts: [],
+    loadout: loadout.slice() // ids of selected DARK_POWERS
   };
-  ABILITIES.forEach(a => game.abilityCds[a.id] = 0);
-  document.getElementById("end").style.display = "none";
-  log(`A party of ${game.heroes.length} heroes enters the dungeon.`, "sys");
+  loadout.forEach(id => game.abilityCds[id] = 0);
+  document.getElementById("end").classList.remove("show");
+  document.getElementById("loadout").classList.remove("show");
+
+  log(`The dungeon awakens. Powers chosen: ${loadout.map(id => DARK_POWERS.find(p=>p.id===id).name).join(", ")}.`, "sys");
+  log(`A party of ${game.heroes.length} heroes enters.`, "sys");
   game.heroes.forEach(h => log(`  · ${h.name} the ${h.cls} [${h.trait}]`, "info"));
+  log(`Room 1 trap primed: ${game.dungeon.rooms[0].trap.name}.`, "trap");
+
   if (timer) clearInterval(timer);
   timer = setInterval(step, TICK_MS);
+  render();
+}
+
+function endRun(playerWon, reason) {
+  game.state = playerWon ? "won" : "lost";
+  clearInterval(timer);
+  log(reason, "sys");
+  const end = document.getElementById("end");
+  document.getElementById("end-title").textContent = playerWon ? "YOU WIN" : "HEROES PREVAIL";
+  document.getElementById("end-title").style.color = playerWon ? "var(--good)" : "var(--bad)";
+  document.getElementById("end-reason").textContent = reason;
+  end.classList.add("show");
   render();
 }
 
@@ -288,16 +392,18 @@ function pickTarget(side) {
   return alive[Math.floor(Math.random() * alive.length)];
 }
 
-function applyDamage(attacker, target) {
-  const dmg = Math.max(1, attacker.atk - target.def);
+function applyDamage(attacker, target, sourceLabel) {
+  const atk = effectiveStat(attacker, "atk");
+  const def = effectiveStat(target, "def");
+  const dmg = Math.max(1, atk - def);
   target.hp -= dmg;
   spawnFloat(target, `-${dmg}`, "#ff7a7a");
+  const aName = sourceLabel || attacker.name;
   if (attacker.kind === "hero") {
-    log(`${attacker.name} hits ${target.name} for ${dmg}.`, "dmg");
-    // damage to mobs feeds corruption a tiny bit (player feels powerless)
+    log(`${aName} hits ${target.name} for ${dmg}.`, "dmg");
     gainCorruption(0.3);
   } else {
-    log(`${target.name} takes ${dmg} from ${attacker.name}.`, "dmg");
+    log(`${target.name} takes ${dmg} from ${aName}.`, "dmg");
     gainCorruption(0.6);
   }
   if (target.hp <= 0) killUnit(target, attacker);
@@ -307,19 +413,17 @@ function killUnit(unit, killer) {
   unit.hp = 0;
   unit.alive = false;
   log(`${killer ? killer.name : "Something"} killed ${unit.name}.`, "sys");
-  if (unit.kind === "hero") {
-    if (chance(LOOT_DROP_CHANCE)) tryDropLoot(unit);
-  }
+  if (unit.kind === "hero" && chance(LOOT_DROP_CHANCE)) tryDropRelic(unit);
 }
 
-function tryDropLoot(hero) {
-  const tpl = rnd(ITEMS);
+function tryDropRelic(hero) {
+  const tpl = rnd(RELICS);
   if (game.inventory.length >= INVENTORY_MAX) {
     log(`${hero.name} drops a corrupted ${tpl.name}, but your reliquary is full.`, "loot");
     return;
   }
   game.inventory.push({ ...tpl, uid: Math.random().toString(36).slice(2,7) });
-  log(`Loot acquired: ${tpl.name}.`, "loot");
+  log(`Relic acquired: ${tpl.name}.`, "loot");
 }
 
 function step() {
@@ -330,15 +434,12 @@ function step() {
   const heroes = game.heroes;
   const enemies = room.enemies;
 
-  // Passive corruption
   gainCorruption(CORRUPTION_PASSIVE);
 
-  // Cooldowns
   for (const id in game.abilityCds) {
     if (game.abilityCds[id] > 0) game.abilityCds[id]--;
   }
 
-  // If room cleared, count down to advance
   if (room.cleared) {
     game.advanceTimer--;
     if (game.advanceTimer <= 0) advanceRoom();
@@ -347,28 +448,32 @@ function step() {
     return;
   }
 
-  // Tick all units
-  const allUnits = [...heroes, ...enemies];
-  for (const u of allUnits) {
+  // DoTs and buff durations resolve before actions
+  for (const u of [...heroes, ...enemies]) {
+    if (!u.alive) continue;
+    tickDots(u);
+    tickBuffs(u);
+  }
+
+  for (const u of [...heroes, ...enemies]) {
     if (!u.alive) continue;
     if (u.stun > 0) { u.stun--; continue; }
-    u.cd -= u.speed * 0.4;
+    u.cd -= effectiveStat(u, "speed") * 0.4;
     if (u.cd <= 0) {
       const targets = u.kind === "hero" ? enemies : heroes;
       const t = pickTarget(targets);
       if (t) applyDamage(u, t);
-      u.cd = 6 / u.speed; // reset
+      u.cd = 6 / Math.max(0.1, effectiveStat(u, "speed"));
     }
   }
 
-  // Boss AoE
   for (const e of enemies) {
     if (e.kind === "boss" && e.alive) {
       e.aoeCd--;
       if (e.aoeCd <= 0) {
         log(`${e.name} unleashes a Hollow Wave!`, "sys");
         for (const h of heroes.filter(x => x.alive)) {
-          const dmg = Math.max(1, 6 - h.def);
+          const dmg = Math.max(1, 6 - effectiveStat(h, "def"));
           h.hp -= dmg;
           spawnFloat(h, `-${dmg}`, "#ffb347");
           if (h.hp <= 0) killUnit(h, e);
@@ -378,7 +483,6 @@ function step() {
     }
   }
 
-  // Check win/lose
   if (heroes.every(h => !h.alive)) {
     endRun(true, "All heroes have fallen. The dungeon endures.");
     return;
@@ -400,7 +504,8 @@ function advanceRoom() {
     return;
   }
   log(`Heroes advance to Room ${game.dungeon.idx + 1}.`, "sys");
-  // small heal between rooms (so the run isn't trivially attritioned)
+  const next = game.dungeon.rooms[game.dungeon.idx];
+  log(`Room ${game.dungeon.idx + 1} trap primed: ${next.trap.name}.`, "trap");
   game.heroes.forEach(h => {
     if (h.alive) {
       const heal = Math.floor(h.maxHp * 0.15);
@@ -410,97 +515,124 @@ function advanceRoom() {
   });
 }
 
-function endRun(playerWon, reason) {
-  game.state = playerWon ? "won" : "lost";
-  clearInterval(timer);
-  log(reason, "sys");
-  const end = document.getElementById("end");
-  document.getElementById("end-title").textContent = playerWon ? "YOU WIN" : "HEROES PREVAIL";
-  document.getElementById("end-title").style.color = playerWon ? "var(--good)" : "var(--bad)";
-  document.getElementById("end-reason").textContent = reason;
-  end.style.display = "flex";
-  render();
-}
-
-/* ---------- Corruption / abilities ---------- */
+/* ---------- Corruption / Dark Powers ---------- */
 
 function gainCorruption(n) {
   game.corruption = clamp(game.corruption + n, 0, CORRUPTION_MAX);
 }
 
-function useAbility(id) {
+function useDarkPower(id) {
   if (game.state !== "running") return;
-  const ab = ABILITIES.find(a => a.id === id);
-  if (!ab) return;
-  if (game.corruption < ab.cost) { log(`Not enough corruption for ${ab.name}.`, "info"); return; }
-  if (game.abilityCds[id] > 0) { log(`${ab.name} on cooldown.`, "info"); return; }
-  game.corruption -= ab.cost;
-  game.abilityCds[id] = ab.cd;
+  if (!game.loadout.includes(id)) return;
+  const power = DARK_POWERS.find(p => p.id === id);
+  if (!power) return;
+  if (game.corruption < power.cost) { log(`Not enough corruption for ${power.name}.`, "info"); return; }
+  if (game.abilityCds[id] > 0) { log(`${power.name} on cooldown.`, "info"); return; }
+  game.corruption -= power.cost;
+  game.abilityCds[id] = power.cd;
 
   const room = game.dungeon.rooms[game.dungeon.idx];
-  if (id === "spike") {
-    log(`Player casts ${ab.name}!`, "sys");
-    for (const h of game.heroes.filter(x => x.alive)) {
-      const dmg = 8;
-      h.hp -= dmg;
-      spawnFloat(h, `-${dmg}`, "#b072ff");
-      log(`Spike Burst hits ${h.name} for ${dmg}.`, "dmg");
-      if (h.hp <= 0) killUnit(h, { name: "Spike Burst" });
-    }
-  } else if (id === "heal") {
-    log(`Player casts ${ab.name}!`, "sys");
+  if (id === "surge") {
+    log(`Dark Power: ${power.name}! Defenders rage.`, "sys");
     for (const e of room.enemies.filter(x => x.alive)) {
-      const heal = 15;
+      const heal = 20;
       e.hp = Math.min(e.maxHp, e.hp + heal);
       spawnFloat(e, `+${heal}`, "#6fe39d");
+      addBuff(e, "atk", 3, 50, "Surge");
+      log(`  ${e.name} surges (+20 HP, +3 ATK).`, "heal");
     }
-  } else if (id === "fear") {
-    log(`Player casts ${ab.name}!`, "sys");
+  } else if (id === "chain") {
+    log(`Dark Power: ${power.name}! Black chains lash out.`, "sys");
     for (const h of game.heroes.filter(x => x.alive)) {
-      h.stun = Math.max(h.stun, 30);
-      spawnFloat(h, `STUN`, "#ffd166");
+      const dmg = 12;
+      h.hp -= dmg;
+      spawnFloat(h, `-${dmg}`, "#b072ff");
+      log(`  Chain Collapse hits ${h.name} for ${dmg}.`, "dmg");
+      if (h.hp <= 0) killUnit(h, { name: "Chain Collapse" });
+    }
+  } else if (id === "grip") {
+    const t = pickTarget(game.heroes);
+    if (t) {
+      log(`Dark Power: ${power.name}! ${t.name} is seized.`, "sys");
+      t.stun = Math.max(t.stun, 50);
+      spawnFloat(t, `GRIP`, "#b072ff");
     }
   }
   render();
 }
 
-/* ---------- Items ---------- */
+/* ---------- Room Trap ---------- */
 
-function useItem(uid) {
+function triggerTrap() {
+  if (game.state !== "running") return;
+  const room = game.dungeon.rooms[game.dungeon.idx];
+  if (!room || room.cleared) return;
+  if (room.trap.used) { log(`Trap already spent in this room.`, "info"); return; }
+  room.trap.used = true;
+  const trap = room.trap;
+
+  if (trap.id === "spike") {
+    log(`TRAP: ${trap.name} springs from the floor!`, "trap");
+    for (const h of game.heroes.filter(x => x.alive)) {
+      const dmg = Math.max(1, 9 - Math.floor(effectiveStat(h, "def") / 2));
+      h.hp -= dmg;
+      spawnFloat(h, `-${dmg}`, "#ff8c42");
+      log(`  ${h.name} is pierced for ${dmg}.`, "dmg");
+      if (h.hp <= 0) killUnit(h, { name: trap.name });
+    }
+  } else if (trap.id === "poison") {
+    log(`TRAP: ${trap.name} hisses open!`, "trap");
+    for (const h of game.heroes.filter(x => x.alive)) {
+      addDot(h, 2, 30, trap.name);
+      spawnFloat(h, `POISON`, "#a3ff8a");
+      log(`  ${h.name} is poisoned (2 dmg/tick · 30t).`, "dmg");
+    }
+  }
+  render();
+}
+
+/* ---------- Corrupted Relics ---------- */
+
+function useRelic(uid) {
   if (game.state !== "running") return;
   const idx = game.inventory.findIndex(i => i.uid === uid);
   if (idx === -1) return;
-  const item = game.inventory[idx];
+  const relic = game.inventory[idx];
   game.inventory.splice(idx, 1);
   const room = game.dungeon.rooms[game.dungeon.idx];
 
-  if (item.id === "blade") {
-    const t = pickTarget(game.heroes);
-    if (t) {
-      const dmg = 22;
-      t.hp -= dmg;
-      spawnFloat(t, `-${dmg}`, "#ff5d5d");
-      log(`You unleash ${item.name} on ${t.name} for ${dmg}!`, "loot");
-      if (t.hp <= 0) killUnit(t, { name: item.name });
+  if (relic.id === "rot") {
+    log(`Relic: ${relic.name} shatters — rotten mist fills the room.`, "loot");
+    for (const h of game.heroes.filter(x => x.alive)) {
+      const dmg = 18;
+      h.hp -= dmg;
+      spawnFloat(h, `-${dmg}`, "#a3ff8a");
+      log(`  ${h.name} corrodes for ${dmg}.`, "dmg");
+      if (h.hp <= 0) killUnit(h, { name: relic.name });
     }
-  } else if (item.id === "phyl") {
-    log(`You shatter ${item.name}.`, "loot");
+  } else if (relic.id === "bone") {
+    log(`Relic: ${relic.name} pulses — defenders harden.`, "loot");
     for (const e of room.enemies.filter(x => x.alive)) {
       const heal = e.maxHp - e.hp;
       e.hp = e.maxHp;
       if (heal > 0) spawnFloat(e, `+${heal}`, "#6fe39d");
+      addBuff(e, "def", 3, 50, "Ward");
     }
-  } else if (item.id === "hex") {
-    log(`You hurl ${item.name}.`, "loot");
+  } else if (relic.id === "chaos") {
+    log(`Relic: ${relic.name} unwinds — the heroes' minds fracture.`, "loot");
     for (const h of game.heroes.filter(x => x.alive)) {
-      h.stun = Math.max(h.stun, 50);
-      spawnFloat(h, `HEX`, "#b072ff");
+      h.stun = Math.max(h.stun, 35);
+      const dmg = 5;
+      h.hp -= dmg;
+      spawnFloat(h, `-${dmg}`, "#b072ff");
+      log(`  ${h.name} stunned (35t) and takes ${dmg}.`, "dmg");
+      if (h.hp <= 0) killUnit(h, { name: relic.name });
     }
   }
   render();
 }
 
-/* ---------- Floating text (visual feedback) ---------- */
+/* ---------- Floating text ---------- */
 
 function spawnFloat(unit, text, color) {
   game.floatingTexts.push({ unit, text, color, t: 16 });
@@ -519,7 +651,6 @@ function drawScene() {
   ctx.fillStyle = "#0a0810";
   ctx.fillRect(0,0,cv.width,cv.height);
 
-  // Draw rooms as a corridor
   const rooms = game.dungeon.rooms;
   const pad = 20;
   const roomW = (cv.width - pad*2) / rooms.length;
@@ -531,31 +662,30 @@ function drawScene() {
     ctx.strokeStyle = i === game.dungeon.idx ? "#b072ff" : "#2a2438";
     ctx.lineWidth = i === game.dungeon.idx ? 2 : 1;
     ctx.strokeRect(x+4, y, roomW-8, h);
+
     ctx.fillStyle = "#8a829c";
     ctx.font = "10px monospace";
     ctx.fillText(`Room ${i+1}${r.type==="boss"?" · BOSS":""}${r.cleared?" ✓":""}`, x+10, y-8);
 
-    // Draw enemies
-    const enemiesAlive = r.enemies.filter(e => e.alive);
+    // Trap glyph at bottom of room cell
+    ctx.fillStyle = r.trap.used ? "#3a3450" : "#ff8c42";
+    ctx.font = "12px monospace";
+    ctx.fillText(`${r.trap.icon} ${r.trap.name}${r.trap.used?" (spent)":""}`, x+10, y+h-10);
+
     if (i === game.dungeon.idx) {
       drawUnits(r.enemies, x+roomW*0.55, y+30, h-60, true);
+      drawUnits(game.heroes, x+roomW*0.18, y+30, h-60, false);
     } else if (i < game.dungeon.idx) {
       ctx.fillStyle = "#3a3450";
       ctx.font = "10px monospace";
       ctx.fillText("(cleared)", x+12, y+h/2);
     } else {
-      // upcoming room: faint preview
       ctx.fillStyle = "#2a2438";
       ctx.font = "10px monospace";
       ctx.fillText(r.type === "boss" ? "BOSS" : `${r.enemies.length} mobs`, x+12, y+h/2);
     }
-    // Heroes only in current room
-    if (i === game.dungeon.idx) {
-      drawUnits(game.heroes, x+roomW*0.18, y+30, h-60, false);
-    }
   }
 
-  // Floating texts
   for (const f of game.floatingTexts) {
     if (!f.unit._screen) continue;
     ctx.fillStyle = f.color;
@@ -566,46 +696,54 @@ function drawScene() {
 }
 
 function drawUnits(arr, x, y, h, isEnemy) {
-  const live = arr.filter(u => u.alive);
   const total = arr.length;
   for (let i = 0; i < total; i++) {
     const u = arr[i];
     const cy = y + (h * (i+1)) / (total+1);
     u._screen = { x, y: cy };
-    // body
     ctx.beginPath();
     ctx.arc(x, cy, 12, 0, Math.PI*2);
     if (!u.alive) {
       ctx.fillStyle = "#2a2438";
     } else if (u.kind === "hero") {
       ctx.fillStyle = u.cls === "tank" ? "#6fd1ff" : u.cls === "rogue" ? "#cfa1ff" : "#a3e3ff";
-    } else if (u.kind === "boss") {
-      ctx.fillStyle = u.color;
     } else {
       ctx.fillStyle = u.color;
     }
     ctx.fill();
     if (u.stun > 0 && u.alive) {
       ctx.strokeStyle = "#ffd166"; ctx.lineWidth = 2; ctx.stroke();
+    } else if ((u.dots && u.dots.length > 0) && u.alive) {
+      ctx.strokeStyle = "#a3ff8a"; ctx.lineWidth = 2; ctx.stroke();
+    } else if (u.buffs && u.buffs.length > 0 && u.alive) {
+      ctx.strokeStyle = "#6fe39d"; ctx.lineWidth = 2; ctx.stroke();
     }
-    // hp bar
     const bw = 36, bh = 4;
     ctx.fillStyle = "#1a1626";
     ctx.fillRect(x - bw/2, cy + 16, bw, bh);
     ctx.fillStyle = u.kind === "hero" ? "#6fe39d" : "#ff7a7a";
     ctx.fillRect(x - bw/2, cy + 16, bw * Math.max(0, u.hp/u.maxHp), bh);
-    // label
     ctx.fillStyle = "#e8e4f0";
     ctx.font = "10px monospace";
     ctx.textAlign = "center";
-    const label = u.kind === "hero" ? `${u.name}` : u.name;
-    ctx.fillText(label, x, cy + 30);
+    ctx.fillText(u.name, x, cy + 30);
     ctx.textAlign = "start";
   }
 }
 
+function unitTagsHtml(u) {
+  const tags = [];
+  if (u.stun > 0) tags.push(`<span class="tag debuff">STUN ${u.stun}</span>`);
+  if (u.buffs && u.buffs.length) {
+    for (const b of u.buffs) tags.push(`<span class="tag buff">${b.label} ${b.stat}+${b.amount} (${b.ticks}t)</span>`);
+  }
+  if (u.dots && u.dots.length) {
+    for (const d of u.dots) tags.push(`<span class="tag dot">${d.source} ${d.dmg}/t (${d.ticks}t)</span>`);
+  }
+  return tags.join(" ");
+}
+
 function renderUnits() {
-  // Heroes panel
   const hWrap = document.getElementById("heroes");
   hWrap.innerHTML = "";
   for (const h of game.heroes) {
@@ -614,11 +752,10 @@ function renderUnits() {
     div.innerHTML = `
       <div class="name"><span>${h.name} <span class="tag">${h.cls}</span></span><span>${Math.max(0,Math.ceil(h.hp))}/${h.maxHp}</span></div>
       <div class="bar hp"><span style="width:${100 * Math.max(0, h.hp/h.maxHp)}%"></span></div>
-      <div class="small">ATK ${h.atk} · DEF ${h.def} · SPD ${h.speed}${h.stun>0?` · STUN ${h.stun}`:""}</div>
+      <div class="small">ATK ${effectiveStat(h,'atk')} · DEF ${effectiveStat(h,'def')} · SPD ${effectiveStat(h,'speed').toFixed(1)} ${unitTagsHtml(h)}</div>
     `;
     hWrap.appendChild(div);
   }
-  // Enemies panel
   const eWrap = document.getElementById("enemies");
   eWrap.innerHTML = "";
   const room = game.dungeon.rooms[game.dungeon.idx];
@@ -630,7 +767,7 @@ function renderUnits() {
     div.innerHTML = `
       <div class="name"><span>${e.name} <span class="tag">${tag}</span></span><span>${Math.max(0,Math.ceil(e.hp))}/${e.maxHp}</span></div>
       <div class="bar mob"><span style="width:${100 * Math.max(0, e.hp/e.maxHp)}%"></span></div>
-      <div class="small">ATK ${e.atk} · DEF ${e.def} · SPD ${e.speed}</div>
+      <div class="small">ATK ${effectiveStat(e,'atk')} · DEF ${effectiveStat(e,'def')} · SPD ${effectiveStat(e,'speed').toFixed(1)} ${unitTagsHtml(e)}</div>
     `;
     eWrap.appendChild(div);
   }
@@ -643,20 +780,45 @@ function renderHud() {
   document.getElementById("corr-bar").style.width = (100 * game.corruption / CORRUPTION_MAX) + "%";
   document.getElementById("corr-val").textContent = Math.floor(game.corruption);
 
-  // Abilities
+  // Dark Powers — only the chosen loadout
   const wrap = document.getElementById("abilities");
   wrap.innerHTML = "";
-  for (const a of ABILITIES) {
-    const cd = game.abilityCds[a.id];
+  for (const id of game.loadout) {
+    const a = DARK_POWERS.find(p => p.id === id);
+    const cd = game.abilityCds[id];
     const btn = document.createElement("button");
     btn.disabled = cd > 0 || game.corruption < a.cost || game.state !== "running";
     btn.title = `${a.desc} · cost ${a.cost}`;
     btn.innerHTML = `<div>${a.name}</div><div class="small">${cd>0 ? `cd ${cd}` : `${a.cost} corr`}</div>`;
-    btn.onclick = () => useAbility(a.id);
+    btn.onclick = () => useDarkPower(id);
     wrap.appendChild(btn);
   }
 
-  // Inventory
+  // Trap card
+  const tWrap = document.getElementById("trap-wrap");
+  tWrap.innerHTML = "";
+  const room = game.dungeon.rooms[game.dungeon.idx];
+  if (room) {
+    const card = document.createElement("div");
+    card.className = "trap-card";
+    card.innerHTML = `
+      <div>
+        <div><strong>${room.trap.icon} ${room.trap.name}</strong></div>
+        <div class="small">${room.trap.desc}</div>
+      </div>
+    `;
+    const btn = document.createElement("button");
+    btn.className = "trap";
+    btn.style.flex = "0 0 auto";
+    btn.style.maxWidth = "120px";
+    btn.disabled = room.trap.used || room.cleared || game.state !== "running";
+    btn.textContent = room.trap.used ? "Spent" : "Trigger";
+    btn.onclick = triggerTrap;
+    card.appendChild(btn);
+    tWrap.appendChild(card);
+  }
+
+  // Relics inventory
   const inv = document.getElementById("inv");
   inv.innerHTML = "";
   for (let i = 0; i < INVENTORY_MAX; i++) {
@@ -666,7 +828,7 @@ function renderHud() {
     if (item) {
       slot.title = item.desc;
       slot.innerHTML = `<div class="icon">${item.icon}</div><div class="label">${item.name}</div>`;
-      slot.onclick = () => useItem(item.uid);
+      slot.onclick = () => useRelic(item.uid);
     } else {
       slot.innerHTML = `<div class="icon">·</div><div class="label">empty</div>`;
     }
@@ -675,6 +837,7 @@ function renderHud() {
 }
 
 function render() {
+  if (!game) return;
   drawScene();
   renderUnits();
   renderHud();
@@ -693,9 +856,50 @@ function log(msg, kind="ev") {
   wrap.scrollTop = wrap.scrollHeight;
 }
 
+/* ---------- Loadout selection ---------- */
+
+let pickState = { selected: [] };
+
+function openLoadout() {
+  if (timer) clearInterval(timer);
+  pickState.selected = [];
+  document.getElementById("end").classList.remove("show");
+  document.getElementById("loadout").classList.add("show");
+  document.getElementById("loadout-need").textContent = LOADOUT_SIZE;
+  const grid = document.getElementById("pick-grid");
+  grid.innerHTML = "";
+  for (const p of DARK_POWERS) {
+    const btn = document.createElement("button");
+    btn.className = "pick";
+    btn.innerHTML = `<div><strong>${p.name}</strong></div>
+                     <div class="small" style="margin-top:4px">${p.desc}</div>
+                     <div class="small" style="margin-top:6px">cost ${p.cost} · cd ${p.cd}</div>`;
+    btn.onclick = () => togglePick(btn, p.id);
+    grid.appendChild(btn);
+  }
+  updateConfirm();
+}
+function togglePick(btn, id) {
+  const i = pickState.selected.indexOf(id);
+  if (i >= 0) {
+    pickState.selected.splice(i, 1);
+    btn.classList.remove("selected");
+  } else {
+    if (pickState.selected.length >= LOADOUT_SIZE) return;
+    pickState.selected.push(id);
+    btn.classList.add("selected");
+  }
+  updateConfirm();
+}
+function updateConfirm() {
+  const c = document.getElementById("loadout-confirm");
+  c.disabled = pickState.selected.length !== LOADOUT_SIZE;
+  c.onclick = () => newRun(pickState.selected);
+}
+
 /* ---------- Boot ---------- */
 
-newRun();
+openLoadout();
 </script>
 </body>
 </html>
