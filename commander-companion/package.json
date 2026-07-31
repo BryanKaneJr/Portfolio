@@ -1,0 +1,45 @@
+{
+  "name": "commander-companion",
+  "version": "0.0.0",
+  "private": true,
+  "description": "An unofficial, citation-first Magic: The Gathering Commander rules and deck companion.",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=10.0.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "pnpm -r --filter \"./packages/*\" run build && pnpm --filter web run build",
+    "dev": "pnpm --filter web run dev",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "pnpm -r run typecheck",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:generate": "pnpm --filter @cc/database run generate",
+    "db:migrate": "pnpm --filter @cc/database run migrate",
+    "import:scryfall": "tsx scripts/import-scryfall.ts",
+    "import:rules": "tsx scripts/import-rules.ts",
+    "import:rulings": "tsx scripts/import-rulings.ts",
+    "sync:commander": "tsx scripts/sync-commander.ts",
+    "prepare": "husky || true"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "@types/node": "^22.10.0",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0",
+    "vitest": "^3.0.0"
+  }
+}

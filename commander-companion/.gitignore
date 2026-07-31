@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.pnpm-store/
+
+# Build output
+dist/
+build/
+out/
+.next/
+.turbo/
+*.tsbuildinfo
+
+# Test / coverage
+coverage/
+.vitest/
+
+# Environment & secrets — NEVER commit real keys
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Data artifacts (imported source snapshots are large; store outside git)
+/data/
+/tmp/
+*.log
+scryfall-*.json
+comprehensive-rules-*.txt
+
+# Prisma
+packages/database/prisma/*.db
+packages/database/prisma/migrations/**/migration_lock.toml.bak
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json.example
+*.swp
+
+# Supabase local
+supabase/.branches/
+supabase/.temp/
