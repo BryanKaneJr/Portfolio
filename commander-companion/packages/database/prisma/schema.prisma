@@ -1,0 +1,278 @@
+// Commander Companion — Prisma schema
+// Source of truth for relational structure. See docs/DATABASE.md for rationale.
+//
+// IMPORTANT (blueprint alignment):
+//  - Oracle identity (oracle_id) is separate from printing identity (scryfall_id).
+//  - Source snapshots are versioned and never destructively overwritten; ingestion
+//    writes to staging then atomically promotes (see scripts/ + DATABASE.md).
+//  - pgvector columns (embeddings) are declared via raw SQL migration because
+//    Prisma has no native `vector` type. They are modeled here as Unsupported so
+//    the row is tracked while vector *operations* run through raw SQL. See ADR-0003.
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+  output          = "./generated/client"
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  directUrl  = env("DIRECT_URL")
+  extensions = [pgvector(map: "vector"), pg_trgm, uuidOssp(map: "uuid-ossp")]
+}
+
+/// Authoritative source files (rules TXT, Scryfall bulk, policy pages) with
+/// provenance and checksums. Nothing gameplay-related is trusted without a row here.
+model SourceDocument {
+  id           String   @id @default(uuid()) @db.Uuid
+  type         String // "comprehensive_rules" | "scryfall_bulk" | "rulings" | "commander_policy"
+  title        String
+  canonicalUrl String   @map("canonical_url")
+  effectiveDate DateTime? @map("effective_date")
+  retrievedAt  DateTime @map("retrieved_at")
+  checksum     String
+  status       String   @default("staged") // "staged" | "active" | "superseded"
+  version      String
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  rules        Rule[]
+  legalities   CardLegality[]
+  rulings      CardRuling[]
+  policies     CommanderPolicy[]
+
+  @@index([type, status])
+  @@map("source_documents")
+}
+
+/// Comprehensive Rules entries, hierarchical and version-scoped.
+model Rule {
+  id               String   @id @default(uuid()) @db.Uuid
+  ruleNumber       String   @map("rule_number")
+  heading          String?
+  text             String
+  parentRule       String?  @map("parent_rule")
+  sourceDocumentId String   @map("source_document_id") @db.Uuid
+  validFrom        DateTime @map("valid_from")
+  validTo          DateTime? @map("valid_to")
+
+  source     SourceDocument @relation(fields: [sourceDocumentId], references: [id])
+  embedding  RuleEmbedding?
+
+  @@unique([ruleNumber, sourceDocumentId])
+  @@index([ruleNumber])
+  @@map("rules")
+}
+
+/// Vector embeddings for rules. The `embedding` column is added as
+/// `vector(N)` by a raw SQL migration (Unsupported here). See ADR-0003.
+model RuleEmbedding {
+  ruleId         String   @id @map("rule_id") @db.Uuid
+  embedding      Unsupported("vector")?
+  embeddingModel String   @map("embedding_model")
+  generatedAt    DateTime @map("generated_at")
+
+  rule Rule @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+
+  @@map("rule_embeddings")
+}
+
+/// Oracle card identity — how the card functions now, independent of printing.
+model OracleCard {
+  oracleId      String   @id @map("oracle_id") @db.Uuid
+  name          String
+  normalizedName String  @map("normalized_name")
+  layout        String
+  manaCost      String?  @map("mana_cost")
+  typeLine      String   @map("type_line")
+  oracleText    String?  @map("oracle_text")
+  colors        String[] // WUBRG symbols
+  colorIdentity String[] @map("color_identity")
+  keywords      String[]
+  updatedAt     DateTime @map("updated_at")
+
+  faces      CardFace[]
+  printings  Printing[]
+  legalities CardLegality[]
+  rulings    CardRuling[]
+
+  @@index([normalizedName])
+  @@map("oracle_cards")
+}
+
+/// Individual faces of multi-part cards (DFC, split, adventure, meld, modal).
+model CardFace {
+  oracleId   String @map("oracle_id") @db.Uuid
+  faceIndex  Int    @map("face_index")
+  name       String
+  manaCost   String? @map("mana_cost")
+  typeLine   String @map("type_line")
+  oracleText String? @map("oracle_text")
+  colors     String[]
+
+  card OracleCard @relation(fields: [oracleId], references: [oracleId], onDelete: Cascade)
+
+  @@id([oracleId, faceIndex])
+  @@map("card_faces")
+}
+
+/// A specific printing of a card.
+model Printing {
+  scryfallId      String  @id @map("scryfall_id") @db.Uuid
+  oracleId        String  @map("oracle_id") @db.Uuid
+  setCode         String  @map("set_code")
+  collectorNumber String  @map("collector_number")
+  finish          String
+  language        String
+  imageUris       Json?   @map("image_uris")
+
+  card OracleCard @relation(fields: [oracleId], references: [oracleId], onDelete: Cascade)
+
+  @@index([setCode, collectorNumber])
+  @@map("printings")
+}
+
+/// Format legality snapshots, version-scoped (Commander is the MVP focus).
+model CardLegality {
+  id               String   @id @default(uuid()) @db.Uuid
+  oracleId         String   @map("oracle_id") @db.Uuid
+  format           String
+  status           String // "legal" | "not_legal" | "banned" | "restricted"
+  effectiveAt      DateTime @map("effective_at")
+  sourceDocumentId String   @map("source_document_id") @db.Uuid
+
+  card   OracleCard     @relation(fields: [oracleId], references: [oracleId], onDelete: Cascade)
+  source SourceDocument @relation(fields: [sourceDocumentId], references: [id])
+
+  @@unique([oracleId, format, sourceDocumentId])
+  @@map("card_legalities")
+}
+
+/// Official rulings for a card.
+model CardRuling {
+  id               String   @id @default(uuid()) @db.Uuid
+  oracleId         String   @map("oracle_id") @db.Uuid
+  publishedAt      DateTime @map("published_at")
+  text             String
+  sourceDocumentId String   @map("source_document_id") @db.Uuid
+
+  card   OracleCard     @relation(fields: [oracleId], references: [oracleId], onDelete: Cascade)
+  source SourceDocument @relation(fields: [sourceDocumentId], references: [id])
+
+  @@index([oracleId])
+  @@map("card_rulings")
+}
+
+/// Normalized Commander policy snapshot (bans, brackets, Game Changers, etc.).
+model CommanderPolicy {
+  key              String   @map("key")
+  valueJson        Json     @map("value_json")
+  effectiveAt      DateTime @map("effective_at")
+  sourceDocumentId String   @map("source_document_id") @db.Uuid
+
+  source SourceDocument @relation(fields: [sourceDocumentId], references: [id])
+
+  @@id([key, sourceDocumentId])
+  @@map("commander_policy")
+}
+
+/// Versioned deck-construction exceptions (blueprint §8.2), keyed by Oracle ID.
+model DeckConstructionException {
+  id           String   @id @default(uuid()) @db.Uuid
+  oracleId     String   @map("oracle_id") @db.Uuid
+  behavior     Json // machine-readable exception behavior
+  controlling  String // controlling Oracle text or policy reference
+  effectiveFrom DateTime @map("effective_from")
+  effectiveTo  DateTime? @map("effective_to")
+
+  @@index([oracleId])
+  @@map("deck_construction_exceptions")
+}
+
+/// Application users. Auth provider fields are intentionally minimal at this phase.
+model User {
+  id             String   @id @default(uuid()) @db.Uuid
+  authProviderId String?  @unique @map("auth_provider_id")
+  plan           String   @default("free")
+  privacyJson    Json?    @map("privacy_json")
+  createdAt      DateTime @default(now()) @map("created_at")
+
+  decks       Deck[]
+  collections Collection[]
+
+  @@map("users")
+}
+
+model Deck {
+  id             String   @id @default(uuid()) @db.Uuid
+  ownerId        String   @map("owner_id") @db.Uuid
+  name           String
+  validationJson Json?    @map("validation_json")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  owner User       @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  cards DeckCard[]
+
+  @@index([ownerId])
+  @@map("decks")
+}
+
+model DeckCard {
+  id                String  @id @default(uuid()) @db.Uuid
+  deckId            String  @map("deck_id") @db.Uuid
+  oracleId          String  @map("oracle_id") @db.Uuid
+  quantity          Int
+  isCommander       Boolean @default(false) @map("is_commander")
+  preferredPrinting String? @map("preferred_printing")
+
+  deck Deck @relation(fields: [deckId], references: [id], onDelete: Cascade)
+
+  @@unique([deckId, oracleId])
+  @@map("deck_cards")
+}
+
+model Collection {
+  id        String   @id @default(uuid()) @db.Uuid
+  ownerId   String   @map("owner_id") @db.Uuid
+  name      String   @default("Default")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  owner User             @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  items CollectionItem[]
+
+  @@index([ownerId])
+  @@map("collections")
+}
+
+model CollectionItem {
+  id            String  @id @default(uuid()) @db.Uuid
+  collectionId  String  @map("collection_id") @db.Uuid
+  oracleId      String  @map("oracle_id") @db.Uuid
+  scryfallId    String? @map("scryfall_id") @db.Uuid
+  quantity      Int
+  finish        String?
+  importSource  String? @map("import_source")
+
+  collection Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+
+  @@index([collectionId, oracleId])
+  @@map("collection_items")
+}
+
+/// Aggregate AI request metering (hashed actor; minimal content retention — §10.3).
+model AiRequest {
+  id            String   @id @default(uuid()) @db.Uuid
+  actorHash     String   @map("actor_hash")
+  requestType   String   @map("request_type")
+  tokensIn      Int      @default(0) @map("tokens_in")
+  tokensOut     Int      @default(0) @map("tokens_out")
+  costUsd       Decimal  @default(0) @map("cost_usd") @db.Decimal(10, 6)
+  cacheStatus   String   @map("cache_status")
+  resultStatus  String   @map("result_status")
+  sourceVersions Json?   @map("source_versions")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@index([actorHash, createdAt])
+  @@map("ai_requests")
+}
