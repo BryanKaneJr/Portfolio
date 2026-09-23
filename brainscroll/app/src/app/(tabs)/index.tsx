@@ -1,4 +1,4 @@
-import { router } from 'expo-router';
+import { Redirect, router } from 'expo-router';
 import { Body, BigNumber, Button, Card, Label, ProgressBar, Row, Screen, Title } from '@/components/ui';
 import { getLevel } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
@@ -10,6 +10,7 @@ export default function HomeScreen() {
   const v = useProgressView();
   const startLevel = useStartLevel();
   if (!p.ready) return <Screen>{null}</Screen>;
+  if (!p.onboarded) return <Redirect href="/welcome" />;
 
   const skill = v.skills[0]!;
   const nextId = p.nextLevelId(skill.id);
@@ -53,13 +54,13 @@ export default function HomeScreen() {
         {today.cap !== null && <ProgressBar value={today.used / today.cap} tone="info" />}
       </Card>
 
-      {v.reviewsDue.length > 0 && (
+      {v.reviewsDue > 0 && (
         <Card>
           <Label tone="success">Review</Label>
           <Body>
-            {v.reviewsDue.length} {v.reviewsDue.length === 1 ? 'thing' : 'things'} worth refreshing
+            {v.reviewsDue} {v.reviewsDue === 1 ? 'thing' : 'things'} worth refreshing
           </Body>
-          <Button variant="secondary" label="Open review" onPress={() => router.push('/review')} />
+          <Button variant="secondary" label="Start review" onPress={() => router.push('/review-session')} />
         </Card>
       )}
     </Screen>

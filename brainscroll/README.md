@@ -31,6 +31,7 @@ npm install
 
 npm run check            # typecheck + unit tests + content validation + bundle freshness
 npm run content:build    # recompile content/ into the app's offline bundle after editing content
+npm run content:import   # publish content to Supabase (see docs/supabase-setup.md)
 npm run test:db          # apply migrations to a throwaway Postgres and run SQL tests
 npm run app              # start the Expo dev server (press i / a / w)
 ```
@@ -45,6 +46,9 @@ We're following the [build order](docs/build-order.md). **The loop comes first a
 - [x] Stage 1: data contracts: content schema and validator, DB schema, RLS, and an exactly-once `complete_level` transaction
 - [ ] Stage 2: the Golden 10 Astronomy levels. All 10 are drafted and validated; their sources still need editor verification
 - [x] Stage 3: lesson player. All 10 levels play offline from data, with resume, exactly-once completion, XP, the character sheet and the daily cap
+- [x] Stage 5: review. Due concepts come back as recall sessions, with delayed-recall XP. Review never uses daily levels
+- [x] Onboarding: a first-run intro that gets to Level 1 in about a minute
+- [ ] Supabase: the schema, server functions and importer are tested locally; the app isn't connected yet. See [`docs/supabase-setup.md`](docs/supabase-setup.md)
 
 ## Read first
 

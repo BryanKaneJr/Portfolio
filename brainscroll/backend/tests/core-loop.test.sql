@@ -1,6 +1,7 @@
 -- Core loop acceptance tests (blueprint Stage 1/4/6 exit gates).
 \set ON_ERROR_STOP on
 \set QUIET on
+\ir fixtures.sql
 
 create function pg_temp.answers(n int, opt text) returns jsonb language sql as $$
   select jsonb_build_array(jsonb_build_object('question_id', 'question.testing.' || lpad(n::text, 3, '0') || '.q1', 'option_id', opt));

@@ -18,6 +18,7 @@ const levelById = new Map(bundle.levels.map((l) => [l.id, l]));
 const conceptById = new Map(bundle.concepts.map((c) => [c.id, c]));
 
 export const subjects = bundle.subjects;
+export const allLevels = bundle.levels;
 export const skills = bundle.skills;
 
 export function getLevel(id: string): Level | undefined {

@@ -1,9 +1,9 @@
-import { MASTERY_BAND_SIZE } from './constants';
-import type { Level } from './content-schema';
+import { MASTERY_BAND_SIZE, XP } from './constants';
+import type { Level, Question } from './content-schema';
 import { dailyAllowance, localDate, type DailyAllowance } from './daily';
 import { parseLevelId } from './ids';
 import { knowledgeLevel, levelCompletionXp } from './progression';
-import { nextDue, nextStrength } from './review';
+import { isDelayedRecall, nextDue, nextStrength } from './review';
 
 /**
  * The level start/complete rules as a pure state transition.
@@ -38,7 +38,7 @@ export interface ConceptMastery {
 }
 
 export interface XpEvent {
-  type: 'LEVEL_COMPLETE' | 'QUESTION_CORRECT' | 'MASTERY_CLEAR';
+  type: 'LEVEL_COMPLETE' | 'QUESTION_CORRECT' | 'MASTERY_CLEAR' | 'DELAYED_RECALL';
   amount: number;
   skillId: string;
   levelId: string;
@@ -107,8 +107,98 @@ export function checkStart(state: ProgressState, level: Pick<Level, 'id' | 'skil
 export function dueConcepts(state: ProgressState, now: Date): string[] {
   return Object.entries(state.concepts)
     .filter(([, c]) => new Date(c.dueAt) <= now)
-    .sort(([, a], [, b]) => a.dueAt.localeCompare(b.dueAt))
+    .sort(([idA, a], [idB, b]) => a.dueAt.localeCompare(b.dueAt) || (idA < idB ? -1 : 1))
     .map(([id]) => id);
+}
+
+// ─── Review (Stage 5) ────────────────────────────────────────────────────────
+//
+// Mirrors SQL get_review_queue / submit_review. Review is unlimited, never
+// consumes the daily allowance, and never lowers a skill level.
+
+export interface ReviewItem {
+  conceptId: string;
+  question: Question;
+  levelId: string;
+  skillId: string;
+}
+
+/**
+ * One approved question per due concept, drawn from levels the learner has
+ * completed. Questions rotate by how often the concept has been seen, so a
+ * concept isn't always tested with the same wording. Concepts with no question
+ * available yet are skipped; a question is never used twice in one queue.
+ */
+export function buildReviewQueue(state: ProgressState, levels: Level[], now: Date, limit = 10): ReviewItem[] {
+  const completed = levels.filter((l) => state.levels[l.id]);
+  const items: ReviewItem[] = [];
+  const used = new Set<string>();
+  for (const conceptId of dueConcepts(state, now)) {
+    if (items.length >= limit) break;
+    const candidates = completed
+      .flatMap((l) => l.questions.filter((q) => q.conceptIds.includes(conceptId)).map((question) => ({ question, level: l })))
+      .filter((c) => !used.has(c.question.id))
+      .sort((a, b) => (a.question.id < b.question.id ? -1 : 1));
+    if (candidates.length === 0) continue;
+    const pick = candidates[state.concepts[conceptId]!.seenCount % candidates.length]!;
+    used.add(pick.question.id);
+    items.push({ conceptId, question: pick.question, levelId: pick.level.id, skillId: pick.level.skillId });
+  }
+  return items;
+}
+
+export interface ReviewResult {
+  correct: boolean;
+  xpAwarded: number;
+  /** Concepts whose schedule changed (only those that were due). */
+  refreshed: string[];
+}
+
+/**
+ * Applies one review answer. Only concepts that are currently due are updated,
+ * which also makes a double submit harmless: after the first, nothing is due.
+ * A correct answer after a real delay awards DELAYED_RECALL once per concept.
+ */
+export function submitReview(
+  state: ProgressState,
+  input: { item: Pick<ReviewItem, 'question' | 'skillId' | 'levelId'>; optionId: string; now: Date },
+): { state: ProgressState; result: ReviewResult } {
+  const { item, optionId, now } = input;
+  const at = now.toISOString();
+  const correct = item.question.options.find((o) => o.id === optionId)?.correct ?? false;
+  const concepts = { ...state.concepts };
+  const events: XpEvent[] = [];
+  const refreshed: string[] = [];
+
+  for (const cid of [...item.question.conceptIds].sort()) {
+    const c = concepts[cid];
+    if (!c || new Date(c.dueAt) > now) continue;
+    refreshed.push(cid);
+    if (isDelayedRecall(new Date(c.lastSeenAt), now, correct)) {
+      events.push({ type: 'DELAYED_RECALL', amount: XP.DELAYED_RECALL, skillId: item.skillId, levelId: item.levelId, idempotencyKey: `delayed_recall:${cid}:${c.lastSeenAt}`, at });
+    }
+    const strength = nextStrength(c.strength, correct);
+    concepts[cid] = {
+      strength,
+      seenCount: c.seenCount + 1,
+      correctCount: c.correctCount + (correct ? 1 : 0),
+      incorrectCount: c.incorrectCount + (correct ? 0 : 1),
+      lastSeenAt: at,
+      dueAt: nextDue(now, strength).toISOString(),
+    };
+  }
+
+  if (refreshed.length === 0) return { state, result: { correct, xpAwarded: 0, refreshed } };
+
+  const xpAwarded = events.reduce((n, e) => n + e.amount, 0);
+  const skill = state.skills[item.skillId];
+  const next: ProgressState = {
+    ...state,
+    concepts,
+    xpEvents: [...state.xpEvents, ...events],
+    skills: skill && xpAwarded > 0 ? { ...state.skills, [item.skillId]: { ...skill, totalXp: skill.totalXp + xpAwarded } } : state.skills,
+  };
+  return { state: next, result: { correct, xpAwarded, refreshed } };
 }
 
 export function completeLevel(

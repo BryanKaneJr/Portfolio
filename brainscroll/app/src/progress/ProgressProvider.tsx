@@ -1,20 +1,23 @@
 import {
+  buildReviewQueue,
   checkStart,
   completeLevel as applyCompletion,
   dailyStatus,
-  dueConcepts,
   emptyProgress,
   highestCleared,
   knowledgeLevel,
   skillProgressView,
+  submitReview as applyReview,
   totalCleared,
   type Answers,
   type CompletionSummary,
   type ProgressState,
+  type ReviewItem,
+  type ReviewResult,
   type StartReason,
 } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import { getLevel, levelByNumber, skills } from '@/content';
+import { allLevels, getLevel, levelByNumber, skills } from '@/content';
 import { load, newIdempotencyKey, save } from './storage';
 
 /**
@@ -25,6 +28,7 @@ import { load, newIdempotencyKey, save } from './storage';
 
 const PROGRESS_KEY = 'brainscroll.progress.v1';
 const SESSIONS_KEY = 'brainscroll.sessions.v1';
+const ONBOARDED_KEY = 'brainscroll.onboarded.v1';
 
 /** In-progress level: where you are and what you've answered, so a restart resumes. */
 export interface LevelSession {
@@ -44,6 +48,11 @@ interface ProgressContextValue {
   getSession(levelId: string): LevelSession;
   updateSession(levelId: string, patch: Partial<LevelSession>): void;
   completeLevel(levelId: string): CompletionSummary;
+  /** Due review items right now (one question per due concept). */
+  reviewQueue(limit?: number): ReviewItem[];
+  submitReview(item: ReviewItem, optionId: string): ReviewResult;
+  onboarded: boolean;
+  finishOnboarding(): void;
   resetAll(): void;
 }
 
@@ -59,17 +68,24 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<ProgressState>(freshState);
   const [sessions, setSessions] = useState<Record<string, LevelSession>>({});
   const [lastSummary, setLastSummary] = useState<CompletionSummary>();
+  const [onboarded, setOnboarded] = useState(false);
   // Refs give synchronous reads, so a double tap can't complete a level twice.
   const stateRef = useRef(state);
   const sessionsRef = useRef(sessions);
 
   useEffect(() => {
     (async () => {
-      const [p, s] = await Promise.all([load<ProgressState>(PROGRESS_KEY), load<Record<string, LevelSession>>(SESSIONS_KEY)]);
+      const [p, s, o] = await Promise.all([
+        load<ProgressState>(PROGRESS_KEY),
+        load<Record<string, LevelSession>>(SESSIONS_KEY),
+        load<boolean>(ONBOARDED_KEY),
+      ]);
       if (p?.version === 1) {
         stateRef.current = p;
         setState(p);
       }
+      // Anyone who has already cleared a level has effectively onboarded.
+      setOnboarded(o === true || (p?.version === 1 && Object.keys(p.levels).length > 0));
       if (s) {
         sessionsRef.current = s;
         setSessions(s);
@@ -133,12 +149,27 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       setLastSummary(summary);
       return summary;
     },
+    reviewQueue(limit = 10) {
+      return buildReviewQueue(stateRef.current, allLevels, new Date(), limit);
+    },
+    submitReview(item, optionId) {
+      const { state: next, result } = applyReview(stateRef.current, { item, optionId, now: new Date() });
+      if (next !== stateRef.current) commitState(next);
+      return result;
+    },
+    onboarded,
+    finishOnboarding() {
+      setOnboarded(true);
+      void save(ONBOARDED_KEY, true);
+    },
     resetAll() {
       commitState(freshState());
       commitSessions({});
       setLastSummary(undefined);
+      setOnboarded(false);
+      void save(ONBOARDED_KEY, false);
     },
-  }), [ready, state, sessions, lastSummary, getSession, updateSession, commitState, commitSessions]);
+  }), [ready, state, sessions, lastSummary, onboarded, getSession, updateSession, commitState, commitSessions]);
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;
 }
@@ -159,7 +190,7 @@ export function useProgressView() {
     totalXp: state.xpEvents.reduce((n, e) => n + e.amount, 0),
     skills: skillViews,
     today: dailyStatus(state, now),
-    reviewsDue: dueConcepts(state, now),
+    reviewsDue: buildReviewQueue(state, allLevels, now, 50).length,
     sessions,
   };
 }

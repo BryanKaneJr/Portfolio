@@ -19,9 +19,9 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | 2 | Golden 10 levels | One real skill (Astronomy), Levels 1–10 hand-polished and source-verified | 🟡 Levels 1–10 drafted and validating; sources need editor verification; no image asset yet |
 | 3 | Lesson player | All 10 levels render from data with no level-specific UI; resume works; double tap can't duplicate XP; wrong answers teach | ✅ offline (bundled content, local progress); server fetch pending |
 | 4 | Progress & character sheet | Two users see distinct sheets; reinstall restores progress; revisions never move progress back | 🟡 server side done; local character sheet live; needs accounts/sync |
-| 5 | Review & mastery | Concept-level review queue; alternative questions per concept; review never uses allowance | ⬜ queue populated on completion; review flow pending |
+| 5 | Review & mastery | Concept-level review queue; alternative questions per concept; review never uses allowance | ✅ `get_review_queue`/`submit_review` + local review sessions, tested |
 | 6 | Daily cap | 5/day enforced server-side; Daily Complete screen; review stays open | 🟡 enforced server-side and locally; Daily Complete live; paywall not wired |
-| 7 | Content tooling | Editor/importer/validator so Levels 11–100 can scale safely | ⬜ |
+| 7 | Content tooling | Editor/importer/validator so Levels 11–100 can scale safely | 🟡 validator + importer (`import_content`, immutable revisions); admin UI pending |
 | 8 | Subscriptions | RevenueCat `unlimited_learning`, restore, expiry | ⬜ |
 | 9 | Analytics & reporting | Mission-aligned events, content reports, funnel | ⬜ |
 | 10 | Scale launch content | Flagship to 100, then a second skill of a different shape, then 6–10 trees | ⬜ |
@@ -35,16 +35,16 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | 2 | Migrations + ID rules | Fresh DB can be recreated reliably | ✅ `npm run test:db` |
 | 3 | Content JSON validator | Malformed levels fail before import | ✅ `npm run validate:content` |
 | 4 | 10 golden levels | Real content available as canonical seed data | 🟡 10/10 drafted; awaiting source verification |
-| 5 | Read-only content API | App can fetch skills/levels/cards/questions | ⬜ RLS read policies + `start_level` exist; importer + client pending |
-| 6 | Mobile navigation shell | Onboarding → skill → lesson → completion path exists | 🟡 skill → lesson → completion → daily complete; onboarding pending |
+| 5 | Read-only content API | App can fetch skills/levels/cards/questions | 🟡 importer + RLS + `start_level` done; app client pending a Supabase project |
+| 6 | Mobile navigation shell | Onboarding → skill → lesson → completion path exists | ✅ |
 | 7 | Generic card renderer | Golden levels render from data only | ✅ `app/src/components/cards` |
 | 8 | Question engine | Answers + explanations + state/resume work | ✅ |
 | 9 | Completion transaction | Exactly-once progress/XP update | ✅ server side |
 | 10 | Character sheet | Skill and overall progress visible | 🟡 local progress; needs server sync |
-| 11 | Review queue | Prior concepts reappear and update mastery | ⬜ |
+| 11 | Review queue | Prior concepts reappear and update mastery | ✅ |
 | 12 | 5/day allowance | Free path ends deliberately; review remains open | ✅ server + local; review flow pending |
 | 13 | Content admin v1 | Edit/validate/preview/publish without raw DB editing | ⬜ |
-| 14 | Publishing/revisions | Corrections are versioned; progress survives | 🟡 schema ✅ |
+| 14 | Publishing/revisions | Corrections are versioned; progress survives | ✅ tested: conflict, bump, regression |
 | 15 | RevenueCat | Unlimited + restore + expiry | ⬜ |
 | 16 | Analytics + reports | Detect funnel/content/technical failures | ⬜ `content_reports` table exists |
 | 17 | Finish flagship 1–100 | Whole depth curve proven | ⬜ |
@@ -54,8 +54,8 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 
 ## Up next
 
-1. **Verify the Golden 10.** An editor checks every fact against its source, flips `verified: true`, and adds at least one licensed image asset (NASA/CC0) so the image card is exercised. Then mark the levels `published`.
-2. **Content importer** (`scripts/`): validated JSON → Supabase (`levels`, `level_revisions.bundle`, `questions`, `answer_options`, `concepts`, `sources`), run with the service role.
-3. **Supabase project and auth:** create staging, add `@supabase/supabase-js`, and swap `ProgressProvider.completeLevel` for the `complete_level` RPC. The server result replaces local state. Keep local play as the offline fallback.
-4. **Stage 5 review flow:** turn the Review tab's due concepts into recall sessions that serve an approved question per concept, update strength, and award `DELAYED_RECALL`, all without touching the daily allowance.
-5. **Onboarding:** pick interests, explain levels and the 5/day rule, and start Level 1 within about 60 seconds.
+1. **Create the staging Supabase project.** This needs you: follow [`supabase-setup.md`](supabase-setup.md).
+2. **Wire the app to Supabase:** add anonymous sign-in, then route `start_level`, `complete_level`, `get_daily_status` and the review RPCs through `ProgressProvider`, keeping local play as the offline fallback.
+3. **Verify the Golden 10:** an editor checks the facts against their sources, flips `verified: true`, and adds one licensed image asset.
+4. **Subscriptions (Stage 8):** RevenueCat `unlimited_learning`, offered only at Daily Complete.
+5. **Content admin v1:** a web editor, preview and publish flow on top of `validateContent` and `import_content`.

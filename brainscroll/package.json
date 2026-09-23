@@ -15,7 +15,8 @@
     "test:db": "bash backend/tests/run.sh",
     "app": "npm run start -w @brainscroll/app",
     "check": "npm run typecheck && npm test && npm run validate:content && npm run content:build -- --check",
-    "content:build": "npm run build -w @brainscroll/scripts --"
+    "content:build": "npm run build -w @brainscroll/scripts --",
+    "content:import": "npm run import -w @brainscroll/scripts --"
   },
   "engines": {
     "node": ">=22"
