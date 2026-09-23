@@ -1,0 +1,99 @@
+{
+  "id": "level.science.astronomy.001",
+  "skillId": "skill.science.astronomy",
+  "number": 1,
+  "revision": 1,
+  "status": "draft",
+  "title": "Your Cosmic Address",
+  "objective": "After this level you can state Earth's address: third planet from the Sun, a star in the Milky Way.",
+  "summary": "The Sun is a star, Earth is planet three, and our whole solar system lives in the Milky Way.",
+  "concepts": [
+    { "conceptId": "concept.astronomy.sun_is_a_star", "role": "teach", "weight": 1 },
+    { "conceptId": "concept.astronomy.earth_third_planet", "role": "teach", "weight": 1 },
+    { "conceptId": "concept.astronomy.sunlight_travel_time", "role": "teach", "weight": 0.5 },
+    { "conceptId": "concept.astronomy.milky_way_home", "role": "teach", "weight": 1 }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.astronomy.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every star you see at night is a sun. Ours is just the closest one.",
+      "body": "The Sun isn't a special kind of object. It's a star — the nearest one to Earth. The others only look like dots because they're unimaginably farther away."
+    },
+    {
+      "id": "card.astronomy.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your address, zoomed out",
+      "body": "Start with Earth. It's the third of eight planets orbiting the Sun. The Sun and everything orbiting it make up our solar system.",
+      "callout": "Earth → planet 3 → the Sun's solar system"
+    },
+    {
+      "id": "card.astronomy.001.c3",
+      "type": "mcq",
+      "questionId": "question.astronomy.001.q1"
+    },
+    {
+      "id": "card.astronomy.001.c4",
+      "type": "fact",
+      "fact": "Sunlight takes about 8 minutes to reach Earth.",
+      "context": "So when you look at the Sun (please don't, directly), you're seeing it as it was roughly eight minutes ago."
+    },
+    {
+      "id": "card.astronomy.001.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Now zoom out much, much further",
+      "body": "The Sun is one of at least 100 billion stars in the Milky Way, a barred spiral galaxy. That faint band across a dark sky? That's our own galaxy, seen from the inside."
+    },
+    {
+      "id": "card.astronomy.001.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.001.q2"
+    },
+    {
+      "id": "card.astronomy.001.c7",
+      "type": "checkpoint",
+      "headline": "Cosmic address: unlocked",
+      "learned": [
+        "The Sun is a star — the closest one",
+        "Earth is the third of eight planets",
+        "Sunlight is about 8 minutes old when it arrives",
+        "Our solar system lives in the Milky Way"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.001.q1",
+      "kind": "mcq",
+      "conceptIds": ["concept.astronomy.earth_third_planet"],
+      "prompt": "Counting outward from the Sun, which planet is Earth?",
+      "options": [
+        { "id": "a", "label": "The first", "correct": false, "rationale": "That's Mercury." },
+        { "id": "b", "label": "The third", "correct": true },
+        { "id": "c", "label": "The fifth", "correct": false, "rationale": "That's Jupiter." },
+        { "id": "d", "label": "The eighth", "correct": false, "rationale": "That's Neptune, the outermost planet." }
+      ],
+      "explanation": "Mercury, Venus, then Earth — third of the eight planets.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.astronomy.001.q2",
+      "kind": "mcq",
+      "conceptIds": ["concept.astronomy.sun_is_a_star", "concept.astronomy.milky_way_home"],
+      "prompt": "Which is the most accurate description of the Sun?",
+      "options": [
+        { "id": "a", "label": "The center of the Milky Way", "correct": false, "rationale": "The Sun orbits within the Milky Way; it isn't its center." },
+        { "id": "b", "label": "One star among many in the Milky Way", "correct": true },
+        { "id": "c", "label": "A planet that gives off light", "correct": false, "rationale": "Planets reflect light; the Sun is a star that makes its own." },
+        { "id": "d", "label": "The only star in our galaxy", "correct": false, "rationale": "The Milky Way has at least 100 billion stars." }
+      ],
+      "explanation": "The Sun is an ordinary star — one of at least 100 billion in the Milky Way.",
+      "difficulty": 0.15
+    }
+  ],
+  "sourceIds": ["source.nasa_sun_facts", "source.nasa_solar_system", "source.nasa_milky_way"]
+}

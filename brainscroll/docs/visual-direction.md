@@ -1,0 +1,45 @@
+# Visual direction
+
+This summarizes [`source/Visual_Theme_UI_Direction.docx`](source/Visual_Theme_UI_Direction.docx). The tokens are implemented in [`app/src/theme/tokens.ts`](../app/src/theme/tokens.ts).
+
+**North star:** make knowledge look like a video-game resource. Think Duolingo clarity, plus premium-app restraint, plus RPG progression feedback. It should feel smart first and game-like second.
+
+## Colour
+
+| Token | Hex | Role |
+| --- | --- | --- |
+| Midnight Navy | `#111827` | App background |
+| Deep Slate | `#1B2436` | Cards, panels |
+| **Electric Violet** | `#7C5CFF` | Brand, primary CTA, active level |
+| Bright Blue | `#4DA3FF` | Information, secondary progress, current node |
+| Mint | `#39D98A` | Correct, recall confirmed |
+| XP Gold | `#FFC857` | **Mastery and prestige only.** Keep it scarce |
+| Coral | `#FF6B6B` | Incorrect, warning |
+| Soft White | `#F7F9FC` | Primary text |
+| Cool Gray | `#A7B0C0` | Secondary text, locked |
+
+Only one bright accent should dominate a screen. Glow is a reward effect, not decoration. Subject colours are small accents only, never a rainbow dashboard.
+
+## Feel
+
+- Rounded but not bubbly: 14–20 px radii and large touch targets.
+- **Four tabs: Home, Skills, Review, Profile.** Learning launches from Home or a skill tree.
+- Motion has a purpose. Feedback takes 150–250 ms, while mastery moments can breathe longer. Respect reduce-motion.
+- Reward progress, not screen time. Scrolling alone never looks like achievement.
+- The RPG layer is a stat system: **no swords, parchment, treasure chests or fantasy cosplay.**
+
+## Key screens
+
+- **Home:** "loading a save file". One dominant Continue card, then today's progress (x / 5) and a few secondary subject stats.
+- **Level scroll:** 4–7 cards (hook → explain → connect → question → completion), finite with a saved place, ending on a reward like "+24 XP · Level 18 cleared · Level 19 unlocked".
+- **Skill tree:** show the active 10-level chapter full-size plus a compact 1–100 rail. Completed nodes are violet, the current node is blue, mastery is gold and future nodes are gray. **Never render 100 equal dots.**
+- **Daily Quest Complete:** 5 / 5, "Brain successfully fed. No more doomscrolling. Go touch grass. 🌱" Primary action: Review. Then Come back tomorrow. Unlimited is an optional card.
+- **Character sheet:** Knowledge Level, subject ranks, named skills with exact levels and ★, and titles.
+
+## Voice
+
+Clever, concise, slightly irreverent, adult. It accepts wrong answers without shame ("Bold answer. Wrong, but bold.") and is comfortable telling people to leave ("We're done here. Go outside."). **Keep jokes sparse:** use them at feedback moments and milestones only.
+
+## Type and brand mark
+
+Use a geometric modern sans (Sora / Manrope territory; the app uses the system font until the fonts are added), with big, crisp numerals for levels and XP. The app icon is a dark rounded square with a violet/white "B" built from stacked feed cards or a swipe trail. Avoid literal brains, graduation caps, shields and generic education-blue.

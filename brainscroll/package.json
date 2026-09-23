@@ -1,0 +1,22 @@
+{
+  "name": "brainscroll",
+  "private": true,
+  "version": "0.0.0",
+  "description": "BrainScroll — an anti-doomscrolling knowledge RPG. Stop scrolling. Start leveling.",
+  "workspaces": [
+    "app",
+    "packages/*",
+    "scripts"
+  ],
+  "scripts": {
+    "test": "npm run test -w @brainscroll/core",
+    "typecheck": "npm run typecheck -w @brainscroll/core && npm run typecheck -w @brainscroll/scripts && npm run typecheck -w @brainscroll/app",
+    "validate:content": "npm run validate -w @brainscroll/scripts",
+    "test:db": "bash backend/tests/run.sh",
+    "app": "npm run start -w @brainscroll/app",
+    "check": "npm run typecheck && npm test && npm run validate:content"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,27 @@
+name: BrainScroll
+
+on:
+  push:
+    paths: ['brainscroll/**', '.github/workflows/brainscroll.yml']
+  pull_request:
+    paths: ['brainscroll/**', '.github/workflows/brainscroll.yml']
+
+defaults:
+  run:
+    working-directory: brainscroll
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: brainscroll/.nvmrc
+          cache: npm
+          cache-dependency-path: brainscroll/package-lock.json
+      - run: npm ci
+      - name: Typecheck, unit tests, content validation
+        run: npm run check
+      - name: Database migrations + SQL tests
+        run: npm run test:db
