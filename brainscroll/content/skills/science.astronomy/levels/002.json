@@ -2,6 +2,7 @@
   "id": "level.science.astronomy.002",
   "skillId": "skill.science.astronomy",
   "number": 2,
+  "type": "regular",
   "revision": 1,
   "status": "draft",
   "title": "The Sun, Up Close",
@@ -45,34 +46,39 @@
       "type": "text",
       "role": "explain",
       "headline": "Nuclear fusion",
-      "body": "At about 15 million °C, the Sun's core fuses hydrogen into helium. That fusion releases the energy that eventually reaches you as sunlight.",
+      "body": "At about 15 million °C, the Sun's core squeezes hydrogen atoms so hard that they fuse into helium. Each fusion releases a little energy, and trillions of them every second add up to the sunlight that reaches you.",
       "callout": "Hydrogen → helium + energy"
     },
     {
       "id": "card.astronomy.002.c3",
-      "type": "mcq",
-      "questionId": "question.astronomy.002.q1"
-    },
-    {
-      "id": "card.astronomy.002.c4",
       "type": "fact",
       "fact": "The Sun holds about 99.8% of the solar system's mass.",
       "context": "Every planet, moon, asteroid and comet together makes up the remaining 0.2%. We're the crumbs."
     },
     {
-      "id": "card.astronomy.002.c5",
+      "id": "card.astronomy.002.c4",
       "type": "text",
       "role": "explain",
       "headline": "Middle-aged, not old",
-      "body": "The Sun formed about 4.6 billion years ago. That sounds ancient, but for a star like ours it's roughly the middle of its life."
+      "body": "The Sun formed about 4.6 billion years ago. That sounds ancient, but for a star like ours it's roughly the middle of its life. There's plenty of hydrogen left in its core to keep the fusion going for billions of years more."
+    },
+    {
+      "id": "card.astronomy.002.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.002.q1"
     },
     {
       "id": "card.astronomy.002.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.002.q3"
+    },
+    {
+      "id": "card.astronomy.002.c7",
       "type": "recall",
       "questionId": "question.astronomy.002.q2"
     },
     {
-      "id": "card.astronomy.002.c7",
+      "id": "card.astronomy.002.c8",
       "type": "checkpoint",
       "headline": "Sun: understood",
       "learned": [
@@ -117,7 +123,44 @@
         }
       ],
       "explanation": "In its core, the Sun fuses hydrogen into helium, releasing enormous energy.",
-      "difficulty": 0.2
+      "difficulty": 0.2,
+      "purpose": "recall"
+    },
+    {
+      "id": "question.astronomy.002.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.sun_fusion"
+      ],
+      "prompt": "Why is it misleading to say the Sun is \"on fire\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its energy comes from atoms fusing in its core, not burning",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It's actually cold on the inside",
+          "correct": false,
+          "rationale": "The core is about 15 million °C."
+        },
+        {
+          "id": "c",
+          "label": "It only reflects light from other stars",
+          "correct": false,
+          "rationale": "The Sun makes its own light."
+        },
+        {
+          "id": "d",
+          "label": "It has no fuel left",
+          "correct": false,
+          "rationale": "It has billions of years of hydrogen left."
+        }
+      ],
+      "explanation": "Fire is a chemical reaction that needs oxygen. The Sun's energy comes from nuclear fusion: hydrogen atoms fusing into helium under enormous heat and pressure.",
+      "difficulty": 0.25
     },
     {
       "id": "question.astronomy.002.q2",
@@ -152,7 +195,8 @@
         }
       ],
       "explanation": "The Sun is a star — the closest one to Earth.",
-      "difficulty": 0.1
+      "difficulty": 0.1,
+      "purpose": "connection"
     }
   ],
   "sourceIds": [

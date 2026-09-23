@@ -31,7 +31,7 @@ Only one bright accent should dominate a screen. Glow is a reward effect, not de
 ## Key screens
 
 - **Home:** "loading a save file". One dominant Continue card, then today's progress (x / 5) and a few secondary subject stats.
-- **Level scroll:** 4–7 cards (hook → explain → connect → question → completion), finite with a saved place, ending on a reward like "+24 XP · Level 18 cleared · Level 19 unlocked".
+- **Level scroll:** learning first. Hook → 2–4 short learning cards → 3 light questions (recall, understanding, connection), each followed by a short explanation → completion. It's finite with a saved place and ends on a reward like "+26 XP · Level 18 cleared · Level 19 unlocked", with the next level offered immediately. Checkpoints (every 10th level), the Level 50 milestone and the Level 100 Mastery Challenge are the only longer checks, and the player's header labels them.
 - **Skill tree:** show the active 10-level chapter full-size plus a compact 1–100 rail. Completed nodes are violet, the current node is blue, mastery is gold and future nodes are gray. **Never render 100 equal dots.**
 - **Daily Quest Complete:** 5 / 5, "Brain successfully fed. No more doomscrolling. Go touch grass. 🌱" Primary action: Review. Then Come back tomorrow. Unlimited is an optional card.
 - **Character sheet:** Knowledge Level, subject ranks, named skills with exact levels and ★, and titles.

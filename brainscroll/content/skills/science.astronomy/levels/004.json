@@ -2,6 +2,7 @@
   "id": "level.science.astronomy.004",
   "skillId": "skill.science.astronomy",
   "number": 4,
+  "type": "regular",
   "revision": 1,
   "status": "draft",
   "title": "Giants of the Outer Dark",
@@ -64,31 +65,31 @@
     },
     {
       "id": "card.astronomy.004.c3",
-      "type": "mcq",
-      "questionId": "question.astronomy.004.q1"
-    },
-    {
-      "id": "card.astronomy.004.c4",
       "type": "fact",
       "fact": "Jupiter has more than twice the mass of all the other planets combined.",
       "context": "If the planets were a team, Jupiter would be carrying it."
     },
     {
-      "id": "card.astronomy.004.c5",
-      "type": "mcq",
-      "questionId": "question.astronomy.004.q3"
-    },
-    {
-      "id": "card.astronomy.004.c6",
+      "id": "card.astronomy.004.c4",
       "type": "text",
       "role": "explain",
       "headline": "Saturn's rings are ice",
-      "body": "Those famous rings aren't solid. They're countless chunks of water ice, with some rock, ranging from dust-sized grains to pieces as big as houses."
+      "body": "Those famous rings aren't solid. They're countless chunks of water ice, with some rock, ranging from dust-sized grains to pieces as big as houses. Each chunk orbits Saturn on its own path, like a tiny moon."
+    },
+    {
+      "id": "card.astronomy.004.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.004.q1"
+    },
+    {
+      "id": "card.astronomy.004.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.004.q2"
     },
     {
       "id": "card.astronomy.004.c7",
-      "type": "mcq",
-      "questionId": "question.astronomy.004.q2"
+      "type": "recall",
+      "questionId": "question.astronomy.004.q3"
     },
     {
       "id": "card.astronomy.004.c8",
@@ -136,76 +137,80 @@
         }
       ],
       "explanation": "Uranus and Neptune are the ice giants; Jupiter and Saturn are the gas giants.",
-      "difficulty": 0.2
+      "difficulty": 0.2,
+      "purpose": "recall"
     },
     {
       "id": "question.astronomy.004.q2",
       "kind": "mcq",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.astronomy.saturn_rings"
+        "concept.astronomy.giant_planets"
       ],
-      "prompt": "What are Saturn's rings mostly made of?",
+      "prompt": "Why couldn't you land on Jupiter or Saturn?",
       "options": [
         {
           "id": "a",
-          "label": "Solid rock sheets",
+          "label": "They're too hot to approach",
           "correct": false,
-          "rationale": "The rings are made of separate chunks, not sheets."
+          "rationale": "Their cloud tops are actually very cold."
         },
         {
           "id": "b",
-          "label": "Gas",
-          "correct": false,
-          "rationale": "They're solid particles."
+          "label": "They have no solid surface, just ever-thicker gas",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Metal dust",
+          "label": "Their rings block the way",
           "correct": false,
-          "rationale": "There's some rock, but ice dominates."
+          "rationale": "Jupiter's rings are faint and thin, and they don't stop anything."
         },
         {
           "id": "d",
-          "label": "Chunks of water ice",
-          "correct": true
+          "label": "They spin too slowly",
+          "correct": false,
+          "rationale": "Jupiter spins faster than any other planet."
         }
       ],
-      "explanation": "Saturn's rings are mostly chunks of water ice with some rock.",
-      "difficulty": 0.2
+      "explanation": "Gas giants are mostly hydrogen and helium. Descend and the gas just gets denser and hotter, with no ground to stand on.",
+      "difficulty": 0.25
     },
     {
       "id": "question.astronomy.004.q3",
       "kind": "mcq",
+      "purpose": "connection",
       "conceptIds": [
-        "concept.astronomy.jupiter_mass"
+        "concept.astronomy.rocky_planets",
+        "concept.astronomy.giant_planets"
       ],
-      "prompt": "How does Jupiter's mass compare to the other planets?",
+      "prompt": "From Level 3: what's the big difference between the inner planets and the outer giants?",
       "options": [
         {
           "id": "a",
-          "label": "It's about the same as Saturn's",
+          "label": "The inner planets are all bigger",
           "correct": false,
-          "rationale": "Jupiter is over three times Saturn's mass."
+          "rationale": "The giants dwarf them."
         },
         {
           "id": "b",
-          "label": "It's smaller than Earth's",
+          "label": "The giants are closer to the Sun",
           "correct": false,
-          "rationale": "Jupiter is the biggest planet."
+          "rationale": "They're much farther out."
         },
         {
           "id": "c",
-          "label": "It's more than twice all the others combined",
+          "label": "Inner planets are small and rocky; giants are mostly gas and ice",
           "correct": true
         },
         {
           "id": "d",
-          "label": "It equals the Sun's",
+          "label": "Only the inner planets have moons",
           "correct": false,
-          "rationale": "The Sun is about 1,000 times more massive."
+          "rationale": "Jupiter and Saturn have dozens."
         }
       ],
-      "explanation": "Jupiter is more than twice as massive as all the other planets put together.",
+      "explanation": "The solar system splits neatly: four small rocky worlds inside, four giants of gas and ice outside.",
       "difficulty": 0.25
     }
   ],

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { ID_PATTERNS, type IdKind } from './ids';
-import { TEXT_BUDGET } from './constants';
+import { LEVEL_TYPES, QUESTION_PURPOSES, TEXT_BUDGET } from './constants';
 
 /**
  * Stage 1 — content contract.
@@ -153,6 +153,8 @@ export const AnswerOption = z.object({
 export const Question = z.object({
   id: id('question'),
   kind: z.literal('mcq'),
+  /** recall: the core fact · understanding: why/how · connection: link to another idea. */
+  purpose: z.enum(QUESTION_PURPOSES),
   conceptIds: z.array(id('concept')).min(1),
   prompt: text(TEXT_BUDGET.questionPrompt),
   options: z.array(AnswerOption).min(2).max(4),
@@ -171,6 +173,8 @@ export const Level = z.object({
   id: id('level'),
   skillId: id('skill'),
   number: z.number().int().positive(),
+  /** regular | checkpoint | milestone | mastery. It sets the expected learning/question structure. */
+  type: z.enum(LEVEL_TYPES),
   revision: z.number().int().positive(),
   status: ContentStatus,
   title: text(60),

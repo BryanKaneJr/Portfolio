@@ -1,4 +1,4 @@
-import type { ReviewItem } from '@brainscroll/core';
+import { REVIEW_SESSION_MAX_QUESTIONS, type ReviewItem } from '@brainscroll/core';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Body, Button, Card, Label, Screen, Title } from '@/components/ui';
@@ -37,7 +37,7 @@ export default function ReviewScreen() {
               ? `${n} ${n === 1 ? 'thing' : 'things'} worth refreshing. Reviews never use your daily levels.`
               : 'Nothing due right now. Concepts come back here on a schedule: sooner if you missed them, later as they stick.'}
         </Body>
-        {n > 0 && <Button label={`Start review (${Math.min(n, 10)})`} onPress={() => router.push('/review-session')} />}
+        {n > 0 && <Button label={`Start review (${Math.min(n, REVIEW_SESSION_MAX_QUESTIONS)})`} onPress={() => router.push('/review-session')} />}
       </Card>
       {queue?.map((item) => {
         const c = getConcept(item.conceptId);

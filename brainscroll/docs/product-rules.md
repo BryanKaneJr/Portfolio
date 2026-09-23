@@ -11,7 +11,7 @@ A social-media-shaped learning app where users level up real knowledge like an R
 1. **A released skill is a deterministic, ordered sequence of levels.** Levels are cleared in order; you can't skip ahead.
 2. **The base mastery band is Levels 1–100.** Level 100 is a meaningful mastery checkpoint (★ Mastery I).
 3. **Prestige continues upward** (101–200 = ★★ at 200, and so on). It adds a star and deeper material, and it never deletes, resets or devalues earlier progress.
-4. **A level is a small learning encounter** of cards and questions (usually 4–7 cards, 2–5 minutes), not a single trivia fact.
+4. **BrainScroll is a learning app, not a quiz app.** A level is a 2–5 minute learning encounter: read or discover something interesting, understand it, answer a few light questions, gain XP, continue. **Questions support the learning. They are not the product.** A standard level has **3 questions**, and testing only grows at milestones (see *Level types* below).
 5. **Free accounts may complete 5 NEW levels per local calendar day.** Review, replays, the character sheet and skill browsing never consume the allowance.
    - *Launch experiment:* on a user's first local day the cap is 10 (`FIRST_DAY_NEW_LEVELS`).
    - The local day is computed **server-side** from the profile's IANA time zone, never from the device clock.
@@ -25,6 +25,7 @@ A social-media-shaped learning app where users level up real knowledge like an R
 
 | Term | Meaning |
 | --- | --- |
+| **Level type** | `regular`, `checkpoint`, `milestone` or `mastery`, derived from the level number. It sets the expected question count and learning structure. |
 | **New level** | The next canonical level in a skill that the user has never completed. Completing one consumes 1 daily allowance. |
 | **Completion** | A single server transaction (`complete_level`) that validates eligibility, grades every answer, writes XP events, advances the skill, updates concept mastery and the review queue, and increments the daily allowance, **exactly once per canonical level**. |
 | **Replay** | Re-opening a cleared level. It is always allowed, costs no allowance, and awards nothing. |
@@ -33,6 +34,25 @@ A social-media-shaped learning app where users level up real knowledge like an R
 | **Mastery** | Clearing level 100·k awards star *k* and `MASTERY_CLEAR` XP. |
 | **Knowledge Level** | Derived overall stat: `1 + floor(sqrt(4 × total levels cleared))`. Tunable, but always sublinear. |
 | **Daily Complete** | What the user sees when they ask for a 6th new level. It's a celebration, not an error. |
+
+## Level types (how much testing, and when)
+
+Testing is proportional to the moment. The type comes from the level number (`levelTypeFor()` in `packages/core/src/progression.ts`). Its structure is defined once, in `LEARNING_STRUCTURE` in `packages/core/src/constants.ts`, and the content validator enforces it.
+
+| Type | Which levels | Shape | Questions |
+| --- | --- | --- | --- |
+| **Regular** | Almost all of them | Hook → 2–4 short learning cards (~100–250 words) → questions → level complete | **3**: recall, understanding, connection |
+| **Checkpoint** | Every 10th level | Still teaches, then a slightly longer check across the chapter | ~5 |
+| **Milestone** | Level 50 (150, 250 …) | A bigger synthesis moment | 5–7 |
+| **Mastery Challenge** | Level 100 (200, 300 …) | The fullest test in a tree; passing earns ★ | ~10 |
+| **Review** | Not a level | Spaced repetition; one question per concept due | Varies, up to 10 per session |
+
+The three questions in a regular level each have a job:
+- **Recall:** did the learner absorb the core fact or idea?
+- **Understanding:** do they get why it happened, how it works, or why it matters?
+- **Connection:** can they link it to another concept, event, system or idea (often from an earlier level)?
+
+Wrong answers get a short explanation and never a penalty. The level still completes, and the learner moves on. A ten-question assessment is a special milestone experience, never the normal learning loop.
 
 ## Stable IDs
 
@@ -62,7 +82,7 @@ The patterns live in `packages/core/src/ids.ts` and as `CHECK` constraints in th
 | `MASTERY_CLEAR` | 250 | Levels 100, 200, … |
 | `CORRECTION` | ± | Admin-only, with an audited reason |
 
-A typical level with 2 correct answers awards **+24 XP**.
+A regular level with all 3 questions right awards **+26 XP** (20 + 3 × 2). The question bonus is capped at 6 for every level type, so longer milestone checks never turn into XP grinds.
 
 ## Review scheduling (V1: deliberately simple)
 

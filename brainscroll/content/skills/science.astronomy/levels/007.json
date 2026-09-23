@@ -2,6 +2,7 @@
   "id": "level.science.astronomy.007",
   "skillId": "skill.science.astronomy",
   "number": 7,
+  "type": "regular",
   "revision": 1,
   "status": "draft",
   "title": "Eclipses and a Cosmic Coincidence",
@@ -59,14 +60,14 @@
     },
     {
       "id": "card.astronomy.007.c3",
-      "type": "mcq",
-      "questionId": "question.astronomy.007.q1"
+      "type": "fact",
+      "fact": "The Sun is about 400 times wider than the Moon — and about 400 times farther away.",
+      "context": "Those two numbers cancel out, so the Sun and Moon look almost exactly the same size in our sky. That's why, during a total solar eclipse, the Moon can cover the Sun's bright disc and reveal its faint outer glow."
     },
     {
       "id": "card.astronomy.007.c4",
-      "type": "fact",
-      "fact": "The Sun is about 400 times wider than the Moon — and about 400 times farther away.",
-      "context": "Those two numbers cancel out, so the Sun and Moon look almost exactly the same size in our sky."
+      "type": "mcq",
+      "questionId": "question.astronomy.007.q1"
     },
     {
       "id": "card.astronomy.007.c5",
@@ -75,6 +76,11 @@
     },
     {
       "id": "card.astronomy.007.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.007.q3"
+    },
+    {
+      "id": "card.astronomy.007.c7",
       "type": "checkpoint",
       "headline": "Eclipses: explained",
       "learned": [
@@ -118,7 +124,8 @@
         }
       ],
       "explanation": "In a lunar eclipse Earth sits between the Sun and the Moon, and its shadow falls on the Moon.",
-      "difficulty": 0.3
+      "difficulty": 0.3,
+      "purpose": "recall"
     },
     {
       "id": "question.astronomy.007.q2",
@@ -153,6 +160,44 @@
         }
       ],
       "explanation": "The Sun's extra size is balanced by its extra distance, so both look about the same size from Earth.",
+      "difficulty": 0.35,
+      "purpose": "understanding"
+    },
+    {
+      "id": "question.astronomy.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.eclipse_types",
+        "concept.astronomy.moon_phases"
+      ],
+      "prompt": "From Level 6: why can a lunar eclipse only happen at full Moon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon is closest to Earth then",
+          "correct": false,
+          "rationale": "Eclipses don't depend on the Moon's distance."
+        },
+        {
+          "id": "b",
+          "label": "Full Moons are brighter, so eclipses show up",
+          "correct": false,
+          "rationale": "Brightness isn't the reason."
+        },
+        {
+          "id": "c",
+          "label": "The Moon stops orbiting at full Moon",
+          "correct": false,
+          "rationale": "It never stops."
+        },
+        {
+          "id": "d",
+          "label": "Earth must sit between the Sun and Moon, the same line-up that makes a full Moon",
+          "correct": true
+        }
+      ],
+      "explanation": "At full Moon, Earth is between the Sun and the Moon. When the three line up exactly, Earth's shadow falls on the Moon.",
       "difficulty": 0.35
     }
   ],

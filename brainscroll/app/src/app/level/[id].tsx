@@ -1,4 +1,4 @@
-import { CompletionError, type Level, type StartReason } from '@brainscroll/core';
+import { CompletionError, LEARNING_STRUCTURE, type Level, type StartReason } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
@@ -93,6 +93,7 @@ export default function LevelScreen() {
         <View style={{ flex: 1, gap: space.xs }}>
           <Label>
             {skill?.name} · Level {level.number}
+            {level.type !== 'regular' && ` · ${LEARNING_STRUCTURE[level.type].label}`}
           </Label>
           <ProgressBar value={(session.cardIndex + 1) / level.cards.length} />
         </View>

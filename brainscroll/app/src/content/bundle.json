@@ -306,6 +306,7 @@
       "id": "level.science.astronomy.001",
       "skillId": "skill.science.astronomy",
       "number": 1,
+      "type": "regular",
       "revision": 1,
       "status": "draft",
       "title": "Your Cosmic Address",
@@ -352,21 +353,21 @@
         },
         {
           "id": "card.astronomy.001.c3",
-          "type": "mcq",
-          "questionId": "question.astronomy.001.q1"
-        },
-        {
-          "id": "card.astronomy.001.c4",
           "type": "fact",
           "fact": "Sunlight takes about 8 minutes to reach Earth.",
           "context": "So when you look at the Sun (please don't, directly), you're seeing it as it was roughly eight minutes ago."
         },
         {
-          "id": "card.astronomy.001.c5",
+          "id": "card.astronomy.001.c4",
           "type": "text",
           "role": "explain",
           "headline": "Now zoom out much, much further",
           "body": "The Sun is one of at least 100 billion stars in the Milky Way, a barred spiral galaxy. That faint band across a dark sky? That's our own galaxy, seen from the inside."
+        },
+        {
+          "id": "card.astronomy.001.c5",
+          "type": "mcq",
+          "questionId": "question.astronomy.001.q1"
         },
         {
           "id": "card.astronomy.001.c6",
@@ -375,6 +376,11 @@
         },
         {
           "id": "card.astronomy.001.c7",
+          "type": "mcq",
+          "questionId": "question.astronomy.001.q3"
+        },
+        {
+          "id": "card.astronomy.001.c8",
           "type": "checkpoint",
           "headline": "Cosmic address: unlocked",
           "learned": [
@@ -389,6 +395,7 @@
         {
           "id": "question.astronomy.001.q1",
           "kind": "mcq",
+          "purpose": "recall",
           "conceptIds": [
             "concept.astronomy.earth_third_planet"
           ],
@@ -424,6 +431,7 @@
         {
           "id": "question.astronomy.001.q2",
           "kind": "mcq",
+          "purpose": "understanding",
           "conceptIds": [
             "concept.astronomy.sun_is_a_star",
             "concept.astronomy.milky_way_home"
@@ -456,6 +464,43 @@
           ],
           "explanation": "The Sun is an ordinary star — one of at least 100 billion in the Milky Way.",
           "difficulty": 0.15
+        },
+        {
+          "id": "question.astronomy.001.q3",
+          "kind": "mcq",
+          "purpose": "connection",
+          "conceptIds": [
+            "concept.astronomy.earth_third_planet",
+            "concept.astronomy.milky_way_home"
+          ],
+          "prompt": "Which list goes from smallest to largest?",
+          "options": [
+            {
+              "id": "a",
+              "label": "Solar system → Earth → Milky Way",
+              "correct": false,
+              "rationale": "Earth is one part of the solar system."
+            },
+            {
+              "id": "b",
+              "label": "Milky Way → solar system → Earth",
+              "correct": false,
+              "rationale": "That's largest to smallest."
+            },
+            {
+              "id": "c",
+              "label": "Earth → solar system → Milky Way",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "label": "Earth → Milky Way → solar system",
+              "correct": false,
+              "rationale": "The solar system sits inside the Milky Way."
+            }
+          ],
+          "explanation": "Earth is one planet in the solar system, and the whole solar system is one tiny part of the Milky Way.",
+          "difficulty": 0.15
         }
       ],
       "sourceIds": [
@@ -468,6 +513,7 @@
       "id": "level.science.astronomy.002",
       "skillId": "skill.science.astronomy",
       "number": 2,
+      "type": "regular",
       "revision": 1,
       "status": "draft",
       "title": "The Sun, Up Close",
@@ -511,34 +557,39 @@
           "type": "text",
           "role": "explain",
           "headline": "Nuclear fusion",
-          "body": "At about 15 million °C, the Sun's core fuses hydrogen into helium. That fusion releases the energy that eventually reaches you as sunlight.",
+          "body": "At about 15 million °C, the Sun's core squeezes hydrogen atoms so hard that they fuse into helium. Each fusion releases a little energy, and trillions of them every second add up to the sunlight that reaches you.",
           "callout": "Hydrogen → helium + energy"
         },
         {
           "id": "card.astronomy.002.c3",
-          "type": "mcq",
-          "questionId": "question.astronomy.002.q1"
-        },
-        {
-          "id": "card.astronomy.002.c4",
           "type": "fact",
           "fact": "The Sun holds about 99.8% of the solar system's mass.",
           "context": "Every planet, moon, asteroid and comet together makes up the remaining 0.2%. We're the crumbs."
         },
         {
-          "id": "card.astronomy.002.c5",
+          "id": "card.astronomy.002.c4",
           "type": "text",
           "role": "explain",
           "headline": "Middle-aged, not old",
-          "body": "The Sun formed about 4.6 billion years ago. That sounds ancient, but for a star like ours it's roughly the middle of its life."
+          "body": "The Sun formed about 4.6 billion years ago. That sounds ancient, but for a star like ours it's roughly the middle of its life. There's plenty of hydrogen left in its core to keep the fusion going for billions of years more."
+        },
+        {
+          "id": "card.astronomy.002.c5",
+          "type": "mcq",
+          "questionId": "question.astronomy.002.q1"
         },
         {
           "id": "card.astronomy.002.c6",
+          "type": "mcq",
+          "questionId": "question.astronomy.002.q3"
+        },
+        {
+          "id": "card.astronomy.002.c7",
           "type": "recall",
           "questionId": "question.astronomy.002.q2"
         },
         {
-          "id": "card.astronomy.002.c7",
+          "id": "card.astronomy.002.c8",
           "type": "checkpoint",
           "headline": "Sun: understood",
           "learned": [
@@ -553,6 +604,7 @@
         {
           "id": "question.astronomy.002.q1",
           "kind": "mcq",
+          "purpose": "recall",
           "conceptIds": [
             "concept.astronomy.sun_fusion"
           ],
@@ -586,8 +638,45 @@
           "difficulty": 0.2
         },
         {
+          "id": "question.astronomy.002.q3",
+          "kind": "mcq",
+          "purpose": "understanding",
+          "conceptIds": [
+            "concept.astronomy.sun_fusion"
+          ],
+          "prompt": "Why is it misleading to say the Sun is \"on fire\"?",
+          "options": [
+            {
+              "id": "a",
+              "label": "Its energy comes from atoms fusing in its core, not burning",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "label": "It's actually cold on the inside",
+              "correct": false,
+              "rationale": "The core is about 15 million °C."
+            },
+            {
+              "id": "c",
+              "label": "It only reflects light from other stars",
+              "correct": false,
+              "rationale": "The Sun makes its own light."
+            },
+            {
+              "id": "d",
+              "label": "It has no fuel left",
+              "correct": false,
+              "rationale": "It has billions of years of hydrogen left."
+            }
+          ],
+          "explanation": "Fire is a chemical reaction that needs oxygen. The Sun's energy comes from nuclear fusion: hydrogen atoms fusing into helium under enormous heat and pressure.",
+          "difficulty": 0.25
+        },
+        {
           "id": "question.astronomy.002.q2",
           "kind": "mcq",
+          "purpose": "connection",
           "conceptIds": [
             "concept.astronomy.sun_is_a_star"
           ],
@@ -629,6 +718,7 @@
       "id": "level.science.astronomy.003",
       "skillId": "skill.science.astronomy",
       "number": 3,
+      "type": "regular",
       "revision": 1,
       "status": "draft",
       "title": "The Rocky Four",
@@ -683,22 +773,27 @@
         },
         {
           "id": "card.astronomy.003.c4",
-          "type": "mcq",
-          "questionId": "question.astronomy.003.q1"
+          "type": "fact",
+          "fact": "Mars is red because it's rusty.",
+          "context": "Iron oxide (the same stuff as rust) coats Martian dust and rocks, and fine red dust in its thin atmosphere tints the whole planet."
         },
         {
           "id": "card.astronomy.003.c5",
-          "type": "fact",
-          "fact": "Mars is red because it's rusty.",
-          "context": "Iron oxide — the same stuff as rust — coats Martian dust and rocks."
-        },
-        {
-          "id": "card.astronomy.003.c6",
           "type": "mcq",
           "questionId": "question.astronomy.003.q2"
         },
         {
+          "id": "card.astronomy.003.c6",
+          "type": "mcq",
+          "questionId": "question.astronomy.003.q1"
+        },
+        {
           "id": "card.astronomy.003.c7",
+          "type": "recall",
+          "questionId": "question.astronomy.003.q3"
+        },
+        {
+          "id": "card.astronomy.003.c8",
           "type": "checkpoint",
           "headline": "Inner solar system: mapped",
           "learned": [
@@ -711,8 +806,43 @@
       ],
       "questions": [
         {
+          "id": "question.astronomy.003.q2",
+          "kind": "mcq",
+          "purpose": "recall",
+          "conceptIds": [
+            "concept.astronomy.rocky_planets"
+          ],
+          "prompt": "Which of these is NOT one of the rocky inner planets?",
+          "options": [
+            {
+              "id": "a",
+              "label": "Mars",
+              "correct": false
+            },
+            {
+              "id": "b",
+              "label": "Mercury",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "label": "Jupiter",
+              "correct": true,
+              "rationale": "Correct — Jupiter is a gas giant."
+            },
+            {
+              "id": "d",
+              "label": "Venus",
+              "correct": false
+            }
+          ],
+          "explanation": "The rocky inner planets are Mercury, Venus, Earth and Mars. Jupiter is a gas giant.",
+          "difficulty": 0.15
+        },
+        {
           "id": "question.astronomy.003.q1",
           "kind": "mcq",
+          "purpose": "understanding",
           "conceptIds": [
             "concept.astronomy.venus_greenhouse"
           ],
@@ -746,36 +876,40 @@
           "difficulty": 0.25
         },
         {
-          "id": "question.astronomy.003.q2",
+          "id": "question.astronomy.003.q3",
           "kind": "mcq",
+          "purpose": "connection",
           "conceptIds": [
+            "concept.astronomy.earth_third_planet",
             "concept.astronomy.rocky_planets"
           ],
-          "prompt": "Which of these is NOT one of the rocky inner planets?",
+          "prompt": "From Level 1: Earth is the third planet from the Sun. Which rocky planet comes next?",
           "options": [
             {
               "id": "a",
-              "label": "Mars",
-              "correct": false
+              "label": "Venus",
+              "correct": false,
+              "rationale": "Venus is second, just inside Earth's orbit."
             },
             {
               "id": "b",
               "label": "Mercury",
-              "correct": false
+              "correct": false,
+              "rationale": "Mercury is first, closest to the Sun."
             },
             {
               "id": "c",
               "label": "Jupiter",
-              "correct": true,
-              "rationale": "Correct — Jupiter is a gas giant."
+              "correct": false,
+              "rationale": "Jupiter comes after Mars, and it's a gas giant."
             },
             {
               "id": "d",
-              "label": "Venus",
-              "correct": false
+              "label": "Mars",
+              "correct": true
             }
           ],
-          "explanation": "The rocky inner planets are Mercury, Venus, Earth and Mars. Jupiter is a gas giant.",
+          "explanation": "Mercury, Venus, Earth, Mars: Mars is fourth, the outermost of the rocky planets.",
           "difficulty": 0.15
         }
       ],
@@ -789,6 +923,7 @@
       "id": "level.science.astronomy.004",
       "skillId": "skill.science.astronomy",
       "number": 4,
+      "type": "regular",
       "revision": 1,
       "status": "draft",
       "title": "Giants of the Outer Dark",
@@ -851,31 +986,31 @@
         },
         {
           "id": "card.astronomy.004.c3",
-          "type": "mcq",
-          "questionId": "question.astronomy.004.q1"
-        },
-        {
-          "id": "card.astronomy.004.c4",
           "type": "fact",
           "fact": "Jupiter has more than twice the mass of all the other planets combined.",
           "context": "If the planets were a team, Jupiter would be carrying it."
         },
         {
-          "id": "card.astronomy.004.c5",
-          "type": "mcq",
-          "questionId": "question.astronomy.004.q3"
-        },
-        {
-          "id": "card.astronomy.004.c6",
+          "id": "card.astronomy.004.c4",
           "type": "text",
           "role": "explain",
           "headline": "Saturn's rings are ice",
-          "body": "Those famous rings aren't solid. They're countless chunks of water ice, with some rock, ranging from dust-sized grains to pieces as big as houses."
+          "body": "Those famous rings aren't solid. They're countless chunks of water ice, with some rock, ranging from dust-sized grains to pieces as big as houses. Each chunk orbits Saturn on its own path, like a tiny moon."
+        },
+        {
+          "id": "card.astronomy.004.c5",
+          "type": "mcq",
+          "questionId": "question.astronomy.004.q1"
+        },
+        {
+          "id": "card.astronomy.004.c6",
+          "type": "mcq",
+          "questionId": "question.astronomy.004.q2"
         },
         {
           "id": "card.astronomy.004.c7",
-          "type": "mcq",
-          "questionId": "question.astronomy.004.q2"
+          "type": "recall",
+          "questionId": "question.astronomy.004.q3"
         },
         {
           "id": "card.astronomy.004.c8",
@@ -893,6 +1028,7 @@
         {
           "id": "question.astronomy.004.q1",
           "kind": "mcq",
+          "purpose": "recall",
           "conceptIds": [
             "concept.astronomy.giant_planets"
           ],
@@ -928,71 +1064,74 @@
         {
           "id": "question.astronomy.004.q2",
           "kind": "mcq",
+          "purpose": "understanding",
           "conceptIds": [
-            "concept.astronomy.saturn_rings"
+            "concept.astronomy.giant_planets"
           ],
-          "prompt": "What are Saturn's rings mostly made of?",
+          "prompt": "Why couldn't you land on Jupiter or Saturn?",
           "options": [
             {
               "id": "a",
-              "label": "Solid rock sheets",
+              "label": "They're too hot to approach",
               "correct": false,
-              "rationale": "The rings are made of separate chunks, not sheets."
+              "rationale": "Their cloud tops are actually very cold."
             },
             {
               "id": "b",
-              "label": "Gas",
-              "correct": false,
-              "rationale": "They're solid particles."
+              "label": "They have no solid surface, just ever-thicker gas",
+              "correct": true
             },
             {
               "id": "c",
-              "label": "Metal dust",
+              "label": "Their rings block the way",
               "correct": false,
-              "rationale": "There's some rock, but ice dominates."
+              "rationale": "Jupiter's rings are faint and thin, and they don't stop anything."
             },
             {
               "id": "d",
-              "label": "Chunks of water ice",
-              "correct": true
+              "label": "They spin too slowly",
+              "correct": false,
+              "rationale": "Jupiter spins faster than any other planet."
             }
           ],
-          "explanation": "Saturn's rings are mostly chunks of water ice with some rock.",
-          "difficulty": 0.2
+          "explanation": "Gas giants are mostly hydrogen and helium. Descend and the gas just gets denser and hotter, with no ground to stand on.",
+          "difficulty": 0.25
         },
         {
           "id": "question.astronomy.004.q3",
           "kind": "mcq",
+          "purpose": "connection",
           "conceptIds": [
-            "concept.astronomy.jupiter_mass"
+            "concept.astronomy.rocky_planets",
+            "concept.astronomy.giant_planets"
           ],
-          "prompt": "How does Jupiter's mass compare to the other planets?",
+          "prompt": "From Level 3: what's the big difference between the inner planets and the outer giants?",
           "options": [
             {
               "id": "a",
-              "label": "It's about the same as Saturn's",
+              "label": "The inner planets are all bigger",
               "correct": false,
-              "rationale": "Jupiter is over three times Saturn's mass."
+              "rationale": "The giants dwarf them."
             },
             {
               "id": "b",
-              "label": "It's smaller than Earth's",
+              "label": "The giants are closer to the Sun",
               "correct": false,
-              "rationale": "Jupiter is the biggest planet."
+              "rationale": "They're much farther out."
             },
             {
               "id": "c",
-              "label": "It's more than twice all the others combined",
+              "label": "Inner planets are small and rocky; giants are mostly gas and ice",
               "correct": true
             },
             {
               "id": "d",
-              "label": "It equals the Sun's",
+              "label": "Only the inner planets have moons",
               "correct": false,
-              "rationale": "The Sun is about 1,000 times more massive."
+              "rationale": "Jupiter and Saturn have dozens."
             }
           ],
-          "explanation": "Jupiter is more than twice as massive as all the other planets put together.",
+          "explanation": "The solar system splits neatly: four small rocky worlds inside, four giants of gas and ice outside.",
           "difficulty": 0.25
         }
       ],
@@ -1006,6 +1145,7 @@
       "id": "level.science.astronomy.005",
       "skillId": "skill.science.astronomy",
       "number": 5,
+      "type": "regular",
       "revision": 1,
       "status": "draft",
       "title": "Why We Have Seasons",
@@ -1021,6 +1161,11 @@
           "conceptId": "concept.astronomy.seasons_not_distance",
           "role": "teach",
           "weight": 1
+        },
+        {
+          "conceptId": "concept.astronomy.venus_greenhouse",
+          "role": "recall",
+          "weight": 0.5
         }
       ],
       "prerequisites": [
@@ -1044,20 +1189,20 @@
           "type": "text",
           "role": "explain",
           "headline": "It's the tilt",
-          "body": "Earth's axis is tilted about 23.5°. When your hemisphere leans toward the Sun, sunlight hits more directly and days are longer. That's summer.",
+          "body": "Earth's axis is tilted about 23.5°. When your hemisphere leans toward the Sun, sunlight hits the ground more directly and days last longer, so more energy lands on each patch of ground. That's summer. Lean away, and the same sunlight arrives at a slant and spreads thin.",
           "callout": "Tilt → angle of sunlight → season"
         },
         {
           "id": "card.astronomy.005.c4",
-          "type": "mcq",
-          "questionId": "question.astronomy.005.q1"
-        },
-        {
-          "id": "card.astronomy.005.c5",
           "type": "text",
           "role": "connect",
           "headline": "Opposite seasons",
           "body": "Because the hemispheres lean opposite ways, December is winter in New York and summer in Sydney. Same planet, same distance, different lean."
+        },
+        {
+          "id": "card.astronomy.005.c5",
+          "type": "mcq",
+          "questionId": "question.astronomy.005.q1"
         },
         {
           "id": "card.astronomy.005.c6",
@@ -1066,6 +1211,11 @@
         },
         {
           "id": "card.astronomy.005.c7",
+          "type": "recall",
+          "questionId": "question.astronomy.005.q3"
+        },
+        {
+          "id": "card.astronomy.005.c8",
           "type": "checkpoint",
           "headline": "Seasons: solved",
           "learned": [
@@ -1080,6 +1230,7 @@
         {
           "id": "question.astronomy.005.q1",
           "kind": "mcq",
+          "purpose": "recall",
           "conceptIds": [
             "concept.astronomy.seasons_tilt"
           ],
@@ -1115,6 +1266,7 @@
         {
           "id": "question.astronomy.005.q2",
           "kind": "mcq",
+          "purpose": "understanding",
           "conceptIds": [
             "concept.astronomy.seasons_not_distance"
           ],
@@ -1146,6 +1298,43 @@
           ],
           "explanation": "The hemispheres tilt opposite ways, so northern summer is southern winter.",
           "difficulty": 0.35
+        },
+        {
+          "id": "question.astronomy.005.q3",
+          "kind": "mcq",
+          "purpose": "connection",
+          "conceptIds": [
+            "concept.astronomy.seasons_not_distance",
+            "concept.astronomy.venus_greenhouse"
+          ],
+          "prompt": "Venus is hotter than Mercury (Level 3), and northern summer happens when Earth is farther from the Sun. What do both show?",
+          "options": [
+            {
+              "id": "a",
+              "label": "Planets closer to the Sun are always hotter",
+              "correct": false,
+              "rationale": "Both examples break that rule."
+            },
+            {
+              "id": "b",
+              "label": "Distance from the Sun isn't the whole story for temperature",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "label": "Venus causes Earth's seasons",
+              "correct": false,
+              "rationale": "Venus has no effect on our seasons."
+            },
+            {
+              "id": "d",
+              "label": "Earth's orbit is a perfect circle",
+              "correct": false,
+              "rationale": "It's slightly oval, but that isn't the point here."
+            }
+          ],
+          "explanation": "Venus's atmosphere traps heat, and Earth's tilt sets the angle of sunlight. In both cases something other than distance is in charge.",
+          "difficulty": 0.35
         }
       ],
       "sourceIds": [
@@ -1157,6 +1346,7 @@
       "id": "level.science.astronomy.006",
       "skillId": "skill.science.astronomy",
       "number": 6,
+      "type": "regular",
       "revision": 1,
       "status": "draft",
       "title": "The Moon's Changing Face",
@@ -1194,19 +1384,19 @@
           "type": "text",
           "role": "explain",
           "headline": "Half lit, always",
-          "body": "The Sun always lights up half of the Moon. As the Moon orbits Earth, we see different amounts of that lit half: a sliver, a half, the full face, then back again.",
+          "body": "The Sun always lights up half of the Moon. As the Moon orbits Earth, we see different amounts of that lit half: a thin crescent, a half, the full face, then back again. Nothing is covering the Moon; only our viewing angle changes.",
           "callout": "A full cycle takes about 29.5 days"
         },
         {
           "id": "card.astronomy.006.c3",
-          "type": "mcq",
-          "questionId": "question.astronomy.006.q1"
+          "type": "fact",
+          "fact": "We always see the same side of the Moon.",
+          "context": "The Moon, about 384,400 km away, is tidally locked: it turns exactly once per orbit. The far side isn't permanently dark. It gets as much sunlight as the near side; we just never see it from Earth. Its day and its month last the same time."
         },
         {
           "id": "card.astronomy.006.c4",
-          "type": "fact",
-          "fact": "We always see the same side of the Moon.",
-          "context": "The Moon is tidally locked: it turns exactly once per orbit. The far side isn't permanently dark — we just never see it from Earth."
+          "type": "mcq",
+          "questionId": "question.astronomy.006.q1"
         },
         {
           "id": "card.astronomy.006.c5",
@@ -1234,6 +1424,7 @@
         {
           "id": "question.astronomy.006.q1",
           "kind": "mcq",
+          "purpose": "recall",
           "conceptIds": [
             "concept.astronomy.moon_phases"
           ],
@@ -1269,6 +1460,7 @@
         {
           "id": "question.astronomy.006.q2",
           "kind": "mcq",
+          "purpose": "understanding",
           "conceptIds": [
             "concept.astronomy.moon_tidal_lock"
           ],
@@ -1304,6 +1496,7 @@
         {
           "id": "question.astronomy.006.q3",
           "kind": "mcq",
+          "purpose": "connection",
           "conceptIds": [
             "concept.astronomy.seasons_tilt"
           ],
@@ -1347,6 +1540,7 @@
       "id": "level.science.astronomy.007",
       "skillId": "skill.science.astronomy",
       "number": 7,
+      "type": "regular",
       "revision": 1,
       "status": "draft",
       "title": "Eclipses and a Cosmic Coincidence",
@@ -1404,14 +1598,14 @@
         },
         {
           "id": "card.astronomy.007.c3",
-          "type": "mcq",
-          "questionId": "question.astronomy.007.q1"
+          "type": "fact",
+          "fact": "The Sun is about 400 times wider than the Moon — and about 400 times farther away.",
+          "context": "Those two numbers cancel out, so the Sun and Moon look almost exactly the same size in our sky. That's why, during a total solar eclipse, the Moon can cover the Sun's bright disc and reveal its faint outer glow."
         },
         {
           "id": "card.astronomy.007.c4",
-          "type": "fact",
-          "fact": "The Sun is about 400 times wider than the Moon — and about 400 times farther away.",
-          "context": "Those two numbers cancel out, so the Sun and Moon look almost exactly the same size in our sky."
+          "type": "mcq",
+          "questionId": "question.astronomy.007.q1"
         },
         {
           "id": "card.astronomy.007.c5",
@@ -1420,6 +1614,11 @@
         },
         {
           "id": "card.astronomy.007.c6",
+          "type": "recall",
+          "questionId": "question.astronomy.007.q3"
+        },
+        {
+          "id": "card.astronomy.007.c7",
           "type": "checkpoint",
           "headline": "Eclipses: explained",
           "learned": [
@@ -1433,6 +1632,7 @@
         {
           "id": "question.astronomy.007.q1",
           "kind": "mcq",
+          "purpose": "recall",
           "conceptIds": [
             "concept.astronomy.eclipse_types"
           ],
@@ -1468,6 +1668,7 @@
         {
           "id": "question.astronomy.007.q2",
           "kind": "mcq",
+          "purpose": "understanding",
           "conceptIds": [
             "concept.astronomy.eclipse_coincidence"
           ],
@@ -1499,6 +1700,43 @@
           ],
           "explanation": "The Sun's extra size is balanced by its extra distance, so both look about the same size from Earth.",
           "difficulty": 0.35
+        },
+        {
+          "id": "question.astronomy.007.q3",
+          "kind": "mcq",
+          "purpose": "connection",
+          "conceptIds": [
+            "concept.astronomy.eclipse_types",
+            "concept.astronomy.moon_phases"
+          ],
+          "prompt": "From Level 6: why can a lunar eclipse only happen at full Moon?",
+          "options": [
+            {
+              "id": "a",
+              "label": "The Moon is closest to Earth then",
+              "correct": false,
+              "rationale": "Eclipses don't depend on the Moon's distance."
+            },
+            {
+              "id": "b",
+              "label": "Full Moons are brighter, so eclipses show up",
+              "correct": false,
+              "rationale": "Brightness isn't the reason."
+            },
+            {
+              "id": "c",
+              "label": "The Moon stops orbiting at full Moon",
+              "correct": false,
+              "rationale": "It never stops."
+            },
+            {
+              "id": "d",
+              "label": "Earth must sit between the Sun and Moon, the same line-up that makes a full Moon",
+              "correct": true
+            }
+          ],
+          "explanation": "At full Moon, Earth is between the Sun and the Moon. When the three line up exactly, Earth's shadow falls on the Moon.",
+          "difficulty": 0.35
         }
       ],
       "sourceIds": [
@@ -1509,6 +1747,7 @@
       "id": "level.science.astronomy.008",
       "skillId": "skill.science.astronomy",
       "number": 8,
+      "type": "regular",
       "revision": 1,
       "status": "draft",
       "title": "Light-Years: Measuring the Unmeasurable",
@@ -1551,19 +1790,21 @@
         },
         {
           "id": "card.astronomy.008.c3",
-          "type": "mcq",
-          "questionId": "question.astronomy.008.q1"
+          "type": "text",
+          "role": "explain",
+          "headline": "Why measure space in light?",
+          "body": "Light is the fastest thing there is, about 300,000 km every second. It crosses from the Moon to Earth in just over a second. Yet even light needs years to reach the next star, so astronomers describe distance by how long light takes to cover it."
         },
         {
           "id": "card.astronomy.008.c4",
-          "type": "recall",
-          "questionId": "question.astronomy.008.q2"
-        },
-        {
-          "id": "card.astronomy.008.c5",
           "type": "fact",
           "fact": "The closest star after the Sun is Proxima Centauri, about 4.2 light-years away.",
           "context": "Its light left before you started reading about this app. Probably."
+        },
+        {
+          "id": "card.astronomy.008.c5",
+          "type": "mcq",
+          "questionId": "question.astronomy.008.q1"
         },
         {
           "id": "card.astronomy.008.c6",
@@ -1572,6 +1813,11 @@
         },
         {
           "id": "card.astronomy.008.c7",
+          "type": "recall",
+          "questionId": "question.astronomy.008.q2"
+        },
+        {
+          "id": "card.astronomy.008.c8",
           "type": "checkpoint",
           "headline": "Cosmic yardstick: acquired",
           "learned": [
@@ -1585,6 +1831,7 @@
         {
           "id": "question.astronomy.008.q1",
           "kind": "mcq",
+          "purpose": "recall",
           "conceptIds": [
             "concept.astronomy.light_year"
           ],
@@ -1618,8 +1865,46 @@
           "difficulty": 0.3
         },
         {
+          "id": "question.astronomy.008.q3",
+          "kind": "mcq",
+          "purpose": "understanding",
+          "conceptIds": [
+            "concept.astronomy.nearest_star",
+            "concept.astronomy.light_year"
+          ],
+          "prompt": "Proxima Centauri is about 4.2 light-years away. What does that mean?",
+          "options": [
+            {
+              "id": "a",
+              "label": "It's 4.2 years old",
+              "correct": false,
+              "rationale": "A light-year measures distance, not age."
+            },
+            {
+              "id": "b",
+              "label": "A spacecraft could reach it in 4.2 years",
+              "correct": false,
+              "rationale": "Our fastest probes would take thousands of years."
+            },
+            {
+              "id": "c",
+              "label": "Its light takes about 4.2 years to reach us",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "label": "It's 4.2 times farther than the Sun",
+              "correct": false,
+              "rationale": "It's hundreds of thousands of times farther."
+            }
+          ],
+          "explanation": "A light-year is how far light goes in a year, so light from Proxima Centauri left it about 4.2 years before you see it.",
+          "difficulty": 0.35
+        },
+        {
           "id": "question.astronomy.008.q2",
           "kind": "mcq",
+          "purpose": "connection",
           "conceptIds": [
             "concept.astronomy.sunlight_travel_time"
           ],
@@ -1651,41 +1936,6 @@
           ],
           "explanation": "Sunlight takes about 8 minutes to reach Earth — so the Sun is about 8 light-minutes away.",
           "difficulty": 0.2
-        },
-        {
-          "id": "question.astronomy.008.q3",
-          "kind": "mcq",
-          "conceptIds": [
-            "concept.astronomy.nearest_star"
-          ],
-          "prompt": "Which star is closest to us after the Sun?",
-          "options": [
-            {
-              "id": "a",
-              "label": "Sirius",
-              "correct": false,
-              "rationale": "Sirius is the brightest star in the night sky, but it's farther."
-            },
-            {
-              "id": "b",
-              "label": "Polaris",
-              "correct": false,
-              "rationale": "The North Star is hundreds of light-years away."
-            },
-            {
-              "id": "c",
-              "label": "Betelgeuse",
-              "correct": false,
-              "rationale": "Betelgeuse is hundreds of light-years away."
-            },
-            {
-              "id": "d",
-              "label": "Proxima Centauri",
-              "correct": true
-            }
-          ],
-          "explanation": "Proxima Centauri, about 4.2 light-years away, is the nearest star after the Sun.",
-          "difficulty": 0.35
         }
       ],
       "sourceIds": [
@@ -1697,6 +1947,7 @@
       "id": "level.science.astronomy.009",
       "skillId": "skill.science.astronomy",
       "number": 9,
+      "type": "regular",
       "revision": 1,
       "status": "draft",
       "title": "The Life of a Star",
@@ -1739,11 +1990,6 @@
         },
         {
           "id": "card.astronomy.009.c3",
-          "type": "mcq",
-          "questionId": "question.astronomy.009.q1"
-        },
-        {
-          "id": "card.astronomy.009.c4",
           "type": "timeline",
           "headline": "The Sun's life",
           "events": [
@@ -1766,19 +2012,29 @@
           ]
         },
         {
-          "id": "card.astronomy.009.c5",
+          "id": "card.astronomy.009.c4",
           "type": "text",
           "role": "connect",
           "headline": "Bigger stars, bigger endings",
           "body": "The Sun won't explode. But stars much more massive than the Sun can end their lives in a supernova — an explosion that can briefly outshine a whole galaxy."
         },
         {
-          "id": "card.astronomy.009.c6",
+          "id": "card.astronomy.009.c5",
           "type": "mcq",
           "questionId": "question.astronomy.009.q2"
         },
         {
+          "id": "card.astronomy.009.c6",
+          "type": "mcq",
+          "questionId": "question.astronomy.009.q1"
+        },
+        {
           "id": "card.astronomy.009.c7",
+          "type": "recall",
+          "questionId": "question.astronomy.009.q3"
+        },
+        {
+          "id": "card.astronomy.009.c8",
           "type": "checkpoint",
           "headline": "Stellar life cycle: unlocked",
           "learned": [
@@ -1791,8 +2047,45 @@
       ],
       "questions": [
         {
+          "id": "question.astronomy.009.q2",
+          "kind": "mcq",
+          "purpose": "recall",
+          "conceptIds": [
+            "concept.astronomy.star_life_cycle"
+          ],
+          "prompt": "How will the Sun most likely end its life?",
+          "options": [
+            {
+              "id": "a",
+              "label": "As a red giant, then a white dwarf",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "label": "As a supernova",
+              "correct": false,
+              "rationale": "The Sun isn't massive enough."
+            },
+            {
+              "id": "c",
+              "label": "As a black hole",
+              "correct": false,
+              "rationale": "The Sun isn't nearly massive enough."
+            },
+            {
+              "id": "d",
+              "label": "It will burn forever",
+              "correct": false,
+              "rationale": "Its fuel will eventually run low."
+            }
+          ],
+          "explanation": "In about 5 billion years the Sun will swell into a red giant, then shrink into a white dwarf.",
+          "difficulty": 0.4
+        },
+        {
           "id": "question.astronomy.009.q1",
           "kind": "mcq",
+          "purpose": "understanding",
           "conceptIds": [
             "concept.astronomy.star_color_temperature"
           ],
@@ -1826,38 +2119,40 @@
           "difficulty": 0.35
         },
         {
-          "id": "question.astronomy.009.q2",
+          "id": "question.astronomy.009.q3",
           "kind": "mcq",
+          "purpose": "connection",
           "conceptIds": [
+            "concept.astronomy.sun_fusion",
             "concept.astronomy.star_life_cycle"
           ],
-          "prompt": "How will the Sun most likely end its life?",
+          "prompt": "From Level 2: when the Sun swells into a red giant, what is it running low on?",
           "options": [
             {
               "id": "a",
-              "label": "As a red giant, then a white dwarf",
+              "label": "Hydrogen to fuse in its core",
               "correct": true
             },
             {
               "id": "b",
-              "label": "As a supernova",
+              "label": "Oxygen to burn",
               "correct": false,
-              "rationale": "The Sun isn't massive enough."
+              "rationale": "The Sun doesn't burn with oxygen; it fuses atoms."
             },
             {
               "id": "c",
-              "label": "As a black hole",
+              "label": "Light",
               "correct": false,
-              "rationale": "The Sun isn't nearly massive enough."
+              "rationale": "It will still shine, brighter than ever for a while."
             },
             {
               "id": "d",
-              "label": "It will burn forever",
+              "label": "Heat",
               "correct": false,
-              "rationale": "Its fuel will eventually run low."
+              "rationale": "Its core actually gets hotter."
             }
           ],
-          "explanation": "In about 5 billion years the Sun will swell into a red giant, then shrink into a white dwarf.",
+          "explanation": "A star shines by fusing hydrogen in its core. When the Sun's core runs short of hydrogen, it changes, swelling into a red giant.",
           "difficulty": 0.4
         }
       ],
@@ -1870,9 +2165,10 @@
       "id": "level.science.astronomy.010",
       "skillId": "skill.science.astronomy",
       "number": 10,
+      "type": "checkpoint",
       "revision": 1,
       "status": "draft",
-      "title": "Chapter 1 Boss: Your Place in the Universe",
+      "title": "Checkpoint: Your Place in the Universe",
       "objective": "After this level you can trace Earth's address from our planet all the way out to the observable universe.",
       "summary": "The Milky Way is ~100,000 light-years across, Andromeda is ~2.5 million light-years away, and the observable universe holds billions of galaxies in a ~13.8-billion-year-old cosmos.",
       "concepts": [
@@ -1900,6 +2196,11 @@
           "conceptId": "concept.astronomy.light_year",
           "role": "recall",
           "weight": 0.5
+        },
+        {
+          "conceptId": "concept.astronomy.nearest_star",
+          "role": "recall",
+          "weight": 0.5
         }
       ],
       "prerequisites": [
@@ -1922,34 +2223,44 @@
         },
         {
           "id": "card.astronomy.010.c3",
-          "type": "recall",
-          "questionId": "question.astronomy.010.q1"
-        },
-        {
-          "id": "card.astronomy.010.c4",
           "type": "fact",
           "fact": "Andromeda, the nearest large spiral galaxy, is about 2.5 million light-years away.",
           "context": "On a dark night you can see it with the naked eye as a faint smudge — the most distant thing most people will ever see unaided."
         },
         {
-          "id": "card.astronomy.010.c5",
+          "id": "card.astronomy.010.c4",
           "type": "text",
           "role": "explain",
           "headline": "And then everything else",
           "body": "The observable universe holds billions of galaxies, each with billions of stars. The universe itself is about 13.8 billion years old."
         },
         {
-          "id": "card.astronomy.010.c6",
+          "id": "card.astronomy.010.c5",
           "type": "mcq",
           "questionId": "question.astronomy.010.q2"
         },
         {
-          "id": "card.astronomy.010.c7",
-          "type": "recall",
+          "id": "card.astronomy.010.c6",
+          "type": "mcq",
           "questionId": "question.astronomy.010.q3"
         },
         {
+          "id": "card.astronomy.010.c7",
+          "type": "mcq",
+          "questionId": "question.astronomy.010.q4"
+        },
+        {
           "id": "card.astronomy.010.c8",
+          "type": "recall",
+          "questionId": "question.astronomy.010.q1"
+        },
+        {
+          "id": "card.astronomy.010.c9",
+          "type": "recall",
+          "questionId": "question.astronomy.010.q5"
+        },
+        {
+          "id": "card.astronomy.010.c10",
           "type": "checkpoint",
           "headline": "Chapter 1 complete",
           "learned": [
@@ -1962,43 +2273,9 @@
       ],
       "questions": [
         {
-          "id": "question.astronomy.010.q1",
-          "kind": "mcq",
-          "conceptIds": [
-            "concept.astronomy.milky_way_home"
-          ],
-          "prompt": "From Level 1: which galaxy is the Sun part of?",
-          "options": [
-            {
-              "id": "a",
-              "label": "Andromeda",
-              "correct": false,
-              "rationale": "Andromeda is our neighbor, not our home."
-            },
-            {
-              "id": "b",
-              "label": "The Large Magellanic Cloud",
-              "correct": false,
-              "rationale": "That's a small satellite galaxy of the Milky Way."
-            },
-            {
-              "id": "c",
-              "label": "The Milky Way",
-              "correct": true
-            },
-            {
-              "id": "d",
-              "label": "The solar system",
-              "correct": false,
-              "rationale": "The solar system is inside a galaxy, not a galaxy itself."
-            }
-          ],
-          "explanation": "The Sun is one of at least 100 billion stars in the Milky Way.",
-          "difficulty": 0.1
-        },
-        {
           "id": "question.astronomy.010.q2",
           "kind": "mcq",
+          "purpose": "recall",
           "conceptIds": [
             "concept.astronomy.universe_scale_age"
           ],
@@ -2034,6 +2311,7 @@
         {
           "id": "question.astronomy.010.q3",
           "kind": "mcq",
+          "purpose": "understanding",
           "conceptIds": [
             "concept.astronomy.light_year",
             "concept.astronomy.andromeda"
@@ -2065,6 +2343,116 @@
             }
           ],
           "explanation": "A light-year is a distance; Andromeda's light has been traveling for about 2.5 million years.",
+          "difficulty": 0.45
+        },
+        {
+          "id": "question.astronomy.010.q4",
+          "kind": "mcq",
+          "purpose": "understanding",
+          "conceptIds": [
+            "concept.astronomy.milky_way_size",
+            "concept.astronomy.light_year"
+          ],
+          "prompt": "The Milky Way is about 100,000 light-years across. Roughly how long would light take to cross it?",
+          "options": [
+            {
+              "id": "a",
+              "label": "About 100,000 seconds",
+              "correct": false,
+              "rationale": "A light-year is a year of light travel, not a second."
+            },
+            {
+              "id": "b",
+              "label": "About 8 minutes",
+              "correct": false,
+              "rationale": "That's sunlight reaching Earth."
+            },
+            {
+              "id": "c",
+              "label": "About 13.8 billion years",
+              "correct": false,
+              "rationale": "That's the age of the universe."
+            },
+            {
+              "id": "d",
+              "label": "About 100,000 years",
+              "correct": true
+            }
+          ],
+          "explanation": "A distance of 100,000 light-years takes light 100,000 years to cross. That's our own galaxy.",
+          "difficulty": 0.45
+        },
+        {
+          "id": "question.astronomy.010.q1",
+          "kind": "mcq",
+          "purpose": "connection",
+          "conceptIds": [
+            "concept.astronomy.milky_way_home"
+          ],
+          "prompt": "From Level 1: which galaxy is the Sun part of?",
+          "options": [
+            {
+              "id": "a",
+              "label": "Andromeda",
+              "correct": false,
+              "rationale": "Andromeda is our neighbor, not our home."
+            },
+            {
+              "id": "b",
+              "label": "The Large Magellanic Cloud",
+              "correct": false,
+              "rationale": "That's a small satellite galaxy of the Milky Way."
+            },
+            {
+              "id": "c",
+              "label": "The Milky Way",
+              "correct": true
+            },
+            {
+              "id": "d",
+              "label": "The solar system",
+              "correct": false,
+              "rationale": "The solar system is inside a galaxy, not a galaxy itself."
+            }
+          ],
+          "explanation": "The Sun is one of at least 100 billion stars in the Milky Way.",
+          "difficulty": 0.1
+        },
+        {
+          "id": "question.astronomy.010.q5",
+          "kind": "mcq",
+          "purpose": "connection",
+          "conceptIds": [
+            "concept.astronomy.andromeda",
+            "concept.astronomy.nearest_star"
+          ],
+          "prompt": "Chapter 1 recap: which of these is farthest from Earth?",
+          "options": [
+            {
+              "id": "a",
+              "label": "Proxima Centauri",
+              "correct": false,
+              "rationale": "About 4.2 light-years: the nearest star after the Sun."
+            },
+            {
+              "id": "b",
+              "label": "The Andromeda galaxy",
+              "correct": true
+            },
+            {
+              "id": "c",
+              "label": "Neptune",
+              "correct": false,
+              "rationale": "The farthest planet, but still inside our solar system."
+            },
+            {
+              "id": "d",
+              "label": "The Sun",
+              "correct": false,
+              "rationale": "About 8 light-minutes away."
+            }
+          ],
+          "explanation": "Andromeda is about 2.5 million light-years away, far beyond every star in our own galaxy.",
           "difficulty": 0.45
         }
       ],

@@ -2,6 +2,7 @@
   "id": "level.science.astronomy.009",
   "skillId": "skill.science.astronomy",
   "number": 9,
+  "type": "regular",
   "revision": 1,
   "status": "draft",
   "title": "The Life of a Star",
@@ -44,11 +45,6 @@
     },
     {
       "id": "card.astronomy.009.c3",
-      "type": "mcq",
-      "questionId": "question.astronomy.009.q1"
-    },
-    {
-      "id": "card.astronomy.009.c4",
       "type": "timeline",
       "headline": "The Sun's life",
       "events": [
@@ -71,19 +67,29 @@
       ]
     },
     {
-      "id": "card.astronomy.009.c5",
+      "id": "card.astronomy.009.c4",
       "type": "text",
       "role": "connect",
       "headline": "Bigger stars, bigger endings",
       "body": "The Sun won't explode. But stars much more massive than the Sun can end their lives in a supernova — an explosion that can briefly outshine a whole galaxy."
     },
     {
-      "id": "card.astronomy.009.c6",
+      "id": "card.astronomy.009.c5",
       "type": "mcq",
       "questionId": "question.astronomy.009.q2"
     },
     {
+      "id": "card.astronomy.009.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.009.q1"
+    },
+    {
       "id": "card.astronomy.009.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.009.q3"
+    },
+    {
+      "id": "card.astronomy.009.c8",
       "type": "checkpoint",
       "headline": "Stellar life cycle: unlocked",
       "learned": [
@@ -95,41 +101,6 @@
     }
   ],
   "questions": [
-    {
-      "id": "question.astronomy.009.q1",
-      "kind": "mcq",
-      "conceptIds": [
-        "concept.astronomy.star_color_temperature"
-      ],
-      "prompt": "A star looks blue-white. What does that tell you?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It's cooler than the Sun",
-          "correct": false,
-          "rationale": "Cool stars look red."
-        },
-        {
-          "id": "b",
-          "label": "It's hotter than the Sun",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It's very close to us",
-          "correct": false,
-          "rationale": "Color doesn't tell you distance."
-        },
-        {
-          "id": "d",
-          "label": "It's about to explode",
-          "correct": false,
-          "rationale": "Color alone doesn't mean that."
-        }
-      ],
-      "explanation": "A star's color reveals its surface temperature: bluer means hotter.",
-      "difficulty": 0.35
-    },
     {
       "id": "question.astronomy.009.q2",
       "kind": "mcq",
@@ -163,6 +134,80 @@
         }
       ],
       "explanation": "In about 5 billion years the Sun will swell into a red giant, then shrink into a white dwarf.",
+      "difficulty": 0.4,
+      "purpose": "recall"
+    },
+    {
+      "id": "question.astronomy.009.q1",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.star_color_temperature"
+      ],
+      "prompt": "A star looks blue-white. What does that tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's cooler than the Sun",
+          "correct": false,
+          "rationale": "Cool stars look red."
+        },
+        {
+          "id": "b",
+          "label": "It's hotter than the Sun",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It's very close to us",
+          "correct": false,
+          "rationale": "Color doesn't tell you distance."
+        },
+        {
+          "id": "d",
+          "label": "It's about to explode",
+          "correct": false,
+          "rationale": "Color alone doesn't mean that."
+        }
+      ],
+      "explanation": "A star's color reveals its surface temperature: bluer means hotter.",
+      "difficulty": 0.35,
+      "purpose": "understanding"
+    },
+    {
+      "id": "question.astronomy.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.sun_fusion",
+        "concept.astronomy.star_life_cycle"
+      ],
+      "prompt": "From Level 2: when the Sun swells into a red giant, what is it running low on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hydrogen to fuse in its core",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Oxygen to burn",
+          "correct": false,
+          "rationale": "The Sun doesn't burn with oxygen; it fuses atoms."
+        },
+        {
+          "id": "c",
+          "label": "Light",
+          "correct": false,
+          "rationale": "It will still shine, brighter than ever for a while."
+        },
+        {
+          "id": "d",
+          "label": "Heat",
+          "correct": false,
+          "rationale": "Its core actually gets hotter."
+        }
+      ],
+      "explanation": "A star shines by fusing hydrogen in its core. When the Sun's core runs short of hydrogen, it changes, swelling into a red giant.",
       "difficulty": 0.4
     }
   ],

@@ -2,6 +2,7 @@
   "id": "level.science.astronomy.003",
   "skillId": "skill.science.astronomy",
   "number": 3,
+  "type": "regular",
   "revision": 1,
   "status": "draft",
   "title": "The Rocky Four",
@@ -56,22 +57,27 @@
     },
     {
       "id": "card.astronomy.003.c4",
-      "type": "mcq",
-      "questionId": "question.astronomy.003.q1"
+      "type": "fact",
+      "fact": "Mars is red because it's rusty.",
+      "context": "Iron oxide (the same stuff as rust) coats Martian dust and rocks, and fine red dust in its thin atmosphere tints the whole planet."
     },
     {
       "id": "card.astronomy.003.c5",
-      "type": "fact",
-      "fact": "Mars is red because it's rusty.",
-      "context": "Iron oxide — the same stuff as rust — coats Martian dust and rocks."
-    },
-    {
-      "id": "card.astronomy.003.c6",
       "type": "mcq",
       "questionId": "question.astronomy.003.q2"
     },
     {
+      "id": "card.astronomy.003.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.003.q1"
+    },
+    {
       "id": "card.astronomy.003.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.003.q3"
+    },
+    {
+      "id": "card.astronomy.003.c8",
       "type": "checkpoint",
       "headline": "Inner solar system: mapped",
       "learned": [
@@ -83,6 +89,40 @@
     }
   ],
   "questions": [
+    {
+      "id": "question.astronomy.003.q2",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.rocky_planets"
+      ],
+      "prompt": "Which of these is NOT one of the rocky inner planets?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mars",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "label": "Mercury",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "label": "Jupiter",
+          "correct": true,
+          "rationale": "Correct — Jupiter is a gas giant."
+        },
+        {
+          "id": "d",
+          "label": "Venus",
+          "correct": false
+        }
+      ],
+      "explanation": "The rocky inner planets are Mercury, Venus, Earth and Mars. Jupiter is a gas giant.",
+      "difficulty": 0.15,
+      "purpose": "recall"
+    },
     {
       "id": "question.astronomy.003.q1",
       "kind": "mcq",
@@ -116,39 +156,44 @@
         }
       ],
       "explanation": "Venus's thick carbon dioxide atmosphere traps heat, making it the hottest planet despite being second from the Sun.",
-      "difficulty": 0.25
+      "difficulty": 0.25,
+      "purpose": "understanding"
     },
     {
-      "id": "question.astronomy.003.q2",
+      "id": "question.astronomy.003.q3",
       "kind": "mcq",
+      "purpose": "connection",
       "conceptIds": [
+        "concept.astronomy.earth_third_planet",
         "concept.astronomy.rocky_planets"
       ],
-      "prompt": "Which of these is NOT one of the rocky inner planets?",
+      "prompt": "From Level 1: Earth is the third planet from the Sun. Which rocky planet comes next?",
       "options": [
         {
           "id": "a",
-          "label": "Mars",
-          "correct": false
+          "label": "Venus",
+          "correct": false,
+          "rationale": "Venus is second, just inside Earth's orbit."
         },
         {
           "id": "b",
           "label": "Mercury",
-          "correct": false
+          "correct": false,
+          "rationale": "Mercury is first, closest to the Sun."
         },
         {
           "id": "c",
           "label": "Jupiter",
-          "correct": true,
-          "rationale": "Correct — Jupiter is a gas giant."
+          "correct": false,
+          "rationale": "Jupiter comes after Mars, and it's a gas giant."
         },
         {
           "id": "d",
-          "label": "Venus",
-          "correct": false
+          "label": "Mars",
+          "correct": true
         }
       ],
-      "explanation": "The rocky inner planets are Mercury, Venus, Earth and Mars. Jupiter is a gas giant.",
+      "explanation": "Mercury, Venus, Earth, Mars: Mars is fourth, the outermost of the rocky planets.",
       "difficulty": 0.15
     }
   ],

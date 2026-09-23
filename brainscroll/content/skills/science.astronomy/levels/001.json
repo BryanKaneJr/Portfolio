@@ -2,6 +2,7 @@
   "id": "level.science.astronomy.001",
   "skillId": "skill.science.astronomy",
   "number": 1,
+  "type": "regular",
   "revision": 1,
   "status": "draft",
   "title": "Your Cosmic Address",
@@ -48,21 +49,21 @@
     },
     {
       "id": "card.astronomy.001.c3",
-      "type": "mcq",
-      "questionId": "question.astronomy.001.q1"
-    },
-    {
-      "id": "card.astronomy.001.c4",
       "type": "fact",
       "fact": "Sunlight takes about 8 minutes to reach Earth.",
       "context": "So when you look at the Sun (please don't, directly), you're seeing it as it was roughly eight minutes ago."
     },
     {
-      "id": "card.astronomy.001.c5",
+      "id": "card.astronomy.001.c4",
       "type": "text",
       "role": "explain",
       "headline": "Now zoom out much, much further",
       "body": "The Sun is one of at least 100 billion stars in the Milky Way, a barred spiral galaxy. That faint band across a dark sky? That's our own galaxy, seen from the inside."
+    },
+    {
+      "id": "card.astronomy.001.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.001.q1"
     },
     {
       "id": "card.astronomy.001.c6",
@@ -71,6 +72,11 @@
     },
     {
       "id": "card.astronomy.001.c7",
+      "type": "mcq",
+      "questionId": "question.astronomy.001.q3"
+    },
+    {
+      "id": "card.astronomy.001.c8",
       "type": "checkpoint",
       "headline": "Cosmic address: unlocked",
       "learned": [
@@ -115,7 +121,8 @@
         }
       ],
       "explanation": "Mercury, Venus, then Earth — third of the eight planets.",
-      "difficulty": 0.1
+      "difficulty": 0.1,
+      "purpose": "recall"
     },
     {
       "id": "question.astronomy.001.q2",
@@ -151,6 +158,44 @@
         }
       ],
       "explanation": "The Sun is an ordinary star — one of at least 100 billion in the Milky Way.",
+      "difficulty": 0.15,
+      "purpose": "understanding"
+    },
+    {
+      "id": "question.astronomy.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.earth_third_planet",
+        "concept.astronomy.milky_way_home"
+      ],
+      "prompt": "Which list goes from smallest to largest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Solar system → Earth → Milky Way",
+          "correct": false,
+          "rationale": "Earth is one part of the solar system."
+        },
+        {
+          "id": "b",
+          "label": "Milky Way → solar system → Earth",
+          "correct": false,
+          "rationale": "That's largest to smallest."
+        },
+        {
+          "id": "c",
+          "label": "Earth → solar system → Milky Way",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Earth → Milky Way → solar system",
+          "correct": false,
+          "rationale": "The solar system sits inside the Milky Way."
+        }
+      ],
+      "explanation": "Earth is one planet in the solar system, and the whole solar system is one tiny part of the Milky Way.",
       "difficulty": 0.15
     }
   ],

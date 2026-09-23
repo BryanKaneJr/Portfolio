@@ -6,3 +6,4 @@ export * from './progression';
 export * from './daily';
 export * from './review';
 export * from './completion';
+export * from './structure';

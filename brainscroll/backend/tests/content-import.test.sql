@@ -19,6 +19,12 @@ do $$ begin
   assert (select count(*) from public.levels where status = 'published') = 10, 'all 10 levels published';
   assert (select count(*) from public.level_revisions) = 10, 're-import must not create revisions';
   assert (select max_published_level from public.skills where id = 'skill.science.astronomy') = 10;
+  -- Testing is proportional: regular levels have 3 questions, the Level 10 checkpoint 5.
+  assert (select level_type from public.levels where number = 10) = 'checkpoint';
+  assert (select count(*) from public.levels where level_type = 'regular') = 9;
+  assert (select bool_and(n = 3) from (select count(*) n from public.questions q join public.levels l on l.id = q.level_id
+          where l.level_type = 'regular' group by q.level_id) x), 'every regular level has 3 questions';
+  assert (select count(*) from public.questions where level_id = 'level.science.astronomy.010') = 5;
   assert (select count(*) from public.answer_options where correct) = (select count(*) from public.questions),
     'every question has exactly one correct option';
   assert (select count(*) from public.source_links where object_type = 'concept') > 0;
@@ -38,14 +44,14 @@ begin
   from public.answer_options o join public.questions q on q.id = o.question_id
   where q.level_id = 'level.science.astronomy.001' and o.correct;
   r := public.complete_level('level.science.astronomy.001', 1, answers, gen_random_uuid());
-  assert (r ->> 'xp_awarded')::int = 24 and (r ->> 'skill_level')::int = 1, format('got %s', r);
+  assert (r ->> 'xp_awarded')::int = 26 and (r ->> 'skill_level')::int = 1, format('got %s', r); -- 20 + 3 correct × 2
   perform pg_temp.expect_error($q$ select public.import_content('{}'::jsonb) $q$, 'permission denied for function import_content');
 
   -- The snapshot the app renders from.
   s := public.get_progress();
   assert s -> 'skills' -> 'skill.science.astronomy' ->> 'highest_cleared' = '1', format('got %s', s);
   assert s -> 'completed_levels' = '["level.science.astronomy.001"]'::jsonb;
-  assert (s ->> 'total_xp')::int = 24 and (s ->> 'xp_today')::int = 24 and (s ->> 'knowledge_level')::int = 3;
+  assert (s ->> 'total_xp')::int = 26 and (s ->> 'xp_today')::int = 26 and (s ->> 'knowledge_level')::int = 3;
   assert (s -> 'daily' ->> 'used')::int = 1 and (s ->> 'reviews_due')::int = 0;
 
   -- Current bundles; unknown ids are simply absent.

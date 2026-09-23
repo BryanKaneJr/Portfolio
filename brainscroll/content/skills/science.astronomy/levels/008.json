@@ -2,6 +2,7 @@
   "id": "level.science.astronomy.008",
   "skillId": "skill.science.astronomy",
   "number": 8,
+  "type": "regular",
   "revision": 1,
   "status": "draft",
   "title": "Light-Years: Measuring the Unmeasurable",
@@ -44,19 +45,21 @@
     },
     {
       "id": "card.astronomy.008.c3",
-      "type": "mcq",
-      "questionId": "question.astronomy.008.q1"
+      "type": "text",
+      "role": "explain",
+      "headline": "Why measure space in light?",
+      "body": "Light is the fastest thing there is, about 300,000 km every second. It crosses from the Moon to Earth in just over a second. Yet even light needs years to reach the next star, so astronomers describe distance by how long light takes to cover it."
     },
     {
       "id": "card.astronomy.008.c4",
-      "type": "recall",
-      "questionId": "question.astronomy.008.q2"
-    },
-    {
-      "id": "card.astronomy.008.c5",
       "type": "fact",
       "fact": "The closest star after the Sun is Proxima Centauri, about 4.2 light-years away.",
       "context": "Its light left before you started reading about this app. Probably."
+    },
+    {
+      "id": "card.astronomy.008.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.008.q1"
     },
     {
       "id": "card.astronomy.008.c6",
@@ -65,6 +68,11 @@
     },
     {
       "id": "card.astronomy.008.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.008.q2"
+    },
+    {
+      "id": "card.astronomy.008.c8",
       "type": "checkpoint",
       "headline": "Cosmic yardstick: acquired",
       "learned": [
@@ -108,7 +116,45 @@
         }
       ],
       "explanation": "A light-year is the distance light travels in one year.",
-      "difficulty": 0.3
+      "difficulty": 0.3,
+      "purpose": "recall"
+    },
+    {
+      "id": "question.astronomy.008.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.nearest_star",
+        "concept.astronomy.light_year"
+      ],
+      "prompt": "Proxima Centauri is about 4.2 light-years away. What does that mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's 4.2 years old",
+          "correct": false,
+          "rationale": "A light-year measures distance, not age."
+        },
+        {
+          "id": "b",
+          "label": "A spacecraft could reach it in 4.2 years",
+          "correct": false,
+          "rationale": "Our fastest probes would take thousands of years."
+        },
+        {
+          "id": "c",
+          "label": "Its light takes about 4.2 years to reach us",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It's 4.2 times farther than the Sun",
+          "correct": false,
+          "rationale": "It's hundreds of thousands of times farther."
+        }
+      ],
+      "explanation": "A light-year is how far light goes in a year, so light from Proxima Centauri left it about 4.2 years before you see it.",
+      "difficulty": 0.35
     },
     {
       "id": "question.astronomy.008.q2",
@@ -143,42 +189,8 @@
         }
       ],
       "explanation": "Sunlight takes about 8 minutes to reach Earth — so the Sun is about 8 light-minutes away.",
-      "difficulty": 0.2
-    },
-    {
-      "id": "question.astronomy.008.q3",
-      "kind": "mcq",
-      "conceptIds": [
-        "concept.astronomy.nearest_star"
-      ],
-      "prompt": "Which star is closest to us after the Sun?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Sirius",
-          "correct": false,
-          "rationale": "Sirius is the brightest star in the night sky, but it's farther."
-        },
-        {
-          "id": "b",
-          "label": "Polaris",
-          "correct": false,
-          "rationale": "The North Star is hundreds of light-years away."
-        },
-        {
-          "id": "c",
-          "label": "Betelgeuse",
-          "correct": false,
-          "rationale": "Betelgeuse is hundreds of light-years away."
-        },
-        {
-          "id": "d",
-          "label": "Proxima Centauri",
-          "correct": true
-        }
-      ],
-      "explanation": "Proxima Centauri, about 4.2 light-years away, is the nearest star after the Sun.",
-      "difficulty": 0.35
+      "difficulty": 0.2,
+      "purpose": "connection"
     }
   ],
   "sourceIds": [

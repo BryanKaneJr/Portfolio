@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { XP, buildReviewQueue, completeLevel, emptyProgress, submitReview, type Level, type ProgressState } from '../src';
+import { XP, buildReviewQueue, completeLevel, emptyProgress, levelTypeFor, submitReview, type Level, type ProgressState } from '../src';
 
 // Mirrors backend/tests/review.test.sql.
 
@@ -9,6 +9,7 @@ function lvl(n: number, extraQuestionConcept?: string): Level {
   const q = (i: number, concepts: string[]) => ({
     id: `question.testing.${num}.q${i}`,
     kind: 'mcq' as const,
+    purpose: 'recall' as const,
     conceptIds: concepts,
     prompt: 'Q?',
     options: [
@@ -22,6 +23,7 @@ function lvl(n: number, extraQuestionConcept?: string): Level {
     id: `level.science.testing.${num}`,
     skillId: 'skill.science.testing',
     number: n,
+    type: levelTypeFor(n),
     revision: 1,
     status: 'published',
     title: `Level ${n}`,

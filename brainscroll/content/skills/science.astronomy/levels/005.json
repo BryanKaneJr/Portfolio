@@ -2,6 +2,7 @@
   "id": "level.science.astronomy.005",
   "skillId": "skill.science.astronomy",
   "number": 5,
+  "type": "regular",
   "revision": 1,
   "status": "draft",
   "title": "Why We Have Seasons",
@@ -17,6 +18,11 @@
       "conceptId": "concept.astronomy.seasons_not_distance",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.venus_greenhouse",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -40,20 +46,20 @@
       "type": "text",
       "role": "explain",
       "headline": "It's the tilt",
-      "body": "Earth's axis is tilted about 23.5°. When your hemisphere leans toward the Sun, sunlight hits more directly and days are longer. That's summer.",
+      "body": "Earth's axis is tilted about 23.5°. When your hemisphere leans toward the Sun, sunlight hits the ground more directly and days last longer, so more energy lands on each patch of ground. That's summer. Lean away, and the same sunlight arrives at a slant and spreads thin.",
       "callout": "Tilt → angle of sunlight → season"
     },
     {
       "id": "card.astronomy.005.c4",
-      "type": "mcq",
-      "questionId": "question.astronomy.005.q1"
-    },
-    {
-      "id": "card.astronomy.005.c5",
       "type": "text",
       "role": "connect",
       "headline": "Opposite seasons",
       "body": "Because the hemispheres lean opposite ways, December is winter in New York and summer in Sydney. Same planet, same distance, different lean."
+    },
+    {
+      "id": "card.astronomy.005.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.005.q1"
     },
     {
       "id": "card.astronomy.005.c6",
@@ -62,6 +68,11 @@
     },
     {
       "id": "card.astronomy.005.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.005.q3"
+    },
+    {
+      "id": "card.astronomy.005.c8",
       "type": "checkpoint",
       "headline": "Seasons: solved",
       "learned": [
@@ -106,7 +117,8 @@
         }
       ],
       "explanation": "Earth's ~23.5° tilt changes how directly sunlight hits each hemisphere through the year.",
-      "difficulty": 0.3
+      "difficulty": 0.3,
+      "purpose": "recall"
     },
     {
       "id": "question.astronomy.005.q2",
@@ -141,6 +153,44 @@
         }
       ],
       "explanation": "The hemispheres tilt opposite ways, so northern summer is southern winter.",
+      "difficulty": 0.35,
+      "purpose": "understanding"
+    },
+    {
+      "id": "question.astronomy.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.seasons_not_distance",
+        "concept.astronomy.venus_greenhouse"
+      ],
+      "prompt": "Venus is hotter than Mercury (Level 3), and northern summer happens when Earth is farther from the Sun. What do both show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Planets closer to the Sun are always hotter",
+          "correct": false,
+          "rationale": "Both examples break that rule."
+        },
+        {
+          "id": "b",
+          "label": "Distance from the Sun isn't the whole story for temperature",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Venus causes Earth's seasons",
+          "correct": false,
+          "rationale": "Venus has no effect on our seasons."
+        },
+        {
+          "id": "d",
+          "label": "Earth's orbit is a perfect circle",
+          "correct": false,
+          "rationale": "It's slightly oval, but that isn't the point here."
+        }
+      ],
+      "explanation": "Venus's atmosphere traps heat, and Earth's tilt sets the angle of sunlight. In both cases something other than distance is in charge.",
       "difficulty": 0.35
     }
   ],

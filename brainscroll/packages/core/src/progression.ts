@@ -1,4 +1,4 @@
-import { MASTERY_BAND_SIZE, XP } from './constants';
+import { MASTERY_BAND_SIZE, XP, type LevelType } from './constants';
 
 /**
  * Pure progression math. The server is authoritative (see backend complete_level);
@@ -35,6 +35,17 @@ export function skillProgressView(highestCleared: number): SkillProgressView {
     bandProgress: withinBand / MASTERY_BAND_SIZE,
     nextLevel,
   };
+}
+
+/**
+ * The canonical level-type schedule. Content declares `type` explicitly and the
+ * validator checks it against this, so the schedule lives in one place.
+ */
+export function levelTypeFor(levelNumber: number): LevelType {
+  if (levelNumber % MASTERY_BAND_SIZE === 0) return 'mastery';
+  if (levelNumber % MASTERY_BAND_SIZE === 50) return 'milestone';
+  if (levelNumber % 10 === 0) return 'checkpoint';
+  return 'regular';
 }
 
 export function isMasteryCheckpoint(levelNumber: number): boolean {

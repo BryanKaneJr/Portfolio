@@ -1,4 +1,4 @@
-import type { ReviewItem } from '@brainscroll/core';
+import { REVIEW_SESSION_MAX_QUESTIONS, type ReviewItem } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
@@ -10,7 +10,7 @@ import { useProgress } from '@/progress/ProgressProvider';
 import { color, space } from '@/theme/tokens';
 
 /**
- * A short recall session: up to 10 due concepts, one question each. Answers
+ * A short recall session: up to REVIEW_SESSION_MAX_QUESTIONS due concepts, one question each. Answers
  * are submitted as soon as they're chosen. Wrong answers bring the concept
  * back sooner; nothing is ever taken away.
  */
@@ -27,7 +27,7 @@ export default function ReviewSessionScreen() {
 
   useEffect(() => {
     if (!p.ready) return;
-    p.reviewQueue(10).then(setQueue, () => setFailed(true));
+    p.reviewQueue(REVIEW_SESSION_MAX_QUESTIONS).then(setQueue, () => setFailed(true));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [p.ready]);
 

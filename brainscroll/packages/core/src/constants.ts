@@ -53,9 +53,80 @@ export const TEXT_BUDGET = {
   factFact: 140,
 } as const;
 
-/** A level is a 2–5 minute encounter, usually 4–7 cards. */
-export const CARDS_PER_LEVEL = { min: 3, max: 10 } as const;
-export const QUESTIONS_PER_LEVEL = { min: 1, max: 4 } as const;
+/**
+ * BrainScroll is a learning app, not a quiz app. A level is read → understand →
+ * a few light questions → XP. Testing is proportional to the moment: regular
+ * levels are mostly learning; checkpoints, milestones and mastery test more.
+ * Review sessions size themselves to whatever is due.
+ *
+ * `questions` is the hard range (validator error outside it). `target` is the
+ * editorial norm (warning outside it). `learningCards` and `learningWords`
+ * cover the reading/visual cards between the hook and the questions, and
+ * produce warnings only.
+ */
+export type LevelType = 'regular' | 'checkpoint' | 'milestone' | 'mastery';
+export type SessionType = LevelType | 'review';
+
+export interface LearningStructure {
+  label: string;
+  questions: { min: number; max: number; target: { min: number; max: number } };
+  learningCards: { min: number; max: number };
+  learningWords: { min: number; max: number };
+  /** Expect one recall, one understanding and one connection question. */
+  coverPurposes: boolean;
+}
+
+export const LEVEL_TYPES = ['regular', 'checkpoint', 'milestone', 'mastery'] as const satisfies readonly LevelType[];
+
+export const LEARNING_STRUCTURE: Record<SessionType, LearningStructure> = {
+  /** The standard loop: hook, 2–4 short learning cards (~100–250 words), 3 light questions. */
+  regular: {
+    label: 'Level',
+    questions: { min: 2, max: 4, target: { min: 3, max: 3 } },
+    learningCards: { min: 2, max: 4 },
+    learningWords: { min: 100, max: 250 },
+    coverPurposes: true,
+  },
+  /** Every 10th level: still teaches, then a slightly longer check (~5) across the chapter. */
+  checkpoint: {
+    label: 'Checkpoint',
+    questions: { min: 4, max: 6, target: { min: 5, max: 5 } },
+    learningCards: { min: 2, max: 4 },
+    learningWords: { min: 80, max: 250 },
+    coverPurposes: true,
+  },
+  /** Level 50 (and 150, 250 …): a bigger synthesis moment, 5–7 questions. */
+  milestone: {
+    label: 'Milestone',
+    questions: { min: 4, max: 8, target: { min: 5, max: 7 } },
+    learningCards: { min: 1, max: 4 },
+    learningWords: { min: 50, max: 250 },
+    coverPurposes: true,
+  },
+  /** Level 100 (and 200, 300 …): the Mastery Challenge, ~10 questions. The fullest test in a tree. */
+  mastery: {
+    label: 'Mastery Challenge',
+    questions: { min: 8, max: 12, target: { min: 10, max: 10 } },
+    learningCards: { min: 0, max: 3 },
+    learningWords: { min: 0, max: 200 },
+    coverPurposes: false,
+  },
+  /** Spaced repetition: one question per concept due, capped per session. No learning cards. */
+  review: {
+    label: 'Review',
+    questions: { min: 1, max: 10, target: { min: 1, max: 10 } },
+    learningCards: { min: 0, max: 0 },
+    learningWords: { min: 0, max: 0 },
+    coverPurposes: false,
+  },
+};
+
+/** Most questions a single review session serves. */
+export const REVIEW_SESSION_MAX_QUESTIONS = LEARNING_STRUCTURE.review.questions.max;
+
+/** What each question is for. Regular levels use one of each. */
+export const QUESTION_PURPOSES = ['recall', 'understanding', 'connection'] as const;
+export type QuestionPurpose = (typeof QUESTION_PURPOSES)[number];
 
 /** The six launch subjects (roadmap §2). */
 export const LAUNCH_SUBJECTS = [

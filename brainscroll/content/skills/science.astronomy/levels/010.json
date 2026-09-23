@@ -2,9 +2,10 @@
   "id": "level.science.astronomy.010",
   "skillId": "skill.science.astronomy",
   "number": 10,
+  "type": "checkpoint",
   "revision": 1,
   "status": "draft",
-  "title": "Chapter 1 Boss: Your Place in the Universe",
+  "title": "Checkpoint: Your Place in the Universe",
   "objective": "After this level you can trace Earth's address from our planet all the way out to the observable universe.",
   "summary": "The Milky Way is ~100,000 light-years across, Andromeda is ~2.5 million light-years away, and the observable universe holds billions of galaxies in a ~13.8-billion-year-old cosmos.",
   "concepts": [
@@ -32,6 +33,11 @@
       "conceptId": "concept.astronomy.light_year",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.nearest_star",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,34 +60,44 @@
     },
     {
       "id": "card.astronomy.010.c3",
-      "type": "recall",
-      "questionId": "question.astronomy.010.q1"
-    },
-    {
-      "id": "card.astronomy.010.c4",
       "type": "fact",
       "fact": "Andromeda, the nearest large spiral galaxy, is about 2.5 million light-years away.",
       "context": "On a dark night you can see it with the naked eye as a faint smudge — the most distant thing most people will ever see unaided."
     },
     {
-      "id": "card.astronomy.010.c5",
+      "id": "card.astronomy.010.c4",
       "type": "text",
       "role": "explain",
       "headline": "And then everything else",
       "body": "The observable universe holds billions of galaxies, each with billions of stars. The universe itself is about 13.8 billion years old."
     },
     {
-      "id": "card.astronomy.010.c6",
+      "id": "card.astronomy.010.c5",
       "type": "mcq",
       "questionId": "question.astronomy.010.q2"
     },
     {
-      "id": "card.astronomy.010.c7",
-      "type": "recall",
+      "id": "card.astronomy.010.c6",
+      "type": "mcq",
       "questionId": "question.astronomy.010.q3"
     },
     {
+      "id": "card.astronomy.010.c7",
+      "type": "mcq",
+      "questionId": "question.astronomy.010.q4"
+    },
+    {
       "id": "card.astronomy.010.c8",
+      "type": "recall",
+      "questionId": "question.astronomy.010.q1"
+    },
+    {
+      "id": "card.astronomy.010.c9",
+      "type": "recall",
+      "questionId": "question.astronomy.010.q5"
+    },
+    {
+      "id": "card.astronomy.010.c10",
       "type": "checkpoint",
       "headline": "Chapter 1 complete",
       "learned": [
@@ -93,41 +109,6 @@
     }
   ],
   "questions": [
-    {
-      "id": "question.astronomy.010.q1",
-      "kind": "mcq",
-      "conceptIds": [
-        "concept.astronomy.milky_way_home"
-      ],
-      "prompt": "From Level 1: which galaxy is the Sun part of?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Andromeda",
-          "correct": false,
-          "rationale": "Andromeda is our neighbor, not our home."
-        },
-        {
-          "id": "b",
-          "label": "The Large Magellanic Cloud",
-          "correct": false,
-          "rationale": "That's a small satellite galaxy of the Milky Way."
-        },
-        {
-          "id": "c",
-          "label": "The Milky Way",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The solar system",
-          "correct": false,
-          "rationale": "The solar system is inside a galaxy, not a galaxy itself."
-        }
-      ],
-      "explanation": "The Sun is one of at least 100 billion stars in the Milky Way.",
-      "difficulty": 0.1
-    },
     {
       "id": "question.astronomy.010.q2",
       "kind": "mcq",
@@ -161,7 +142,8 @@
         }
       ],
       "explanation": "The universe is about 13.8 billion years old — about three times older than the Sun.",
-      "difficulty": 0.4
+      "difficulty": 0.4,
+      "purpose": "recall"
     },
     {
       "id": "question.astronomy.010.q3",
@@ -197,6 +179,117 @@
         }
       ],
       "explanation": "A light-year is a distance; Andromeda's light has been traveling for about 2.5 million years.",
+      "difficulty": 0.45,
+      "purpose": "understanding"
+    },
+    {
+      "id": "question.astronomy.010.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.milky_way_size",
+        "concept.astronomy.light_year"
+      ],
+      "prompt": "The Milky Way is about 100,000 light-years across. Roughly how long would light take to cross it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 100,000 seconds",
+          "correct": false,
+          "rationale": "A light-year is a year of light travel, not a second."
+        },
+        {
+          "id": "b",
+          "label": "About 8 minutes",
+          "correct": false,
+          "rationale": "That's sunlight reaching Earth."
+        },
+        {
+          "id": "c",
+          "label": "About 13.8 billion years",
+          "correct": false,
+          "rationale": "That's the age of the universe."
+        },
+        {
+          "id": "d",
+          "label": "About 100,000 years",
+          "correct": true
+        }
+      ],
+      "explanation": "A distance of 100,000 light-years takes light 100,000 years to cross. That's our own galaxy.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.astronomy.010.q1",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.milky_way_home"
+      ],
+      "prompt": "From Level 1: which galaxy is the Sun part of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Andromeda",
+          "correct": false,
+          "rationale": "Andromeda is our neighbor, not our home."
+        },
+        {
+          "id": "b",
+          "label": "The Large Magellanic Cloud",
+          "correct": false,
+          "rationale": "That's a small satellite galaxy of the Milky Way."
+        },
+        {
+          "id": "c",
+          "label": "The Milky Way",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The solar system",
+          "correct": false,
+          "rationale": "The solar system is inside a galaxy, not a galaxy itself."
+        }
+      ],
+      "explanation": "The Sun is one of at least 100 billion stars in the Milky Way.",
+      "difficulty": 0.1,
+      "purpose": "connection"
+    },
+    {
+      "id": "question.astronomy.010.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.andromeda",
+        "concept.astronomy.nearest_star"
+      ],
+      "prompt": "Chapter 1 recap: which of these is farthest from Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Proxima Centauri",
+          "correct": false,
+          "rationale": "About 4.2 light-years: the nearest star after the Sun."
+        },
+        {
+          "id": "b",
+          "label": "The Andromeda galaxy",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Neptune",
+          "correct": false,
+          "rationale": "The farthest planet, but still inside our solar system."
+        },
+        {
+          "id": "d",
+          "label": "The Sun",
+          "correct": false,
+          "rationale": "About 8 light-minutes away."
+        }
+      ],
+      "explanation": "Andromeda is about 2.5 million light-years away, far beyond every star in our own galaxy.",
       "difficulty": 0.45
     }
   ],

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { CompletionError, checkStart, completeLevel, dailyStatus, dueConcepts, emptyProgress, type Level, type ProgressState } from '../src';
+import { CompletionError, checkStart, completeLevel, dailyStatus, dueConcepts, emptyProgress, levelTypeFor, type Level, type ProgressState } from '../src';
 
 // Mirrors backend/tests/core-loop.test.sql so local play and the server agree.
 
@@ -9,6 +9,7 @@ function lvl(n: number): Level {
     id: `level.science.testing.${num}`,
     skillId: 'skill.science.testing',
     number: n,
+    type: levelTypeFor(n),
     revision: 1,
     status: 'published',
     title: `Level ${n}`,
@@ -21,6 +22,7 @@ function lvl(n: number): Level {
       {
         id: `question.testing.${num}.q1`,
         kind: 'mcq',
+        purpose: 'recall',
         conceptIds: [`concept.testing.c${n}`],
         prompt: 'Q?',
         options: [

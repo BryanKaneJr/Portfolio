@@ -1,6 +1,8 @@
-import { CARDS_PER_LEVEL, QUESTIONS_PER_LEVEL } from './constants';
+import { QUESTION_PURPOSES } from './constants';
 import { Asset, Concept, Level, Skill, Source, Subject } from './content-schema';
 import { levelId, levelScope, parseLevelId } from './ids';
+import { levelTypeFor } from './progression';
+import { cardRole, learningCards, learningWordCount, structureFor } from './structure';
 
 export interface ContentIssue {
   severity: 'error' | 'warning';
@@ -111,10 +113,34 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
     const scope = levelScope(level.id);
     const inScope = (x: string, kind: 'card' | 'question') => x.startsWith(`${kind}.${scope}.`);
 
-    if (level.cards.length < CARDS_PER_LEVEL.min || level.cards.length > CARDS_PER_LEVEL.max)
-      err(where, `has ${level.cards.length} cards; expected ${CARDS_PER_LEVEL.min}–${CARDS_PER_LEVEL.max}`);
-    if (level.questions.length < QUESTIONS_PER_LEVEL.min || level.questions.length > QUESTIONS_PER_LEVEL.max)
-      err(where, `has ${level.questions.length} questions; expected ${QUESTIONS_PER_LEVEL.min}–${QUESTIONS_PER_LEVEL.max}`);
+    // Structure is set by level type: regular levels are mostly learning with
+    // 3 light questions; checkpoints, milestones and mastery test more.
+    const expectedType = levelTypeFor(level.number);
+    if (level.type !== expectedType) err(where, `level ${level.number} must be type "${expectedType}", not "${level.type}"`);
+    const shape = structureFor(level);
+    const qn = level.questions.length;
+    if (qn < shape.questions.min || qn > shape.questions.max)
+      err(where, `${shape.label} has ${qn} questions; allowed ${shape.questions.min}–${shape.questions.max}`);
+    else if (qn < shape.questions.target.min || qn > shape.questions.target.max) {
+      const t = shape.questions.target;
+      warn(where, `${shape.label} has ${qn} questions; the norm is ${t.min === t.max ? t.min : `${t.min}–${t.max}`}`);
+    }
+    const learning = learningCards(level).length;
+    if (learning < shape.learningCards.min || learning > shape.learningCards.max)
+      warn(where, `has ${learning} learning cards; ${shape.label.toLowerCase()} norm is ${shape.learningCards.min}–${shape.learningCards.max}`);
+    const words = learningWordCount(level);
+    if (words < shape.learningWords.min || words > shape.learningWords.max)
+      warn(where, `has ${words} words of learning content; ${shape.label.toLowerCase()} norm is ${shape.learningWords.min}–${shape.learningWords.max}`);
+    if (shape.coverPurposes) {
+      const purposes = new Set(level.questions.map((q) => q.purpose));
+      const missing = QUESTION_PURPOSES.filter((p) => !purposes.has(p));
+      if (missing.length) warn(where, `questions should cover recall, understanding and connection; missing ${missing.join(', ')}`);
+    }
+    // Learn first, then check: questions come after the reading content.
+    const roles = level.cards.map(cardRole);
+    const lastLearning = roles.lastIndexOf('learning');
+    const firstQuestion = roles.indexOf('question');
+    if (firstQuestion >= 0 && firstQuestion < lastLearning) warn(where, 'put the learning cards before the questions');
 
     for (const c of level.cards) if (!inScope(c.id, 'card')) err(where, `card ${c.id} must be scoped card.${scope}.cN`);
     for (const q of level.questions) if (!inScope(q.id, 'question')) err(where, `question ${q.id} must be scoped question.${scope}.qN`);

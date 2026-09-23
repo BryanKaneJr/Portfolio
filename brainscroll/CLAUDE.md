@@ -16,6 +16,7 @@ Read `docs/product-rules.md` before changing anything that touches progression, 
 - The server owns completion, XP, the daily allowance and entitlements. The client animates results returned by `complete_level`; it never computes awards itself.
 - XP is an immutable ledger (`xp_events`) with a unique `(user_id, idempotency_key)`. Never add a mutable XP counter as the source of truth.
 - Visible skill level = highest canonical level cleared. It is never derived from XP.
+- BrainScroll is a learning app, not a quiz app. Regular levels are hook → 2–4 learning cards → **3 questions** (recall, understanding, connection). Only checkpoints (~5), milestones (5–7) and the Level 100 Mastery Challenge (~10) test more. Question counts come from `LEARNING_STRUCTURE` by level `type`; never hard-code them.
 - Stable IDs only (`level.science.astronomy.001`). Never key anything by display name.
 - Published `level_revisions` are immutable. To correct content, publish a new revision.
 - The app talks to progress only through `ProgressBackend` (`app/src/progress/backend.ts`). `remoteBackend.ts` calls Supabase RPCs, and `localBackend.ts` is for offline play. Keep both implementations in step.
