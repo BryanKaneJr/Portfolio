@@ -1,0 +1,160 @@
+{
+  "id": "level.science.astronomy.003",
+  "skillId": "skill.science.astronomy",
+  "number": 3,
+  "revision": 1,
+  "status": "draft",
+  "title": "The Rocky Four",
+  "objective": "After this level you can name the rocky planets and explain why Venus, not Mercury, is the hottest.",
+  "summary": "Mercury, Venus, Earth and Mars are rocky. Venus is the hottest planet thanks to its heat-trapping atmosphere, and Mars is red because of rust.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.rocky_planets",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.venus_greenhouse",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.mars_red",
+      "role": "teach",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.earth_third_planet",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.002"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Mercury is closest to the Sun. So why is Venus hotter?"
+    },
+    {
+      "id": "card.astronomy.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The inner planets are rocky",
+      "body": "Mercury, Venus, Earth and Mars are small worlds of rock and metal. You could, in principle, stand on any of them. You wouldn't enjoy most of them.",
+      "callout": "Mercury · Venus · Earth · Mars"
+    },
+    {
+      "id": "card.astronomy.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Venus: a runaway greenhouse",
+      "body": "Venus is wrapped in a thick carbon dioxide atmosphere that traps heat. Its surface is over 450 °C — hotter than Mercury, even though Mercury is closer to the Sun."
+    },
+    {
+      "id": "card.astronomy.003.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.003.q1"
+    },
+    {
+      "id": "card.astronomy.003.c5",
+      "type": "fact",
+      "fact": "Mars is red because it's rusty.",
+      "context": "Iron oxide — the same stuff as rust — coats Martian dust and rocks."
+    },
+    {
+      "id": "card.astronomy.003.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.003.q2"
+    },
+    {
+      "id": "card.astronomy.003.c7",
+      "type": "checkpoint",
+      "headline": "Inner solar system: mapped",
+      "learned": [
+        "Four rocky planets: Mercury, Venus, Earth, Mars",
+        "Venus is the hottest planet",
+        "Its CO₂ atmosphere traps heat",
+        "Mars gets its red color from iron oxide"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.003.q1",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.venus_greenhouse"
+      ],
+      "prompt": "Why is Venus hotter than Mercury?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its thick atmosphere traps heat",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Venus is closer to the Sun",
+          "correct": false,
+          "rationale": "Mercury is closer."
+        },
+        {
+          "id": "c",
+          "label": "Venus has active volcanoes on its whole surface",
+          "correct": false,
+          "rationale": "Volcanism isn't what keeps it so hot."
+        },
+        {
+          "id": "d",
+          "label": "Venus spins faster",
+          "correct": false,
+          "rationale": "Venus actually spins very slowly."
+        }
+      ],
+      "explanation": "Venus's thick carbon dioxide atmosphere traps heat, making it the hottest planet despite being second from the Sun.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.003.q2",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.rocky_planets"
+      ],
+      "prompt": "Which of these is NOT one of the rocky inner planets?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mars",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "label": "Mercury",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "label": "Jupiter",
+          "correct": true,
+          "rationale": "Correct — Jupiter is a gas giant."
+        },
+        {
+          "id": "d",
+          "label": "Venus",
+          "correct": false
+        }
+      ],
+      "explanation": "The rocky inner planets are Mercury, Venus, Earth and Mars. Jupiter is a gas giant.",
+      "difficulty": 0.15
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_planets_overview",
+    "source.nasa_venus_facts",
+    "source.nasa_mars_facts"
+  ]
+}

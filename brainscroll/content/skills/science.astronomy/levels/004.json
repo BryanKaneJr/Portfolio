@@ -1,0 +1,217 @@
+{
+  "id": "level.science.astronomy.004",
+  "skillId": "skill.science.astronomy",
+  "number": 4,
+  "revision": 1,
+  "status": "draft",
+  "title": "Giants of the Outer Dark",
+  "objective": "After this level you can tell gas giants from ice giants and describe Jupiter's and Saturn's standout features.",
+  "summary": "Jupiter and Saturn are gas giants, Uranus and Neptune are ice giants. Jupiter outweighs every other planet combined, and Saturn's rings are mostly ice.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.giant_planets",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.jupiter_mass",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.saturn_rings",
+      "role": "teach",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.rocky_planets",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.003"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Past Mars, the planets stop being rocky and start being enormous."
+    },
+    {
+      "id": "card.astronomy.004.c2",
+      "type": "comparison",
+      "headline": "Two kinds of giant",
+      "items": [
+        {
+          "label": "Gas giants",
+          "points": [
+            "Jupiter and Saturn",
+            "Mostly hydrogen and helium",
+            "No solid surface to stand on"
+          ]
+        },
+        {
+          "label": "Ice giants",
+          "points": [
+            "Uranus and Neptune",
+            "Rich in water, ammonia and methane 'ices'",
+            "Smaller than the gas giants"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.astronomy.004.c3",
+      "type": "mcq",
+      "questionId": "question.astronomy.004.q1"
+    },
+    {
+      "id": "card.astronomy.004.c4",
+      "type": "fact",
+      "fact": "Jupiter has more than twice the mass of all the other planets combined.",
+      "context": "If the planets were a team, Jupiter would be carrying it."
+    },
+    {
+      "id": "card.astronomy.004.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.004.q3"
+    },
+    {
+      "id": "card.astronomy.004.c6",
+      "type": "text",
+      "role": "explain",
+      "headline": "Saturn's rings are ice",
+      "body": "Those famous rings aren't solid. They're countless chunks of water ice, with some rock, ranging from dust-sized grains to pieces as big as houses."
+    },
+    {
+      "id": "card.astronomy.004.c7",
+      "type": "mcq",
+      "questionId": "question.astronomy.004.q2"
+    },
+    {
+      "id": "card.astronomy.004.c8",
+      "type": "checkpoint",
+      "headline": "Outer solar system: mapped",
+      "learned": [
+        "Jupiter and Saturn are gas giants",
+        "Uranus and Neptune are ice giants",
+        "Jupiter outweighs all other planets combined",
+        "Saturn's rings are mostly ice"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.004.q1",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.giant_planets"
+      ],
+      "prompt": "Which pair are the ice giants?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Jupiter and Saturn",
+          "correct": false,
+          "rationale": "Those are the gas giants."
+        },
+        {
+          "id": "b",
+          "label": "Uranus and Neptune",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Mars and Mercury",
+          "correct": false,
+          "rationale": "Those are rocky planets."
+        },
+        {
+          "id": "d",
+          "label": "Saturn and Neptune",
+          "correct": false,
+          "rationale": "Saturn is a gas giant."
+        }
+      ],
+      "explanation": "Uranus and Neptune are the ice giants; Jupiter and Saturn are the gas giants.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.004.q2",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.saturn_rings"
+      ],
+      "prompt": "What are Saturn's rings mostly made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Solid rock sheets",
+          "correct": false,
+          "rationale": "The rings are made of separate chunks, not sheets."
+        },
+        {
+          "id": "b",
+          "label": "Gas",
+          "correct": false,
+          "rationale": "They're solid particles."
+        },
+        {
+          "id": "c",
+          "label": "Metal dust",
+          "correct": false,
+          "rationale": "There's some rock, but ice dominates."
+        },
+        {
+          "id": "d",
+          "label": "Chunks of water ice",
+          "correct": true
+        }
+      ],
+      "explanation": "Saturn's rings are mostly chunks of water ice with some rock.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.004.q3",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.jupiter_mass"
+      ],
+      "prompt": "How does Jupiter's mass compare to the other planets?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's about the same as Saturn's",
+          "correct": false,
+          "rationale": "Jupiter is over three times Saturn's mass."
+        },
+        {
+          "id": "b",
+          "label": "It's smaller than Earth's",
+          "correct": false,
+          "rationale": "Jupiter is the biggest planet."
+        },
+        {
+          "id": "c",
+          "label": "It's more than twice all the others combined",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It equals the Sun's",
+          "correct": false,
+          "rationale": "The Sun is about 1,000 times more massive."
+        }
+      ],
+      "explanation": "Jupiter is more than twice as massive as all the other planets put together.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_planets_overview",
+    "source.nasa_jupiter_facts",
+    "source.nasa_saturn_facts"
+  ]
+}

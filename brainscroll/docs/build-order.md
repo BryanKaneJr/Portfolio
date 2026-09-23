@@ -16,11 +16,11 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | --- | --- | --- | --- |
 | 0 | Freeze rules | Rules file is authoritative; ID format frozen; new level/review/completion/mastery/prestige are unambiguous | ✅ [`product-rules.md`](product-rules.md) |
 | 1 | Data contracts | A level's JSON validates without the app; migrations rebuild from scratch; revision + source/licence fields exist; completion is an idempotent server contract | ✅ core schema + validator, migration, `complete_level`, SQL tests |
-| 2 | Golden 10 levels | One real skill (Astronomy), Levels 1–10 hand-polished and source-verified | 🟡 Level 1 drafted; sources need verification |
-| 3 | Lesson player | All 10 levels render from data with no level-specific UI; resume works; double tap can't duplicate XP; wrong answers teach | 🟡 app shell + tabs; CardRenderer next |
-| 4 | Progress & character sheet | Two users see distinct sheets; reinstall restores progress; revisions never move progress back | ⬜ server side done in Stage 1; UI pending |
+| 2 | Golden 10 levels | One real skill (Astronomy), Levels 1–10 hand-polished and source-verified | 🟡 Levels 1–10 drafted and validating; sources need editor verification; no image asset yet |
+| 3 | Lesson player | All 10 levels render from data with no level-specific UI; resume works; double tap can't duplicate XP; wrong answers teach | ✅ offline (bundled content, local progress); server fetch pending |
+| 4 | Progress & character sheet | Two users see distinct sheets; reinstall restores progress; revisions never move progress back | 🟡 server side done; local character sheet live; needs accounts/sync |
 | 5 | Review & mastery | Concept-level review queue; alternative questions per concept; review never uses allowance | ⬜ queue populated on completion; review flow pending |
-| 6 | Daily cap | 5/day enforced server-side; Daily Complete screen; review stays open | 🟡 enforced + tested server-side; screen stubbed |
+| 6 | Daily cap | 5/day enforced server-side; Daily Complete screen; review stays open | 🟡 enforced server-side and locally; Daily Complete live; paywall not wired |
 | 7 | Content tooling | Editor/importer/validator so Levels 11–100 can scale safely | ⬜ |
 | 8 | Subscriptions | RevenueCat `unlimited_learning`, restore, expiry | ⬜ |
 | 9 | Analytics & reporting | Mission-aligned events, content reports, funnel | ⬜ |
@@ -34,15 +34,15 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | 1 | Repo + environments | App boots in development; staging backend exists | 🟡 repo + app boot; Supabase project not yet created |
 | 2 | Migrations + ID rules | Fresh DB can be recreated reliably | ✅ `npm run test:db` |
 | 3 | Content JSON validator | Malformed levels fail before import | ✅ `npm run validate:content` |
-| 4 | 10 golden levels | Real content available as canonical seed data | 🟡 1/10 drafted |
+| 4 | 10 golden levels | Real content available as canonical seed data | 🟡 10/10 drafted; awaiting source verification |
 | 5 | Read-only content API | App can fetch skills/levels/cards/questions | ⬜ RLS read policies + `start_level` exist; importer + client pending |
-| 6 | Mobile navigation shell | Onboarding → skill → lesson → completion path exists | 🟡 tabs + Daily Complete |
-| 7 | Generic card renderer | Golden levels render from data only | ⬜ |
-| 8 | Question engine | Answers + explanations + state/resume work | ⬜ |
+| 6 | Mobile navigation shell | Onboarding → skill → lesson → completion path exists | 🟡 skill → lesson → completion → daily complete; onboarding pending |
+| 7 | Generic card renderer | Golden levels render from data only | ✅ `app/src/components/cards` |
+| 8 | Question engine | Answers + explanations + state/resume work | ✅ |
 | 9 | Completion transaction | Exactly-once progress/XP update | ✅ server side |
-| 10 | Character sheet | Skill and overall progress visible | 🟡 placeholder screen |
+| 10 | Character sheet | Skill and overall progress visible | 🟡 local progress; needs server sync |
 | 11 | Review queue | Prior concepts reappear and update mastery | ⬜ |
-| 12 | 5/day allowance | Free path ends deliberately; review remains open | 🟡 server side ✅ |
+| 12 | 5/day allowance | Free path ends deliberately; review remains open | ✅ server + local; review flow pending |
 | 13 | Content admin v1 | Edit/validate/preview/publish without raw DB editing | ⬜ |
 | 14 | Publishing/revisions | Corrections are versioned; progress survives | 🟡 schema ✅ |
 | 15 | RevenueCat | Unlimited + restore + expiry | ⬜ |
@@ -54,7 +54,8 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 
 ## Up next
 
-1. **Finish Stage 2:** verify Level 1's sources, then author Astronomy Levels 2–10. Each one must pass `npm run validate:content`. Cover every card type across the ten, plus at least one image asset and at least one `recall` card.
+1. **Verify the Golden 10.** An editor checks every fact against its source, flips `verified: true`, and adds at least one licensed image asset (NASA/CC0) so the image card is exercised. Then mark the levels `published`.
 2. **Content importer** (`scripts/`): validated JSON → Supabase (`levels`, `level_revisions.bundle`, `questions`, `answer_options`, `concepts`, `sources`), run with the service role.
-3. **Stage 3 lesson player:** `CardRenderer` keyed by `card.type`, a question card with immediate feedback, local resume state, and a completion call to `complete_level` whose returned summary drives the animation.
-4. **Supabase project + auth:** create staging, wire `@supabase/supabase-js` in the app, and replace `app/src/demo/progress.ts`.
+3. **Supabase project and auth:** create staging, add `@supabase/supabase-js`, and swap `ProgressProvider.completeLevel` for the `complete_level` RPC. The server result replaces local state. Keep local play as the offline fallback.
+4. **Stage 5 review flow:** turn the Review tab's due concepts into recall sessions that serve an approved question per concept, update strength, and award `DELAYED_RECALL`, all without touching the daily allowance.
+5. **Onboarding:** pick interests, explain levels and the 5/day rule, and start Level 1 within about 60 seconds.

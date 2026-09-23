@@ -1,0 +1,209 @@
+{
+  "id": "level.science.astronomy.010",
+  "skillId": "skill.science.astronomy",
+  "number": 10,
+  "revision": 1,
+  "status": "draft",
+  "title": "Chapter 1 Boss: Your Place in the Universe",
+  "objective": "After this level you can trace Earth's address from our planet all the way out to the observable universe.",
+  "summary": "The Milky Way is ~100,000 light-years across, Andromeda is ~2.5 million light-years away, and the observable universe holds billions of galaxies in a ~13.8-billion-year-old cosmos.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.milky_way_size",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.andromeda",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.universe_scale_age",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.milky_way_home",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.light_year",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.009"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.010.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 1 finale. Let's zoom all the way out.",
+      "body": "Everything from Levels 1–9 was your neighborhood. Now for the city, the country and the planet."
+    },
+    {
+      "id": "card.astronomy.010.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Our galaxy",
+      "body": "The Milky Way is about 100,000 light-years across. Light from one edge would take 100,000 years to reach the other."
+    },
+    {
+      "id": "card.astronomy.010.c3",
+      "type": "recall",
+      "questionId": "question.astronomy.010.q1"
+    },
+    {
+      "id": "card.astronomy.010.c4",
+      "type": "fact",
+      "fact": "Andromeda, the nearest large spiral galaxy, is about 2.5 million light-years away.",
+      "context": "On a dark night you can see it with the naked eye as a faint smudge — the most distant thing most people will ever see unaided."
+    },
+    {
+      "id": "card.astronomy.010.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "And then everything else",
+      "body": "The observable universe holds billions of galaxies, each with billions of stars. The universe itself is about 13.8 billion years old."
+    },
+    {
+      "id": "card.astronomy.010.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.010.q2"
+    },
+    {
+      "id": "card.astronomy.010.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.010.q3"
+    },
+    {
+      "id": "card.astronomy.010.c8",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "The Milky Way is about 100,000 light-years across",
+        "Andromeda is about 2.5 million light-years away",
+        "The observable universe holds billions of galaxies",
+        "The universe is about 13.8 billion years old"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.010.q1",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.milky_way_home"
+      ],
+      "prompt": "From Level 1: which galaxy is the Sun part of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Andromeda",
+          "correct": false,
+          "rationale": "Andromeda is our neighbor, not our home."
+        },
+        {
+          "id": "b",
+          "label": "The Large Magellanic Cloud",
+          "correct": false,
+          "rationale": "That's a small satellite galaxy of the Milky Way."
+        },
+        {
+          "id": "c",
+          "label": "The Milky Way",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The solar system",
+          "correct": false,
+          "rationale": "The solar system is inside a galaxy, not a galaxy itself."
+        }
+      ],
+      "explanation": "The Sun is one of at least 100 billion stars in the Milky Way.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.astronomy.010.q2",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.universe_scale_age"
+      ],
+      "prompt": "About how old is the universe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "6,000 years",
+          "correct": false,
+          "rationale": "Far, far older."
+        },
+        {
+          "id": "b",
+          "label": "100,000 years",
+          "correct": false,
+          "rationale": "That's roughly the Milky Way's width in light-years."
+        },
+        {
+          "id": "c",
+          "label": "4.6 billion years",
+          "correct": false,
+          "rationale": "That's the age of the Sun."
+        },
+        {
+          "id": "d",
+          "label": "13.8 billion years",
+          "correct": true
+        }
+      ],
+      "explanation": "The universe is about 13.8 billion years old — about three times older than the Sun.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.astronomy.010.q3",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.light_year",
+        "concept.astronomy.andromeda"
+      ],
+      "prompt": "From Level 8: Andromeda is 2.5 million light-years away. What does that mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It takes 2.5 million years to fly there",
+          "correct": false,
+          "rationale": "No spacecraft goes anywhere near light speed."
+        },
+        {
+          "id": "b",
+          "label": "It's 2.5 million km away",
+          "correct": false,
+          "rationale": "A light-year is about 9.46 trillion km."
+        },
+        {
+          "id": "c",
+          "label": "It's 2.5 million years old",
+          "correct": false,
+          "rationale": "Distance, not age."
+        },
+        {
+          "id": "d",
+          "label": "Its light has traveled 2.5 million years to reach us",
+          "correct": true
+        }
+      ],
+      "explanation": "A light-year is a distance; Andromeda's light has been traveling for about 2.5 million years.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_galaxies",
+    "source.nasa_universe_age",
+    "source.nasa_milky_way",
+    "source.nasa_light_year"
+  ]
+}

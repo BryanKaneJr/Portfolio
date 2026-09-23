@@ -8,10 +8,26 @@
   "objective": "After this level you can state Earth's address: third planet from the Sun, a star in the Milky Way.",
   "summary": "The Sun is a star, Earth is planet three, and our whole solar system lives in the Milky Way.",
   "concepts": [
-    { "conceptId": "concept.astronomy.sun_is_a_star", "role": "teach", "weight": 1 },
-    { "conceptId": "concept.astronomy.earth_third_planet", "role": "teach", "weight": 1 },
-    { "conceptId": "concept.astronomy.sunlight_travel_time", "role": "teach", "weight": 0.5 },
-    { "conceptId": "concept.astronomy.milky_way_home", "role": "teach", "weight": 1 }
+    {
+      "conceptId": "concept.astronomy.sun_is_a_star",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.earth_third_planet",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.sunlight_travel_time",
+      "role": "teach",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.milky_way_home",
+      "role": "teach",
+      "weight": 1
+    }
   ],
   "prerequisites": [],
   "cards": [
@@ -69,13 +85,34 @@
     {
       "id": "question.astronomy.001.q1",
       "kind": "mcq",
-      "conceptIds": ["concept.astronomy.earth_third_planet"],
+      "conceptIds": [
+        "concept.astronomy.earth_third_planet"
+      ],
       "prompt": "Counting outward from the Sun, which planet is Earth?",
       "options": [
-        { "id": "a", "label": "The first", "correct": false, "rationale": "That's Mercury." },
-        { "id": "b", "label": "The third", "correct": true },
-        { "id": "c", "label": "The fifth", "correct": false, "rationale": "That's Jupiter." },
-        { "id": "d", "label": "The eighth", "correct": false, "rationale": "That's Neptune, the outermost planet." }
+        {
+          "id": "a",
+          "label": "The first",
+          "correct": false,
+          "rationale": "That's Mercury."
+        },
+        {
+          "id": "b",
+          "label": "The third",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The fifth",
+          "correct": false,
+          "rationale": "That's Jupiter."
+        },
+        {
+          "id": "d",
+          "label": "The eighth",
+          "correct": false,
+          "rationale": "That's Neptune, the outermost planet."
+        }
       ],
       "explanation": "Mercury, Venus, then Earth — third of the eight planets.",
       "difficulty": 0.1
@@ -83,17 +120,43 @@
     {
       "id": "question.astronomy.001.q2",
       "kind": "mcq",
-      "conceptIds": ["concept.astronomy.sun_is_a_star", "concept.astronomy.milky_way_home"],
+      "conceptIds": [
+        "concept.astronomy.sun_is_a_star",
+        "concept.astronomy.milky_way_home"
+      ],
       "prompt": "Which is the most accurate description of the Sun?",
       "options": [
-        { "id": "a", "label": "The center of the Milky Way", "correct": false, "rationale": "The Sun orbits within the Milky Way; it isn't its center." },
-        { "id": "b", "label": "One star among many in the Milky Way", "correct": true },
-        { "id": "c", "label": "A planet that gives off light", "correct": false, "rationale": "Planets reflect light; the Sun is a star that makes its own." },
-        { "id": "d", "label": "The only star in our galaxy", "correct": false, "rationale": "The Milky Way has at least 100 billion stars." }
+        {
+          "id": "a",
+          "label": "One star among many in the Milky Way",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The center of the Milky Way",
+          "correct": false,
+          "rationale": "The Sun orbits within the Milky Way; it isn't its center."
+        },
+        {
+          "id": "c",
+          "label": "A planet that gives off light",
+          "correct": false,
+          "rationale": "Planets reflect light; the Sun is a star that makes its own."
+        },
+        {
+          "id": "d",
+          "label": "The only star in our galaxy",
+          "correct": false,
+          "rationale": "The Milky Way has at least 100 billion stars."
+        }
       ],
       "explanation": "The Sun is an ordinary star — one of at least 100 billion in the Milky Way.",
       "difficulty": 0.15
     }
   ],
-  "sourceIds": ["source.nasa_sun_facts", "source.nasa_solar_system", "source.nasa_milky_way"]
+  "sourceIds": [
+    "source.nasa_sun_facts",
+    "source.nasa_solar_system",
+    "source.nasa_milky_way"
+  ]
 }

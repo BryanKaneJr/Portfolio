@@ -42,15 +42,28 @@ export function ProgressBar({ value, tone = 'brand' }: { value: number; tone?: '
   );
 }
 
-export function Button({ label, onPress, variant = 'primary' }: { label: string; onPress?: () => void; variant?: 'primary' | 'secondary' }) {
+export function Button({
+  label,
+  onPress,
+  variant = 'primary',
+  disabled,
+}: {
+  label: string;
+  onPress?: () => void;
+  variant?: 'primary' | 'secondary';
+  disabled?: boolean;
+}) {
   return (
     <Pressable
       accessibilityRole="button"
+      accessibilityState={{ disabled }}
+      disabled={disabled}
       onPress={onPress}
       style={({ pressed }) => [
         styles.button,
         variant === 'primary' ? styles.buttonPrimary : styles.buttonSecondary,
-        pressed && { transform: [{ scale: 0.98 }], opacity: 0.9 },
+        disabled && styles.buttonDisabled,
+        pressed && !disabled && { transform: [{ scale: 0.98 }], opacity: 0.9 },
       ]}>
       <Text style={styles.buttonLabel}>{label}</Text>
     </Pressable>
@@ -78,5 +91,6 @@ const styles = StyleSheet.create({
   button: { minHeight: 52, borderRadius: radius.md, alignItems: 'center', justifyContent: 'center', paddingHorizontal: space.xl },
   buttonPrimary: { backgroundColor: color.brand },
   buttonSecondary: { backgroundColor: color.surfaceRaised, borderWidth: 1, borderColor: color.border },
+  buttonDisabled: { opacity: 0.4 },
   buttonLabel: { color: color.text, fontSize: 16, fontWeight: '700' },
 });

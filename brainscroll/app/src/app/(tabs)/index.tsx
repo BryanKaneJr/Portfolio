@@ -1,33 +1,48 @@
 import { router } from 'expo-router';
 import { Body, BigNumber, Button, Card, Label, ProgressBar, Row, Screen, Title } from '@/components/ui';
-import { useDemoProgress } from '@/demo/progress';
+import { getLevel } from '@/content';
+import { useProgress, useProgressView } from '@/progress/ProgressProvider';
+import { useStartLevel } from '@/progress/useStartLevel';
 
-/** Home / Continue — "loading a save file". One dominant Continue card owns the screen. */
+/** Home / Continue: "loading a save file". One dominant Continue card owns the screen. */
 export default function HomeScreen() {
-  const p = useDemoProgress();
-  const { continueSkill: s, today } = p;
+  const p = useProgress();
+  const v = useProgressView();
+  const startLevel = useStartLevel();
+  if (!p.ready) return <Screen>{null}</Screen>;
+
+  const skill = v.skills[0]!;
+  const nextId = p.nextLevelId(skill.id);
+  const next = nextId ? getLevel(nextId) : undefined;
+  const resuming = nextId ? v.sessions[nextId] : undefined;
+  const { today } = v;
 
   return (
     <Screen>
       <Label tone="brand">BrainScroll</Label>
       <Row>
         <Title>Knowledge Lv.</Title>
-        <BigNumber>{p.knowledgeLevel}</BigNumber>
+        <BigNumber>{v.knowledgeLevel}</BigNumber>
       </Row>
 
       <Card accent>
         <Label>Continue</Label>
         <Title>
-          {s.name} · Lv. {s.view.level}
+          {skill.name} · Lv. {skill.view.level}
         </Title>
-        <Body muted>
-          Next up: Level {s.view.nextLevel} · Chapter {s.view.chapter}
-        </Body>
-        <ProgressBar value={s.view.bandProgress} />
-        <Button
-          label={today.dailyComplete ? 'Daily quest complete' : `Start Level ${s.view.nextLevel}`}
-          onPress={() => (today.dailyComplete ? router.push('/daily-complete') : undefined)}
-        />
+        {next ? (
+          <Body muted>
+            Level {next.number}: {next.title}
+          </Body>
+        ) : (
+          <Body muted>You've cleared every published level. More are on the way.</Body>
+        )}
+        <ProgressBar value={skill.view.bandProgress} />
+        {next && today.dailyComplete ? (
+          <Button label="Daily quest complete" onPress={() => router.push('/daily-complete')} />
+        ) : next ? (
+          <Button label={resuming ? `Resume Level ${next.number}` : `Start Level ${next.number}`} onPress={() => startLevel(next.id)} />
+        ) : null}
       </Card>
 
       <Card>
@@ -38,10 +53,13 @@ export default function HomeScreen() {
         {today.cap !== null && <ProgressBar value={today.used / today.cap} tone="info" />}
       </Card>
 
-      {p.reviewsDue > 0 && (
+      {v.reviewsDue.length > 0 && (
         <Card>
           <Label tone="success">Review</Label>
-          <Body>{p.reviewsDue} things worth refreshing</Body>
+          <Body>
+            {v.reviewsDue.length} {v.reviewsDue.length === 1 ? 'thing' : 'things'} worth refreshing
+          </Body>
+          <Button variant="secondary" label="Open review" onPress={() => router.push('/review')} />
         </Card>
       )}
     </Screen>

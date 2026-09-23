@@ -1,0 +1,162 @@
+{
+  "id": "level.science.astronomy.007",
+  "skillId": "skill.science.astronomy",
+  "number": 7,
+  "revision": 1,
+  "status": "draft",
+  "title": "Eclipses and a Cosmic Coincidence",
+  "objective": "After this level you can tell solar from lunar eclipses and explain why the Moon can exactly cover the Sun.",
+  "summary": "A solar eclipse is the Moon blocking the Sun; a lunar eclipse is Earth's shadow on the Moon. The Sun is ~400× wider and ~400× farther than the Moon.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.eclipse_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.eclipse_coincidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.moon_phases",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.006"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "By pure luck, the Moon is exactly the right size to blot out the Sun."
+    },
+    {
+      "id": "card.astronomy.007.c2",
+      "type": "comparison",
+      "headline": "Two kinds of eclipse",
+      "items": [
+        {
+          "label": "Solar eclipse",
+          "points": [
+            "The Moon passes between the Sun and Earth",
+            "The Moon's shadow falls on Earth",
+            "Only happens at new Moon"
+          ]
+        },
+        {
+          "label": "Lunar eclipse",
+          "points": [
+            "Earth passes between the Sun and Moon",
+            "Earth's shadow falls on the Moon",
+            "Only happens at full Moon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.astronomy.007.c3",
+      "type": "mcq",
+      "questionId": "question.astronomy.007.q1"
+    },
+    {
+      "id": "card.astronomy.007.c4",
+      "type": "fact",
+      "fact": "The Sun is about 400 times wider than the Moon — and about 400 times farther away.",
+      "context": "Those two numbers cancel out, so the Sun and Moon look almost exactly the same size in our sky."
+    },
+    {
+      "id": "card.astronomy.007.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.007.q2"
+    },
+    {
+      "id": "card.astronomy.007.c6",
+      "type": "checkpoint",
+      "headline": "Eclipses: explained",
+      "learned": [
+        "Solar eclipse: the Moon blocks the Sun",
+        "Lunar eclipse: Earth's shadow falls on the Moon",
+        "The 400× coincidence makes total solar eclipses possible"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.007.q1",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.eclipse_types"
+      ],
+      "prompt": "During a lunar eclipse, what is happening?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon blocks the Sun",
+          "correct": false,
+          "rationale": "That's a solar eclipse."
+        },
+        {
+          "id": "b",
+          "label": "Earth's shadow falls on the Moon",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Moon enters its new phase",
+          "correct": false,
+          "rationale": "Phases aren't eclipses."
+        },
+        {
+          "id": "d",
+          "label": "The Sun goes dark",
+          "correct": false,
+          "rationale": "The Sun keeps shining."
+        }
+      ],
+      "explanation": "In a lunar eclipse Earth sits between the Sun and the Moon, and its shadow falls on the Moon.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.007.q2",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.eclipse_coincidence"
+      ],
+      "prompt": "Why can the Moon exactly cover the Sun during a total solar eclipse?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon and Sun are the same size",
+          "correct": false,
+          "rationale": "The Sun is about 400 times wider."
+        },
+        {
+          "id": "b",
+          "label": "The Moon is closer to the Sun",
+          "correct": false,
+          "rationale": "The Moon orbits Earth."
+        },
+        {
+          "id": "c",
+          "label": "The Sun dims during eclipses",
+          "correct": false,
+          "rationale": "Its brightness doesn't change."
+        },
+        {
+          "id": "d",
+          "label": "The Sun is ~400× wider but also ~400× farther away",
+          "correct": true
+        }
+      ],
+      "explanation": "The Sun's extra size is balanced by its extra distance, so both look about the same size from Earth.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_eclipses"
+  ]
+}

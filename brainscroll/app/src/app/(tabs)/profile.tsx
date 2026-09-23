@@ -1,31 +1,36 @@
-import { Body, BigNumber, Card, Label, Row, Screen, Title } from '@/components/ui';
-import { useDemoProgress } from '@/demo/progress';
+import { Body, BigNumber, Button, Card, Label, Row, Screen, Title } from '@/components/ui';
+import { subjectName } from '@/content';
+import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 
 /** Character sheet: the shape of your knowledge, not just total XP. */
 export default function ProfileScreen() {
-  const p = useDemoProgress();
+  const { resetAll } = useProgress();
+  const v = useProgressView();
   return (
     <Screen>
       <Label tone="brand">Profile</Label>
       <Row>
         <Title>Knowledge Level</Title>
-        <BigNumber>{p.knowledgeLevel}</BigNumber>
+        <BigNumber>{v.knowledgeLevel}</BigNumber>
       </Row>
-      {p.skills.map((s) => (
+      <Body muted>{v.totalXp} XP earned</Body>
+      {v.skills.map((s) => (
         <Card key={s.id}>
-          <Label>{s.subject}</Label>
+          <Label>{subjectName(s.subjectId)}</Label>
           <Row>
             <Title>
               {s.name} Lv. {s.view.level}
             </Title>
             {s.view.stars > 0 && <Label tone="mastery">{'★'.repeat(s.view.stars)}</Label>}
           </Row>
+          <Body muted>{s.xp} XP</Body>
         </Card>
       ))}
       <Card>
         <Label>Titles</Label>
         <Body muted>Earned from transparent requirements. None yet.</Body>
       </Card>
+      {__DEV__ && <Button variant="secondary" label="Reset local progress (dev)" onPress={resetAll} />}
     </Screen>
   );
 }

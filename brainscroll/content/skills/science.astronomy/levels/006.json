@@ -1,0 +1,190 @@
+{
+  "id": "level.science.astronomy.006",
+  "skillId": "skill.science.astronomy",
+  "number": 6,
+  "revision": 1,
+  "status": "draft",
+  "title": "The Moon's Changing Face",
+  "objective": "After this level you can explain Moon phases and why we only ever see one side of the Moon.",
+  "summary": "Phases show how much of the Moon's sunlit half faces us, over a ~29.5-day cycle. The Moon is tidally locked, so the same side always faces Earth.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.moon_phases",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.moon_tidal_lock",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.seasons_tilt",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.005"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Moon doesn't change shape. You're just seeing it from a different angle."
+    },
+    {
+      "id": "card.astronomy.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Half lit, always",
+      "body": "The Sun always lights up half of the Moon. As the Moon orbits Earth, we see different amounts of that lit half: a sliver, a half, the full face, then back again.",
+      "callout": "A full cycle takes about 29.5 days"
+    },
+    {
+      "id": "card.astronomy.006.c3",
+      "type": "mcq",
+      "questionId": "question.astronomy.006.q1"
+    },
+    {
+      "id": "card.astronomy.006.c4",
+      "type": "fact",
+      "fact": "We always see the same side of the Moon.",
+      "context": "The Moon is tidally locked: it turns exactly once per orbit. The far side isn't permanently dark — we just never see it from Earth."
+    },
+    {
+      "id": "card.astronomy.006.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.006.q2"
+    },
+    {
+      "id": "card.astronomy.006.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.006.q3"
+    },
+    {
+      "id": "card.astronomy.006.c7",
+      "type": "checkpoint",
+      "headline": "Moon: decoded",
+      "learned": [
+        "Phases = how much of the lit half we see",
+        "A full phase cycle takes about 29.5 days",
+        "The Moon is tidally locked",
+        "The far side isn't always dark"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.006.q1",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.moon_phases"
+      ],
+      "prompt": "What causes the Moon's phases?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Earth's shadow covering part of the Moon",
+          "correct": false,
+          "rationale": "That's a lunar eclipse — a different thing entirely."
+        },
+        {
+          "id": "b",
+          "label": "How much of the Moon's sunlit half we can see",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Moon changing its actual shape",
+          "correct": false,
+          "rationale": "The Moon's shape doesn't change."
+        },
+        {
+          "id": "d",
+          "label": "Clouds on the Moon",
+          "correct": false,
+          "rationale": "The Moon has no clouds."
+        }
+      ],
+      "explanation": "The Sun always lights half the Moon; as it orbits, we see more or less of that lit half.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.006.q2",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.moon_tidal_lock"
+      ],
+      "prompt": "Why do we always see the same side of the Moon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rotates once for every orbit around Earth",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Moon doesn't rotate",
+          "correct": false,
+          "rationale": "It does rotate — once per orbit."
+        },
+        {
+          "id": "c",
+          "label": "The far side is always dark",
+          "correct": false,
+          "rationale": "The far side gets sunlight too."
+        },
+        {
+          "id": "d",
+          "label": "Earth blocks our view",
+          "correct": false,
+          "rationale": "Earth isn't in the way."
+        }
+      ],
+      "explanation": "The Moon is tidally locked: one rotation per orbit keeps the same face toward Earth.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.006.q3",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.seasons_tilt"
+      ],
+      "prompt": "From Level 5: what causes Earth's seasons?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Distance from the Sun",
+          "correct": false,
+          "rationale": "Earth is closest in January."
+        },
+        {
+          "id": "b",
+          "label": "The Moon's phases",
+          "correct": false,
+          "rationale": "Unrelated to seasons."
+        },
+        {
+          "id": "c",
+          "label": "The tilt of Earth's axis",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Solar flares",
+          "correct": false,
+          "rationale": "Not the cause."
+        }
+      ],
+      "explanation": "Earth's ~23.5° axial tilt causes the seasons.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_moon_phases",
+    "source.nasa_moon_facts",
+    "source.nasa_spaceplace_seasons"
+  ]
+}

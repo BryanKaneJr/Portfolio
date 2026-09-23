@@ -1,0 +1,151 @@
+{
+  "id": "level.science.astronomy.005",
+  "skillId": "skill.science.astronomy",
+  "number": 5,
+  "revision": 1,
+  "status": "draft",
+  "title": "Why We Have Seasons",
+  "objective": "After this level you can explain that seasons come from Earth's tilt, not its distance from the Sun.",
+  "summary": "Earth's axis is tilted about 23.5°. Each hemisphere takes turns leaning toward the Sun, which is why seasons are opposite north and south.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.seasons_tilt",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.seasons_not_distance",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.004"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most people get this one wrong: summer isn't when Earth is closest to the Sun."
+    },
+    {
+      "id": "card.astronomy.005.c2",
+      "type": "fact",
+      "fact": "Earth is closest to the Sun in early January.",
+      "context": "That's the middle of winter in the Northern Hemisphere. So distance can't be what makes summer."
+    },
+    {
+      "id": "card.astronomy.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "It's the tilt",
+      "body": "Earth's axis is tilted about 23.5°. When your hemisphere leans toward the Sun, sunlight hits more directly and days are longer. That's summer.",
+      "callout": "Tilt → angle of sunlight → season"
+    },
+    {
+      "id": "card.astronomy.005.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.005.q1"
+    },
+    {
+      "id": "card.astronomy.005.c5",
+      "type": "text",
+      "role": "connect",
+      "headline": "Opposite seasons",
+      "body": "Because the hemispheres lean opposite ways, December is winter in New York and summer in Sydney. Same planet, same distance, different lean."
+    },
+    {
+      "id": "card.astronomy.005.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.005.q2"
+    },
+    {
+      "id": "card.astronomy.005.c7",
+      "type": "checkpoint",
+      "headline": "Seasons: solved",
+      "learned": [
+        "Earth's axis is tilted about 23.5°",
+        "Tilt, not distance, causes seasons",
+        "Earth is closest to the Sun in January",
+        "The hemispheres have opposite seasons"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.005.q1",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.seasons_tilt"
+      ],
+      "prompt": "What mainly causes Earth's seasons?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The tilt of Earth's axis",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Earth's changing distance from the Sun",
+          "correct": false,
+          "rationale": "Earth is closest in January — northern winter."
+        },
+        {
+          "id": "c",
+          "label": "Changes in the Sun's brightness",
+          "correct": false,
+          "rationale": "The Sun's output is nearly constant."
+        },
+        {
+          "id": "d",
+          "label": "The Moon's position",
+          "correct": false,
+          "rationale": "The Moon affects tides, not seasons."
+        }
+      ],
+      "explanation": "Earth's ~23.5° tilt changes how directly sunlight hits each hemisphere through the year.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.005.q2",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.seasons_not_distance"
+      ],
+      "prompt": "It's July. What season is it in Australia?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Summer",
+          "correct": false,
+          "rationale": "July is summer in the north, so it's winter in the south."
+        },
+        {
+          "id": "b",
+          "label": "Spring",
+          "correct": false,
+          "rationale": "Not in July."
+        },
+        {
+          "id": "c",
+          "label": "It depends on the distance to the Sun",
+          "correct": false,
+          "rationale": "Distance isn't the cause."
+        },
+        {
+          "id": "d",
+          "label": "Winter",
+          "correct": true
+        }
+      ],
+      "explanation": "The hemispheres tilt opposite ways, so northern summer is southern winter.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_spaceplace_seasons",
+    "source.nasa_earth_perihelion"
+  ]
+}

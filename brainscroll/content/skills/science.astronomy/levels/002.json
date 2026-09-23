@@ -1,0 +1,161 @@
+{
+  "id": "level.science.astronomy.002",
+  "skillId": "skill.science.astronomy",
+  "number": 2,
+  "revision": 1,
+  "status": "draft",
+  "title": "The Sun, Up Close",
+  "objective": "After this level you can explain what powers the Sun and how dominant it is in the solar system.",
+  "summary": "The Sun fuses hydrogen into helium, holds 99.8% of the solar system's mass, and is about 4.6 billion years old.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.sun_fusion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.sun_mass_share",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.sun_age",
+      "role": "teach",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.sun_is_a_star",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.001"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Sun isn't on fire. It's doing something far stranger.",
+      "body": "There's no burning in the everyday sense. Deep in its core, the Sun squeezes atoms together."
+    },
+    {
+      "id": "card.astronomy.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nuclear fusion",
+      "body": "At about 15 million °C, the Sun's core fuses hydrogen into helium. That fusion releases the energy that eventually reaches you as sunlight.",
+      "callout": "Hydrogen → helium + energy"
+    },
+    {
+      "id": "card.astronomy.002.c3",
+      "type": "mcq",
+      "questionId": "question.astronomy.002.q1"
+    },
+    {
+      "id": "card.astronomy.002.c4",
+      "type": "fact",
+      "fact": "The Sun holds about 99.8% of the solar system's mass.",
+      "context": "Every planet, moon, asteroid and comet together makes up the remaining 0.2%. We're the crumbs."
+    },
+    {
+      "id": "card.astronomy.002.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Middle-aged, not old",
+      "body": "The Sun formed about 4.6 billion years ago. That sounds ancient, but for a star like ours it's roughly the middle of its life."
+    },
+    {
+      "id": "card.astronomy.002.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.002.q2"
+    },
+    {
+      "id": "card.astronomy.002.c7",
+      "type": "checkpoint",
+      "headline": "Sun: understood",
+      "learned": [
+        "Fusion turns hydrogen into helium in the core",
+        "The core is about 15 million °C",
+        "The Sun is 99.8% of the solar system's mass",
+        "It's about 4.6 billion years old"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.002.q1",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.sun_fusion"
+      ],
+      "prompt": "What powers the Sun?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Burning gas, like a campfire",
+          "correct": false,
+          "rationale": "There's no combustion — the Sun has no oxygen fire."
+        },
+        {
+          "id": "b",
+          "label": "Heat left over from its formation",
+          "correct": false,
+          "rationale": "Leftover heat would have run out long ago."
+        },
+        {
+          "id": "c",
+          "label": "Reflected light from other stars",
+          "correct": false,
+          "rationale": "The Sun makes its own light."
+        },
+        {
+          "id": "d",
+          "label": "Fusing hydrogen into helium",
+          "correct": true
+        }
+      ],
+      "explanation": "In its core, the Sun fuses hydrogen into helium, releasing enormous energy.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.002.q2",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.sun_is_a_star"
+      ],
+      "prompt": "From Level 1: what kind of object is the Sun?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A planet",
+          "correct": false,
+          "rationale": "Planets don't make their own light."
+        },
+        {
+          "id": "b",
+          "label": "A star",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A galaxy",
+          "correct": false,
+          "rationale": "A galaxy contains billions of stars."
+        },
+        {
+          "id": "d",
+          "label": "A nebula",
+          "correct": false,
+          "rationale": "A nebula is a cloud of gas and dust."
+        }
+      ],
+      "explanation": "The Sun is a star — the closest one to Earth.",
+      "difficulty": 0.1
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_sun_facts"
+  ]
+}

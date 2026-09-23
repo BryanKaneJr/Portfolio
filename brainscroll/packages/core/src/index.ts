@@ -5,3 +5,4 @@ export * from './validate';
 export * from './progression';
 export * from './daily';
 export * from './review';
+export * from './completion';

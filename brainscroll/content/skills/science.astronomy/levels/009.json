@@ -1,0 +1,173 @@
+{
+  "id": "level.science.astronomy.009",
+  "skillId": "skill.science.astronomy",
+  "number": 9,
+  "revision": 1,
+  "status": "draft",
+  "title": "The Life of a Star",
+  "objective": "After this level you can read a star's temperature from its color and outline how the Sun will end.",
+  "summary": "Stars are born in clouds of gas and dust. Blue stars are hottest, red coolest. The Sun will become a red giant and then a white dwarf; massive stars can go supernova.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.star_color_temperature",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.star_life_cycle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.sun_fusion",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.008"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Stars have a life story: birth, a long middle age, and a very dramatic ending."
+    },
+    {
+      "id": "card.astronomy.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Color is temperature",
+      "body": "Look closely and stars have colors. Blue-white stars are the hottest; red stars are the coolest. The Sun sits in between, which is why it looks white-yellow.",
+      "callout": "Blue = hot · Red = cool"
+    },
+    {
+      "id": "card.astronomy.009.c3",
+      "type": "mcq",
+      "questionId": "question.astronomy.009.q1"
+    },
+    {
+      "id": "card.astronomy.009.c4",
+      "type": "timeline",
+      "headline": "The Sun's life",
+      "events": [
+        {
+          "when": "~4.6 billion years ago",
+          "label": "Forms from a collapsing cloud of gas and dust"
+        },
+        {
+          "when": "Now",
+          "label": "Fusing hydrogen into helium in its core"
+        },
+        {
+          "when": "~5 billion years from now",
+          "label": "Swells into a red giant"
+        },
+        {
+          "when": "After that",
+          "label": "Sheds its outer layers and ends as a white dwarf"
+        }
+      ]
+    },
+    {
+      "id": "card.astronomy.009.c5",
+      "type": "text",
+      "role": "connect",
+      "headline": "Bigger stars, bigger endings",
+      "body": "The Sun won't explode. But stars much more massive than the Sun can end their lives in a supernova — an explosion that can briefly outshine a whole galaxy."
+    },
+    {
+      "id": "card.astronomy.009.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.009.q2"
+    },
+    {
+      "id": "card.astronomy.009.c7",
+      "type": "checkpoint",
+      "headline": "Stellar life cycle: unlocked",
+      "learned": [
+        "Blue stars are hotter than red stars",
+        "Stars form in clouds of gas and dust",
+        "The Sun will become a red giant, then a white dwarf",
+        "Massive stars can end as supernovae"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.009.q1",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.star_color_temperature"
+      ],
+      "prompt": "A star looks blue-white. What does that tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's cooler than the Sun",
+          "correct": false,
+          "rationale": "Cool stars look red."
+        },
+        {
+          "id": "b",
+          "label": "It's hotter than the Sun",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It's very close to us",
+          "correct": false,
+          "rationale": "Color doesn't tell you distance."
+        },
+        {
+          "id": "d",
+          "label": "It's about to explode",
+          "correct": false,
+          "rationale": "Color alone doesn't mean that."
+        }
+      ],
+      "explanation": "A star's color reveals its surface temperature: bluer means hotter.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.009.q2",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.star_life_cycle"
+      ],
+      "prompt": "How will the Sun most likely end its life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As a red giant, then a white dwarf",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "As a supernova",
+          "correct": false,
+          "rationale": "The Sun isn't massive enough."
+        },
+        {
+          "id": "c",
+          "label": "As a black hole",
+          "correct": false,
+          "rationale": "The Sun isn't nearly massive enough."
+        },
+        {
+          "id": "d",
+          "label": "It will burn forever",
+          "correct": false,
+          "rationale": "Its fuel will eventually run low."
+        }
+      ],
+      "explanation": "In about 5 billion years the Sun will swell into a red giant, then shrink into a white dwarf.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_star_life_cycle",
+    "source.nasa_sun_facts"
+  ]
+}

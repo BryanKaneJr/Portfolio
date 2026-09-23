@@ -29,7 +29,8 @@ Requires Node 22+.
 cd brainscroll
 npm install
 
-npm run check            # typecheck + unit tests + content validation
+npm run check            # typecheck + unit tests + content validation + bundle freshness
+npm run content:build    # recompile content/ into the app's offline bundle after editing content
 npm run test:db          # apply migrations to a throwaway Postgres and run SQL tests
 npm run app              # start the Expo dev server (press i / a / w)
 ```
@@ -42,8 +43,8 @@ We're following the [build order](docs/build-order.md). **The loop comes first a
 
 - [x] Stage 0: product rules frozen ([`docs/product-rules.md`](docs/product-rules.md), [`packages/core/src/constants.ts`](packages/core/src/constants.ts))
 - [x] Stage 1: data contracts: content schema and validator, DB schema, RLS, and an exactly-once `complete_level` transaction
-- [ ] Stage 2: the Golden 10 Astronomy levels (Level 1 is drafted as the calibration example)
-- [ ] Stage 3: lesson player (the app shell and 4 tabs exist; the CardRenderer is next)
+- [ ] Stage 2: the Golden 10 Astronomy levels. All 10 are drafted and validated; their sources still need editor verification
+- [x] Stage 3: lesson player. All 10 levels play offline from data, with resume, exactly-once completion, XP, the character sheet and the daily cap
 
 ## Read first
 

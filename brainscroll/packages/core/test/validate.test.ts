@@ -108,3 +108,31 @@ describe('validateContent', () => {
     expect(errors(bundle({ level2: level3 })).some((e) => e.message.includes('contiguous'))).toBe(true);
   });
 });
+
+describe('answer position balance', () => {
+  it('warns when one option letter is correct too often', () => {
+    const b = bundle();
+    const base = b.levels[0]!.data as Record<string, unknown>;
+    b.levels = Array.from({ length: 8 }, (_, i) => {
+      const n = i + 1;
+      const num = String(n).padStart(3, '0');
+      return {
+        where: `l${n}`,
+        data: {
+          ...base,
+          id: `level.science.astronomy.${num}`,
+          number: n,
+          prerequisites: n > 1 ? [`level.science.astronomy.${String(n - 1).padStart(3, '0')}`] : [],
+          cards: [
+            { id: `card.astronomy.${num}.c1`, type: 'text', role: 'hook', headline: 'Hook' },
+            { id: `card.astronomy.${num}.c2`, type: 'mcq', questionId: `question.astronomy.${num}.q1` },
+            { id: `card.astronomy.${num}.c3`, type: 'checkpoint', headline: 'Done', learned: ['x'] },
+          ],
+          questions: [{ ...(base.questions as object[])[0]!, id: `question.astronomy.${num}.q1` }],
+        },
+      };
+    });
+    const warnings = validateContent(b).issues.filter((i) => i.severity === 'warning');
+    expect(warnings.some((w) => w.message.includes('8/8 correct answers are option a'))).toBe(true);
+  });
+});

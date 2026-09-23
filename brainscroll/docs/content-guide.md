@@ -17,7 +17,7 @@ content/
     levels/001.json, 002.json, ...  # one file per canonical level
 ```
 
-Run `npm run validate:content`. **Errors** block import and publish. **Warnings** are for editors.
+Run `npm run validate:content`. **Errors** block import and publish. **Warnings** are for editors. After editing, run `npm run content:build` to refresh the app's offline bundle.
 
 ## Anatomy of a level
 
@@ -39,6 +39,10 @@ Run `npm run validate:content`. **Errors** block import and publish. **Warnings*
 | `mcq` | `questionId` |
 | `recall` | `questionId`, which must test a concept taught in an earlier level |
 | `checkpoint` | `headline`, 1–5 `learned` bullet points |
+
+### Answer positions
+
+Vary which option is correct across a skill. The validator warns when one letter holds more than 45% of the correct answers. If the options have a natural order (numbers, dates, sequences), keep that order and let the correct answer land wherever it falls.
 
 ### Text budgets (mobile)
 

@@ -193,8 +193,23 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
     if (first && !(first.type === 'text' && first.role === 'hook')) warn(where, 'should open with a hook card');
   }
 
+  // Predictable answers undermine learning: warn when one slot dominates a skill.
+  for (const [skill, list] of levelsBySkill) {
+    const positions = list.flatMap((l) => l.questions.map((q) => q.options.findIndex((o) => o.correct)));
+    if (positions.length < ANSWER_POSITION_MIN_SAMPLE) continue;
+    const counts = new Map<number, number>();
+    for (const p of positions) counts.set(p, (counts.get(p) ?? 0) + 1);
+    for (const [p, n] of counts) {
+      if (p >= 0 && n / positions.length > ANSWER_POSITION_MAX_SHARE)
+        warn(skill, `${n}/${positions.length} correct answers are option ${'abcd'[p]} — vary answer positions`);
+    }
+  }
+
   return { issues, content: { subjects, skills, sources, assets, concepts, levels } };
 }
+
+const ANSWER_POSITION_MIN_SAMPLE = 8;
+const ANSWER_POSITION_MAX_SHARE = 0.45;
 
 function safe<T>(fn: () => T): T | undefined {
   try {
