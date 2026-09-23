@@ -25,14 +25,14 @@ BrainScroll is a learning app first. A learner should finish a level thinking *"
 
 A **regular level** runs hook → 2–4 short learning cards (roughly 100–250 words) → **3 questions** → level complete. Checkpoints (every 10th level), milestones (Level 50) and the Level 100 Mastery Challenge test more. Review sessions size themselves to what's due.
 
-| `type` | Levels | Questions (norm / allowed) | Learning cards (norm) | Learning words (norm) |
+| `type` | Levels | Questions (standard) | Learning cards (norm) | Learning words (norm) |
 | --- | --- | --- | --- | --- |
-| `regular` | everything else | 3 / 2–4 | 2–4 | 100–250 |
-| `checkpoint` | 10, 20, 30 … | ~5 / 4–6 | 2–4 | 80–250 |
-| `milestone` | 50, 150, 250 … | 5–7 / 4–8 | 1–4 | 50–250 |
-| `mastery` | 100, 200, 300 … | ~10 / 8–12 | 0–3 | 0–200 |
+| `regular` | everything else | **3** | 2–4 | 100–250 |
+| `checkpoint` | 10, 20, 30 … | **5** | 2–4 | 80–250 |
+| `milestone` | 50, 150, 250 … | **7** | 1–4 | 50–250 |
+| `mastery` | 100, 200, 300 … | **10** | 0–3 | 0–200 |
 
-The source of truth is `LEARNING_STRUCTURE` in `packages/core/src/constants.ts`. A level outside the allowed question range is an **error**. Anything outside the norm is a **warning** for editors. Each level declares `"type"`, and it must match its number (`levelTypeFor`).
+The source of truth is `LEARNING_STRUCTURE` in `packages/core/src/constants.ts` (`questions.standard`). A **published** level must have exactly the standard number of questions. A draft that differs gets a **warning**; one outside the drafting tolerance (`questions.min`–`max`) is an **error**. Learning-card and word counts outside the norm are warnings. Each level declares `"type"`, and it must match its number (`levelTypeFor`).
 
 **Question purposes.** Every question has a `purpose`. Regular levels use one of each:
 - `recall`: the core fact or idea from this level.
@@ -95,7 +95,7 @@ Headline ≤ 80 chars · body ≤ 360 · question prompt ≤ 200 · answer ≤ 8
 | 51–75 | Broader context, second-order connections, deeper mechanisms |
 | 76–95 | Advanced synthesis, nuance, specialised concepts |
 | 96–99 | Integration across the whole tree |
-| 100 | Mastery Challenge (~10 questions): resolving it earns ★ Mastery I and unlocks 101–200. There's no minimum first-attempt score |
+| 100 | Mastery Challenge (10 questions): resolving it earns ★ Mastery I and unlocks 101–200. There's no minimum first-attempt score |
 
 ## Sourcing and licences
 

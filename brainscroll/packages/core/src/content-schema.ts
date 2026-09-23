@@ -180,7 +180,7 @@ export const Level = z.object({
   id: id('level'),
   skillId: id('skill'),
   number: z.number().int().positive(),
-  /** regular | checkpoint | milestone | mastery. It sets the expected learning/question structure. */
+  /** regular | checkpoint | milestone | mastery. It sets the learning structure and the canonical question count (3 · 5 · 7 · 10, LEARNING_STRUCTURE). */
   type: z.enum(LEVEL_TYPES),
   revision: z.number().int().positive(),
   status: ContentStatus,

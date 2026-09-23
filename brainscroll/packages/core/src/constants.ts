@@ -64,10 +64,13 @@ export const TEXT_BUDGET = {
  * levels are mostly learning; checkpoints, milestones and mastery test more.
  * Review sessions size themselves to whatever is due.
  *
- * `questions` is the hard range (validator error outside it). `target` is the
- * editorial norm (warning outside it). `learningCards` and `learningWords`
- * cover the reading/visual cards between the hook and the questions, and
- * produce warnings only.
+ * `questions.standard` is THE canonical question count for the type, the one
+ * number every doc, screen and tool refers to: regular 3, checkpoint 5,
+ * milestone 7, Mastery Challenge 10. The validator warns on a draft that
+ * differs and rejects a published level that differs. `questions.min`/`max`
+ * is only the drafting tolerance (error outside it). `learningCards` and
+ * `learningWords` cover the reading/visual cards between the hook and the
+ * questions, and produce warnings only.
  */
 export type LevelType = 'regular' | 'checkpoint' | 'milestone' | 'mastery';
 export type SessionType = LevelType | 'review';
@@ -137,7 +140,8 @@ export interface LearningStructure {
    * XP.REVIEW_FIRST_ATTEMPT per item instead.
    */
   firstAttemptXp: readonly XpBand[];
-  questions: { min: number; max: number; target: { min: number; max: number } };
+  /** `standard`: the canonical count (null for review, which sizes itself to what's due). */
+  questions: { standard: number | null; min: number; max: number };
   learningCards: { min: number; max: number };
   learningWords: { min: number; max: number };
   /** Expect one recall, one understanding and one connection question. */
@@ -147,38 +151,38 @@ export interface LearningStructure {
 export const LEVEL_TYPES = ['regular', 'checkpoint', 'milestone', 'mastery'] as const satisfies readonly LevelType[];
 
 export const LEARNING_STRUCTURE: Record<SessionType, LearningStructure> = {
-  /** The standard loop: hook, 2–4 short learning cards (~100–250 words), 3 light questions. */
+  /** The standard loop: hook, 2–4 short learning cards (100–250 words), 3 light questions. */
   regular: {
     firstAttemptXp: STANDARD_FIRST_ATTEMPT_XP,
     label: 'Level',
-    questions: { min: 2, max: 4, target: { min: 3, max: 3 } },
+    questions: { standard: 3, min: 2, max: 4 },
     learningCards: { min: 2, max: 4 },
     learningWords: { min: 100, max: 250 },
     coverPurposes: true,
   },
-  /** Every 10th level: still teaches, then a slightly longer check (~5) across the chapter. */
+  /** Every 10th level: still teaches, then a 5-question check across the chapter. */
   checkpoint: {
     firstAttemptXp: CHECKPOINT_FIRST_ATTEMPT_XP,
     label: 'Checkpoint',
-    questions: { min: 4, max: 6, target: { min: 5, max: 5 } },
+    questions: { standard: 5, min: 4, max: 6 },
     learningCards: { min: 2, max: 4 },
     learningWords: { min: 80, max: 250 },
     coverPurposes: true,
   },
-  /** Level 50 (and 150, 250 …): a bigger synthesis moment, 5–7 questions. */
+  /** Level 50 (and 150, 250 …): a bigger synthesis moment, 7 questions. */
   milestone: {
     firstAttemptXp: MILESTONE_FIRST_ATTEMPT_XP,
     label: 'Milestone',
-    questions: { min: 4, max: 8, target: { min: 5, max: 7 } },
+    questions: { standard: 7, min: 6, max: 8 },
     learningCards: { min: 1, max: 4 },
     learningWords: { min: 50, max: 250 },
     coverPurposes: true,
   },
-  /** Level 100 (and 200, 300 …): the Mastery Challenge, ~10 questions. The fullest test in a tree. */
+  /** Level 100 (and 200, 300 …): the Mastery Challenge, 10 questions. The fullest test in a tree. */
   mastery: {
     firstAttemptXp: MASTERY_FIRST_ATTEMPT_XP,
     label: 'Mastery Challenge',
-    questions: { min: 8, max: 12, target: { min: 10, max: 10 } },
+    questions: { standard: 10, min: 8, max: 12 },
     learningCards: { min: 0, max: 3 },
     learningWords: { min: 0, max: 200 },
     coverPurposes: false,
@@ -187,11 +191,19 @@ export const LEARNING_STRUCTURE: Record<SessionType, LearningStructure> = {
   review: {
     firstAttemptXp: [],
     label: 'Review',
-    questions: { min: 1, max: 10, target: { min: 1, max: 10 } },
+    questions: { standard: null, min: 1, max: 10 },
     learningCards: { min: 0, max: 0 },
     learningWords: { min: 0, max: 0 },
     coverPurposes: false,
   },
+};
+
+/** Canonical question count per level type: regular 3 · checkpoint 5 · milestone 7 · mastery 10. */
+export const STANDARD_QUESTIONS: Record<LevelType, number> = {
+  regular: LEARNING_STRUCTURE.regular.questions.standard!,
+  checkpoint: LEARNING_STRUCTURE.checkpoint.questions.standard!,
+  milestone: LEARNING_STRUCTURE.milestone.questions.standard!,
+  mastery: LEARNING_STRUCTURE.mastery.questions.standard!,
 };
 
 /** Most questions a single review session serves. */

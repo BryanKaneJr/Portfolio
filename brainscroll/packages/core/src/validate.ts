@@ -123,9 +123,11 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
     const qn = level.questions.length;
     if (qn < shape.questions.min || qn > shape.questions.max)
       err(where, `${shape.label} has ${qn} questions; allowed ${shape.questions.min}–${shape.questions.max}`);
-    else if (qn < shape.questions.target.min || qn > shape.questions.target.max) {
-      const t = shape.questions.target;
-      warn(where, `${shape.label} has ${qn} questions; the norm is ${t.min === t.max ? t.min : `${t.min}–${t.max}`}`);
+    else if (shape.questions.standard !== null && qn !== shape.questions.standard) {
+      // Drafts may be mid-edit; published content must match the canonical count.
+      const msg = `${shape.label} has ${qn} questions; the standard is ${shape.questions.standard}`;
+      if (level.status === 'published') err(where, msg);
+      else warn(where, msg);
     }
     const learning = learningCards(level).length;
     if (learning < shape.learningCards.min || learning > shape.learningCards.max)

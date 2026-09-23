@@ -43,10 +43,12 @@ Testing is proportional to the moment. The type comes from the level number (`le
 | Type | Which levels | Shape | Questions | XP pool (top) |
 | --- | --- | --- | --- | --- |
 | **Regular** | Almost all of them | Hook → 2–4 short learning cards (~100–250 words) → questions → level complete | **3**: recall, understanding, connection | 100 |
-| **Checkpoint** | Every 10th level | Still teaches, then a slightly longer check across the chapter | ~5 | 150 |
-| **Milestone** | Level 50 (150, 250 …) | A bigger synthesis moment | ~7 (5–7) | 250 |
-| **Mastery Challenge** | Level 100 (200, 300 …) | The fullest test in a tree; resolving it earns ★ | ~10 | 500 |
+| **Checkpoint** | Every 10th level | Still teaches, then a slightly longer check across the chapter | **5** | 150 |
+| **Milestone** | Level 50 (150, 250 …) | A bigger synthesis moment | **7** | 250 |
+| **Mastery Challenge** | Level 100 (200, 300 …) | The fullest test in a tree; resolving it earns ★ | **10** | 500 |
 | **Review** | Not a level | Spaced repetition; one question per concept due | Varies, up to 10 per session | +10 per item right first time |
+
+These counts are canonical: **3 · 5 · 7 · 10**. They live once, in `LEARNING_STRUCTURE[type].questions.standard`. The validator rejects a published level whose count differs; `min`/`max` there is only drafting tolerance for levels still being written.
 
 The three questions in a regular level each have a job:
 - **Recall:** did the learner absorb the core fact or idea?
@@ -69,16 +71,16 @@ A ten-question assessment is a special milestone experience, never the normal le
 
 **XP by first-attempt accuracy.** Each encounter type has its own pool and bands (not linear scaling of the regular curve):
 
-| Outcome | Regular (3) | Checkpoint (5) | Level 50 milestone (~7) | Level 100 Mastery Challenge (10) |
+| Outcome | Regular (3) | Checkpoint (5) | Level 50 milestone (7) | Level 100 Mastery Challenge (10) |
 | --- | --- | --- | --- | --- |
 | **Perfect Recall** (a slightly bigger celebration) | 3/3 → **100** | 5/5 → **150** | 7/7 → **250** | 10/10 → **500** |
 | Strong | 2/3 → 70 | 4/5 → 105 | 6/7 → 175 | 8–9/10 → 350 |
 | Reinforced | 1/3 → 35 | 3/5 → 60 | 4–5/7 → 90 | 5–7/10 → 175 |
 | Heavily reinforced | 0/3 → 15 | 0–2/5 → 25 | 0–3/7 → 40 | 0–4/10 → 75 |
 
-Bands are by share of questions right on the first try, so a level a question shorter or longer than the norm still lands where intended. These are **initial balancing numbers**. They live in one place per runtime, `LEARNING_STRUCTURE[type].firstAttemptXp` (`packages/core/src/constants.ts`) and `level_xp_curve` (SQL), and the UI only ever shows what completion returns. Corrections never restore XP (1/3 then two corrections is still 35), XP is never negative, and replays award nothing.
+Bands are by share of questions right on the first try. These are **initial balancing numbers**. They live in one place per runtime, `LEARNING_STRUCTURE[type].firstAttemptXp` (`packages/core/src/constants.ts`) and `level_xp_curve` (SQL), and the UI only ever shows what completion returns. Corrections never restore XP (1/3 then two corrections is still 35), XP is never negative, and replays award nothing.
 
-**Level 100 Mastery Challenge.** Resolving all ~10 questions awards the ★, the first-attempt XP above, and access to levels 101–200. There is **no separate mastery bonus** and **no minimum first-attempt score**. *Perfect Mastery* (10/10 on the first try) is a possible future accomplishment, not a requirement.
+**Level 100 Mastery Challenge.** Resolving all 10 questions awards the ★, the first-attempt XP above, and access to levels 101–200. There is **no separate mastery bonus** and **no minimum first-attempt score**. *Perfect Mastery* (10/10 on the first try) is a possible future accomplishment, not a requirement.
 
 **Review priority from first attempts:** right first time → normal interval. Missed once → strength 0, due soon, priority 1. Missed repeatedly (3+ tries) → due now, priority 2. Review serves higher priority first; a review right on the first try clears it. *"You learned this with help. We'll check it again sooner."*
 

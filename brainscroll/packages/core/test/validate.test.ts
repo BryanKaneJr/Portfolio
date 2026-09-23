@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { levelTypeFor, validateContent, type RawContentBundle } from '../src';
+import { LEARNING_STRUCTURE, STANDARD_QUESTIONS, levelTypeFor, validateContent, type RawContentBundle } from '../src';
 
 const CONCEPT = 'concept.astronomy.sun_is_a_star';
 const PURPOSES = ['recall', 'understanding', 'connection'] as const;
@@ -138,19 +138,41 @@ describe('level structure by type', () => {
     l.questions = (l.questions as unknown[]).slice(0, 2);
     l.cards = (l.cards as Card[]).filter((c) => c.questionId !== 'question.astronomy.001.q3');
     expect(issues(bundle([l]), 'error')).toEqual([]);
-    expect(issues(bundle([l]), 'warning')).toContain('Level has 2 questions; the norm is 3');
+    expect(issues(bundle([l]), 'warning')).toContain('Level has 2 questions; the standard is 3');
+    // Published content must match the canonical count exactly.
+    expect(issues(bundle([{ ...l, status: 'published' }]), 'error')).toContain('Level has 2 questions; the standard is 3');
   });
 
-  it('allows a ~10-question Mastery Challenge at level 100', () => {
-    const qs = Array.from({ length: 10 }, (_, i) => ({ ...(makeLevel(100).questions as object[])[0]!, id: `question.astronomy.100.q${i + 1}` }));
+  it('has one canonical question count per type: 3 · 5 · 7 · 10', () => {
+    expect(STANDARD_QUESTIONS).toEqual({ regular: 3, checkpoint: 5, milestone: 7, mastery: 10 });
+    for (const t of ['regular', 'checkpoint', 'milestone', 'mastery'] as const) {
+      expect(LEARNING_STRUCTURE[t].questions.standard).toBe(STANDARD_QUESTIONS[t]);
+    }
+  });
+
+  /** Question-count issues for an encounter level with `n` questions and no learning cards. */
+  const encounterIssues = (number: number, n: number, severity: 'error' | 'warning') => {
+    const num = String(number).padStart(3, '0');
+    const qs = Array.from({ length: n }, (_, i) => ({ ...(makeLevel(number).questions as object[])[0]!, id: `question.astronomy.${num}.q${i + 1}` }));
     const cards = [
-      { id: 'card.astronomy.100.c1', type: 'text', role: 'hook', headline: 'Mastery Challenge' },
-      ...qs.map((q, i) => ({ id: `card.astronomy.100.c${i + 2}`, type: 'mcq', questionId: (q as { id: string }).id })),
+      { id: `card.astronomy.${num}.c1`, type: 'text', role: 'hook', headline: 'Encounter' },
+      ...qs.map((q, i) => ({ id: `card.astronomy.${num}.c${i + 2}`, type: 'mcq', questionId: (q as { id: string }).id })),
     ];
-    const errs = validateContent({ ...bundle([makeLevel(100, { questions: qs, cards })]) }).issues.filter(
-      (i) => i.severity === 'error' && i.message.includes('questions'),
-    );
-    expect(errs).toEqual([]);
+    return validateContent(bundle([makeLevel(number, { questions: qs, cards })]))
+      .issues.filter((i) => i.severity === severity && i.message.includes('questions;'))
+      .map((i) => i.message);
+  };
+
+  it('accepts a 10-question Mastery Challenge at level 100', () => {
+    expect(encounterIssues(100, 10, 'error')).toEqual([]);
+    expect(encounterIssues(100, 10, 'warning')).toEqual([]);
+  });
+
+  it('makes 7 the fixed Level 50 milestone standard', () => {
+    expect(encounterIssues(50, 7, 'error')).toEqual([]);
+    expect(encounterIssues(50, 7, 'warning')).toEqual([]);
+    expect(encounterIssues(50, 6, 'warning')).toEqual(['Milestone has 6 questions; the standard is 7']);
+    expect(encounterIssues(50, 5, 'error')).toEqual(['Milestone has 5 questions; allowed 6–8']);
   });
 
   it('warns when questions come before the learning content', () => {
