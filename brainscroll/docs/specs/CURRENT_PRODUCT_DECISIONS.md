@@ -1,6 +1,8 @@
 # BrainScroll — Current Product Decisions
 
-This file records product decisions made after parts of the converted DOCX specifications were authored. Until these items are merged into the active specs, this file overrides conflicting older wording.
+This file records product decisions made after parts of the converted DOCX specifications were authored.
+
+> **Status: merged (2026-09-23).** Every item below is now reflected in `PRODUCT_ROADMAP.md`, `BUILD_ORDER.md`, `VISUAL_DIRECTION.md` and `SOCIAL_REWARDS.md`, and implemented where it applies to the MVP (`packages/core/src/constants.ts`, the SQL migrations). This file remains as a concise decision record.
 
 ## 1. Learning first, testing second
 

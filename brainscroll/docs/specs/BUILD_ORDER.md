@@ -2,6 +2,7 @@
 title: "BrainScroll Build Order Blueprint"
 status: canonical
 source_docx: "Knowledge_RPG_Build_Order_Blueprint(1).docx"
+merged_decisions: "CURRENT_PRODUCT_DECISIONS.md (2026-09-23)"
 ---
 
 | ENGINEERING & DELIVERY PLAN |
@@ -44,6 +45,7 @@ The product has two engines that must meet cleanly: the learning application and
 | 9         | Add analytics & reporting | Mission-aligned events, content error reports, funnel visibility         |
 | 10        | Scale launch content      | Complete launch trees using the proven content pipeline                  |
 | 11        | Beta & release            | TestFlight/Play testing, QA, store submission, operations                |
+| Post-MVP  | Rewards foundation → Weekly Knowledge Quests → friends | Only after the MVP ships; see the Social + Rewards Expansion Spec. Never blocks launch. |
 
 > Critical-path principle
 > A later stage should not begin merely because code can begin. It begins when the previous stage has produced a stable contract. The biggest rework risks are the content schema, completion/progress rules, and publication/versioning model.
@@ -98,7 +100,7 @@ These are not visual decisions. They are contracts that every screen, database r
 
 - Prestige continues upward (101–200, 201–300...) and adds a star/badge without deleting earlier progress.
 
-- A level is a small learning encounter composed of cards and questions—not a single trivia fact.
+- A level is a small learning encounter: mostly short reading/visual cards, then 3 light questions (recall, understanding, connection)—not a single trivia fact and not a test. Question count is fixed by level type: regular 3; every 10th-level checkpoint 5; the Level 50 milestone 7; the Level 100 Mastery Challenge 10; review sessions vary with what is due.
 
 - Free accounts may complete 5 NEW levels per local calendar day. Review does not consume the allowance.
 
@@ -150,7 +152,7 @@ The learning app should render content; it should not contain hard-coded lesson 
 | concepts       | Atomic knowledge objects             | id, title, description, difficulty, canonical facts       |
 | level_concepts | Which concepts a level teaches/tests | level_id, concept_id, role, weight                        |
 | cards          | Ordered lesson units                 | id, level_id, type, payload, order                        |
-| questions      | Assessments                          | id, level_id, concept_id, prompt, explanation, difficulty |
+| questions      | Assessments                          | id, level_id, concept_ids, source_card_ids, purpose, prompt, explanation, difficulty |
 | answer_options | Question choices                     | question_id, label, correct, rationale                    |
 | sources        | Source registry                      | id, title, URL, publisher, license, accessed_at           |
 | source_links   | Fact/content provenance              | source_id, object_type, object_id, note                   |
@@ -163,6 +165,7 @@ The learning app should render content; it should not contain hard-coded lesson 
 | profiles             | User-visible identity / settings                              |
 | user_skill_progress  | Highest cleared level, total XP, prestige/mastery state       |
 | user_level_progress  | Started/completed/score/completion revision                   |
+| user_question_attempts | First attempt (immutable), attempt count, resolved flag per question |
 | user_concept_mastery | Seen count, correct/incorrect, strength, last reviewed        |
 | review_queue         | Concept/question due date and priority                        |
 | xp_events            | Immutable XP ledger; every award has a reason/idempotency key |
@@ -204,7 +207,7 @@ Pick one flagship skill—Astronomy or Ancient Rome are strong choices—and han
 
 - An end-of-level completion payload with XP and concept mastery updates.
 
-- Enough variety that Levels 1–10 do not feel like ten copies of the same template.
+- Enough variety that Levels 1–10 do not feel like ten copies of the same template. Levels 1–9 are regular levels (3 questions each); Level 10 is the first checkpoint (5 questions).
 
 ## Golden-level editorial standard
 
@@ -213,7 +216,7 @@ Pick one flagship skill—Astronomy or Ancient Rome are strong choices—and han
 | Accuracy      | Every factual claim source-backed; no unsupported AI filler.              |
 | Scope         | One level has a clear learning objective; no encyclopedia dump.           |
 | Readability   | Mobile-length cards; split ideas instead of shrinking type.               |
-| Questions     | One defensible answer; plausible distractors; explanation after response. |
+| Questions     | Three per regular level (recall, understanding, connection); one defensible answer; plausible distractors; explanation after response. |
 | Connection    | Show how new knowledge relates to earlier knowledge.                      |
 | Tone          | Smart and conversational, not childish, academic, or preachy.             |
 | Completion    | A user can explain at least one new thing after finishing the level.      |
@@ -240,7 +243,7 @@ Pick one flagship skill—Astronomy or Ancient Rome are strong choices—and han
 
 6.  Implement question cards and answer selection.
 
-7.  Show immediate feedback and explanation after a response.
+7.  Show immediate feedback. After a wrong answer, keep the question visible, show its source card beneath it (“Take another look”) and require the correct answer before moving on.
 
 8.  Persist in-progress position locally so an interrupted level resumes correctly.
 
@@ -257,7 +260,7 @@ Pick one flagship skill—Astronomy or Ancient Rome are strong choices—and han
 | fact          | short memorable fact + context                        |
 | timeline      | ordered events payload                                |
 | comparison    | two-or-more item comparison payload                   |
-| mcq           | question_id; answers loaded from question object      |
+| mcq           | question_id; graded server-side; question.source_card_ids name the teaching cards shown after a miss |
 | recall        | question_id tagged as prior-concept review            |
 | checkpoint    | summary of learned concepts / transition              |
 
@@ -269,7 +272,7 @@ Pick one flagship skill—Astronomy or Ancient Rome are strong choices—and han
 
 - Double tapping Complete cannot duplicate XP or completion.
 
-- Wrong answers teach; they never lock the learner out or consume a “life.”
+- Wrong answers teach: the missed question shows its source card and must be answered correctly; nothing locks the learner out or consumes a “life.” The first attempt is recorded once, server-side, and restarting the level cannot replace it.
 
 - App handles long text, missing optional media, offline interruption, and app restart safely.
 
@@ -307,10 +310,11 @@ This is where the product stops feeling like a lesson viewer and starts feeling 
 
 | **Event**        | **Purpose**                | **Guardrail**                          |
 |------------------|----------------------------|----------------------------------------|
-| LEVEL_COMPLETE   | Base completion XP         | Once per canonical level               |
-| QUESTION_CORRECT | Small performance bonus    | Capped per level                       |
-| DELAYED_RECALL   | Meaningful retention bonus | Only after a delay / scheduled review  |
-| MASTERY_CLEAR    | Milestone reward           | Level 100 / future prestige checkpoint |
+| LEVEL_COMPLETE   | Completion XP by first-attempt accuracy from the level type’s own pool: regular 100 / 70 / 35 / 15; checkpoint 150 / 105 / 60 / 25; milestone 250 / 175 / 90 / 40; Mastery Challenge 500 / 350 / 175 / 75 | Once per canonical level; corrections add nothing; values configurable, never hard-coded in the UI |
+| QUESTION_CORRECT | Retired per-answer bonus   | First-attempt accuracy now sets LEVEL_COMPLETE XP |
+| DELAYED_RECALL   | +10: scheduled review item right on the first attempt | Once per scheduled review occurrence; replays/reopening earn nothing; a wrong first answer earns 0 and its required correction earns nothing |
+| MASTERY_CLEAR    | Retired +250 Level 100 bonus | The Mastery Challenge’s own XP pool replaces it; the ★ comes from resolving Level 100 (no minimum score) |
+| QUEST_COMPLETE (post-MVP) | Weekly Quest bonus | Once per quest per user. Quest progress itself is read from LEVEL_COMPLETE events, never counted separately. |
 | CORRECTION       | Admin repair               | Explicit audited reason; not silent    |
 
 ## Stage 4 exit gate
@@ -336,13 +340,15 @@ The app can feel game-like without pretending that completing a card equals mast
 
 - Completion creates or updates concept mastery records.
 
-- Correct/incorrect answers adjust a simple strength score.
+- First attempts adjust a simple strength score; corrections do not.
 
 - Review_queue stores due concepts, not a frozen copy of one question.
 
 - The app can present a different approved question that tests the same concept.
 
 - Review never consumes one of the 5 daily new levels.
+
+- Review items work like level questions: the first attempt is recorded once per scheduled review (+10 XP if right); a miss lowers strength, raises review priority, shows the source card beneath the question and requires the correct answer. Never just reveal the answer.
 
 - Missing a review does not delete levels or prestige; it only leaves items due.
 
@@ -389,6 +395,7 @@ The limit must be enforced server-side, but it should be experienced as a succes
 | Completion          | 5 / 5 new levels                                    |
 | Progress            | XP gained + skill-level changes                     |
 | Learning            | Concepts learned/refreshed                          |
+| Weekly Quest (post-MVP) | When a quest is active: quest name, x / 25 overall, x / 5 per skill, levels remaining, “Come back tomorrow and keep building.” |
 | Voice               | “No more doomscrolling. Go touch grass.”            |
 | Primary free action | Review what I learned                               |
 | Secondary action    | Come back tomorrow                                  |
@@ -514,7 +521,7 @@ The free experience must already feel complete and trustworthy. Premium is a sim
 
 - Day-1 / Day-7 return among users who completed at least one level.
 
-- Review completion and delayed-recall correctness.
+- Review completion and first-attempt recall accuracy.
 
 - Level-specific abandon rate and question error rate.
 
@@ -628,9 +635,9 @@ The app should ask the backend for eligibility and authoritative progress; it sh
 
 ## Complete a level
 
-51. Client submits level ID, revision, answer results, and completion idempotency key.
+51. Each attempt goes to the server as it happens (answer_question); the first attempt per question is stored once and never replaced. The client then submits level ID, revision and a completion idempotency key.
 
-52. Server verifies that the level is eligible and not already awarded.
+52. Server verifies that the level is eligible, not already awarded, and that every question has been correctly resolved; XP is set by first-attempt accuracy.
 
 53. One transaction writes level completion, XP events, skill progress, concept mastery/review updates, and daily allowance increment.
 
@@ -696,6 +703,7 @@ The app should ask the backend for eligibility and authoritative progress; it sh
 | Recommendation ML         | Simple continue/choose-skill logic is enough initially.                                 |
 | Custom billing backend    | RevenueCat/store systems already solve the hard cross-platform pieces.                  |
 | Microservices             | A relational backend and a few server functions are sufficient.                         |
+| Weekly Knowledge Quests   | Built on the proven loop plus trophies, titles, profile and cosmetics; must not block the MVP. |
 
 > The product can be deep without being technically complicated.
 > Depth comes from hundreds of coherent canonical levels, visible mastery, and trustworthy review—not from a large number of software subsystems.
@@ -729,7 +737,7 @@ The app should ask the backend for eligibility and authoritative progress; it sh
 
 ☐ Core screens are accessible, responsive, and performant on representative devices.
 
-☐ No unfinished social, currency, avatar, or AI-tutor system is required for the core loop.
+☐ No unfinished social, Weekly Quest, currency, avatar, or AI-tutor system is required for the core loop.
 
 ## The next document: Visual Direction
 

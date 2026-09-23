@@ -19,7 +19,7 @@ BrainScroll is an anti-doomscrolling knowledge RPG. It uses the familiar feel of
 | [`content/`](content) | Versioned curriculum source: subjects, skills, concepts, levels, sources and assets as JSON. |
 | [`scripts/`](scripts) | Content validator (and later: importer, duplicate/licence checks, bundle export). |
 | [`admin/`](admin) | Internal content authoring/review/publish tool (Stage 7; not started). |
-| [`docs/`](docs) | Product rules, build order, content guide, visual direction, and the original planning docs. |
+| [`docs/`](docs) | Full product specs in Markdown ([`docs/specs/`](docs/specs)), engineering digests (product rules, build order, content guide, visual direction), and .docx snapshots. |
 
 ## Getting started
 
@@ -60,3 +60,4 @@ We're following the [build order](docs/build-order.md). **The loop comes first a
 3. [`docs/content-guide.md`](docs/content-guide.md): how a level is structured and validated.
 4. [`docs/visual-direction.md`](docs/visual-direction.md): colours, type, motion and screen intent.
 5. [`docs/social-expansion.md`](docs/social-expansion.md): the post-MVP plan for trophies, Weekly Knowledge Quests, friends and leaderboards.
+6. [`docs/specs/`](docs/specs): the full product specs (roadmap, build order, visual direction, social + rewards) in Markdown, the working source of truth for product intent. The `.docx` files in `docs/source/` are snapshots of them.

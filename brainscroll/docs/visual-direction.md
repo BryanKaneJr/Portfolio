@@ -1,6 +1,6 @@
 # Visual direction
 
-This summarizes [`source/Visual_Theme_UI_Direction.docx`](source/Visual_Theme_UI_Direction.docx). The tokens are implemented in [`app/src/theme/tokens.ts`](../app/src/theme/tokens.ts).
+This summarizes [`specs/VISUAL_DIRECTION.md`](specs/VISUAL_DIRECTION.md) (.docx snapshot in [`source/`](source/Visual_Theme_UI_Direction.docx)). The tokens are implemented in [`app/src/theme/tokens.ts`](../app/src/theme/tokens.ts).
 
 **North star:** make knowledge look like a video-game resource. Think Duolingo clarity, plus premium-app restraint, plus RPG progression feedback. It should feel smart first and game-like second.
 

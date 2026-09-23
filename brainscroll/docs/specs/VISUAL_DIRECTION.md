@@ -2,6 +2,7 @@
 title: "BrainScroll Visual Theme & UI Direction"
 status: canonical
 source_docx: "BrainScroll_Visual_Theme_UI_Direction_Revised(1).docx"
+merged_decisions: "CURRENT_PRODUCT_DECISIONS.md (2026-09-23)"
 ---
 
 **BRAINSCROLL**
@@ -27,7 +28,7 @@ Use a deep, calm base with a restrained luminous layer. Think premium reading ap
 
 |  |  |
 | --- | --- |
-| Where the RPG lives<br>Levels, ranks, canonical skill progression, XP, mastery stars, titles, milestone nodes, prestige and unlock animations. | Where the RPG does NOT live<br>No swords, armor, medieval frames, treasure chests, parchment, combat UI or cosplay. The RPG layer is a stat system for real knowledge. |
+| Where the RPG lives<br>Levels, ranks, canonical skill progression, XP, mastery stars, titles, milestone nodes, prestige, Weekly Knowledge Quests and unlock animations. | Where the RPG does NOT live<br>No swords, armor, medieval frames, treasure chests, parchment, combat UI or cosplay. The RPG layer is a stat system for real knowledge. |
 
 |  |  |
 | --- | --- |
@@ -59,7 +60,7 @@ Use a deep, calm base with a restrained luminous layer. Think premium reading ap
 
 - **Fast hierarchy.** A user should know what to do within a second: continue, answer, level up, or review.
 
-- **Shallow navigation. Four destinations are enough for V1: Home, Skills, Review and Profile. Learning launches from Home or a skill tree rather than becoming a separate maze of tabs.**
+- **Shallow navigation. Four destinations are enough for V1: Home, Skills, Review and Profile. Learning launches from Home or a skill tree rather than becoming a separate maze of tabs. Weekly Knowledge Quests (post-MVP) surface as a Home card, not a fifth tab.**
 
 - **Motion with purpose. Buttons depress, XP counts up, progress settles, and unlocks glow. Normal navigation stays quiet so reward moments keep their impact.**
 
@@ -77,27 +78,29 @@ Use a deep, calm base with a restrained luminous layer. Think premium reading ap
 | --- |
 | CONTINUE Roman History - Lv. 18 82% |
 | TODAY 3 / 5 new levels completed |
+| WEEKLY QUEST The Roman World · 14 / 25 new levels |
 | HISTORY Rank 14 · Roman History Lv. 18 |
 | SCIENCE Rank 23 · Astronomy Lv. 18 |
 | GEOGRAPHY Rank 12 |
 | MONEY Rank 8 |
 
-**Design intent: the RPG is visible, but learning stays primary. One dominant Continue card should own the screen; subject stats and daily progress are secondary, not a dashboard wall.**
+**Design intent: the RPG is visible, but learning stays primary. One dominant Continue card should own the screen; subject stats, daily progress and the active Weekly Quest (post-MVP) are secondary, not a dashboard wall.**
 
 ## 5. The Level Scroll: Finite by Design
 
 *Use the familiar physics of a vertical feed, but every level has a beginning, an end and a saved place.*
 
-A level is a 2-5 minute learning encounter, usually 4-7 cards: hook, explanation, connection, question, correction if needed, and completion. The user never enters an endless algorithmic feed. Finishing the final card ends the level and awards real progression.
+A level is a 2-5 minute learning encounter: a hook, 2-4 short learning cards, then 3 light questions (recall, understanding, connection), each followed by a short explanation, and completion. Reading and discovery are the main experience; the questions reinforce them. Longer checks are reserved for milestones: 5 questions at every 10th-level checkpoint, 7 at the Level 50 milestone, 10 at the Level 100 Mastery Challenge. The user never enters an endless algorithmic feed. Finishing the final card ends the level and awards real progression.
 
 | ROMAN HISTORY - LEVEL 18<br>2-5 minute finite learning encounter |
 | --- |
 | HOOK “The Roman Empire did not actually disappear in 476.” |
 | EXPLAIN Short visual + 2-3 lines of explanation. |
 | CONNECT “Remember Constantine from Lv. 12?” |
-| QUESTION Which half of the Roman Empire survived? |
+| 3 QUESTIONS Recall, understanding, connection, e.g. "Which half of the Roman Empire survived?" |
 | ANSWER Eastern ✓ |
-| REWARD +24 XP · Level 18 cleared · Level 19 unlocked |
+| IF MISSED Take another look: “After the Western Roman Empire collapsed in the 5th century, the Eastern Roman Empire continued from Constantinople for nearly another thousand years.” Choose again. |
+| REWARD +100 XP · Perfect Recall · Level 19 unlocked |
 
 |  |  |
 | --- | --- |
@@ -109,14 +112,17 @@ A level is a 2-5 minute learning encounter, usually 4-7 cards: hook, explanation
 
 |  |  |
 | --- | --- |
-| Level complete moment<br>XP fills quickly, the skill level increments and the next canonical level lights up. Keep the celebration crisp so “one more level” feels tempting without becoming noise. | Daily quest complete<br>At 5 / 5 new free levels, celebrate finishing. Review remains unlimited. The subscription offer appears as an optional way to continue - not as a punishment or energy refill. |
+| Level complete moment<br>XP fills quickly, the skill level increments and the next canonical level lights up. A 3 / 3 first try earns Perfect Recall with a slightly bigger moment. Level 100 shows “★ Mastery star earned” in gold whatever the first-try score. XP amounts come from the server’s configured pools, never from the screen. Review works like a level question: a miss shows the source card beneath the question and the choices stay open until the right answer is chosen. Keep the celebration crisp so “one more level” feels tempting without becoming noise. | Daily knowledge complete<br>At 5 / 5 new free levels, celebrate finishing. Review remains unlimited. The subscription offer appears as an optional way to continue - not as a punishment or energy refill. When a Weekly Quest is active, this screen also shows its progress. |
 
-| DAILY QUEST COMPLETE<br>5 / 5 new levels |
+| DAILY KNOWLEDGE COMPLETE<br>5 / 5 new levels |
 | --- |
+| WEEKLY QUEST The Roman World · 14 / 25 |
+| Roman History 5/5 ✓ · European Geography 5/5 ✓ · Art & Architecture 3/5 · Government & Society 1/5 · Mythology & Religion 0/5 |
+| 11 levels remaining. Come back tomorrow and keep building. |
 | Brain successfully fed. |
 | No more doomscrolling. Go touch grass. 🌱 |
-| REVIEW Review anything you have learned |
-| UNLIMITED Keep leveling · $4.99/mo |
+| REVIEW Review Knowledge |
+| UNLIMITED Keep Leveling · $4.99/month |
 | All knowledge can still be unlocked free over time. |
 
 ## 7. Skill Trees: 100 Levels Without 100 Tiny Dots
@@ -146,8 +152,9 @@ At Level 100, the skill earns its first mastery star and Levels 101-200 unlock. 
 
 *This screen should make people proud of the shape of their knowledge, not just total XP.*
 
-| PROFILE<br>Knowledge Level 34 |
+| PROFILE<br>Jordan · Knowledge Level 34 · The Astronomer |
 | --- |
+| RAREST TROPHIES The Roman World · First Star · Perfect Recall |
 | HISTORY Rank 42 · Roman History Lv. 112 ★ |
 | SCIENCE Rank 61 · Astronomy Lv. 63 |
 | GEOGRAPHY Rank 27 · Countries Lv. 41 |
@@ -159,7 +166,36 @@ At Level 100, the skill earns its first mastery star and Levels 101-200 unlock. 
 
 **The emotional goal: after months of use, this should feel like inspecting a real RPG character sheet. Overall ranks summarize breadth; the meaningful bragging rights are named skills, their exact levels and mastery stars.**
 
-## 10. Brand Voice & Optional Spark
+## 10. Weekly Knowledge Quests
+
+*A weekly objective for your knowledge build: a major RPG goal without fantasy trappings.*
+
+| THE ROMAN WORLD<br>Standard Weekly Quest · 14 / 25 new levels |
+| --- |
+| ◉—◉—◉—◉—◉—◉—◉—◉—◉—◉—◉—◉—◉—◉—○—○—○—○—○—○—○—○—○—○—○ |
+| ROMAN HISTORY 5 / 5 ✓ |
+| EUROPEAN GEOGRAPHY 5 / 5 ✓ |
+| ART & ARCHITECTURE 3 / 5 |
+| GOVERNMENT & SOCIETY 1 / 5 |
+| MYTHOLOGY & RELIGION 0 / 5 |
+| FINAL ENCOUNTER Locked · unlocks at 25 / 25 · 3 synthesis questions |
+| REWARDS The Roman World trophy · Citizen of Rome · Marble Laurel profile treatment · +50 XP |
+
+**Design intent: the quest reads like a build objective. One central emblem, five requirements, one total and a visible reward: the user should know in a second which skills still need levels today.**
+
+- **Central emblem.** One central emblem per quest, e.g. a stylized Roman bust with laurel and columns. It starts subdued; each completed requirement illuminates a section, turns accents violet then gold, reveals detail and activates a progress line.
+
+- **Requirements.** Five requirement rows with visible 0 / 5 progress, an overall 0 / 25, and a reward preview (trophy, title, cosmetic, XP).
+
+- **Final Encounter.** At 25 / 25: FINAL ENCOUNTER UNLOCKED. Its 3 synthesis questions end in a larger reward animation, second only to mastery. Keep glow and gold scarce so this moment lands.
+
+- **No fantasy trappings.** Modern knowledge-RPG, not fantasy: no swords, dragons, treasure chests, parchment, bosses or health bars.
+
+- **The Chronicle.** Ended quests live in the Chronicle with the same rewards. A live-week clear shows only a subtle dated mark; never a “missed forever” state.
+
+- **Friends.** Friend progress (once friends ship) is a compact list: Mike 25 / 25 ✓, Sarah 19 / 25, You 14 / 25. No “beating you” copy.
+
+## 11. Brand Voice & Optional Spark
 
 *BrainScroll needs personality; it does not need an owl. Let the writing carry the brand first, with an abstract visual guide only if it genuinely improves the experience.*
 
@@ -171,11 +207,11 @@ At Level 100, the skill earns its first mastery star and Levels 101-200 unlock. 
 
 - “Bold answer. Wrong, but bold.” - occasional incorrect-answer personality.
 
-- “We’re done here. Go outside.” - after the daily quest is complete.
+- “We’re done here. Go outside.” - after the day’s five new levels are done.
 
 - Keep the jokes sparse. Personality belongs at feedback moments and milestones, not on every card.
 
-## 11. Typography, Icons & Brand Mark
+## 12. Typography, Icons & Brand Mark
 
 *Clean enough to disappear when learning starts; distinctive enough to feel like a modern game system in the App Store.*
 
@@ -189,13 +225,13 @@ At Level 100, the skill earns its first mastery star and Levels 101-200 unlock. 
 
 - **Avoid. Literal anatomical brains, graduation caps, fantasy shields, parchment, generic education-blue branding and overly cute mascot-first iconography.**
 
-## 12. Microinteractions That Make It Feel Addictive
+## 13. Microinteractions That Make It Feel Addictive
 
 *Important actions should have a satisfying consequence; ordinary navigation should stay calm.*
 
-- **Correct answer. Card snaps into a success state; restrained mint pulse; subtle haptic; tiny XP count-up.**
+- **Correct answer. Card snaps into a success state; restrained mint pulse; subtle haptic.**
 
-- **Wrong answer. Short coral response followed immediately by the explanation - no punitive hearts, lives or shame state.**
+- **Wrong answer. Short, restrained coral note; the question stays put, its source card slides in beneath it (“Take another look”) and the options reopen until the right one is chosen. No punitive hearts, lives, restarts or shame state.**
 
 - **Level completion.** Progress ring fills, subject level increments and the next node lights up.
 
@@ -205,9 +241,11 @@ At Level 100, the skill earns its first mastery star and Levels 101-200 unlock. 
 
 - **Daily complete.** Strong celebratory moment followed by a clean exit path rather than another engagement trap.
 
+- **Weekly Quest progress.** Each quest level lights a segment of the quest emblem; the Final Encounter unlock and quest completion are the only moments besides mastery that earn a big celebration.
+
 - **Motion scale. Normal feedback should feel fast (roughly 150-250 ms); mastery moments can breathe longer. Respect reduced-motion settings and never make animation block learning.**
 
-## 13. Monetization UI: Limit Friction, Not Knowledge
+## 14. Monetization UI: Limit Friction, Not Knowledge
 
 *The free cap should feel like completing the day, not running out of energy in a mobile game.*
 
@@ -219,7 +257,9 @@ At Level 100, the skill earns its first mastery star and Levels 101-200 unlock. 
 
 - Always state the fairness rule plainly: “All knowledge can be unlocked free over time.”
 
-## 14. Design Rules to Protect the Concept
+- Weekly Quests are fully completable free: a standard quest is about five learning days. The 5 / 5 screen shows quest progress, and Unlimited appears only as an optional way to keep going. Pay for freedom, not knowledge.
+
+## 15. Design Rules to Protect the Concept
 
 *The fastest way to lose BrainScroll is to drift into generic education, generic mobile gaming or another infinite attention feed.*
 
@@ -244,6 +284,8 @@ At Level 100, the skill earns its first mastery star and Levels 101-200 unlock. 
 - Prestige adds depth; it never deletes, resets or devalues previous levels.
 
 - Do not celebrate time spent. Celebrate levels cleared, concepts recalled and mastery earned.
+
+- Weekly Quests are objectives, not combat or countdowns. Ended quests move to the Chronicle; nothing is ever “missed forever.”
 
 **BRAINSCROLL DESIGN MANTRA**
 

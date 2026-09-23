@@ -2,12 +2,13 @@
 title: "BrainScroll Social + Rewards Expansion Spec"
 status: canonical
 source_docx: "BrainScroll_Social_Rewards_Expansion_Spec(1).docx"
+merged_decisions: "CURRENT_PRODUCT_DECISIONS.md (2026-09-23)"
 ---
 
 > BRAINSCROLL
 > SOCIAL + REWARDS
 > EXPANSION SPEC
-> A clean post-MVP system for friends, leaderboards, challenges, trophies, titles, earned cosmetics and visible knowledge status - without coins, pay-to-win mechanics, or fear-based engagement.
+> A clean post-MVP system for Weekly Knowledge Quests, friends, leaderboards, challenges, trophies, titles, earned cosmetics and visible knowledge status - without coins, pay-to-win mechanics, or fear-based engagement.
 > Expansion principle: make accumulated knowledge social, collectible and prestigious.
 
 > CORE POSITION
@@ -24,6 +25,7 @@ BrainScroll begins as a personal knowledge RPG. This expansion turns that privat
 | **Layer**    | **Purpose**                              | **What the user feels**                   |
 |--------------|------------------------------------------|-------------------------------------------|
 | Rewards      | Make learning visibly accumulate         | "My account is becoming more impressive." |
+| Weekly Quests | Give the knowledge build a short-term objective | "I need five Art levels to finish The Roman World." |
 | Profile      | Show the person's knowledge build        | "This is what I actually know."           |
 | Friends      | Connect real people around progress      | "I can see what my friends are learning." |
 | Leaderboards | Add lightweight recurring competition    | "I can beat my friends this week."        |
@@ -54,6 +56,7 @@ BrainScroll already has a real progression object: knowledge. Adding coins would
 | Titles           | One chosen identity label                | Yes once earned          | Yes                   |
 | Cosmetics        | Visual proof of accomplishments          | Yes once earned          | Yes                   |
 | Personal Records | Best-week / best-recall milestones       | Yes                      | Optional              |
+| Weekly Quest rewards | Trophy, title, cosmetic and XP bonus for completing a themed build | Yes | Yes |
 | Current Streak   | Low-priority consistency stat            | No                       | Optional              |
 
 > REWARD TEST
@@ -63,7 +66,7 @@ BrainScroll already has a real progression object: knowledge. Adding coins would
 
 # The profile is the social centerpiece
 
-The profile should read like an RPG character sheet for a real mind. The three rarest trophies are displayed first, then the user's strongest skills, then the full trophy collection and supporting stats.
+The profile should read like an RPG character sheet for a real mind. Display order: username, Knowledge Level, equipped title, the three rarest or most prestigious trophies, skill levels with prestige stars, then the full trophy collection and other accomplishments and stats. Weekly Quest trophies compete for the top three like any other trophy.
 
 | JORDAN Knowledge Lv. 57 Title: The Astronomer |
 | --- |
@@ -110,9 +113,10 @@ Trophies should be named, difficult enough to matter, and grouped into understan
 | Consistency | 7 / 30 / 100 / 365 learning days           | Habit without fear    |
 | Social      | First Challenge Win, 50 Friend Wins        | Interaction           |
 | Oddities    | Wrong Turn, Night Owl, Rabbit Hole         | Personality           |
+| Quest       | The Roman World, The Moon Landing, Age of Dinosaurs | Breadth built toward a theme |
 
 > RARITY MUST BE REAL
-> Rarity is calculated from the percentage of eligible active users who have earned the trophy. Do not assign fake rarity labels just to make something feel special.
+> Rarity is calculated from the percentage of all active learners who have earned the trophy. Do not assign fake rarity labels just to make something feel special. Weekly Quest trophies follow the same rule: show a figure such as “3.2% earned” only once enough learners exist to calculate it honestly.
 
 ## Rarity refresh behavior
 
@@ -150,6 +154,7 @@ Titles are identity rewards. They are unlocked by specific combinations and one 
 | Renaissance Mind     | Master qualifying History + Art + Science branches |
 | Polymath             | Earn mastery in 5 distinct skill families          |
 | Walking Encyclopedia | Hit an extreme total mastered-concept milestone    |
+| Citizen of Rome      | Complete The Roman World Weekly Quest              |
 
 ## 06 CONSISTENCY WITHOUT ANXIETY
 
@@ -164,13 +169,14 @@ Current and longest streaks can appear as quiet stats. BrainScroll should never 
 | Award permanent 7/30/100/365-day trophies            | Punish missed days by removing earned status     |
 | Welcome returning users back to their exact progress | Use shame language after inactivity              |
 | Show personal bests                                  | Make streak count the main profile status        |
+| Show Weekly Quest progress as what you built         | Countdowns such as “Only 1 day left to finish!”  |
 
 > RETURNING USER MESSAGE
 > "Welcome back. Your levels are right where you left them." Then surface concepts ready for refresh. The product should make returning easy, not emotionally expensive.
 
 ## Weekly personal recap
 
-The weekly recap is itself a reward: levels gained, concepts learned, recall success, skill movement, new trophies, personal bests and friend leaderboard position. It should feel like a character-progress report, not a guilt report.
+The weekly recap is itself a reward: levels gained, concepts learned, recall success, skill movement, Weekly Quest progress, new trophies, personal bests and friend leaderboard position. It should feel like a character-progress report, not a guilt report.
 
 ## 07 FRIENDS
 
@@ -213,11 +219,13 @@ The main leaderboard resets every week. Lifetime accomplishments remain on profi
 
 ## Leaderboard scoring rules
 
-> **• Count verified Knowledge XP only.** Award from canonical level completions, mastery checks, unique recall successes and approved challenge outcomes.
+> **• Count verified Knowledge XP only.** Award from canonical level completions, mastery checks, unique recall successes and approved challenge outcomes. Level XP reflects first-attempt accuracy; corrections and replays add nothing, and the same ledger event feeds account XP, the leaderboard, skill progress and quest progress.
 >
 > **• No infinite review farming.** Repeating the same mastered material should not generate unlimited leaderboard points.
 >
 > **• No purchase multiplier.** Premium never increases leaderboard XP.
+>
+> **• Nothing dwarfs a level.** Every award stays in proportion to a regular level (100 / 70 / 35 / 15 XP by first-attempt accuracy), so no single bonus decides the week. The small Weekly Quest bonus counts once, like any verified event.
 >
 > **• Reset weekly.** Archive personal best placement and wins, but do not carry points forward.
 >
@@ -259,12 +267,69 @@ Cosmetics give the profile more personality while preserving the meaning of mast
 | Skill emblem variant   | Prestige star                | Depth in one tree        |
 | XP bar treatment       | Personal record / trophy set | Achievement              |
 | Challenge badge accent | Challenge milestone          | Social participation     |
+| Quest emblem, background or ornament | Weekly Quest completion | A themed build completed |
 
 ## Premium boundary
 
 Premium may eventually offer neutral visual themes or extra customization slots, but paid items must never look like earned mastery, trophy rarity or prestige. Status visuals need to remain trustworthy.
 
-## 11 BACKEND FOUNDATION
+## 11 WEEKLY KNOWLEDGE QUESTS
+
+# What am I building toward this week?
+
+Permanent skill trees answer “What kind of knowledgeable person am I becoming?” Weekly Knowledge Quests answer “What am I building toward this week?” Each quest gives the user’s knowledge build a short-term objective: new levels across several related skills, around one compelling theme. It is BrainScroll’s version of a quest or boss encounter, with no combat, enemies, health bars or fantasy trappings. The challenge is building the knowledge.
+
+## Standard quest: 25 new levels across 5 related skills
+
+| **THE ROMAN WORLD**  | **New levels this week** |
+|----------------------|--------------------------|
+| Roman History        | +5                       |
+| European Geography   | +5                       |
+| Art & Architecture   | +5                       |
+| Government & Society | +5                       |
+| Mythology & Religion | +5                       |
+| **Total**            | **25 / 25 new levels**   |
+
+Completion rewards (tunable): The Roman World trophy, the title Citizen of Rome, the Marble Laurel profile treatment and a small Knowledge XP bonus (+50 for a standard quest, +75 Epic, +100 Legendary: at most one level’s worth, so nothing dwarfs a level). Quests are one of BrainScroll’s main sources of meaningful profile rewards: trophies, titles, backgrounds, frames, ornaments, skill emblem variants, mastery effects, XP and accomplishment-set progress. They never use coins, gems, loot boxes, currencies or a store.
+
+## Progress counts new learning only
+
+> **• New levels only.** Only new canonical levels completed while the quest is active count. Roman History Lv. 180 does not complete The Roman World; five new Roman History levels do. Existing knowledge may later earn secondary recognition, never a skip.
+>
+> **• One source of truth.** Quest progress is read from the same verified LEVEL_COMPLETE events in the reward ledger (section 12). There is no separate quest counter, and no second copy of XP, levels or trophies.
+>
+> **• Replays and reviews never count.** Review stays unlimited and never uses the daily allowance.
+>
+> **• Overlapping quests.** A new level counts toward every active quest that needs its skill; there is nothing to allocate. At most one Chronicle quest is active at a time, alongside the live quest.
+>
+> **• Final Encounter.** At 25 / 25 the quest unlocks 3 synthesis questions that connect the week’s subjects (for The Roman World: government, geography, architecture, religion and expansion). They are reused approved questions from the levels the learner completed for the quest, drawn from different requirement skills and preferring connection questions, fixed once chosen. Completing it awards the rewards. It is a short capstone, not an exam, and it does not use a daily level.
+
+## Built for the free tier
+
+Free users get 5 new levels a day, so a standard 25-level quest takes about five learning days and is comfortably finishable within the week. The trade-off is intentional: today’s five levels can go to your Astronomy build or to the quest’s Art & Architecture requirement. That choice is the RPG. Unlimited removes only the daily limit: finish faster, keep other skills moving the same week, or take on bigger challenges. There are no exclusive quests, knowledge, stats or rewards. Pay for freedom, not knowledge.
+
+## Difficulty tiers
+
+| **Tier**              | **New levels** | **Role**                                                                                      |
+|-----------------------|----------------|-----------------------------------------------------------------------------------------------|
+| Standard Weekly Quest | ~25            | The recurring weekly quest; finishable free in about five learning days.                      |
+| Epic Challenge        | ~35            | Occasional; possible free across the whole week, but more demanding.                          |
+| Legendary Challenge   | 50+            | Rare and optional; may be a long-term goal rather than a one-week one. Never replaces the standard quest. |
+
+Difficulty is never tied to Premium. Every tier and its rewards are earnable free.
+
+> NO FOMO: THE CHRONICLE
+> When a quest’s featured week ends, it moves to the Chronicle and stays completable, with the same knowledge, trophy, title and primary cosmetic. Finishing during the live week adds a subtle marker such as “Live Clear — Week 39, 2026” or a dated trophy inscription. Never “You missed this forever.” Reward what users gain; do not threaten what they may lose.
+
+## Themes
+
+Each quest combines five related trees around one theme, and the catalog should grow to hundreds of combinations. Examples: The Roman World; The Moon Landing (Astronomy, Modern History, Physics, Engineering, Geography); Age of Dinosaurs; The Renaissance; Age of Exploration; The Atomic Age; later, conceptual quests such as Survive on Mars or Build a Civilization. A quest may only use skills with enough published levels for every learner to make five new levels of progress.
+
+## Friends
+
+Friends see each other’s progress on the active quest as a plain list (Mike 25 / 25 ✓, Sarah 19 / 25, You 14 / 25): visible progress, never pressure copy like “Mike is beating you!” Quest trophies and titles show on friend profiles like any other. Group quests are a later candidate (see Parties), not part of the first release.
+
+## 12 BACKEND FOUNDATION
 
 # Build one reward ledger, then let every feature read from it
 
@@ -282,14 +347,17 @@ The social expansion should not calculate XP, trophies or leaderboard points sep
 | challenges             | Participants, question-set version, attempts and result        |
 | cosmetics              | Definition catalog and unlock source                           |
 | user_cosmetics         | Owned/equipped visual rewards                                  |
+| quests                 | Quest definitions: title, subtitle, description, visual key, difficulty tier, start and featured-end dates, archive availability, Final Encounter size (3), reward trophy/title/cosmetics, XP reward |
+| quest_requirements     | Per quest: required skill ID + number of new levels            |
+| user_quests            | Start time, chosen Final Encounter question IDs and result, live-clear flag, completion timestamp; per-requirement progress is derived from ledger events |
 
 ## Core reward event examples
 
-> **•** LEVEL_COMPLETED
+> **•** LEVEL_COMPLETE
 >
-> **•** MASTERY_CHECK_PASSED
+> **•** LEVEL_COMPLETE at Level 100 (the Mastery Challenge’s own XP pool; the former MASTERY_CLEAR bonus is retired). Candidate future trophy: Perfect Mastery, 10/10 on the first try.
 >
-> **•** CONCEPT_RECALLED
+> **•** DELAYED_RECALL (+10, a scheduled review right on the first attempt; once per scheduled review, so review can’t be farmed)
 >
 > **•** SKILL_MASTERED
 >
@@ -298,11 +366,13 @@ The social expansion should not calculate XP, trophies or leaderboard points sep
 > **•** CHALLENGE_WON
 >
 > **•** WEEKLY_PERSONAL_BEST
+>
+> **•** QUEST_COMPLETE
 
 > IDEMPOTENCY
 > Every awardable action must have a unique event key. If the app retries the same completion because of a bad connection, the server returns the existing result rather than awarding XP twice.
 
-## 12 EXACT BUILD ORDER
+## 13 EXACT BUILD ORDER
 
 # What to build, in order
 
@@ -311,22 +381,24 @@ This expansion should begin only after the core loop - authored level completion
 | **Phase** | **Build**                  | **Why now / exit gate**                                                                    |
 |-----------|----------------------------|--------------------------------------------------------------------------------------------|
 | 0         | Prerequisite audit         | Core progress events are server-validated; account identity and analytics are stable.      |
-| 1         | Reward event ledger        | One source of truth for XP, mastery, achievements and future leaderboard scoring.          |
+| 1         | Reward event ledger        | One source of truth for XP, mastery, achievements, quest progress and future leaderboard scoring. |
 | 2         | Achievement engine         | Trophy/title definitions, criteria evaluation, rarity snapshots, permanent unlock storage. |
-| 3         | Profile v2                 | Three rarest trophies, title, skills, stars, trophy collection, privacy settings.          |
-| 4         | Friend graph               | Requests, accept/remove/block/report, exact-username search/invites.                       |
-| 5         | Friend profiles            | Read-only social viewing with privacy enforcement and compare surfaces.                    |
-| 6         | Weekly friend leaderboard  | Server-derived score, weekly reset, personal best records.                                 |
-| 7         | Friend challenges          | Shared concept eligibility, fixed question-set versions, sealed results.                   |
-| 8         | Earned cosmetics           | Unlock catalog, inventory, equipped state, profile rendering.                              |
-| 9         | Weekly social recap        | Personal gains + trophy unlocks + friend leaderboard position.                             |
-| 10        | Optimization + experiments | Tune XP weights, trophy thresholds, leaderboard presentation and notification frequency.   |
+| 3         | Profile v2                 | Username, Knowledge Level, title, three rarest trophies, skills, stars, trophy collection, privacy settings. |
+| 4         | Earned cosmetics           | Unlock catalog, inventory, equipped state, profile rendering. Before quests, which award cosmetics. |
+| 5         | Weekly Knowledge Quests    | Quest definitions; requirement tracking from verified level-completion events; active quest screen; daily-complete integration; Final Encounter; rewards; Chronicle; analytics. |
+| 6         | Friend graph               | Requests, accept/remove/block/report, exact-username search/invites.                       |
+| 7         | Friend profiles            | Read-only social viewing with privacy enforcement and compare surfaces.                    |
+| 8         | Weekly friend leaderboard  | Server-derived score, weekly reset, personal best records.                                 |
+| 9         | Friend challenges          | Shared concept eligibility, fixed question-set versions, sealed results.                   |
+| 10        | Quest friend integration   | Friend progress on the active quest, quest comparison, quest trophies and titles on friend profiles. |
+| 11        | Weekly social recap        | Personal gains + Weekly Quest progress + trophy unlocks + friend leaderboard position.     |
+| 12        | Optimization + experiments | Tune XP weights, trophy thresholds, quest sizes, leaderboard presentation and notification frequency. |
 
 ## Build rule
 
-Do not start leaderboards until Phases 1-4 are working end to end. Do not start challenges until friend relationships and canonical progress are trustworthy. Do not build cosmetics until trophies and titles already make the profile worth visiting.
+Do not start Weekly Quests until the ledger, trophies, titles, profile and cosmetics work end to end, and never let quests block the core MVP. Do not start leaderboards until the friend graph works. Do not start challenges until friend relationships and canonical progress are trustworthy. Do not build cosmetics until trophies and titles already make the profile worth visiting.
 
-## 13 PHASE ACCEPTANCE GATES
+## 14 PHASE ACCEPTANCE GATES
 
 # Definition of done by phase
 
@@ -335,13 +407,15 @@ Do not start leaderboards until Phases 1-4 are working end to end. Do not start 
 | 1 - Ledger          | Retrying a level-complete request cannot double-award XP. All core reward events can be audited.   |
 | 2 - Achievements    | A trophy can unlock from real criteria; unlock is permanent; rarity job runs deterministically.    |
 | 3 - Profile         | Profile renders correctly with 0, 1 and hundreds of trophies; rarest-three logic is deterministic. |
-| 4 - Friends         | Request/accept/remove/block/report all work; privacy rules cannot be bypassed client-side.         |
-| 5 - Friend Profiles | A friend can inspect another build quickly without exposing hidden account data.                   |
-| 6 - Leaderboard     | Weekly reset is timezone-safe; score cannot be farmed through repeated reviews or purchases.       |
-| 7 - Challenges      | Both users get identical versioned questions; eligibility prevents unfair unseen-content duels.    |
-| 8 - Cosmetics       | Earned cosmetics cannot be equipped without ownership; paid themes cannot impersonate mastery.     |
+| 4 - Cosmetics       | Earned cosmetics cannot be equipped without ownership; paid themes cannot impersonate mastery.     |
+| 5 - Weekly Quests   | Progress comes only from verified new-level events inside the quest window; existing levels, replays and reviews never count; a free user can finish the standard quest in five learning days; archived quests award the same trophy, title and primary cosmetic. |
+| 6 - Friends         | Request/accept/remove/block/report all work; privacy rules cannot be bypassed client-side.         |
+| 7 - Friend Profiles | A friend can inspect another build quickly without exposing hidden account data.                   |
+| 8 - Leaderboard     | Weekly reset is timezone-safe; score cannot be farmed through repeated reviews or purchases; no single award dwarfs a level. |
+| 9 - Challenges      | Both users get identical versioned questions; eligibility prevents unfair unseen-content duels.    |
+| 10 - Quest social   | Friends see quest progress only within privacy settings; no pressure copy.                         |
 
-## 14 UI / UX SCREENS
+## 15 UI / UX SCREENS
 
 # What this expansion needs to look like
 
@@ -356,6 +430,9 @@ Do not start leaderboards until Phases 1-4 are working end to end. Do not start 
 | Challenge Result   | Scores + per-question result summary          | Rematch             |
 | Cosmetics          | Owned items grouped by source                 | Equip               |
 | Weekly Recap       | Knowledge gains first, social rank second     | Share / close       |
+| Weekly Quest       | Evolving theme emblem + five 0 / 5 requirements + 0 / 25 total + reward preview | Pick what to learn next |
+| Final Encounter    | Three synthesis questions across the week’s subjects | Complete the quest |
+| The Chronicle      | Past quests with Live Clear marks             | Start an archived quest |
 
 ## Visual language
 
@@ -369,7 +446,7 @@ Do not start leaderboards until Phases 1-4 are working end to end. Do not start 
 >
 > **• Leaderboards are small.** Friends-first lists should feel like a scoreboard, not a social-media timeline.
 
-## 15 NOTIFICATIONS + SOCIAL ACTIVITY
+## 16 NOTIFICATIONS + SOCIAL ACTIVITY
 
 # Notify about outcomes, not anxiety
 
@@ -380,12 +457,14 @@ Do not start leaderboards until Phases 1-4 are working end to end. Do not start 
 | "Your weekly knowledge recap is ready." | Generic daily "Come back" spam            |
 | "Sarah accepted your friend request."   | Artificial countdowns / expiring XP       |
 | "You set a new weekly personal best."   | Loss-framed reminders                     |
+| "You finished The Roman World."         | "Only 1 day left! Don't miss out!"        |
+| "Sarah finished The Roman World."       | "Mike is beating you!"                    |
 
 ## Activity without a feed
 
 A small Friends activity module may eventually show high-signal milestones - for example, "Chris mastered World War II ★" - but there should be no endless chronological activity feed in Expansion 1. If added later, cap it to a few meaningful items.
 
-## 16 SAFETY, PRIVACY + MODERATION
+## 17 SAFETY, PRIVACY + MODERATION
 
 # Keep the social surface intentionally low-risk
 
@@ -401,7 +480,7 @@ A small Friends activity module may eventually show high-signal milestones - for
 > KEEP SOCIAL SMALL ON PURPOSE
 > The absence of public posting, DMs, comments, follower counts and an infinite activity feed is a feature. BrainScroll is adding social proof and friendly competition, not rebuilding a social network.
 
-## 17 WHAT TO MEASURE
+## 18 WHAT TO MEASURE
 
 # Metrics that tell us whether this expansion helps
 
@@ -415,6 +494,8 @@ A small Friends activity module may eventually show high-signal milestones - for
 | Skill completion after trophy browsing | Do accomplishments motivate real learning?                                |
 | Return after missed week               | Does the no-guilt model make re-entry easier?                             |
 | Premium conversion correlation         | Does social visibility increase perceived value without gating knowledge? |
+| Weekly Quest completion (live + Chronicle) | Do quests create purposeful breadth without pressure?                 |
+| New skills started through quests      | Do quests pull learners into subjects they would otherwise skip?          |
 
 ## Metrics not to optimize blindly
 
@@ -428,7 +509,7 @@ A small Friends activity module may eventually show high-signal milestones - for
 >
 > **•** Daily sessions at the expense of meaningful learning
 
-## 18 EXPLICITLY DEFERRED
+## 19 EXPLICITLY DEFERRED
 
 # Do not build these in the first social expansion
 
@@ -442,11 +523,12 @@ A small Friends activity module may eventually show high-signal milestones - for
 | Gifting / trading         | Creates fraud/economy complexity with no learning benefit                            |
 | Random loot / crates      | Conflicts with transparent, earned progression                                       |
 | Paid XP boosts            | Destroys leaderboard and profile credibility                                         |
+| Group / party quests      | Only after solo quests and 1:1 friends are healthy (see Parties)                     |
 
 > LATER EXPANSION CANDIDATE
-> If groups are added later, the cleanest next step is private Parties: families, friend groups, classrooms or teams with their own weekly leaderboard and shared challenge set. Build this only after the friend system is healthy.
+> If groups are added later, the cleanest next step is private Parties: families, friend groups, classrooms or teams with their own weekly leaderboard, shared challenge set and, eventually, shared Weekly Quests. Build this only after the friend system is healthy.
 
-## 19 STARTER TROPHY CATALOG
+## 20 STARTER TROPHY CATALOG
 
 # A first set worth building toward
 
@@ -467,22 +549,24 @@ A small Friends activity module may eventually show high-signal milestones - for
 | Challenge Accepted  | Common    | Complete first friend challenge                                 |
 | Friendly Rival      | Uncommon  | Win 25 qualified friend challenges                              |
 | Wrong Turn          | Common    | Miss the same concept repeatedly, then master it                |
+| The Roman World     | Set by real earn rate | Complete The Roman World Weekly Quest, live or from the Chronicle |
 
-## 20 EXPANSION BLUEPRINT
+## 21 EXPANSION BLUEPRINT
 
 # The whole system in one page
 
 | **System**  | **Rule**                                                                                                 |
 |-------------|----------------------------------------------------------------------------------------------------------|
 | Currency    | None. XP is progression; knowledge is the asset.                                                         |
-| Profile     | Three rarest trophies -\> top skills -\> stats -\> full trophy room.                                     |
+| Profile     | Username -\> Knowledge Level -\> title -\> three rarest trophies -\> skills + stars -\> full trophy room. |
 | Status      | Skill levels, ranks, mastery stars, titles, trophy rarity and earned cosmetics.                          |
 | Friends     | Mutual, controlled, no messaging in first expansion.                                                     |
+| Weekly Quests | 25 new levels across 5 related skills + a 3-question Final Encounter; finishable free in about five learning days; archived to the Chronicle, never lost. |
 | Leaderboard | Friends-only, weekly reset, server-derived verified Knowledge XP.                                        |
 | Challenges  | Five questions, asynchronous, same versioned set, shared eligible knowledge only.                        |
 | Streaks     | Quiet stat; permanent consistency trophies; no fear-based messaging.                                     |
 | Cosmetics   | Earned from accomplishments; paid themes may not imitate mastery.                                        |
-| Build order | Ledger -\> achievements -\> profile -\> friends -\> leaderboard -\> challenges -\> cosmetics -\> recaps. |
+| Build order | Ledger -\> achievements -\> profile -\> cosmetics -\> weekly quests -\> friends -\> leaderboard -\> challenges -\> quest social -\> recaps. |
 | North star  | Make learning itself increasingly visible, collectible and prestigious.                                  |
 
 > BRAINSCROLL SOCIAL MANTRA

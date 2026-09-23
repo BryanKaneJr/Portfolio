@@ -1,6 +1,6 @@
 # Social + Rewards expansion (post-MVP)
 
-This summarizes [`source/Social_Rewards_Expansion_Spec.docx`](source/Social_Rewards_Expansion_Spec.docx) and maps it onto what already exists. **Nothing here starts until the core loop is stable.** That means authored levels, progression, review, the daily cap and subscriptions.
+This summarizes [`specs/SOCIAL_REWARDS.md`](specs/SOCIAL_REWARDS.md) (.docx snapshot in [`source/`](source/Social_Rewards_Expansion_Spec.docx)) and maps it onto what already exists. **Nothing here starts until the core loop is stable.** That means authored levels, progression, review, the daily cap and subscriptions.
 
 This expansion also carries **Weekly Knowledge Quests**, the recurring short-term objective for a learner's build. See [Weekly Knowledge Quests](#weekly-knowledge-quests) below.
 

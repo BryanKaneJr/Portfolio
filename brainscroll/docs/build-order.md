@@ -1,6 +1,6 @@
 # Build order
 
-From the Build Order Blueprint ([`source/Build_Order_Blueprint.docx`](source/Build_Order_Blueprint.docx)).
+From the Build Order Blueprint ([`specs/BUILD_ORDER.md`](specs/BUILD_ORDER.md); .docx snapshot in [`source/`](source/Build_Order_Blueprint.docx)).
 
 > **Build the loop first. Scale the knowledge second.** Build 10 excellent real levels, prove the whole experience end to end, then scale the content system around a schema that has survived real use.
 

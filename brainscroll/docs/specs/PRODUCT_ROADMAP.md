@@ -2,6 +2,7 @@
 title: "BrainScroll Product & Build Roadmap"
 status: canonical
 source_docx: "Knowledge_RPG_Product_Build_Roadmap(2).docx"
+merged_decisions: "CURRENT_PRODUCT_DECISIONS.md (2026-09-23)"
 ---
 
 PRODUCT ROADMAP
@@ -58,6 +59,7 @@ A user should be able to open the app after six months and immediately see a cha
 | **Review**          | Unlimited spaced-repetition recall from completed levels. | Improves retention and gives free users something useful after the cap. |
 | **Character sheet** | Overall Knowledge Level + subject + skill levels.         | Turns learning into an RPG identity.                                    |
 | **Prestige**        | Level 101-200 unlocks after Mastery I; no reset.          | Adds depth without invalidating prior progress.                         |
+| **Weekly Knowledge Quests** | Post-MVP. One themed quest a week: ~25 new levels across 5 related skills. | Short-term purpose and a real choice for each day’s five free levels. |
 
 ## Recommended launch subjects
 
@@ -76,19 +78,21 @@ A user should be able to open the app after six months and immediately see a cha
 
 ## What one level contains
 
-A level should usually take about 2-5 minutes and feel like a compact learning encounter, not a chapter. A typical level can include:
+A level should usually take about 2-5 minutes and feel like a compact learning encounter, not a chapter and not a test. The learning content is the main experience; questions support it. A typical level includes:
 
 - 1 short hook or setup card
 
-- 2-4 explanation or visual cards
+- 2-4 short explanation or visual cards (roughly 100-250 words in total)
 
 - 1 connection to previously learned knowledge
 
-- 2-3 questions with clear answers and explanations
+- 3 light questions: one recall (the core fact), one understanding (why or how), one connection (to another concept, event or idea). A wrong answer shows the card that teaches it and must be answered again correctly; there is no penalty and no restart
 
 - optional image, map, timeline, diagram, or comparison card
 
-- a completion event that awards XP and advances the skill level
+- a completion event, once every question is correctly resolved, that awards XP by first-attempt accuracy, advances the skill level and shows the next level immediately
+
+Testing scales with the moment, not with every level: regular levels have 3 questions; every 10th-level checkpoint has 5; the Level 50 milestone has 7; the Level 100 Mastery Challenge has 10; review sessions vary with the concepts currently due. Wrong answers are corrected in context with the lesson’s own evidence, never penalized.
 
 # 3. RPG Progression System
 
@@ -113,7 +117,7 @@ The progression system should be deep enough to feel like a game but simple enou
 | **51-75** | Broader context, second-order connections, deeper mechanisms, and less obvious material.                   |
 | **76-95** | Advanced synthesis, nuanced relationships, challenging recall, and more specialized concepts.              |
 | **96-99** | Integration: questions that force the learner to connect the full tree rather than recall isolated facts.  |
-| **100**   | Mastery Challenge. Passing grants the first mastery star and unlocks the 101-200 expansion when available. |
+| **100**   | Mastery Challenge (10 questions: the fullest test in the tree). Completing it, with every question correctly resolved, grants the first mastery star and unlocks the 101-200 expansion when available. No minimum first-attempt score. |
 
 ## Prestige without the annoying reset
 
@@ -125,15 +129,36 @@ Normal games often prestige by deleting progress. This app should do the opposit
 
 ## XP rules
 
-- New level completion: base XP.
+- New level completion: XP by first-attempt accuracy: 3/3 → 100 (Perfect Recall), 2/3 → 70, 1/3 → 35, 0/3 → 15. Correcting a missed question completes the level but never restores XP; replays award nothing; XP is never negative.
 
-- Correct answers: small performance bonus, but never enough to encourage guessing or grinding.
+- First attempts count once: each question’s first answer is recorded on the server and can’t be replaced by restarting the level, so leaderboards and mastery stay honest.
 
-- Delayed recall: meaningful XP because remembering later is more valuable than immediate recognition.
+- Review: +10 XP for a scheduled review item answered correctly on the first attempt, once per scheduled review (replaying or reopening it earns nothing). A wrong first answer earns 0 XP, lowers that concept’s recall strength, brings it back sooner, and must still be corrected with its source card on screen; corrections never add XP.
 
-- Mastery challenges: larger XP and visible badge/star rewards.
+- Checkpoints, milestones and Mastery Challenges have their own first-attempt XP pools (initial balancing, configurable):
+
+  | **Encounter**                       | **Questions** | **First-attempt XP bands**                               |
+  |-------------------------------------|---------------|----------------------------------------------------------|
+  | **Regular level**                   | 3             | 3/3 → 100 · 2/3 → 70 · 1/3 → 35 · 0/3 → 15               |
+  | **10-level checkpoint**             | 5             | 5/5 → 150 · 4/5 → 105 · 3/5 → 60 · 0–2/5 → 25            |
+  | **Level 50 milestone**              | 7             | 7/7 → 250 · 6/7 → 175 · 4–5/7 → 90 · 0–3/7 → 40          |
+  | **Level 100 Mastery Challenge**     | 10            | 10/10 → 500 · 8–9/10 → 350 · 5–7/10 → 175 · 0–4/10 → 75  |
+
+  There is no separate mastery bonus.
+
+- Mastery star: resolving every Level 100 question earns the ★ and opens Levels 101-200, with no minimum first-attempt score. The star shows depth reached; the first-attempt score shows quality of recall. Perfect Mastery (10/10 first try) may become a future accomplishment. Everywhere: first attempts set reward and memory strength; correct resolution sets completion and progression.
 
 - No XP for passive feed time. Scrolling without completing learning should not level the character.
+
+## Weekly Knowledge Quests (post-MVP)
+
+Permanent skill trees answer “What kind of knowledgeable person am I becoming?” Weekly Knowledge Quests answer “What am I building toward this week?” A standard quest asks for about 25 new levels across 5 related skills (The Roman World: Roman History, European Geography, Art & Architecture, Government & Society, Mythology & Religion, +5 each), then a 3-question Final Encounter, and awards a trophy, a title, an earned cosmetic and an XP bonus. The full design lives in the Social + Rewards Expansion Spec.
+
+- Only new levels completed during the quest count. Existing levels never auto-complete it, and replays and reviews never count.
+
+- A free user finishes a standard quest in about five learning days and chooses where each day’s five levels go. Unlimited only lets a user finish faster or keep other skills moving; it never unlocks exclusive quests, knowledge or rewards.
+
+- Ended quests move to the Chronicle and stay completable with the same trophy, title and primary cosmetic. A live-week clear adds only a subtle dated marker.
 
 # 4. Knowledge & Curriculum Architecture
 
@@ -159,7 +184,7 @@ The most important implementation decision is to store knowledge as structured, 
 
 ## Recommended stored content shape
 
-> skill_id: history_rome level_number: 37 title: The Second Triumvirate concept_ids: [octavian, antony, lepidus, triumvirate_43_bce] prerequisites: [history_rome_36] cards: [hook, explainer, timeline, connection, quiz, quiz] source_ids: [wikidata_Q..., source_...] difficulty: 0.37 revision: 1.2 status: published
+> skill_id: history_rome level_number: 37 title: The Second Triumvirate concept_ids: [octavian, antony, lepidus, triumvirate_43_bce] prerequisites: [history_rome_36] cards: [hook, explainer, timeline, connection, quiz, quiz, quiz] source_ids: [wikidata_Q..., source_...] difficulty: 0.37 revision: 1.2 status: published
 
 # 5. Free & Legal Knowledge Sourcing
 
@@ -219,6 +244,8 @@ The architecture should be boring on purpose. The novelty is the curriculum and 
 
 - daily_allowances, entitlements, content_revisions, content_reports
 
+- Post-MVP: cosmetics, user_cosmetics, quests, quest_requirements, user_quests. Quest progress is derived from the same xp_events ledger, never a separate counter.
+
 ## One critical backend rule
 
 |  |  |
@@ -240,7 +267,7 @@ Two tracks run in parallel: Product Engineering and Curriculum Production. The a
 | **6 - Closed alpha**    | Crash reporting, analytics, content reporting, onboarding cleanup.               | Approx. 300 complete levels.                          | Small testers can use it for a week without hand-holding.                 |
 | **7 - Closed beta**     | Performance, offline/prefetch, accessibility, account recovery, polish.          | Approx. 600 complete levels across 6 trees.           | Retention and question-quality data are good enough to scale.             |
 | **8 - Public launch**   | Store assets, subscriptions, support flows, privacy/legal pages, release build.  | Approx. 800-1,000 complete levels across 8-10 trees.  | No half-built trees; source registry and correction workflow operational. |
-| **9 - Expansion**       | Social/profile polish, deeper achievements, optional comparisons.                | 101-200 prestige packs; new trees.                    | Expansion adds depth without changing the simple core loop.               |
+| **9 - Expansion**       | Rewards foundation (trophies, titles, profile, earned cosmetics), then Weekly Knowledge Quests, then friends / comparisons. | 101-200 prestige packs; new trees; weekly quest themes that pair 5 related trees. | Expansion adds depth without changing the simple core loop; quests never block it. |
 
 ## Suggested solo/AI-assisted timeline
 
@@ -266,27 +293,33 @@ A focused MVP can be treated as an approximately 8-10 week launch track if engin
 | **P0**       | Lesson feed           | Swipe/tap through cards, answer questions, finish level.                      |
 | **P0**       | Level complete        | XP animation, new level, concept summary, continue action.                    |
 | **P0**       | Character sheet       | Overall, subject, skill, mastery, titles, achievements.                       |
-| **P0**       | Daily cap             | Celebrate 5/5, offer unlimited review, and optionally Unlimited subscription. |
+| **P0**       | Daily cap             | Celebrate 5/5, offer unlimited review, and optionally Unlimited subscription. Post-MVP: also show active Weekly Quest progress. |
 | **P0**       | Review                | Spaced-repetition queue from previously completed concepts.                   |
 | **P0**       | Subscription          | Monthly/annual, restore, clear free-vs-paid explanation.                      |
 | **P1**       | Achievements / titles | Transparent requirements and earned rewards.                                  |
 | **P1**       | Content report        | Flag factual issue, confusing question, typo, or bad image.                   |
 | **P2**       | Friends / comparisons | Only after the solo loop is proven; avoid anxiety mechanics.                  |
+| **Post-MVP** | Weekly Quest + Chronicle | Theme emblem, five 0/5 requirements, 0/25 total, reward preview, Final Encounter; archive of past quests. |
 
 # 9. Monetization & Anti-Doomscrolling Rules
 
 |  |  |
 | --- | --- |
-|  | Launch offer<br>Free forever: 5 new levels per day, unlimited review, all subjects available. Unlimited: $4.99/month or $39.99/year as initial pricing hypotheses. No ads. No premium-only knowledge. |
+|  | Launch offer<br>Free forever: 5 new levels per day, unlimited review, all subjects available. Unlimited: $4.99/month or $39.99/year as initial pricing hypotheses. No ads. No premium-only knowledge. Weekly Knowledge Quests follow the same rule: the standard quest is finishable free, and Unlimited only lets a user finish it faster. |
 
 The free limit should feel like completion rather than punishment. After the fifth new level, show a satisfying daily-complete screen and keep the app useful through review, character stats, achievements, and previously unlocked content.
 
 ## Brand voice at the cap
 
-> DAILY QUEST COMPLETE
+> DAILY KNOWLEDGE COMPLETE
 > 5 / 5 new levels
+> WEEKLY QUEST · THE ROMAN WORLD · 14 / 25
+> Roman History 5/5 ✓ · European Geography 5/5 ✓ · Art & Architecture 3/5 · Government & Society 1/5 · Mythology & Religion 0/5
+> 11 levels remaining. Come back tomorrow and keep building.
 > No more doomscrolling. Go touch grass.
-> Review what you learned | Keep going with Unlimited
+> Review Knowledge | Keep Leveling — Unlimited $4.99/month
+
+The Weekly Quest block appears only while a quest is active (post-MVP).
 
 ## Monetization guardrails
 
@@ -302,6 +335,10 @@ The free limit should feel like completion rather than punishment. After the fif
 
 - Do not use fake urgency. Subscription prompts should appear at natural friction points, especially when the free user asks to continue after 5 levels.
 
+- Do not make Weekly Quests, their knowledge or their core rewards Unlimited-only. Pay for freedom, not knowledge.
+
+- Do not use FOMO. When a Weekly Quest ends it moves to the Chronicle; nothing is lost forever.
+
 # 10. Analytics That Match the Mission
 
 Do not optimize the product around minutes spent. The mission is better served by useful progress and durable return behavior.
@@ -315,8 +352,10 @@ Do not optimize the product around minutes spent. The mission is better served b
 | **Paid conversion after cap**     | Whether Unlimited is valuable without aggressive prompting.               |
 | **Review participation**          | Whether users care about retaining knowledge, not only unlocking levels.  |
 | **Delayed recall accuracy**       | A learning-quality signal independent of progression speed.               |
+| **First-attempt accuracy / Perfect Recall rate** | Whether levels teach well enough to be remembered minutes later; outlier questions flag ambiguity. |
 | **Tree completion**               | Whether 1-100 pacing and difficulty stay interesting.                     |
 | **Question dispute/report rate**  | Fast signal for ambiguous or incorrect content.                           |
+| **Weekly Quest completion (post-MVP)** | Whether quests create purposeful breadth; free-user completion shows the quest size is fair. |
 | **Subscription retention**        | Whether users continue valuing unlimited progression after novelty fades. |
 
 |  |  |
@@ -356,6 +395,8 @@ These are attractive distractions. Defer them until the core loop proves itself.
 
 - Prestige 201-300 before users have meaningfully completed 1-100.
 
+- Weekly Knowledge Quests. They build on a proven loop plus trophies, titles and cosmetics, and must not block launch.
+
 - Leaderboards that reward raw time or speed; they incentivize behavior that conflicts with actual learning.
 
 # 13. Immediate Build Sprint
@@ -380,7 +421,7 @@ If development starts now, this is the exact order of work for the first build s
 
 9.  Add the 5-new-level daily allowance and post-cap review flow.
 
-10. Add review scheduling and delayed recall.
+10. Add review scheduling: first attempts recorded per scheduled review, missed items corrected with their source card.
 
 11. Add subscriptions only after the free loop is satisfying by itself.
 
@@ -396,7 +437,7 @@ If development starts now, this is the exact order of work for the first build s
 |-------------------|--------------------------------------------------------------------------------------------------|
 | **Curriculum**    | 8-10 complete Level 1-100 trees or a deliberately smaller set with no incomplete released trees. |
 | **Content**       | All published concepts source-backed; all questions reviewed; correction workflow live.          |
-| **Core loop**     | Onboarding -\> learn -\> quiz -\> XP -\> level up -\> character sheet is smooth.                 |
+| **Core loop**     | Onboarding -\> learn -\> 3 quick questions -\> XP -\> level up -\> character sheet is smooth.                 |
 | **Daily loop**    | 5 free new levels enforced server-side; review remains useful after cap.                         |
 | **Paid**          | Monthly/annual subscription, restore purchases, entitlement sync, graceful billing errors.       |
 | **Trust**         | Source/about page, privacy policy, terms, clear media attribution where required.                |
@@ -413,10 +454,11 @@ If development starts now, this is the exact order of work for the first build s
 | **1**     | Add more complete 1-100 trees               | Breadth without changing the product model.                                      |
 | **2**     | Release first 101-200 prestige packs        | Tests whether power users want true depth.                                       |
 | **3**     | Improve personalized review                 | Makes mastery more durable as user histories grow.                               |
-| **4**     | Titles, rare achievements, profile showcase | Strengthens identity without pay-to-win.                                         |
-| **5**     | Friends / comparison features               | Adds social accountability only after solo value is proven.                      |
-| **6**     | Optional AI tutor/explanations              | Useful on-demand depth without making the canonical curriculum nondeterministic. |
-| **7**     | Web/desktop surfaces                        | Expand access once content, accounts, and progress are stable.                   |
+| **4**     | Titles, rare achievements, profile showcase, earned cosmetics | Strengthens identity without pay-to-win.                       |
+| **5**     | Weekly Knowledge Quests                     | Short-term purpose and themed breadth on top of a proven loop and reward system. |
+| **6**     | Friends / comparison features, including friend quest progress | Adds social accountability only after solo value is proven. |
+| **7**     | Optional AI tutor/explanations              | Useful on-demand depth without making the canonical curriculum nondeterministic. |
+| **8**     | Web/desktop surfaces                        | Expand access once content, accounts, and progress are stable.                   |
 
 # 16. Product Decisions Already Made
 
@@ -437,6 +479,10 @@ If development starts now, this is the exact order of work for the first build s
 - No ads and no manipulative mobile-game currency systems.
 
 - The app explicitly celebrates stopping: “No more doomscrolling. Go touch grass.”
+
+- A level completes only when every question is correctly resolved; missed questions show their teaching card again. First-attempt accuracy sets the XP; resolution sets progression.
+
+- Weekly Knowledge Quests (post-MVP) count only new levels, are fully completable free, and move to the Chronicle when they end instead of disappearing.
 
 # Appendix A. Source & Licensing References
 

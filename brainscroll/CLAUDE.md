@@ -1,6 +1,6 @@
 # BrainScroll — notes for AI coding agents
 
-Read `docs/product-rules.md` before changing anything that touches progression, XP, the daily cap, IDs or content. Those rules are contracts.
+Read `docs/product-rules.md` before changing anything that touches progression, XP, the daily cap, IDs or content. Those rules are contracts. The full product specs live in `docs/specs/*.md` (Markdown is the working source; `docs/source/*.docx` are snapshots). When a product rule changes, update the spec, the digest in `docs/` and the code together.
 
 ## Commands (run from `brainscroll/`)
 
