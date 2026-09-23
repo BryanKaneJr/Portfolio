@@ -99,6 +99,15 @@ Headline ≤ 80 chars · body ≤ 360 · question prompt ≤ 200 · answer ≤ 8
 
 Prefer **Wikidata** (CC0) for structured facts, and **NASA**, **Smithsonian Open Access (CC0)** and government sources for media. Use Wikipedia for research and discovery only, and don't copy its prose (CC BY-SA). **"We found it online" is never a licence.** Record every source in `sources.json` before citing it, and set `verified: true` only after an editor has checked the fact against the page. Get an IP attorney to review the final commercial ingestion and attribution rules before public launch.
 
+## Weekly Quests (post-MVP)
+
+Quests are content too: data-driven definitions, never hard-coded. When they're built they'll live in `content/quests/<id>.json`, be validated like levels, and be imported by the same pipeline. Rules for authors:
+
+- Five related skills, usually +5 new levels each (~25 total; Epic ~35, Legendary 50+).
+- Every requirement skill needs enough **published** levels for every learner to make that many new levels of progress.
+- The Final Encounter is **3 synthesis questions** that each connect at least two of the quest's skills (`purpose: connection`). It isn't an exam.
+- Rewards reference trophy, title and cosmetic IDs. Never a currency.
+
 ## Publishing
 
 A publish creates `level_revisions(level_id, revision, bundle)`. That record is immutable. To correct a level, bump `revision` and publish again. User progress points at the level ID, so it survives the change.

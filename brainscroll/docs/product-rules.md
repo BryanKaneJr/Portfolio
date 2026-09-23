@@ -19,7 +19,7 @@ A social-media-shaped learning app where users level up real knowledge like an R
 7. **Published knowledge is pre-generated, source-backed, versioned** and served from our own data.
 8. **User progress references stable level/concept IDs** and survives editorial revisions. A revision never moves progress backwards.
 9. **No ads, hearts, lives, energy, gems, loot boxes, purchasable XP, or paywalled subjects.**
-10. **Unlimited removes the daily new-level cap. That is all it does.** There's no exclusive curriculum and no premium XP. Level 50 means the same thing for free and paid users.
+10. **Unlimited removes the daily new-level cap. That is all it does.** There's no exclusive curriculum, no exclusive quests and no premium XP. Level 50 means the same thing for free and paid users. *Pay for freedom, not knowledge.*
 
 ## Definitions
 
@@ -33,7 +33,8 @@ A social-media-shaped learning app where users level up real knowledge like an R
 | **Skill level** | The highest canonical level cleared in that skill. It is **never** derived from XP. |
 | **Mastery** | Clearing level 100·k awards star *k* and `MASTERY_CLEAR` XP. |
 | **Knowledge Level** | Derived overall stat: `1 + floor(sqrt(4 × total levels cleared))`. Tunable, but always sublinear. |
-| **Daily Complete** | What the user sees when they ask for a 6th new level. It's a celebration, not an error. |
+| **Daily Knowledge Complete** | What the user sees when they ask for a 6th new level. It's a celebration, not an error. (Post-MVP, it also shows active Weekly Quest progress.) |
+| **Weekly Knowledge Quest** | Post-MVP. A themed objective of ~25 **new** levels across 5 related skills, then a 3-question Final Encounter. It's finishable free in about five learning days, and archived to the Chronicle when its week ends. See [`social-expansion.md`](social-expansion.md#weekly-knowledge-quests). |
 
 ## Level types (how much testing, and when)
 
@@ -91,6 +92,18 @@ Concept strength runs from 0 to 5. A correct answer adds one step and a wrong an
 ## Pricing (launch hypotheses)
 
 $4.99/month, $39.99/year, one entitlement: `unlimited_learning`. The paywall only appears at 5/5 or when the user explicitly asks for a 6th new level. **It never interrupts a lesson.** Always say it plainly: *"All knowledge can be unlocked free over time."*
+
+## Weekly Knowledge Quests (post-MVP)
+
+These are the guardrails. The design lives in [`social-expansion.md`](social-expansion.md#weekly-knowledge-quests).
+
+- **Only new levels count.** Existing levels never auto-complete a quest, and replays and reviews never count.
+- **One source of truth.** Quest progress is derived from `LEVEL_COMPLETE` events in the XP ledger. It is never a separate counter.
+- **Free-completable.** A standard quest (~25 levels) fits in about five free learning days. Unlimited only lets you finish faster.
+- **No FOMO.** Ended quests move to the Chronicle with the same rewards. A live clear earns only a subtle dated mark.
+- **Learning first.** The Final Encounter is 3 synthesis questions and uses no daily level. Quests are never 20-question exams.
+- **Quest XP isn't skill XP.** The bonus never moves a skill level, and it's excluded from the weekly friend leaderboard.
+- **Quests never block the core MVP.**
 
 ## Never build (before launch)
 

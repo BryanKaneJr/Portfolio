@@ -52,9 +52,44 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | 19 | Closed beta | Unknown users complete core loop without coaching | ⬜ |
 | 20 | Store release | Monitoring + correction workflow ready | ⬜ |
 
-## After MVP: Social + Rewards expansion
+## After MVP: rewards, Weekly Knowledge Quests, then social
 
-Friends, weekly friend leaderboards, challenges, trophies, titles and earned cosmetics, with no currency and no feed. It is sequenced strictly after the core loop. See [`social-expansion.md`](social-expansion.md) for the phases, how they map onto what exists, and the open decisions.
+Trophies, titles, earned cosmetics, **Weekly Knowledge Quests**, friends, weekly friend leaderboards and challenges, with no currency and no feed. It is sequenced strictly after the core loop, and none of it may block the MVP. See [`social-expansion.md`](social-expansion.md) for the design, the phases and the open decisions.
+
+Dependency order, with where we are today:
+
+| # | Step | Status |
+| --- | --- | --- |
+| **Core** | | |
+| 1 | Auth / user accounts | 🟡 anonymous accounts work; account linking and usernames are missing |
+| 2 | Canonical curriculum | 🟡 Astronomy 1–10 drafted; sources unverified |
+| 3 | Regular 3-question learning levels | ✅ |
+| 4 | Level completion | ✅ exactly-once, server-authoritative |
+| 5 | Skill progression | ✅ |
+| 6 | XP | ✅ ledger (`xp_events`) |
+| 7 | Level 1–100 progression | ✅ rules, bands and stars; content only to Level 10 |
+| 8 | Daily 5-new-level free cap | ✅ |
+| 9 | Unlimited subscription | ⬜ |
+| 10 | Review / recall | ✅ |
+| **Rewards foundation** | | |
+| 11 | Canonical reward/event ledger | 🟡 `xp_events` exists; more event types needed |
+| 12 | Trophy / accomplishment system | ⬜ |
+| 13 | Titles | ⬜ |
+| 14 | Profile display | ⬜ (basic character sheet only) |
+| 15 | Earned cosmetics | ⬜ |
+| **Weekly Quests** | | |
+| 16 | Quest definition / data model | ⬜ |
+| 17 | Requirement tracking from verified level-completion events | ⬜ |
+| 18 | Active Weekly Quest screen | ⬜ |
+| 19 | Quest progress on the 5/5 Daily Knowledge Complete screen | ⬜ |
+| 20 | Final Encounter (3 synthesis questions) | ⬜ |
+| 21 | Quest trophy / title / cosmetic rewards | ⬜ |
+| 22 | Chronicle / archived quests | ⬜ |
+| 23 | Quest analytics | ⬜ |
+| **Social integration** | | |
+| 24 | Friend progress display | ⬜ needs the friend graph |
+| 25 | Weekly Quest comparison among friends | ⬜ |
+| 26 | Quest activity in friend profiles | ⬜ |
 
 ## Up next
 
