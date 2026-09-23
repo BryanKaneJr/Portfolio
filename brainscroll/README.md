@@ -29,11 +29,13 @@ Requires Node 22+.
 cd brainscroll
 npm install
 
-npm run check            # typecheck + unit tests + content validation + bundle freshness
+npm run check            # typecheck + lint + unit tests + content validation + bundle freshness
 npm run content:build    # recompile content/ into the app's offline bundle after editing content
 npm run content:import   # publish content to Supabase (see docs/supabase-setup.md)
 npm run test:db          # apply migrations to a throwaway Postgres and run SQL tests
 npm run app              # start the Expo dev server (press i / a / w)
+npm run e2e              # play the app in a headless browser (offline mode)
+npm run e2e:remote       # same, against the real migrations via a Supabase stand-in
 ```
 
 `npm run test:db` needs Postgres server binaries (`initdb`, `pg_ctl`) but no Docker. For a full local Supabase stack, see [`backend/README.md`](backend/README.md).
@@ -48,7 +50,8 @@ We're following the [build order](docs/build-order.md). **The loop comes first a
 - [x] Stage 3: lesson player. All 10 levels play offline from data, with resume, exactly-once completion, XP, the character sheet and the daily cap
 - [x] Stage 5: review. Due concepts come back as recall sessions, with delayed-recall XP. Review never uses daily levels
 - [x] Onboarding: a first-run intro that gets to Level 1 in about a minute
-- [ ] Supabase: the schema, server functions and importer are tested locally; the app isn't connected yet. See [`docs/supabase-setup.md`](docs/supabase-setup.md)
+- [x] Supabase mode: anonymous sign-in, server-graded completion, live content revisions and review, e2e-tested against the real SQL
+- [ ] Staging Supabase project: needs creating. See [`docs/supabase-setup.md`](docs/supabase-setup.md)
 
 ## Read first
 

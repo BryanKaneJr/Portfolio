@@ -1,18 +1,14 @@
-import { PRICING, VOICE, localDate } from '@brainscroll/core';
+import { PRICING, VOICE } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { Body, BigNumber, Button, Card, Label, Screen, Title } from '@/components/ui';
-import { useProgress, useProgressView } from '@/progress/ProgressProvider';
+import { useProgressView } from '@/progress/ProgressProvider';
 
 /**
  * Daily Quest Complete: the free cap feels like finishing the day, not an energy wall.
  * Review is the primary free action. Unlimited is optional and never interrupts a lesson.
  */
 export default function DailyCompleteScreen() {
-  const { state } = useProgress();
-  const { today } = useProgressView();
-  const xpToday = state.xpEvents
-    .filter((e) => localDate(new Date(e.at), state.timeZone) === today.localDate)
-    .reduce((n, e) => n + e.amount, 0);
+  const { today, xpToday } = useProgressView();
 
   return (
     <Screen>

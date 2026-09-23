@@ -42,6 +42,10 @@ EXPO_PUBLIC_SUPABASE_ANON_KEY=<anon key>
 
 The anon key is safe to ship. Row Level Security limits each player to their own progress, and all progress writes go through the server functions.
 
+That's all it takes. With those two variables set, the app signs players in anonymously and uses the server for everything. Without them, it plays offline on-device. The switch is in `app/src/progress/ProgressProvider.tsx`.
+
+The Supabase mode is already covered end to end: `npm run e2e:remote` runs the real app against the real migrations and content through `backend/tests/fake-supabase.mjs`, a small stand-in for Supabase Auth and RPC endpoints. It isn't a substitute for a smoke test on the real project once it exists.
+
 ## What the app calls
 
 | When | RPC |
@@ -49,4 +53,5 @@ The anon key is safe to ship. Row Level Security limits each player to their own
 | Opening a level | `start_level(level_id)` returns eligibility plus the published bundle |
 | Finishing a level | `complete_level(level_id, revision, answers, idempotency_key)` returns the authoritative summary |
 | Home / Daily Complete | `get_daily_status()` |
-| Review tab | `get_review_queue(limit)` then `submit_review(question_id, option_id)` per answer |
+| Review tab | `get_review_queue(limit)`, then `get_level_bundles(ids)`, then `submit_review(question_id, option_id)` per answer |
+| App start | `update_profile(timezone)` and `get_progress()` |

@@ -7,7 +7,7 @@ export default function NotFoundScreen() {
     <>
       <Stack.Screen options={{ title: 'Not found' }} />
       <Screen>
-        <Title>This level doesn't exist.</Title>
+        <Title>This level doesn’t exist.</Title>
         <Link href="/" style={{ color: color.brand }}>
           <Body>Back to Home</Body>
         </Link>

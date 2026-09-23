@@ -30,7 +30,7 @@ export default function ProfileScreen() {
         <Label>Titles</Label>
         <Body muted>Earned from transparent requirements. None yet.</Body>
       </Card>
-      {__DEV__ && <Button variant="secondary" label="Reset local progress (dev)" onPress={resetAll} />}
+      {__DEV__ && <Button variant="secondary" label="Reset progress (dev)" onPress={() => void resetAll()} />}
     </Screen>
   );
 }

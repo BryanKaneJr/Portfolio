@@ -1,37 +1,23 @@
-import {
-  buildReviewQueue,
-  checkStart,
-  completeLevel as applyCompletion,
-  dailyStatus,
-  emptyProgress,
-  highestCleared,
-  knowledgeLevel,
-  skillProgressView,
-  submitReview as applyReview,
-  totalCleared,
-  type Answers,
-  type CompletionSummary,
-  type ProgressState,
-  type ReviewItem,
-  type ReviewResult,
-  type StartReason,
-} from '@brainscroll/core';
+import { skillProgressView, type Answers, type CompletionSummary, type ReviewItem, type ReviewResult } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import { allLevels, getLevel, levelByNumber, skills } from '@/content';
+import { levelByNumber, skills } from '@/content';
+import type { ProgressBackend, ProgressSnapshot, StartResult } from './backend';
+import { createLocalBackend } from './localBackend';
+import { createRemoteBackend } from './remoteBackend';
 import { load, newIdempotencyKey, save } from './storage';
 
 /**
- * Local progress for offline play. It uses the same rules as the server's
- * complete_level (via @brainscroll/core). When Supabase is wired, completeLevel()
- * becomes an RPC and this provider just caches the authoritative result.
+ * App-wide progress. Screens render from `snapshot` and call actions; the
+ * backend decides the rules: Supabase when EXPO_PUBLIC_SUPABASE_URL/ANON_KEY
+ * are set, otherwise offline play on-device.
  */
 
-const PROGRESS_KEY = 'brainscroll.progress.v1';
 const SESSIONS_KEY = 'brainscroll.sessions.v1';
 const ONBOARDED_KEY = 'brainscroll.onboarded.v1';
 
 /** In-progress level: where you are and what you've answered, so a restart resumes. */
 export interface LevelSession {
+  revision: number;
   cardIndex: number;
   answers: Answers;
   idempotencyKey: string;
@@ -39,66 +25,93 @@ export interface LevelSession {
 
 interface ProgressContextValue {
   ready: boolean;
-  state: ProgressState;
+  /** Set when the backend couldn't be reached at startup. */
+  error: string | null;
+  backend: 'local' | 'remote';
+  snapshot: ProgressSnapshot;
   sessions: Record<string, LevelSession>;
   lastSummary: CompletionSummary | undefined;
-  checkStart(levelId: string): StartReason;
+  onboarded: boolean;
+  isCompleted(levelId: string): boolean;
   /** The next level to play in a skill, if it exists in the bundle. */
   nextLevelId(skillId: string): string | undefined;
-  getSession(levelId: string): LevelSession;
+  startLevel(levelId: string): Promise<StartResult>;
+  /** Returns the saved session, or starts one for this revision. */
+  getSession(levelId: string, revision: number): LevelSession;
   updateSession(levelId: string, patch: Partial<LevelSession>): void;
-  completeLevel(levelId: string): CompletionSummary;
-  /** Due review items right now (one question per due concept). */
-  reviewQueue(limit?: number): ReviewItem[];
-  submitReview(item: ReviewItem, optionId: string): ReviewResult;
-  onboarded: boolean;
+  completeLevel(levelId: string, level: Parameters<ProgressBackend['completeLevel']>[0]['level']): Promise<CompletionSummary>;
+  reviewQueue(limit?: number): Promise<ReviewItem[]>;
+  submitReview(item: ReviewItem, optionId: string): Promise<ReviewResult>;
+  refresh(): Promise<void>;
   finishOnboarding(): void;
-  resetAll(): void;
+  resetAll(): Promise<void>;
+}
+
+const EMPTY_SNAPSHOT: ProgressSnapshot = {
+  skills: {},
+  completedLevels: [],
+  daily: { localDate: '', cap: 5, used: 0, remaining: 5, dailyComplete: false },
+  knowledgeLevel: 1,
+  totalXp: 0,
+  xpToday: 0,
+  reviewsDue: 0,
+};
+
+const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL;
+const SUPABASE_ANON_KEY = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
+const BACKEND_KIND: ProgressBackend['kind'] = SUPABASE_URL && SUPABASE_ANON_KEY ? 'remote' : 'local';
+
+function createBackend(): ProgressBackend {
+  return SUPABASE_URL && SUPABASE_ANON_KEY ? createRemoteBackend(SUPABASE_URL, SUPABASE_ANON_KEY) : createLocalBackend();
 }
 
 const ProgressContext = createContext<ProgressContextValue | null>(null);
 
-function freshState(): ProgressState {
-  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
-  return emptyProgress(new Date(), tz);
-}
-
 export function ProgressProvider({ children }: { children: ReactNode }) {
+  // Created on the client only: static web rendering runs without window/storage.
+  const backendRef = useRef<ProgressBackend | null>(null);
   const [ready, setReady] = useState(false);
-  const [state, setState] = useState<ProgressState>(freshState);
+  const [error, setError] = useState<string | null>(null);
+  const [snapshot, setSnapshot] = useState<ProgressSnapshot>(EMPTY_SNAPSHOT);
   const [sessions, setSessions] = useState<Record<string, LevelSession>>({});
   const [lastSummary, setLastSummary] = useState<CompletionSummary>();
   const [onboarded, setOnboarded] = useState(false);
-  // Refs give synchronous reads, so a double tap can't complete a level twice.
-  const stateRef = useRef(state);
+  // Synchronous mirrors for handlers.
   const sessionsRef = useRef(sessions);
+  const snapshotRef = useRef(snapshot);
+
+  const backendOrThrow = useCallback((): ProgressBackend => {
+    if (!backendRef.current) throw new Error('Progress backend not ready');
+    return backendRef.current;
+  }, []);
+
+  const refresh = useCallback(async () => {
+    const s = await backendOrThrow().snapshot();
+    snapshotRef.current = s;
+    setSnapshot(s);
+  }, [backendOrThrow]);
 
   useEffect(() => {
+    backendRef.current ??= createBackend();
+    const backend = backendRef.current;
     (async () => {
-      const [p, s, o] = await Promise.all([
-        load<ProgressState>(PROGRESS_KEY),
-        load<Record<string, LevelSession>>(SESSIONS_KEY),
-        load<boolean>(ONBOARDED_KEY),
-      ]);
-      if (p?.version === 1) {
-        stateRef.current = p;
-        setState(p);
-      }
-      // Anyone who has already cleared a level has effectively onboarded.
-      setOnboarded(o === true || (p?.version === 1 && Object.keys(p.levels).length > 0));
+      const [s, o] = await Promise.all([load<Record<string, LevelSession>>(SESSIONS_KEY), load<boolean>(ONBOARDED_KEY)]);
       if (s) {
         sessionsRef.current = s;
         setSessions(s);
       }
+      try {
+        await backend.init();
+        await refresh();
+        // Anyone who has already cleared a level has effectively onboarded.
+        setOnboarded(o === true || snapshotRef.current.completedLevels.length > 0);
+      } catch (e) {
+        setError(e instanceof Error ? e.message : String(e));
+        setOnboarded(o === true);
+      }
       setReady(true);
     })();
-  }, []);
-
-  const commitState = useCallback((next: ProgressState) => {
-    stateRef.current = next;
-    setState(next);
-    void save(PROGRESS_KEY, next);
-  }, []);
+  }, [refresh]);
 
   const commitSessions = useCallback((next: Record<string, LevelSession>) => {
     sessionsRef.current = next;
@@ -106,70 +119,67 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     void save(SESSIONS_KEY, next);
   }, []);
 
-  const getSession = useCallback((levelId: string): LevelSession => {
-    const existing = sessionsRef.current[levelId];
-    if (existing) return existing;
-    const created = { cardIndex: 0, answers: {}, idempotencyKey: newIdempotencyKey() };
-    commitSessions({ ...sessionsRef.current, [levelId]: created });
-    return created;
-  }, [commitSessions]);
-
-  const updateSession = useCallback((levelId: string, patch: Partial<LevelSession>) => {
-    const current = sessionsRef.current[levelId] ?? { cardIndex: 0, answers: {}, idempotencyKey: newIdempotencyKey() };
-    commitSessions({ ...sessionsRef.current, [levelId]: { ...current, ...patch } });
-  }, [commitSessions]);
-
-  const value = useMemo<ProgressContextValue>(() => ({
-    ready,
-    state,
-    sessions,
-    lastSummary,
-    checkStart(levelId) {
-      const level = getLevel(levelId);
-      return level ? checkStart(stateRef.current, level, new Date()) : 'LEVEL_NOT_AVAILABLE';
-    },
-    nextLevelId(skillId) {
-      return levelByNumber(skillId, highestCleared(stateRef.current, skillId) + 1)?.id;
-    },
-    getSession,
-    updateSession,
-    completeLevel(levelId) {
-      const level = getLevel(levelId);
-      if (!level) throw new Error(`Unknown level ${levelId}`);
-      const session = getSession(levelId);
-      const { state: next, summary } = applyCompletion(stateRef.current, {
-        level,
-        answers: session.answers,
-        idempotencyKey: session.idempotencyKey,
-        now: new Date(),
-      });
-      if (next !== stateRef.current) commitState(next);
-      const { [levelId]: _done, ...rest } = sessionsRef.current;
-      commitSessions(rest);
-      setLastSummary(summary);
-      return summary;
-    },
-    reviewQueue(limit = 10) {
-      return buildReviewQueue(stateRef.current, allLevels, new Date(), limit);
-    },
-    submitReview(item, optionId) {
-      const { state: next, result } = applyReview(stateRef.current, { item, optionId, now: new Date() });
-      if (next !== stateRef.current) commitState(next);
-      return result;
-    },
-    onboarded,
-    finishOnboarding() {
-      setOnboarded(true);
-      void save(ONBOARDED_KEY, true);
-    },
-    resetAll() {
-      commitState(freshState());
-      commitSessions({});
-      setLastSummary(undefined);
-      setOnboarded(false);
-      void save(ONBOARDED_KEY, false);
-    },
-  }), [ready, state, sessions, lastSummary, onboarded, getSession, updateSession, commitState, commitSessions]);
+  const value = useMemo<ProgressContextValue>(
+    () => ({
+      ready,
+      error,
+      backend: BACKEND_KIND,
+      snapshot,
+      sessions,
+      lastSummary,
+      onboarded,
+      isCompleted: (levelId) => snapshotRef.current.completedLevels.includes(levelId),
+      nextLevelId(skillId) {
+        const cleared = snapshotRef.current.skills[skillId]?.highestCleared ?? 0;
+        return levelByNumber(skillId, cleared + 1)?.id;
+      },
+      startLevel: (levelId) => backendOrThrow().startLevel(levelId),
+      getSession(levelId, revision) {
+        const existing = sessionsRef.current[levelId];
+        // Content changed since this session began: start the level fresh.
+        if (existing && existing.revision === revision) return existing;
+        const created = { revision, cardIndex: 0, answers: {}, idempotencyKey: newIdempotencyKey() };
+        commitSessions({ ...sessionsRef.current, [levelId]: created });
+        return created;
+      },
+      updateSession(levelId, patch) {
+        const current = sessionsRef.current[levelId];
+        if (!current) return;
+        commitSessions({ ...sessionsRef.current, [levelId]: { ...current, ...patch } });
+      },
+      async completeLevel(levelId, level) {
+        const session = sessionsRef.current[levelId];
+        if (!session) throw new Error(`No session for ${levelId}`);
+        const summary = await backendOrThrow().completeLevel({
+          level,
+          revision: session.revision,
+          answers: session.answers,
+          idempotencyKey: session.idempotencyKey,
+        });
+        const { [levelId]: _done, ...rest } = sessionsRef.current;
+        commitSessions(rest);
+        setLastSummary(summary);
+        await refresh();
+        return summary;
+      },
+      reviewQueue: (limit = 10) => backendOrThrow().reviewQueue(limit),
+      submitReview: (item, optionId) => backendOrThrow().submitReview(item, optionId),
+      refresh,
+      finishOnboarding() {
+        setOnboarded(true);
+        void save(ONBOARDED_KEY, true);
+      },
+      async resetAll() {
+        await backendOrThrow().reset();
+        commitSessions({});
+        setLastSummary(undefined);
+        setOnboarded(false);
+        void save(ONBOARDED_KEY, false);
+        await refresh();
+      },
+    }),
+    [ready, error, snapshot, sessions, lastSummary, onboarded, refresh, commitSessions, backendOrThrow],
+  );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;
 }
@@ -180,17 +190,20 @@ export function useProgress(): ProgressContextValue {
   return ctx;
 }
 
-/** Derived, display-ready view of progress for Home, Skills and Profile. */
+/** Display-ready view of progress for Home, Skills and Profile. */
 export function useProgressView() {
-  const { state, sessions } = useProgress();
-  const now = new Date();
-  const skillViews = skills.map((s) => ({ ...s, view: skillProgressView(highestCleared(state, s.id)), xp: state.skills[s.id]?.totalXp ?? 0 }));
+  const { snapshot, sessions } = useProgress();
+  const skillViews = skills.map((s) => {
+    const p = snapshot.skills[s.id];
+    return { ...s, view: skillProgressView(p?.highestCleared ?? 0), xp: p?.totalXp ?? 0 };
+  });
   return {
-    knowledgeLevel: knowledgeLevel(totalCleared(state)),
-    totalXp: state.xpEvents.reduce((n, e) => n + e.amount, 0),
+    knowledgeLevel: snapshot.knowledgeLevel,
+    totalXp: snapshot.totalXp,
+    xpToday: snapshot.xpToday,
     skills: skillViews,
-    today: dailyStatus(state, now),
-    reviewsDue: buildReviewQueue(state, allLevels, now, 50).length,
+    today: snapshot.daily,
+    reviewsDue: snapshot.reviewsDue,
     sessions,
   };
 }

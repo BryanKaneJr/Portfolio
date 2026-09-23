@@ -72,7 +72,7 @@ export default function WelcomeScreen() {
           <>
             <Label>The deal</Label>
             <Text style={styles.headline}>{DAILY_FREE_NEW_LEVELS} new levels a day. Free, forever.</Text>
-            <Body>After that, we'll tell you you're done. Seriously. Go outside.</Body>
+            <Body>After that, we’ll tell you you’re done. Seriously. Go outside.</Body>
             <Body>Review is unlimited, wrong answers never cost you anything, and progress never resets.</Body>
             <Body muted>{VOICE.fairness}</Body>
           </>

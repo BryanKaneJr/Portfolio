@@ -40,6 +40,17 @@ begin
   r := public.complete_level('level.science.astronomy.001', 1, answers, gen_random_uuid());
   assert (r ->> 'xp_awarded')::int = 24 and (r ->> 'skill_level')::int = 1, format('got %s', r);
   perform pg_temp.expect_error($q$ select public.import_content('{}'::jsonb) $q$, 'permission denied for function import_content');
+
+  -- The snapshot the app renders from.
+  s := public.get_progress();
+  assert s -> 'skills' -> 'skill.science.astronomy' ->> 'highest_cleared' = '1', format('got %s', s);
+  assert s -> 'completed_levels' = '["level.science.astronomy.001"]'::jsonb;
+  assert (s ->> 'total_xp')::int = 24 and (s ->> 'xp_today')::int = 24 and (s ->> 'knowledge_level')::int = 3;
+  assert (s -> 'daily' ->> 'used')::int = 1 and (s ->> 'reviews_due')::int = 0;
+
+  -- Current bundles; unknown ids are simply absent.
+  s := public.get_level_bundles(array['level.science.astronomy.002', 'level.nope.nope.001']);
+  assert s -> 'level.science.astronomy.002' ->> 'title' = 'The Sun, Up Close' and s ? 'level.nope.nope.001' = false;
 end $$;
 reset role;
 

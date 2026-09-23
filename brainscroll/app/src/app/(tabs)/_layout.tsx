@@ -6,7 +6,9 @@ import { color } from '@/theme/tokens';
 type IconName = SymbolViewProps['name'];
 
 function icon(name: IconName) {
-  return ({ color: tint }: { color: ColorValue }) => <SymbolView name={name} tintColor={tint} size={26} />;
+  return function TabIcon({ color: tint }: { color: ColorValue }) {
+    return <SymbolView name={name} tintColor={tint} size={26} />;
+  };
 }
 
 /** Four destinations for V1 (visual direction §3). Learning launches from Home or a skill. */

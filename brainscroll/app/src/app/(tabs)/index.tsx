@@ -1,4 +1,5 @@
-import { Redirect, router } from 'expo-router';
+import { Redirect, router, useFocusEffect } from 'expo-router';
+import { useCallback } from 'react';
 import { Body, BigNumber, Button, Card, Label, ProgressBar, Row, Screen, Title } from '@/components/ui';
 import { getLevel } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
@@ -9,6 +10,13 @@ export default function HomeScreen() {
   const p = useProgress();
   const v = useProgressView();
   const startLevel = useStartLevel();
+  const { ready, refresh } = p;
+  // Reviews come due while the app sits open; re-check whenever Home is shown.
+  useFocusEffect(
+    useCallback(() => {
+      if (ready) void refresh().catch(() => {});
+    }, [ready, refresh]),
+  );
   if (!p.ready) return <Screen>{null}</Screen>;
   if (!p.onboarded) return <Redirect href="/welcome" />;
 
@@ -21,6 +29,12 @@ export default function HomeScreen() {
   return (
     <Screen>
       <Label tone="brand">BrainScroll</Label>
+      {p.error && (
+        <Card>
+          <Label tone="muted">Offline</Label>
+          <Body muted>Couldn’t reach BrainScroll’s servers. Check your connection and reopen the app.</Body>
+        </Card>
+      )}
       <Row>
         <Title>Knowledge Lv.</Title>
         <BigNumber>{v.knowledgeLevel}</BigNumber>
@@ -36,7 +50,7 @@ export default function HomeScreen() {
             Level {next.number}: {next.title}
           </Body>
         ) : (
-          <Body muted>You've cleared every published level. More are on the way.</Body>
+          <Body muted>You’ve cleared every published level. More are on the way.</Body>
         )}
         <ProgressBar value={skill.view.bandProgress} />
         {next && today.dailyComplete ? (

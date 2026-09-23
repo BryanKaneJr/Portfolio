@@ -1,6 +1,6 @@
 import type { ReviewItem } from '@brainscroll/core';
 import { router } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { QuestionCard } from '@/components/cards/QuestionCard';
@@ -17,11 +17,36 @@ import { color, space } from '@/theme/tokens';
 export default function ReviewSessionScreen() {
   const p = useProgress();
   // The queue is fixed for the session so items don't reshuffle as they're answered.
-  const [queue] = useState<ReviewItem[]>(() => p.reviewQueue(10));
+  const [queue, setQueue] = useState<ReviewItem[] | null>(null);
+  const [failed, setFailed] = useState(false);
+  const inFlight = useRef(false);
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [xp, setXp] = useState(0);
   const [correct, setCorrect] = useState(0);
+
+  useEffect(() => {
+    if (!p.ready) return;
+    p.reviewQueue(10).then(setQueue, () => setFailed(true));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [p.ready]);
+
+  // Refresh Home/Review counts once the session is over.
+  const finish = () => {
+    void p.refresh();
+    router.back();
+  };
+
+  if (failed) {
+    return (
+      <SafeAreaView style={[styles.screen, { padding: space.lg, gap: space.md }]}>
+        <Title>Couldn’t load your review.</Title>
+        <Body muted>Check your connection and try again.</Body>
+        <Button variant="secondary" label="Back" onPress={() => router.back()} />
+      </SafeAreaView>
+    );
+  }
+  if (queue === null) return <SafeAreaView style={styles.screen} />;
 
   if (queue.length === 0) {
     return (
@@ -46,7 +71,7 @@ export default function ReviewSessionScreen() {
             ? 'Remembering after a real gap is worth the most XP.'
             : 'Recall XP kicks in when you remember something after a day or more.'}
         </Body>
-        <Button label="Done" onPress={() => router.back()} />
+        <Button label="Done" onPress={finish} />
       </SafeAreaView>
     );
   }
@@ -56,17 +81,26 @@ export default function ReviewSessionScreen() {
   const concept = getConcept(item.conceptId);
 
   const onSelect = (optionId: string) => {
-    if (selected !== undefined) return;
-    setAnswers({ ...answers, [item.question.id]: optionId });
-    const r = p.submitReview(item, optionId);
-    setXp(xp + r.xpAwarded);
-    if (r.correct) setCorrect(correct + 1);
+    if (selected !== undefined || inFlight.current) return;
+    inFlight.current = true;
+    setAnswers((a) => ({ ...a, [item.question.id]: optionId }));
+    p.submitReview(item, optionId)
+      .then((r) => {
+        setXp((x) => x + r.xpAwarded);
+        if (r.correct) setCorrect((c) => c + 1);
+      })
+      .catch(() => {
+        // Keep the feedback; the concept simply stays due and comes back next time.
+      })
+      .finally(() => {
+        inFlight.current = false;
+      });
   };
 
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.header}>
-        <Pressable accessibilityRole="button" accessibilityLabel="Leave review" onPress={() => router.back()} hitSlop={12}>
+        <Pressable accessibilityRole="button" accessibilityLabel="Leave review" onPress={finish} hitSlop={12}>
           <Text style={styles.close}>✕</Text>
         </Pressable>
         <View style={{ flex: 1, gap: space.xs }}>

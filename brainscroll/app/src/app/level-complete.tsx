@@ -12,7 +12,8 @@ export default function LevelCompleteScreen() {
   const xp = useCountUp(s?.xpAwarded ?? 0);
 
   if (!s) return <Redirect href="/" />;
-  const level = getLevel(s.levelId)!;
+  const level = getLevel(s.levelId);
+  if (!level) return <Redirect href="/" />;
   const skill = getSkill(s.skillId);
   const next = levelByNumber(s.skillId, level.number + 1);
   const checkpoint = level.cards.find((c) => c.type === 'checkpoint');
@@ -26,9 +27,7 @@ export default function LevelCompleteScreen() {
       <Title>
         {skill?.name} Lv. {s.alreadyCompleted ? s.skillLevel : `${s.skillLevelBefore} → ${s.skillLevel}`}
       </Title>
-      <Body muted>
-        {s.correct} / {s.total} correct{s.alreadyCompleted ? ' · replays earn no XP' : ''}
-      </Body>
+      <Body muted>{s.alreadyCompleted ? 'Replays earn no XP' : `${s.correct} / ${s.total} correct`}</Body>
 
       {checkpoint?.type === 'checkpoint' && (
         <Card>

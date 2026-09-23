@@ -4,7 +4,9 @@ This is Supabase: Postgres, Auth, Storage and Edge Functions.
 
 ```
 supabase/migrations/   SQL migrations (schema, RLS, server functions)
-tests/                 SQL acceptance tests + runner using plain Postgres with Supabase auth stubs
+tests/                 SQL acceptance tests, runner and shared helpers (lib.sh) using plain Postgres
+                       with Supabase auth stubs; fake-supabase.mjs is a test-only stand-in for
+                       Supabase Auth + RPC used by `npm run e2e:remote`
 ```
 
 ## Server functions (call via `supabase.rpc`)
@@ -16,6 +18,9 @@ tests/                 SQL acceptance tests + runner using plain Postgres with S
 | `get_daily_status()` | Returns `{ used, cap, remaining, daily_complete, unlimited, local_date }`. |
 | `get_review_queue(limit)` | Returns due concepts, each with one question from a level you've cleared. Questions rotate. |
 | `submit_review(question_id, option_id)` | Reschedules the due concepts that question tests, and awards `DELAYED_RECALL` for a correct answer after 20 h or more. It never touches skill level or the daily allowance. |
+| `get_progress()` | Returns the app's snapshot: skills, completed levels, daily status, XP totals and the number of reviews due. |
+| `get_level_bundles(ids)` | Returns the current published bundles, so corrections reach players without an app release. |
+| `update_profile(timezone, display_name)` | Profile settings. The time zone defines the local day for the daily cap. |
 | `import_content(payload, publish_drafts)` | **Service role only.** Upserts curriculum and publishes immutable level revisions. Raises `REVISION_CONFLICT` or `REVISION_REGRESSION`. |
 
 Clients can **read** published content and their own progress (RLS). They **can't write** progress, XP, allowances or entitlements. Those change only through the functions above, or through the service role for the importer, admin and RevenueCat webhooks.
