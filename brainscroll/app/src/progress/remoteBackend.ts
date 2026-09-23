@@ -95,11 +95,30 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       });
     },
     async submitReview(item, optionId) {
-      const r = await rpc<{ correct: boolean; xp_awarded: number; refreshed: string[]; correct_option_id: string; explanation: string }>('submit_review', {
+      const r = await rpc<{
+        correct: boolean;
+        resolved: boolean;
+        first_attempt_correct: boolean;
+        attempt_count: number;
+        xp_awarded: number;
+        scheduled: boolean;
+        rationale: string | null;
+        explanation: string | null;
+      }>('submit_review', {
+        p_concept_id: item.conceptId,
         p_question_id: item.question.id,
         p_option_id: optionId,
       });
-      return { correct: r.correct, correctOptionId: r.correct_option_id, explanation: r.explanation, xpAwarded: r.xp_awarded, refreshed: r.refreshed };
+      return {
+        correct: r.correct,
+        resolved: r.resolved,
+        firstAttemptCorrect: r.first_attempt_correct,
+        attemptCount: r.attempt_count,
+        xpAwarded: r.xp_awarded,
+        scheduled: r.scheduled,
+        rationale: r.rationale ?? undefined,
+        explanation: r.explanation ?? undefined,
+      };
     },
     async reset() {
       await supabase.auth.signOut();

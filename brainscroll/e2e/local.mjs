@@ -1,5 +1,5 @@
 // Offline play: onboarding, a full chapter, resume, persistence, first-day cap, review.
-import { CURVE, bodyText, button, check, completionFacts, home, launch, onboard, playLevel } from './helpers.mjs';
+import { CHECKPOINT_CURVE, CURVE, REVIEW_XP, bodyText, button, check, completionFacts, home, launch, onboard, playLevel, playReview } from './helpers.mjs';
 
 const { browser, page, errors } = await launch();
 try {
@@ -37,35 +37,32 @@ try {
     const f = await completionFacts(page);
     if (f.firstTry === f.total) sawPerfect ||= /Perfect Recall/.test(f.text);
     if (f.total === 3 && f.xp !== CURVE[f.firstTry]) throw new Error(`level ${n}: ${f.firstTry}/3 gave ${f.xp} XP`);
+    if (n === 10) {
+      check(/CHECKPOINT 10 COMPLETE/i.test(f.text), 'all ten Golden levels play from data; Level 10 is a checkpoint');
+      check(f.total === 5 && f.xp === CHECKPOINT_CURVE[f.firstTry], `the checkpoint uses its own XP pool (${f.firstTry}/5 → ${f.xp} XP)`);
+    }
   }
-  check(/LEVEL 10 COMPLETE/i.test(await bodyText(page)), 'all ten Golden levels play from data');
   await button(page, 'Finish the day').click();
   await page.waitForTimeout(600);
   check((await bodyText(page)).includes('10 / 10'), 'first-day cap of 10 ends in Daily Knowledge Complete');
 
-  // Time travel: concepts last seen 30h ago and due now.
+  // Time travel: every concept is due now.
   await page.evaluate(() => {
     const k = 'brainscroll.progress.v1';
     const s = JSON.parse(localStorage.getItem(k));
-    for (const c of Object.values(s.concepts)) {
-      c.lastSeenAt = new Date(Date.now() - 30 * 3600e3).toISOString();
-      c.dueAt = new Date(Date.now() - 60e3).toISOString();
-    }
+    for (const c of Object.values(s.concepts)) c.dueAt = new Date(Date.now() - 60e3).toISOString();
     localStorage.setItem(k, JSON.stringify(s));
   });
   await home(page);
   check(/worth refreshing/.test(await bodyText(page)), 'due concepts surface on Home');
   await button(page, 'Start review').click();
   await page.waitForTimeout(500);
-  for (let i = 0; i < 40; i++) {
-    await page.waitForTimeout(150);
-    if (await button(page, 'Choose an answer').count()) await page.getByRole('radio').first().click();
-    else if (await button(page, 'Finish review').count()) break;
-    else await button(page, 'Continue').click();
-  }
-  await button(page, 'Finish review').click();
-  await page.waitForTimeout(400);
-  check(/REVIEW COMPLETE/i.test(await bodyText(page)), 'a review session completes');
+  const corrected = await playReview(page);
+  const t = await bodyText(page);
+  check(/REVIEW COMPLETE/i.test(t), `a review session completes once every item is resolved (${corrected} corrected)`);
+  const [, xp, right, total] = t.match(/\+(\d+) XP[\s\S]*?(\d+) \/ (\d+) right first time/) ?? [];
+  check(Number(xp) === REVIEW_XP * Number(right) && Number(total) - Number(right) === corrected,
+    `review XP is ${REVIEW_XP} per first-try item; corrections earn nothing (${right}/${total} → +${xp})`);
   check(errors.length === 0, `no page errors ${errors.join('; ')}`);
 } finally {
   await browser.close();

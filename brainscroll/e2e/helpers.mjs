@@ -55,7 +55,7 @@ export async function playLevel(page, { pick = () => 0, doubleTapComplete = fals
       const b = button(page, 'Complete level');
       if (doubleTapComplete) await b.dblclick(); // two rapid taps, like an impatient thumb
       else await b.click();
-      await page.getByText(/Level \d+ complete|Replay complete|Mastery cleared/i).first().waitFor({ timeout: 10_000 });
+      await page.getByText(/(Level|Checkpoint|Milestone|Mastery Challenge) \d+ complete|Replay complete|Mastery star earned/i).first().waitFor({ timeout: 10_000 });
       return reinforced;
     }
     await button(page, 'Continue').click();
@@ -63,8 +63,42 @@ export async function playLevel(page, { pick = () => 0, doubleTapComplete = fals
   throw new Error('level did not finish');
 }
 
-/** XP by first-attempt score on a 3-question level (must match LEARNING_STRUCTURE). */
+/** XP by first-attempt score on a 3-question level (must match LEARNING_STRUCTURE.regular). */
 export const CURVE = { 3: 100, 2: 70, 1: 35, 0: 15 };
+/** The checkpoint pool on a 5-question level (LEARNING_STRUCTURE.checkpoint): 150 / 105 / 60 / 25. */
+export const CHECKPOINT_CURVE = { 5: 150, 4: 105, 3: 60, 2: 25, 1: 25, 0: 25 };
+/** XP for one scheduled review item right on the first attempt (XP.REVIEW_FIRST_ATTEMPT). */
+export const REVIEW_XP = 10;
+
+/**
+ * Plays an open review session to the end, varying the first choice by item and
+ * correcting misses with the remaining options. A miss must show the source
+ * cards and keep the choices open (no answer reveal). Returns the number of
+ * items that needed correcting.
+ */
+export async function playReview(page) {
+  let corrected = 0;
+  let item = 0;
+  let missedThis = false;
+  for (let i = 0; i < 80; i++) {
+    await page.waitForTimeout(200);
+    if (await button(page, 'Choose an answer').count()) {
+      const radios = page.getByRole('radio');
+      await radios.nth(item++ % (await radios.count())).click();
+      missedThis = false;
+    } else if (await button(page, 'Choose again').count()) {
+      if (!(await page.getByText('Take another look').first().isVisible())) throw new Error('a missed review must show its source cards');
+      if (!missedThis) corrected++;
+      missedThis = true;
+      await page.getByRole('radio', { disabled: false }).first().click();
+    } else if (await button(page, 'Finish review').count()) {
+      await button(page, 'Finish review').click();
+      await page.waitForTimeout(400);
+      return corrected;
+    } else await button(page, 'Continue').click();
+  }
+  throw new Error('review did not finish');
+}
 
 /** Reads "First try: x / n" and the settled "+N XP" from the Level Complete screen. */
 export async function completionFacts(page) {

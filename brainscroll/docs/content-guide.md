@@ -95,7 +95,7 @@ Headline ≤ 80 chars · body ≤ 360 · question prompt ≤ 200 · answer ≤ 8
 | 51–75 | Broader context, second-order connections, deeper mechanisms |
 | 76–95 | Advanced synthesis, nuance, specialised concepts |
 | 96–99 | Integration across the whole tree |
-| 100 | Mastery Challenge: ★ Mastery I, which unlocks 101–200 |
+| 100 | Mastery Challenge (~10 questions): resolving it earns ★ Mastery I and unlocks 101–200. There's no minimum first-attempt score |
 
 ## Sourcing and licences
 

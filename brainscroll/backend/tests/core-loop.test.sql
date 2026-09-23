@@ -153,6 +153,43 @@ begin
   assert (r -> 'reinforced_concept_ids') = '["concept.curve.c1", "concept.curve.c2", "concept.curve.c3"]'::jsonb, format('got %s', r);
 end $$;
 
+-- 9b. Encounter XP pools: each level type has its own bands (mirrors LEARNING_STRUCTURE).
+reset role;
+do $$
+declare
+  cases jsonb := '[
+    ["regular", 3, 3, 100], ["regular", 2, 3, 70], ["regular", 1, 3, 35], ["regular", 0, 3, 15],
+    ["checkpoint", 5, 5, 150], ["checkpoint", 4, 5, 105], ["checkpoint", 3, 5, 60], ["checkpoint", 2, 5, 25], ["checkpoint", 0, 5, 25],
+    ["milestone", 7, 7, 250], ["milestone", 6, 7, 175], ["milestone", 5, 7, 90], ["milestone", 4, 7, 90], ["milestone", 3, 7, 40], ["milestone", 0, 7, 40],
+    ["mastery", 10, 10, 500], ["mastery", 9, 10, 350], ["mastery", 8, 10, 350], ["mastery", 7, 10, 175], ["mastery", 5, 10, 175], ["mastery", 4, 10, 75], ["mastery", 0, 10, 75]
+  ]';
+  c jsonb;
+begin
+  for c in select * from jsonb_array_elements(cases) loop
+    assert (public.first_attempt_band(c ->> 0, (c ->> 1)::int, (c ->> 2)::int)).xp = (c ->> 3)::int, format('band %s', c);
+  end loop;
+  assert not exists (select 1 from information_schema.columns where table_name = 'app_settings' and column_name = 'xp_mastery_clear'),
+    'the separate mastery bonus is retired';
+end $$;
+
+-- 9c. The ★ at level 100: resolving earns it with no minimum first-attempt score, XP from the
+--     mastery pool, no separate MASTERY_CLEAR event, and the next band opens.
+insert into auth.users (id) values ('00000000-0000-0000-0000-000000000200');
+insert into public.user_skill_progress (user_id, skill_id, highest_cleared)
+values ('00000000-0000-0000-0000-000000000200', 'skill.science.mastery', 99);
+set request.jwt.claim.sub = '00000000-0000-0000-0000-000000000200';
+set role authenticated;
+do $$
+declare r jsonb;
+begin
+  perform public.answer_question('level.science.mastery.100', 'question.mastery.100.q1', 'b');
+  perform public.answer_question('level.science.mastery.100', 'question.mastery.100.q1', 'a');
+  r := public.complete_level('level.science.mastery.100', 1, gen_random_uuid());
+  assert (r ->> 'mastery_cleared')::boolean and (r ->> 'stars')::int = 1 and (r ->> 'skill_level')::int = 100, format('got %s', r);
+  assert (r ->> 'xp_awarded')::int = 75 and r ->> 'outcome' = 'heavily_reinforced', format('0/1 first attempt → 75, got %s', r);
+  assert (select count(*) from public.xp_events) = 1 and not exists (select 1 from public.xp_events where type = 'MASTERY_CLEAR');
+end $$;
+
 -- 10. Isolation: Bob sees none of Alice's progress, and gets the first-day bonus.
 set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000b';
 do $$ begin

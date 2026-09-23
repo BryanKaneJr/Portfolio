@@ -1,15 +1,15 @@
 // Supabase mode against the real SQL functions (via fake-supabase.mjs):
 // anonymous sign-in, server-graded completion, exactly-once XP, live content
 // revisions, the server-side 5/day cap, and review.
-import { CURVE, bodyText, button, check, completionFacts, home, launch, onboard, playLevel, sql } from './helpers.mjs';
+import { CURVE, REVIEW_XP, bodyText, button, check, completionFacts, home, launch, onboard, playLevel, playReview, sql } from './helpers.mjs';
 
 const { browser, page, errors } = await launch();
-// Every level bundle the app receives must be free of answer keys.
+// Every level bundle the app receives must be free of answer keys, and review
+// answers must never reveal the right option.
 const leaks = [];
 page.on('response', async (res) => {
-  if (!/\/rpc\/(start_level|get_level_bundles)/.test(res.url())) return;
-  const body = await res.text().catch(() => '');
-  if (/"correct"\s*:|"rationale"\s*:|"explanation"\s*:/.test(body)) leaks.push(res.url());
+  const body = /\/rpc\/(start_level|get_level_bundles|submit_review)/.test(res.url()) ? await res.text().catch(() => '') : '';
+  if (/\/rpc\/submit_review/.test(res.url()) ? /correct_option/.test(body) : /"correct"\s*:|"rationale"\s*:|"explanation"\s*:/.test(body)) leaks.push(res.url());
 });
 try {
   await home(page);
@@ -57,28 +57,23 @@ try {
   check(sql(`select count(*) from public.user_level_progress where level_id = 'level.science.astronomy.006'`) === '0',
     'a sixth new level is not started');
 
-  // Review after a real gap.
-  sql(`update public.user_concept_mastery set last_seen_at = now() - interval '30 hours';
-       update public.review_queue set due_at = now() - interval '1 minute'`);
+  // Review: make everything due.
+  sql(`update public.review_queue set due_at = now() - interval '1 minute'`);
   await home(page);
   check(/worth refreshing/.test(await bodyText(page)), 'due concepts from the server surface on Home');
   const seenBefore = Number(sql('select sum(seen_count) from public.user_concept_mastery'));
   await button(page, 'Start review').click();
   await button(page, 'Choose an answer').waitFor({ timeout: 10_000 });
   check(true, 'the review session loads questions from the server');
-  for (let i = 0; i < 40; i++) {
-    await page.waitForTimeout(250);
-    if (await button(page, 'Choose an answer').count()) await page.getByRole('radio').first().click();
-    else if (await button(page, 'Finish review').count()) break;
-    else await button(page, 'Continue').click();
-  }
-  await page.waitForTimeout(500);
-  await button(page, 'Finish review').click();
-  await page.waitForTimeout(500);
+  const corrected = await playReview(page);
   const reviewXp = (await bodyText(page)).match(/\+(\d+) XP/)?.[1];
   check(Number(sql('select sum(seen_count) from public.user_concept_mastery')) > seenBefore, 'review answers update mastery on the server');
-  check(reviewXp === sql(`select coalesce(sum(amount), 0) from public.xp_events where type = 'DELAYED_RECALL'`),
-    `review XP on screen (${reviewXp}) matches DELAYED_RECALL in the ledger`);
+  const firstRight = Number(sql('select count(*) from public.user_review_attempts where first_attempt_correct'));
+  check(reviewXp === sql(`select coalesce(sum(amount), 0) from public.xp_events where type = 'DELAYED_RECALL'`) && Number(reviewXp) === REVIEW_XP * firstRight,
+    `review XP on screen (${reviewXp}) matches the ledger: ${REVIEW_XP} per first-try item`);
+  check(sql(`select count(*) from public.user_review_attempts where not first_attempt_correct`) === String(corrected) &&
+        sql(`select count(*) from public.user_review_attempts where not resolved_correct`) === '0',
+    `missed review items are recorded and were all corrected (${corrected})`);
   check(sql(`select new_levels_used from public.daily_allowances`) === '5', 'review did not use the daily allowance');
   check(leaks.length === 0, `no answer keys reached the app ${leaks.join(', ')}`);
   check(sql(`select count(*) from public.xp_events where type = 'QUESTION_CORRECT'`) === '0', 'no per-question XP is awarded');

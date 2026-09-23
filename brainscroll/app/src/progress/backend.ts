@@ -32,6 +32,10 @@ export interface ProgressBackend {
   /** Completes a level whose questions are all resolved. XP comes from first attempts only. */
   completeLevel(input: { level: Level; revision: number; idempotencyKey: string }): Promise<CompletionSummary>;
   reviewQueue(limit: number): Promise<ReviewItem[]>;
+  /**
+   * Grade one review attempt. The first attempt at a scheduled item is recorded
+   * once (+10 XP if right); a miss must be corrected, and corrections earn nothing.
+   */
   submitReview(item: ReviewItem, optionId: string): Promise<ReviewResult>;
   /** Dev only: start over as a brand-new player. */
   reset(): Promise<void>;

@@ -1,4 +1,4 @@
-import { LEARNING_STRUCTURE, MASTERY_BAND_SIZE, XP, type CompletionOutcome, type LevelType, type XpBand } from './constants';
+import { LEARNING_STRUCTURE, MASTERY_BAND_SIZE, type CompletionOutcome, type LevelType, type XpBand } from './constants';
 
 /**
  * Pure progression math. The server is authoritative (see backend complete_level);
@@ -68,11 +68,15 @@ export function subjectRank(skillLevelsInSubject: number[]): number {
 }
 
 export interface LevelXpBreakdown {
-  /** Completion XP from first-attempt accuracy. Corrections never add to it. */
-  levelComplete: number;
-  mastery: number;
+  /** Completion XP from first-attempt accuracy, from the level type's own pool. Corrections never add to it. */
   total: number;
   outcome: CompletionOutcome;
+  /**
+   * True when this completion earns a mastery star (level 100, 200, …). The ★
+   * needs no minimum first-attempt score: resolving every question earns it.
+   * It carries no XP of its own.
+   */
+  earnsStar: boolean;
 }
 
 /** Share of questions answered correctly on the first attempt, bucketed by the type's curve. */
@@ -82,13 +86,12 @@ export function firstAttemptBand(type: LevelType, firstAttemptCorrect: number, q
   return bands.find((b) => share >= b.minShare - 1e-9) ?? bands[bands.length - 1]!;
 }
 
-/** XP for first-time completion of a level. Repeat completions award nothing. */
+/** XP for first-time completion of a level. Repeat completions award nothing. There is no separate mastery bonus. */
 export function levelCompletionXp(
   level: { number: number; type: LevelType },
   firstAttemptCorrect: number,
   questionCount: number,
 ): LevelXpBreakdown {
   const band = firstAttemptBand(level.type, firstAttemptCorrect, questionCount);
-  const mastery = isMasteryCheckpoint(level.number) ? XP.MASTERY_CLEAR : 0;
-  return { levelComplete: band.xp, mastery, total: band.xp + mastery, outcome: band.outcome };
+  return { total: band.xp, outcome: band.outcome, earnsStar: isMasteryCheckpoint(level.number) };
 }

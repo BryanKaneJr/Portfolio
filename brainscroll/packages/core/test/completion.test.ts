@@ -200,10 +200,20 @@ describe('daily cap, Unlimited and mastery', () => {
     expect(dailyStatus(emptyProgress(NOW, 'UTC'), NOW).cap).toBe(10);
   });
 
-  it('adds mastery XP and a star at level 100 on top of the first-attempt XP', () => {
-    let s: ProgressState = { ...veteran(), skills: { 'skill.science.testing': { highestCleared: 99, stars: 0, totalXp: 0 } } };
-    s = play(s, 100);
-    const r = complete(s, 100);
-    expect(r.summary).toMatchObject({ skillLevel: 100, stars: 1, masteryCleared: true, xpAwarded: 350 });
+  it('earns the ★ at level 100 by resolving it, with XP from the Mastery pool and no separate bonus', () => {
+    const at99: ProgressState = { ...veteran(), skills: { 'skill.science.testing': { highestCleared: 99, stars: 0, totalXp: 0 } } };
+    const perfect = complete(play(at99, 100), 100);
+    expect(perfect.summary).toMatchObject({ skillLevel: 100, stars: 1, masteryCleared: true, xpAwarded: 500, outcome: 'perfect' });
+    expect(perfect.state.xpEvents).toEqual([expect.objectContaining({ type: 'LEVEL_COMPLETE', amount: 500 })]);
+    // No minimum first-attempt score: every question missed first, then corrected, still earns the star.
+    const corrected = complete(play(at99, 100, ['b', 'b', 'b']), 100);
+    expect(corrected.summary).toMatchObject({ stars: 1, masteryCleared: true, xpAwarded: 75, outcome: 'heavily_reinforced' });
+    // …and opens the next band.
+    expect(checkStart(corrected.state, lvl(101), NOW)).toBe('NEW');
+  });
+
+  it('awards checkpoint XP from the checkpoint pool', () => {
+    const at9: ProgressState = { ...veteran(), skills: { 'skill.science.testing': { highestCleared: 9, stars: 0, totalXp: 0 } } };
+    expect(complete(play(at9, 10), 10).summary).toMatchObject({ xpAwarded: 150, masteryCleared: false });
   });
 });

@@ -1,18 +1,21 @@
-import { REVIEW_SESSION_MAX_QUESTIONS, type ReviewItem } from '@brainscroll/core';
+import { REVIEW_SESSION_MAX_QUESTIONS, XP, type Card, type ReviewItem } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { QuestionCard } from '@/components/cards/QuestionCard';
 import { Body, BigNumber, Button, Label, ProgressBar, Title } from '@/components/ui';
-import { getConcept, getSkill } from '@/content';
-import { useProgress } from '@/progress/ProgressProvider';
+import { getCard, getConcept, getSkill } from '@/content';
+import { useProgress, type AttemptView } from '@/progress/ProgressProvider';
 import { color, space } from '@/theme/tokens';
 
 /**
- * A short recall session: up to REVIEW_SESSION_MAX_QUESTIONS due concepts, one question each. Answers
- * are submitted as soon as they're chosen. Wrong answers bring the concept
- * back sooner; nothing is ever taken away.
+ * A short recall session: up to REVIEW_SESSION_MAX_QUESTIONS due concepts, one
+ * question each. Works like a level question: the first attempt is recorded
+ * (+10 XP if right, once per scheduled review); a miss shows the question's
+ * source cards beneath it and the choices stay open until the right answer is
+ * chosen. The answer is never simply revealed, corrections earn nothing, and
+ * nothing is ever taken away.
  */
 export default function ReviewSessionScreen() {
   const p = useProgress();
@@ -21,10 +24,13 @@ export default function ReviewSessionScreen() {
   const [failed, setFailed] = useState(false);
   const inFlight = useRef(false);
   const [index, setIndex] = useState(0);
-  // One graded attempt per review question; the server's verdict and answer are shown after.
-  const [results, setResults] = useState<Record<string, { optionId: string; correct: boolean; correctOptionId: string; explanation: string }>>({});
+  // Every graded attempt per review question, as the server judged it.
+  const [attempts, setAttempts] = useState<Record<string, AttemptView[]>>({});
+  // Items the server couldn't be reached for: let them move on; they stay due.
+  const [unreachable, setUnreachable] = useState<Record<string, boolean>>({});
+  const [answering, setAnswering] = useState(false);
   const [xp, setXp] = useState(0);
-  const [correct, setCorrect] = useState(0);
+  const [firstTry, setFirstTry] = useState(0);
 
   useEffect(() => {
     if (!p.ready) return;
@@ -65,12 +71,12 @@ export default function ReviewSessionScreen() {
         <Label tone="success">Review complete</Label>
         <BigNumber tone="brand">+{xp} XP</BigNumber>
         <Title>
-          {correct} / {queue.length} recalled
+          {firstTry} / {queue.length} right first time
         </Title>
         <Body muted>
-          {xp > 0
-            ? 'Remembering after a real gap is worth the most XP.'
-            : 'Recall XP kicks in when you remember something after a day or more.'}
+          {firstTry === queue.length
+            ? `+${XP.REVIEW_FIRST_ATTEMPT} XP for each one you remembered on the first try.`
+            : `+${XP.REVIEW_FIRST_ATTEMPT} XP for each one you remembered on the first try. The ones you corrected will come back sooner.`}
         </Body>
         <Button label="Done" onPress={finish} />
       </SafeAreaView>
@@ -78,24 +84,26 @@ export default function ReviewSessionScreen() {
   }
 
   const item = queue[index]!;
-  const result = results[item.question.id];
+  const itemAttempts = attempts[item.question.id] ?? [];
+  const resolved = itemAttempts.some((a) => a.correct) || !!unreachable[item.question.id];
   const concept = getConcept(item.conceptId);
+  const sourceCards = item.question.sourceCardIds.map(getCard).filter((c): c is Card => !!c);
 
   const onSelect = (optionId: string) => {
-    if (result !== undefined || inFlight.current) return;
+    if (resolved || inFlight.current) return;
     inFlight.current = true;
+    setAnswering(true);
+    const qid = item.question.id;
     p.submitReview(item, optionId)
       .then((r) => {
-        setResults((m) => ({ ...m, [item.question.id]: { optionId, correct: r.correct, correctOptionId: r.correctOptionId, explanation: r.explanation } }));
+        setAttempts((m) => ({ ...m, [qid]: [...(m[qid] ?? []), { optionId, correct: r.correct, rationale: r.rationale, explanation: r.explanation }] }));
         setXp((x) => x + r.xpAwarded);
-        if (r.correct) setCorrect((c) => c + 1);
+        if (r.correct && r.attemptCount <= 1) setFirstTry((c) => c + 1);
       })
-      .catch(() => {
-        // Couldn't reach the server: let them move on; the concept simply stays due.
-        setResults((m) => ({ ...m, [item.question.id]: { optionId, correct: false, correctOptionId: '', explanation: 'Couldn’t check that one. It’ll come back next time.' } }));
-      })
+      .catch(() => setUnreachable((m) => ({ ...m, [qid]: true })))
       .finally(() => {
         inFlight.current = false;
+        setAnswering(false);
       });
   };
 
@@ -117,17 +125,17 @@ export default function ReviewSessionScreen() {
         <QuestionCard
           question={item.question}
           recall
-          attempts={result ? [{ optionId: result.optionId, correct: result.correct }] : []}
-          sourceCards={[]}
-          busy={false}
+          attempts={itemAttempts}
+          sourceCards={sourceCards}
+          busy={answering}
           onSelect={onSelect}
-          reveal={result ? { correctOptionId: result.correctOptionId, explanation: result.explanation } : { correctOptionId: '', explanation: '' }}
         />
+        {unreachable[item.question.id] && <Body muted>Couldn’t check that one. It’ll come back next time.</Body>}
       </ScrollView>
       <View style={styles.footer}>
         <Button
-          label={result === undefined ? 'Choose an answer' : index === queue.length - 1 ? 'Finish review' : 'Continue'}
-          disabled={result === undefined}
+          label={resolved ? (index === queue.length - 1 ? 'Finish review' : 'Continue') : itemAttempts.length > 0 ? 'Choose again' : 'Choose an answer'}
+          disabled={!resolved}
           onPress={() => setIndex(index + 1)}
         />
       </View>

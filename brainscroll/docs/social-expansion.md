@@ -95,7 +95,7 @@ Per-requirement progress is **computed, not stored**: count `xp_events` of type 
    - **Overlap:** a level counts toward every active quest that needs its skill, and at most one Chronicle quest is active at a time.
    - **Final Encounter:** reuses approved questions from the quest's levels.
    - **Rarity:** calculated against all active learners.
-   - **Event names:** the code's names win: `LEVEL_COMPLETE`, `MASTERY_CLEAR`, `DELAYED_RECALL`, `QUEST_COMPLETE`.
+   - **Event names:** the code's names win: `LEVEL_COMPLETE`, `DELAYED_RECALL`, `QUEST_COMPLETE`. (`MASTERY_CLEAR` was retired: the Mastery Challenge's own XP pool replaced the +250 bonus, and the ★ comes from resolving Level 100. *Perfect Mastery*, 10/10 on the first try, is a candidate future trophy.)
 7. **Quest themes before their trees exist.** Themes like The Roman World or Age of Dinosaurs can sit in the catalog with no requirements attached. A quest goes live only once every requirement skill has enough published levels for every learner to make +5 new progress. That's fine, because launch will have far more than 10 levels.
 8. **Rank names vs. titles.** Ranks (Student → Expert) are per-skill and automatic; titles are chosen. The Profile UI needs to keep them visually distinct.
 

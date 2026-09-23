@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { XP, dailyAllowance, isDelayedRecall, knowledgeLevel, levelCompletionXp, localDate, nextDue, nextStrength, skillProgressView } from '../src';
+import { LEARNING_STRUCTURE, dailyAllowance, knowledgeLevel, levelCompletionXp, localDate, nextDue, nextStrength, skillProgressView } from '../src';
 
 describe('skill progression', () => {
   it('starts at level 0 with level 1 next', () => {
@@ -37,14 +37,29 @@ describe('xp', () => {
     expect(levelCompletionXp(regular, 3, 3).outcome).toBe('perfect');
   });
 
-  it('adds mastery XP only on checkpoints', () => {
-    expect(levelCompletionXp({ number: 99, type: 'regular' }, 3, 3).mastery).toBe(0);
-    expect(levelCompletionXp({ number: 100, type: 'mastery' }, 10, 10)).toMatchObject({ levelComplete: 100, mastery: XP.MASTERY_CLEAR });
+  it('gives each encounter type its own pool: checkpoint 150 / 105 / 60 / 25', () => {
+    const cp = { number: 10, type: 'checkpoint' as const };
+    expect([5, 4, 3, 2, 1, 0].map((n) => levelCompletionXp(cp, n, 5).total)).toEqual([150, 105, 60, 25, 25, 25]);
   });
 
-  it('scales by share for other question counts (provisional for milestone types)', () => {
-    expect(levelCompletionXp({ number: 10, type: 'checkpoint' }, 4, 5).levelComplete).toBe(70);
-    expect(levelCompletionXp({ number: 100, type: 'mastery' }, 3, 10).levelComplete).toBe(15);
+  it('milestone (7 questions): 250 / 175 / 90 / 40', () => {
+    const ms = { number: 50, type: 'milestone' as const };
+    expect([7, 6, 5, 4, 3, 0].map((n) => levelCompletionXp(ms, n, 7).total)).toEqual([250, 175, 90, 90, 40, 40]);
+  });
+
+  it('Mastery Challenge (10 questions): 500 / 350 / 175 / 75, and no separate bonus', () => {
+    const m = { number: 100, type: 'mastery' as const };
+    expect([10, 9, 8, 7, 5, 4, 0].map((n) => levelCompletionXp(m, n, 10).total)).toEqual([500, 350, 350, 175, 175, 75, 75]);
+    // The star needs no minimum first-attempt score.
+    expect(levelCompletionXp(m, 0, 10)).toEqual({ total: 75, outcome: 'heavily_reinforced', earnsStar: true });
+    expect(levelCompletionXp({ number: 99, type: 'regular' }, 3, 3).earnsStar).toBe(false);
+  });
+
+  it('reads the bands from LEARNING_STRUCTURE, never from hard-coded values', () => {
+    for (const type of ['regular', 'checkpoint', 'milestone', 'mastery'] as const) {
+      const top = LEARNING_STRUCTURE[type].firstAttemptXp[0]!;
+      expect(levelCompletionXp({ number: 1, type }, 1, 1).total).toBe(top.xp);
+    }
   });
 });
 
@@ -80,12 +95,5 @@ describe('review', () => {
     const now = new Date('2026-01-01T00:00:00Z');
     expect(nextDue(now, 0).getTime() - now.getTime()).toBe(10 * 60_000);
     expect(nextDue(now, 1).toISOString()).toBe('2026-01-02T00:00:00.000Z');
-  });
-
-  it('only counts correct answers after a real gap as delayed recall', () => {
-    const seen = new Date('2026-01-01T00:00:00Z');
-    expect(isDelayedRecall(seen, new Date('2026-01-01T01:00:00Z'), true)).toBe(false);
-    expect(isDelayedRecall(seen, new Date('2026-01-02T00:00:00Z'), true)).toBe(true);
-    expect(isDelayedRecall(seen, new Date('2026-01-02T00:00:00Z'), false)).toBe(false);
   });
 });

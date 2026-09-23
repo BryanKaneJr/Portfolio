@@ -14,6 +14,8 @@ import { LearningCard } from './LearningCard';
  *   are crossed out) until the right answer is chosen. No lives, no restart,
  *   no failure screen.
  *
+ * Review items work the same way: the answer is never simply revealed.
+ *
  * Correctness always comes from graded attempts (server-side when online),
  * never from the bundle. Only the first attempt counts toward XP.
  */
@@ -24,7 +26,6 @@ export function QuestionCard({
   sourceCards,
   busy,
   onSelect,
-  reveal,
 }: {
   question: Question;
   recall: boolean;
@@ -32,16 +33,13 @@ export function QuestionCard({
   sourceCards: Card[];
   busy: boolean;
   onSelect: (optionId: string) => void;
-  /** Review mode: a single attempt, then show the right answer instead of reinforcing. */
-  reveal?: { correctOptionId: string; explanation: string };
 }) {
   const resolvedBy = attempts.find((a) => a.correct);
   const wrong = new Set(attempts.filter((a) => !a.correct).map((a) => a.optionId));
   const last = attempts.at(-1);
-  const reviewDone = reveal !== undefined && attempts.length > 0;
-  const locked = !!resolvedBy || reviewDone || busy;
-  const needsAnotherLook = !resolvedBy && !reveal && last && !last.correct;
-  const correctId = resolvedBy?.optionId ?? (reviewDone ? reveal.correctOptionId : undefined);
+  const locked = !!resolvedBy || busy;
+  const needsAnotherLook = !resolvedBy && last && !last.correct;
+  const correctId = resolvedBy?.optionId;
 
   return (
     <View style={{ gap: space.md }}>
@@ -87,13 +85,6 @@ export function QuestionCard({
           <Text style={[styles.verdict, { color: color.success }]}>{attempts.length === 1 ? 'Correct' : 'Reinforced'}</Text>
           {resolvedBy.explanation ? <Body>{resolvedBy.explanation}</Body> : null}
           {attempts.length > 1 && <Body muted>We’ll bring this back later so it sticks.</Body>}
-        </View>
-      )}
-
-      {reviewDone && (
-        <View style={[styles.feedback, { borderColor: resolvedBy ? color.success : color.danger }]} accessibilityLiveRegion="polite">
-          <Text style={[styles.verdict, { color: resolvedBy ? color.success : color.danger }]}>{resolvedBy ? 'Correct' : 'Quick refresher'}</Text>
-          <Body>{reveal.explanation}</Body>
         </View>
       )}
     </View>

@@ -33,13 +33,19 @@ export const PRICING = {
  * LEARNING_STRUCTURE[type].firstAttemptXp (see below).
  */
 export const XP = {
-  /** Correct answer on a concept that was due for review after a real delay. */
-  DELAYED_RECALL: 5,
-  /** Clearing a mastery checkpoint (level 100, 200, ...), on top of the level's own XP. */
-  MASTERY_CLEAR: 250,
+  /**
+   * A scheduled review item answered correctly on the first attempt. Awarded
+   * once per scheduled occurrence (event type DELAYED_RECALL); a wrong first
+   * answer earns 0, and the required correction never earns XP.
+   */
+  REVIEW_FIRST_ATTEMPT: 10,
 } as const;
 
-/** QUESTION_CORRECT is retired (first-attempt accuracy now sets LEVEL_COMPLETE XP); kept for historical rows. */
+/**
+ * QUESTION_CORRECT is retired (first-attempt accuracy now sets LEVEL_COMPLETE XP).
+ * MASTERY_CLEAR is retired (the Mastery Challenge's own XP pool replaces the old
+ * +250 bonus). Both stay in the type for historical rows.
+ */
 export type XpEventType = 'LEVEL_COMPLETE' | 'QUESTION_CORRECT' | 'DELAYED_RECALL' | 'MASTERY_CLEAR' | 'QUEST_COMPLETE' | 'CORRECTION';
 
 /** Mobile text budgets enforced by the content validator. */
@@ -80,7 +86,14 @@ export interface XpBand {
   outcome: CompletionOutcome;
 }
 
-/** The standard curve: 3/3 → 100 · 2/3 → 70 · 1/3 → 35 · 0/3 → 15. Never negative. */
+/*
+ * Encounter XP pools. Initial balancing numbers: tune them here and in the SQL
+ * table level_xp_curve together; never hard-code them in the UI. Bands are by
+ * share of questions right on the first attempt, so a level with a slightly
+ * different question count still lands in the intended band. Never negative.
+ */
+
+/** Regular level (3 questions): 3/3 → 100 · 2/3 → 70 · 1/3 → 35 · 0/3 → 15. */
 export const STANDARD_FIRST_ATTEMPT_XP: readonly XpBand[] = [
   { minShare: 1, xp: 100, outcome: 'perfect' },
   { minShare: 2 / 3, xp: 70, outcome: 'strong' },
@@ -88,12 +101,40 @@ export const STANDARD_FIRST_ATTEMPT_XP: readonly XpBand[] = [
   { minShare: 0, xp: 15, outcome: 'heavily_reinforced' },
 ];
 
+/** Checkpoint (5 questions): 5/5 → 150 · 4/5 → 105 · 3/5 → 60 · 0–2/5 → 25. */
+export const CHECKPOINT_FIRST_ATTEMPT_XP: readonly XpBand[] = [
+  { minShare: 1, xp: 150, outcome: 'perfect' },
+  { minShare: 4 / 5, xp: 105, outcome: 'strong' },
+  { minShare: 3 / 5, xp: 60, outcome: 'reinforced' },
+  { minShare: 0, xp: 25, outcome: 'heavily_reinforced' },
+];
+
+/** Level 50 milestone (7 questions): 7/7 → 250 · 6/7 → 175 · 4–5/7 → 90 · 0–3/7 → 40. */
+export const MILESTONE_FIRST_ATTEMPT_XP: readonly XpBand[] = [
+  { minShare: 1, xp: 250, outcome: 'perfect' },
+  { minShare: 6 / 7, xp: 175, outcome: 'strong' },
+  { minShare: 4 / 7, xp: 90, outcome: 'reinforced' },
+  { minShare: 0, xp: 40, outcome: 'heavily_reinforced' },
+];
+
+/**
+ * Level 100 Mastery Challenge (10 questions): 10/10 → 500 · 8–9/10 → 350 ·
+ * 5–7/10 → 175 · 0–4/10 → 75. There is no separate mastery bonus: resolving
+ * every question earns the ★ whatever the first-attempt score.
+ */
+export const MASTERY_FIRST_ATTEMPT_XP: readonly XpBand[] = [
+  { minShare: 1, xp: 500, outcome: 'perfect' },
+  { minShare: 8 / 10, xp: 350, outcome: 'strong' },
+  { minShare: 5 / 10, xp: 175, outcome: 'reinforced' },
+  { minShare: 0, xp: 75, outcome: 'heavily_reinforced' },
+];
+
 export interface LearningStructure {
   label: string;
   /**
    * Completion XP by first-attempt accuracy (highest band whose minShare is met).
-   * Regular levels use the standard curve. Checkpoint/milestone/mastery use it
-   * provisionally (by share of questions), pending their own decision.
+   * Each encounter type has its own pool. Review has none: it awards
+   * XP.REVIEW_FIRST_ATTEMPT per item instead.
    */
   firstAttemptXp: readonly XpBand[];
   questions: { min: number; max: number; target: { min: number; max: number } };
@@ -117,7 +158,7 @@ export const LEARNING_STRUCTURE: Record<SessionType, LearningStructure> = {
   },
   /** Every 10th level: still teaches, then a slightly longer check (~5) across the chapter. */
   checkpoint: {
-    firstAttemptXp: STANDARD_FIRST_ATTEMPT_XP,
+    firstAttemptXp: CHECKPOINT_FIRST_ATTEMPT_XP,
     label: 'Checkpoint',
     questions: { min: 4, max: 6, target: { min: 5, max: 5 } },
     learningCards: { min: 2, max: 4 },
@@ -126,7 +167,7 @@ export const LEARNING_STRUCTURE: Record<SessionType, LearningStructure> = {
   },
   /** Level 50 (and 150, 250 …): a bigger synthesis moment, 5–7 questions. */
   milestone: {
-    firstAttemptXp: STANDARD_FIRST_ATTEMPT_XP,
+    firstAttemptXp: MILESTONE_FIRST_ATTEMPT_XP,
     label: 'Milestone',
     questions: { min: 4, max: 8, target: { min: 5, max: 7 } },
     learningCards: { min: 1, max: 4 },
@@ -135,7 +176,7 @@ export const LEARNING_STRUCTURE: Record<SessionType, LearningStructure> = {
   },
   /** Level 100 (and 200, 300 …): the Mastery Challenge, ~10 questions. The fullest test in a tree. */
   mastery: {
-    firstAttemptXp: STANDARD_FIRST_ATTEMPT_XP,
+    firstAttemptXp: MASTERY_FIRST_ATTEMPT_XP,
     label: 'Mastery Challenge',
     questions: { min: 8, max: 12, target: { min: 10, max: 10 } },
     learningCards: { min: 0, max: 3 },
@@ -144,7 +185,7 @@ export const LEARNING_STRUCTURE: Record<SessionType, LearningStructure> = {
   },
   /** Spaced repetition: one question per concept due, capped per session. No learning cards. */
   review: {
-    firstAttemptXp: STANDARD_FIRST_ATTEMPT_XP,
+    firstAttemptXp: [],
     label: 'Review',
     questions: { min: 1, max: 10, target: { min: 1, max: 10 } },
     learningCards: { min: 0, max: 0 },

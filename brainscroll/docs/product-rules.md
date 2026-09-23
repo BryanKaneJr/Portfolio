@@ -29,9 +29,9 @@ A social-media-shaped learning app where users level up real knowledge like an R
 | **New level** | The next canonical level in a skill that the user has never completed. Completing one consumes 1 daily allowance. |
 | **Completion** | A single server transaction (`complete_level`) that validates eligibility, grades every answer, writes XP events, advances the skill, updates concept mastery and the review queue, and increments the daily allowance, **exactly once per canonical level**. |
 | **Replay** | Re-opening a cleared level. It is always allowed, costs no allowance, and awards nothing. |
-| **Review** | Recall of concepts from completed levels, scheduled by concept strength. It is unlimited and never consumes allowance. A bad review never lowers a skill level. |
+| **Review** | Recall of concepts from completed levels, scheduled by concept strength. It is unlimited and never consumes allowance. Each item must be answered correctly before moving on, like a level question. A bad review never lowers a skill level. |
 | **Skill level** | The highest canonical level cleared in that skill. It is **never** derived from XP. |
-| **Mastery** | Clearing level 100·k awards star *k* and `MASTERY_CLEAR` XP. |
+| **Mastery star (★)** | Completing and correctly resolving level 100·k awards star *k* and opens levels 100·k+1 to 100·(k+1). **No minimum first-attempt score.** The star means depth reached; the first-attempt score shows the quality of recall. The star carries no XP of its own. |
 | **Knowledge Level** | Derived overall stat: `1 + floor(sqrt(4 × total levels cleared))`. Tunable, but always sublinear. |
 | **Daily Knowledge Complete** | What the user sees when they ask for a 6th new level. It's a celebration, not an error. (Post-MVP, it also shows active Weekly Quest progress.) |
 | **Weekly Knowledge Quest** | Post-MVP. A themed objective of ~25 **new** levels across 5 related skills, then a 3-question Final Encounter. It's finishable free in about five learning days, and archived to the Chronicle when its week ends. See [`social-expansion.md`](social-expansion.md#weekly-knowledge-quests). |
@@ -40,13 +40,13 @@ A social-media-shaped learning app where users level up real knowledge like an R
 
 Testing is proportional to the moment. The type comes from the level number (`levelTypeFor()` in `packages/core/src/progression.ts`). Its structure is defined once, in `LEARNING_STRUCTURE` in `packages/core/src/constants.ts`, and the content validator enforces it.
 
-| Type | Which levels | Shape | Questions |
-| --- | --- | --- | --- |
-| **Regular** | Almost all of them | Hook → 2–4 short learning cards (~100–250 words) → questions → level complete | **3**: recall, understanding, connection |
-| **Checkpoint** | Every 10th level | Still teaches, then a slightly longer check across the chapter | ~5 |
-| **Milestone** | Level 50 (150, 250 …) | A bigger synthesis moment | 5–7 |
-| **Mastery Challenge** | Level 100 (200, 300 …) | The fullest test in a tree; passing earns ★ | ~10 |
-| **Review** | Not a level | Spaced repetition; one question per concept due | Varies, up to 10 per session |
+| Type | Which levels | Shape | Questions | XP pool (top) |
+| --- | --- | --- | --- | --- |
+| **Regular** | Almost all of them | Hook → 2–4 short learning cards (~100–250 words) → questions → level complete | **3**: recall, understanding, connection | 100 |
+| **Checkpoint** | Every 10th level | Still teaches, then a slightly longer check across the chapter | ~5 | 150 |
+| **Milestone** | Level 50 (150, 250 …) | A bigger synthesis moment | ~7 (5–7) | 250 |
+| **Mastery Challenge** | Level 100 (200, 300 …) | The fullest test in a tree; resolving it earns ★ | ~10 | 500 |
+| **Review** | Not a level | Spaced repetition; one question per concept due | Varies, up to 10 per session | +10 per item right first time |
 
 The three questions in a regular level each have a job:
 - **Recall:** did the learner absorb the core fact or idea?
@@ -63,22 +63,28 @@ A ten-question assessment is a special milestone experience, never the normal le
 2. **First attempt:** each question's first answer is recorded **once, on the server, and never replaced**. Restarting the level can't improve it.
 3. **Reinforce:** after a wrong answer the question stays on screen. Beneath it comes **"Take another look"**, showing the question's source cards (`sourceCardIds`), the canonical content that teaches the answer, never generated at runtime. The options stay open (wrong picks are crossed out) until the right one is chosen. There's no failure screen, no restart, no lives and no waiting.
 4. **Resolve:** every question must end correctly answered. `complete_level` refuses otherwise (`UNRESOLVED_QUESTIONS`).
-5. **Progress:** the level completes, the skill advances (Lv. 18 → 19), and it counts as one new level toward the daily 5, whatever the score.
+5. **Progress:** the level completes, the skill advances (Lv. 18 → 19), and it counts as one new level toward the daily 5, whatever the score. At level 100, 200, … this is also what earns the ★.
 
-**XP by first-attempt accuracy (regular levels):**
+> **The rule everywhere:** first-attempt performance sets the reward and memory strength. Correct resolution sets completion and progression.
 
-| First try | Outcome | XP |
-| --- | --- | --- |
-| 3 / 3 | **Perfect Recall** (a slightly bigger celebration) | 100 |
-| 2 / 3 | Strong | 70 |
-| 1 / 3 | Reinforced | 35 |
-| 0 / 3 | Heavily reinforced | 15 |
+**XP by first-attempt accuracy.** Each encounter type has its own pool and bands (not linear scaling of the regular curve):
 
-Corrections never restore XP (1/3 then two corrections is still 35), XP is never negative, and replays award nothing. The curve lives in `LEARNING_STRUCTURE[type].firstAttemptXp` and in `level_xp_curve` in SQL. Checkpoint, milestone and mastery levels use the same bands **provisionally**, by share of questions, until their own rules are decided.
+| Outcome | Regular (3) | Checkpoint (5) | Level 50 milestone (~7) | Level 100 Mastery Challenge (10) |
+| --- | --- | --- | --- | --- |
+| **Perfect Recall** (a slightly bigger celebration) | 3/3 → **100** | 5/5 → **150** | 7/7 → **250** | 10/10 → **500** |
+| Strong | 2/3 → 70 | 4/5 → 105 | 6/7 → 175 | 8–9/10 → 350 |
+| Reinforced | 1/3 → 35 | 3/5 → 60 | 4–5/7 → 90 | 5–7/10 → 175 |
+| Heavily reinforced | 0/3 → 15 | 0–2/5 → 25 | 0–3/7 → 40 | 0–4/10 → 75 |
 
-**Review priority from first attempts:** right first time → normal interval. Missed once → strength 0, due soon, priority 1. Missed repeatedly (3+ tries) → due now, priority 2. Review serves higher priority first; a correct review clears it. *"You learned this with help. We'll check it again sooner."*
+Bands are by share of questions right on the first try, so a level a question shorter or longer than the norm still lands where intended. These are **initial balancing numbers**. They live in one place per runtime, `LEARNING_STRUCTURE[type].firstAttemptXp` (`packages/core/src/constants.ts`) and `level_xp_curve` (SQL), and the UI only ever shows what completion returns. Corrections never restore XP (1/3 then two corrections is still 35), XP is never negative, and replays award nothing.
 
-**Words to use:** Level Complete, Perfect Recall, Take another look, Quick refresher, Reinforced, We'll bring this back later. **Never:** pass, fail, passing score, failed lesson, exam result.
+**Level 100 Mastery Challenge.** Resolving all ~10 questions awards the ★, the first-attempt XP above, and access to levels 101–200. There is **no separate mastery bonus** and **no minimum first-attempt score**. *Perfect Mastery* (10/10 on the first try) is a possible future accomplishment, not a requirement.
+
+**Review priority from first attempts:** right first time → normal interval. Missed once → strength 0, due soon, priority 1. Missed repeatedly (3+ tries) → due now, priority 2. Review serves higher priority first; a review right on the first try clears it. *"You learned this with help. We'll check it again sooner."*
+
+**Review items work the same way.** The first attempt at a scheduled review item is recorded once. Right → **+10 XP** and strength up. Wrong → 0 XP, recall confidence (strength) drops to 0, the concept comes back sooner at a higher priority, and the item must then be corrected: its source card appears beneath the question and the choices stay open until the right one is chosen. The answer is never simply revealed, and corrections earn nothing.
+
+**Words to use:** Level Complete, Perfect Recall, Take another look, Reinforced, We'll bring this back later, ★ Mastery star earned. **Never:** pass, fail, passing score, failed lesson, exam result.
 
 ## Stable IDs
 
@@ -102,18 +108,18 @@ The patterns live in `packages/core/src/ids.ts` and as `CHECK` constraints in th
 
 | Event | XP | Guardrail |
 | --- | --- | --- |
-| `LEVEL_COMPLETE` | 100 / 70 / 35 / 15 | Once per canonical level, ever. The amount comes from first-attempt accuracy; corrections add nothing |
+| `LEVEL_COMPLETE` | Regular 100 / 70 / 35 / 15 · checkpoint 150 / 105 / 60 / 25 · milestone 250 / 175 / 90 / 40 · mastery 500 / 350 / 175 / 75 | Once per canonical level, ever. The amount comes from the level type's pool and first-attempt accuracy; corrections add nothing |
+| `DELAYED_RECALL` | 10 | A scheduled review item right on the **first** attempt. Once per scheduled occurrence (idempotency key per concept + due time); replaying or reopening a review earns nothing; a wrong first answer earns 0 and its correction earns nothing (`XP.REVIEW_FIRST_ATTEMPT`, `app_settings.xp_review_first_attempt`) |
 | `QUESTION_CORRECT` | retired | The old per-answer bonus. Kept only for historical rows |
-| `DELAYED_RECALL` | 5 | Only a correct review after ≥ 20 h (Stage 5) |
-| `MASTERY_CLEAR` | 250 | Levels 100, 200, … |
+| `MASTERY_CLEAR` | retired | The old +250 Level 100 bonus. The Mastery Challenge's own pool replaces it. Kept only for historical rows |
 | `CORRECTION` | ± | Admin-only, with an audited reason |
 | `QUEST_COMPLETE` (post-MVP) | 50 / 75 / 100 (tunable) | Once per quest per user (Standard / Epic / Legendary). Quest *progress* is read from `LEVEL_COMPLETE` events, never counted separately |
 
-A regular level answered perfectly on the first try awards **+100 XP**. **Nothing dwarfs a level:** no single award should outweigh a few levels of real learning. One `LEVEL_COMPLETE` event feeds account XP, the weekly friend leaderboard, skill progression, Weekly Quest progress and achievements; there is no second XP calculation.
+A regular level answered perfectly on the first try awards **+100 XP**. **Nothing dwarfs a level:** every award stays in proportion to the learning behind it. The largest single award, a perfect Mastery Challenge (500), is ten questions of first-try recall at the end of a 100-level tree. One `LEVEL_COMPLETE` event feeds account XP, the weekly friend leaderboard, skill progression, Weekly Quest progress and achievements; there is no second XP calculation.
 
 ## Review scheduling (V1: deliberately simple)
 
-Concept strength runs from 0 to 5. A correct answer adds one step and a wrong answer resets to 0. The due intervals by strength are: 10 min, 1 day, 3 days, 7 days, 21 days, 60 days.
+Concept strength runs from 0 to 5. A first attempt that's right adds one step and a wrong one resets to 0. Corrections don't move it. The due intervals by strength are: 10 min, 1 day, 3 days, 7 days, 21 days, 60 days. An item whose first attempt was wrong stays in the review queue until it's corrected.
 
 ## Pricing (launch hypotheses)
 

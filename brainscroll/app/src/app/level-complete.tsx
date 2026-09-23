@@ -1,3 +1,4 @@
+import { LEARNING_STRUCTURE, MASTERY_BAND_SIZE } from '@brainscroll/core';
 import { Redirect, router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { AccessibilityInfo, Animated } from 'react-native';
@@ -9,7 +10,11 @@ import { motion } from '@/theme/tokens';
 /**
  * Level Complete. It animates the facts returned by completion and invents
  * nothing. XP reflects first-attempt accuracy; every question was resolved to
- * get here, so this is always a completion, never a "fail".
+ * get here, so this is always a completion, never a "fail". Encounter XP comes
+ * from each level type's own pool (LEARNING_STRUCTURE); nothing is hard-coded here.
+ *
+ * The ★ at level 100, 200, … is earned by completing and resolving the band,
+ * whatever the first-attempt score. The score shows the quality of recall.
  */
 export default function LevelCompleteScreen() {
   const { lastSummary: s } = useProgress();
@@ -23,11 +28,13 @@ export default function LevelCompleteScreen() {
   const skill = getSkill(s.skillId);
   const next = levelByNumber(s.skillId, level.number + 1);
   const checkpoint = level.cards.find((c) => c.type === 'checkpoint');
+  const label = LEARNING_STRUCTURE[level.type].label;
+  const band = level.number / MASTERY_BAND_SIZE;
 
   return (
     <Screen>
       <Label tone={s.masteryCleared ? 'mastery' : 'success'}>
-        {s.alreadyCompleted ? 'Replay complete' : s.masteryCleared ? '★ Mastery cleared' : `Level ${level.number} complete`}
+        {s.alreadyCompleted ? 'Replay complete' : s.masteryCleared ? '★ Mastery star earned' : `${label} ${level.number} complete`}
       </Label>
       <Animated.View style={{ transform: [{ scale: pop }] }}>
         <BigNumber tone={s.masteryCleared ? 'mastery' : 'brand'}>+{xp} XP</BigNumber>
@@ -38,6 +45,16 @@ export default function LevelCompleteScreen() {
       <Body muted>
         {s.alreadyCompleted ? 'Replays earn no XP' : `First try: ${s.firstAttemptCorrect} / ${s.total}`}
       </Body>
+
+      {s.masteryCleared && (
+        <Card accent>
+          <Label tone="mastery">★ Mastery {band}</Label>
+          <Body>
+            Levels {level.number - MASTERY_BAND_SIZE + 1}–{level.number} completed and resolved. Levels {level.number + 1}–
+            {level.number + MASTERY_BAND_SIZE} are open.
+          </Body>
+        </Card>
+      )}
 
       {perfect && (
         <Card accent>
