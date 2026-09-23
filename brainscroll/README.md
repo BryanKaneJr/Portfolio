@@ -59,3 +59,4 @@ We're following the [build order](docs/build-order.md). **The loop comes first a
 2. [`docs/build-order.md`](docs/build-order.md): what to build, in order, and what "done" means.
 3. [`docs/content-guide.md`](docs/content-guide.md): how a level is structured and validated.
 4. [`docs/visual-direction.md`](docs/visual-direction.md): colours, type, motion and screen intent.
+5. [`docs/social-expansion.md`](docs/social-expansion.md): the post-MVP friends, trophies and leaderboard plan.

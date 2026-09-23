@@ -74,6 +74,9 @@ $4.99/month, $39.99/year, one entitlement: `unlimited_learning`. The paywall onl
 
 ## Never build (before launch)
 
+The post-MVP [Social + Rewards expansion](social-expansion.md) later adds friends-only weekly leaderboards, challenges and trophies, under its own guardrails. Everything below stays out of the core loop.
+
+
 Social feeds, followers, clans, messaging · leaderboards that reward time or speed · avatars, equipment, currencies, shops · live AI tutor as a core dependency · user-generated lessons · web/desktop learning clients · 201–300 prestige content · recommendation ML · custom billing · microservices · streak punishment or fake urgency.
 
 ## Metrics we optimize

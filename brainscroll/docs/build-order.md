@@ -52,6 +52,10 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | 19 | Closed beta | Unknown users complete core loop without coaching | ⬜ |
 | 20 | Store release | Monitoring + correction workflow ready | ⬜ |
 
+## After MVP: Social + Rewards expansion
+
+Friends, weekly friend leaderboards, challenges, trophies, titles and earned cosmetics, with no currency and no feed. It is sequenced strictly after the core loop. See [`social-expansion.md`](social-expansion.md) for the phases, how they map onto what exists, and the open decisions.
+
 ## Up next
 
 1. **Create the staging Supabase project** ([`supabase-setup.md`](supabase-setup.md)). This needs you. After that, a smoke test on a real phone.
