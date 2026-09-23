@@ -34,7 +34,7 @@ try {
   check(/LEVEL 10 CLEARED/i.test(await bodyText(page)), 'all ten Golden levels play from data');
   await button(page, 'Finish the day').click();
   await page.waitForTimeout(600);
-  check((await bodyText(page)).includes('10 / 10'), 'first-day cap of 10 ends in Daily Quest Complete');
+  check((await bodyText(page)).includes('10 / 10'), 'first-day cap of 10 ends in Daily Knowledge Complete');
 
   // Time travel: concepts last seen 30h ago and due now.
   await page.evaluate(() => {

@@ -82,6 +82,7 @@ The patterns live in `packages/core/src/ids.ts` and as `CHECK` constraints in th
 | `DELAYED_RECALL` | 5 | Only a correct review after ≥ 20 h (Stage 5) |
 | `MASTERY_CLEAR` | 250 | Levels 100, 200, … |
 | `CORRECTION` | ± | Admin-only, with an audited reason |
+| `QUEST_COMPLETE` (post-MVP) | 50 / 75 / 100 | Once per quest per user (Standard / Epic / Legendary). Quest *progress* is read from `LEVEL_COMPLETE` events, never counted separately |
 
 A regular level with all 3 questions right awards **+26 XP** (20 + 3 × 2). The question bonus is capped at 6 for every level type, so longer milestone checks never turn into XP grinds.
 
@@ -102,7 +103,9 @@ These are the guardrails. The design lives in [`social-expansion.md`](social-exp
 - **Free-completable.** A standard quest (~25 levels) fits in about five free learning days. Unlimited only lets you finish faster.
 - **No FOMO.** Ended quests move to the Chronicle with the same rewards. A live clear earns only a subtle dated mark.
 - **Learning first.** The Final Encounter is 3 synthesis questions and uses no daily level. Quests are never 20-question exams.
-- **Quest XP isn't skill XP.** The bonus never moves a skill level, and it's excluded from the weekly friend leaderboard.
+- **Nothing dwarfs a level.** The quest bonus is small (+50 standard, +75 Epic, +100 Legendary: about two levels' worth), never moves a skill level, and counts on the friend leaderboard once like any other event.
+- **Overlap.** A new level counts toward every active quest that needs its skill. At most one Chronicle quest is active at a time.
+- **Rarity** is the share of all active learners who earned a trophy, shown only once there's enough data to be honest.
 - **Quests never block the core MVP.**
 
 ## Never build (before launch)

@@ -54,7 +54,7 @@ export default function HomeScreen() {
         )}
         <ProgressBar value={skill.view.bandProgress} />
         {next && today.dailyComplete ? (
-          <Button label="Daily quest complete" onPress={() => router.push('/daily-complete')} />
+          <Button label="Daily knowledge complete" onPress={() => router.push('/daily-complete')} />
         ) : next ? (
           <Button label={resuming ? `Resume Level ${next.number}` : `Start Level ${next.number}`} onPress={() => startLevel(next.id)} />
         ) : null}

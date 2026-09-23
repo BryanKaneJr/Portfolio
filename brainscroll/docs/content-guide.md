@@ -104,8 +104,8 @@ Prefer **Wikidata** (CC0) for structured facts, and **NASA**, **Smithsonian Open
 Quests are content too: data-driven definitions, never hard-coded. When they're built they'll live in `content/quests/<id>.json`, be validated like levels, and be imported by the same pipeline. Rules for authors:
 
 - Five related skills, usually +5 new levels each (~25 total; Epic ~35, Legendary 50+).
-- Every requirement skill needs enough **published** levels for every learner to make that many new levels of progress.
-- The Final Encounter is **3 synthesis questions** that each connect at least two of the quest's skills (`purpose: connection`). It isn't an exam.
+- Every requirement skill needs enough **published** levels for every learner to make that many new levels of progress. Themes can exist in the catalog before their trees do; attach requirements when the trees are published.
+- The Final Encounter needs no new questions. It reuses **3** approved questions from the levels the learner completed for the quest, drawn from different requirement skills and preferring `purpose: connection`. It isn't an exam. So write strong `connection` questions in regular levels.
 - Rewards reference trophy, title and cosmetic IDs. Never a currency.
 
 ## Publishing

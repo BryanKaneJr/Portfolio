@@ -42,9 +42,9 @@ try {
   check((await bodyText(page)).includes('Finish the day'), 'the fifth level ends the day');
   await button(page, 'Finish the day').click();
   await page.waitForTimeout(600);
-  check((await bodyText(page)).includes('5 / 5'), 'Daily Quest Complete shows 5 / 5 from the server');
+  check((await bodyText(page)).includes('5 / 5'), 'Daily Knowledge Complete shows 5 / 5 from the server');
   await home(page);
-  await button(page, 'Daily quest complete').click();
+  await button(page, 'Daily knowledge complete').click();
   await page.waitForTimeout(500);
   check(sql(`select count(*) from public.user_level_progress where level_id = 'level.science.astronomy.006'`) === '0',
     'a sixth new level is not started');

@@ -4,7 +4,7 @@ import { Body, BigNumber, Button, Card, Label, Screen, Title } from '@/component
 import { useProgressView } from '@/progress/ProgressProvider';
 
 /**
- * Daily Quest Complete: the free cap feels like finishing the day, not an energy wall.
+ * Daily Knowledge Complete: the free cap feels like finishing the day, not an energy wall.
  * Review is the primary free action. Unlimited is optional and never interrupts a lesson.
  */
 export default function DailyCompleteScreen() {
@@ -12,7 +12,7 @@ export default function DailyCompleteScreen() {
 
   return (
     <Screen>
-      <Label tone="success">Daily quest complete</Label>
+      <Label tone="success">Daily knowledge complete</Label>
       <BigNumber>
         {today.used} / {today.cap ?? today.used}
       </BigNumber>

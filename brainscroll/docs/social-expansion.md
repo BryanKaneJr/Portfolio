@@ -16,7 +16,7 @@ This expansion also carries **Weekly Knowledge Quests**, the recurring short-ter
 | Ranks | Student at Lv 10, Scholar at 25, Specialist at 50, Expert at 75. Mastery ★ at 100, ★★ at 200 and ★★★ at 300. |
 | Titles | Identity rewards unlocked by combinations, e.g. *The Astronomer* (Astronomy Lv 100) or *Polymath* (mastery in 5 skill families). |
 | Friends | Mutual requests only, found by exact username or invite link. Friend-only visibility by default. **Block and report ship with friends.** There are no DMs, comments, posts or feed. |
-| Leaderboard | Friends-only and reset weekly. Scores come server-side from verified Knowledge XP only: no review farming, no purchase multiplier, and **no Weekly Quest bonus XP** (the quest's own levels already score). |
+| Leaderboard | Friends-only and reset weekly. Scores come server-side from verified Knowledge XP only: no review farming, no purchase multiplier. **Nothing dwarfs a level:** every award stays in proportion to the ~26 XP of a regular level, and the small quest bonus counts once like any other event. |
 | Challenges | An asynchronous 5-question duel. Both players get the same versioned set, drawn **only from concepts both have unlocked** (no gotcha duels). Answers are sealed, and there's a small XP bonus that can't be farmed. |
 | Weekly Quests | ~25 new levels across 5 related skills, then a 3-question Final Encounter. They award a trophy, a title, a cosmetic and bonus XP, are finishable free, and are archived to the **Chronicle** rather than lost. See below. |
 | Cosmetics | Earned from accomplishments (frames, backgrounds, nameplates, emblem variants, and quest emblems or ornaments). Paid themes, if they ever exist, may **never** imitate mastery, rarity or rank. |
@@ -51,11 +51,12 @@ Permanent skill trees answer *"What kind of knowledgeable person am I becoming?"
 | --- | --- |
 | Standard quest | ~25 **new** levels, usually 5 related skills × 5. For example, *The Roman World*: Roman History, European Geography, Art & Architecture, Government & Society, Mythology & Religion. |
 | What counts | Only new canonical levels completed while the quest is active. Roman History Lv. 180 doesn't complete it; five new Roman History levels do. Replays and reviews never count. Existing knowledge may later earn secondary recognition, never a skip. |
-| Final Encounter | Unlocks at 25/25: **3 synthesis questions** connecting the week's subjects. It's a short capstone, not an exam, and it doesn't use a daily level. Completing it awards the rewards. |
-| Rewards | Trophy (*The Roman World*), title (*Citizen of Rome*), earned cosmetic (*Marble Laurel*), bonus XP (+1,000, tunable). Also possible: backgrounds, frames, ornaments, emblem variants, mastery effects, set progress. **No coins, gems, loot boxes or store.** |
+| Final Encounter | Unlocks at 25/25: **3 synthesis questions** connecting the week's subjects. They're **reused** approved questions from the levels the learner completed for the quest, drawn from different requirement skills and preferring `connection` questions, and fixed once chosen. It's a short capstone, not an exam, and it doesn't use a daily level. Completing it awards the rewards. |
+| Rewards | Trophy (*The Roman World*), title (*Citizen of Rome*), earned cosmetic (*Marble Laurel*), bonus XP kept in proportion (+50 standard, +75 Epic, +100 Legendary: about two levels' worth). Also possible: backgrounds, frames, ornaments, emblem variants, mastery effects, set progress. **No coins, gems, loot boxes or store.** |
 | Free tier | 5 new levels a day means a standard quest takes about **5 learning days**, finishable free every week. Choosing where each day's five levels go (your Astronomy build or the quest's Art requirement) is the intended RPG decision. |
 | Unlimited | Removes only the daily cap: finish faster, or keep other skills moving the same week. No exclusive quests, knowledge, stats or rewards. *Pay for freedom, not knowledge.* |
 | Tiers | Standard ~25 (weekly); Epic ~35 (occasional, still free-possible across 7 days); Legendary 50+ (rare, optional, may be a long-term goal). Difficulty is never Premium-only. |
+| Overlap | A new level counts toward **every** active quest that needs its skill, with nothing to allocate. At most **one Chronicle quest** is active at a time, alongside the live quest. |
 | No FOMO | Ended quests move to **the Chronicle** and stay completable with the same knowledge, trophy, title and primary cosmetic. A live-week clear gets only a subtle mark ("Live Clear — Week 39, 2026"). Never "You missed this forever." |
 | Daily cap screen | *Daily Knowledge Complete* shows active-quest progress: 14 / 25 overall, x / 5 per skill, levels remaining, and "Come back tomorrow and keep building." Unlimited appears as an optional way to keep going. |
 | Friends | A plain progress list (Mike 25/25 ✓, Sarah 19/25, You 14/25). Never "Mike is beating you!" Group quests are a later Parties candidate. |
@@ -67,9 +68,9 @@ Permanent skill trees answer *"What kind of knowledgeable person am I becoming?"
 
 | Table | Fields |
 | --- | --- |
-| `quests` | `id` (e.g. `quest.roman_world`), `title`, `subtitle`, `description`, `visual_key`, `tier` (`standard`/`epic`/`legendary`), `starts_at`, `featured_until`, `archive_available`, `final_encounter` (3 question IDs), `reward_trophy_id`, `reward_title_id`, `reward_cosmetic_ids`, `xp_reward` |
+| `quests` | `id` (e.g. `quest.roman_world`), `title`, `subtitle`, `description`, `visual_key`, `tier` (`standard`/`epic`/`legendary`), `starts_at`, `featured_until`, `archive_available`, `final_encounter_size` (3), `reward_trophy_id`, `reward_title_id`, `reward_cosmetic_ids`, `xp_reward` |
 | `quest_requirements` | `quest_id`, `skill_id`, `new_levels_required` |
-| `user_quests` | `user_id`, `quest_id`, `started_at` (the quest start for the live week; the moment the user starts it from the Chronicle otherwise), `final_encounter_passed_at`, `live_clear`, `completed_at` |
+| `user_quests` | `user_id`, `quest_id`, `started_at` (the quest start for the live week; the moment the user starts it from the Chronicle otherwise), `final_encounter_question_ids`, `final_encounter_passed_at`, `live_clear`, `completed_at` |
 
 Per-requirement progress is **computed, not stored**: count `xp_events` of type `LEVEL_COMPLETE` for the requirement's `skill_id` created since `user_quests.started_at`. There's no second counter. The completion reward writes one `QUEST_COMPLETE` ledger event, plus trophy, title and cosmetic grants, and it's exactly-once via the idempotency key `quest_complete:<quest_id>`.
 
@@ -89,12 +90,13 @@ Per-requirement progress is **computed, not stored**: count `xp_events` of type 
 3. **Challenge XP.** "Small verified XP bonus" needs a number and a cap (e.g. per-day or per-opponent) before Phase 7.
 4. **"Oddities" trophies** (*Night Owl*, *Rabbit Hole*) arguably fail the spec's own reward test ("what did you learn / how deeply / how consistently / what difficult combination"). *Wrong Turn* passes because it's about eventually mastering a concept. Decide per trophy.
 5. **Underage users.** The spec asks for a policy review before any public discovery. That needs deciding before friends ship, not after.
-6. **Weekly Quest decisions.**
-   - **Leaderboard:** I've defaulted to excluding quest bonus XP from the weekly friend leaderboard (+1,000 would dwarf ~26 XP per level and invite archived-quest farming).
-   - **Overlap:** can a level count toward the live quest and an active Chronicle quest at once, and how many Chronicle quests can be active?
-   - **Content:** do Final Encounter questions live in the quest definition (new content type) or reuse approved questions from the requirement skills?
-   - **Rarity:** is the rarity population "all active learners" or "learners who started the quest"?
-7. **Quest content depth.** A quest can only use skills with enough published levels for every learner to make +5 new progress. A learner near the end of a published tree can't. Early quests must be built from launch trees, and most example themes (Mythology, Government, Engineering) need trees that don't exist yet.
+6. **Weekly Quest decisions (settled):**
+   - **XP:** nothing dwarfs a level. The quest bonus is +50/+75/+100 and counts on the leaderboard once.
+   - **Overlap:** a level counts toward every active quest that needs its skill, and at most one Chronicle quest is active at a time.
+   - **Final Encounter:** reuses approved questions from the quest's levels.
+   - **Rarity:** calculated against all active learners.
+   - **Event names:** the code's names win: `LEVEL_COMPLETE`, `MASTERY_CLEAR`, `DELAYED_RECALL`, `QUEST_COMPLETE`.
+7. **Quest themes before their trees exist.** Themes like The Roman World or Age of Dinosaurs can sit in the catalog with no requirements attached. A quest goes live only once every requirement skill has enough published levels for every learner to make +5 new progress. That's fine, because launch will have far more than 10 levels.
 8. **Rank names vs. titles.** Ranks (Student → Expert) are per-skill and automatic; titles are chosen. The Profile UI needs to keep them visually distinct.
 
 ## Explicitly deferred
