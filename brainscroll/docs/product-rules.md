@@ -53,7 +53,32 @@ The three questions in a regular level each have a job:
 - **Understanding:** do they get why it happened, how it works, or why it matters?
 - **Connection:** can they link it to another concept, event, system or idea (often from an earlier level)?
 
-Wrong answers get a short explanation and never a penalty. The level still completes, and the learner moves on. A ten-question assessment is a special milestone experience, never the normal learning loop.
+A ten-question assessment is a special milestone experience, never the normal learning loop.
+
+## Completing a level: first attempt → reinforcement → resolution → progression
+
+> **Learning is the product. Questions prove and reinforce understanding.** BrainScroll doesn't punish forgetting: it shows the evidence and teaches it again, right away. A level isn't complete until every question has been answered correctly. **First-attempt retention sets the reward; eventual correction sets progression.** Strong knowledge earns more XP. Mistakes earn more teaching.
+
+1. **Learn:** the hook and 2–4 learning cards.
+2. **First attempt:** each question's first answer is recorded **once, on the server, and never replaced**. Restarting the level can't improve it.
+3. **Reinforce:** after a wrong answer the question stays on screen. Beneath it comes **"Take another look"**, showing the question's source cards (`sourceCardIds`), the canonical content that teaches the answer, never generated at runtime. The options stay open (wrong picks are crossed out) until the right one is chosen. There's no failure screen, no restart, no lives and no waiting.
+4. **Resolve:** every question must end correctly answered. `complete_level` refuses otherwise (`UNRESOLVED_QUESTIONS`).
+5. **Progress:** the level completes, the skill advances (Lv. 18 → 19), and it counts as one new level toward the daily 5, whatever the score.
+
+**XP by first-attempt accuracy (regular levels):**
+
+| First try | Outcome | XP |
+| --- | --- | --- |
+| 3 / 3 | **Perfect Recall** (a slightly bigger celebration) | 100 |
+| 2 / 3 | Strong | 70 |
+| 1 / 3 | Reinforced | 35 |
+| 0 / 3 | Heavily reinforced | 15 |
+
+Corrections never restore XP (1/3 then two corrections is still 35), XP is never negative, and replays award nothing. The curve lives in `LEARNING_STRUCTURE[type].firstAttemptXp` and in `level_xp_curve` in SQL. Checkpoint, milestone and mastery levels use the same bands **provisionally**, by share of questions, until their own rules are decided.
+
+**Review priority from first attempts:** right first time → normal interval. Missed once → strength 0, due soon, priority 1. Missed repeatedly (3+ tries) → due now, priority 2. Review serves higher priority first; a correct review clears it. *"You learned this with help. We'll check it again sooner."*
+
+**Words to use:** Level Complete, Perfect Recall, Take another look, Quick refresher, Reinforced, We'll bring this back later. **Never:** pass, fail, passing score, failed lesson, exam result.
 
 ## Stable IDs
 
@@ -77,14 +102,14 @@ The patterns live in `packages/core/src/ids.ts` and as `CHECK` constraints in th
 
 | Event | XP | Guardrail |
 | --- | --- | --- |
-| `LEVEL_COMPLETE` | 20 | Once per canonical level, ever |
-| `QUESTION_CORRECT` | 2 per correct answer | Capped at 6 per level, so guessing never pays |
+| `LEVEL_COMPLETE` | 100 / 70 / 35 / 15 | Once per canonical level, ever. The amount comes from first-attempt accuracy; corrections add nothing |
+| `QUESTION_CORRECT` | retired | The old per-answer bonus. Kept only for historical rows |
 | `DELAYED_RECALL` | 5 | Only a correct review after ≥ 20 h (Stage 5) |
 | `MASTERY_CLEAR` | 250 | Levels 100, 200, … |
 | `CORRECTION` | ± | Admin-only, with an audited reason |
-| `QUEST_COMPLETE` (post-MVP) | 50 / 75 / 100 | Once per quest per user (Standard / Epic / Legendary). Quest *progress* is read from `LEVEL_COMPLETE` events, never counted separately |
+| `QUEST_COMPLETE` (post-MVP) | 50 / 75 / 100 (tunable) | Once per quest per user (Standard / Epic / Legendary). Quest *progress* is read from `LEVEL_COMPLETE` events, never counted separately |
 
-A regular level with all 3 questions right awards **+26 XP** (20 + 3 × 2). The question bonus is capped at 6 for every level type, so longer milestone checks never turn into XP grinds.
+A regular level answered perfectly on the first try awards **+100 XP**. **Nothing dwarfs a level:** no single award should outweigh a few levels of real learning. One `LEVEL_COMPLETE` event feeds account XP, the weekly friend leaderboard, skill progression, Weekly Quest progress and achievements; there is no second XP calculation.
 
 ## Review scheduling (V1: deliberately simple)
 
@@ -103,7 +128,8 @@ These are the guardrails. The design lives in [`social-expansion.md`](social-exp
 - **Free-completable.** A standard quest (~25 levels) fits in about five free learning days. Unlimited only lets you finish faster.
 - **No FOMO.** Ended quests move to the Chronicle with the same rewards. A live clear earns only a subtle dated mark.
 - **Learning first.** The Final Encounter is 3 synthesis questions and uses no daily level. Quests are never 20-question exams.
-- **Nothing dwarfs a level.** The quest bonus is small (+50 standard, +75 Epic, +100 Legendary: about two levels' worth), never moves a skill level, and counts on the friend leaderboard once like any other event.
+- **Nothing dwarfs a level.** The quest bonus is small (+50 standard, +75 Epic, +100 Legendary: at most one level's worth), never moves a skill level, and counts on the friend leaderboard once like any other event.
+- **Only resolved levels count.** Quest progress comes from `LEVEL_COMPLETE`, which exists only after every question is correctly resolved. Opening or swiping through levels counts for nothing.
 - **Overlap.** A new level counts toward every active quest that needs its skill. At most one Chronicle quest is active at a time.
 - **Rarity** is the share of all active learners who earned a trophy, shown only once there's enough data to be honest.
 - **Quests never block the core MVP.**

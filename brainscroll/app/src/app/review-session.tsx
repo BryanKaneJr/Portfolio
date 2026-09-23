@@ -21,7 +21,8 @@ export default function ReviewSessionScreen() {
   const [failed, setFailed] = useState(false);
   const inFlight = useRef(false);
   const [index, setIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, string>>({});
+  // One graded attempt per review question; the server's verdict and answer are shown after.
+  const [results, setResults] = useState<Record<string, { optionId: string; correct: boolean; correctOptionId: string; explanation: string }>>({});
   const [xp, setXp] = useState(0);
   const [correct, setCorrect] = useState(0);
 
@@ -77,20 +78,21 @@ export default function ReviewSessionScreen() {
   }
 
   const item = queue[index]!;
-  const selected = answers[item.question.id];
+  const result = results[item.question.id];
   const concept = getConcept(item.conceptId);
 
   const onSelect = (optionId: string) => {
-    if (selected !== undefined || inFlight.current) return;
+    if (result !== undefined || inFlight.current) return;
     inFlight.current = true;
-    setAnswers((a) => ({ ...a, [item.question.id]: optionId }));
     p.submitReview(item, optionId)
       .then((r) => {
+        setResults((m) => ({ ...m, [item.question.id]: { optionId, correct: r.correct, correctOptionId: r.correctOptionId, explanation: r.explanation } }));
         setXp((x) => x + r.xpAwarded);
         if (r.correct) setCorrect((c) => c + 1);
       })
       .catch(() => {
-        // Keep the feedback; the concept simply stays due and comes back next time.
+        // Couldn't reach the server: let them move on; the concept simply stays due.
+        setResults((m) => ({ ...m, [item.question.id]: { optionId, correct: false, correctOptionId: '', explanation: 'Couldn’t check that one. It’ll come back next time.' } }));
       })
       .finally(() => {
         inFlight.current = false;
@@ -112,12 +114,20 @@ export default function ReviewSessionScreen() {
       </View>
       <ScrollView contentContainerStyle={styles.body} key={item.question.id}>
         {concept && <Body muted>Refreshing: {concept.title}</Body>}
-        <QuestionCard question={item.question} recall selected={selected} onSelect={onSelect} />
+        <QuestionCard
+          question={item.question}
+          recall
+          attempts={result ? [{ optionId: result.optionId, correct: result.correct }] : []}
+          sourceCards={[]}
+          busy={false}
+          onSelect={onSelect}
+          reveal={result ? { correctOptionId: result.correctOptionId, explanation: result.explanation } : { correctOptionId: '', explanation: '' }}
+        />
       </ScrollView>
       <View style={styles.footer}>
         <Button
-          label={selected === undefined ? 'Choose an answer' : index === queue.length - 1 ? 'Finish review' : 'Continue'}
-          disabled={selected === undefined}
+          label={result === undefined ? 'Choose an answer' : index === queue.length - 1 ? 'Finish review' : 'Continue'}
+          disabled={result === undefined}
           onPress={() => setIndex(index + 1)}
         />
       </View>

@@ -1,15 +1,21 @@
 import { Redirect, router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { AccessibilityInfo } from 'react-native';
+import { AccessibilityInfo, Animated } from 'react-native';
 import { Body, BigNumber, Button, Card, Label, Row, Screen, Title } from '@/components/ui';
-import { getLevel, getSkill, levelByNumber } from '@/content';
+import { getConcept, getLevel, getSkill, levelByNumber } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { motion } from '@/theme/tokens';
 
-/** Level cleared. It animates the facts returned by completion and invents nothing. */
+/**
+ * Level Complete. It animates the facts returned by completion and invents
+ * nothing. XP reflects first-attempt accuracy; every question was resolved to
+ * get here, so this is always a completion, never a "fail".
+ */
 export default function LevelCompleteScreen() {
   const { lastSummary: s } = useProgress();
   const xp = useCountUp(s?.xpAwarded ?? 0);
+  const perfect = !!s && !s.alreadyCompleted && s.outcome === 'perfect';
+  const pop = usePop(perfect);
 
   if (!s) return <Redirect href="/" />;
   const level = getLevel(s.levelId);
@@ -21,13 +27,34 @@ export default function LevelCompleteScreen() {
   return (
     <Screen>
       <Label tone={s.masteryCleared ? 'mastery' : 'success'}>
-        {s.alreadyCompleted ? 'Replay complete' : s.masteryCleared ? '★ Mastery cleared' : `Level ${level.number} cleared`}
+        {s.alreadyCompleted ? 'Replay complete' : s.masteryCleared ? '★ Mastery cleared' : `Level ${level.number} complete`}
       </Label>
-      <BigNumber tone={s.masteryCleared ? 'mastery' : 'brand'}>+{xp} XP</BigNumber>
+      <Animated.View style={{ transform: [{ scale: pop }] }}>
+        <BigNumber tone={s.masteryCleared ? 'mastery' : 'brand'}>+{xp} XP</BigNumber>
+      </Animated.View>
       <Title>
         {skill?.name} Lv. {s.alreadyCompleted ? s.skillLevel : `${s.skillLevelBefore} → ${s.skillLevel}`}
       </Title>
-      <Body muted>{s.alreadyCompleted ? 'Replays earn no XP' : `${s.correct} / ${s.total} correct`}</Body>
+      <Body muted>
+        {s.alreadyCompleted ? 'Replays earn no XP' : `First try: ${s.firstAttemptCorrect} / ${s.total}`}
+      </Body>
+
+      {perfect && (
+        <Card accent>
+          <Label tone="success">Perfect Recall</Label>
+          <Body>Every question right on the first try.</Body>
+        </Card>
+      )}
+
+      {!s.alreadyCompleted && s.reinforcedConceptIds.length > 0 && (
+        <Card>
+          <Label>Reinforced</Label>
+          <Body muted>We’ll bring these back sooner in Review:</Body>
+          {s.reinforcedConceptIds.map((id) => (
+            <Body key={id}>• {getConcept(id)?.title ?? id}</Body>
+          ))}
+        </Card>
+      )}
 
       {checkpoint?.type === 'checkpoint' && (
         <Card>
@@ -54,6 +81,26 @@ export default function LevelCompleteScreen() {
       <Button variant="secondary" label="Home" onPress={() => router.dismissTo('/')} />
     </Screen>
   );
+}
+
+/** A small scale pop for Perfect Recall. Skipped when reduce-motion is on. */
+function usePop(active: boolean): Animated.Value {
+  const [scale] = useState(() => new Animated.Value(1));
+  useEffect(() => {
+    if (!active) return;
+    let cancelled = false;
+    AccessibilityInfo.isReduceMotionEnabled()
+      .catch(() => false)
+      .then((reduce) => {
+        if (cancelled || reduce) return;
+        scale.setValue(0.85);
+        Animated.spring(scale, { toValue: 1, friction: 4, tension: 140, useNativeDriver: true }).start();
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [active, scale]);
+  return scale;
 }
 
 /** XP counts up quickly. Skipped when reduce-motion is on. */

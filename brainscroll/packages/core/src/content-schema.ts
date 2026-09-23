@@ -156,6 +156,13 @@ export const Question = z.object({
   /** recall: the core fact · understanding: why/how · connection: link to another idea. */
   purpose: z.enum(QUESTION_PURPOSES),
   conceptIds: z.array(id('concept')).min(1),
+  /**
+   * The learning cards that teach the answer. After a wrong first attempt they are
+   * shown beneath the question ("Take another look") until it's answered correctly.
+   * Cards from this level, or from an earlier level of the same skill for recall/
+   * connection questions. Never generated at runtime.
+   */
+  sourceCardIds: z.array(id('card')).min(1),
   prompt: text(TEXT_BUDGET.questionPrompt),
   options: z.array(AnswerOption).min(2).max(4),
   explanation: text(TEXT_BUDGET.explanation),

@@ -35,3 +35,20 @@ insert into auth.users (id, email) values
   ('00000000-0000-0000-0000-00000000000b', 'bob@example.org');
 -- Alice signed up long ago, so today is not her first day (no first-day bonus).
 update public.profiles set created_at = now() - interval '30 days' where id = '00000000-0000-0000-0000-00000000000a';
+
+-- A second skill with one 3-question level (one concept each) for the first-attempt XP curve.
+insert into public.skills (id, subject_id, name, status) values ('skill.science.curve', 'subject.science', 'Curve', 'published');
+insert into public.concepts (id, title, description, difficulty)
+select 'concept.curve.c' || n, 'Curve concept ' || n, 'Test concept', 0.1 from generate_series(1, 3) n;
+insert into public.levels (id, skill_id, number, title, status) values ('level.science.curve.001', 'skill.science.curve', 1, 'Curve 1', 'published');
+insert into public.level_revisions (level_id, revision, bundle) values ('level.science.curve.001', 1, '{"id": "level.science.curve.001", "revision": 1}');
+update public.levels set current_revision = 1 where id = 'level.science.curve.001';
+insert into public.level_concepts (level_id, concept_id, role)
+select 'level.science.curve.001', 'concept.curve.c' || n, 'teach' from generate_series(1, 3) n;
+insert into public.questions (id, level_id, prompt, explanation, difficulty)
+select 'question.curve.001.q' || n, 'level.science.curve.001', 'Q' || n || '?', 'Because A.', 0.1 from generate_series(1, 3) n;
+insert into public.question_concepts (question_id, concept_id)
+select 'question.curve.001.q' || n, 'concept.curve.c' || n from generate_series(1, 3) n;
+insert into public.answer_options (question_id, option_id, label, correct, rationale)
+select 'question.curve.001.q' || n, o.opt, 'Option ' || o.opt, o.opt = 'a', case when o.opt <> 'a' then 'Not ' || o.opt || '.' end
+from generate_series(1, 3) n cross join (values ('a'), ('b'), ('c')) o(opt);

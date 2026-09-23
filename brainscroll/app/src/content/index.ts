@@ -1,4 +1,4 @@
-import type { Level, Skill, Subject } from '@brainscroll/core';
+import type { Card, Level, Skill, Subject } from '@brainscroll/core';
 import raw from './bundle.json';
 
 /**
@@ -16,6 +16,7 @@ const bundle = raw as unknown as Bundle;
 
 const levelById = new Map(bundle.levels.map((l) => [l.id, l]));
 const conceptById = new Map(bundle.concepts.map((c) => [c.id, c]));
+const cardById = new Map(bundle.levels.flatMap((l) => l.cards.map((c) => [c.id, c] as const)));
 
 export const subjects = bundle.subjects;
 export const allLevels = bundle.levels;
@@ -39,6 +40,11 @@ export function getSkill(id: string): Skill | undefined {
 
 export function subjectName(id: string): string {
   return bundle.subjects.find((s) => s.id === id)?.name ?? id;
+}
+
+/** Any card in the offline bundle (used for evidence cards from earlier levels). */
+export function getCard(id: string): Card | undefined {
+  return cardById.get(id);
 }
 
 export function getConcept(id: string) {

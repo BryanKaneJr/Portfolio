@@ -1,4 +1,4 @@
-import { MASTERY_BAND_SIZE, XP, type LevelType } from './constants';
+import { LEARNING_STRUCTURE, MASTERY_BAND_SIZE, XP, type CompletionOutcome, type LevelType, type XpBand } from './constants';
 
 /**
  * Pure progression math. The server is authoritative (see backend complete_level);
@@ -68,16 +68,27 @@ export function subjectRank(skillLevelsInSubject: number[]): number {
 }
 
 export interface LevelXpBreakdown {
+  /** Completion XP from first-attempt accuracy. Corrections never add to it. */
   levelComplete: number;
-  questionBonus: number;
   mastery: number;
   total: number;
+  outcome: CompletionOutcome;
+}
+
+/** Share of questions answered correctly on the first attempt, bucketed by the type's curve. */
+export function firstAttemptBand(type: LevelType, firstAttemptCorrect: number, questionCount: number): XpBand {
+  const bands = LEARNING_STRUCTURE[type].firstAttemptXp;
+  const share = questionCount > 0 ? Math.max(0, Math.min(firstAttemptCorrect, questionCount)) / questionCount : 1;
+  return bands.find((b) => share >= b.minShare - 1e-9) ?? bands[bands.length - 1]!;
 }
 
 /** XP for first-time completion of a level. Repeat completions award nothing. */
-export function levelCompletionXp(levelNumber: number, correctAnswers: number): LevelXpBreakdown {
-  const levelComplete = XP.LEVEL_COMPLETE;
-  const questionBonus = Math.min(Math.max(correctAnswers, 0) * XP.QUESTION_CORRECT, XP.QUESTION_CORRECT_CAP_PER_LEVEL);
-  const mastery = isMasteryCheckpoint(levelNumber) ? XP.MASTERY_CLEAR : 0;
-  return { levelComplete, questionBonus, mastery, total: levelComplete + questionBonus + mastery };
+export function levelCompletionXp(
+  level: { number: number; type: LevelType },
+  firstAttemptCorrect: number,
+  questionCount: number,
+): LevelXpBreakdown {
+  const band = firstAttemptBand(level.type, firstAttemptCorrect, questionCount);
+  const mastery = isMasteryCheckpoint(level.number) ? XP.MASTERY_CLEAR : 0;
+  return { levelComplete: band.xp, mastery, total: band.xp + mastery, outcome: band.outcome };
 }

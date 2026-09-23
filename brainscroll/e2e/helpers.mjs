@@ -26,25 +26,53 @@ export async function onboard(page, { start }) {
   await page.waitForTimeout(800);
 }
 
-/** Plays the open level to the end. `pick(i)` chooses which option index to tap. */
+/**
+ * Plays the open level to the end. `pick(i)` chooses the FIRST attempt at
+ * question i. After a miss the level shows "Take another look" and the player
+ * must choose again; we try the remaining options in order until one is right.
+ * Returns how many questions needed another look.
+ */
 export async function playLevel(page, { pick = () => 0, doubleTapComplete = false } = {}) {
   let q = 0;
-  for (let step = 0; step < 25; step++) {
-    await page.waitForTimeout(120);
+  let reinforced = 0;
+  let missedThis = false;
+  for (let step = 0; step < 60; step++) {
+    await page.waitForTimeout(150);
     if (await button(page, 'Choose an answer').count()) {
       await page.getByRole('radio').nth(pick(q++)).click();
+      missedThis = false;
+      continue;
+    }
+    if (await button(page, 'Choose again').count()) {
+      if (!(await page.getByText('Take another look').count())) throw new Error('a miss must show "Take another look"');
+      if (step === 0 || !(await page.getByText('Take another look').first().isVisible())) throw new Error('evidence not visible');
+      if (!missedThis) reinforced++;
+      missedThis = true;
+      await page.getByRole('radio', { disabled: false }).first().click();
       continue;
     }
     if (await button(page, 'Complete level').count()) {
       const b = button(page, 'Complete level');
       if (doubleTapComplete) await b.dblclick(); // two rapid taps, like an impatient thumb
       else await b.click();
-      await page.getByText(/Level \d+ cleared|Replay complete|Mastery cleared/i).first().waitFor({ timeout: 10_000 });
-      return;
+      await page.getByText(/Level \d+ complete|Replay complete|Mastery cleared/i).first().waitFor({ timeout: 10_000 });
+      return reinforced;
     }
     await button(page, 'Continue').click();
   }
   throw new Error('level did not finish');
+}
+
+/** XP by first-attempt score on a 3-question level (must match LEARNING_STRUCTURE). */
+export const CURVE = { 3: 100, 2: 70, 1: 35, 0: 15 };
+
+/** Reads "First try: x / n" and the settled "+N XP" from the Level Complete screen. */
+export async function completionFacts(page) {
+  await page.waitForTimeout(1200); // let the XP count-up settle
+  const t = await bodyText(page);
+  const first = t.match(/First try: (\d+) \/ (\d+)/);
+  const xp = t.match(/\+(\d+) XP/);
+  return { firstTry: first ? Number(first[1]) : undefined, total: first ? Number(first[2]) : undefined, xp: xp ? Number(xp[1]) : undefined, text: t };
 }
 
 export function sql(query) {

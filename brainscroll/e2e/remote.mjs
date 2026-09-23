@@ -1,22 +1,30 @@
 // Supabase mode against the real SQL functions (via fake-supabase.mjs):
 // anonymous sign-in, server-graded completion, exactly-once XP, live content
 // revisions, the server-side 5/day cap, and review.
-import { bodyText, button, check, home, launch, onboard, playLevel, sql } from './helpers.mjs';
+import { CURVE, bodyText, button, check, completionFacts, home, launch, onboard, playLevel, sql } from './helpers.mjs';
 
 const { browser, page, errors } = await launch();
+// Every level bundle the app receives must be free of answer keys.
+const leaks = [];
+page.on('response', async (res) => {
+  if (!/\/rpc\/(start_level|get_level_bundles)/.test(res.url())) return;
+  const body = await res.text().catch(() => '');
+  if (/"correct"\s*:|"rationale"\s*:|"explanation"\s*:/.test(body)) leaks.push(res.url());
+});
 try {
   await home(page);
   await onboard(page, { start: true });
   check(sql('select count(*) from auth.users') === '1', 'first launch signs in anonymously');
   check(sql('select timezone from public.profiles') !== '', 'device time zone is saved to the profile');
 
-  await playLevel(page, { pick: () => 0, doubleTapComplete: true });
-  check(/LEVEL 1 CLEARED/i.test(await bodyText(page)), 'Level 1 completes on the server');
+  const reinforced = await playLevel(page, { pick: () => 0, doubleTapComplete: true });
+  check(/LEVEL 1 COMPLETE/i.test(await bodyText(page)), 'Level 1 completes on the server');
   check(sql(`select count(*) from public.xp_events where type = 'LEVEL_COMPLETE'`) === '1', 'double-tapping Complete awards XP exactly once');
-  const shownXp = (await bodyText(page)).match(/\+(\d+) XP/)?.[1];
-  await page.waitForTimeout(1200); // let the count-up finish
-  const finalXp = (await bodyText(page)).match(/\+(\d+) XP/)?.[1];
-  check(finalXp === sql(`select sum(amount) from public.xp_events`), `XP on screen (${finalXp ?? shownXp}) matches the ledger`);
+  const f1 = await completionFacts(page);
+  const serverFirst = Number(sql(`select count(*) filter (where first_attempt_correct) from public.user_question_attempts where level_id = 'level.science.astronomy.001'`));
+  check(sql(`select count(*) from public.user_question_attempts where level_id = 'level.science.astronomy.001' and resolved_correct`) === '3', 'the server recorded all three questions as resolved');
+  check(reinforced === 3 - serverFirst && f1.firstTry === serverFirst, `first attempts were recorded server-side (${serverFirst}/3; ${reinforced} reinforced)`);
+  check(String(f1.xp) === sql(`select sum(amount) from public.xp_events`) && f1.xp === CURVE[serverFirst], `XP on screen (${f1.xp}) matches the ledger and the curve`);
 
   await home(page);
   check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'session and server progress survive a reload');
@@ -72,6 +80,8 @@ try {
   check(reviewXp === sql(`select coalesce(sum(amount), 0) from public.xp_events where type = 'DELAYED_RECALL'`),
     `review XP on screen (${reviewXp}) matches DELAYED_RECALL in the ledger`);
   check(sql(`select new_levels_used from public.daily_allowances`) === '5', 'review did not use the daily allowance');
+  check(leaks.length === 0, `no answer keys reached the app ${leaks.join(', ')}`);
+  check(sql(`select count(*) from public.xp_events where type = 'QUESTION_CORRECT'`) === '0', 'no per-question XP is awarded');
   check(errors.length === 0, `no page errors ${errors.join('; ')}`);
 } finally {
   await browser.close();

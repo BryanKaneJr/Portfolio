@@ -39,6 +39,8 @@ The source of truth is `LEARNING_STRUCTURE` in `packages/core/src/constants.ts`.
 - `understanding`: why it happened, how it works, or why it matters.
 - `connection`: links it to another concept, event or system. It's often a `recall` card that reaches back to an earlier level.
 
+**Evidence.** A question must never exist without the card that proves it. Write the card first, then the question, then point `sourceCardIds` at the card. A good wrong-option `rationale` ("That's Jupiter.") plus the source card should make the right answer findable in seconds.
+
 **Order.** Learn first, then check: hook, learning cards, then the questions, then the recap card. The validator warns if a question comes before the last learning card.
 
 ## Anatomy of a level
@@ -47,7 +49,7 @@ The source of truth is `LEARNING_STRUCTURE` in `packages/core/src/constants.ts`.
 - `concepts`: what the level `teach`es, `reinforce`s, or `recall`s. `recall` must point at something an earlier level taught.
 - `type`: `regular`, `checkpoint`, `milestone` or `mastery` (see above).
 - `cards`: hook → learning cards → question cards → a `checkpoint` recap card. (The `checkpoint` *card* is the end-of-level recap. It isn't the same thing as a checkpoint *level*.)
-- `questions`: count set by `type` (3 for a regular level). Each needs a `purpose`, **exactly one** correct option, 2–4 options, an explanation, and the concept IDs it tests. Each question is shown by exactly one `mcq` or `recall` card.
+- `questions`: count set by `type` (3 for a regular level). Each needs a `purpose`, **exactly one** correct option, 2–4 options, an explanation, the concept IDs it tests, and **`sourceCardIds`**: the learning or hook cards that teach the answer. After a wrong first attempt, those cards appear under the question ("Take another look") until it's answered correctly. They can be in this level or an earlier level of the same skill, which is typical for connection questions. The validator rejects missing, unknown, later-level or question/recap cards. Make sure the card actually contains the evidence. Each question is shown by exactly one `mcq` or `recall` card.
 - `sourceIds`: every source the level relies on. A **published** level can't cite an unverified source or one with an `unknown` licence.
 
 ### Card types

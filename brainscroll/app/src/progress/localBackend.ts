@@ -1,4 +1,5 @@
 import {
+  answerQuestion,
   buildReviewQueue,
   checkStart,
   completeLevel,
@@ -31,7 +32,8 @@ export function createLocalBackend(): ProgressBackend {
     kind: 'local',
     async init() {
       const saved = await load<ProgressState>(PROGRESS_KEY);
-      if (saved?.version === 1) state = saved;
+      // Older saves predate attempt tracking.
+      if (saved?.version === 1) state = { ...saved, questionAttempts: saved.questionAttempts ?? {} };
     },
     async snapshot(): Promise<ProgressSnapshot> {
       const now = new Date();
@@ -51,8 +53,13 @@ export function createLocalBackend(): ProgressBackend {
       if (!level) return { reason: 'LEVEL_NOT_AVAILABLE' };
       return { reason: checkStart(state, level, new Date()), level, revision: level.revision };
     },
-    async completeLevel({ level, answers, idempotencyKey }) {
-      const r = completeLevel(state, { level, answers, idempotencyKey, now: new Date() });
+    async answerQuestion(level, questionId, optionId) {
+      const r = answerQuestion(state, { level, questionId, optionId });
+      commit(r.state);
+      return r.result;
+    },
+    async completeLevel({ level, idempotencyKey }) {
+      const r = completeLevel(state, { level, idempotencyKey, now: new Date() });
       commit(r.state);
       return r.summary;
     },

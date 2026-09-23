@@ -1,5 +1,5 @@
 // Offline play: onboarding, a full chapter, resume, persistence, first-day cap, review.
-import { bodyText, button, check, home, launch, onboard, playLevel } from './helpers.mjs';
+import { CURVE, bodyText, button, check, completionFacts, home, launch, onboard, playLevel } from './helpers.mjs';
 
 const { browser, page, errors } = await launch();
 try {
@@ -8,8 +8,11 @@ try {
   await onboard(page, { start: true });
   check((await bodyText(page)).includes('Your Cosmic Address'), 'onboarding lands in Level 1');
 
-  await playLevel(page, { pick: (i) => (i === 0 ? 3 : 0) });
-  check(/LEVEL 1 CLEARED/i.test(await bodyText(page)), 'Level 1 completes');
+  const reinforced = await playLevel(page, { pick: (i) => (i === 0 ? 3 : 0) });
+  check(reinforced > 0, 'a missed question shows "Take another look" and must be answered correctly');
+  const l1 = await completionFacts(page);
+  check(/LEVEL 1 COMPLETE/i.test(l1.text), 'Level 1 completes once every question is resolved');
+  check(l1.total === 3 && l1.xp === CURVE[l1.firstTry], `XP follows the first-attempt curve (${l1.firstTry}/3 → ${l1.xp} XP)`);
 
   await home(page);
   check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'progress persists across reload');
@@ -26,12 +29,16 @@ try {
   check((await bodyText(page)).slice(0, 200) === before, 'an interrupted level resumes on the same card');
   await playLevel(page);
 
+  let sawPerfect = false;
   for (let n = 3; n <= 10; n++) {
     await button(page, `Next: Level ${n}`).click();
     await page.waitForTimeout(400);
     await playLevel(page, { pick: (i) => i % 2 });
+    const f = await completionFacts(page);
+    if (f.firstTry === f.total) sawPerfect ||= /Perfect Recall/.test(f.text);
+    if (f.total === 3 && f.xp !== CURVE[f.firstTry]) throw new Error(`level ${n}: ${f.firstTry}/3 gave ${f.xp} XP`);
   }
-  check(/LEVEL 10 CLEARED/i.test(await bodyText(page)), 'all ten Golden levels play from data');
+  check(/LEVEL 10 COMPLETE/i.test(await bodyText(page)), 'all ten Golden levels play from data');
   await button(page, 'Finish the day').click();
   await page.waitForTimeout(600);
   check((await bodyText(page)).includes('10 / 10'), 'first-day cap of 10 ends in Daily Knowledge Complete');

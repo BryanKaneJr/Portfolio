@@ -31,18 +31,20 @@ describe('skill progression', () => {
 });
 
 describe('xp', () => {
-  it('matches the +24 XP level-complete mockup for two correct answers', () => {
-    expect(levelCompletionXp(18, 2).total).toBe(24);
-  });
-
-  it('caps the question bonus so guessing never pays', () => {
-    expect(levelCompletionXp(5, 50).questionBonus).toBe(XP.QUESTION_CORRECT_CAP_PER_LEVEL);
+  const regular = { number: 18, type: 'regular' as const };
+  it('follows the first-attempt curve: 100 / 70 / 35 / 15', () => {
+    expect([3, 2, 1, 0].map((n) => levelCompletionXp(regular, n, 3).total)).toEqual([100, 70, 35, 15]);
+    expect(levelCompletionXp(regular, 3, 3).outcome).toBe('perfect');
   });
 
   it('adds mastery XP only on checkpoints', () => {
-    expect(levelCompletionXp(99, 0).mastery).toBe(0);
-    expect(levelCompletionXp(100, 0).mastery).toBe(XP.MASTERY_CLEAR);
-    expect(levelCompletionXp(200, 0).mastery).toBe(XP.MASTERY_CLEAR);
+    expect(levelCompletionXp({ number: 99, type: 'regular' }, 3, 3).mastery).toBe(0);
+    expect(levelCompletionXp({ number: 100, type: 'mastery' }, 10, 10)).toMatchObject({ levelComplete: 100, mastery: XP.MASTERY_CLEAR });
+  });
+
+  it('scales by share for other question counts (provisional for milestone types)', () => {
+    expect(levelCompletionXp({ number: 10, type: 'checkpoint' }, 4, 5).levelComplete).toBe(70);
+    expect(levelCompletionXp({ number: 100, type: 'mastery' }, 3, 10).levelComplete).toBe(15);
   });
 });
 

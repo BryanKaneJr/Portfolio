@@ -13,8 +13,9 @@ tests/                 SQL acceptance tests, runner and shared helpers (lib.sh) 
 
 | Function | Purpose |
 | --- | --- |
-| `start_level(level_id)` | Checks eligibility (sequence, daily cap) and returns `{ allowed, reason, revision, bundle }`. `reason` is one of `NEW`, `REPLAY`, `LEVEL_LOCKED`, `DAILY_COMPLETE` or `LEVEL_NOT_AVAILABLE`. |
-| `complete_level(level_id, revision, answers, idempotency_key)` | Runs as one transaction and is exactly-once per canonical level. It grades answers server-side and returns the authoritative summary the app animates. |
+| `start_level(level_id)` | Checks eligibility (sequence, daily cap) and returns `{ allowed, reason, revision, bundle }`. The bundle is a **learner bundle**, with no `correct`, `rationale` or `explanation`. `reason` is one of `NEW`, `REPLAY`, `LEVEL_LOCKED`, `DAILY_COMPLETE` or `LEVEL_NOT_AVAILABLE`. |
+| `answer_question(level_id, question_id, option_id)` | Grades one attempt. The **first** attempt per question is recorded once in `user_question_attempts` and never replaced. Returns `{ correct, resolved, first_attempt_correct, attempt_count, rationale?, explanation? }`. Replays are graded but not recorded. |
+| `complete_level(level_id, revision, idempotency_key)` | One transaction, exactly-once per canonical level. It requires every question resolved (`UNRESOLVED_QUESTIONS`), awards `LEVEL_COMPLETE` XP from first-attempt accuracy (`level_xp_curve`: 100/70/35/15), and queues missed concepts with review priority. It returns the authoritative summary the app animates. |
 | `get_daily_status()` | Returns `{ used, cap, remaining, daily_complete, unlimited, local_date }`. |
 | `get_review_queue(limit)` | Returns due concepts, each with one question from a level you've cleared. Questions rotate. |
 | `submit_review(question_id, option_id)` | Reschedules the due concepts that question tests, and awards `DELAYED_RECALL` for a correct answer after 20 h or more. It never touches skill level or the daily allowance. |

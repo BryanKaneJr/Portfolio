@@ -5,7 +5,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { CardRenderer } from '@/components/cards/CardRenderer';
 import { Body, Button, Label, ProgressBar, Title } from '@/components/ui';
-import { getSkill } from '@/content';
+import { getCard, getSkill } from '@/content';
 import { useProgress, type LevelSession } from '@/progress/ProgressProvider';
 import { color, space } from '@/theme/tokens';
 
@@ -21,7 +21,9 @@ export default function LevelScreen() {
   const [blocked, setBlocked] = useState<StartReason | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [answering, setAnswering] = useState(false);
   const inFlight = useRef(false);
+  const answerInFlight = useRef(false);
 
   useEffect(() => {
     if (!p.ready) return;
@@ -52,7 +54,11 @@ export default function LevelScreen() {
   const card = level.cards[session.cardIndex]!;
   const isLast = session.cardIndex === level.cards.length - 1;
   const questionId = card.type === 'mcq' || card.type === 'recall' ? card.questionId : undefined;
-  const needsAnswer = questionId !== undefined && session.answers[questionId] === undefined;
+  const attempts = questionId ? (session.attempts[questionId] ?? []) : [];
+  // A question blocks progress until it's answered correctly (on any attempt).
+  const unresolved = questionId !== undefined && !attempts.some((a) => a.correct);
+  // Evidence cards: this level's cards first, then earlier levels in the offline bundle.
+  const resolveCard = (cardId: string) => level.cards.find((c) => c.id === cardId) ?? getCard(cardId);
 
   const update = (patch: Partial<LevelSession>) => {
     const next = { ...session, ...patch };
@@ -61,8 +67,21 @@ export default function LevelScreen() {
   };
 
   const onAnswer = (qid: string, optionId: string) => {
-    if (session.answers[qid] !== undefined) return; // answers are final
-    update({ answers: { ...session.answers, [qid]: optionId } });
+    const prior = session.attempts[qid] ?? [];
+    if (answerInFlight.current || prior.some((a) => a.correct) || prior.some((a) => a.optionId === optionId)) return;
+    answerInFlight.current = true;
+    setAnswering(true);
+    setError(null);
+    p.answerQuestion(level, qid, optionId)
+      .then((r) => {
+        const attempt = { optionId, correct: r.correct, rationale: r.rationale, explanation: r.explanation };
+        setSession((s) => (s ? { ...s, attempts: { ...s.attempts, [qid]: [...(s.attempts[qid] ?? []), attempt] } } : s));
+      })
+      .catch(() => setError("Couldn't check that answer. Try again."))
+      .finally(() => {
+        answerInFlight.current = false;
+        setAnswering(false);
+      });
   };
 
   const onContinue = () => {
@@ -106,14 +125,14 @@ export default function LevelScreen() {
             <Body muted>{level.objective}</Body>
           </View>
         )}
-        <CardRenderer card={card} level={level} selected={questionId ? session.answers[questionId] : undefined} onAnswer={onAnswer} />
+        <CardRenderer card={card} level={level} attempts={attempts} busy={answering} resolveCard={resolveCard} onAnswer={onAnswer} />
       </ScrollView>
 
       <View style={styles.footer}>
         {error && <Body muted>{error}</Body>}
         <Button
-          label={submitting ? 'Saving…' : isLast ? 'Complete level' : needsAnswer ? 'Choose an answer' : 'Continue'}
-          disabled={needsAnswer || submitting}
+          label={submitting ? 'Saving…' : isLast ? 'Complete level' : unresolved ? (attempts.length ? 'Choose again' : 'Choose an answer') : 'Continue'}
+          disabled={unresolved || submitting || answering}
           onPress={onContinue}
         />
       </View>

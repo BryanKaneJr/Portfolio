@@ -32,6 +32,10 @@ end $$;
 
 -- 2. A learner can play real Level 1 end to end.
 insert into auth.users (id) values ('00000000-0000-0000-0000-0000000000c1');
+create temp table level1_keys as
+  select q.id as question_id, o.option_id from public.questions q join public.answer_options o on o.question_id = q.id and o.correct
+  where q.level_id = 'level.science.astronomy.001';
+grant select on pg_temp.level1_keys to authenticated;
 set request.jwt.claim.sub = '00000000-0000-0000-0000-0000000000c1';
 set role authenticated;
 do $$
@@ -40,18 +44,21 @@ begin
   assert (select count(*) from public.levels) = 10, 'published levels are readable';
   s := public.start_level('level.science.astronomy.001');
   assert s ->> 'reason' = 'NEW' and s -> 'bundle' ->> 'title' = 'Your Cosmic Address', format('got %s', s ->> 'reason');
-  select jsonb_agg(jsonb_build_object('question_id', question_id, 'option_id', option_id)) into answers
-  from public.answer_options o join public.questions q on q.id = o.question_id
-  where q.level_id = 'level.science.astronomy.001' and o.correct;
-  r := public.complete_level('level.science.astronomy.001', 1, answers, gen_random_uuid());
-  assert (r ->> 'xp_awarded')::int = 26 and (r ->> 'skill_level')::int = 1, format('got %s', r); -- 20 + 3 correct × 2
+  assert not (s -> 'bundle' -> 'questions' -> 0 -> 'options' -> 0 ? 'correct'), 'bundles carry no answer keys';
+  assert (s -> 'bundle' -> 'questions' -> 0 -> 'sourceCardIds') is not null, 'bundles carry question → card evidence';
+  -- Answer every question correctly on the first try (keys prepared as superuser; learners can't read them).
+  for answers in select jsonb_build_object('q', question_id, 'o', option_id) from pg_temp.level1_keys loop
+    perform public.answer_question('level.science.astronomy.001', answers ->> 'q', answers ->> 'o');
+  end loop;
+  r := public.complete_level('level.science.astronomy.001', 1, gen_random_uuid());
+  assert (r ->> 'xp_awarded')::int = 100 and r ->> 'outcome' = 'perfect' and (r ->> 'skill_level')::int = 1, format('got %s', r); -- Perfect Recall
   perform pg_temp.expect_error($q$ select public.import_content('{}'::jsonb) $q$, 'permission denied for function import_content');
 
   -- The snapshot the app renders from.
   s := public.get_progress();
   assert s -> 'skills' -> 'skill.science.astronomy' ->> 'highest_cleared' = '1', format('got %s', s);
   assert s -> 'completed_levels' = '["level.science.astronomy.001"]'::jsonb;
-  assert (s ->> 'total_xp')::int = 26 and (s ->> 'xp_today')::int = 26 and (s ->> 'knowledge_level')::int = 3;
+  assert (s ->> 'total_xp')::int = 100 and (s ->> 'xp_today')::int = 100 and (s ->> 'knowledge_level')::int = 3;
   assert (s -> 'daily' ->> 'used')::int = 1 and (s ->> 'reviews_due')::int = 0;
 
   -- Current bundles; unknown ids are simply absent.

@@ -95,6 +95,8 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
     levelsBySkill.set(l.skillId, list);
   }
 
+  const cardOwner = new Map(levels.flatMap((level) => level.cards.map((card) => [card.id, { level, card }] as const)));
+
   for (const [skill, list] of levelsBySkill) {
     list.sort((a, b) => a.number - b.number);
     list.forEach((l, i) => {
@@ -181,6 +183,15 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
     const usedQuestions = new Set<string>();
 
     for (const q of level.questions) {
+      // Every question must point at the canonical content that teaches it.
+      for (const cid of q.sourceCardIds) {
+        const owner = cardOwner.get(cid);
+        if (!owner) err(q.id, `source card ${cid} does not exist`);
+        else if (owner.level.skillId !== level.skillId || owner.level.number > level.number)
+          err(q.id, `source card ${cid} must be in this level or an earlier level of the same skill`);
+        else if (cardRole(owner.card) === 'question' || cardRole(owner.card) === 'recap')
+          err(q.id, `source card ${cid} must be a learning or hook card, not a ${owner.card.type} card`);
+      }
       const correct = q.options.filter((o) => o.correct).length;
       if (correct !== 1) err(q.id, `must have exactly one correct option; has ${correct}`);
       const optionIds = q.options.map((o) => o.id);

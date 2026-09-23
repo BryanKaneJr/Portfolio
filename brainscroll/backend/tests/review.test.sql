@@ -20,10 +20,11 @@ $$;
 set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';
 set role authenticated;
 
--- Clear level 1 with a wrong answer: c1 is due in 10 minutes, not yet.
+-- Clear level 1 with a wrong first answer (then corrected): c1 is due in 10 minutes, not yet.
 do $$ begin
-  perform public.complete_level('level.science.testing.001', 1,
-    jsonb_build_array(jsonb_build_object('question_id', pg_temp.q(1), 'option_id', 'b')), gen_random_uuid());
+  perform public.answer_question('level.science.testing.001', pg_temp.q(1), 'b');
+  perform public.answer_question('level.science.testing.001', pg_temp.q(1), 'a');
+  perform public.complete_level('level.science.testing.001', 1, gen_random_uuid());
   assert public.get_review_queue() = '[]'::jsonb, 'nothing should be due immediately';
 end $$;
 
@@ -48,7 +49,7 @@ begin
   assert (r ->> 'correct')::boolean and (r ->> 'xp_awarded')::int = 0, format('got %s', r);
   assert r -> 'refreshed' = '["concept.testing.c1"]'::jsonb;
   assert (select strength from public.user_concept_mastery where concept_id = 'concept.testing.c1') = 1;
-  assert (select due_at between now() + interval '23 hours' and now() + interval '25 hours' from public.review_queue);
+  assert (select due_at between now() + interval '23 hours' and now() + interval '25 hours' and priority = 0 from public.review_queue), 'a correct review clears priority';
   r := public.submit_review(pg_temp.q(1), 'a');
   assert r -> 'refreshed' = '[]'::jsonb and (r ->> 'xp_awarded')::int = 0, 'double submit must change nothing';
   assert (select strength from public.user_concept_mastery where concept_id = 'concept.testing.c1') = 1;
@@ -64,7 +65,7 @@ begin
   r := public.submit_review(pg_temp.q(1), 'a');
   assert (r ->> 'xp_awarded')::int = 5, format('expected 5 XP, got %s', r);
   assert (select count(*) from public.xp_events where type = 'DELAYED_RECALL') = 1;
-  assert (select total_xp from public.user_skill_progress) = 25, 'skill XP = 20 (level) + 5 (recall)';
+  assert (select total_xp from public.user_skill_progress) = 20, 'skill XP = 15 (0/1 first attempt) + 5 (recall)';
 end $$;
 
 -- 4. A wrong review resets strength but never lowers the skill level or uses allowance.
@@ -78,6 +79,7 @@ begin
   assert not (r ->> 'correct')::boolean and (r ->> 'xp_awarded')::int = 0;
   assert r ->> 'correct_option_id' = 'a', 'response reveals the right answer for feedback';
   assert (select strength from public.user_concept_mastery where concept_id = 'concept.testing.c1') = 0;
+  assert (select priority from public.review_queue where concept_id = 'concept.testing.c1') = 1, 'a missed review keeps priority';
   assert (select highest_cleared from public.user_skill_progress) = 1;
   assert (public.get_daily_status() ->> 'used')::int = 1, 'review must not consume allowance';
 end $$;

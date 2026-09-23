@@ -12,6 +12,7 @@ function makeLevel(n: number, overrides: Record<string, unknown> = {}): Record<s
     kind: 'mcq',
     purpose: PURPOSES[(i - 1) % 3],
     conceptIds: [CONCEPT],
+    sourceCardIds: [`card.astronomy.${num}.c2`],
     prompt: `Question ${i}?`,
     options: [
       { id: 'a', label: 'A star', correct: i === 1 },
@@ -169,6 +170,34 @@ describe('level structure by type', () => {
     const l = makeLevel(1);
     (l.cards as Record<string, unknown>[])[1]!.body = 'Too short.';
     expect(issues(bundle([l]), 'warning').some((m) => m.includes('words of learning content'))).toBe(true);
+  });
+});
+
+describe('question → learning-card evidence', () => {
+  const withSources = (ids: string[], n = 1) => {
+    const l = makeLevel(n);
+    (l.questions as Record<string, unknown>[])[0]!.sourceCardIds = ids;
+    return l;
+  };
+
+  it('requires every question to name at least one source card', () => {
+    expect(issues(bundle([withSources([])]), 'error').some((m) => m.includes('sourceCardIds'))).toBe(true);
+  });
+
+  it('rejects source cards that do not exist', () => {
+    expect(issues(bundle([withSources(['card.astronomy.001.c9'])]), 'error')).toContain('source card card.astronomy.001.c9 does not exist');
+  });
+
+  it('rejects question or recap cards as evidence', () => {
+    expect(issues(bundle([withSources(['card.astronomy.001.c4'])]), 'error')).toContain('source card card.astronomy.001.c4 must be a learning or hook card, not a mcq card');
+    expect(issues(bundle([withSources(['card.astronomy.001.c7'])]), 'error')).toContain('source card card.astronomy.001.c7 must be a learning or hook card, not a checkpoint card');
+  });
+
+  it('allows evidence from an earlier level of the same skill, never a later one', () => {
+    expect(issues(bundle([makeLevel(1), withSources(['card.astronomy.001.c2'], 2)]), 'error')).toEqual([]);
+    expect(issues(bundle([withSources(['card.astronomy.002.c2'], 1), makeLevel(2)]), 'error')).toContain(
+      'source card card.astronomy.002.c2 must be in this level or an earlier level of the same skill',
+    );
   });
 });
 

@@ -1,4 +1,4 @@
-import type { Answers, CompletionSummary, DailyAllowance, Level, ReviewItem, ReviewResult, StartReason } from '@brainscroll/core';
+import type { AnswerResult, CompletionSummary, DailyAllowance, Level, ReviewItem, ReviewResult, StartReason } from '@brainscroll/core';
 
 /**
  * Where progress lives. `local` runs the shared rules on-device (offline play);
@@ -27,7 +27,10 @@ export interface ProgressBackend {
   init(): Promise<void>;
   snapshot(): Promise<ProgressSnapshot>;
   startLevel(levelId: string): Promise<StartResult>;
-  completeLevel(input: { level: Level; revision: number; answers: Answers; idempotencyKey: string }): Promise<CompletionSummary>;
+  /** Grade one attempt. The first attempt at each question is recorded once and never replaced. */
+  answerQuestion(level: Level, questionId: string, optionId: string): Promise<AnswerResult>;
+  /** Completes a level whose questions are all resolved. XP comes from first attempts only. */
+  completeLevel(input: { level: Level; revision: number; idempotencyKey: string }): Promise<CompletionSummary>;
   reviewQueue(limit: number): Promise<ReviewItem[]>;
   submitReview(item: ReviewItem, optionId: string): Promise<ReviewResult>;
   /** Dev only: start over as a brand-new player. */

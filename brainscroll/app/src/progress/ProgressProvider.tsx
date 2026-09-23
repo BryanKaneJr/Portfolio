@@ -1,4 +1,4 @@
-import { skillProgressView, type Answers, type CompletionSummary, type ReviewItem, type ReviewResult } from '@brainscroll/core';
+import { skillProgressView, type AnswerResult, type CompletionSummary, type Level, type ReviewItem, type ReviewResult } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { levelByNumber, skills } from '@/content';
 import type { ProgressBackend, ProgressSnapshot, StartResult } from './backend';
@@ -15,11 +15,19 @@ import { load, newIdempotencyKey, save } from './storage';
 const SESSIONS_KEY = 'brainscroll.sessions.v1';
 const ONBOARDED_KEY = 'brainscroll.onboarded.v1';
 
-/** In-progress level: where you are and what you've answered, so a restart resumes. */
+/** One graded attempt, as the server (or local engine) judged it. */
+export interface AttemptView {
+  optionId: string;
+  correct: boolean;
+  rationale?: string;
+  explanation?: string;
+}
+
+/** In-progress level: where you are and every attempt so far, so a restart resumes exactly. */
 export interface LevelSession {
   revision: number;
   cardIndex: number;
-  answers: Answers;
+  attempts: Record<string, AttemptView[]>;
   idempotencyKey: string;
 }
 
@@ -39,7 +47,9 @@ interface ProgressContextValue {
   /** Returns the saved session, or starts one for this revision. */
   getSession(levelId: string, revision: number): LevelSession;
   updateSession(levelId: string, patch: Partial<LevelSession>): void;
-  completeLevel(levelId: string, level: Parameters<ProgressBackend['completeLevel']>[0]['level']): Promise<CompletionSummary>;
+  /** Grade an attempt and add it to the session. The first attempt is recorded once, server-side. */
+  answerQuestion(level: Level, questionId: string, optionId: string): Promise<AnswerResult>;
+  completeLevel(levelId: string, level: Level): Promise<CompletionSummary>;
   reviewQueue(limit?: number): Promise<ReviewItem[]>;
   submitReview(item: ReviewItem, optionId: string): Promise<ReviewResult>;
   refresh(): Promise<void>;
@@ -138,7 +148,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         const existing = sessionsRef.current[levelId];
         // Content changed since this session began: start the level fresh.
         if (existing && existing.revision === revision) return existing;
-        const created = { revision, cardIndex: 0, answers: {}, idempotencyKey: newIdempotencyKey() };
+        const created: LevelSession = { revision, cardIndex: 0, attempts: {}, idempotencyKey: newIdempotencyKey() };
         commitSessions({ ...sessionsRef.current, [levelId]: created });
         return created;
       },
@@ -147,13 +157,22 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         if (!current) return;
         commitSessions({ ...sessionsRef.current, [levelId]: { ...current, ...patch } });
       },
+      async answerQuestion(level, questionId, optionId) {
+        const result = await backendOrThrow().answerQuestion(level, questionId, optionId);
+        const session = sessionsRef.current[level.id];
+        if (session) {
+          const prev = session.attempts[questionId] ?? [];
+          const attempt: AttemptView = { optionId, correct: result.correct, rationale: result.rationale, explanation: result.explanation };
+          commitSessions({ ...sessionsRef.current, [level.id]: { ...session, attempts: { ...session.attempts, [questionId]: [...prev, attempt] } } });
+        }
+        return result;
+      },
       async completeLevel(levelId, level) {
         const session = sessionsRef.current[levelId];
         if (!session) throw new Error(`No session for ${levelId}`);
         const summary = await backendOrThrow().completeLevel({
           level,
           revision: session.revision,
-          answers: session.answers,
           idempotencyKey: session.idempotencyKey,
         });
         const { [levelId]: _done, ...rest } = sessionsRef.current;

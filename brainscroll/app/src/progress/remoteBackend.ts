@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { CompletionError, type CompletionErrorCode, type CompletionSummary, type Level, type ReviewItem, type StartReason } from '@brainscroll/core';
+import { CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type ReviewItem, type StartReason } from '@brainscroll/core';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { getLevel } from '@/content';
 import type { ProgressBackend, ProgressSnapshot } from './backend';
@@ -33,8 +33,8 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
 
   async function bundles(levelIds: string[]): Promise<Record<string, Level>> {
     if (levelIds.length === 0) return {};
-    const raw = await rpc<Record<string, Omit<Level, 'status'>>>('get_level_bundles', { p_level_ids: levelIds });
-    return Object.fromEntries(Object.entries(raw).map(([id, b]) => [id, { ...b, status: 'published' } as Level]));
+    const raw = await rpc<Record<string, LearnerBundle>>('get_level_bundles', { p_level_ids: levelIds });
+    return Object.fromEntries(Object.entries(raw).map(([id, b]) => [id, fromLearnerBundle(b)]));
   }
 
   return {
@@ -58,17 +58,30 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       };
     },
     async startLevel(levelId) {
-      const r = await rpc<{ allowed: boolean; reason: StartReason; revision?: number; bundle?: Omit<Level, 'status'> }>('start_level', {
+      const r = await rpc<{ allowed: boolean; reason: StartReason; revision?: number; bundle?: LearnerBundle }>('start_level', {
         p_level_id: levelId,
       });
-      const level = r.bundle ? ({ ...r.bundle, status: 'published' } as Level) : getLevel(levelId);
+      const level = r.bundle ? fromLearnerBundle(r.bundle) : getLevel(levelId);
       return { reason: r.reason, level, revision: r.revision };
     },
-    async completeLevel({ level, revision, answers, idempotencyKey }) {
+    async answerQuestion(level, questionId, optionId) {
+      const r = await rpc<{ correct: boolean; resolved: boolean; first_attempt_correct: boolean; attempt_count: number; rationale: string | null; explanation: string | null }>(
+        'answer_question',
+        { p_level_id: level.id, p_question_id: questionId, p_option_id: optionId },
+      );
+      return {
+        correct: r.correct,
+        resolved: r.resolved,
+        firstAttemptCorrect: r.first_attempt_correct,
+        attemptCount: r.attempt_count,
+        rationale: r.rationale ?? undefined,
+        explanation: r.explanation ?? undefined,
+      };
+    },
+    async completeLevel({ level, revision, idempotencyKey }) {
       const r = await rpc<RawSummary>('complete_level', {
         p_level_id: level.id,
         p_revision: revision,
-        p_answers: Object.entries(answers).map(([question_id, option_id]) => ({ question_id, option_id })),
         p_idempotency_key: idempotencyKey,
       });
       return mapSummary(r);
@@ -82,11 +95,11 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       });
     },
     async submitReview(item, optionId) {
-      const r = await rpc<{ correct: boolean; xp_awarded: number; refreshed: string[] }>('submit_review', {
+      const r = await rpc<{ correct: boolean; xp_awarded: number; refreshed: string[]; correct_option_id: string; explanation: string }>('submit_review', {
         p_question_id: item.question.id,
         p_option_id: optionId,
       });
-      return { correct: r.correct, xpAwarded: r.xp_awarded, refreshed: r.refreshed };
+      return { correct: r.correct, correctOptionId: r.correct_option_id, explanation: r.explanation, xpAwarded: r.xp_awarded, refreshed: r.refreshed };
     },
     async reset() {
       await supabase.auth.signOut();
@@ -96,7 +109,24 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
   };
 }
 
-const COMPLETION_ERRORS = new Set<string>(['LEVEL_LOCKED', 'DAILY_LIMIT_REACHED', 'INCOMPLETE_ANSWERS', 'IDEMPOTENCY_KEY_REQUIRED']);
+const COMPLETION_ERRORS = new Set<string>(['LEVEL_LOCKED', 'DAILY_LIMIT_REACHED', 'UNRESOLVED_QUESTIONS', 'QUESTION_NOT_IN_LEVEL', 'IDEMPOTENCY_KEY_REQUIRED']);
+
+/**
+ * The server sends learner bundles: no `correct` flags, rationales or
+ * explanations (grading happens in answer_question). Fill neutral placeholders
+ * so the shared Level type holds. UI code never reads option.correct in
+ * remote mode; it renders the server's verdicts.
+ */
+type LearnerBundle = Omit<Level, 'status' | 'questions'> & {
+  questions: (Omit<Level['questions'][number], 'explanation' | 'options'> & { options: { id: string; label: string }[] })[];
+};
+function fromLearnerBundle(b: LearnerBundle): Level {
+  return {
+    ...b,
+    status: 'published',
+    questions: b.questions.map((q) => ({ ...q, explanation: '', options: q.options.map((o) => ({ ...o, correct: false })) })),
+  } as Level;
+}
 
 interface RawDaily {
   local_date: string;
@@ -125,8 +155,10 @@ interface RawSummary {
   stars: number;
   skill_xp: number;
   xp_awarded: number;
-  correct?: number;
+  first_attempt_correct?: number;
   total?: number;
+  outcome?: CompletionOutcome;
+  reinforced_concept_ids?: string[];
   mastery_cleared?: boolean;
   knowledge_level: number;
   daily: RawDaily;
@@ -146,8 +178,10 @@ function mapSummary(r: RawSummary): CompletionSummary {
     stars: r.stars,
     skillXp: r.skill_xp,
     xpAwarded: r.xp_awarded,
-    correct: r.correct ?? 0,
+    firstAttemptCorrect: r.first_attempt_correct ?? 0,
     total: r.total ?? 0,
+    outcome: r.outcome ?? 'strong',
+    reinforcedConceptIds: r.reinforced_concept_ids ?? [],
     masteryCleared: r.mastery_cleared ?? false,
     knowledgeLevel: r.knowledge_level,
     daily: mapDaily(r.daily),
