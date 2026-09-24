@@ -1,0 +1,209 @@
+{
+  "id": "level.history.ancient_rome.064",
+  "skillId": "skill.history.ancient_rome",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Gladiators",
+  "objective": "After this level you can separate the reality of gladiator fights from popular myth.",
+  "summary": "Gladiator fights began as funeral games. Most fighters were enslaved or condemned, fought in set types, and were often spared.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.gladiators",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.spartacus",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.flavians_colosseum",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.063"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Thumbs down meant death? Probably not the way the movies show it."
+    },
+    {
+      "id": "card.ancient_rome.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who fought",
+      "body": "Gladiator fights probably began as funeral games to honor the dead, first recorded in Rome in 264 BCE. Most gladiators were enslaved people, prisoners of war or condemned criminals, but some free men volunteered."
+    },
+    {
+      "id": "card.ancient_rome.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "How they fought",
+      "body": "Gladiators fought in types with set equipment, such as the net-and-trident retiarius against the helmeted secutor. They were expensive to train, and many fights did not end in death: a beaten fighter could be spared."
+    },
+    {
+      "id": "card.ancient_rome.064.c4",
+      "type": "fact",
+      "fact": "No one knows exactly what the thumb meant.",
+      "context": "Roman writers mention a “turned thumb” deciding a gladiator’s fate, but not which way it turned. The thumbs-down of films is a modern guess."
+    },
+    {
+      "id": "card.ancient_rome.064.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.064.q1"
+    },
+    {
+      "id": "card.ancient_rome.064.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.064.q2"
+    },
+    {
+      "id": "card.ancient_rome.064.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.064.q3"
+    },
+    {
+      "id": "card.ancient_rome.064.c8",
+      "type": "checkpoint",
+      "headline": "Gladiators: unmasked",
+      "learned": [
+        "Fights began as funeral games",
+        "Most gladiators were enslaved or condemned",
+        "They fought in set types",
+        "Many beaten fighters were spared"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.gladiators"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.064.c2"
+      ],
+      "prompt": "How did gladiator fights probably begin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As army training drills",
+          "correct": false,
+          "rationale": "They had a religious origin."
+        },
+        {
+          "id": "b",
+          "label": "As punishments for traitors",
+          "correct": false,
+          "rationale": "They had a religious origin."
+        },
+        {
+          "id": "c",
+          "label": "As funeral games honoring the dead",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "As Greek athletic contests",
+          "correct": false,
+          "rationale": "They had a religious origin."
+        }
+      ],
+      "explanation": "The first recorded fights in Rome, in 264 BCE, were funeral games.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.gladiators"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.064.c3"
+      ],
+      "prompt": "Why were many defeated gladiators spared?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were expensive to train and replace",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Killing in the arena was illegal",
+          "correct": false,
+          "rationale": "Deaths did happen."
+        },
+        {
+          "id": "c",
+          "label": "Crowds always demanded mercy",
+          "correct": false,
+          "rationale": "Crowds varied."
+        },
+        {
+          "id": "d",
+          "label": "Emperors never attended the fights",
+          "correct": false,
+          "rationale": "They often did."
+        }
+      ],
+      "explanation": "A trained gladiator was a costly investment, so many beaten fighters lived to fight again.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.gladiators",
+        "concept.ancient_rome.spartacus"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.064.c2",
+        "card.ancient_rome.034.c2"
+      ],
+      "prompt": "From Level 34: Spartacus escaped from a gladiator school in which town?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ostia",
+          "correct": false,
+          "rationale": "It was in southern Italy."
+        },
+        {
+          "id": "b",
+          "label": "Pompeii",
+          "correct": false,
+          "rationale": "It was a different town nearby."
+        },
+        {
+          "id": "c",
+          "label": "Rome",
+          "correct": false,
+          "rationale": "It was in southern Italy."
+        },
+        {
+          "id": "d",
+          "label": "Capua",
+          "correct": true
+        }
+      ],
+      "explanation": "Spartacus escaped from a gladiator school at Capua in 73 BCE.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_gladiator"
+  ]
+}

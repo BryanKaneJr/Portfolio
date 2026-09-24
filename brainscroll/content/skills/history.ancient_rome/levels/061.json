@@ -1,0 +1,209 @@
+{
+  "id": "level.history.ancient_rome.061",
+  "skillId": "skill.history.ancient_rome",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "A Day in the City",
+  "objective": "After this level you can describe daily life in the city of Rome, from apartment blocks to the forum.",
+  "summary": "Perhaps a million people crowded into Rome. Most rented rooms in risky apartment blocks; the rich lived in houses built around an atrium.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.city_life",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.early_settlement",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.060"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.061.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A million people, one city, and hardly anyone had a kitchen or a bath at home."
+    },
+    {
+      "id": "card.ancient_rome.061.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Apartment life",
+      "body": "By the time of Augustus, Rome had perhaps around 1 million inhabitants. Most lived in insulae, crowded apartment blocks several stories high, usually without running water or private baths. The upper floors were the cheapest, and fire and collapse were constant dangers.",
+      "callout": "Insula: an apartment block"
+    },
+    {
+      "id": "card.ancient_rome.061.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Houses and the Forum",
+      "body": "Wealthy Romans lived in a domus, a private house built around an open hall called the atrium. Public life centered on the Forum, with its temples, law courts, markets and platforms for speeches."
+    },
+    {
+      "id": "card.ancient_rome.061.c4",
+      "type": "fact",
+      "fact": "Augustus gave Rome its first fire brigade.",
+      "context": "He created the vigiles, freedmen who fought fires and patrolled at night, and he limited new buildings to about 20 meters high."
+    },
+    {
+      "id": "card.ancient_rome.061.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.061.q1"
+    },
+    {
+      "id": "card.ancient_rome.061.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.061.q2"
+    },
+    {
+      "id": "card.ancient_rome.061.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.061.q3"
+    },
+    {
+      "id": "card.ancient_rome.061.c8",
+      "type": "checkpoint",
+      "headline": "The city: explored",
+      "learned": [
+        "Rome had perhaps a million people",
+        "Most lived in insulae",
+        "The rich lived in a domus",
+        "The Forum was the center of public life"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.city_life"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.061.c2"
+      ],
+      "prompt": "Where did most people in the city of Rome live?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In private houses with an atrium",
+          "correct": false,
+          "rationale": "Only the wealthy did."
+        },
+        {
+          "id": "b",
+          "label": "In apartment blocks called insulae",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In army camps outside the walls",
+          "correct": false,
+          "rationale": "Most were civilians in the city."
+        },
+        {
+          "id": "d",
+          "label": "In farmhouses beyond the Tiber",
+          "correct": false,
+          "rationale": "Most lived in the city itself."
+        }
+      ],
+      "explanation": "Most Romans rented space in insulae, apartment blocks several stories high.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.city_life"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.061.c2"
+      ],
+      "prompt": "Why were the upper floors of an insula the cheapest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They had the best views of the Forum",
+          "correct": false,
+          "rationale": "That would raise the price."
+        },
+        {
+          "id": "b",
+          "label": "Only enslaved people could live there",
+          "correct": false,
+          "rationale": "Anyone could rent them."
+        },
+        {
+          "id": "c",
+          "label": "The Senate paid part of the rent for them",
+          "correct": false,
+          "rationale": "There was no such subsidy."
+        },
+        {
+          "id": "d",
+          "label": "They were the hardest to escape in a fire",
+          "correct": true
+        }
+      ],
+      "explanation": "Upper floors were the most dangerous in a fire or collapse, and the least convenient, so they cost least.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.city_life",
+        "concept.ancient_rome.early_settlement"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.061.c3",
+        "card.ancient_rome.003.c3"
+      ],
+      "prompt": "From Level 3: what was the Forum valley before it was drained?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A royal hunting forest",
+          "correct": false,
+          "rationale": "It was wet ground."
+        },
+        {
+          "id": "b",
+          "label": "A marshy valley",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A stone quarry",
+          "correct": false,
+          "rationale": "It was wet ground."
+        },
+        {
+          "id": "d",
+          "label": "An Etruscan cemetery",
+          "correct": false,
+          "rationale": "It was wet ground."
+        }
+      ],
+      "explanation": "The Forum valley was marshy until it was drained, helped by the Cloaca Maxima.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ancient_rome",
+    "source.brit_insula",
+    "source.brit_atrium",
+    "source.brit_forum",
+    "source.brit_augustus"
+  ]
+}

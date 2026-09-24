@@ -1,0 +1,209 @@
+{
+  "id": "level.history.ancient_rome.067",
+  "skillId": "skill.history.ancient_rome",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Romans Ate",
+  "objective": "After this level you can describe what rich and poor Romans ate, including garum.",
+  "summary": "Most Romans ate grain, oil, wine and beans; the rich reclined at banquets. Almost everyone loved garum, a fermented fish sauce.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.roman_food",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.city_life",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.066"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Romans’ favorite sauce was made from fermented fish."
+    },
+    {
+      "id": "card.ancient_rome.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Everyday food",
+      "body": "Most Romans lived on grain, eaten as porridge or bread, with olive oil, wine, vegetables and beans. Street counters called thermopolia sold hot food to city dwellers, many of whom had no kitchen at home."
+    },
+    {
+      "id": "card.ancient_rome.067.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fish sauce and feasts",
+      "body": "Garum, a fermented fish sauce, was one of the most popular seasonings in the Roman world. It was made in coastal factories, especially in Spain, and shipped around the empire in clay jars called amphorae. Wealthy Romans dined in the triclinium, reclining on couches around a table."
+    },
+    {
+      "id": "card.ancient_rome.067.c4",
+      "type": "fact",
+      "fact": "No Roman ever ate a tomato.",
+      "context": "Tomatoes, potatoes and maize came from the Americas more than a thousand years later. A Roman cookbook attributed to Apicius survives, full of fish sauce but no tomato."
+    },
+    {
+      "id": "card.ancient_rome.067.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.067.q1"
+    },
+    {
+      "id": "card.ancient_rome.067.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.067.q2"
+    },
+    {
+      "id": "card.ancient_rome.067.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.067.q3"
+    },
+    {
+      "id": "card.ancient_rome.067.c8",
+      "type": "checkpoint",
+      "headline": "Dinner: served",
+      "learned": [
+        "Grain, oil, wine and beans fed most Romans",
+        "Garum was a fish sauce",
+        "The rich reclined at banquets",
+        "Romans had no tomatoes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.roman_food"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.067.c3"
+      ],
+      "prompt": "What was garum?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A spiced wine",
+          "correct": false,
+          "rationale": "It was made from fish."
+        },
+        {
+          "id": "b",
+          "label": "A fermented fish sauce",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A barley porridge",
+          "correct": false,
+          "rationale": "It was made from fish."
+        },
+        {
+          "id": "d",
+          "label": "A honey cake",
+          "correct": false,
+          "rationale": "It was made from fish."
+        }
+      ],
+      "explanation": "Garum was a fermented fish sauce, one of the most popular Roman seasonings.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.roman_food"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.067.c4"
+      ],
+      "prompt": "Which food could a Roman NOT have eaten?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bread",
+          "correct": false,
+          "rationale": "Grain was the staple."
+        },
+        {
+          "id": "b",
+          "label": "Olives",
+          "correct": false,
+          "rationale": "Olive oil was everywhere."
+        },
+        {
+          "id": "c",
+          "label": "Beans",
+          "correct": false,
+          "rationale": "Beans were common."
+        },
+        {
+          "id": "d",
+          "label": "Tomatoes",
+          "correct": true
+        }
+      ],
+      "explanation": "Tomatoes came from the Americas more than a thousand years after Rome.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.roman_food",
+        "concept.ancient_rome.city_life"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.067.c2",
+        "card.ancient_rome.061.c2"
+      ],
+      "prompt": "From Level 61: why did many city Romans buy hot food from street counters?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cooking at home was illegal",
+          "correct": false,
+          "rationale": "It was a matter of housing."
+        },
+        {
+          "id": "b",
+          "label": "Street food was free for citizens",
+          "correct": false,
+          "rationale": "Grain was free; hot food was sold."
+        },
+        {
+          "id": "c",
+          "label": "Many apartment homes had no kitchen",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Senate owned all the ovens",
+          "correct": false,
+          "rationale": "It was a matter of housing."
+        }
+      ],
+      "explanation": "Many insula dwellers had no kitchen, so they bought hot food at thermopolia.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_garum",
+    "source.brit_ancient_rome",
+    "source.brit_pompeii",
+    "source.brit_triclinium",
+    "source.brit_columbian",
+    "source.brit_apicius"
+  ]
+}

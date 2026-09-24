@@ -1,0 +1,212 @@
+{
+  "id": "level.history.ancient_rome.062",
+  "skillId": "skill.history.ancient_rome",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Slavery in Rome",
+  "objective": "After this level you can explain how slavery shaped Roman society and what freed slaves could become.",
+  "summary": "Enslaved people, taken by war, piracy and birth, did every kind of work. Many were freed, and a citizen’s freed slave became a citizen.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.slavery",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.spartacus",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.claudius",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.061"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In Rome, a doctor, a teacher and a miner could all be enslaved."
+    },
+    {
+      "id": "card.ancient_rome.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Property under the law",
+      "body": "Enslaved people made up a large share of the population of Roman Italy. People were enslaved through war, piracy and trade, and children born to enslaved mothers were enslaved too. Under Roman law an enslaved person was property, with no legal rights of their own."
+    },
+    {
+      "id": "card.ancient_rome.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every kind of work",
+      "body": "Enslaved people worked in mines, on farms and in households. Some served as teachers, doctors and secretaries. Romans also often freed enslaved people, a practice called manumission.",
+      "callout": "Manumission: freeing an enslaved person"
+    },
+    {
+      "id": "card.ancient_rome.062.c4",
+      "type": "fact",
+      "fact": "A citizen’s freed slave usually became a Roman citizen.",
+      "context": "Their children had full rights. Some freedmen grew rich, and Claudius used freedmen as powerful officials."
+    },
+    {
+      "id": "card.ancient_rome.062.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.062.q1"
+    },
+    {
+      "id": "card.ancient_rome.062.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.062.q2"
+    },
+    {
+      "id": "card.ancient_rome.062.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.062.q3"
+    },
+    {
+      "id": "card.ancient_rome.062.c8",
+      "type": "checkpoint",
+      "headline": "Slavery: understood",
+      "learned": [
+        "Enslaved people were legally property",
+        "War, piracy and birth fed slavery",
+        "Manumission freed many",
+        "Freed slaves of citizens became citizens"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.slavery"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.062.c3"
+      ],
+      "prompt": "What is manumission?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Selling a slave at public auction",
+          "correct": false,
+          "rationale": "It’s the opposite."
+        },
+        {
+          "id": "b",
+          "label": "Freeing an enslaved person",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Branding a runaway slave",
+          "correct": false,
+          "rationale": "It’s about freedom."
+        },
+        {
+          "id": "d",
+          "label": "Training slaves as gladiators",
+          "correct": false,
+          "rationale": "It’s about freedom."
+        }
+      ],
+      "explanation": "Manumission was the freeing of an enslaved person, which Romans did often.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.slavery"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.062.c4"
+      ],
+      "prompt": "What legal status did a person freed by a citizen usually gain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A seat in the Senate",
+          "correct": false,
+          "rationale": "Their children gained full rights, not office."
+        },
+        {
+          "id": "b",
+          "label": "Ownership by the state",
+          "correct": false,
+          "rationale": "They were free."
+        },
+        {
+          "id": "c",
+          "label": "Citizenship",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Membership of the guard",
+          "correct": false,
+          "rationale": "That wasn’t the usual result."
+        }
+      ],
+      "explanation": "A person freed by a citizen usually became a citizen, and their children had full rights.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.slavery",
+        "concept.ancient_rome.spartacus"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.062.c2",
+        "card.ancient_rome.034.c2"
+      ],
+      "prompt": "From Level 34: Spartacus’s revolt drew in thousands of people. Who were they?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Poor citizens who had lost farms",
+          "correct": false,
+          "rationale": "They were enslaved."
+        },
+        {
+          "id": "b",
+          "label": "Soldiers who had deserted Pompey",
+          "correct": false,
+          "rationale": "They were enslaved."
+        },
+        {
+          "id": "c",
+          "label": "Gauls who had crossed the Alps",
+          "correct": false,
+          "rationale": "They were enslaved."
+        },
+        {
+          "id": "d",
+          "label": "Escaped enslaved people",
+          "correct": true
+        }
+      ],
+      "explanation": "His army of escaped enslaved people grew to tens of thousands and defeated several Roman forces.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_slavery",
+    "source.brit_manumission",
+    "source.brit_claudius"
+  ]
+}

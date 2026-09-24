@@ -1,0 +1,211 @@
+{
+  "id": "level.history.ancient_rome.068",
+  "skillId": "skill.history.ancient_rome",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Latin, the Language That Lived On",
+  "objective": "After this level you can explain how Latin spread and became the Romance languages.",
+  "summary": "Latin spread west with soldiers and settlers, and spoken Latin became Italian, French, Spanish, Portuguese and Romanian.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.latin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.early_settlement",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.trajan",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.067"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.068.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome fell, but its language is still spoken by hundreds of millions of people."
+    },
+    {
+      "id": "card.ancient_rome.068.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From Latium to the West",
+      "body": "Latin was first spoken in Latium, the region around Rome. It spread through the western provinces with soldiers, settlers and officials, while Greek stayed the common language of the East."
+    },
+    {
+      "id": "card.ancient_rome.068.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Latin’s children",
+      "body": "Everyday spoken Latin, often called Vulgar Latin, gradually developed into the Romance languages: Italian, French, Spanish, Portuguese and Romanian. English is not one of them, but a large share of its vocabulary comes from Latin, much of it through French."
+    },
+    {
+      "id": "card.ancient_rome.068.c4",
+      "type": "fact",
+      "fact": "Latin outlived the empire that spread it.",
+      "context": "It remained the language of the Western Church, law and scholarship for centuries after the Western Empire fell. Romanian descends from the Latin spoken in the province of Dacia."
+    },
+    {
+      "id": "card.ancient_rome.068.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.068.q1"
+    },
+    {
+      "id": "card.ancient_rome.068.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.068.q2"
+    },
+    {
+      "id": "card.ancient_rome.068.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.068.q3"
+    },
+    {
+      "id": "card.ancient_rome.068.c8",
+      "type": "checkpoint",
+      "headline": "Latin: still alive",
+      "learned": [
+        "Latin began in Latium",
+        "It spread across the western provinces",
+        "Spoken Latin became the Romance languages",
+        "Latin shaped English vocabulary"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.latin"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.068.c3"
+      ],
+      "prompt": "Which of these is a Romance language?",
+      "options": [
+        {
+          "id": "a",
+          "label": "English",
+          "correct": false,
+          "rationale": "It borrowed Latin words but isn’t Romance."
+        },
+        {
+          "id": "b",
+          "label": "German",
+          "correct": false,
+          "rationale": "It is Germanic."
+        },
+        {
+          "id": "c",
+          "label": "Portuguese",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Greek",
+          "correct": false,
+          "rationale": "It has its own ancient line."
+        }
+      ],
+      "explanation": "Portuguese is a Romance language, descended from spoken Latin.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.latin"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.068.c2"
+      ],
+      "prompt": "Why didn’t Latin replace Greek in the eastern provinces?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rome banned Latin in the East",
+          "correct": false,
+          "rationale": "Rome never banned it."
+        },
+        {
+          "id": "b",
+          "label": "Greek was already the common language there",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The East was never part of the empire",
+          "correct": false,
+          "rationale": "It was."
+        },
+        {
+          "id": "d",
+          "label": "Latin had no written form yet",
+          "correct": false,
+          "rationale": "It did."
+        }
+      ],
+      "explanation": "Greek stayed the common language of the East, so Latin spread mainly in the West.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.latin",
+        "concept.ancient_rome.trajan"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.068.c4",
+        "card.ancient_rome.058.c3"
+      ],
+      "prompt": "From Level 58: Romanian descends from Latin spoken in which province Trajan conquered?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Britain",
+          "correct": false,
+          "rationale": "Its people later spoke other languages."
+        },
+        {
+          "id": "b",
+          "label": "Gaul",
+          "correct": false,
+          "rationale": "That gave rise to French."
+        },
+        {
+          "id": "c",
+          "label": "Egypt",
+          "correct": false,
+          "rationale": "Greek and Egyptian were spoken there."
+        },
+        {
+          "id": "d",
+          "label": "Dacia",
+          "correct": true
+        }
+      ],
+      "explanation": "Romanian descends from the Latin of Dacia, roughly modern Romania.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_romance",
+    "source.brit_latin",
+    "source.brit_romanian"
+  ]
+}

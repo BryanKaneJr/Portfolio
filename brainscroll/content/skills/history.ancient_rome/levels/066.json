@@ -1,0 +1,207 @@
+{
+  "id": "level.history.ancient_rome.066",
+  "skillId": "skill.history.ancient_rome",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Baths",
+  "objective": "After this level you can explain what Roman baths were like and why they mattered socially.",
+  "summary": "Cheap, heated public baths had hot, warm and cold rooms. Romans went to exercise, talk and do business, not just to wash.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.baths",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.city_life",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.065"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For a Roman, the bath was the gym, the café and the office."
+    },
+    {
+      "id": "card.ancient_rome.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hot, warm, cold",
+      "body": "Large public baths, thermae, had hot, warm and cold rooms: the caldarium, tepidarium and frigidarium. They were heated by the hypocaust: hot air from furnaces flowed under raised floors and through the walls.",
+      "callout": "Hypocaust: underfloor heating"
+    },
+    {
+      "id": "card.ancient_rome.066.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why Romans went",
+      "body": "Baths were social centers where Romans exercised, talked, did business and relaxed, and entry was cheap. The Baths of Caracalla, opened in the 3rd century CE, could serve about 1,600 bathers at a time."
+    },
+    {
+      "id": "card.ancient_rome.066.c4",
+      "type": "fact",
+      "fact": "Romans cleaned themselves without soap.",
+      "context": "Bathers oiled their skin and scraped it clean with a curved metal tool, the strigil. The oil and dirt came off together."
+    },
+    {
+      "id": "card.ancient_rome.066.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.066.q1"
+    },
+    {
+      "id": "card.ancient_rome.066.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.066.q2"
+    },
+    {
+      "id": "card.ancient_rome.066.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.066.q3"
+    },
+    {
+      "id": "card.ancient_rome.066.c8",
+      "type": "checkpoint",
+      "headline": "The baths: visited",
+      "learned": [
+        "Baths had hot, warm and cold rooms",
+        "The hypocaust heated the floors",
+        "Baths were social centers",
+        "Bathers used oil and a strigil"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.baths"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.066.c2"
+      ],
+      "prompt": "What was the hot room of a Roman bath called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The frigidarium",
+          "correct": false,
+          "rationale": "That was the cold room."
+        },
+        {
+          "id": "b",
+          "label": "The tepidarium",
+          "correct": false,
+          "rationale": "That was the warm room."
+        },
+        {
+          "id": "c",
+          "label": "The caldarium",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The atrium",
+          "correct": false,
+          "rationale": "That was a hall in a house."
+        }
+      ],
+      "explanation": "The caldarium was the hot room; the tepidarium was warm and the frigidarium cold.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.baths"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.066.c3"
+      ],
+      "prompt": "Why did the baths matter beyond getting clean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were where laws were voted",
+          "correct": false,
+          "rationale": "Laws were voted elsewhere."
+        },
+        {
+          "id": "b",
+          "label": "They were cheap social centers for all",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only senators could enter them",
+          "correct": false,
+          "rationale": "Entry was cheap and open."
+        },
+        {
+          "id": "d",
+          "label": "They doubled as army barracks",
+          "correct": false,
+          "rationale": "They were civilian spaces."
+        }
+      ],
+      "explanation": "Romans exercised, talked, did business and relaxed at the baths.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.baths",
+        "concept.ancient_rome.city_life"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.066.c3",
+        "card.ancient_rome.061.c2"
+      ],
+      "prompt": "From Level 61: why did so many Romans rely on public baths?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most lived in apartments without baths",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Private baths were banned by law",
+          "correct": false,
+          "rationale": "They weren’t banned."
+        },
+        {
+          "id": "c",
+          "label": "The Tiber was too cold to wash in",
+          "correct": false,
+          "rationale": "The reason was housing."
+        },
+        {
+          "id": "d",
+          "label": "Only temples had water supplies",
+          "correct": false,
+          "rationale": "The reason was housing."
+        }
+      ],
+      "explanation": "Most people lived in insulae without running water or private baths.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_thermae",
+    "source.brit_hypocaust",
+    "source.brit_caracalla_baths"
+  ]
+}

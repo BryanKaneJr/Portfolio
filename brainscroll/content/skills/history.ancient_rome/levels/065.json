@@ -1,0 +1,206 @@
+{
+  "id": "level.history.ancient_rome.065",
+  "skillId": "skill.history.ancient_rome",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Chariot Racing",
+  "objective": "After this level you can describe chariot racing, the Circus Maximus and the racing factions.",
+  "summary": "The Circus Maximus held about 150,000 fans. Four color factions raced four-horse chariots seven laps, and rivalries could turn into riots.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.chariot_racing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.flavians_colosseum",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.064"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome’s biggest crowds didn’t watch gladiators. They watched chariots."
+    },
+    {
+      "id": "card.ancient_rome.065.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Circus Maximus",
+      "body": "The Circus Maximus, Rome’s great racetrack, could hold about 150,000 spectators. A standard race was seven laps around the central barrier, the spina. The most prestigious races used four-horse chariots, called quadrigae: teams of four horses running side by side."
+    },
+    {
+      "id": "card.ancient_rome.065.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reds, Whites, Blues and Greens",
+      "body": "Charioteers raced for four factions, the Reds, Whites, Blues and Greens, each with passionate fans. Supporters cheered for colors more than for drivers, though successful charioteers could become rich and famous."
+    },
+    {
+      "id": "card.ancient_rome.065.c4",
+      "type": "fact",
+      "fact": "Racing fans nearly toppled an emperor.",
+      "context": "In 532 CE fans of the Blues and Greens rioted together in Constantinople in the Nika revolt, nearly overthrowing the emperor Justinian."
+    },
+    {
+      "id": "card.ancient_rome.065.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.065.q1"
+    },
+    {
+      "id": "card.ancient_rome.065.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.065.q2"
+    },
+    {
+      "id": "card.ancient_rome.065.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.065.q3"
+    },
+    {
+      "id": "card.ancient_rome.065.c8",
+      "type": "checkpoint",
+      "headline": "The races: run",
+      "learned": [
+        "The Circus Maximus held about 150,000",
+        "Races were seven laps",
+        "Four color factions competed",
+        "The Nika riot nearly toppled Justinian"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.chariot_racing"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.065.c3"
+      ],
+      "prompt": "How many racing factions were there?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two",
+          "correct": false,
+          "rationale": "There were more."
+        },
+        {
+          "id": "b",
+          "label": "Three",
+          "correct": false,
+          "rationale": "There were more."
+        },
+        {
+          "id": "c",
+          "label": "Four",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Twelve",
+          "correct": false,
+          "rationale": "Fewer than that."
+        }
+      ],
+      "explanation": "There were four factions: the Reds, Whites, Blues and Greens.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.chariot_racing"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.065.c4"
+      ],
+      "prompt": "What does the Nika revolt show about racing factions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were banned under the emperor Augustus",
+          "correct": false,
+          "rationale": "They lasted for centuries."
+        },
+        {
+          "id": "b",
+          "label": "They were watched only by the very rich",
+          "correct": false,
+          "rationale": "They drew huge crowds."
+        },
+        {
+          "id": "c",
+          "label": "Their fans could become a political force",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They raced only in Rome itself",
+          "correct": false,
+          "rationale": "The revolt was in Constantinople."
+        }
+      ],
+      "explanation": "In 532 CE Blues and Greens rioted together and nearly toppled Justinian.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.chariot_racing",
+        "concept.ancient_rome.flavians_colosseum"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.065.c2",
+        "card.ancient_rome.056.c3"
+      ],
+      "prompt": "From Level 56: the Colosseum held about 50,000. How many times more could the Circus Maximus hold?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About the same",
+          "correct": false,
+          "rationale": "It was much bigger."
+        },
+        {
+          "id": "b",
+          "label": "About three times more",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About ten times more",
+          "correct": false,
+          "rationale": "Not that much."
+        },
+        {
+          "id": "d",
+          "label": "About half as many",
+          "correct": false,
+          "rationale": "It was much bigger."
+        }
+      ],
+      "explanation": "About 150,000 spectators is roughly three times the Colosseum’s 50,000.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_circus_maximus",
+    "source.brit_chariot_racing",
+    "source.brit_nika"
+  ]
+}
