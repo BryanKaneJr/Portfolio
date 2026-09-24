@@ -63,6 +63,10 @@ The first-round list (213 images, one per level) had many images that fit a plan
 
 First-round images that aren't listed here or used by a tree below are still fine to keep in the library for later levels.
 
+## Mascot
+
+The Professor, a cute, round old genius in a tweed jacket and violet bow tie, has 29 poses: waving, pointing at a card, thinking, cheering, a kind shrug for wrong answers, and one per subject. His look, the rules that keep him an original character, and how to keep him consistent are in [`mascot.md`](mascot.md). Make `mascot.reference` first and generate every pose from it.
+
 ## Subjects, skills and app screens
 
 | Image ID | Draw | Used for |

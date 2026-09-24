@@ -49,4 +49,4 @@ Clever, concise, slightly irreverent, adult. It accepts wrong answers without sh
 
 ## Type and brand mark
 
-Use a geometric modern sans (Sora / Manrope territory; the app uses the system font until the fonts are added), with big, crisp numerals for levels and XP. The app icon is a dark rounded square with a violet/white "B" built from stacked feed cards or a swipe trail. Avoid literal brains, graduation caps, shields and generic education-blue.
+Use a geometric modern sans (Sora / Manrope territory; the app uses the system font until the fonts are added), with big, crisp numerals for levels and XP. The app icon is a dark rounded square with a violet/white "B" built from stacked feed cards or a swipe trail. Avoid literal brains, graduation caps, shields and generic education-blue. The mascot, an original cute old professor with a violet bow tie, is defined in [`mascot.md`](mascot.md).
