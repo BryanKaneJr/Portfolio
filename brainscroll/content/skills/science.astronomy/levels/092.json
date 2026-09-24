@@ -1,0 +1,214 @@
+{
+  "id": "level.science.astronomy.092",
+  "skillId": "skill.science.astronomy",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Afterglow: Cosmic Microwave Background",
+  "objective": "After this level you can explain the cosmic microwave background and why it supports the Big Bang.",
+  "summary": "The Big Bang’s leftover light, released 380,000 years in and stretched into microwaves, still fills the sky. Its discovery backed the theory.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.cmb",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.big_bang",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.redshift",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.091"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The whole sky glows, faintly, with the Big Bang’s leftover light."
+    },
+    {
+      "id": "card.astronomy.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "When light broke free",
+      "body": "For its first 380,000 years or so, the universe was too hot and dense for light to travel far. When it cooled enough for atoms to form, light could finally travel freely. That ancient light still fills the sky as the cosmic microwave background, or CMB.",
+      "callout": "Released ~380,000 years after the Big Bang"
+    },
+    {
+      "id": "card.astronomy.092.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stretched to microwaves",
+      "body": "The CMB started as the glow of hot gas. As space expanded over billions of years, that light was stretched to much longer wavelengths, all the way to microwaves. Today it’s only about 2.7 degrees above absolute zero.",
+      "callout": "≈ 2.7 K"
+    },
+    {
+      "id": "card.astronomy.092.c4",
+      "type": "fact",
+      "fact": "It was found by accident in 1965.",
+      "context": "Arno Penzias and Robert Wilson picked up a steady hiss in their radio antenna and first suspected a fault. It was the CMB, which the Big Bang theory had predicted, so the discovery became key evidence for the theory."
+    },
+    {
+      "id": "card.astronomy.092.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.092.q1"
+    },
+    {
+      "id": "card.astronomy.092.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.092.q2"
+    },
+    {
+      "id": "card.astronomy.092.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.092.q3"
+    },
+    {
+      "id": "card.astronomy.092.c8",
+      "type": "checkpoint",
+      "headline": "The afterglow: detected",
+      "learned": [
+        "The CMB is the Big Bang’s leftover light",
+        "It was released ~380,000 years after the Big Bang",
+        "Expansion stretched it into microwaves",
+        "Its 1965 discovery backed the Big Bang"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.cmb"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.092.c2"
+      ],
+      "prompt": "What is the cosmic microwave background?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Microwaves leaking from Earth’s radio towers",
+          "correct": false,
+          "rationale": "It comes from every direction in the sky."
+        },
+        {
+          "id": "b",
+          "label": "The light of the most distant quasars",
+          "correct": false,
+          "rationale": "Quasars are separate objects."
+        },
+        {
+          "id": "c",
+          "label": "Leftover light from the early universe",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Heat radiating from the Milky Way’s center",
+          "correct": false,
+          "rationale": "It fills the whole sky evenly."
+        }
+      ],
+      "explanation": "The CMB is leftover light from the early universe, released when atoms first formed.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.cmb",
+        "concept.astronomy.redshift"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.092.c3"
+      ],
+      "prompt": "Why does the CMB reach us as microwaves rather than visible light?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was always a faint microwave signal",
+          "correct": false,
+          "rationale": "It began as the glow of hot gas."
+        },
+        {
+          "id": "b",
+          "label": "Earth’s atmosphere converts it to microwaves",
+          "correct": false,
+          "rationale": "The atmosphere doesn’t do that."
+        },
+        {
+          "id": "c",
+          "label": "Dust in the Milky Way absorbs its visible light",
+          "correct": false,
+          "rationale": "Dust isn’t the cause."
+        },
+        {
+          "id": "d",
+          "label": "Expanding space stretched its wavelengths",
+          "correct": true
+        }
+      ],
+      "explanation": "As space expanded over billions of years, the CMB’s light was stretched to much longer wavelengths.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.astronomy.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.cmb",
+        "concept.astronomy.big_bang"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.092.c4",
+        "card.astronomy.091.c2"
+      ],
+      "prompt": "From Level 91: why did finding the CMB give such strong support to the Big Bang theory?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It proved the Milky Way is at the center",
+          "correct": false,
+          "rationale": "The expansion has no center."
+        },
+        {
+          "id": "b",
+          "label": "The theory had predicted such a glow",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It showed radio waves can’t cross space",
+          "correct": false,
+          "rationale": "Radio waves cross space easily."
+        },
+        {
+          "id": "d",
+          "label": "It revealed what dark matter is made of",
+          "correct": false,
+          "rationale": "Dark matter remains unknown."
+        }
+      ],
+      "explanation": "A hot, dense early universe should leave a leftover glow. Finding it was a strong test the theory passed.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_cmb",
+    "source.nasa_wmap_cmb",
+    "source.brit_redshift"
+  ]
+}

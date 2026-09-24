@@ -1,0 +1,243 @@
+{
+  "id": "level.science.astronomy.098",
+  "skillId": "skill.science.astronomy",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Integration: Futures of the Sun, Earth and Universe",
+  "objective": "After this level you can describe the long-term futures of the Sun, Earth, Milky Way and universe.",
+  "summary": "Polaris won’t stay the pole star. The Sun will brighten, then swell. Andromeda will merge with us, and distant galaxies will slip from view.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.cosmic_futures",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.precession",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.galaxy_collisions",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.star_life_cycle",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.white_dwarfs",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.dark_energy",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.097"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Astronomy can forecast billions of years ahead.",
+      "body": "Here’s the long forecast for the sky, the Sun, Earth and our galaxy."
+    },
+    {
+      "id": "card.astronomy.098.c2",
+      "type": "timeline",
+      "headline": "The long forecast",
+      "events": [
+        {
+          "when": "Over ~26,000 years",
+          "label": "Earth’s axis wobbles through a full circle; Polaris won’t stay the pole star"
+        },
+        {
+          "when": "In ~1 billion years",
+          "label": "A brightening Sun makes Earth too hot for oceans"
+        },
+        {
+          "when": "In ~4.5 billion years",
+          "label": "The Milky Way and Andromeda merge"
+        },
+        {
+          "when": "In ~5 billion years",
+          "label": "The Sun swells into a red giant, later becoming a white dwarf"
+        }
+      ]
+    },
+    {
+      "id": "card.astronomy.098.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The universe’s fate",
+      "body": "Dark energy is speeding up the expansion. If it keeps doing so, galaxies beyond our local neighborhood will eventually drift out of view. The Sun’s own story ends quietly, as a white dwarf that no longer fuses anything and slowly cools."
+    },
+    {
+      "id": "card.astronomy.098.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.098.q1"
+    },
+    {
+      "id": "card.astronomy.098.c5",
+      "type": "recall",
+      "questionId": "question.astronomy.098.q2"
+    },
+    {
+      "id": "card.astronomy.098.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.098.q3"
+    },
+    {
+      "id": "card.astronomy.098.c7",
+      "type": "checkpoint",
+      "headline": "The future: forecast",
+      "learned": [
+        "Polaris won’t always be the pole star",
+        "The Sun will brighten, then become a red giant",
+        "The Milky Way and Andromeda will merge",
+        "Distant galaxies will drift out of view"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.cosmic_futures"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.098.c2"
+      ],
+      "prompt": "Which of these is expected to happen first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Milky Way and Andromeda merge",
+          "correct": false,
+          "rationale": "That’s about 4.5 billion years away."
+        },
+        {
+          "id": "b",
+          "label": "Earth becomes too hot for oceans",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Sun swells into a red giant",
+          "correct": false,
+          "rationale": "That’s about 5 billion years away."
+        },
+        {
+          "id": "d",
+          "label": "The Sun becomes a white dwarf",
+          "correct": false,
+          "rationale": "That comes after the red giant stage."
+        }
+      ],
+      "explanation": "A slowly brightening Sun is expected to make Earth too hot for oceans in roughly a billion years, long before the other events.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.astronomy.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.cosmic_futures",
+        "concept.astronomy.precession"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.098.c2",
+        "card.astronomy.014.c4"
+      ],
+      "prompt": "Why won’t Polaris always be the North Star?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Polaris is moving away from Earth",
+          "correct": false,
+          "rationale": "Its motion isn’t the reason."
+        },
+        {
+          "id": "b",
+          "label": "Polaris will burn out very soon",
+          "correct": false,
+          "rationale": "Not the reason."
+        },
+        {
+          "id": "c",
+          "label": "Earth’s axis slowly wobbles in a circle",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Milky Way’s spin will hide it",
+          "correct": false,
+          "rationale": "Not the reason."
+        }
+      ],
+      "explanation": "Earth’s axis wobbles, tracing a circle about every 26,000 years, so it points at different stars over time.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.astronomy.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.cosmic_futures",
+        "concept.astronomy.dark_energy"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.098.c3",
+        "card.astronomy.094.c2"
+      ],
+      "prompt": "From Level 94: if dark energy keeps accelerating the expansion, what happens to distant galaxies?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They fall back into the Milky Way",
+          "correct": false,
+          "rationale": "The expansion carries them away."
+        },
+        {
+          "id": "b",
+          "label": "They turn into dark matter",
+          "correct": false,
+          "rationale": "Galaxies don’t turn into dark matter."
+        },
+        {
+          "id": "c",
+          "label": "They stop moving completely",
+          "correct": false,
+          "rationale": "They keep receding."
+        },
+        {
+          "id": "d",
+          "label": "They eventually drift out of view",
+          "correct": true
+        }
+      ],
+      "explanation": "Accelerating expansion carries distant galaxies away faster and faster, until they move beyond view.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_polaris",
+    "source.brit_sun",
+    "source.brit_andromeda",
+    "source.nasa_star_life_cycle",
+    "source.brit_dark_energy",
+    "source.nobel_2011",
+    "source.brit_white_dwarf"
+  ]
+}

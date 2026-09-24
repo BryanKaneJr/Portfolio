@@ -23,6 +23,11 @@
       "conceptId": "concept.astronomy.galaxy_collisions",
       "role": "reinforce",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.andromeda",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -52,21 +57,27 @@
     },
     {
       "id": "card.astronomy.084.c4",
-      "type": "mcq",
-      "questionId": "question.astronomy.084.q1"
+      "type": "fact",
+      "fact": "Andromeda is the Local Group’s other giant.",
+      "context": "From a dark site you can spot it with the naked eye as a faint smudge, even though it lies about 2.5 million light-years away."
     },
     {
       "id": "card.astronomy.084.c5",
       "type": "mcq",
-      "questionId": "question.astronomy.084.q2"
+      "questionId": "question.astronomy.084.q1"
     },
     {
       "id": "card.astronomy.084.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.084.q2"
+    },
+    {
+      "id": "card.astronomy.084.c7",
       "type": "recall",
       "questionId": "question.astronomy.084.q3"
     },
     {
-      "id": "card.astronomy.084.c7",
+      "id": "card.astronomy.084.c8",
       "type": "checkpoint",
       "headline": "Local Group: mapped",
       "learned": [
@@ -201,6 +212,7 @@
   "sourceIds": [
     "source.brit_local_group",
     "source.brit_magellanic",
-    "source.brit_galaxy_types"
+    "source.brit_galaxy_types",
+    "source.nasa_galaxies"
   ]
 }

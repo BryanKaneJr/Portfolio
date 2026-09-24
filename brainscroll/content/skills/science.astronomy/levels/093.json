@@ -1,0 +1,218 @@
+{
+  "id": "level.science.astronomy.093",
+  "skillId": "skill.science.astronomy",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The First Stars and Galaxies",
+  "objective": "After this level you can describe how the first stars and galaxies lit up the early universe.",
+  "summary": "After the dark ages, massive stars of pure hydrogen and helium lit up and seeded space with heavier elements. Webb hunts their galaxies.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.first_stars",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.big_bang",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.infrared_astronomy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.webb_telescope",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.092"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.093.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "After its first light, the universe went dark for a long time."
+    },
+    {
+      "id": "card.astronomy.093.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The cosmic dark ages",
+      "body": "After the CMB was released there were no stars yet, just cooling gas, mostly hydrogen and helium, in the dark. Within a few hundred million years after the Big Bang, gravity pulled clumps of that gas together and the first stars lit up."
+    },
+    {
+      "id": "card.astronomy.093.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Giants of two elements",
+      "body": "The first stars formed from only hydrogen and helium. They’re thought to have been very massive and short-lived. When they died, they scattered the first heavier elements into space, seeding the gas that later stars and planets formed from."
+    },
+    {
+      "id": "card.astronomy.093.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Finding the first galaxies",
+      "body": "Light from these early galaxies has been stretched into infrared by the expanding universe. That’s why Webb, an infrared telescope, is built to find them. It has already seen galaxies as they were only a few hundred million years after the Big Bang.",
+      "callout": "Early light → infrared → Webb"
+    },
+    {
+      "id": "card.astronomy.093.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.093.q1"
+    },
+    {
+      "id": "card.astronomy.093.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.093.q2"
+    },
+    {
+      "id": "card.astronomy.093.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.093.q3"
+    },
+    {
+      "id": "card.astronomy.093.c8",
+      "type": "checkpoint",
+      "headline": "First light: found",
+      "learned": [
+        "The cosmic dark ages came before the first stars",
+        "The first stars were only hydrogen and helium",
+        "They were massive and seeded heavier elements",
+        "Webb sees galaxies from the early universe"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.first_stars"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.093.c3"
+      ],
+      "prompt": "What were the first stars made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mostly iron and carbon",
+          "correct": false,
+          "rationale": "Heavier elements came later."
+        },
+        {
+          "id": "b",
+          "label": "Only hydrogen and helium",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Mostly water ice and dust",
+          "correct": false,
+          "rationale": "Stars are made of gas."
+        },
+        {
+          "id": "d",
+          "label": "The same mix as the Sun today",
+          "correct": false,
+          "rationale": "The Sun contains elements made by earlier stars."
+        }
+      ],
+      "explanation": "The first stars formed from the Big Bang’s gas: only hydrogen and helium.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.first_stars"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.093.c3"
+      ],
+      "prompt": "Why were the first stars important for later planets like Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They gave off the cosmic microwave background",
+          "correct": false,
+          "rationale": "The CMB was released long before them."
+        },
+        {
+          "id": "b",
+          "label": "They became the planets of our solar system",
+          "correct": false,
+          "rationale": "Planets form from gas and dust around stars."
+        },
+        {
+          "id": "c",
+          "label": "They made heavier elements and scattered them",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They created all the hydrogen in the universe",
+          "correct": false,
+          "rationale": "Hydrogen formed in the Big Bang."
+        }
+      ],
+      "explanation": "Rocky planets need heavier elements. The first stars forged some and scattered them into space when they died.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.astronomy.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.first_stars",
+        "concept.astronomy.infrared_astronomy"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.093.c4",
+        "card.astronomy.036.c2"
+      ],
+      "prompt": "From Level 36: why does Webb look for the first galaxies in infrared?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Early galaxies were made of infrared stars",
+          "correct": false,
+          "rationale": "The stars shone normally; their light was stretched later."
+        },
+        {
+          "id": "b",
+          "label": "Infrared light travels faster than visible light",
+          "correct": false,
+          "rationale": "All light travels at the same speed."
+        },
+        {
+          "id": "c",
+          "label": "Visible light can’t travel that far",
+          "correct": false,
+          "rationale": "Distance alone doesn’t block visible light."
+        },
+        {
+          "id": "d",
+          "label": "Their light has been stretched into infrared",
+          "correct": true
+        }
+      ],
+      "explanation": "The expanding universe stretched light from early galaxies into infrared wavelengths, which Webb is built to detect.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_webb_early",
+    "source.brit_big_bang",
+    "source.nasa_webb"
+  ]
+}

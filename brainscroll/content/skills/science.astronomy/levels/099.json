@@ -1,0 +1,233 @@
+{
+  "id": "level.science.astronomy.099",
+  "skillId": "skill.science.astronomy",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Integration: The Big Open Questions",
+  "objective": "After this level you can describe the major unanswered questions in astronomy and why they matter.",
+  "summary": "About 95% of the universe is dark and unexplained. The Hubble tension, what came before the Big Bang and life elsewhere are all open.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.open_questions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.dark_energy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.dark_matter",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.big_bang",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.sun_layers",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.search_for_life",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.098"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The best part of astronomy: it isn’t finished.",
+      "body": "Here are some of the biggest questions still waiting for answers."
+    },
+    {
+      "id": "card.astronomy.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The dark 95%",
+      "body": "Dark matter and dark energy together make up about 95% of the universe, and nobody yet knows what either one is. Ordinary matter, everything we can see, is only about 5%.",
+      "callout": "About 95% unexplained"
+    },
+    {
+      "id": "card.astronomy.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Unsolved puzzles",
+      "body": "Different ways of measuring how fast the universe expands today disagree slightly, a puzzle called the Hubble tension. Why the Sun’s corona is so much hotter than its surface isn’t fully understood. And no one knows what, if anything, came before the Big Bang."
+    },
+    {
+      "id": "card.astronomy.099.c4",
+      "type": "fact",
+      "fact": "Is anyone out there?",
+      "context": "No life has yet been confirmed anywhere beyond Earth. Webb can now study the atmospheres of some other worlds for the gases life might leave behind."
+    },
+    {
+      "id": "card.astronomy.099.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.099.q1"
+    },
+    {
+      "id": "card.astronomy.099.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.099.q2"
+    },
+    {
+      "id": "card.astronomy.099.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.099.q3"
+    },
+    {
+      "id": "card.astronomy.099.c8",
+      "type": "checkpoint",
+      "headline": "Open questions: mapped",
+      "learned": [
+        "About 95% of the universe is still unexplained",
+        "The Hubble tension is unresolved",
+        "What came before the Big Bang is unknown",
+        "No life has been confirmed beyond Earth yet"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.open_questions"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.099.c3"
+      ],
+      "prompt": "What is the Hubble tension?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A strain on Hubble from Earth’s gravity",
+          "correct": false,
+          "rationale": "It isn’t about the telescope itself."
+        },
+        {
+          "id": "b",
+          "label": "The pull between the Milky Way and Andromeda",
+          "correct": false,
+          "rationale": "That’s gravity, not the tension."
+        },
+        {
+          "id": "c",
+          "label": "Expansion measurements that disagree slightly",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Stress on galaxies stretched by dark energy",
+          "correct": false,
+          "rationale": "Galaxies aren’t being torn apart."
+        }
+      ],
+      "explanation": "Different methods give slightly different values for how fast the universe expands today.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.open_questions",
+        "concept.astronomy.dark_energy"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.099.c2"
+      ],
+      "prompt": "About how much of the universe is made of things we don’t yet understand?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 5%",
+          "correct": false,
+          "rationale": "That’s the ordinary matter we do understand."
+        },
+        {
+          "id": "b",
+          "label": "About 27%",
+          "correct": false,
+          "rationale": "That’s dark matter alone."
+        },
+        {
+          "id": "c",
+          "label": "About 50%",
+          "correct": false,
+          "rationale": "It’s much more than half."
+        },
+        {
+          "id": "d",
+          "label": "About 95%",
+          "correct": true
+        }
+      ],
+      "explanation": "Dark energy and dark matter together make up about 95% of the universe.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.astronomy.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.open_questions",
+        "concept.astronomy.search_for_life"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.099.c4",
+        "card.astronomy.079.c4"
+      ],
+      "prompt": "From Level 79: why is “Is there life elsewhere?” still an open question?",
+      "options": [
+        {
+          "id": "a",
+          "label": "No life has been confirmed beyond Earth yet",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Scientists agree life is impossible elsewhere",
+          "correct": false,
+          "rationale": "Many think life elsewhere is possible."
+        },
+        {
+          "id": "c",
+          "label": "No planets exist around other stars",
+          "correct": false,
+          "rationale": "Thousands have been found."
+        },
+        {
+          "id": "d",
+          "label": "No one has ever searched for it",
+          "correct": false,
+          "rationale": "Searches are under way."
+        }
+      ],
+      "explanation": "Despite searches, no life has yet been confirmed beyond Earth, so the question stays open.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_dark_matter",
+    "source.brit_hubble_law",
+    "source.nasa_hubble",
+    "source.nasa_sun_facts",
+    "source.brit_big_bang",
+    "source.nasa_astrobiology",
+    "source.nasa_webb"
+  ]
+}

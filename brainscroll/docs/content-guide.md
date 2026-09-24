@@ -47,7 +47,7 @@ The source of truth is `LEARNING_STRUCTURE` in `packages/core/src/constants.ts` 
 ## Anatomy of a level
 
 - `objective`: one clear learning goal, phrased as "After this level you can …".
-- `concepts`: what the level `teach`es, `reinforce`s, or `recall`s. `recall` must point at something an earlier level taught.
+- `concepts`: what the level `teach`es, `reinforce`s, or `recall`s. `recall` must point at something an earlier level taught. Every level teaches at least one concept, except a `mastery` level, which may be pure recall across the tree (its structure allows zero learning cards).
 - `type`: `regular`, `checkpoint`, `milestone` or `mastery` (see above).
 - `cards`: hook → learning cards → question cards → a `checkpoint` recap card. (The `checkpoint` *card* is the end-of-level recap. It isn't the same thing as a checkpoint *level*.)
 - `questions`: count set by `type` (3 for a regular level). Each needs a `purpose`, **exactly one** correct option, 2–4 options, an explanation, the concept IDs it tests, and **`sourceCardIds`**: the learning or hook cards that teach the answer. After a wrong first attempt, those cards appear under the question ("Take another look") until it's answered correctly. They can be in this level or an earlier level of the same skill, which is typical for connection questions. The validator rejects missing, unknown, later-level or question/recap cards. Make sure the card actually contains the evidence. Each question is shown by exactly one `mcq` or `recall` card.

@@ -182,7 +182,11 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
       if (lc.role === 'recall' && !taughtEarlier.has(lc.conceptId))
         err(where, `recalls ${lc.conceptId}, which no earlier level teaches`);
     }
-    if (!level.concepts.some((c) => c.role === 'teach')) err(where, 'teaches no concept');
+    // Every level teaches something new, except a Mastery Challenge: it may have no
+    // learning cards at all (LEARNING_STRUCTURE.mastery.learningCards.min is 0) and
+    // tests the whole tree through recall.
+    const mayTeachNothing = structureFor(level).learningCards.min === 0;
+    if (!mayTeachNothing && !level.concepts.some((c) => c.role === 'teach')) err(where, 'teaches no concept');
 
     for (const sid of level.sourceIds) {
       const s = sourceById.get(sid);

@@ -1,0 +1,213 @@
+{
+  "id": "level.science.astronomy.094",
+  "skillId": "skill.science.astronomy",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Dark Energy",
+  "objective": "After this level you can explain the discovery that the universe’s expansion is speeding up.",
+  "summary": "In 1998, distant supernovae showed that the expansion is speeding up. Its unknown cause, dark energy, is about 68% of the universe.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.dark_energy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.dark_matter",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.hubble_expansion",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.093"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.094.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The universe’s expansion is speeding up, and no one knows why."
+    },
+    {
+      "id": "card.astronomy.094.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Expecting a slowdown",
+      "body": "Gravity pulls everything together, so astronomers expected the expansion of the universe to be slowing down. In 1998 two teams measured distant supernovae to check. The supernovae were fainter than a slowing universe allowed. The expansion is speeding up.",
+      "callout": "Expected: slowing · Found: speeding up"
+    },
+    {
+      "id": "card.astronomy.094.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dark energy",
+      "body": "Whatever is driving the acceleration is called dark energy, and nobody knows what it is. Yet it makes up roughly 68% of the universe’s energy content. Dark matter is about 27%, and everything made of ordinary atoms, every star, planet and person, is only about 5%.",
+      "callout": "68% · 27% · 5%"
+    },
+    {
+      "id": "card.astronomy.094.c4",
+      "type": "fact",
+      "fact": "The discovery won the 2011 Nobel Prize in Physics.",
+      "context": "Saul Perlmutter, Brian Schmidt and Adam Riess shared it for revealing the accelerating universe."
+    },
+    {
+      "id": "card.astronomy.094.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.094.q1"
+    },
+    {
+      "id": "card.astronomy.094.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.094.q2"
+    },
+    {
+      "id": "card.astronomy.094.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.094.q3"
+    },
+    {
+      "id": "card.astronomy.094.c8",
+      "type": "checkpoint",
+      "headline": "Dark energy: discovered",
+      "learned": [
+        "The expansion of the universe is speeding up",
+        "Distant supernovae revealed it in 1998",
+        "The unknown cause is called dark energy",
+        "Ordinary matter is only ~5% of the universe"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.dark_energy"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.094.c2"
+      ],
+      "prompt": "What did astronomers discover in 1998?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The expansion of the universe is slowing",
+          "correct": false,
+          "rationale": "That was the expectation."
+        },
+        {
+          "id": "b",
+          "label": "The universe has stopped expanding",
+          "correct": false,
+          "rationale": "It’s still expanding."
+        },
+        {
+          "id": "c",
+          "label": "The Milky Way is slowly shrinking",
+          "correct": false,
+          "rationale": "Not what they found."
+        },
+        {
+          "id": "d",
+          "label": "The expansion of the universe is speeding up",
+          "correct": true
+        }
+      ],
+      "explanation": "Distant supernovae were fainter than expected: the expansion is accelerating.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.dark_energy"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.094.c3"
+      ],
+      "prompt": "Roughly how much of the universe is ordinary matter, the stuff of stars, planets and people?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 5%",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "About 27%",
+          "correct": false,
+          "rationale": "That’s dark matter."
+        },
+        {
+          "id": "c",
+          "label": "About 68%",
+          "correct": false,
+          "rationale": "That’s dark energy."
+        },
+        {
+          "id": "d",
+          "label": "About 50%",
+          "correct": false,
+          "rationale": "Far less than half."
+        }
+      ],
+      "explanation": "Ordinary matter is only about 5%. Dark matter is about 27% and dark energy about 68%.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.astronomy.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.dark_energy",
+        "concept.astronomy.dark_matter"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.094.c3",
+        "card.astronomy.085.c4"
+      ],
+      "prompt": "From Level 85: how are dark matter and dark energy different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are two names for the same thing",
+          "correct": false,
+          "rationale": "They have opposite effects."
+        },
+        {
+          "id": "b",
+          "label": "Dark matter glows faintly; dark energy doesn’t",
+          "correct": false,
+          "rationale": "Neither gives off light."
+        },
+        {
+          "id": "c",
+          "label": "Dark matter adds gravity; dark energy speeds up expansion",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Dark energy is made of black holes",
+          "correct": false,
+          "rationale": "What it is remains unknown."
+        }
+      ],
+      "explanation": "Dark matter’s gravity holds galaxies together; dark energy drives the expansion to accelerate.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.brit_dark_energy",
+    "source.nobel_2011",
+    "source.nasa_dark_matter"
+  ]
+}

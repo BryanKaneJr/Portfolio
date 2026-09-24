@@ -1,0 +1,218 @@
+{
+  "id": "level.science.astronomy.091",
+  "skillId": "skill.science.astronomy",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Big Bang",
+  "objective": "After this level you can explain what the Big Bang theory says and what it doesn’t.",
+  "summary": "The universe began about 13.8 billion years ago, hot and dense, and has expanded and cooled ever since. It wasn’t an explosion in space.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.big_bang",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.hubble_expansion",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.universe_scale_age",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.spectral_lines",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.090"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.091.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Everything you’ve learned about began hot, dense and tiny."
+    },
+    {
+      "id": "card.astronomy.091.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rewind the expansion",
+      "body": "If galaxies are moving apart today, they were closer together in the past. Run the clock back far enough and everything was packed into an extremely hot, dense state. The Big Bang theory says the universe began that way about 13.8 billion years ago and has been expanding and cooling ever since.",
+      "callout": "Hot and dense → expanding and cooling"
+    },
+    {
+      "id": "card.astronomy.091.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not an explosion",
+      "body": "Despite the name, the Big Bang was not an explosion into empty space. It was the expansion of space itself, happening everywhere at once. The name came in 1949 from astronomer Fred Hoyle, who favored a rival theory."
+    },
+    {
+      "id": "card.astronomy.091.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The first ingredients",
+      "body": "In its first few minutes, the young universe made the lightest elements: hydrogen, helium and a trace of lithium. What came before the Big Bang, if anything, is a question the theory doesn’t answer."
+    },
+    {
+      "id": "card.astronomy.091.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.091.q1"
+    },
+    {
+      "id": "card.astronomy.091.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.091.q2"
+    },
+    {
+      "id": "card.astronomy.091.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.091.q3"
+    },
+    {
+      "id": "card.astronomy.091.c8",
+      "type": "checkpoint",
+      "headline": "The Big Bang: understood",
+      "learned": [
+        "The universe began ~13.8 billion years ago, hot and dense",
+        "It has been expanding and cooling ever since",
+        "The Big Bang was space expanding, not an explosion",
+        "The first minutes made hydrogen and helium"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.big_bang"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.091.c2"
+      ],
+      "prompt": "According to the Big Bang theory, how did the universe begin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As a cold, empty void that slowly heated up",
+          "correct": false,
+          "rationale": "It began extremely hot."
+        },
+        {
+          "id": "b",
+          "label": "In an extremely hot, dense state, then expanded",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "As a single giant star that later exploded",
+          "correct": false,
+          "rationale": "There were no stars at the start."
+        },
+        {
+          "id": "d",
+          "label": "As a swarm of galaxies moving inward",
+          "correct": false,
+          "rationale": "Galaxies formed much later."
+        }
+      ],
+      "explanation": "The universe began about 13.8 billion years ago, extremely hot and dense, and has been expanding and cooling ever since.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.big_bang"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.091.c3"
+      ],
+      "prompt": "Why is it misleading to picture the Big Bang as a bomb going off in space?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Space itself expanded, everywhere at once",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "There was no matter until much later",
+          "correct": false,
+          "rationale": "Hydrogen and helium formed within minutes."
+        },
+        {
+          "id": "c",
+          "label": "It happened at the center of the Milky Way",
+          "correct": false,
+          "rationale": "The expansion has no center."
+        },
+        {
+          "id": "d",
+          "label": "Bombs are much hotter than the Big Bang was",
+          "correct": false,
+          "rationale": "The early universe was extremely hot."
+        }
+      ],
+      "explanation": "A bomb explodes into space that already exists. The Big Bang was the expansion of space itself, with no center.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.astronomy.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.big_bang",
+        "concept.astronomy.spectral_lines"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.091.c4",
+        "card.astronomy.032.c3"
+      ],
+      "prompt": "From Level 32: stars are made mostly of hydrogen and helium. Where did those elements first come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were forged in supernovae",
+          "correct": false,
+          "rationale": "Supernovae forge heavier elements."
+        },
+        {
+          "id": "b",
+          "label": "They formed inside early planets",
+          "correct": false,
+          "rationale": "Planets don’t make elements."
+        },
+        {
+          "id": "c",
+          "label": "The first minutes after the Big Bang",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Comets delivered them to galaxies",
+          "correct": false,
+          "rationale": "Comets came much later."
+        }
+      ],
+      "explanation": "Hydrogen and helium, with a trace of lithium, formed in the first few minutes after the Big Bang.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_big_bang",
+    "source.nasa_universe_age",
+    "source.brit_hubble_law"
+  ]
+}

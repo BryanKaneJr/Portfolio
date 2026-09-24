@@ -1,0 +1,269 @@
+{
+  "id": "level.science.astronomy.097",
+  "skillId": "skill.science.astronomy",
+  "number": 97,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Integration: How We Know What We Know",
+  "objective": "After this level you can connect each major astronomical discovery to the tool or method behind it.",
+  "summary": "We can’t visit the stars, so astronomers read their light: spectra, parallax, transits, spin and gravitational waves.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.evidence_methods",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.spectral_lines",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.stellar_parallax_proof",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.exoplanet_detection",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.dark_matter",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.gravitational_waves",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.redshift",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.hubble_expansion",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.eratosthenes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.096"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.097.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "We can’t visit the stars. So how do we know so much about them?"
+    },
+    {
+      "id": "card.astronomy.097.c2",
+      "type": "comparison",
+      "headline": "Discovery ← method",
+      "items": [
+        {
+          "label": "What stars are made of",
+          "points": [
+            "Spectral lines in their light"
+          ]
+        },
+        {
+          "label": "Distance to nearby stars",
+          "points": [
+            "Parallax as Earth orbits"
+          ]
+        },
+        {
+          "label": "Planets around other stars",
+          "points": [
+            "Transits and wobbles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.astronomy.097.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "New windows",
+      "body": "Some discoveries needed entirely new signals. Stars at galaxies’ edges orbiting too fast revealed dark matter. Redshift in galaxies’ spectra revealed the expanding universe. And LIGO first detected gravitational waves in 2015, from merging black holes."
+    },
+    {
+      "id": "card.astronomy.097.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Old tricks still work",
+      "body": "Some methods needed no telescope at all. Around 240 BCE, Eratosthenes estimated Earth’s size from the Sun’s noon angle in two cities. Careful measurement and reasoning, checked by others, is how astronomy has always worked."
+    },
+    {
+      "id": "card.astronomy.097.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.097.q1"
+    },
+    {
+      "id": "card.astronomy.097.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.097.q2"
+    },
+    {
+      "id": "card.astronomy.097.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.097.q3"
+    },
+    {
+      "id": "card.astronomy.097.c8",
+      "type": "checkpoint",
+      "headline": "Methods: mastered",
+      "learned": [
+        "Spectral lines reveal what stars are made of",
+        "Parallax measures distances to nearby stars",
+        "Transits and wobbles find planets",
+        "Galaxy spin revealed dark matter"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.097.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.evidence_methods",
+        "concept.astronomy.spectral_lines"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.097.c2"
+      ],
+      "prompt": "Which pairing of method and discovery is correct?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spectral lines → what stars are made of",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Parallax → what stars are made of",
+          "correct": false,
+          "rationale": "Parallax measures distance."
+        },
+        {
+          "id": "c",
+          "label": "Transits → the distance to stars",
+          "correct": false,
+          "rationale": "Transits reveal planets."
+        },
+        {
+          "id": "d",
+          "label": "Redshift → what planets are made of",
+          "correct": false,
+          "rationale": "Redshift reveals distance and expansion."
+        }
+      ],
+      "explanation": "Each element leaves its own lines in a spectrum, so spectra reveal what stars are made of.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.097.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.evidence_methods",
+        "concept.astronomy.stellar_parallax_proof"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.097.c2"
+      ],
+      "prompt": "An astronomer wants the distance to a nearby star. Which method fits best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Watching for transits",
+          "correct": false,
+          "rationale": "Transits reveal planets."
+        },
+        {
+          "id": "b",
+          "label": "Measuring its parallax",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Listening for gravitational waves",
+          "correct": false,
+          "rationale": "Those come from colliding black holes and neutron stars."
+        },
+        {
+          "id": "d",
+          "label": "Reading its spectral lines",
+          "correct": false,
+          "rationale": "Spectra reveal composition."
+        }
+      ],
+      "explanation": "Parallax, the star’s tiny shift as Earth orbits the Sun, gives the distance to nearby stars.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.097.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.evidence_methods",
+        "concept.astronomy.dark_matter"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.097.c3",
+        "card.astronomy.085.c2"
+      ],
+      "prompt": "From Level 85: no one has ever seen dark matter. What evidence convinced astronomers it exists?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Photos of dark clouds between galaxies",
+          "correct": false,
+          "rationale": "Dark matter is invisible, not dark-colored."
+        },
+        {
+          "id": "b",
+          "label": "Samples returned by space probes",
+          "correct": false,
+          "rationale": "No probe has collected any."
+        },
+        {
+          "id": "c",
+          "label": "Radio signals from dark matter itself",
+          "correct": false,
+          "rationale": "It gives off no signals."
+        },
+        {
+          "id": "d",
+          "label": "Stars orbiting faster than visible mass allows",
+          "correct": true
+        }
+      ],
+      "explanation": "Galaxies spin too fast for their visible matter, so extra unseen mass must be adding gravity.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_ems",
+    "source.brit_spectroscopy",
+    "source.brit_bessel",
+    "source.nasa_exoplanets",
+    "source.nasa_dark_matter",
+    "source.brit_vera_rubin",
+    "source.brit_redshift",
+    "source.brit_hubble_law",
+    "source.ligo",
+    "source.brit_eratosthenes"
+  ]
+}

@@ -112,6 +112,13 @@ describe('validateContent', () => {
     expect(issues(bundle([makeLevel(1), l2]), 'error')).toEqual(['teaches no concept']);
   });
 
+  it('lets only a Mastery Challenge teach nothing new', () => {
+    const levels = Array.from({ length: 99 }, (_, i) => makeLevel(i + 1));
+    const mastery = makeLevel(100, { concepts: [{ conceptId: CONCEPT, role: 'recall' }] });
+    (mastery.cards as Record<string, unknown>[])[3]!.type = 'recall';
+    expect(issues(bundle([...levels, mastery]), 'error')).not.toContain('teaches no concept');
+  });
+
   it('requires contiguous level numbers', () => {
     expect(issues(bundle([makeLevel(1), makeLevel(3)]), 'error').some((m) => m.includes('contiguous'))).toBe(true);
   });
