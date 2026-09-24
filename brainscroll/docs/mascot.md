@@ -12,15 +12,19 @@ He's inspired by the "wild-haired genius professor" idea, but he must not be Alb
 
 ## Look (every image)
 
-**The approved reference is [`mascot-reference.webp`](mascot-reference.webp)** (it becomes `mascot.reference`). When this text and the image disagree, the image wins. Every pose must match it:
+He's deliberately simple, because the image model redraws small details differently every time. Only these five things define him, and every pose must keep all five:
 
-- **Shape:** short and round, like a toy. His head is a bit under half his height. He has short arms and legs and simple mitten-like hands.
-- **Hair:** a bald, smooth crown with two fluffy white clouds of hair at the sides, and thick white rounded eyebrows. He's clean-shaven, with no mustache or beard.
-- **Face:** thin dark round glasses, small black oval eyes, a round nose, soft warm cheeks and a gentle closed smile.
-- **Clothes:** a plain brown jacket with two buttons and faint elbow patches, matching brown trousers and shoes, a cream shirt and a **violet bow tie**, his signature. A yellow pencil is tucked into the hair above his right ear (his right, the viewer's left).
-- **Style:** soft matte 3D clay, smooth and slightly velvety. It's softer than the glossy object icons, and that's fine for a character. Soft even light, with a gentle shadow under his feet.
-- **Background:** transparent. The reference has a transparent background, so keep every pose transparent to sit on top of cards and screens.
-- **Rules:** he's the only character in the image, with no text, letters or numbers anywhere, and no gold except in `mascot.mastery`.
+1. **A round toy-like body.** His head is a bit under half his height, with short arms and legs and simple mitten-like hands.
+2. **A bald crown with two white cloud tufts** of hair at the sides, and simple white eyebrows. No mustache or beard.
+3. **Thin dark round glasses** over small black oval eyes, with a round nose and a gentle smile.
+4. **A plain brown jacket** over a cream shirt, with brown trousers and shoes. The jacket has no buttons, patches, pockets or texture.
+5. **A violet bow tie**, his signature.
+
+Nothing else. **No pencil, no elbow patches, no buttons**, and no badges, pens or pocket items. The first reference image had a pencil, patches and buttons; those are dropped.
+
+- **Style:** soft matte 3D clay, smooth and slightly velvety, with soft even light and a gentle shadow under his feet.
+- **Background:** transparent, so he can sit on top of cards and screens.
+- **Rules:** he's the only character in the image, holding **at most one prop**. No text, letters or numbers anywhere, and no gold except in `mascot.mastery`.
 
 ## Personality (for copy written next to him)
 
@@ -33,9 +37,9 @@ He's inspired by the "wild-haired genius professor" idea, but he must not be Alb
 
 A character only works if he looks like the same person in every image.
 
-1. `mascot.reference` is done and approved: [`mascot-reference.webp`](mascot-reference.webp).
+1. **Remake `mascot.reference` in the simplified look first.** Edit the approved image ([`mascot-reference.webp`](mascot-reference.webp)) to remove the pencil, the elbow patches and the jacket buttons, and change nothing else. Approve that edit, then replace `mascot-reference.webp` with it. Every pose is made from the simplified version, never the old one.
 2. Make every pose **from that reference image**, using the image model's reference or edit input, not text alone. The prompt should say "the same character" and describe only the pose and prop.
-3. Review the poses side by side. Reject any where the hair, glasses, bow tie or proportions drift.
+3. Review the poses side by side. Check the five signatures in each one, and reject any where they drift or where extra details appear.
 
 ## Poses
 
@@ -49,13 +53,13 @@ A character only works if he looks like the same person in every image.
 | `mascot.thinking` | Hand on chin, eyes up, pondering | Question screens, "think about it" moments |
 | `mascot.idea` | One finger raised, eyebrows up, a small glowing spark above his head | "Aha" moments, key takeaways |
 | `mascot.explaining` | Both palms open, mid-sentence | Explanation cards, onboarding |
-| `mascot.chalkboard` | Holding chalk beside a small blank chalkboard | Lesson intros, recaps |
+| `mascot.chalkboard` | Holding up a small blank chalkboard | Lesson intros, recaps |
 | `mascot.reading` | Reading an open book, delighted | Sources and "read more" |
-| `mascot.magnifier` | Peering through a magnifying glass, one big eye | "Look closer" cards, fact-check and source notes |
-| `mascot.surprised` | Eyebrows shot up, mouth in a round "oh!", glasses slipping | "Did you know?" surprising facts |
+| `mascot.magnifier` | Holding up a magnifying glass, looking through it | "Look closer" cards, fact-check and source notes |
+| `mascot.surprised` | Eyebrows up, mouth in a round "oh!" | "Did you know?" surprising facts |
 | `mascot.whisper` | Hand beside his mouth, leaning in | Fun facts and asides |
 | `mascot.waiting` | Checking a pocket watch | Loading states |
-| `mascot.tangled` | Tangled up in a loop of wire, smiling sheepishly | Errors and offline |
+| `mascot.tangled` | Scratching his head with a sheepish smile | Errors and offline |
 
 ### Feedback
 
@@ -65,17 +69,17 @@ A character only works if he looks like the same person in every image.
 | `mascot.oops` | Gentle shrug with a kind smile | Wrong answer (never mocking) |
 | `mascot.encourage` | Small fist pump, "you've got this" | Try again, review prompts |
 | `mascot.clapping` | Clapping, eyes closed with joy | Finishing a level |
-| `mascot.celebrate` | Both arms up, bouncing, with confetti | Level up |
+| `mascot.celebrate` | Both arms up, jumping for joy | Level up |
 
 ### Progress and the day
 
 | Image ID | Pose | Used for |
 | --- | --- | --- |
 | `mascot.checkpoint` | Holding a clipboard with a big check mark | Checkpoint levels |
-| `mascot.review` | Shuffling a small stack of cards | Review tab |
+| `mascot.review` | Holding a small stack of cards | Review tab |
 | `mascot.mastery` | Holding up a gold star, beaming (the only gold) | Mastery Challenge, mastery moments |
-| `mascot.go-outside` | Walking off with a walking stick toward a small tree, waving back | Daily Knowledge Complete ("go touch grass") |
-| `mascot.sleeping` | Dozing in an armchair with a book on his belly | "Come back tomorrow", empty states |
+| `mascot.go-outside` | Walking away, looking back and waving goodbye | Daily Knowledge Complete ("go touch grass") |
+| `mascot.sleeping` | Standing asleep, eyes closed, head tilted | "Come back tomorrow", empty states |
 
 ### Subjects (one per subject, for tree headers and chapter intros)
 
@@ -85,10 +89,10 @@ A character only works if he looks like the same person in every image.
 | `mascot.science` | Holding up a bubbling flask | Science |
 | `mascot.geography` | Spinning a small globe on one finger | Geography |
 | `mascot.money` | Balancing a coin on his fingertip | Money & Economics |
-| `mascot.arts` | Holding a paintbrush and palette | Arts & Culture |
-| `mascot.world-systems` | Holding a big wrench beside a gear | How the World Works |
+| `mascot.arts` | Holding up a paintbrush | Arts & Culture |
+| `mascot.world-systems` | Holding a big wrench | How the World Works |
 
-That's 29 images. Start with the reference and about 5 core poses (wave, pointing, thinking, thumbs-up, oops). Check that he stays consistent, then do the rest.
+That's 29 images. Start with the simplified reference and 5 core poses (wave, pointing, thinking, thumbs-up, oops). Check that he stays consistent, then do the rest.
 
 ## In the app (later)
 
@@ -103,4 +107,4 @@ Nothing shows him yet. Once the images exist:
 
 ## Name
 
-**Dr. Scroll**, chosen by the owner. It echoes BrainScroll and his scroll in `mascot.history`. In copy he's "Dr. Scroll", never shortened to "Scroll" on its own, so he isn't confused with scrolling the feed. Image IDs stay `mascot.*`.
+**Dr. Scroll**, chosen by the owner. It echoes BrainScroll and the scroll he holds in `mascot.history`. In copy he's "Dr. Scroll", never shortened to "Scroll" on its own, so he isn't confused with scrolling the feed. Image IDs stay `mascot.*`.

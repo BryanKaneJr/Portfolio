@@ -4,6 +4,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Dr. Scroll simplified** so the image tool can repeat him: five signatures only (round body, bald crown with white tufts, round glasses, plain brown jacket, violet bow tie), no pencil, patches or buttons, and at most one prop per pose. The reference is to be re-edited to match before any pose is made.
 - **Dr. Scroll's reference image approved** and saved as `docs/mascot-reference.webp` (transparent background). The character guide now describes that image, so every pose matches it.
 - **Mascot defined:** `docs/mascot.md` describes Dr. Scroll, an original cute old genius (not Einstein, whose likeness is licensed), with 29 poses for lessons, feedback, progress screens and subjects, plus how to keep him consistent across images. He isn't in the app yet.
 - **Six more trees planned, bringing the total to 16:** Ancient Egypt, Ancient Greece, Chemistry, Architecture, How Government Works and The Oceans. They were written to reuse images: 600 levels need only 63 new images, plus 20 from the first-round image list.
