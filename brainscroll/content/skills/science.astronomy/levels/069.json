@@ -1,0 +1,212 @@
+{
+  "id": "level.science.astronomy.069",
+  "skillId": "skill.science.astronomy",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Supernovae and Star Stuff",
+  "objective": "After this level you can explain how massive stars explode and scatter the elements we are made of.",
+  "summary": "Stars over ~8 Suns’ mass end in core-collapse supernovae, spreading the elements forged in stars, including those in us.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.supernovae_elements",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.star_life_cycle",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.spectral_lines",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.068"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.069.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The iron in your blood was made inside a star."
+    },
+    {
+      "id": "card.astronomy.069.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Going out with a bang",
+      "body": "Stars more than about eight times as massive as the Sun end their lives when their cores collapse. The collapse triggers a supernova, an explosion that can briefly outshine an entire galaxy.",
+      "callout": "Over ~8 Suns → core collapse"
+    },
+    {
+      "id": "card.astronomy.069.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cosmic recycling",
+      "body": "Nearly all the elements heavier than hydrogen and helium were made by nuclear reactions inside stars and in stellar explosions. Supernovae scatter them into space, where they become part of new stars, planets and people. The calcium in your bones was forged in stars that died before the Sun formed."
+    },
+    {
+      "id": "card.astronomy.069.c4",
+      "type": "fact",
+      "fact": "In 1987, a supernova was visible to the naked eye.",
+      "context": "It exploded in the Large Magellanic Cloud, a small galaxy near the Milky Way: the closest supernova seen in centuries."
+    },
+    {
+      "id": "card.astronomy.069.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.069.q1"
+    },
+    {
+      "id": "card.astronomy.069.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.069.q2"
+    },
+    {
+      "id": "card.astronomy.069.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.069.q3"
+    },
+    {
+      "id": "card.astronomy.069.c8",
+      "type": "checkpoint",
+      "headline": "Star stuff: traced",
+      "learned": [
+        "Stars over ~8 Suns end in core-collapse supernovae",
+        "Heavy elements are forged in stars",
+        "Supernovae scatter them into new stars and planets",
+        "Your bones and blood contain star-made elements"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.supernovae_elements"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.069.c2"
+      ],
+      "prompt": "Which stars end their lives in core-collapse supernovae?",
+      "options": [
+        {
+          "id": "a",
+          "label": "All stars, including the Sun",
+          "correct": false,
+          "rationale": "The Sun will become a white dwarf instead."
+        },
+        {
+          "id": "b",
+          "label": "Only the smallest red dwarfs",
+          "correct": false,
+          "rationale": "Red dwarfs fade slowly."
+        },
+        {
+          "id": "c",
+          "label": "Stars more than about eight times the Sun’s mass",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only stars that have planets",
+          "correct": false,
+          "rationale": "Planets don’t decide a star’s fate."
+        }
+      ],
+      "explanation": "Stars more than about eight times as massive as the Sun end in core-collapse supernovae.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.supernovae_elements"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.069.c3"
+      ],
+      "prompt": "Where did most of the elements in your body come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were made by the Big Bang alone",
+          "correct": false,
+          "rationale": "The Big Bang made mostly hydrogen and helium."
+        },
+        {
+          "id": "b",
+          "label": "They were forged inside stars and spread by stellar explosions",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They formed on Earth’s surface over time",
+          "correct": false,
+          "rationale": "Elements are made in stars, not on planets."
+        },
+        {
+          "id": "d",
+          "label": "They arrived on comets only recently",
+          "correct": false,
+          "rationale": "Comets carry elements; they didn’t make them."
+        }
+      ],
+      "explanation": "Heavier elements, like the calcium in bones and the iron in blood, were made in stars and scattered by supernovae.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.supernovae_elements",
+        "concept.astronomy.spectral_lines"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.069.c3",
+        "card.astronomy.032.c2"
+      ],
+      "prompt": "From Level 32: how do astronomers know which elements a supernova blasted out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They collect samples with spacecraft",
+          "correct": false,
+          "rationale": "Supernovae are far too distant."
+        },
+        {
+          "id": "b",
+          "label": "They measure how loud the explosion was",
+          "correct": false,
+          "rationale": "Space carries no sound."
+        },
+        {
+          "id": "c",
+          "label": "They time how long it stays bright",
+          "correct": false,
+          "rationale": "That doesn’t reveal the elements."
+        },
+        {
+          "id": "d",
+          "label": "They read the spectral lines in its light",
+          "correct": true
+        }
+      ],
+      "explanation": "Each element leaves its own spectral lines, so a supernova’s spectrum reveals what it contains.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_nucleosynthesis",
+    "source.brit_supernova",
+    "source.nasa_star_life_cycle"
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "id": "level.science.astronomy.065",
+  "skillId": "skill.science.astronomy",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Star Partners: Binary Stars",
+  "objective": "After this level you can explain binary stars and how they let astronomers weigh stars.",
+  "summary": "Many stars orbit partners. Watching two stars orbit lets astronomers weigh them with the laws of gravity.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.binary_stars",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.kepler_laws",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.newton_gravity",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.064"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Our Sun is a bit of a loner."
+    },
+    {
+      "id": "card.astronomy.065.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stars in pairs",
+      "body": "Many stars orbit a companion. Our nearest neighbor, Alpha Centauri, is a system of three stars, including Proxima Centauri. Even Sirius has a small, faint partner, Sirius B, which is a white dwarf.",
+      "callout": "Alpha Centauri: 3 stars"
+    },
+    {
+      "id": "card.astronomy.065.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Weighing stars",
+      "body": "You can’t put a star on a scale, but two stars orbiting each other obey the laws of gravity. Measure the size and timing of their orbit, and you can calculate their masses. Binary stars are how astronomers first weighed stars. Some pairs even pass in front of each other, dimming like clockwork: eclipsing binaries.",
+      "callout": "Orbit size + period → mass"
+    },
+    {
+      "id": "card.astronomy.065.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.065.q1"
+    },
+    {
+      "id": "card.astronomy.065.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.065.q2"
+    },
+    {
+      "id": "card.astronomy.065.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.065.q3"
+    },
+    {
+      "id": "card.astronomy.065.c7",
+      "type": "checkpoint",
+      "headline": "Binary stars: weighed",
+      "learned": [
+        "Many stars orbit companions",
+        "Alpha Centauri has three stars",
+        "Sirius has a white dwarf partner",
+        "Binary orbits reveal stars’ masses"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.binary_stars"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.065.c2"
+      ],
+      "prompt": "How many stars are in the Alpha Centauri system?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One",
+          "correct": false,
+          "rationale": "It’s a multiple system."
+        },
+        {
+          "id": "b",
+          "label": "Two",
+          "correct": false,
+          "rationale": "There’s a third, Proxima."
+        },
+        {
+          "id": "c",
+          "label": "Three",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Seven",
+          "correct": false,
+          "rationale": "It has three."
+        }
+      ],
+      "explanation": "Alpha Centauri has three stars, including Proxima Centauri.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.binary_stars"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.065.c3"
+      ],
+      "prompt": "Why are binary stars so useful to astronomers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are always brighter than single stars",
+          "correct": false,
+          "rationale": "Brightness isn’t the point."
+        },
+        {
+          "id": "b",
+          "label": "Their orbits reveal the stars’ masses",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They never change over time",
+          "correct": false,
+          "rationale": "They orbit and evolve."
+        },
+        {
+          "id": "d",
+          "label": "They show where black holes are",
+          "correct": false,
+          "rationale": "That isn’t their main use."
+        }
+      ],
+      "explanation": "Using the laws of gravity, the size and period of a binary’s orbit give the stars’ masses.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.binary_stars",
+        "concept.astronomy.newton_gravity"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.065.c3",
+        "card.astronomy.027.c2"
+      ],
+      "prompt": "From Level 27: which law lets astronomers turn a binary star’s orbit into a mass?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Eratosthenes’ shadow method",
+          "correct": false,
+          "rationale": "That measured Earth."
+        },
+        {
+          "id": "b",
+          "label": "The law of the tides",
+          "correct": false,
+          "rationale": "Tides are an effect of gravity, not the tool."
+        },
+        {
+          "id": "c",
+          "label": "The inverse square law of light",
+          "correct": false,
+          "rationale": "That relates brightness and distance."
+        },
+        {
+          "id": "d",
+          "label": "Newton’s law of universal gravitation",
+          "correct": true
+        }
+      ],
+      "explanation": "Newton’s gravity links orbit size and period to mass, whether for planets or pairs of stars.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_binary_star",
+    "source.brit_alpha_centauri",
+    "source.brit_sirius_star"
+  ]
+}

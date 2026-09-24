@@ -1,0 +1,339 @@
+{
+  "id": "level.science.astronomy.070",
+  "skillId": "skill.science.astronomy",
+  "number": 70,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: The Lives of Stars",
+  "objective": "After this level you can trace a star’s life from nebula to its final state based on its mass.",
+  "summary": "Mass decides everything: Sun-like stars end as white dwarfs, while the most massive leave neutron stars or black holes.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.stellar_fates",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.star_formation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.main_sequence_mass",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.red_giants",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.white_dwarfs",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.supernovae_elements",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.parallax_method",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.069"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.070.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 7 finale. One number decides a star’s whole life story.",
+      "body": "That number is its mass."
+    },
+    {
+      "id": "card.astronomy.070.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two paths",
+      "body": "A star’s final fate depends mainly on its mass. A Sun-like star swells into a red giant, sheds a planetary nebula and ends as a white dwarf. A star far more massive than the Sun explodes as a supernova and leaves behind something much stranger: a neutron star or a black hole.",
+      "callout": "Sun-like → white dwarf · Massive → neutron star or black hole"
+    },
+    {
+      "id": "card.astronomy.070.c3",
+      "type": "timeline",
+      "headline": "A Sun-like star’s life",
+      "events": [
+        {
+          "when": "Birth",
+          "label": "Collapses from a cloud of gas and dust"
+        },
+        {
+          "when": "Main sequence",
+          "label": "Fuses hydrogen for billions of years"
+        },
+        {
+          "when": "Red giant",
+          "label": "Core runs low on hydrogen; outer layers swell"
+        },
+        {
+          "when": "The end",
+          "label": "Sheds a planetary nebula; a white dwarf remains"
+        }
+      ]
+    },
+    {
+      "id": "card.astronomy.070.c4",
+      "type": "recall",
+      "questionId": "question.astronomy.070.q1"
+    },
+    {
+      "id": "card.astronomy.070.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.070.q2"
+    },
+    {
+      "id": "card.astronomy.070.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.070.q3"
+    },
+    {
+      "id": "card.astronomy.070.c7",
+      "type": "mcq",
+      "questionId": "question.astronomy.070.q4"
+    },
+    {
+      "id": "card.astronomy.070.c8",
+      "type": "recall",
+      "questionId": "question.astronomy.070.q5"
+    },
+    {
+      "id": "card.astronomy.070.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 7 complete",
+      "learned": [
+        "A star’s mass decides its fate",
+        "Sun-like stars end as white dwarfs",
+        "Massive stars explode as supernovae",
+        "They leave neutron stars or black holes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.070.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.parallax_method"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.061.c2"
+      ],
+      "prompt": "What measures a nearby star’s distance directly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its color",
+          "correct": false,
+          "rationale": "Color gives temperature."
+        },
+        {
+          "id": "b",
+          "label": "Its spectral lines",
+          "correct": false,
+          "rationale": "Lines give composition."
+        },
+        {
+          "id": "c",
+          "label": "Its parallax shift",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its brightness alone",
+          "correct": false,
+          "rationale": "Brightness also depends on luminosity."
+        }
+      ],
+      "explanation": "Parallax, the shift as Earth orbits, gives a nearby star’s distance directly.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.070.q2",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.stellar_fates",
+        "concept.astronomy.white_dwarfs"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.070.c2",
+        "card.astronomy.068.c2"
+      ],
+      "prompt": "How will a Sun-like star end its life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As a black hole",
+          "correct": false,
+          "rationale": "That takes a far more massive star."
+        },
+        {
+          "id": "b",
+          "label": "In a supernova explosion",
+          "correct": false,
+          "rationale": "Sun-like stars aren’t massive enough."
+        },
+        {
+          "id": "c",
+          "label": "As a neutron star",
+          "correct": false,
+          "rationale": "That takes a far more massive star."
+        },
+        {
+          "id": "d",
+          "label": "As a white dwarf",
+          "correct": true
+        }
+      ],
+      "explanation": "A Sun-like star sheds its outer layers and leaves a white dwarf.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.070.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.main_sequence_mass"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.064.c3"
+      ],
+      "prompt": "Why do massive stars live much shorter lives than small ones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their cores are hotter and denser, so they burn fuel faster",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They start with far less fuel",
+          "correct": false,
+          "rationale": "They start with far more."
+        },
+        {
+          "id": "c",
+          "label": "They lose fuel to their planets",
+          "correct": false,
+          "rationale": "Planets aren’t involved."
+        },
+        {
+          "id": "d",
+          "label": "They are born later in the universe",
+          "correct": false,
+          "rationale": "Birth time doesn’t set lifespan."
+        }
+      ],
+      "explanation": "More mass means a hotter, denser core and much faster fusion, so the fuel runs out sooner.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.070.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.stellar_fates"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.070.c2"
+      ],
+      "prompt": "What decides whether a star ends as a white dwarf or explodes as a supernova?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its distance from Earth",
+          "correct": false,
+          "rationale": "Distance only changes how bright it looks."
+        },
+        {
+          "id": "b",
+          "label": "Its mass",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its age when first observed",
+          "correct": false,
+          "rationale": "Age doesn’t decide the ending."
+        },
+        {
+          "id": "d",
+          "label": "The number of planets it has",
+          "correct": false,
+          "rationale": "Planets don’t decide its fate."
+        }
+      ],
+      "explanation": "A star’s mass decides its fate: Sun-like stars become white dwarfs; the most massive explode as supernovae.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.070.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.stellar_fates",
+        "concept.astronomy.star_formation",
+        "concept.astronomy.red_giants"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.070.c3",
+        "card.astronomy.066.c2",
+        "card.astronomy.067.c2"
+      ],
+      "prompt": "Chapter 7 recap: which order follows a Sun-like star through its life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Red giant → nebula → main sequence → white dwarf",
+          "correct": false,
+          "rationale": "The red giant comes after the main sequence."
+        },
+        {
+          "id": "b",
+          "label": "Main sequence → supernova → white dwarf",
+          "correct": false,
+          "rationale": "Sun-like stars don’t explode."
+        },
+        {
+          "id": "c",
+          "label": "Cloud of gas → main sequence → red giant → white dwarf",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "White dwarf → red giant → main sequence",
+          "correct": false,
+          "rationale": "That’s backwards."
+        }
+      ],
+      "explanation": "Born from a cloud, a Sun-like star spends billions of years on the main sequence, swells into a red giant, and ends as a white dwarf.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_supernova",
+    "source.nasa_star_life_cycle",
+    "source.brit_orion_nebula",
+    "source.brit_main_sequence",
+    "source.brit_red_giant",
+    "source.brit_planetary_nebula",
+    "source.brit_white_dwarf"
+  ]
+}

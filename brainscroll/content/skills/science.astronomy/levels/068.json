@@ -1,0 +1,205 @@
+{
+  "id": "level.science.astronomy.068",
+  "skillId": "skill.science.astronomy",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "White Dwarfs",
+  "objective": "After this level you can describe white dwarfs and why they slowly cool.",
+  "summary": "A white dwarf is a dead star’s core: Earth-sized, nearly Sun-massive, so dense a teaspoon weighs tons, and slowly cooling.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.white_dwarfs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.binary_stars",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.red_giants",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.067"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.068.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A teaspoon of this star would weigh several tons."
+    },
+    {
+      "id": "card.astronomy.068.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A star-sized core in an Earth-sized ball",
+      "body": "After shedding its outer layers, a Sun-like star leaves behind its exposed core: a white dwarf. It’s about the size of Earth, but with a mass comparable to the Sun’s. That makes it incredibly dense: a teaspoonful would weigh several tons on Earth.",
+      "callout": "Earth-sized · Sun-massive"
+    },
+    {
+      "id": "card.astronomy.068.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Slowly fading",
+      "body": "A white dwarf no longer fuses anything. It shines only with its leftover heat and slowly cools over billions of years. The nearest example is Sirius B, the faint partner of the brightest star in the sky. Most stars in our galaxy, the Sun included, will end this way."
+    },
+    {
+      "id": "card.astronomy.068.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.068.q1"
+    },
+    {
+      "id": "card.astronomy.068.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.068.q2"
+    },
+    {
+      "id": "card.astronomy.068.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.068.q3"
+    },
+    {
+      "id": "card.astronomy.068.c7",
+      "type": "checkpoint",
+      "headline": "White dwarfs: understood",
+      "learned": [
+        "A white dwarf is a dead Sun-like star’s core",
+        "It’s about Earth-sized with much of the Sun’s mass",
+        "A teaspoon would weigh several tons",
+        "It no longer fuses; it slowly cools"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.white_dwarfs"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.068.c2"
+      ],
+      "prompt": "How big is a typical white dwarf?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About the size of the Sun",
+          "correct": false,
+          "rationale": "It’s much smaller."
+        },
+        {
+          "id": "b",
+          "label": "About the size of Jupiter",
+          "correct": false,
+          "rationale": "Smaller still."
+        },
+        {
+          "id": "c",
+          "label": "About the size of a city",
+          "correct": false,
+          "rationale": "That’s closer to a neutron star."
+        },
+        {
+          "id": "d",
+          "label": "About the size of Earth",
+          "correct": true
+        }
+      ],
+      "explanation": "A white dwarf packs a mass comparable to the Sun’s into a ball about the size of Earth.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.white_dwarfs"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.068.c3"
+      ],
+      "prompt": "Why does a white dwarf slowly get dimmer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It no longer fuses, so it just cools off",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is pulled apart by nearby planets",
+          "correct": false,
+          "rationale": "Planets don’t dim it."
+        },
+        {
+          "id": "c",
+          "label": "Its fusion slowly speeds up",
+          "correct": false,
+          "rationale": "It no longer fuses at all."
+        },
+        {
+          "id": "d",
+          "label": "Dust gradually covers it",
+          "correct": false,
+          "rationale": "Dust isn’t the reason."
+        }
+      ],
+      "explanation": "With no fusion left, a white dwarf only radiates stored heat, slowly cooling over billions of years.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.white_dwarfs",
+        "concept.astronomy.binary_stars"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.068.c3",
+        "card.astronomy.065.c2"
+      ],
+      "prompt": "From Level 65: which famous star has a white dwarf as its companion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Sun",
+          "correct": false,
+          "rationale": "The Sun is a single star."
+        },
+        {
+          "id": "b",
+          "label": "Polaris",
+          "correct": false,
+          "rationale": "Polaris isn’t the famous white dwarf example here."
+        },
+        {
+          "id": "c",
+          "label": "Sirius, the brightest star in the night sky",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Proxima Centauri",
+          "correct": false,
+          "rationale": "Proxima is a red dwarf."
+        }
+      ],
+      "explanation": "Sirius’s faint companion, Sirius B, is the nearest well-known white dwarf.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_white_dwarf",
+    "source.brit_sirius_star"
+  ]
+}

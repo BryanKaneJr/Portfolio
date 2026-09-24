@@ -1,0 +1,207 @@
+{
+  "id": "level.science.astronomy.062",
+  "skillId": "skill.science.astronomy",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Bright or Close? Luminosity",
+  "objective": "After this level you can explain the difference between how bright a star looks and how bright it really is.",
+  "summary": "A star’s apparent brightness depends on its luminosity and its distance, fading with the square of distance.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.luminosity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.newton_gravity",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.061"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The brightest star in the sky isn’t the most powerful. It’s just close."
+    },
+    {
+      "id": "card.astronomy.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two kinds of bright",
+      "body": "How bright a star looks from Earth depends on two things: how much light it really gives off, its luminosity, and how far away it is. A modest star nearby can outshine a powerhouse far away.",
+      "callout": "Looks bright = luminosity + distance"
+    },
+    {
+      "id": "card.astronomy.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fading with distance",
+      "body": "A star’s brightness falls with the square of its distance. Move a star twice as far away and it looks only a quarter as bright; ten times as far, a hundredth.",
+      "callout": "Twice as far → ¼ as bright"
+    },
+    {
+      "id": "card.astronomy.062.c4",
+      "type": "fact",
+      "fact": "Sirius, the brightest night-time star, is about 8.6 light-years away.",
+      "context": "It’s more luminous than the Sun, and relatively close. Many far more powerful stars look fainter because they are much farther away."
+    },
+    {
+      "id": "card.astronomy.062.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.062.q1"
+    },
+    {
+      "id": "card.astronomy.062.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.062.q2"
+    },
+    {
+      "id": "card.astronomy.062.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.062.q3"
+    },
+    {
+      "id": "card.astronomy.062.c8",
+      "type": "checkpoint",
+      "headline": "Starlight: weighed",
+      "learned": [
+        "Apparent brightness depends on luminosity and distance",
+        "Brightness falls with the square of distance",
+        "Sirius looks brightest partly because it’s close",
+        "Luminosity is a star’s true output"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.luminosity"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.062.c2"
+      ],
+      "prompt": "What is a star’s luminosity?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How bright it looks from Earth",
+          "correct": false,
+          "rationale": "That’s its apparent brightness."
+        },
+        {
+          "id": "b",
+          "label": "How much light it actually gives off",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How far away it is in light-years",
+          "correct": false,
+          "rationale": "Distance is separate from luminosity."
+        },
+        {
+          "id": "d",
+          "label": "How hot its surface is in degrees",
+          "correct": false,
+          "rationale": "Temperature is related, but luminosity is total output."
+        }
+      ],
+      "explanation": "Luminosity is a star’s true light output, regardless of distance.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.luminosity"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.062.c3"
+      ],
+      "prompt": "A star is moved to twice its distance. How bright does it look?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Half as bright",
+          "correct": false,
+          "rationale": "It fades faster than that."
+        },
+        {
+          "id": "b",
+          "label": "Exactly as bright",
+          "correct": false,
+          "rationale": "Distance dims starlight."
+        },
+        {
+          "id": "c",
+          "label": "Twice as bright",
+          "correct": false,
+          "rationale": "Farther means dimmer."
+        },
+        {
+          "id": "d",
+          "label": "A quarter as bright",
+          "correct": true
+        }
+      ],
+      "explanation": "Brightness falls with the square of distance: twice as far means 1/2 × 1/2 = 1/4 as bright.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.luminosity",
+        "concept.astronomy.newton_gravity"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.062.c3",
+        "card.astronomy.027.c2"
+      ],
+      "prompt": "From Level 27: which other effect weakens with the square of distance, just like starlight?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The speed of light",
+          "correct": false,
+          "rationale": "Light’s speed doesn’t change with distance."
+        },
+        {
+          "id": "b",
+          "label": "Gravity",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How fast a planet spins on its axis",
+          "correct": false,
+          "rationale": "Spin rate doesn’t depend on distance from anything."
+        },
+        {
+          "id": "d",
+          "label": "The Moon’s phases",
+          "correct": false,
+          "rationale": "Phases aren’t about distance."
+        }
+      ],
+      "explanation": "Newton’s gravity and starlight both spread out and weaken with the square of the distance.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_sirius_star",
+    "source.brit_luminosity"
+  ]
+}

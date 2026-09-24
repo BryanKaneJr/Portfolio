@@ -1,0 +1,213 @@
+{
+  "id": "level.science.astronomy.061",
+  "skillId": "skill.science.astronomy",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Parallax: Measuring the Stars",
+  "objective": "After this level you can explain how parallax measures the distance to nearby stars.",
+  "summary": "Nearby stars shift slightly as Earth orbits; the smaller the shift, the farther the star. Gaia has measured over a billion.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.parallax_method",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.stellar_parallax_proof",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.light_year",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.060"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.061.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Blink one eye, then the other. That jump is how we measure the stars.",
+      "body": "Hold a finger in front of your face and it seems to hop against the background. Stars do the same as Earth moves."
+    },
+    {
+      "id": "card.astronomy.061.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A six-month baseline",
+      "body": "As Earth orbits the Sun, a nearby star appears to shift slightly against more distant stars. Measure the star in January and again in July, from opposite sides of Earth’s orbit, and that tiny shift reveals its distance."
+    },
+    {
+      "id": "card.astronomy.061.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Closer shifts more",
+      "body": "The closer a star is, the bigger its parallax shift. Astronomers even named a unit after it: a parsec, the distance at which the shift would be one arcsecond, is about 3.26 light-years.",
+      "callout": "1 parsec ≈ 3.26 light-years"
+    },
+    {
+      "id": "card.astronomy.061.c4",
+      "type": "fact",
+      "fact": "The Gaia spacecraft has measured more than a billion stars.",
+      "context": "This European Space Agency mission has mapped the positions and distances of stars across our galaxy using parallax."
+    },
+    {
+      "id": "card.astronomy.061.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.061.q1"
+    },
+    {
+      "id": "card.astronomy.061.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.061.q2"
+    },
+    {
+      "id": "card.astronomy.061.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.061.q3"
+    },
+    {
+      "id": "card.astronomy.061.c8",
+      "type": "checkpoint",
+      "headline": "Star distances: measured",
+      "learned": [
+        "Parallax: nearby stars shift as Earth orbits",
+        "Bigger shift = closer star",
+        "1 parsec ≈ 3.26 light-years",
+        "Gaia has measured over a billion stars"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.parallax_method"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.061.c2"
+      ],
+      "prompt": "What causes a nearby star’s parallax shift?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The star moving through space",
+          "correct": false,
+          "rationale": "Parallax comes from our own motion."
+        },
+        {
+          "id": "b",
+          "label": "Earth’s daily spin on its axis",
+          "correct": false,
+          "rationale": "Parallax uses Earth’s yearly orbit."
+        },
+        {
+          "id": "c",
+          "label": "Earth orbiting the Sun",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Light bending around the Sun",
+          "correct": false,
+          "rationale": "That’s a different effect."
+        }
+      ],
+      "explanation": "As Earth moves around its orbit, our viewpoint changes, so nearby stars seem to shift against distant ones.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.parallax_method"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.061.c3"
+      ],
+      "prompt": "Star A shows a bigger parallax shift than Star B. What does that tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Star A is closer than Star B",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Star A is hotter than Star B",
+          "correct": false,
+          "rationale": "Parallax tells distance, not temperature."
+        },
+        {
+          "id": "c",
+          "label": "Star A is older than Star B",
+          "correct": false,
+          "rationale": "Parallax says nothing about age."
+        },
+        {
+          "id": "d",
+          "label": "Star A is bigger than Star B",
+          "correct": false,
+          "rationale": "Parallax tells distance, not size."
+        }
+      ],
+      "explanation": "Closer stars show larger parallax shifts, so Star A is nearer.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.parallax_method",
+        "concept.astronomy.stellar_parallax_proof"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.061.c3",
+        "card.astronomy.030.c3"
+      ],
+      "prompt": "From Level 30: Bessel measured stellar parallax in 1838. Why had no one managed it before?",
+      "options": [
+        {
+          "id": "a",
+          "label": "No one had thought of looking for it",
+          "correct": false,
+          "rationale": "The ancients knew it should exist."
+        },
+        {
+          "id": "b",
+          "label": "Stars didn’t shift until the 1800s",
+          "correct": false,
+          "rationale": "The shift has always been there."
+        },
+        {
+          "id": "c",
+          "label": "The shift is tiny, needing very precise telescopes",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Earth only began orbiting later",
+          "correct": false,
+          "rationale": "Earth has always orbited the Sun."
+        }
+      ],
+      "explanation": "Stars are so far away that their parallax shifts are tiny. Only precise telescopic measurements could detect them.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_parallax",
+    "source.brit_parsec",
+    "source.esa_gaia"
+  ]
+}

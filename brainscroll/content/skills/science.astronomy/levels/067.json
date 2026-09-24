@@ -1,0 +1,206 @@
+{
+  "id": "level.science.astronomy.067",
+  "skillId": "skill.science.astronomy",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Red Giants and Planetary Nebulae",
+  "objective": "After this level you can explain how Sun-like stars swell and shed their outer layers.",
+  "summary": "When the core runs low on hydrogen, a Sun-like star swells into a red giant, then puffs off its outer layers as a planetary nebula.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.red_giants",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.star_life_cycle",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.hr_diagram",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.066"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Someday the Sun will swallow Mercury and Venus."
+    },
+    {
+      "id": "card.astronomy.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Swelling up",
+      "body": "When a Sun-like star’s core runs low on hydrogen, the core contracts and heats up while the star’s outer layers swell enormously. It becomes a red giant. The Sun is expected to grow large enough to engulf Mercury and Venus, and possibly Earth.",
+      "callout": "Core shrinks · outer layers swell"
+    },
+    {
+      "id": "card.astronomy.067.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A glowing farewell",
+      "body": "Late in life, a Sun-like star sheds its outer layers into space as a glowing shell of gas called a planetary nebula. Despite the name, it has nothing to do with planets: early astronomers thought these round glows looked like planets’ disks through small telescopes. Each one glows for only tens of thousands of years."
+    },
+    {
+      "id": "card.astronomy.067.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.067.q1"
+    },
+    {
+      "id": "card.astronomy.067.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.067.q2"
+    },
+    {
+      "id": "card.astronomy.067.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.067.q3"
+    },
+    {
+      "id": "card.astronomy.067.c7",
+      "type": "checkpoint",
+      "headline": "Red giants: understood",
+      "learned": [
+        "Low core hydrogen → the star swells into a red giant",
+        "The Sun may engulf Mercury, Venus and possibly Earth",
+        "It then sheds a planetary nebula",
+        "Planetary nebulae have nothing to do with planets"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.red_giants"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.067.c3"
+      ],
+      "prompt": "What is a planetary nebula?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A cloud where planets are forming",
+          "correct": false,
+          "rationale": "Despite the name, it has nothing to do with planets."
+        },
+        {
+          "id": "b",
+          "label": "A glowing shell of gas shed by a dying Sun-like star",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A planet that has turned into a star",
+          "correct": false,
+          "rationale": "Planets don’t become stars."
+        },
+        {
+          "id": "d",
+          "label": "The dusty ring around a gas giant",
+          "correct": false,
+          "rationale": "Rings aren’t nebulae."
+        }
+      ],
+      "explanation": "A planetary nebula is the glowing shell of gas a Sun-like star sheds late in its life.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.red_giants"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.067.c2"
+      ],
+      "prompt": "What happens to a Sun-like star when its core runs low on hydrogen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It explodes as a supernova",
+          "correct": false,
+          "rationale": "Sun-like stars aren’t massive enough."
+        },
+        {
+          "id": "b",
+          "label": "It shrinks into a black hole",
+          "correct": false,
+          "rationale": "Sun-like stars don’t become black holes."
+        },
+        {
+          "id": "c",
+          "label": "Its core contracts while its outer layers swell into a red giant",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It stops shining immediately",
+          "correct": false,
+          "rationale": "It keeps shining as a red giant."
+        }
+      ],
+      "explanation": "The core contracts and heats up while the outer layers swell, turning the star into a red giant.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.red_giants",
+        "concept.astronomy.hr_diagram"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.067.c2",
+        "card.astronomy.063.c3"
+      ],
+      "prompt": "From Level 63: where on the H–R diagram would the Sun move as it becomes a red giant?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Up and to the right: cooler but more luminous",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Down and to the left: hotter but dimmer",
+          "correct": false,
+          "rationale": "That’s where white dwarfs are."
+        },
+        {
+          "id": "c",
+          "label": "Nowhere: stars never move on the diagram",
+          "correct": false,
+          "rationale": "A star moves as its life stage changes."
+        },
+        {
+          "id": "d",
+          "label": "Straight down the main sequence",
+          "correct": false,
+          "rationale": "It leaves the main sequence."
+        }
+      ],
+      "explanation": "Red giants are cool but very luminous, so the Sun will move up and to the right on the H–R diagram.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_sun_facts",
+    "source.brit_red_giant",
+    "source.brit_planetary_nebula"
+  ]
+}
