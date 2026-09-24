@@ -1,0 +1,206 @@
+{
+  "id": "level.history.ancient_rome.012",
+  "skillId": "skill.history.ancient_rome",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Two Consuls, One Year",
+  "objective": "After this level you can explain how consuls shared power and why their terms were short.",
+  "summary": "Two consuls led Rome for one year each, commanded its armies and could block each other. Emergencies allowed a dictator for six months.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.consuls",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.republic_idea",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.011"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome’s top job came with a partner and an expiry date."
+    },
+    {
+      "id": "card.ancient_rome.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two at the top",
+      "body": "The Republic was led by two consuls, magistrates elected by the citizens each year. Each could block the other’s actions, so neither could rule alone. After one year both stepped down, so no one held supreme power for long."
+    },
+    {
+      "id": "card.ancient_rome.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Generals and timekeepers",
+      "body": "Consuls also commanded Rome’s armies in war. They were so central that Romans identified each year by the names of its two consuls, instead of by a number."
+    },
+    {
+      "id": "card.ancient_rome.012.c4",
+      "type": "fact",
+      "fact": "Emergencies came with a six-month limit.",
+      "context": "In a crisis, Rome could appoint a dictator with supreme power over everyone, but only for at most six months."
+    },
+    {
+      "id": "card.ancient_rome.012.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.012.q1"
+    },
+    {
+      "id": "card.ancient_rome.012.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.012.q2"
+    },
+    {
+      "id": "card.ancient_rome.012.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.012.q3"
+    },
+    {
+      "id": "card.ancient_rome.012.c8",
+      "type": "checkpoint",
+      "headline": "Consuls: understood",
+      "learned": [
+        "Two consuls led the Republic",
+        "Each served one year and could block the other",
+        "Consuls commanded the armies",
+        "A dictator could rule for at most six months"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.consuls"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.012.c2"
+      ],
+      "prompt": "How long did a Roman consul serve?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Six months",
+          "correct": false,
+          "rationale": "That was the dictator’s limit."
+        },
+        {
+          "id": "b",
+          "label": "Ten years",
+          "correct": false,
+          "rationale": "Terms were short."
+        },
+        {
+          "id": "c",
+          "label": "For life",
+          "correct": false,
+          "rationale": "That was closer to a senator."
+        },
+        {
+          "id": "d",
+          "label": "One year",
+          "correct": true
+        }
+      ],
+      "explanation": "Consuls served one-year terms, then stepped down.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.consuls"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.012.c2"
+      ],
+      "prompt": "Why did Rome have two consuls rather than one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each could block the other, so neither ruled alone",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "One ruled the city and one ruled the countryside",
+          "correct": false,
+          "rationale": "They shared the same powers."
+        },
+        {
+          "id": "c",
+          "label": "Two were needed to read omens",
+          "correct": false,
+          "rationale": "The reason was political."
+        },
+        {
+          "id": "d",
+          "label": "One consul was always a priest",
+          "correct": false,
+          "rationale": "Consuls weren’t priests."
+        }
+      ],
+      "explanation": "Two equal consuls, each able to block the other, kept any single person from gaining a king’s power.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.consuls",
+        "concept.ancient_rome.republic_idea"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.012.c2",
+        "card.ancient_rome.011.c2"
+      ],
+      "prompt": "From Level 11: how did the consulship reflect the idea of a republic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Consuls inherited power from the kings",
+          "correct": false,
+          "rationale": "They were elected."
+        },
+        {
+          "id": "b",
+          "label": "Consuls were elected and held power for a limited term",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Consuls were chosen by the Etruscans",
+          "correct": false,
+          "rationale": "Romans elected them."
+        },
+        {
+          "id": "d",
+          "label": "Consuls answered only to the gods",
+          "correct": false,
+          "rationale": "They were citizens holding office."
+        }
+      ],
+      "explanation": "Consuls were elected magistrates with one-year terms, the Republic’s answer to kingship.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_consul",
+    "source.brit_roman_republic",
+    "source.brit_dictator"
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "id": "level.history.ancient_rome.011",
+  "skillId": "skill.history.ancient_rome",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "A Republic Is Born",
+  "objective": "After this level you can explain what a republic is and what SPQR stood for.",
+  "summary": "After the kings, Rome became a res publica: elected magistrates with limited terms, the Senate and People of Rome, from 509 to 27 BCE.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.republic_idea",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.fall_of_kings",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.010"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome’s answer to tyranny was to share power, and keep it short."
+    },
+    {
+      "id": "card.ancient_rome.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The public thing",
+      "body": "The word republic comes from the Latin res publica, “the public thing.” Instead of a king, citizens elected officials called magistrates, who held power only for a limited term. Power belonged to the state, not to a family."
+    },
+    {
+      "id": "card.ancient_rome.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "SPQR",
+      "body": "Romans called their state SPQR, Senatus Populusque Romanus: “the Senate and People of Rome.” The Republic lasted almost five centuries, from 509 BCE until Augustus took sole power in 27 BCE.",
+      "callout": "SPQR: the Senate and People of Rome"
+    },
+    {
+      "id": "card.ancient_rome.011.c4",
+      "type": "fact",
+      "fact": "Not everyone had a say.",
+      "context": "Only adult male citizens could vote. Women, enslaved people and foreigners had no vote at all."
+    },
+    {
+      "id": "card.ancient_rome.011.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.011.q1"
+    },
+    {
+      "id": "card.ancient_rome.011.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.011.q2"
+    },
+    {
+      "id": "card.ancient_rome.011.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.011.q3"
+    },
+    {
+      "id": "card.ancient_rome.011.c8",
+      "type": "checkpoint",
+      "headline": "The Republic: founded",
+      "learned": [
+        "Republic comes from res publica, “the public thing”",
+        "Citizens elected magistrates for limited terms",
+        "SPQR: the Senate and People of Rome",
+        "Only adult male citizens could vote"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.republic_idea"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.011.c2"
+      ],
+      "prompt": "What does the Latin res publica mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The rule of one",
+          "correct": false,
+          "rationale": "That would be a monarchy."
+        },
+        {
+          "id": "b",
+          "label": "The public thing",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The house of the Senate",
+          "correct": false,
+          "rationale": "Not the meaning."
+        },
+        {
+          "id": "d",
+          "label": "The people’s army",
+          "correct": false,
+          "rationale": "Not the meaning."
+        }
+      ],
+      "explanation": "Res publica means “the public thing,” the origin of the word republic.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.republic_idea"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.011.c2"
+      ],
+      "prompt": "What made the Republic different from the Kingdom?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was ruled by a council of priests",
+          "correct": false,
+          "rationale": "Magistrates were elected officials."
+        },
+        {
+          "id": "b",
+          "label": "It had no laws at all",
+          "correct": false,
+          "rationale": "It had laws."
+        },
+        {
+          "id": "c",
+          "label": "Elected officials held power for limited terms",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Kings were chosen by the army instead",
+          "correct": false,
+          "rationale": "There were no kings."
+        }
+      ],
+      "explanation": "Instead of a king, citizens elected magistrates who held office only for a set term.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.republic_idea",
+        "concept.ancient_rome.fall_of_kings"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.011.c2",
+        "card.ancient_rome.009.c3"
+      ],
+      "prompt": "From Level 9: why did the Romans turn to a republic after 509 BCE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They had sworn never to have a king again",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A foreign power forced it on them",
+          "correct": false,
+          "rationale": "It was their own choice."
+        },
+        {
+          "id": "c",
+          "label": "Their last king named no heir",
+          "correct": false,
+          "rationale": "He was expelled."
+        },
+        {
+          "id": "d",
+          "label": "The gods demanded it through augury",
+          "correct": false,
+          "rationale": "The cause was political."
+        }
+      ],
+      "explanation": "After expelling Tarquin the Proud, Romans swore never to allow a king and shared power among elected officials.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_roman_republic"
+  ]
+}

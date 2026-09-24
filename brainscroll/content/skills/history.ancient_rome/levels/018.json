@@ -1,0 +1,205 @@
+{
+  "id": "level.history.ancient_rome.018",
+  "skillId": "skill.history.ancient_rome",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Gauls Sack Rome",
+  "objective": "After this level you can describe the Gallic sack of Rome and how it changed Roman defense.",
+  "summary": "Around 390 BCE Gauls under Brennus won at the Allia and sacked Rome. “Woe to the conquered.” Rome answered with a great stone wall.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.gallic_sack",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.twelve_tables",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.017"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Around 390 BCE, Rome learned it could be captured."
+    },
+    {
+      "id": "card.ancient_rome.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Disaster at the Allia",
+      "body": "In about 390 BCE, an army of Gauls led by a chief named Brennus crushed the Romans at the Allia River. The Gauls then marched into Rome and sacked it. Some sources date the sack to 387 BCE."
+    },
+    {
+      "id": "card.ancient_rome.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Woe to the conquered",
+      "body": "According to Livy, when the Romans protested the ransom the Gauls demanded, Brennus threw his sword onto the scales and said “Vae victis”: woe to the conquered. Legend adds that Juno’s sacred geese warned the defenders of the Capitoline of a night attack."
+    },
+    {
+      "id": "card.ancient_rome.018.c4",
+      "type": "fact",
+      "fact": "Rome built a wall.",
+      "context": "After the sack, Rome surrounded itself with a strong stone wall, later called the Servian Wall."
+    },
+    {
+      "id": "card.ancient_rome.018.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.018.q1"
+    },
+    {
+      "id": "card.ancient_rome.018.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.018.q2"
+    },
+    {
+      "id": "card.ancient_rome.018.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.018.q3"
+    },
+    {
+      "id": "card.ancient_rome.018.c8",
+      "type": "checkpoint",
+      "headline": "The sack: survived",
+      "learned": [
+        "Gauls under Brennus sacked Rome around 390 BCE",
+        "Rome lost at the Allia River",
+        "“Vae victis”: woe to the conquered",
+        "Rome then built the Servian Wall"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.gallic_sack"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.018.c2"
+      ],
+      "prompt": "Who sacked Rome around 390 BCE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carthaginians under Hannibal",
+          "correct": false,
+          "rationale": "Hannibal came much later."
+        },
+        {
+          "id": "b",
+          "label": "Etruscans from the north",
+          "correct": false,
+          "rationale": "The attackers were Gauls."
+        },
+        {
+          "id": "c",
+          "label": "Gauls led by Brennus",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Samnites from the mountains",
+          "correct": false,
+          "rationale": "The attackers were Gauls."
+        }
+      ],
+      "explanation": "A Gallic army led by Brennus won at the Allia River and sacked Rome.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.gallic_sack"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.018.c4"
+      ],
+      "prompt": "How did Rome respond to the Gallic sack?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It moved the capital to Veii",
+          "correct": false,
+          "rationale": "Rome stayed where it was."
+        },
+        {
+          "id": "b",
+          "label": "It paid the Gauls to guard the city",
+          "correct": false,
+          "rationale": "It defended itself."
+        },
+        {
+          "id": "c",
+          "label": "It abandoned the Capitoline Hill",
+          "correct": false,
+          "rationale": "The Capitoline held out."
+        },
+        {
+          "id": "d",
+          "label": "It built a strong stone wall around the city",
+          "correct": true
+        }
+      ],
+      "explanation": "After the sack, Rome built the stone wall later called the Servian Wall.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.gallic_sack",
+        "concept.ancient_rome.twelve_tables"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.018.c2",
+        "card.ancient_rome.015.c4"
+      ],
+      "prompt": "From Level 15: what probably happened to the original Twelve Tables when the Gauls sacked Rome?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were destroyed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They were carried off to Gaul and kept",
+          "correct": false,
+          "rationale": "They were probably destroyed."
+        },
+        {
+          "id": "c",
+          "label": "They were hidden in the Vestals’ temple",
+          "correct": false,
+          "rationale": "They survive only in quotations."
+        },
+        {
+          "id": "d",
+          "label": "They were rewritten in Gaulish",
+          "correct": false,
+          "rationale": "They were Roman laws."
+        }
+      ],
+      "explanation": "The original tablets were probably lost in the sack; the laws survive only in later quotations.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_brennus",
+    "source.brit_servian_wall"
+  ]
+}

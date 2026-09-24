@@ -1,0 +1,204 @@
+{
+  "id": "level.history.ancient_rome.015",
+  "skillId": "skill.history.ancient_rome",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Twelve Tables",
+  "objective": "After this level you can explain why Rome wrote down its laws and what that changed.",
+  "summary": "Around 450 BCE Rome wrote its laws on the Twelve Tables in the Forum, so patrician judges could no longer bend unwritten custom.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.twelve_tables",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.conflict_orders",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.014"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A law you can’t read is a law someone else controls."
+    },
+    {
+      "id": "card.ancient_rome.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Law in public",
+      "body": "Around 450 BCE, Rome wrote down its laws on the Twelve Tables and displayed them in the Forum. Plebeians had demanded it: until then, patrician judges could interpret unwritten custom as they pleased. Now anyone could check the rules, at least in principle."
+    },
+    {
+      "id": "card.ancient_rome.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Everyday rules",
+      "body": "The Twelve Tables covered ordinary life: debt, property, family and damage to others. They became the foundation of Roman law. According to Cicero, boys still memorized them at school centuries later."
+    },
+    {
+      "id": "card.ancient_rome.015.c4",
+      "type": "fact",
+      "fact": "The original tablets are lost.",
+      "context": "They were probably destroyed when the Gauls sacked Rome. The laws survive only in quotations by later writers."
+    },
+    {
+      "id": "card.ancient_rome.015.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.015.q1"
+    },
+    {
+      "id": "card.ancient_rome.015.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.015.q2"
+    },
+    {
+      "id": "card.ancient_rome.015.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.015.q3"
+    },
+    {
+      "id": "card.ancient_rome.015.c8",
+      "type": "checkpoint",
+      "headline": "Written law: established",
+      "learned": [
+        "The Twelve Tables were written around 450 BCE",
+        "They were displayed publicly in the Forum",
+        "They limited patrician judges",
+        "They covered debt, property and family"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.twelve_tables"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.015.c2"
+      ],
+      "prompt": "What were the Twelve Tables?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rome’s first written laws",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A list of Rome’s seven kings",
+          "correct": false,
+          "rationale": "They were laws."
+        },
+        {
+          "id": "c",
+          "label": "A calendar of religious festivals",
+          "correct": false,
+          "rationale": "They were laws."
+        },
+        {
+          "id": "d",
+          "label": "Rules for the Vestal Virgins",
+          "correct": false,
+          "rationale": "They covered everyday life."
+        }
+      ],
+      "explanation": "The Twelve Tables were Rome’s first written law code, displayed in the Forum around 450 BCE.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.twelve_tables"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.015.c2"
+      ],
+      "prompt": "Why did plebeians want the laws written down?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So they could vote on each law again",
+          "correct": false,
+          "rationale": "Voting wasn’t the point."
+        },
+        {
+          "id": "b",
+          "label": "So patrician judges couldn’t bend unwritten custom",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "So the laws could be sent to other cities",
+          "correct": false,
+          "rationale": "The point was fairness at home."
+        },
+        {
+          "id": "d",
+          "label": "So priests could read them aloud",
+          "correct": false,
+          "rationale": "The point was public access."
+        }
+      ],
+      "explanation": "Written, public laws meant patricians could no longer interpret custom however they liked.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.twelve_tables",
+        "concept.ancient_rome.conflict_orders"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.015.c2",
+        "card.ancient_rome.014.c3"
+      ],
+      "prompt": "From Level 14: the Twelve Tables were a win in which struggle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The war against the Etruscans",
+          "correct": false,
+          "rationale": "The Tables were an internal reform."
+        },
+        {
+          "id": "b",
+          "label": "The founding of Rome",
+          "correct": false,
+          "rationale": "They came about 300 years later."
+        },
+        {
+          "id": "c",
+          "label": "The fall of the kings",
+          "correct": false,
+          "rationale": "The kings were already gone."
+        },
+        {
+          "id": "d",
+          "label": "The Conflict of the Orders",
+          "correct": true
+        }
+      ],
+      "explanation": "Written laws were one of the plebeians’ gains in the Conflict of the Orders.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_twelve_tables"
+  ]
+}

@@ -4,6 +4,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Ancient Rome Levels 11–20 drafted** (Chapter 2, "The Early Republic": res publica and SPQR, consuls and the dictatorship, the Senate, patricians and plebeians, the Twelve Tables, tribunes and the veto, Cincinnatus, the Gallic sack, conquering Italy; L20 is a 5-question checkpoint on Polybius's mixed constitution). 10 concepts and 46 claims (91 for Rome), all unverified. 0 errors, and no quality warnings other than verification.
 - **Second skill tree started: History · Ancient Rome.** Build Order step 35 says a second tree "with a different structure" should prove the schema isn't overfit. The roadmap names Ancient Rome alongside Astronomy as a flagship prototype, and Rome is chronology (people, events, cause and effect) where Astronomy is conceptual science.
   - **Syllabus:** a 100-level syllabus in 10 chapters: founding and kings, the early Republic, Carthage, the Republic's crisis, Augustus (Level 50 milestone), the emperors, daily life, how Rome held an empire, crisis and Christianity, the fall and legacy (96–99 integration, Level 100 Mastery).
   - **Golden 10:** Levels 1–10 drafted to the Astronomy standard (11 concepts, 45 claims, all unverified, Britannica as the working reference). The validator reports 0 errors, with no quality warnings other than verification.

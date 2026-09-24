@@ -1,0 +1,219 @@
+{
+  "id": "level.history.ancient_rome.014",
+  "skillId": "skill.history.ancient_rome",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Patricians and Plebeians",
+  "objective": "After this level you can explain the Conflict of the Orders between Rome’s old families and ordinary citizens.",
+  "summary": "Plebeians won rights from the patricians over two centuries, starting with a walkout in 494 BCE and ending with the Hortensian law of 287.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.conflict_orders",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.senate_republic",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.013"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "What if the workers and soldiers of a city simply walked out?"
+    },
+    {
+      "id": "card.ancient_rome.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two kinds of citizen",
+      "body": "Patricians belonged to Rome’s old aristocratic families. Plebeians were everyone else: farmers, traders, craftsmen and most soldiers. In the early Republic, patricians held the magistracies and the priesthoods."
+    },
+    {
+      "id": "card.ancient_rome.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The walkout",
+      "body": "In 494 BCE, according to tradition, the plebeians left the city in protest and refused to work or fight until they won concessions. Their struggle for political rights lasted about two centuries. It is called the Conflict of the Orders."
+    },
+    {
+      "id": "card.ancient_rome.014.c4",
+      "type": "timeline",
+      "headline": "Plebeians win ground",
+      "events": [
+        {
+          "when": "494 BCE",
+          "label": "The first walkout, or secession, of the plebeians"
+        },
+        {
+          "when": "367 BCE",
+          "label": "One consul may now be a plebeian"
+        },
+        {
+          "when": "287 BCE",
+          "label": "The plebeian assembly’s votes bind all Romans"
+        }
+      ]
+    },
+    {
+      "id": "card.ancient_rome.014.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.014.q1"
+    },
+    {
+      "id": "card.ancient_rome.014.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.014.q2"
+    },
+    {
+      "id": "card.ancient_rome.014.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.014.q3"
+    },
+    {
+      "id": "card.ancient_rome.014.c8",
+      "type": "checkpoint",
+      "headline": "The orders: reconciled",
+      "learned": [
+        "Patricians were old aristocratic families",
+        "Plebeians were the other citizens",
+        "Walkouts won them rights over two centuries",
+        "The Hortensian law of 287 BCE ended the conflict"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.conflict_orders"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.014.c3"
+      ],
+      "prompt": "What did the plebeians do in 494 BCE to win concessions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Burned down the Senate house",
+          "correct": false,
+          "rationale": "They protested without violence."
+        },
+        {
+          "id": "b",
+          "label": "Elected a king of their own",
+          "correct": false,
+          "rationale": "Rome had sworn off kings."
+        },
+        {
+          "id": "c",
+          "label": "Moved the whole city to a new site",
+          "correct": false,
+          "rationale": "They left, but only in protest."
+        },
+        {
+          "id": "d",
+          "label": "Walked out and refused to work or fight",
+          "correct": true
+        }
+      ],
+      "explanation": "In the first secession, plebeians left Rome and withheld their labor and military service.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.conflict_orders"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.014.c2",
+        "card.ancient_rome.014.c3"
+      ],
+      "prompt": "Why was a plebeian walkout such a powerful tactic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rome depended on plebeians to work and fight",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Plebeians owned all of Rome’s land",
+          "correct": false,
+          "rationale": "The patricians held much of it."
+        },
+        {
+          "id": "c",
+          "label": "Patricians were forbidden to fight",
+          "correct": false,
+          "rationale": "They could fight."
+        },
+        {
+          "id": "d",
+          "label": "The gods punished anyone who stayed",
+          "correct": false,
+          "rationale": "The leverage was practical."
+        }
+      ],
+      "explanation": "Without plebeian farmers, workers and soldiers, Rome couldn’t function or defend itself.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.conflict_orders",
+        "concept.ancient_rome.senate_republic"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.014.c2",
+        "card.ancient_rome.013.c2"
+      ],
+      "prompt": "From Level 13: before the Conflict of the Orders, who filled the magistracies, and so the Senate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Plebeians elected by lot",
+          "correct": false,
+          "rationale": "Plebeians were shut out at first."
+        },
+        {
+          "id": "b",
+          "label": "Etruscan nobles",
+          "correct": false,
+          "rationale": "The Etruscan kings were gone."
+        },
+        {
+          "id": "c",
+          "label": "Mostly patricians",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Former slaves",
+          "correct": false,
+          "rationale": "Not in the early Republic."
+        }
+      ],
+      "explanation": "Patricians held the magistracies, and the Senate was made up of former magistrates.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_plebeian",
+    "source.brit_patrician"
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "id": "level.history.ancient_rome.016",
+  "skillId": "skill.history.ancient_rome",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tribunes of the Plebs",
+  "objective": "After this level you can describe the tribunes’ power to protect plebeians, including the veto.",
+  "summary": "Tribunes, elected by plebeians, could veto any magistrate and were sacrosanct. Ten of them protected ordinary citizens.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.tribunes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.consuls",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.015"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The most powerful word in Roman politics meant “I forbid.”"
+    },
+    {
+      "id": "card.ancient_rome.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Protectors of the plebs",
+      "body": "The tribunes of the plebs were officials elected by plebeians to protect them from abuses by magistrates. Their number eventually rose to ten. A tribune’s door was expected to stay open day and night, so any plebeian could ask for help."
+    },
+    {
+      "id": "card.ancient_rome.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "I forbid",
+      "body": "A tribune could block the act of any magistrate simply by declaring “Veto,” Latin for “I forbid.” Tribunes were also sacrosanct: harming one was a religious crime. That protection let them stand up to consuls. Because plebeians elected them, tribunes answered to ordinary citizens rather than to the old families.",
+      "callout": "Veto: “I forbid”"
+    },
+    {
+      "id": "card.ancient_rome.016.c4",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.016.q1"
+    },
+    {
+      "id": "card.ancient_rome.016.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.016.q2"
+    },
+    {
+      "id": "card.ancient_rome.016.c6",
+      "type": "recall",
+      "questionId": "question.ancient_rome.016.q3"
+    },
+    {
+      "id": "card.ancient_rome.016.c7",
+      "type": "checkpoint",
+      "headline": "Tribunes: understood",
+      "learned": [
+        "Tribunes were elected by plebeians",
+        "Eventually there were ten",
+        "They could veto any magistrate",
+        "They were sacrosanct"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.tribunes"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.016.c3"
+      ],
+      "prompt": "What does veto mean in Latin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "I agree",
+          "correct": false,
+          "rationale": "It blocks, not approves."
+        },
+        {
+          "id": "b",
+          "label": "I forbid",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "I command",
+          "correct": false,
+          "rationale": "It stops an action."
+        },
+        {
+          "id": "d",
+          "label": "I appeal",
+          "correct": false,
+          "rationale": "It stops an action outright."
+        }
+      ],
+      "explanation": "Veto means “I forbid”: a tribune could use it to block any magistrate.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.tribunes"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.016.c3"
+      ],
+      "prompt": "Why couldn’t an angry consul simply arrest a troublesome tribune?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tribunes were sacrosanct; harming one was a religious crime",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Tribunes had their own private army",
+          "correct": false,
+          "rationale": "Their protection was sacred law."
+        },
+        {
+          "id": "c",
+          "label": "Tribunes outranked consuls in war",
+          "correct": false,
+          "rationale": "Consuls led the armies."
+        },
+        {
+          "id": "d",
+          "label": "Tribunes lived outside the city",
+          "correct": false,
+          "rationale": "Their doors were open in Rome."
+        }
+      ],
+      "explanation": "Sacrosanctity made harming a tribune a religious crime, protecting them from powerful magistrates.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.tribunes",
+        "concept.ancient_rome.consuls"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.016.c3",
+        "card.ancient_rome.012.c2"
+      ],
+      "prompt": "From Level 12: one consul could block the other. Whose actions could a tribune block?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only the other tribunes",
+          "correct": false,
+          "rationale": "Their reach was much wider."
+        },
+        {
+          "id": "b",
+          "label": "Only the priests",
+          "correct": false,
+          "rationale": "Their reach was much wider."
+        },
+        {
+          "id": "c",
+          "label": "Only the Senate’s advice",
+          "correct": false,
+          "rationale": "They could block magistrates too."
+        },
+        {
+          "id": "d",
+          "label": "Any magistrate’s, consuls included",
+          "correct": true
+        }
+      ],
+      "explanation": "A tribune’s veto could stop the act of any magistrate, even a consul.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_tribune"
+  ]
+}

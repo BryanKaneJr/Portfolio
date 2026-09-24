@@ -1,0 +1,210 @@
+{
+  "id": "level.history.ancient_rome.013",
+  "skillId": "skill.history.ancient_rome",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Senate",
+  "objective": "After this level you can describe who sat in the Senate and how it steered the Republic.",
+  "summary": "The Senate was about 300 former magistrates, usually serving for life. It only gave advice, but that advice was almost always followed.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.senate_republic",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.roman_kings",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.consuls",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.012"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Senate couldn’t pass laws. It ran Rome anyway."
+    },
+    {
+      "id": "card.ancient_rome.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A council of former officials",
+      "body": "In the Republic, the Senate was made up of former magistrates, men who had already held office. They usually served for life. For most of the Republic the Senate had about 300 members."
+    },
+    {
+      "id": "card.ancient_rome.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Advice that was obeyed",
+      "body": "Formally, the Senate only gave advice to the magistrates. In practice its advice was almost always followed, especially on foreign policy and money. Consuls came and went each year; the Senate stayed. Because senators served for life, they had far more experience than any one-year consul."
+    },
+    {
+      "id": "card.ancient_rome.013.c4",
+      "type": "fact",
+      "fact": "The Senate met in the Forum.",
+      "context": "Its usual meeting place was the Curia, a building in the Roman Forum."
+    },
+    {
+      "id": "card.ancient_rome.013.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.013.q1"
+    },
+    {
+      "id": "card.ancient_rome.013.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.013.q2"
+    },
+    {
+      "id": "card.ancient_rome.013.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.013.q3"
+    },
+    {
+      "id": "card.ancient_rome.013.c8",
+      "type": "checkpoint",
+      "headline": "The Senate: understood",
+      "learned": [
+        "Senators were former magistrates",
+        "They usually served for life",
+        "Its advice was almost always followed",
+        "It met in the Curia in the Forum"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.senate_republic"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.013.c2"
+      ],
+      "prompt": "Who sat in the Senate of the Republic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every adult male citizen",
+          "correct": false,
+          "rationale": "Citizens met in assemblies, not the Senate."
+        },
+        {
+          "id": "b",
+          "label": "Priests chosen by lot",
+          "correct": false,
+          "rationale": "Senators weren’t chosen by lot."
+        },
+        {
+          "id": "c",
+          "label": "Former magistrates, usually for life",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The families of the consuls",
+          "correct": false,
+          "rationale": "Membership came from holding office."
+        }
+      ],
+      "explanation": "The Senate was made up of former magistrates, who usually kept their seats for life.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.senate_republic"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.013.c3"
+      ],
+      "prompt": "The Senate formally only gave advice. Why was it so powerful?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its advice was almost always followed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It controlled the Vestal Virgins",
+          "correct": false,
+          "rationale": "That wasn’t its power base."
+        },
+        {
+          "id": "c",
+          "label": "It could veto the tribunes",
+          "correct": false,
+          "rationale": "Tribunes held the veto."
+        },
+        {
+          "id": "d",
+          "label": "It elected the king",
+          "correct": false,
+          "rationale": "There was no king."
+        }
+      ],
+      "explanation": "Senators were experienced former officials whose advice magistrates nearly always obeyed, especially on war and money.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.senate_republic",
+        "concept.ancient_rome.roman_kings"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.013.c2",
+        "card.ancient_rome.006.c4"
+      ],
+      "prompt": "From Level 6: how had the Senate begun?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As a court for trying criminals",
+          "correct": false,
+          "rationale": "It began as an advisory council."
+        },
+        {
+          "id": "b",
+          "label": "As a meeting of army officers",
+          "correct": false,
+          "rationale": "It began with elders."
+        },
+        {
+          "id": "c",
+          "label": "As a college of priests",
+          "correct": false,
+          "rationale": "It began with elders."
+        },
+        {
+          "id": "d",
+          "label": "As a council of elders advising the king",
+          "correct": true
+        }
+      ],
+      "explanation": "The Senate began as the kings’ council of elders and grew into the Republic’s most powerful body.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_senate",
+    "source.brit_consul"
+  ]
+}

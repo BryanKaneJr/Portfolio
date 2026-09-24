@@ -1,0 +1,208 @@
+{
+  "id": "level.history.ancient_rome.019",
+  "skillId": "skill.history.ancient_rome",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Conquering Italy",
+  "objective": "After this level you can explain how Rome came to control the Italian peninsula, and the role of roads and alliances.",
+  "summary": "Rome beat the Samnites, built the Via Appia from 312 BCE and made defeated peoples allies. By about 264 BCE it controlled Italy.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.conquest_italy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.consuls",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.018"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome won Italy with armies, roads and allies."
+    },
+    {
+      "id": "card.ancient_rome.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wars in the hills",
+      "body": "In the Samnite Wars, from 343 to 290 BCE, Rome fought the tough hill peoples of central and southern Italy. Victory there, and over other rivals, left Rome in control of nearly all the peninsula south of the Po Valley by about 264 BCE."
+    },
+    {
+      "id": "card.ancient_rome.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Roads and allies",
+      "body": "In 312 BCE Rome began the Via Appia, its first great road, to move armies south quickly. Defeated peoples became allies who supplied soldiers instead of paying tribute, and some were granted citizenship. Each war made Rome’s army bigger.",
+      "callout": "Via Appia: begun 312 BCE"
+    },
+    {
+      "id": "card.ancient_rome.019.c4",
+      "type": "fact",
+      "fact": "A victory that cost too much.",
+      "context": "King Pyrrhus of Epirus beat Roman armies, but his losses were so heavy that a “Pyrrhic victory” now means a win that costs too much."
+    },
+    {
+      "id": "card.ancient_rome.019.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.019.q1"
+    },
+    {
+      "id": "card.ancient_rome.019.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.019.q2"
+    },
+    {
+      "id": "card.ancient_rome.019.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.019.q3"
+    },
+    {
+      "id": "card.ancient_rome.019.c8",
+      "type": "checkpoint",
+      "headline": "Italy: united",
+      "learned": [
+        "Rome fought the Samnite Wars, 343–290 BCE",
+        "The Via Appia was begun in 312 BCE",
+        "Defeated peoples became allies",
+        "By about 264 BCE Rome controlled Italy"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.conquest_italy"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.019.c3"
+      ],
+      "prompt": "What was the Via Appia?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A wall around the city",
+          "correct": false,
+          "rationale": "That was the Servian Wall."
+        },
+        {
+          "id": "b",
+          "label": "A bridge over the Tiber",
+          "correct": false,
+          "rationale": "It was a road."
+        },
+        {
+          "id": "c",
+          "label": "A law about allies",
+          "correct": false,
+          "rationale": "It was a road."
+        },
+        {
+          "id": "d",
+          "label": "Rome’s first great road",
+          "correct": true
+        }
+      ],
+      "explanation": "Begun in 312 BCE, the Via Appia was Rome’s first great road, built to move armies south.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.conquest_italy"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.019.c3"
+      ],
+      "prompt": "How did Rome keep conquered Italian peoples loyal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It made them allies who supplied soldiers",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It enslaved every conquered city",
+          "correct": false,
+          "rationale": "Most became allies."
+        },
+        {
+          "id": "c",
+          "label": "It forced them all to move to Rome",
+          "correct": false,
+          "rationale": "They stayed in their towns."
+        },
+        {
+          "id": "d",
+          "label": "It let each city choose a king",
+          "correct": false,
+          "rationale": "Rome controlled them through alliances."
+        }
+      ],
+      "explanation": "Defeated peoples became allies who sent soldiers rather than tribute, and some gained citizenship.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.conquest_italy",
+        "concept.ancient_rome.consuls"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.019.c2",
+        "card.ancient_rome.012.c3"
+      ],
+      "prompt": "From Level 12: which Roman officials led the armies in these wars?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The tribunes",
+          "correct": false,
+          "rationale": "Tribunes protected plebeians."
+        },
+        {
+          "id": "b",
+          "label": "The consuls",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Vestal Virgins",
+          "correct": false,
+          "rationale": "They were priestesses."
+        },
+        {
+          "id": "d",
+          "label": "The augurs",
+          "correct": false,
+          "rationale": "Augurs read omens."
+        }
+      ],
+      "explanation": "Consuls commanded Rome’s armies, including in the wars that won Italy.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_samnites",
+    "source.brit_ancient_rome",
+    "source.brit_appian_way",
+    "source.brit_pyrrhus"
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "id": "level.history.ancient_rome.017",
+  "skillId": "skill.history.ancient_rome",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Cincinnatus and the Citizen Ideal",
+  "objective": "After this level you can retell the story of Cincinnatus and explain the Roman idea of civic duty.",
+  "summary": "Called from his plow in 458 BCE to save Rome, Cincinnatus won and gave up power after 16 days: the model Roman citizen.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.civic_virtue",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.consuls",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.016"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome’s favorite hero was a farmer who gave power back."
+    },
+    {
+      "id": "card.ancient_rome.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Called from the plow",
+      "body": "In 458 BCE, according to tradition, a Roman army was trapped by enemies. The Senate made Cincinnatus dictator to rescue it. The messengers found him plowing his small farm."
+    },
+    {
+      "id": "card.ancient_rome.017.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Power returned",
+      "body": "Cincinnatus won the war and then resigned after about 16 days, long before his time ran out, and went back to his farm. Romans told the story to celebrate the mos maiorum, “the custom of the ancestors”: duty, discipline and service to the state."
+    },
+    {
+      "id": "card.ancient_rome.017.c4",
+      "type": "fact",
+      "fact": "An American city carries his name.",
+      "context": "Cincinnati is named after the Society of the Cincinnati, which took its name from the farmer who gave power back."
+    },
+    {
+      "id": "card.ancient_rome.017.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.017.q1"
+    },
+    {
+      "id": "card.ancient_rome.017.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.017.q2"
+    },
+    {
+      "id": "card.ancient_rome.017.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.017.q3"
+    },
+    {
+      "id": "card.ancient_rome.017.c8",
+      "type": "checkpoint",
+      "headline": "Civic virtue: understood",
+      "learned": [
+        "Cincinnatus was called from his plow in 458 BCE",
+        "He saved a trapped Roman army",
+        "He resigned after about 16 days",
+        "Romans prized duty: the mos maiorum"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.civic_virtue"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.017.c2"
+      ],
+      "prompt": "What was Cincinnatus doing when Rome called on him?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Leading the Senate",
+          "correct": false,
+          "rationale": "He was at home."
+        },
+        {
+          "id": "b",
+          "label": "Fighting in Gaul",
+          "correct": false,
+          "rationale": "He was at home."
+        },
+        {
+          "id": "c",
+          "label": "Plowing his farm",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Praying at a temple",
+          "correct": false,
+          "rationale": "He was working his land."
+        }
+      ],
+      "explanation": "Messengers found Cincinnatus plowing his small farm.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.civic_virtue"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.017.c3"
+      ],
+      "prompt": "Why did Romans admire Cincinnatus so much?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He conquered a huge empire",
+          "correct": false,
+          "rationale": "He fought one short war."
+        },
+        {
+          "id": "b",
+          "label": "He gave up supreme power once the crisis passed",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He became king after the war",
+          "correct": false,
+          "rationale": "Rome had no kings."
+        },
+        {
+          "id": "d",
+          "label": "He wrote the Twelve Tables",
+          "correct": false,
+          "rationale": "That wasn’t him."
+        }
+      ],
+      "explanation": "He used supreme power only as long as needed, then returned to his farm: the ideal of civic duty.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.civic_virtue",
+        "concept.ancient_rome.consuls"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.017.c3",
+        "card.ancient_rome.012.c4"
+      ],
+      "prompt": "From Level 12: Cincinnatus held which emergency office, limited to six months?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dictator",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Consul",
+          "correct": false,
+          "rationale": "Consuls served a year."
+        },
+        {
+          "id": "c",
+          "label": "Tribune",
+          "correct": false,
+          "rationale": "Tribunes protected plebeians."
+        },
+        {
+          "id": "d",
+          "label": "King",
+          "correct": false,
+          "rationale": "Rome had sworn off kings."
+        }
+      ],
+      "explanation": "The dictatorship gave supreme power for at most six months; Cincinnatus gave it up after about 16 days.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_cincinnatus",
+    "source.brit_ancient_rome"
+  ]
+}
