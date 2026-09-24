@@ -18,7 +18,7 @@ BrainScroll is an anti-doomscrolling knowledge RPG. It uses the familiar feel of
 | [`backend/`](backend) | Supabase Postgres migrations, RLS, the `start_level` / `complete_level` server functions, and SQL tests. |
 | [`content/`](content) | Versioned curriculum source: subjects, skills, concepts, levels, sources and assets as JSON. |
 | [`scripts/`](scripts) | Content validator (and later: importer, duplicate/licence checks, bundle export). |
-| [`admin/`](admin) | Internal content authoring/review/publish tool (Stage 7; not started). |
+| [`admin/`](admin) | Local Content Admin v1 (`npm run admin`): browse, edit, validate and preview levels, and control draft/published. |
 | [`docs/`](docs) | Full product specs in Markdown ([`docs/specs/`](docs/specs)), engineering digests (product rules, build order, content guide, visual direction), and .docx snapshots. |
 
 ## Getting started

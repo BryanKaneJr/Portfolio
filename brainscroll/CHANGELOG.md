@@ -5,6 +5,16 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 ## 2026-09-24 — Autonomous build pass (no Supabase/phone testing yet)
 
 - **Product decision recorded: Unlimited perks.** Unlimited's only gameplay/progression advantage is removing the daily new-level cap; it may also include non-progression cosmetic or personalization benefits (themes, profile customization). Accomplishment cosmetics (mastery frames, quest rewards, rare trophy treatments, prestige effects) stay earned. Updated product-rules rule 10, CURRENT_PRODUCT_DECISIONS §8, README, CLAUDE.md, social-expansion.md (open question closed) and code comments.
+- **Content Admin v1** (`npm run admin` → http://127.0.0.1:4321; `admin/README.md`). It's a local, credential-free tool that reads and writes `content/` directly:
+  - browse by syllabus chapter, with status and issue badges
+  - edit level metadata, concepts, cards (every type; add, reorder, delete) and questions (options, rationales, source cards), with character budgets taken from core
+  - a raw JSON tab
+  - a phone-width preview in the app's colors that walks the answer flow, including "Take another look"
+  - per-level and global validation (the same validator and revision baseline as the CLI)
+  - read-only concept, claim-status and source views
+  - **draft/published control:** drafts save even with errors; `in_review` and `published` are refused while the level has errors, so nothing unverified can be published
+
+  Safety: schema-invalid saves are refused, writes are atomic, and it binds to 127.0.0.1 with Host and header checks. Six API tests (`admin/test`) cover these and run in `npm test`/`check`. I also drove the UI in Chromium: edit and save, preview answer flow, publish refusal, and the concepts and sources views.
 - **Astronomy Levels 91–100 drafted: the tree is complete** (Chapter 10, "The Universe": the Big Bang, the CMB, the first stars and galaxies, dark energy, the observable universe, four integration levels (atoms to galaxies, how we know, cosmic futures, open questions), and **the Level 100 Mastery Challenge with 10 questions**). 9 concepts and 31 claims (445 total), all unverified. The two concepts that had been taught but never tested are now tested: precession in L98, asterisms in L100. That clears the last content-quality warning, so the only warnings left are about verification.
 - **One schema adjustment for the Mastery Challenge.** The validator required every level to teach a new concept, but the Mastery structure allows zero learning cards. So a `mastery` level may now be pure recall, and there's a unit test for it. This is a rule clarification, not a workaround: the other level types still must teach. L100 has a single intro card, 10 recall questions spread across all ten chapters (most combine two concepts), and cites the sources behind every card it points back to.
 - **Word-count fixes in L83, L84 and L86.** Those three galaxy levels were under the 100-word norm; each got a claim-backed fact card. L96 q2 now tags the concept its timeline card actually states.

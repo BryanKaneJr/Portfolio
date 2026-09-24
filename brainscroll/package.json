@@ -2,15 +2,16 @@
   "name": "brainscroll",
   "private": true,
   "version": "0.0.0",
-  "description": "BrainScroll \u2014 an anti-doomscrolling knowledge RPG. Stop scrolling. Start leveling.",
+  "description": "BrainScroll — an anti-doomscrolling knowledge RPG. Stop scrolling. Start leveling.",
   "workspaces": [
     "app",
     "packages/*",
-    "scripts"
+    "scripts",
+    "admin"
   ],
   "scripts": {
-    "test": "npm run test -w @brainscroll/core",
-    "typecheck": "npm run typecheck -w @brainscroll/core && npm run typecheck -w @brainscroll/scripts && npm run typecheck -w @brainscroll/app",
+    "test": "npm run test -w @brainscroll/core && npm run test -w @brainscroll/admin",
+    "typecheck": "npm run typecheck -w @brainscroll/core && npm run typecheck -w @brainscroll/scripts && npm run typecheck -w @brainscroll/app && npm run typecheck -w @brainscroll/admin",
     "validate:content": "npm run validate -w @brainscroll/scripts",
     "test:db": "bash backend/tests/run.sh",
     "app": "npm run start -w @brainscroll/app",
@@ -23,7 +24,8 @@
     "verify:report": "npm run verify -w @brainscroll/scripts -- report",
     "verify:sync": "npm run verify -w @brainscroll/scripts -- sync",
     "verify:record": "npm run verify -w @brainscroll/scripts -- record",
-    "verify:import-csv": "npm run verify -w @brainscroll/scripts -- import-csv"
+    "verify:import-csv": "npm run verify -w @brainscroll/scripts -- import-csv",
+    "admin": "npm run start -w @brainscroll/admin"
   },
   "engines": {
     "node": ">=22"
