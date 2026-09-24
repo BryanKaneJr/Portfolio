@@ -1,0 +1,216 @@
+{
+  "id": "level.history.ancient_rome.084",
+  "skillId": "skill.history.ancient_rome",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Persecution",
+  "objective": "After this level you can explain why and when Christians were persecuted by the Roman state.",
+  "summary": "Persecution was local and sporadic until Decius in 250 CE. Diocletian’s Great Persecution from 303 CE was the harshest.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.persecution",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.nero",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.roman_religion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.083"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Why would a tolerant empire of many gods persecute one group?"
+    },
+    {
+      "id": "card.ancient_rome.084.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why Christians were targeted",
+      "body": "Refusing to sacrifice to the gods and the emperor looked like disloyalty, and Romans feared it would break the peace with the gods. For most of the first two centuries, though, persecution was local and sporadic, not constant."
+    },
+    {
+      "id": "card.ancient_rome.084.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Empire-wide",
+      "body": "In 250 CE the emperor Decius ordered everyone in the empire to sacrifice to the gods, the first empire-wide persecution. The Great Persecution under Diocletian, from 303 CE, was the harshest the Christians faced."
+    },
+    {
+      "id": "card.ancient_rome.084.c4",
+      "type": "fact",
+      "fact": "Trajan told a governor not to hunt Christians.",
+      "context": "When Pliny the Younger asked for advice, Trajan replied that they should not be sought out, but punished if accused and they refused to recant. Those who died were honored as martyrs, from a Greek word meaning “witness.”"
+    },
+    {
+      "id": "card.ancient_rome.084.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.084.q1"
+    },
+    {
+      "id": "card.ancient_rome.084.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.084.q2"
+    },
+    {
+      "id": "card.ancient_rome.084.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.084.q3"
+    },
+    {
+      "id": "card.ancient_rome.084.c8",
+      "type": "checkpoint",
+      "headline": "Persecution: understood",
+      "learned": [
+        "Refusing sacrifice looked disloyal",
+        "Persecution was local at first",
+        "Decius made it empire-wide in 250 CE",
+        "Diocletian’s was the harshest"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.persecution"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.084.c3"
+      ],
+      "prompt": "Which emperor ordered the first empire-wide persecution, in 250 CE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nero",
+          "correct": false,
+          "rationale": "His persecution was in Rome only."
+        },
+        {
+          "id": "b",
+          "label": "Diocletian",
+          "correct": false,
+          "rationale": "His came later, from 303 CE."
+        },
+        {
+          "id": "c",
+          "label": "Trajan",
+          "correct": false,
+          "rationale": "He said not to hunt Christians."
+        },
+        {
+          "id": "d",
+          "label": "Decius",
+          "correct": true
+        }
+      ],
+      "explanation": "Decius ordered everyone in the empire to sacrifice to the gods in 250 CE.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.persecution",
+        "concept.ancient_rome.roman_religion"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.084.c2",
+        "card.ancient_rome.007.c2"
+      ],
+      "prompt": "Why did refusing to sacrifice seem dangerous to Romans?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sacrifices paid for the army",
+          "correct": false,
+          "rationale": "The fear was religious and political."
+        },
+        {
+          "id": "b",
+          "label": "It risked the peace with the gods",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It broke the Twelve Tables",
+          "correct": false,
+          "rationale": "The fear was religious and political."
+        },
+        {
+          "id": "d",
+          "label": "Temples would lose their land",
+          "correct": false,
+          "rationale": "The fear was religious and political."
+        }
+      ],
+      "explanation": "Romans believed correct rituals kept the pax deorum, so refusing looked disloyal and dangerous.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.persecution",
+        "concept.ancient_rome.nero"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.084.c3",
+        "card.ancient_rome.054.c3"
+      ],
+      "prompt": "From Level 54: which emperor blamed Rome’s Christians for the Great Fire?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nero",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Caligula",
+          "correct": false,
+          "rationale": "He died before the fire."
+        },
+        {
+          "id": "c",
+          "label": "Claudius",
+          "correct": false,
+          "rationale": "He died before the fire."
+        },
+        {
+          "id": "d",
+          "label": "Vespasian",
+          "correct": false,
+          "rationale": "He came after Nero."
+        }
+      ],
+      "explanation": "Nero blamed the Christians in Rome for the fire of 64 CE and had many executed.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_christianity",
+    "source.brit_roman_religion",
+    "source.brit_decius",
+    "source.brit_diocletian",
+    "source.brit_pliny_younger",
+    "source.brit_martyr"
+  ]
+}

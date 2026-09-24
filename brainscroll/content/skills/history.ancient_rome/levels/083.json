@@ -1,0 +1,213 @@
+{
+  "id": "level.history.ancient_rome.083",
+  "skillId": "skill.history.ancient_rome",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The First Christians",
+  "objective": "After this level you can describe how Christianity began and spread through the Roman world.",
+  "summary": "Jesus was crucified in Judaea under Pilate. Paul and others carried the faith to the cities of the empire along Roman roads.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.first_christians",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.provinces",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.roman_roads",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.082"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A faith from a small province spread along roads that Rome had built."
+    },
+    {
+      "id": "card.ancient_rome.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From Judaea",
+      "body": "Jesus of Nazareth was a Jewish teacher executed by crucifixion in Judaea under the Roman governor Pontius Pilate, who governed Judaea from 26 to 36 CE. Paul of Tarsus spread Christianity to non-Jews in cities around the eastern Mediterranean."
+    },
+    {
+      "id": "card.ancient_rome.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "How it spread",
+      "body": "Christianity spread mainly in cities, helped by Roman roads, peace and the common Greek language of the East. Christians worshiped one God and refused to sacrifice to the Roman gods or to the emperor."
+    },
+    {
+      "id": "card.ancient_rome.083.c4",
+      "type": "fact",
+      "fact": "Early churches looked after their own.",
+      "context": "Christian communities were led by bishops and cared for their poor, widows and sick, even when the faith itself was under attack."
+    },
+    {
+      "id": "card.ancient_rome.083.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.083.q1"
+    },
+    {
+      "id": "card.ancient_rome.083.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.083.q2"
+    },
+    {
+      "id": "card.ancient_rome.083.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.083.q3"
+    },
+    {
+      "id": "card.ancient_rome.083.c8",
+      "type": "checkpoint",
+      "headline": "The faith: spreading",
+      "learned": [
+        "Jesus was crucified under Pilate",
+        "Paul spread the faith to non-Jews",
+        "It grew in cities along Roman roads",
+        "Christians refused to sacrifice"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.first_christians"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.083.c2"
+      ],
+      "prompt": "In which province was Jesus crucified?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Egypt",
+          "correct": false,
+          "rationale": "He was executed further north."
+        },
+        {
+          "id": "b",
+          "label": "Gaul",
+          "correct": false,
+          "rationale": "He was executed in the East."
+        },
+        {
+          "id": "c",
+          "label": "Judaea",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Dacia",
+          "correct": false,
+          "rationale": "He was executed in the East."
+        }
+      ],
+      "explanation": "Jesus was crucified in Judaea under the governor Pontius Pilate.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.first_christians"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.083.c3"
+      ],
+      "prompt": "What helped Christianity spread through the empire?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Emperors sent out Christian missionaries",
+          "correct": false,
+          "rationale": "Emperors opposed it at first."
+        },
+        {
+          "id": "b",
+          "label": "It was carried only by the legions",
+          "correct": false,
+          "rationale": "It spread through cities."
+        },
+        {
+          "id": "c",
+          "label": "Christians refused to travel",
+          "correct": false,
+          "rationale": "They traveled widely."
+        },
+        {
+          "id": "d",
+          "label": "Roman roads, peace and a shared language",
+          "correct": true
+        }
+      ],
+      "explanation": "Roads, the Pax Romana and common Greek let the new faith travel between cities.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.first_christians",
+        "concept.ancient_rome.provinces"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.083.c2",
+        "card.ancient_rome.075.c4"
+      ],
+      "prompt": "From Level 75: which Roman official governed Judaea when Jesus was executed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Julius Caesar",
+          "correct": false,
+          "rationale": "He died decades earlier."
+        },
+        {
+          "id": "b",
+          "label": "Pontius Pilate",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Marcus Agrippa",
+          "correct": false,
+          "rationale": "He died decades earlier."
+        },
+        {
+          "id": "d",
+          "label": "Varus",
+          "correct": false,
+          "rationale": "He died in Germany."
+        }
+      ],
+      "explanation": "Pontius Pilate was the Roman prefect of Judaea from 26 to 36 CE.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_christianity",
+    "source.brit_jesus",
+    "source.brit_pilate",
+    "source.brit_paul",
+    "source.brit_roman_road"
+  ]
+}

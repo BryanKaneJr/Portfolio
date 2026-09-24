@@ -1,0 +1,206 @@
+{
+  "id": "level.history.ancient_rome.086",
+  "skillId": "skill.history.ancient_rome",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Constantinople",
+  "objective": "After this level you can explain why Constantine founded a new capital on the Bosporus.",
+  "summary": "In 330 CE Constantine dedicated a new Rome on the Bosporus, closer to the frontiers and between two continents. Today it is Istanbul.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.constantinople",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.chariot_racing",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.085"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Constantine built a second Rome where Europe meets Asia."
+    },
+    {
+      "id": "card.ancient_rome.086.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A new capital",
+      "body": "Constantine dedicated his new capital, Constantinople, on the site of the Greek city of Byzantium in 330 CE. It stood on the Bosporus, the strait between Europe and Asia, controlling the route between the Black Sea and the Mediterranean.",
+      "callout": "Bosporus: the strait between Europe and Asia"
+    },
+    {
+      "id": "card.ancient_rome.086.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why move?",
+      "body": "The new capital was closer than Rome to the threatened Danube and eastern frontiers. It was built as a new Rome, with its own senate, forums and a great hippodrome for chariot racing."
+    },
+    {
+      "id": "card.ancient_rome.086.c4",
+      "type": "fact",
+      "fact": "Constantinople is today Istanbul.",
+      "context": "The city Constantine founded still spans the Bosporus, with districts in both Europe and Asia."
+    },
+    {
+      "id": "card.ancient_rome.086.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.086.q1"
+    },
+    {
+      "id": "card.ancient_rome.086.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.086.q2"
+    },
+    {
+      "id": "card.ancient_rome.086.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.086.q3"
+    },
+    {
+      "id": "card.ancient_rome.086.c8",
+      "type": "checkpoint",
+      "headline": "The new Rome: founded",
+      "learned": [
+        "Constantinople was dedicated in 330 CE",
+        "It stood on the Bosporus",
+        "It was nearer the frontiers",
+        "It is Istanbul today"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.constantinople"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.086.c2"
+      ],
+      "prompt": "Which Greek city stood on the site of Constantinople?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Athens",
+          "correct": false,
+          "rationale": "That is in southern Greece."
+        },
+        {
+          "id": "b",
+          "label": "Corinth",
+          "correct": false,
+          "rationale": "Rome destroyed it in 146 BCE."
+        },
+        {
+          "id": "c",
+          "label": "Alexandria",
+          "correct": false,
+          "rationale": "That is in Egypt."
+        },
+        {
+          "id": "d",
+          "label": "Byzantium",
+          "correct": true
+        }
+      ],
+      "explanation": "Constantinople was built on the site of Byzantium.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.constantinople"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.086.c3"
+      ],
+      "prompt": "Why did Constantine want a capital in the East?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rome had been destroyed",
+          "correct": false,
+          "rationale": "Rome still stood."
+        },
+        {
+          "id": "b",
+          "label": "It was nearer the threatened frontiers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Senate refused to meet in Rome",
+          "correct": false,
+          "rationale": "He built a new senate too."
+        },
+        {
+          "id": "d",
+          "label": "The East had no Christians",
+          "correct": false,
+          "rationale": "It had many."
+        }
+      ],
+      "explanation": "Constantinople was closer to the Danube and eastern frontiers, where the threats were.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.constantinople",
+        "concept.ancient_rome.chariot_racing"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.086.c3",
+        "card.ancient_rome.065.c4"
+      ],
+      "prompt": "From Level 65: which riot of racing fans later broke out in Constantinople?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Gallic sack",
+          "correct": false,
+          "rationale": "That was Rome in 390 BCE."
+        },
+        {
+          "id": "b",
+          "label": "The secession of the plebs",
+          "correct": false,
+          "rationale": "That was Rome in 494 BCE."
+        },
+        {
+          "id": "c",
+          "label": "The Nika revolt",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Catiline conspiracy",
+          "correct": false,
+          "rationale": "That was Rome in 63 BCE."
+        }
+      ],
+      "explanation": "In 532 CE Blues and Greens rioted in Constantinople in the Nika revolt.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_istanbul",
+    "source.brit_constantine"
+  ]
+}

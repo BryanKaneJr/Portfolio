@@ -1,0 +1,214 @@
+{
+  "id": "level.history.ancient_rome.081",
+  "skillId": "skill.history.ancient_rome",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Crisis of the Third Century",
+  "objective": "After this level you can explain the chaos of the third century, when emperors rose and fell rapidly.",
+  "summary": "From 235 to 284 CE, more than 20 emperors came and went, an emperor was captured, and the empire split in three before Aurelian reunited it.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.third_century_crisis",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.four_emperors",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.money_trade",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.080"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.081.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "More than 20 emperors in about 50 years. Most of them were murdered."
+    },
+    {
+      "id": "card.ancient_rome.081.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Everything at once",
+      "body": "From 235 to 284 CE, the Crisis of the Third Century, the empire suffered civil wars, invasions, plague and economic trouble. Emperors had reduced the silver in the denarius until it held very little, and prices soared."
+    },
+    {
+      "id": "card.ancient_rome.081.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "An emperor in chains",
+      "body": "In 260 CE the emperor Valerian was captured by the Persian king Shapur I, the only Roman emperor taken prisoner by a foreign enemy. For a time the empire split into three, with a Gallic Empire in the west and Palmyra under Queen Zenobia in the east."
+    },
+    {
+      "id": "card.ancient_rome.081.c4",
+      "type": "fact",
+      "fact": "Aurelian put the pieces back together.",
+      "context": "In the 270s he reunited the empire and built new walls around Rome itself."
+    },
+    {
+      "id": "card.ancient_rome.081.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.081.q1"
+    },
+    {
+      "id": "card.ancient_rome.081.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.081.q2"
+    },
+    {
+      "id": "card.ancient_rome.081.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.081.q3"
+    },
+    {
+      "id": "card.ancient_rome.081.c8",
+      "type": "checkpoint",
+      "headline": "The crisis: survived",
+      "learned": [
+        "The crisis ran from 235 to 284 CE",
+        "More than 20 emperors ruled",
+        "Valerian was captured by Persia",
+        "Aurelian reunited the empire"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.third_century_crisis"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.081.c3"
+      ],
+      "prompt": "Which emperor was captured by the Persians in 260 CE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Aurelian",
+          "correct": false,
+          "rationale": "He reunited the empire."
+        },
+        {
+          "id": "b",
+          "label": "Diocletian",
+          "correct": false,
+          "rationale": "He came later."
+        },
+        {
+          "id": "c",
+          "label": "Valerian",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Decius",
+          "correct": false,
+          "rationale": "He died fighting the Goths."
+        }
+      ],
+      "explanation": "Valerian was captured by Shapur I, the only emperor taken prisoner by a foreign enemy.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.third_century_crisis",
+        "concept.ancient_rome.money_trade"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.081.c2"
+      ],
+      "prompt": "Why did prices soar during the crisis?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The empire stopped using money",
+          "correct": false,
+          "rationale": "Coins were still used."
+        },
+        {
+          "id": "b",
+          "label": "Coins held less and less silver",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Farmers refused to grow grain",
+          "correct": false,
+          "rationale": "The cause was the coinage."
+        },
+        {
+          "id": "d",
+          "label": "The Senate taxed all trade",
+          "correct": false,
+          "rationale": "The cause was the coinage."
+        }
+      ],
+      "explanation": "Emperors cut the silver in the denarius, so each coin was worth less and prices rose.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.third_century_crisis",
+        "concept.ancient_rome.four_emperors"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.081.c1",
+        "card.ancient_rome.055.c2"
+      ],
+      "prompt": "From Level 55: what had 69 CE revealed that the third century showed again?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Emperors had to be born in Rome",
+          "correct": false,
+          "rationale": "The opposite was shown."
+        },
+        {
+          "id": "b",
+          "label": "The Senate chose every emperor",
+          "correct": false,
+          "rationale": "Armies chose them."
+        },
+        {
+          "id": "c",
+          "label": "Only Nero’s family could rule",
+          "correct": false,
+          "rationale": "That line had ended."
+        },
+        {
+          "id": "d",
+          "label": "Armies could make and unmake emperors",
+          "correct": true
+        }
+      ],
+      "explanation": "In both periods, armies raised their own commanders to the throne and removed others.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ancient_rome",
+    "source.brit_denarius",
+    "source.brit_valerian",
+    "source.brit_zenobia",
+    "source.brit_aurelian"
+  ]
+}

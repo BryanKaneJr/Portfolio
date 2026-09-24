@@ -1,0 +1,212 @@
+{
+  "id": "level.history.ancient_rome.085",
+  "skillId": "skill.history.ancient_rome",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Constantine",
+  "objective": "After this level you can explain Constantine's rise and his support for Christianity.",
+  "summary": "Constantine won at the Milvian Bridge in 312 CE, gave Christians tolerance in 313, ruled alone from 324 and called the Council of Nicaea.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.constantine",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.diocletian",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.persecution",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.084"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Ten years after the Great Persecution began, Christians were free to worship."
+    },
+    {
+      "id": "card.ancient_rome.085.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Milvian Bridge",
+      "body": "In 312 CE Constantine defeated his rival Maxentius at the Milvian Bridge outside Rome. Christian writers said he saw a sign before the battle and had his soldiers fight under a Christian symbol. By 324 CE he had defeated his last rival and ruled the whole empire alone."
+    },
+    {
+      "id": "card.ancient_rome.085.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A Christian-friendly emperor",
+      "body": "In 313 CE the Edict of Milan granted religious tolerance to Christians throughout the empire. In 325 CE Constantine called the Council of Nicaea, a meeting of bishops that agreed a common statement of Christian belief."
+    },
+    {
+      "id": "card.ancient_rome.085.c4",
+      "type": "fact",
+      "fact": "Constantine was baptized only on his deathbed.",
+      "context": "He supported the church for most of his reign, but was baptized in 337 CE, as he was dying."
+    },
+    {
+      "id": "card.ancient_rome.085.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.085.q1"
+    },
+    {
+      "id": "card.ancient_rome.085.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.085.q2"
+    },
+    {
+      "id": "card.ancient_rome.085.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.085.q3"
+    },
+    {
+      "id": "card.ancient_rome.085.c8",
+      "type": "checkpoint",
+      "headline": "Constantine: crowned",
+      "learned": [
+        "Constantine won at the Milvian Bridge in 312 CE",
+        "The Edict of Milan came in 313 CE",
+        "He ruled alone from 324 CE",
+        "He called the Council of Nicaea"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.constantine"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.085.c3"
+      ],
+      "prompt": "What did the Edict of Milan grant in 313 CE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Citizenship to all free people",
+          "correct": false,
+          "rationale": "That was Caracalla, in 212 CE."
+        },
+        {
+          "id": "b",
+          "label": "Religious tolerance for Christians",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Freedom to all enslaved people",
+          "correct": false,
+          "rationale": "Slavery continued."
+        },
+        {
+          "id": "d",
+          "label": "A new capital in the East",
+          "correct": false,
+          "rationale": "That came later."
+        }
+      ],
+      "explanation": "The Edict of Milan granted religious tolerance to Christians throughout the empire.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.constantine"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.085.c3"
+      ],
+      "prompt": "Why was the Council of Nicaea important?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It elected Constantine emperor",
+          "correct": false,
+          "rationale": "He already ruled."
+        },
+        {
+          "id": "b",
+          "label": "It ended the Tetrarchy by imperial law",
+          "correct": false,
+          "rationale": "It was a church council."
+        },
+        {
+          "id": "c",
+          "label": "Bishops agreed a shared statement of belief",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It moved the Senate to the eastern capital",
+          "correct": false,
+          "rationale": "It was a church council."
+        }
+      ],
+      "explanation": "In 325 CE the bishops at Nicaea agreed a common statement of Christian belief.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.constantine",
+        "concept.ancient_rome.persecution"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.085.c3",
+        "card.ancient_rome.084.c3"
+      ],
+      "prompt": "From Level 84: the Great Persecution began in 303 CE under which emperor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Decius",
+          "correct": false,
+          "rationale": "His was in 250 CE."
+        },
+        {
+          "id": "b",
+          "label": "Valerian",
+          "correct": false,
+          "rationale": "He was captured in 260 CE."
+        },
+        {
+          "id": "c",
+          "label": "Aurelian",
+          "correct": false,
+          "rationale": "He reunited the empire."
+        },
+        {
+          "id": "d",
+          "label": "Diocletian",
+          "correct": true
+        }
+      ],
+      "explanation": "Diocletian’s Great Persecution began in 303 CE; the Edict of Milan came just ten years later.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_edict_milan",
+    "source.brit_diocletian",
+    "source.brit_constantine",
+    "source.brit_nicaea"
+  ]
+}
