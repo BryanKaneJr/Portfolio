@@ -1,0 +1,212 @@
+{
+  "id": "level.history.ancient_rome.078",
+  "skillId": "skill.history.ancient_rome",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Money and Trade",
+  "objective": "After this level you can describe Roman coins, trade routes and the economy of the Mediterranean.",
+  "summary": "The silver denarius carried the emperor’s face everywhere. Amphorae carried wine, oil and fish sauce, and traders reached India.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.money_trade",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.roman_food",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.pax_romana",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.077"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In Rome there is a hill made entirely of broken jars."
+    },
+    {
+      "id": "card.ancient_rome.078.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Coins with a message",
+      "body": "The denarius, a silver coin, was the standard Roman coin for centuries. Coins carried the emperor’s portrait and short messages, spreading his image across the empire. Over time emperors reduced the silver in the denarius, and by the 3rd century CE it held very little."
+    },
+    {
+      "id": "card.ancient_rome.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Goods on the move",
+      "body": "Wine, olive oil and fish sauce moved around the Mediterranean in amphorae, clay jars made for shipping. Roman traders sailed to India, and Chinese silk reached Rome through many middlemen along the Silk Road.",
+      "callout": "Amphora: a two-handled shipping jar"
+    },
+    {
+      "id": "card.ancient_rome.078.c4",
+      "type": "fact",
+      "fact": "Monte Testaccio is an artificial hill.",
+      "context": "It is made of fragments of millions of broken olive oil amphorae, dumped in Rome after their oil was used."
+    },
+    {
+      "id": "card.ancient_rome.078.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.078.q1"
+    },
+    {
+      "id": "card.ancient_rome.078.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.078.q2"
+    },
+    {
+      "id": "card.ancient_rome.078.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.078.q3"
+    },
+    {
+      "id": "card.ancient_rome.078.c8",
+      "type": "checkpoint",
+      "headline": "Trade: mapped",
+      "learned": [
+        "The denarius was Rome’s silver coin",
+        "Coins spread the emperor’s image",
+        "Amphorae carried oil, wine and garum",
+        "Trade reached India and China"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.money_trade"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.078.c2"
+      ],
+      "prompt": "What was the denarius?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A bronze shield",
+          "correct": false,
+          "rationale": "It was money."
+        },
+        {
+          "id": "b",
+          "label": "A clay shipping jar",
+          "correct": false,
+          "rationale": "That was an amphora."
+        },
+        {
+          "id": "c",
+          "label": "A silver coin",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A gold ring for senators",
+          "correct": false,
+          "rationale": "It was money."
+        }
+      ],
+      "explanation": "The denarius was the standard silver coin of Rome for centuries.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.money_trade"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.078.c2"
+      ],
+      "prompt": "Why did emperors put their portraits on coins?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To prove the coins were gold",
+          "correct": false,
+          "rationale": "It was about image."
+        },
+        {
+          "id": "b",
+          "label": "Because the law required a face",
+          "correct": false,
+          "rationale": "It was about image."
+        },
+        {
+          "id": "c",
+          "label": "To spread their image across the empire",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To mark the coin’s weight",
+          "correct": false,
+          "rationale": "It was about image."
+        }
+      ],
+      "explanation": "Coins passed through countless hands, carrying the emperor’s face and messages everywhere.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.money_trade",
+        "concept.ancient_rome.roman_food"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.078.c3",
+        "card.ancient_rome.067.c3"
+      ],
+      "prompt": "From Level 67: which fish sauce was shipped around the empire in amphorae?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Posca",
+          "correct": false,
+          "rationale": "That was a vinegar drink."
+        },
+        {
+          "id": "b",
+          "label": "Mulsum",
+          "correct": false,
+          "rationale": "That was honeyed wine."
+        },
+        {
+          "id": "c",
+          "label": "Garum",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Defrutum",
+          "correct": false,
+          "rationale": "That was grape syrup."
+        }
+      ],
+      "explanation": "Garum was made in coastal factories, especially in Spain, and shipped in amphorae.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_amphora",
+    "source.brit_denarius",
+    "source.brit_silk_road"
+  ]
+}

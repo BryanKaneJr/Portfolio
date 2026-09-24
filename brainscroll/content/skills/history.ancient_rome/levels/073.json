@@ -1,0 +1,206 @@
+{
+  "id": "level.history.ancient_rome.073",
+  "skillId": "skill.history.ancient_rome",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Roman Concrete",
+  "objective": "After this level you can explain what made Roman concrete so durable.",
+  "summary": "Lime and volcanic ash made a concrete that set underwater and shaped domes. Lumps of lime even helped it heal its own cracks.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.roman_concrete",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.city_of_marble",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.072"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some Roman harbor walls have stood in seawater for two thousand years."
+    },
+    {
+      "id": "card.ancient_rome.073.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ash and lime",
+      "body": "Roman concrete mixed lime with volcanic ash, called pozzolana, and chunks of rock or brick. Pozzolana is named after Pozzuoli, near Naples, where the ash was dug. Concrete made with it could set even underwater, which let Romans build harbors in the sea.",
+      "callout": "Pozzolana: volcanic ash from near Naples"
+    },
+    {
+      "id": "card.ancient_rome.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "New shapes",
+      "body": "Concrete let Romans build arches, vaults and domes on a scale never seen before. Walls were usually faced with brick or stone, so the concrete core was hidden from view."
+    },
+    {
+      "id": "card.ancient_rome.073.c4",
+      "type": "fact",
+      "fact": "Roman concrete could repair itself.",
+      "context": "A 2023 study found that lumps of lime in the mix could react with water seeping into cracks and seal them."
+    },
+    {
+      "id": "card.ancient_rome.073.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.073.q1"
+    },
+    {
+      "id": "card.ancient_rome.073.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.073.q2"
+    },
+    {
+      "id": "card.ancient_rome.073.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.073.q3"
+    },
+    {
+      "id": "card.ancient_rome.073.c8",
+      "type": "checkpoint",
+      "headline": "Concrete: set",
+      "learned": [
+        "Concrete mixed lime and volcanic ash",
+        "It set underwater",
+        "It made domes and vaults possible",
+        "Lime lumps helped seal cracks"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.roman_concrete"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.073.c2"
+      ],
+      "prompt": "What volcanic ingredient went into Roman concrete?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Obsidian glass",
+          "correct": false,
+          "rationale": "It was a powder."
+        },
+        {
+          "id": "b",
+          "label": "Molten lava",
+          "correct": false,
+          "rationale": "It was a powder."
+        },
+        {
+          "id": "c",
+          "label": "Sulfur crystals",
+          "correct": false,
+          "rationale": "It was a powder."
+        },
+        {
+          "id": "d",
+          "label": "Pozzolana ash",
+          "correct": true
+        }
+      ],
+      "explanation": "Roman concrete mixed lime with volcanic ash called pozzolana.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.roman_concrete"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.073.c2"
+      ],
+      "prompt": "Why could Romans build harbors out in the sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their concrete could set underwater",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They drained the sea with pumps",
+          "correct": false,
+          "rationale": "The concrete did the work."
+        },
+        {
+          "id": "c",
+          "label": "They used only floating timber",
+          "correct": false,
+          "rationale": "The concrete did the work."
+        },
+        {
+          "id": "d",
+          "label": "The sea was lower then",
+          "correct": false,
+          "rationale": "The concrete did the work."
+        }
+      ],
+      "explanation": "Concrete made with volcanic ash set even underwater.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.roman_concrete",
+        "concept.ancient_rome.city_of_marble"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.073.c3",
+        "card.ancient_rome.046.c2"
+      ],
+      "prompt": "From Level 46: Augustus boasted he found Rome a city of brick and left it a city of what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Concrete",
+          "correct": false,
+          "rationale": "His boast named a stone."
+        },
+        {
+          "id": "b",
+          "label": "Gold",
+          "correct": false,
+          "rationale": "His boast named a stone."
+        },
+        {
+          "id": "c",
+          "label": "Marble",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Bronze",
+          "correct": false,
+          "rationale": "His boast named a stone."
+        }
+      ],
+      "explanation": "Augustus claimed he left Rome a city of marble; much of it was marble facing over concrete and brick.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_concrete",
+    "source.mit_concrete"
+  ]
+}

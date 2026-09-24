@@ -1,0 +1,215 @@
+{
+  "id": "level.history.ancient_rome.075",
+  "skillId": "skill.history.ancient_rome",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Running the Provinces",
+  "objective": "After this level you can explain how governors, taxes and local elites ran the provinces.",
+  "summary": "Governors ran provinces, split by Augustus between the Senate and himself. Taxes came from a census, and local elites did most of the work.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.provinces",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.mediterranean_power",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.augustus_principate",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.074"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.075.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome ran an empire of millions with a surprisingly small staff."
+    },
+    {
+      "id": "card.ancient_rome.075.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Governors and taxes",
+      "body": "Augustus split the provinces: peaceful ones had governors chosen by the Senate, while frontier provinces with armies were run by his own deputies. Provinces paid taxes on land and on people, and a census counted them for taxation."
+    },
+    {
+      "id": "card.ancient_rome.075.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Local help",
+      "body": "Rome ran its provinces with few officials, relying on local elites to govern their own cities and collect taxes. In the Republic, tax collection had often been contracted out to private companies of publicani, who were notorious for abuses.",
+      "callout": "Publicani: private tax contractors"
+    },
+    {
+      "id": "card.ancient_rome.075.c4",
+      "type": "fact",
+      "fact": "Pontius Pilate was a provincial governor.",
+      "context": "He was the Roman prefect who governed Judaea from 26 to 36 CE."
+    },
+    {
+      "id": "card.ancient_rome.075.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.075.q1"
+    },
+    {
+      "id": "card.ancient_rome.075.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.075.q2"
+    },
+    {
+      "id": "card.ancient_rome.075.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.075.q3"
+    },
+    {
+      "id": "card.ancient_rome.075.c8",
+      "type": "checkpoint",
+      "headline": "The provinces: run",
+      "learned": [
+        "Governors ran the provinces",
+        "Augustus kept the armed provinces",
+        "A census set the taxes",
+        "Local elites did most of the governing"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.provinces"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.075.c3"
+      ],
+      "prompt": "Who collected taxes for Rome in many Republican provinces?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Vestal Virgins",
+          "correct": false,
+          "rationale": "They were priestesses."
+        },
+        {
+          "id": "b",
+          "label": "The tribunes of the plebs",
+          "correct": false,
+          "rationale": "They served in Rome."
+        },
+        {
+          "id": "c",
+          "label": "Private companies of publicani",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Praetorian Guard",
+          "correct": false,
+          "rationale": "It guarded the emperor."
+        }
+      ],
+      "explanation": "Tax collection was often contracted out to publicani, notorious for abuses.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.provinces",
+        "concept.ancient_rome.augustus_principate"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.075.c2",
+        "card.ancient_rome.044.c3"
+      ],
+      "prompt": "Why did Augustus keep the frontier provinces for himself?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They paid the most tax",
+          "correct": false,
+          "rationale": "The key was their armies."
+        },
+        {
+          "id": "b",
+          "label": "That was where the armies were",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Senate refused to govern them",
+          "correct": false,
+          "rationale": "He chose them."
+        },
+        {
+          "id": "d",
+          "label": "They were closest to Rome",
+          "correct": false,
+          "rationale": "They were on the edges."
+        }
+      ],
+      "explanation": "Frontier provinces held the legions, and controlling them meant controlling the army.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.provinces",
+        "concept.ancient_rome.mediterranean_power"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.075.c2",
+        "card.ancient_rome.030.c3"
+      ],
+      "prompt": "From Level 30: which was Rome’s first province?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sicily",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Egypt",
+          "correct": false,
+          "rationale": "That came much later."
+        },
+        {
+          "id": "c",
+          "label": "Gaul",
+          "correct": false,
+          "rationale": "That came much later."
+        },
+        {
+          "id": "d",
+          "label": "Britain",
+          "correct": false,
+          "rationale": "That came much later."
+        }
+      ],
+      "explanation": "Rome’s provinces began with Sicily, taken after the First Punic War.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ancient_rome",
+    "source.brit_augustus",
+    "source.brit_publicani",
+    "source.brit_pilate"
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "id": "level.history.ancient_rome.071",
+  "skillId": "skill.history.ancient_rome",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "All Roads Lead to Rome",
+  "objective": "After this level you can explain how Roman roads were built and why they mattered.",
+  "summary": "Layered, drained and as straight as the land allowed, over 80,000 km of main roads carried armies first, then everyone else.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.roman_roads",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.conquest_italy",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.070"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some Roman roads are still in use after two thousand years."
+    },
+    {
+      "id": "card.ancient_rome.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Built in layers",
+      "body": "Major Roman roads were built in layers: a foundation of large stones, then gravel or rubble, topped with paving stones. They ran as straight as the ground allowed and were cambered, curved slightly, so rainwater drained off.",
+      "callout": "Camber: a slight curve that sheds water"
+    },
+    {
+      "id": "card.ancient_rome.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why roads mattered",
+      "body": "Roads were built first for the army, letting legions march quickly. They also carried trade, officials and the imperial post. At its height the network included more than 80,000 km of main roads."
+    },
+    {
+      "id": "card.ancient_rome.071.c4",
+      "type": "fact",
+      "fact": "The word mile comes from Rome.",
+      "context": "Milestones along the roads marked distances in Roman miles of 1,000 paces, mille passus in Latin."
+    },
+    {
+      "id": "card.ancient_rome.071.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.071.q1"
+    },
+    {
+      "id": "card.ancient_rome.071.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.071.q2"
+    },
+    {
+      "id": "card.ancient_rome.071.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.071.q3"
+    },
+    {
+      "id": "card.ancient_rome.071.c8",
+      "type": "checkpoint",
+      "headline": "The roads: traveled",
+      "learned": [
+        "Roads were built in layers",
+        "They were cambered to drain rain",
+        "They served the army first",
+        "Milestones measured Roman miles"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.roman_roads"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.071.c2"
+      ],
+      "prompt": "Why were Roman roads cambered?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To slow down chariots",
+          "correct": false,
+          "rationale": "It was about water."
+        },
+        {
+          "id": "b",
+          "label": "So rainwater drained off",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "To mark the edge of each province",
+          "correct": false,
+          "rationale": "It was about water."
+        },
+        {
+          "id": "d",
+          "label": "So carts could pass each other",
+          "correct": false,
+          "rationale": "It was about water."
+        }
+      ],
+      "explanation": "A slight curve let rainwater run off instead of pooling and breaking the road.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.roman_roads"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.071.c3"
+      ],
+      "prompt": "Who were Roman roads built for first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Merchants carrying grain to Rome",
+          "correct": false,
+          "rationale": "They came to use them too."
+        },
+        {
+          "id": "b",
+          "label": "Pilgrims visiting distant temples",
+          "correct": false,
+          "rationale": "They weren’t the main reason."
+        },
+        {
+          "id": "c",
+          "label": "Tourists visiting Rome",
+          "correct": false,
+          "rationale": "They weren’t the main reason."
+        },
+        {
+          "id": "d",
+          "label": "The army, to move legions quickly",
+          "correct": true
+        }
+      ],
+      "explanation": "Roads let legions march quickly, and trade and officials followed.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.roman_roads",
+        "concept.ancient_rome.conquest_italy"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.071.c3",
+        "card.ancient_rome.019.c3"
+      ],
+      "prompt": "From Level 19: what was Rome’s first great road?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Via Sacra",
+          "correct": false,
+          "rationale": "That ran through the Forum."
+        },
+        {
+          "id": "b",
+          "label": "The Via Appia",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Via Flaminia",
+          "correct": false,
+          "rationale": "It came later."
+        },
+        {
+          "id": "d",
+          "label": "The Via Salaria",
+          "correct": false,
+          "rationale": "That was the salt route."
+        }
+      ],
+      "explanation": "The Via Appia, begun in 312 BCE, was built to move armies quickly to the south.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_roman_road"
+  ]
+}

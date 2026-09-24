@@ -1,0 +1,212 @@
+{
+  "id": "level.history.ancient_rome.079",
+  "skillId": "skill.history.ancient_rome",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Life on the Frontier",
+  "objective": "After this level you can describe forts, soldiers and communities on the Roman frontier.",
+  "summary": "Auxiliaries held standard forts along the limes. Towns grew beside them, and the Vindolanda tablets let us read their letters.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.frontier_life",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.hadrian",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.citizenship",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.078"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.079.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "At a fort in northern Britain, a commander’s wife sent a birthday invitation."
+    },
+    {
+      "id": "card.ancient_rome.079.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Forts on the limes",
+      "body": "The fortified frontier of the empire was called the limes. Much of it was held by auxiliaries, non-citizen soldiers recruited from the provinces. Forts followed a standard plan: a rectangle with rounded corners, four gates and a headquarters building at the center.",
+      "callout": "Limes: the fortified frontier"
+    },
+    {
+      "id": "card.ancient_rome.079.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Towns beside the forts",
+      "body": "Civilian settlements grew up beside frontier forts, with traders, craftsmen and soldiers’ families. On Hadrian’s Wall, small forts stood about every Roman mile."
+    },
+    {
+      "id": "card.ancient_rome.079.c4",
+      "type": "fact",
+      "fact": "We can read letters written on the frontier.",
+      "context": "At Vindolanda, near Hadrian’s Wall, archaeologists found hundreds of wooden writing tablets, including a birthday invitation from one commander’s wife to another."
+    },
+    {
+      "id": "card.ancient_rome.079.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.079.q1"
+    },
+    {
+      "id": "card.ancient_rome.079.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.079.q2"
+    },
+    {
+      "id": "card.ancient_rome.079.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.079.q3"
+    },
+    {
+      "id": "card.ancient_rome.079.c8",
+      "type": "checkpoint",
+      "headline": "The frontier: held",
+      "learned": [
+        "The limes was the fortified frontier",
+        "Auxiliaries held much of it",
+        "Towns grew beside the forts",
+        "Vindolanda preserved frontier letters"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.frontier_life"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.079.c2"
+      ],
+      "prompt": "What was the limes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A Roman lemon tree",
+          "correct": false,
+          "rationale": "It was a frontier."
+        },
+        {
+          "id": "b",
+          "label": "A soldier’s rank",
+          "correct": false,
+          "rationale": "It was a frontier."
+        },
+        {
+          "id": "c",
+          "label": "A frontier tax",
+          "correct": false,
+          "rationale": "It was the frontier itself."
+        },
+        {
+          "id": "d",
+          "label": "The fortified frontier",
+          "correct": true
+        }
+      ],
+      "explanation": "The limes was the fortified frontier of the empire.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.frontier_life"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.079.c4"
+      ],
+      "prompt": "Why are the Vindolanda tablets so valuable?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They show everyday frontier life",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They list every emperor in order",
+          "correct": false,
+          "rationale": "They are everyday letters."
+        },
+        {
+          "id": "c",
+          "label": "They are the only Latin writing found",
+          "correct": false,
+          "rationale": "Much Latin survives."
+        },
+        {
+          "id": "d",
+          "label": "They record Hadrian’s own speeches",
+          "correct": false,
+          "rationale": "They are everyday letters."
+        }
+      ],
+      "explanation": "Letters like a birthday invitation reveal ordinary life that official histories leave out.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.frontier_life",
+        "concept.ancient_rome.citizenship"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.079.c2",
+        "card.ancient_rome.076.c3"
+      ],
+      "prompt": "From Level 76: what did auxiliaries receive after about 25 years of service?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A farm in Italy",
+          "correct": false,
+          "rationale": "It was a legal status."
+        },
+        {
+          "id": "b",
+          "label": "A seat in the Senate",
+          "correct": false,
+          "rationale": "It was a legal status."
+        },
+        {
+          "id": "c",
+          "label": "Roman citizenship",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Their own province",
+          "correct": false,
+          "rationale": "It was a legal status."
+        }
+      ],
+      "explanation": "Non-citizen auxiliaries received Roman citizenship after about 25 years.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_vindolanda",
+    "source.brit_limes",
+    "source.brit_hadrians_wall"
+  ]
+}

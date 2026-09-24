@@ -1,0 +1,212 @@
+{
+  "id": "level.history.ancient_rome.076",
+  "skillId": "skill.history.ancient_rome",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Becoming Roman",
+  "objective": "After this level you can explain Roman citizenship and how it spread to all free people in 212.",
+  "summary": "Citizenship brought legal privileges. It spread to Italy, then to towns, soldiers and individuals, until Caracalla gave it to almost all free people in 212 CE.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.citizenship",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.slavery",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.conquest_italy",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.075"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 212 CE, millions of people became Roman citizens on the same day."
+    },
+    {
+      "id": "card.ancient_rome.076.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What citizenship meant",
+      "body": "Roman citizens had legal privileges, such as the right to appeal to Rome and protection from certain punishments. According to the Book of Acts, Paul of Tarsus, a Roman citizen, used his right to appeal to the emperor."
+    },
+    {
+      "id": "card.ancient_rome.076.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "How it spread",
+      "body": "After the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies. It then spread through the provinces by grants to towns, individuals and soldiers. Non-citizen soldiers, the auxiliaries, received it after about 25 years of service."
+    },
+    {
+      "id": "card.ancient_rome.076.c4",
+      "type": "fact",
+      "fact": "In 212 CE Caracalla made almost every free person a citizen.",
+      "context": "After centuries of gradual grants, being Roman became a status shared across the whole empire."
+    },
+    {
+      "id": "card.ancient_rome.076.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.076.q1"
+    },
+    {
+      "id": "card.ancient_rome.076.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.076.q2"
+    },
+    {
+      "id": "card.ancient_rome.076.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.076.q3"
+    },
+    {
+      "id": "card.ancient_rome.076.c8",
+      "type": "checkpoint",
+      "headline": "Citizenship: granted",
+      "learned": [
+        "Citizens had legal privileges",
+        "Italians gained citizenship after 88 BCE",
+        "Auxiliaries earned it by service",
+        "Caracalla extended it in 212 CE"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.citizenship"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.076.c4"
+      ],
+      "prompt": "Which emperor granted citizenship to almost all free people in 212 CE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Augustus",
+          "correct": false,
+          "rationale": "He ruled two centuries earlier."
+        },
+        {
+          "id": "b",
+          "label": "Hadrian",
+          "correct": false,
+          "rationale": "He ruled a century earlier."
+        },
+        {
+          "id": "c",
+          "label": "Caracalla",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Constantine",
+          "correct": false,
+          "rationale": "He ruled a century later."
+        }
+      ],
+      "explanation": "Caracalla’s grant of 212 CE made almost all free inhabitants citizens.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.citizenship"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.076.c3"
+      ],
+      "prompt": "How could an auxiliary soldier become a citizen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By winning one battle",
+          "correct": false,
+          "rationale": "It took long service."
+        },
+        {
+          "id": "b",
+          "label": "By marrying a senator’s daughter",
+          "correct": false,
+          "rationale": "It took long service."
+        },
+        {
+          "id": "c",
+          "label": "By paying a fee in Rome",
+          "correct": false,
+          "rationale": "It took long service."
+        },
+        {
+          "id": "d",
+          "label": "By serving about 25 years",
+          "correct": true
+        }
+      ],
+      "explanation": "Auxiliaries, non-citizen soldiers, received citizenship after about 25 years of service.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.citizenship",
+        "concept.ancient_rome.slavery"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.076.c3",
+        "card.ancient_rome.062.c4"
+      ],
+      "prompt": "From Level 62: how else could an enslaved person become a citizen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By being freed by a Roman citizen",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "By fighting well in the arena",
+          "correct": false,
+          "rationale": "Freedom came through manumission."
+        },
+        {
+          "id": "c",
+          "label": "By moving to the city of Rome",
+          "correct": false,
+          "rationale": "Freedom came through manumission."
+        },
+        {
+          "id": "d",
+          "label": "By learning to read and write Latin",
+          "correct": false,
+          "rationale": "Freedom came through manumission."
+        }
+      ],
+      "explanation": "A person freed by a Roman citizen usually became a citizen.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_caracalla",
+    "source.brit_ancient_rome",
+    "source.brit_paul",
+    "source.brit_social_war"
+  ]
+}
