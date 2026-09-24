@@ -7,7 +7,7 @@
   "engines": { "node": ">=22.18" },
   "scripts": {
     "start": "node --disable-warning=ExperimentalWarning src/server.ts",
-    "mock": "MOCK_OPENAI=1 node --disable-warning=ExperimentalWarning src/server.ts",
+    "mock": "node --disable-warning=ExperimentalWarning src/server.ts --mock",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

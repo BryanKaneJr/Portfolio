@@ -20,7 +20,7 @@ export const settings = {
   imageParams: parseParams(env.OPENAI_IMAGE_PARAMS),
   textModel: env.OPENAI_TEXT_MODEL || 'gpt-4.1-mini',
   concurrency: Math.min(3, Math.max(1, Number(env.CONCURRENCY || 1) || 1)),
-  mock: env.MOCK_OPENAI === '1',
+  mock: env.MOCK_OPENAI === '1' || process.argv.includes('--mock'),
   styleVersion,
 };
 
