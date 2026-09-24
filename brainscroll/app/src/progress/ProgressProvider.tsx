@@ -1,4 +1,4 @@
-import { skillProgressView, type AnswerResult, type CompletionSummary, type Level, type ReviewItem, type ReviewResult } from '@brainscroll/core';
+import { skillProgressView, type AccountState, type AnswerResult, type CompletionSummary, type Level, type ReviewItem, type ReviewResult } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { levelByNumber, skills } from '@/content';
 import type { ProgressBackend, ProgressSnapshot, StartResult } from './backend';
@@ -55,6 +55,15 @@ interface ProgressContextValue {
   refresh(): Promise<void>;
   finishOnboarding(): void;
   resetAll(): Promise<void>;
+  /** Where progress is kept (device, guest, or a saved email account). Null until known. */
+  account: AccountState | null;
+  refreshAccount(): Promise<void>;
+  startEmailLink(email: string): Promise<void>;
+  confirmEmailLink(email: string, code: string): Promise<void>;
+  startSignIn(email: string): Promise<void>;
+  /** Switches this device to another account; in-progress level sessions belong to the old one and are dropped. */
+  confirmSignIn(email: string, code: string): Promise<void>;
+  signOut(): Promise<void>;
 }
 
 const EMPTY_SNAPSHOT: ProgressSnapshot = {
@@ -86,6 +95,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [sessions, setSessions] = useState<Record<string, LevelSession>>({});
   const [lastSummary, setLastSummary] = useState<CompletionSummary>();
   const [onboarded, setOnboarded] = useState(false);
+  const [account, setAccount] = useState<AccountState | null>(null);
   // Synchronous mirrors for handlers.
   const sessionsRef = useRef(sessions);
   const snapshotRef = useRef(snapshot);
@@ -113,6 +123,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       try {
         await backend.init();
         await refresh();
+        setAccount(await backend.account());
         // Anyone who has already cleared a level has effectively onboarded.
         setOnboarded(o === true || snapshotRef.current.completedLevels.length > 0);
       } catch (e) {
@@ -195,9 +206,36 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         setOnboarded(false);
         void save(ONBOARDED_KEY, false);
         await refresh();
+        setAccount(await backendOrThrow().account());
+      },
+      account,
+      async refreshAccount() {
+        setAccount(await backendOrThrow().account());
+      },
+      async startEmailLink(email) {
+        await backendOrThrow().startEmailLink(email);
+        setAccount(await backendOrThrow().account());
+      },
+      async confirmEmailLink(email, code) {
+        setAccount(await backendOrThrow().confirmEmailLink(email, code));
+      },
+      startSignIn: (email) => backendOrThrow().startSignIn(email),
+      async confirmSignIn(email, code) {
+        const next = await backendOrThrow().confirmSignIn(email, code);
+        commitSessions({});
+        setLastSummary(undefined);
+        setAccount(next);
+        await refresh();
+      },
+      async signOut() {
+        const next = await backendOrThrow().signOut();
+        commitSessions({});
+        setLastSummary(undefined);
+        setAccount(next);
+        await refresh();
       },
     }),
-    [ready, error, snapshot, sessions, lastSummary, onboarded, refresh, commitSessions, backendOrThrow],
+    [ready, error, snapshot, sessions, lastSummary, onboarded, account, refresh, commitSessions, backendOrThrow],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

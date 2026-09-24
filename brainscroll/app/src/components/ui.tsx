@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View, type ViewStyle } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, TextInput, View, type TextInputProps, type ViewStyle } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { color, radius, space, type } from '@/theme/tokens';
 
@@ -70,6 +70,22 @@ export function Button({
   );
 }
 
+export function Field({ label, ...props }: { label: string } & Pick<TextInputProps, 'value' | 'onChangeText' | 'placeholder' | 'keyboardType' | 'autoComplete' | 'textContentType' | 'maxLength' | 'autoFocus'>) {
+  return (
+    <View style={{ gap: space.xs }}>
+      <Label>{label}</Label>
+      <TextInput
+        accessibilityLabel={label}
+        autoCapitalize="none"
+        autoCorrect={false}
+        placeholderTextColor={color.textMuted}
+        style={styles.field}
+        {...props}
+      />
+    </View>
+  );
+}
+
 export function Row({ children, style }: { children: ReactNode; style?: ViewStyle }) {
   return <View style={[{ flexDirection: 'row', alignItems: 'center', gap: space.sm }, style]}>{children}</View>;
 }
@@ -93,4 +109,14 @@ const styles = StyleSheet.create({
   buttonSecondary: { backgroundColor: color.surfaceRaised, borderWidth: 1, borderColor: color.border },
   buttonDisabled: { opacity: 0.4 },
   buttonLabel: { color: color.text, fontSize: 16, fontWeight: '700' },
+  field: {
+    minHeight: 48,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: color.border,
+    backgroundColor: color.surfaceRaised,
+    color: color.text,
+    paddingHorizontal: space.md,
+    fontSize: 16,
+  },
 });

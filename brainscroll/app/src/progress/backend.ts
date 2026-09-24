@@ -1,4 +1,4 @@
-import type { AnswerResult, CompletionSummary, DailyAllowance, Level, ReviewItem, ReviewResult, StartReason } from '@brainscroll/core';
+import type { AccountState, AnswerResult, CompletionSummary, DailyAllowance, Level, ReviewItem, ReviewResult, StartReason } from '@brainscroll/core';
 
 /**
  * Where progress lives. `local` runs the shared rules on-device (offline play);
@@ -39,6 +39,20 @@ export interface ProgressBackend {
   submitReview(item: ReviewItem, optionId: string): Promise<ReviewResult>;
   /** Dev only: start over as a brand-new player. */
   reset(): Promise<void>;
+
+  // ── Account persistence (docs/accounts.md) ──
+  /** Where this player's progress is kept. Local play is always `device_only`. */
+  account(): Promise<AccountState>;
+  /** Guest → permanent: emails a one-time code to attach `email` to the current (same) user. */
+  startEmailLink(email: string): Promise<void>;
+  /** Confirms the code. The user id is unchanged, so every bit of progress stays put. */
+  confirmEmailLink(email: string, code: string): Promise<AccountState>;
+  /** Existing account on this device: emails a sign-in code (never creates an account). */
+  startSignIn(email: string): Promise<void>;
+  /** Switches this device to that account. The previous guest's progress is not merged. */
+  confirmSignIn(email: string, code: string): Promise<AccountState>;
+  /** Saved accounts only: sign out and continue as a fresh guest. Guests can't sign out (it would orphan their progress). */
+  signOut(): Promise<AccountState>;
 }
 
 export function deviceTimeZone(): string {

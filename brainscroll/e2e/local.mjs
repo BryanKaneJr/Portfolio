@@ -63,6 +63,11 @@ try {
   const [, xp, right, total] = t.match(/\+(\d+) XP[\s\S]*?(\d+) \/ (\d+) right first time/) ?? [];
   check(Number(xp) === REVIEW_XP * Number(right) && Number(total) - Number(right) === corrected,
     `review XP is ${REVIEW_XP} per first-try item; corrections earn nothing (${right}/${total} → +${xp})`);
+  await home(page);
+  await page.getByRole('tab', { name: /Profile/ }).click();
+  await page.waitForTimeout(800);
+  const profileText = await bodyText(page);
+  check(profileText.includes('saved on this device') && !profileText.includes('Save my progress'), 'offline play shows device-only saving, with no account actions');
   check(errors.length === 0, `no page errors ${errors.join('; ')}`);
 } finally {
   await browser.close();

@@ -1,5 +1,14 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { checkClientConfig, CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type ReviewItem, type StartReason } from '@brainscroll/core';
+import {
+  AccountError,
+  accountErrorFromAuth,
+  accountFromUser,
+  isValidEmail,
+  isValidOtp,
+  normalizeEmail,
+  type AccountState,
+  checkClientConfig,
+  CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type ReviewItem, type StartReason } from '@brainscroll/core';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { getLevel } from '@/content';
 import type { ProgressBackend, ProgressSnapshot } from './backend';
@@ -128,7 +137,60 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       await ensureSession();
       await rpc('update_profile', { p_timezone: deviceTimeZone() });
     },
+
+    // ── Account persistence: email one-time codes, no deep links needed ──
+    account: currentAccount,
+    async startEmailLink(email) {
+      const e = checkedEmail(email);
+      const now = await currentAccount();
+      if (now.status === 'saved') throw new AccountError('NOT_ALLOWED', 'This account already has an email.');
+      // For an anonymous user this attaches the email to the SAME user id and
+      // sends a confirmation code (Supabase "Change email address" template).
+      const { error } = await supabase.auth.updateUser({ email: e });
+      if (error) throw accountErrorFromAuth(error);
+    },
+    async confirmEmailLink(email, code) {
+      const { error } = await supabase.auth.verifyOtp({ email: checkedEmail(email), token: checkedCode(code), type: 'email_change' });
+      if (error) throw accountErrorFromAuth(error);
+      return currentAccount();
+    },
+    async startSignIn(email) {
+      const { error } = await supabase.auth.signInWithOtp({ email: checkedEmail(email), options: { shouldCreateUser: false } });
+      if (error) throw accountErrorFromAuth(error);
+    },
+    async confirmSignIn(email, code) {
+      const { error } = await supabase.auth.verifyOtp({ email: checkedEmail(email), token: checkedCode(code), type: 'email' });
+      if (error) throw accountErrorFromAuth(error);
+      await rpc('update_profile', { p_timezone: deviceTimeZone() });
+      return currentAccount();
+    },
+    async signOut() {
+      const now = await currentAccount();
+      if (now.status !== 'saved') throw new AccountError('NOT_ALLOWED', 'Add an email first, or your progress would be lost.');
+      await supabase.auth.signOut();
+      await ensureSession();
+      await rpc('update_profile', { p_timezone: deviceTimeZone() });
+      return currentAccount();
+    },
   };
+
+  async function currentAccount(): Promise<AccountState> {
+    const { data, error } = await supabase.auth.getUser();
+    if (error) throw accountErrorFromAuth(error);
+    const state = accountFromUser(data.user);
+    if (!state) throw new AccountError('UNKNOWN', 'Not signed in.');
+    return state;
+  }
+}
+
+function checkedEmail(email: string): string {
+  if (!isValidEmail(email)) throw new AccountError('INVALID_EMAIL');
+  return normalizeEmail(email);
+}
+
+function checkedCode(code: string): string {
+  if (!isValidOtp(code)) throw new AccountError('INVALID_CODE');
+  return code.trim();
 }
 
 const COMPLETION_ERRORS = new Set<string>(['LEVEL_LOCKED', 'DAILY_LIMIT_REACHED', 'UNRESOLVED_QUESTIONS', 'QUESTION_NOT_IN_LEVEL', 'IDEMPOTENCY_KEY_REQUIRED']);

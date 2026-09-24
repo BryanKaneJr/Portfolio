@@ -12,6 +12,8 @@ Everything on the code side is ready. Connecting a project is configuration only
 4. `cp app/.env.example app/.env.local` and fill in the URL and the **anon/publishable** key (§4).
 5. `npm run supabase:check`. It checks the keys (and refuses a secret key in the app), then probes the project read-only: auth reachable, anonymous sign-ins on, email provider on, migrations applied through the latest one, content published, server functions present.
 
+For account linking, also put `{{ .Token }}` in the **Change Email Address** and **Magic Link** email templates, and set up custom SMTP before real users (see [`accounts.md`](accounts.md)).
+
 Until step 4, the app keeps playing offline, and `npm run e2e:remote` keeps exercising the Supabase mode against the local stand-in.
 
 ## 1. Create the project

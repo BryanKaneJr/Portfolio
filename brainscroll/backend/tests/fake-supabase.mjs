@@ -6,13 +6,16 @@
 //   PGHOST=<socket dir> PGPORT=<port> PGDATABASE=<db> PORT=54400 node fake-supabase.mjs
 //
 // Implements: POST /auth/v1/signup (anonymous), POST /auth/v1/token?grant_type=refresh_token,
-// GET /auth/v1/user, POST /auth/v1/logout, POST /rest/v1/rpc/<fn>.
+// GET/PUT /auth/v1/user (PUT attaches an email to an anonymous user), POST /auth/v1/otp (sign-in
+// code, never creates users), POST /auth/v1/verify (email_change | email), POST /auth/v1/logout,
+// POST /rest/v1/rpc/<fn>. Every emailed one-time code is FAKE_OTP (default 123456).
 import { randomUUID } from 'node:crypto';
 import http from 'node:http';
 import pg from 'pg';
 
 const pool = new pg.Pool({ host: process.env.PGHOST, port: Number(process.env.PGPORT), database: process.env.PGDATABASE, user: 'postgres' });
 const port = Number(process.env.PORT ?? 54400);
+const FAKE_OTP = process.env.FAKE_OTP ?? '123456';
 
 const b64 = (o) => Buffer.from(JSON.stringify(o)).toString('base64url');
 const now = () => Math.floor(Date.now() / 1000);
@@ -30,17 +33,66 @@ function claimsOf(req) {
   }
 }
 
-function user(id) {
-  const t = new Date().toISOString();
-  return { id, aud: 'authenticated', role: 'authenticated', is_anonymous: true, email: '', phone: '',
-    app_metadata: { provider: 'anonymous', providers: ['anonymous'] }, user_metadata: {}, identities: [], created_at: t, updated_at: t };
+async function userRow(id) {
+  const { rows } = await pool.query('select id, email, is_anonymous, email_change from auth.users where id = $1', [id]);
+  return rows[0] ?? null;
 }
 
-function session(id) {
+function user(row) {
+  const t = new Date().toISOString();
+  const provider = row.is_anonymous ? 'anonymous' : 'email';
+  return { id: row.id, aud: 'authenticated', role: 'authenticated', is_anonymous: row.is_anonymous, email: row.email ?? '',
+    new_email: row.email_change ?? undefined, phone: '', app_metadata: { provider, providers: [provider] }, user_metadata: {}, identities: [],
+    created_at: t, updated_at: t };
+}
+
+async function session(id) {
+  const row = await userRow(id);
   return {
-    access_token: makeJwt({ sub: id, role: 'authenticated', aud: 'authenticated', is_anonymous: true, session_id: randomUUID() }),
-    token_type: 'bearer', expires_in: 3600, expires_at: now() + 3600, refresh_token: `rt.${id}`, user: user(id),
+    access_token: makeJwt({ sub: id, role: 'authenticated', aud: 'authenticated', is_anonymous: row.is_anonymous, email: row.email ?? '', session_id: randomUUID() }),
+    token_type: 'bearer', expires_in: 3600, expires_at: now() + 3600, refresh_token: `rt.${id}`, user: user(row),
   };
+}
+
+// GoTrue-style error body; supabase-js reads error_code into AuthApiError.code.
+const authError = (status, code, msg) => ({ status, body: { code: status, error_code: code, msg } });
+
+async function authRoute(method, path, body, claims) {
+  if (method === 'GET' && path === '/auth/v1/user') {
+    const row = claims.sub && (await userRow(claims.sub));
+    return row ? { status: 200, body: user(row) } : { status: 401, body: { message: 'not signed in' } };
+  }
+  if (method === 'PUT' && path === '/auth/v1/user') {
+    const row = claims.sub && (await userRow(claims.sub));
+    if (!row) return { status: 401, body: { message: 'not signed in' } };
+    const email = String(body.email ?? '').trim().toLowerCase();
+    if (!email) return { status: 200, body: user(row) };
+    const { rows } = await pool.query('select 1 from auth.users where email = $1 and id <> $2', [email, row.id]);
+    if (rows.length) return authError(422, 'email_exists', 'A user with this email address has already been registered');
+    await pool.query('update auth.users set email_change = $2 where id = $1', [row.id, email]); // "sends" FAKE_OTP
+    return { status: 200, body: user(await userRow(row.id)) };
+  }
+  if (method === 'POST' && path === '/auth/v1/otp') {
+    const email = String(body.email ?? '').trim().toLowerCase();
+    const { rows } = await pool.query('select 1 from auth.users where email = $1 and not is_anonymous', [email]);
+    if (!rows.length && body.create_user === false) return authError(422, 'otp_disabled', 'Signups not allowed for otp');
+    return { status: 200, body: {} }; // "sends" FAKE_OTP
+  }
+  if (method === 'POST' && path === '/auth/v1/verify') {
+    const email = String(body.email ?? '').trim().toLowerCase();
+    if (body.token !== FAKE_OTP) return authError(403, 'otp_expired', 'Token has expired or is invalid');
+    if (body.type === 'email_change') {
+      const { rows } = await pool.query(
+        `update auth.users set email = email_change, email_change = null, is_anonymous = false where email_change = $1 returning id`, [email]);
+      return rows.length ? { status: 200, body: await session(rows[0].id) } : authError(403, 'otp_expired', 'Token has expired or is invalid');
+    }
+    if (body.type === 'email') {
+      const { rows } = await pool.query('select id from auth.users where email = $1 and not is_anonymous', [email]);
+      return rows.length ? { status: 200, body: await session(rows[0].id) } : authError(403, 'otp_expired', 'Token has expired or is invalid');
+    }
+    return authError(400, 'validation_failed', `unsupported verify type ${body.type}`);
+  }
+  return null;
 }
 
 const argTypes = new Map();
@@ -88,7 +140,7 @@ const server = http.createServer(async (req, res) => {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers': '*',
-      'Access-Control-Allow-Methods': 'GET,POST,PATCH,DELETE,OPTIONS',
+      'Access-Control-Allow-Methods': 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
     });
     res.end(body === undefined ? '' : JSON.stringify(body));
   };
@@ -101,16 +153,14 @@ const server = http.createServer(async (req, res) => {
   try {
     if (req.method === 'POST' && url.pathname === '/auth/v1/signup') {
       const { rows } = await pool.query('insert into auth.users default values returning id');
-      return send(200, session(rows[0].id));
+      return send(200, await session(rows[0].id));
     }
     if (req.method === 'POST' && url.pathname === '/auth/v1/token' && url.searchParams.get('grant_type') === 'refresh_token') {
       const id = String(body.refresh_token ?? '').replace(/^rt\./, '');
-      return send(200, session(id));
+      return send(200, await session(id));
     }
-    if (req.method === 'GET' && url.pathname === '/auth/v1/user') {
-      const { sub } = claimsOf(req);
-      return sub ? send(200, user(sub)) : send(401, { message: 'not signed in' });
-    }
+    const auth = await authRoute(req.method, url.pathname, body, claimsOf(req));
+    if (auth) return send(auth.status, auth.body);
     if (req.method === 'POST' && url.pathname === '/auth/v1/logout') return send(204);
     const m = url.pathname.match(/^\/rest\/v1\/rpc\/([a-z_]+)$/);
     if (req.method === 'POST' && m) {

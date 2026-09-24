@@ -1,3 +1,4 @@
+import { AccountCard } from '@/components/AccountCard';
 import { Body, BigNumber, Button, Card, Label, Row, Screen, Title } from '@/components/ui';
 import { subjectName } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
@@ -14,6 +15,7 @@ export default function ProfileScreen() {
         <BigNumber>{v.knowledgeLevel}</BigNumber>
       </Row>
       <Body muted>{v.totalXp} XP earned</Body>
+      <AccountCard />
       {v.skills.map((s) => (
         <Card key={s.id}>
           <Label>{subjectName(s.subjectId)}</Label>

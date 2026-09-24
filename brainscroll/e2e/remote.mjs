@@ -77,6 +77,51 @@ try {
   check(sql(`select new_levels_used from public.daily_allowances`) === '5', 'review did not use the daily allowance');
   check(leaks.length === 0, `no answer keys reached the app ${leaks.join(', ')}`);
   check(sql(`select count(*) from public.xp_events where type = 'QUESTION_CORRECT'`) === '0', 'no per-question XP is awarded');
+
+  // Account persistence: guest → email on the SAME user, sign out, sign back in.
+  const guestId = sql('select id from auth.users');
+  const xpBefore = sql('select sum(amount) from public.xp_events');
+  const profile = async () => { await home(page); await page.getByRole('tab', { name: /Profile/ }).click(); await page.waitForTimeout(800); };
+  const field = (label) => page.getByLabel(label, { exact: true });
+  await profile();
+  check((await bodyText(page)).includes('playing as a guest'), 'a new player is shown as a guest');
+  await button(page, 'Save my progress').click();
+  await field('Email').fill('Player@Example.com');
+  await button(page, 'Send code').click();
+  await field('Code').waitFor();
+  check(sql(`select email_change from auth.users`) === 'player@example.com', 'a code is requested for the normalised email');
+  await field('Code').fill('000000');
+  await button(page, 'Confirm').click();
+  await page.waitForTimeout(600);
+  check(/wrong or has expired/.test(await bodyText(page)), 'a wrong code is refused with a clear message');
+  await field('Code').fill('123456');
+  await button(page, 'Confirm').click();
+  await page.waitForTimeout(800);
+  check((await bodyText(page)).includes('Progress saved to player@example.com'), 'confirming the code saves the account');
+  check(sql('select count(*) from auth.users') === '1' && sql('select id from auth.users') === guestId && sql('select is_anonymous from auth.users') === 'f',
+    'linking kept the same user id (no migration) and made it permanent');
+  check(sql('select sum(amount) from public.xp_events') === xpBefore, 'all XP is still there after linking');
+
+  await profile();
+  check((await bodyText(page)).includes('Progress saved to player@example.com'), 'the saved account survives a reload');
+  await button(page, 'Sign out').click();
+  await page.waitForTimeout(1000);
+  check((await bodyText(page)).includes('playing as a guest') && sql('select count(*) from auth.users') === '2', 'signing out continues as a fresh guest');
+
+  // The fresh guest tries to save to the same email: it's taken, so we offer sign-in instead.
+  await button(page, 'Save my progress').click();
+  await field('Email').fill('player@example.com');
+  await button(page, 'Send code').click();
+  await page.waitForTimeout(600);
+  check(/already has a BrainScroll account/.test(await bodyText(page)), 'an email already in use points to sign-in');
+  await field('Email').fill('player@example.com');
+  await button(page, 'Send code').click();
+  await field('Code').fill('123456');
+  await button(page, 'Sign in').click();
+  await page.waitForTimeout(1200);
+  check((await bodyText(page)).includes('Progress saved to player@example.com'), 'signing in with a code restores the saved account');
+  check((await bodyText(page)).includes(`${xpBefore} XP earned`), `the saved account's progress (${xpBefore} XP) is back on this device`);
+
   check(errors.length === 0, `no page errors ${errors.join('; ')}`);
 } finally {
   await browser.close();

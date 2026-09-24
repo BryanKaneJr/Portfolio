@@ -5,6 +5,19 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 ## 2026-09-24 — Autonomous build pass (no Supabase/phone testing yet)
 
 - **Product decision recorded: Unlimited perks.** Unlimited's only gameplay/progression advantage is removing the daily new-level cap; it may also include non-progression cosmetic or personalization benefits (themes, profile customization). Accomplishment cosmetics (mastery frames, quest rewards, rare trophy treatments, prestige effects) stay earned. Updated product-rules rule 10, CURRENT_PRODUCT_DECISIONS §8, README, CLAUDE.md, social-expansion.md (open question closed) and code comments.
+- **Account persistence: anonymous → permanent** (`docs/accounts.md`). A guest adds an email to the **same** Supabase user, so progress is never migrated and can't be lost. Flows:
+  - save progress (email → one-time code)
+  - sign in on another device (never creates accounts)
+  - an email already in use points to sign-in, warning first that guest progress isn't merged
+  - saved accounts can sign out to a fresh guest; guests can't sign out and orphan their progress
+
+  It uses codes rather than magic links, so no deep links are needed. Pieces:
+  - core `account.ts`: states, error mapping, player-facing copy
+  - account methods on both backends; local builds report device-only saving
+  - a Profile **Account** card
+  - the Supabase stand-in now speaks the email-code endpoints
+
+  E2E: 11 new remote checks, including that linking keeps the same user id and every XP point and that sign-in restores progress, plus 1 local check. Core has 4 new unit tests. Apple/Google are not set up. Open decisions are listed in the doc: merging guest progress, cleaning up abandoned guests, and **in-app account deletion, required before store launch**.
 - **Supabase integration prep (no credentials needed).** Connecting a real project is now a five-step checklist at the top of `docs/supabase-setup.md`:
   - **`npm run supabase:check`**
     - Offline, it validates the app's URL and key and **refuses a service_role/`sb_secret_` key**. It also confirms `.env.local` is gitignored and that the importer key really is a secret key.

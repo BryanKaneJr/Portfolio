@@ -1,4 +1,5 @@
 import {
+  AccountError,
   answerQuestion,
   buildReviewQueue,
   checkStart,
@@ -74,5 +75,16 @@ export function createLocalBackend(): ProgressBackend {
     async reset() {
       commit(emptyProgress(new Date(), deviceTimeZone()));
     },
+    // Offline play has no server account: progress is saved on this device only.
+    account: async () => ({ status: 'device_only' }),
+    startEmailLink: unavailable,
+    confirmEmailLink: unavailable,
+    startSignIn: unavailable,
+    confirmSignIn: unavailable,
+    signOut: unavailable,
   };
+}
+
+async function unavailable(): Promise<never> {
+  throw new AccountError('ACCOUNTS_UNAVAILABLE');
 }
