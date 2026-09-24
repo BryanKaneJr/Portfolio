@@ -4,6 +4,24 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Fact-check pass on the 130 riskiest claims** (every claim flagged with a pre-check note while drafting, in both trees). The cited Britannica and NASA pages are blocked from this environment, so each claim was checked against independent sources found by web search. That is recorded as a new `factCheck` field in the ledger (result, evidence, up to three URLs, previous wording), which is explicitly **not** verification. All 979 records stay `unverified` until a person checks the cited page.
+  - **Results:** 118 corroborated, 7 corrected, 5 disputed and reworded to hedge. Each change was carried into the cards, questions and recap lines that state the claim.
+  - **Astronomy changes:**
+    - Jupiter has around 100 known moons, not "dozens".
+    - More than 6,000 exoplanets are confirmed, not 5,000.
+    - The Sun being single is normal: most stars are single red dwarfs. It is not "a bit of a loner".
+    - Andromeda: a 2025 study puts the chance of a merger within 10 billion years at about 50%. Level 83, its question and the Level 98 forecast timeline were updated.
+    - Kuiper Belt comets are the short-period ones that return every few years, not every few decades or centuries.
+    - Level 2 no longer says the Sun's core fuses "trillions" of nuclei a second. The real rate is about 10^38.
+  - **Rome changes:**
+    - Most kings were chosen with the Senate's and people's approval, not all of them.
+    - Cicero said boys *no longer* memorized the Twelve Tables in his day.
+    - Historians debate whether the pilum was designed to bend.
+    - Tacitus tied the "secret of empire" to Nero's fall in 68 CE.
+    - Hadrian was the first emperor *regularly portrayed* with a beard.
+    - Early-teen marriage applied to elite girls; most others probably married in their late teens.
+    - Paris and Vienna *grew from* Roman towns (they were Celtic settlements first).
+  - **Checks:** 0 validator errors, and `check` and `test:db` pass. Results are in `docs/verification/*.md` and `*.csv` under "Fact-check".
 - **Accounts are required; guest mode removed.** Per the new product decision (CURRENT_PRODUCT_DECISIONS §14, product rule 12), learners sign in before any progress exists: open the app → choose a sign-in method → onboarding → Level 1. Signing in creates the account on first use.
   - **Methods:** Sign in with Apple, Sign in with Google, phone number (SMS code) and email (code) as the fallback.
     - Native Apple uses `expo-apple-authentication` with a hashed nonce. Native Google uses `@react-native-google-signin/google-signin`. Both pass an ID token to `signInWithIdToken`.

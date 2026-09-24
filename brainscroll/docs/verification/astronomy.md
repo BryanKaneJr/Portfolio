@@ -30,7 +30,7 @@
 
 - **Concept:** Binary stars (`concept.astronomy.binary_stars`)
 - **Appears in:**
-  - L65 “Star Partners: Binary Stars” · `card.astronomy.065.c2` (text): Stars in pairs / Many stars orbit a companion. Our nearest neighbor, Alpha Centauri, is a system of three stars, including Proxima Centauri. Even Sirius has a small, faint partner, Sirius B, which is a white dwarf. / Alpha Centauri: 3 stars
+  - L65 “Star Partners: Binary Stars” · `card.astronomy.065.c2` (text): Stars in pairs / Many stars orbit a companion, including about half of Sun-like stars, though the most common stars, small red dwarfs, usually don’t. Our nearest neighbor, Alpha Centauri, is a system of three stars, including Proxima Centauri. Even Sirius has a small, faint partner, Sirius B, which is a white dwarf. / Alpha Centauri: 3 stars
 - **Tested by:**
   - L65 `question.astronomy.065.q1`: How many stars are in the Alpha Centauri system? → **Three**
   - L68 `question.astronomy.068.q3`: From Level 65: which famous star has a white dwarf as its companion? → **Sirius, the brightest star in the night sky**
@@ -61,18 +61,20 @@ npm run verify:record -- fact.astronomy.proxima_red_dwarf source.brit_alpha_cent
 
 ### ☐ `fact.astronomy.andromeda_approach`: unverified
 
-> **Claim:** The Andromeda galaxy is moving toward the Milky Way and the two are expected to merge in about 4.5 billion years.
+> **Claim:** The Andromeda galaxy is moving toward the Milky Way. A merger in about 4.5 billion years was long expected, but a 2025 study put the chance of the two merging within the next 10 billion years at only about 50%.
 
 - **Concept:** Galaxy collisions (`concept.astronomy.galaxy_collisions`)
 - **Appears in:**
-  - L83 “When Galaxies Collide” · `card.astronomy.083.c1` (text): Andromeda is on a collision course with the Milky Way.
-  - L83 “When Galaxies Collide” · `card.astronomy.083.c2` (text): Cosmic collisions / Galaxies can collide and merge, pulling each other into new shapes over hundreds of millions of years. Andromeda, about 2.5 million light-years away, is moving toward the Milky Way, and the two are expected to merge in about 4.5 billion years. / Merger: ~4.5 billion years
-  - L83 “When Galaxies Collide” · `card.astronomy.083.c4` (fact): You can see the other half of this collision. / From a dark site, Andromeda is visible to the naked eye as a faint smudge, about 2.5 million light-years away and slowly getting closer.
-  - L98 “Integration: Futures of the Sun, Earth and Universe” · `card.astronomy.098.c2` (timeline): The long forecast: Over ~26,000 years: Earth’s axis wobbles through a full circle; Polaris won’t stay the pole star; In ~1 billion years: A brightening Sun makes Earth too hot for oceans; In ~4.5 billion years: The Milky Way and Andromeda merge; In ~5 billion years: The Sun swells into a red giant, later becoming a white dwarf
+  - L83 “When Galaxies Collide” · `card.astronomy.083.c1` (text): Andromeda is heading toward the Milky Way.
+  - L83 “When Galaxies Collide” · `card.astronomy.083.c2` (text): Cosmic collisions / Galaxies can collide and merge, pulling each other into new shapes over hundreds of millions of years. Andromeda, about 2.5 million light-years away, is moving toward the Milky Way. A merger in about 4.5 billion years was long expected, but a 2025 study put the chance of one within 10 billion years at only about 50%. / Merger: a coin flip within 10 billion years
+  - L83 “When Galaxies Collide” · `card.astronomy.083.c4` (fact): You can see our galactic neighbor with your own eyes. / From a dark site, Andromeda is visible to the naked eye as a faint smudge, about 2.5 million light-years away and slowly getting closer.
+  - L98 “Integration: Futures of the Sun, Earth and Universe” · `card.astronomy.098.c2` (timeline): The long forecast: Over ~26,000 years: Earth’s axis wobbles through a full circle; Polaris won’t stay the pole star; In ~1 billion years: A brightening Sun makes Earth too hot for oceans; In ~4.5 billion years, maybe: The Milky Way and Andromeda may merge; In ~5 billion years: The Sun swells into a red giant, later becoming a white dwarf
 - **Tested by:**
-  - L83 `question.astronomy.083.q1`: Which galaxy is expected to merge with the Milky Way? → **Andromeda**
-  - L83 `question.astronomy.083.q3`: From Level 10: Andromeda is about 2.5 million light-years away. Roughly how long until the merger? → **About 4.5 billion years**
+  - L83 `question.astronomy.083.q1`: Which large galaxy is moving toward the Milky Way? → **Andromeda**
+  - L83 `question.astronomy.083.q3`: From Level 10: Andromeda is about 2.5 million light-years away. What did a 2025 study say about a merger? → **About a 50% chance within 10 billion years**
 - **Pre-check:** Recent studies suggest the merger is less certain than once thought; confirm the page’s current wording.
+- **Fact-check (2026-09-24):** disputed. Andromeda is approaching, but a 2025 Nature Astronomy study (Sawala et al., Hubble and Gaia data) found only about a 50% chance of a merger within 10 billion years, overturning the confident 4.5-billion-year forecast. Sources: https://www.smithsonianmag.com/smart-news/our-milky-way-might-not-crash-into-the-andromeda-galaxy-after-all-new-simulations-suggest-a-50-50-chance-of-merging-180986737/, https://phys.org/news/2025-06-astronomers-thought-milky-doomed-andromeda.html
+- **Previous wording:** The Andromeda galaxy is moving toward the Milky Way and the two are expected to merge in about 4.5 billion years.
 
 ```sh
 npm run verify:record -- fact.astronomy.andromeda_approach source.brit_andromeda --status verified --by "Your Name" --quote "…"
@@ -84,12 +86,12 @@ npm run verify:record -- fact.astronomy.andromeda_approach source.brit_andromeda
 
 - **Concept:** Galaxy collisions (`concept.astronomy.galaxy_collisions`)
 - **Appears in:**
-  - L83 “When Galaxies Collide” · `card.astronomy.083.c2` (text): Cosmic collisions / Galaxies can collide and merge, pulling each other into new shapes over hundreds of millions of years. Andromeda, about 2.5 million light-years away, is moving toward the Milky Way, and the two are expected to merge in about 4.5 billion years. / Merger: ~4.5 billion years
+  - L83 “When Galaxies Collide” · `card.astronomy.083.c2` (text): Cosmic collisions / Galaxies can collide and merge, pulling each other into new shapes over hundreds of millions of years. Andromeda, about 2.5 million light-years away, is moving toward the Milky Way. A merger in about 4.5 billion years was long expected, but a 2025 study put the chance of one within 10 billion years at only about 50%. / Merger: a coin flip within 10 billion years
   - L83 “When Galaxies Collide” · `card.astronomy.083.c3` (text): Crash without a crash / When galaxies collide, individual stars almost never hit each other. The spaces between stars are so vast that the galaxies pass through each other, their gravity reshaping both. Mergers like this are one way galaxies grow.
 - **Tested by:**
-  - L83 `question.astronomy.083.q1`: Which galaxy is expected to merge with the Milky Way? → **Andromeda**
+  - L83 `question.astronomy.083.q1`: Which large galaxy is moving toward the Milky Way? → **Andromeda**
   - L83 `question.astronomy.083.q2`: When two galaxies collide, what happens to most of their stars? → **They pass each other without hitting**
-  - L83 `question.astronomy.083.q3`: From Level 10: Andromeda is about 2.5 million light-years away. Roughly how long until the merger? → **About 4.5 billion years**
+  - L83 `question.astronomy.083.q3`: From Level 10: Andromeda is about 2.5 million light-years away. What did a 2025 study say about a merger? → **About a 50% chance within 10 billion years**
 
 ```sh
 npm run verify:record -- fact.astronomy.galaxies_merge source.brit_andromeda --status verified --by "Your Name" --quote "…"
@@ -123,6 +125,7 @@ npm run verify:record -- fact.astronomy.stars_rarely_collide source.brit_androme
 - **Appears in:**
   - L24 “Copernicus Moves the Sun” · `card.astronomy.024.c4` (fact): Copernicus wasn’t the first. / Aristarchus of Samos proposed a Sun-centered arrangement around 1,800 years earlier, but the idea didn’t catch on.
 - **Pre-check:** Aristarchus lived c. 310–230 BCE; ~1,800 years before 1543. Confirm.
+- **Fact-check (2026-09-24):** corroborated. Aristarchus (c. 310 to 230 BCE) proposed a heliocentric system; Copernicus published in 1543, about 1,800 years later. Sources: https://www.worldhistory.org/Aristarchus_of_Samos/, https://www2.hao.ucar.edu/education/scientists/aristarchus-of-samos-310-230-bc
 
 ```sh
 npm run verify:record -- fact.astronomy.aristarchus_earlier source.brit_aristarchus --status verified --by "Your Name" --quote "…"
@@ -175,6 +178,7 @@ npm run verify:record -- fact.astronomy.kepler_relative_distances source.brit_au
 - **Tested by:**
   - L28 `question.astronomy.028.q2`: Why did astronomers still need to measure one real distance after Kepler? → **Kepler’s laws gave proportions but no kilometers**
 - **Pre-check:** Confirm on the Mars facts page instead if needed (~1.52 AU).
+- **Fact-check (2026-09-24):** corroborated. Mars's mean distance from the Sun is about 1.52 AU (228 million km), about 1.5 times Earth's. Sources: https://lco.global/spacebook/solar-system/mars/, https://www.skyatnightmagazine.com/space-science/how-far-is-mars-from-sun
 
 ```sh
 npm run verify:record -- fact.astronomy.mars_1_5_au source.brit_au --status verified --by "Your Name" --quote "…"
@@ -303,6 +307,7 @@ npm run verify:record -- fact.astronomy.bb_light_elements source.brit_big_bang -
 - **Tested by:**
   - L91 `question.astronomy.091.q2`: Why is it misleading to picture the Big Bang as a bomb going off in space? → **Space itself expanded, everywhere at once**
 - **Pre-check:** Hoyle used the phrase on a BBC radio broadcast in 1949; confirm the page states this.
+- **Fact-check (2026-09-24):** corroborated. Hoyle, a steady-state proponent, used 'big bang' in a BBC Third Programme radio talk on 28 March 1949. Sources: https://www.pbs.org/wgbh/nova/article/brilliant-blunders/, https://arxiv.org/pdf/1301.0219
 
 ```sh
 npm run verify:record -- fact.astronomy.bb_name_hoyle source.brit_big_bang --status verified --by "Your Name" --quote "…"
@@ -361,16 +366,18 @@ npm run verify:record -- fact.astronomy.cosmic_recycling source.brit_big_bang --
 
 ### ☐ `fact.astronomy.binaries_common`: unverified
 
-> **Claim:** Many stars orbit a companion star; the Sun, which is single, is not typical in this respect.
+> **Claim:** Many stars orbit a companion star, including about half of Sun-like stars. The Sun is single, but that is not unusual: most stars in the Milky Way are small red dwarfs, and most of those have no companion.
 
 - **Concept:** Binary stars (`concept.astronomy.binary_stars`)
 - **Appears in:**
-  - L65 “Star Partners: Binary Stars” · `card.astronomy.065.c1` (text): Our Sun is a bit of a loner.
-  - L65 “Star Partners: Binary Stars” · `card.astronomy.065.c2` (text): Stars in pairs / Many stars orbit a companion. Our nearest neighbor, Alpha Centauri, is a system of three stars, including Proxima Centauri. Even Sirius has a small, faint partner, Sirius B, which is a white dwarf. / Alpha Centauri: 3 stars
+  - L65 “Star Partners: Binary Stars” · `card.astronomy.065.c1` (text): Our Sun is a single star. Many of its neighbors aren’t.
+  - L65 “Star Partners: Binary Stars” · `card.astronomy.065.c2` (text): Stars in pairs / Many stars orbit a companion, including about half of Sun-like stars, though the most common stars, small red dwarfs, usually don’t. Our nearest neighbor, Alpha Centauri, is a system of three stars, including Proxima Centauri. Even Sirius has a small, faint partner, Sirius B, which is a white dwarf. / Alpha Centauri: 3 stars
 - **Tested by:**
   - L65 `question.astronomy.065.q1`: How many stars are in the Alpha Centauri system? → **Three**
   - L68 `question.astronomy.068.q3`: From Level 65: which famous star has a white dwarf as its companion? → **Sirius, the brightest star in the night sky**
 - **Pre-check:** Britannica says multiple systems are very common. Confirm the wording supports “the Sun is unusual”.
+- **Fact-check (2026-09-24):** corrected. About half of Sun-like stars have companions, but red dwarfs make up most stars and are mostly single, so most star systems are single; the Sun being single is not atypical. Sources: https://skyandtelescope.org/astronomy-news/surprise-most-star-systems-are-single/, https://arxiv.org/pdf/astro-ph/0601375
+- **Previous wording:** Many stars orbit a companion star; the Sun, which is single, is not typical in this respect.
 
 ```sh
 npm run verify:record -- fact.astronomy.binaries_common source.brit_binary_star --status verified --by "Your Name" --quote "…"
@@ -423,6 +430,7 @@ npm run verify:record -- fact.astronomy.eclipsing_binaries source.brit_binary_st
   - L92 `question.astronomy.092.q3`: From Level 91: why did finding the CMB give such strong support to the Big Bang theory? → **The theory had predicted such a glow**
   - L100 `question.astronomy.100.q9`: Which list puts these discoveries in the order they happened? → **Jupiter’s moons → galaxy redshifts → the CMB**
 - **Pre-check:** Confirm the “suspected a fault” detail; the pigeon story is well known but check wording.
+- **Fact-check (2026-09-24):** corroborated. In 1965 Penzias and Wilson found unexplained noise in their Holmdel horn antenna, suspected the equipment (even pigeon droppings), cleaned it, and found the noise remained: the CMB. Sources: https://en.wikipedia.org/wiki/Discovery_of_cosmic_microwave_background_radiation, https://www.aps.org/funding-recognition/historic-sites/holmdel-horn-antenna
 
 ```sh
 npm run verify:record -- fact.astronomy.cmb_1965 source.brit_cmb --status verified --by "Your Name" --quote "…"
@@ -564,6 +572,7 @@ npm run verify:record -- fact.astronomy.copernicus_retrograde source.brit_copern
   - L23 `question.astronomy.023.q2`: Why did the lack of an observed stellar shift (parallax) seem to support an Earth-centered universe? → **A moving Earth should shift nearby stars, and none moved**
   - L30 `question.astronomy.030.q4`: Why was Bessel’s 1838 measurement of stellar parallax so important? → **It showed Earth really does move around the Sun**
 - **Pre-check:** Confirm the page mentions the absence of observed stellar parallax as an objection.
+- **Fact-check (2026-09-24):** corroborated. Astronomy textbooks note that the Greeks could not detect stellar parallax, and so rejected a moving Earth. Copernicus answered that the stars are too far away for the shift to be seen. Sources: https://openstax.org/books/astronomy/pages/2-summary, https://courses.lumenlearning.com/towson-astronomy/chapter/ancient-astronomy/
 
 ```sh
 npm run verify:record -- fact.astronomy.no_parallax_seen source.brit_copernicus --status verified --by "Your Name" --quote "…"
@@ -656,6 +665,7 @@ npm run verify:record -- fact.astronomy.expected_slowdown source.brit_dark_energ
 - **Tested by:**
   - L98 `question.astronomy.098.q3`: From Level 94: if dark energy keeps accelerating the expansion, what happens to distant galaxies? → **They eventually drift out of view**
 - **Pre-check:** Standard projection; confirm wording.
+- **Fact-check (2026-09-24):** corroborated. Cosmologists project that with continued acceleration, galaxies beyond the gravitationally bound Local Group will redshift beyond detectability in roughly 100 billion years. Sources: https://arxiv.org/pdf/0704.0221, https://bigthink.com/starts-with-a-bang/dark-energy-myth-disappearing-universe/
 
 ```sh
 npm run verify:record -- fact.astronomy.far_future_expansion source.brit_dark_energy --status verified --by "Your Name" --quote "…"
@@ -698,6 +708,7 @@ npm run verify:record -- fact.astronomy.hubble_1924 source.brit_edwin_hubble --s
 - **Tested by:**
   - L22 `question.astronomy.022.q3`: From Level 7: during a lunar eclipse, why does Earth’s curved shadow on the Moon show that Earth is round? → **Only a sphere casts a curved shadow every time, from every angle**
 - **Pre-check:** Aristotle’s argument is standard; confirm on the cited page or attach a better one.
+- **Fact-check (2026-09-24):** corroborated. NASA's eclipse site notes that Aristotle used the curved shadow of Earth in lunar eclipses, which is round whatever the Moon's altitude, as proof that Earth is round. Sources: https://eclipse.gsfc.nasa.gov/LEcat5/appearance.html, https://www.astronomy.ohio-state.edu/thompson.1847/1101/lecture_aristarchus.html
 
 ```sh
 npm run verify:record -- fact.astronomy.curved_shadow_eclipse source.brit_eratosthenes --status verified --by "Your Name" --quote "…"
@@ -748,6 +759,7 @@ npm run verify:record -- fact.astronomy.eratosthenes_method source.brit_eratosth
   - L22 `question.astronomy.022.q2`: The shadow angle was about one-fiftieth of a circle. What did Eratosthenes do next? → **Multiplied the distance between the cities by 50**
   - L30 `question.astronomy.030.q1`: Who first estimated Earth’s circumference from shadows? → **Eratosthenes**
 - **Pre-check:** Many retellings; confirm the page mentions the 7.2°/one-fiftieth detail (the well is traditional).
+- **Fact-check (2026-09-24):** corroborated. Accounts of Eratosthenes: at Syene the solstice noon Sun lit the bottom of a well, while at Alexandria it stood 7.2 degrees from vertical, 1/50 of a circle, so the Syene-Alexandria distance was 1/50 of Earth's circumference. Sources: https://www.aps.org/apsnews/2006/06/eratosthenes-measures-earth
 
 ```sh
 npm run verify:record -- fact.astronomy.eratosthenes_well source.brit_eratosthenes --status verified --by "Your Name" --quote "…"
@@ -784,6 +796,7 @@ npm run verify:record -- fact.astronomy.escape_11_2 source.brit_escape_velocity 
 - **Tested by:**
   - L37 `question.astronomy.037.q3`: From Level 27: which force makes a spacecraft fall around Earth in orbit? → **Earth’s gravity**
 - **Pre-check:** Newton’s cannonball idea. Confirm the source covers orbits, or attach a NASA orbit explainer.
+- **Fact-check (2026-09-24):** corroborated. Newton's cannonball explanation: an orbiting body falls continuously but moves sideways fast enough that Earth's surface curves away beneath it at the same rate. Sources: https://www.eg.bucknell.edu/physics/astronomy/astr101/specials/newtscannon.html, https://www.nsta.org/blog/focus-physics-moon-falling
 
 ```sh
 npm run verify:record -- fact.astronomy.orbit_is_falling source.brit_escape_velocity --status verified --by "Your Name" --quote "…"
@@ -1141,6 +1154,7 @@ npm run verify:record -- fact.astronomy.hubble_law source.brit_hubble_law --stat
 - **Tested by:**
   - L99 `question.astronomy.099.q1`: What is the Hubble tension? → **Expansion measurements that disagree slightly**
 - **Pre-check:** Confirm either page covers the tension; otherwise cite a specific NASA Hubble/Webb release.
+- **Fact-check (2026-09-24):** corroborated. NASA's Webb/Hubble releases describe the Hubble tension: local distance-ladder measurements (~73 km/s/Mpc) disagree with CMB-based predictions (~67 km/s/Mpc). Sources: https://science.nasa.gov/missions/hubble/nasas-webb-hubble-telescopes-affirm-universes-expansion-rate-puzzle-persists, https://science.nasa.gov/blogs/webb/2023/09/12/webb-confirms-accuracy-of-universes-expansion-rate-measured-by-hubble-deepens-mystery-of-hubble-constant-tension/
 
 ```sh
 npm run verify:record -- fact.astronomy.hubble_tension source.brit_hubble_law --status verified --by "Your Name" --quote "…"
@@ -1237,6 +1251,7 @@ npm run verify:record -- fact.astronomy.kepler_equal_areas source.brit_kepler_la
   - L75 `question.astronomy.075.q3`: From Level 26: which laws let astronomers turn those stars’ orbits into a mass for Sagittarius A*? → **The laws of orbits and gravity from Kepler and Newton**
   - L85 `question.astronomy.085.q3`: From Level 26: planets far from the Sun orbit more slowly. Why was it surprising that outer stars in galaxies don’t slow down? → **It means far more mass is present than we can see**
 - **Pre-check:** The law is precise (period² ∝ distance³); the card states it qualitatively.
+- **Fact-check (2026-09-24):** corroborated. Kepler's third law (P squared proportional to a cubed) implies the farther a planet is from the Sun, the longer its orbital period; the card's qualitative wording is accurate. Sources: https://en.wikipedia.org/wiki/Kepler's_laws_of_planetary_motion, https://www.space.com/keplers-third-law
 
 ```sh
 npm run verify:record -- fact.astronomy.kepler_third source.brit_kepler_laws --status verified --by "Your Name" --quote "…"
@@ -1571,6 +1586,7 @@ npm run verify:record -- fact.astronomy.elements_in_stars source.brit_nucleosynt
   - L76 `question.astronomy.076.q3`: From Level 69: supernovae spread heavy elements. What other event, seen in 2017, forges elements like gold? → **Two neutron stars colliding**
   - L96 `question.astronomy.096.q3`: From Level 69: the iron in your blood was made inside stars. How did it reach the cloud that formed the solar system? → **Dying stars scattered it into space**
 - **Pre-check:** Standard statement; confirm the page supports it or attach a NASA page.
+- **Fact-check (2026-09-24):** corroborated. AMNH and NASA outreach state the calcium in our bones and iron in our blood were forged in stars and supernovae before the Sun and Earth formed. Sources: https://www.amnh.org/exhibitions/permanent/the-universe/stars/a-spectacular-stellar-finale/we-are-stardust, https://nightsky.jpl.nasa.gov/events/mdas/120701/
 
 ```sh
 npm run verify:record -- fact.astronomy.star_stuff_body source.brit_nucleosynthesis --status verified --by "Your Name" --quote "…"
@@ -1718,6 +1734,7 @@ npm run verify:record -- fact.astronomy.planetary_nebula_name source.brit_planet
 - **Tested by:**
   - L67 `question.astronomy.067.q1`: What is a planetary nebula? → **A glowing shell of gas shed by a dying Sun-like star**
 - **Pre-check:** Confirm lifetime wording (~10,000–50,000 years).
+- **Fact-check (2026-09-24):** corroborated. Planetary nebulae are short-lived, lasting a few tens of thousands of years (often cited ~20,000) before dispersing. Sources: https://esahubble.org/wordbank/planetary-nebula/, https://www.cfa.harvard.edu/research/topic/planetary-nebulas
 
 ```sh
 npm run verify:record -- fact.astronomy.pn_short_lived source.brit_planetary_nebula --status verified --by "Your Name" --quote "…"
@@ -1739,6 +1756,7 @@ npm run verify:record -- fact.astronomy.pn_short_lived source.brit_planetary_neb
 - **Tested by:**
   - L21 `question.astronomy.021.q3`: From Level 11: why could Polynesian navigators use a star’s rising point on the horizon to steer? → **Each star rises at the same point on the horizon every night**
 - **Pre-check:** Confirm the page describes star-based navigation; a Polynesian Voyaging Society page may be a better source.
+- **Fact-check (2026-09-24):** corroborated. University of Hawaii, Bishop Museum and Hokulea sources describe navigators using rising and setting star positions, ocean swells and birds to cross thousands of km (e.g. Hawaii to Tahiti, ~4,000 km). Sources: https://manoa.hawaii.edu/exploringourfluidearth/physical/navigation-and-transportation/wayfinding-and-navigation, https://hokulea.com/polynesian-wayfinding/, https://www.bishopmuseum.org/online-learning-center/voyaging-in-the-pacific/
 
 ```sh
 npm run verify:record -- fact.astronomy.polynesian_wayfinding source.brit_polynesian_navigation --status verified --by "Your Name" --quote "…"
@@ -1839,6 +1857,7 @@ npm run verify:record -- fact.astronomy.ptolemy_predictions source.brit_ptolemy 
 - **Tested by:**
   - L72 `question.astronomy.072.q3`: From Level 35: what kind of telescope found the first pulsar? → **A radio telescope**
 - **Pre-check:** Confirm the page mentions the LGM nickname.
+- **Fact-check (2026-09-24):** corroborated. The first pulsar (CP 1919), found by Jocelyn Bell in 1967, had such a regular signal that it was jokingly labelled LGM-1, 'little green men'. Sources: https://en.wikipedia.org/wiki/PSR_B1919+21, https://www.smithsonianmag.com/science-nature/Fifty-years-ago-grad-students-discovery-changed-course-astrophysics-180968288/
 
 ```sh
 npm run verify:record -- fact.astronomy.lgm_nickname source.brit_pulsar --status verified --by "Your Name" --quote "…"
@@ -2070,7 +2089,7 @@ npm run verify:record -- fact.astronomy.egypt_sirius_nile source.brit_sirius --s
 
 - **Concept:** Binary stars (`concept.astronomy.binary_stars`)
 - **Appears in:**
-  - L65 “Star Partners: Binary Stars” · `card.astronomy.065.c2` (text): Stars in pairs / Many stars orbit a companion. Our nearest neighbor, Alpha Centauri, is a system of three stars, including Proxima Centauri. Even Sirius has a small, faint partner, Sirius B, which is a white dwarf. / Alpha Centauri: 3 stars
+  - L65 “Star Partners: Binary Stars” · `card.astronomy.065.c2` (text): Stars in pairs / Many stars orbit a companion, including about half of Sun-like stars, though the most common stars, small red dwarfs, usually don’t. Our nearest neighbor, Alpha Centauri, is a system of three stars, including Proxima Centauri. Even Sirius has a small, faint partner, Sirius B, which is a white dwarf. / Alpha Centauri: 3 stars
   - L68 “White Dwarfs” · `card.astronomy.068.c3` (text): Slowly fading / A white dwarf no longer fuses anything. It shines only with its leftover heat and slowly cools over billions of years. The nearest example is Sirius B, the faint partner of the brightest star in the sky. Most stars in our galaxy, the Sun included, will end this way.
 - **Tested by:**
   - L65 `question.astronomy.065.q1`: How many stars are in the Alpha Centauri system? → **Three**
@@ -2107,6 +2126,7 @@ npm run verify:record -- fact.astronomy.sirius_bright_near source.brit_sirius_st
 - **Appears in:**
   - L58 “Solar Storms and Auroras” · `card.astronomy.058.c4` (fact): The Carrington Event of 1859 is the strongest solar storm on record. / It produced auroras seen far from the poles. A storm like it today could seriously disrupt technology.
 - **Pre-check:** Confirm the page mentions the Carrington Event; otherwise attach a better source.
+- **Fact-check (2026-09-24):** corroborated. The September 1859 Carrington Event is the most intense geomagnetic storm on record; auroras were seen at low latitudes such as the Caribbean, Hawaii and Colombia. Sources: https://en.wikipedia.org/wiki/Carrington_Event, https://earthsky.org/human-world/carrington-event-1859-solar-storm-effects-today/
 
 ```sh
 npm run verify:record -- fact.astronomy.carrington_1859 source.brit_solar_flare --status verified --by "Your Name" --quote "…"
@@ -2325,11 +2345,12 @@ npm run verify:record -- fact.astronomy.stonehenge_solstice source.brit_stonehen
 
 - **Concept:** Futures of the Sun, Earth and universe (`concept.astronomy.cosmic_futures`)
 - **Appears in:**
-  - L98 “Integration: Futures of the Sun, Earth and Universe” · `card.astronomy.098.c2` (timeline): The long forecast: Over ~26,000 years: Earth’s axis wobbles through a full circle; Polaris won’t stay the pole star; In ~1 billion years: A brightening Sun makes Earth too hot for oceans; In ~4.5 billion years: The Milky Way and Andromeda merge; In ~5 billion years: The Sun swells into a red giant, later becoming a white dwarf
+  - L98 “Integration: Futures of the Sun, Earth and Universe” · `card.astronomy.098.c2` (timeline): The long forecast: Over ~26,000 years: Earth’s axis wobbles through a full circle; Polaris won’t stay the pole star; In ~1 billion years: A brightening Sun makes Earth too hot for oceans; In ~4.5 billion years, maybe: The Milky Way and Andromeda may merge; In ~5 billion years: The Sun swells into a red giant, later becoming a white dwarf
 - **Tested by:**
   - L98 `question.astronomy.098.q1`: Which of these is expected to happen first? → **Earth becomes too hot for oceans**
   - L98 `question.astronomy.098.q2`: Why won’t Polaris always be the North Star? → **Earth’s axis slowly wobbles in a circle**
 - **Pre-check:** Commonly cited ~1 billion years; confirm the page, or cite a NASA source instead.
+- **Fact-check (2026-09-24):** corroborated. The Sun brightens about 10% per billion years; common estimates put loss of Earth's oceans around 1 billion years out, though some models give 1 to 1.75 billion years, consistent with 'roughly'. Sources: https://theconversation.com/the-sun-wont-die-for-5-billion-years-so-why-do-humans-have-only-1-billion-years-left-on-earth-37379, https://www.science.org/content/article/earth-wont-die-soon-thought
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_brightening source.brit_sun --status verified --by "Your Name" --quote "…"
@@ -2504,6 +2525,7 @@ npm run verify:record -- fact.astronomy.big_telescopes_mirrors source.brit_teles
 - **Appears in:**
   - L33 “How Telescopes Work” · `card.astronomy.033.c4` (fact): The biggest optical telescopes today have mirrors about 10 meters across. / Mirrors that size are built from many smaller segments fitted together. Telescopes with mirrors more than 30 meters wide are already under construction.
 - **Pre-check:** Keck ~10 m; ELT 39 m under construction. Confirm current status.
+- **Fact-check (2026-09-24):** corroborated. The largest optical telescopes operating today, such as the GTC (10.4 m) and Keck (10 m), have mirrors of about 10 m. ESO's 39 m ELT is under construction, with first light planned for March 2029. Sources: https://www.eso.org/public/announcements/ann25001/, https://en.wikipedia.org/wiki/Extremely_Large_Telescope
 
 ```sh
 npm run verify:record -- fact.astronomy.largest_telescopes source.brit_telescope --status verified --by "Your Name" --quote "…"
@@ -2587,6 +2609,7 @@ npm run verify:record -- fact.astronomy.kepler_tycho_data source.brit_tycho --st
 - **Tested by:**
   - L95 `question.astronomy.095.q1`: About how wide is the observable universe? → **About 93 billion light-years**
 - **Pre-check:** Commonly given as ~93 billion ly in diameter (~46.5 billion ly radius); confirm.
+- **Fact-check (2026-09-24):** corroborated. The observable universe has a comoving radius of about 46.5 billion light-years, giving a diameter of about 93 billion light-years. Sources: https://en.wikipedia.org/wiki/Observable_universe, https://public.nrao.edu/ask/inconsistency-between-the-age-and-diameter-of-the-universe-2/
 
 ```sh
 npm run verify:record -- fact.astronomy.obs_93 source.brit_universe --status verified --by "Your Name" --quote "…"
@@ -2651,6 +2674,7 @@ npm run verify:record -- fact.astronomy.obs_why source.brit_universe --status ve
 - **Appears in:**
   - L42 “Venus: Earth’s Evil Twin” · `card.astronomy.042.c4` (fact): The Soviet Venera landers reached Venus’s surface. / In the 1970s and 1980s they sent back the first pictures from the ground, then were destroyed by the heat and pressure within about two hours.
 - **Pre-check:** Venera 13 lasted 127 minutes. Confirm.
+- **Fact-check (2026-09-24):** corroborated. Venera 7 made the first soft landing in 1970 and later landers followed through 1982; the longest surface survival was Venera 13 at 127 minutes (just over two hours). Sources: https://en.wikipedia.org/wiki/Venera_13, https://en.wikipedia.org/wiki/Venera_7
 
 ```sh
 npm run verify:record -- fact.astronomy.venera_landers source.brit_venera --status verified --by "Your Name" --quote "…"
@@ -2714,6 +2738,7 @@ npm run verify:record -- fact.astronomy.vera_rubin source.brit_vera_rubin --stat
   - L68 `question.astronomy.068.q2`: Why does a white dwarf slowly get dimmer? → **It no longer fuses, so it just cools off**
   - L68 `question.astronomy.068.q3`: From Level 65: which famous star has a white dwarf as its companion? → **Sirius, the brightest star in the night sky**
 - **Pre-check:** Often quoted as ~97%. The card avoids a number.
+- **Fact-check (2026-09-24):** corroborated. White dwarfs are the end state of stars below about 8 solar masses, which include the Sun and over 97% of Milky Way stars. Sources: https://www.space.com/23756-white-dwarf-stars.html, https://www.lunduniversity.lu.se/article/researchers-map-movement-white-dwarfs-milky-way
 
 ```sh
 npm run verify:record -- fact.astronomy.most_stars_white_dwarfs source.brit_white_dwarf --status verified --by "Your Name" --quote "…"
@@ -2750,6 +2775,7 @@ npm run verify:record -- fact.astronomy.white_dwarf_cools source.brit_white_dwar
   - L70 `question.astronomy.070.q2`: How will a Sun-like star end its life? → **As a white dwarf**
   - L71 `question.astronomy.071.q3`: From Level 68: a white dwarf teaspoon weighs several tons. How does a neutron star compare? → **A teaspoon weighs billions of tons**
 - **Pre-check:** Figures vary (~5–15 tons per teaspoon). Card says “several tons”.
+- **Fact-check (2026-09-24):** corroborated. Space.com, citing NASA, says a teaspoon of white dwarf matter would weigh about 5.5 tons on Earth. Sources: https://www.space.com/23756-white-dwarf-stars.html, https://astronomy.swin.edu.au/cosmos/*/White+Dwarf
 
 ```sh
 npm run verify:record -- fact.astronomy.white_dwarf_dense source.brit_white_dwarf --status verified --by "Your Name" --quote "…"
@@ -3087,6 +3113,7 @@ npm run verify:record -- fact.astronomy.ligo_sensitivity source.ligo --status ve
 - **Appears in:**
   - L39 “Humans on the Moon” · `card.astronomy.039.c4` (fact): The last Moonwalkers left in December 1972. / Their footprints are still up there. With no wind or rain on the Moon, nothing wears them away.
 - **Pre-check:** Confirm on the page, or cite the Moon facts page (no atmosphere/weather).
+- **Fact-check (2026-09-24):** corroborated. The Moon has no atmosphere, so there is no wind or water erosion; bootprints are expected to last millions of years, worn down only slowly by micrometeorites. Sources: https://www.space.com/14740-footprints-moon.html, https://www.nbcnews.com/news/amp/wbna44421662
 
 ```sh
 npm run verify:record -- fact.astronomy.apollo_footprints source.nasa_apollo_program --status verified --by "Your Name" --quote "…"
@@ -3104,6 +3131,7 @@ npm run verify:record -- fact.astronomy.apollo_footprints source.nasa_apollo_pro
   - L39 `question.astronomy.039.q2`: Why are the Apollo samples still valuable today? → **Scientists keep studying them to learn how the Moon formed**
   - L39 `question.astronomy.039.q3`: From Level 18: what did Apollo samples reveal about where the Moon came from? → **Moon rocks are chemically very similar to Earth’s mantle**
 - **Pre-check:** NASA gives 842 pounds (382 kg). Confirm.
+- **Fact-check (2026-09-24):** corroborated. NASA's astromaterials curation office states the six Apollo landings returned 382 kg (842 lb) of lunar rocks, core samples, pebbles, sand and dust. Sources: https://curator.jsc.nasa.gov/lunar/
 
 ```sh
 npm run verify:record -- fact.astronomy.apollo_samples source.nasa_apollo_program --status verified --by "Your Name" --quote "…"
@@ -3447,7 +3475,7 @@ npm run verify:record -- fact.astronomy.xray_space_only source.nasa_chandra --st
   - L53 “Comets: Dirty Snowballs” · `card.astronomy.053.c2` (text): Dirty snowballs / Comets are chunks of ice, dust and rock, often described as dirty snowballs. Far from the Sun they’re dark and frozen. As one nears the Sun, its ice turns to gas, forming a glowing cloud called a coma and long tails.
 - **Tested by:**
   - L53 `question.astronomy.053.q1`: What are comets made of? → **Ice, dust and rock**
-  - L53 `question.astronomy.053.q3`: From Level 52: where do many comets that return every few decades or centuries come from? → **The Kuiper Belt**
+  - L53 `question.astronomy.053.q3`: From Level 52: where are many comets that return every few years thought to come from? → **The Kuiper Belt**
   - L54 `question.astronomy.054.q3`: From Level 53: why does a comet leave a trail of dust that can later make meteors? → **Near the Sun its ice turns to gas, releasing dust**
   - L55 `question.astronomy.055.q3`: From Level 53: which comets come from the Oort Cloud rather than the Kuiper Belt? → **Comets that take thousands of years to orbit**
 
@@ -3464,7 +3492,7 @@ npm run verify:record -- fact.astronomy.comet_coma_tails source.nasa_comets --st
   - L53 “Comets: Dirty Snowballs” · `card.astronomy.053.c2` (text): Dirty snowballs / Comets are chunks of ice, dust and rock, often described as dirty snowballs. Far from the Sun they’re dark and frozen. As one nears the Sun, its ice turns to gas, forming a glowing cloud called a coma and long tails.
 - **Tested by:**
   - L53 `question.astronomy.053.q1`: What are comets made of? → **Ice, dust and rock**
-  - L53 `question.astronomy.053.q3`: From Level 52: where do many comets that return every few decades or centuries come from? → **The Kuiper Belt**
+  - L53 `question.astronomy.053.q3`: From Level 52: where are many comets that return every few years thought to come from? → **The Kuiper Belt**
   - L54 `question.astronomy.054.q3`: From Level 53: why does a comet leave a trail of dust that can later make meteors? → **Near the Sun its ice turns to gas, releasing dust**
   - L55 `question.astronomy.055.q3`: From Level 53: which comets come from the Oort Cloud rather than the Kuiper Belt? → **Comets that take thousands of years to orbit**
 
@@ -3649,6 +3677,7 @@ npm run verify:record -- fact.astronomy.rotation_curves source.nasa_dark_matter 
   - L58 `question.astronomy.058.q2`: Why are auroras usually seen near the poles? → **Earth’s magnetic field steers solar particles toward the poles**
   - L58 `question.astronomy.058.q3`: From Level 43: what would happen to more of the solar wind’s particles without Earth’s magnetic field? → **They would reach Earth’s atmosphere directly**
 - **Pre-check:** Confirm on the Earth facts page or attach a NASA aurora page.
+- **Fact-check (2026-09-24):** corroborated. NASA and UCAR explain that solar charged particles, channeled by Earth's magnetic field, strike the upper atmosphere near the poles and make gases glow as auroras. Sources: https://www.earthobservatory.nasa.gov/images/152063/vibrant-auroras, https://scied.ucar.edu/learning-zone/sun-space-weather/aurora
 
 ```sh
 npm run verify:record -- fact.astronomy.auroras_poles source.nasa_earth_perihelion --status verified --by "Your Name" --quote "…"
@@ -3739,6 +3768,7 @@ npm run verify:record -- fact.astronomy.earth_only_life source.nasa_earth_perihe
   - L12 `question.astronomy.012.q1`: About how long does Earth take to orbit the Sun once? → **365.25 days**
   - L12 `question.astronomy.012.q3`: From Level 5: seasons repeat every year. What happens during one orbit to cause them? → **Each hemisphere tilts toward, then away from, the Sun**
 - **Pre-check:** Derived: circumference of a ~150 million km radius orbit ≈ 2π × 150,000,000 ≈ 942 million km.
+- **Fact-check (2026-09-24):** corroborated. In one sidereal year Earth travels about 940 million km (584 million mi) around the Sun at an average distance of about 149.6 million km. Sources: https://en.wikipedia.org/wiki/Earth's_orbit
 
 ```sh
 npm run verify:record -- fact.astronomy.earth_orbit_distance source.nasa_earth_perihelion --status verified --by "Your Name" --quote "…"
@@ -3755,6 +3785,7 @@ npm run verify:record -- fact.astronomy.earth_orbit_distance source.nasa_earth_p
   - L12 `question.astronomy.012.q1`: About how long does Earth take to orbit the Sun once? → **365.25 days**
   - L12 `question.astronomy.012.q3`: From Level 5: seasons repeat every year. What happens during one orbit to cause them? → **Each hemisphere tilts toward, then away from, the Sun**
 - **Pre-check:** NASA gives ~29.78 km/s (~107,000 km/h). Confirm.
+- **Fact-check (2026-09-24):** corroborated. Earth's mean orbital speed is about 29.78 km/s (about 107,000 km/h). Sources: https://en.wikipedia.org/wiki/Earth's_orbit, https://hypertextbook.com/facts/2000/IlanaEpstein.shtml
 
 ```sh
 npm run verify:record -- fact.astronomy.earth_orbital_speed source.nasa_earth_perihelion --status verified --by "Your Name" --quote "…"
@@ -3835,6 +3866,7 @@ npm run verify:record -- fact.astronomy.earth_year_length source.nasa_earth_peri
 - **Appears in:**
   - L11 “Why the Sky Turns” · `card.astronomy.011.c4` (fact): At the equator, Earth’s surface moves at about 1,670 km/h. / You don’t feel it because you, the ground and the air all move together at a steady speed.
 - **Pre-check:** Derived: Earth’s equatorial circumference ≈ 40,075 km ÷ ~24 h ≈ 1,670 km/h. Confirm the circumference on the page.
+- **Fact-check (2026-09-24):** corroborated. Earth's equatorial circumference is about 40,075 km, and the equator moves at about 1,670 km/h (1,037 mph). Sources: https://en.wikipedia.org/wiki/Earth's_rotation, https://www.space.com/33527-how-fast-is-earth-moving.html
 
 ```sh
 npm run verify:record -- fact.astronomy.equator_rotation_speed source.nasa_earth_perihelion --status verified --by "Your Name" --quote "…"
@@ -3884,6 +3916,7 @@ npm run verify:record -- fact.astronomy.ozone_layer source.nasa_earth_perihelion
   - L26 `question.astronomy.026.q3`: From Level 5: Earth is closest to the Sun in early January. By Kepler’s second law, what follows? → **Earth moves fastest along its orbit in January**
   - L100 `question.astronomy.100.q2`: Earth is closest to the Sun in early January. Why is January winter in the Northern Hemisphere? → **The north is tilted away from the Sun then**
 - **Pre-check:** Source is the Earth facts page; confirm it states perihelion is in early January (about Jan 3–5).
+- **Fact-check (2026-09-24):** corroborated. Earth reaches perihelion around January 3 each year (range roughly January 2 to 5). Sources: https://earthsky.org/tonight/earth-comes-closest-to-sun-every-year-in-early-january/, https://apod.nasa.gov/apod/ap250104.html
 
 ```sh
 npm run verify:record -- fact.astronomy.perihelion_january source.nasa_earth_perihelion --status verified --by "Your Name" --quote "…"
@@ -3897,6 +3930,7 @@ npm run verify:record -- fact.astronomy.perihelion_january source.nasa_earth_per
 - **Appears in:**
   - L11 “Why the Sky Turns” · `card.astronomy.011.c4` (fact): At the equator, Earth’s surface moves at about 1,670 km/h. / You don’t feel it because you, the ground and the air all move together at a steady speed.
 - **Pre-check:** Common explanation; confirm the page supports it or attach a physics source.
+- **Fact-check (2026-09-24):** corroborated. We, the ground and the atmosphere all move together at an essentially constant speed, so our bodies sense no motion. Only acceleration would be felt. Sources: https://coolcosmos.ipac.caltech.edu/ask/60-Why-don-t-we-feel-Earth-move-, https://www.livescience.com/physics-mathematics/why-dont-we-feel-earth-spinning
 
 ```sh
 npm run verify:record -- fact.astronomy.rotation_not_felt source.nasa_earth_perihelion --status verified --by "Your Name" --quote "…"
@@ -3912,6 +3946,7 @@ npm run verify:record -- fact.astronomy.rotation_not_felt source.nasa_earth_peri
 - **Tested by:**
   - L20 `question.astronomy.020.q3`: Why does the night sky show different constellations in different seasons? → **As Earth orbits, night faces a new part of space**
 - **Pre-check:** Sidereal day ≈ 23 h 56 min; confirm on the page or attach a better source.
+- **Fact-check (2026-09-24):** corroborated. Because Earth moves about 1 degree per day in its orbit, the sidereal day is ~23 h 56 min and stars rise about 4 minutes earlier each night, shifting the visible sky over the year. Sources: https://openstax.org/books/astronomy/pages/4-3-keeping-time, https://www.astronomynotes.com/nakedeye/s7.htm
 
 ```sh
 npm run verify:record -- fact.astronomy.sidereal_shift source.nasa_earth_perihelion --status verified --by "Your Name" --quote "…"
@@ -4016,6 +4051,7 @@ npm run verify:record -- fact.astronomy.sun_moon_400 source.nasa_eclipses --stat
   - L7 `question.astronomy.007.q2`: Why can the Moon exactly cover the Sun during a total solar eclipse? → **The Sun is ~400× wider and ~400× farther away**
   - L56 `question.astronomy.056.q3`: From Level 7: when can we most easily see the Sun’s corona from Earth? → **During a total solar eclipse**
 - **Pre-check:** Card says "faint outer glow"; confirm the eclipses page names the corona.
+- **Fact-check (2026-09-24):** corroborated. NASA: in totality the Moon blocks the Sun's bright face, leaving the much dimmer corona, the Sun's outer atmosphere, visible. Sources: https://science.nasa.gov/eclipses/types/, https://spaceplace.nasa.gov/sun-corona/en/
 
 ```sh
 npm run verify:record -- fact.astronomy.total_eclipse_corona source.nasa_eclipses --status verified --by "Your Name" --quote "…"
@@ -4049,6 +4085,7 @@ npm run verify:record -- fact.astronomy.all_light_same_speed source.nasa_ems --s
 - **Appears in:**
   - L31 “More Than Meets the Eye: The Spectrum” · `card.astronomy.031.c4` (fact): Human eyes see only wavelengths from about 380 to 700 nanometers. / Anything longer, like infrared, or shorter, like ultraviolet, is invisible to us. Some animals, such as bees, can see ultraviolet.
 - **Pre-check:** Confirm the ultraviolet page mentions bees/animal vision.
+- **Fact-check (2026-09-24):** corroborated. Honeybees see roughly 300 to 650 nm, including ultraviolet that humans cannot see; flowers show UV nectar guides visible to bees. Sources: https://www.jpl.nasa.gov/news/bee-vision-the-latest-buzz-in-space-exploration/, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12477309/
 
 ```sh
 npm run verify:record -- fact.astronomy.animals_uv source.nasa_ems --status verified --by "Your Name" --quote "…"
@@ -4306,7 +4343,7 @@ npm run verify:record -- fact.astronomy.europa_clipper_2024 source.nasa_europa_c
 
 - **Concept:** Finding exoplanets (`concept.astronomy.exoplanet_detection`)
 - **Appears in:**
-  - L77 “Finding Exoplanets” · `card.astronomy.077.c2` (text): Worlds beyond the Sun / An exoplanet is a planet orbiting a star other than the Sun. In 1995 Michel Mayor and Didier Queloz found the first around a Sun-like star, 51 Pegasi b, work that earned the 2019 Nobel Prize in Physics. Today more than 5,000 are confirmed. / 1995: the first around a Sun-like star
+  - L77 “Finding Exoplanets” · `card.astronomy.077.c2` (text): Worlds beyond the Sun / An exoplanet is a planet orbiting a star other than the Sun. In 1995 Michel Mayor and Didier Queloz found the first around a Sun-like star, 51 Pegasi b, work that earned the 2019 Nobel Prize in Physics. Today more than 6,000 are confirmed. / 1995: the first around a Sun-like star
 - **Tested by:**
   - L77 `question.astronomy.077.q1`: What is an exoplanet? → **A planet orbiting a star other than the Sun**
 
@@ -4316,15 +4353,17 @@ npm run verify:record -- fact.astronomy.exoplanet_definition source.nasa_exoplan
 
 ### ☐ `fact.astronomy.exoplanets_5000`: unverified
 
-> **Claim:** More than 5,000 exoplanets have been confirmed.
+> **Claim:** More than 6,000 exoplanets have been confirmed.
 
 - **Concept:** Finding exoplanets (`concept.astronomy.exoplanet_detection`)
 - **Appears in:**
   - L77 “Finding Exoplanets” · `card.astronomy.077.c1` (text): Thousands of planets found, and almost none of them actually seen.
-  - L77 “Finding Exoplanets” · `card.astronomy.077.c2` (text): Worlds beyond the Sun / An exoplanet is a planet orbiting a star other than the Sun. In 1995 Michel Mayor and Didier Queloz found the first around a Sun-like star, 51 Pegasi b, work that earned the 2019 Nobel Prize in Physics. Today more than 5,000 are confirmed. / 1995: the first around a Sun-like star
+  - L77 “Finding Exoplanets” · `card.astronomy.077.c2` (text): Worlds beyond the Sun / An exoplanet is a planet orbiting a star other than the Sun. In 1995 Michel Mayor and Didier Queloz found the first around a Sun-like star, 51 Pegasi b, work that earned the 2019 Nobel Prize in Physics. Today more than 6,000 are confirmed. / 1995: the first around a Sun-like star
 - **Tested by:**
   - L77 `question.astronomy.077.q1`: What is an exoplanet? → **A planet orbiting a star other than the Sun**
 - **Pre-check:** The count keeps rising; confirm the current NASA figure.
+- **Fact-check (2026-09-24):** corrected. Technically true but outdated: NASA announced in September 2025 that its confirmed exoplanet tally passed 6,000 (6,007), with thousands more candidates. Sources: https://www.nasa.gov/universe/exoplanets/nasas-tally-of-planets-outside-our-solar-system-reaches-6000/, https://www.jpl.nasa.gov/news/nasas-tally-of-planets-outside-our-solar-system-reaches-6000/
+- **Previous wording:** More than 5,000 exoplanets have been confirmed.
 
 ```sh
 npm run verify:record -- fact.astronomy.exoplanets_5000 source.nasa_exoplanets --status verified --by "Your Name" --quote "…"
@@ -4428,15 +4467,15 @@ npm run verify:record -- fact.astronomy.wobble_method source.nasa_exoplanets --s
 - **Concept:** Andromeda, our big neighbor (`concept.astronomy.andromeda`)
 - **Appears in:**
   - L10 “Checkpoint: Your Place in the Universe” · `card.astronomy.010.c3` (fact): Andromeda, the nearest large spiral galaxy, is about 2.5 million light-years away. / On a dark night you can see it with the naked eye as a faint smudge. It's the most distant thing most people will ever see unaided.
-  - L83 “When Galaxies Collide” · `card.astronomy.083.c2` (text): Cosmic collisions / Galaxies can collide and merge, pulling each other into new shapes over hundreds of millions of years. Andromeda, about 2.5 million light-years away, is moving toward the Milky Way, and the two are expected to merge in about 4.5 billion years. / Merger: ~4.5 billion years
+  - L83 “When Galaxies Collide” · `card.astronomy.083.c2` (text): Cosmic collisions / Galaxies can collide and merge, pulling each other into new shapes over hundreds of millions of years. Andromeda, about 2.5 million light-years away, is moving toward the Milky Way. A merger in about 4.5 billion years was long expected, but a 2025 study put the chance of one within 10 billion years at only about 50%. / Merger: a coin flip within 10 billion years
   - L88 “Hubble’s Expanding Universe” · `card.astronomy.088.c2` (text): One galaxy among many / Fuzzy patches like the Andromeda “nebula” were once debated: were they clouds inside the Milky Way, or separate galaxies? In 1924 Edwin Hubble settled it. Andromeda is a separate galaxy about 2.5 million light-years away, far beyond our own.
   - L95 “How Big Is the Observable Universe?” · `card.astronomy.095.c2` (text): Looking back in time / Light takes time to travel, so looking far away means looking into the past. We see the Andromeda galaxy as it was about 2.5 million years ago. The most distant light we can see set out about 13.8 billion years ago.
-  - L83 “When Galaxies Collide” · `card.astronomy.083.c4` (fact): You can see the other half of this collision. / From a dark site, Andromeda is visible to the naked eye as a faint smudge, about 2.5 million light-years away and slowly getting closer.
+  - L83 “When Galaxies Collide” · `card.astronomy.083.c4` (fact): You can see our galactic neighbor with your own eyes. / From a dark site, Andromeda is visible to the naked eye as a faint smudge, about 2.5 million light-years away and slowly getting closer.
   - L84 “The Local Group” · `card.astronomy.084.c4` (fact): Andromeda is the Local Group’s other giant. / From a dark site you can spot it with the naked eye as a faint smudge, even though it lies about 2.5 million light-years away.
 - **Tested by:**
   - L10 `question.astronomy.010.q3`: From Level 8: Andromeda is 2.5 million light-years away. What does that mean? → **Its light took 2.5 million years to reach us**
   - L10 `question.astronomy.010.q5`: Chapter 1 recap: which of these is farthest from Earth? → **The Andromeda galaxy**
-  - L83 `question.astronomy.083.q3`: From Level 10: Andromeda is about 2.5 million light-years away. Roughly how long until the merger? → **About 4.5 billion years**
+  - L83 `question.astronomy.083.q3`: From Level 10: Andromeda is about 2.5 million light-years away. What did a 2025 study say about a merger? → **About a 50% chance within 10 billion years**
   - L88 `question.astronomy.088.q3`: From Level 10: Andromeda is about 2.5 million light-years away. Why did Hubble’s 1924 finding about it matter? → **It proved galaxies exist beyond the Milky Way**
 
 ```sh
@@ -4450,14 +4489,15 @@ npm run verify:record -- fact.astronomy.andromeda_distance source.nasa_galaxies 
 - **Concept:** Andromeda, our big neighbor (`concept.astronomy.andromeda`)
 - **Appears in:**
   - L10 “Checkpoint: Your Place in the Universe” · `card.astronomy.010.c3` (fact): Andromeda, the nearest large spiral galaxy, is about 2.5 million light-years away. / On a dark night you can see it with the naked eye as a faint smudge. It's the most distant thing most people will ever see unaided.
-  - L83 “When Galaxies Collide” · `card.astronomy.083.c4` (fact): You can see the other half of this collision. / From a dark site, Andromeda is visible to the naked eye as a faint smudge, about 2.5 million light-years away and slowly getting closer.
+  - L83 “When Galaxies Collide” · `card.astronomy.083.c4` (fact): You can see our galactic neighbor with your own eyes. / From a dark site, Andromeda is visible to the naked eye as a faint smudge, about 2.5 million light-years away and slowly getting closer.
   - L84 “The Local Group” · `card.astronomy.084.c4` (fact): Andromeda is the Local Group’s other giant. / From a dark site you can spot it with the naked eye as a faint smudge, even though it lies about 2.5 million light-years away.
 - **Tested by:**
   - L10 `question.astronomy.010.q3`: From Level 8: Andromeda is 2.5 million light-years away. What does that mean? → **Its light took 2.5 million years to reach us**
   - L10 `question.astronomy.010.q5`: Chapter 1 recap: which of these is farthest from Earth? → **The Andromeda galaxy**
-  - L83 `question.astronomy.083.q3`: From Level 10: Andromeda is about 2.5 million light-years away. Roughly how long until the merger? → **About 4.5 billion years**
+  - L83 `question.astronomy.083.q3`: From Level 10: Andromeda is about 2.5 million light-years away. What did a 2025 study say about a merger? → **About a 50% chance within 10 billion years**
   - L88 `question.astronomy.088.q3`: From Level 10: Andromeda is about 2.5 million light-years away. Why did Hubble’s 1924 finding about it matter? → **It proved galaxies exist beyond the Milky Way**
 - **Pre-check:** Confirm the cited page mentions naked-eye visibility; otherwise attach a better source.
+- **Fact-check (2026-09-24):** corroborated. At magnitude about 3.4, M31 is visible to the unaided eye under dark skies as a faint, elongated smudge; NASA's Hubble Messier page covers M31. Sources: https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/, https://earthsky.org/clusters-nebulae-galaxies/andromeda-galaxy-closest-spiral-to-milky-way/
 
 ```sh
 npm run verify:record -- fact.astronomy.andromeda_naked_eye source.nasa_galaxies --status verified --by "Your Name" --quote "…"
@@ -4557,6 +4597,7 @@ npm run verify:record -- fact.astronomy.hubble_above_atmosphere source.nasa_hubb
   - L34 `question.astronomy.034.q2`: Besides sharper images, what else do telescopes gain by going to space? → **Access to light the atmosphere blocks, like ultraviolet and X-rays**
   - L40 `question.astronomy.040.q4`: Why was Hubble placed above Earth’s atmosphere? → **To escape blurring and see light the air blocks**
 - **Pre-check:** NASA describes Hubble as the first designed to be serviced in space (five servicing missions). Confirm wording.
+- **Fact-check (2026-09-24):** corroborated. ESA states 'Hubble is the only telescope designed to be serviced in space by astronauts'; five shuttle servicing missions (1993-2009) repaired and upgraded it. Sources: https://www.esa.int/Science_Exploration/Space_Science/Hubble_overview, https://airandspace.si.edu/explore/stories/hubble-space-telescope
 
 ```sh
 npm run verify:record -- fact.astronomy.hubble_serviced source.nasa_hubble --status verified --by "Your Name" --quote "…"
@@ -4572,6 +4613,7 @@ npm run verify:record -- fact.astronomy.hubble_serviced source.nasa_hubble --sta
 - **Tested by:**
   - L99 `question.astronomy.099.q1`: What is the Hubble tension? → **Expansion measurements that disagree slightly**
 - **Pre-check:** Confirm either page covers the tension; otherwise cite a specific NASA Hubble/Webb release.
+- **Fact-check (2026-09-24):** corroborated. NASA's Webb/Hubble releases describe the Hubble tension: local distance-ladder measurements (~73 km/s/Mpc) disagree with CMB-based predictions (~67 km/s/Mpc). Sources: https://science.nasa.gov/missions/hubble/nasas-webb-hubble-telescopes-affirm-universes-expansion-rate-puzzle-persists, https://science.nasa.gov/blogs/webb/2023/09/12/webb-confirms-accuracy-of-universes-expansion-rate-measured-by-hubble-deepens-mystery-of-hubble-constant-tension/
 
 ```sh
 npm run verify:record -- fact.astronomy.hubble_tension source.nasa_hubble --status verified --by "Your Name" --quote "…"
@@ -4706,7 +4748,7 @@ npm run verify:record -- fact.astronomy.jupiter_mass source.nasa_jupiter_facts -
 
 - **Concept:** Jupiter’s storms and moons (`concept.astronomy.jupiter_system`)
 - **Appears in:**
-  - L46 “Jupiter’s Storms and Moons” · `card.astronomy.046.c3` (text): Four worlds of their own / Jupiter has dozens of moons, but Galileo’s four are by far the largest, and wildly different. Io is the most volcanically active world in the solar system. Ganymede is the largest moon of all, bigger than the planet Mercury. Callisto is one of the most heavily cratered worlds known. And Europa? That’s the next level. / Io · Europa · Ganymede · Callisto
+  - L46 “Jupiter’s Storms and Moons” · `card.astronomy.046.c3` (text): Four worlds of their own / Jupiter has around 100 known moons, but Galileo’s four are by far the largest, and wildly different. Io is the most volcanically active world in the solar system. Ganymede is the largest moon of all, bigger than the planet Mercury. Callisto is one of the most heavily cratered worlds known. And Europa? That’s the next level. / Io · Europa · Ganymede · Callisto
 - **Tested by:**
   - L46 `question.astronomy.046.q2`: Which of Jupiter’s moons is bigger than the planet Mercury? → **Ganymede**
   - L46 `question.astronomy.046.q3`: From Level 25: Galileo saw Jupiter’s four large moons as tiny dots. What do we know about Io today? → **It is the most volcanically active world in the solar system**
@@ -4740,7 +4782,7 @@ npm run verify:record -- fact.astronomy.galilean_moons source.nasa_jupiter_moons
 
 - **Concept:** Jupiter’s storms and moons (`concept.astronomy.jupiter_system`)
 - **Appears in:**
-  - L46 “Jupiter’s Storms and Moons” · `card.astronomy.046.c3` (text): Four worlds of their own / Jupiter has dozens of moons, but Galileo’s four are by far the largest, and wildly different. Io is the most volcanically active world in the solar system. Ganymede is the largest moon of all, bigger than the planet Mercury. Callisto is one of the most heavily cratered worlds known. And Europa? That’s the next level. / Io · Europa · Ganymede · Callisto
+  - L46 “Jupiter’s Storms and Moons” · `card.astronomy.046.c3` (text): Four worlds of their own / Jupiter has around 100 known moons, but Galileo’s four are by far the largest, and wildly different. Io is the most volcanically active world in the solar system. Ganymede is the largest moon of all, bigger than the planet Mercury. Callisto is one of the most heavily cratered worlds known. And Europa? That’s the next level. / Io · Europa · Ganymede · Callisto
 - **Tested by:**
   - L46 `question.astronomy.046.q2`: Which of Jupiter’s moons is bigger than the planet Mercury? → **Ganymede**
   - L46 `question.astronomy.046.q3`: From Level 25: Galileo saw Jupiter’s four large moons as tiny dots. What do we know about Io today? → **It is the most volcanically active world in the solar system**
@@ -4755,7 +4797,7 @@ npm run verify:record -- fact.astronomy.ganymede_largest source.nasa_jupiter_moo
 
 - **Concept:** Jupiter’s storms and moons (`concept.astronomy.jupiter_system`)
 - **Appears in:**
-  - L46 “Jupiter’s Storms and Moons” · `card.astronomy.046.c3` (text): Four worlds of their own / Jupiter has dozens of moons, but Galileo’s four are by far the largest, and wildly different. Io is the most volcanically active world in the solar system. Ganymede is the largest moon of all, bigger than the planet Mercury. Callisto is one of the most heavily cratered worlds known. And Europa? That’s the next level. / Io · Europa · Ganymede · Callisto
+  - L46 “Jupiter’s Storms and Moons” · `card.astronomy.046.c3` (text): Four worlds of their own / Jupiter has around 100 known moons, but Galileo’s four are by far the largest, and wildly different. Io is the most volcanically active world in the solar system. Ganymede is the largest moon of all, bigger than the planet Mercury. Callisto is one of the most heavily cratered worlds known. And Europa? That’s the next level. / Io · Europa · Ganymede · Callisto
 - **Tested by:**
   - L46 `question.astronomy.046.q2`: Which of Jupiter’s moons is bigger than the planet Mercury? → **Ganymede**
   - L46 `question.astronomy.046.q3`: From Level 25: Galileo saw Jupiter’s four large moons as tiny dots. What do we know about Io today? → **It is the most volcanically active world in the solar system**
@@ -4766,15 +4808,17 @@ npm run verify:record -- fact.astronomy.io_volcanoes source.nasa_jupiter_moons -
 
 ### ☐ `fact.astronomy.jupiter_many_moons`: unverified
 
-> **Claim:** Jupiter has dozens of known moons; the four Galilean moons are by far the largest.
+> **Claim:** Jupiter has around 100 known moons, and more are still being found; the four Galilean moons are by far the largest.
 
 - **Concept:** Jupiter’s storms and moons (`concept.astronomy.jupiter_system`)
 - **Appears in:**
-  - L46 “Jupiter’s Storms and Moons” · `card.astronomy.046.c3` (text): Four worlds of their own / Jupiter has dozens of moons, but Galileo’s four are by far the largest, and wildly different. Io is the most volcanically active world in the solar system. Ganymede is the largest moon of all, bigger than the planet Mercury. Callisto is one of the most heavily cratered worlds known. And Europa? That’s the next level. / Io · Europa · Ganymede · Callisto
+  - L46 “Jupiter’s Storms and Moons” · `card.astronomy.046.c3` (text): Four worlds of their own / Jupiter has around 100 known moons, but Galileo’s four are by far the largest, and wildly different. Io is the most volcanically active world in the solar system. Ganymede is the largest moon of all, bigger than the planet Mercury. Callisto is one of the most heavily cratered worlds known. And Europa? That’s the next level. / Io · Europa · Ganymede · Callisto
 - **Tested by:**
   - L46 `question.astronomy.046.q2`: Which of Jupiter’s moons is bigger than the planet Mercury? → **Ganymede**
   - L46 `question.astronomy.046.q3`: From Level 25: Galileo saw Jupiter’s four large moons as tiny dots. What do we know about Io today? → **It is the most volcanically active world in the solar system**
 - **Pre-check:** Moon counts change as new ones are found; the card avoids a number.
+- **Fact-check (2026-09-24):** corrected. The IAU recognized 97 Jupiter moons by April 2025, and reports say MPC confirmations in 2026 raised this to 115. That is over 100, so 'dozens' understates it. The Galilean moons are by far the largest. Sources: https://www.iau.org/IAU/IAU/News/Ann2026/MPC-New-Moons-Saturn-Jupiter.aspx, https://earthsky.org/space/more-moons-for-jupiter-and-saturn-total-satellite-discoveries/, https://en.wikipedia.org/wiki/Galilean_moons
+- **Previous wording:** Jupiter has dozens of known moons; the four Galilean moons are by far the largest.
 
 ```sh
 npm run verify:record -- fact.astronomy.jupiter_many_moons source.nasa_jupiter_moons --status verified --by "Your Name" --quote "…"
@@ -4806,18 +4850,20 @@ npm run verify:record -- fact.astronomy.kepler_mission_thousands source.nasa_kep
 
 ### ☐ `fact.astronomy.kuiper_comets`: unverified
 
-> **Claim:** Many comets that return every few decades or centuries come from the Kuiper Belt.
+> **Claim:** Many short-period comets, especially those that return every few years, are thought to come from the Kuiper Belt and the nearby scattered disk.
 
 - **Concept:** The Kuiper Belt (`concept.astronomy.kuiper_belt`)
 - **Appears in:**
-  - L52 “The Kuiper Belt” · `card.astronomy.052.c2` (text): A second belt / The Kuiper Belt is a doughnut-shaped region of icy bodies beyond the orbit of Neptune. Unlike the rocky asteroid belt, it’s mostly ice, and far bigger: about 20 times as wide. Pluto is one of its largest known members, and many comets that return every few decades or centuries come from here.
+  - L52 “The Kuiper Belt” · `card.astronomy.052.c2` (text): A second belt / The Kuiper Belt is a doughnut-shaped region of icy bodies beyond the orbit of Neptune. Unlike the rocky asteroid belt, it’s mostly ice, and far bigger: about 20 times as wide. Pluto is one of its largest known members, and many short-period comets, the ones that return every few years, are thought to come from here and the scattered disk just beyond.
 - **Tested by:**
   - L52 `question.astronomy.052.q1`: Where is the Kuiper Belt? → **Beyond the orbit of Neptune**
   - L52 `question.astronomy.052.q2`: What is the biggest difference between the Kuiper Belt and the asteroid belt? → **The Kuiper Belt is mostly ice; the asteroid belt is mostly rock**
   - L52 `question.astronomy.052.q3`: From Level 51: Pluto hasn’t cleared its orbital neighborhood. What does its home region explain? → **It orbits among many other icy bodies of its own zone**
-  - L53 `question.astronomy.053.q3`: From Level 52: where do many comets that return every few decades or centuries come from? → **The Kuiper Belt**
+  - L53 `question.astronomy.053.q3`: From Level 52: where are many comets that return every few years thought to come from? → **The Kuiper Belt**
   - L60 `question.astronomy.060.q5`: Chapter 6 recap: which list goes from nearest to farthest from the Sun? → **Asteroid belt → Kuiper Belt → Oort Cloud**
 - **Pre-check:** Short-period comets (<200 yr) are thought to originate in the Kuiper Belt/scattered disk. Confirm wording.
+- **Fact-check (2026-09-24):** disputed. Popular sources say short-period (<200 yr) comets come from the Kuiper Belt, but research traces Jupiter-family comets (periods under ~20 yr) to the Kuiper Belt/scattered disk, while Halley-type comets (20 to 200 yr) likely come from the Oort Cloud. Sources: https://www.aanda.org/articles/aa/full_html/2014/03/aa22508-13/aa22508-13.html, https://arxiv.org/pdf/1402.1339
+- **Previous wording:** Many comets that return every few decades or centuries come from the Kuiper Belt.
 
 ```sh
 npm run verify:record -- fact.astronomy.kuiper_comets source.nasa_kuiper_belt --status verified --by "Your Name" --quote "…"
@@ -4830,12 +4876,12 @@ npm run verify:record -- fact.astronomy.kuiper_comets source.nasa_kuiper_belt --
 - **Concept:** The Kuiper Belt (`concept.astronomy.kuiper_belt`)
 - **Appears in:**
   - L52 “The Kuiper Belt” · `card.astronomy.052.c1` (text): Past Neptune, the solar system keeps going, into the deep freeze.
-  - L52 “The Kuiper Belt” · `card.astronomy.052.c2` (text): A second belt / The Kuiper Belt is a doughnut-shaped region of icy bodies beyond the orbit of Neptune. Unlike the rocky asteroid belt, it’s mostly ice, and far bigger: about 20 times as wide. Pluto is one of its largest known members, and many comets that return every few decades or centuries come from here.
+  - L52 “The Kuiper Belt” · `card.astronomy.052.c2` (text): A second belt / The Kuiper Belt is a doughnut-shaped region of icy bodies beyond the orbit of Neptune. Unlike the rocky asteroid belt, it’s mostly ice, and far bigger: about 20 times as wide. Pluto is one of its largest known members, and many short-period comets, the ones that return every few years, are thought to come from here and the scattered disk just beyond.
 - **Tested by:**
   - L52 `question.astronomy.052.q1`: Where is the Kuiper Belt? → **Beyond the orbit of Neptune**
   - L52 `question.astronomy.052.q2`: What is the biggest difference between the Kuiper Belt and the asteroid belt? → **The Kuiper Belt is mostly ice; the asteroid belt is mostly rock**
   - L52 `question.astronomy.052.q3`: From Level 51: Pluto hasn’t cleared its orbital neighborhood. What does its home region explain? → **It orbits among many other icy bodies of its own zone**
-  - L53 `question.astronomy.053.q3`: From Level 52: where do many comets that return every few decades or centuries come from? → **The Kuiper Belt**
+  - L53 `question.astronomy.053.q3`: From Level 52: where are many comets that return every few years thought to come from? → **The Kuiper Belt**
   - L60 `question.astronomy.060.q5`: Chapter 6 recap: which list goes from nearest to farthest from the Sun? → **Asteroid belt → Kuiper Belt → Oort Cloud**
 
 ```sh
@@ -4848,14 +4894,15 @@ npm run verify:record -- fact.astronomy.kuiper_location source.nasa_kuiper_belt 
 
 - **Concept:** The Kuiper Belt (`concept.astronomy.kuiper_belt`)
 - **Appears in:**
-  - L52 “The Kuiper Belt” · `card.astronomy.052.c2` (text): A second belt / The Kuiper Belt is a doughnut-shaped region of icy bodies beyond the orbit of Neptune. Unlike the rocky asteroid belt, it’s mostly ice, and far bigger: about 20 times as wide. Pluto is one of its largest known members, and many comets that return every few decades or centuries come from here.
+  - L52 “The Kuiper Belt” · `card.astronomy.052.c2` (text): A second belt / The Kuiper Belt is a doughnut-shaped region of icy bodies beyond the orbit of Neptune. Unlike the rocky asteroid belt, it’s mostly ice, and far bigger: about 20 times as wide. Pluto is one of its largest known members, and many short-period comets, the ones that return every few years, are thought to come from here and the scattered disk just beyond.
 - **Tested by:**
   - L52 `question.astronomy.052.q1`: Where is the Kuiper Belt? → **Beyond the orbit of Neptune**
   - L52 `question.astronomy.052.q2`: What is the biggest difference between the Kuiper Belt and the asteroid belt? → **The Kuiper Belt is mostly ice; the asteroid belt is mostly rock**
   - L52 `question.astronomy.052.q3`: From Level 51: Pluto hasn’t cleared its orbital neighborhood. What does its home region explain? → **It orbits among many other icy bodies of its own zone**
-  - L53 `question.astronomy.053.q3`: From Level 52: where do many comets that return every few decades or centuries come from? → **The Kuiper Belt**
+  - L53 `question.astronomy.053.q3`: From Level 52: where are many comets that return every few years thought to come from? → **The Kuiper Belt**
   - L60 `question.astronomy.060.q5`: Chapter 6 recap: which list goes from nearest to farthest from the Sun? → **Asteroid belt → Kuiper Belt → Oort Cloud**
 - **Pre-check:** NASA: ~20× as wide and 20–200× as massive. Confirm.
+- **Fact-check (2026-09-24):** corroborated. NASA's widely quoted description: the Kuiper Belt is about 20 times as wide and 20 to 200 times as massive as the asteroid belt. Sources: https://en.wikipedia.org/wiki/Kuiper_belt, https://www.space.com/16144-kuiper-belt-objects.html
 
 ```sh
 npm run verify:record -- fact.astronomy.kuiper_size source.nasa_kuiper_belt --status verified --by "Your Name" --quote "…"
@@ -4867,12 +4914,12 @@ npm run verify:record -- fact.astronomy.kuiper_size source.nasa_kuiper_belt --st
 
 - **Concept:** The Kuiper Belt (`concept.astronomy.kuiper_belt`)
 - **Appears in:**
-  - L52 “The Kuiper Belt” · `card.astronomy.052.c2` (text): A second belt / The Kuiper Belt is a doughnut-shaped region of icy bodies beyond the orbit of Neptune. Unlike the rocky asteroid belt, it’s mostly ice, and far bigger: about 20 times as wide. Pluto is one of its largest known members, and many comets that return every few decades or centuries come from here.
+  - L52 “The Kuiper Belt” · `card.astronomy.052.c2` (text): A second belt / The Kuiper Belt is a doughnut-shaped region of icy bodies beyond the orbit of Neptune. Unlike the rocky asteroid belt, it’s mostly ice, and far bigger: about 20 times as wide. Pluto is one of its largest known members, and many short-period comets, the ones that return every few years, are thought to come from here and the scattered disk just beyond.
 - **Tested by:**
   - L52 `question.astronomy.052.q1`: Where is the Kuiper Belt? → **Beyond the orbit of Neptune**
   - L52 `question.astronomy.052.q2`: What is the biggest difference between the Kuiper Belt and the asteroid belt? → **The Kuiper Belt is mostly ice; the asteroid belt is mostly rock**
   - L52 `question.astronomy.052.q3`: From Level 51: Pluto hasn’t cleared its orbital neighborhood. What does its home region explain? → **It orbits among many other icy bodies of its own zone**
-  - L53 `question.astronomy.053.q3`: From Level 52: where do many comets that return every few decades or centuries come from? → **The Kuiper Belt**
+  - L53 `question.astronomy.053.q3`: From Level 52: where are many comets that return every few years thought to come from? → **The Kuiper Belt**
   - L60 `question.astronomy.060.q5`: Chapter 6 recap: which list goes from nearest to farthest from the Sun? → **Asteroid belt → Kuiper Belt → Oort Cloud**
 
 ```sh
@@ -4928,6 +4975,7 @@ npm run verify:record -- fact.astronomy.look_back source.nasa_light_year --statu
 - **Appears in:**
   - L8 “Light-Years: Measuring the Unmeasurable” · `card.astronomy.008.c3` (text): Why measure space in light? / Light is the fastest thing there is, about 300,000 km every second. It crosses from the Moon to Earth in just over a second. Yet even light needs years to reach the next star, so astronomers describe distance by how long light takes to cover it.
 - **Pre-check:** Derived: 384,400 km ÷ ~300,000 km/s ≈ 1.28 s. Verify both inputs; the arithmetic supports "just over one second".
+- **Fact-check (2026-09-24):** corroborated. With an average distance of 384,400 km and light traveling at about 300,000 km/s, light takes about 1.3 seconds to get from the Moon to Earth. Sources: https://www.rmg.co.uk/stories/space-astronomy/how-far-away-moon, https://en.wikipedia.org/wiki/Light-second
 
 ```sh
 npm run verify:record -- fact.astronomy.moon_light_time source.nasa_light_year --status verified --by "Your Name" --quote "…"
@@ -5260,6 +5308,7 @@ npm run verify:record -- fact.astronomy.milky_way_barred_spiral source.nasa_milk
   - L1 `question.astronomy.001.q3`: Which list goes from smallest to largest? → **Earth → solar system → Milky Way**
   - L10 `question.astronomy.010.q1`: From Level 1: which galaxy is the Sun part of? → **The Milky Way**
 - **Pre-check:** NASA pages vary (100–400 billion). "At least 100 billion" should be supported; confirm current wording.
+- **Fact-check (2026-09-24):** corroborated. NASA's StarChild says the Milky Way has over 100 billion stars; current estimates range from 100 to 400 billion. Sources: https://starchild.gsfc.nasa.gov/docs/StarChild/universe_level1/milky_way.html, https://lco.global/spacebook/galaxies/the-milky-way-galaxy/
 
 ```sh
 npm run verify:record -- fact.astronomy.milky_way_star_count source.nasa_milky_way --status verified --by "Your Name" --quote "…"
@@ -5291,6 +5340,7 @@ npm run verify:record -- fact.astronomy.mw_parts source.nasa_milky_way --status 
   - L82 `question.astronomy.082.q1`: How long does the Sun take to orbit the center of the Milky Way? → **About 230 million years**
   - L82 `question.astronomy.082.q2`: Where is the Sun located in the Milky Way? → **In the disk, about 26,000 light-years from the center**
 - **Pre-check:** Derived: ~4.6 billion years ÷ ~230 million years ≈ 20.
+- **Fact-check (2026-09-24):** corroborated. A galactic year is about 225-250 million years (230 million most quoted); with the Sun about 4.6 billion years old, that gives roughly 18-20 orbits, so 'about 20' is fair. Sources: https://en.wikipedia.org/wiki/Galactic_year, https://public.nrao.edu/ask/orbital-period-of-the-sun-in-the-milky-way-galaxy/
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_20_orbits source.nasa_milky_way --status verified --by "Your Name" --quote "…"
@@ -5454,6 +5504,7 @@ npm run verify:record -- fact.astronomy.moon_gravity_sixth source.nasa_moon_fact
 - **Appears in:**
   - L8 “Light-Years: Measuring the Unmeasurable” · `card.astronomy.008.c3` (text): Why measure space in light? / Light is the fastest thing there is, about 300,000 km every second. It crosses from the Moon to Earth in just over a second. Yet even light needs years to reach the next star, so astronomers describe distance by how long light takes to cover it.
 - **Pre-check:** Derived: 384,400 km ÷ ~300,000 km/s ≈ 1.28 s. Verify both inputs; the arithmetic supports "just over one second".
+- **Fact-check (2026-09-24):** corroborated. With an average distance of 384,400 km and light traveling at about 300,000 km/s, light takes about 1.3 seconds to get from the Moon to Earth. Sources: https://www.rmg.co.uk/stories/space-astronomy/how-far-away-moon, https://en.wikipedia.org/wiki/Light-second
 
 ```sh
 npm run verify:record -- fact.astronomy.moon_light_time source.nasa_moon_facts --status verified --by "Your Name" --quote "…"
@@ -5507,6 +5558,7 @@ npm run verify:record -- fact.astronomy.giant_impact source.nasa_moon_formation 
   - L18 `question.astronomy.018.q2`: Which clue supports the idea that the Moon formed from material blasted off Earth? → **Moon rocks are chemically very similar to Earth’s mantle**
   - L39 `question.astronomy.039.q3`: From Level 18: what did Apollo samples reveal about where the Moon came from? → **Moon rocks are chemically very similar to Earth’s mantle**
 - **Pre-check:** Confirm the page mentions simulations/models; otherwise attach a better source or drop the sentence.
+- **Fact-check (2026-09-24):** corroborated. Published giant-impact simulations (e.g. fast-spinning proto-Earth or near-equal-mass mergers) produce iron-poor disks and Earth-like isotopic Moons, though this remains an active research problem. Sources: https://arxiv.org/pdf/1611.02769, https://en.wikipedia.org/wiki/Origin_of_the_Moon
 
 ```sh
 npm run verify:record -- fact.astronomy.impact_simulations source.nasa_moon_formation --status verified --by "Your Name" --quote "…"
@@ -5698,6 +5750,7 @@ npm run verify:record -- fact.astronomy.tides_moon_gravity source.nasa_moon_tide
   - L27 `question.astronomy.027.q3`: From Level 17: what connects Newton’s law to the ocean tides? → **The Moon’s gravity pulls on Earth’s oceans**
   - L47 `question.astronomy.047.q3`: From Level 17: the Moon’s gravity raises tides on Earth. How is that like what heats Europa? → **Both are gravity stretching a world as bodies orbit**
 - **Pre-check:** Confirm the 24 h 50 min figure (a lunar day) is on the page.
+- **Fact-check (2026-09-24):** corroborated. NOAA says Earth rotates through two tidal bulges each lunar day, giving two high and two low tides every 24 hours and 50 minutes. Sources: https://oceanservice.noaa.gov/education/tutorial_tides/tides05_lunarday.html, https://oceanservice.noaa.gov/facts/tidefrequency.html
 
 ```sh
 npm run verify:record -- fact.astronomy.two_high_tides source.nasa_moon_tides --status verified --by "Your Name" --quote "…"
@@ -5780,6 +5833,7 @@ npm run verify:record -- fact.astronomy.neptune_30_au source.nasa_neptune_facts 
   - L29 `question.astronomy.029.q1`: How was Neptune discovered? → **Its position was predicted by math, then observed**
   - L29 `question.astronomy.029.q3`: From Level 27: which law did Le Verrier use to predict Neptune’s position? → **Newton’s law of universal gravitation**
 - **Pre-check:** Confirm “within about 1°” on the page.
+- **Fact-check (2026-09-24):** corroborated. On 23 September 1846 Galle found Neptune the night he received Le Verrier's letter, within about 1 degree of the predicted position. Sources: https://en.wikipedia.org/wiki/Johann_Gottfried_Galle, https://earthsky.org/human-world/today-in-science-discovery-of-neptune/
 
 ```sh
 npm run verify:record -- fact.astronomy.neptune_galle source.nasa_neptune_facts --status verified --by "Your Name" --quote "…"
@@ -5825,6 +5879,7 @@ npm run verify:record -- fact.astronomy.neptune_winds source.nasa_neptune_facts 
 - **Tested by:**
   - L50 `question.astronomy.050.q5`: Neptune is about 30 AU from the Sun. About how long does sunlight take to reach it? → **About 4 hours**
 - **Pre-check:** Derived: 30 AU × ~8.3 light-minutes per AU ≈ 4.2 hours. Confirm the page states it or keep as derived.
+- **Fact-check (2026-09-24):** corroborated. At Neptune's average distance of about 4.5 billion km (30 AU), sunlight takes about 4.1 hours to arrive. Sources: https://lovethenightsky.com/how-far-is-neptune-from-the-sun/, https://biologyinsights.com/how-long-does-it-take-sunlight-to-reach-neptune/
 
 ```sh
 npm run verify:record -- fact.astronomy.sunlight_neptune_4h source.nasa_neptune_facts --status verified --by "Your Name" --quote "…"
@@ -5849,6 +5904,7 @@ npm run verify:record -- fact.astronomy.sunlight_neptune_4h source.nasa_neptune_
   - L71 `question.astronomy.071.q3`: From Level 68: a white dwarf teaspoon weighs several tons. How does a neutron star compare? → **A teaspoon weighs billions of tons**
   - L80 `question.astronomy.080.q1`: Which stellar remnant is about the size of a city? → **A neutron star**
 - **Pre-check:** Figures vary by source; the card says “billions of tons”.
+- **Fact-check (2026-09-24):** corroborated. NASA Goddard says a teaspoon of neutron star interior would weigh more than a billion tons on Earth; other estimates run to several billion, so 'billions of tons' is within range. Sources: https://www.facebook.com/NASAGoddard/videos/what-is-a-neutron-star/10156141229860898/, https://www.nasa.gov/centers-and-facilities/goddard/new-nasa-mission-to-study-mysterious-neutron-stars-aid-in-deep-space-navigation/
 
 ```sh
 npm run verify:record -- fact.astronomy.neutron_star_dense source.nasa_neutron_stars --status verified --by "Your Name" --quote "…"
@@ -6231,6 +6287,7 @@ npm run verify:record -- fact.astronomy.circumpolar_never_set source.nasa_polari
 - **Appears in:**
   - L14 “The North Star” · `card.astronomy.014.c4` (fact): Polaris won’t be the North Star forever. / Earth’s axis slowly wobbles, tracing a circle about every 26,000 years, so the pole points at different stars over the ages. The Southern Hemisphere has no bright pole star at all; navigators there use the Southern Cross to find south.
 - **Pre-check:** Confirm; the Southern Cross is commonly used to locate the south celestial pole.
+- **Fact-check (2026-09-24):** corroborated. The nearest naked-eye star to the south celestial pole, Sigma Octantis, is only magnitude 5.5 and of little use for navigation; observers use the Southern Cross to locate the pole. Sources: https://en.wikipedia.org/wiki/Sigma_Octantis, https://www.skyatnightmagazine.com/advice/south-star
 
 ```sh
 npm run verify:record -- fact.astronomy.no_south_pole_star source.nasa_polaris --status verified --by "Your Name" --quote "…"
@@ -6288,7 +6345,7 @@ npm run verify:record -- fact.astronomy.polaris_not_brightest source.nasa_polari
 - **Concept:** Earth’s wobble changes the pole star (`concept.astronomy.precession`)
 - **Appears in:**
   - L14 “The North Star” · `card.astronomy.014.c4` (fact): Polaris won’t be the North Star forever. / Earth’s axis slowly wobbles, tracing a circle about every 26,000 years, so the pole points at different stars over the ages. The Southern Hemisphere has no bright pole star at all; navigators there use the Southern Cross to find south.
-  - L98 “Integration: Futures of the Sun, Earth and Universe” · `card.astronomy.098.c2` (timeline): The long forecast: Over ~26,000 years: Earth’s axis wobbles through a full circle; Polaris won’t stay the pole star; In ~1 billion years: A brightening Sun makes Earth too hot for oceans; In ~4.5 billion years: The Milky Way and Andromeda merge; In ~5 billion years: The Sun swells into a red giant, later becoming a white dwarf
+  - L98 “Integration: Futures of the Sun, Earth and Universe” · `card.astronomy.098.c2` (timeline): The long forecast: Over ~26,000 years: Earth’s axis wobbles through a full circle; Polaris won’t stay the pole star; In ~1 billion years: A brightening Sun makes Earth too hot for oceans; In ~4.5 billion years, maybe: The Milky Way and Andromeda may merge; In ~5 billion years: The Sun swells into a red giant, later becoming a white dwarf
 - **Tested by:**
   - L98 `question.astronomy.098.q2`: Why won’t Polaris always be the North Star? → **Earth’s axis slowly wobbles in a circle**
 
@@ -6313,6 +6370,7 @@ npm run verify:record -- fact.astronomy.precession_26000 source.nasa_polaris --s
   - L48 `question.astronomy.048.q3`: From Level 4: Saturn is famous for its rings. What else did exploring Saturn’s system reveal? → **A moon with methane lakes and one with water plumes**
   - L50 `question.astronomy.050.q4`: What are Saturn’s rings made of? → **Countless chunks of mostly water ice**
 - **Pre-check:** NASA wording is typically "from tiny, dust-sized icy grains to chunks as big as a house"; confirm.
+- **Fact-check (2026-09-24):** corroborated. NASA: Saturn's ring particles mostly range from tiny, dust-sized icy grains to chunks as big as a house; a few are as large as mountains. Sources: https://science.nasa.gov/saturn/facts/
 
 ```sh
 npm run verify:record -- fact.astronomy.saturn_ring_particle_size source.nasa_saturn_facts --status verified --by "Your Name" --quote "…"
@@ -6533,6 +6591,7 @@ npm run verify:record -- fact.astronomy.night_sky_changes source.nasa_spaceplace
 - **Tested by:**
   - L20 `question.astronomy.020.q3`: Why does the night sky show different constellations in different seasons? → **As Earth orbits, night faces a new part of space**
 - **Pre-check:** Confirm the page mentions Orion as a winter constellation, or attach a better source.
+- **Fact-check (2026-09-24):** corroborated. Orion is best seen in the Northern Hemisphere on winter evenings, and is high in the south around 9 to 10 p.m. in January. Sources: https://earthsky.org/tonight/orion-the-hunter-is-easy-to-spot/, https://www.constellation-guide.com/seasonal-constellations/winter-constellations/
 
 ```sh
 npm run verify:record -- fact.astronomy.orion_winter source.nasa_spaceplace_constellations --status verified --by "Your Name" --quote "…"
@@ -6610,6 +6669,7 @@ npm run verify:record -- fact.astronomy.opposite_hemisphere_seasons source.nasa_
   - L49 `question.astronomy.049.q3`: From Level 5: Earth’s 23.5° tilt gives us seasons. What does Uranus’s ~98° tilt do? → **It gives extreme seasons, with 42-year polar days**
   - L100 `question.astronomy.100.q2`: Earth is closest to the Sun in early January. Why is January winter in the Northern Hemisphere? → **The north is tilted away from the Sun then**
 - **Pre-check:** Card also says days are longer in summer; confirm the page covers day length, or add a source.
+- **Fact-check (2026-09-24):** corroborated. In summer a hemisphere gets more direct sunlight and longer days. In winter the low Sun angle spreads the light over a larger area, and days are shorter. Sources: https://spaceplace.nasa.gov/seasons/en/, https://www.weather.gov/fsd/season
 
 ```sh
 npm run verify:record -- fact.astronomy.summer_direct_sunlight source.nasa_spaceplace_seasons --status verified --by "Your Name" --quote "…"
@@ -6753,7 +6813,7 @@ npm run verify:record -- fact.astronomy.sun_formed_from_cloud source.nasa_star_l
 - **Concept:** Stars are born, age and die (`concept.astronomy.star_life_cycle`)
 - **Appears in:**
   - L9 “The Life of a Star” · `card.astronomy.009.c3` (timeline): The Sun's life: ~4.6 billion years ago: Forms from a collapsing cloud of gas and dust; Now: Fusing hydrogen into helium in its core; ~5 billion years from now: Swells into a red giant; After that: Sheds its outer layers and ends as a white dwarf
-  - L98 “Integration: Futures of the Sun, Earth and Universe” · `card.astronomy.098.c2` (timeline): The long forecast: Over ~26,000 years: Earth’s axis wobbles through a full circle; Polaris won’t stay the pole star; In ~1 billion years: A brightening Sun makes Earth too hot for oceans; In ~4.5 billion years: The Milky Way and Andromeda merge; In ~5 billion years: The Sun swells into a red giant, later becoming a white dwarf
+  - L98 “Integration: Futures of the Sun, Earth and Universe” · `card.astronomy.098.c2` (timeline): The long forecast: Over ~26,000 years: Earth’s axis wobbles through a full circle; Polaris won’t stay the pole star; In ~1 billion years: A brightening Sun makes Earth too hot for oceans; In ~4.5 billion years, maybe: The Milky Way and Andromeda may merge; In ~5 billion years: The Sun swells into a red giant, later becoming a white dwarf
 - **Tested by:**
   - L9 `question.astronomy.009.q2`: How will the Sun most likely end its life? → **As a red giant, then a white dwarf**
   - L9 `question.astronomy.009.q3`: From Level 2: when the Sun swells into a red giant, what is it running low on? → **Hydrogen to fuse in its core**
@@ -6770,6 +6830,7 @@ npm run verify:record -- fact.astronomy.sun_future_red_giant source.nasa_star_li
 - **Appears in:**
   - L9 “The Life of a Star” · `card.astronomy.009.c4` (text): Bigger stars, bigger endings / The Sun won't explode. But stars much more massive than the Sun can end their lives in a supernova: an explosion that can briefly outshine a whole galaxy.
 - **Pre-check:** Confirm the page says the Sun lacks the mass to go supernova (common NASA statement).
+- **Fact-check (2026-09-24):** corroborated. Core-collapse supernovae need stars of at least about 8 solar masses; the Sun lacks the mass and will become a red giant and then a white dwarf. Sources: https://www.space.com/23756-white-dwarf-stars.html, https://www.discovermagazine.com/dont-worry-were-not-in-danger-of-the-sun-going-supernova-45761
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_no_supernova source.nasa_star_life_cycle --status verified --by "Your Name" --quote "…"
@@ -6823,6 +6884,7 @@ npm run verify:record -- fact.astronomy.corona_puzzle source.nasa_sun_facts --st
 - **Appears in:**
   - L56 “Inside the Sun” · `card.astronomy.056.c3` (text): A slow journey out / Energy made in the core can take many thousands of years to work its way out through the Sun’s layers. Once it reaches the surface, light crosses to Earth in about 8 minutes.
 - **Pre-check:** NASA figures vary (tens of thousands to ~170,000+ years); the card avoids a number.
+- **Fact-check (2026-09-24):** corroborated. Estimates for energy to diffuse from the core through the radiative zone range from about 100,000 to 170,000 years (NASA cites ~170,000), consistent with 'many thousands of years'. Sources: https://solarsystem.nasa.gov/genesismission/gm2/science/sunlight_solar-heat/solar_structure.htm, https://scied.ucar.edu/learning-zone/sun-space-weather/inside-sun
 
 ```sh
 npm run verify:record -- fact.astronomy.energy_slow_escape source.nasa_sun_facts --status verified --by "Your Name" --quote "…"
@@ -6911,7 +6973,7 @@ npm run verify:record -- fact.astronomy.sun_color source.nasa_sun_facts --status
 
 - **Concept:** The Sun runs on nuclear fusion (`concept.astronomy.sun_fusion`)
 - **Appears in:**
-  - L2 “The Sun, Up Close” · `card.astronomy.002.c2` (text): Nuclear fusion / At about 15 million °C, the Sun's core squeezes hydrogen atoms so hard that they fuse into helium. Each fusion releases a little energy, and trillions of them every second add up to the sunlight that reaches you. / Hydrogen → helium + energy
+  - L2 “The Sun, Up Close” · `card.astronomy.002.c2` (text): Nuclear fusion / At about 15 million °C, the Sun's core squeezes hydrogen atoms so hard that they fuse into helium. Each fusion releases a tiny amount of energy, but the core does it an almost unimaginable number of times every second, and together they make the sunlight that reaches you. / Hydrogen → helium + energy
 - **Tested by:**
   - L2 `question.astronomy.002.q1`: What powers the Sun? → **Fusing hydrogen into helium**
   - L2 `question.astronomy.002.q3`: Why is it misleading to say the Sun is "on fire"? → **Its energy comes from nuclear fusion, not burning**
@@ -6961,7 +7023,7 @@ npm run verify:record -- fact.astronomy.sun_formed_from_cloud source.nasa_sun_fa
 - **Concept:** The Sun runs on nuclear fusion (`concept.astronomy.sun_fusion`)
 - **Appears in:**
   - L2 “The Sun, Up Close” · `card.astronomy.002.c1` (text): The Sun isn't on fire. It's doing something far stranger. / There's no burning in the everyday sense. Deep in its core, the Sun squeezes atoms together.
-  - L2 “The Sun, Up Close” · `card.astronomy.002.c2` (text): Nuclear fusion / At about 15 million °C, the Sun's core squeezes hydrogen atoms so hard that they fuse into helium. Each fusion releases a little energy, and trillions of them every second add up to the sunlight that reaches you. / Hydrogen → helium + energy
+  - L2 “The Sun, Up Close” · `card.astronomy.002.c2` (text): Nuclear fusion / At about 15 million °C, the Sun's core squeezes hydrogen atoms so hard that they fuse into helium. Each fusion releases a tiny amount of energy, but the core does it an almost unimaginable number of times every second, and together they make the sunlight that reaches you. / Hydrogen → helium + energy
   - L96 “Integration: From Atoms to Galaxies” · `card.astronomy.096.c3` (text): The great cycle / Stars fuse light elements into heavier ones, just as the Sun turns hydrogen into helium. Massive stars end in supernovae that blast those elements into space. New stars and planets form from that enriched gas, and the cycle repeats. / Gas → stars → elements → new stars
 - **Tested by:**
   - L2 `question.astronomy.002.q1`: What powers the Sun? → **Fusing hydrogen into helium**
@@ -6969,6 +7031,7 @@ npm run verify:record -- fact.astronomy.sun_formed_from_cloud source.nasa_sun_fa
   - L9 `question.astronomy.009.q3`: From Level 2: when the Sun swells into a red giant, what is it running low on? → **Hydrogen to fuse in its core**
   - L32 `question.astronomy.032.q3`: From Level 2: why does it make sense that stars are mostly hydrogen and helium? → **Stars fuse hydrogen into helium in their cores**
 - **Pre-check:** Card 002.c2 says 'trillions of them every second'. The real rate is ~10^38 fusion reactions per second, so 'trillions' is a severe understatement. Suggest rewording to 'an enormous number every second' in a new revision.
+- **Fact-check (2026-09-24):** corroborated. The claim is accurate: the Sun fuses about 600 million tons of hydrogen into helium each second in its core. (Separately, the card's 'trillions' is far too low; the rate is ~10^38 reactions per second.) Sources: https://www.ipp.mpg.de/15047/kernfusion, https://solarsystem.nasa.gov/genesismission/gm2/science/sunlight_solar-heat/solar_structure.htm
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_fusion_hydrogen_helium source.nasa_sun_facts --status verified --by "Your Name" --quote "…"
@@ -7029,6 +7092,7 @@ npm run verify:record -- fact.astronomy.sun_mass_share source.nasa_sun_facts --s
 - **Tested by:**
   - L18 `question.astronomy.018.q3`: From Level 2: the Sun is about 4.6 billion years old. What does the Moon’s age of about 4.5 billion years suggest? → **It formed early, not long after Earth itself**
 - **Pre-check:** Check the page supports "about halfway" / "billions of years more" (NASA commonly gives ~5 billion years remaining).
+- **Fact-check (2026-09-24):** corroborated. NASA says the Sun, about 4.6 billion years old, is a little less than halfway through its life and should last about 5 billion more years. Sources: https://spaceplace.nasa.gov/sun-age/en/, https://science.nasa.gov/sun/facts/
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_middle_age source.nasa_sun_facts --status verified --by "Your Name" --quote "…"
@@ -7289,6 +7353,7 @@ npm run verify:record -- fact.astronomy.uranus_seasons source.nasa_uranus_facts 
   - L29 `question.astronomy.029.q2`: What was special about Herschel’s discovery of Uranus in 1781? → **It was the first planet discovered with a telescope**
   - L38 `question.astronomy.038.q3`: From Level 29: Herschel found Uranus with a telescope in 1781. How did Voyager 2 add to that? → **It gave humanity its only close-up visit to Uranus**
 - **Pre-check:** e.g. John Flamsteed in 1690. Confirm on the page or attach a better source.
+- **Fact-check (2026-09-24):** corroborated. Uranus was recorded as a star many times before Herschel's 1781 discovery, e.g. by Flamsteed as '34 Tauri' in 1690 and by Bradley; more than 20 pre-discovery sightings are known. Sources: https://www.rmg.co.uk/stories/space-astronomy/astronomy/discovery-uranus, https://en.wikipedia.org/wiki/Uranus
 
 ```sh
 npm run verify:record -- fact.astronomy.uranus_seen_earlier source.nasa_uranus_facts --status verified --by "Your Name" --quote "…"
@@ -7497,6 +7562,7 @@ npm run verify:record -- fact.astronomy.voyager_1977 source.nasa_voyager --statu
 - **Appears in:**
   - L38 “Robot Explorers” · `card.astronomy.038.c4` (fact): Voyager 1’s radio signals take more than 20 hours to reach Earth. / Traveling at the speed of light, each message from the edge of the solar system is almost a day old when it arrives, and the gap grows every year.
 - **Pre-check:** The distance keeps growing (~23 light-hours in 2026). Confirm the current figure on the page.
+- **Fact-check (2026-09-24):** corroborated. Voyager 1's one-way light time exceeded 23 hours in 2025, and NASA says it reaches one light-day (24 hours) on 18 November 2026. Sources: https://earthsky.org/space/voyager-1-1-light-day-from-earth-november-17-18-2026/, https://www.cnn.com/2025/12/09/science/voyager-1-light-day-earth
 
 ```sh
 npm run verify:record -- fact.astronomy.voyager_signal_time source.nasa_voyager --status verified --by "Your Name" --quote "…"
@@ -7728,6 +7794,7 @@ npm run verify:record -- fact.astronomy.first_stars_seeded source.nasa_webb_earl
 - **Tested by:**
   - L96 `question.astronomy.096.q2`: Which sequence is in the right order? → **Hydrogen forms → first stars → the Sun forms**
 - **Pre-check:** Estimates vary (roughly 100–400 million years); confirm the page’s wording.
+- **Fact-check (2026-09-24):** corroborated. NASA says the first stars may have formed as early as 100 million years after the big bang; other estimates put it at a few hundred million years. Sources: https://science.nasa.gov/mission/webb/science-overview/science-explainers/what-were-the-first-stars-like/, https://science.nasa.gov/mission/webb/early-universe/
 
 ```sh
 npm run verify:record -- fact.astronomy.first_stars_when source.nasa_webb_early --status verified --by "Your Name" --quote "…"
@@ -7879,7 +7946,7 @@ npm run verify:record -- fact.astronomy.nobel_2017_gw source.nobel_2017 --status
 
 - **Concept:** Finding exoplanets (`concept.astronomy.exoplanet_detection`)
 - **Appears in:**
-  - L77 “Finding Exoplanets” · `card.astronomy.077.c2` (text): Worlds beyond the Sun / An exoplanet is a planet orbiting a star other than the Sun. In 1995 Michel Mayor and Didier Queloz found the first around a Sun-like star, 51 Pegasi b, work that earned the 2019 Nobel Prize in Physics. Today more than 5,000 are confirmed. / 1995: the first around a Sun-like star
+  - L77 “Finding Exoplanets” · `card.astronomy.077.c2` (text): Worlds beyond the Sun / An exoplanet is a planet orbiting a star other than the Sun. In 1995 Michel Mayor and Didier Queloz found the first around a Sun-like star, 51 Pegasi b, work that earned the 2019 Nobel Prize in Physics. Today more than 6,000 are confirmed. / 1995: the first around a Sun-like star
 - **Tested by:**
   - L77 `question.astronomy.077.q1`: What is an exoplanet? → **A planet orbiting a star other than the Sun**
 

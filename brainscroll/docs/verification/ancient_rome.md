@@ -331,6 +331,7 @@ npm run verify:record -- fact.ancient_rome.amphora_goods source.brit_amphora --s
   - L78 “Money and Trade” · `card.ancient_rome.078.c1` (text): In Rome there is a hill made entirely of broken jars.
   - L78 “Money and Trade” · `card.ancient_rome.078.c4` (fact): Monte Testaccio is an artificial hill. / It is made of fragments of millions of broken olive oil amphorae, dumped in Rome after their oil was used.
 - **Pre-check:** Confirm the page mentions Monte Testaccio.
+- **Fact-check (2026-09-24):** corroborated. Monte Testaccio is a 35 m artificial mound made mainly of fragments of an estimated 53 million olive oil amphorae, mostly from Baetica, dumped c. 1st-3rd centuries CE. Sources: https://en.wikipedia.org/wiki/Monte_Testaccio, https://www.oliveoiltimes.com/world/monte-testaccio-remnants-ancient-trade/46185
 
 ```sh
 npm run verify:record -- fact.ancient_rome.testaccio source.brit_amphora --status verified --by "Your Name" --quote "…"
@@ -372,6 +373,7 @@ npm run verify:record -- fact.ancient_rome.allies_italy source.brit_ancient_rome
 - **Tested by:**
   - L8 `question.ancient_rome.008.q3`: From Level 7: which guardian spirits did a Roman family honor at its household shrine? → **The Lares and Penates**
 - **Pre-check:** Described by Polybius; confirm the page mentions it or cite another source.
+- **Fact-check (2026-09-24):** corroborated. Polybius (Histories 6.53) describes wax likenesses (imagines) of ancestors kept in elite homes and worn by look-alikes in funeral processions; Penn Museum's Expedition magazine summarizes the same practice. Sources: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0234:book%3D6:chapter%3D53, https://www.penn.museum/sites/expedition/recreating-roman-wax-masks/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.ancestor_masks source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -430,6 +432,7 @@ npm run verify:record -- fact.ancient_rome.archaeology source.brit_ancient_rome 
   - L79 `question.ancient_rome.079.q3`: From Level 76: what did auxiliaries receive after about 25 years of service? → **Roman citizenship**
   - L80 `question.ancient_rome.080.q5`: Chapter 8 recap: which pair did most to bind the empire’s peoples to Rome? → **Citizenship and shared law**
 - **Pre-check:** Confirm the page gives the service length.
+- **Fact-check (2026-09-24):** corroborated. Livius and the Wikipedia article on military diplomas state auxiliaries (non-citizen peregrini) received citizenship on discharge after 25 years of service, recorded on a bronze diploma. Sources: https://www.livius.org/articles/legion/auxiliaries/, https://en.wikipedia.org/wiki/Roman_military_diploma
 
 ```sh
 npm run verify:record -- fact.ancient_rome.auxiliary_citizens source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -516,6 +519,7 @@ npm run verify:record -- fact.ancient_rome.debate_476 source.brit_ancient_rome -
 - **Tested by:**
   - L90 `question.ancient_rome.090.q3`: How did the emperor’s image change from Augustus to the late empire? → **From “first citizen” to open monarch**
 - **Pre-check:** Confirm the page uses the term Dominate.
+- **Fact-check (2026-09-24):** corroborated. The term Dominate (from dominus, 'lord/master') describes the later empire from Diocletian on, marked by open autocracy and elaborate court ceremony such as prostration before the emperor. Sources: https://en.wikipedia.org/wiki/Dominate, https://www.ebsco.com/research-starters/history/dominate-rome
 
 ```sh
 npm run verify:record -- fact.ancient_rome.dominate source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -610,6 +614,7 @@ npm run verify:record -- fact.ancient_rome.founding_753 source.brit_ancient_rome
   - L63 `question.ancient_rome.063.q1`: About how many people received free grain under Augustus? → **About 200,000**
   - L63 `question.ancient_rome.063.q3`: From Level 31: which reformer had pushed for cheap grain for citizens? → **Gaius Gracchus**
 - **Pre-check:** Confirm the page gives the number of recipients.
+- **Fact-check (2026-09-24):** corroborated. Caesar cut the grain dole list to about 150,000; Augustus fixed the number of recipients at about 200,000. Sources: https://en.wikipedia.org/wiki/Cura_annonae, https://www.unrv.com/articles/the-grain-dole-in-ancient-rome.php
 
 ```sh
 npm run verify:record -- fact.ancient_rome.grain_dole source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -661,15 +666,17 @@ npm run verify:record -- fact.ancient_rome.italy_by_264 source.brit_ancient_rome
 
 ### ☐ `fact.ancient_rome.kings_elected`: unverified
 
-> **Claim:** Roman kingship was not simply inherited: tradition says each king was chosen with the approval of the Senate and the people.
+> **Claim:** Roman kingship was not simply inherited: tradition says most kings were chosen with the approval of the Senate and the people.
 
 - **Concept:** The seven kings (`concept.ancient_rome.roman_kings`)
 - **Appears in:**
-  - L6 “The Seven Kings” · `card.ancient_rome.006.c2` (text): Seven kings / Roman tradition counted seven kings, from Romulus in 753 BCE to Tarquin the Proud, driven out in 509 BCE. Kingship was not simply passed from father to son: each king was said to be chosen with the approval of the Senate and the people.
+  - L6 “The Seven Kings” · `card.ancient_rome.006.c2` (text): Seven kings / Roman tradition counted seven kings, from Romulus in 753 BCE to Tarquin the Proud, driven out in 509 BCE. Kingship was not simply passed from father to son: most kings were said to be chosen with the approval of the Senate and the people.
 - **Tested by:**
-  - L6 `question.ancient_rome.006.q2`: According to tradition, how did a new Roman king take power? → **He was chosen with the approval of the Senate and people**
+  - L6 `question.ancient_rome.006.q2`: According to tradition, how did most new Roman kings take power? → **He was chosen with the approval of the Senate and people**
   - L6 `question.ancient_rome.006.q3`: From Level 5: what did tradition say Rome’s last three kings had in common? → **They were Etruscans**
 - **Pre-check:** Confirm the page describes the choice of kings.
+- **Fact-check (2026-09-24):** corrected. Tradition says kings after Romulus were nominated by an interrex, confirmed by the Senate and voted by the curiate assembly, but Romulus founded the city and Tarquin the Proud seized power without election, so 'each king' overstates it. Sources: https://en.wikipedia.org/wiki/King_of_Rome, https://en.wikipedia.org/wiki/Roman_Kingdom
+- **Previous wording:** Roman kingship was not simply inherited: tradition says each king was chosen with the approval of the Senate and the people.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.kings_elected source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -719,6 +726,7 @@ npm run verify:record -- fact.ancient_rome.local_elites source.brit_ancient_rome
 - **Tested by:**
   - L81 `question.ancient_rome.081.q3`: From Level 55: what had 69 CE revealed that the third century showed again? → **Armies could make and unmake emperors**
 - **Pre-check:** Counts vary; confirm the page’s figure.
+- **Fact-check (2026-09-24):** corroborated. For 235 to 284 CE sources count roughly 20 to 26 emperors or claimants, the large majority assassinated or killed; counts vary by criteria but 'more than 20, most killed' fits. Sources: https://en.wikipedia.org/wiki/Crisis_of_the_Third_Century, https://www.worldhistory.org/Crisis_of_the_Third_Century/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.many_emperors source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -726,15 +734,17 @@ npm run verify:record -- fact.ancient_rome.many_emperors source.brit_ancient_rom
 
 ### ☐ `fact.ancient_rome.marriage_age`: unverified
 
-> **Claim:** Roman girls were often married in their early to mid teens, usually to older men.
+> **Claim:** Roman girls from elite families were often married in their early to mid teens, usually to older men; most other girls probably married in their late teens.
 
 - **Concept:** Roman women (`concept.ancient_rome.roman_women`)
 - **Appears in:**
-  - L69 “Roman Women” · `card.ancient_rome.069.c2` (text): Limits / Roman women could not vote or hold political office. Under early Roman law a woman needed a male guardian for legal matters, though the rule weakened over time. Girls were often married in their early to mid teens, usually to older men.
+  - L69 “Roman Women” · `card.ancient_rome.069.c2` (text): Limits / Roman women could not vote or hold political office. Under early Roman law a woman needed a male guardian for legal matters, though the rule weakened over time. Girls from elite families were often married in their early to mid teens, usually to older men; most other girls probably married in their late teens.
 - **Tested by:**
   - L69 `question.ancient_rome.069.q1`: Which of these could Roman women NOT do? → **Vote in elections**
   - L69 `question.ancient_rome.069.q3`: From Level 8: who held legal power over a Roman daughter in her father’s family? → **The paterfamilias**
 - **Pre-check:** Confirm the page discusses marriage age.
+- **Fact-check (2026-09-24):** disputed. Elite girls often married at 12 to 15, but Saller and Shaw's study of epitaphs suggests most non-elite women first married in their late teens. Husbands were usually older. Sources: https://bmcr.brynmawr.edu/2006/2006.05.29/, https://www.worldhistory.org/article/2675/roman-girls-and-marriage-in-ancient-rome/
+- **Previous wording:** Roman girls were often married in their early to mid teens, usually to older men.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.marriage_age source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -769,6 +779,7 @@ npm run verify:record -- fact.ancient_rome.med_power source.brit_ancient_rome --
   - L17 `question.ancient_rome.017.q3`: From Level 12: Cincinnatus held which emergency office, limited to six months? → **Dictator**
   - L20 `question.ancient_rome.020.q5`: Chapter 2 recap: what links one-year consuls, the six-month dictatorship and Cincinnatus? → **Power should be held only for a limited time**
 - **Pre-check:** Confirm the page uses the term.
+- **Fact-check (2026-09-24):** corroborated. Mos maiorum ('way/custom of the ancestors') was the unwritten code of Roman traditional norms, embracing virtues such as pietas, fides, gravitas and virtus (duty, loyalty, discipline). Sources: https://en.wikipedia.org/wiki/Mos_maiorum
 
 ```sh
 npm run verify:record -- fact.ancient_rome.mos_maiorum source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -784,6 +795,7 @@ npm run verify:record -- fact.ancient_rome.mos_maiorum source.brit_ancient_rome 
 - **Tested by:**
   - L70 `question.ancient_rome.070.q4`: What did a client give a wealthy patron? → **Loyalty and a morning greeting**
 - **Pre-check:** Confirm the page describes patrons and clients.
+- **Fact-check (2026-09-24):** corroborated. Clients attended their patron's house at dawn for the salutatio, offering loyalty and support in return for protection, legal help and handouts (sportula). Sources: https://en.wikipedia.org/wiki/Patronage_in_ancient_Rome, https://www.unrv.com/articles/patrons-and-clients-in-ancient-rome.php
 
 ```sh
 npm run verify:record -- fact.ancient_rome.patronage source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -836,15 +848,17 @@ npm run verify:record -- fact.ancient_rome.rex_hated source.brit_ancient_rome --
 
 ### ☐ `fact.ancient_rome.roman_cities`: unverified
 
-> **Claim:** Many European cities began as Roman towns or forts, including London, Paris, Cologne and Vienna.
+> **Claim:** Many European cities grew from Roman towns or forts, including London, Paris, Cologne and Vienna.
 
 - **Concept:** Rome in our words, calendars and cities (`concept.ancient_rome.legacy_culture`)
 - **Appears in:**
-  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c2` (text): Cities and buildings / Many European cities began as Roman towns or forts, including London, Paris, Cologne and Vienna. Many Roman towns were laid out on a grid, with two main streets crossing at right angles. Neoclassical architecture later copied Roman columns, domes and temple fronts across Europe and the Americas.
+  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c2` (text): Cities and buildings / Many European cities grew from Roman towns or forts, including London, Paris, Cologne and Vienna. Many Roman towns were laid out on a grid, with two main streets crossing at right angles. Neoclassical architecture later copied Roman columns, domes and temple fronts across Europe and the Americas.
 - **Tested by:**
-  - L97 `question.ancient_rome.097.q1`: Which of these cities began as a Roman town? → **London**
+  - L97 `question.ancient_rome.097.q1`: Which of these cities grew from a Roman town? → **London**
   - L97 `question.ancient_rome.097.q2`: Why do so many capitols and banks have columns and domes? → **Neoclassical builders copied Rome**
 - **Pre-check:** Confirm or cite city pages.
+- **Fact-check (2026-09-24):** corrected. London (Londinium) and Cologne (Colonia) were Roman foundations, but Paris (Lutetia of the Parisii) and Vienna (Celtic Vindobona area) had pre-Roman Celtic settlements before Roman towns/forts grew there. Sources: https://en.wikipedia.org/wiki/Lutetia, https://en.wikipedia.org/wiki/History_of_Vienna
+- **Previous wording:** Many European cities began as Roman towns or forts, including London, Paris, Cologne and Vienna.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.roman_cities source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -895,6 +909,7 @@ npm run verify:record -- fact.ancient_rome.rome_contrasts source.brit_ancient_ro
   - L70 `question.ancient_rome.070.q1`: What were insulae? → **Crowded apartment blocks**
   - L70 `question.ancient_rome.070.q3`: Why did so much Roman life happen in public places? → **Most homes were cramped apartments**
 - **Pre-check:** Population estimates vary; confirm the page gives about 1 million.
+- **Fact-check (2026-09-24):** corroborated. Common estimates put Augustan Rome near 1 million people, the largest city of its time, though some scholars argue for lower figures; the claim's 'perhaps around' hedges this adequately. Sources: https://en.wikipedia.org/wiki/Rome, https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BACD7DF32B0B77609CD6713B8AF88882/S0003598X00085859a.pdf/the-population-of-ancient-rome.pdf
 
 ```sh
 npm run verify:record -- fact.ancient_rome.rome_million source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -912,6 +927,7 @@ npm run verify:record -- fact.ancient_rome.rome_million source.brit_ancient_rome
   - L5 `question.ancient_rome.005.q3`: From Level 4: why would both Etruscans and Latins care about the site of Rome? → **It controlled a Tiber crossing on a trade route**
   - L10 `question.ancient_rome.010.q5`: Chapter 1 recap: why did a site on the Tiber become worth fighting over? → **It sat on a river crossing between coast and inland Italy**
 - **Pre-check:** Confirm the page mentions the salt route.
+- **Fact-check (2026-09-24):** corroborated. The Via Salaria is named for salt: it was the ancient route by which Sabines from inland fetched salt from the marshes at the Tiber mouth, passing the site of Rome. Sources: https://en.wikipedia.org/wiki/Via_Salaria
 
 ```sh
 npm run verify:record -- fact.ancient_rome.salt_route source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -923,11 +939,11 @@ npm run verify:record -- fact.ancient_rome.salt_route source.brit_ancient_rome -
 
 - **Concept:** The seven kings (`concept.ancient_rome.roman_kings`)
 - **Appears in:**
-  - L6 “The Seven Kings” · `card.ancient_rome.006.c2` (text): Seven kings / Roman tradition counted seven kings, from Romulus in 753 BCE to Tarquin the Proud, driven out in 509 BCE. Kingship was not simply passed from father to son: each king was said to be chosen with the approval of the Senate and the people.
+  - L6 “The Seven Kings” · `card.ancient_rome.006.c2` (text): Seven kings / Roman tradition counted seven kings, from Romulus in 753 BCE to Tarquin the Proud, driven out in 509 BCE. Kingship was not simply passed from father to son: most kings were said to be chosen with the approval of the Senate and the people.
   - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c2` (comparison): Legend and evidence: What legend says (Founded by Romulus in 753 BCE; Seven kings ruled until 509 BCE) vs What evidence shows (Huts on the Palatine by the 8th century BCE; Hilltop villages merged; the Forum was drained)
   - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c3` (text): One story / Early Rome rose from a strategic site on the Tiber, where Latin villages merged into a town. Strong Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Its founding legends explained who Romans believed they were. Then, in 509 BCE, the Romans expelled their seventh king and chose a new way to govern.
 - **Tested by:**
-  - L6 `question.ancient_rome.006.q2`: According to tradition, how did a new Roman king take power? → **He was chosen with the approval of the Senate and people**
+  - L6 `question.ancient_rome.006.q2`: According to tradition, how did most new Roman kings take power? → **He was chosen with the approval of the Senate and people**
   - L6 `question.ancient_rome.006.q3`: From Level 5: what did tradition say Rome’s last three kings had in common? → **They were Etruscans**
 
 ```sh
@@ -980,6 +996,7 @@ npm run verify:record -- fact.ancient_rome.succession_problem source.brit_ancien
   - L10 `question.ancient_rome.010.q1`: Which order is right? → **Rome founded, kings expelled, first emperor**
   - L99 `question.ancient_rome.099.q3`: From Level 1: Roman history is usually split into three eras. Which list is in the right order? → **Kingdom, Republic, Empire**
 - **Pre-check:** Conventional dates; confirm the page uses them.
+- **Fact-check (2026-09-24):** corroborated. Standard references divide ancient Rome into the Kingdom (753 to 509 BCE), Republic (509 to 27 BCE) and Empire (from 27 BCE). Sources: https://en.wikipedia.org/wiki/Ancient_Rome, https://www.worldatlas.com/articles/the-roman-republic-509-bce-to-27-bce.html
 
 ```sh
 npm run verify:record -- fact.ancient_rome.three_eras source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -1023,7 +1040,7 @@ npm run verify:record -- fact.ancient_rome.villages_merged source.brit_ancient_r
 
 - **Concept:** Roman women (`concept.ancient_rome.roman_women`)
 - **Appears in:**
-  - L69 “Roman Women” · `card.ancient_rome.069.c2` (text): Limits / Roman women could not vote or hold political office. Under early Roman law a woman needed a male guardian for legal matters, though the rule weakened over time. Girls were often married in their early to mid teens, usually to older men.
+  - L69 “Roman Women” · `card.ancient_rome.069.c2` (text): Limits / Roman women could not vote or hold political office. Under early Roman law a woman needed a male guardian for legal matters, though the rule weakened over time. Girls from elite families were often married in their early to mid teens, usually to older men; most other girls probably married in their late teens.
 - **Tested by:**
   - L69 `question.ancient_rome.069.q1`: Which of these could Roman women NOT do? → **Vote in elections**
   - L69 `question.ancient_rome.069.q3`: From Level 8: who held legal power over a Roman daughter in her father’s family? → **The paterfamilias**
@@ -1040,6 +1057,7 @@ npm run verify:record -- fact.ancient_rome.women_guardian source.brit_ancient_ro
 - **Appears in:**
   - L69 “Roman Women” · `card.ancient_rome.069.c4` (fact): Julius Caesar’s daughter was simply called Julia. / Roman daughters usually took a feminine form of the family name, so sisters could share the same name.
 - **Pre-check:** Confirm the naming practice on the page.
+- **Fact-check (2026-09-24):** corroborated. Daughters took the feminine form of the father's nomen (Julius gives Julia); Caesar's daughter was known simply as Julia. Sources: https://www.vroma.org/vromans/bmcmanus/roman_names.html, https://en.wikipedia.org/wiki/Julia_(daughter_of_Caesar)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.women_names source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -1051,7 +1069,7 @@ npm run verify:record -- fact.ancient_rome.women_names source.brit_ancient_rome 
 
 - **Concept:** Roman women (`concept.ancient_rome.roman_women`)
 - **Appears in:**
-  - L69 “Roman Women” · `card.ancient_rome.069.c2` (text): Limits / Roman women could not vote or hold political office. Under early Roman law a woman needed a male guardian for legal matters, though the rule weakened over time. Girls were often married in their early to mid teens, usually to older men.
+  - L69 “Roman Women” · `card.ancient_rome.069.c2` (text): Limits / Roman women could not vote or hold political office. Under early Roman law a woman needed a male guardian for legal matters, though the rule weakened over time. Girls from elite families were often married in their early to mid teens, usually to older men; most other girls probably married in their late teens.
 - **Tested by:**
   - L69 `question.ancient_rome.069.q1`: Which of these could Roman women NOT do? → **Vote in elections**
   - L69 `question.ancient_rome.069.q3`: From Level 8: who held legal power over a Roman daughter in her father’s family? → **The paterfamilias**
@@ -1399,6 +1417,7 @@ npm run verify:record -- fact.ancient_rome.leo_attila source.brit_attila --statu
 - **Appears in:**
   - L92 “Attila and the Huns” · `card.ancient_rome.092.c1` (text): Christian writers called him the “Scourge of God.”
 - **Pre-check:** Confirm the page gives the epithet.
+- **Fact-check (2026-09-24):** corroborated. Attila became known as the 'Scourge of God' (flagellum Dei) in Christian tradition, which saw his invasions as divine punishment. Sources: https://en.wikipedia.org/wiki/Attila, https://www.livescience.com/44417-attila-the-hun.html
 
 ```sh
 npm run verify:record -- fact.ancient_rome.scourge source.brit_attila --status verified --by "Your Name" --quote "…"
@@ -1588,6 +1607,7 @@ npm run verify:record -- fact.ancient_rome.forms_kept source.brit_augustus --sta
   - L46 `question.ancient_rome.046.q3`: From Level 7: Roman religion aimed to keep the pax deorum. What was it? → **Peace with the gods**
   - L73 `question.ancient_rome.073.q3`: From Level 46: Augustus boasted he found Rome a city of brick and left it a city of what? → **Marble**
 - **Pre-check:** The quotation is from Suetonius; confirm the page gives it.
+- **Fact-check (2026-09-24):** corroborated. Suetonius, Augustus 28.3, says Augustus could justly boast that he found Rome built of brick and left it in marble. Sources: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.02.0132%3Alife%3Daug.%3Achapter%3D29, https://oyc.yale.edu/history-art/hsar-252/lecture-9
 
 ```sh
 npm run verify:record -- fact.ancient_rome.marble_boast source.brit_augustus --status verified --by "Your Name" --quote "…"
@@ -1713,6 +1733,7 @@ npm run verify:record -- fact.ancient_rome.sole_master source.brit_augustus --st
 - **Appears in:**
   - L61 “A Day in the City” · `card.ancient_rome.061.c4` (fact): Augustus gave Rome its first fire brigade. / He created the vigiles, freedmen who fought fires and patrolled at night, and he limited new buildings to about 20 meters high.
 - **Pre-check:** Confirm the page mentions the vigiles.
+- **Fact-check (2026-09-24):** corroborated. Augustus created the vigiles in 6 CE: seven cohorts recruited mainly from freedmen, who fought fires and served as a night watch. Sources: https://en.wikipedia.org/wiki/Vigiles, https://www.ostia-antica.org/dict/topics/caserma/intro.htm
 
 ```sh
 npm run verify:record -- fact.ancient_rome.vigiles source.brit_augustus --status verified --by "Your Name" --quote "…"
@@ -1770,6 +1791,7 @@ npm run verify:record -- fact.ancient_rome.boudica source.brit_boudica --status 
 - **Appears in:**
   - L18 “The Gauls Sack Rome” · `card.ancient_rome.018.c3` (text): Woe to the conquered / According to Livy, when the Romans protested the ransom the Gauls demanded, Brennus threw his sword onto the scales and said “Vae victis”: woe to the conquered. Legend adds that Juno’s sacred geese warned the defenders of the Capitoline of a night attack.
 - **Pre-check:** Confirm the page includes the geese story; otherwise cite Livy via another source.
+- **Fact-check (2026-09-24):** corroborated. Livy relates that during the Gallic siege (c. 390 BCE) the geese sacred to Juno cackled at a night assault on the Capitol, waking Marcus Manlius, who repelled the Gauls. Sources: https://en.wikipedia.org/wiki/Marcus_Manlius_Capitolinus, https://en.wikipedia.org/wiki/Sack_of_Rome_(390_BC)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.geese source.brit_brennus --status verified --by "Your Name" --quote "…"
@@ -1843,6 +1865,7 @@ npm run verify:record -- fact.ancient_rome.brutus_expels source.brit_brutus_luci
   - L11 `question.ancient_rome.011.q3`: From Level 9: why did the Romans turn to a republic after 509 BCE? → **They had sworn never to have a king again**
   - L40 `question.ancient_rome.040.q3`: Why did “dictator for life” alarm so many senators? → **It looked like the kingship Rome had sworn off**
 - **Pre-check:** From Livy; confirm the page mentions the oath.
+- **Fact-check (2026-09-24):** corroborated. Livy (2.1) reports Brutus made the people swear they would allow no one to reign in Rome. It is Livy's traditional account; historicity is uncertain but the claim reports the tradition. Sources: https://en.wikipedia.org/wiki/Lucius_Junius_Brutus, https://en.wikipedia.org/wiki/Overthrow_of_the_Roman_monarchy
 
 ```sh
 npm run verify:record -- fact.ancient_rome.never_king source.brit_brutus_lucius --status verified --by "Your Name" --quote "…"
@@ -2086,6 +2109,7 @@ npm run verify:record -- fact.ancient_rome.caligula_37 source.brit_caligula --st
 - **Tested by:**
   - L52 `question.ancient_rome.052.q2`: Why do historians doubt many stories about Caligula? → **They come from later writers who hated him**
 - **Pre-check:** Confirm the page discusses the horse story.
+- **Fact-check (2026-09-24):** corroborated. Suetonius and Dio say only that Caligula planned or promised to make Incitatus consul, and it never happened; modern historians read it as a joke or insult aimed at the Senate, or as hostile exaggeration. Sources: https://theconversation.com/mythbusting-ancient-rome-caligulas-horse-75837, https://en.wikipedia.org/wiki/Incitatus
 
 ```sh
 npm run verify:record -- fact.ancient_rome.caligula_horse source.brit_caligula --status verified --by "Your Name" --quote "…"
@@ -2182,6 +2206,7 @@ npm run verify:record -- fact.ancient_rome.cannae_losses source.brit_cannae --st
 - **Appears in:**
   - L24 “Disaster at Cannae” · `card.ancient_rome.024.c3` (text): A catastrophe, and a refusal / Ancient sources report Roman losses in the tens of thousands, one of the worst defeats in Roman history. Yet Rome refused to make peace. Hannibal had won a battle. He had not won the war, because Rome would not quit. Cannae is still studied as the classic example of encirclement.
 - **Pre-check:** Confirm the page notes its later study.
+- **Fact-check (2026-09-24):** corroborated. Cannae is regarded by military historians as the classic example of a victorious double envelopment and has been studied by commanders and military academies ever since. Sources: https://en.wikipedia.org/wiki/Battle_of_Cannae, https://en.wikipedia.org/wiki/Envelopment
 
 ```sh
 npm run verify:record -- fact.ancient_rome.cannae_studied source.brit_cannae --status verified --by "Your Name" --quote "…"
@@ -2249,6 +2274,7 @@ npm run verify:record -- fact.ancient_rome.caracalla_212 source.brit_caracalla -
   - L66 `question.ancient_rome.066.q3`: From Level 61: why did so many Romans rely on public baths? → **Most lived in apartments without baths**
   - L70 `question.ancient_rome.070.q5`: Chapter 7 recap: how did grain, games and baths help keep Rome calm? → **They gave city people food, fun and space**
 - **Pre-check:** Confirm the page gives the capacity.
+- **Fact-check (2026-09-24):** corroborated. Reference sources describe the Baths of Caracalla (opened c. 216 CE) as built for about 1,600 bathers at a time and up to around 8,000 a day. Sources: https://en.wikipedia.org/wiki/Baths_of_Caracalla, https://www.unrv.com/rome/attractions/baths-of-caracalla.php
 
 ```sh
 npm run verify:record -- fact.ancient_rome.caracalla source.brit_caracalla_baths --status verified --by "Your Name" --quote "…"
@@ -2314,6 +2340,7 @@ npm run verify:record -- fact.ancient_rome.carthage_sea_power source.brit_cartha
 - **Tested by:**
   - L28 `question.ancient_rome.028.q2`: What happened to Carthage’s land after 146 BCE? → **It became the Roman province of Africa**
 - **Pre-check:** Confirm the page addresses the salt legend; otherwise find a source that does.
+- **Fact-check (2026-09-24):** corroborated. No ancient source mentions salting Carthage. Ridley (1986) traced the claim to modern works, the earliest from about 1930; others traced it back to about 1905. Sources: https://en.wikipedia.org/wiki/Salting_the_earth, https://gwern.net/doc/history/1986-ridley.pdf
 
 ```sh
 npm run verify:record -- fact.ancient_rome.salt_myth source.brit_carthage --status verified --by "Your Name" --quote "…"
@@ -2655,6 +2682,7 @@ npm run verify:record -- fact.ancient_rome.cincinnatus_458 source.brit_cincinnat
   - L17 `question.ancient_rome.017.q3`: From Level 12: Cincinnatus held which emergency office, limited to six months? → **Dictator**
   - L20 `question.ancient_rome.020.q5`: Chapter 2 recap: what links one-year consuls, the six-month dictatorship and Cincinnatus? → **Power should be held only for a limited time**
 - **Pre-check:** Livy gives 15 or 16 days; confirm the page.
+- **Fact-check (2026-09-24):** corroborated. Livy's account, as summarized by Mount Vernon and other sources, has Cincinnatus defeat the Aequi and lay down the dictatorship after 16 days, then return to his farm. Sources: https://www.mountvernon.org/library/digitalhistory/digital-encyclopedia/article/cincinnatus, https://en.wikipedia.org/wiki/Lucius_Quinctius_Cincinnatus
 
 ```sh
 npm run verify:record -- fact.ancient_rome.cincinnatus_resigns source.brit_cincinnatus --status verified --by "Your Name" --quote "…"
@@ -2677,6 +2705,7 @@ npm run verify:record -- fact.ancient_rome.cincinnatus_resigns source.brit_cinci
 - **Tested by:**
   - L65 `question.ancient_rome.065.q3`: From Level 56: the Colosseum held about 50,000. How many times more could the Circus Maximus hold? → **About three times more**
 - **Pre-check:** Figures vary; confirm the page’s capacity.
+- **Fact-check (2026-09-24):** corroborated. After Julius Caesar's enlargement the Circus Maximus held about 150,000 spectators; some later estimates (Pliny, Constantinian phase) run up to 250,000, so 'about 150,000' is a standard conservative figure. Sources: https://www.digitalaugustanrome.org/records/circus-maximus/, https://en.wikipedia.org/wiki/Circus_Maximus
 
 ```sh
 npm run verify:record -- fact.ancient_rome.circus_capacity source.brit_circus_maximus --status verified --by "Your Name" --quote "…"
@@ -2851,6 +2880,7 @@ npm run verify:record -- fact.ancient_rome.deaths_30 source.brit_cleopatra --sta
 - **Appears in:**
   - L3 “What the Ground Remembers” · `card.ancient_rome.003.c4` (fact): Rome’s great drain still works. / The Cloaca Maxima, the city’s great early drain, helped dry out the Forum valley. Parts of it still carry water today.
 - **Pre-check:** Confirm current use is stated.
+- **Fact-check (2026-09-24):** corroborated. Sources state the Cloaca Maxima is still in use, draining rainwater from the Forum area, with surviving sections linked into Rome's modern drainage system. Sources: https://en.wikipedia.org/wiki/Cloaca_Maxima, https://www.atlasobscura.com/places/cloaca-maxima
 
 ```sh
 npm run verify:record -- fact.ancient_rome.cloaca_still source.brit_cloaca_maxima --status verified --by "Your Name" --quote "…"
@@ -2942,6 +2972,7 @@ npm run verify:record -- fact.ancient_rome.colosseum_name source.brit_colosseum 
   - L57 `question.ancient_rome.057.q3`: From Level 56: which emperor, who opened the Colosseum a year later, ruled when Vesuvius erupted? → **Titus**
   - L65 `question.ancient_rome.065.q3`: From Level 56: the Colosseum held about 50,000. How many times more could the Circus Maximus hold? → **About three times more**
 - **Pre-check:** Confirm the page gives the 100 days.
+- **Fact-check (2026-09-24):** corroborated. Titus opened the Flavian Amphitheatre in AD 80 with games that ancient sources (Cassius Dio) say lasted 100 days. Sources: https://en.wikipedia.org/wiki/Inaugural_games_of_the_Colosseum, https://www.thecollector.com/inaugural-games-colosseum/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.games_100 source.brit_colosseum --status verified --by "Your Name" --quote "…"
@@ -3043,6 +3074,7 @@ npm run verify:record -- fact.ancient_rome.commodus source.brit_commodus --statu
 - **Tested by:**
   - L73 `question.ancient_rome.073.q3`: From Level 46: Augustus boasted he found Rome a city of brick and left it a city of what? → **Marble**
 - **Pre-check:** Confirm the page mentions facing.
+- **Fact-check (2026-09-24):** corroborated. Roman concrete walls were normally built with facings of small stones (opus reticulatum) or brick (opus testaceum) around a concrete core, which became the standard imperial method. Sources: https://www.worldhistory.org/article/942/roman-walls/, https://en.wikipedia.org/wiki/Opus_reticulatum
 
 ```sh
 npm run verify:record -- fact.ancient_rome.concrete_faced source.brit_concrete --status verified --by "Your Name" --quote "…"
@@ -3296,6 +3328,7 @@ npm run verify:record -- fact.ancient_rome.corinth_146 source.brit_corinth --sta
   - L77 `question.ancient_rome.077.q2`: Under the Roman rule on burden of proof, who must prove a claim? → **The person who makes it**
   - L77 `question.ancient_rome.077.q3`: From Level 15: when did Rome first write down its laws, in the Twelve Tables? → **Around 450 BCE**
 - **Pre-check:** The maxim is in the Digest; confirm a source states it.
+- **Fact-check (2026-09-24):** corroborated. Digest 22.3.2 (Paul): 'Ei incumbit probatio qui dicit, non qui negat', proof lies on the one who asserts, not the one who denies. Sources: https://www.thelatinlibrary.com/justinian/digest22.shtml, https://www.trans-lex.org/800200/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.burden_proof source.brit_corpus --status verified --by "Your Name" --quote "…"
@@ -3829,6 +3862,7 @@ npm run verify:record -- fact.ancient_rome.five_good_list source.brit_five_good 
   - L60 `question.ancient_rome.060.q5`: Chapter 6 recap: when is the Pax Romana usually said to end? → **With Marcus Aurelius’ death in 180 CE**
   - L94 `question.ancient_rome.094.q3`: From Level 60: which historian, author of The Decline and Fall, praised the Five Good Emperors? → **Edward Gibbon**
 - **Pre-check:** Confirm one page gives Gibbon’s judgment.
+- **Fact-check (2026-09-24):** corroborated. In Decline and Fall ch. 3 Gibbon named the period from Domitian's death to Commodus' accession (the Five Good Emperors) as when 'the condition of the human race was most happy and prosperous'. Sources: https://academickids.com/encyclopedia/index.php/Five_Good_Emperors
 
 ```sh
 npm run verify:record -- fact.ancient_rome.gibbon source.brit_five_good --status verified --by "Your Name" --quote "…"
@@ -4026,6 +4060,7 @@ npm run verify:record -- fact.ancient_rome.garum_trade source.brit_garum --statu
   - L60 `question.ancient_rome.060.q5`: Chapter 6 recap: when is the Pax Romana usually said to end? → **With Marcus Aurelius’ death in 180 CE**
   - L94 `question.ancient_rome.094.q3`: From Level 60: which historian, author of The Decline and Fall, praised the Five Good Emperors? → **Edward Gibbon**
 - **Pre-check:** Confirm one page gives Gibbon’s judgment.
+- **Fact-check (2026-09-24):** corroborated. In Decline and Fall ch. 3 Gibbon named the period from Domitian's death to Commodus' accession (the Five Good Emperors) as when 'the condition of the human race was most happy and prosperous'. Sources: https://academickids.com/encyclopedia/index.php/Five_Good_Emperors
 
 ```sh
 npm run verify:record -- fact.ancient_rome.gibbon source.brit_gibbon --status verified --by "Your Name" --quote "…"
@@ -4077,6 +4112,7 @@ npm run verify:record -- fact.ancient_rome.gladiator_origin source.brit_gladiato
 - **Tested by:**
   - L64 `question.ancient_rome.064.q2`: Why were many defeated gladiators spared? → **They were expensive to train and replace**
 - **Pre-check:** Confirm the page says defeated gladiators could be spared.
+- **Fact-check (2026-09-24):** corroborated. Sources note gladiators were costly to train and keep, and a defeated fighter could be granted missio (spared); fights were often not to the death. Sources: https://archive.archaeology.org/gladiators/glossary.html, https://www.unrv.com/articles/did-gladiators-in-ancient-rome-always-fight-to-the-death.php
 
 ```sh
 npm run verify:record -- fact.ancient_rome.gladiator_spared source.brit_gladiator --status verified --by "Your Name" --quote "…"
@@ -4120,6 +4156,7 @@ npm run verify:record -- fact.ancient_rome.gladiator_who source.brit_gladiator -
   - L64 “Gladiators” · `card.ancient_rome.064.c1` (text): Thumbs down meant death? Probably not the way the movies show it.
   - L64 “Gladiators” · `card.ancient_rome.064.c4` (fact): No one knows exactly what the thumb meant. / Roman writers mention a “turned thumb” deciding a gladiator’s fate, but not which way it turned. The thumbs-down of films is a modern guess.
 - **Pre-check:** Confirm the page discusses the thumb gesture.
+- **Fact-check (2026-09-24):** corroborated. Juvenal and Prudentius mention the 'turned thumb' (pollice verso), but whether the thumb pointed up, down or sideways, and what each meant, is unknown. Sources: https://en.wikipedia.org/wiki/Pollice_verso, https://time.com/4984728/thumbs-up-thumbs-down-history/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.thumbs source.brit_gladiator --status verified --by "Your Name" --quote "…"
@@ -4195,6 +4232,7 @@ npm run verify:record -- fact.ancient_rome.fiddled_myth source.brit_great_fire -
   - L56 `question.ancient_rome.056.q3`: From Level 54: what had Nero built on land cleared by the Great Fire? → **A vast palace, the Golden House**
   - L84 `question.ancient_rome.084.q3`: From Level 54: which emperor blamed Rome’s Christians for the Great Fire? → **Nero**
 - **Pre-check:** Confirm the district counts.
+- **Fact-check (2026-09-24):** corroborated. Tacitus (Annals 15.38-41) says the fire raged six days before being checked (it then flared up again briefly); of Rome's 14 regions, 3 were levelled, 7 left with a few ruined houses, 4 untouched. Sources: https://en.wikipedia.org/wiki/Great_Fire_of_Rome, https://dcc.dickinson.edu/tacitus-annals/introduction/annals-outline/annals-38-41-outline
 
 ```sh
 npm run verify:record -- fact.ancient_rome.fire_64 source.brit_great_fire --status verified --by "Your Name" --quote "…"
@@ -4260,12 +4298,14 @@ npm run verify:record -- fact.ancient_rome.hadrian_117 source.brit_hadrian --sta
 
 ### ☐ `fact.ancient_rome.hadrian_greek`: unverified
 
-> **Claim:** Hadrian loved Greek culture and was the first emperor to wear a full beard, in the Greek style.
+> **Claim:** Hadrian loved Greek culture and was the first emperor regularly portrayed with a full beard, in the Greek style.
 
 - **Concept:** Hadrian and his wall (`concept.ancient_rome.hadrian`)
 - **Appears in:**
-  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c4` (fact): Hadrian was the first emperor to wear a full beard. / He loved Greek culture, and he wore his beard in the Greek style.
+  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c4` (fact): Hadrian was the first emperor regularly shown with a full beard. / He loved Greek culture, and he wore his beard in the Greek style.
 - **Pre-check:** Confirm the page mentions the beard.
+- **Fact-check (2026-09-24):** disputed. Hadrian was a philhellene and made the beard a permanent imperial fashion, but Nero, Titus and Domitian were occasionally shown bearded (mostly on coins), so 'first to wear' is overstated. Sources: https://publications.artic.edu/roman/api/epub/480/493/print_view, https://www.dailyartmagazine.com/identify-roman-emperor-by-beard/
+- **Previous wording:** Hadrian loved Greek culture and was the first emperor to wear a full beard, in the Greek style.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.hadrian_greek source.brit_hadrian --status verified --by "Your Name" --quote "…"
@@ -4304,6 +4344,7 @@ npm run verify:record -- fact.ancient_rome.hadrian_travel source.brit_hadrian --
   - L79 `question.ancient_rome.079.q1`: What was the limes? → **The fortified frontier**
   - L79 `question.ancient_rome.079.q3`: From Level 76: what did auxiliaries receive after about 25 years of service? → **Roman citizenship**
 - **Pre-check:** Confirm the page describes the fort plan.
+- **Fact-check (2026-09-24):** corroborated. Imperial-era forts were typically playing-card shaped (rectangles with rounded corners), with four gates and the principia (headquarters) at the centre. Sources: https://romansinscotland.com/roman-fort-layout/, https://acoup.blog/2021/11/12/collections-fortification-part-ii-roman-playing-cards/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.fort_plan source.brit_hadrians_wall --status verified --by "Your Name" --quote "…"
@@ -4504,6 +4545,7 @@ npm run verify:record -- fact.ancient_rome.ravenna source.brit_honorius --status
 - **Tested by:**
   - L27 `question.ancient_rome.027.q2`: What did Horace mean by “captive Greece took its conqueror captive”? → **Greek culture came to shape Roman culture**
 - **Pre-check:** Confirm the page quotes or paraphrases the line.
+- **Fact-check (2026-09-24):** corroborated. Horace, Epistles 2.1.156: 'Graecia capta ferum victorem cepit et artes intulit agresti Latio' (captive Greece took her fierce conqueror captive and brought the arts to rustic Latium). Sources: https://www.perseus.tufts.edu/hopper/text?doc=Hor.+Ep.+2.1, https://web.sas.upenn.edu/discentes/2020/09/02/graecia-capta-catullus-and-philodemus/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.greece_captive source.brit_horace --status verified --by "Your Name" --quote "…"
@@ -4585,6 +4627,7 @@ npm run verify:record -- fact.ancient_rome.imperator source.brit_imperator --sta
 - **Appears in:**
   - L61 “A Day in the City” · `card.ancient_rome.061.c4` (fact): Augustus gave Rome its first fire brigade. / He created the vigiles, freedmen who fought fires and patrolled at night, and he limited new buildings to about 20 meters high.
 - **Pre-check:** Confirm the page gives the height limit.
+- **Fact-check (2026-09-24):** corroborated. Augustus limited new buildings in Rome to 70 Roman feet (about 20.7 m) because of fire and collapse risks; Trajan later lowered it to 60 feet. Sources: https://en.wikipedia.org/wiki/Insula_(building), https://imperiumromanum.pl/en/curiosities/roman-skyscrapers/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.height_limit source.brit_insula --status verified --by "Your Name" --quote "…"
@@ -4711,6 +4754,7 @@ npm run verify:record -- fact.ancient_rome.new_rome source.brit_istanbul --statu
 - **Tested by:**
   - L91 `question.ancient_rome.091.q2`: Why did Augustine write The City of God? → **To answer pagans who blamed Christianity**
 - **Pre-check:** Confirm the page quotes Jerome on the sack.
+- **Fact-check (2026-09-24):** corroborated. Writing from Bethlehem about Alaric's sack of Rome in 410, Jerome said the city which had taken the whole world was itself taken (Letter 127). Sources: https://en.wikipedia.org/wiki/Sack_of_Rome_(410), https://colorado.pressbooks.pub/warandsocietysourcebook/chapter/accounts-of-the-sack-of-rome/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.jerome source.brit_jerome --status verified --by "Your Name" --quote "…"
@@ -4810,6 +4854,7 @@ npm run verify:record -- fact.ancient_rome.julian_restore source.brit_julian --s
 - **Appears in:**
   - L87 “Julian the Apostate” · `card.ancient_rome.087.c4` (fact): Julian banned Christians from teaching classical literature. / He wanted the old poets and philosophers taught only by people who still honored the old gods themselves.
 - **Pre-check:** Confirm the page mentions the teaching edict.
+- **Fact-check (2026-09-24):** corroborated. Julian's school edict of 17 June 362 barred Christian teachers from teaching the pagan classics (grammar, rhetoric) unless they acknowledged the gods. Sources: https://en.wikipedia.org/wiki/Julian_(emperor), https://blogs.nottingham.ac.uk/mintimperials/2015/06/17/on-this-day-in-ad362-julian-banned-christians-from-teaching-using-pagan-literature/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.julian_teachers source.brit_julian --status verified --by "Your Name" --quote "…"
@@ -5007,6 +5052,7 @@ npm run verify:record -- fact.ancient_rome.lares_penates source.brit_lares --sta
 - **Appears in:**
   - L77 “Roman Law” · `card.ancient_rome.077.c4` (fact): English law still speaks Latin. / Many legal terms are Latin words, such as alibi, which means “elsewhere.”
 - **Pre-check:** Confirm or cite a dictionary.
+- **Fact-check (2026-09-24):** corroborated. Etymonline and Latin dictionaries give Latin alibi as an adverb meaning 'elsewhere' (locative of alius); it entered English law c. 1743 as a plea of having been elsewhere. Sources: https://www.etymonline.com/word/alibi, https://www.latin-is-simple.com/en/vocabulary/phrase/112/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.alibi source.brit_latin --status verified --by "Your Name" --quote "…"
@@ -5120,6 +5166,7 @@ npm run verify:record -- fact.ancient_rome.gladius_pilum source.brit_legion --st
   - L32 `question.ancient_rome.032.q3`: From Level 29: whom had legions recruited before Marius? → **Property-owning citizens with their own gear**
   - L49 `question.ancient_rome.049.q3`: From Level 29: a legion had roughly 4,000 to 5,000 infantry. About how many were in three? → **12,000 to 15,000**
 - **Pre-check:** Figures varied over time; confirm the range.
+- **Fact-check (2026-09-24):** corroborated. Polybius gives a manipular legion of 4,200 infantry, raised to 5,000 in emergencies; earlier legions of the 4th century BC are put at 4,200 to 5,000 infantry. Sources: https://en.wikipedia.org/wiki/Roman_legion, https://www.military-history.us/2011/04/ancient-roman-military-organization-according-to-polybius/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.legion_size source.brit_legion --status verified --by "Your Name" --quote "…"
@@ -5142,12 +5189,14 @@ npm run verify:record -- fact.ancient_rome.maniples source.brit_legion --status 
 
 ### ☐ `fact.ancient_rome.pilum_bend`: unverified
 
-> **Claim:** The pilum’s long iron shank was designed to bend on impact, so an enemy could not throw it back.
+> **Claim:** The pilum's long, thin iron shank could bend or lodge in a shield, so an enemy could not easily throw it back, though historians debate whether bending was deliberate.
 
 - **Concept:** The legion (`concept.ancient_rome.legion`)
 - **Appears in:**
-  - L29 “The Legion” · `card.ancient_rome.029.c4` (fact): The pilum was built to bend. / Its long iron shank was designed to bend on impact, so an enemy couldn’t simply throw it back at the Romans.
+  - L29 “The Legion” · `card.ancient_rome.029.c4` (fact): The pilum was hard to throw back. / Its long, thin iron shank could bend or stick fast in a shield, so an enemy couldn’t easily throw it back. Historians still debate whether the bending was deliberate.
 - **Pre-check:** Confirm the page describes the bending shank.
+- **Fact-check (2026-09-24):** disputed. The traditional view is that the soft shank bent so it could not be reused, but M. C. Bishop and experimental reconstructions suggest pila rarely bent on impact; bending was not clearly a design aim. Sources: https://en.wikipedia.org/wiki/Pilum
+- **Previous wording:** The pilum’s long iron shank was designed to bend on impact, so an enemy could not throw it back.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.pilum_bend source.brit_legion --status verified --by "Your Name" --quote "…"
@@ -5366,6 +5415,7 @@ npm run verify:record -- fact.ancient_rome.manumission source.brit_manumission -
   - L60 `question.ancient_rome.060.q1`: Who was the last of the Five Good Emperors? → **Marcus Aurelius**
   - L60 `question.ancient_rome.060.q4`: Why does Commodus mark the end of the era? → **A son inherited, not a chosen adult**
 - **Pre-check:** Confirm the page mentions the plague.
+- **Fact-check (2026-09-24):** corroborated. The Antonine Plague (Plague of Galen), probably smallpox, broke out in 165 CE under Marcus Aurelius and spread across the empire until about 180 CE. Sources: https://www.worldhistory.org/Antonine_Plague/, https://www.smithsonianmag.com/history/what-rome-learned-deadly-antonine-plague-165-d-180974758/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.antonine_plague source.brit_marcus --status verified --by "Your Name" --quote "…"
@@ -5416,6 +5466,7 @@ npm run verify:record -- fact.ancient_rome.cimbri source.brit_marius --status ve
 - **Appears in:**
   - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c4` (fact): Every legion got an eagle. / Marius made the silver eagle, the aquila, the standard of every legion. Losing it in battle was a disgrace.
 - **Pre-check:** Confirm the page mentions the eagle standard.
+- **Fact-check (2026-09-24):** corroborated. Pliny (NH 10.16) says Marius in 104 BCE kept the eagle alone as the legionary standard; Sallust mentions Marius's silver eagle from the Cimbric War, and aquilae were typically silver or bronze. Sources: https://en.wikipedia.org/wiki/Aquila_(Roman), https://rosscowan.substack.com/p/catilines-eagle
 
 ```sh
 npm run verify:record -- fact.ancient_rome.eagle source.brit_marius --status verified --by "Your Name" --quote "…"
@@ -5527,9 +5578,9 @@ npm run verify:record -- fact.ancient_rome.mare_nostrum source.brit_mediterranea
 
 - **Concept:** Rome in our words, calendars and cities (`concept.ancient_rome.legacy_culture`)
 - **Appears in:**
-  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c2` (text): Cities and buildings / Many European cities began as Roman towns or forts, including London, Paris, Cologne and Vienna. Many Roman towns were laid out on a grid, with two main streets crossing at right angles. Neoclassical architecture later copied Roman columns, domes and temple fronts across Europe and the Americas.
+  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c2` (text): Cities and buildings / Many European cities grew from Roman towns or forts, including London, Paris, Cologne and Vienna. Many Roman towns were laid out on a grid, with two main streets crossing at right angles. Neoclassical architecture later copied Roman columns, domes and temple fronts across Europe and the Americas.
 - **Tested by:**
-  - L97 `question.ancient_rome.097.q1`: Which of these cities began as a Roman town? → **London**
+  - L97 `question.ancient_rome.097.q1`: Which of these cities grew from a Roman town? → **London**
   - L97 `question.ancient_rome.097.q2`: Why do so many capitols and banks have columns and domes? → **Neoclassical builders copied Rome**
 
 ```sh
@@ -5757,6 +5808,7 @@ npm run verify:record -- fact.ancient_rome.ostia_port source.brit_ostia --status
   - L4 `question.ancient_rome.004.q3`: From Level 3: on which of the seven hills are Rome’s earliest known huts? → **The Palatine**
   - L10 `question.ancient_rome.010.q3`: What does archaeology add to Rome’s founding legend? → **Evidence of real huts near the traditional date**
 - **Pre-check:** Confirm the page mentions the hut remains and their dating.
+- **Fact-check (2026-09-24):** corroborated. Postholes of Iron Age huts on the Palatine (including the so-called Casa Romuli area) are dated to Latial phase III, the late 9th to 8th century BCE. Sources: https://www.digitalaugustanrome.org/records/casa-romuli-palatium/, https://en.wikipedia.org/wiki/Casa_Romuli
 
 ```sh
 npm run verify:record -- fact.ancient_rome.palatine_huts source.brit_palatine --status verified --by "Your Name" --quote "…"
@@ -5824,6 +5876,7 @@ npm run verify:record -- fact.ancient_rome.dome_sphere source.brit_pantheon --st
 - **Tested by:**
   - L74 `question.ancient_rome.074.q2`: Why was the Pantheon’s dome made lighter toward the top? → **To reduce the weight pressing down on it**
 - **Pre-check:** Confirm the page describes the graded aggregate.
+- **Fact-check (2026-09-24):** corroborated. The Pantheon dome thins from about 6.4 m at the base to about 1.2 m at the oculus, and its aggregate grades from heavy travertine/basalt low down to light tuff and pumice near the top. Sources: https://eandt.theiet.org/2022/03/15/pantheon-still-worlds-largest-unreinforced-concrete-dome
 
 ```sh
 npm run verify:record -- fact.ancient_rome.lighter_top source.brit_pantheon --status verified --by "Your Name" --quote "…"
@@ -5839,6 +5892,7 @@ npm run verify:record -- fact.ancient_rome.lighter_top source.brit_pantheon --st
 - **Tested by:**
   - L74 `question.ancient_rome.074.q2`: Why was the Pantheon’s dome made lighter toward the top? → **To reduce the weight pressing down on it**
 - **Pre-check:** Confirm the oculus width.
+- **Fact-check (2026-09-24):** corroborated. The Pantheon's oculus is about 8.2 m (27 ft) across and is described as the building's only source of natural light (apart from the entrance doors). Sources: https://www.pantheonroma.com/en/2026/01/22/the-oculus-of-the-pantheon-architectural-marvel-of-ancient-rome/, https://en.wikipedia.org/wiki/Oculus_(architecture)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.oculus source.brit_pantheon --status verified --by "Your Name" --quote "…"
@@ -5887,6 +5941,7 @@ npm run verify:record -- fact.ancient_rome.pantheon_meaning source.brit_pantheon
 - **Tested by:**
   - L8 `question.ancient_rome.008.q3`: From Level 7: which guardian spirits did a Roman family honor at its household shrine? → **The Lares and Penates**
 - **Pre-check:** Confirm the page defines familia this broadly.
+- **Fact-check (2026-09-24):** corroborated. Latin familia covered everyone under the paterfamilias's authority, including enslaved people; the word comes from famulus, household slave, and could even mean the slaves alone. Sources: https://en.wikipedia.org/wiki/Family_in_ancient_Rome, https://en.wikipedia.org/wiki/Pater_familias
 
 ```sh
 npm run verify:record -- fact.ancient_rome.familia_household source.brit_patria_potestas --status verified --by "Your Name" --quote "…"
@@ -6144,6 +6199,7 @@ npm run verify:record -- fact.ancient_rome.patricians source.brit_plebeian --sta
 - **Tested by:**
   - L20 `question.ancient_rome.020.q4`: Which change ended the Conflict of the Orders? → **Plebeian assembly votes became binding on all Romans**
 - **Pre-check:** Licinian-Sextian laws; confirm the date on the page.
+- **Fact-check (2026-09-24):** corroborated. The Licinio-Sextian law opening the consulship to plebeians passed in 367 BCE; L. Sextius Lateranus became the first plebeian consul for 366 BCE. Sources: https://en.wikipedia.org/wiki/Licinio-Sextian_rogations, https://en.wikipedia.org/wiki/Lucius_Sextius_Lateranus
 
 ```sh
 npm run verify:record -- fact.ancient_rome.plebeian_consul source.brit_plebeian --status verified --by "Your Name" --quote "…"
@@ -6283,6 +6339,7 @@ npm run verify:record -- fact.ancient_rome.pompeii_ash source.brit_pompeii --sta
   - L57 `question.ancient_rome.057.q2`: Why is Pompeii so valuable to historians? → **Ash preserved ordinary town life as it was**
   - L100 `question.ancient_rome.100.q6`: What preserved everyday life at Pompeii? → **Ash and pumice from Vesuvius**
 - **Pre-check:** Confirm the page mentions graffiti or election notices.
+- **Fact-check (2026-09-24):** corroborated. Pompeii preserves more than 2,600 painted electoral notices (programmata) plus many scratched graffiti. Sources: https://www.worldhistory.org/article/467/pompeii-graffiti-signs--electoral-notices/, https://www.pompeionline.net/en/archaeological-park-of-pompeii/pompeian-graffiti
 
 ```sh
 npm run verify:record -- fact.ancient_rome.pompeii_graffiti source.brit_pompeii --status verified --by "Your Name" --quote "…"
@@ -6314,6 +6371,7 @@ npm run verify:record -- fact.ancient_rome.pompeii_value source.brit_pompeii --s
 - **Tested by:**
   - L67 `question.ancient_rome.067.q3`: From Level 61: why did many city Romans buy hot food from street counters? → **Many apartment homes had no kitchen**
 - **Pre-check:** Confirm the page mentions food counters.
+- **Fact-check (2026-09-24):** corroborated. Thermopolia were street counters selling ready-to-eat hot food, used especially by insula dwellers without their own kitchens; about 158 are known at Pompeii. Sources: https://en.wikipedia.org/wiki/Thermopolium, https://penelope.uchicago.edu/~grout/encyclopaedia_Romana/wine/thermopolium.html
 
 ```sh
 npm run verify:record -- fact.ancient_rome.thermopolium source.brit_pompeii --status verified --by "Your Name" --quote "…"
@@ -6558,6 +6616,7 @@ npm run verify:record -- fact.ancient_rome.allies_loyal source.brit_punic_wars -
   - L22 `question.ancient_rome.022.q1`: What was the corvus? → **A boarding bridge with a spike**
   - L22 `question.ancient_rome.022.q2`: Why did the corvus suit the Romans so well? → **It let their soldiers fight on enemy decks**
 - **Pre-check:** Confirm the page describes the corvus.
+- **Fact-check (2026-09-24):** corroborated. The corvus was a boarding bridge with a heavy beak-shaped spike that fixed onto enemy decks, letting Roman marines board and fight hand to hand in the First Punic War. Sources: https://en.wikipedia.org/wiki/Corvus_(boarding_device), https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1016&context=ancient_science_fair
 
 ```sh
 npm run verify:record -- fact.ancient_rome.corvus source.brit_punic_wars --status verified --by "Your Name" --quote "…"
@@ -6764,6 +6823,7 @@ npm run verify:record -- fact.ancient_rome.res_gestae source.brit_res_gestae --s
   - L46 `question.ancient_rome.046.q3`: From Level 7: Roman religion aimed to keep the pax deorum. What was it? → **Peace with the gods**
   - L73 `question.ancient_rome.073.q3`: From Level 46: Augustus boasted he found Rome a city of brick and left it a city of what? → **Marble**
 - **Pre-check:** Confirm the page gives the number of temples.
+- **Fact-check (2026-09-24):** corroborated. Res Gestae 20: in his sixth consulship (28 BCE), Augustus rebuilt 82 temples in the city by decree of the Senate. Sources: https://www.livius.org/sources/content/augustus-res-gestae/, https://en.wikisource.org/wiki/Translation:The_Achievements_of_the_Deified_Augustus
 
 ```sh
 npm run verify:record -- fact.ancient_rome.temples_82 source.brit_res_gestae --status verified --by "Your Name" --quote "…"
@@ -6892,6 +6952,7 @@ npm run verify:record -- fact.ancient_rome.res_publica source.brit_roman_republi
 - **Appears in:**
   - L11 “A Republic Is Born” · `card.ancient_rome.011.c3` (text): SPQR / Romans called their state SPQR, Senatus Populusque Romanus: “the Senate and People of Rome.” The Republic lasted almost five centuries, from 509 BCE until Augustus took sole power in 27 BCE. / SPQR: the Senate and People of Rome
 - **Pre-check:** Confirm the page explains SPQR.
+- **Fact-check (2026-09-24):** corroborated. SPQR abbreviates Senatus Populusque Romanus, 'the Senate and People of Rome', the formula used on inscriptions, coins and standards to denote the Roman state. Sources: https://www.unrv.com/roman-republic/spqr.php
 
 ```sh
 npm run verify:record -- fact.ancient_rome.spqr source.brit_roman_republic --status verified --by "Your Name" --quote "…"
@@ -6905,6 +6966,7 @@ npm run verify:record -- fact.ancient_rome.spqr source.brit_roman_republic --sta
 - **Appears in:**
   - L11 “A Republic Is Born” · `card.ancient_rome.011.c4` (fact): Not everyone had a say. / Only adult male citizens could vote. Women, enslaved people and foreigners had no vote at all.
 - **Pre-check:** Confirm the page states the franchise.
+- **Fact-check (2026-09-24):** corroborated. Only adult male Roman citizens could vote in the Republic's assemblies; women, slaves and non-citizens were excluded. Sources: https://www.unrv.com/articles/who-could-vote-in-ancient-rome.php, https://arts.st-andrews.ac.uk/rhetoric/elections-how-the-greeks-and-romans-did-them-and-why-lots-can-be-better-than-votes/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.voters_men source.brit_roman_republic --status verified --by "Your Name" --quote "…"
@@ -6955,6 +7017,7 @@ npm run verify:record -- fact.ancient_rome.road_layers source.brit_roman_road --
   - L71 `question.ancient_rome.071.q2`: Who were Roman roads built for first? → **The army, to move legions quickly**
   - L71 `question.ancient_rome.071.q3`: From Level 19: what was Rome’s first great road? → **The Via Appia**
 - **Pre-check:** Confirm the page’s total length.
+- **Fact-check (2026-09-24):** corroborated. Standard estimates give over 400,000 km of Roman roads, of which over 80,000 km were stone-paved main roads; a 2025 mapping study counts about 103,000 km of main roads, so 'more than 80,000 km' holds. Sources: https://www.ebsco.com/research-starters/history/roman-road-system, https://theconversation.com/the-roman-empire-built-300-000-kilometres-of-roads-new-study-269186
 
 ```sh
 npm run verify:record -- fact.ancient_rome.road_network source.brit_roman_road --status verified --by "Your Name" --quote "…"
@@ -7377,6 +7440,7 @@ npm run verify:record -- fact.ancient_rome.senate_origin source.brit_senate --st
   - L13 `question.ancient_rome.013.q3`: From Level 6: how had the Senate begun? → **As a council of elders advising the king**
   - L14 `question.ancient_rome.014.q3`: From Level 13: before the Conflict of the Orders, who filled the magistracies, and so the Senate? → **Mostly patricians**
 - **Pre-check:** Membership varied; confirm the figure.
+- **Fact-check (2026-09-24):** corroborated. The Senate had about 300 members from the early Republic onward; Sulla raised it to about 600 in 81 BCE, and Caesar to about 900. Sources: https://www.worldhistory.org/Roman_Senate/, https://www.pbs.org/articles/learn-about-the-roman-senate
 
 ```sh
 npm run verify:record -- fact.ancient_rome.senate_size source.brit_senate --status verified --by "Your Name" --quote "…"
@@ -7600,6 +7664,7 @@ npm run verify:record -- fact.ancient_rome.crassus_crushes source.brit_spartacus
   - L34 `question.ancient_rome.034.q3`: From Level 19: along which road were the captured rebels crucified? → **The Via Appia**
   - L37 `question.ancient_rome.037.q3`: From Level 34: which revolt had Crassus crushed years earlier? → **The slave revolt of Spartacus**
 - **Pre-check:** The figure comes from Appian; confirm the page gives it.
+- **Fact-check (2026-09-24):** corroborated. Following Appian, standard accounts say Crassus had 6,000 captured followers of Spartacus crucified along the Appian Way between Capua and Rome in 71 BCE. Sources: https://en.wikipedia.org/wiki/Third_Servile_War, https://en.wikipedia.org/wiki/Spartacus
 
 ```sh
 npm run verify:record -- fact.ancient_rome.crucified_6000 source.brit_spartacus --status verified --by "Your Name" --quote "…"
@@ -7843,6 +7908,7 @@ npm run verify:record -- fact.ancient_rome.tetrarchy_purpose source.brit_tetrarc
 - **Tested by:**
   - L49 `question.ancient_rome.049.q2`: What lasting effect did the Teutoburg disaster have? → **Rome gave up conquering Germany past the Rhine**
 - **Pre-check:** Confirm the page mentions Kalkriese.
+- **Fact-check (2026-09-24):** corroborated. Excavations at Kalkriese near Osnabrueck have yielded thousands of Roman military finds and over 1,500 coins (some countermarked VAR); most scholars identify it as a site of the Varus battle. Sources: https://www.livius.org/articles/battle/teutoburg-forest-9-ce/kalkriese/, https://en.wikipedia.org/wiki/Kalkriese
 
 ```sh
 npm run verify:record -- fact.ancient_rome.kalkriese source.brit_teutoburg --status verified --by "Your Name" --quote "…"
@@ -7887,6 +7953,7 @@ npm run verify:record -- fact.ancient_rome.teutoburg_9 source.brit_teutoburg --s
 - **Appears in:**
   - L49 “Teutoburg Forest” · `card.ancient_rome.049.c4` (fact): “Quintilius Varus, give me back my legions!” / According to the historian Suetonius, Augustus cried out these words after hearing of the disaster.
 - **Pre-check:** The quotation is from Suetonius; confirm the page gives it.
+- **Fact-check (2026-09-24):** corroborated. Suetonius (Augustus 23) says Augustus beat his head against a door crying 'Quintili Vare, legiones redde!' ('Quintilius Varus, give me back my legions!'). Sources: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.02.0132%3Alife%3Daug.%3Achapter%3D23
 
 ```sh
 npm run verify:record -- fact.ancient_rome.varus_quote source.brit_teutoburg --status verified --by "Your Name" --quote "…"
@@ -7993,6 +8060,7 @@ npm run verify:record -- fact.ancient_rome.baths_social source.brit_thermae --st
 - **Appears in:**
   - L66 “The Baths” · `card.ancient_rome.066.c4` (fact): Romans cleaned themselves without soap. / Bathers oiled their skin and scraped it clean with a curved metal tool, the strigil. The oil and dirt came off together.
 - **Pre-check:** Confirm the page mentions oil and the strigil.
+- **Fact-check (2026-09-24):** corroborated. Bathers applied olive oil and scraped off oil, sweat and dirt with a curved metal strigil; soap was not central to Roman bathing. Sources: https://www.unrv.com/culture/strigil.php, https://www.pbs.org/wgbh/nova/lostempires/roman/tepidarium.html
 
 ```sh
 npm run verify:record -- fact.ancient_rome.strigil source.brit_thermae --status verified --by "Your Name" --quote "…"
@@ -8016,6 +8084,7 @@ npm run verify:record -- fact.ancient_rome.strigil source.brit_thermae --status 
   - L5 `question.ancient_rome.005.q3`: From Level 4: why would both Etruscans and Latins care about the site of Rome? → **It controlled a Tiber crossing on a trade route**
   - L10 `question.ancient_rome.010.q5`: Chapter 1 recap: why did a site on the Tiber become worth fighting over? → **It sat on a river crossing between coast and inland Italy**
 - **Pre-check:** Distance to the coast is approximate; confirm.
+- **Fact-check (2026-09-24):** corroborated. Rome lies on the Tiber about 25 km (16 mi) from the sea at Ostia; the Tiber Island area was the site of an important ancient ford (a JRS study notes the island itself formed around the late 6th century BCE). Sources: https://en.wikipedia.org/wiki/Tiber, https://www.cambridge.org/core/journals/journal-of-roman-studies/article/origins-of-the-tiber-island-in-rome/E60CC18343D11A40BE8E436E2AF07FC4
 
 ```sh
 npm run verify:record -- fact.ancient_rome.tiber_ford source.brit_tiber --status verified --by "Your Name" --quote "…"
@@ -8299,6 +8368,7 @@ npm run verify:record -- fact.ancient_rome.sacrosanct source.brit_tribune --stat
 - **Tested by:**
   - L31 `question.ancient_rome.031.q3`: From Level 16: Tiberius Gracchus held which office, meant to protect plebeians? → **Tribune of the plebs**
 - **Pre-check:** Confirm the page mentions the open door.
+- **Fact-check (2026-09-24):** corroborated. Plutarch (Roman Questions 81) says a tribune's house door was never closed but stayed open night and day as a refuge for those in need. Sources: http://penelope.uchicago.edu/Thayer/e/roman/texts/plutarch/moralia/roman_questions*/d.html, https://en.wikipedia.org/wiki/Tribune_of_the_plebs
 
 ```sh
 npm run verify:record -- fact.ancient_rome.tribune_door source.brit_tribune --status verified --by "Your Name" --quote "…"
@@ -8458,7 +8528,7 @@ npm run verify:record -- fact.ancient_rome.tables_450 source.brit_twelve_tables 
 
 - **Concept:** The Twelve Tables (`concept.ancient_rome.twelve_tables`)
 - **Appears in:**
-  - L15 “The Twelve Tables” · `card.ancient_rome.015.c3` (text): Everyday rules / The Twelve Tables covered ordinary life: debt, property, family and damage to others. They became the foundation of Roman law. According to Cicero, boys still memorized them at school centuries later.
+  - L15 “The Twelve Tables” · `card.ancient_rome.015.c3` (text): Everyday rules / The Twelve Tables covered ordinary life: debt, property, family and damage to others. They became the foundation of Roman law. Centuries later, Cicero remembered learning them by heart as a schoolboy, though he said boys no longer did.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.tables_content source.brit_twelve_tables --status verified --by "Your Name" --quote "…"
@@ -8480,12 +8550,14 @@ npm run verify:record -- fact.ancient_rome.tables_lost source.brit_twelve_tables
 
 ### ☐ `fact.ancient_rome.tables_memorized`: unverified
 
-> **Claim:** Centuries later, according to Cicero, Roman boys still memorized the Twelve Tables at school.
+> **Claim:** Centuries later, Cicero recalled memorizing the Twelve Tables as a boy at school, though he noted that boys no longer did so in his day.
 
 - **Concept:** The Twelve Tables (`concept.ancient_rome.twelve_tables`)
 - **Appears in:**
-  - L15 “The Twelve Tables” · `card.ancient_rome.015.c3` (text): Everyday rules / The Twelve Tables covered ordinary life: debt, property, family and damage to others. They became the foundation of Roman law. According to Cicero, boys still memorized them at school centuries later.
+  - L15 “The Twelve Tables” · `card.ancient_rome.015.c3` (text): Everyday rules / The Twelve Tables covered ordinary life: debt, property, family and damage to others. They became the foundation of Roman law. Centuries later, Cicero remembered learning them by heart as a schoolboy, though he said boys no longer did.
 - **Pre-check:** Confirm the page mentions Cicero on this.
+- **Fact-check (2026-09-24):** corrected. Cicero (De Legibus 2.59) says he and other boys learned the Twelve Tables as a required chant, but adds that no one learns them any more, so the practice had lapsed by his day. Sources: http://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:2007.01.0030:book%3D2:section%3D59, https://penelope.uchicago.edu/Thayer/E/Roman/Texts/secondary/SMIGRA*/Lex_XII_Tabularum.html
+- **Previous wording:** Centuries later, according to Cicero, Roman boys still memorized the Twelve Tables at school.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.tables_memorized source.brit_twelve_tables --status verified --by "Your Name" --quote "…"
@@ -8520,9 +8592,9 @@ npm run verify:record -- fact.ancient_rome.tables_why source.brit_twelve_tables 
 
 - **Concept:** Rome in our words, calendars and cities (`concept.ancient_rome.legacy_culture`)
 - **Appears in:**
-  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c2` (text): Cities and buildings / Many European cities began as Roman towns or forts, including London, Paris, Cologne and Vienna. Many Roman towns were laid out on a grid, with two main streets crossing at right angles. Neoclassical architecture later copied Roman columns, domes and temple fronts across Europe and the Americas.
+  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c2` (text): Cities and buildings / Many European cities grew from Roman towns or forts, including London, Paris, Cologne and Vienna. Many Roman towns were laid out on a grid, with two main streets crossing at right angles. Neoclassical architecture later copied Roman columns, domes and temple fronts across Europe and the Americas.
 - **Tested by:**
-  - L97 `question.ancient_rome.097.q1`: Which of these cities began as a Roman town? → **London**
+  - L97 `question.ancient_rome.097.q1`: Which of these cities grew from a Roman town? → **London**
   - L97 `question.ancient_rome.097.q2`: Why do so many capitols and banks have columns and domes? → **Neoclassical builders copied Rome**
 
 ```sh
@@ -8546,6 +8618,7 @@ npm run verify:record -- fact.ancient_rome.city_grid source.brit_urban_planning 
   - L96 `question.ancient_rome.096.q1`: What does a US president do by vetoing a bill? → **Blocks it from becoming law**
   - L96 `question.ancient_rome.096.q3`: From Level 7: the US Capitol is named for the hill of Rome’s greatest temple. Whom did that temple honor? → **Jupiter, king of the gods**
 - **Pre-check:** Confirm the page gives the origin of the name.
+- **Fact-check (2026-09-24):** corroborated. Jefferson chose the name 'Capitol', from Latin Capitolium, invoking the Temple of Jupiter on Rome's Capitoline Hill; the land had been called Jenkins Hill. Sources: https://en.wikipedia.org/wiki/United_States_Capitol, https://en.wikipedia.org/wiki/Capitoline_Hill
 
 ```sh
 npm run verify:record -- fact.ancient_rome.capitol_name source.brit_us_capitol --status verified --by "Your Name" --quote "…"
@@ -8567,6 +8640,7 @@ npm run verify:record -- fact.ancient_rome.capitol_name source.brit_us_capitol -
 - **Tested by:**
   - L96 `question.ancient_rome.096.q2`: What did the US framers take from the Roman Republic? → **A balance between parts of government**
 - **Pre-check:** Confirm the page discusses classical influence.
+- **Fact-check (2026-09-24):** corroborated. Scholarship documents that the framers drew on Polybius's and Cicero's account of Rome's mixed constitution when designing checks and balances. Sources: https://gould.usc.edu/why/students/orgs/ilj/assets/docs/17-3%20Bederman.pdf, https://digitalcommons.coastal.edu/jops/vol38/iss1/2/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.framers_rome source.brit_us_constitution --status verified --by "Your Name" --quote "…"
@@ -8589,6 +8663,7 @@ npm run verify:record -- fact.ancient_rome.framers_rome source.brit_us_constitut
   - L96 `question.ancient_rome.096.q1`: What does a US president do by vetoing a bill? → **Blocks it from becoming law**
   - L96 `question.ancient_rome.096.q3`: From Level 7: the US Capitol is named for the hill of Rome’s greatest temple. Whom did that temple honor? → **Jupiter, king of the gods**
 - **Pre-check:** Confirm the page notes the Roman origin of the name.
+- **Fact-check (2026-09-24):** corroborated. The word senate derives from Latin senatus (council of elders), the Roman body; the US Senate's name follows this Roman precedent. Sources: https://en.wikipedia.org/wiki/Senate, https://www.merriam-webster.com/wordplay/word-histories-from-congress
 
 ```sh
 npm run verify:record -- fact.ancient_rome.us_senate source.brit_us_senate --status verified --by "Your Name" --quote "…"
@@ -8703,7 +8778,7 @@ npm run verify:record -- fact.ancient_rome.vespasian_modest source.brit_vespasia
 
 - **Concept:** The Year of the Four Emperors (`concept.ancient_rome.four_emperors`)
 - **Appears in:**
-  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c3` (text): The winner / Vespasian, a general commanding in Judaea, won the civil war and founded the Flavian dynasty. The historian Tacitus wrote that the year revealed a secret of empire: an emperor could be made somewhere other than Rome.
+  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c3` (text): The winner / Vespasian, a general commanding in Judaea, won the civil war and founded the Flavian dynasty. Looking back at Nero’s fall, the historian Tacitus wrote that it revealed a secret of empire: an emperor could be made somewhere other than Rome.
   - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c2` (text): A family of soldiers / In 70 CE Vespasian’s son Titus captured Jerusalem and destroyed its Temple. Titus succeeded Vespasian and was followed by his brother Domitian, whose harsh rule ended with his murder in 96 CE.
 - **Tested by:**
   - L55 `question.ancient_rome.055.q1`: Who won the civil war of 69 CE? → **Vespasian**
@@ -8754,6 +8829,7 @@ npm run verify:record -- fact.ancient_rome.vestals source.brit_vestal --status v
   - L88 `question.ancient_rome.088.q3`: From Level 7: what did the Vestal Virgins tend until the 390s? → **The sacred fire of Vesta**
   - L100 `question.ancient_rome.100.q10`: How did Christianity’s status change from 313 to 380 CE? → **From tolerated to the official religion**
 - **Pre-check:** Confirm the page gives the date.
+- **Fact-check (2026-09-24):** corroborated. Under Theodosius I's anti-pagan measures the sacred fire of Vesta was extinguished and the Vestal college disbanded, usually dated to 394 CE (some say 391). Sources: https://en.wikipedia.org/wiki/Sacred_fire_of_Vesta, https://en.wikipedia.org/wiki/Vestal_Virgin
 
 ```sh
 npm run verify:record -- fact.ancient_rome.vesta_out source.brit_vestals --status verified --by "Your Name" --quote "…"
@@ -8862,15 +8938,17 @@ npm run verify:record -- fact.ancient_rome.armies_made source.brit_year_four --s
 
 ### ☐ `fact.ancient_rome.secret_empire`: unverified
 
-> **Claim:** The historian Tacitus wrote that 69 CE revealed a secret of empire: an emperor could be made somewhere other than Rome.
+> **Claim:** The historian Tacitus wrote that the fall of Nero in 68 CE revealed a secret of empire: an emperor could be made somewhere other than Rome.
 
 - **Concept:** The Year of the Four Emperors (`concept.ancient_rome.four_emperors`)
 - **Appears in:**
-  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c3` (text): The winner / Vespasian, a general commanding in Judaea, won the civil war and founded the Flavian dynasty. The historian Tacitus wrote that the year revealed a secret of empire: an emperor could be made somewhere other than Rome.
+  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c3` (text): The winner / Vespasian, a general commanding in Judaea, won the civil war and founded the Flavian dynasty. Looking back at Nero’s fall, the historian Tacitus wrote that it revealed a secret of empire: an emperor could be made somewhere other than Rome.
 - **Tested by:**
   - L55 `question.ancient_rome.055.q1`: Who won the civil war of 69 CE? → **Vespasian**
   - L55 `question.ancient_rome.055.q2`: What did 69 CE reveal about imperial power? → **Armies far from Rome could make emperors**
 - **Pre-check:** Confirm the page quotes Tacitus.
+- **Fact-check (2026-09-24):** corrected. Tacitus, Histories 1.4, ties the revealed 'secret of empire' (an emperor could be made elsewhere than Rome) to the end of Nero in 68 CE and Galba's proclamation by the armies, not to 69 CE itself. Sources: https://www.latin.it/autore/tacito/historiae/!01!liber_i, https://en.wikipedia.org/wiki/Histories_(Tacitus)
+- **Previous wording:** The historian Tacitus wrote that 69 CE revealed a secret of empire: an emperor could be made somewhere other than Rome.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.secret_empire source.brit_year_four --status verified --by "Your Name" --quote "…"
