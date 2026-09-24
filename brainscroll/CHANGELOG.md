@@ -4,6 +4,21 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Fact-check, wave 2 (claims with numbers first):** 214 more claims checked the same way (independent sources, never marked verified).
+  - **Results:** 204 corroborated, 7 corrected, 3 disputed and hedged. Cards, questions and recaps were updated to match.
+  - **Astronomy changes:**
+    - The Local Group has about 100 or more galaxies, not "more than 50".
+    - Genzel and Ghez shared *half* of the 2020 Nobel Prize in Physics.
+    - The AU is roughly the average Earth–Sun distance, and has been fixed exactly since 2012.
+  - **Rome changes:**
+    - Hannibal's attack on Saguntum sparked the Second Punic War.
+    - Most of his elephants survived the Alps and died soon after.
+    - Valerian was the *first* emperor captured by a foreign enemy, not the only one.
+    - Italians gained citizenship *during* the Social War.
+    - The Five Good Emperors adopted heirs because none had a surviving son.
+    - Brutus and 509 BCE are framed as tradition.
+    - Virgil is "widely regarded as" the greatest Augustan poet.
+  - **Coverage:** 344 of 943 claims now have a fact-check (322 corroborated, 14 corrected, 8 disputed). The rest (599) haven't been checked: this session's web-search allowance (200 searches) ran out partway through. A claim with no fact-check was simply not checked; nothing was marked corroborated without a source.
 - **Fact-check pass on the 130 riskiest claims** (every claim flagged with a pre-check note while drafting, in both trees). The cited Britannica and NASA pages are blocked from this environment, so each claim was checked against independent sources found by web search. That is recorded as a new `factCheck` field in the ledger (result, evidence, up to three URLs, previous wording), which is explicitly **not** verification. All 979 records stay `unverified` until a person checks the cited page.
   - **Results:** 118 corroborated, 7 corrected, 5 disputed and reworded to hedge. Each change was carried into the cards, questions and recap lines that state the claim.
   - **Astronomy changes:**

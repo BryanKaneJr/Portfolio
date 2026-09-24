@@ -34,6 +34,7 @@
   - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c3` (timeline): The road to one-man rule: 133 BCE: Tiberius Gracchus proposes land reform; 88 BCE: Sulla marches on Rome; 49 BCE: Caesar crosses the Rubicon; 44 BCE: Caesar is assassinated; 31 BCE: Octavian wins at Actium; 27 BCE: Octavian becomes Augustus
 - **Tested by:**
   - L50 `question.ancient_rome.050.q3`: Where did Octavian’s fleet defeat Antony and Cleopatra? → **Actium**
+- **Fact-check (2026-09-24):** corroborated. Sources agree the naval battle was fought on 2 September 31 BC near Actium in western Greece; Octavian's fleet under Agrippa defeated Antony and Cleopatra. Sources: https://www.worldhistory.org/Battle_of_Actium/, https://www.livius.org/articles/battle/actium-31-bce/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.actium_31 source.brit_actium --status verified --by "Your Name" --quote "…"
@@ -50,6 +51,7 @@ npm run verify:record -- fact.ancient_rome.actium_31 source.brit_actium --status
   - L43 `question.ancient_rome.043.q1`: Who commanded Octavian’s fleet at Actium? → **Marcus Agrippa**
   - L43 `question.ancient_rome.043.q2`: Why did Rome declare war on Cleopatra rather than on Antony? → **To make it look like a foreign war**
   - L43 `question.ancient_rome.043.q3`: From Level 42: what had Antony done that let Octavian call him a traitor? → **Given Roman lands to Cleopatra and her children**
+- **Fact-check (2026-09-24):** corroborated. In 32 BC Octavian had the Senate declare war on Cleopatra rather than Antony, framing the conflict as Rome against Ptolemaic Egypt instead of a civil war. Sources: https://en.wikipedia.org/wiki/War_of_Actium, https://www.thecollector.com/how-octavian-turned-rome-against-mark-antony/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.war_on_cleopatra source.brit_actium --status verified --by "Your Name" --quote "…"
@@ -72,6 +74,7 @@ npm run verify:record -- fact.ancient_rome.war_on_cleopatra source.brit_actium -
 - **Tested by:**
   - L89 `question.ancient_rome.089.q1`: Which emperor was killed at Adrianople? → **Valens**
   - L89 `question.ancient_rome.089.q3`: From Level 49: which Roman commander lost three legions to Germanic warriors in 9 CE? → **Varus**
+- **Fact-check (2026-09-24):** corroborated. On 9 August 378 near Adrianople the Goths under Fritigern destroyed a Roman army; Emperor Valens died on the battlefield. Sources: https://www.britannica.com/event/Battle-of-Adrianople-378, https://www.worldhistory.org/Battle_of_Adrianople/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.adrianople_378 source.brit_adrianople --status verified --by "Your Name" --quote "…"
@@ -102,6 +105,7 @@ npm run verify:record -- fact.ancient_rome.gothic_cavalry source.brit_adrianople
 - **Tested by:**
   - L89 `question.ancient_rome.089.q2`: Why did the Goths who crossed the Danube rebel? → **Roman officials mistreated them**
   - L92 `question.ancient_rome.092.q3`: From Level 89: whom were the Goths fleeing when they crossed the Danube in 376 CE? → **The Huns**
+- **Fact-check (2026-09-24):** corroborated. In 376 Goths under Fritigern, fleeing the Huns, asked Valens for refuge and were allowed to cross the Danube. Sources: https://en.wikipedia.org/wiki/Gothic_War_(376%E2%80%93382), https://en.wikipedia.org/wiki/Fritigern
 
 ```sh
 npm run verify:record -- fact.ancient_rome.goths_376 source.brit_adrianople --status verified --by "Your Name" --quote "…"
@@ -139,6 +143,7 @@ npm run verify:record -- fact.ancient_rome.goths_mistreated source.brit_adrianop
   - L2 `question.ancient_rome.002.q2`: Why do historians treat the Romulus and Remus story as legend? → **It was written down centuries after the events**
   - L10 `question.ancient_rome.010.q4`: If the founding stories are legends, why do historians still study them? → **They show how Romans saw themselves**
   - L47 `question.ancient_rome.047.q3`: From Level 2: Aeneas was one founding legend. Who, in the other, founded the city itself? → **Romulus**
+- **Fact-check (2026-09-24):** corroborated. World History Encyclopedia and the Aeneid entry: Aeneas, a Trojan prince, escaped the fall of Troy and in legend reached Italy, becoming the ancestor of the Romans. Sources: https://www.worldhistory.org/Aeneas/, https://en.wikipedia.org/wiki/Aeneid
 
 ```sh
 npm run verify:record -- fact.ancient_rome.aeneas_ancestor source.brit_aeneas --status verified --by "Your Name" --quote "…"
@@ -159,6 +164,7 @@ npm run verify:record -- fact.ancient_rome.aeneas_ancestor source.brit_aeneas --
   - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c3` (text): A poem for Augustus / The Julian family, including Caesar and Augustus, claimed descent from Aeneas through his son Iulus. So the poem gave Augustus a heroic ancestor. Its hero is famous for pietas: dutiful devotion to the gods, his family and his country. / Pietas: duty to gods, family and country
 - **Tested by:**
   - L47 `question.ancient_rome.047.q2`: Why did the Aeneid suit Augustus so well? → **It gave his family a heroic ancestor in Aeneas**
+- **Fact-check (2026-09-24):** corroborated. The gens Iulia claimed descent from Aeneas's son Ascanius, also called Iulus, and through Aeneas from Venus; Julius Caesar and the Julio-Claudians used this genealogy. Sources: https://en.wikipedia.org/wiki/Julia_gens, https://en.wikipedia.org/wiki/Ascanius
 
 ```sh
 npm run verify:record -- fact.ancient_rome.aeneid_augustus source.brit_aeneid --status verified --by "Your Name" --quote "…"
@@ -170,10 +176,11 @@ npm run verify:record -- fact.ancient_rome.aeneid_augustus source.brit_aeneid --
 
 - **Concept:** Virgil and the Aeneid (`concept.ancient_rome.aeneid`)
 - **Appears in:**
-  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c2` (text): The poem / Virgil, who lived from 70 to 19 BCE, was the greatest poet of Augustan Rome. His Aeneid is an epic poem in 12 books, modeled on Homer’s Iliad and Odyssey. It tells how the Trojan prince Aeneas escaped burning Troy and, guided by fate, came to Italy.
+  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c2` (text): The poem / Virgil, who lived from 70 to 19 BCE, is widely regarded as the greatest poet of Augustan Rome. His Aeneid is an epic poem in 12 books, modeled on Homer’s Iliad and Odyssey. It tells how the Trojan prince Aeneas escaped burning Troy and, guided by fate, came to Italy.
 - **Tested by:**
   - L47 `question.ancient_rome.047.q1`: Who is the hero of the Aeneid? → **Aeneas**
   - L47 `question.ancient_rome.047.q3`: From Level 2: Aeneas was one founding legend. Who, in the other, founded the city itself? → **Romulus**
+- **Fact-check (2026-09-24):** corroborated. Virgil's Aeneid is a twelve-book epic closely modeled on Homer: books 1 to 6 echo the Odyssey, books 7 to 12 the Iliad. Sources: https://www.britannica.com/question/How-is-the-Aeneid-related-to-Homers-epics, https://www.worldhistory.org/The_Aeneid/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.aeneid_homer source.brit_aeneid --status verified --by "Your Name" --quote "…"
@@ -186,10 +193,11 @@ npm run verify:record -- fact.ancient_rome.aeneid_homer source.brit_aeneid --sta
 - **Concept:** Virgil and the Aeneid (`concept.ancient_rome.aeneid`)
 - **Appears in:**
   - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c1` (text): Rome’s greatest poem is about a refugee from a burning city.
-  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c2` (text): The poem / Virgil, who lived from 70 to 19 BCE, was the greatest poet of Augustan Rome. His Aeneid is an epic poem in 12 books, modeled on Homer’s Iliad and Odyssey. It tells how the Trojan prince Aeneas escaped burning Troy and, guided by fate, came to Italy.
+  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c2` (text): The poem / Virgil, who lived from 70 to 19 BCE, is widely regarded as the greatest poet of Augustan Rome. His Aeneid is an epic poem in 12 books, modeled on Homer’s Iliad and Odyssey. It tells how the Trojan prince Aeneas escaped burning Troy and, guided by fate, came to Italy.
 - **Tested by:**
   - L47 `question.ancient_rome.047.q1`: Who is the hero of the Aeneid? → **Aeneas**
   - L47 `question.ancient_rome.047.q3`: From Level 2: Aeneas was one founding legend. Who, in the other, founded the city itself? → **Romulus**
+- **Fact-check (2026-09-24):** corroborated. Virgil's Aeneid tells how Aeneas fled burning Troy and, driven by destiny, reached Italy; his son Ascanius founded Alba Longa, the line leading to Romulus and Remus. Sources: https://en.wikipedia.org/wiki/Aeneid, https://www.worldhistory.org/Aeneas/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.aeneid_story source.brit_aeneid --status verified --by "Your Name" --quote "…"
@@ -226,6 +234,7 @@ npm run verify:record -- fact.ancient_rome.pietas source.brit_aeneid --status ve
   - L43 `question.ancient_rome.043.q1`: Who commanded Octavian’s fleet at Actium? → **Marcus Agrippa**
   - L43 `question.ancient_rome.043.q2`: Why did Rome declare war on Cleopatra rather than on Antony? → **To make it look like a foreign war**
   - L43 `question.ancient_rome.043.q3`: From Level 42: what had Antony done that let Octavian call him a traitor? → **Given Roman lands to Cleopatra and her children**
+- **Fact-check (2026-09-24):** corroborated. Agrippa was Octavian's close friend, son-in-law and top general, won his naval battles and commanded his fleet at Actium in 31 BC. Sources: https://www.worldhistory.org/Marcus_Agrippa/, https://en.wikipedia.org/wiki/Battle_of_Actium
 
 ```sh
 npm run verify:record -- fact.ancient_rome.agrippa source.brit_agrippa --status verified --by "Your Name" --quote "…"
@@ -240,6 +249,7 @@ npm run verify:record -- fact.ancient_rome.agrippa source.brit_agrippa --status 
   - L46 “A City of Marble” · `card.ancient_rome.046.c3` (text): A friend who built / Augustus’ friend Agrippa paid for major public works in Rome, including baths and aqueducts. He also built the first Pantheon. The domed Pantheon standing today is a later rebuilding under the emperor Hadrian.
 - **Tested by:**
   - L59 `question.ancient_rome.059.q3`: From Level 46: who built the first Pantheon, which Hadrian rebuilt? → **Agrippa**
+- **Fact-check (2026-09-24):** corroborated. Agrippa built Rome's first large public baths (Thermae Agrippae), built the Aqua Julia and Aqua Virgo, and repaired the Aqua Marcia. Sources: https://en.wikipedia.org/wiki/Baths_of_Agrippa, https://www.unrv.com/articles/marcus-agrippa.php
 
 ```sh
 npm run verify:record -- fact.ancient_rome.agrippa_works source.brit_agrippa --status verified --by "Your Name" --quote "…"
@@ -262,6 +272,7 @@ npm run verify:record -- fact.ancient_rome.agrippa_works source.brit_agrippa --s
 - **Tested by:**
   - L91 `question.ancient_rome.091.q1`: Who led the Visigoths who sacked Rome in 410 CE? → **Alaric**
   - L91 `question.ancient_rome.091.q3`: From Level 18: which people had sacked Rome in about 390 BCE? → **The Gauls**
+- **Fact-check (2026-09-24):** corroborated. Alaric's Visigoths sacked Rome in August 410, the first time in close to 800 years the city fell to a foreign enemy (previous: the Gallic sack c. 390/387 BC). Sources: https://www.britannica.com/event/Sack-of-Rome-410, https://colorado.pressbooks.pub/warandsocietysourcebook/chapter/accounts-of-the-sack-of-rome/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.alaric_410 source.brit_alaric --status verified --by "Your Name" --quote "…"
@@ -358,6 +369,7 @@ npm run verify:record -- fact.ancient_rome.testaccio source.brit_amphora --statu
   - L34 `question.ancient_rome.034.q3`: From Level 19: along which road were the captured rebels crucified? → **The Via Appia**
   - L71 `question.ancient_rome.071.q3`: From Level 19: what was Rome’s first great road? → **The Via Appia**
   - L72 `question.ancient_rome.072.q3`: From Level 19: Appius Claudius built Rome’s first aqueduct. What else did he begin? → **The Appian Way**
+- **Fact-check (2026-09-24):** corroborated. Italian allies (socii) owed troops rather than tribute; some communities received Latin rights or Roman citizenship, and all Italy south of the Po got it after the Social War. Sources: https://acoup.blog/2021/06/25/collections-the-queens-latin-or-who-were-the-romans-part-ii-citizens-and-allies/, https://en.wikipedia.org/wiki/Socii
 
 ```sh
 npm run verify:record -- fact.ancient_rome.allies_italy source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -425,7 +437,7 @@ npm run verify:record -- fact.ancient_rome.archaeology source.brit_ancient_rome 
 
 - **Concept:** Roman citizenship (`concept.ancient_rome.citizenship`)
 - **Appears in:**
-  - L76 “Becoming Roman” · `card.ancient_rome.076.c3` (text): How it spread / After the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies. It then spread through the provinces by grants to towns, individuals and soldiers. Non-citizen soldiers, the auxiliaries, received it after about 25 years of service.
+  - L76 “Becoming Roman” · `card.ancient_rome.076.c3` (text): How it spread / During the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies, which helped end the revolt. It then spread through the provinces by grants to towns, individuals and soldiers. Non-citizen soldiers, the auxiliaries, received it after about 25 years of service.
 - **Tested by:**
   - L76 `question.ancient_rome.076.q2`: How could an auxiliary soldier become a citizen? → **By serving about 25 years**
   - L76 `question.ancient_rome.076.q3`: From Level 62: how else could an enslaved person become a citizen? → **By being freed by a Roman citizen**
@@ -444,7 +456,7 @@ npm run verify:record -- fact.ancient_rome.auxiliary_citizens source.brit_ancien
 
 - **Concept:** Roman citizenship (`concept.ancient_rome.citizenship`)
 - **Appears in:**
-  - L76 “Becoming Roman” · `card.ancient_rome.076.c3` (text): How it spread / After the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies. It then spread through the provinces by grants to towns, individuals and soldiers. Non-citizen soldiers, the auxiliaries, received it after about 25 years of service.
+  - L76 “Becoming Roman” · `card.ancient_rome.076.c3` (text): How it spread / During the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies, which helped end the revolt. It then spread through the provinces by grants to towns, individuals and soldiers. Non-citizen soldiers, the auxiliaries, received it after about 25 years of service.
 - **Tested by:**
   - L76 `question.ancient_rome.076.q2`: How could an auxiliary soldier become a citizen? → **By serving about 25 years**
   - L76 `question.ancient_rome.076.q3`: From Level 62: how else could an enslaved person become a citizen? → **By being freed by a Roman citizen**
@@ -490,6 +502,7 @@ npm run verify:record -- fact.ancient_rome.civil_wars source.brit_ancient_rome -
   - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c2` (text): Everything at once / From 235 to 284 CE, the Crisis of the Third Century, the empire suffered civil wars, invasions, plague and economic trouble. Emperors had reduced the silver in the denarius until it held very little, and prices soared.
 - **Tested by:**
   - L81 `question.ancient_rome.081.q2`: Why did prices soar during the crisis? → **Coins held less and less silver**
+- **Fact-check (2026-09-24):** corroborated. The Crisis of the Third Century (235 to 284) combined civil war, invasions, plague, currency debasement and economic depression. Sources: https://www.worldhistory.org/Crisis_of_the_Third_Century/, https://en.wikipedia.org/wiki/Crisis_of_the_Third_Century
 
 ```sh
 npm run verify:record -- fact.ancient_rome.crisis_dates source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -550,6 +563,7 @@ npm run verify:record -- fact.ancient_rome.early_rome_synthesis source.brit_anci
 - **Tested by:**
   - L90 `question.ancient_rome.090.q4`: Why did the empire of 395 need two capitals? → **It was divided into East and West**
   - L90 `question.ancient_rome.090.q5`: Chapter 9 recap: which change after Adrianople put the empire at risk? → **Goths settled inside under their own leaders**
+- **Fact-check (2026-09-24):** corroborated. On Theodosius' death in 395 the empire was split East and West; Christianity had been made the state religion under him; Goths settled as foederati fought for Rome under their own leaders. Sources: https://en.wikipedia.org/wiki/Theodosian_dynasty, https://en.wikipedia.org/wiki/Edict_of_Thessalonica, https://en.wikipedia.org/wiki/Gothic_War_(376%E2%80%93382)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.empire_395 source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -659,6 +673,7 @@ npm run verify:record -- fact.ancient_rome.invasions_pressure source.brit_ancien
 - **Tested by:**
   - L19 `question.ancient_rome.019.q3`: From Level 12: which Roman officials led the armies in these wars? → **The consuls**
   - L21 `question.ancient_rome.021.q3`: From Level 19: why did Rome and Carthage come into conflict after about 264 BCE? → **Rome now held Italy and faced Carthage across the sea**
+- **Fact-check (2026-09-24):** corroborated. By 264 BCE Rome controlled, directly or through alliances, all of Italy south of the Po valley (Cisalpine Gaul). Sources: https://www.britannica.com/place/Italy-ancient-Roman-territory-Italy, https://en.wikipedia.org/wiki/Socii
 
 ```sh
 npm run verify:record -- fact.ancient_rome.italy_by_264 source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -762,6 +777,7 @@ npm run verify:record -- fact.ancient_rome.marriage_age source.brit_ancient_rome
   - L30 `question.ancient_rome.030.q4`: How did Rome govern the lands it won outside Italy? → **As provinces run by governors**
   - L30 `question.ancient_rome.030.q5`: Chapter 3 recap: what did 146 BCE mark? → **The fall of Carthage and Corinth, and Roman dominance**
   - L75 `question.ancient_rome.075.q3`: From Level 30: which was Rome’s first province? → **Sicily**
+- **Fact-check (2026-09-24):** corroborated. After the Punic and Macedonian wars (Carthage and Corinth fell and Macedonia became a province in 146 BC), Rome held hegemony across the western and eastern Mediterranean. Sources: https://en.wikipedia.org/wiki/Macedonian_Wars, https://www.britannica.com/event/Macedonian-Wars
 
 ```sh
 npm run verify:record -- fact.ancient_rome.med_power source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -945,6 +961,7 @@ npm run verify:record -- fact.ancient_rome.salt_route source.brit_ancient_rome -
 - **Tested by:**
   - L6 `question.ancient_rome.006.q2`: According to tradition, how did most new Roman kings take power? → **He was chosen with the approval of the Senate and people**
   - L6 `question.ancient_rome.006.q3`: From Level 5: what did tradition say Rome’s last three kings had in common? → **They were Etruscans**
+- **Fact-check (2026-09-24):** corroborated. Roman tradition held that seven kings, Romulus to Tarquinius Superbus, ruled from 753 to 509 BCE; the claim is framed as tradition. Sources: https://en.wikipedia.org/wiki/King_of_Rome, https://courses.lumenlearning.com/atd-herkimer-westerncivilization/chapter/the-seven-kings/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.seven_kings_tradition source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -1140,6 +1157,7 @@ npm run verify:record -- fact.ancient_rome.antony_east source.brit_antony --stat
   - L42 `question.ancient_rome.042.q2`: Why did the Donations of Alexandria anger Romans? → **Antony gave Roman lands to Cleopatra’s family**
   - L42 `question.ancient_rome.042.q3`: From Level 41: after which battle did Antony take charge of the East? → **Philippi**
   - L43 `question.ancient_rome.043.q3`: From Level 42: what had Antony done that let Octavian call him a traitor? → **Given Roman lands to Cleopatra and her children**
+- **Fact-check (2026-09-24):** corroborated. Antony married Octavia in 40 BC to seal the Treaty of Brundisium; he later resumed his liaison with Cleopatra in the East and divorced Octavia in 32 BC. Sources: https://www.britannica.com/biography/Octavia-wife-of-Mark-Antony, https://en.wikipedia.org/wiki/Octavia_the_Younger
 
 ```sh
 npm run verify:record -- fact.ancient_rome.antony_octavia source.brit_antony --status verified --by "Your Name" --quote "…"
@@ -1156,6 +1174,7 @@ npm run verify:record -- fact.ancient_rome.antony_octavia source.brit_antony --s
   - L42 `question.ancient_rome.042.q2`: Why did the Donations of Alexandria anger Romans? → **Antony gave Roman lands to Cleopatra’s family**
   - L42 `question.ancient_rome.042.q3`: From Level 41: after which battle did Antony take charge of the East? → **Philippi**
   - L43 `question.ancient_rome.043.q3`: From Level 42: what had Antony done that let Octavian call him a traitor? → **Given Roman lands to Cleopatra and her children**
+- **Fact-check (2026-09-24):** corroborated. In autumn 34 BC Antony and Cleopatra distributed Roman-held (and Parthian) lands among Cleopatra's children at the Donations of Alexandria. Sources: https://en.wikipedia.org/wiki/Donations_of_Alexandria, https://www.nationalgeographic.com/history/article/uncovering-the-life-of-cleopatras-daughter
 
 ```sh
 npm run verify:record -- fact.ancient_rome.donations_alexandria source.brit_antony --status verified --by "Your Name" --quote "…"
@@ -1215,6 +1234,7 @@ npm run verify:record -- fact.ancient_rome.apicius source.brit_apicius --status 
   - L34 `question.ancient_rome.034.q3`: From Level 19: along which road were the captured rebels crucified? → **The Via Appia**
   - L71 `question.ancient_rome.071.q3`: From Level 19: what was Rome’s first great road? → **The Via Appia**
   - L72 `question.ancient_rome.072.q3`: From Level 19: Appius Claudius built Rome’s first aqueduct. What else did he begin? → **The Appian Way**
+- **Fact-check (2026-09-24):** corroborated. Appius Claudius Caecus began the Via Appia in 312 BC during the Samnite Wars as a military road south; it is described as the first major Roman road. Sources: https://en.wikipedia.org/wiki/Appian_Way, https://en.wikipedia.org/wiki/Appius_Claudius_Caecus
 
 ```sh
 npm run verify:record -- fact.ancient_rome.appian_way source.brit_appian_way --status verified --by "Your Name" --quote "…"
@@ -1235,6 +1255,7 @@ npm run verify:record -- fact.ancient_rome.appian_way source.brit_appian_way --s
   - L72 “Aqueducts” · `card.ancient_rome.072.c3` (text): Water for a city / Rome’s first aqueduct, the Aqua Appia, was built in 312 BCE by Appius Claudius. By the 3rd century CE, 11 aqueducts supplied the city, feeding fountains and the great public baths. Frontinus, Rome’s water commissioner around 97 CE, wrote a book about them.
 - **Tested by:**
   - L72 `question.ancient_rome.072.q3`: From Level 19: Appius Claudius built Rome’s first aqueduct. What else did he begin? → **The Appian Way**
+- **Fact-check (2026-09-24):** corroborated. The Aqua Appia, Rome's first aqueduct, was begun in 312 BC by the censor Appius Claudius Caecus, who also built the Via Appia. Sources: https://www.britannica.com/place/Aqua-Appia, https://en.wikipedia.org/wiki/Aqua_Appia
 
 ```sh
 npm run verify:record -- fact.ancient_rome.aqua_appia source.brit_aqueduct --status verified --by "Your Name" --quote "…"
@@ -1282,6 +1303,7 @@ npm run verify:record -- fact.ancient_rome.aqueduct_hidden source.brit_aqueduct 
   - L72 “Aqueducts” · `card.ancient_rome.072.c3` (text): Water for a city / Rome’s first aqueduct, the Aqua Appia, was built in 312 BCE by Appius Claudius. By the 3rd century CE, 11 aqueducts supplied the city, feeding fountains and the great public baths. Frontinus, Rome’s water commissioner around 97 CE, wrote a book about them.
 - **Tested by:**
   - L72 `question.ancient_rome.072.q3`: From Level 19: Appius Claudius built Rome’s first aqueduct. What else did he begin? → **The Appian Way**
+- **Fact-check (2026-09-24):** corroborated. The Aqua Alexandrina, built under Alexander Severus in 226 CE, was the last of the eleven aqueducts of ancient Rome. Sources: https://en.wikipedia.org/wiki/Aqua_Alexandrina, https://www.turismoroma.it/en/places/alexandrian-aqueduct
 
 ```sh
 npm run verify:record -- fact.ancient_rome.eleven_aqueducts source.brit_aqueduct --status verified --by "Your Name" --quote "…"
@@ -1300,6 +1322,7 @@ npm run verify:record -- fact.ancient_rome.eleven_aqueducts source.brit_aqueduct
 - **Concept:** Augustus rebuilds Rome (`concept.ancient_rome.city_of_marble`)
 - **Appears in:**
   - L46 “A City of Marble” · `card.ancient_rome.046.c4` (fact): The Ara Pacis, the Altar of Augustan Peace, was dedicated in 9 BCE. / Its carvings show members of Augustus’ family in procession, a family portrait in marble celebrating the peace he had brought.
+- **Fact-check (2026-09-24):** corroborated. The Ara Pacis Augustae was commissioned in 13 BC and dedicated on 30 January 9 BC; its side reliefs show a procession including members of Augustus' family. Sources: https://www.britannica.com/topic/Ara-Pacis, https://www.uffizi.it/en/artworks/ara-pacis-augustae
 
 ```sh
 npm run verify:record -- fact.ancient_rome.ara_pacis source.brit_ara_pacis --status verified --by "Your Name" --quote "…"
@@ -1362,6 +1385,7 @@ npm run verify:record -- fact.ancient_rome.domus source.brit_atrium --status ver
   - L92 “Attila and the Huns” · `card.ancient_rome.092.c4` (fact): Attila’s empire died with him. / He died in 453 CE, and his empire of many peoples soon fell apart without him to hold it together.
 - **Tested by:**
   - L92 `question.ancient_rome.092.q2`: Why did the Huns’ empire fall apart so quickly? → **It depended on Attila himself**
+- **Fact-check (2026-09-24):** corroborated. Attila died in 453; his sons fought over the succession and after the Gepid-led revolt at Nedao (454) the Hunnic empire quickly collapsed. Sources: https://en.wikipedia.org/wiki/Attila, https://en.wikipedia.org/wiki/Battle_of_Nedao
 
 ```sh
 npm run verify:record -- fact.ancient_rome.attila_death source.brit_attila --status verified --by "Your Name" --quote "…"
@@ -1390,6 +1414,7 @@ npm run verify:record -- fact.ancient_rome.attila_gold source.brit_attila --stat
   - L92 “Attila and the Huns” · `card.ancient_rome.092.c2` (text): King of the Huns / Attila ruled the Huns from 434 to 453 CE, at first jointly with his brother Bleda. He raided the Eastern Empire and forced it to pay him large amounts of gold.
 - **Tested by:**
   - L92 `question.ancient_rome.092.q3`: From Level 89: whom were the Goths fleeing when they crossed the Danube in 376 CE? → **The Huns**
+- **Fact-check (2026-09-24):** corroborated. Britannica: Attila was king of the Huns from 434 to 453, ruling jointly with his elder brother Bleda until about 445, when he murdered him. Sources: https://www.britannica.com/biography/Attila-king-of-the-Huns, https://en.wikipedia.org/wiki/Bleda
 
 ```sh
 npm run verify:record -- fact.ancient_rome.attila_rule source.brit_attila --status verified --by "Your Name" --quote "…"
@@ -1404,6 +1429,7 @@ npm run verify:record -- fact.ancient_rome.attila_rule source.brit_attila --stat
   - L92 “Attila and the Huns” · `card.ancient_rome.092.c3` (text): Gaul and Italy / In 451 CE a Roman and Visigothic army under the general Aetius stopped Attila’s invasion of Gaul at the Battle of the Catalaunian Plains. In 452 CE Attila invaded Italy; Pope Leo I met him, and Attila withdrew.
 - **Tested by:**
   - L92 `question.ancient_rome.092.q1`: Who stopped Attila in Gaul in 451 CE? → **Aetius, with Visigothic allies**
+- **Fact-check (2026-09-24):** corroborated. Attila invaded Italy in 452; Pope Leo I met him near Mantua and Attila then withdrew. Why he withdrew (Leo, disease, supply) is debated, but the claim does not assert a cause. Sources: https://en.wikipedia.org/wiki/Pope_Leo_I, https://www.medievalists.net/2015/05/why-did-attila-leave-italy/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.leo_attila source.brit_attila --status verified --by "Your Name" --quote "…"
@@ -1460,6 +1486,7 @@ npm run verify:record -- fact.ancient_rome.augury source.brit_augur --status ver
 - **Tested by:**
   - L48 `question.ancient_rome.048.q1`: Which month is named after Julius Caesar? → **July**
   - L97 `question.ancient_rome.097.q3`: From Level 48: which month honors Rome’s first emperor? → **August**
+- **Fact-check (2026-09-24):** corroborated. Sextilis was renamed Augustus in 8 BC by a senatus consultum honoring the emperor, citing events of his career that fell in that month. Sources: https://en.wikipedia.org/wiki/Sextilis, https://en.wikipedia.org/wiki/8_BC
 
 ```sh
 npm run verify:record -- fact.ancient_rome.august source.brit_august --status verified --by "Your Name" --quote "…"
@@ -1503,6 +1530,7 @@ npm run verify:record -- fact.ancient_rome.augustine_city source.brit_augustine 
   - L44 `question.ancient_rome.044.q2`: Why did Augustus keep the Senate, consuls and elections? → **To make his rule look like the Republic**
   - L50 `question.ancient_rome.050.q4`: Why did the Republic’s forms survive under Augustus? → **They made one man’s rule look like a republic**
   - L75 `question.ancient_rome.075.q2`: Why did Augustus keep the frontier provinces for himself? → **That was where the armies were**
+- **Fact-check (2026-09-24):** corroborated. Augustus ruled from 27 BC until his death on 19 August AD 14, about 40 years as emperor. Sources: https://en.wikipedia.org/wiki/Augustus, https://www.ebsco.com/research-starters/history/death-augustus/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.augustus_14 source.brit_augustus --status verified --by "Your Name" --quote "…"
@@ -1526,6 +1554,7 @@ npm run verify:record -- fact.ancient_rome.augustus_14 source.brit_augustus --st
   - L90 `question.ancient_rome.090.q3`: How did the emperor’s image change from Augustus to the late empire? → **From “first citizen” to open monarch**
   - L93 `question.ancient_rome.093.q3`: From Level 44: the name Augustulus means “little Augustus.” Who was the first Augustus? → **Octavian, Rome’s first emperor**
   - L100 `question.ancient_rome.100.q5`: What happened in 27 BCE? → **Octavian received the name Augustus**
+- **Fact-check (2026-09-24):** corroborated. In 27 BC Octavian formally surrendered his powers, claiming to restore the Republic, and the Senate gave him the name Augustus, meaning revered or sacred. Sources: https://www.worldhistory.org/augustus/, https://en.wikipedia.org/wiki/Augustus
 
 ```sh
 npm run verify:record -- fact.ancient_rome.augustus_27 source.brit_augustus --status verified --by "Your Name" --quote "…"
@@ -1624,6 +1653,7 @@ npm run verify:record -- fact.ancient_rome.marble_boast source.brit_augustus --s
 - **Tested by:**
   - L41 `question.ancient_rome.041.q1`: How was Octavian related to Julius Caesar? → **Caesar’s great-nephew, adopted in his will**
   - L41 `question.ancient_rome.041.q2`: Why did Caesar’s name matter so much to Octavian? → **It won over Caesar’s soldiers and supporters**
+- **Fact-check (2026-09-24):** corroborated. Caesar's will adopted his great-nephew Octavian as son and chief heir; Octavian was 18 when he took up the inheritance in 44 BCE. Sources: https://www.britannica.com/biography/Augustus-Roman-emperor, https://en.wikipedia.org/wiki/Augustus
 
 ```sh
 npm run verify:record -- fact.ancient_rome.octavian_adopted source.brit_augustus --status verified --by "Your Name" --quote "…"
@@ -1708,6 +1738,7 @@ npm run verify:record -- fact.ancient_rome.r2e_forms source.brit_augustus --stat
 - **Tested by:**
   - L41 `question.ancient_rome.041.q3`: From Level 40: whom did Antony and Octavian defeat at Philippi in 42 BCE? → **Brutus and Cassius, Caesar’s assassins**
   - L42 `question.ancient_rome.042.q3`: From Level 41: after which battle did Antony take charge of the East? → **Philippi**
+- **Fact-check (2026-09-24):** corroborated. The Lex Titia of 27 November 43 BCE legally established Octavian, Antony and Lepidus as triumvirs for five years. Sources: https://en.wikipedia.org/wiki/Lex_Titia, https://en.wikipedia.org/wiki/Second_Triumvirate
 
 ```sh
 npm run verify:record -- fact.ancient_rome.second_triumvirate source.brit_augustus --status verified --by "Your Name" --quote "…"
@@ -1752,6 +1783,7 @@ npm run verify:record -- fact.ancient_rome.vigiles source.brit_augustus --status
 - **Concept:** The Crisis of the Third Century (`concept.ancient_rome.third_century_crisis`)
 - **Appears in:**
   - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c4` (fact): Aurelian put the pieces back together. / In the 270s he reunited the empire and built new walls around Rome itself.
+- **Fact-check (2026-09-24):** corroborated. Aurelian (270 to 275) reconquered the Palmyrene Empire (273) and the Gallic Empire (274), reuniting the empire; work on the Aurelian Walls began in 271. Sources: https://en.wikipedia.org/wiki/Aurelian, https://allthatsinteresting.com/aurelian
 
 ```sh
 npm run verify:record -- fact.ancient_rome.aurelian source.brit_aurelian --status verified --by "Your Name" --quote "…"
@@ -1772,6 +1804,7 @@ npm run verify:record -- fact.ancient_rome.aurelian source.brit_aurelian --statu
   - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c3` (text): Britain becomes Roman / In 43 CE Claudius launched the invasion of Britain, which became a Roman province. In about 60 CE Boudica, queen of the Iceni, led a revolt that burned London before the Romans crushed it.
 - **Tested by:**
   - L53 `question.ancient_rome.053.q1`: When did Claudius launch the invasion of Britain? → **43 CE**
+- **Fact-check (2026-09-24):** corroborated. Boudica's Iceni revolt, c. AD 60 to 61, burned Londinium, Camulodunum and Verulamium before Suetonius Paulinus crushed it. Sources: https://en.wikipedia.org/wiki/Boudican_revolt, https://www.nationalgeographic.com/history/history-magazine/article/boudica-britain-revolt-against-rome
 
 ```sh
 npm run verify:record -- fact.ancient_rome.boudica source.brit_boudica --status verified --by "Your Name" --quote "…"
@@ -1809,6 +1842,7 @@ npm run verify:record -- fact.ancient_rome.geese source.brit_brennus --status ve
   - L18 `question.ancient_rome.018.q1`: Who sacked Rome around 390 BCE? → **Gauls led by Brennus**
   - L18 `question.ancient_rome.018.q3`: From Level 15: what probably happened to the original Twelve Tables when the Gauls sacked Rome? → **They were destroyed**
   - L91 `question.ancient_rome.091.q3`: From Level 18: which people had sacked Rome in about 390 BCE? → **The Gauls**
+- **Fact-check (2026-09-24):** corroborated. Gauls under Brennus defeated the Romans at the Allia and sacked Rome; the Varronian date is 390 BCE, Polybian dating gives 387. Sources: https://en.wikipedia.org/wiki/Battle_of_the_Allia, https://www.worldhistory.org/article/910/the-sack-of-rome-by-the-gauls-390-bce/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.sack_390 source.brit_brennus --status verified --by "Your Name" --quote "…"
@@ -1834,17 +1868,19 @@ npm run verify:record -- fact.ancient_rome.vae_victis source.brit_brennus --stat
 
 ### ☐ `fact.ancient_rome.brutus_expels`: unverified
 
-> **Claim:** Led by Lucius Junius Brutus, the Romans expelled their king in 509 BCE and ended the monarchy.
+> **Claim:** According to Roman tradition, the Romans, led by Lucius Junius Brutus, expelled their king in 509 BCE and ended the monarchy.
 
 - **Concept:** The end of the kings (`concept.ancient_rome.fall_of_kings`)
 - **Appears in:**
-  - L9 “The Last King” · `card.ancient_rome.009.c3` (text): No more kings / Led by Lucius Junius Brutus, the Romans drove the king out in 509 BCE. Brutus had them swear never again to let anyone be king in Rome. / The end of the monarchy: 509 BCE
+  - L9 “The Last King” · `card.ancient_rome.009.c3` (text): No more kings / According to tradition, the Romans, led by Lucius Junius Brutus, drove the king out in 509 BCE. Brutus had them swear never again to let anyone be king in Rome. / The end of the monarchy: 509 BCE
   - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c3` (text): One story / Early Rome rose from a strategic site on the Tiber, where Latin villages merged into a town. Strong Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Its founding legends explained who Romans believed they were. Then, in 509 BCE, the Romans expelled their seventh king and chose a new way to govern.
 - **Tested by:**
   - L9 `question.ancient_rome.009.q1`: In what year, by tradition, did the Romans expel their last king? → **509 BCE**
   - L10 `question.ancient_rome.010.q1`: Which order is right? → **Rome founded, kings expelled, first emperor**
   - L11 `question.ancient_rome.011.q3`: From Level 9: why did the Romans turn to a republic after 509 BCE? → **They had sworn never to have a king again**
   - L40 `question.ancient_rome.040.q3`: Why did “dictator for life” alarm so many senators? → **It looked like the kingship Rome had sworn off**
+- **Fact-check (2026-09-24):** disputed. Brutus is described as semi-legendary; the traditional (Varronian) date is 509 BCE, but the narrative is widely considered largely fictional and the date may be a few years off. Sources: https://www.livius.org/articles/person/junius-brutus-lucius/, https://en.wikipedia.org/wiki/Overthrow_of_the_Roman_monarchy, https://www.britannica.com/topic/Lucius-Junius-Brutus-legendary-Roman
+- **Previous wording:** Led by Lucius Junius Brutus, the Romans expelled their king in 509 BCE and ended the monarchy.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.brutus_expels source.brit_brutus_lucius --status verified --by "Your Name" --quote "…"
@@ -1857,7 +1893,7 @@ npm run verify:record -- fact.ancient_rome.brutus_expels source.brit_brutus_luci
 - **Concept:** The end of the kings (`concept.ancient_rome.fall_of_kings`)
 - **Appears in:**
   - L9 “The Last King” · `card.ancient_rome.009.c1` (text): Rome’s kings ended with a crime, an uprising and an oath never to have another.
-  - L9 “The Last King” · `card.ancient_rome.009.c3` (text): No more kings / Led by Lucius Junius Brutus, the Romans drove the king out in 509 BCE. Brutus had them swear never again to let anyone be king in Rome. / The end of the monarchy: 509 BCE
+  - L9 “The Last King” · `card.ancient_rome.009.c3` (text): No more kings / According to tradition, the Romans, led by Lucius Junius Brutus, drove the king out in 509 BCE. Brutus had them swear never again to let anyone be king in Rome. / The end of the monarchy: 509 BCE
   - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c2` (text): Dictator for life / After his victory in the civil war, Caesar was made dictator in 44 BCE, and then dictator for life. To many senators this looked like the kingship Rome had sworn never to allow again.
 - **Tested by:**
   - L9 `question.ancient_rome.009.q1`: In what year, by tradition, did the Romans expel their last king? → **509 BCE**
@@ -1904,6 +1940,7 @@ npm run verify:record -- fact.ancient_rome.brutus_ancestor source.brit_brutus_ma
 - **Tested by:**
   - L41 `question.ancient_rome.041.q3`: From Level 40: whom did Antony and Octavian defeat at Philippi in 42 BCE? → **Brutus and Cassius, Caesar’s assassins**
   - L42 `question.ancient_rome.042.q3`: From Level 41: after which battle did Antony take charge of the East? → **Philippi**
+- **Fact-check (2026-09-24):** corroborated. At Philippi in October 42 BCE, Antony and Octavian defeated Cassius and then Brutus; both took their own lives. Sources: https://www.history.com/this-day-in-history/october-23/brutus-commits-suicide, https://www.livius.org/articles/battle/philippi-42-bce/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.philippi source.brit_brutus_marcus --status verified --by "Your Name" --quote "…"
@@ -2010,6 +2047,7 @@ npm run verify:record -- fact.ancient_rome.assassination_failed source.brit_caes
 - **Tested by:**
   - L38 `question.ancient_rome.038.q1`: Whom did Caesar defeat at Alesia in 52 BCE? → **Vercingetorix**
   - L53 `question.ancient_rome.053.q3`: From Level 38: what had Julius Caesar achieved in Britain? → **Two raids, in 55 and 54 BCE**
+- **Fact-check (2026-09-24):** corroborated. Julius Caesar crossed to Britain twice, in 55 and 54 BC, during the Gallic Wars. Sources: https://en.wikipedia.org/wiki/Julius_Caesar's_invasions_of_Britain, https://www.historyhit.com/why-did-julius-caesar-invade-britain-twice/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.britain_raids source.brit_caesar --status verified --by "Your Name" --quote "…"
@@ -2058,6 +2096,7 @@ npm run verify:record -- fact.ancient_rome.gaul_power source.brit_caesar --statu
   - L40 `question.ancient_rome.040.q5`: Chapter 4 recap: why didn’t killing Caesar save the Republic? → **Loyal armies and violence had replaced votes**
   - L41 `question.ancient_rome.041.q3`: From Level 40: whom did Antony and Octavian defeat at Philippi in 42 BCE? → **Brutus and Cassius, Caesar’s assassins**
   - L48 `question.ancient_rome.048.q3`: From Level 40: Caesar didn’t live long with his new calendar. When was he killed? → **44 BCE**
+- **Fact-check (2026-09-24):** corroborated. Caesar was stabbed to death on 15 March 44 BC at a Senate session in the Theatre of Pompey by conspirators led by Brutus and Cassius. Sources: https://en.wikipedia.org/wiki/Assassination_of_Julius_Caesar, https://www.history.com/this-day-in-history/march-15/the-ides-of-march
 
 ```sh
 npm run verify:record -- fact.ancient_rome.ides_44 source.brit_caesar --status verified --by "Your Name" --quote "…"
@@ -2094,6 +2133,7 @@ npm run verify:record -- fact.ancient_rome.triumvirate_gains source.brit_caesar 
 - **Tested by:**
   - L52 `question.ancient_rome.052.q1`: What does the nickname Caligula mean? → **Little boot**
   - L52 `question.ancient_rome.052.q3`: From Level 51: which force, meant to protect the emperor, killed Caligula? → **The Praetorian Guard**
+- **Fact-check (2026-09-24):** corroborated. Caligula became emperor in AD 37 and was assassinated on 24 January AD 41 by a plot led by the Praetorian officer Cassius Chaerea. Sources: https://en.wikipedia.org/wiki/Cassius_Chaerea, https://www.thecollector.com/palatine-plot-death-emperor-caligula/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.caligula_37 source.brit_caligula --status verified --by "Your Name" --quote "…"
@@ -2181,6 +2221,7 @@ npm run verify:record -- fact.ancient_rome.caligula_sources source.brit_caligula
   - L29 `question.ancient_rome.029.q3`: From Level 24: at Cannae, how did Hannibal defeat the legions’ strength in numbers? → **He surrounded them from both sides**
   - L30 `question.ancient_rome.030.q2`: Where did Hannibal win his most famous victory over Rome? → **Cannae**
   - L100 `question.ancient_rome.100.q4`: How did Hannibal win at Cannae? → **He surrounded the Roman army**
+- **Fact-check (2026-09-24):** corroborated. At Cannae in August 216 BC Hannibal's double envelopment surrounded and nearly annihilated a larger Roman and allied army (about 86,000 vs about 50,000). Sources: https://www.britannica.com/event/Battle-of-Cannae, https://www.ebsco.com/research-starters/military-history-and-science/battle-cannae/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.cannae_216 source.brit_cannae --status verified --by "Your Name" --quote "…"
@@ -2251,6 +2292,7 @@ npm run verify:record -- fact.ancient_rome.double_envelopment source.brit_cannae
   - L80 `question.ancient_rome.080.q2`: What happened in 212 CE? → **Almost all free people became citizens**
   - L80 `question.ancient_rome.080.q5`: Chapter 8 recap: which pair did most to bind the empire’s peoples to Rome? → **Citizenship and shared law**
   - L100 `question.ancient_rome.100.q8`: Why did Caracalla’s grant of 212 CE matter? → **Almost every free person became a citizen**
+- **Fact-check (2026-09-24):** corroborated. The Constitutio Antoniniana of AD 212 granted Roman citizenship to free inhabitants of the empire, with limited exceptions such as the dediticii. Sources: https://en.wikipedia.org/wiki/Constitutio_Antoniniana, https://www.unesco.org/en/memory-world/constitutio-antoniniana
 
 ```sh
 npm run verify:record -- fact.ancient_rome.caracalla_212 source.brit_caracalla --status verified --by "Your Name" --quote "…"
@@ -2296,6 +2338,7 @@ npm run verify:record -- fact.ancient_rome.caracalla source.brit_caracalla_baths
   - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c4` (fact): Carthage was older than Rome. / Its traditional founding date of 814 BCE comes even before Rome’s own, 753 BCE. By the time the two met, Carthage had ruled the sea for centuries.
 - **Tested by:**
   - L21 `question.ancient_rome.021.q1`: Who founded Carthage? → **Phoenician settlers from Tyre**
+- **Fact-check (2026-09-24):** corroborated. Britannica: according to tradition Carthage was founded by Phoenicians of Tyre in 814 BCE; the site is near Tunis in modern Tunisia. Sources: https://www.britannica.com/place/Carthage-ancient-city-Tunisia, https://www.worldhistory.org/carthage/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.carthage_founding source.brit_carthage --status verified --by "Your Name" --quote "…"
@@ -2361,6 +2404,7 @@ npm run verify:record -- fact.ancient_rome.salt_myth source.brit_carthage --stat
   - L92 “Attila and the Huns” · `card.ancient_rome.092.c3` (text): Gaul and Italy / In 451 CE a Roman and Visigothic army under the general Aetius stopped Attila’s invasion of Gaul at the Battle of the Catalaunian Plains. In 452 CE Attila invaded Italy; Pope Leo I met him, and Attila withdrew.
 - **Tested by:**
   - L92 `question.ancient_rome.092.q1`: Who stopped Attila in Gaul in 451 CE? → **Aetius, with Visigothic allies**
+- **Fact-check (2026-09-24):** corroborated. In 451 a coalition led by Aetius and the Visigothic king Theodoric (with Franks, Alans and others) fought Attila on the Catalaunian Plains, ending his invasion of Gaul. Sources: https://en.wikipedia.org/wiki/Battle_of_the_Catalaunian_Plains, https://omniatlas.com/maps/europe/4510620/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.catalaunian source.brit_catalaunian --status verified --by "Your Name" --quote "…"
@@ -2580,6 +2624,7 @@ npm run verify:record -- fact.ancient_rome.catiline_plot source.brit_cicero --st
   - L36 `question.ancient_rome.036.q1`: Who exposed Catiline’s conspiracy in 63 BCE? → **Cicero**
   - L36 `question.ancient_rome.036.q2`: Why was Cicero later sent into exile? → **He had conspirators executed without trial**
   - L36 `question.ancient_rome.036.q3`: From Level 12: Cicero held Rome’s top yearly office in 63 BCE. Which one? → **Consul**
+- **Fact-check (2026-09-24):** corroborated. Cicero won the consular election in 64 BC and served as consul in 63 BC with Gaius Antonius Hybrida. Sources: https://en.wikipedia.org/wiki/Catilinarian_conspiracy, https://www.worldhistory.org/article/861/cicero--the-catiline-conspiracy/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.cicero_consul source.brit_cicero --status verified --by "Your Name" --quote "…"
@@ -2665,6 +2710,7 @@ npm run verify:record -- fact.ancient_rome.cincinnati source.brit_cincinnatus --
   - L17 “Cincinnatus and the Citizen Ideal” · `card.ancient_rome.017.c2` (text): Called from the plow / In 458 BCE, according to tradition, a Roman army was trapped by enemies. The Senate made Cincinnatus dictator to rescue it. The messengers found him plowing his small farm.
 - **Tested by:**
   - L17 `question.ancient_rome.017.q1`: What was Cincinnatus doing when Rome called on him? → **Plowing his farm**
+- **Fact-check (2026-09-24):** corroborated. Framed as tradition: in 458 BC Cincinnatus was named dictator to rescue a consular army trapped by the Aequi on Mount Algidus; Livy says envoys found him plowing. Sources: https://www.britannica.com/biography/Lucius-Quinctius-Cincinnatus, https://www.worldhistory.org/Cincinnatus/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.cincinnatus_458 source.brit_cincinnatus --status verified --by "Your Name" --quote "…"
@@ -2767,6 +2813,7 @@ npm run verify:record -- fact.ancient_rome.civil_law source.brit_civil_law --sta
 - **Tested by:**
   - L53 `question.ancient_rome.053.q1`: When did Claudius launch the invasion of Britain? → **43 CE**
   - L53 `question.ancient_rome.053.q3`: From Level 38: what had Julius Caesar achieved in Britain? → **Two raids, in 55 and 54 BCE**
+- **Fact-check (2026-09-24):** corroborated. Claudius' invasion under Aulus Plautius landed in AD 43; after Camulodunum submitted, the province of Britannia was established. Sources: https://www.english-heritage.org.uk/learn/story-of-england/romans/invasion/, https://en.wikipedia.org/wiki/Roman_conquest_of_Britain
 
 ```sh
 npm run verify:record -- fact.ancient_rome.britain_43 source.brit_claudius --status verified --by "Your Name" --quote "…"
@@ -2782,6 +2829,7 @@ npm run verify:record -- fact.ancient_rome.britain_43 source.brit_claudius --sta
 - **Tested by:**
   - L53 `question.ancient_rome.053.q2`: Why was Claudius an unexpected emperor? → **His family had kept him out of public life**
   - L54 `question.ancient_rome.054.q3`: From Level 53: Nero was the adopted son of which emperor? → **Claudius**
+- **Fact-check (2026-09-24):** corroborated. After Caligula's assassination in AD 41, his uncle Claudius was proclaimed emperor by the Praetorian Guard. Sources: https://www.thecollector.com/palatine-plot-death-emperor-caligula/, https://en.wikipedia.org/wiki/Cassius_Chaerea
 
 ```sh
 npm run verify:record -- fact.ancient_rome.claudius_41 source.brit_claudius --status verified --by "Your Name" --quote "…"
@@ -2923,6 +2971,7 @@ npm run verify:record -- fact.ancient_rome.forum_drained source.brit_cloaca_maxi
   - L56 `question.ancient_rome.056.q3`: From Level 54: what had Nero built on land cleared by the Great Fire? → **A vast palace, the Golden House**
   - L57 `question.ancient_rome.057.q3`: From Level 56: which emperor, who opened the Colosseum a year later, ruled when Vesuvius erupted? → **Titus**
   - L65 `question.ancient_rome.065.q3`: From Level 56: the Colosseum held about 50,000. How many times more could the Circus Maximus hold? → **About three times more**
+- **Fact-check (2026-09-24):** corroborated. Construction began under Vespasian around AD 70 to 72; his son Titus completed and opened it in AD 80 with 100 days of games. Sources: https://www.history.com/articles/colosseum, https://en.wikipedia.org/wiki/Colosseum
 
 ```sh
 npm run verify:record -- fact.ancient_rome.colosseum_built source.brit_colosseum --status verified --by "Your Name" --quote "…"
@@ -2941,6 +2990,7 @@ npm run verify:record -- fact.ancient_rome.colosseum_built source.brit_colosseum
   - L56 `question.ancient_rome.056.q3`: From Level 54: what had Nero built on land cleared by the Great Fire? → **A vast palace, the Golden House**
   - L57 `question.ancient_rome.057.q3`: From Level 56: which emperor, who opened the Colosseum a year later, ruled when Vesuvius erupted? → **Titus**
   - L65 `question.ancient_rome.065.q3`: From Level 56: the Colosseum held about 50,000. How many times more could the Circus Maximus hold? → **About three times more**
+- **Fact-check (2026-09-24):** corroborated. Standard references give seating for about 50,000 spectators (some estimates run higher), consistent with 'about 50,000'. Sources: https://www.history.com/articles/colosseum, https://simple.wikipedia.org/wiki/Colosseum
 
 ```sh
 npm run verify:record -- fact.ancient_rome.colosseum_capacity source.brit_colosseum --status verified --by "Your Name" --quote "…"
@@ -3168,6 +3218,7 @@ npm run verify:record -- fact.ancient_rome.closer_frontiers source.brit_constant
 - **Concept:** Constantine (`concept.ancient_rome.constantine`)
 - **Appears in:**
   - L85 “Constantine” · `card.ancient_rome.085.c4` (fact): Constantine was baptized only on his deathbed. / He supported the church for most of his reign, but was baptized in 337 CE, as he was dying.
+- **Fact-check (2026-09-24):** corroborated. Constantine was baptized by Eusebius of Nicomedia in May 337, days before he died on 22 May 337, as recorded by Eusebius of Caesarea. Sources: https://en.wikipedia.org/wiki/Eusebius_of_Nicomedia, https://www.newadvent.org/cathen/05623b.htm
 
 ```sh
 npm run verify:record -- fact.ancient_rome.deathbed source.brit_constantine --status verified --by "Your Name" --quote "…"
@@ -3204,6 +3255,7 @@ npm run verify:record -- fact.ancient_rome.sign_battle source.brit_constantine -
 - **Concept:** Constantine (`concept.ancient_rome.constantine`)
 - **Appears in:**
   - L85 “Constantine” · `card.ancient_rome.085.c2` (text): The Milvian Bridge / In 312 CE Constantine defeated his rival Maxentius at the Milvian Bridge outside Rome. Christian writers said he saw a sign before the battle and had his soldiers fight under a Christian symbol. By 324 CE he had defeated his last rival and ruled the whole empire alone.
+- **Fact-check (2026-09-24):** corroborated. Constantine defeated Licinius at Chrysopolis on 18 September 324 and became sole ruler of the empire. Sources: https://en.wikipedia.org/wiki/Battle_of_Chrysopolis, https://www.worldhistory.org/Constantine_I/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.sole_324 source.brit_constantine --status verified --by "Your Name" --quote "…"
@@ -3306,6 +3358,7 @@ npm run verify:record -- fact.ancient_rome.years_named source.brit_consul --stat
 - **Tested by:**
   - L28 `question.ancient_rome.028.q3`: From Level 27: which Greek city did Rome destroy in the same year as Carthage? → **Corinth**
   - L30 `question.ancient_rome.030.q5`: Chapter 3 recap: what did 146 BCE mark? → **The fall of Carthage and Corinth, and Roman dominance**
+- **Fact-check (2026-09-24):** corroborated. In 146 BC the consul Lucius Mummius sacked and destroyed Corinth after the Achaean War. Sources: https://www.britannica.com/biography/Lucius-Mummius, https://en.wikipedia.org/wiki/Battle_of_Corinth_(146_BC)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.corinth_146 source.brit_corinth --status verified --by "Your Name" --quote "…"
@@ -3361,6 +3414,7 @@ npm run verify:record -- fact.ancient_rome.jurists source.brit_corpus --status v
   - L77 `question.ancient_rome.077.q1`: Which emperor had Roman law collected into the Corpus Juris Civilis? → **Justinian**
   - L80 `question.ancient_rome.080.q5`: Chapter 8 recap: which pair did most to bind the empire’s peoples to Rome? → **Citizenship and shared law**
   - L95 `question.ancient_rome.095.q3`: From Level 77: what did Justinian have Roman law collected into? → **The Corpus Juris Civilis**
+- **Fact-check (2026-09-24):** corroborated. The Corpus Juris Civilis (Body of Civil Law) was compiled 529 to 534 by order of Justinian I. Sources: https://en.wikipedia.org/wiki/Corpus_Juris_Civilis, https://www.worldhistory.org/Corpus_Juris_Civilis/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.justinian_code source.brit_corpus --status verified --by "Your Name" --quote "…"
@@ -3382,6 +3436,7 @@ npm run verify:record -- fact.ancient_rome.justinian_code source.brit_corpus --s
 - **Tested by:**
   - L37 `question.ancient_rome.037.q2`: Why did the First Triumvirate fall apart? → **Julia and Crassus died, leaving two rivals**
   - L37 `question.ancient_rome.037.q3`: From Level 34: which revolt had Crassus crushed years earlier? → **The slave revolt of Spartacus**
+- **Fact-check (2026-09-24):** corroborated. Crassus was defeated by the Parthian general Surena at Carrhae in June 53 BC and was killed during a parley shortly afterward. Sources: https://en.wikipedia.org/wiki/Battle_of_Carrhae, https://www.livius.org/articles/battle/carrhae-53-bce/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.carrhae source.brit_crassus --status verified --by "Your Name" --quote "…"
@@ -3398,6 +3453,7 @@ npm run verify:record -- fact.ancient_rome.carrhae source.brit_crassus --status 
 - **Tested by:**
   - L34 `question.ancient_rome.034.q3`: From Level 19: along which road were the captured rebels crucified? → **The Via Appia**
   - L37 `question.ancient_rome.037.q3`: From Level 34: which revolt had Crassus crushed years earlier? → **The slave revolt of Spartacus**
+- **Fact-check (2026-09-24):** corroborated. The Third Servile War ended in 71 BC when Crassus defeated Spartacus' army; Spartacus was killed and survivors were crucified along the Appian Way. Sources: https://www.britannica.com/event/Gladiatorial-War, https://en.wikipedia.org/wiki/Third_Servile_War
 
 ```sh
 npm run verify:record -- fact.ancient_rome.crassus_crushes source.brit_crassus --status verified --by "Your Name" --quote "…"
@@ -3532,6 +3588,7 @@ npm run verify:record -- fact.ancient_rome.dictator source.brit_dictator --statu
   - L82 `question.ancient_rome.082.q2`: Why did Diocletian want more than one emperor? → **To have an emperor near every frontier**
   - L82 `question.ancient_rome.082.q3`: From Level 51: which old problem did the Tetrarchy also try to fix? → **The lack of a law of succession**
   - L90 `question.ancient_rome.090.q1`: Which emperor created the Tetrarchy? → **Diocletian**
+- **Fact-check (2026-09-24):** corroborated. Sources say Diocletian seized power in 284 and is credited with decisively ending the Crisis of the Third Century (235 to 284) and restoring effective government. Sources: https://en.wikipedia.org/wiki/Crisis_of_the_Third_Century, https://www.worldhistory.org/Crisis_of_the_Third_Century/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.diocletian_284 source.brit_diocletian --status verified --by "Your Name" --quote "…"
@@ -3544,6 +3601,7 @@ npm run verify:record -- fact.ancient_rome.diocletian_284 source.brit_diocletian
 - **Concept:** Diocletian and the Tetrarchy (`concept.ancient_rome.diocletian`)
 - **Appears in:**
   - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c4` (fact): Diocletian did what no emperor had done: he retired. / In 305 CE he stepped down voluntarily and moved to his palace at Split, in modern Croatia.
+- **Fact-check (2026-09-24):** corroborated. Diocletian left office on 1 May 305, the first Roman emperor to abdicate voluntarily, and retired to his palace at Spalatum, the core of modern Split, Croatia. Sources: https://en.wikipedia.org/wiki/Diocletian, https://www.historytoday.com/archive/abdication-emperor-diocletian
 
 ```sh
 npm run verify:record -- fact.ancient_rome.diocletian_retired source.brit_diocletian --status verified --by "Your Name" --quote "…"
@@ -3562,6 +3620,7 @@ npm run verify:record -- fact.ancient_rome.diocletian_retired source.brit_diocle
   - L84 `question.ancient_rome.084.q1`: Which emperor ordered the first empire-wide persecution, in 250 CE? → **Decius**
   - L84 `question.ancient_rome.084.q3`: From Level 54: which emperor blamed Rome’s Christians for the Great Fire? → **Nero**
   - L85 `question.ancient_rome.085.q3`: From Level 84: the Great Persecution began in 303 CE under which emperor? → **Diocletian**
+- **Fact-check (2026-09-24):** corroborated. The Diocletianic or Great Persecution, begun with edicts in 303, is described as the last and most severe persecution of Christians in the empire. Sources: https://en.wikipedia.org/wiki/Diocletianic_Persecution, https://www.ebsco.com/research-starters/religion-and-philosophy/diocletianic-persecution/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.great_persecution source.brit_diocletian --status verified --by "Your Name" --quote "…"
@@ -3574,6 +3633,7 @@ npm run verify:record -- fact.ancient_rome.great_persecution source.brit_dioclet
 - **Concept:** Diocletian and the Tetrarchy (`concept.ancient_rome.diocletian`)
 - **Appears in:**
   - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c3` (text): Reforms / Diocletian split the provinces into smaller units and separated civil from military command. In 301 CE his Edict on Maximum Prices tried, and failed, to stop inflation by fixing prices.
+- **Fact-check (2026-09-24):** corroborated. Diocletian's 301 CE edict set maximum prices and wages to curb inflation; it failed, causing hoarding and black markets. Sources: https://en.wikipedia.org/wiki/Edict_on_Maximum_Prices, https://www.econlib.org/diocletian-the-roman-empire-and-forever-failing-price-controls/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.price_edict source.brit_diocletian --status verified --by "Your Name" --quote "…"
@@ -3604,6 +3664,7 @@ npm run verify:record -- fact.ancient_rome.smaller_provinces source.brit_dioclet
 - **Concept:** The Flavians and the Colosseum (`concept.ancient_rome.flavians_colosseum`)
 - **Appears in:**
   - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c2` (text): A family of soldiers / In 70 CE Vespasian’s son Titus captured Jerusalem and destroyed its Temple. Titus succeeded Vespasian and was followed by his brother Domitian, whose harsh rule ended with his murder in 96 CE.
+- **Fact-check (2026-09-24):** corroborated. Domitian succeeded his brother Titus in 81 and was assassinated by court officials on 18 September 96. His reign is widely described as autocratic. Sources: https://en.wikipedia.org/wiki/Domitian, https://www.britannica.com/summary/Domitian
 
 ```sh
 npm run verify:record -- fact.ancient_rome.domitian source.brit_domitian --status verified --by "Your Name" --quote "…"
@@ -3629,6 +3690,7 @@ npm run verify:record -- fact.ancient_rome.domitian source.brit_domitian --statu
   - L85 `question.ancient_rome.085.q3`: From Level 84: the Great Persecution began in 303 CE under which emperor? → **Diocletian**
   - L87 `question.ancient_rome.087.q3`: From Level 85: what had Constantine granted Christians in 313 CE? → **Religious tolerance**
   - L100 `question.ancient_rome.100.q10`: How did Christianity’s status change from 313 to 380 CE? → **From tolerated to the official religion**
+- **Fact-check (2026-09-24):** corroborated. In 313 Constantine and Licinius agreed at Milan to grant Christians (and all religions) freedom of worship and return confiscated property. Sources: https://christianhistoryinstitute.org/magazine/article/edict-of-milan, https://www.ebsco.com/research-starters/history/edict-milan/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.edict_milan source.brit_edict_milan --status verified --by "Your Name" --quote "…"
@@ -3820,15 +3882,17 @@ npm run verify:record -- fact.ancient_rome.fasces source.brit_fasces --status ve
 
 ### ☐ `fact.ancient_rome.adoption_heirs`: unverified
 
-> **Claim:** Each of the first four Good Emperors chose his successor by adoption, picking a capable adult rather than relying on a son.
+> **Claim:** None of the first four Good Emperors left a surviving son, so each passed power to an adopted adult heir, though even ancient writers doubted that Trajan really adopted Hadrian before he died.
 
 - **Concept:** The Five Good Emperors (`concept.ancient_rome.five_good`)
 - **Appears in:**
-  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. Each of the first four chose his successor by adoption, picking a capable adult rather than relying on a son. The historian Edward Gibbon called it the time when the human race was most happy and prosperous.
+  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. None of the first four left a surviving son, so each passed power to an adopted adult heir. The historian Edward Gibbon called it the time when the human race was most happy and prosperous.
 - **Tested by:**
   - L60 `question.ancient_rome.060.q3`: How did the first four Good Emperors choose their heirs? → **By adopting a capable adult**
   - L60 `question.ancient_rome.060.q5`: Chapter 6 recap: when is the Pax Romana usually said to end? → **With Marcus Aurelius’ death in 180 CE**
   - L94 `question.ancient_rome.094.q3`: From Level 60: which historian, author of The Decline and Fall, praised the Five Good Emperors? → **Edward Gibbon**
+- **Fact-check (2026-09-24):** disputed. Successions were by adoption, but these emperors had no surviving sons (e.g. Antoninus's only surviving child was a daughter), and Trajan's deathbed adoption of Hadrian was doubted in antiquity, with Plotina suspected of arranging it. Sources: https://followinghadrian.com/2013/08/09/the-death-of-trajan-and-ascension-of-hadrian/, https://blogs.nottingham.ac.uk/mintimperials/2015/02/25/1877-years-ago-today-hadrian-adopted-pius-on-the-proviso-pius-adopted-marcus-aurelius-and-lucius-verus/, https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/plotina-d-122
+- **Previous wording:** Each of the first four Good Emperors chose his successor by adoption, picking a capable adult rather than relying on a son.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.adoption_heirs source.brit_five_good --status verified --by "Your Name" --quote "…"
@@ -3840,11 +3904,12 @@ npm run verify:record -- fact.ancient_rome.adoption_heirs source.brit_five_good 
 
 - **Concept:** The Five Good Emperors (`concept.ancient_rome.five_good`)
 - **Appears in:**
-  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. Each of the first four chose his successor by adoption, picking a capable adult rather than relying on a son. The historian Edward Gibbon called it the time when the human race was most happy and prosperous.
+  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. None of the first four left a surviving son, so each passed power to an adopted adult heir. The historian Edward Gibbon called it the time when the human race was most happy and prosperous.
 - **Tested by:**
   - L60 `question.ancient_rome.060.q3`: How did the first four Good Emperors choose their heirs? → **By adopting a capable adult**
   - L60 `question.ancient_rome.060.q5`: Chapter 6 recap: when is the Pax Romana usually said to end? → **With Marcus Aurelius’ death in 180 CE**
   - L94 `question.ancient_rome.094.q3`: From Level 60: which historian, author of The Decline and Fall, praised the Five Good Emperors? → **Edward Gibbon**
+- **Fact-check (2026-09-24):** corroborated. The Five Good Emperors are Nerva (96 to 98), Trajan, Hadrian, Antoninus Pius and Marcus Aurelius (161 to 180). Sources: https://www.britannica.com/topic/Five-Good-Emperors, https://en.wikipedia.org/wiki/Five_Emperors
 
 ```sh
 npm run verify:record -- fact.ancient_rome.five_good_list source.brit_five_good --status verified --by "Your Name" --quote "…"
@@ -3856,7 +3921,7 @@ npm run verify:record -- fact.ancient_rome.five_good_list source.brit_five_good 
 
 - **Concept:** The Five Good Emperors (`concept.ancient_rome.five_good`)
 - **Appears in:**
-  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. Each of the first four chose his successor by adoption, picking a capable adult rather than relying on a son. The historian Edward Gibbon called it the time when the human race was most happy and prosperous.
+  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. None of the first four left a surviving son, so each passed power to an adopted adult heir. The historian Edward Gibbon called it the time when the human race was most happy and prosperous.
 - **Tested by:**
   - L60 `question.ancient_rome.060.q3`: How did the first four Good Emperors choose their heirs? → **By adopting a capable adult**
   - L60 `question.ancient_rome.060.q5`: Chapter 6 recap: when is the Pax Romana usually said to end? → **With Marcus Aurelius’ death in 180 CE**
@@ -3884,6 +3949,7 @@ npm run verify:record -- fact.ancient_rome.gibbon source.brit_five_good --status
 - **Tested by:**
   - L27 `question.ancient_rome.027.q1`: Which kingdom did Rome defeat to gain control of Greece? → **Macedon**
   - L27 `question.ancient_rome.027.q3`: From Level 26: which western rival had Rome just defeated before its wars in the east? → **Carthage**
+- **Fact-check (2026-09-24):** corroborated. At the Isthmian Games in 196 BC Flamininus proclaimed the freedom of the Greeks, but Rome kept garrisons and expected obedience, and its influence grew. Sources: https://en.wikipedia.org/wiki/Second_Macedonian_War, https://www.britannica.com/biography/Titus-Quinctius-Flamininus
 
 ```sh
 npm run verify:record -- fact.ancient_rome.freedom_greeks source.brit_flamininus --status verified --by "Your Name" --quote "…"
@@ -3942,6 +4008,7 @@ npm run verify:record -- fact.ancient_rome.forum_drained source.brit_forum --sta
   - L72 “Aqueducts” · `card.ancient_rome.072.c3` (text): Water for a city / Rome’s first aqueduct, the Aqua Appia, was built in 312 BCE by Appius Claudius. By the 3rd century CE, 11 aqueducts supplied the city, feeding fountains and the great public baths. Frontinus, Rome’s water commissioner around 97 CE, wrote a book about them.
 - **Tested by:**
   - L72 `question.ancient_rome.072.q3`: From Level 19: Appius Claudius built Rome’s first aqueduct. What else did he begin? → **The Appian Way**
+- **Fact-check (2026-09-24):** corroborated. Frontinus was appointed curator aquarum by Nerva in AD 97 and wrote De aquaeductu, a two-book report on Rome's aqueducts. Sources: https://en.wikipedia.org/wiki/Curator_Aquarum, https://penelope.uchicago.edu/encyclopaedia_romana/romanforum/quinaria.html
 
 ```sh
 npm run verify:record -- fact.ancient_rome.frontinus source.brit_frontinus --status verified --by "Your Name" --quote "…"
@@ -3962,6 +4029,7 @@ npm run verify:record -- fact.ancient_rome.frontinus source.brit_frontinus --sta
   - L31 “The Gracchi Brothers” · `card.ancient_rome.031.c3` (text): Blood in the Forum / Many senators saw a threat to their power and property. Tiberius was killed by a mob of senators and their supporters, the worst political bloodshed in Rome in centuries. His brother Gaius pushed wider reforms, including cheap grain for citizens, and was killed in 121 BCE.
 - **Tested by:**
   - L63 `question.ancient_rome.063.q3`: From Level 31: which reformer had pushed for cheap grain for citizens? → **Gaius Gracchus**
+- **Fact-check (2026-09-24):** corroborated. Gaius Gracchus' reforms included a law for subsidized grain sales to citizens; he was killed in 121 BC after the Senate's emergency decree. Sources: https://en.wikipedia.org/wiki/Gaius_Gracchus, https://www.britannica.com/biography/Gaius-Sempronius-Gracchus
 
 ```sh
 npm run verify:record -- fact.ancient_rome.gaius_121 source.brit_gaius_gracchus --status verified --by "Your Name" --quote "…"
@@ -4000,6 +4068,7 @@ npm run verify:record -- fact.ancient_rome.commentaries source.brit_gallic_wars 
 - **Tested by:**
   - L38 `question.ancient_rome.038.q1`: Whom did Caesar defeat at Alesia in 52 BCE? → **Vercingetorix**
   - L53 `question.ancient_rome.053.q3`: From Level 38: what had Julius Caesar achieved in Britain? → **Two raids, in 55 and 54 BCE**
+- **Fact-check (2026-09-24):** corroborated. Britannica dates the Gallic Wars, in which Caesar conquered Gaul, to 58 to 50 BCE (some sources give 58 to 51). Sources: https://www.britannica.com/event/Gallic-Wars, https://en.wikipedia.org/wiki/Gallic_Wars
 
 ```sh
 npm run verify:record -- fact.ancient_rome.gallic_war_dates source.brit_gallic_wars --status verified --by "Your Name" --quote "…"
@@ -4054,7 +4123,7 @@ npm run verify:record -- fact.ancient_rome.garum_trade source.brit_garum --statu
 
 - **Concept:** The Five Good Emperors (`concept.ancient_rome.five_good`)
 - **Appears in:**
-  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. Each of the first four chose his successor by adoption, picking a capable adult rather than relying on a son. The historian Edward Gibbon called it the time when the human race was most happy and prosperous.
+  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. None of the first four left a surviving son, so each passed power to an adopted adult heir. The historian Edward Gibbon called it the time when the human race was most happy and prosperous.
 - **Tested by:**
   - L60 `question.ancient_rome.060.q3`: How did the first four Good Emperors choose their heirs? → **By adopting a capable adult**
   - L60 `question.ancient_rome.060.q5`: Chapter 6 recap: when is the Pax Romana usually said to end? → **With Marcus Aurelius’ death in 180 CE**
@@ -4097,6 +4166,7 @@ npm run verify:record -- fact.ancient_rome.gibbon_decline source.brit_gibbon --s
 - **Tested by:**
   - L64 `question.ancient_rome.064.q1`: How did gladiator fights probably begin? → **As funeral games honoring the dead**
   - L64 `question.ancient_rome.064.q3`: From Level 34: Spartacus escaped from a gladiator school in which town? → **Capua**
+- **Fact-check (2026-09-24):** corroborated. The first recorded gladiatorial combat in Rome was in 264 BC at the funeral of Decimus Junius Brutus Pera, as a munus for the dead. Sources: https://en.wikipedia.org/wiki/Gladiator, https://en.wikipedia.org/wiki/Forum_Boarium
 
 ```sh
 npm run verify:record -- fact.ancient_rome.gladiator_origin source.brit_gladiator --status verified --by "Your Name" --quote "…"
@@ -4269,6 +4339,7 @@ npm run verify:record -- fact.ancient_rome.latin_motto source.brit_great_seal --
 - **Concept:** The Julian calendar (`concept.ancient_rome.julian_calendar`)
 - **Appears in:**
   - L48 “Months Named for Emperors” · `card.ancient_rome.048.c4` (fact): The Julian calendar was slightly too long. / It drifted against the seasons, so in 1582 Pope Gregory XIII replaced it with the Gregorian calendar we use today.
+- **Fact-check (2026-09-24):** corroborated. The Julian year (365.25 days) was about 11 minutes longer than the tropical year; Gregory XIII's 1582 bull Inter gravissimas introduced the Gregorian calendar. Sources: https://en.wikipedia.org/wiki/Gregorian_calendar, https://www.nottingham.ac.uk/manuscriptsandspecialcollections/researchguidance/datingdocuments/juliangregorian.aspx
 
 ```sh
 npm run verify:record -- fact.ancient_rome.gregorian source.brit_gregorian --status verified --by "Your Name" --quote "…"
@@ -4291,6 +4362,7 @@ npm run verify:record -- fact.ancient_rome.gregorian source.brit_gregorian --sta
   - L59 `question.ancient_rome.059.q2`: What did Hadrian’s frontier policy show? → **He chose to hold the empire, not expand it**
   - L59 `question.ancient_rome.059.q3`: From Level 46: who built the first Pantheon, which Hadrian rebuilt? → **Agrippa**
   - L74 `question.ancient_rome.074.q3`: From Level 59: which emperor rebuilt the Pantheon as it stands today? → **Hadrian**
+- **Fact-check (2026-09-24):** corroborated. Hadrian reigned 117 to 138 and, as his first measure, gave up Trajan's new eastern provinces of Armenia, Mesopotamia and Assyria. Sources: https://www.globalsecurity.org/military/world/iraq/history-rome-2.htm, https://en.wikipedia.org/wiki/Mesopotamia_(Roman_province)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.hadrian_117 source.brit_hadrian --status verified --by "Your Name" --quote "…"
@@ -4360,6 +4432,7 @@ npm run verify:record -- fact.ancient_rome.fort_plan source.brit_hadrians_wall -
 - **Tested by:**
   - L59 `question.ancient_rome.059.q1`: In which province did Hadrian build his wall? → **Britain**
   - L59 `question.ancient_rome.059.q2`: What did Hadrian’s frontier policy show? → **He chose to hold the empire, not expand it**
+- **Fact-check (2026-09-24):** corroborated. Hadrian's Wall was begun in AD 122; its length was 80 Roman miles, about 73 modern miles or 117 to 118 km, across northern Britain. Sources: https://en.wikipedia.org/wiki/Hadrian%27s_Wall, https://www.english-heritage.org.uk/visit/places/hadrians-wall/hadrians-wall-history-and-stories/history/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.wall_122 source.brit_hadrians_wall --status verified --by "Your Name" --quote "…"
@@ -4396,6 +4469,7 @@ npm run verify:record -- fact.ancient_rome.wall_forts source.brit_hadrians_wall 
   - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c3` (text): Justinian’s ambition / In the 6th century CE, Justinian reconquered Italy and North Africa for a time. He also had Roman law collected, and built the great church of Hagia Sophia in Constantinople, finished in 537 CE.
 - **Tested by:**
   - L95 `question.ancient_rome.095.q3`: From Level 77: what did Justinian have Roman law collected into? → **The Corpus Juris Civilis**
+- **Fact-check (2026-09-24):** corroborated. Justinian had Hagia Sophia rebuilt after the Nika riots (532); the church was completed and inaugurated in December 537. Sources: https://en.wikipedia.org/wiki/Hagia_Sophia, https://smarthistory.org/hagia-sophia-istanbul/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.hagia_sophia source.brit_hagia_sophia --status verified --by "Your Name" --quote "…"
@@ -4414,12 +4488,13 @@ npm run verify:record -- fact.ancient_rome.hagia_sophia source.brit_hagia_sophia
 - **Concept:** Hannibal crosses the Alps (`concept.ancient_rome.hannibal_alps`)
 - **Appears in:**
   - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c1` (text): The attack Rome never expected came over the mountains, with elephants.
-  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c3` (text): Over the Alps / In 218 BCE Hannibal marched his army, including war elephants, from Spain over the Alps. The crossing cost him many men and most of the elephants. But he reached Italy and began winning battles almost at once. He would stay and fight in Italy for about 15 years. / Spain → Alps → Italy, 218 BCE
+  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c3` (text): Over the Alps / In 218 BCE Hannibal marched his army, including war elephants, from Spain over the Alps. The crossing cost him many men, though most of the elephants survived it, only to die in the cold soon after. But he reached Italy and began winning battles almost at once. He would stay and fight in Italy for about 15 years. / Spain → Alps → Italy, 218 BCE
 - **Tested by:**
   - L23 `question.ancient_rome.023.q1`: Which route did Hannibal take to invade Italy? → **From Spain over the Alps**
-  - L23 `question.ancient_rome.023.q2`: What did the Alpine crossing cost Hannibal? → **Many men and most of his elephants**
+  - L23 `question.ancient_rome.023.q2`: What did the Alpine crossing cost Hannibal? → **Many men, though most elephants survived**
   - L23 `question.ancient_rome.023.q3`: From Level 22: why might Hannibal have chosen to come by land rather than by sea? → **Rome now had a strong navy of its own**
   - L24 `question.ancient_rome.024.q3`: From Level 23: how had Hannibal’s army reached Italy before Cannae? → **By marching over the Alps from Spain**
+- **Fact-check (2026-09-24):** corroborated. In 218 BC Hannibal marched from Spain through southern Gaul and over the Alps into northern Italy with about 37 elephants. Sources: https://www.history.com/articles/hannibal-crosses-alps, https://www.smithsonianmag.com/history/how-hannibal-crossed-the-alps-180963671/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.alps_218 source.brit_hannibal --status verified --by "Your Name" --quote "…"
@@ -4427,16 +4502,18 @@ npm run verify:record -- fact.ancient_rome.alps_218 source.brit_hannibal --statu
 
 ### ☐ `fact.ancient_rome.alps_losses`: unverified
 
-> **Claim:** Hannibal lost many men and most of his elephants on the march but reached Italy and won early victories.
+> **Claim:** Hannibal lost many men on the march, but most of his elephants survived the Alps (nearly all died in the cold soon after). He reached Italy and won early victories.
 
 - **Concept:** Hannibal crosses the Alps (`concept.ancient_rome.hannibal_alps`)
 - **Appears in:**
-  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c3` (text): Over the Alps / In 218 BCE Hannibal marched his army, including war elephants, from Spain over the Alps. The crossing cost him many men and most of the elephants. But he reached Italy and began winning battles almost at once. He would stay and fight in Italy for about 15 years. / Spain → Alps → Italy, 218 BCE
+  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c3` (text): Over the Alps / In 218 BCE Hannibal marched his army, including war elephants, from Spain over the Alps. The crossing cost him many men, though most of the elephants survived it, only to die in the cold soon after. But he reached Italy and began winning battles almost at once. He would stay and fight in Italy for about 15 years. / Spain → Alps → Italy, 218 BCE
 - **Tested by:**
   - L23 `question.ancient_rome.023.q1`: Which route did Hannibal take to invade Italy? → **From Spain over the Alps**
-  - L23 `question.ancient_rome.023.q2`: What did the Alpine crossing cost Hannibal? → **Many men and most of his elephants**
+  - L23 `question.ancient_rome.023.q2`: What did the Alpine crossing cost Hannibal? → **Many men, though most elephants survived**
   - L23 `question.ancient_rome.023.q3`: From Level 22: why might Hannibal have chosen to come by land rather than by sea? → **Rome now had a strong navy of its own**
   - L24 `question.ancient_rome.024.q3`: From Level 23: how had Hannibal’s army reached Italy before Cannae? → **By marching over the Alps from Spain**
+- **Fact-check (2026-09-24):** corrected. Hannibal lost about half his men in the Alps, but enough elephants survived to fight at the Trebia; per Polybius, all but one then died in the cold after that battle. Sources: https://en.wikipedia.org/wiki/Hannibal's_crossing_of_the_Alps, https://kosmossociety.org/the-punic-wars-part-ii-from-a-alps-to-z-zama/, https://iere.org/did-any-elephants-survive-the-alps/
+- **Previous wording:** Hannibal lost many men and most of his elephants on the march but reached Italy and won early victories.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.alps_losses source.brit_hannibal --status verified --by "Your Name" --quote "…"
@@ -4448,12 +4525,13 @@ npm run verify:record -- fact.ancient_rome.alps_losses source.brit_hannibal --st
 
 - **Concept:** Hannibal crosses the Alps (`concept.ancient_rome.hannibal_alps`)
 - **Appears in:**
-  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c3` (text): Over the Alps / In 218 BCE Hannibal marched his army, including war elephants, from Spain over the Alps. The crossing cost him many men and most of the elephants. But he reached Italy and began winning battles almost at once. He would stay and fight in Italy for about 15 years. / Spain → Alps → Italy, 218 BCE
+  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c3` (text): Over the Alps / In 218 BCE Hannibal marched his army, including war elephants, from Spain over the Alps. The crossing cost him many men, though most of the elephants survived it, only to die in the cold soon after. But he reached Italy and began winning battles almost at once. He would stay and fight in Italy for about 15 years. / Spain → Alps → Italy, 218 BCE
 - **Tested by:**
   - L23 `question.ancient_rome.023.q1`: Which route did Hannibal take to invade Italy? → **From Spain over the Alps**
-  - L23 `question.ancient_rome.023.q2`: What did the Alpine crossing cost Hannibal? → **Many men and most of his elephants**
+  - L23 `question.ancient_rome.023.q2`: What did the Alpine crossing cost Hannibal? → **Many men, though most elephants survived**
   - L23 `question.ancient_rome.023.q3`: From Level 22: why might Hannibal have chosen to come by land rather than by sea? → **Rome now had a strong navy of its own**
   - L24 `question.ancient_rome.024.q3`: From Level 23: how had Hannibal’s army reached Italy before Cannae? → **By marching over the Alps from Spain**
+- **Fact-check (2026-09-24):** corroborated. Hannibal campaigned in Italy from 218 to 203 BC, about 15 years, and left only when recalled to defend Carthage, not driven out. Sources: https://dcc.dickinson.edu/nepos-hannibal-essays/5, https://www.historyworld.net/history/Hannibal/524
 
 ```sh
 npm run verify:record -- fact.ancient_rome.hannibal_15 source.brit_hannibal --status verified --by "Your Name" --quote "…"
@@ -4465,9 +4543,9 @@ npm run verify:record -- fact.ancient_rome.hannibal_15 source.brit_hannibal --st
 
 - **Concept:** Hannibal crosses the Alps (`concept.ancient_rome.hannibal_alps`)
 - **Appears in:**
-  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c2` (text): A general sworn against Rome / According to tradition, Hannibal’s father made him swear as a boy never to be a friend of Rome. As a Carthaginian general based in Spain, Hannibal invaded Italy and began the Second Punic War, which lasted from 218 to 201 BCE.
+  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c2` (text): A general sworn against Rome / According to tradition, Hannibal’s father made him swear as a boy never to be a friend of Rome. As a Carthaginian general based in Spain, Hannibal attacked Saguntum, a Roman ally, sparking the Second Punic War, which lasted from 218 to 201 BCE. Then he invaded Italy.
 - **Tested by:**
-  - L26 `question.ancient_rome.026.q3`: From Level 23: Zama ended the war that began with which event? → **Hannibal’s invasion of Italy in 218 BCE**
+  - L26 `question.ancient_rome.026.q3`: From Level 23: Zama ended the war that began with which event? → **Hannibal’s attack on Saguntum in Spain**
 
 ```sh
 npm run verify:record -- fact.ancient_rome.hannibal_oath source.brit_hannibal --status verified --by "Your Name" --quote "…"
@@ -4475,14 +4553,16 @@ npm run verify:record -- fact.ancient_rome.hannibal_oath source.brit_hannibal --
 
 ### ☐ `fact.ancient_rome.second_war`: unverified
 
-> **Claim:** The Second Punic War (218–201 BCE) began when Hannibal, a Carthaginian general based in Spain, invaded Italy.
+> **Claim:** The Second Punic War (218–201 BCE) was sparked when Hannibal, a Carthaginian general based in Spain, attacked Saguntum, a Roman ally. He then invaded Italy.
 
 - **Concept:** Hannibal crosses the Alps (`concept.ancient_rome.hannibal_alps`)
 - **Appears in:**
-  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c2` (text): A general sworn against Rome / According to tradition, Hannibal’s father made him swear as a boy never to be a friend of Rome. As a Carthaginian general based in Spain, Hannibal invaded Italy and began the Second Punic War, which lasted from 218 to 201 BCE.
+  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c2` (text): A general sworn against Rome / According to tradition, Hannibal’s father made him swear as a boy never to be a friend of Rome. As a Carthaginian general based in Spain, Hannibal attacked Saguntum, a Roman ally, sparking the Second Punic War, which lasted from 218 to 201 BCE. Then he invaded Italy.
   - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c2` (timeline): From Sicily to the whole sea: 264–241 BCE: First Punic War: Rome builds a navy and wins Sicily; 218–201 BCE: Second Punic War: Hannibal invades; Scipio wins at Zama; 149–146 BCE: Third Punic War: Carthage is destroyed; 146 BCE: Corinth falls; Rome dominates the Mediterranean
 - **Tested by:**
-  - L26 `question.ancient_rome.026.q3`: From Level 23: Zama ended the war that began with which event? → **Hannibal’s invasion of Italy in 218 BCE**
+  - L26 `question.ancient_rome.026.q3`: From Level 23: Zama ended the war that began with which event? → **Hannibal’s attack on Saguntum in Spain**
+- **Fact-check (2026-09-24):** corrected. War dates are right, but the trigger was Hannibal's siege of Saguntum, a Roman ally in Spain, in 219 BCE; Rome declared war in 218 BCE before he crossed into Italy. Sources: https://www.worldhistory.org/Second_Punic_War/, https://www.historyhit.com/how-the-second-punic-war-began/
+- **Previous wording:** The Second Punic War (218–201 BCE) began when Hannibal, a Carthaginian general based in Spain, invaded Italy.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.second_war source.brit_hannibal --status verified --by "Your Name" --quote "…"
@@ -4523,6 +4603,7 @@ npm run verify:record -- fact.ancient_rome.haruspicy source.brit_haruspex --stat
 - **Concept:** The sack of Rome, 410 (`concept.ancient_rome.sack_410`)
 - **Appears in:**
   - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c4` (fact): Rome was no longer the capital when it fell. / By 410 CE the western emperor Honorius lived at Ravenna, a city protected by marshes, while his old capital was plundered.
+- **Fact-check (2026-09-24):** corroborated. Honorius moved the western court to marsh-protected Ravenna in 402 and was there when Alaric sacked Rome in 410. Sources: https://www.historyhit.com/what-happened-to-roman-emperors-after-rome-was-sacked-in-410/, https://en.wikipedia.org/wiki/Sack_of_Rome_(410)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.ravenna source.brit_honorius --status verified --by "Your Name" --quote "…"
@@ -4567,6 +4648,7 @@ npm run verify:record -- fact.ancient_rome.greece_captive source.brit_horace --s
 - **Tested by:**
   - L89 `question.ancient_rome.089.q2`: Why did the Goths who crossed the Danube rebel? → **Roman officials mistreated them**
   - L92 `question.ancient_rome.092.q3`: From Level 89: whom were the Goths fleeing when they crossed the Danube in 376 CE? → **The Huns**
+- **Fact-check (2026-09-24):** corroborated. The Huns, steppe nomads, reached the Volga by about 370 and subdued the Alans and Goths (370 to 375), pushing peoples toward the Roman frontier. Sources: https://en.wikipedia.org/wiki/Huns, https://www.encyclopedia.com/social-sciences-and-law/anthropology-and-archaeology/people/huns
 
 ```sh
 npm run verify:record -- fact.ancient_rome.huns_west source.brit_huns --status verified --by "Your Name" --quote "…"
@@ -4706,6 +4788,7 @@ npm run verify:record -- fact.ancient_rome.bosporus source.brit_istanbul --statu
   - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c2` (text): Romans in the East / Historians call the Eastern Roman Empire the Byzantine Empire, but its people called themselves Romans. Its capital was Constantinople, dedicated by Constantine in 330 CE. Over time Greek replaced Latin as the language of its government.
 - **Tested by:**
   - L86 `question.ancient_rome.086.q1`: Which Greek city stood on the site of Constantinople? → **Byzantium**
+- **Fact-check (2026-09-24):** corroborated. On 11 May 330 Constantine dedicated Byzantium, a Greek colony, as his new capital, Constantinople (New Rome). Sources: https://en.wikipedia.org/wiki/Constantinople, https://greekcitytimes.com/2021/05/12/may-11-330-byzantium/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.founded_330 source.brit_istanbul --status verified --by "Your Name" --quote "…"
@@ -4811,6 +4894,7 @@ npm run verify:record -- fact.ancient_rome.apostate source.brit_julian --status 
 - **Tested by:**
   - L87 `question.ancient_rome.087.q1`: What did Julian try to restore? → **Worship of the traditional gods**
   - L87 `question.ancient_rome.087.q3`: From Level 85: what had Constantine granted Christians in 313 CE? → **Religious tolerance**
+- **Fact-check (2026-09-24):** corroborated. Julian, son of Constantine's half-brother Julius Constantius, became sole emperor when Constantius II died on 3 November 361. Sources: https://www.newadvent.org/cathen/08558b.htm, https://www.britannica.com/summary/Julian-Roman-emperor
 
 ```sh
 npm run verify:record -- fact.ancient_rome.julian_361 source.brit_julian --status verified --by "Your Name" --quote "…"
@@ -4825,6 +4909,7 @@ npm run verify:record -- fact.ancient_rome.julian_361 source.brit_julian --statu
   - L87 “Julian the Apostate” · `card.ancient_rome.087.c3` (text): A short reign / Christians called him Julian the Apostate: an apostate is someone who abandons their faith. He was killed on campaign against Persia in 363 CE, and his religious program died with him. / Apostate: someone who abandons their faith
 - **Tested by:**
   - L87 `question.ancient_rome.087.q2`: Why did Julian’s program fail to last? → **He died after a very short reign**
+- **Fact-check (2026-09-24):** corroborated. Julian was mortally wounded on 26 June 363 during his Persian campaign; his attempted pagan restoration did not survive him. Sources: https://en.wikipedia.org/wiki/Battle_of_Ctesiphon_(363), https://en.wikipedia.org/wiki/Restoration_of_paganism_from_Julian_until_Valens
 
 ```sh
 npm run verify:record -- fact.ancient_rome.julian_death source.brit_julian --status verified --by "Your Name" --quote "…"
@@ -4888,6 +4973,7 @@ npm run verify:record -- fact.ancient_rome.last_pagan source.brit_julian --statu
 - **Concept:** The Julian calendar (`concept.ancient_rome.julian_calendar`)
 - **Appears in:**
   - L48 “Months Named for Emperors” · `card.ancient_rome.048.c4` (fact): The Julian calendar was slightly too long. / It drifted against the seasons, so in 1582 Pope Gregory XIII replaced it with the Gregorian calendar we use today.
+- **Fact-check (2026-09-24):** corroborated. The Julian year (365.25 days) was about 11 minutes longer than the tropical year; Gregory XIII's 1582 bull Inter gravissimas introduced the Gregorian calendar. Sources: https://en.wikipedia.org/wiki/Gregorian_calendar, https://www.nottingham.ac.uk/manuscriptsandspecialcollections/researchguidance/datingdocuments/juliangregorian.aspx
 
 ```sh
 npm run verify:record -- fact.ancient_rome.gregorian source.brit_julian_calendar --status verified --by "Your Name" --quote "…"
@@ -4903,6 +4989,7 @@ npm run verify:record -- fact.ancient_rome.gregorian source.brit_julian_calendar
 - **Tested by:**
   - L48 `question.ancient_rome.048.q2`: Why does the Julian calendar add a leap day every fourth year? → **A year is about 365 and a quarter days long**
   - L48 `question.ancient_rome.048.q3`: From Level 40: Caesar didn’t live long with his new calendar. When was he killed? → **44 BCE**
+- **Fact-check (2026-09-24):** corroborated. Caesar introduced the Julian calendar in 46 BC (effective 45 BC): 365 days with a leap day every fourth year, averaging 365.25 days. Sources: https://www.ebsco.com/research-starters/history/julian-calendar/, https://en.wikipedia.org/wiki/46_BC
 
 ```sh
 npm run verify:record -- fact.ancient_rome.julian_46 source.brit_julian_calendar --status verified --by "Your Name" --quote "…"
@@ -4975,6 +5062,7 @@ npm run verify:record -- fact.ancient_rome.quintilis_fifth source.brit_july --st
   - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c3` (text): Justinian’s ambition / In the 6th century CE, Justinian reconquered Italy and North Africa for a time. He also had Roman law collected, and built the great church of Hagia Sophia in Constantinople, finished in 537 CE.
 - **Tested by:**
   - L95 `question.ancient_rome.095.q3`: From Level 77: what did Justinian have Roman law collected into? → **The Corpus Juris Civilis**
+- **Fact-check (2026-09-24):** corroborated. Justinian's generals retook North Africa from the Vandals (533 to 534) and Italy from the Ostrogoths (535 to 554), but Lombards took much of Italy from 568. Sources: https://en.wikipedia.org/wiki/Byzantine_Empire_under_the_Justinian_dynasty, https://www.thecollector.com/what-was-justinian-reconquest/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.justinian_reconquest source.brit_justinian --status verified --by "Your Name" --quote "…"
@@ -5358,6 +5446,7 @@ npm run verify:record -- fact.ancient_rome.ludi source.brit_ludi --status verifi
 - **Tested by:**
   - L27 `question.ancient_rome.027.q1`: Which kingdom did Rome defeat to gain control of Greece? → **Macedon**
   - L27 `question.ancient_rome.027.q3`: From Level 26: which western rival had Rome just defeated before its wars in the east? → **Carthage**
+- **Fact-check (2026-09-24):** corroborated. The Macedonian Wars (214 to 148 BC), ending with the Fourth War in 148, left Rome in control of Greece; Macedonia became a province in 146. Sources: https://en.wikipedia.org/wiki/Macedonian_Wars, https://www.britannica.com/event/Macedonian-Wars
 
 ```sh
 npm run verify:record -- fact.ancient_rome.macedonian_wars source.brit_macedonian_wars --status verified --by "Your Name" --quote "…"
@@ -5453,6 +5542,7 @@ npm run verify:record -- fact.ancient_rome.marcus_meditations source.brit_marcus
   - L32 `question.ancient_rome.032.q1`: How many times was Marius elected consul? → **Seven times**
   - L32 `question.ancient_rome.032.q3`: From Level 29: whom had legions recruited before Marius? → **Property-owning citizens with their own gear**
   - L50 `question.ancient_rome.050.q2`: What did Marius change about who could serve in the legions? → **He enrolled poor citizens with no property**
+- **Fact-check (2026-09-24):** corroborated. Marius destroyed the Teutones at Aquae Sextiae in 102 BC and the Cimbri at Vercellae in 101 BC. Sources: https://www.historyofwar.org/articles/battles_aquae_sextiae.html, https://en.wikipedia.org/wiki/Battle_of_Vercellae
 
 ```sh
 npm run verify:record -- fact.ancient_rome.cimbri source.brit_marius --status verified --by "Your Name" --quote "…"
@@ -5632,6 +5722,7 @@ npm run verify:record -- fact.ancient_rome.golden_house source.brit_nero --statu
   - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c2` (text): The young emperor / Nero, Claudius’ adopted son, became emperor in 54 CE at the age of 16. Facing revolt, he took his own life in 68 CE, ending the Julio-Claudian dynasty, the family line of Augustus.
 - **Tested by:**
   - L54 `question.ancient_rome.054.q3`: From Level 53: Nero was the adopted son of which emperor? → **Claudius**
+- **Fact-check (2026-09-24):** corroborated. Sources state Claudius died in 54 CE and his adopted son Nero, born 15 Dec 37 CE, became emperor at 16. Sources: https://www.worldhistory.org/Nero/, https://www.britannica.com/biography/Nero-Roman-emperor
 
 ```sh
 npm run verify:record -- fact.ancient_rome.nero_54 source.brit_nero --status verified --by "Your Name" --quote "…"
@@ -5647,6 +5738,7 @@ npm run verify:record -- fact.ancient_rome.nero_54 source.brit_nero --status ver
   - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c2` (text): 69 CE / After Nero’s death in 68 CE came the Year of the Four Emperors, 69 CE. Galba, Otho, Vitellius and Vespasian each held power in turn. Each claimant was backed by an army, showing that the legions could make and unmake emperors.
 - **Tested by:**
   - L54 `question.ancient_rome.054.q3`: From Level 53: Nero was the adopted son of which emperor? → **Claudius**
+- **Fact-check (2026-09-24):** corroborated. Nero killed himself on 9 June 68 CE after the Senate declared him a public enemy amid revolts; his death ended the Julio-Claudian dynasty begun by Augustus. Sources: https://en.wikipedia.org/wiki/Julio-Claudian_dynasty, https://www.worldhistory.org/Nero/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.nero_death source.brit_nero --status verified --by "Your Name" --quote "…"
@@ -5671,6 +5763,7 @@ npm run verify:record -- fact.ancient_rome.nero_death source.brit_nero --status 
   - L85 `question.ancient_rome.085.q3`: From Level 84: the Great Persecution began in 303 CE under which emperor? → **Diocletian**
   - L87 `question.ancient_rome.087.q3`: From Level 85: what had Constantine granted Christians in 313 CE? → **Religious tolerance**
   - L100 `question.ancient_rome.100.q10`: How did Christianity’s status change from 313 to 380 CE? → **From tolerated to the official religion**
+- **Fact-check (2026-09-24):** corroborated. Constantine convened about 300 bishops at Nicaea in 325 CE; they produced the Nicene Creed, a shared statement of belief. Sources: https://www.nationalgeographic.com/history/article/christianity-nicene-creed-first-council-of-nicaea, https://www.ebsco.com/research-starters/history/council-nicaea/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.nicaea source.brit_nicaea --status verified --by "Your Name" --quote "…"
@@ -5692,6 +5785,7 @@ npm run verify:record -- fact.ancient_rome.nicaea source.brit_nicaea --status ve
 - **Tested by:**
   - L65 `question.ancient_rome.065.q2`: What does the Nika revolt show about racing factions? → **Their fans could become a political force**
   - L86 `question.ancient_rome.086.q3`: From Level 65: which riot of racing fans later broke out in Constantinople? → **The Nika revolt**
+- **Fact-check (2026-09-24):** corroborated. In January 532 the normally rival Blues and Greens united in the Nika riot, proclaimed a rival emperor and nearly drove Justinian to flee before Theodora persuaded him to stay. Sources: https://en.wikipedia.org/wiki/Nika_riots, https://www.thecollector.com/what-was-the-nika-riot/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.nika source.brit_nika --status verified --by "Your Name" --quote "…"
@@ -5746,6 +5840,7 @@ npm run verify:record -- fact.ancient_rome.no_emperor source.brit_odoacer --stat
   - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c3` (text): 476 CE / In 476 CE the Germanic commander Odoacer deposed the young western emperor Romulus Augustulus. Odoacer did not make himself emperor: he sent the imperial regalia to Constantinople and ruled Italy as king. This is the usual date given for the fall of the Western Empire.
 - **Tested by:**
   - L93 `question.ancient_rome.093.q1`: Who deposed Romulus Augustulus in 476 CE? → **Odoacer**
+- **Fact-check (2026-09-24):** corroborated. Odoacer, a Germanic commander of the barbarian troops in Italy, deposed the boy emperor Romulus Augustulus on 4 September 476. Sources: https://www.history.com/articles/last-roman-emperor-romulus-augustulus, https://www.worldhistory.org/Odoacer/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.odoacer_476 source.brit_odoacer --status verified --by "Your Name" --quote "…"
@@ -5764,6 +5859,7 @@ npm run verify:record -- fact.ancient_rome.odoacer_476 source.brit_odoacer --sta
 - **Concept:** A Christian empire (`concept.ancient_rome.christian_empire`)
 - **Appears in:**
   - L88 “A Christian Empire” · `card.ancient_rome.088.c4` (fact): The ancient Olympics ended in a Christian empire. / They are traditionally said to have ended in 393 CE under Theodosius.
+- **Fact-check (2026-09-24):** corroborated. 393 CE under Theodosius is the widely cited traditional end date; some historians question it, but the claim is framed as tradition. Sources: https://www.olympics.com/ioc/ioc-overview/ioc-history/ancient-olympics/the-end-of-the-ancient-games, https://theconversation.com/mythbusting-ancient-rome-did-christians-ban-the-ancient-olympics-92023
 
 ```sh
 npm run verify:record -- fact.ancient_rome.olympics_393 source.brit_olympics --status verified --by "Your Name" --quote "…"
@@ -5830,6 +5926,7 @@ npm run verify:record -- fact.ancient_rome.palatine_huts source.brit_palatine --
   - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c2` (text): Holding, not growing / Hadrian, Trajan’s successor, ruled from 117 to 138 CE. He gave up some of Trajan’s eastern conquests and spent much of his reign traveling through the provinces, inspecting armies and frontiers. In Rome he rebuilt the Pantheon, first built by Agrippa, as the domed temple still standing today.
 - **Tested by:**
   - L59 `question.ancient_rome.059.q3`: From Level 46: who built the first Pantheon, which Hadrian rebuilt? → **Agrippa**
+- **Fact-check (2026-09-24):** corroborated. Agrippa built the first Pantheon around 27 BC; after fires it was rebuilt under Hadrian (c. 118 to 125), who kept Agrippa's inscription on the domed building. Sources: https://www.livius.org/articles/place/rome/rome-photos/rome-pantheon/, https://anamericaninrome.com/2020/05/pantheon-inscription-meaning/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.agrippa_pantheon source.brit_pantheon --status verified --by "Your Name" --quote "…"
@@ -5846,6 +5943,7 @@ npm run verify:record -- fact.ancient_rome.agrippa_pantheon source.brit_pantheon
 - **Tested by:**
   - L74 `question.ancient_rome.074.q1`: What does the name Pantheon mean? → **Of all the gods**
   - L74 `question.ancient_rome.074.q3`: From Level 59: which emperor rebuilt the Pantheon as it stands today? → **Hadrian**
+- **Fact-check (2026-09-24):** corroborated. The Pantheon dome is about 43.3 m (142 ft) in diameter and is described as still the largest unreinforced concrete dome in the world. Sources: https://monolithicdome.com/pantheon, https://en.wikipedia.org/wiki/List_of_largest_domes
 
 ```sh
 npm run verify:record -- fact.ancient_rome.dome_largest source.brit_pantheon --status verified --by "Your Name" --quote "…"
@@ -5905,6 +6003,7 @@ npm run verify:record -- fact.ancient_rome.oculus source.brit_pantheon --status 
 - **Concept:** The Pantheon (`concept.ancient_rome.pantheon`)
 - **Appears in:**
   - L74 “The Pantheon” · `card.ancient_rome.074.c4` (fact): The Pantheon survived by changing religion. / In 609 CE it became a Christian church, which helped it survive intact while other temples were stripped.
+- **Fact-check (2026-09-24):** corroborated. Pope Boniface IV consecrated the Pantheon as the church of St Mary and the Martyrs on 13 May 609; sources credit the conversion with its survival. Sources: https://www.newadvent.org/cathen/02660c.htm, https://www.history.com/articles/pantheon
 
 ```sh
 npm run verify:record -- fact.ancient_rome.pantheon_church source.brit_pantheon --status verified --by "Your Name" --quote "…"
@@ -6080,6 +6179,7 @@ npm run verify:record -- fact.ancient_rome.not_war_free source.brit_pax_romana -
   - L45 `question.ancient_rome.045.q1`: Roughly how long did the Pax Romana last? → **About 200 years**
   - L58 `question.ancient_rome.058.q3`: From Level 45: Trajan ruled during which long period of relative peace? → **The Pax Romana**
   - L60 `question.ancient_rome.060.q5`: Chapter 6 recap: when is the Pax Romana usually said to end? → **With Marcus Aurelius’ death in 180 CE**
+- **Fact-check (2026-09-24):** corroborated. The Pax Romana is conventionally dated from Augustus in 27 BCE to 180 CE, the death of Marcus Aurelius. Sources: https://en.wikipedia.org/wiki/Pax_Romana, https://www.britannica.com/event/Pax-Romana
 
 ```sh
 npm run verify:record -- fact.ancient_rome.pax_dates source.brit_pax_romana --status verified --by "Your Name" --quote "…"
@@ -6097,6 +6197,7 @@ npm run verify:record -- fact.ancient_rome.pax_dates source.brit_pax_romana --st
   - L45 `question.ancient_rome.045.q1`: Roughly how long did the Pax Romana last? → **About 200 years**
   - L58 `question.ancient_rome.058.q3`: From Level 45: Trajan ruled during which long period of relative peace? → **The Pax Romana**
   - L60 `question.ancient_rome.060.q5`: Chapter 6 recap: when is the Pax Romana usually said to end? → **With Marcus Aurelius’ death in 180 CE**
+- **Fact-check (2026-09-24):** corroborated. Pax Romana means Roman peace: about 200 years of comparative stability from Augustus onward, though frontier wars continued. Sources: https://www.britannica.com/event/Pax-Romana, https://en.wikipedia.org/wiki/Pax_Romana
 
 ```sh
 npm run verify:record -- fact.ancient_rome.pax_def source.brit_pax_romana --status verified --by "Your Name" --quote "…"
@@ -6133,6 +6234,7 @@ npm run verify:record -- fact.ancient_rome.pax_trade source.brit_pax_romana --st
   - L83 “The First Christians” · `card.ancient_rome.083.c2` (text): From Judaea / Jesus of Nazareth was a Jewish teacher executed by crucifixion in Judaea under the Roman governor Pontius Pilate, who governed Judaea from 26 to 36 CE. Paul of Tarsus spread Christianity to non-Jews in cities around the eastern Mediterranean.
 - **Tested by:**
   - L83 `question.ancient_rome.083.q3`: From Level 75: which Roman official governed Judaea when Jesus was executed? → **Pontius Pilate**
+- **Fact-check (2026-09-24):** corroborated. Pilate succeeded Valerius Gratus as prefect of Judaea in 26 CE and held the post about ten years, to 36 CE. Sources: https://www.livius.org/articles/person/pontius-pilate/, https://www.britannica.com/summary/Pontius-Pilate
 
 ```sh
 npm run verify:record -- fact.ancient_rome.pilate source.brit_pilate --status verified --by "Your Name" --quote "…"
@@ -6169,6 +6271,7 @@ npm run verify:record -- fact.ancient_rome.conflict_orders_def source.brit_plebe
   - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c4` (timeline): Plebeians win ground: 494 BCE: The first walkout, or secession, of the plebeians; 367 BCE: One consul may now be a plebeian; 287 BCE: The plebeian assembly’s votes bind all Romans
 - **Tested by:**
   - L20 `question.ancient_rome.020.q4`: Which change ended the Conflict of the Orders? → **Plebeian assembly votes became binding on all Romans**
+- **Fact-check (2026-09-24):** corroborated. The lex Hortensia of 287 BC made plebiscites binding on all citizens and is traditionally seen as ending the Conflict of the Orders. Sources: https://en.wikipedia.org/wiki/Lex_Hortensia, https://www.britannica.com/topic/Lex-Hortensia
 
 ```sh
 npm run verify:record -- fact.ancient_rome.lex_hortensia source.brit_plebeian --status verified --by "Your Name" --quote "…"
@@ -6219,6 +6322,7 @@ npm run verify:record -- fact.ancient_rome.plebeian_consul source.brit_plebeian 
   - L14 `question.ancient_rome.014.q2`: Why was a plebeian walkout such a powerful tactic? → **Rome depended on plebeians to work and fight**
   - L15 `question.ancient_rome.015.q3`: From Level 14: the Twelve Tables were a win in which struggle? → **The Conflict of the Orders**
   - L20 `question.ancient_rome.020.q4`: Which change ended the Conflict of the Orders? → **Plebeian assembly votes became binding on all Romans**
+- **Fact-check (2026-09-24):** corroborated. Tradition dates the first secession of the plebs to 494 BCE; the plebeians left the city and won the creation of the tribunes of the plebs. Sources: https://en.wikipedia.org/wiki/First_secessio_plebis, https://www.worldhistory.org/Secession_of_the_Plebs/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.secession_494 source.brit_plebeian --status verified --by "Your Name" --quote "…"
@@ -6307,6 +6411,7 @@ npm run verify:record -- fact.ancient_rome.polybius_rome source.brit_polybius --
 - **Concept:** Pompeii and Vesuvius (`concept.ancient_rome.pompeii`)
 - **Appears in:**
   - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c4` (fact): Plaster casts show victims in their final moments. / In the 1800s, excavators poured plaster into hollows left in the ash by victims’ bodies, recording their final positions.
+- **Fact-check (2026-09-24):** corroborated. In 1863 Giuseppe Fiorelli had plaster poured into cavities left in the hardened ash by decomposed bodies, producing casts of victims' final poses. Sources: http://www.thehistoryblog.com/archives/36706, https://pompeiisites.org/en/pompeii-map/analysis/the-casts/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.casts source.brit_pompeii --status verified --by "Your Name" --quote "…"
@@ -6388,6 +6493,7 @@ npm run verify:record -- fact.ancient_rome.thermopolium source.brit_pompeii --st
 - **Tested by:**
   - L57 `question.ancient_rome.057.q1`: Which two towns did Vesuvius bury in 79 CE? → **Pompeii and Herculaneum**
   - L57 `question.ancient_rome.057.q3`: From Level 56: which emperor, who opened the Colosseum a year later, ruled when Vesuvius erupted? → **Titus**
+- **Fact-check (2026-09-24):** corroborated. The 79 CE eruption of Vesuvius buried Pompeii under 4 to 6 m of ash and pumice and Herculaneum under deeper volcanic deposits. Sources: https://en.wikipedia.org/wiki/Eruption_of_Mount_Vesuvius_in_79_AD, https://www.history.com/this-day-in-history/august-24/vesuvius-erupts
 
 ```sh
 npm run verify:record -- fact.ancient_rome.vesuvius_79 source.brit_pompeii --status verified --by "Your Name" --quote "…"
@@ -6412,6 +6518,7 @@ npm run verify:record -- fact.ancient_rome.vesuvius_79 source.brit_pompeii --sta
   - L37 `question.ancient_rome.037.q1`: Who formed the First Triumvirate? → **Caesar, Pompey and Crassus**
   - L37 `question.ancient_rome.037.q2`: Why did the First Triumvirate fall apart? → **Julia and Crassus died, leaving two rivals**
   - L37 `question.ancient_rome.037.q3`: From Level 34: which revolt had Crassus crushed years earlier? → **The slave revolt of Spartacus**
+- **Fact-check (2026-09-24):** corroborated. Julia, Caesar's daughter, married Pompey in 59 BC and died in childbirth in 54 BC; her death is cited as loosening the Caesar-Pompey bond. Sources: https://en.wikipedia.org/wiki/Julia_(daughter_of_Caesar), https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/julia-d-54-bce
 
 ```sh
 npm run verify:record -- fact.ancient_rome.julia source.brit_pompey --status verified --by "Your Name" --quote "…"
@@ -6426,6 +6533,7 @@ npm run verify:record -- fact.ancient_rome.julia source.brit_pompey --status ver
   - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c3` (text): Caesar against Pompey / The crossing started a civil war. Caesar defeated Pompey at Pharsalus in Greece in 48 BCE. Pompey fled to Egypt, where he was murdered. Today, “crossing the Rubicon” means passing a point of no return.
 - **Tested by:**
   - L39 `question.ancient_rome.039.q1`: What does “crossing the Rubicon” mean today? → **Passing a point of no return**
+- **Fact-check (2026-09-24):** corroborated. Caesar defeated Pompey at Pharsalus in Greece in 48 BCE; Pompey fled to Egypt and was killed at Pelusium by Ptolemy's men. Sources: https://www.britannica.com/event/Battle-of-Pharsalus, https://www.history.com/this-day-in-history/september-28/pompey-the-great-assassinated
 
 ```sh
 npm run verify:record -- fact.ancient_rome.pharsalus source.brit_pompey --status verified --by "Your Name" --quote "…"
@@ -6456,6 +6564,7 @@ npm run verify:record -- fact.ancient_rome.pompey_commands source.brit_pompey --
   - L35 “Pompey the Great” · `card.ancient_rome.035.c3` (text): Remaking the East / Pompey then defeated King Mithridates and reorganized the eastern Mediterranean. He made Syria a Roman province and captured Jerusalem in 63 BCE. He took the name Magnus, “the Great,” in imitation of Alexander the Great.
 - **Tested by:**
   - L35 `question.ancient_rome.035.q1`: What name did Pompey take for himself? → **Magnus, “the Great”**
+- **Fact-check (2026-09-24):** corroborated. After ending the Third Mithridatic War, Pompey annexed Syria as a province (64 BCE) and took Jerusalem in 63 BCE. Sources: https://en.wikipedia.org/wiki/Roman_Syria, https://en.wikipedia.org/wiki/Siege_of_Jerusalem_(63_BC)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.pompey_east source.brit_pompey --status verified --by "Your Name" --quote "…"
@@ -6487,6 +6596,7 @@ npm run verify:record -- fact.ancient_rome.pompey_magnus source.brit_pompey --st
 - **Tested by:**
   - L35 `question.ancient_rome.035.q2`: Why did Pompey’s commands worry many senators? → **They gave one man vast power for years**
   - L35 `question.ancient_rome.035.q3`: From Level 33: under which general did Pompey first make his name? → **Sulla**
+- **Fact-check (2026-09-24):** corroborated. Under the Lex Gabinia of 67 BCE Pompey received a three-year command but cleared the pirates in about three months. Sources: https://en.wikipedia.org/wiki/Pompey's_campaign_against_the_pirates, https://en.wikipedia.org/wiki/67_BC
 
 ```sh
 npm run verify:record -- fact.ancient_rome.pompey_pirates source.brit_pompey --status verified --by "Your Name" --quote "…"
@@ -6520,6 +6630,7 @@ npm run verify:record -- fact.ancient_rome.pompey_sulla source.brit_pompey --sta
 - **Concept:** Aqueducts (`concept.ancient_rome.aqueducts`)
 - **Appears in:**
   - L72 “Aqueducts” · `card.ancient_rome.072.c4` (fact): The Pont du Gard still stands in southern France. / This three-tier aqueduct bridge rises about 49 m above the river it crosses.
+- **Fact-check (2026-09-24):** corroborated. The Pont du Gard near Nimes is a three-tiered Roman aqueduct bridge 48.8 m high, the tallest Roman aqueduct bridge. Sources: https://en.wikipedia.org/wiki/Pont_du_Gard, https://www.britannica.com/topic/Pont-du-Gard
 
 ```sh
 npm run verify:record -- fact.ancient_rome.pont_du_gard source.brit_pont_du_gard --status verified --by "Your Name" --quote "…"
@@ -6584,6 +6695,7 @@ npm run verify:record -- fact.ancient_rome.publicani source.brit_publicani --sta
   - L28 `question.ancient_rome.028.q2`: What happened to Carthage’s land after 146 BCE? → **It became the Roman province of Africa**
   - L28 `question.ancient_rome.028.q3`: From Level 27: which Greek city did Rome destroy in the same year as Carthage? → **Corinth**
   - L30 `question.ancient_rome.030.q5`: Chapter 3 recap: what did 146 BCE mark? → **The fall of Carthage and Corinth, and Roman dominance**
+- **Fact-check (2026-09-24):** corroborated. After Rome destroyed Carthage in 146 BC at the end of the Third Punic War, Carthage's territory became the Roman province of Africa. Sources: https://en.wikipedia.org/wiki/Third_Punic_War, https://www.britannica.com/event/Battle-of-Carthage-146-BCE
 
 ```sh
 npm run verify:record -- fact.ancient_rome.africa_province source.brit_punic_wars --status verified --by "Your Name" --quote "…"
@@ -6632,6 +6744,7 @@ npm run verify:record -- fact.ancient_rome.corvus source.brit_punic_wars --statu
   - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c2` (timeline): From Sicily to the whole sea: 264–241 BCE: First Punic War: Rome builds a navy and wins Sicily; 218–201 BCE: Second Punic War: Hannibal invades; Scipio wins at Zama; 149–146 BCE: Third Punic War: Carthage is destroyed; 146 BCE: Corinth falls; Rome dominates the Mediterranean
 - **Tested by:**
   - L23 `question.ancient_rome.023.q3`: From Level 22: why might Hannibal have chosen to come by land rather than by sea? → **Rome now had a strong navy of its own**
+- **Fact-check (2026-09-24):** corroborated. The First Punic War is dated 264 to 241 BC, ending after the Roman naval victory at the Aegates Islands. Sources: https://en.wikipedia.org/wiki/First_Punic_War, https://www.britannica.com/event/First-Punic-War
 
 ```sh
 npm run verify:record -- fact.ancient_rome.first_war_dates source.brit_punic_wars --status verified --by "Your Name" --quote "…"
@@ -6661,7 +6774,7 @@ npm run verify:record -- fact.ancient_rome.navy_built source.brit_punic_wars --s
   - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c2` (text): A rival that recovered / After Zama, Carthage recovered its wealth through trade. In the Senate, Cato the Elder was said to end his speeches, whatever the topic, with the demand that Carthage must be destroyed.
 - **Tested by:**
   - L26 `question.ancient_rome.026.q1`: Who defeated Hannibal at Zama? → **Scipio**
-  - L26 `question.ancient_rome.026.q3`: From Level 23: Zama ended the war that began with which event? → **Hannibal’s invasion of Italy in 218 BCE**
+  - L26 `question.ancient_rome.026.q3`: From Level 23: Zama ended the war that began with which event? → **Hannibal’s attack on Saguntum in Spain**
   - L27 `question.ancient_rome.027.q3`: From Level 26: which western rival had Rome just defeated before its wars in the east? → **Carthage**
 
 ```sh
@@ -6713,14 +6826,16 @@ npm run verify:record -- fact.ancient_rome.rome_refused source.brit_punic_wars -
 
 ### ☐ `fact.ancient_rome.second_war`: unverified
 
-> **Claim:** The Second Punic War (218–201 BCE) began when Hannibal, a Carthaginian general based in Spain, invaded Italy.
+> **Claim:** The Second Punic War (218–201 BCE) was sparked when Hannibal, a Carthaginian general based in Spain, attacked Saguntum, a Roman ally. He then invaded Italy.
 
 - **Concept:** Hannibal crosses the Alps (`concept.ancient_rome.hannibal_alps`)
 - **Appears in:**
-  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c2` (text): A general sworn against Rome / According to tradition, Hannibal’s father made him swear as a boy never to be a friend of Rome. As a Carthaginian general based in Spain, Hannibal invaded Italy and began the Second Punic War, which lasted from 218 to 201 BCE.
+  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c2` (text): A general sworn against Rome / According to tradition, Hannibal’s father made him swear as a boy never to be a friend of Rome. As a Carthaginian general based in Spain, Hannibal attacked Saguntum, a Roman ally, sparking the Second Punic War, which lasted from 218 to 201 BCE. Then he invaded Italy.
   - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c2` (timeline): From Sicily to the whole sea: 264–241 BCE: First Punic War: Rome builds a navy and wins Sicily; 218–201 BCE: Second Punic War: Hannibal invades; Scipio wins at Zama; 149–146 BCE: Third Punic War: Carthage is destroyed; 146 BCE: Corinth falls; Rome dominates the Mediterranean
 - **Tested by:**
-  - L26 `question.ancient_rome.026.q3`: From Level 23: Zama ended the war that began with which event? → **Hannibal’s invasion of Italy in 218 BCE**
+  - L26 `question.ancient_rome.026.q3`: From Level 23: Zama ended the war that began with which event? → **Hannibal’s attack on Saguntum in Spain**
+- **Fact-check (2026-09-24):** corrected. War dates are right, but the trigger was Hannibal's siege of Saguntum, a Roman ally in Spain, in 219 BCE; Rome declared war in 218 BCE before he crossed into Italy. Sources: https://www.worldhistory.org/Second_Punic_War/, https://www.historyhit.com/how-the-second-punic-war-began/
+- **Previous wording:** The Second Punic War (218–201 BCE) began when Hannibal, a Carthaginian general based in Spain, invaded Italy.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.second_war source.brit_punic_wars --status verified --by "Your Name" --quote "…"
@@ -6737,6 +6852,7 @@ npm run verify:record -- fact.ancient_rome.second_war source.brit_punic_wars --s
   - L21 `question.ancient_rome.021.q2`: Why are Rome’s wars with Carthage called the Punic Wars? → **Punicus is Latin for Phoenician**
   - L21 `question.ancient_rome.021.q3`: From Level 19: why did Rome and Carthage come into conflict after about 264 BCE? → **Rome now held Italy and faced Carthage across the sea**
   - L22 `question.ancient_rome.022.q3`: From Level 21: which island did the First Punic War decide? → **Sicily**
+- **Fact-check (2026-09-24):** corroborated. The First Punic War began in 264 BCE when Rome answered the Mamertines of Messana, drawing it into conflict with Carthage over Sicily. Sources: https://www.britannica.com/event/First-Punic-War, https://www.worldhistory.org/First_Punic_War/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.sicily_flashpoint source.brit_punic_wars --status verified --by "Your Name" --quote "…"
@@ -6922,6 +7038,7 @@ npm run verify:record -- fact.ancient_rome.elected_magistrates source.brit_roman
   - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c2` (timeline): The arc of Rome: 753 BCE: Traditional founding of Rome; 509 BCE: The Republic begins; 27 BCE: Octavian becomes Augustus; 117 CE: The empire at its greatest extent; 476 CE: The last western emperor is deposed; 1453 CE: Constantinople falls
 - **Tested by:**
   - L99 `question.ancient_rome.099.q1`: Which came first? → **The Republic begins**
+- **Fact-check (2026-09-24):** corroborated. The Republic is conventionally dated from the overthrow of the kings (traditionally 509 BCE) to 27 BCE, when Octavian became Augustus. Sources: https://en.wikipedia.org/wiki/Roman_Republic, https://www.rome.net/roman-republic
 
 ```sh
 npm run verify:record -- fact.ancient_rome.republic_dates source.brit_roman_republic --status verified --by "Your Name" --quote "…"
@@ -7141,6 +7258,7 @@ npm run verify:record -- fact.ancient_rome.romulus_name source.brit_romulus_augu
 - **Tested by:**
   - L1 `question.ancient_rome.001.q2`: Why do historians give two different dates for the end of the Roman Empire? → **Its western and eastern halves ended at different times**
   - L99 `question.ancient_rome.099.q3`: From Level 1: Roman history is usually split into three eras. Which list is in the right order? → **Kingdom, Republic, Empire**
+- **Fact-check (2026-09-24):** corroborated. Odoacer deposed Romulus Augustulus on 4 September 476; this is the date most commonly given for the end of the Western Roman Empire, though not the only one. Sources: https://www.history.com/articles/last-roman-emperor-romulus-augustulus, https://en.wikipedia.org/wiki/Fall_of_the_Western_Roman_Empire
 
 ```sh
 npm run verify:record -- fact.ancient_rome.west_fall_476 source.brit_romulus_augustulus --status verified --by "Your Name" --quote "…"
@@ -7234,6 +7352,7 @@ npm run verify:record -- fact.ancient_rome.wolf_symbol source.brit_romulus_remus
   - L39 `question.ancient_rome.039.q2`: Why was it illegal for Caesar to cross the Rubicon with his army? → **Generals had to leave their armies before entering Italy**
   - L39 `question.ancient_rome.039.q3`: From Level 33: which general had already led his army against Rome, in 88 BCE? → **Sulla**
   - L100 `question.ancient_rome.100.q9`: What links Marius’s reforms to Caesar crossing the Rubicon? → **Soldiers loyal to their general**
+- **Fact-check (2026-09-24):** corroborated. Suetonius reports Caesar said 'iacta alea est' at the Rubicon; Plutarch says he spoke in Greek. The claim's 'is said to have' framing fits this. Sources: https://en.wikipedia.org/wiki/Alea_iacta_est, https://latinitium.com/iacta-alea-est-crossing-the-rubicon/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.alea source.brit_rubicon --status verified --by "Your Name" --quote "…"
@@ -7252,6 +7371,7 @@ npm run verify:record -- fact.ancient_rome.alea source.brit_rubicon --status ver
   - L39 `question.ancient_rome.039.q2`: Why was it illegal for Caesar to cross the Rubicon with his army? → **Generals had to leave their armies before entering Italy**
   - L39 `question.ancient_rome.039.q3`: From Level 33: which general had already led his army against Rome, in 88 BCE? → **Sulla**
   - L100 `question.ancient_rome.100.q9`: What links Marius’s reforms to Caesar crossing the Rubicon? → **Soldiers loyal to their general**
+- **Fact-check (2026-09-24):** corroborated. Caesar crossed the Rubicon with a legion around 10 January 49 BCE, starting the civil war with Pompey and the Senate. Sources: https://en.wikipedia.org/wiki/Crossing_the_Rubicon, https://origins.osu.edu/read/julius-caesar-crosses-rubicon
 
 ```sh
 npm run verify:record -- fact.ancient_rome.rubicon_49 source.brit_rubicon --status verified --by "Your Name" --quote "…"
@@ -7304,6 +7424,7 @@ npm run verify:record -- fact.ancient_rome.rubicon_idiom source.brit_rubicon --s
 - **Tested by:**
   - L19 `question.ancient_rome.019.q3`: From Level 12: which Roman officials led the armies in these wars? → **The consuls**
   - L21 `question.ancient_rome.021.q3`: From Level 19: why did Rome and Carthage come into conflict after about 264 BCE? → **Rome now held Italy and faced Carthage across the sea**
+- **Fact-check (2026-09-24):** corroborated. Three Samnite Wars (343 to 290 BCE) pitted Rome against the Samnites of the Apennines, securing Roman control of central and southern Italy. Sources: https://en.wikipedia.org/wiki/Samnite_Wars, https://www.ebsco.com/research-starters/history/samnite-wars
 
 ```sh
 npm run verify:record -- fact.ancient_rome.samnite_wars source.brit_samnites --status verified --by "Your Name" --quote "…"
@@ -7322,6 +7443,7 @@ npm run verify:record -- fact.ancient_rome.samnite_wars source.brit_samnites --s
 - **Concept:** Scipio and Zama (`concept.ancient_rome.scipio_zama`)
 - **Appears in:**
   - L26 “Scipio and Zama” · `card.ancient_rome.026.c4` (fact): He was named for his victory. / Scipio was given the name Africanus, after the continent where he won the war.
+- **Fact-check (2026-09-24):** corroborated. After defeating Hannibal at Zama in 202 BC, Publius Cornelius Scipio received the cognomen Africanus for his victories in North Africa. Sources: https://en.wikipedia.org/wiki/Battle_of_Zama, https://www.worldhistory.org/article/292/the-battle-of-zama---the-beginning-of-roman-conque/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.africanus source.brit_scipio --status verified --by "Your Name" --quote "…"
@@ -7355,6 +7477,7 @@ npm run verify:record -- fact.ancient_rome.scipio_spain source.brit_scipio --sta
 - **Concept:** Tiberius and succession (`concept.ancient_rome.tiberius`)
 - **Appears in:**
   - L51 “Tiberius” · `card.ancient_rome.051.c3` (text): Rule from an island / In his later years Tiberius withdrew to the island of Capri and ruled from there. In Rome, Sejanus, commander of the Praetorian Guard, grew powerful until Tiberius had him executed in 31 CE.
+- **Fact-check (2026-09-24):** corroborated. Sejanus, Praetorian prefect, ran affairs in Rome after Tiberius withdrew to Capri in 26 CE; on Tiberius' orders he was arrested and executed on 18 October 31 CE. Sources: https://en.wikipedia.org/wiki/Sejanus, https://www.executedtoday.com/2008/10/18/31-sejanus-captain-of-the-praetorian-guard/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.sejanus source.brit_sejanus --status verified --by "Your Name" --quote "…"
@@ -7616,16 +7739,18 @@ npm run verify:record -- fact.ancient_rome.slave_work source.brit_slavery --stat
 
 ### ☐ `fact.ancient_rome.social_war`: unverified
 
-> **Claim:** After the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies.
+> **Claim:** During the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies, first to those who stayed loyal and then to the rest, which helped end the revolt.
 
 - **Concept:** Roman citizenship (`concept.ancient_rome.citizenship`)
 - **Appears in:**
-  - L76 “Becoming Roman” · `card.ancient_rome.076.c3` (text): How it spread / After the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies. It then spread through the provinces by grants to towns, individuals and soldiers. Non-citizen soldiers, the auxiliaries, received it after about 25 years of service.
+  - L76 “Becoming Roman” · `card.ancient_rome.076.c3` (text): How it spread / During the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies, which helped end the revolt. It then spread through the provinces by grants to towns, individuals and soldiers. Non-citizen soldiers, the auxiliaries, received it after about 25 years of service.
 - **Tested by:**
   - L76 `question.ancient_rome.076.q2`: How could an auxiliary soldier become a citizen? → **By serving about 25 years**
   - L76 `question.ancient_rome.076.q3`: From Level 62: how else could an enslaved person become a citizen? → **By being freed by a Roman citizen**
   - L79 `question.ancient_rome.079.q3`: From Level 76: what did auxiliaries receive after about 25 years of service? → **Roman citizenship**
   - L80 `question.ancient_rome.080.q5`: Chapter 8 recap: which pair did most to bind the empire’s peoples to Rome? → **Citizenship and shared law**
+- **Fact-check (2026-09-24):** corrected. Citizenship came during the war, not after it: the Lex Julia (90 BCE) and Lex Plautia Papiria (89 BCE) granted it to loyal and then surrendering allies, which helped end the revolt. Sources: https://en.wikipedia.org/wiki/Lex_Plautia_Papiria, https://en.wikipedia.org/wiki/Lex_Julia
+- **Previous wording:** After the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.social_war source.brit_social_war --status verified --by "Your Name" --quote "…"
@@ -7648,6 +7773,7 @@ npm run verify:record -- fact.ancient_rome.social_war source.brit_social_war --s
 - **Tested by:**
   - L34 `question.ancient_rome.034.q3`: From Level 19: along which road were the captured rebels crucified? → **The Via Appia**
   - L37 `question.ancient_rome.037.q3`: From Level 34: which revolt had Crassus crushed years earlier? → **The slave revolt of Spartacus**
+- **Fact-check (2026-09-24):** corroborated. The Third Servile War ended in 71 BC when Crassus defeated Spartacus' army; Spartacus was killed and survivors were crucified along the Appian Way. Sources: https://www.britannica.com/event/Gladiatorial-War, https://en.wikipedia.org/wiki/Third_Servile_War
 
 ```sh
 npm run verify:record -- fact.ancient_rome.crassus_crushes source.brit_spartacus --status verified --by "Your Name" --quote "…"
@@ -7683,6 +7809,7 @@ npm run verify:record -- fact.ancient_rome.crucified_6000 source.brit_spartacus 
   - L34 `question.ancient_rome.034.q2`: Why did the revolt alarm Rome’s wealthy so much? → **Their estates depended on enslaved workers**
   - L62 `question.ancient_rome.062.q3`: From Level 34: Spartacus’s revolt drew in thousands of people. Who were they? → **Escaped enslaved people**
   - L64 `question.ancient_rome.064.q3`: From Level 34: Spartacus escaped from a gladiator school in which town? → **Capua**
+- **Fact-check (2026-09-24):** corroborated. In 73 BCE the Thracian gladiator Spartacus escaped a gladiatorial school at Capua with about 70 others, starting the Third Servile War. Sources: https://www.history.com/articles/spartacus-slave-revolt-ancient-rome, https://en.wikipedia.org/wiki/Spartacus
 
 ```sh
 npm run verify:record -- fact.ancient_rome.spartacus_73 source.brit_spartacus --status verified --by "Your Name" --quote "…"
@@ -7735,6 +7862,7 @@ npm run verify:record -- fact.ancient_rome.spartacus_symbol source.brit_spartacu
   - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c2` (text): Alaric at the gates / Stilicho, the western empire’s leading general, had held the Visigoth leader Alaric off, but he was executed in 408 CE. In 410 CE Alaric’s Visigoths sacked Rome and plundered it for three days. The Goths had been settled inside the empire since the years after Adrianople.
 - **Tested by:**
   - L91 `question.ancient_rome.091.q1`: Who led the Visigoths who sacked Rome in 410 CE? → **Alaric**
+- **Fact-check (2026-09-24):** corroborated. Stilicho, the West's leading general who had repeatedly checked Alaric, was arrested at Ravenna and beheaded on 22 August 408. Sources: https://www.worldhistory.org/Stilicho/, https://www.executedtoday.com/2008/08/22/408-stilicho-alaric-honorius-visigoths/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.stilicho source.brit_stilicho --status verified --by "Your Name" --quote "…"
@@ -7976,6 +8104,7 @@ npm run verify:record -- fact.ancient_rome.varus_quote source.brit_teutoburg --s
 - **Tested by:**
   - L88 `question.ancient_rome.088.q2`: What did Ambrose’s clash with Theodosius show? → **The church could now challenge an emperor**
   - L90 `question.ancient_rome.090.q2`: What happened to the empire after Theodosius died in 395 CE? → **It was divided between his two sons**
+- **Fact-check (2026-09-24):** corroborated. Theodosius I was the last emperor to rule both eastern and western halves (392 to 395); on his death in 395 the empire passed to his sons Arcadius (East) and Honorius (West). Sources: https://en.wikipedia.org/wiki/Theodosian_dynasty, https://en.wikipedia.org/wiki/Arcadius
 
 ```sh
 npm run verify:record -- fact.ancient_rome.division_395 source.brit_theodosius --status verified --by "Your Name" --quote "…"
@@ -8163,6 +8292,7 @@ npm run verify:record -- fact.ancient_rome.tiberius_adopted source.brit_tiberius
   - L31 `question.ancient_rome.031.q1`: What did Tiberius Gracchus propose in 133 BCE? → **Giving public land to poor citizens**
   - L31 `question.ancient_rome.031.q3`: From Level 16: Tiberius Gracchus held which office, meant to protect plebeians? → **Tribune of the plebs**
   - L34 `question.ancient_rome.034.q2`: Why did the revolt alarm Rome’s wealthy so much? → **Their estates depended on enslaved workers**
+- **Fact-check (2026-09-24):** corroborated. By the 2nd century BCE large slave-worked estates (latifundia) displaced many small citizen farmers, the problem Tiberius Gracchus addressed in 133 BC. Sources: https://en.wikipedia.org/wiki/Latifundium, https://en.wikipedia.org/wiki/Gracchi_brothers
 
 ```sh
 npm run verify:record -- fact.ancient_rome.land_problem source.brit_tiberius_gracchus --status verified --by "Your Name" --quote "…"
@@ -8226,6 +8356,7 @@ npm run verify:record -- fact.ancient_rome.violence_precedent source.brit_tiberi
 - **Concept:** The Flavians and the Colosseum (`concept.ancient_rome.flavians_colosseum`)
 - **Appears in:**
   - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c2` (text): A family of soldiers / In 70 CE Vespasian’s son Titus captured Jerusalem and destroyed its Temple. Titus succeeded Vespasian and was followed by his brother Domitian, whose harsh rule ended with his murder in 96 CE.
+- **Fact-check (2026-09-24):** corroborated. In 70 AD Titus, son of Vespasian, besieged and captured Jerusalem, and the Second Temple was destroyed. Sources: https://en.wikipedia.org/wiki/Siege_of_Jerusalem_(70_CE), https://www.worldhistory.org/article/1993/the-siege-of-jerusalem-in-70-ce/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.jerusalem_70 source.brit_titus --status verified --by "Your Name" --quote "…"
@@ -8263,6 +8394,7 @@ npm run verify:record -- fact.ancient_rome.titus_79 source.brit_titus --status v
   - L58 `question.ancient_rome.058.q3`: From Level 45: Trajan ruled during which long period of relative peace? → **The Pax Romana**
   - L60 `question.ancient_rome.060.q2`: Under which emperor did the empire reach its greatest extent? → **Trajan**
   - L68 `question.ancient_rome.068.q3`: From Level 58: Romanian descends from Latin spoken in which province Trajan conquered? → **Dacia**
+- **Fact-check (2026-09-24):** corroborated. Trajan fought two Dacian Wars (101 to 102 and 105 to 106); Sarmizegetusa fell in 106 and Dacia, roughly modern Romania, became a province. Sources: https://en.wikipedia.org/wiki/Dacian_Wars, https://www.britannica.com/biography/Trajan/Military-campaigns
 
 ```sh
 npm run verify:record -- fact.ancient_rome.dacia source.brit_trajan --status verified --by "Your Name" --quote "…"
@@ -8282,6 +8414,7 @@ npm run verify:record -- fact.ancient_rome.dacia source.brit_trajan --status ver
   - L58 `question.ancient_rome.058.q3`: From Level 45: Trajan ruled during which long period of relative peace? → **The Pax Romana**
   - L60 `question.ancient_rome.060.q2`: Under which emperor did the empire reach its greatest extent? → **Trajan**
   - L68 `question.ancient_rome.068.q3`: From Level 58: Romanian descends from Latin spoken in which province Trajan conquered? → **Dacia**
+- **Fact-check (2026-09-24):** corroborated. The empire reached its maximum extent under Trajan in 117 AD after his conquests of Dacia, Armenia and Mesopotamia. Sources: https://en.wikipedia.org/wiki/Trajan, https://www.visualcapitalist.com/map-roman-empire-maximum-extent-in-117-ad/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.greatest_extent source.brit_trajan --status verified --by "Your Name" --quote "…"
@@ -8466,6 +8599,7 @@ npm run verify:record -- fact.ancient_rome.triclinium source.brit_triclinium --s
 - **Tested by:**
   - L41 `question.ancient_rome.041.q3`: From Level 40: whom did Antony and Octavian defeat at Philippi in 42 BCE? → **Brutus and Cassius, Caesar’s assassins**
   - L42 `question.ancient_rome.042.q3`: From Level 41: after which battle did Antony take charge of the East? → **Philippi**
+- **Fact-check (2026-09-24):** corroborated. The Lex Titia of 27 November 43 BCE legally established Octavian, Antony and Lepidus as triumvirs for five years. Sources: https://en.wikipedia.org/wiki/Lex_Titia, https://en.wikipedia.org/wiki/Second_Triumvirate
 
 ```sh
 npm run verify:record -- fact.ancient_rome.second_triumvirate source.brit_triumvirate --status verified --by "Your Name" --quote "…"
@@ -8677,13 +8811,15 @@ npm run verify:record -- fact.ancient_rome.us_senate source.brit_us_senate --sta
 
 ### ☐ `fact.ancient_rome.valerian`: unverified
 
-> **Claim:** In 260 CE the emperor Valerian was captured by the Persian king Shapur I, the only Roman emperor taken prisoner by a foreign enemy.
+> **Claim:** In 260 CE the emperor Valerian was captured by the Persian king Shapur I, the first Roman emperor taken prisoner by a foreign enemy.
 
 - **Concept:** The Crisis of the Third Century (`concept.ancient_rome.third_century_crisis`)
 - **Appears in:**
-  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c3` (text): An emperor in chains / In 260 CE the emperor Valerian was captured by the Persian king Shapur I, the only Roman emperor taken prisoner by a foreign enemy. For a time the empire split into three, with a Gallic Empire in the west and Palmyra under Queen Zenobia in the east.
+  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c3` (text): An emperor in chains / In 260 CE the emperor Valerian was captured by the Persian king Shapur I, the first Roman emperor taken prisoner by a foreign enemy. For a time the empire split into three, with a Gallic Empire in the west and Palmyra under Queen Zenobia in the east.
 - **Tested by:**
   - L81 `question.ancient_rome.081.q1`: Which emperor was captured by the Persians in 260 CE? → **Valerian**
+- **Fact-check (2026-09-24):** corrected. Sources call Valerian (captured by Shapur I in 260) the FIRST Roman emperor taken prisoner. He was not the only one: Byzantine (Eastern Roman) emperor Romanos IV Diogenes was captured by the Seljuk sultan Alp Arslan at Manzikert in 1071. Sources: https://www.worldhistory.org/valerian/, https://www.britannica.com/event/Battle-of-Manzikert, https://www.worldhistory.org/Romanos_IV_Diogenes/
+- **Previous wording:** In 260 CE the emperor Valerian was captured by the Persian king Shapur I, the only Roman emperor taken prisoner by a foreign enemy.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.valerian source.brit_valerian --status verified --by "Your Name" --quote "…"
@@ -8704,6 +8840,7 @@ npm run verify:record -- fact.ancient_rome.valerian source.brit_valerian --statu
   - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c2` (text): Outside and inside / Pressure from Germanic peoples and the Huns stretched the western army beyond its limits. Repeated civil wars between Roman generals weakened the West from within. When the Vandals captured Carthage in 439 CE, the West lost its richest tax base and a major grain supply.
 - **Tested by:**
   - L94 `question.ancient_rome.094.q1`: What did the West lose when the Vandals took Carthage in 439 CE? → **Its richest taxes and grain**
+- **Fact-check (2026-09-24):** corroborated. The Vandals took Carthage on 19 October 439; Africa was the West's wealthiest region (Heather's 'jugular vein') and a key grain source for Rome. Sources: https://en.wikipedia.org/wiki/Capture_of_Carthage_(439), https://en.wikipedia.org/wiki/Vandal_conquest_of_Roman_Africa
 
 ```sh
 npm run verify:record -- fact.ancient_rome.lost_africa source.brit_vandal --status verified --by "Your Name" --quote "…"
@@ -8728,6 +8865,7 @@ npm run verify:record -- fact.ancient_rome.vandalism source.brit_vandal --status
 - **Concept:** 476: the last western emperor (`concept.ancient_rome.fall_476`)
 - **Appears in:**
   - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c2` (text): The Vandals / In 455 CE the Vandals sacked Rome for two weeks. Their name gave us the word vandalism, still used for senseless destruction.
+- **Fact-check (2026-09-24):** corroborated. Gaiseric's Vandals plundered Rome for fourteen days (2 to 16 June 455). Sources: https://en.wikipedia.org/wiki/Sack_of_Rome_(455), https://omniatlas.com/maps/europe/4550602/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.vandals_455 source.brit_vandal --status verified --by "Your Name" --quote "…"
@@ -8749,6 +8887,7 @@ npm run verify:record -- fact.ancient_rome.vandals_455 source.brit_vandal --stat
 - **Tested by:**
   - L38 `question.ancient_rome.038.q1`: Whom did Caesar defeat at Alesia in 52 BCE? → **Vercingetorix**
   - L53 `question.ancient_rome.053.q3`: From Level 38: what had Julius Caesar achieved in Britain? → **Two raids, in 55 and 54 BCE**
+- **Fact-check (2026-09-24):** corroborated. In 52 BC Caesar besieged Vercingetorix at Alesia; after the relief army failed, Vercingetorix surrendered, the last major engagement of the Gallic Wars. Sources: https://www.britannica.com/event/Battle-of-Alesia-52-BCE, https://musee-archeologienationale.fr/en/node/1592
 
 ```sh
 npm run verify:record -- fact.ancient_rome.alesia source.brit_vercingetorix --status verified --by "Your Name" --quote "…"
@@ -8893,6 +9032,7 @@ npm run verify:record -- fact.ancient_rome.vindolanda source.brit_vindolanda --s
 - **Concept:** Virgil and the Aeneid (`concept.ancient_rome.aeneid`)
 - **Appears in:**
   - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c4` (fact): Virgil wanted the Aeneid burned. / He died before finishing it and asked for the manuscript to be destroyed. Augustus had it published instead.
+- **Fact-check (2026-09-24):** corroborated. Suetonius and EBSCO: Virgil died in 19 BC wanting the unfinished Aeneid burned; Augustus had his executors Varius and Tucca publish it with minimal changes. Sources: https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Suetonius/de_Poetis/Vergil*.html, https://www.ebsco.com/research-starters/literature-and-writing/roman-poet-vergil-dies
 
 ```sh
 npm run verify:record -- fact.ancient_rome.aeneid_unfinished source.brit_virgil --status verified --by "Your Name" --quote "…"
@@ -8900,14 +9040,16 @@ npm run verify:record -- fact.ancient_rome.aeneid_unfinished source.brit_virgil 
 
 ### ☐ `fact.ancient_rome.virgil`: unverified
 
-> **Claim:** Virgil, who lived from 70 to 19 BCE, was the greatest poet of Augustan Rome.
+> **Claim:** Virgil, who lived from 70 to 19 BCE, is widely regarded as the greatest poet of Augustan Rome.
 
 - **Concept:** Virgil and the Aeneid (`concept.ancient_rome.aeneid`)
 - **Appears in:**
-  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c2` (text): The poem / Virgil, who lived from 70 to 19 BCE, was the greatest poet of Augustan Rome. His Aeneid is an epic poem in 12 books, modeled on Homer’s Iliad and Odyssey. It tells how the Trojan prince Aeneas escaped burning Troy and, guided by fate, came to Italy.
+  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c2` (text): The poem / Virgil, who lived from 70 to 19 BCE, is widely regarded as the greatest poet of Augustan Rome. His Aeneid is an epic poem in 12 books, modeled on Homer’s Iliad and Odyssey. It tells how the Trojan prince Aeneas escaped burning Troy and, guided by fate, came to Italy.
 - **Tested by:**
   - L47 `question.ancient_rome.047.q1`: Who is the hero of the Aeneid? → **Aeneas**
   - L47 `question.ancient_rome.047.q3`: From Level 2: Aeneas was one founding legend. Who, in the other, founded the city itself? → **Romulus**
+- **Fact-check (2026-09-24):** disputed. Dates 70 to 19 BCE are correct. 'Greatest poet' is a judgement: Britannica says Virgil was regarded by the Romans as their greatest poet, a view later generations upheld; others call him one of the greatest. Sources: https://www.britannica.com/biography/Virgil, https://www.worldhistory.org/virgil/
+- **Previous wording:** Virgil, who lived from 70 to 19 BCE, was the greatest poet of Augustan Rome.
 
 ```sh
 npm run verify:record -- fact.ancient_rome.virgil source.brit_virgil --status verified --by "Your Name" --quote "…"
@@ -8931,6 +9073,7 @@ npm run verify:record -- fact.ancient_rome.virgil source.brit_virgil --status ve
   - L55 `question.ancient_rome.055.q2`: What did 69 CE reveal about imperial power? → **Armies far from Rome could make emperors**
   - L55 `question.ancient_rome.055.q3`: From Level 32: why would legions back their own general for emperor? → **Soldiers looked to their general for their future**
   - L81 `question.ancient_rome.081.q3`: From Level 55: what had 69 CE revealed that the third century showed again? → **Armies could make and unmake emperors**
+- **Fact-check (2026-09-24):** corroborated. In 69 CE Galba, Otho, Vitellius and Vespasian each rose with military backing; Tacitus said the year revealed that an emperor could be made outside Rome by the armies. Sources: https://www.ebsco.com/research-starters/history/year-four-emperors, https://en.wikipedia.org/wiki/Year_of_the_Four_Emperors
 
 ```sh
 npm run verify:record -- fact.ancient_rome.armies_made source.brit_year_four --status verified --by "Your Name" --quote "…"
@@ -8966,6 +9109,7 @@ npm run verify:record -- fact.ancient_rome.secret_empire source.brit_year_four -
   - L55 `question.ancient_rome.055.q2`: What did 69 CE reveal about imperial power? → **Armies far from Rome could make emperors**
   - L55 `question.ancient_rome.055.q3`: From Level 32: why would legions back their own general for emperor? → **Soldiers looked to their general for their future**
   - L81 `question.ancient_rome.081.q3`: From Level 55: what had 69 CE revealed that the third century showed again? → **Armies could make and unmake emperors**
+- **Fact-check (2026-09-24):** corroborated. In 69 Galba, Otho, Vitellius and Vespasian ruled in succession; Galba was killed in January, Otho died in April, Vitellius fell in December, and Vespasian prevailed. Sources: https://www.worldhistory.org/Year_of_the_Four_Emperors/, https://en.wikipedia.org/wiki/Year_of_the_Four_Emperors
 
 ```sh
 npm run verify:record -- fact.ancient_rome.year_69 source.brit_year_four --status verified --by "Your Name" --quote "…"
@@ -8987,8 +9131,9 @@ npm run verify:record -- fact.ancient_rome.year_69 source.brit_year_four --statu
   - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c2` (timeline): From Sicily to the whole sea: 264–241 BCE: First Punic War: Rome builds a navy and wins Sicily; 218–201 BCE: Second Punic War: Hannibal invades; Scipio wins at Zama; 149–146 BCE: Third Punic War: Carthage is destroyed; 146 BCE: Corinth falls; Rome dominates the Mediterranean
 - **Tested by:**
   - L26 `question.ancient_rome.026.q1`: Who defeated Hannibal at Zama? → **Scipio**
-  - L26 `question.ancient_rome.026.q3`: From Level 23: Zama ended the war that began with which event? → **Hannibal’s invasion of Italy in 218 BCE**
+  - L26 `question.ancient_rome.026.q3`: From Level 23: Zama ended the war that began with which event? → **Hannibal’s attack on Saguntum in Spain**
   - L27 `question.ancient_rome.027.q3`: From Level 26: which western rival had Rome just defeated before its wars in the east? → **Carthage**
+- **Fact-check (2026-09-24):** corroborated. At Zama in 202 BC Scipio Africanus decisively defeated Hannibal, leading Carthage to capitulate and ending the Second Punic War. Sources: https://www.britannica.com/event/Battle-of-Zama-Roman-Carthaginian-history, https://en.wikipedia.org/wiki/Battle_of_Zama
 
 ```sh
 npm run verify:record -- fact.ancient_rome.zama_202 source.brit_zama --status verified --by "Your Name" --quote "…"
@@ -9006,7 +9151,7 @@ npm run verify:record -- fact.ancient_rome.zama_202 source.brit_zama --status ve
 
 - **Concept:** The Crisis of the Third Century (`concept.ancient_rome.third_century_crisis`)
 - **Appears in:**
-  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c3` (text): An emperor in chains / In 260 CE the emperor Valerian was captured by the Persian king Shapur I, the only Roman emperor taken prisoner by a foreign enemy. For a time the empire split into three, with a Gallic Empire in the west and Palmyra under Queen Zenobia in the east.
+  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c3` (text): An emperor in chains / In 260 CE the emperor Valerian was captured by the Persian king Shapur I, the first Roman emperor taken prisoner by a foreign enemy. For a time the empire split into three, with a Gallic Empire in the west and Palmyra under Queen Zenobia in the east.
 - **Tested by:**
   - L81 `question.ancient_rome.081.q1`: Which emperor was captured by the Persians in 260 CE? → **Valerian**
 
@@ -9027,6 +9172,7 @@ npm run verify:record -- fact.ancient_rome.breakaway source.brit_zenobia --statu
 - **Concept:** Roman concrete (`concept.ancient_rome.roman_concrete`)
 - **Appears in:**
   - L73 “Roman Concrete” · `card.ancient_rome.073.c4` (fact): Roman concrete could repair itself. / A 2023 study found that lumps of lime in the mix could react with water seeping into cracks and seal them.
+- **Fact-check (2026-09-24):** corroborated. A January 2023 MIT-led study in Science Advances found lime clasts in Roman concrete dissolve when cracks let in water and recrystallize to seal them. Sources: https://news.mit.edu/2023/roman-concrete-durability-lime-casts-0106, https://www.scientificamerican.com/article/ancient-roman-concrete-has-self-healing-capabilities/
 
 ```sh
 npm run verify:record -- fact.ancient_rome.self_healing source.mit_concrete --status verified --by "Your Name" --quote "…"

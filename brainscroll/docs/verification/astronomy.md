@@ -139,15 +139,17 @@ npm run verify:record -- fact.astronomy.aristarchus_earlier source.brit_aristarc
 
 ### ☐ `fact.astronomy.au_definition`: unverified
 
-> **Claim:** The astronomical unit (AU) is the average distance between Earth and the Sun, about 150 million km.
+> **Claim:** The astronomical unit (AU) is about 150 million km, roughly the average distance between Earth and the Sun. Since 2012 it has been fixed at exactly 149,597,870.7 km.
 
 - **Concept:** The astronomical unit (`concept.astronomy.astronomical_unit`)
 - **Appears in:**
-  - L28 “Measuring the Solar System” · `card.astronomy.028.c4` (fact): 1 astronomical unit (AU) is about 150 million km. / It’s the average Earth–Sun distance, and the solar system’s standard yardstick.
+  - L28 “Measuring the Solar System” · `card.astronomy.028.c4` (fact): 1 astronomical unit (AU) is about 150 million km. / It’s roughly the average Earth–Sun distance, and the solar system’s standard yardstick.
 - **Tested by:**
   - L28 `question.astronomy.028.q1`: What is an astronomical unit? → **The average distance between Earth and the Sun**
   - L28 `question.astronomy.028.q3`: From Level 1: sunlight takes about 8 minutes to reach Earth. What distance does that light cover? → **About 150 million km (1 AU)**
   - L50 `question.astronomy.050.q5`: Neptune is about 30 AU from the Sun. About how long does sunlight take to reach it? → **About 4 hours**
+- **Fact-check (2026-09-24):** corrected. The AU was historically conceived as the mean Earth-Sun distance, but since 2012 the IAU defines it as exactly 149,597,870,700 m, a fixed unit roughly equal to that average distance. Sources: https://observatoiredeparis.psl.eu/the-new-definition-of-the-astronomical-unit.html, https://phys.org/news/2012-09-iau-votes-redefine-astronomical-constant.html, https://cneos.jpl.nasa.gov/glossary/au.html
+- **Previous wording:** The astronomical unit (AU) is the average distance between Earth and the Sun, about 150 million km.
 
 ```sh
 npm run verify:record -- fact.astronomy.au_definition source.brit_au --status verified --by "Your Name" --quote "…"
@@ -236,6 +238,7 @@ npm run verify:record -- fact.astronomy.babylon_records source.brit_babylonian_a
   - L61 `question.astronomy.061.q3`: From Level 30: Bessel measured stellar parallax in 1838. Why had no one managed it before? → **The shift is tiny, needing very precise telescopes**
   - L97 `question.astronomy.097.q2`: An astronomer wants the distance to a nearby star. Which method fits best? → **Measuring its parallax**
   - L100 `question.astronomy.100.q4`: Why was Bessel’s 1838 measurement of a star’s parallax such a milestone? → **It directly showed Earth moves around the Sun**
+- **Fact-check (2026-09-24):** corroborated. In 1838 Bessel announced a parallax of 0.314 arcsec for 61 Cygni, the first published distance to a star other than the Sun. Sources: https://aas.org/posts/news/2021/11/month-astronomical-history-november-2021, https://www.lindahall.org/about/news/scientist-of-the-day/friedrich-wilhelm-bessel/
 
 ```sh
 npm run verify:record -- fact.astronomy.bessel_1838 source.brit_bessel --status verified --by "Your Name" --quote "…"
@@ -275,6 +278,7 @@ npm run verify:record -- fact.astronomy.parallax_proves_orbit source.brit_bessel
 - **Tested by:**
   - L91 `question.astronomy.091.q1`: According to the Big Bang theory, how did the universe begin? → **In an extremely hot, dense state, then expanded**
   - L92 `question.astronomy.092.q3`: From Level 91: why did finding the CMB give such strong support to the Big Bang theory? → **The theory had predicted such a glow**
+- **Fact-check (2026-09-24):** corroborated. Britannica: the big-bang theory proposes the universe began about 13.8 billion years ago in an extremely hot, dense state and has been expanding and cooling ever since. Sources: https://www.britannica.com/science/How-Was-the-Universe-Created, https://science.nasa.gov/universe/overview/
 
 ```sh
 npm run verify:record -- fact.astronomy.bb_hot_dense source.brit_big_bang --status verified --by "Your Name" --quote "…"
@@ -445,6 +449,7 @@ npm run verify:record -- fact.astronomy.cmb_1965 source.brit_cmb --status verifi
   - L92 “The Afterglow: Cosmic Microwave Background” · `card.astronomy.092.c2` (text): When light broke free / For its first 380,000 years or so, the universe was too hot and dense for light to travel far. When it cooled enough for atoms to form, light could finally travel freely. That ancient light still fills the sky as the cosmic microwave background, or CMB. / Released ~380,000 years after the Big Bang
 - **Tested by:**
   - L92 `question.astronomy.092.q1`: What is the cosmic microwave background? → **Leftover light from the early universe**
+- **Fact-check (2026-09-24):** corroborated. About 380,000 years after the Big Bang the universe cooled to about 3000 K, electrons and protons combined into atoms, and photons could travel freely. Sources: https://www.astro.ucla.edu/~wright/CMB.html, https://www.cfa.harvard.edu/research/topic/cosmic-microwave-background
 
 ```sh
 npm run verify:record -- fact.astronomy.cmb_380k source.brit_cmb --status verified --by "Your Name" --quote "…"
@@ -503,6 +508,7 @@ npm run verify:record -- fact.astronomy.cmb_stretched source.brit_cmb --status v
   - L92 “The Afterglow: Cosmic Microwave Background” · `card.astronomy.092.c3` (text): Stretched to microwaves / The CMB started as the glow of hot gas. As space expanded over billions of years, that light was stretched to much longer wavelengths, all the way to microwaves. Today it’s only about 2.7 degrees above absolute zero. / ≈ 2.7 K
 - **Tested by:**
   - L92 `question.astronomy.092.q2`: Why does the CMB reach us as microwaves rather than visible light? → **Expanding space stretched its wavelengths**
+- **Fact-check (2026-09-24):** corroborated. The CMB temperature is about 2.725 K, barely above absolute zero. Sources: https://www.astro.ucla.edu/~wright/CMB.html, https://www.space.com/33892-cosmic-microwave-background.html
 
 ```sh
 npm run verify:record -- fact.astronomy.cmb_temp source.brit_cmb --status verified --by "Your Name" --quote "…"
@@ -526,6 +532,7 @@ npm run verify:record -- fact.astronomy.cmb_temp source.brit_cmb --status verifi
   - L30 “Checkpoint: How We Know” · `card.astronomy.030.c3` (fact): In 1838 Friedrich Bessel finally measured a star shifting as Earth orbits. / The star, 61 Cygni, moved by a tiny angle over the year: the first measured distance to a star, and direct proof that Earth goes around the Sun, as Copernicus had argued.
 - **Tested by:**
   - L24 `question.astronomy.024.q1`: What did Copernicus put at the center of his model? → **The Sun**
+- **Fact-check (2026-09-24):** corroborated. De revolutionibus, published in Nuremberg in 1543, set out a heliocentric model with Earth and planets orbiting the Sun. Sources: https://www.britannica.com/topic/De-revolutionibus-orbium-coelestium-libri-VI, https://www2.hao.ucar.edu/education/scientists/nicolaus-copernicus-1473-1543
 
 ```sh
 npm run verify:record -- fact.astronomy.copernicus_1543 source.brit_copernicus --status verified --by "Your Name" --quote "…"
@@ -612,6 +619,7 @@ npm run verify:record -- fact.astronomy.cosmic_web_def source.brit_cosmic_web --
 - **Concept:** Pulsars (`concept.astronomy.pulsars`)
 - **Appears in:**
   - L72 “Pulsars: Cosmic Lighthouses” · `card.astronomy.072.c4` (fact): The Crab Nebula has a pulsar at its heart. / The nebula is the remains of a supernova that Chinese astronomers recorded in 1054.
+- **Fact-check (2026-09-24):** corroborated. Chinese astronomers recorded the 1054 supernova whose remnant is the Crab Nebula; the rapidly spinning Crab pulsar at its center powers the nebula. Sources: https://www.britannica.com/place/Crab-Nebula, https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-1/
 
 ```sh
 npm run verify:record -- fact.astronomy.crab_1054 source.brit_crab_nebula --status verified --by "Your Name" --quote "…"
@@ -635,6 +643,7 @@ npm run verify:record -- fact.astronomy.crab_1054 source.brit_crab_nebula --stat
 - **Tested by:**
   - L94 `question.astronomy.094.q1`: What did astronomers discover in 1998? → **The expansion of the universe is speeding up**
   - L98 `question.astronomy.098.q3`: From Level 94: if dark energy keeps accelerating the expansion, what happens to distant galaxies? → **They eventually drift out of view**
+- **Fact-check (2026-09-24):** corroborated. In 1998 two teams studying distant Type Ia supernovae found them fainter than expected, showing the expansion is accelerating. Sources: https://www.nobelprize.org/prizes/physics/2011/popular-information/, https://www.nobelprize.org/prizes/physics/2011/summary/
 
 ```sh
 npm run verify:record -- fact.astronomy.de_1998 source.brit_dark_energy --status verified --by "Your Name" --quote "…"
@@ -650,6 +659,7 @@ npm run verify:record -- fact.astronomy.de_1998 source.brit_dark_energy --status
 - **Tested by:**
   - L94 `question.astronomy.094.q1`: What did astronomers discover in 1998? → **The expansion of the universe is speeding up**
   - L98 `question.astronomy.098.q3`: From Level 94: if dark energy keeps accelerating the expansion, what happens to distant galaxies? → **They eventually drift out of view**
+- **Fact-check (2026-09-24):** corroborated. The Nobel committee notes the 1998 teams expected to find signs that the expansion was slowing down; instead it was accelerating. Sources: https://www.nobelprize.org/prizes/physics/2011/popular-information/, https://www.nobelprize.org/prizes/physics/2011/press-release/
 
 ```sh
 npm run verify:record -- fact.astronomy.expected_slowdown source.brit_dark_energy --status verified --by "Your Name" --quote "…"
@@ -687,6 +697,7 @@ npm run verify:record -- fact.astronomy.far_future_expansion source.brit_dark_en
   - L88 “Hubble’s Expanding Universe” · `card.astronomy.088.c2` (text): One galaxy among many / Fuzzy patches like the Andromeda “nebula” were once debated: were they clouds inside the Milky Way, or separate galaxies? In 1924 Edwin Hubble settled it. Andromeda is a separate galaxy about 2.5 million light-years away, far beyond our own.
 - **Tested by:**
   - L88 `question.astronomy.088.q3`: From Level 10: Andromeda is about 2.5 million light-years away. Why did Hubble’s 1924 finding about it matter? → **It proved galaxies exist beyond the Milky Way**
+- **Fact-check (2026-09-24):** corroborated. Using Cepheids in Andromeda, Hubble showed it lies far beyond the Milky Way; his result was announced in November and December 1924 (formally presented 1 Jan 1925). Sources: https://www.edn.com/hubble-announces-discovery-of-other-galaxies-december-30-1924/, https://theconversation.com/its-100-years-since-we-learned-the-milky-way-is-not-the-only-galaxy-242952
 
 ```sh
 npm run verify:record -- fact.astronomy.hubble_1924 source.brit_edwin_hubble --status verified --by "Your Name" --quote "…"
@@ -815,7 +826,7 @@ npm run verify:record -- fact.astronomy.orbit_is_falling source.brit_escape_velo
 - **Concept:** Galaxy clusters and gravitational lenses (`concept.astronomy.clusters_lensing`)
 - **Appears in:**
   - L86 “Galaxy Clusters and Gravitational Lenses” · `card.astronomy.086.c2` (text): Cities of galaxies / Galaxies aren’t spread evenly. Many are gathered into clusters of hundreds or thousands of galaxies, bound together by gravity, much of it from dark matter.
-  - L90 “Checkpoint: A Universe of Galaxies” · `card.astronomy.090.c2` (text): A ladder of scale / The Sun circles the Milky Way once every 230 million years or so. The Milky Way is one of more than 50 galaxies in the Local Group. Beyond that, galaxies gather in clusters of hundreds or thousands, held together largely by dark matter. / Galaxy → group → cluster
+  - L90 “Checkpoint: A Universe of Galaxies” · `card.astronomy.090.c2` (text): A ladder of scale / The Sun circles the Milky Way once every 230 million years or so. The Milky Way is one of about 100 or more galaxies in the Local Group. Beyond that, galaxies gather in clusters of hundreds or thousands, held together largely by dark matter. / Galaxy → group → cluster
 - **Tested by:**
   - L86 `question.astronomy.086.q3`: From Level 85: what supplies much of the gravity holding galaxy clusters together? → **Dark matter**
   - L90 `question.astronomy.090.q2`: Which list runs from smallest to largest? → **Milky Way, Local Group, galaxy cluster, cosmic web**
@@ -1003,6 +1014,7 @@ npm run verify:record -- fact.astronomy.lensing source.brit_grav_lens --status v
 - **Tested by:**
   - L40 `question.astronomy.040.q5`: Chapter 4 recap: which pairing of tool and discovery is correct? → **Spectroscope → helium found in the Sun**
   - L100 `question.astronomy.100.q5`: How was helium discovered before anyone found it on Earth? → **From an unexplained line in the Sun’s spectrum**
+- **Fact-check (2026-09-24):** corroborated. Janssen (18 Aug 1868) and Lockyer (20 Oct 1868) saw an unexplained yellow solar spectral line; Ramsay isolated helium on Earth from cleveite in 1895. Sources: https://www.aps.org/apsnews/2014/08/discovery-of-helium-1868, https://www.smithsonianmag.com/history/how-scientists-discovered-helium-first-alien-element-1868-180970057/
 
 ```sh
 npm run verify:record -- fact.astronomy.helium_1868 source.brit_helium --status verified --by "Your Name" --quote "…"
@@ -1039,6 +1051,7 @@ npm run verify:record -- fact.astronomy.helium_name source.brit_helium --status 
 - **Tested by:**
   - L63 `question.astronomy.063.q1`: What two properties does the H–R diagram plot? → **Luminosity and surface temperature**
   - L63 `question.astronomy.063.q3`: From Level 9: a blue-white star is hotter than a red one. On the H–R diagram, which side is it on? → **The left side, with hotter stars**
+- **Fact-check (2026-09-24):** corroborated. Hertzsprung (1911) and Russell (1913) created the diagram independently, neither knowing of the other's work, consistent with 'early 1900s'. Sources: https://www.atnf.csiro.au/resources/education/senior-astrophysics/stellarevolution/hrintro/, https://www.britannica.com/science/Hertzsprung-Russell-diagram
 
 ```sh
 npm run verify:record -- fact.astronomy.hr_1910 source.brit_hr_diagram --status verified --by "Your Name" --quote "…"
@@ -1139,6 +1152,7 @@ npm run verify:record -- fact.astronomy.expansion_not_center source.brit_hubble_
   - L88 `question.astronomy.088.q1`: What did Hubble report in 1929? → **Galaxies recede faster the farther away they are**
   - L90 `question.astronomy.090.q4`: A faraway galaxy shows a very large redshift. What does that tell you? → **It is very far away and receding fast**
   - L100 `question.astronomy.100.q9`: Which list puts these discoveries in the order they happened? → **Jupiter’s moons → galaxy redshifts → the CMB**
+- **Fact-check (2026-09-24):** corroborated. In 1929 Hubble published the velocity-distance relation: more distant galaxies recede faster, interpreted as evidence of an expanding universe. Sources: https://www.pnas.org/doi/10.1073/pnas.1424299112, https://www.atnf.csiro.au/resources/education/senior-cosmicengine/cosmology/hubble/
 
 ```sh
 npm run verify:record -- fact.astronomy.hubble_law source.brit_hubble_law --status verified --by "Your Name" --quote "…"
@@ -1193,6 +1207,7 @@ npm run verify:record -- fact.astronomy.lemaitre source.brit_hubble_law --status
   - L35 `question.astronomy.035.q1`: What did Karl Jansky detect in the early 1930s? → **Radio waves coming from the Milky Way**
   - L40 `question.astronomy.040.q2`: Which kind of telescope can observe through clouds and in daylight? → **A radio telescope**
   - L72 `question.astronomy.072.q3`: From Level 35: what kind of telescope found the first pulsar? → **A radio telescope**
+- **Fact-check (2026-09-24):** corroborated. Jansky detected radio emission from the Milky Way (Sagittarius) in 1932 and announced it in April 1933; he is regarded as a founder of radio astronomy. Sources: https://public.nrao.edu/news/milky-ways-black-hole-was-birth-cry-of-radio-astronomy/, https://aas.org/posts/news/2018/07/month-astronomical-history-1
 
 ```sh
 npm run verify:record -- fact.astronomy.jansky_1932 source.brit_jansky --status verified --by "Your Name" --quote "…"
@@ -1298,16 +1313,18 @@ npm run verify:record -- fact.astronomy.newton_explains_kepler source.brit_keple
 
 ### ☐ `fact.astronomy.local_group_members`: unverified
 
-> **Claim:** The Milky Way belongs to the Local Group, a gathering of more than 50 galaxies dominated by the Milky Way and Andromeda.
+> **Claim:** The Milky Way belongs to the Local Group, a gathering of about 100 or more galaxies, mostly small dwarfs, dominated by the Milky Way and Andromeda.
 
 - **Concept:** The Local Group (`concept.astronomy.local_group`)
 - **Appears in:**
   - L84 “The Local Group” · `card.astronomy.084.c1` (text): Our galaxy lives in a neighborhood.
-  - L84 “The Local Group” · `card.astronomy.084.c2` (text): The neighborhood / The Milky Way belongs to the Local Group, a gathering of more than 50 galaxies about 10 million light-years across. Two big spirals dominate it: the Milky Way and Andromeda. Most of the rest are small dwarf galaxies. / 50+ galaxies · ~10 million ly
-  - L90 “Checkpoint: A Universe of Galaxies” · `card.astronomy.090.c2` (text): A ladder of scale / The Sun circles the Milky Way once every 230 million years or so. The Milky Way is one of more than 50 galaxies in the Local Group. Beyond that, galaxies gather in clusters of hundreds or thousands, held together largely by dark matter. / Galaxy → group → cluster
+  - L84 “The Local Group” · `card.astronomy.084.c2` (text): The neighborhood / The Milky Way belongs to the Local Group, a gathering of about 100 or more galaxies about 10 million light-years across. Two big spirals dominate it: the Milky Way and Andromeda. Most of the rest are small dwarf galaxies. / ~100+ galaxies · ~10 million ly
+  - L90 “Checkpoint: A Universe of Galaxies” · `card.astronomy.090.c2` (text): A ladder of scale / The Sun circles the Milky Way once every 230 million years or so. The Milky Way is one of about 100 or more galaxies in the Local Group. Beyond that, galaxies gather in clusters of hundreds or thousands, held together largely by dark matter. / Galaxy → group → cluster
 - **Tested by:**
   - L84 `question.astronomy.084.q1`: Which two galaxies dominate the Local Group? → **The Milky Way and Andromeda**
   - L90 `question.astronomy.090.q2`: Which list runs from smallest to largest? → **Milky Way, Local Group, galaxy cluster, cosmic web**
+- **Fact-check (2026-09-24):** corrected. Current censuses count roughly 100 or more Local Group galaxies (astronomy.com cites about 125), mostly dwarfs; 'more than 50' is an outdated undercount. Milky Way and Andromeda dominate. Sources: https://www.astronomy.com/observing/michaels-miscellany-meet-the-local-group/, https://earthsky.org/clusters-nebulae-galaxies/what-is-the-local-group/
+- **Previous wording:** The Milky Way belongs to the Local Group, a gathering of more than 50 galaxies dominated by the Milky Way and Andromeda.
 
 ```sh
 npm run verify:record -- fact.astronomy.local_group_members source.brit_local_group --status verified --by "Your Name" --quote "…"
@@ -1319,9 +1336,10 @@ npm run verify:record -- fact.astronomy.local_group_members source.brit_local_gr
 
 - **Concept:** The Local Group (`concept.astronomy.local_group`)
 - **Appears in:**
-  - L84 “The Local Group” · `card.astronomy.084.c2` (text): The neighborhood / The Milky Way belongs to the Local Group, a gathering of more than 50 galaxies about 10 million light-years across. Two big spirals dominate it: the Milky Way and Andromeda. Most of the rest are small dwarf galaxies. / 50+ galaxies · ~10 million ly
+  - L84 “The Local Group” · `card.astronomy.084.c2` (text): The neighborhood / The Milky Way belongs to the Local Group, a gathering of about 100 or more galaxies about 10 million light-years across. Two big spirals dominate it: the Milky Way and Andromeda. Most of the rest are small dwarf galaxies. / ~100+ galaxies · ~10 million ly
 - **Tested by:**
   - L84 `question.astronomy.084.q1`: Which two galaxies dominate the Local Group? → **The Milky Way and Andromeda**
+- **Fact-check (2026-09-24):** corroborated. Sources give a Local Group diameter of about 10 million light-years (about 3 megaparsecs), noting estimates vary slightly. Sources: https://en.wikipedia.org/wiki/Local_Group, https://www.astronomy.com/observing/michaels-miscellany-meet-the-local-group/
 
 ```sh
 npm run verify:record -- fact.astronomy.local_group_size source.brit_local_group --status verified --by "Your Name" --quote "…"
@@ -1465,6 +1483,7 @@ npm run verify:record -- fact.astronomy.red_dwarfs_long source.brit_main_sequenc
   - L64 “The Main Sequence” · `card.astronomy.064.c2` (text): Life on the main sequence / A main-sequence star is fusing hydrogen into helium in its core. Stars spend most of their lives this way, which is why most stars on the H–R diagram fall on the main sequence. The Sun will spend about 10 billion years there in total. / Sun: ~10 billion years
 - **Tested by:**
   - L64 `question.astronomy.064.q1`: What is a main-sequence star doing in its core? → **Fusing hydrogen into helium**
+- **Fact-check (2026-09-24):** corroborated. A Sun-like star stays on the main sequence for about 10 billion years; the Sun is roughly halfway through. Sources: https://www.space.com/22437-main-sequence-star.html, https://courses.lumenlearning.com/suny-earthscience/chapter/stellar-life-cycle/
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_10_billion source.brit_main_sequence --status verified --by "Your Name" --quote "…"
@@ -1823,6 +1842,7 @@ npm run verify:record -- fact.astronomy.no_feeling_motion source.brit_ptolemy --
   - L23 `question.astronomy.023.q1`: In Ptolemy’s model, what sat at the center of the universe? → **Earth**
   - L23 `question.astronomy.023.q3`: From Level 16: how did Ptolemy’s model explain retrograde motion? → **Planets riding epicycles as they circled Earth**
   - L24 `question.astronomy.024.q3`: From Level 23: what was one weakness Copernicus’s model shared with Ptolemy’s? → **It still assumed perfectly circular orbits**
+- **Fact-check (2026-09-24):** corroborated. Britannica: the Almagest was written about 150 CE; its original title was Mathematike Syntaxis, and 'Almagest' came later via Arabic. It set out the geocentric Ptolemaic system. Sources: https://www.britannica.com/topic/Almagest, https://www.britannica.com/science/Ptolemaic-system
 
 ```sh
 npm run verify:record -- fact.astronomy.ptolemy_almagest source.brit_ptolemy --status verified --by "Your Name" --quote "…"
@@ -1873,6 +1893,7 @@ npm run verify:record -- fact.astronomy.lgm_nickname source.brit_pulsar --status
   - L72 “Pulsars: Cosmic Lighthouses” · `card.astronomy.072.c3` (text): The discovery / The first pulsar was discovered in 1967 by Jocelyn Bell Burnell, then a graduate student, while studying radio signals. The pulses were so regular that her team briefly considered, half-jokingly, that they might be artificial.
 - **Tested by:**
   - L72 `question.astronomy.072.q3`: From Level 35: what kind of telescope found the first pulsar? → **A radio telescope**
+- **Fact-check (2026-09-24):** corroborated. Jocelyn Bell Burnell, a Cambridge graduate student, spotted the first pulsar signal in late 1967 (paper early 1968); her supervisor Antony Hewish shared in the 1974 Nobel. Sources: https://www.cam.ac.uk/stories/journeysofdiscovery-pulsars, https://www.smithsonianmag.com/science-nature/Fifty-years-ago-grad-students-discovery-changed-course-astrophysics-180968288/
 
 ```sh
 npm run verify:record -- fact.astronomy.pulsar_1967 source.brit_pulsar --status verified --by "Your Name" --quote "…"
@@ -1922,6 +1943,7 @@ npm run verify:record -- fact.astronomy.pulsar_lighthouse source.brit_pulsar --s
 - **Concept:** Quasars and active galaxies (`concept.astronomy.quasars`)
 - **Appears in:**
   - L87 “Quasars and Active Galaxies” · `card.astronomy.087.c4` (fact): The first quasar was identified in 1963. / Maarten Schmidt realized that the object 3C 273, which looked like a faint star, was actually extremely distant and enormously luminous.
+- **Fact-check (2026-09-24):** corroborated. On Feb. 5, 1963, Maarten Schmidt recognized redshifted hydrogen lines in 3C 273, implying a distance of billions of light-years and huge luminosity; published in Nature March 1963 as the first quasar. Sources: https://www.caltech.edu/about/news/fifty-years-quasars-38937, https://www.aps.org/apsnews/2021/02/maarten-schmidt-discovers-first-quasar
 
 ```sh
 npm run verify:record -- fact.astronomy.quasar_1963 source.brit_quasar --status verified --by "Your Name" --quote "…"
@@ -2107,6 +2129,7 @@ npm run verify:record -- fact.astronomy.sirius_b source.brit_sirius_star --statu
 - **Appears in:**
   - L62 “Bright or Close? Luminosity” · `card.astronomy.062.c1` (text): The brightest star in the sky isn’t the most powerful. It’s just close.
   - L62 “Bright or Close? Luminosity” · `card.astronomy.062.c4` (fact): Sirius, the brightest night-time star, is about 8.6 light-years away. / It’s more luminous than the Sun, and relatively close. Many far more powerful stars look fainter because they are much farther away.
+- **Fact-check (2026-09-24):** corroborated. Sirius is the brightest star in the night sky, about 8.6 light-years away and about 25 times more luminous than the Sun. Sources: https://www.space.com/21702-sirius-brightest-star.html, https://earthsky.org/brightest-stars/sirius-the-brightest-star/
 
 ```sh
 npm run verify:record -- fact.astronomy.sirius_bright_near source.brit_sirius_star --status verified --by "Your Name" --quote "…"
@@ -2386,6 +2409,7 @@ npm run verify:record -- fact.astronomy.galileo_sunspots source.brit_sunspot --s
   - L57 “Sunspots and the Solar Cycle” · `card.astronomy.057.c3` (text): An 11-year rhythm / The number of sunspots rises and falls over a solar cycle that lasts about 11 years. At solar maximum the Sun is spotty and active; at solar minimum it can go days with no spots at all.
 - **Tested by:**
   - L57 `question.astronomy.057.q1`: About how long is the solar cycle? → **About 11 years**
+- **Fact-check (2026-09-24):** corroborated. NOAA and NASA describe sunspot numbers rising and falling in a cycle of roughly 11 years (range about 8 to 14). Sources: https://www.swpc.noaa.gov/news/sunspots-and-solar-cycles, https://spaceplace.nasa.gov/solar-cycles/en/
 
 ```sh
 npm run verify:record -- fact.astronomy.solar_cycle_11 source.brit_sunspot --status verified --by "Your Name" --quote "…"
@@ -2476,6 +2500,7 @@ npm run verify:record -- fact.astronomy.fate_by_mass source.brit_supernova --sta
 - **Concept:** Supernovae and star stuff (`concept.astronomy.supernovae_elements`)
 - **Appears in:**
   - L69 “Supernovae and Star Stuff” · `card.astronomy.069.c4` (fact): In 1987, a supernova was visible to the naked eye. / It exploded in the Large Magellanic Cloud, a small galaxy near the Milky Way: the closest supernova seen in centuries.
+- **Fact-check (2026-09-24):** corroborated. SN 1987A was discovered Feb. 24, 1987, in the Large Magellanic Cloud, a satellite galaxy of the Milky Way, and was the first naked-eye supernova since 1604. Sources: https://chandra.harvard.edu/deadstar/sn1987a.html, http://www.phys.ttu.edu/~ozprof/sn87a.htm
 
 ```sh
 npm run verify:record -- fact.astronomy.sn1987a source.brit_supernova --status verified --by "Your Name" --quote "…"
@@ -2813,6 +2838,7 @@ npm run verify:record -- fact.astronomy.white_dwarf_size source.brit_white_dwarf
   - L85 “Dark Matter” · `card.astronomy.085.c3` (text): An older clue / Back in 1933, Fritz Zwicky had noticed that galaxies in the Coma Cluster moved too fast to be held together by their visible mass. Today astronomers estimate there’s roughly five times as much dark matter as ordinary matter.
 - **Tested by:**
   - L86 `question.astronomy.086.q3`: From Level 85: what supplies much of the gravity holding galaxy clusters together? → **Dark matter**
+- **Fact-check (2026-09-24):** corroborated. AMNH and BBC Sky at Night: in 1933 Zwicky showed Coma Cluster galaxies moved too fast to be bound by visible matter and proposed unseen 'dunkle Materie'. Sources: https://www.amnh.org/learn-teach/curriculum-collections/cosmic-horizons-book/fritz-zwicky, https://www.skyatnightmagazine.com/space-science/coma-cluster-dark-matter
 
 ```sh
 npm run verify:record -- fact.astronomy.zwicky_1933 source.brit_zwicky --status verified --by "Your Name" --quote "…"
@@ -2862,6 +2888,7 @@ npm run verify:record -- fact.astronomy.eht_network source.eht --status verified
 - **Concept:** The event horizon (`concept.astronomy.event_horizon`)
 - **Appears in:**
   - L74 “The Event Horizon” · `card.astronomy.074.c4` (fact): M87’s black hole is about 6.5 billion times the mass of the Sun. / It isn’t a stellar black hole but a supermassive one, sitting at the heart of a giant galaxy.
+- **Fact-check (2026-09-24):** corroborated. EHT: the M87* black hole has a mass of about 6.5 billion Suns, and its shadow size is consistent with that mass. Sources: https://eventhorizontelescope.org/blog/wobbling-shadow-m87-black-hole, https://www.jpl.nasa.gov/news/telescopes-unite-in-unprecedented-observations-of-famous-black-hole/
 
 ```sh
 npm run verify:record -- fact.astronomy.m87_mass source.eht --status verified --by "Your Name" --quote "…"
@@ -2880,6 +2907,7 @@ npm run verify:record -- fact.astronomy.m87_mass source.eht --status verified --
   - L75 `question.astronomy.075.q3`: From Level 26: which laws let astronomers turn those stars’ orbits into a mass for Sagittarius A*? → **The laws of orbits and gravity from Kepler and Newton**
   - L82 `question.astronomy.082.q3`: From Level 75: what sits at the very center of the Milky Way’s bulge? → **A supermassive black hole, Sagittarius A***
   - L87 `question.astronomy.087.q3`: From Level 75: our galaxy has Sagittarius A*. Why isn’t the Milky Way a quasar? → **Sagittarius A* isn’t pulling in large amounts of gas right now**
+- **Fact-check (2026-09-24):** corroborated. The EHT collaboration states the Galactic Center, home of Sgr A*, is about 27,000 light-years from Earth. Sources: https://eventhorizontelescope.org/blog/astronomers-reveal-first-image-black-hole-heart-our-galaxy, https://chandra.si.edu/photo/2022/sgra/
 
 ```sh
 npm run verify:record -- fact.astronomy.sgr_a_distance source.eht --status verified --by "Your Name" --quote "…"
@@ -2891,7 +2919,8 @@ npm run verify:record -- fact.astronomy.sgr_a_distance source.eht --status verif
 
 - **Concept:** The black hole at the center of the Milky Way (`concept.astronomy.sagittarius_a`)
 - **Appears in:**
-  - L75 “The Black Hole at Our Center” · `card.astronomy.075.c3` (text): A prize and a picture / Reinhard Genzel and Andrea Ghez shared the 2020 Nobel Prize in Physics for this discovery. In 2022 the Event Horizon Telescope released an image of Sagittarius A* itself. / Nobel 2020 · image 2022
+  - L75 “The Black Hole at Our Center” · `card.astronomy.075.c3` (text): A prize and a picture / Reinhard Genzel and Andrea Ghez shared half of the 2020 Nobel Prize in Physics for this discovery. In 2022 the Event Horizon Telescope released an image of Sagittarius A* itself. / Nobel 2020 · image 2022
+- **Fact-check (2026-09-24):** corroborated. The EHT Collaboration released the first image of Sagittarius A* on May 12, 2022, from April 2017 observations. Sources: https://eventhorizontelescope.org/blog/astronomers-reveal-first-image-black-hole-heart-our-galaxy, https://www.caltech.edu/about/news/caltech-researchers-help-generate-first-image-of-black-hole-at-the-center-of-our-galaxy
 
 ```sh
 npm run verify:record -- fact.astronomy.sgr_a_image_2022 source.eht --status verified --by "Your Name" --quote "…"
@@ -2960,6 +2989,7 @@ npm run verify:record -- fact.astronomy.constellation_regions source.iau_constel
 - **Tested by:**
   - L13 `question.astronomy.013.q1`: How many official constellations are there? → **88**
   - L100 `question.astronomy.100.q1`: A friend calls the Big Dipper one of the official constellations. What’s the best correction? → **It’s an asterism, part of Ursa Major**
+- **Fact-check (2026-09-24):** corroborated. The IAU recognizes 88 constellations, listed in 1922 with boundaries approved in 1928 and published in 1930. Sources: https://iauarchive.eso.org/public/themes/constellations/, https://starchild.gsfc.nasa.gov/docs/StarChild/questions/88constellations.html
 
 ```sh
 npm run verify:record -- fact.astronomy.iau_88_constellations source.iau_constellations --status verified --by "Your Name" --quote "…"
@@ -3010,6 +3040,7 @@ npm run verify:record -- fact.astronomy.five_dwarf_planets source.iau_pluto --st
   - L51 `question.astronomy.051.q2`: Why was Pluto reclassified in 2006? → **A new definition of “planet” set rules Pluto doesn’t meet**
   - L51 `question.astronomy.051.q3`: From Level 45: Ceres is the largest object in the asteroid belt. Why is it a dwarf planet rather than a planet? → **It shares its orbit with the rest of the asteroid belt**
   - L52 `question.astronomy.052.q3`: From Level 51: Pluto hasn’t cleared its orbital neighborhood. What does its home region explain? → **It orbits among many other icy bodies of its own zone**
+- **Fact-check (2026-09-24):** corroborated. IAU Resolution 5A (2006): a planet orbits the Sun, has enough mass to be nearly round (hydrostatic equilibrium), and has cleared the neighbourhood around its orbit. Sources: https://iauarchive.eso.org/news/pressreleases/detail/iau0603/, https://www.astronomy2006.com/press-release-resolution-24-8-2006.html
 
 ```sh
 npm run verify:record -- fact.astronomy.iau_2006_definition source.iau_pluto --status verified --by "Your Name" --quote "…"
@@ -3047,6 +3078,7 @@ npm run verify:record -- fact.astronomy.pluto_dwarf source.iau_pluto --status ve
   - L76 “Gravitational Waves” · `card.astronomy.076.c2` (text): Ripples in spacetime / Albert Einstein’s general theory of relativity predicted in 1916 that massive objects accelerating violently would send ripples through spacetime itself: gravitational waves. For almost a century, they were too faint to detect.
 - **Tested by:**
   - L76 `question.astronomy.076.q1`: What are gravitational waves? → **Ripples in spacetime**
+- **Fact-check (2026-09-24):** corroborated. LIGO Caltech and MPG state Einstein predicted gravitational waves in 1916 from general relativity; his first paper on them was submitted 22 June 1916. Sources: https://www.ligo.caltech.edu/page/what-are-gw, https://www.mpg.de/9966773/background
 
 ```sh
 npm run verify:record -- fact.astronomy.gw_einstein source.ligo --status verified --by "Your Name" --quote "…"
@@ -3061,6 +3093,7 @@ npm run verify:record -- fact.astronomy.gw_einstein source.ligo --status verifie
   - L76 “Gravitational Waves” · `card.astronomy.076.c4` (fact): In 2017, astronomers saw two neutron stars collide, and caught its ripples. / The merger sent out gravitational waves and light, and it forged heavy elements like gold.
 - **Tested by:**
   - L76 `question.astronomy.076.q3`: From Level 69: supernovae spread heavy elements. What other event, seen in 2017, forges elements like gold? → **Two neutron stars colliding**
+- **Fact-check (2026-09-24):** corroborated. GW170817 (17 Aug 2017): LIGO/Virgo detected merging neutron stars and telescopes saw the kilonova; Nature paper confirms r-process heavy elements such as gold and platinum. Sources: https://www.ligo.caltech.edu/page/press-release-gw170817, https://www.nature.com/articles/nature24453
 
 ```sh
 npm run verify:record -- fact.astronomy.kilonova_2017 source.ligo --status verified --by "Your Name" --quote "…"
@@ -3079,6 +3112,7 @@ npm run verify:record -- fact.astronomy.kilonova_2017 source.ligo --status verif
 - **Tested by:**
   - L76 `question.astronomy.076.q2`: What produced the first gravitational waves LIGO detected in 2015? → **Two black holes merging**
   - L80 `question.astronomy.080.q2`: What instrument first detected gravitational waves? → **LIGO**
+- **Fact-check (2026-09-24):** corroborated. LIGO detected GW150914 on 14 Sept 2015 from two merging black holes (about 36 and 29 solar masses) about 1.3 billion light-years away. Sources: https://www.ligo.caltech.edu/page/press-release-gw150914, http://ligo.org/science-summaries/GW150914/
 
 ```sh
 npm run verify:record -- fact.astronomy.ligo_2015 source.ligo --status verified --by "Your Name" --quote "…"
@@ -3144,6 +3178,7 @@ npm run verify:record -- fact.astronomy.apollo_samples source.nasa_apollo_progra
 - **Concept:** The Apollo Moon landings (`concept.astronomy.apollo_landings`)
 - **Appears in:**
   - L39 “Humans on the Moon” · `card.astronomy.039.c4` (fact): The last Moonwalkers left in December 1972. / Their footprints are still up there. With no wind or rain on the Moon, nothing wears them away.
+- **Fact-check (2026-09-24):** corroborated. Apollo 17's Cernan and Schmitt ended the last moonwalk on December 14, 1972; no one has walked on the Moon since. Sources: https://www.nasa.gov/mission/apollo-17/, https://www.npr.org/2022/12/07/1139665381/50-years-since-the-last-apollo-astronauts-went-to-the-moon-nasa-is-finally-going
 
 ```sh
 npm run verify:record -- fact.astronomy.apollo17_last source.nasa_apollo_program --status verified --by "Your Name" --quote "…"
@@ -3179,6 +3214,7 @@ npm run verify:record -- fact.astronomy.twelve_moonwalkers source.nasa_apollo_pr
   - L39 “Humans on the Moon” · `card.astronomy.039.c2` (text): One small step / On July 20, 1969, Apollo 11 astronauts Neil Armstrong and Buzz Aldrin became the first people to walk on the Moon. Between 1969 and 1972, six Apollo landings put twelve astronauts on its surface. / Apollo 11 · July 20, 1969
 - **Tested by:**
   - L39 `question.astronomy.039.q1`: Who were the first two people to walk on the Moon? → **Neil Armstrong and Buzz Aldrin**
+- **Fact-check (2026-09-24):** corroborated. On July 20, 1969 Armstrong and Aldrin landed on the Moon and became the first humans to walk on it. Sources: https://www.nasa.gov/history/july-20-1969-one-giant-leap-for-mankind/, https://airandspace.si.edu/explore/stories/apollo-11-moon-landing
 
 ```sh
 npm run verify:record -- fact.astronomy.apollo11_1969 source.nasa_apollo11 --status verified --by "Your Name" --quote "…"
@@ -3425,6 +3461,7 @@ npm run verify:record -- fact.astronomy.ceres_dwarf source.nasa_ceres --status v
   - L40 “Checkpoint: The Tools of Astronomy” · `card.astronomy.040.c2` (text): X-rays: the hottest things / X-ray telescopes reveal extremely hot gas, like the gas swirling around black holes. Because Earth’s atmosphere absorbs X-rays, they must work in space. NASA’s Chandra X-ray Observatory launched in 1999. / Chandra · launched 1999
 - **Tested by:**
   - L40 `question.astronomy.040.q3`: An astronomer wants to study the extremely hot gas around a black hole. Which tool fits best? → **An X-ray telescope in space, like Chandra**
+- **Fact-check (2026-09-24):** corroborated. Chandra launched on July 23, 1999 aboard Space Shuttle Columbia (STS-93). Sources: https://www.nasa.gov/history/25-years-ago-sts-93-launch-of-the-chandra-x-ray-observatory/, https://chandra.harvard.edu/about/axaf_mission.html
 
 ```sh
 npm run verify:record -- fact.astronomy.chandra_1999 source.nasa_chandra --status verified --by "Your Name" --quote "…"
@@ -3544,6 +3581,7 @@ npm run verify:record -- fact.astronomy.comet_two_tails source.nasa_comets --sta
   - L44 “Mars: A Planet That Lost Its Water” · `card.astronomy.044.c3` (text): Clues of a wetter past / Dry river valleys and ancient lake beds show liquid water once flowed on Mars. NASA’s Curiosity rover, which landed in 2012, found that Gale Crater once held a lake. Perseverance landed in 2021 in Jezero Crater, an old lake and river delta, and is collecting rock samples. / Curiosity 2012 · Perseverance 2021
 - **Tested by:**
   - L44 `question.astronomy.044.q2`: What did the Curiosity rover discover at Gale Crater? → **That the crater once held a lake**
+- **Fact-check (2026-09-24):** corroborated. Curiosity landed in Gale Crater in August 2012 and found mudstones and other evidence that the crater once held a long-lived lake. Sources: https://www.science.org/content/article/mars-curiosity-rover-finds-evidence-ancient-lakes-gale-crater, https://www.planetary.org/space-missions/curiosity
 
 ```sh
 npm run verify:record -- fact.astronomy.curiosity_gale_lake source.nasa_curiosity --status verified --by "Your Name" --quote "…"
@@ -3581,7 +3619,7 @@ npm run verify:record -- fact.astronomy.dark_matter_invisible source.nasa_dark_m
   - L85 “Dark Matter” · `card.astronomy.085.c3` (text): An older clue / Back in 1933, Fritz Zwicky had noticed that galaxies in the Coma Cluster moved too fast to be held together by their visible mass. Today astronomers estimate there’s roughly five times as much dark matter as ordinary matter.
   - L86 “Galaxy Clusters and Gravitational Lenses” · `card.astronomy.086.c2` (text): Cities of galaxies / Galaxies aren’t spread evenly. Many are gathered into clusters of hundreds or thousands of galaxies, bound together by gravity, much of it from dark matter.
   - L86 “Galaxy Clusters and Gravitational Lenses” · `card.astronomy.086.c4` (fact): Most of a cluster’s lens is invisible. / There’s roughly five times as much dark matter as ordinary matter, so most of the mass bending that light is matter that gives off, absorbs and reflects no light at all.
-  - L90 “Checkpoint: A Universe of Galaxies” · `card.astronomy.090.c2` (text): A ladder of scale / The Sun circles the Milky Way once every 230 million years or so. The Milky Way is one of more than 50 galaxies in the Local Group. Beyond that, galaxies gather in clusters of hundreds or thousands, held together largely by dark matter. / Galaxy → group → cluster
+  - L90 “Checkpoint: A Universe of Galaxies” · `card.astronomy.090.c2` (text): A ladder of scale / The Sun circles the Milky Way once every 230 million years or so. The Milky Way is one of about 100 or more galaxies in the Local Group. Beyond that, galaxies gather in clusters of hundreds or thousands, held together largely by dark matter. / Galaxy → group → cluster
 - **Tested by:**
   - L86 `question.astronomy.086.q3`: From Level 85: what supplies much of the gravity holding galaxy clusters together? → **Dark matter**
 
@@ -3617,6 +3655,7 @@ npm run verify:record -- fact.astronomy.dark_matter_unknown source.nasa_dark_mat
   - L94 `question.astronomy.094.q2`: Roughly how much of the universe is ordinary matter, the stuff of stars, planets and people? → **About 5%**
   - L94 `question.astronomy.094.q3`: From Level 85: how are dark matter and dark energy different? → **Dark matter adds gravity; dark energy speeds up expansion**
   - L99 `question.astronomy.099.q2`: About how much of the universe is made of things we don’t yet understand? → **About 95%**
+- **Fact-check (2026-09-24):** corroborated. Planck/Lambda-CDM values: about 68% dark energy, 27% dark matter, 5% ordinary matter. Sources: https://science.nasa.gov/universe/overview/building-blocks/, https://darkmatterdarkenergy.com/2013/06/18/more-dark-matter-first-planck-results/
 
 ```sh
 npm run verify:record -- fact.astronomy.de_share source.nasa_dark_matter --status verified --by "Your Name" --quote "…"
@@ -3707,6 +3746,7 @@ npm run verify:record -- fact.astronomy.day_night_halves source.nasa_earth_perih
   - L43 “Earth: The Planet We Know Best” · `card.astronomy.043.c3` (text): Air and ozone / Earth’s atmosphere is about 78% nitrogen and 21% oxygen. High up, the ozone layer absorbs most of the Sun’s harmful ultraviolet light before it reaches the ground. / 78% nitrogen · 21% oxygen
 - **Tested by:**
   - L43 `question.astronomy.043.q1`: What is Earth’s atmosphere made of, mostly? → **Nitrogen, with about a fifth oxygen**
+- **Fact-check (2026-09-24):** corroborated. Earth's atmosphere is about 78% nitrogen, 21% oxygen and 0.9% argon. Sources: https://www.noaa.gov/jetstream/atmosphere, https://education.nationalgeographic.org/resource/atmosphere/
 
 ```sh
 npm run verify:record -- fact.astronomy.earth_air_mix source.nasa_earth_perihelion --status verified --by "Your Name" --quote "…"
@@ -3802,6 +3842,7 @@ npm run verify:record -- fact.astronomy.earth_orbital_speed source.nasa_earth_pe
 - **Tested by:**
   - L11 `question.astronomy.011.q1`: What causes day and night? → **Earth spinning on its axis**
   - L20 `question.astronomy.020.q1`: Which motion gives us day and night? → **Earth spinning on its axis**
+- **Fact-check (2026-09-24):** corroborated. Earth rotates on its axis about once every 24 hours (solar day), producing the day-night cycle. Sources: https://education.nationalgeographic.org/resource/axis/, https://earthhow.com/earth-tilt/
 
 ```sh
 npm run verify:record -- fact.astronomy.earth_rotation_day source.nasa_earth_perihelion --status verified --by "Your Name" --quote "…"
@@ -3853,6 +3894,7 @@ npm run verify:record -- fact.astronomy.earth_water_71 source.nasa_earth_perihel
 - **Tested by:**
   - L12 `question.astronomy.012.q1`: About how long does Earth take to orbit the Sun once? → **365.25 days**
   - L12 `question.astronomy.012.q3`: From Level 5: seasons repeat every year. What happens during one orbit to cause them? → **Each hemisphere tilts toward, then away from, the Sun**
+- **Fact-check (2026-09-24):** corroborated. Earth takes roughly 365.25 days (365.2422) to orbit the Sun, which is why leap years exist. Sources: https://spaceplace.nasa.gov/leap-year/en/, https://www.gatech.edu/news/2024/02/23/leap-years-explained
 
 ```sh
 npm run verify:record -- fact.astronomy.earth_year_length source.nasa_earth_perihelion --status verified --by "Your Name" --quote "…"
@@ -3984,6 +4026,7 @@ npm run verify:record -- fact.astronomy.eclipse_moon_phase source.nasa_eclipses 
   - L15 “The Ecliptic: The Planets’ Highway” · `card.astronomy.015.c4` (fact): Eclipses can only happen when the Moon is on the ecliptic. / The Moon’s orbit is tilted slightly, so most months it passes just above or below the Sun’s path. Only when it crosses the ecliptic at the right moment do we get an eclipse.
 - **Tested by:**
   - L15 `question.astronomy.015.q3`: From Level 7: there’s a new Moon every month. Why isn’t there a solar eclipse every month? → **The Moon usually passes just above or below the Sun’s path**
+- **Fact-check (2026-09-24):** corroborated. The Moon's orbit is tilted about 5.1 degrees to the ecliptic; eclipses occur only when a new or full Moon falls near a node where the orbit crosses the ecliptic. Sources: https://svs.gsfc.nasa.gov/4324/, https://www.nsta.org/science-scope/science-scope-januaryfebruary-2021/moons-inclined-orbital-plane
 
 ```sh
 npm run verify:record -- fact.astronomy.eclipse_on_ecliptic source.nasa_eclipses --status verified --by "Your Name" --quote "…"
@@ -4035,6 +4078,7 @@ npm run verify:record -- fact.astronomy.solar_eclipse source.nasa_eclipses --sta
 - **Tested by:**
   - L7 `question.astronomy.007.q2`: Why can the Moon exactly cover the Sun during a total solar eclipse? → **The Sun is ~400× wider and ~400× farther away**
   - L56 `question.astronomy.056.q3`: From Level 7: when can we most easily see the Sun’s corona from Earth? → **During a total solar eclipse**
+- **Fact-check (2026-09-24):** corroborated. The Sun is about 400 times the Moon's diameter and about 400 times farther away, so both span about half a degree in our sky. Sources: https://courses.lumenlearning.com/suny-astronomy/chapter/eclipses-of-the-sun-and-moon/, https://earthsky.org/space/coincidence-that-sun-and-moon-seem-same-size/
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_moon_400 source.nasa_eclipses --status verified --by "Your Name" --quote "…"
@@ -4477,6 +4521,7 @@ npm run verify:record -- fact.astronomy.wobble_method source.nasa_exoplanets --s
   - L10 `question.astronomy.010.q5`: Chapter 1 recap: which of these is farthest from Earth? → **The Andromeda galaxy**
   - L83 `question.astronomy.083.q3`: From Level 10: Andromeda is about 2.5 million light-years away. What did a 2025 study say about a merger? → **About a 50% chance within 10 billion years**
   - L88 `question.astronomy.088.q3`: From Level 10: Andromeda is about 2.5 million light-years away. Why did Hubble’s 1924 finding about it matter? → **It proved galaxies exist beyond the Milky Way**
+- **Fact-check (2026-09-24):** corroborated. Andromeda is a spiral about 2.5 million light-years away and the closest major galaxy to the Milky Way. Sources: https://www.space.com/15590-andromeda-galaxy-m31.html, https://earthsky.org/clusters-nebulae-galaxies/andromeda-galaxy-closest-spiral-to-milky-way/
 
 ```sh
 npm run verify:record -- fact.astronomy.andromeda_distance source.nasa_galaxies --status verified --by "Your Name" --quote "…"
@@ -4545,6 +4590,7 @@ npm run verify:record -- fact.astronomy.milky_way_width source.nasa_galaxies --s
 - **Concept:** Comets (`concept.astronomy.comets`)
 - **Appears in:**
   - L53 “Comets: Dirty Snowballs” · `card.astronomy.053.c4` (fact): Halley’s Comet returns about every 76 years. / It last swung past Earth in 1986 and will be back in 2061.
+- **Fact-check (2026-09-24):** corroborated. Average period is about 76 years (range roughly 74 to 79). Last perihelion 8 February 1986; next predicted 28 July 2061. Sources: https://science.nasa.gov/solar-system/comets/1p-halley/, https://www.discovermagazine.com/when-was-halleys-comet-last-seen-and-will-it-ever-return-46612
 
 ```sh
 npm run verify:record -- fact.astronomy.halley_76 source.nasa_halley --status verified --by "Your Name" --quote "…"
@@ -4626,6 +4672,7 @@ npm run verify:record -- fact.astronomy.hubble_tension source.nasa_hubble --stat
 - **Concept:** The Hubble Space Telescope (`concept.astronomy.hubble_telescope`)
 - **Appears in:**
   - L34 “Why Put Telescopes in Space?” · `card.astronomy.034.c4` (fact): Hubble helped measure the age of the universe. / Its sharp observations of distant galaxies helped pin the universe’s age at about 13.8 billion years, a number you met back in Level 10.
+- **Fact-check (2026-09-24):** corroborated. NASA and BBC Science Focus credit Hubble's Cepheid-based measurements of the expansion rate with helping establish the universe's age at about 13.8 billion years (alongside CMB data). Sources: https://science.nasa.gov/mission/hubble/science/science-highlights/discovering-a-runaway-universe/, https://www.sciencefocus.com/space/hubble-space-telescope-the-age-of-the-universe
 
 ```sh
 npm run verify:record -- fact.astronomy.hubble_universe_age source.nasa_hubble --status verified --by "Your Name" --quote "…"
@@ -4680,6 +4727,7 @@ npm run verify:record -- fact.astronomy.astronauts_free_fall source.nasa_iss --s
   - L37 “Getting to Orbit” · `card.astronomy.037.c2` (text): Falling around Earth / Throw a ball and it curves down to the ground. Throw it fast enough and the ground curves away beneath it as quickly as it falls. That’s an orbit. The International Space Station does this at about 28,000 km/h, circling Earth about every 90 minutes. / Orbit = falling while moving sideways
 - **Tested by:**
   - L37 `question.astronomy.037.q3`: From Level 27: which force makes a spacecraft fall around Earth in orbit? → **Earth’s gravity**
+- **Fact-check (2026-09-24):** corroborated. NASA: the ISS circles Earth about every 90 minutes at about 17,500 mph (28,000 km/h), about 16 orbits per day. Sources: https://www.nasa.gov/international-space-station/space-station-facts-and-figures/, https://coolcosmos.ipac.caltech.edu/ask/282-How-fast-does-the-Space-Station-travel-
 
 ```sh
 npm run verify:record -- fact.astronomy.iss_speed source.nasa_iss --status verified --by "Your Name" --quote "…"
@@ -4948,6 +4996,7 @@ npm run verify:record -- fact.astronomy.pluto_kuiper source.nasa_kuiper_belt --s
   - L31 `question.astronomy.031.q3`: From Level 8: light-years are based on the speed of light. Does a light-year mean the same distance for radio waves? → **Yes: every kind of light travels at the same speed**
   - L95 `question.astronomy.095.q3`: From Level 8: a light-year is a distance. So what do you see when you look at a galaxy 2.5 million light-years away? → **The galaxy as it was long ago**
   - L100 `question.astronomy.100.q3`: Proxima Centauri is about 4.2 light-years away. How old is the light you see from it? → **About 4.2 years old**
+- **Fact-check (2026-09-24):** corroborated. NASA: a light-year is the distance light travels in a year, about 5.88 trillion miles (9.46 trillion km). Sources: https://science.nasa.gov/exoplanets/what-is-a-light-year/, https://earthsky.org/astronomy-essentials/how-far-is-a-light-year/
 
 ```sh
 npm run verify:record -- fact.astronomy.light_year_distance source.nasa_light_year --status verified --by "Your Name" --quote "…"
@@ -4993,6 +5042,7 @@ npm run verify:record -- fact.astronomy.moon_light_time source.nasa_light_year -
   - L10 `question.astronomy.010.q5`: Chapter 1 recap: which of these is farthest from Earth? → **The Andromeda galaxy**
   - L64 `question.astronomy.064.q3`: From Level 8: Proxima Centauri is the nearest star after the Sun. What kind of star is it? → **A red dwarf that can shine for trillions of years**
   - L100 `question.astronomy.100.q3`: Proxima Centauri is about 4.2 light-years away. How old is the light you see from it? → **About 4.2 years old**
+- **Fact-check (2026-09-24):** corroborated. Proxima Centauri is the nearest star to the Sun at about 4.24 light-years (1.30 parsecs). Sources: https://earthsky.org/astronomy-essentials/proxima-centauri-our-suns-nearest-neighbor/, https://skyandtelescope.org/astronomy-news/meet-proxima-centauri-closest-star/
 
 ```sh
 npm run verify:record -- fact.astronomy.proxima_distance source.nasa_light_year --status verified --by "Your Name" --quote "…"
@@ -5005,6 +5055,7 @@ npm run verify:record -- fact.astronomy.proxima_distance source.nasa_light_year 
 - **Concept:** A light-year is a distance (`concept.astronomy.light_year`)
 - **Appears in:**
   - L8 “Light-Years: Measuring the Unmeasurable” · `card.astronomy.008.c3` (text): Why measure space in light? / Light is the fastest thing there is, about 300,000 km every second. It crosses from the Moon to Earth in just over a second. Yet even light needs years to reach the next star, so astronomers describe distance by how long light takes to cover it.
+- **Fact-check (2026-09-24):** corroborated. Light in vacuum travels exactly 299,792,458 m/s (about 300,000 km/s); per special relativity nothing travels faster. Sources: https://www.space.com/15830-light-speed.html, https://www.wtamu.edu/~cbaird/sq/2024/02/07/why-is-the-speed-of-light-a-random-finite-number/
 
 ```sh
 npm run verify:record -- fact.astronomy.speed_of_light source.nasa_light_year --status verified --by "Your Name" --quote "…"
@@ -5254,7 +5305,7 @@ npm run verify:record -- fact.astronomy.meteor_terms source.nasa_meteors --statu
 - **Concept:** The structure of the Milky Way (`concept.astronomy.milky_way_structure`)
 - **Appears in:**
   - L82 “Inside the Milky Way” · `card.astronomy.082.c3` (text): Our place in it / The Sun lies about 26,000 light-years from the center, in a minor spiral arm. It orbits the galactic center too, taking about 230 million years for one lap, a “galactic year.” Since the Sun formed about 4.6 billion years ago, it has made only about 20 laps. / 1 galactic year ≈ 230 million years
-  - L90 “Checkpoint: A Universe of Galaxies” · `card.astronomy.090.c2` (text): A ladder of scale / The Sun circles the Milky Way once every 230 million years or so. The Milky Way is one of more than 50 galaxies in the Local Group. Beyond that, galaxies gather in clusters of hundreds or thousands, held together largely by dark matter. / Galaxy → group → cluster
+  - L90 “Checkpoint: A Universe of Galaxies” · `card.astronomy.090.c2` (text): A ladder of scale / The Sun circles the Milky Way once every 230 million years or so. The Milky Way is one of about 100 or more galaxies in the Local Group. Beyond that, galaxies gather in clusters of hundreds or thousands, held together largely by dark matter. / Galaxy → group → cluster
 - **Tested by:**
   - L82 `question.astronomy.082.q1`: How long does the Sun take to orbit the center of the Milky Way? → **About 230 million years**
   - L82 `question.astronomy.082.q2`: Where is the Sun located in the Milky Way? → **In the disk, about 26,000 light-years from the center**
@@ -5356,6 +5407,7 @@ npm run verify:record -- fact.astronomy.sun_20_orbits source.nasa_milky_way --st
 - **Tested by:**
   - L82 `question.astronomy.082.q1`: How long does the Sun take to orbit the center of the Milky Way? → **About 230 million years**
   - L82 `question.astronomy.082.q2`: Where is the Sun located in the Milky Way? → **In the disk, about 26,000 light-years from the center**
+- **Fact-check (2026-09-24):** corroborated. The Solar System is about 26,000 light-years (8 kpc) from the Galactic Center, in the Orion Arm, generally described as a minor arm or spur. Sources: https://earthsky.org/astronomy-essentials/which-spiral-arm-of-the-milky-way-contains-our-sun/, https://en.wikipedia.org/wiki/Orion_Arm
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_position source.nasa_milky_way --status verified --by "Your Name" --quote "…"
@@ -5803,6 +5855,7 @@ npm run verify:record -- fact.astronomy.methane_blue source.nasa_neptune_facts -
   - L49 “The Tilted and the Windy: Uranus and Neptune” · `card.astronomy.049.c3` (text): The windiest planet / Neptune has the fastest winds in the solar system, over 2,000 km/h. It’s so far out that it takes about 165 years to orbit the Sun: it completed its first orbit since its discovery only in 2011. Voyager 2 remains the only spacecraft to have visited it.
 - **Tested by:**
   - L49 `question.astronomy.049.q1`: Which planet has the fastest winds in the solar system? → **Neptune**
+- **Fact-check (2026-09-24):** corroborated. Neptune's orbit takes about 165 years; it completed its first full orbit since its 1846 discovery on 12 July 2011. Sources: https://www.space.com/12249-neptune-completes-orbit-discovery-1846.html, https://science.nasa.gov/asset/hubble/neptunes-165-year-long-orbit/
 
 ```sh
 npm run verify:record -- fact.astronomy.neptune_165_years source.nasa_neptune_facts --status verified --by "Your Name" --quote "…"
@@ -5817,6 +5870,7 @@ npm run verify:record -- fact.astronomy.neptune_165_years source.nasa_neptune_fa
   - L50 “Milestone: The Solar System” · `card.astronomy.050.c2` (text): How big is our neighborhood? / Neptune, the outermost planet, orbits about 30 astronomical units from the Sun: about 4.5 billion km. Sunlight, which reaches Earth in about 8 minutes, takes about 4 hours to get out there. / 1 AU → 8 minutes · 30 AU → ~4 hours
 - **Tested by:**
   - L50 `question.astronomy.050.q5`: Neptune is about 30 AU from the Sun. About how long does sunlight take to reach it? → **About 4 hours**
+- **Fact-check (2026-09-24):** corroborated. Neptune's average distance from the Sun is about 4.5 billion km (2.8 billion miles), which is about 30 AU. Sources: https://www.space.com/12249-neptune-completes-orbit-discovery-1846.html, https://science.nasa.gov/neptune/neptune-facts/
 
 ```sh
 npm run verify:record -- fact.astronomy.neptune_30_au source.nasa_neptune_facts --status verified --by "Your Name" --quote "…"
@@ -5864,6 +5918,7 @@ npm run verify:record -- fact.astronomy.neptune_math source.nasa_neptune_facts -
   - L49 “The Tilted and the Windy: Uranus and Neptune” · `card.astronomy.049.c3` (text): The windiest planet / Neptune has the fastest winds in the solar system, over 2,000 km/h. It’s so far out that it takes about 165 years to orbit the Sun: it completed its first orbit since its discovery only in 2011. Voyager 2 remains the only spacecraft to have visited it.
 - **Tested by:**
   - L49 `question.astronomy.049.q1`: Which planet has the fastest winds in the solar system? → **Neptune**
+- **Fact-check (2026-09-24):** corroborated. NASA and others: Neptune has the fastest winds in the solar system, more than 1,200 mph (about 2,000 km/h). Sources: https://science.nasa.gov/neptune/neptune-facts/, https://www.worldatlas.com/space/the-fastest-winds-in-the-solar-system-47903.html
 
 ```sh
 npm run verify:record -- fact.astronomy.neptune_winds source.nasa_neptune_facts --status verified --by "Your Name" --quote "…"
@@ -5999,6 +6054,7 @@ npm run verify:record -- fact.astronomy.remnant_sizes source.nasa_neutron_stars 
 - **Concept:** The Kuiper Belt (`concept.astronomy.kuiper_belt`)
 - **Appears in:**
   - L52 “The Kuiper Belt” · `card.astronomy.052.c3` (text): The farthest flyby / After passing Pluto, New Horizons kept going. In 2019 it flew past Arrokoth, a small Kuiper Belt object. It’s the most distant object ever explored up close, a frozen leftover from when the planets formed, barely changed in billions of years. / Arrokoth · 2019
+- **Fact-check (2026-09-24):** corroborated. New Horizons flew by Arrokoth on Jan 1, 2019, the most distant object ever explored up close; NASA describes it as a primordial contact binary preserving clues to planet formation. Sources: https://science.nasa.gov/solar-system/kuiper-belt/arrokoth-2014-mu69/, https://www.scientificamerican.com/article/meet-arrokoth-ultima-thule-the-most-distant-object-ever-explored-has-a-new-name/
 
 ```sh
 npm run verify:record -- fact.astronomy.arrokoth_2019 source.nasa_new_horizons --status verified --by "Your Name" --quote "…"
@@ -6011,6 +6067,7 @@ npm run verify:record -- fact.astronomy.arrokoth_2019 source.nasa_new_horizons -
 - **Concept:** Dwarf planets and Pluto (`concept.astronomy.dwarf_planets`)
 - **Appears in:**
   - L51 “Pluto and the Dwarf Planets” · `card.astronomy.051.c4` (fact): Pluto has a heart. / When NASA’s New Horizons flew past in 2015, it revealed a huge heart-shaped region covered in nitrogen ice.
+- **Fact-check (2026-09-24):** corroborated. New Horizons' 2015 flyby revealed Tombaugh Regio, the 'heart'. Its western lobe, Sputnik Planitia, is a vast plain of nitrogen ice; the eastern lobe carries a thinner nitrogen-rich frost. A fair simplification. Sources: https://news.arizona.edu/news/how-pluto-got-its-heart, https://www.kqed.org/science/1956964/a-valentine-from-space-plutos-heart-beats-to-the-tune-of-the-winds
 
 ```sh
 npm run verify:record -- fact.astronomy.pluto_heart source.nasa_new_horizons --status verified --by "Your Name" --quote "…"
@@ -6134,6 +6191,7 @@ npm run verify:record -- fact.astronomy.perseids_august source.nasa_perseids --s
   - L79 “The Search for Life” · `card.astronomy.079.c2` (text): Close to home / In our own solar system, scientists search places where water exists or once existed: ancient Martian lake beds, where Perseverance is collecting rock samples, and ocean moons like Europa and Enceladus. Liquid water, energy and the right chemistry are the clues to follow.
 - **Tested by:**
   - L44 `question.astronomy.044.q2`: What did the Curiosity rover discover at Gale Crater? → **That the crater once held a lake**
+- **Fact-check (2026-09-24):** corroborated. Perseverance landed in Jezero crater on Feb. 18, 2021; Science (2021) confirms an ancient delta-lake system there, and the rover has collected rock and regolith samples (24 rock/regolith samples by Oct 2024). Sources: https://www.science.org/doi/10.1126/science.abl4051, https://www.sciencedaily.com/releases/2024/01/240126171636.htm
 
 ```sh
 npm run verify:record -- fact.astronomy.perseverance_jezero source.nasa_perseverance --status verified --by "Your Name" --quote "…"
@@ -6152,6 +6210,7 @@ npm run verify:record -- fact.astronomy.perseverance_jezero source.nasa_persever
 - **Concept:** Where stars are born (`concept.astronomy.star_formation`)
 - **Appears in:**
   - L66 “Stellar Nurseries” · `card.astronomy.066.c4` (fact): Hubble photographed the “Pillars of Creation” in 1995. / These towering columns of gas and dust in the Eagle Nebula are full of forming stars, one of the most famous images in astronomy.
+- **Fact-check (2026-09-24):** corroborated. Jeff Hester and Paul Scowen imaged the Pillars of Creation in the Eagle Nebula with Hubble's WFPC2 on April 1-2, 1995; columns of star-forming gas and dust up to about 4 light-years tall. Sources: https://www.astronomy.com/today-in-the-history-of-astronomy/april-1-1995-hubble-images-the-pillars-of-creation/, https://science.nasa.gov/asset/hubble/1995-hubble-wfpc2-image-of-m16
 
 ```sh
 npm run verify:record -- fact.astronomy.pillars_1995 source.nasa_pillars --status verified --by "Your Name" --quote "…"
@@ -6242,6 +6301,7 @@ npm run verify:record -- fact.astronomy.rocky_inner_planets source.nasa_planets_
 - **Concept:** Dwarf planets and Pluto (`concept.astronomy.dwarf_planets`)
 - **Appears in:**
   - L51 “Pluto and the Dwarf Planets” · `card.astronomy.051.c3` (text): Five dwarf planets / The IAU recognizes five dwarf planets: Ceres, Pluto, Eris, Haumea and Makemake. Pluto itself was discovered in 1930 by Clyde Tombaugh.
+- **Fact-check (2026-09-24):** corroborated. Clyde Tombaugh found Pluto on Feb. 18, 1930, at Lowell Observatory; the discovery was announced March 13, 1930. Sources: https://earthsky.org/space/clyde-tombaugh-discovered-pluto-on-february-18-1930/, https://www.aps.org/publications/apsnews/200903/physicshistory.cfm
 
 ```sh
 npm run verify:record -- fact.astronomy.pluto_1930 source.nasa_pluto --status verified --by "Your Name" --quote "…"
@@ -6254,6 +6314,7 @@ npm run verify:record -- fact.astronomy.pluto_1930 source.nasa_pluto --status ve
 - **Concept:** Dwarf planets and Pluto (`concept.astronomy.dwarf_planets`)
 - **Appears in:**
   - L51 “Pluto and the Dwarf Planets” · `card.astronomy.051.c4` (fact): Pluto has a heart. / When NASA’s New Horizons flew past in 2015, it revealed a huge heart-shaped region covered in nitrogen ice.
+- **Fact-check (2026-09-24):** corroborated. New Horizons' 2015 flyby revealed Tombaugh Regio, the 'heart'. Its western lobe, Sputnik Planitia, is a vast plain of nitrogen ice; the eastern lobe carries a thinner nitrogen-rich frost. A fair simplification. Sources: https://news.arizona.edu/news/how-pluto-got-its-heart, https://www.kqed.org/science/1956964/a-valentine-from-space-plutos-heart-beats-to-the-tune-of-the-winds
 
 ```sh
 npm run verify:record -- fact.astronomy.pluto_heart source.nasa_pluto --status verified --by "Your Name" --quote "…"
@@ -6348,6 +6409,7 @@ npm run verify:record -- fact.astronomy.polaris_not_brightest source.nasa_polari
   - L98 “Integration: Futures of the Sun, Earth and Universe” · `card.astronomy.098.c2` (timeline): The long forecast: Over ~26,000 years: Earth’s axis wobbles through a full circle; Polaris won’t stay the pole star; In ~1 billion years: A brightening Sun makes Earth too hot for oceans; In ~4.5 billion years, maybe: The Milky Way and Andromeda may merge; In ~5 billion years: The Sun swells into a red giant, later becoming a white dwarf
 - **Tested by:**
   - L98 `question.astronomy.098.q2`: Why won’t Polaris always be the North Star? → **Earth’s axis slowly wobbles in a circle**
+- **Fact-check (2026-09-24):** corroborated. Axial precession makes Earth's axis trace a circle in about 26,000 years (25,770); Vega will be near the pole in about 12,000 to 13,000 years. Sources: https://www.space.com/stargazing/has-polaris-always-been-the-north-star-how-earths-26-000-year-cycle-changes-the-pole-star, https://www.pas.rochester.edu/~blackman/ast104/precession.html
 
 ```sh
 npm run verify:record -- fact.astronomy.precession_26000 source.nasa_polaris --status verified --by "Your Name" --quote "…"
@@ -6612,6 +6674,7 @@ npm run verify:record -- fact.astronomy.orion_winter source.nasa_spaceplace_cons
   - L12 “A Year Around the Sun” · `card.astronomy.012.c3` (text): Where the quarter-days go / Calendars count 365 days, but each orbit takes about a quarter of a day longer. Those quarters add up to roughly one full day every four years, so we add February 29 in leap years to keep the calendar in step with the seasons.
 - **Tested by:**
   - L12 `question.astronomy.012.q2`: Why do we add a leap day about every four years? → **Each orbit takes about 365.25 days, not 365**
+- **Fact-check (2026-09-24):** corroborated. NASA Space Place: an orbit takes about 365.25 days, so a day is added about every four years (Feb 29) to keep the calendar in step. Sources: https://spaceplace.nasa.gov/leap-year/en/, https://www.britannica.com/science/leap-year-calendar
 
 ```sh
 npm run verify:record -- fact.astronomy.leap_year_reason source.nasa_spaceplace_leap_year --status verified --by "Your Name" --quote "…"
@@ -6636,6 +6699,7 @@ npm run verify:record -- fact.astronomy.leap_year_reason source.nasa_spaceplace_
   - L12 `question.astronomy.012.q3`: From Level 5: seasons repeat every year. What happens during one orbit to cause them? → **Each hemisphere tilts toward, then away from, the Sun**
   - L49 `question.astronomy.049.q3`: From Level 5: Earth’s 23.5° tilt gives us seasons. What does Uranus’s ~98° tilt do? → **It gives extreme seasons, with 42-year polar days**
   - L100 `question.astronomy.100.q2`: Earth is closest to the Sun in early January. Why is January winter in the Northern Hemisphere? → **The north is tilted away from the Sun then**
+- **Fact-check (2026-09-24):** corroborated. Earth's axis is tilted about 23.5 degrees (23.44) to its orbital plane, and the tilt is the reason for the seasons. Sources: https://www.weather.gov/fsd/season, https://education.nationalgeographic.org/resource/axis/
 
 ```sh
 npm run verify:record -- fact.astronomy.earth_axial_tilt source.nasa_spaceplace_seasons --status verified --by "Your Name" --quote "…"
@@ -6801,6 +6865,7 @@ npm run verify:record -- fact.astronomy.sun_color source.nasa_star_life_cycle --
 - **Tested by:**
   - L9 `question.astronomy.009.q2`: How will the Sun most likely end its life? → **As a red giant, then a white dwarf**
   - L9 `question.astronomy.009.q3`: From Level 2: when the Sun swells into a red giant, what is it running low on? → **Hydrogen to fuse in its core**
+- **Fact-check (2026-09-24):** corroborated. The Sun and planets formed about 4.6 billion years ago from a collapsing cloud of gas and dust, the solar nebula. Sources: https://www.amnh.org/exhibitions/permanent/the-universe/planets/formation-of-our-solar-system, https://theconversation.com/the-sun-was-born-when-a-dense-gas-cloud-collapsed-4-6-billion-years-ago-226862
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_formed_from_cloud source.nasa_star_life_cycle --status verified --by "Your Name" --quote "…"
@@ -6817,6 +6882,7 @@ npm run verify:record -- fact.astronomy.sun_formed_from_cloud source.nasa_star_l
 - **Tested by:**
   - L9 `question.astronomy.009.q2`: How will the Sun most likely end its life? → **As a red giant, then a white dwarf**
   - L9 `question.astronomy.009.q3`: From Level 2: when the Sun swells into a red giant, what is it running low on? → **Hydrogen to fuse in its core**
+- **Fact-check (2026-09-24):** corroborated. In about 5 billion years the Sun will become a red giant, then shed its outer layers and end as an Earth-sized white dwarf. Sources: https://www.space.com/22471-red-giant-stars.html, https://earthsky.org/astronomy-essentials/what-are-red-giants-definition/
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_future_red_giant source.nasa_star_life_cycle --status verified --by "Your Name" --quote "…"
@@ -6854,6 +6920,7 @@ npm run verify:record -- fact.astronomy.sun_no_supernova source.nasa_star_life_c
   - L56 `question.astronomy.056.q2`: What is surprising about the Sun’s corona? → **It is far hotter than the surface beneath it**
   - L56 `question.astronomy.056.q3`: From Level 7: when can we most easily see the Sun’s corona from Earth? → **During a total solar eclipse**
   - L60 `question.astronomy.060.q2`: Which layer of the Sun is over a million degrees Celsius? → **The corona**
+- **Fact-check (2026-09-24):** corroborated. The photosphere is about 5,500 to 6,000 C while the corona reaches about 1 to 2 million C or more, hundreds of times hotter. Sources: https://scied.ucar.edu/learning-zone/sun-space-weather/corona, https://www.space.com/17137-how-hot-is-the-sun.html
 
 ```sh
 npm run verify:record -- fact.astronomy.corona_hot source.nasa_sun_facts --status verified --by "Your Name" --quote "…"
@@ -6918,6 +6985,7 @@ npm run verify:record -- fact.astronomy.other_stars_are_suns source.nasa_sun_fac
   - L56 `question.astronomy.056.q2`: What is surprising about the Sun’s corona? → **It is far hotter than the surface beneath it**
   - L56 `question.astronomy.056.q3`: From Level 7: when can we most easily see the Sun’s corona from Earth? → **During a total solar eclipse**
   - L60 `question.astronomy.060.q2`: Which layer of the Sun is over a million degrees Celsius? → **The corona**
+- **Fact-check (2026-09-24):** corroborated. NASA and UCAR give the photosphere as about 5,500 C (10,000 F); effective temperature is 5,772 K, about 5,499 C. Sources: https://science.nasa.gov/sun/facts/, https://scied.ucar.edu/learning-zone/sun-space-weather/surface-of-the-sun
 
 ```sh
 npm run verify:record -- fact.astronomy.photosphere_temp source.nasa_sun_facts --status verified --by "Your Name" --quote "…"
@@ -6932,6 +7000,7 @@ npm run verify:record -- fact.astronomy.photosphere_temp source.nasa_sun_facts -
   - L64 “The Main Sequence” · `card.astronomy.064.c2` (text): Life on the main sequence / A main-sequence star is fusing hydrogen into helium in its core. Stars spend most of their lives this way, which is why most stars on the H–R diagram fall on the main sequence. The Sun will spend about 10 billion years there in total. / Sun: ~10 billion years
 - **Tested by:**
   - L64 `question.astronomy.064.q1`: What is a main-sequence star doing in its core? → **Fusing hydrogen into helium**
+- **Fact-check (2026-09-24):** corroborated. A Sun-like star stays on the main sequence for about 10 billion years; the Sun is roughly halfway through. Sources: https://www.space.com/22437-main-sequence-star.html, https://courses.lumenlearning.com/suny-earthscience/chapter/stellar-life-cycle/
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_10_billion source.nasa_sun_facts --status verified --by "Your Name" --quote "…"
@@ -6947,6 +7016,7 @@ npm run verify:record -- fact.astronomy.sun_10_billion source.nasa_sun_facts --s
   - L82 “Inside the Milky Way” · `card.astronomy.082.c3` (text): Our place in it / The Sun lies about 26,000 light-years from the center, in a minor spiral arm. It orbits the galactic center too, taking about 230 million years for one lap, a “galactic year.” Since the Sun formed about 4.6 billion years ago, it has made only about 20 laps. / 1 galactic year ≈ 230 million years
 - **Tested by:**
   - L18 `question.astronomy.018.q3`: From Level 2: the Sun is about 4.6 billion years old. What does the Moon’s age of about 4.5 billion years suggest? → **It formed early, not long after Earth itself**
+- **Fact-check (2026-09-24):** corroborated. The Sun formed about 4.6 billion years ago; the oldest meteorite inclusions date to 4,567 million years, which dates the Sun's birth. Sources: https://theconversation.com/the-sun-was-born-when-a-dense-gas-cloud-collapsed-4-6-billion-years-ago-226862, https://www.amnh.org/exhibitions/permanent/the-universe/planets/formation-of-our-solar-system
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_age source.nasa_sun_facts --status verified --by "Your Name" --quote "…"
@@ -6979,6 +7049,7 @@ npm run verify:record -- fact.astronomy.sun_color source.nasa_sun_facts --status
   - L2 `question.astronomy.002.q3`: Why is it misleading to say the Sun is "on fire"? → **Its energy comes from nuclear fusion, not burning**
   - L9 `question.astronomy.009.q3`: From Level 2: when the Sun swells into a red giant, what is it running low on? → **Hydrogen to fuse in its core**
   - L32 `question.astronomy.032.q3`: From Level 2: why does it make sense that stars are mostly hydrogen and helium? → **Stars fuse hydrogen into helium in their cores**
+- **Fact-check (2026-09-24):** corroborated. The Sun's core temperature is about 15 million C (27 million F). Sources: https://coolcosmos.ipac.caltech.edu/ask/7-how-hot-is-the-sun-, https://www.space.com/17137-how-hot-is-the-sun.html
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_core_temperature source.nasa_sun_facts --status verified --by "Your Name" --quote "…"
@@ -7011,6 +7082,7 @@ npm run verify:record -- fact.astronomy.sun_engulf source.nasa_sun_facts --statu
 - **Tested by:**
   - L9 `question.astronomy.009.q2`: How will the Sun most likely end its life? → **As a red giant, then a white dwarf**
   - L9 `question.astronomy.009.q3`: From Level 2: when the Sun swells into a red giant, what is it running low on? → **Hydrogen to fuse in its core**
+- **Fact-check (2026-09-24):** corroborated. The Sun and planets formed about 4.6 billion years ago from a collapsing cloud of gas and dust, the solar nebula. Sources: https://www.amnh.org/exhibitions/permanent/the-universe/planets/formation-of-our-solar-system, https://theconversation.com/the-sun-was-born-when-a-dense-gas-cloud-collapsed-4-6-billion-years-ago-226862
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_formed_from_cloud source.nasa_sun_facts --status verified --by "Your Name" --quote "…"
@@ -7077,6 +7149,7 @@ npm run verify:record -- fact.astronomy.sun_layer_order source.nasa_sun_facts --
   - L50 “Milestone: The Solar System” · `card.astronomy.050.c3` (comparison): Where the mass is: The Sun (About 99.8% of all the mass; Rules every orbit by gravity) vs Everything else (About 0.2% of the mass; Jupiter holds most of it)
 - **Tested by:**
   - L50 `question.astronomy.050.q1`: About what share of the solar system’s mass is in the Sun? → **About 99.8 percent of it**
+- **Fact-check (2026-09-24):** corroborated. The Sun holds about 99.8% (99.86%) of the solar system's mass; everything else is about 0.2%. Sources: https://education.nationalgeographic.org/resource/sun/, https://www.nasa.gov/solar-system/its-surprisingly-hard-to-go-to-the-sun/embed/
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_mass_share source.nasa_sun_facts --status verified --by "Your Name" --quote "…"
@@ -7111,6 +7184,7 @@ npm run verify:record -- fact.astronomy.sun_middle_age source.nasa_sun_facts --s
   - L8 `question.astronomy.008.q2`: From Level 1: about how long does sunlight take to reach Earth? → **About 8 minutes**
   - L28 `question.astronomy.028.q3`: From Level 1: sunlight takes about 8 minutes to reach Earth. What distance does that light cover? → **About 150 million km (1 AU)**
   - L50 `question.astronomy.050.q5`: Neptune is about 30 AU from the Sun. About how long does sunlight take to reach it? → **About 4 hours**
+- **Fact-check (2026-09-24):** corroborated. Sunlight takes about 8 minutes 20 seconds on average to reach Earth (about 8 min 10 s to 8 min 27 s over the year). Sources: https://phys.org/news/2013-04-sunlight-earth.html, https://www.skyatnightmagazine.com/space-science/how-take-light-from-sun-reach-earth
 
 ```sh
 npm run verify:record -- fact.astronomy.sunlight_eight_minutes source.nasa_sun_facts --status verified --by "Your Name" --quote "…"
@@ -7131,6 +7205,7 @@ npm run verify:record -- fact.astronomy.sunlight_eight_minutes source.nasa_sun_f
   - L48 “Titan: A World of Methane Lakes” · `card.astronomy.048.c3` (text): Earth’s strange cousin / Apart from Earth, Titan is the only world known to have stable liquid on its surface. In 2005 the Huygens probe parachuted through its haze and landed, the first landing ever on a world in the outer solar system. / Huygens landed 2005
 - **Tested by:**
   - L50 `question.astronomy.050.q7`: Besides Earth, which world has stable liquid on its surface? → **Titan, with methane lakes**
+- **Fact-check (2026-09-24):** corroborated. ESA: Huygens landed on Titan on 14 January 2005, the first (and so far only) landing on a body in the outer solar system. Sources: https://sci.esa.int/web/cassini-huygens/-/36280-titan-surface-landing, https://www.space.com/28265-saturn-moon-titan-landing-anniversary.html
 
 ```sh
 npm run verify:record -- fact.astronomy.huygens_2005 source.nasa_titan --status verified --by "Your Name" --quote "…"
@@ -7210,6 +7285,7 @@ npm run verify:record -- fact.astronomy.titan_liquid_surface source.nasa_titan -
   - L48 `question.astronomy.048.q1`: What fills the lakes and seas of Titan? → **Liquid methane and ethane**
   - L48 `question.astronomy.048.q2`: What makes Titan unique among the solar system’s moons? → **It is the only moon with a thick atmosphere**
   - L48 `question.astronomy.048.q3`: From Level 4: Saturn is famous for its rings. What else did exploring Saturn’s system reveal? → **A moon with methane lakes and one with water plumes**
+- **Fact-check (2026-09-24):** corroborated. Titan's average surface temperature is about -179 C (-290 F); its surface liquids are methane and ethane, and any water is frozen as hard ice (a subsurface ocean lies deep below). Sources: https://science.nasa.gov/saturn/moons/titan/facts/, https://www.planetary.org/articles/what-would-it-be-like-to-stand-on-the-surface-of-titan
 
 ```sh
 npm run verify:record -- fact.astronomy.titan_temperature source.nasa_titan --status verified --by "Your Name" --quote "…"
@@ -7269,6 +7345,7 @@ npm run verify:record -- fact.astronomy.trappist1 source.nasa_trappist1 --status
 - **Tested by:**
   - L91 `question.astronomy.091.q1`: According to the Big Bang theory, how did the universe begin? → **In an extremely hot, dense state, then expanded**
   - L92 `question.astronomy.092.q3`: From Level 91: why did finding the CMB give such strong support to the Big Bang theory? → **The theory had predicted such a glow**
+- **Fact-check (2026-09-24):** corroborated. Britannica: the big-bang theory proposes the universe began about 13.8 billion years ago in an extremely hot, dense state and has been expanding and cooling ever since. Sources: https://www.britannica.com/science/How-Was-the-Universe-Created, https://science.nasa.gov/universe/overview/
 
 ```sh
 npm run verify:record -- fact.astronomy.bb_hot_dense source.nasa_universe_age --status verified --by "Your Name" --quote "…"
@@ -7308,6 +7385,7 @@ npm run verify:record -- fact.astronomy.universe_age source.nasa_universe_age --
 - **Tested by:**
   - L29 `question.astronomy.029.q2`: What was special about Herschel’s discovery of Uranus in 1781? → **It was the first planet discovered with a telescope**
   - L38 `question.astronomy.038.q3`: From Level 29: Herschel found Uranus with a telescope in 1781. How did Voyager 2 add to that? → **It gave humanity its only close-up visit to Uranus**
+- **Fact-check (2026-09-24):** corroborated. Herschel found Uranus on 13 March 1781 with his own telescope; Science Museum and RMG describe it as the first planet discovered with a telescope. Sources: https://www.sciencemuseum.org.uk/objects-and-stories/uranus-first-planet-discovered-telescope, https://www.rmg.co.uk/stories/space-astronomy/astronomy/discovery-uranus
 
 ```sh
 npm run verify:record -- fact.astronomy.herschel_1781 source.nasa_uranus_facts --status verified --by "Your Name" --quote "…"
@@ -7534,6 +7612,7 @@ npm run verify:record -- fact.astronomy.golden_record source.nasa_voyager --stat
 - **Tested by:**
   - L60 `question.astronomy.060.q1`: What is the heliosphere? → **The bubble the solar wind blows around the Sun and planets**
   - L60 `question.astronomy.060.q3`: Voyager 1 has left the heliosphere. Has it left the solar system? → **Not by the Sun’s gravity: the Oort Cloud lies far beyond**
+- **Fact-check (2026-09-24):** corroborated. NASA: Voyager 1 entered interstellar space on 25 August 2012 at about 122 AU; the team accepts this as the heliopause crossing date (confirmed in 2013). Sources: https://science.nasa.gov/mission/voyager/interstellar-mission/, https://www.nasa.gov/news-release/nasa-spacecraft-embarks-on-historic-journey-into-interstellar-space/
 
 ```sh
 npm run verify:record -- fact.astronomy.heliopause_voyager source.nasa_voyager --status verified --by "Your Name" --quote "…"
@@ -7684,6 +7763,7 @@ npm run verify:record -- fact.astronomy.webb_atmospheres source.nasa_webb --stat
   - L86 `question.astronomy.086.q1`: What is a gravitational lens? → **A massive object whose gravity bends light from behind it**
   - L86 `question.astronomy.086.q2`: How did Webb’s first deep-field image see such distant galaxies? → **A foreground galaxy cluster magnified their light**
   - L90 `question.astronomy.090.q5`: Chapter 9 recap: why can a galaxy cluster act as a gravitational lens? → **Its enormous mass bends passing light**
+- **Fact-check (2026-09-24):** corroborated. ESA and NASA: Webb's First Deep Field, released 11 July 2022, centers on galaxy cluster SMACS 0723, whose mass acts as a gravitational lens magnifying much more distant galaxies behind it. Sources: https://www.esa.int/ESA_Multimedia/Images/2022/07/Webb_s_first_deep_field, https://www.nasa.gov/image-article/webbs-first-deep-field
 
 ```sh
 npm run verify:record -- fact.astronomy.webb_first_deep_field source.nasa_webb --status verified --by "Your Name" --quote "…"
@@ -7699,6 +7779,7 @@ npm run verify:record -- fact.astronomy.webb_first_deep_field source.nasa_webb -
 - **Tested by:**
   - L36 `question.astronomy.036.q1`: What kind of light is the James Webb Space Telescope built to see? → **Infrared light**
   - L36 `question.astronomy.036.q3`: From Level 34: why does it help that Webb works in space? → **Much infrared light never reaches the ground**
+- **Fact-check (2026-09-24):** corroborated. NASA: Webb orbits the Sun about 1.5 million km from Earth at the second Lagrange point (L2); a five-layer, tennis-court-sized sunshield keeps instruments near -233 C. Sources: https://webb.nasa.gov/content/about/orbit.html, https://spectrum.ieee.org/james-webb-telescope-sunshield
 
 ```sh
 npm run verify:record -- fact.astronomy.webb_l2 source.nasa_webb --status verified --by "Your Name" --quote "…"
@@ -7714,6 +7795,7 @@ npm run verify:record -- fact.astronomy.webb_l2 source.nasa_webb --status verifi
 - **Tested by:**
   - L36 `question.astronomy.036.q1`: What kind of light is the James Webb Space Telescope built to see? → **Infrared light**
   - L36 `question.astronomy.036.q3`: From Level 34: why does it help that Webb works in space? → **Much infrared light never reaches the ground**
+- **Fact-check (2026-09-24):** corroborated. ESA/Webb and Space.com: the primary mirror is 6.5 m across, made of 18 hexagonal beryllium segments, each coated with a thin layer of gold to reflect infrared light. Sources: https://esawebb.org/about/general/mirrors/, https://www.space.com/nasa-james-webb-space-telescope-mirror-explained
 
 ```sh
 npm run verify:record -- fact.astronomy.webb_mirror source.nasa_webb --status verified --by "Your Name" --quote "…"
@@ -7829,6 +7911,7 @@ npm run verify:record -- fact.astronomy.webb_early_galaxies source.nasa_webb_ear
   - L92 “The Afterglow: Cosmic Microwave Background” · `card.astronomy.092.c2` (text): When light broke free / For its first 380,000 years or so, the universe was too hot and dense for light to travel far. When it cooled enough for atoms to form, light could finally travel freely. That ancient light still fills the sky as the cosmic microwave background, or CMB. / Released ~380,000 years after the Big Bang
 - **Tested by:**
   - L92 `question.astronomy.092.q1`: What is the cosmic microwave background? → **Leftover light from the early universe**
+- **Fact-check (2026-09-24):** corroborated. About 380,000 years after the Big Bang the universe cooled to about 3000 K, electrons and protons combined into atoms, and photons could travel freely. Sources: https://www.astro.ucla.edu/~wright/CMB.html, https://www.cfa.harvard.edu/research/topic/cosmic-microwave-background
 
 ```sh
 npm run verify:record -- fact.astronomy.cmb_380k source.nasa_wmap_cmb --status verified --by "Your Name" --quote "…"
@@ -7873,6 +7956,7 @@ npm run verify:record -- fact.astronomy.cmb_evidence source.nasa_wmap_cmb --stat
   - L92 “The Afterglow: Cosmic Microwave Background” · `card.astronomy.092.c3` (text): Stretched to microwaves / The CMB started as the glow of hot gas. As space expanded over billions of years, that light was stretched to much longer wavelengths, all the way to microwaves. Today it’s only about 2.7 degrees above absolute zero. / ≈ 2.7 K
 - **Tested by:**
   - L92 `question.astronomy.092.q2`: Why does the CMB reach us as microwaves rather than visible light? → **Expanding space stretched its wavelengths**
+- **Fact-check (2026-09-24):** corroborated. The CMB temperature is about 2.725 K, barely above absolute zero. Sources: https://www.astro.ucla.edu/~wright/CMB.html, https://www.space.com/33892-cosmic-microwave-background.html
 
 ```sh
 npm run verify:record -- fact.astronomy.cmb_temp source.nasa_wmap_cmb --status verified --by "Your Name" --quote "…"
@@ -7896,6 +7980,7 @@ npm run verify:record -- fact.astronomy.cmb_temp source.nasa_wmap_cmb --status v
 - **Tested by:**
   - L94 `question.astronomy.094.q1`: What did astronomers discover in 1998? → **The expansion of the universe is speeding up**
   - L98 `question.astronomy.098.q3`: From Level 94: if dark energy keeps accelerating the expansion, what happens to distant galaxies? → **They eventually drift out of view**
+- **Fact-check (2026-09-24):** corroborated. In 1998 two teams studying distant Type Ia supernovae found them fainter than expected, showing the expansion is accelerating. Sources: https://www.nobelprize.org/prizes/physics/2011/popular-information/, https://www.nobelprize.org/prizes/physics/2011/summary/
 
 ```sh
 npm run verify:record -- fact.astronomy.de_1998 source.nobel_2011 --status verified --by "Your Name" --quote "…"
@@ -7908,6 +7993,7 @@ npm run verify:record -- fact.astronomy.de_1998 source.nobel_2011 --status verif
 - **Concept:** Dark energy (`concept.astronomy.dark_energy`)
 - **Appears in:**
   - L94 “Dark Energy” · `card.astronomy.094.c4` (fact): The discovery won the 2011 Nobel Prize in Physics. / Saul Perlmutter, Brian Schmidt and Adam Riess shared it for revealing the accelerating universe.
+- **Fact-check (2026-09-24):** corroborated. The 2011 Nobel Prize in Physics went to Perlmutter, Schmidt and Riess for discovering the accelerating expansion of the universe via distant supernovae. Sources: https://www.nobelprize.org/prizes/physics/2011/press-release/, https://www.nobelprize.org/prizes/physics/2011/summary/
 
 ```sh
 npm run verify:record -- fact.astronomy.de_nobel source.nobel_2011 --status verified --by "Your Name" --quote "…"
@@ -7962,11 +8048,13 @@ npm run verify:record -- fact.astronomy.peg51_1995 source.nobel_2019 --status ve
 
 ### ☐ `fact.astronomy.nobel_2020_sgr`: unverified
 
-> **Claim:** Reinhard Genzel and Andrea Ghez shared the 2020 Nobel Prize in Physics for discovering the supermassive object at our galaxy’s center.
+> **Claim:** Reinhard Genzel and Andrea Ghez shared half of the 2020 Nobel Prize in Physics (Roger Penrose received the other half) for discovering the supermassive object at our galaxy's center.
 
 - **Concept:** The black hole at the center of the Milky Way (`concept.astronomy.sagittarius_a`)
 - **Appears in:**
-  - L75 “The Black Hole at Our Center” · `card.astronomy.075.c3` (text): A prize and a picture / Reinhard Genzel and Andrea Ghez shared the 2020 Nobel Prize in Physics for this discovery. In 2022 the Event Horizon Telescope released an image of Sagittarius A* itself. / Nobel 2020 · image 2022
+  - L75 “The Black Hole at Our Center” · `card.astronomy.075.c3` (text): A prize and a picture / Reinhard Genzel and Andrea Ghez shared half of the 2020 Nobel Prize in Physics for this discovery. In 2022 the Event Horizon Telescope released an image of Sagittarius A* itself. / Nobel 2020 · image 2022
+- **Fact-check (2026-09-24):** corrected. NobelPrize.org: the 2020 prize was divided, one half to Roger Penrose and the other half jointly to Genzel and Ghez for the supermassive compact object at the galaxy's centre. The claim implies they shared the whole prize. Sources: https://www.nobelprize.org/prizes/physics/2020/summary/, https://www.nobelprize.org/prizes/physics/2020/press-release/
+- **Previous wording:** Reinhard Genzel and Andrea Ghez shared the 2020 Nobel Prize in Physics for discovering the supermassive object at our galaxy’s center.
 
 ```sh
 npm run verify:record -- fact.astronomy.nobel_2020_sgr source.nobel_2020 --status verified --by "Your Name" --quote "…"
@@ -7985,6 +8073,7 @@ npm run verify:record -- fact.astronomy.nobel_2020_sgr source.nobel_2020 --statu
   - L75 `question.astronomy.075.q3`: From Level 26: which laws let astronomers turn those stars’ orbits into a mass for Sagittarius A*? → **The laws of orbits and gravity from Kepler and Newton**
   - L82 `question.astronomy.082.q3`: From Level 75: what sits at the very center of the Milky Way’s bulge? → **A supermassive black hole, Sagittarius A***
   - L87 `question.astronomy.087.q3`: From Level 75: our galaxy has Sagittarius A*. Why isn’t the Milky Way a quasar? → **Sagittarius A* isn’t pulling in large amounts of gas right now**
+- **Fact-check (2026-09-24):** corroborated. Nobel Prize popular background (2020): the star S2 completes an orbit around the galactic center in less than 16 years (about 16.0 years). Sources: https://www.nobelprize.org/prizes/physics/2020/popular-information/, https://www.eso.org/public/news/eso2017/
 
 ```sh
 npm run verify:record -- fact.astronomy.s2_16_years source.nobel_2020 --status verified --by "Your Name" --quote "…"
@@ -8004,6 +8093,7 @@ npm run verify:record -- fact.astronomy.s2_16_years source.nobel_2020 --status v
   - L75 `question.astronomy.075.q3`: From Level 26: which laws let astronomers turn those stars’ orbits into a mass for Sagittarius A*? → **The laws of orbits and gravity from Kepler and Newton**
   - L82 `question.astronomy.082.q3`: From Level 75: what sits at the very center of the Milky Way’s bulge? → **A supermassive black hole, Sagittarius A***
   - L87 `question.astronomy.087.q3`: From Level 75: our galaxy has Sagittarius A*. Why isn’t the Milky Way a quasar? → **Sagittarius A* isn’t pulling in large amounts of gas right now**
+- **Fact-check (2026-09-24):** corroborated. EHT and Nobel materials give Sgr A* a mass of about 4 million Suns. Sources: https://eventhorizontelescope.org/blog/astronomers-reveal-first-image-black-hole-heart-our-galaxy, https://www.nobelprize.org/prizes/physics/2020/popular-information/
 
 ```sh
 npm run verify:record -- fact.astronomy.sgr_a_mass source.nobel_2020 --status verified --by "Your Name" --quote "…"
