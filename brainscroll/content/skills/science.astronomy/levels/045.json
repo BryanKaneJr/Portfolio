@@ -1,0 +1,205 @@
+{
+  "id": "level.science.astronomy.045",
+  "skillId": "skill.science.astronomy",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Asteroid Belt",
+  "objective": "After this level you can describe the asteroid belt and why it never formed a planet.",
+  "summary": "Between Mars and Jupiter lies a sparse belt of rocky and metallic leftovers that Jupiter’s gravity kept from forming a planet.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.asteroid_belt",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.jupiter_mass",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.044"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The asteroid belt isn’t like the movies. It’s mostly empty."
+    },
+    {
+      "id": "card.astronomy.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Leftovers between the worlds",
+      "body": "The main asteroid belt lies between the orbits of Mars and Jupiter. Jupiter’s strong gravity stirred up the material there, keeping it from ever gathering into a planet. Most asteroids are rock; some are largely metal."
+    },
+    {
+      "id": "card.astronomy.045.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Less than a Moon",
+      "body": "All the asteroids in the main belt together have less mass than Earth’s Moon. They’re spread across such a vast space that spacecraft have crossed the belt without hitting anything."
+    },
+    {
+      "id": "card.astronomy.045.c4",
+      "type": "fact",
+      "fact": "The biggest object in the asteroid belt is a dwarf planet.",
+      "context": "Ceres is large enough to be rounded by its own gravity and is classified as a dwarf planet, like Pluto."
+    },
+    {
+      "id": "card.astronomy.045.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.045.q1"
+    },
+    {
+      "id": "card.astronomy.045.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.045.q2"
+    },
+    {
+      "id": "card.astronomy.045.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.045.q3"
+    },
+    {
+      "id": "card.astronomy.045.c8",
+      "type": "checkpoint",
+      "headline": "Asteroid belt: crossed",
+      "learned": [
+        "The main belt lies between Mars and Jupiter",
+        "Jupiter’s gravity kept it from forming a planet",
+        "All of it together weighs less than our Moon",
+        "Ceres, its largest object, is a dwarf planet"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.asteroid_belt"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.045.c2"
+      ],
+      "prompt": "Where is the main asteroid belt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Between Earth and Mars",
+          "correct": false,
+          "rationale": "It lies farther out."
+        },
+        {
+          "id": "b",
+          "label": "Between Jupiter and Saturn",
+          "correct": false,
+          "rationale": "It lies inside Jupiter’s orbit."
+        },
+        {
+          "id": "c",
+          "label": "Beyond the orbit of Neptune",
+          "correct": false,
+          "rationale": "That’s the Kuiper Belt."
+        },
+        {
+          "id": "d",
+          "label": "Between Mars and Jupiter",
+          "correct": true
+        }
+      ],
+      "explanation": "The main asteroid belt lies between the orbits of Mars and Jupiter.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.asteroid_belt"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.045.c2"
+      ],
+      "prompt": "Why didn’t the asteroid belt form a planet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It never had enough material to start",
+          "correct": false,
+          "rationale": "Gravity stirring is the main reason."
+        },
+        {
+          "id": "b",
+          "label": "Jupiter’s gravity kept stirring it up",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Sun’s heat melted it apart",
+          "correct": false,
+          "rationale": "Heat wasn’t what stopped it."
+        },
+        {
+          "id": "d",
+          "label": "A planet formed and later exploded",
+          "correct": false,
+          "rationale": "There’s no evidence of an exploded planet."
+        }
+      ],
+      "explanation": "Jupiter’s powerful gravity stirred the material in the belt, keeping it from gathering into a single planet.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.asteroid_belt",
+        "concept.astronomy.jupiter_mass"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.045.c2",
+        "card.astronomy.004.c3"
+      ],
+      "prompt": "From Level 4: Jupiter outweighs all the other planets combined. How does that connect to the asteroid belt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its huge gravity kept the belt’s material from forming a planet",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its mass pulled all the asteroids into its rings",
+          "correct": false,
+          "rationale": "Jupiter’s faint rings are dust, not asteroids."
+        },
+        {
+          "id": "c",
+          "label": "It captured the belt’s missing planet as a moon",
+          "correct": false,
+          "rationale": "There was no missing planet."
+        },
+        {
+          "id": "d",
+          "label": "Its mass makes the belt spin faster than Mars",
+          "correct": false,
+          "rationale": "Its gravity’s effect was to stop a planet forming."
+        }
+      ],
+      "explanation": "Jupiter’s enormous mass means strong gravity, which stirred the belt and prevented a planet from forming there.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_asteroids",
+    "source.nasa_ceres"
+  ]
+}

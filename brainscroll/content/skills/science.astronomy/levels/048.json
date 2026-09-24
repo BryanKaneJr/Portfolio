@@ -1,0 +1,206 @@
+{
+  "id": "level.science.astronomy.048",
+  "skillId": "skill.science.astronomy",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Titan: A World of Methane Lakes",
+  "objective": "After this level you can describe Titan’s thick atmosphere and liquid methane lakes.",
+  "summary": "Saturn’s largest moon has a thick nitrogen atmosphere and lakes of liquid methane; the Huygens probe landed there in 2005.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.titan_moon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.ocean_worlds",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.saturn_rings",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.047"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.048.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "It rains on Titan. Just not water."
+    },
+    {
+      "id": "card.astronomy.048.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A moon with weather",
+      "body": "Titan is Saturn’s largest moon and is bigger than the planet Mercury. It’s the only moon with a thick atmosphere, made mostly of nitrogen. Methane rains from its clouds and gathers in lakes and seas of liquid methane and ethane. At about −179 °C, it’s far too cold for liquid water."
+    },
+    {
+      "id": "card.astronomy.048.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Earth’s strange cousin",
+      "body": "Apart from Earth, Titan is the only world known to have stable liquid on its surface. In 2005 the Huygens probe parachuted through its haze and landed, the first landing ever on a world in the outer solar system.",
+      "callout": "Huygens landed 2005"
+    },
+    {
+      "id": "card.astronomy.048.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.048.q1"
+    },
+    {
+      "id": "card.astronomy.048.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.048.q2"
+    },
+    {
+      "id": "card.astronomy.048.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.048.q3"
+    },
+    {
+      "id": "card.astronomy.048.c7",
+      "type": "checkpoint",
+      "headline": "Titan: landed",
+      "learned": [
+        "Titan is Saturn’s largest moon",
+        "It’s the only moon with a thick atmosphere",
+        "It has lakes of liquid methane and ethane",
+        "Huygens landed there in 2005"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.titan_moon"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.048.c2"
+      ],
+      "prompt": "What fills the lakes and seas of Titan?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Liquid water, like Earth’s oceans",
+          "correct": false,
+          "rationale": "Titan is far too cold for liquid water on its surface."
+        },
+        {
+          "id": "b",
+          "label": "Liquid methane and ethane",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Molten lava from its volcanoes",
+          "correct": false,
+          "rationale": "Titan’s lakes are icy-cold liquids."
+        },
+        {
+          "id": "d",
+          "label": "Sulfuric acid, like Venus’s clouds",
+          "correct": false,
+          "rationale": "That’s Venus."
+        }
+      ],
+      "explanation": "Titan’s lakes and seas are liquid methane and ethane, fed by methane rain.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.titan_moon"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.048.c2"
+      ],
+      "prompt": "What makes Titan unique among the solar system’s moons?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is the only moon with a ring system",
+          "correct": false,
+          "rationale": "Moons don’t have major rings; Saturn does."
+        },
+        {
+          "id": "b",
+          "label": "It is the only moon made of pure ice",
+          "correct": false,
+          "rationale": "Many moons are icy."
+        },
+        {
+          "id": "c",
+          "label": "It is the only moon with a thick atmosphere",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is the only moon that orbits Saturn",
+          "correct": false,
+          "rationale": "Saturn has many moons."
+        }
+      ],
+      "explanation": "Titan is the only moon with a thick atmosphere, made mostly of nitrogen.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.titan_moon",
+        "concept.astronomy.ocean_worlds",
+        "concept.astronomy.saturn_rings"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.048.c2",
+        "card.astronomy.047.c2",
+        "card.astronomy.004.c4"
+      ],
+      "prompt": "From Level 4: Saturn is famous for its rings. What else did exploring Saturn’s system reveal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its rings are made of solid rock",
+          "correct": false,
+          "rationale": "The rings are mostly water ice."
+        },
+        {
+          "id": "b",
+          "label": "Saturn has a solid rocky surface",
+          "correct": false,
+          "rationale": "Saturn is a gas giant."
+        },
+        {
+          "id": "c",
+          "label": "Its moons are all identical ice balls",
+          "correct": false,
+          "rationale": "Titan and Enceladus are very different."
+        },
+        {
+          "id": "d",
+          "label": "A moon with methane lakes and one with water plumes",
+          "correct": true
+        }
+      ],
+      "explanation": "Beyond its icy rings, Saturn has Titan, with methane lakes, and Enceladus, spraying water plumes.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_titan"
+  ]
+}

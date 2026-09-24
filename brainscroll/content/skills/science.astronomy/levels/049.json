@@ -1,0 +1,212 @@
+{
+  "id": "level.science.astronomy.049",
+  "skillId": "skill.science.astronomy",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Tilted and the Windy: Uranus and Neptune",
+  "objective": "After this level you can describe Uranus’s sideways tilt and Neptune’s supersonic winds.",
+  "summary": "Uranus rolls on its side with 42-year polar days; Neptune has the fastest winds known. Methane makes both of them blue.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.ice_giant_extremes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.voyager_probes",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.seasons_tilt",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.048"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.049.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On Uranus, a single day at the pole can last 42 years."
+    },
+    {
+      "id": "card.astronomy.049.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A planet on its side",
+      "body": "Uranus is tilted about 98°, so it essentially rolls around the Sun on its side. Each pole gets about 42 years of continuous sunlight, followed by 42 years of darkness.",
+      "callout": "Tilt: ~98°"
+    },
+    {
+      "id": "card.astronomy.049.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The windiest planet",
+      "body": "Neptune has the fastest winds in the solar system, over 2,000 km/h. It’s so far out that it takes about 165 years to orbit the Sun: it completed its first orbit since its discovery only in 2011. Voyager 2 remains the only spacecraft to have visited it."
+    },
+    {
+      "id": "card.astronomy.049.c4",
+      "type": "fact",
+      "fact": "Methane makes Uranus and Neptune blue.",
+      "context": "Methane in their atmospheres absorbs red light, so the sunlight they reflect back looks blue."
+    },
+    {
+      "id": "card.astronomy.049.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.049.q1"
+    },
+    {
+      "id": "card.astronomy.049.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.049.q2"
+    },
+    {
+      "id": "card.astronomy.049.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.049.q3"
+    },
+    {
+      "id": "card.astronomy.049.c8",
+      "type": "checkpoint",
+      "headline": "Ice giants: visited",
+      "learned": [
+        "Uranus is tilted about 98°, on its side",
+        "Its poles get 42-year days and nights",
+        "Neptune has the fastest winds: over 2,000 km/h",
+        "Methane makes both planets blue"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.ice_giant_extremes"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.049.c3"
+      ],
+      "prompt": "Which planet has the fastest winds in the solar system?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Jupiter, with its Great Red Spot",
+          "correct": false,
+          "rationale": "Jupiter’s storms are huge, but Neptune’s winds are faster."
+        },
+        {
+          "id": "b",
+          "label": "Uranus, the tilted planet",
+          "correct": false,
+          "rationale": "Uranus is known for its tilt."
+        },
+        {
+          "id": "c",
+          "label": "Venus, with its thick air",
+          "correct": false,
+          "rationale": "Venus’s air is dense but its surface winds are slow."
+        },
+        {
+          "id": "d",
+          "label": "Neptune",
+          "correct": true
+        }
+      ],
+      "explanation": "Neptune’s winds exceed 2,000 km/h, the fastest in the solar system.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.ice_giant_extremes"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.049.c4"
+      ],
+      "prompt": "What gives Uranus and Neptune their blue color?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Methane in their atmospheres absorbing red light",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Oceans of liquid water on their surfaces",
+          "correct": false,
+          "rationale": "They have no surface oceans."
+        },
+        {
+          "id": "c",
+          "label": "Reflections of the blue sky of Earth",
+          "correct": false,
+          "rationale": "Their color is their own."
+        },
+        {
+          "id": "d",
+          "label": "Ice crystals in their ring systems",
+          "correct": false,
+          "rationale": "Their color comes from their atmospheres."
+        }
+      ],
+      "explanation": "Methane absorbs red light, so the light these planets reflect looks blue.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.ice_giant_extremes",
+        "concept.astronomy.seasons_tilt"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.049.c2",
+        "card.astronomy.005.c3"
+      ],
+      "prompt": "From Level 5: Earth’s 23.5° tilt gives us seasons. What does Uranus’s ~98° tilt do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It cancels out seasons completely",
+          "correct": false,
+          "rationale": "A big tilt makes seasons more extreme, not absent."
+        },
+        {
+          "id": "b",
+          "label": "It makes its seasons shorter than Earth’s",
+          "correct": false,
+          "rationale": "Its seasons last decades."
+        },
+        {
+          "id": "c",
+          "label": "It gives extreme seasons, with 42-year polar days",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It makes Uranus spin backwards like Venus",
+          "correct": false,
+          "rationale": "The tilt is about its axis, not the spin direction story."
+        }
+      ],
+      "explanation": "Uranus is tipped almost on its side, so each pole faces the Sun for about 42 years, then away for 42.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_uranus_facts",
+    "source.nasa_neptune_facts",
+    "source.nasa_voyager"
+  ]
+}

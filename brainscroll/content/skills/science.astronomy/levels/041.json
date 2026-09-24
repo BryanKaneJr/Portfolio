@@ -1,0 +1,205 @@
+{
+  "id": "level.science.astronomy.041",
+  "skillId": "skill.science.astronomy",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mercury: The Scorched Survivor",
+  "objective": "After this level you can describe Mercury’s extreme temperatures and its lack of atmosphere.",
+  "summary": "The smallest, innermost planet has almost no air, so it bakes by day and freezes by night, yet keeps ice at its poles.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.mercury_extremes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.venus_greenhouse",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.040"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The planet closest to the Sun has ice on it."
+    },
+    {
+      "id": "card.astronomy.041.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Small, fast and close",
+      "body": "Mercury is the smallest planet and the closest to the Sun. It races around its orbit in just 88 Earth days, the shortest year in the solar system.",
+      "callout": "Year: 88 Earth days"
+    },
+    {
+      "id": "card.astronomy.041.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "No blanket",
+      "body": "Mercury has almost no atmosphere to hold heat. Its surface reaches about 430 °C in the day, then plunges to about −180 °C at night, one of the biggest temperature swings of any planet."
+    },
+    {
+      "id": "card.astronomy.041.c4",
+      "type": "fact",
+      "fact": "Mercury has ice in craters near its poles.",
+      "context": "The floors of some polar craters are always in shadow. Sunlight never reaches them, so water ice survives on the planet closest to the Sun."
+    },
+    {
+      "id": "card.astronomy.041.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.041.q1"
+    },
+    {
+      "id": "card.astronomy.041.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.041.q2"
+    },
+    {
+      "id": "card.astronomy.041.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.041.q3"
+    },
+    {
+      "id": "card.astronomy.041.c8",
+      "type": "checkpoint",
+      "headline": "Mercury: surveyed",
+      "learned": [
+        "Mercury is the smallest planet and closest to the Sun",
+        "Its year is only 88 Earth days",
+        "No atmosphere: ~430 °C days, ~−180 °C nights",
+        "Shadowed polar craters hold ice"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.mercury_extremes"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.041.c2"
+      ],
+      "prompt": "Which is the smallest planet in the solar system?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mars, the red planet",
+          "correct": false,
+          "rationale": "Mars is bigger than Mercury."
+        },
+        {
+          "id": "b",
+          "label": "Venus, Earth’s near-twin",
+          "correct": false,
+          "rationale": "Venus is nearly Earth’s size."
+        },
+        {
+          "id": "c",
+          "label": "Mercury",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Pluto, beyond Neptune",
+          "correct": false,
+          "rationale": "Pluto is classified as a dwarf planet."
+        }
+      ],
+      "explanation": "Mercury is the smallest planet, and the closest to the Sun.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.mercury_extremes"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.041.c3"
+      ],
+      "prompt": "Why does Mercury get so cold at night despite being so close to the Sun?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has almost no atmosphere to hold in heat",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It moves away from the Sun every night",
+          "correct": false,
+          "rationale": "Night is about which side faces the Sun."
+        },
+        {
+          "id": "c",
+          "label": "Its surface is covered in reflective ice",
+          "correct": false,
+          "rationale": "Ice exists only in shadowed polar craters."
+        },
+        {
+          "id": "d",
+          "label": "The Sun switches off on its far side",
+          "correct": false,
+          "rationale": "The Sun shines constantly."
+        }
+      ],
+      "explanation": "Without an atmosphere to trap heat, Mercury’s surface loses its warmth quickly once the Sun sets.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.mercury_extremes",
+        "concept.astronomy.venus_greenhouse"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.041.c3",
+        "card.astronomy.003.c3"
+      ],
+      "prompt": "From Level 3: Venus stays scorching all night, but Mercury freezes. What makes the difference?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Venus spins much faster than Mercury",
+          "correct": false,
+          "rationale": "Spin speed isn’t the reason."
+        },
+        {
+          "id": "b",
+          "label": "Venus is closer to the Sun than Mercury",
+          "correct": false,
+          "rationale": "Mercury is the closest planet."
+        },
+        {
+          "id": "c",
+          "label": "Mercury’s ice cools the whole planet",
+          "correct": false,
+          "rationale": "The ice is only in shadowed craters."
+        },
+        {
+          "id": "d",
+          "label": "Venus has a thick heat-trapping atmosphere; Mercury has almost none",
+          "correct": true
+        }
+      ],
+      "explanation": "Venus’s thick carbon dioxide atmosphere traps heat day and night. Mercury has almost no atmosphere, so its heat escapes.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_mercury_facts"
+  ]
+}

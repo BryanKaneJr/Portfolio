@@ -1,0 +1,428 @@
+{
+  "id": "level.science.astronomy.050",
+  "skillId": "skill.science.astronomy",
+  "number": 50,
+  "type": "milestone",
+  "revision": 1,
+  "status": "draft",
+  "title": "Milestone: The Solar System",
+  "objective": "After this level you can connect the planets, moons and small bodies into one picture of our solar system.",
+  "summary": "From the Sun’s 99.8% of the mass to Neptune 30 AU out, the solar system is one family shaped by gravity.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.solar_system_scale",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.sun_mass_share",
+      "role": "recall",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.mars_red",
+      "role": "recall",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.jupiter_mass",
+      "role": "recall",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.saturn_rings",
+      "role": "recall",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.ocean_worlds",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.titan_moon",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.astronomical_unit",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.sunlight_travel_time",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.049"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.050.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Milestone: halfway to Mastery. Let’s put the whole solar system in one picture.",
+      "body": "Everything you’ve met so far, from the Sun to Neptune, is one family shaped by gravity."
+    },
+    {
+      "id": "card.astronomy.050.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "How big is our neighborhood?",
+      "body": "Neptune, the outermost planet, orbits about 30 astronomical units from the Sun: about 4.5 billion km. Sunlight, which reaches Earth in about 8 minutes, takes about 4 hours to get out there.",
+      "callout": "1 AU → 8 minutes · 30 AU → ~4 hours"
+    },
+    {
+      "id": "card.astronomy.050.c3",
+      "type": "comparison",
+      "headline": "Where the mass is",
+      "items": [
+        {
+          "label": "The Sun",
+          "points": [
+            "About 99.8% of all the mass",
+            "Rules every orbit by gravity"
+          ]
+        },
+        {
+          "label": "Everything else",
+          "points": [
+            "About 0.2% of the mass",
+            "Jupiter holds most of it"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.astronomy.050.c4",
+      "type": "recall",
+      "questionId": "question.astronomy.050.q1"
+    },
+    {
+      "id": "card.astronomy.050.c5",
+      "type": "recall",
+      "questionId": "question.astronomy.050.q2"
+    },
+    {
+      "id": "card.astronomy.050.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.050.q3"
+    },
+    {
+      "id": "card.astronomy.050.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.050.q4"
+    },
+    {
+      "id": "card.astronomy.050.c8",
+      "type": "mcq",
+      "questionId": "question.astronomy.050.q5"
+    },
+    {
+      "id": "card.astronomy.050.c9",
+      "type": "recall",
+      "questionId": "question.astronomy.050.q6"
+    },
+    {
+      "id": "card.astronomy.050.c10",
+      "type": "recall",
+      "questionId": "question.astronomy.050.q7"
+    },
+    {
+      "id": "card.astronomy.050.c11",
+      "type": "checkpoint",
+      "headline": "Milestone: solar system mapped",
+      "learned": [
+        "The Sun holds 99.8% of the mass",
+        "Jupiter outweighs all other planets combined",
+        "Neptune orbits about 30 AU out",
+        "Sunlight takes about 4 hours to reach it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.050.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.sun_mass_share"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.002.c3"
+      ],
+      "prompt": "About what share of the solar system’s mass is in the Sun?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About half of it",
+          "correct": false,
+          "rationale": "Far more than half."
+        },
+        {
+          "id": "b",
+          "label": "About 75 percent of it",
+          "correct": false,
+          "rationale": "Still far too low."
+        },
+        {
+          "id": "c",
+          "label": "About 90 percent of it",
+          "correct": false,
+          "rationale": "Close, but it’s even more."
+        },
+        {
+          "id": "d",
+          "label": "About 99.8 percent of it",
+          "correct": true
+        }
+      ],
+      "explanation": "The Sun holds about 99.8% of the solar system’s mass; everything else shares the last 0.2%.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.050.q2",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.mars_red"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.003.c4"
+      ],
+      "prompt": "What gives Mars its red color?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Iron oxide, like rust, in its dust and rocks",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Red algae growing in its soil",
+          "correct": false,
+          "rationale": "There is no known life on Mars."
+        },
+        {
+          "id": "c",
+          "label": "The light of a red sun in its sky",
+          "correct": false,
+          "rationale": "Mars orbits our own Sun."
+        },
+        {
+          "id": "d",
+          "label": "Hot lava glowing on its surface",
+          "correct": false,
+          "rationale": "Mars’s volcanoes are inactive today."
+        }
+      ],
+      "explanation": "Iron oxide, the same compound as rust, coats Martian dust and rocks.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.050.q3",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.jupiter_mass"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.004.c3"
+      ],
+      "prompt": "Which statement about Jupiter’s mass is true?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It weighs about the same as Saturn",
+          "correct": false,
+          "rationale": "Jupiter is about three times more massive than Saturn."
+        },
+        {
+          "id": "b",
+          "label": "It is more than twice all other planets combined",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is lighter than the Earth",
+          "correct": false,
+          "rationale": "Jupiter is far more massive than Earth."
+        },
+        {
+          "id": "d",
+          "label": "It is heavier than the Sun itself",
+          "correct": false,
+          "rationale": "The Sun holds 99.8% of the mass."
+        }
+      ],
+      "explanation": "Jupiter has more than twice the mass of all the other planets combined.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.050.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.saturn_rings"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.004.c4"
+      ],
+      "prompt": "What are Saturn’s rings made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A single flat sheet of solid rock",
+          "correct": false,
+          "rationale": "The rings aren’t solid."
+        },
+        {
+          "id": "b",
+          "label": "Glowing clouds of hot gas",
+          "correct": false,
+          "rationale": "The rings are cold chunks, not gas."
+        },
+        {
+          "id": "c",
+          "label": "Countless chunks of mostly water ice",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Dust blown off the Sun by the wind",
+          "correct": false,
+          "rationale": "The rings are mostly ice from Saturn’s surroundings."
+        }
+      ],
+      "explanation": "Saturn’s rings are countless separate chunks of mostly water ice, each orbiting Saturn on its own.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.050.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.solar_system_scale",
+        "concept.astronomy.astronomical_unit",
+        "concept.astronomy.sunlight_travel_time"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.050.c2",
+        "card.astronomy.028.c4"
+      ],
+      "prompt": "Neptune is about 30 AU from the Sun. About how long does sunlight take to reach it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 8 minutes",
+          "correct": false,
+          "rationale": "That’s the time to reach Earth, 1 AU away."
+        },
+        {
+          "id": "b",
+          "label": "About 30 minutes",
+          "correct": false,
+          "rationale": "Each AU takes about 8 minutes, not 1."
+        },
+        {
+          "id": "c",
+          "label": "About 30 days",
+          "correct": false,
+          "rationale": "Light is far faster than that."
+        },
+        {
+          "id": "d",
+          "label": "About 4 hours",
+          "correct": true
+        }
+      ],
+      "explanation": "Light takes about 8 minutes per AU, so 30 AU takes about 30 × 8 = 240 minutes: roughly 4 hours.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.astronomy.050.q6",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.ocean_worlds"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.047.c3"
+      ],
+      "prompt": "Europa and Enceladus are far from the Sun’s heat. What keeps their hidden oceans liquid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Thick atmospheres trapping heat",
+          "correct": false,
+          "rationale": "Neither has a thick atmosphere; that’s Titan."
+        },
+        {
+          "id": "b",
+          "label": "Tidal flexing by their planets’ gravity",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sunlight reflected off their planets",
+          "correct": false,
+          "rationale": "Reflected light is far too weak."
+        },
+        {
+          "id": "d",
+          "label": "Heat from nearby comets",
+          "correct": false,
+          "rationale": "Comets bring no lasting heat."
+        }
+      ],
+      "explanation": "Their giant planets’ gravity squeezes and flexes these moons, heating their interiors enough to keep water liquid.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.050.q7",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.titan_moon"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.048.c3"
+      ],
+      "prompt": "Besides Earth, which world has stable liquid on its surface?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Europa, under its thick ice",
+          "correct": false,
+          "rationale": "Europa’s ocean is beneath its ice, not on the surface."
+        },
+        {
+          "id": "b",
+          "label": "Mars, in its ancient riverbeds",
+          "correct": false,
+          "rationale": "Those rivers dried up long ago."
+        },
+        {
+          "id": "c",
+          "label": "Venus, beneath its acid clouds",
+          "correct": false,
+          "rationale": "Venus is far too hot for surface liquid."
+        },
+        {
+          "id": "d",
+          "label": "Titan, with methane lakes",
+          "correct": true
+        }
+      ],
+      "explanation": "Titan is the only world besides Earth known to have stable liquid on its surface: lakes of methane and ethane.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_neptune_facts",
+    "source.nasa_sun_facts",
+    "source.nasa_jupiter_facts"
+  ]
+}

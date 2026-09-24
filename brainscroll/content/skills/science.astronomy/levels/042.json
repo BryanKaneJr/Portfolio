@@ -1,0 +1,211 @@
+{
+  "id": "level.science.astronomy.042",
+  "skillId": "skill.science.astronomy",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Venus: Earth’s Evil Twin",
+  "objective": "After this level you can compare Venus and Earth and describe Venus’s surface and odd rotation.",
+  "summary": "Venus matches Earth’s size but has 90 times the air pressure, acid clouds, and spins backwards so slowly its day outlasts its year.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.venus_twin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.venus_greenhouse",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.sky_rises_east",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.041"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On Venus, a day is longer than a year."
+    },
+    {
+      "id": "card.astronomy.042.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A twin gone wrong",
+      "body": "Venus is nearly the same size as Earth. There the resemblance ends: the air pressure at its surface is about 90 times Earth’s, and the planet is wrapped in thick clouds of sulfuric acid.",
+      "callout": "Pressure: ~90× Earth’s"
+    },
+    {
+      "id": "card.astronomy.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Backwards and slow",
+      "body": "Venus spins backwards compared with most planets, so the Sun rises in the west. It spins so slowly that one rotation takes 243 Earth days, longer than its 225-day trip around the Sun."
+    },
+    {
+      "id": "card.astronomy.042.c4",
+      "type": "fact",
+      "fact": "The Soviet Venera landers reached Venus’s surface.",
+      "context": "In the 1970s and 1980s they sent back the first pictures from the ground, then were destroyed by the heat and pressure within about two hours."
+    },
+    {
+      "id": "card.astronomy.042.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.042.q1"
+    },
+    {
+      "id": "card.astronomy.042.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.042.q2"
+    },
+    {
+      "id": "card.astronomy.042.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.042.q3"
+    },
+    {
+      "id": "card.astronomy.042.c8",
+      "type": "checkpoint",
+      "headline": "Venus: surveyed",
+      "learned": [
+        "Venus is nearly Earth’s size",
+        "Its surface pressure is ~90× Earth’s",
+        "It spins backwards: the Sun rises in the west",
+        "Its day (243 days) outlasts its year (225)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.venus_twin"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.042.c2"
+      ],
+      "prompt": "What are Venus’s clouds made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Water vapor like Earth’s clouds",
+          "correct": false,
+          "rationale": "Venus’s clouds are far nastier."
+        },
+        {
+          "id": "b",
+          "label": "Sulfuric acid",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Frozen carbon dioxide crystals",
+          "correct": false,
+          "rationale": "Its atmosphere is carbon dioxide, but the clouds are acid."
+        },
+        {
+          "id": "d",
+          "label": "Iron oxide dust like Mars",
+          "correct": false,
+          "rationale": "That’s what colors Mars."
+        }
+      ],
+      "explanation": "Venus is covered by thick clouds of sulfuric acid.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.venus_twin"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.042.c3"
+      ],
+      "prompt": "Why is a day on Venus longer than its year?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Venus orbits the Sun unusually fast",
+          "correct": false,
+          "rationale": "Its 225-day year is ordinary; its spin is the odd part."
+        },
+        {
+          "id": "b",
+          "label": "Venus has no day and night at all",
+          "correct": false,
+          "rationale": "It does, just very long ones."
+        },
+        {
+          "id": "c",
+          "label": "It rotates so slowly that one spin takes longer than one orbit",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its thick clouds block all sunlight",
+          "correct": false,
+          "rationale": "Clouds don’t change the length of a day."
+        }
+      ],
+      "explanation": "Venus takes 243 Earth days to rotate once but only 225 to orbit the Sun, so its rotation outlasts its year.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.venus_twin",
+        "concept.astronomy.sky_rises_east"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.042.c3",
+        "card.astronomy.011.c3"
+      ],
+      "prompt": "From Level 11: on Earth the Sun rises in the east because Earth spins west to east. What does a western sunrise on Venus tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Venus spins the opposite way to Earth",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Venus orbits the Sun backwards",
+          "correct": false,
+          "rationale": "It orbits the same way as the other planets."
+        },
+        {
+          "id": "c",
+          "label": "Venus has no axis to spin around",
+          "correct": false,
+          "rationale": "Venus does spin, just backwards."
+        },
+        {
+          "id": "d",
+          "label": "The Sun circles Venus instead",
+          "correct": false,
+          "rationale": "Planets orbit the Sun."
+        }
+      ],
+      "explanation": "A sunrise in the west means Venus rotates backwards compared with Earth and most planets.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_venus_facts",
+    "source.brit_venera"
+  ]
+}

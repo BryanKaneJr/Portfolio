@@ -1,0 +1,206 @@
+{
+  "id": "level.science.astronomy.047",
+  "skillId": "skill.science.astronomy",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ocean Worlds: Europa and Enceladus",
+  "objective": "After this level you can explain why icy moons may hide liquid-water oceans.",
+  "summary": "Europa and Enceladus hide oceans under ice, kept liquid by tidal flexing from their planets: prime places to look for life.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.ocean_worlds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.tides_moon_gravity",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.jupiter_system",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.046"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some of the solar system’s biggest oceans are on moons, under ice."
+    },
+    {
+      "id": "card.astronomy.047.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hidden seas",
+      "body": "Jupiter’s moon Europa has a salty ocean of liquid water beneath its icy shell, possibly holding about twice as much water as all of Earth’s oceans. At Saturn’s moon Enceladus, the Cassini spacecraft saw plumes of water ice spraying from cracks near its south pole.",
+      "callout": "Europa · Enceladus"
+    },
+    {
+      "id": "card.astronomy.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Kept warm by squeezing",
+      "body": "These moons are far from the Sun, so what keeps their water liquid? Their giant planets’ gravity squeezes and flexes them as they orbit, heating their interiors. Liquid water, energy and the right chemistry are key ingredients for life, which is why NASA launched Europa Clipper in 2024 to study Europa."
+    },
+    {
+      "id": "card.astronomy.047.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.047.q1"
+    },
+    {
+      "id": "card.astronomy.047.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.047.q2"
+    },
+    {
+      "id": "card.astronomy.047.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.047.q3"
+    },
+    {
+      "id": "card.astronomy.047.c7",
+      "type": "checkpoint",
+      "headline": "Ocean worlds: discovered",
+      "learned": [
+        "Europa has an ocean beneath its ice",
+        "It may hold twice the water of Earth’s oceans",
+        "Enceladus sprays plumes of water ice",
+        "Tidal flexing keeps these oceans liquid"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.ocean_worlds"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.047.c2"
+      ],
+      "prompt": "What did Cassini see spraying from Enceladus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lava from giant volcanoes",
+          "correct": false,
+          "rationale": "That’s Io, at Jupiter."
+        },
+        {
+          "id": "b",
+          "label": "Clouds of methane rain",
+          "correct": false,
+          "rationale": "Methane rain falls on Titan."
+        },
+        {
+          "id": "c",
+          "label": "Plumes of water ice",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Rings of rock and metal",
+          "correct": false,
+          "rationale": "The plumes were icy water."
+        }
+      ],
+      "explanation": "Cassini saw plumes of water ice spraying from cracks near Enceladus’s south pole, a sign of the ocean below.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.ocean_worlds"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.047.c3"
+      ],
+      "prompt": "Europa is far from the Sun. What keeps its ocean from freezing solid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sunlight shining through its thin ice",
+          "correct": false,
+          "rationale": "Its ice shell is thick, and sunlight is weak there."
+        },
+        {
+          "id": "b",
+          "label": "A thick atmosphere trapping heat",
+          "correct": false,
+          "rationale": "Europa has almost no atmosphere."
+        },
+        {
+          "id": "c",
+          "label": "Heat from nearby Io’s volcanoes",
+          "correct": false,
+          "rationale": "Io’s volcanoes don’t heat Europa."
+        },
+        {
+          "id": "d",
+          "label": "Jupiter’s gravity flexing it, heating its interior",
+          "correct": true
+        }
+      ],
+      "explanation": "Tidal flexing by Jupiter’s gravity heats Europa’s interior, keeping its ocean liquid.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.ocean_worlds",
+        "concept.astronomy.tides_moon_gravity"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.047.c3",
+        "card.astronomy.017.c2"
+      ],
+      "prompt": "From Level 17: the Moon’s gravity raises tides on Earth. How is that like what heats Europa?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both are gravity stretching a world as bodies orbit",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Both come from sunlight warming water",
+          "correct": false,
+          "rationale": "Tides and tidal heating are gravity, not sunlight."
+        },
+        {
+          "id": "c",
+          "label": "Both need an ocean on the surface",
+          "correct": false,
+          "rationale": "Europa’s ocean is under ice."
+        },
+        {
+          "id": "d",
+          "label": "Both happen only at full Moon",
+          "correct": false,
+          "rationale": "Tidal effects happen continuously."
+        }
+      ],
+      "explanation": "Gravity stretches Earth’s oceans into tidal bulges, and Jupiter’s gravity flexes Europa, heating it. Both are tidal effects.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_europa",
+    "source.nasa_enceladus",
+    "source.nasa_europa_clipper"
+  ]
+}

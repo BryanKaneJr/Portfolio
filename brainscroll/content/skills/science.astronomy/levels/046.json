@@ -1,0 +1,205 @@
+{
+  "id": "level.science.astronomy.046",
+  "skillId": "skill.science.astronomy",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Jupiter’s Storms and Moons",
+  "objective": "After this level you can describe the Great Red Spot and Jupiter’s four large moons.",
+  "summary": "The Great Red Spot is a storm wider than Earth. Jupiter’s four big moons range from volcanic Io to giant Ganymede.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.jupiter_system",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.galileo_observations",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.giant_planets",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.045"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Jupiter has a storm bigger than Earth that has lasted for centuries."
+    },
+    {
+      "id": "card.astronomy.046.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Great Red Spot",
+      "body": "Jupiter’s Great Red Spot is a giant storm wider than Earth. Astronomers have watched it for more than 150 years, and it’s still spinning, though it has been shrinking over the past century."
+    },
+    {
+      "id": "card.astronomy.046.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four worlds of their own",
+      "body": "Jupiter has dozens of moons, but Galileo’s four are by far the largest, and wildly different. Io is the most volcanically active world in the solar system. Ganymede is the largest moon of all, bigger than the planet Mercury. Callisto is one of the most heavily cratered worlds known. And Europa? That’s the next level.",
+      "callout": "Io · Europa · Ganymede · Callisto"
+    },
+    {
+      "id": "card.astronomy.046.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.046.q1"
+    },
+    {
+      "id": "card.astronomy.046.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.046.q2"
+    },
+    {
+      "id": "card.astronomy.046.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.046.q3"
+    },
+    {
+      "id": "card.astronomy.046.c7",
+      "type": "checkpoint",
+      "headline": "Jupiter system: explored",
+      "learned": [
+        "The Great Red Spot is a storm wider than Earth",
+        "It has been observed for over 150 years",
+        "Io is the most volcanic world in the solar system",
+        "Ganymede is the largest moon, bigger than Mercury"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.jupiter_system"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.046.c2"
+      ],
+      "prompt": "What is Jupiter’s Great Red Spot?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A giant volcano on its surface",
+          "correct": false,
+          "rationale": "Jupiter has no solid surface."
+        },
+        {
+          "id": "b",
+          "label": "A storm wider than Earth",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A shadow cast by one of its moons",
+          "correct": false,
+          "rationale": "Moon shadows are small and move quickly."
+        },
+        {
+          "id": "d",
+          "label": "An impact crater from an asteroid",
+          "correct": false,
+          "rationale": "Jupiter has no surface for craters."
+        }
+      ],
+      "explanation": "The Great Red Spot is a giant storm, wider than Earth, observed for more than 150 years.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.jupiter_system"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.046.c3"
+      ],
+      "prompt": "Which of Jupiter’s moons is bigger than the planet Mercury?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Io, the volcanic one",
+          "correct": false,
+          "rationale": "Io is smaller than Mercury."
+        },
+        {
+          "id": "b",
+          "label": "Europa, the ocean moon",
+          "correct": false,
+          "rationale": "Europa is smaller than Mercury."
+        },
+        {
+          "id": "c",
+          "label": "Callisto, the cratered one",
+          "correct": false,
+          "rationale": "Callisto is large, but Ganymede is bigger."
+        },
+        {
+          "id": "d",
+          "label": "Ganymede",
+          "correct": true
+        }
+      ],
+      "explanation": "Ganymede is the largest moon in the solar system and is bigger than Mercury.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.jupiter_system",
+        "concept.astronomy.galileo_observations"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.046.c3",
+        "card.astronomy.025.c3"
+      ],
+      "prompt": "From Level 25: Galileo saw Jupiter’s four large moons as tiny dots. What do we know about Io today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is the coldest object in the solar system",
+          "correct": false,
+          "rationale": "Io is famous for heat, not cold."
+        },
+        {
+          "id": "b",
+          "label": "It is the most volcanically active world in the solar system",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is made entirely of water ice",
+          "correct": false,
+          "rationale": "Io is rocky and volcanic."
+        },
+        {
+          "id": "d",
+          "label": "It orbits Jupiter backwards",
+          "correct": false,
+          "rationale": "Io orbits in the usual direction."
+        }
+      ],
+      "explanation": "Galileo’s tiny dot Io turned out to be the most volcanically active world in the solar system.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_jupiter_facts",
+    "source.nasa_jupiter_moons"
+  ]
+}
