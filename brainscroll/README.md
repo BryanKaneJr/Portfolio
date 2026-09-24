@@ -48,7 +48,7 @@ We're following the [build order](docs/build-order.md). **The loop comes first a
 - [x] Stage 1: data contracts: content schema and validator, DB schema, RLS, and an exactly-once `complete_level` transaction
 - [ ] Stage 2: the Golden 10 Astronomy levels. All 10 are drafted and validated; their sources still need editor verification
 - [x] Stage 3: lesson player. All 10 levels play offline from data, with resume, exactly-once completion, XP, the character sheet and the daily cap
-- [x] Stage 5: review. Due concepts come back as recall sessions, with delayed-recall XP. Review never uses daily levels
+- [x] Stage 5: review. Due concepts come back as recall sessions. A scheduled item right on the first try earns +10 XP (once per scheduled review); a miss must be corrected with its source card and earns nothing. Review never uses daily levels
 - [x] Onboarding: a first-run intro that gets to Level 1 in about a minute
 - [x] Supabase mode: anonymous sign-in, server-graded completion, live content revisions and review, e2e-tested against the real SQL
 - [ ] Staging Supabase project: needs creating. See [`docs/supabase-setup.md`](docs/supabase-setup.md)

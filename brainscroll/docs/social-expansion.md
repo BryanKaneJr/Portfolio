@@ -70,14 +70,14 @@ Permanent skill trees answer *"What kind of knowledgeable person am I becoming?"
 | --- | --- |
 | `quests` | `id` (e.g. `quest.roman_world`), `title`, `subtitle`, `description`, `visual_key`, `tier` (`standard`/`epic`/`legendary`), `starts_at`, `featured_until`, `archive_available`, `final_encounter_size` (3), `reward_trophy_id`, `reward_title_id`, `reward_cosmetic_ids`, `xp_reward` |
 | `quest_requirements` | `quest_id`, `skill_id`, `new_levels_required` |
-| `user_quests` | `user_id`, `quest_id`, `started_at` (the quest start for the live week; the moment the user starts it from the Chronicle otherwise), `final_encounter_question_ids`, `final_encounter_passed_at`, `live_clear`, `completed_at` |
+| `user_quests` | `user_id`, `quest_id`, `started_at` (the quest start for the live week; the moment the user starts it from the Chronicle otherwise), `final_encounter_question_ids`, `final_encounter_resolved_at`, `live_clear`, `completed_at` |
 
 Per-requirement progress is **computed, not stored**: count `xp_events` of type `LEVEL_COMPLETE` for the requirement's `skill_id` created since `user_quests.started_at`. There's no second counter. The completion reward writes one `QUEST_COMPLETE` ledger event, plus trophy, title and cosmetic grants, and it's exactly-once via the idempotency key `quest_complete:<quest_id>`.
 
 ## Fit with what's built
 
 - **The ledger already exists.** `xp_events` is immutable, keyed by `(user_id, idempotency_key)`, and written only by server functions. The e2e suite proves a double-tapped completion awards XP once. Phase 1 is mostly adding event types, not a new system. The spec calls the table `reward_events`; renaming isn't worth it.
-- **Delayed-recall XP is already anti-farm.** It pays once per concept per review cycle, and only after a 20-hour gap. That's what the leaderboard rule "no infinite review farming" needs.
+- **Review XP is already anti-farm.** It pays +10 only for a scheduled review item right on the first attempt, once per scheduled occurrence; replays, reopened reviews and corrections earn nothing. That's what the leaderboard rule "no infinite review farming" needs.
 - **XP never moves skill levels.** Levels come from canonical completions, so challenge or recall XP can feed leaderboards without distorting "Level 63 means something."
 - **Concept mastery data exists** (`user_concept_mastery`: seen/correct/strength). Challenge eligibility ("concepts both have unlocked") and trophies like *Thousand Strong* or *Wrong Turn* can be computed from it.
 - **Quest progress needs no new counting.** Every first completion already writes one `LEVEL_COMPLETE` row to `xp_events` with `skill_id` and `created_at`, and only once per canonical level. So "new levels in skill X since the quest started" is a single query over the existing ledger, and replays already produce no event.
