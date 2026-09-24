@@ -1,0 +1,220 @@
+{
+  "id": "level.history.ancient_rome.095",
+  "skillId": "skill.history.ancient_rome",
+  "number": 95,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Empire That Didn't Fall",
+  "objective": "After this level you can explain how the Eastern Roman Empire lasted until 1453.",
+  "summary": "The Greek-speaking East called itself Roman. Justinian won back Italy and built Hagia Sophia; Constantinople fell to the Ottomans in 1453.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.east_survives",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.rome_eras",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.roman_law",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.constantinople",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.094"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.095.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Roman Empire lasted until 1453, if you count the East.",
+      "body": "The eastern half, ruled from Constantinople, outlived the West by nearly a thousand years."
+    },
+    {
+      "id": "card.ancient_rome.095.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Romans in the East",
+      "body": "Historians call the Eastern Roman Empire the Byzantine Empire, but its people called themselves Romans. Its capital was Constantinople, dedicated by Constantine in 330 CE. Over time Greek replaced Latin as the language of its government."
+    },
+    {
+      "id": "card.ancient_rome.095.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Justinian’s ambition",
+      "body": "In the 6th century CE, Justinian reconquered Italy and North Africa for a time. He also had Roman law collected, and built the great church of Hagia Sophia in Constantinople, finished in 537 CE."
+    },
+    {
+      "id": "card.ancient_rome.095.c4",
+      "type": "fact",
+      "fact": "Constantinople fell in 1453 CE.",
+      "context": "Sultan Mehmed II led the Ottoman capture of the city, more than a thousand years after Constantine dedicated it in 330 CE."
+    },
+    {
+      "id": "card.ancient_rome.095.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.095.q1"
+    },
+    {
+      "id": "card.ancient_rome.095.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.095.q2"
+    },
+    {
+      "id": "card.ancient_rome.095.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.095.q3"
+    },
+    {
+      "id": "card.ancient_rome.095.c8",
+      "type": "checkpoint",
+      "headline": "The East: endured",
+      "learned": [
+        "The Byzantines called themselves Romans",
+        "Greek became the language of government",
+        "Justinian reconquered Italy for a time",
+        "Constantinople fell in 1453 CE"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.095.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.east_survives"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.095.c2"
+      ],
+      "prompt": "What did the people of the “Byzantine” Empire call themselves?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Greeks",
+          "correct": false,
+          "rationale": "They spoke Greek, but not that."
+        },
+        {
+          "id": "b",
+          "label": "Byzantines",
+          "correct": false,
+          "rationale": "Historians gave them that name."
+        },
+        {
+          "id": "c",
+          "label": "Romans",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ottomans",
+          "correct": false,
+          "rationale": "They conquered the city."
+        }
+      ],
+      "explanation": "Its people called themselves Romans; “Byzantine” is a later historians’ label.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.095.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.east_survives"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.095.c2"
+      ],
+      "prompt": "Which language came to run the eastern empire’s government?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Latin",
+          "correct": false,
+          "rationale": "It was replaced over time."
+        },
+        {
+          "id": "b",
+          "label": "Aramaic",
+          "correct": false,
+          "rationale": "It was a regional language."
+        },
+        {
+          "id": "c",
+          "label": "Gothic",
+          "correct": false,
+          "rationale": "That was the Goths’ language."
+        },
+        {
+          "id": "d",
+          "label": "Greek",
+          "correct": true
+        }
+      ],
+      "explanation": "Over time Greek replaced Latin as the language of government in the East.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_rome.095.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.east_survives",
+        "concept.ancient_rome.roman_law"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.095.c3",
+        "card.ancient_rome.077.c3"
+      ],
+      "prompt": "From Level 77: what did Justinian have Roman law collected into?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Twelve Tables",
+          "correct": false,
+          "rationale": "Those were far older."
+        },
+        {
+          "id": "b",
+          "label": "The Corpus Juris Civilis",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Edict of Milan",
+          "correct": false,
+          "rationale": "That granted tolerance."
+        },
+        {
+          "id": "d",
+          "label": "The Res Gestae",
+          "correct": false,
+          "rationale": "That was Augustus’ record."
+        }
+      ],
+      "explanation": "Justinian’s Corpus Juris Civilis became the base of the world’s civil law systems.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_byzantine",
+    "source.brit_istanbul",
+    "source.brit_justinian",
+    "source.brit_corpus",
+    "source.brit_hagia_sophia",
+    "source.brit_fall_constantinople"
+  ]
+}

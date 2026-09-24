@@ -1,0 +1,205 @@
+{
+  "id": "level.history.ancient_rome.092",
+  "skillId": "skill.history.ancient_rome",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Attila and the Huns",
+  "objective": "After this level you can describe the Huns under Attila and their impact on the empire.",
+  "summary": "Attila squeezed gold from the East, was stopped in Gaul in 451 CE and turned back from Italy in 452. His empire died with him in 453.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.attila",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.adrianople",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.091"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Christian writers called him the “Scourge of God.”"
+    },
+    {
+      "id": "card.ancient_rome.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "King of the Huns",
+      "body": "Attila ruled the Huns from 434 to 453 CE, at first jointly with his brother Bleda. He raided the Eastern Empire and forced it to pay him large amounts of gold."
+    },
+    {
+      "id": "card.ancient_rome.092.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Gaul and Italy",
+      "body": "In 451 CE a Roman and Visigothic army under the general Aetius stopped Attila’s invasion of Gaul at the Battle of the Catalaunian Plains. In 452 CE Attila invaded Italy; Pope Leo I met him, and Attila withdrew."
+    },
+    {
+      "id": "card.ancient_rome.092.c4",
+      "type": "fact",
+      "fact": "Attila’s empire died with him.",
+      "context": "He died in 453 CE, and his empire of many peoples soon fell apart without him to hold it together."
+    },
+    {
+      "id": "card.ancient_rome.092.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.092.q1"
+    },
+    {
+      "id": "card.ancient_rome.092.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.092.q2"
+    },
+    {
+      "id": "card.ancient_rome.092.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.092.q3"
+    },
+    {
+      "id": "card.ancient_rome.092.c8",
+      "type": "checkpoint",
+      "headline": "The Huns: met",
+      "learned": [
+        "Attila ruled the Huns from 434 CE",
+        "He extorted gold from the East",
+        "Aetius stopped him in Gaul in 451 CE",
+        "His empire fell apart after 453 CE"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.attila"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.092.c3"
+      ],
+      "prompt": "Who stopped Attila in Gaul in 451 CE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Aetius, with Visigothic allies",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Alaric and his Visigoths",
+          "correct": false,
+          "rationale": "Alaric died in 410 CE."
+        },
+        {
+          "id": "c",
+          "label": "Pope Leo I in person",
+          "correct": false,
+          "rationale": "He met Attila in Italy."
+        },
+        {
+          "id": "d",
+          "label": "The emperor Valens",
+          "correct": false,
+          "rationale": "He died in 378 CE."
+        }
+      ],
+      "explanation": "Aetius led a Roman and Visigothic army that stopped Attila at the Catalaunian Plains.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_rome.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.attila"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.092.c4"
+      ],
+      "prompt": "Why did the Huns’ empire fall apart so quickly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rome conquered their homeland",
+          "correct": false,
+          "rationale": "Rome never did."
+        },
+        {
+          "id": "b",
+          "label": "It depended on Attila himself",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They all became Christians",
+          "correct": false,
+          "rationale": "It collapsed after his death."
+        },
+        {
+          "id": "d",
+          "label": "A plague killed all their horses",
+          "correct": false,
+          "rationale": "It collapsed after his death."
+        }
+      ],
+      "explanation": "Attila’s empire of many peoples fell apart soon after he died in 453 CE.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.attila",
+        "concept.ancient_rome.adrianople"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.092.c2",
+        "card.ancient_rome.089.c2"
+      ],
+      "prompt": "From Level 89: whom were the Goths fleeing when they crossed the Danube in 376 CE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Vandals",
+          "correct": false,
+          "rationale": "They were another Germanic people."
+        },
+        {
+          "id": "b",
+          "label": "The Persians",
+          "correct": false,
+          "rationale": "They were in the East."
+        },
+        {
+          "id": "c",
+          "label": "The Huns",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Gauls",
+          "correct": false,
+          "rationale": "They were long part of the empire."
+        }
+      ],
+      "explanation": "The Huns, pushing west from the steppes, drove the Goths across the Danube.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_attila",
+    "source.brit_catalaunian"
+  ]
+}

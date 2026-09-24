@@ -1,0 +1,258 @@
+{
+  "id": "level.history.ancient_rome.099",
+  "skillId": "skill.history.ancient_rome",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Integration: The Arc of Roman History",
+  "objective": "After this level you can connect the major turning points of Roman history into one story.",
+  "summary": "From 753 BCE to 1453 CE, Rome went from kings to republic to empire to a Christian, divided state. One thread: control of the army.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.roman_arc",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.rome_eras",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.republic_idea",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.augustus_principate",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.trajan",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.marian_reforms",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.098"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two thousand years in one story. Ready?",
+      "body": "Six dates that carry the whole tree."
+    },
+    {
+      "id": "card.ancient_rome.099.c2",
+      "type": "timeline",
+      "headline": "The arc of Rome",
+      "events": [
+        {
+          "when": "753 BCE",
+          "label": "Traditional founding of Rome"
+        },
+        {
+          "when": "509 BCE",
+          "label": "The Republic begins"
+        },
+        {
+          "when": "27 BCE",
+          "label": "Octavian becomes Augustus"
+        },
+        {
+          "when": "117 CE",
+          "label": "The empire at its greatest extent"
+        },
+        {
+          "when": "476 CE",
+          "label": "The last western emperor is deposed"
+        },
+        {
+          "when": "1453 CE",
+          "label": "Constantinople falls"
+        }
+      ]
+    },
+    {
+      "id": "card.ancient_rome.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The thread through it all",
+      "body": "A recurring pattern in Roman history is that whoever controlled the army controlled the state. After Marius, soldiers looked to their general, not the Senate, for pay and land. Sulla, Caesar, Vespasian and the emperors of the third century all rose on that loyalty."
+    },
+    {
+      "id": "card.ancient_rome.099.c4",
+      "type": "fact",
+      "fact": "Roman history spans more than 2,000 years.",
+      "context": "It runs from the traditional founding in 753 BCE to the fall of Constantinople in 1453 CE."
+    },
+    {
+      "id": "card.ancient_rome.099.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.099.q1"
+    },
+    {
+      "id": "card.ancient_rome.099.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.099.q2"
+    },
+    {
+      "id": "card.ancient_rome.099.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.099.q3"
+    },
+    {
+      "id": "card.ancient_rome.099.c8",
+      "type": "checkpoint",
+      "headline": "The arc: complete",
+      "learned": [
+        "Rome was founded, by tradition, in 753 BCE",
+        "The Republic began in 509 BCE",
+        "Augustus ruled from 27 BCE",
+        "The army was the key to power"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.roman_arc",
+        "concept.ancient_rome.republic_idea"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.099.c2"
+      ],
+      "prompt": "Which came first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Octavian becomes Augustus",
+          "correct": false,
+          "rationale": "That was 27 BCE."
+        },
+        {
+          "id": "b",
+          "label": "The Republic begins",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The empire reaches its greatest extent",
+          "correct": false,
+          "rationale": "That was 117 CE."
+        },
+        {
+          "id": "d",
+          "label": "Constantinople falls",
+          "correct": false,
+          "rationale": "That was 1453 CE."
+        }
+      ],
+      "explanation": "The Republic began in 509 BCE, centuries before the others.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.roman_arc",
+        "concept.ancient_rome.marian_reforms"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.099.c3",
+        "card.ancient_rome.032.c3"
+      ],
+      "prompt": "What pattern links Sulla, Caesar and Vespasian?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each was elected by the plebeians",
+          "correct": false,
+          "rationale": "The link was the army."
+        },
+        {
+          "id": "b",
+          "label": "Each was killed by his own guard",
+          "correct": false,
+          "rationale": "The link was the army."
+        },
+        {
+          "id": "c",
+          "label": "Each rose to power with a loyal army",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Each was a Christian emperor",
+          "correct": false,
+          "rationale": "The link was the army."
+        }
+      ],
+      "explanation": "Whoever controlled the army controlled the state; each used soldiers loyal to him.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.roman_arc",
+        "concept.ancient_rome.rome_eras"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.099.c2",
+        "card.ancient_rome.001.c2"
+      ],
+      "prompt": "From Level 1: Roman history is usually split into three eras. Which list is in the right order?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Kingdom, Republic, Empire",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Republic, Kingdom, Empire",
+          "correct": false,
+          "rationale": "The kings came first."
+        },
+        {
+          "id": "c",
+          "label": "Empire, Republic, Kingdom",
+          "correct": false,
+          "rationale": "That’s backwards."
+        },
+        {
+          "id": "d",
+          "label": "Kingdom, Empire, Republic",
+          "correct": false,
+          "rationale": "The Republic came before the Empire."
+        }
+      ],
+      "explanation": "Kings, then the Republic from 509 BCE, then the Empire from 27 BCE.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ancient_rome",
+    "source.brit_roman_republic",
+    "source.brit_augustus",
+    "source.brit_trajan",
+    "source.brit_romulus_augustulus",
+    "source.brit_byzantine",
+    "source.brit_marius"
+  ]
+}

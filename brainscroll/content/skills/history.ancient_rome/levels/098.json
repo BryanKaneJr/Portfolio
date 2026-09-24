@@ -1,0 +1,226 @@
+{
+  "id": "level.history.ancient_rome.098",
+  "skillId": "skill.history.ancient_rome",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Integration: How We Know About Rome",
+  "objective": "After this level you can explain how historians use texts, inscriptions, coins and archaeology to study Rome.",
+  "summary": "Ancient writers had biases, so historians test them against inscriptions, coins, letters and the archaeology of places like Pompeii.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.roman_evidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.caligula",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.pompeii",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.frontier_life",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.founding_legend",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.097"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A history of Rome is a detective story built from four kinds of clues."
+    },
+    {
+      "id": "card.ancient_rome.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Texts and their biases",
+      "body": "Much of Roman history comes from ancient writers such as Livy, Tacitus and Suetonius, who had their own sources, purposes and biases. Most accounts of Caligula, for example, come from writers hostile to him. Rome’s founding stories were written down centuries after the event."
+    },
+    {
+      "id": "card.ancient_rome.098.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stone, metal and earth",
+      "body": "Huge numbers of Latin inscriptions carved in stone record laws, careers, dedications and epitaphs. Coins help historians date events and show how emperors wanted to be seen. Archaeology reveals ordinary lives that writers ignored, from houses and graves to rubbish heaps."
+    },
+    {
+      "id": "card.ancient_rome.098.c4",
+      "type": "fact",
+      "fact": "Ordinary Romans speak through the ground.",
+      "context": "Pompeii’s buried streets and the letters found at Vindolanda show daily life that no ancient historian bothered to describe."
+    },
+    {
+      "id": "card.ancient_rome.098.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.098.q1"
+    },
+    {
+      "id": "card.ancient_rome.098.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.098.q2"
+    },
+    {
+      "id": "card.ancient_rome.098.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.098.q3"
+    },
+    {
+      "id": "card.ancient_rome.098.c8",
+      "type": "checkpoint",
+      "headline": "The evidence: weighed",
+      "learned": [
+        "Ancient writers had biases",
+        "Inscriptions record laws and lives",
+        "Coins help date events",
+        "Archaeology shows ordinary life"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.roman_evidence"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.098.c2"
+      ],
+      "prompt": "Which of these was an ancient Roman historian?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Edward Gibbon",
+          "correct": false,
+          "rationale": "He wrote in the 1700s."
+        },
+        {
+          "id": "b",
+          "label": "Tacitus",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Vercingetorix",
+          "correct": false,
+          "rationale": "He was a Gallic leader."
+        },
+        {
+          "id": "d",
+          "label": "Justinian",
+          "correct": false,
+          "rationale": "He was an emperor."
+        }
+      ],
+      "explanation": "Tacitus, like Livy and Suetonius, was an ancient writer of Roman history.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.roman_evidence"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.098.c2",
+        "card.ancient_rome.098.c3"
+      ],
+      "prompt": "Why do historians check ancient writers against other evidence?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ancient writers never used dates",
+          "correct": false,
+          "rationale": "Many did."
+        },
+        {
+          "id": "b",
+          "label": "The writers had their own purposes and biases",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Latin can no longer be read",
+          "correct": false,
+          "rationale": "It can."
+        },
+        {
+          "id": "d",
+          "label": "Only emperors were allowed to write",
+          "correct": false,
+          "rationale": "Many others wrote."
+        }
+      ],
+      "explanation": "Writers had sources, purposes and biases, so inscriptions, coins and archaeology act as checks.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.roman_evidence",
+        "concept.ancient_rome.frontier_life"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.098.c4",
+        "card.ancient_rome.079.c4"
+      ],
+      "prompt": "From Level 79: what did archaeologists find at Vindolanda?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A gladiator’s helmet",
+          "correct": false,
+          "rationale": "They found writing."
+        },
+        {
+          "id": "b",
+          "label": "A buried chariot",
+          "correct": false,
+          "rationale": "They found writing."
+        },
+        {
+          "id": "c",
+          "label": "A marble statue of Hadrian",
+          "correct": false,
+          "rationale": "They found writing."
+        },
+        {
+          "id": "d",
+          "label": "Wooden writing tablets",
+          "correct": true
+        }
+      ],
+      "explanation": "Hundreds of wooden tablets from Vindolanda preserve letters, including a birthday invitation.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ancient_rome",
+    "source.brit_caligula",
+    "source.brit_romulus_remus",
+    "source.brit_epigraphy",
+    "source.brit_denarius",
+    "source.brit_pompeii",
+    "source.brit_vindolanda"
+  ]
+}

@@ -24,7 +24,7 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | 7 | Content tooling | Editor/importer/validator so Levels 11–100 can scale safely | ✅ validator (quality, claims, editorial rules) + importer + Content Admin v1 |
 | 8 | Subscriptions | RevenueCat `unlimited_learning`, restore, expiry | ⬜ |
 | 9 | Analytics & reporting | Mission-aligned events, content reports, funnel | ✅ built and tested locally; configured once Supabase is connected (`docs/analytics.md`) |
-| 10 | Scale launch content | Flagship to 100, then a second skill of a different shape, then 6–10 trees | 🟡 Astronomy 1–100 drafted; Ancient Rome (chronology) under way |
+| 10 | Scale launch content | Flagship to 100, then a second skill of a different shape, then 6–10 trees | 🟡 Astronomy 1–100 and Ancient Rome 1–100 (chronology) drafted; 6–10 trees still to come |
 | 11 | Beta & release | TestFlight/Play testing, QA matrix, store submission | ⬜ |
 
 ## Critical-path backlog
@@ -48,7 +48,7 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | 15 | RevenueCat | Unlimited + restore + expiry | ⬜ held (needs store setup) |
 | 16 | Analytics + reports | Detect funnel/content/technical failures | ✅ locally; configured with Supabase |
 | 17 | Finish flagship 1–100 | Whole depth curve proven | 🟡 Astronomy 1–100 drafted; sources unverified; pacing not yet tested on a phone |
-| 18 | Scale launch trees | Content pipeline used repeatedly | 🟡 second tree (Ancient Rome) under way |
+| 18 | Scale launch trees | Content pipeline used repeatedly | 🟡 second tree (Ancient Rome) drafted to Level 100 with the same pipeline, no schema changes |
 | 19 | Closed beta | Unknown users complete core loop without coaching | ⬜ |
 | 20 | Store release | Monitoring + correction workflow ready | ⬜ |
 
@@ -62,7 +62,7 @@ Dependency order, with where we are today:
 | --- | --- | --- |
 | **Core** | | |
 | 1 | Auth / user accounts | 🟡 anonymous accounts, email linking and account deletion work; usernames are missing (post-MVP) |
-| 2 | Canonical curriculum | 🟡 Astronomy 1–100 and Ancient Rome drafted; sources unverified |
+| 2 | Canonical curriculum | 🟡 Astronomy 1–100 and Ancient Rome 1–100 drafted; sources unverified |
 | 3 | Regular 3-question learning levels | ✅ |
 | 4 | Level completion | ✅ exactly-once, server-authoritative |
 | 5 | Skill progression | ✅ |
