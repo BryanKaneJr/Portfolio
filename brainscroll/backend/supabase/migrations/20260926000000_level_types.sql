@@ -17,4 +17,4 @@ alter table public.levels add column level_type text generated always as (
 ) stored;
 
 comment on column public.levels.level_type is
-  'regular | checkpoint | milestone | mastery — derived from number; mirrors levelTypeFor() in @brainscroll/core';
+  'regular | checkpoint | milestone | mastery: derived from number; mirrors levelTypeFor() in @brainscroll/core';

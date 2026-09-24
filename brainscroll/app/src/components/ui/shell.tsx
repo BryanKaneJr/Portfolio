@@ -32,9 +32,9 @@ export function ScreenHeader({ eyebrow, title, right }: { eyebrow?: string; titl
 
 /**
  * The lesson shell used by levels and review. Learning mode is quiet:
- *   top    — close, a prominent progress bar, one small context line, one quiet utility
- *   middle — the content at reading width, nothing else competing
- *   bottom — ONE obvious action, anchored in thumb reach; feedback slides in here
+ *   top:    close, a prominent progress bar, one small context line, one quiet utility
+ *   middle: the content at reading width, nothing else competing
+ *   bottom: ONE obvious action, anchored in thumb reach; feedback slides in here
  */
 export function LessonShell({
   progress,

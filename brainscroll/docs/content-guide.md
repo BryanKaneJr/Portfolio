@@ -84,7 +84,38 @@ Headline ≤ 80 chars · body ≤ 360 · question prompt ≤ 200 · answer ≤ 8
 | Questions | Three per regular level (recall, understanding, connection). One defensible answer, plausible distractors, a short explanation after the response. They reinforce the lesson and shouldn't feel like an exam |
 | Connection | Shows how the new knowledge relates to earlier knowledge |
 | Tone | Smart and conversational. Not childish, academic or preachy |
+| Punctuation | **No em dashes**, ever (see *Editorial rules*) |
 | Completion | The learner can explain at least one new thing afterwards |
+
+## Editorial rules (all BrainScroll-authored text)
+
+These apply to everything BrainScroll writes:
+
+- **Curriculum:** learning cards, questions, answer choices, rationales, explanations, reinforcement text, headings, summaries, objectives, recaps, concept and claim text, syllabus titles.
+- **Product copy:** UI, onboarding, achievements, trophies, titles, Weekly Quests, notifications, subscription copy, error messages, seed and demo content, admin-generated content.
+- **Documentation and templates**, and any AI-generated content.
+
+### Hard rule: no em dashes
+
+BrainScroll-authored text never uses the em dash (U+2014). Don't swap in a hyphen or any other single substitute. **Rewrite the sentence** by what the dash was doing:
+
+| The dash was… | Rewrite with | Example |
+|---|---|---|
+| adding a detail | a comma | Venus is extremely hot, even hotter than Mercury. |
+| introducing an explanation or list | a colon | There was one major problem: the atmosphere trapped heat. |
+| setting off an aside | parentheses | The planet rotates slowly (about once every 243 Earth days), which creates an unusual day cycle. |
+| joining two related clauses | a semicolon | Mercury is closer to the Sun; Venus is still hotter. |
+| contrasting or linking | a conjunction | Rome expanded rapidly, but its government struggled to keep up. |
+| adding emphasis | a period, or restructure | The empire survived, but only in the east. / Surprisingly, the result was a colder climate. |
+
+En dashes in ranges (Levels 1–100) and hyphens in compound words are fine.
+
+**Source-material exception.** An exact quotation from a source keeps its original punctuation: the verification ledger's `supportingQuote`, and anything marked as a verbatim quote. Source metadata (a source's `title`, `publisher`, `url`) also stays faithful to the source. Anything BrainScroll paraphrases, summarizes or adapts follows the rule.
+
+**Enforcement.**
+- `npm run validate:content` reports an authored em dash as an **error** anywhere in levels, concepts and claims, skills, subjects, syllabi, source notes and ledger notes. It exempts only `supportingQuote` and source title, publisher and URL. Errors block publishing: the importer, Content Admin's publish control and `npm run check` all refuse.
+- `npm run lint:copy` (part of `npm run check`) scans app strings, docs, admin, scripts, SQL and tests. A line reproducing an exact external quotation can carry the marker `copy-lint: verbatim`.
+- **Generating content with AI:** put this rule in the prompt ("Never use em dashes (U+2014); rewrite the sentence with a comma, colon, semicolon, parentheses, a period or a conjunction"), then run the validator. Don't post-process dashes away mechanically.
 
 ## Level bands (every 1–100 tree)
 

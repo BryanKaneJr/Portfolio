@@ -126,7 +126,7 @@ Use a constellation-like path with glowing nodes, soft connecting lines and mile
 
 | ASTRONOMY<br>Skill Tree Progress |
 | --- |
-| ●—●—●—◉—○—○—○ |
+| ●─●─●─◉─○─○─○ |
 | 10 Foundations |
 | 25 Apprentice |
 | 50 Scholar |

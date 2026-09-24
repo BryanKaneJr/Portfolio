@@ -1,5 +1,5 @@
 /**
- * BrainScroll Content Admin v1 — an internal, local-only tool.
+ * BrainScroll Content Admin v1: an internal, local-only tool.
  *
  *   npm run admin            # http://127.0.0.1:4321
  *   ADMIN_PORT=5000 npm run admin

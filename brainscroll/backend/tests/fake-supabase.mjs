@@ -1,5 +1,5 @@
 // A minimal stand-in for Supabase's Auth (GoTrue) and PostgREST RPC endpoints,
-// backed by the throwaway test Postgres. TESTS ONLY — it doesn't verify
+// backed by the throwaway test Postgres. TESTS ONLY: it doesn't verify
 // signatures. It lets the real app + real supabase-js talk to the real SQL
 // functions without Docker or a hosted project.
 //

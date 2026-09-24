@@ -119,6 +119,14 @@ describe('validateContent', () => {
     expect(issues(bundle([...levels, mastery]), 'error')).not.toContain('teaches no concept');
   });
 
+  it('rejects em dashes in authored content but not in source titles', () => {
+    const dashed = makeLevel(1, { summary: 'Short \u2014 and punchy.' });
+    expect(issues(bundle([dashed]), 'error').some((m) => m.includes('summary uses an em dash'))).toBe(true);
+    const b = bundle([makeLevel(1)]);
+    (b.sources[0] as Record<string, unknown>).title = 'Stars \u2014 An Overview';
+    expect(issues(b, 'error').some((m) => m.includes('em dash'))).toBe(false);
+  });
+
   it('requires contiguous level numbers', () => {
     expect(issues(bundle([makeLevel(1), makeLevel(3)]), 'error').some((m) => m.includes('contiguous'))).toBe(true);
   });
@@ -258,7 +266,7 @@ describe('claim verification', () => {
 
   it('only counts unverified claims as a warning on drafts', () => {
     expect(issues(bundle([makeLevel(1)], true, [verifiedRecord({ status: 'unverified' })]), 'warning')).toContain(
-      '1/1 claims not yet verified — see docs/verification/',
+      '1/1 claims not yet verified (see docs/verification/)',
     );
   });
 

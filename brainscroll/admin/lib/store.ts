@@ -71,7 +71,7 @@ export function createStore({ contentRoot, bundlePath, insightsPath }: StoreOpti
    * with validation errors (so work in progress isn't lost), but a level whose
    * status is `in_review` or `published` must be free of errors of its own:
    * publishing is refused while any claim or source is unverified, the revision
-   * wasn't bumped, and so on — the same rules as `npm run validate:content`.
+   * wasn't bumped, and so on. These are the same rules as `npm run validate:content`.
    */
   function saveLevel(skillDir: string, num: string, data: unknown): SaveResult {
     const path = levelPath(skillDir, num);

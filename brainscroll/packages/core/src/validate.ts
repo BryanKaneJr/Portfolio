@@ -4,6 +4,7 @@ import { levelId, levelScope, parseLevelId } from './ids';
 import { levelTypeFor } from './progression';
 import { cardRole, learningCards, learningWordCount, structureFor } from './structure';
 import { checkQuality, checkRevisions } from './quality';
+import { EM_DASH_MESSAGE, SOURCE_METADATA_KEYS, VERBATIM_KEYS, emDashPaths } from './editorial';
 
 export interface ContentIssue {
   severity: 'error' | 'warning';
@@ -194,7 +195,7 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
       else if (level.status === 'published') {
         if (!s.verified) err(where, `published level cites unverified source ${sid}`);
         if (s.license === 'unknown') err(where, `published level cites source ${sid} with unknown license`);
-      } else if (!s.verified) warn(where, `cites unverified source ${sid} — verify before publish`);
+      } else if (!s.verified) warn(where, `cites unverified source ${sid}; verify before publish`);
     }
 
     const questionById = new Map(level.questions.map((q) => [q.id, q]));
@@ -250,6 +251,16 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
 
   checkClaims(concepts, levels, verification, sourceById, err, warn);
   for (const s of syllabi) checkSyllabus(s, levelsBySkill.get(s.skillId) ?? [], skillIds, err, warn);
+  // Editorial: no em dashes in BrainScroll-authored text. This is an error, so it blocks publishing (and CI).
+  // Verbatim quotes and source metadata (title, publisher, URL) stay faithful to the source.
+  const noEmDash = (where: string, value: unknown, exempt = VERBATIM_KEYS) => {
+    for (const path of emDashPaths(value, exempt)) err(where, `${path} ${EM_DASH_MESSAGE}`);
+  };
+  for (const x of [...subjects, ...skills, ...concepts, ...levels]) noEmDash(x.id, x);
+  for (const s of syllabi) noEmDash(`syllabus ${s.skillId}`, s);
+  for (const s of sources) noEmDash(s.id, s, new Set([...VERBATIM_KEYS, ...SOURCE_METADATA_KEYS]));
+  for (const r of verification) noEmDash(`verification ${r.factId} × ${r.sourceId}`, r);
+
   checkQuality({ levels, concepts, sources, assets, levelFiles: new Map(raw.levels.map((l, i) => [levels[i]?.id ?? '', l.where])) }, err, warn);
   if (raw.baselineLevels) {
     const baseline = raw.baselineLevels.flatMap((l) => {
@@ -267,7 +278,7 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
     for (const p of positions) counts.set(p, (counts.get(p) ?? 0) + 1);
     for (const [p, n] of counts) {
       if (p >= 0 && n / positions.length > ANSWER_POSITION_MAX_SHARE)
-        warn(skill, `${n}/${positions.length} correct answers are option ${'abcd'[p]} — vary answer positions`);
+        warn(skill, `${n}/${positions.length} correct answers are option ${'abcd'[p]}; vary answer positions`);
     }
   }
 
@@ -358,7 +369,7 @@ function checkClaims(
     if (level.status === 'published') {
       for (const { fact } of open) err(level.id, `published level states unverified claim ${fact.id}`);
     } else if (open.length > 0) {
-      warn(level.id, `${open.length}/${claims.length} claims not yet verified — see docs/verification/`);
+      warn(level.id, `${open.length}/${claims.length} claims not yet verified (see docs/verification/)`);
     }
     // Sources behind the claims on this level's cards should be listed on the level.
     for (const { fact } of claims)

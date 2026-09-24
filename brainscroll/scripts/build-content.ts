@@ -21,7 +21,7 @@ const { issues, content } = validateContent(loadContent(join(root, 'content')));
 const errors = issues.filter((i) => i.severity === 'error');
 if (errors.length) {
   for (const e of errors) console.error(`✖ ${e.where}: ${e.message}`);
-  console.error(`\nContent has ${errors.length} errors — run npm run validate:content`);
+  console.error(`\nContent has ${errors.length} errors; run npm run validate:content`);
   process.exit(1);
 }
 
@@ -41,7 +41,7 @@ if (process.argv.includes('--check')) {
     current = readFileSync(out, 'utf8');
   } catch {}
   if (current !== json) {
-    console.error('app/src/content/bundle.json is out of date — run npm run content:build');
+    console.error('app/src/content/bundle.json is out of date; run npm run content:build');
     process.exit(1);
   }
   console.log('content bundle is up to date');

@@ -11,29 +11,29 @@ import type { TextStyle, ViewStyle } from 'react-native';
  * Only one bright accent should dominate a screen at a time.
  */
 export const color = {
-  bg: '#111827', // Midnight Navy — app background
+  bg: '#111827', // Midnight Navy: app background
   bgDeep: '#0B1120', // reward screens sit a step darker so glow has headroom
-  surface: '#1B2436', // Deep Slate — cards, panels
+  surface: '#1B2436', // Deep Slate: cards, panels
   surfaceRaised: '#232E45',
   surfacePressed: '#2A3752',
   border: '#2A3550',
   borderStrong: '#3A4766',
-  brand: '#7C5CFF', // Electric Violet — primary CTA, active level, progression
+  brand: '#7C5CFF', // Electric Violet: primary CTA, active level, progression
   brandPressed: '#6A4BEA',
   brandSoft: 'rgba(124,92,255,0.14)',
   brandLine: 'rgba(124,92,255,0.45)',
-  info: '#4DA3FF', // Bright Blue — information, secondary progress, current node
-  success: '#39D98A', // Mint — correct, recall confirmed
+  info: '#4DA3FF', // Bright Blue: information, secondary progress, current node
+  success: '#39D98A', // Mint: correct, recall confirmed
   successSoft: 'rgba(57,217,138,0.12)',
   successLine: 'rgba(57,217,138,0.55)',
-  mastery: '#FFC857', // XP Gold — mastery stars, prestige ONLY
+  mastery: '#FFC857', // XP Gold: mastery stars, prestige ONLY
   masterySoft: 'rgba(255,200,87,0.12)',
-  danger: '#FF6B6B', // Coral — incorrect/reinforcement; always restrained
+  danger: '#FF6B6B', // Coral: incorrect/reinforcement; always restrained
   dangerSoft: 'rgba(255,107,107,0.10)',
   dangerLine: 'rgba(255,107,107,0.45)',
   text: '#F7F9FC', // Soft White
   textReading: '#E3E8F1', // long-form paragraphs: a touch softer than headings
-  textMuted: '#A7B0C0', // Cool Gray — secondary copy, locked
+  textMuted: '#A7B0C0', // Cool Gray: secondary copy, locked
   textFaint: '#6E7891',
   scrim: 'rgba(5,8,16,0.72)',
 } as const;

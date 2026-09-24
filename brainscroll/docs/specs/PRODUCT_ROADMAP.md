@@ -317,7 +317,7 @@ The free limit should feel like completion rather than punishment. After the fif
 > Roman History 5/5 ✓ · European Geography 5/5 ✓ · Art & Architecture 3/5 · Government & Society 1/5 · Mythology & Religion 0/5
 > 11 levels remaining. Come back tomorrow and keep building.
 > No more doomscrolling. Go touch grass.
-> Review Knowledge | Keep Leveling — Unlimited $4.99/month
+> Review Knowledge | Keep Leveling · Unlimited $4.99/month
 
 The Weekly Quest block appears only while a quest is active (post-MVP).
 

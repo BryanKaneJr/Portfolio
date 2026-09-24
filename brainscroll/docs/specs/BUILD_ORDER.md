@@ -10,7 +10,7 @@ merged_decisions: "CURRENT_PRODUCT_DECISIONS.md (2026-09-23)"
 
 **KNOWLEDGE RPG**
 
-Build Order Blueprint — from empty repository to production beta
+Build Order Blueprint: from empty repository to production beta
 
 **BUILD THE LOOP FIRST. SCALE THE KNOWLEDGE SECOND.**
 
@@ -55,7 +55,7 @@ The product has two engines that must meet cleanly: the learning application and
 
 # Use a boring stack on purpose
 
-The app’s differentiation is curriculum, progression, tone, and visual identity—not infrastructure. The foundation should be mainstream, mobile-first, AI-coding-friendly, and easy to operate with a very small team.
+The app’s differentiation is curriculum, progression, tone, and visual identity, not infrastructure. The foundation should be mainstream, mobile-first, AI-coding-friendly, and easy to operate with a very small team.
 
 | **Layer**     | **Choice**                                    | **Why**                                                                                |
 |---------------|-----------------------------------------------|----------------------------------------------------------------------------------------|
@@ -73,19 +73,19 @@ The app’s differentiation is curriculum, progression, tone, and visual identit
 
 ## Repository structure
 
-- app/ — Expo/React Native customer application.
+- app/: Expo/React Native customer application.
 
-- backend/ — migrations, SQL functions, RLS policies, seed scripts, server functions.
+- backend/: migrations, SQL functions, RLS policies, seed scripts, server functions.
 
-- content/ — versioned source files for subjects, skills, levels, concepts, cards, questions, source metadata.
+- content/: versioned source files for subjects, skills, levels, concepts, cards, questions, source metadata.
 
-- admin/ — internal content authoring/review/publishing tool.
+- admin/: internal content authoring/review/publishing tool.
 
-- scripts/ — importers, validators, duplicate checks, license checks, content build/export utilities.
+- scripts/: importers, validators, duplicate checks, license checks, content build/export utilities.
 
-- docs/ — product rules, schemas, editorial standards, release checklists.
+- docs/: product rules, schemas, editorial standards, release checklists.
 
-| 03 \| STAGE 0 — FREEZE PRODUCT CONSTANTS |
+| 03 \| STAGE 0: FREEZE PRODUCT CONSTANTS |
 |------------------------------------------|
 
 # Decide the rules before writing code
@@ -100,7 +100,7 @@ These are not visual decisions. They are contracts that every screen, database r
 
 - Prestige continues upward (101–200, 201–300...) and adds a star/badge without deleting earlier progress.
 
-- A level is a small learning encounter: mostly short reading/visual cards, then 3 light questions (recall, understanding, connection)—not a single trivia fact and not a test. Question count is fixed by level type: regular 3; every 10th-level checkpoint 5; the Level 50 milestone 7; the Level 100 Mastery Challenge 10; review sessions vary with what is due.
+- A level is a small learning encounter: mostly short reading/visual cards, then 3 light questions (recall, understanding, connection), not a single trivia fact and not a test. Question count is fixed by level type: regular 3; every 10th-level checkpoint 5; the Level 50 milestone 7; the Level 100 Mastery Challenge 10; review sessions vary with what is due.
 
 - Free accounts may complete 5 NEW levels per local calendar day. Review does not consume the allowance.
 
@@ -135,7 +135,7 @@ These are not visual decisions. They are contracts that every screen, database r
 
 - The definition of “new level,” “review,” “completion,” “mastery,” and “prestige” is unambiguous.
 
-| 04 \| STAGE 1 — DATA & CONTENT CONTRACTS |
+| 04 \| STAGE 1: DATA & CONTENT CONTRACTS |
 |------------------------------------------|
 
 # Build the schema before the screens
@@ -186,12 +186,12 @@ The learning app should render content; it should not contain hard-coded lesson 
 
 - Level completion has an idempotent server-side contract.
 
-| 05 \| STAGE 2 — THE GOLDEN 10 LEVELS |
+| 05 \| STAGE 2: THE GOLDEN 10 LEVELS |
 |--------------------------------------|
 
 # Create real content before building the lesson UI
 
-Pick one flagship skill—Astronomy or Ancient Rome are strong choices—and hand-polish Levels 1–10. These are the product’s calibration set. Do not use placeholder text because placeholder content hides the real problems: pacing, card length, image needs, quiz ambiguity, and how much learning fits on a phone screen.
+Pick one flagship skill (Astronomy or Ancient Rome are strong choices) and hand-polish Levels 1–10. These are the product’s calibration set. Do not use placeholder text because placeholder content hides the real problems: pacing, card length, image needs, quiz ambiguity, and how much learning fits on a phone screen.
 
 ## What the golden levels must exercise
 
@@ -224,7 +224,7 @@ Pick one flagship skill—Astronomy or Ancient Rome are strong choices—and han
 > Do not generate Levels 11–100 yet.
 > If the first 10 levels reveal that a level needs different card metadata, question structure, review tags, or progression rules, changing 10 levels is cheap. Changing 1,000 is not.
 
-| 06 \| STAGE 3 — LESSON PLAYER VERTICAL SLICE |
+| 06 \| STAGE 3: LESSON PLAYER VERTICAL SLICE |
 |----------------------------------------------|
 
 # Build the smallest app that can teach
@@ -278,7 +278,7 @@ Pick one flagship skill—Astronomy or Ancient Rome are strong choices—and han
 
 - A published content revision can be fetched without shipping a new app binary.
 
-| 07 \| STAGE 4 — PROGRESSION & CHARACTER SHEET |
+| 07 \| STAGE 4: PROGRESSION & CHARACTER SHEET |
 |-----------------------------------------------|
 
 # Make progress feel permanent
@@ -291,7 +291,7 @@ This is where the product stops feeling like a lesson viewer and starts feeling 
 
 12. Create user_skill_progress and user_level_progress update functions.
 
-13. Compute visible skill level from cleared canonical levels—not from arbitrary XP alone.
+13. Compute visible skill level from cleared canonical levels, not from arbitrary XP alone.
 
 14. Add overall Knowledge Level as a derived aggregate metric.
 
@@ -327,7 +327,7 @@ This is where the product stops feeling like a lesson viewer and starts feeling 
 
 - Skill level and mastery/star state are reproducible from stored progress data.
 
-| 08 \| STAGE 5 — REVIEW & MASTERY ENGINE |
+| 08 \| STAGE 5: REVIEW & MASTERY ENGINE |
 |-----------------------------------------|
 
 # Make levels represent remembered knowledge
@@ -367,7 +367,7 @@ The app can feel game-like without pretending that completing a card equals mast
 
 - Occasional recall card embedded into a new level when prerequisites make sense.
 
-| 09 \| STAGE 6 — DAILY CAP & ANTI-DOOMSCROLL LOOP |
+| 09 \| STAGE 6: DAILY CAP & ANTI-DOOMSCROLL LOOP |
 |--------------------------------------------------|
 
 # Build the free limit as a completion mechanic
@@ -399,13 +399,13 @@ The limit must be enforced server-side, but it should be experienced as a succes
 | Voice               | “No more doomscrolling. Go touch grass.”            |
 | Primary free action | Review what I learned                               |
 | Secondary action    | Come back tomorrow                                  |
-| Paid action         | Keep going — Unlimited \$4.99/mo                    |
+| Paid action         | Keep going · Unlimited \$4.99/mo                    |
 | Trust line          | All knowledge remains unlockable for free over time |
 
 > Abuse resistance without hostility
-> Do not rely only on a device clock. Treat the backend as authoritative for daily completions. The goal is preventing accidental/obvious abuse—not building a bank-grade anti-fraud system.
+> Do not rely only on a device clock. Treat the backend as authoritative for daily completions. The goal is preventing accidental/obvious abuse, not building a bank-grade anti-fraud system.
 
-| 10 \| STAGE 7 — CONTENT FACTORY & ADMIN |
+| 10 \| STAGE 7: CONTENT FACTORY & ADMIN |
 |-----------------------------------------|
 
 # Only now scale beyond the golden levels
@@ -463,7 +463,7 @@ Once the mobile renderer, progress model, and review tags have survived real lev
 
 - Revision changes a stable ID incorrectly.
 
-| 11 \| STAGE 8 — SUBSCRIPTIONS |
+| 11 \| STAGE 8: SUBSCRIPTIONS |
 |-------------------------------|
 
 # Add payment last, but architect entitlement early
@@ -493,7 +493,7 @@ The free experience must already feel complete and trustworthy. Premium is a sim
 > Do not create “premium XP.”
 > A paid learner may progress faster only because they can complete more new levels per day. The meaning of Level 50 must remain the same for free and paid users.
 
-| 12 \| STAGE 9 — ANALYTICS, REPORTING & OPERATIONS |
+| 12 \| STAGE 9: ANALYTICS, REPORTING & OPERATIONS |
 |---------------------------------------------------|
 
 # Measure learning and product health, not addiction
@@ -534,7 +534,7 @@ The free experience must already feel complete and trustworthy. Premium is a sim
 > Do not optimize for session length.
 > A 14-minute session that teaches five levels and ends cleanly can be a better outcome than a 55-minute session. “Time spent” is diagnostic, not the product’s north-star metric.
 
-| 13 \| STAGE 10 — SCALE THE LAUNCH CURRICULUM |
+| 13 \| STAGE 10: SCALE THE LAUNCH CURRICULUM |
 |----------------------------------------------|
 
 # Expand only through a proven pipeline
@@ -571,7 +571,7 @@ At this point the lesson schema, mobile renderer, review tagging, progression se
 
 - Sources and revision metadata are complete.
 
-| 14 \| STAGE 11 — BETA, QA & RELEASE |
+| 14 \| STAGE 11: BETA, QA & RELEASE |
 |-------------------------------------|
 
 # Test the system the way users will break it
@@ -706,7 +706,7 @@ The app should ask the backend for eligibility and authoritative progress; it sh
 | Weekly Knowledge Quests   | Built on the proven loop plus trophies, titles, profile and cosmetics; must not block the MVP. |
 
 > The product can be deep without being technically complicated.
-> Depth comes from hundreds of coherent canonical levels, visible mastery, and trustworthy review—not from a large number of software subsystems.
+> Depth comes from hundreds of coherent canonical levels, visible mastery, and trustworthy review, not from a large number of software subsystems.
 
 | 18 \| MVP DEFINITION OF DONE |
 |------------------------------|
@@ -744,7 +744,7 @@ The app should ask the backend for eligibility and authoritative progress; it sh
 Once this build order is accepted, the Visual Direction document should define the aesthetic system that the engineering work will implement: brand mood, color palette, light/dark behavior, typography, iconography, skill colors, cards, navigation, character sheet, skill tree, level-up animation, daily-complete screen, paywall, illustration/media rules, and component states. It should include actual screen-style examples rather than only adjectives.
 
 > Recommended next move
-> Lock the visual language before polishing the mobile shell—but after the functional card types and screen list above are known. That gives design something concrete to style without letting design dictate unstable product architecture.
+> Lock the visual language before polishing the mobile shell, but after the functional card types and screen list above are known. That gives design something concrete to style without letting design dictate unstable product architecture.
 
 | APPENDIX \| STACK REFERENCES |
 |------------------------------|

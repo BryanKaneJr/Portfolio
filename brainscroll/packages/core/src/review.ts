@@ -1,5 +1,5 @@
 /**
- * Stage 5 — deliberately simple review scheduling (no research-grade SRS in V1).
+ * Stage 5: deliberately simple review scheduling (no research-grade SRS in V1).
  *
  * Concept strength is an integer step 0..MAX_STRENGTH. A correct answer moves up
  * one step, a wrong answer drops back to 0. Each step maps to a due interval.
@@ -14,7 +14,7 @@ const DAY = 24 * 60 * MINUTE;
 
 /** Interval until the next review, indexed by strength after the answer. */
 export const REVIEW_INTERVALS_MS = [
-  10 * MINUTE, // 0: soon — just missed it
+  10 * MINUTE, // 0: soon, just missed it
   1 * DAY, // 1: tomorrow
   3 * DAY, // 2: several days
   7 * DAY, // 3: a week

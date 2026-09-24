@@ -1,4 +1,4 @@
-// BrainScroll Content Admin v1 — plain browser JS, no build step.
+// BrainScroll Content Admin v1: plain browser JS, no build step.
 // The server (admin/server.ts) owns reading, validating and writing content/.
 
 const state = {
@@ -99,9 +99,11 @@ function field(obj, key, { kind = 'input', max, type = 'text', rerender = false,
   const counter = max ? h('div', { class: 'count' }) : null;
   const upd = () => {
     if (!counter) return;
-    const n = (obj[key] ?? '').length;
-    counter.textContent = `${n}/${max}`;
-    counter.classList.toggle('over', n > max);
+    const v = String(obj[key] ?? '');
+    // House rule: no em dashes in authored text (docs/content-guide.md "Editorial rules").
+    const dash = v.includes('\u2014');
+    counter.textContent = `${v.length}/${max}${dash ? ' · em dash: rewrite the sentence' : ''}`;
+    counter.classList.toggle('over', v.length > max || dash);
   };
   const el = h(kind, {
     type: kind === 'input' ? type : undefined,
@@ -291,7 +293,7 @@ function renderEdit() {
     ['Status', h('div', {}, select(l, 'status', state.data.meta.statuses),
       h('div', { class: 'count' }, 'Saving as in_review or published is refused while this level has validation errors (unverified claims, missing revision bump, …).'))],
     ['Revision', h('div', {}, field(l, 'revision', { type: 'number' }), h('div', { class: 'count' }, 'Bump when changing a published level; published revisions are immutable.'))],
-    ['Structure', h('span', { class: 'muted' }, `${st.label}: ${st.questions.standard ?? '—'} questions · ${st.learningCards.min}–${st.learningCards.max} learning cards · ${st.learningWords.min}–${st.learningWords.max} words`)],
+    ['Structure', h('span', { class: 'muted' }, `${st.label}: ${st.questions.standard ?? 'n/a'} questions · ${st.learningCards.min}–${st.learningCards.max} learning cards · ${st.learningWords.min}–${st.learningWords.max} words`)],
     ['Sources', listField(l, 'sourceIds')],
     ['Prerequisites', listField(l, 'prerequisites')],
   )));
@@ -301,7 +303,7 @@ function renderEdit() {
   const conceptIds = [...cmap.keys()].sort();
   out.append(h('div', { class: 'box' }, h('h3', {}, 'Concepts', h('button', { onclick: () => { l.concepts.push({ conceptId: conceptIds[0], role: 'recall', weight: 0.5 }); touch(true); } }, '+ concept')),
     ...l.concepts.map((c, i) => h('div', { class: 'row' },
-      h('select', { onchange: (e) => { c.conceptId = e.target.value; touch(); } }, conceptIds.map((id) => h('option', { value: id, selected: id === c.conceptId ? 'selected' : undefined }, `${short(id)} — ${cmap.get(id).title}`))),
+      h('select', { onchange: (e) => { c.conceptId = e.target.value; touch(); } }, conceptIds.map((id) => h('option', { value: id, selected: id === c.conceptId ? 'selected' : undefined }, `${short(id)}: ${cmap.get(id).title}`))),
       h('span', { class: 'narrow' }, select(c, 'role', ['teach', 'reinforce', 'recall'])),
       h('span', { class: 'narrow', style: 'width:80px' }, field(c, 'weight', { type: 'number' })),
       h('button', { class: 'narrow danger', onclick: () => { l.concepts.splice(i, 1); touch(true); } }, '✕')))));
@@ -368,7 +370,7 @@ function renderJson() {
 function renderIssueList(iss) {
   if (!iss.length) return h('p', { class: 'muted' }, 'No issues.');
   const sorted = [...iss].sort((a, b) => (a.severity === b.severity ? 0 : a.severity === 'error' ? -1 : 1));
-  return h('ul', { class: 'issues' }, sorted.map((i) => h('li', {}, h('span', { class: `sev-${i.severity}` }, i.severity), ' ', h('code', {}, i.where), ' — ', i.message)));
+  return h('ul', { class: 'issues' }, sorted.map((i) => h('li', {}, h('span', { class: `sev-${i.severity}` }, i.severity), ' ', h('code', {}, i.where), ': ', i.message)));
 }
 function renderAllIssues() {
   const onlyErr = state.issuesFilter === 'errors';
@@ -387,7 +389,7 @@ function renderAllIssues() {
 function renderCardPreview(c) {
   if (c.type === 'text') return h('div', { class: 'pcard' }, h('div', { class: 'role' }, c.role), h('h4', {}, c.headline), c.body ? h('p', {}, c.body) : null, c.callout ? h('p', { class: 'callout' }, c.callout) : null);
   if (c.type === 'fact') return h('div', { class: 'pcard' }, h('div', { class: 'role' }, 'Fact'), h('p', { class: 'fact' }, c.fact), c.context ? h('p', {}, c.context) : null);
-  if (c.type === 'timeline') return h('div', { class: 'pcard' }, h('div', { class: 'role' }, 'Timeline'), h('h4', {}, c.headline), h('ol', {}, c.events.map((e) => h('li', {}, h('strong', {}, e.when), ' — ', e.label))));
+  if (c.type === 'timeline') return h('div', { class: 'pcard' }, h('div', { class: 'role' }, 'Timeline'), h('h4', {}, c.headline), h('ol', {}, c.events.map((e) => h('li', {}, h('strong', {}, e.when), ': ', e.label))));
   if (c.type === 'comparison') return h('div', { class: 'pcard' }, h('div', { class: 'role' }, 'Compare'), h('h4', {}, c.headline), h('div', { class: 'cmp' }, c.items.map((it) => h('div', {}, h('strong', {}, it.label), h('ul', {}, it.points.map((p) => h('li', {}, p)))))));
   if (c.type === 'image') return h('div', { class: 'pcard' }, h('div', { class: 'role' }, 'Image'), h('p', {}, `[${c.assetId}]`), c.caption ? h('p', {}, c.caption) : null);
   if (c.type === 'checkpoint') return h('div', { class: 'pcard' }, h('div', { class: 'role' }, 'Level complete'), h('h4', {}, c.headline), h('ul', {}, c.learned.map((x) => h('li', {}, x))));
@@ -411,7 +413,7 @@ function renderPreview() {
         class: `popt${chosen === o.id ? (o.correct ? ' right' : ' wrong') : ''}`,
         onclick: () => { state.preview[q.id] = o.id; render(); },
       }, o.label)),
-      pick ? h('div', { class: 'pfeedback' }, pick.correct ? `✓ ${q.explanation}` : `✗ ${pick.rationale ?? 'Not quite.'} Try again — the answer isn't revealed.`) : null,
+      pick ? h('div', { class: 'pfeedback' }, pick.correct ? `✓ ${q.explanation}` : `✗ ${pick.rationale ?? 'Not quite.'} Try again. The answer isn't revealed.`) : null,
       pick && !pick.correct ? h('div', { class: 'plook' }, h('strong', {}, 'Take another look'),
         q.sourceCardIds.map((id) => { const hit = cards.get(id); return hit ? renderCardPreview(hit.card) : h('p', {}, `Missing card ${id}`); })) : null));
   }
@@ -439,7 +441,7 @@ function renderConcepts() {
         h('td', {}, h('strong', {}, c.title), h('div', { class: 'muted' }, c.id), h('div', {}, c.description)),
         h('td', {}, h('ul', {}, c.facts.map((f) => h('li', {}, f.text, ' ',
           ...(vidx.get(f.id) ?? []).map((r) => h('span', { class: `badge status-${r.status}`, title: r.notes ?? r.preCheck ?? '' }, `${short(r.sourceId)}: ${r.status}`)),
-          h('div', { class: 'muted' }, `cards: ${(f.cardIds ?? []).map((x) => x.split('.').slice(-2).join('.')).join(', ') || '—'}`))))),
+          h('div', { class: 'muted' }, `cards: ${(f.cardIds ?? []).map((x) => x.split('.').slice(-2).join('.')).join(', ') || 'none'}`))))),
         h('td', {}, (teachers.get(c.id) ?? []).join(', ') || h('span', { class: 'muted' }, 'unused')))))));
 }
 function renderSources() {
@@ -470,7 +472,7 @@ function learnerBadge(id) {
   const n = learnerCount(id);
   return n ? h('span', { class: 'badge', style: 'color:var(--brand);border-color:var(--brand)', title: 'learner flags and open reports' }, `◆${n}`) : null;
 }
-const pct = (x) => (x === null || x === undefined ? '—' : `${Math.round(Number(x) * 100)}%`);
+const pct = (x) => (x === null || x === undefined ? 'n/a' : `${Math.round(Number(x) * 100)}%`);
 function noInsights() {
   return h('div', { class: 'box' }, h('p', {}, 'No learner data loaded.'),
     h('p', { class: 'muted' }, 'Once the app is connected to Supabase, run `SUPABASE_URL=… SUPABASE_SERVICE_ROLE_KEY=… npm run insights:pull`, then reload. Data is aggregate, read-only, and stays in admin/.data/ (gitignored).'));
@@ -485,14 +487,14 @@ function renderLearners() {
   out.append(h('div', { class: 'box' }, h('h3', {}, 'Level'), f ? grid(
     ['Started / completed', `${f.started} / ${f.completed} (${pct(f.completion_rate)})`],
     ['Mean first-try share', pct(f.mean_first_try_share)],
-    ['Exits by card', Object.entries(f.exits_by_card).map(([i, n]) => `card ${Number(i) + 1}: ${n}`).join(' · ') || '—'],
+    ['Exits by card', Object.entries(f.exits_by_card).map(([i, n]) => `card ${Number(i) + 1}: ${n}`).join(' · ') || 'none'],
   ) : h('p', { class: 'muted' }, 'No starts yet.'), ...li.flags.map((x) => h('p', { class: 'sev-warning' }, '◆ ', x))));
   const qById = new Map(l.questions.map((q) => [q.id, q]));
   for (const q of li.questions) {
     const def = qById.get(q.id);
     const st = q.stat;
     out.append(h('div', { class: 'box' }, h('h3', {}, short(q.id), h('span', { class: 'muted' }, def?.prompt ?? '')), st ? h('div', {},
-      grid(['Learners', st.learners], ['First try', pct(st.first_try_rate)], ['Avg attempts', st.avg_attempts ?? '—'], ['Review first try', `${pct(st.review_first_try_rate)} of ${st.review_attempts}`]),
+      grid(['Learners', st.learners], ['First try', pct(st.first_try_rate)], ['Avg attempts', st.avg_attempts ?? 'n/a'], ['Review first try', `${pct(st.review_first_try_rate)} of ${st.review_attempts}`]),
       h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Option'), h('th', {}, 'Picked first'))), h('tbody', {}, (def?.options ?? []).map((o) =>
         h('tr', {}, h('td', {}, o.correct ? '✓ ' : '', o.label), h('td', {}, `${st.first_picks[o.id] ?? 0} (${pct((st.first_picks[o.id] ?? 0) / Math.max(st.learners, 1))})`))))),
       ...q.flags.map((x) => h('p', { class: 'sev-warning' }, '◆ ', x))) : h('p', { class: 'muted' }, 'No attempts yet.')));
@@ -510,14 +512,14 @@ function renderHealth() {
     days_at_daily_cap_share: 'Learning days that reached the daily cap', returned_next_day_share: 'Came back the next day', returned_within_7_days_share: 'Came back within 7 days',
     saved_account_share: 'Players with a saved account', open_reports: 'Open content reports', concept_strength_distribution: 'Concept strength (0–5 → learners×concepts)', window_days: 'Window (days)',
   };
-  const fmt = (k, v) => (/share|rate/.test(k) ? pct(v) : typeof v === 'object' ? JSON.stringify(v) : String(v ?? '—'));
+  const fmt = (k, v) => (/share|rate/.test(k) ? pct(v) : typeof v === 'object' ? JSON.stringify(v) : String(v ?? 'n/a'));
   const flagged = Object.entries(state.insights.levels).filter(([id]) => learnerCount(id) > 0).sort((a, b) => learnerCount(b[0]) - learnerCount(a[0]));
   return h('div', {}, h('h2', {}, 'Learner health'),
     h('p', { class: 'muted' }, `Learning and product health, never time spent. Pulled ${state.insights.pulledAt}.`),
     h('table', {}, h('tbody', {}, Object.entries(hdata).map(([k, v]) => h('tr', {}, h('td', {}, label[k] ?? k), h('td', {}, fmt(k, v)))))),
     h('h3', {}, `Levels needing attention (${flagged.length})`),
     h('ul', { class: 'issues' }, flagged.map(([id]) => { const lf = state.data.levels.find((x) => x.data.id === id); return h('li', {},
-      h('a', { href: '#', onclick: (e) => { e.preventDefault(); if (lf) { selectLevel(lf.file); state.tab = 'learners'; render(); } } }, `${short(id)} ${lf?.data.title ?? ''}`), ` — ${learnerCount(id)} flags/reports`); })));
+      h('a', { href: '#', onclick: (e) => { e.preventDefault(); if (lf) { selectLevel(lf.file); state.tab = 'learners'; render(); } } }, `${short(id)} ${lf?.data.title ?? ''}`), `: ${learnerCount(id)} flags/reports`); })));
 }
 
 // ── boot ─────────────────────────────────────────────────────────

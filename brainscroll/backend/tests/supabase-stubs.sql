@@ -1,6 +1,6 @@
 -- Minimal stand-ins for what the Supabase platform provides, so migrations can
 -- be tested against plain Postgres (CI, or locally without Docker).
--- NOT a migration — never apply this to a real Supabase project.
+-- NOT a migration. Never apply this to a real Supabase project.
 
 create role anon nologin;
 create role authenticated nologin;

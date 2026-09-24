@@ -1,10 +1,10 @@
-# BrainScroll — notes for AI coding agents
+# BrainScroll: notes for AI coding agents
 
 Read `docs/product-rules.md` before changing anything that touches progression, XP, the daily cap, IDs or content. Those rules are contracts. The full product specs live in `docs/specs/*.md` (Markdown is the working source; `docs/source/*.docx` are snapshots). When a product rule changes, update the spec, the digest in `docs/` and the code together.
 
 ## Commands (run from `brainscroll/`)
 
-- `npm run check`: typecheck all workspaces, lint the app (hook-order bugs are errors), run core, scripts and admin unit tests, and validate `content/`. Run it before every commit.
+- `npm run check`: typecheck all workspaces, lint the app, lint copy for em dashes (hook-order bugs are errors), run core, scripts and admin unit tests, and validate `content/`. Run it before every commit.
 - `npm run content:build`: after editing anything in `content/`, recompile `app/src/content/bundle.json`. `check` fails if the bundle is stale.
 - `npm run test:db`: apply `backend/supabase/migrations` to a temp Postgres, then run each `backend/tests/*.test.sql` in a fresh copy of the database. `content-import.test.sql` uses the real `content/`.
 - `npm run content:import`: validate and publish `content/` through the `import_content` RPC. Use `--sql <file>` to write SQL instead.
@@ -15,6 +15,8 @@ Read `docs/product-rules.md` before changing anything that touches progression, 
 - `npm run app`: Expo dev server. In `app/`, use `npx expo install <pkg>` to add dependencies (it picks SDK-compatible versions). See `app/AGENTS.md`.
 
 ## Invariants
+
+- **No em dashes (U+2014) in anything BrainScroll-authored**: curriculum, UI copy, docs, errors, comments, generated content. Rewrite the sentence (comma, colon, semicolon, parentheses, period or conjunction); never substitute mechanically. Only verbatim source quotes (`supportingQuote`) and source title/publisher/URL are exempt. `validate:content` and `lint:copy` (both in `check`) enforce it; see `docs/content-guide.md` "Editorial rules".
 
 - The server owns completion, XP, the daily allowance and entitlements. The client animates results returned by `complete_level`; it never computes awards itself.
 - XP is an immutable ledger (`xp_events`) with a unique `(user_id, idempotency_key)`. Never add a mutable XP counter as the source of truth.

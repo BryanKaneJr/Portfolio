@@ -34,6 +34,6 @@ const errors = issues.filter((i) => i.severity === 'error').length;
 const warnings = issues.length - errors;
 console.log(
   `\n${content.subjects.length} subjects · ${content.skills.length} skills · ${content.concepts.length} concepts · ` +
-    `${content.levels.length} levels · ${content.sources.length} sources — ${errors} errors, ${warnings} warnings`,
+    `${content.levels.length} levels · ${content.sources.length} sources · ${errors} errors, ${warnings} warnings`,
 );
 process.exit(errors > 0 ? 1 : 0);

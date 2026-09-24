@@ -133,7 +133,7 @@ Show only the active 10-level chapter at full size, with a compact rail for over
 
 | ASTRONOMY<br>Lv. 63 / 100 · Chapter 7 |
 | --- |
-| ●—●—◉—○—○—○—○—○—○—○ |
+| ●─●─◉─○─○─○─○─○─○─○ |
 | 61-70 Current chapter |
 | 100 Mastery ★ |
 | 101-200 Prestige I unlocks |
@@ -172,7 +172,7 @@ At Level 100, the skill earns its first mastery star and Levels 101-200 unlock. 
 
 | THE ROMAN WORLD<br>Standard Weekly Quest · 14 / 25 new levels |
 | --- |
-| ◉—◉—◉—◉—◉—◉—◉—◉—◉—◉—◉—◉—◉—◉—○—○—○—○—○—○—○—○—○—○—○ |
+| ◉─◉─◉─◉─◉─◉─◉─◉─◉─◉─◉─◉─◉─◉─○─○─○─○─○─○─○─○─○─○─○ |
 | ROMAN HISTORY 5 / 5 ✓ |
 | EUROPEAN GEOGRAPHY 5 / 5 ✓ |
 | ART & ARCHITECTURE 3 / 5 |

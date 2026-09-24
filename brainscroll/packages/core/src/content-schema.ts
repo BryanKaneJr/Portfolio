@@ -3,7 +3,7 @@ import { ID_PATTERNS, type IdKind } from './ids';
 import { LEVEL_TYPES, QUESTION_PURPOSES, TEXT_BUDGET } from './constants';
 
 /**
- * Stage 1 — content contract.
+ * Stage 1: content contract.
  *
  * A level is data. The same JSON is validated here, previewed in admin,
  * published as an immutable revision bundle, and rendered by the app's
@@ -103,7 +103,7 @@ const cardBase = { id: id('card') };
 export const TextCard = z.object({
   ...cardBase,
   type: z.literal('text'),
-  /** hook | explain | connect — editorial role, lets the player style/pace it. */
+  /** hook | explain | connect: the editorial role, which lets the player style/pace it. */
   role: z.enum(['hook', 'explain', 'connect']),
   headline: text(TEXT_BUDGET.headline),
   body: text(TEXT_BUDGET.body).optional(),
@@ -175,7 +175,7 @@ export const AnswerOption = z.object({
   id: z.string().regex(/^[a-z]$/, 'option ids are single letters a–z'),
   label: text(TEXT_BUDGET.answerLabel),
   correct: z.boolean(),
-  /** Why this option is right or wrong — shown after answering. */
+  /** Why this option is right or wrong (shown after answering). */
   rationale: text(200).optional(),
 });
 

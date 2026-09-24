@@ -19,9 +19,9 @@ export interface ClaimRow {
 export function cardText(card: Card): string {
   switch (card.type) {
     case 'text':
-      return [card.headline, card.body, card.callout].filter(Boolean).join(' — ');
+      return [card.headline, card.body, card.callout].filter(Boolean).join(' / ');
     case 'fact':
-      return [card.fact, card.context].filter(Boolean).join(' — ');
+      return [card.fact, card.context].filter(Boolean).join(' / ');
     case 'timeline':
       return `${card.headline}: ${card.events.map((e) => `${e.when}: ${e.label}`).join('; ')}`;
     case 'comparison':

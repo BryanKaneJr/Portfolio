@@ -147,7 +147,7 @@ grant execute on function public.submit_review(text, text) to authenticated;
 --
 -- p: validated content as produced by scripts/import-content.ts
 --    { subjects, skills, sources, assets, concepts, levels } (camelCase, as in content/)
--- p_publish_drafts: staging convenience — treat draft/in_review as published.
+-- p_publish_drafts: staging convenience; treat draft/in_review as published.
 --
 -- Publishing a level stores its JSON (minus status) as an immutable revision.
 -- Re-importing the same revision with identical content is a no-op; changing

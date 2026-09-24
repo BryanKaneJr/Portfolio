@@ -1,5 +1,5 @@
 /**
- * Stage 0 — frozen product constants.
+ * Stage 0: frozen product constants.
  *
  * These are contracts, not tuning knobs. Every screen, migration, test and
  * content tool depends on them. Changing one requires updating
@@ -21,7 +21,7 @@ export const MASTERY_BAND_SIZE = 100;
 /** The single premium entitlement. Its only gameplay/progression effect is removing the daily new-level cap (cosmetic perks never touch progression). */
 export const ENTITLEMENT_UNLIMITED = 'unlimited_learning' as const;
 
-/** Launch pricing hypotheses (USD). Display only — the store is authoritative. */
+/** Launch pricing hypotheses (USD). Display only; the store is authoritative. */
 export const PRICING = {
   monthlyUsd: 4.99,
   annualUsd: 39.99,

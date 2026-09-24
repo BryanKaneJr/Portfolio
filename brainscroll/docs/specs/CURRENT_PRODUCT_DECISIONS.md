@@ -1,4 +1,4 @@
-# BrainScroll — Current Product Decisions
+# BrainScroll: Current Product Decisions
 
 This file records product decisions made after parts of the converted DOCX specifications were authored.
 
@@ -18,9 +18,9 @@ Typical normal level:
 
 The normal three questions should generally cover:
 
-1. **Recall** — did the learner retain the core fact or idea?
-2. **Understanding** — do they understand why it happened, how it works, or why it matters?
-3. **Connection** — can they connect it to another concept, event, system, or previously learned idea?
+1. **Recall:** did the learner retain the core fact or idea?
+2. **Understanding:** do they understand why it happened, how it works, or why it matters?
+3. **Connection:** can they connect it to another concept, event, system, or previously learned idea?
 
 ## 2. Canonical encounter question counts
 
@@ -77,7 +77,7 @@ Additional rules:
 
 Use separate configurable bands rather than scaling normal-level XP linearly.
 
-### 5-question checkpoint — max 150 XP
+### 5-question checkpoint (max 150 XP)
 
 | First-attempt result | XP |
 |---|---:|
@@ -86,7 +86,7 @@ Use separate configurable bands rather than scaling normal-level XP linearly.
 | 3 / 5 | 60 |
 | 0–2 / 5 | 25 |
 
-### Level 50 milestone — 7 questions, max 250 XP
+### Level 50 milestone (7 questions, max 250 XP)
 
 | First-attempt result | XP |
 |---|---:|
@@ -95,7 +95,7 @@ Use separate configurable bands rather than scaling normal-level XP linearly.
 | 4–5 / 7 | 90 |
 | 0–3 / 7 | 40 |
 
-### Level 100 mastery — 10 questions, max 500 XP
+### Level 100 mastery (10 questions, max 500 XP)
 
 | First-attempt result | XP |
 |---|---:|
@@ -185,7 +185,7 @@ Quest progression must consume canonical **resolved level-completion events**. M
 
 ### Final encounter
 
-After the level requirements are complete, unlock a short final encounter — normally **3 synthesis questions** connecting the skills studied that week.
+After the level requirements are complete, unlock a short final encounter: normally **3 synthesis questions** connecting the skills studied that week.
 
 ### Rewards
 
@@ -245,3 +245,19 @@ Recommended dependency order:
 10. Quest UI, final encounter, Chronicle/archive.
 11. Friends / friend profiles / weekly leaderboards.
 12. Friend-facing quest progress and later social extensions.
+
+## 13. Editorial rule: no em dashes
+
+BrainScroll-authored text never uses em dashes (U+2014). This covers both curriculum and product copy:
+
+- **Curriculum:** learning cards, questions, answer choices, explanations, reinforcement text, headings.
+- **Product copy:** UI copy, onboarding, achievements, trophies, titles and descriptions, Weekly Quests, notifications, subscription copy, error messages.
+- **Everything else:** seed/demo content, admin-generated content, and future AI-generated content.
+
+Replace each one by rewriting the sentence according to its purpose: a comma, colon, parentheses, a semicolon, a conjunction, a period, or no punctuation at all. Never use a mechanical global substitution.
+
+- Exact source quotations keep their original punctuation, and so does source metadata such as source titles.
+- Paraphrased, summarized or adapted material follows the rule.
+- An authored em dash is a validation error, so it blocks publish-ready status until corrected.
+
+See `docs/content-guide.md` ("Editorial rules").

@@ -4,11 +4,11 @@
  * no progress can be lost. See docs/accounts.md.
  *
  * States the app shows:
- *   device_only — offline build (no Supabase): progress lives on this device
- *   guest       — anonymous server account; progress is saved server-side but
+ *   device_only: offline build (no Supabase): progress lives on this device
+ *   guest:       anonymous server account; progress is saved server-side but
  *                 is tied to this install until an email is linked
- *   linking     — a code was sent to `pendingEmail`; waiting for it
- *   saved       — permanent account with a confirmed email
+ *   linking:     a code was sent to `pendingEmail`; waiting for it
+ *   saved:       permanent account with a confirmed email
  */
 export type AccountState =
   | { status: 'device_only' }

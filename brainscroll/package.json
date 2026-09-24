@@ -2,7 +2,7 @@
   "name": "brainscroll",
   "private": true,
   "version": "0.0.0",
-  "description": "BrainScroll — an anti-doomscrolling knowledge RPG. Stop scrolling. Start leveling.",
+  "description": "BrainScroll: an anti-doomscrolling knowledge RPG. Stop scrolling. Start leveling.",
   "workspaces": [
     "app",
     "packages/*",
@@ -15,7 +15,7 @@
     "validate:content": "npm run validate -w @brainscroll/scripts",
     "test:db": "bash backend/tests/run.sh",
     "app": "npm run start -w @brainscroll/app",
-    "check": "npm run typecheck && npm run lint && npm test && npm run validate:content && npm run content:build -- --check",
+    "check": "npm run typecheck && npm run lint && npm run lint:copy && npm test && npm run validate:content && npm run content:build -- --check",
     "content:build": "npm run build -w @brainscroll/scripts --",
     "content:import": "npm run import -w @brainscroll/scripts --",
     "e2e": "bash e2e/run.sh local",
@@ -27,7 +27,8 @@
     "verify:import-csv": "npm run verify -w @brainscroll/scripts -- import-csv",
     "admin": "npm run start -w @brainscroll/admin",
     "supabase:check": "npm run supabase:check -w @brainscroll/scripts --",
-    "insights:pull": "npm run insights -w @brainscroll/scripts --"
+    "insights:pull": "npm run insights -w @brainscroll/scripts --",
+    "lint:copy": "npm run copy-lint -w @brainscroll/scripts"
   },
   "engines": {
     "node": ">=22"

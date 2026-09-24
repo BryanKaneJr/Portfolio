@@ -1,4 +1,4 @@
--- BrainScroll — initial schema (Stage 1 data contracts).
+-- BrainScroll: initial schema (Stage 1 data contracts).
 --
 -- Principles (docs/product-rules.md):
 --   * Stable text IDs, never display names, as keys.
@@ -9,7 +9,7 @@
 --   * XP is an immutable ledger with idempotency keys.
 
 -- ─────────────────────────────────────────────────────────────────────────────
--- Settings (mirrors packages/core/src/constants.ts — change both together)
+-- Settings (mirrors packages/core/src/constants.ts; change both together)
 -- ─────────────────────────────────────────────────────────────────────────────
 
 create table public.app_settings (
@@ -427,7 +427,7 @@ end $$;
 -- ─────────────────────────────────────────────────────────────────────────────
 --
 -- p_answers: [{ "question_id": "question.astronomy.001.q1", "option_id": "b" }, ...]
--- Every question in the level must be answered (wrong answers are fine — they
+-- Every question in the level must be answered (wrong answers are fine; they
 -- teach, they never block). The server grades; the client never reports scores.
 --
 -- Errors (SQLSTATE P0001, message is the code):

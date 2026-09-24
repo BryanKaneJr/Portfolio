@@ -57,7 +57,7 @@ Permanent skill trees answer *"What kind of knowledgeable person am I becoming?"
 | Unlimited | Removes only the daily cap: finish faster, or keep other skills moving the same week. No exclusive quests, knowledge, stats or rewards. *Pay for freedom, not knowledge.* |
 | Tiers | Standard ~25 (weekly); Epic ~35 (occasional, still free-possible across 7 days); Legendary 50+ (rare, optional, may be a long-term goal). Difficulty is never Premium-only. |
 | Overlap | A new level counts toward **every** active quest that needs its skill, with nothing to allocate. At most **one Chronicle quest** is active at a time, alongside the live quest. |
-| No FOMO | Ended quests move to **the Chronicle** and stay completable with the same knowledge, trophy, title and primary cosmetic. A live-week clear gets only a subtle mark ("Live Clear — Week 39, 2026"). Never "You missed this forever." |
+| No FOMO | Ended quests move to **the Chronicle** and stay completable with the same knowledge, trophy, title and primary cosmetic. A live-week clear gets only a subtle mark ("Live Clear · Week 39, 2026"). Never "You missed this forever." |
 | Daily cap screen | *Daily Knowledge Complete* shows active-quest progress: 14 / 25 overall, x / 5 per skill, levels remaining, and "Come back tomorrow and keep building." Unlimited appears as an optional way to keep going. |
 | Friends | A plain progress list (Mike 25/25 ✓, Sarah 19/25, You 14/25). Never "Mike is beating you!" Group quests are a later Parties candidate. |
 | Visuals | One central emblem per quest that illuminates as requirements complete, five 0/5 rows, 0/25 overall, a reward preview and a locked Final Encounter. Gold and glow stay scarce. See [`visual-direction.md`](visual-direction.md). |

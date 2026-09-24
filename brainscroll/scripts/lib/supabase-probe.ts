@@ -64,7 +64,7 @@ export async function probeProject(baseUrl: string, key: string, fetchImpl: Fetc
   const table = async (name: string, check: string, fix: string) => {
     const r = await get(`/rest/v1/${name}?select=*&limit=1`);
     if (r.status === 200) out.push({ check, status: 'ok', detail: `${name} exists` });
-    else out.push({ check, status: 'fail', detail: `${name}: ${r.status} ${msg(r.json)} — ${fix}` });
+    else out.push({ check, status: 'fail', detail: `${name}: ${r.status} ${msg(r.json)}. Fix: ${fix}` });
     return r.status === 200;
   };
   const base_ok = await table('app_settings', 'migrations applied', 'run `supabase db push` from brainscroll/backend');

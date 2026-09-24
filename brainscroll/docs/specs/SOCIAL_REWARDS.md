@@ -319,7 +319,7 @@ Free users get 5 new levels a day, so a standard 25-level quest takes about five
 Difficulty is never tied to Premium. Every tier and its rewards are earnable free.
 
 > NO FOMO: THE CHRONICLE
-> When a quest’s featured week ends, it moves to the Chronicle and stays completable, with the same knowledge, trophy, title and primary cosmetic. Finishing during the live week adds a subtle marker such as “Live Clear — Week 39, 2026” or a dated trophy inscription. Never “You missed this forever.” Reward what users gain; do not threaten what they may lose.
+> When a quest’s featured week ends, it moves to the Chronicle and stays completable, with the same knowledge, trophy, title and primary cosmetic. Finishing during the live week adds a subtle marker such as “Live Clear · Week 39, 2026” or a dated trophy inscription. Never “You missed this forever.” Reward what users gain; do not threaten what they may lose.
 
 ## Themes
 

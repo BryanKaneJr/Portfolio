@@ -54,7 +54,7 @@ export function isMasteryCheckpoint(levelNumber: number): boolean {
 
 /**
  * Overall Knowledge Level: sublinear in total cleared levels so breadth and depth
- * both move it, but it never outruns the skills underneath. Tunable — change here
+ * both move it, but it never outruns the skills underneath. Tunable: change here
  * and in SQL `knowledge_level()` together.
  */
 export function knowledgeLevel(totalClearedLevels: number): number {

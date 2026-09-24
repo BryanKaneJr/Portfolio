@@ -2,8 +2,22 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
-## 2026-09-24 — Autonomous build pass (no Supabase/phone testing yet)
+## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Hard editorial rule: no em dashes (U+2014) in BrainScroll-authored text.** It's recorded in `CURRENT_PRODUCT_DECISIONS.md` §13, product rule 11, `content-guide.md` "Editorial rules" (with a rewrite table and an AI-prompt line) and `CLAUDE.md`.
+  - **Audit:** about 150 occurrences were each rewritten by what the dash was doing (comma, colon, semicolon, parentheses, period or conjunction; never a mechanical swap). That covers:
+    - 23 in curriculum and content data (L1–L10, concepts, the skill description, a source note, a ledger note)
+    - app and admin strings, where an em dash used as an empty-value placeholder became "n/a"/"none"
+    - validator and script messages, SQL comments and code comments
+    - the product specs; node-diagram connectors became box-drawing lines
+    - the verification report generator, which produced 1,405 of them
+  - **Exempt:** verbatim source quotes (`supportingQuote`) and source title, publisher and URL. The `.docx` snapshots in `docs/source/` are archives of the originals and were left as-is.
+  - **Enforcement:**
+    - `validate:content` makes an authored em dash an **error**, which blocks publishing and CI, and names the field path
+    - new `npm run lint:copy` in `check` scans 248 non-curriculum files
+    - Content Admin text fields flag an em dash as you type
+    - the curriculum authoring helper refuses them
+    - core has 5 new unit tests
 - **UI Foundation Pass** (`docs/design-system.md`; screenshots in `docs/ui/`). The principle: **learning is calm, progress is powerful.** No mechanics changed: question counts, first-attempt XP, source-card reinforcement, required resolution, review, the daily cap and progression all behave exactly as before, and both e2e suites pass.
   - **Design system:**
     - tokens: a type scale with an 18/28 reading size, reading width, touch sizes, soft state colours, elevation, **reward-only glow**, motion, haptics (`expo-haptics`) and reduce-motion

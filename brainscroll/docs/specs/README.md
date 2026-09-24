@@ -4,15 +4,15 @@ These Markdown files are intended to be the repo-friendly working documents for 
 
 ## Active documents
 
-- `PRODUCT_ROADMAP.md` — product rules, curriculum architecture, monetization, launch plan.
-- `BUILD_ORDER.md` — engineering sequence, schemas, dependencies, acceptance gates.
-- `VISUAL_DIRECTION.md` — current visual identity and UI direction.
-- `SOCIAL_REWARDS.md` — post-MVP rewards, profiles, friends, leaderboards, challenges, and related systems.
+- `PRODUCT_ROADMAP.md`: product rules, curriculum architecture, monetization, launch plan.
+- `BUILD_ORDER.md`: engineering sequence, schemas, dependencies, acceptance gates.
+- `VISUAL_DIRECTION.md`: current visual identity and UI direction.
+- `SOCIAL_REWARDS.md`: post-MVP rewards, profiles, friends, leaderboards, challenges, and related systems.
 - `CURRENT_PRODUCT_DECISIONS.md`: the decision record for choices made after the DOCX specs were first authored. **Merged into the four active documents on 2026-09-23**; kept as a concise record. If it and an active document ever disagree, fix the disagreement rather than picking one silently.
 
 ## Archive
 
-- `archive/VISUAL_DIRECTION_ORIGINAL.md` — the earlier "Neon Academia" visual draft. It is retained for history only and should not be used as an active implementation spec.
+- `archive/VISUAL_DIRECTION_ORIGINAL.md`: the earlier "Neon Academia" visual draft. It is retained for history only and should not be used as an active implementation spec.
 
 ## Editing rule
 
