@@ -56,7 +56,7 @@ const LABEL: Record<ButtonVariant | 'disabled', string> = {
   primary: color.text,
   secondary: color.text,
   ghost: color.textMuted,
-  success: '#0B1120',
+  success: '#0D171B',
   mastery: '#1A1305',
   danger: color.danger,
   disabled: color.textFaint,

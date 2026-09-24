@@ -2,6 +2,7 @@ import { DarkTheme, router, Stack, ThemeProvider, useSegments } from 'expo-route
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
+import { BrandSplash } from '@/components/BrandSplash';
 import { ProgressProvider, useProgress } from '@/progress/ProgressProvider';
 import { color } from '@/theme/tokens';
 
@@ -32,6 +33,12 @@ function AuthGate() {
   return null;
 }
 
+/** The plum launch screen, until the app knows who's signed in. */
+function LaunchSplash() {
+  const { ready, account } = useProgress();
+  return <BrandSplash done={ready && !!account} />;
+}
+
 export default function RootLayout() {
   return (
     <ThemeProvider value={theme}>
@@ -47,6 +54,7 @@ export default function RootLayout() {
           <Stack.Screen name="welcome" options={{ gestureEnabled: false }} />
           <Stack.Screen name="sign-in" options={{ gestureEnabled: false, animation: 'fade' }} />
         </Stack>
+        <LaunchSplash />
       </ProgressProvider>
     </ThemeProvider>
   );

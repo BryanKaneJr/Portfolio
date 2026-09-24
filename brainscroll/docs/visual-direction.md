@@ -10,8 +10,8 @@ This summarizes [`specs/VISUAL_DIRECTION.md`](specs/VISUAL_DIRECTION.md) (.docx 
 
 | Token | Hex | Role |
 | --- | --- | --- |
-| Midnight Navy | `#111827` | App background |
-| Deep Slate | `#1B2436` | Cards, panels |
+| Slate | `#131F24` | App background: a blue-gray that makes colours pop (owner decision, replacing Midnight Navy `#111827`) |
+| Deep Slate | `#202F36` | Cards, panels |
 | **Electric Violet** | `#7C5CFF` | Brand, primary CTA, active level |
 | Bright Blue | `#4DA3FF` | Information, secondary progress, current node |
 | Mint | `#39D98A` | Correct, recall confirmed |
@@ -19,6 +19,9 @@ This summarizes [`specs/VISUAL_DIRECTION.md`](specs/VISUAL_DIRECTION.md) (.docx 
 | Coral | `#FF6B6B` | Incorrect, warning |
 | Soft White | `#F7F9FC` | Primary text |
 | Cool Gray | `#A7B0C0` | Secondary text, locked |
+| Bow Tie Plum | `#C07BE8` (deep `#9B4FCB`) | Dr. Scroll's colour: his speech, tips, "Did you know". Deep plum is the launch screen |
+
+**Launch screen:** deep plum `#9B4FCB`, Dr. Scroll's minimalist mark (bald crown, white hair tufts, round glasses) in the middle and the white `brainscroll` wordmark at the bottom. The art is `app/assets/images/splash-mark.png` (a placeholder until the final mark is drawn); the native splash and the in-app `BrandSplash` share it.
 
 Only one bright accent should dominate a screen. Glow is a reward effect, not decoration. Subject colours are small accents only, never a rainbow dashboard.
 

@@ -36,12 +36,12 @@ Use a deep, calm base with a restrained luminous layer. Think premium reading ap
 
 ## 2. Core Color System
 
-*Violet is the brand. Navy/graphite does the heavy lifting. Blue, mint, coral and gold are semantic colors - not decoration.*
+*Violet is the brand. Slate gray does the heavy lifting. Blue, mint, coral and gold are semantic colors - not decoration.*
 
 | **SWATCH** | **ROLE**            | **HEX**  | **USE**                                              |
 |------------|---------------------|----------|------------------------------------------------------|
-|            | **Midnight Navy**   | \#111827 | Primary app background; premium and focused.         |
-|            | **Deep Slate**      | \#1B2436 | Cards, panels, elevated dark surfaces.               |
+|            | **Slate**           | \#131F24 | Primary app background; a blue-gray that lets colour pop (replaced Midnight Navy \#111827). |
+|            | **Deep Slate**      | \#202F36 | Cards, panels, elevated dark surfaces.               |
 |            | **Electric Violet** | \#7C5CFF | Primary brand, CTA, active level, key highlights.    |
 |            | **Bright Blue**     | \#4DA3FF | Information, active connections, secondary progress. |
 |            | **Mint**            | \#39D98A | Correct answers, success and recall confirmed.       |

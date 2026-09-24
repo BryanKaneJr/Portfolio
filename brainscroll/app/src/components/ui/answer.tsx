@@ -61,7 +61,7 @@ function FeedbackBody({ tone, title, children }: { tone: 'success' | 'reinforce'
     <View style={styles.feedback} accessibilityLiveRegion="polite">
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.sm }}>
         <View style={[styles.badge, { backgroundColor: success ? color.success : color.dangerSoft, borderColor: success ? color.success : color.dangerLine }]}>
-          <Text style={[styles.badgeGlyph, { color: success ? '#0B1120' : color.danger }]}>{success ? '✓' : '↻'}</Text>
+          <Text style={[styles.badgeGlyph, { color: success ? color.bgDeep : color.danger }]}>{success ? '✓' : '↻'}</Text>
         </View>
         <Text style={[type.title, { color: success ? color.success : color.danger }]}>{title}</Text>
       </View>

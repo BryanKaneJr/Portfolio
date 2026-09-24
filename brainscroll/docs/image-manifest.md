@@ -7,7 +7,7 @@ A small, reusable set of illustrations for BrainScroll, in the same style as the
 ## Style (every image)
 
 - One glossy 3D "clay" object, centered, soft light from the top left, gentle shadow.
-- Plain Midnight Navy background `#111827`.
+- **Transparent background** (PNG with alpha). The app background is now Slate `#131F24`, so a baked-in navy square would show. Images already made on navy `#111827` need their background removed, or regenerating on transparent.
 - Warm saturated colors. Gold only on the mastery images (one per tree) and the mastery star.
 - One object per image. A mass of identical small things (a stack of coins, a crowd, a cluster of crystals) counts as one object.
 - No text, letters or numbers, and no real people's faces.

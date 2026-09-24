@@ -7,7 +7,7 @@ This is the UI foundation for the consumer app. Tokens live in `app/src/theme/to
 | | Learning mode (levels, review questions) | Progression mode (Level Complete, mastery, daily complete, character sheet) |
 |---|---|---|
 | Hero | The content: heading, paragraphs, the question | The payoff: outcome, XP, level-up, ★ |
-| Colour | Navy/graphite, soft white text, **one** violet action | Violet glow; **gold only for mastery/prestige** |
+| Colour | Slate gray, soft white text, **one** violet action | Violet glow; **gold only for mastery/prestige** |
 | Chrome | Close, a thick progress bar, one quiet utility (⚑ report). No XP, stats, trophies or tabs | Big numerals, emblems, staggered reveals, count-ups |
 | Motion | Only feedback (select, grade, progress settle) | Pop, count-up, reveal, reward haptic |
 | Background | `bg` | `bgDeep` (a step darker, so glow has headroom) |

@@ -11,13 +11,13 @@ import type { TextStyle, ViewStyle } from 'react-native';
  * Only one bright accent should dominate a screen at a time.
  */
 export const color = {
-  bg: '#111827', // Midnight Navy: app background
-  bgDeep: '#0B1120', // reward screens sit a step darker so glow has headroom
-  surface: '#1B2436', // Deep Slate: cards, panels
-  surfaceRaised: '#232E45',
-  surfacePressed: '#2A3752',
-  border: '#2A3550',
-  borderStrong: '#3A4766',
+  bg: '#131F24', // Slate: app background, a blue-gray that lets colour pop
+  bgDeep: '#0D171B', // reward screens sit a step darker so glow has headroom
+  surface: '#202F36', // Deep Slate: cards, panels
+  surfaceRaised: '#2B3C46',
+  surfacePressed: '#33454F',
+  border: '#37464F',
+  borderStrong: '#4B5D66',
   brand: '#7C5CFF', // Electric Violet: primary CTA, active level, progression
   brandPressed: '#6A4BEA',
   brandSoft: 'rgba(124,92,255,0.14)',
@@ -34,13 +34,13 @@ export const color = {
   // Bow Tie Plum: Dr. Scroll's color, from his bow tie. Anything he says wears it
   // (speech bubbles, tips). Brand violet stays for actions and progression.
   plum: '#C07BE8', // text-safe on surface (5.3:1)
-  plumDeep: '#9B4FCB', // borders and fills; white text on it passes (4.6:1)
+  plumDeep: '#9B4FCB', // fills and the splash screen; white text on it passes (4.8:1)
   plumSoft: 'rgba(192,123,232,0.10)',
   plumLine: 'rgba(192,123,232,0.40)',
   text: '#F7F9FC', // Soft White
   textReading: '#E3E8F1', // long-form paragraphs: a touch softer than headings
   textMuted: '#A7B0C0', // Cool Gray: secondary copy, locked
-  textFaint: '#6E7891',
+  textFaint: '#7D8A96',
   scrim: 'rgba(5,8,16,0.72)',
 } as const;
 
