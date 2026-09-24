@@ -27,6 +27,11 @@ function setQueue(next: AnalyticsEvent[]) {
   void save(QUEUE_KEY, queue);
 }
 
+/** Forgets anything queued (e.g. after account deletion, so nothing is sent under the new guest). */
+export function clearAnalytics() {
+  setQueue([]);
+}
+
 /** Called once the backend is ready; restores anything queued before a restart. */
 export async function configureAnalytics(send: Sender | null) {
   sender = send;

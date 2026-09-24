@@ -1,6 +1,6 @@
 import { skillProgressView, type AccountState, type AnswerResult, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import { configureAnalytics, track } from '@/analytics/track';
+import { clearAnalytics, configureAnalytics, track } from '@/analytics/track';
 import { levelByNumber, skills } from '@/content';
 import type { ProgressBackend, ProgressSnapshot, StartResult } from './backend';
 import { createLocalBackend } from './localBackend';
@@ -65,6 +65,8 @@ interface ProgressContextValue {
   /** Switches this device to another account; in-progress level sessions belong to the old one and are dropped. */
   confirmSignIn(email: string, code: string): Promise<void>;
   signOut(): Promise<void>;
+  /** Permanently deletes the learner and all their data; the app restarts at onboarding. */
+  deleteAccount(): Promise<void>;
   reportContent(input: ContentReportInput): Promise<{ duplicate: boolean }>;
 }
 
@@ -232,6 +234,16 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         await refresh();
       },
       reportContent: (input) => backendOrThrow().reportContent(input),
+      async deleteAccount() {
+        const next = await backendOrThrow().deleteAccount();
+        clearAnalytics();
+        commitSessions({});
+        setLastSummary(undefined);
+        setOnboarded(false);
+        void save(ONBOARDED_KEY, false);
+        setAccount(next);
+        await refresh();
+      },
       async signOut() {
         const next = await backendOrThrow().signOut();
         commitSessions({});

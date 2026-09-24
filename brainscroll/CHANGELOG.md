@@ -4,6 +4,10 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **In-app account deletion** (App Store / Google Play requirement; it was the pre-launch gap flagged in `docs/accounts.md`).
+  - **Server:** `delete_my_account()` removes the auth user, and every learner table cascades through `profiles`. A new SQL suite checks all 11 tables are emptied for that learner and nobody else is touched, and that anonymous callers are refused.
+  - **App:** Profile → **Delete account** → one honest confirmation. It lists what goes, notes that store subscriptions are cancelled in the store, and offers "Keep my account". The app then restarts at onboarding as a fresh guest, with the local session, level sessions and queued analytics cleared. Offline builds offer **Erase my progress**.
+  - **Also:** a new `danger` button variant for irreversible actions only (outlined coral, never a filled red slab). 6 new e2e checks across both suites. `CLAUDE.md` now requires any new learner-data table to cascade from `profiles`.
 - **Hard editorial rule: no em dashes (U+2014) in BrainScroll-authored text.** It's recorded in `CURRENT_PRODUCT_DECISIONS.md` §13, product rule 11, `content-guide.md` "Editorial rules" (with a rewrite table and an AI-prompt line) and `CLAUDE.md`.
   - **Audit:** about 150 occurrences were each rewritten by what the dash was doing (comma, colon, semicolon, parentheses, period or conjunction; never a mechanical swap). That covers:
     - 23 in curriculum and content data (L1–L10, concepts, the skill description, a source note, a ledger note)

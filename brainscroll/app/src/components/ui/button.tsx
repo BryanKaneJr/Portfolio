@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, type ViewStyle } from 'react-native';
 import { haptic } from '@/theme/feedback';
 import { color, layout, radius, space, type } from '@/theme/tokens';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'success' | 'mastery';
+export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'success' | 'mastery' | 'danger';
 
 /**
  * One obvious action per screen: `primary` (violet, filled). `success` is the
@@ -58,6 +58,7 @@ const LABEL: Record<ButtonVariant | 'disabled', string> = {
   ghost: color.textMuted,
   success: '#0B1120',
   mastery: '#1A1305',
+  danger: color.danger,
   disabled: color.textFaint,
 };
 
@@ -77,6 +78,8 @@ const styles = StyleSheet.create({
   ghost: { backgroundColor: 'transparent' },
   success: { backgroundColor: color.success, borderBottomColor: '#25B36E' },
   mastery: { backgroundColor: color.mastery, borderBottomColor: '#D9A43C' },
+  // Irreversible actions only (e.g. delete account). Outlined, never a filled red slab.
+  danger: { backgroundColor: color.dangerSoft, borderWidth: 1, borderColor: color.dangerLine, borderBottomColor: color.dangerLine },
   disabled: { backgroundColor: color.surfaceRaised },
 });
 

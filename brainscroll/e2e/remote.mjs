@@ -144,6 +144,19 @@ try {
     'leaving an unfinished level logs where the learner left');
   check(sql(`select count(*) from public.analytics_events where name in ('account_link_started', 'account_linked')`) === '2', 'the account-link funnel is logged');
   check(sql(`select count(*) from public.analytics_events where props::text ~ '@'`) === '0', 'no email addresses reach analytics');
+  // Account deletion (store requirement): everything goes, and the app starts over as a new guest.
+  const savedId = sql(`select id from auth.users where email = 'player@example.com'`);
+  await profile();
+  await button(page, 'Delete account').click();
+  check(/permanently deletes your account/.test(await bodyText(page)), 'deletion explains what will be lost before confirming');
+  await button(page, 'Delete permanently').click();
+  await page.waitForTimeout(1500);
+  check((await bodyText(page)).includes('Stop scrolling. Start leveling.'), 'after deletion the app starts over at onboarding');
+  check(sql(`select count(*) from auth.users where id = '${savedId}'`) === '0', 'the deleted auth user is gone');
+  check(sql(`select (select count(*) from public.xp_events where user_id = '${savedId}') + (select count(*) from public.user_level_progress where user_id = '${savedId}') + (select count(*) from public.analytics_events where user_id = '${savedId}')`) === '0',
+    'their XP, progress and analytics rows are gone');
+  check(sql(`select count(*) from auth.users where is_anonymous`) >= '1', 'a fresh guest session replaces it');
+
   check(errors.length === 0, `no page errors ${errors.join('; ')}`);
 } finally {
   await browser.close();

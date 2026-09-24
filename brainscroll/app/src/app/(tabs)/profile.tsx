@@ -1,6 +1,7 @@
 import { subjectRank } from '@brainscroll/core';
 import { View } from 'react-native';
 import { AccountCard } from '@/components/AccountCard';
+import { DeleteAccount } from '@/components/DeleteAccount';
 import { Button, Caption, Card, Chip, Emblem, Eyebrow, H1, Row, Screen, Stars, StatTile, Title } from '@/components/ui';
 import { subjectName } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
@@ -75,6 +76,7 @@ export default function ProfileScreen() {
       ))}
 
       <AccountCard />
+      <DeleteAccount />
       {__DEV__ && <Button variant="ghost" label="Reset progress (dev)" onPress={() => void resetAll()} />}
     </Screen>
   );

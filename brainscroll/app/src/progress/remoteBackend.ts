@@ -168,6 +168,14 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     },
     logEvents,
     reportContent,
+    async deleteAccount() {
+      await rpc('delete_my_account');
+      // The server session died with the user: drop it locally, then start fresh.
+      await supabase.auth.signOut({ scope: 'local' });
+      await ensureSession();
+      await rpc('update_profile', { p_timezone: deviceTimeZone() });
+      return currentAccount();
+    },
     async signOut() {
       const now = await currentAccount();
       if (now.status !== 'saved') throw new AccountError('NOT_ALLOWED', 'Add an email first, or your progress would be lost.');

@@ -72,6 +72,12 @@ try {
   await page.waitForTimeout(800);
   const profileText = await bodyText(page);
   check(profileText.includes('saved on this device') && !profileText.includes('Save my progress'), 'offline play shows device-only saving, with no account actions');
+  await button(page, 'Erase my progress').click();
+  await button(page, 'Erase permanently').click();
+  await page.waitForTimeout(1200);
+  check((await bodyText(page)).includes('Stop scrolling. Start leveling.'), 'erasing on-device progress starts over at onboarding');
+  const cleared = await page.evaluate(() => Object.keys(JSON.parse(localStorage.getItem('brainscroll.progress.v1') ?? '{}').levels ?? {}).length);
+  check(cleared === 0, 'no completed levels remain on the device');
   check(errors.length === 0, `no page errors ${errors.join('; ')}`);
 } finally {
   await browser.close();

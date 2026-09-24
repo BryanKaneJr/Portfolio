@@ -53,6 +53,12 @@ export interface ProgressBackend {
   confirmSignIn(email: string, code: string): Promise<AccountState>;
   /** Saved accounts only: sign out and continue as a fresh guest. Guests can't sign out (it would orphan their progress). */
   signOut(): Promise<AccountState>;
+  /**
+   * Permanently deletes this learner and every piece of their data, then
+   * continues as a fresh guest (remote) or with empty on-device progress (local).
+   * Store subscriptions are not cancelled by this; they're managed by Apple/Google.
+   */
+  deleteAccount(): Promise<AccountState>;
 
   // ── Analytics & content reports (docs/analytics.md) ──
   /** Sends already-sanitized events. Remote: log_events (allowlisted server-side). Local: dropped. */

@@ -83,6 +83,12 @@ export function createLocalBackend(): ProgressBackend {
     startSignIn: unavailable,
     confirmSignIn: unavailable,
     signOut: unavailable,
+    async deleteAccount() {
+      // Offline builds keep progress only on this device: erasing it is the deletion.
+      commit(emptyProgress(new Date(), deviceTimeZone()));
+      await save(REPORTS_KEY, []);
+      return { status: 'device_only' };
+    },
     // Offline builds send nothing anywhere.
     async logEvents() {},
     async reportContent(input) {
