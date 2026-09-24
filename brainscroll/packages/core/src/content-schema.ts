@@ -54,10 +54,39 @@ export const Asset = z.object({
 });
 export type Asset = z.infer<typeof Asset>;
 
+/**
+ * One verifiable claim: the exact statement a human checks against its sources.
+ * `cardIds` are the learning/hook cards that state it, so a verifier can see
+ * exactly where it appears. Verification status lives in content/verification.json,
+ * never here, so checking a claim doesn't touch curriculum files.
+ */
 export const Fact = z.object({
+  id: id('fact'),
   text: text(300),
   sourceIds: z.array(id('source')).min(1),
+  cardIds: z.array(id('card')).default([]),
 });
+export type Fact = z.infer<typeof Fact>;
+
+/**
+ * A human's check of one claim against one of its sources. Every (fact, source)
+ * pair has one record. Only a person may set `verified`, with who, when and the
+ * supporting text from the page.
+ */
+export const VERIFICATION_STATUSES = ['unverified', 'verified', 'incorrect', 'unsupported'] as const;
+export const VerificationRecord = z.object({
+  factId: id('fact'),
+  sourceId: id('source'),
+  status: z.enum(VERIFICATION_STATUSES),
+  /** Exact text copied from the source page that supports the claim. */
+  supportingQuote: z.string().trim().min(1).max(600).optional(),
+  checkedBy: z.string().trim().min(1).max(80).optional(),
+  checkedAt: z.iso.date().optional(),
+  notes: z.string().max(600).optional(),
+  /** Automated drafting note flagging what to look at. Never a verification. */
+  preCheck: z.string().max(600).optional(),
+});
+export type VerificationRecord = z.infer<typeof VerificationRecord>;
 
 export const Concept = z.object({
   id: id('concept'),

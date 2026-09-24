@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { LEARNING_STRUCTURE, STANDARD_QUESTIONS, levelTypeFor, validateContent, type RawContentBundle } from '../src';
 
 const CONCEPT = 'concept.astronomy.sun_is_a_star';
+const FACT = 'fact.astronomy.sun_is_a_star';
 const PURPOSES = ['recall', 'understanding', 'connection'] as const;
 
 /** A well-formed regular level: hook → 2 learning cards → 3 questions → recap. */
@@ -50,7 +51,7 @@ function makeLevel(n: number, overrides: Record<string, unknown> = {}): Record<s
   };
 }
 
-function bundle(levels: Record<string, unknown>[] = [makeLevel(1)], verified = true): RawContentBundle {
+function bundle(levels: Record<string, unknown>[] = [makeLevel(1)], verified = true, verification: unknown[] = [verifiedRecord()]): RawContentBundle {
   return {
     subjects: [{ id: 'subject.science', name: 'Science', order: 1, status: 'draft' }],
     skills: [{ id: 'skill.science.astronomy', subjectId: 'subject.science', name: 'Astronomy', order: 1, status: 'draft', description: 'Space.' }],
@@ -59,11 +60,16 @@ function bundle(levels: Record<string, unknown>[] = [makeLevel(1)], verified = t
     concepts: [
       {
         where: 'concepts',
-        data: { id: CONCEPT, title: 'The Sun is a star', description: 'The Sun is a star.', difficulty: 0.05, facts: [{ text: 'The Sun is a star.', sourceIds: ['source.nasa_sun'] }] },
+        data: { id: CONCEPT, title: 'The Sun is a star', description: 'The Sun is a star.', difficulty: 0.05, facts: [{ id: FACT, text: 'The Sun is a star.', sourceIds: ['source.nasa_sun'], cardIds: ['card.astronomy.001.c2'] }] },
       },
     ],
     levels: levels.map((data, i) => ({ where: `l${i + 1}`, data })),
+    verification,
   };
+}
+
+function verifiedRecord(overrides: Record<string, unknown> = {}) {
+  return { factId: FACT, sourceId: 'source.nasa_sun', status: 'verified', checkedBy: 'Editor', checkedAt: '2026-09-24', supportingQuote: 'The Sun is a star.', ...overrides };
 }
 
 const issues = (b: RawContentBundle, severity: 'error' | 'warning') =>
@@ -231,5 +237,40 @@ describe('answer position balance', () => {
       return l;
     });
     expect(issues(bundle(levels), 'warning').some((m) => m.includes('24/24 correct answers are option a'))).toBe(true);
+  });
+});
+
+describe('claim verification', () => {
+  const published = () => makeLevel(1, { status: 'published' });
+
+  it('lets a level publish only when every claim it states is verified', () => {
+    expect(issues(bundle([published()]), 'error')).toEqual([]);
+    const pending = bundle([published()], true, [verifiedRecord({ status: 'unverified' })]);
+    expect(issues(pending, 'error')).toContain(`published level states unverified claim ${FACT}`);
+  });
+
+  it('only counts unverified claims as a warning on drafts', () => {
+    expect(issues(bundle([makeLevel(1)], true, [verifiedRecord({ status: 'unverified' })]), 'warning')).toContain(
+      '1/1 claims not yet verified — see docs/verification/',
+    );
+  });
+
+  it('requires who, when and the supporting quote to mark a claim verified', () => {
+    const b = bundle([makeLevel(1)], true, [verifiedRecord({ supportingQuote: undefined })]);
+    expect(issues(b, 'error')).toContain(`${FACT} / source.nasa_sun is verified without checkedBy, checkedAt and supportingQuote`);
+  });
+
+  it('rejects records for sources the fact does not cite, and warns on missing records', () => {
+    expect(issues(bundle([makeLevel(1)], true, [verifiedRecord({ sourceId: 'source.other' })]), 'error')).toEqual(
+      expect.arrayContaining([`${FACT} does not cite source.other`]),
+    );
+    expect(issues(bundle([makeLevel(1)], true, []), 'warning')).toContain('no verification record for source.nasa_sun (run npm run verify:sync)');
+  });
+
+  it("rejects a fact pointing at a card in a level that doesn't cover its concept", () => {
+    const other = makeLevel(2, { concepts: [{ conceptId: 'concept.astronomy.other', role: 'teach' }] });
+    const b = bundle([makeLevel(1), other]);
+    (b.concepts[0]!.data as { facts: { cardIds: string[] }[] }).facts[0]!.cardIds = ['card.astronomy.002.c2'];
+    expect(issues(b, 'error')).toContain(`card card.astronomy.002.c2 is in level.science.astronomy.002, which does not list ${CONCEPT}`);
   });
 });

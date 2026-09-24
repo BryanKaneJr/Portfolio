@@ -5,7 +5,7 @@ import type { RawContentBundle } from '@brainscroll/core';
 /**
  * Reads the content/ tree:
  *
- *   content/subjects.json, sources.json, assets.json
+ *   content/subjects.json, sources.json, assets.json, verification.json
  *   content/skills/<subject>.<skill>/skill.json
  *   content/skills/<subject>.<skill>/concepts.json
  *   content/skills/<subject>.<skill>/levels/NNN.json
@@ -32,6 +32,7 @@ export function loadContent(root: string): RawContentBundle {
     skills: [],
     concepts: [],
     levels: [],
+    verification: existsSync(join(root, 'verification.json')) ? array(join(root, 'verification.json')) : [],
   };
 
   const skillsDir = join(root, 'skills');

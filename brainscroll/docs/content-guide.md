@@ -10,10 +10,11 @@ The schema is in [`packages/core/src/content-schema.ts`](../packages/core/src/co
 content/
   subjects.json                     # the 6 launch subjects
   sources.json                      # source registry (every fact cites one)
+  verification.json                 # claim verification ledger: one record per (fact, source)
   assets.json                       # media registry (licence + attribution + alt text)
   skills/<subject>.<skill>/
     skill.json
-    concepts.json                   # atomic knowledge objects with sourced facts
+    concepts.json                   # atomic knowledge objects; each fact is one verifiable claim
     levels/001.json, 002.json, ...  # one file per canonical level
 ```
 
@@ -99,7 +100,29 @@ Headline ≤ 80 chars · body ≤ 360 · question prompt ≤ 200 · answer ≤ 8
 
 ## Sourcing and licences
 
-Prefer **Wikidata** (CC0) for structured facts, and **NASA**, **Smithsonian Open Access (CC0)** and government sources for media. Use Wikipedia for research and discovery only, and don't copy its prose (CC BY-SA). **"We found it online" is never a licence.** Record every source in `sources.json` before citing it, and set `verified: true` only after an editor has checked the fact against the page. Get an IP attorney to review the final commercial ingestion and attribution rules before public launch.
+Prefer **Wikidata** (CC0) for structured facts, and **NASA**, **Smithsonian Open Access (CC0)** and government sources for media. Use Wikipedia for research and discovery only, and don't copy its prose (CC BY-SA). **"We found it online" is never a licence.** Record every source in `sources.json` before citing it. A source's `verified: true` means an editor has checked the source record itself (URL, publisher, licence). Get an IP attorney to review the final commercial ingestion and attribution rules before public launch.
+
+## Claims and verification
+
+Every factual statement a learner reads is a **claim**: a concept `fact` with a stable ID, its exact text, the sources that support it and the `cardIds` that state it.
+
+```json
+{ "id": "fact.astronomy.sun_age", "text": "The Sun is about 4.6 billion years old.",
+  "sourceIds": ["source.nasa_sun_facts"], "cardIds": ["card.astronomy.002.c4"] }
+```
+
+- **Every factual sentence on a learning or hook card maps to a claim.** If a card says it, a fact says it, word-for-word in meaning. Numbers in the card and the fact must match. Arithmetic derived from other claims (e.g. Moon–Earth light time) is its own claim that cites the sources of its inputs.
+- **Verification is a separate ledger**, `content/verification.json`: one record per (fact, source) with `status` (`unverified` / `verified` / `unsupported` / `incorrect`), and for any checked status who checked it, when, and the supporting quote from the page. Only a person sets `verified`. Drafting tools may add a `preCheck` note pointing at something to look at. That is never a verification.
+- **Publishing needs verified claims.** A `published` level must have every claim it states (on its cards) or teaches (its `teach` concepts) verified against every cited source. Drafts get a count as a warning.
+
+Workflow:
+
+```sh
+npm run verify:sync      # after adding facts: create "unverified" records for new (fact, source) pairs
+npm run verify:report    # write docs/verification/<skill>.md (checklist grouped by source page) + .csv
+npm run verify:record -- fact.astronomy.sun_age source.nasa_sun_facts --status verified --by "Name" --quote "…"
+npm run verify:import-csv -- docs/verification/astronomy.csv --by "Name"   # or fill in the CSV instead
+```
 
 ## Weekly Quests (post-MVP)
 

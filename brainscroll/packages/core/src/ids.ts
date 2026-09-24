@@ -6,6 +6,7 @@
  *   level.science.astronomy.001          (3+ digits; prestige continues to 101, 200, ...)
  *   level.science.astronomy.001@r3      (published revision 3)
  *   concept.astronomy.light_year
+ *   fact.astronomy.light_year_distance  (one verifiable claim)
  *   card.astronomy.001.c2
  *   question.astronomy.001.q2
  *   source.nasa_sun_facts
@@ -21,6 +22,7 @@ export const ID_PATTERNS = {
   level: new RegExp(`^level\\.(${SLUG})\\.(${SLUG})\\.(${NUM})$`),
   revision: new RegExp(`^(level\\.${SLUG}\\.${SLUG}\\.${NUM})@r([1-9]\\d*)$`),
   concept: new RegExp(`^concept\\.(${SLUG})\\.(${SLUG})$`),
+  fact: new RegExp(`^fact\\.(${SLUG})\\.(${SLUG})$`),
   card: new RegExp(`^card\\.(${SLUG})\\.(${NUM})\\.c([1-9]\\d*)$`),
   question: new RegExp(`^question\\.(${SLUG})\\.(${NUM})\\.q([1-9]\\d*)$`),
   source: new RegExp(`^source\\.(${SLUG})$`),

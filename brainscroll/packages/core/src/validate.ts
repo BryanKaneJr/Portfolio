@@ -1,5 +1,5 @@
 import { QUESTION_PURPOSES } from './constants';
-import { Asset, Concept, Level, Skill, Source, Subject } from './content-schema';
+import { Asset, Concept, Level, Skill, Source, Subject, VerificationRecord, type Fact } from './content-schema';
 import { levelId, levelScope, parseLevelId } from './ids';
 import { levelTypeFor } from './progression';
 import { cardRole, learningCards, learningWordCount, structureFor } from './structure';
@@ -19,6 +19,8 @@ export interface RawContentBundle {
   /** Concepts keyed by the file they came from (for error locations). */
   concepts: { where: string; data: unknown }[];
   levels: { where: string; data: unknown }[];
+  /** content/verification.json: one record per (fact, source) pair. */
+  verification?: unknown[];
 }
 
 export interface ValidatedContent {
@@ -28,6 +30,7 @@ export interface ValidatedContent {
   assets: Asset[];
   concepts: Concept[];
   levels: Level[];
+  verification: VerificationRecord[];
 }
 
 /**
@@ -61,6 +64,7 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
   const assets = parseAll(Asset, tag('assets.json', raw.assets));
   const concepts = parseAll(Concept, raw.concepts);
   const levels = parseAll(Level, raw.levels);
+  const verification = parseAll(VerificationRecord, tag('verification.json', raw.verification ?? []));
 
   const dupes = (kind: string, ids: string[]) => {
     const seen = new Set<string>();
@@ -86,6 +90,7 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
   for (const c of concepts)
     for (const f of c.facts)
       for (const sid of f.sourceIds) if (!sourceById.has(sid)) err(c.id, `fact cites unknown source ${sid}`);
+  dupes('facts', concepts.flatMap((c) => c.facts.map((f) => f.id)));
 
   // Level number → which concepts were taught at or before it, per skill.
   const levelsBySkill = new Map<string, Level[]>();
@@ -232,6 +237,8 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
     if (first && !(first.type === 'text' && first.role === 'hook')) warn(where, 'should open with a hook card');
   }
 
+  checkClaims(concepts, levels, verification, sourceById, err, warn);
+
   // Predictable answers undermine learning: warn when one slot dominates a skill.
   for (const [skill, list] of levelsBySkill) {
     const positions = list.flatMap((l) => l.questions.map((q) => q.options.findIndex((o) => o.correct)));
@@ -244,7 +251,80 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
     }
   }
 
-  return { issues, content: { subjects, skills, sources, assets, concepts, levels } };
+  return { issues, content: { subjects, skills, sources, assets, concepts, levels, verification } };
+}
+
+type Report = (where: string, message: string) => void;
+
+/**
+ * Claims (concept facts) and their verification ledger.
+ *
+ * - Each fact's `cardIds` must be real cards in a level that lists the fact's concept.
+ * - Each (fact, source) pair has exactly one verification record; `verified`
+ *   needs who, when and the supporting quote.
+ * - A published level needs every claim it states or teaches verified against
+ *   every cited source. Drafts only get a count, so editors know what's left.
+ */
+function checkClaims(
+  concepts: Concept[],
+  levels: Level[],
+  verification: VerificationRecord[],
+  sourceById: Map<string, Source>,
+  err: Report,
+  warn: Report,
+): void {
+  const factById = new Map<string, { fact: Fact; concept: Concept }>();
+  for (const concept of concepts) for (const fact of concept.facts) factById.set(fact.id, { fact, concept });
+  const cardLevel = new Map(levels.flatMap((l) => l.cards.map((c) => [c.id, l] as const)));
+
+  for (const { fact, concept } of factById.values()) {
+    const conceptSkill = concept.id.split('.')[1];
+    if (fact.id.split('.')[1] !== conceptSkill) err(fact.id, `fact id must use the concept's skill scope fact.${conceptSkill}.*`);
+    if (fact.cardIds.length === 0) warn(fact.id, 'names no card that states it; add cardIds so verifiers can find it');
+    for (const cid of fact.cardIds) {
+      const level = cardLevel.get(cid);
+      if (!level) err(fact.id, `card ${cid} does not exist`);
+      else if (!level.concepts.some((c) => c.conceptId === concept.id))
+        err(fact.id, `card ${cid} is in ${level.id}, which does not list ${concept.id}`);
+    }
+  }
+
+  const records = new Map<string, VerificationRecord>();
+  for (const r of verification) {
+    const key = `${r.factId}|${r.sourceId}`;
+    if (records.has(key)) err('verification.json', `duplicate record for ${r.factId} / ${r.sourceId}`);
+    records.set(key, r);
+    const f = factById.get(r.factId);
+    if (!f) err('verification.json', `record for unknown fact ${r.factId}`);
+    else if (!f.fact.sourceIds.includes(r.sourceId)) err('verification.json', `${r.factId} does not cite ${r.sourceId}`);
+    if (!sourceById.has(r.sourceId)) err('verification.json', `record for unknown source ${r.sourceId}`);
+    if (r.status === 'verified' && !(r.checkedBy && r.checkedAt && r.supportingQuote))
+      err('verification.json', `${r.factId} / ${r.sourceId} is verified without checkedBy, checkedAt and supportingQuote`);
+  }
+  for (const { fact } of factById.values())
+    for (const sid of fact.sourceIds)
+      if (!records.has(`${fact.id}|${sid}`)) warn(fact.id, `no verification record for ${sid} (run npm run verify:sync)`);
+
+  const claimVerified = (f: Fact) => f.sourceIds.every((sid) => records.get(`${f.id}|${sid}`)?.status === 'verified');
+
+  for (const level of levels) {
+    const onCards = new Set(level.cards.map((c) => c.id));
+    const taught = new Set(level.concepts.filter((c) => c.role === 'teach').map((c) => c.conceptId));
+    const claims = [...factById.values()].filter(
+      ({ fact, concept }) => taught.has(concept.id) || fact.cardIds.some((cid) => onCards.has(cid)),
+    );
+    const open = claims.filter(({ fact }) => !claimVerified(fact));
+    if (level.status === 'published') {
+      for (const { fact } of open) err(level.id, `published level states unverified claim ${fact.id}`);
+    } else if (open.length > 0) {
+      warn(level.id, `${open.length}/${claims.length} claims not yet verified — see docs/verification/`);
+    }
+    // Sources behind the claims on this level's cards should be listed on the level.
+    for (const { fact } of claims)
+      if (fact.cardIds.some((cid) => onCards.has(cid)))
+        for (const sid of fact.sourceIds)
+          if (!level.sourceIds.includes(sid)) warn(level.id, `states ${fact.id} but does not list its source ${sid}`);
+  }
 }
 
 const ANSWER_POSITION_MIN_SAMPLE = 8;
