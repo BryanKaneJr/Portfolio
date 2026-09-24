@@ -1,0 +1,58 @@
+# Supabase CLI config for BrainScroll (local stack + `supabase link`).
+# Committed so connecting a project needs no `supabase init`. Hosted-project
+# auth settings still live in the dashboard (docs/supabase-setup.md); keep the
+# [auth] block below in step with them.
+project_id = "brainscroll"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+# Match the hosted project's Postgres major version (Settings → Infrastructure).
+major_version = 17
+
+[db.seed]
+# Curriculum is loaded by `npm run content:import`, not SQL seeds.
+enabled = false
+
+[studio]
+enabled = true
+port = 54323
+
+[inbucket]
+# Local email catcher for testing account-linking emails: http://localhost:54324
+enabled = true
+port = 54324
+
+[auth]
+enabled = true
+# Deep link back into the app after email confirmation (app.json scheme).
+site_url = "brainscroll://"
+additional_redirect_urls = ["brainscroll://auth-callback", "http://localhost:8081", "http://localhost:8081/auth-callback"]
+jwt_expiry = 3600
+enable_refresh_token_rotation = true
+enable_signup = true
+# Every player starts anonymous; linking an email later keeps the same user id.
+enable_anonymous_sign_ins = true
+# Anonymous → email linking uses updateUser({ email }) and doesn't need this;
+# it's only for linkIdentity() with OAuth providers (Apple/Google, later).
+enable_manual_linking = false
+
+[auth.rate_limit]
+anonymous_users = 30
+email_sent = 4
+
+[auth.email]
+enable_signup = true
+double_confirm_changes = true
+enable_confirmations = true
+secure_password_change = true
+max_frequency = "60s"
+otp_length = 6
+otp_expiry = 3600

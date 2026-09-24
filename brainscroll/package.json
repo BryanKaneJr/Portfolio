@@ -10,7 +10,7 @@
     "admin"
   ],
   "scripts": {
-    "test": "npm run test -w @brainscroll/core && npm run test -w @brainscroll/admin",
+    "test": "npm run test -w @brainscroll/core && npm run test -w @brainscroll/scripts && npm run test -w @brainscroll/admin",
     "typecheck": "npm run typecheck -w @brainscroll/core && npm run typecheck -w @brainscroll/scripts && npm run typecheck -w @brainscroll/app && npm run typecheck -w @brainscroll/admin",
     "validate:content": "npm run validate -w @brainscroll/scripts",
     "test:db": "bash backend/tests/run.sh",
@@ -25,7 +25,8 @@
     "verify:sync": "npm run verify -w @brainscroll/scripts -- sync",
     "verify:record": "npm run verify -w @brainscroll/scripts -- record",
     "verify:import-csv": "npm run verify -w @brainscroll/scripts -- import-csv",
-    "admin": "npm run start -w @brainscroll/admin"
+    "admin": "npm run start -w @brainscroll/admin",
+    "supabase:check": "npm run supabase:check -w @brainscroll/scripts --"
   },
   "engines": {
     "node": ">=22"

@@ -9,7 +9,9 @@
     "typecheck": "tsc --noEmit",
     "build": "tsx build-content.ts",
     "import": "tsx import-content.ts",
-    "verify": "tsx verify.ts"
+    "verify": "tsx verify.ts",
+    "test": "tsx --test test/*.test.ts",
+    "supabase:check": "tsx supabase-check.ts"
   },
   "dependencies": {
     "@brainscroll/core": "*"

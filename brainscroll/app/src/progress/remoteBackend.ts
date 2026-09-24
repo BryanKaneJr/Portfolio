@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type ReviewItem, type StartReason } from '@brainscroll/core';
+import { checkClientConfig, CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type ReviewItem, type StartReason } from '@brainscroll/core';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { getLevel } from '@/content';
 import type { ProgressBackend, ProgressSnapshot } from './backend';
@@ -40,6 +40,9 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
   return {
     kind: 'remote',
     async init() {
+      // Refuse to run with a secret key or a malformed URL (never ship a service key).
+      const bad = checkClientConfig(url, anonKey).filter((p) => p.severity === 'error');
+      if (bad.length) throw new Error(`Supabase config: ${bad.map((p) => p.message).join('; ')}`);
       await ensureSession();
       await rpc('update_profile', { p_timezone: deviceTimeZone() });
     },

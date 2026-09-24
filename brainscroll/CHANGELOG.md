@@ -5,6 +5,15 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 ## 2026-09-24 — Autonomous build pass (no Supabase/phone testing yet)
 
 - **Product decision recorded: Unlimited perks.** Unlimited's only gameplay/progression advantage is removing the daily new-level cap; it may also include non-progression cosmetic or personalization benefits (themes, profile customization). Accomplishment cosmetics (mastery frames, quest rewards, rare trophy treatments, prestige effects) stay earned. Updated product-rules rule 10, CURRENT_PRODUCT_DECISIONS §8, README, CLAUDE.md, social-expansion.md (open question closed) and code comments.
+- **Supabase integration prep (no credentials needed).** Connecting a real project is now a five-step checklist at the top of `docs/supabase-setup.md`:
+  - **`npm run supabase:check`**
+    - Offline, it validates the app's URL and key and **refuses a service_role/`sb_secret_` key**. It also confirms `.env.local` is gitignored and that the importer key really is a secret key.
+    - Online, it runs read-only probes: auth reachable, anonymous sign-ins and email enabled, base and latest migrations applied, content published, and server functions present.
+  - A committed `backend/supabase/config.toml`, so there's no `supabase init`. It enables anonymous sign-ins and email, and sets the deep-link redirects and a local email catcher.
+  - `app/.env.example`.
+  - The app itself now refuses to start remote mode with a secret key or malformed URL. The check is `checkClientConfig` in core, shared with the CLI.
+  - It handles both legacy JWT keys and the new `sb_publishable_`/`sb_secret_` keys.
+  - Tests: 4 core unit tests plus 4 probe tests against a stub. `e2e:remote` still passes, and local play is unchanged.
 - **Content Admin v1** (`npm run admin` → http://127.0.0.1:4321; `admin/README.md`). It's a local, credential-free tool that reads and writes `content/` directly:
   - browse by syllabus chapter, with status and issue badges
   - edit level metadata, concepts, cards (every type; add, reorder, delete) and questions (options, rationales, source cards), with character budgets taken from core

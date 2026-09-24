@@ -3,6 +3,7 @@
 This is Supabase: Postgres, Auth, Storage and Edge Functions.
 
 ```
+supabase/config.toml   Supabase CLI config (local stack + link); auth settings mirror the hosted project
 supabase/migrations/   SQL migrations (schema, RLS, server functions)
 tests/                 SQL acceptance tests, runner and shared helpers (lib.sh) using plain Postgres
                        with Supabase auth stubs; fake-supabase.mjs is a test-only stand-in for
@@ -42,7 +43,6 @@ With Docker and the [Supabase CLI](https://supabase.com/docs/guides/local-develo
 
 ```bash
 cd backend
-supabase init        # once; creates supabase/config.toml and keeps migrations/
 supabase start
 supabase db reset    # applies migrations
 ```
