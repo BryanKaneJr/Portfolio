@@ -36,7 +36,8 @@ if (!publishDrafts) {
 
 const payload = {
   subjects: content.subjects,
-  skills: content.skills,
+  // Planned skills (a syllabus, no levels yet) stay out of the database.
+  skills: content.skills.filter((s) => content.levels.some((l) => l.skillId === s.id)),
   sources: content.sources,
   assets: content.assets,
   concepts: content.concepts,

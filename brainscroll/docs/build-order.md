@@ -24,7 +24,7 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | 7 | Content tooling | Editor/importer/validator so Levels 11–100 can scale safely | ✅ validator (quality, claims, editorial rules) + importer + Content Admin v1 |
 | 8 | Subscriptions | RevenueCat `unlimited_learning`, restore, expiry | ⬜ |
 | 9 | Analytics & reporting | Mission-aligned events, content reports, funnel | ✅ built and tested locally; configured once Supabase is connected (`docs/analytics.md`) |
-| 10 | Scale launch content | Flagship to 100, then a second skill of a different shape, then 6–10 trees | 🟡 Astronomy 1–100 and Ancient Rome 1–100 (chronology) drafted; 6–10 trees still to come |
+| 10 | Scale launch content | Flagship to 100, then a second skill of a different shape, then 6–10 trees | 🟡 Astronomy 1–100 and Ancient Rome 1–100 (chronology) drafted; World Geography, How Money Works, Art History and Everyday Technology planned to 100 (syllabus only) |
 | 11 | Beta & release | TestFlight/Play testing, QA matrix, store submission | ⬜ |
 
 ## Critical-path backlog

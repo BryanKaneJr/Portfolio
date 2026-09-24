@@ -4,6 +4,10 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Four more trees planned to 100 levels:** World Geography, How Money Works, Art History and Everyday Technology, one for each subject that had none.
+  - Each has a `skill.json` and a `syllabus.json` (10 chapters, 100 level titles and objectives). No levels are written yet.
+  - A skill with a syllabus but no levels stays out of the app bundle and the Supabase import (`build-content.ts`, `import-content.ts`). So these trees don't show in the app until Level 1 exists.
+  - `docs/image-manifest.md` now covers all six trees: 117 more images, with 25 shared across the new trees and 16 reused from the Astronomy, Rome and app lists.
 - **Fact-check complete: all 943 claims** have an automated fact-check against independent sources. The session's web-search allowance was raised to 2,000. Nothing is marked verified: all 979 ledger records stay `unverified` until a person checks the cited page.
   - **This round:** the last 599 claims came back 579 corroborated, 11 corrected (including one I corrected myself from my own search: the 2019 Nobel was split, half to Peebles) and 9 disputed and hedged. Cards, questions, summaries and recaps were updated to match.
   - **Astronomy changes:**

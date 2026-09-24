@@ -25,9 +25,11 @@ if (errors.length) {
   process.exit(1);
 }
 
+// A skill with a syllabus but no levels yet is planned, not shipped: keep it out of the app.
+const shipped = content.skills.filter((s) => content.levels.some((l) => l.skillId === s.id));
 const bundle = {
   subjects: [...content.subjects].sort((a, b) => a.order - b.order),
-  skills: [...content.skills].sort((a, b) => a.order - b.order),
+  skills: shipped.sort((a, b) => a.order - b.order),
   concepts: [...content.concepts].sort((a, b) => a.id.localeCompare(b.id)).map(({ id, title, description }) => ({ id, title, description })),
   assets: content.assets,
   sources: content.sources.map(({ id, title, url, publisher, license }) => ({ id, title, url, publisher, license })),
