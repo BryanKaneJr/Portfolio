@@ -1,0 +1,329 @@
+{
+  "id": "level.science.astronomy.060",
+  "skillId": "skill.science.astronomy",
+  "number": 60,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: The Sun’s Domain",
+  "objective": "After this level you can describe the Sun and everything it influences, from its core to the Oort Cloud.",
+  "summary": "The solar wind blows a bubble, the heliosphere, around the planets. Voyager 1 crossed its edge in 2012.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.heliosphere",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.sun_layers",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.space_weather",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.kuiper_belt",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.oort_cloud",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.dwarf_planets",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.solar_system_formation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.voyager_probes",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.asteroid_belt",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.059"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.060.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 6 finale. Where does the solar system actually end?",
+      "body": "It depends on what you measure: the planets, the solar wind, or the Sun’s gravity."
+    },
+    {
+      "id": "card.astronomy.060.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Sun’s bubble",
+      "body": "The solar wind blows a vast bubble around the Sun and planets called the heliosphere. Its outer edge, the heliopause, is where the solar wind gives way to interstellar space. Voyager 1 crossed it in 2012.",
+      "callout": "Heliopause · crossed 2012"
+    },
+    {
+      "id": "card.astronomy.060.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "But gravity reaches farther",
+      "body": "The Sun’s gravity still holds on far beyond the heliosphere. The Oort Cloud, thought to reach as far as 100,000 AU, is the outermost part of the solar system, which Voyager 1 won’t reach for about 300 years."
+    },
+    {
+      "id": "card.astronomy.060.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.060.q1"
+    },
+    {
+      "id": "card.astronomy.060.c5",
+      "type": "recall",
+      "questionId": "question.astronomy.060.q2"
+    },
+    {
+      "id": "card.astronomy.060.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.060.q3"
+    },
+    {
+      "id": "card.astronomy.060.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.060.q4"
+    },
+    {
+      "id": "card.astronomy.060.c8",
+      "type": "recall",
+      "questionId": "question.astronomy.060.q5"
+    },
+    {
+      "id": "card.astronomy.060.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 6 complete",
+      "learned": [
+        "The solar wind blows a bubble: the heliosphere",
+        "Voyager 1 crossed its edge in 2012",
+        "The Sun’s gravity reaches the Oort Cloud",
+        "Asteroid belt → Kuiper Belt → Oort Cloud"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.060.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.heliosphere"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.060.c2"
+      ],
+      "prompt": "What is the heliosphere?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The bubble the solar wind blows around the Sun and planets",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Sun’s visible surface layer",
+          "correct": false,
+          "rationale": "That’s the photosphere."
+        },
+        {
+          "id": "c",
+          "label": "The ring of icy bodies beyond Neptune",
+          "correct": false,
+          "rationale": "That’s the Kuiper Belt."
+        },
+        {
+          "id": "d",
+          "label": "The path of the Sun across the sky",
+          "correct": false,
+          "rationale": "That’s the ecliptic."
+        }
+      ],
+      "explanation": "The heliosphere is the vast bubble of solar wind surrounding the solar system.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.060.q2",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.sun_layers"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.056.c4"
+      ],
+      "prompt": "Which layer of the Sun is over a million degrees Celsius?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The photosphere",
+          "correct": false,
+          "rationale": "The photosphere is about 5,500 °C."
+        },
+        {
+          "id": "b",
+          "label": "The convective zone",
+          "correct": false,
+          "rationale": "That’s inside, where gas churns."
+        },
+        {
+          "id": "c",
+          "label": "The corona",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The chromosphere",
+          "correct": false,
+          "rationale": "The corona, above it, is far hotter."
+        }
+      ],
+      "explanation": "The corona, the Sun’s outer atmosphere, is over 1 million °C.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.060.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.heliosphere",
+        "concept.astronomy.oort_cloud"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.060.c2",
+        "card.astronomy.060.c3"
+      ],
+      "prompt": "Voyager 1 has left the heliosphere. Has it left the solar system?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Yes, the heliopause is the end of everything",
+          "correct": false,
+          "rationale": "The Sun’s gravity reaches much farther."
+        },
+        {
+          "id": "b",
+          "label": "Yes, it passed the Oort Cloud years ago",
+          "correct": false,
+          "rationale": "It won’t reach the Oort Cloud for ~300 years."
+        },
+        {
+          "id": "c",
+          "label": "Not by the Sun’s gravity: the Oort Cloud lies far beyond",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "No, it is still inside the asteroid belt",
+          "correct": false,
+          "rationale": "It’s far beyond the planets."
+        }
+      ],
+      "explanation": "Voyager 1 has entered interstellar space, but the Sun’s gravity still rules out to the Oort Cloud, which it won’t reach for centuries.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.astronomy.060.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.space_weather"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.058.c3"
+      ],
+      "prompt": "What do auroras on Earth have to do with the Sun?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are reflected sunlight from polar ice",
+          "correct": false,
+          "rationale": "Auroras are glowing air."
+        },
+        {
+          "id": "b",
+          "label": "They are the Sun’s corona seen at night",
+          "correct": false,
+          "rationale": "The corona is only visible near the Sun."
+        },
+        {
+          "id": "c",
+          "label": "They are caused by meteors burning up",
+          "correct": false,
+          "rationale": "Meteors are streaks, not glowing curtains."
+        },
+        {
+          "id": "d",
+          "label": "Solar particles striking the upper air near the poles",
+          "correct": true
+        }
+      ],
+      "explanation": "Charged particles from the Sun, steered by Earth’s magnetic field, make the air near the poles glow.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.060.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.kuiper_belt",
+        "concept.astronomy.oort_cloud",
+        "concept.astronomy.asteroid_belt"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.045.c2",
+        "card.astronomy.052.c2",
+        "card.astronomy.055.c2"
+      ],
+      "prompt": "Chapter 6 recap: which list goes from nearest to farthest from the Sun?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Oort Cloud → Kuiper Belt → asteroid belt",
+          "correct": false,
+          "rationale": "That’s farthest to nearest."
+        },
+        {
+          "id": "b",
+          "label": "Asteroid belt → Kuiper Belt → Oort Cloud",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Kuiper Belt → asteroid belt → Oort Cloud",
+          "correct": false,
+          "rationale": "The asteroid belt is inside Jupiter’s orbit."
+        },
+        {
+          "id": "d",
+          "label": "Asteroid belt → Oort Cloud → Kuiper Belt",
+          "correct": false,
+          "rationale": "The Oort Cloud is the most distant."
+        }
+      ],
+      "explanation": "The asteroid belt lies between Mars and Jupiter, the Kuiper Belt beyond Neptune, and the Oort Cloud far beyond both.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_solar_wind",
+    "source.nasa_voyager",
+    "source.nasa_oort_cloud"
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "id": "level.science.astronomy.055",
+  "skillId": "skill.science.astronomy",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Oort Cloud",
+  "objective": "After this level you can describe the distant shell of icy bodies thought to surround the solar system.",
+  "summary": "Far beyond the Kuiper Belt, a vast shell of icy bodies is thought to surround the solar system: the source of long-period comets.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.oort_cloud",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.comets",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.voyager_probes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.054"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The solar system’s true edge may be a shell of ice no one has ever seen."
+    },
+    {
+      "id": "card.astronomy.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A giant shell",
+      "body": "The Oort Cloud is thought to be a giant spherical shell of icy bodies surrounding the whole solar system, perhaps reaching 100,000 astronomical units from the Sun. That’s about 100,000 times the Earth–Sun distance.",
+      "callout": "Up to ~100,000 AU"
+    },
+    {
+      "id": "card.astronomy.055.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Known only from comets",
+      "body": "No object has ever been seen in the Oort Cloud itself. Astronomers infer it from comets that take thousands of years or more to orbit the Sun: their paths trace back to a distant shell all around us."
+    },
+    {
+      "id": "card.astronomy.055.c4",
+      "type": "fact",
+      "fact": "Voyager 1 will take about 300 years to reach its inner edge.",
+      "context": "And that’s the fastest-moving, most distant spacecraft we have."
+    },
+    {
+      "id": "card.astronomy.055.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.055.q1"
+    },
+    {
+      "id": "card.astronomy.055.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.055.q2"
+    },
+    {
+      "id": "card.astronomy.055.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.055.q3"
+    },
+    {
+      "id": "card.astronomy.055.c8",
+      "type": "checkpoint",
+      "headline": "Oort Cloud: imagined",
+      "learned": [
+        "The Oort Cloud is thought to surround the solar system",
+        "It may reach ~100,000 AU from the Sun",
+        "It’s inferred from long-period comets",
+        "Voyager 1 needs ~300 years to reach it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.oort_cloud"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.055.c2"
+      ],
+      "prompt": "What is the Oort Cloud thought to be?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A dust cloud between the planets",
+          "correct": false,
+          "rationale": "It’s far beyond the planets."
+        },
+        {
+          "id": "b",
+          "label": "A ring of asteroids near Mars",
+          "correct": false,
+          "rationale": "That’s the asteroid belt."
+        },
+        {
+          "id": "c",
+          "label": "A cloud of gas inside the Sun",
+          "correct": false,
+          "rationale": "It surrounds the whole solar system."
+        },
+        {
+          "id": "d",
+          "label": "A giant shell of icy bodies around the solar system",
+          "correct": true
+        }
+      ],
+      "explanation": "The Oort Cloud is thought to be a vast spherical shell of icy bodies surrounding the solar system.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.oort_cloud"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.055.c3"
+      ],
+      "prompt": "If no one has seen the Oort Cloud, why do astronomers think it exists?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Voyager 1 has already flown through it",
+          "correct": false,
+          "rationale": "Voyager won’t reach it for about 300 years."
+        },
+        {
+          "id": "b",
+          "label": "Long-period comets trace back to a distant shell",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Telescopes have photographed it clearly",
+          "correct": false,
+          "rationale": "Its objects are too faint and far to see there."
+        },
+        {
+          "id": "d",
+          "label": "Its gravity makes the planets wobble",
+          "correct": false,
+          "rationale": "That isn’t the evidence."
+        }
+      ],
+      "explanation": "Very long-period comets arrive from every direction, pointing to a distant shell all around the solar system.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.oort_cloud",
+        "concept.astronomy.comets"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.055.c3",
+        "card.astronomy.053.c2"
+      ],
+      "prompt": "From Level 53: which comets come from the Oort Cloud rather than the Kuiper Belt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Comets that orbit in under 10 years",
+          "correct": false,
+          "rationale": "Those are short-period comets."
+        },
+        {
+          "id": "b",
+          "label": "Comets with no tails at all",
+          "correct": false,
+          "rationale": "Tails form near the Sun for all comets."
+        },
+        {
+          "id": "c",
+          "label": "Comets that take thousands of years to orbit",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Comets made of pure rock",
+          "correct": false,
+          "rationale": "Comets are icy."
+        }
+      ],
+      "explanation": "Very long-period comets, taking thousands of years or more per orbit, are thought to come from the distant Oort Cloud.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_oort_cloud"
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "id": "level.science.astronomy.053",
+  "skillId": "skill.science.astronomy",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Comets: Dirty Snowballs",
+  "objective": "After this level you can explain what comets are made of and why their tails point away from the Sun.",
+  "summary": "Comets are icy “dirty snowballs.” Near the Sun they grow a coma and tails that always point away from it.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.comets",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.kuiper_belt",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.052"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A comet’s tail can point ahead of it."
+    },
+    {
+      "id": "card.astronomy.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dirty snowballs",
+      "body": "Comets are chunks of ice, dust and rock, often described as dirty snowballs. Far from the Sun they’re dark and frozen. As one nears the Sun, its ice turns to gas, forming a glowing cloud called a coma and long tails."
+    },
+    {
+      "id": "card.astronomy.053.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tails that point away",
+      "body": "Sunlight and the solar wind push a comet’s tails away from the Sun, so they always point outward, even ahead of the comet as it leaves. Many comets have two: a curved dust tail and a straighter tail of charged gas.",
+      "callout": "Tails point away from the Sun"
+    },
+    {
+      "id": "card.astronomy.053.c4",
+      "type": "fact",
+      "fact": "Halley’s Comet returns about every 76 years.",
+      "context": "It last swung past Earth in 1986 and will be back in 2061."
+    },
+    {
+      "id": "card.astronomy.053.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.053.q1"
+    },
+    {
+      "id": "card.astronomy.053.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.053.q2"
+    },
+    {
+      "id": "card.astronomy.053.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.053.q3"
+    },
+    {
+      "id": "card.astronomy.053.c8",
+      "type": "checkpoint",
+      "headline": "Comets: caught",
+      "learned": [
+        "Comets are ice, dust and rock",
+        "Near the Sun they form a coma and tails",
+        "Tails always point away from the Sun",
+        "Halley’s Comet returns about every 76 years"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.comets"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.053.c2"
+      ],
+      "prompt": "What are comets made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hot gas and fire",
+          "correct": false,
+          "rationale": "Comets are cold and icy."
+        },
+        {
+          "id": "b",
+          "label": "Ice, dust and rock",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Solid metal like some asteroids",
+          "correct": false,
+          "rationale": "Comets are icy."
+        },
+        {
+          "id": "d",
+          "label": "Frozen sunlight",
+          "correct": false,
+          "rationale": "Light doesn’t freeze."
+        }
+      ],
+      "explanation": "Comets are dirty snowballs of ice, dust and rock.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.comets"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.053.c3"
+      ],
+      "prompt": "Which way does a comet’s tail point?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Always behind the comet",
+          "correct": false,
+          "rationale": "As a comet leaves the Sun, its tail can lead."
+        },
+        {
+          "id": "b",
+          "label": "Always toward the Sun",
+          "correct": false,
+          "rationale": "It points the other way."
+        },
+        {
+          "id": "c",
+          "label": "Toward the nearest planet",
+          "correct": false,
+          "rationale": "Planets don’t steer the tail."
+        },
+        {
+          "id": "d",
+          "label": "Always away from the Sun",
+          "correct": true
+        }
+      ],
+      "explanation": "Sunlight and the solar wind push the tails away from the Sun, whatever direction the comet is moving.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.comets",
+        "concept.astronomy.kuiper_belt"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.053.c2",
+        "card.astronomy.052.c2"
+      ],
+      "prompt": "From Level 52: where do many comets that return every few decades or centuries come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Kuiper Belt",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The asteroid belt",
+          "correct": false,
+          "rationale": "That’s mostly rock."
+        },
+        {
+          "id": "c",
+          "label": "The surface of the Sun",
+          "correct": false,
+          "rationale": "Comets come from the cold outer solar system."
+        },
+        {
+          "id": "d",
+          "label": "The rings of Saturn",
+          "correct": false,
+          "rationale": "Saturn’s rings stay with Saturn."
+        }
+      ],
+      "explanation": "Many shorter-period comets come from the icy Kuiper Belt beyond Neptune.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_comets",
+    "source.nasa_halley"
+  ]
+}

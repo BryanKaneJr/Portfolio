@@ -1,0 +1,210 @@
+{
+  "id": "level.science.astronomy.057",
+  "skillId": "skill.science.astronomy",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Sunspots and the Solar Cycle",
+  "objective": "After this level you can explain sunspots and the Sun’s roughly 11-year activity cycle.",
+  "summary": "Sunspots are cooler, magnetically tangled patches whose numbers rise and fall over an ~11-year solar cycle.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.sunspots_cycle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.galileo_observations",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.sun_layers",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.056"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Sun has spots, and they come and go on a schedule."
+    },
+    {
+      "id": "card.astronomy.057.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dark, but not cold",
+      "body": "Sunspots are patches of the Sun’s surface where intense magnetic fields hold back the flow of heat. They’re cooler than the gas around them, so they look dark. They’re still thousands of degrees, just less bright than their surroundings.",
+      "callout": "Cooler → darker"
+    },
+    {
+      "id": "card.astronomy.057.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "An 11-year rhythm",
+      "body": "The number of sunspots rises and falls over a solar cycle that lasts about 11 years. At solar maximum the Sun is spotty and active; at solar minimum it can go days with no spots at all."
+    },
+    {
+      "id": "card.astronomy.057.c4",
+      "type": "fact",
+      "fact": "Galileo watched sunspots too.",
+      "context": "In the early 1600s he was among the first to observe them through a telescope, and used their motion to show that the Sun rotates."
+    },
+    {
+      "id": "card.astronomy.057.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.057.q1"
+    },
+    {
+      "id": "card.astronomy.057.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.057.q2"
+    },
+    {
+      "id": "card.astronomy.057.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.057.q3"
+    },
+    {
+      "id": "card.astronomy.057.c8",
+      "type": "checkpoint",
+      "headline": "Sunspots: tracked",
+      "learned": [
+        "Sunspots are cooler, magnetically active patches",
+        "They look dark next to hotter gas",
+        "Their numbers follow an ~11-year cycle",
+        "Galileo used them to show the Sun rotates"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.sunspots_cycle"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.057.c3"
+      ],
+      "prompt": "About how long is the solar cycle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1 year",
+          "correct": false,
+          "rationale": "The cycle is much longer than a year."
+        },
+        {
+          "id": "b",
+          "label": "About 29.5 days",
+          "correct": false,
+          "rationale": "That’s the Moon’s cycle of phases."
+        },
+        {
+          "id": "c",
+          "label": "About 11 years",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 76 years",
+          "correct": false,
+          "rationale": "That’s Halley’s Comet’s return."
+        }
+      ],
+      "explanation": "Sunspot numbers rise and fall over a solar cycle of about 11 years.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.sunspots_cycle"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.057.c2"
+      ],
+      "prompt": "Why do sunspots look dark?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are cooler than the surrounding surface",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They are holes that show empty space",
+          "correct": false,
+          "rationale": "They’re part of the Sun’s surface."
+        },
+        {
+          "id": "c",
+          "label": "They are shadows cast by planets",
+          "correct": false,
+          "rationale": "Planet shadows are tiny and don’t look like spots."
+        },
+        {
+          "id": "d",
+          "label": "They are clouds of cold dust above the Sun",
+          "correct": false,
+          "rationale": "They’re regions of the surface itself."
+        }
+      ],
+      "explanation": "Strong magnetic fields hold back heat, so sunspots are cooler, and therefore dimmer, than the gas around them.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.sunspots_cycle",
+        "concept.astronomy.galileo_observations"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.057.c4",
+        "card.astronomy.025.c2"
+      ],
+      "prompt": "From Level 25: besides Jupiter’s moons and Venus’s phases, what else did Galileo observe with his telescope?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The rings of Uranus",
+          "correct": false,
+          "rationale": "Those were found centuries later."
+        },
+        {
+          "id": "b",
+          "label": "The moons of Mars",
+          "correct": false,
+          "rationale": "Mars’s moons were found in 1877."
+        },
+        {
+          "id": "c",
+          "label": "The planet Neptune",
+          "correct": false,
+          "rationale": "Neptune was found in 1846."
+        },
+        {
+          "id": "d",
+          "label": "Sunspots, and the Sun’s rotation",
+          "correct": true
+        }
+      ],
+      "explanation": "Galileo observed sunspots in the early 1600s and used their motion to show that the Sun rotates.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_sunspot"
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "id": "level.science.astronomy.054",
+  "skillId": "skill.science.astronomy",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Shooting Stars and Meteorites",
+  "objective": "After this level you can tell meteoroids, meteors and meteorites apart and explain meteor showers.",
+  "summary": "A shooting star is a sand-grain meteoroid burning up. Meteor showers come from comet debris, like the August Perseids.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.meteors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.comets",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.053"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most shooting stars are no bigger than a grain of sand."
+    },
+    {
+      "id": "card.astronomy.054.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three names, one journey",
+      "body": "A meteoroid is a small piece of rock or debris in space. When it plunges into Earth’s atmosphere and burns up, the streak of light is a meteor, or shooting star. Any piece that survives to reach the ground is a meteorite.",
+      "callout": "Meteoroid → meteor → meteorite"
+    },
+    {
+      "id": "card.astronomy.054.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Showers from comets",
+      "body": "Meteor showers happen when Earth passes through the trail of dust a comet left behind. Most of those meteors come from particles about the size of a grain of sand, burning up as streaks of light."
+    },
+    {
+      "id": "card.astronomy.054.c4",
+      "type": "fact",
+      "fact": "The Perseids peak every August.",
+      "context": "That’s when Earth crosses the debris of Comet Swift–Tuttle, one of the most reliable meteor showers of the year."
+    },
+    {
+      "id": "card.astronomy.054.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.054.q1"
+    },
+    {
+      "id": "card.astronomy.054.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.054.q2"
+    },
+    {
+      "id": "card.astronomy.054.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.054.q3"
+    },
+    {
+      "id": "card.astronomy.054.c8",
+      "type": "checkpoint",
+      "headline": "Shooting stars: explained",
+      "learned": [
+        "Meteoroid: debris in space",
+        "Meteor: the streak of light in our sky",
+        "Meteorite: a piece that reaches the ground",
+        "Showers come from comet debris trails"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.meteors"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.054.c2"
+      ],
+      "prompt": "What is a meteorite?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A meteor that is still in space",
+          "correct": false,
+          "rationale": "In space it’s called a meteoroid."
+        },
+        {
+          "id": "b",
+          "label": "The streak of light in the sky",
+          "correct": false,
+          "rationale": "That’s a meteor."
+        },
+        {
+          "id": "c",
+          "label": "A piece that survives to reach the ground",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A small comet with no tail",
+          "correct": false,
+          "rationale": "Meteorites are rock that reached Earth."
+        }
+      ],
+      "explanation": "A meteoroid in space becomes a meteor in the sky; any piece that reaches the ground is a meteorite.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.meteors"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.054.c3"
+      ],
+      "prompt": "What causes a meteor shower?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Earth passing near the asteroid belt",
+          "correct": false,
+          "rationale": "Earth never passes through the asteroid belt."
+        },
+        {
+          "id": "b",
+          "label": "Earth passing through a comet’s trail of debris",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A comet crashing into the Moon",
+          "correct": false,
+          "rationale": "Showers come from debris trails."
+        },
+        {
+          "id": "d",
+          "label": "Stars falling toward Earth",
+          "correct": false,
+          "rationale": "Shooting stars aren’t stars at all."
+        }
+      ],
+      "explanation": "A comet leaves a trail of dust along its orbit. When Earth passes through it, many meteors streak across the sky.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.meteors",
+        "concept.astronomy.comets"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.054.c3",
+        "card.astronomy.053.c2"
+      ],
+      "prompt": "From Level 53: why does a comet leave a trail of dust that can later make meteors?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Near the Sun its ice turns to gas, releasing dust",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its tail breaks off every time it orbits",
+          "correct": false,
+          "rationale": "The dust comes from the ice vaporizing."
+        },
+        {
+          "id": "c",
+          "label": "The solar wind grinds its rock into sand",
+          "correct": false,
+          "rationale": "The dust is freed as ice turns to gas."
+        },
+        {
+          "id": "d",
+          "label": "It collides with asteroids on each orbit",
+          "correct": false,
+          "rationale": "The trail comes from the comet itself."
+        }
+      ],
+      "explanation": "As a comet nears the Sun, its ice turns to gas and releases dust, which spreads along its orbit.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_meteors",
+    "source.nasa_perseids"
+  ]
+}

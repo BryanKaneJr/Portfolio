@@ -1,0 +1,214 @@
+{
+  "id": "level.science.astronomy.058",
+  "skillId": "skill.science.astronomy",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Solar Storms and Auroras",
+  "objective": "After this level you can explain how solar wind and eruptions cause auroras and space weather.",
+  "summary": "The solar wind and eruptions like flares and CMEs drive auroras and space weather that can disrupt satellites and power grids.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.space_weather",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.earth_protection",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.sunspots_cycle",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.057"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Sun has weather, and it reaches all the way to us."
+    },
+    {
+      "id": "card.astronomy.058.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wind and storms",
+      "body": "The Sun constantly blows a stream of charged particles into space: the solar wind. Sometimes it erupts. Solar flares are sudden bursts of radiation, and coronal mass ejections hurl huge clouds of charged particles into space.",
+      "callout": "Solar wind · flares · CMEs"
+    },
+    {
+      "id": "card.astronomy.058.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "When storms arrive",
+      "body": "When those particles reach Earth, our magnetic field steers many of them toward the poles, where they make the sky glow as auroras. Strong storms can also disrupt satellites, radio communications and power grids."
+    },
+    {
+      "id": "card.astronomy.058.c4",
+      "type": "fact",
+      "fact": "The Carrington Event of 1859 is the strongest solar storm on record.",
+      "context": "It produced auroras seen far from the poles. A storm like it today could seriously disrupt technology."
+    },
+    {
+      "id": "card.astronomy.058.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.058.q1"
+    },
+    {
+      "id": "card.astronomy.058.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.058.q2"
+    },
+    {
+      "id": "card.astronomy.058.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.058.q3"
+    },
+    {
+      "id": "card.astronomy.058.c8",
+      "type": "checkpoint",
+      "headline": "Space weather: forecast",
+      "learned": [
+        "The Sun blows a solar wind of charged particles",
+        "Flares and CMEs are solar eruptions",
+        "Auroras glow where particles hit near the poles",
+        "Solar storms can disrupt technology"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.space_weather"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.058.c2"
+      ],
+      "prompt": "What is the solar wind?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wind blowing across the Sun’s surface",
+          "correct": false,
+          "rationale": "It streams out into space."
+        },
+        {
+          "id": "b",
+          "label": "A stream of charged particles from the Sun",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Earth’s air heated by sunlight",
+          "correct": false,
+          "rationale": "That’s ordinary weather."
+        },
+        {
+          "id": "d",
+          "label": "Gas blown off comets",
+          "correct": false,
+          "rationale": "Comet tails are pushed by it, but it comes from the Sun."
+        }
+      ],
+      "explanation": "The solar wind is a constant stream of charged particles flowing out from the Sun.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.space_weather",
+        "concept.astronomy.earth_protection"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.058.c3",
+        "card.astronomy.043.c2"
+      ],
+      "prompt": "Why are auroras usually seen near the poles?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The poles are closest to the Sun",
+          "correct": false,
+          "rationale": "The poles aren’t closer to the Sun."
+        },
+        {
+          "id": "b",
+          "label": "Ice at the poles reflects sunlight upward",
+          "correct": false,
+          "rationale": "Auroras are glowing air, not reflections."
+        },
+        {
+          "id": "c",
+          "label": "Earth’s magnetic field steers solar particles toward the poles",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The polar air is thinner, so light escapes",
+          "correct": false,
+          "rationale": "The reason is magnetic."
+        }
+      ],
+      "explanation": "Earth’s magnetic field channels charged particles toward the poles, where they make the upper air glow.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.space_weather",
+        "concept.astronomy.earth_protection"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.058.c3",
+        "card.astronomy.043.c2"
+      ],
+      "prompt": "From Level 43: what would happen to more of the solar wind’s particles without Earth’s magnetic field?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They would reach Earth’s atmosphere directly",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They would be absorbed by the ozone layer",
+          "correct": false,
+          "rationale": "Ozone absorbs ultraviolet light, not the solar wind."
+        },
+        {
+          "id": "c",
+          "label": "They would bounce back to the Sun",
+          "correct": false,
+          "rationale": "Without a field, nothing would deflect them."
+        },
+        {
+          "id": "d",
+          "label": "They would turn into meteors",
+          "correct": false,
+          "rationale": "Meteors are rocky debris."
+        }
+      ],
+      "explanation": "Earth’s magnetic field deflects most solar particles. Without it, far more would strike the atmosphere directly.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_solar_wind",
+    "source.brit_solar_flare",
+    "source.nasa_earth_perihelion"
+  ]
+}

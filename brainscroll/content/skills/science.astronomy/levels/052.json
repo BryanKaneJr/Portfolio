@@ -1,0 +1,207 @@
+{
+  "id": "level.science.astronomy.052",
+  "skillId": "skill.science.astronomy",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Kuiper Belt",
+  "objective": "After this level you can describe the icy region beyond Neptune and what New Horizons found there.",
+  "summary": "Beyond Neptune lies the Kuiper Belt, a ring of icy bodies including Pluto. New Horizons explored Arrokoth there in 2019.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.kuiper_belt",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.dwarf_planets",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.asteroid_belt",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.051"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Past Neptune, the solar system keeps going, into the deep freeze."
+    },
+    {
+      "id": "card.astronomy.052.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A second belt",
+      "body": "The Kuiper Belt is a doughnut-shaped region of icy bodies beyond the orbit of Neptune. Unlike the rocky asteroid belt, it’s mostly ice, and far bigger: about 20 times as wide. Pluto is one of its largest known members, and many comets that return every few decades or centuries come from here."
+    },
+    {
+      "id": "card.astronomy.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The farthest flyby",
+      "body": "After passing Pluto, New Horizons kept going. In 2019 it flew past Arrokoth, a small Kuiper Belt object. It’s the most distant object ever explored up close, a frozen leftover from when the planets formed, barely changed in billions of years.",
+      "callout": "Arrokoth · 2019"
+    },
+    {
+      "id": "card.astronomy.052.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.052.q1"
+    },
+    {
+      "id": "card.astronomy.052.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.052.q2"
+    },
+    {
+      "id": "card.astronomy.052.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.052.q3"
+    },
+    {
+      "id": "card.astronomy.052.c7",
+      "type": "checkpoint",
+      "headline": "Kuiper Belt: explored",
+      "learned": [
+        "The Kuiper Belt is an icy ring beyond Neptune",
+        "Pluto is one of its largest members",
+        "Many returning comets come from it",
+        "New Horizons flew past Arrokoth in 2019"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.kuiper_belt"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.052.c2"
+      ],
+      "prompt": "Where is the Kuiper Belt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Between Mars and Jupiter",
+          "correct": false,
+          "rationale": "That’s the asteroid belt."
+        },
+        {
+          "id": "b",
+          "label": "Around the Earth’s equator",
+          "correct": false,
+          "rationale": "It’s far out in the solar system."
+        },
+        {
+          "id": "c",
+          "label": "Beyond the orbit of Neptune",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Inside the Sun’s corona",
+          "correct": false,
+          "rationale": "It’s at the cold outer edge."
+        }
+      ],
+      "explanation": "The Kuiper Belt is a ring of icy bodies beyond Neptune’s orbit.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.kuiper_belt",
+        "concept.astronomy.asteroid_belt"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.052.c2",
+        "card.astronomy.045.c2"
+      ],
+      "prompt": "What is the biggest difference between the Kuiper Belt and the asteroid belt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Kuiper Belt is mostly ice; the asteroid belt is mostly rock",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Kuiper Belt is closer to the Sun",
+          "correct": false,
+          "rationale": "It’s much farther out."
+        },
+        {
+          "id": "c",
+          "label": "The asteroid belt contains Pluto",
+          "correct": false,
+          "rationale": "Pluto is in the Kuiper Belt."
+        },
+        {
+          "id": "d",
+          "label": "The Kuiper Belt has no dwarf planets",
+          "correct": false,
+          "rationale": "Pluto is a Kuiper Belt dwarf planet."
+        }
+      ],
+      "explanation": "The asteroid belt is rocky and lies between Mars and Jupiter; the Kuiper Belt is icy and lies beyond Neptune.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.kuiper_belt",
+        "concept.astronomy.dwarf_planets"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.052.c2",
+        "card.astronomy.051.c2"
+      ],
+      "prompt": "From Level 51: Pluto hasn’t cleared its orbital neighborhood. What does its home region explain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pluto orbits inside the asteroid belt",
+          "correct": false,
+          "rationale": "Pluto is far beyond Neptune."
+        },
+        {
+          "id": "b",
+          "label": "It orbits among many other icy bodies of its own zone",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Pluto is too hot to pull other objects in",
+          "correct": false,
+          "rationale": "Temperature isn’t the reason."
+        },
+        {
+          "id": "d",
+          "label": "Pluto shares its orbit with the planet Neptune",
+          "correct": false,
+          "rationale": "It crosses Neptune’s orbit but isn’t sharing it with Neptune."
+        }
+      ],
+      "explanation": "Pluto is one of many icy bodies in its region beyond Neptune, so it hasn’t cleared its orbit, one test a planet must pass.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_kuiper_belt",
+    "source.nasa_new_horizons"
+  ]
+}

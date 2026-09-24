@@ -1,0 +1,208 @@
+{
+  "id": "level.science.astronomy.051",
+  "skillId": "skill.science.astronomy",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pluto and the Dwarf Planets",
+  "objective": "After this level you can explain what a dwarf planet is and why Pluto was reclassified.",
+  "summary": "The IAU’s 2006 definition requires a planet to clear its orbit. Pluto doesn’t, so it’s one of five dwarf planets.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.dwarf_planets",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.asteroid_belt",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.050"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.051.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Pluto didn’t change in 2006. The definition of a planet did."
+    },
+    {
+      "id": "card.astronomy.051.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three tests for a planet",
+      "body": "In 2006 the International Astronomical Union defined a planet: it orbits the Sun, it’s massive enough to be round, and it has cleared the neighborhood around its orbit. Pluto passes the first two tests but shares its region with many other icy bodies, so it’s a dwarf planet.",
+      "callout": "Orbit the Sun · Round · Clear its orbit"
+    },
+    {
+      "id": "card.astronomy.051.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five dwarf planets",
+      "body": "The IAU recognizes five dwarf planets: Ceres, Pluto, Eris, Haumea and Makemake. Pluto itself was discovered in 1930 by Clyde Tombaugh."
+    },
+    {
+      "id": "card.astronomy.051.c4",
+      "type": "fact",
+      "fact": "Pluto has a heart.",
+      "context": "When NASA’s New Horizons flew past in 2015, it revealed a huge heart-shaped region covered in nitrogen ice."
+    },
+    {
+      "id": "card.astronomy.051.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.051.q1"
+    },
+    {
+      "id": "card.astronomy.051.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.051.q2"
+    },
+    {
+      "id": "card.astronomy.051.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.051.q3"
+    },
+    {
+      "id": "card.astronomy.051.c8",
+      "type": "checkpoint",
+      "headline": "Dwarf planets: classified",
+      "learned": [
+        "A planet must orbit the Sun, be round and clear its orbit",
+        "Pluto hasn’t cleared its orbit",
+        "Five dwarf planets: Ceres, Pluto, Eris, Haumea, Makemake",
+        "New Horizons found Pluto’s icy “heart” in 2015"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.dwarf_planets"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.051.c2"
+      ],
+      "prompt": "Which test for being a planet does Pluto fail?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It doesn’t orbit the Sun",
+          "correct": false,
+          "rationale": "Pluto does orbit the Sun."
+        },
+        {
+          "id": "b",
+          "label": "It isn’t massive enough to be round",
+          "correct": false,
+          "rationale": "Pluto is round."
+        },
+        {
+          "id": "c",
+          "label": "It hasn’t cleared its orbital neighborhood",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It has no moons of its own",
+          "correct": false,
+          "rationale": "Moons aren’t part of the definition."
+        }
+      ],
+      "explanation": "Pluto orbits the Sun and is round, but it shares its region with many icy bodies, so it hasn’t cleared its orbit.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.dwarf_planets"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.051.c1",
+        "card.astronomy.051.c2"
+      ],
+      "prompt": "Why was Pluto reclassified in 2006?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A new definition of “planet” set rules Pluto doesn’t meet",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Scientists discovered it had shrunk",
+          "correct": false,
+          "rationale": "Pluto didn’t change."
+        },
+        {
+          "id": "c",
+          "label": "Astronomers found it was an asteroid",
+          "correct": false,
+          "rationale": "Pluto is a dwarf planet, not an asteroid."
+        },
+        {
+          "id": "d",
+          "label": "It was knocked into a new orbit",
+          "correct": false,
+          "rationale": "Its orbit didn’t change."
+        }
+      ],
+      "explanation": "Pluto didn’t change; the IAU’s 2006 definition added the “cleared its orbit” test, which Pluto fails.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.dwarf_planets",
+        "concept.astronomy.asteroid_belt"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.051.c2",
+        "card.astronomy.045.c4"
+      ],
+      "prompt": "From Level 45: Ceres is the largest object in the asteroid belt. Why is it a dwarf planet rather than a planet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is too far from the Sun to count",
+          "correct": false,
+          "rationale": "Ceres is closer to the Sun than Jupiter."
+        },
+        {
+          "id": "b",
+          "label": "It is not round at all",
+          "correct": false,
+          "rationale": "Ceres is round."
+        },
+        {
+          "id": "c",
+          "label": "It orbits Mars instead of the Sun",
+          "correct": false,
+          "rationale": "Ceres orbits the Sun."
+        },
+        {
+          "id": "d",
+          "label": "It shares its orbit with the rest of the asteroid belt",
+          "correct": true
+        }
+      ],
+      "explanation": "Like Pluto, Ceres is round and orbits the Sun but hasn’t cleared its region: it sits among the other asteroids.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.iau_pluto",
+    "source.nasa_pluto",
+    "source.nasa_new_horizons"
+  ]
+}
