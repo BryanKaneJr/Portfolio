@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BrainScroll Asset Factory</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>BrainScroll Asset Factory</h1>
+    <div id="status-chips"></div>
+    <div id="progress" hidden>
+      <div class="bar"><span></span></div>
+      <em></em>
+    </div>
+  </header>
+
+  <nav id="tabs">
+    <button data-tab="batch" class="active">Batch</button>
+    <button data-tab="review">Review <b id="review-count"></b></button>
+    <button data-tab="library">Library <b id="library-count"></b></button>
+    <button data-tab="style">Style</button>
+  </nav>
+
+  <main>
+    <section id="tab-batch">
+      <div class="input-panel">
+        <textarea id="concepts" placeholder="Paste one concept per line&#10;&#10;telescope&#10;coin&#10;ship&#10;volcano&#10;microscope"></textarea>
+        <div class="input-side">
+          <label>Category (optional context)
+            <input id="category" placeholder="Astronomy" />
+          </label>
+          <p class="hint"><span id="line-count">0</span> concepts. Up to about 100 per batch.</p>
+          <button id="check-btn" class="primary">Check Concepts</button>
+          <p id="check-result" class="hint"></p>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <button id="gen-selected" class="primary">Generate Selected</button>
+        <button id="gen-pending">Generate Pending</button>
+        <button id="gen-style">Generate Style Test</button>
+        <span class="spacer"></span>
+        <select id="queue-filter">
+          <option value="">All statuses</option>
+          <option>PROPOSED</option><option>EXISTING</option><option>TOO_ABSTRACT</option>
+          <option>PENDING</option><option>GENERATING</option><option>GENERATED</option>
+          <option>APPROVED</option><option>REJECTED</option><option>FAILED</option>
+        </select>
+        <button id="remove-checked" class="ghost">Remove checked</button>
+        <button id="clear-finished" class="ghost" title="Remove approved, rejected, existing, and too abstract rows">Clear finished</button>
+      </div>
+      <table id="queue">
+        <thead>
+          <tr>
+            <th><input type="checkbox" id="check-all" title="Select all proposed" /></th>
+            <th>Input</th><th>Label</th><th>Canonical ID</th><th>Subject</th><th>Status</th><th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p id="queue-empty" class="empty">Nothing queued yet. Paste concepts above and click Check Concepts.</p>
+    </section>
+
+    <section id="tab-review" hidden>
+      <div class="toolbar">
+        <div id="review-filters" class="chips">
+          <button data-f="review" class="active">To review</button>
+          <button data-f="style">Style test</button>
+          <button data-f="active">In progress</button>
+          <button data-f="FAILED">Failed</button>
+          <button data-f="APPROVED">Approved</button>
+          <button data-f="REJECTED">Rejected</button>
+          <button data-f="all">All</button>
+        </div>
+        <span class="spacer"></span>
+        <label class="hint inline"><input type="checkbox" id="checker" /> Checkerboard</label>
+      </div>
+      <p class="hint">Hover a card and press <kbd>A</kbd> approve, <kbd>R</kbd> regenerate, <kbd>X</kbd> reject.</p>
+      <div id="review-grid" class="grid"></div>
+      <p id="review-empty" class="empty">Nothing here.</p>
+    </section>
+
+    <section id="tab-library" hidden>
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Search approved assets: label, ID, tags, aliases, lesson concepts" />
+      </div>
+      <div id="library-grid" class="grid"></div>
+      <p id="library-empty" class="empty">No approved assets match.</p>
+    </section>
+
+    <section id="tab-style" hidden>
+      <div class="style-cols">
+        <div>
+          <h2>Style specification <code id="style-version"></code></h2>
+          <p class="hint">Controls HOW every asset is drawn. Saved changes apply to the next generation.</p>
+          <textarea id="style-text" class="tall"></textarea>
+          <button id="save-style" class="primary">Save Style</button>
+        </div>
+        <div>
+          <h2>Style test concepts</h2>
+          <p class="hint">One per line: <code>id | label | subject</code></p>
+          <textarea id="style-test-text"></textarea>
+          <div class="row">
+            <button id="save-style-test">Save Concepts</button>
+            <button id="run-style-test" class="primary">Save and Run Style Test</button>
+          </div>
+          <h2>Prompt preview</h2>
+          <pre id="prompt-preview"></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="modal">
+    <form method="dialog" id="modal-form"></form>
+  </dialog>
+  <div id="toast" hidden></div>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

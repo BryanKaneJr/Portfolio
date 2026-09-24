@@ -1,0 +1,17 @@
+{
+  "name": "brainscroll-asset-factory",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local tool for generating, reviewing, and cataloging BrainScroll illustrations.",
+  "type": "module",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/server.ts",
+    "mock": "MOCK_OPENAI=1 node --disable-warning=ExperimentalWarning src/server.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.8.0"
+  }
+}
