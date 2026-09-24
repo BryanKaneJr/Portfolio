@@ -96,8 +96,15 @@ That's 29 images. Start with the simplified reference and 5 core poses (wave, po
 
 ## In the app (later)
 
-Nothing shows him yet. Once the images exist:
+**Built so far:**
 
+- `DrScroll` and `DrScrollSays` in `app/src/components/ui/mascot.tsx`: Dr. Scroll on his own, or with a speech bubble beside him (`row`) or below him (`stack`). The image is decorative; screen readers hear "Dr. Scroll says: ..." instead. Until each pose image is approved, every pose shows the reference image (`app/assets/images/mascot/reference.webp`); add poses to `POSE_ART` as they arrive.
+- His lines, poses and the calm in-lesson poses live in `packages/core/src/mascot.ts`.
+- **Onboarding intro:** the first onboarding screen after sign-in is Dr. Scroll saying hello (screenshot: `docs/ui/dr-scroll-intro.png`), then pick a skill, then the deal.
+
+**Still to build:**
+
+- **Voice split:** he speaks at fun, low-stakes moments (onboarding, first-time tips, answer reactions, rewards, empty states). Sign-in, accounts, data errors, payments, deletion and legal text stay in the plain app voice. He never guilt-trips.
 - **Lessons:** an optional `mascot` field on a card (pose plus a one-line aside) lets the content writer drop him in where he helps. Most cards won't have him, so he stays special.
 - **Fixed spots:**
   - sign-in (`wave`), answer feedback (`thumbs-up` and `oops`), level complete (`clapping`), level up (`celebrate`);

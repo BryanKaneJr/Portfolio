@@ -43,8 +43,9 @@ export async function signIn(page, { method = 'email', email = 'learner@example.
   await page.waitForTimeout(1500);
 }
 
-/** Onboarding, right after signing in: pick a skill → the deal → Level 1 (or look around). */
+/** Onboarding, right after signing in: Dr. Scroll's hello → pick a skill → the deal → Level 1 (or look around). */
 export async function onboard(page, { start, skill = 'Astronomy' }) {
+  await button(page, 'Nice to meet you').click();
   await page.getByRole('radio', { name: new RegExp(skill) }).click();
   await button(page, 'Continue').click();
   await button(page, start ? 'Start Your Cosmic Address' : 'Look around first').click();

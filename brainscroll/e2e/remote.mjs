@@ -36,7 +36,7 @@ try {
     'the code creates one permanent phone account, stored in E.164');
   check(sql('select timezone from public.profiles') !== '', 'device time zone is saved to the profile');
   const learnerId = sql('select id from auth.users');
-  check(/Pick your first skill/i.test(await bodyText(page)), 'a new account goes straight to onboarding');
+  check(/Hi, I'm Dr\. Scroll/.test(await bodyText(page)), 'a new account goes straight to onboarding');
   await onboard(page, { start: true });
 
   const reinforced = await playLevel(page, { pick: () => 0, doubleTapComplete: true });
@@ -140,7 +140,7 @@ try {
   await page.waitForTimeout(1000);
   await signIn(page, { method: 'google' });
   check(sql(`select count(*) from auth.users where email = 'google.learner@example.com' and raw_app_meta_data->>'provider' = 'google'`) === '1', 'Google sign-in creates a Google account');
-  check(/Pick your first skill/i.test(await bodyText(page)), 'a new Google account gets its own onboarding');
+  check(/Hi, I'm Dr\. Scroll/.test(await bodyText(page)), 'a new Google account gets its own onboarding');
   await onboard(page, { start: false });
   check((await bodyText(page)).includes('Astronomy · Lv. 0'), 'and none of the phone account\'s progress');
   await profile();
@@ -152,7 +152,7 @@ try {
   // Analytics: only allowlisted, PII-free events; no durations anywhere.
   await page.waitForTimeout(5500); // the tracker flushes in batches
   check(Number(sql(`select count(*) from public.analytics_events where name = 'app_open'`)) >= 1, 'app opens are logged (return days, not minutes)');
-  check(sql(`select count(*) from public.analytics_events where name = 'onboarding_step' and user_id = '${learnerId}'`) === '1', 'the onboarding step is logged');
+  check(sql(`select count(*) from public.analytics_events where name = 'onboarding_step' and user_id = '${learnerId}'`) === '2', 'both onboarding steps before the deal are logged (hello, skill)');
   check(sql(`select props->>'card_index' || '/' || (props->>'card_count') from public.analytics_events where name = 'level_exit' and props->>'level_id' = 'level.science.astronomy.002'`).startsWith('0/'),
     'leaving an unfinished level logs where the learner left');
   check(Number(sql(`select count(*) from public.analytics_events where name = 'sign_in_completed' and props->>'method' = 'phone' and user_id = '${learnerId}'`)) >= 2,

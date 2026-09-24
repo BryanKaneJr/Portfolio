@@ -23,7 +23,7 @@ try {
   await field(page, 'Code').fill('123456');
   await exactButton(page, 'Continue').click();
   await page.waitForTimeout(1200);
-  check(/Pick your first skill/i.test(await bodyText(page)), 'signing in goes straight to onboarding');
+  check(/Hi, I'm Dr\. Scroll/.test(await bodyText(page)), 'signing in goes straight to onboarding');
   await onboard(page, { start: true });
   check((await bodyText(page)).includes('Your Cosmic Address'), 'onboarding lands in Level 1');
 
@@ -114,7 +114,7 @@ try {
   await button(page, 'Sign out').click();
   await page.waitForTimeout(1000);
   await signIn(page, { method: 'phone', phone: '+1 555 555 0100' });
-  check(/Pick your first skill/i.test(await bodyText(page)), 'a new account on the same device gets its own onboarding');
+  check(/Hi, I'm Dr\. Scroll/.test(await bodyText(page)), 'a new account on the same device gets its own onboarding');
   await onboard(page, { start: false });
   check((await bodyText(page)).includes('Astronomy · Lv. 0'), 'and none of the first account\'s progress');
   await profile();
@@ -134,7 +134,7 @@ try {
   check(/Continue with email/i.test(await bodyText(page)), 'after deletion the app is back at the sign-in screen');
   check(!(await progressKeys(page)).some((k) => doomed.includes(k)), 'the deleted account\'s progress is gone from the device');
   await signIn(page, { method: 'email', email: 'learner@example.com' });
-  check(/Pick your first skill/i.test(await bodyText(page)), 'signing in with the deleted email starts a brand-new account');
+  check(/Hi, I'm Dr\. Scroll/.test(await bodyText(page)), 'signing in with the deleted email starts a brand-new account');
   check(errors.length === 0, `no page errors ${errors.join('; ')}`);
 } finally {
   await browser.close();

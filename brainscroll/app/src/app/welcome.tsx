@@ -1,17 +1,18 @@
-import { DAILY_FREE_NEW_LEVELS, VOICE } from '@brainscroll/core';
+import { DAILY_FREE_NEW_LEVELS, DR_SCROLL_LINES, VOICE } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, Caption, Eyebrow, H1, ProgressBar } from '@/components/ui';
+import { Body, Button, Caption, DrScrollSays, Eyebrow, H1, ProgressBar } from '@/components/ui';
 import { levelByNumber, skills, subjects } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, layout, radius, space, type } from '@/theme/tokens';
 
 /**
  * First run, right after signing in (the premise is on the sign-in screen):
- * pick a skill → the rules → Level 1, in well under a minute. Only skills with
+ * Dr. Scroll says hello → pick a skill → the rules → Level 1, in well under a
+ * minute. Only skills with
  * published levels can be picked; the rest say so honestly.
  */
 export default function WelcomeScreen() {
@@ -31,11 +32,19 @@ export default function WelcomeScreen() {
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.top}>
-        <ProgressBar value={(step + 1) / 2} size="lesson" />
+        <ProgressBar value={(step + 1) / STEPS} size="lesson" />
       </View>
 
       <View style={styles.body}>
         {step === 0 && (
+          <DrScrollSays
+            pose="wave"
+            layout="stack"
+            lines={[DR_SCROLL_LINES.introHello, DR_SCROLL_LINES.introLessons, DR_SCROLL_LINES.introPromise]}
+          />
+        )}
+
+        {step === 1 && (
           <>
             <Eyebrow>Pick your first skill</Eyebrow>
             <H1>What do you want to level first?</H1>
@@ -60,7 +69,7 @@ export default function WelcomeScreen() {
           </>
         )}
 
-        {step === 1 && (
+        {step === 2 && (
           <>
             <Eyebrow>The deal</Eyebrow>
             <H1>{DAILY_FREE_NEW_LEVELS} new levels a day. Free, forever.</H1>
@@ -72,8 +81,12 @@ export default function WelcomeScreen() {
       </View>
 
       <View style={styles.footer}>
-        {step < 1 ? (
-          <Button label="Continue" onPress={() => { track('onboarding_step', { step }); setStep(step + 1); }} disabled={!skillId} />
+        {step < STEPS - 1 ? (
+          <Button
+            label={step === 0 ? DR_SCROLL_LINES.introReply : 'Continue'}
+            onPress={() => { track('onboarding_step', { step }); setStep(step + 1); }}
+            disabled={step === 1 && !skillId}
+          />
         ) : (
           <>
             <Button label={firstLevel ? `Start ${firstLevel.title}` : 'Let’s go'} onPress={start} />
@@ -92,6 +105,8 @@ export default function WelcomeScreen() {
     </SafeAreaView>
   );
 }
+
+const STEPS = 3;
 
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: color.bg },

@@ -9,3 +9,4 @@ export * from './progress';
 export * from './answer';
 export * from './shell';
 export * from './reward';
+export * from './mascot';

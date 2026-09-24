@@ -12,3 +12,4 @@ export * from './supabase-config';
 export * from './account';
 export * from './analytics';
 export * from './editorial';
+export * from './mascot';
