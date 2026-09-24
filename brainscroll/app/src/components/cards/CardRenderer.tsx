@@ -1,5 +1,8 @@
 import type { Card, Level } from '@brainscroll/core';
+import { View } from 'react-native';
+import { DrScrollSays } from '@/components/ui';
 import type { AttemptView } from '@/progress/ProgressProvider';
+import { space } from '@/theme/tokens';
 import { LearningCard } from './LearningCard';
 import { QuestionCard } from './QuestionCard';
 
@@ -41,5 +44,12 @@ export function CardRenderer({
       />
     );
   }
-  return <LearningCard card={card} />;
+  if (!card.mascot) return <LearningCard card={card} />;
+  // A writer-placed Dr. Scroll aside: one calm pose and one short line, after the card.
+  return (
+    <View style={{ gap: space.xl }}>
+      <LearningCard card={card} />
+      <DrScrollSays pose={card.mascot.pose} lines={[card.mascot.line]} />
+    </View>
+  );
 }

@@ -152,15 +152,19 @@ That's 29 core poses plus 38 topic scenes. Start with the simplified reference a
 - **Reactions:** a small thumbs-up or kind shrug beside answer feedback, and one line on Level Complete, Daily Complete and the empty Review tab.
 - **One-time tips** (`DrScrollTip`): first question, first miss, first checkpoint and first review. Each shows once per account and can be dismissed. Tips are the one place he appears before an answer, because they explain how the app works.
 
-**Still to build:**
+- **Card asides:** a learning card can carry `mascot: { pose, line }` (calm poses only, no new facts, at most 2 per level). Rules in `docs/content-guide.md` under "Dr. Scroll asides". Astronomy Level 1's fact card has the first one.
+
+**Rules for every placement:**
 
 - **Voice split:** he speaks at fun, low-stakes moments (onboarding, first-time tips, answer reactions, rewards, empty states). Sign-in, accounts, data errors, payments, deletion and legal text stay in the plain app voice. He never guilt-trips.
-- **Lessons:** an optional `mascot` field on a card (pose plus a one-line aside) lets the content writer drop him in where he helps. Most cards won't have him, so he stays special.
-- **Fixed spots:**
-  - sign-in (`wave`), answer feedback (`thumbs-up` and `oops`), level complete (`clapping`), level up (`celebrate`);
-  - checkpoints (`checkpoint`), mastery (`mastery`), Daily Complete (`go-outside`), loading (`waiting`), errors (`tangled`), empty states (`sleeping`).
 - **Quiet in lessons, loud in progress:** inside a lesson he uses calm poses only (pointing, thinking, idea, explaining, magnifier, whisper, thumbs-up, oops), matching the design rule that learning mode stays quiet. The big poses (celebrate, clapping, mastery) belong on the progress screens.
+
+**Still to build:**
+
+- Loading (`waiting`) and friendly error (`tangled`) states, where they aren't about the learner's data.
+- A checkpoint pose on the checkpoint level's opening card.
 - **Motion:** a small bounce when he appears, no more. He should never block the content or slow a lesson down.
+- Real pose art: add each approved `mascot.<pose>` image to `POSE_ART` in `app/src/components/ui/mascot.tsx`.
 
 ## Name
 

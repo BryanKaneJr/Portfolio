@@ -84,6 +84,27 @@ describe('validateContent', () => {
     expect(issues(bundle(), 'warning')).toEqual([]);
   });
 
+  it('accepts a Dr. Scroll aside with a calm pose on a learning card', () => {
+    const l = makeLevel(1);
+    (l.cards as Record<string, unknown>[])[0]!.mascot = { pose: 'pointing', line: 'Look at this one.' };
+    expect(issues(bundle([l]), 'error')).toEqual([]);
+    expect(issues(bundle([l]), 'warning')).toEqual([]);
+  });
+
+  it('rejects a loud Dr. Scroll pose inside a lesson', () => {
+    const l = makeLevel(1);
+    (l.cards as Record<string, unknown>[])[0]!.mascot = { pose: 'celebrate', line: 'Woo!' };
+    expect(issues(bundle([l]), 'error').length).toBeGreaterThan(0);
+  });
+
+  it('warns when a level uses Dr. Scroll too often', () => {
+    const l = makeLevel(1);
+    const learning = (l.cards as Record<string, unknown>[]).filter((c) => c.type !== 'mcq' && c.type !== 'recall');
+    for (const c of learning) c.mascot = { pose: 'idea', line: 'Oh, this one is good.' };
+    expect(learning.length).toBe(4);
+    expect(issues(bundle([l]), 'warning').some((m) => m.includes('Dr. Scroll asides'))).toBe(true);
+  });
+
   it('rejects a question with two correct answers', () => {
     const l = makeLevel(1);
     (l.questions as Q[])[0]!.options[1]!.correct = true;

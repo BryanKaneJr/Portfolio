@@ -5,6 +5,7 @@ import { levelTypeFor } from './progression';
 import { cardRole, learningCards, learningWordCount, structureFor } from './structure';
 import { checkQuality, checkRevisions } from './quality';
 import { EM_DASH_MESSAGE, SOURCE_METADATA_KEYS, VERBATIM_KEYS, emDashPaths } from './editorial';
+import { MAX_MASCOT_ASIDES_PER_LEVEL } from './mascot';
 
 export interface ContentIssue {
   severity: 'error' | 'warning';
@@ -127,6 +128,8 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
 
     const scope = levelScope(level.id);
     const inScope = (x: string, kind: 'card' | 'question') => x.startsWith(`${kind}.${scope}.`);
+    const asides = level.cards.filter((c) => 'mascot' in c && c.mascot).length;
+    if (asides > MAX_MASCOT_ASIDES_PER_LEVEL) warn(where, `${asides} Dr. Scroll asides; keep it to ${MAX_MASCOT_ASIDES_PER_LEVEL} or fewer so he stays special`);
 
     // Structure is set by level type: regular levels are mostly learning with
     // 3 light questions; checkpoints, milestones and mastery test more.

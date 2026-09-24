@@ -4,6 +4,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Dr. Scroll card asides:** learning cards can carry an optional `mascot: { pose, line }` (calm poses only, 140 characters, no new facts, a warning above 2 per level). The lesson shows him after the card, the content admin can edit it, and Astronomy Level 1 has the first one.
 - **Dr. Scroll's one-time tips:** on the first question ("Pick an answer, then tap Check"), the first miss, the first checkpoint and the first review. Each shows once per account (stored with the account's device-side state), can be dismissed with "Got it", and uses a calm pose. The local e2e suite checks they appear once and never return.
 - **Dr. Scroll reactions:** a small thumbs-up or kind shrug beside answer feedback (image only, lessons stay quiet), and a one-line bubble on Level Complete (by outcome, level-up and mastery), Daily Complete and the empty Review tab.
 - **Dr. Scroll in the app:** a `DrScroll` / `DrScrollSays` component (speech bubble, screen-reader friendly, reference image for every pose until the pose images exist) and a new first onboarding screen where he introduces himself. Both e2e suites updated and passing.

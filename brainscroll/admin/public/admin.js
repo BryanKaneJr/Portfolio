@@ -128,6 +128,19 @@ function select(obj, key, options, { rerender = false } = {}) {
     options.map((o) => h('option', { value: o, selected: obj[key] === o ? 'selected' : undefined }, o)),
   );
 }
+/** Optional Dr. Scroll aside on a learning card: a calm pose and one short line (docs/mascot.md). */
+function mascotFields(c) {
+  const NONE = '(none)';
+  const poses = state.data.meta.mascotPoses;
+  const pick = h('select', {
+    onchange: (e) => {
+      if (e.target.value === NONE) delete c.mascot;
+      else c.mascot = { pose: e.target.value, line: c.mascot?.line ?? '' };
+      touch(true);
+    },
+  }, [NONE, ...poses].map((p) => h('option', { value: p, selected: (c.mascot?.pose ?? NONE) === p ? 'selected' : undefined }, p)));
+  return grid(['Dr. Scroll', pick], ...(c.mascot ? [['Says', field(c.mascot, 'line', { max: state.data.meta.mascotLineMax })]] : []));
+}
 function listField(obj, key, { max, sep = ',' } = {}) {
   // Comma- or line-separated list of strings.
   const join = sep === '\n' ? '\n' : ', ';
@@ -329,7 +342,7 @@ function renderEdit() {
     else if (c.type === 'checkpoint') fields = grid(['Headline', field(c, 'headline', { max: B.headline })], ['Learned', listField(c, 'learned', { sep: '\n', max: 120 })]);
     else fields = h('div', { class: 'row' }, h('span', {}, `Shows ${short(c.questionId)}.`), h('span', { class: 'narrow' }, select(c, 'type', ['mcq', 'recall'], { rerender: true })),
       h('span', { class: 'muted' }, 'recall = re-tests a concept from an earlier level'));
-    cardsBox.append(h('div', { class: 'box' }, head, fields));
+    cardsBox.append(h('div', { class: 'box' }, head, fields, QUESTION_CARD.has(c.type) ? null : mascotFields(c)));
   });
   out.append(cardsBox);
 

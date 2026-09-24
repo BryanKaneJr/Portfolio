@@ -1,6 +1,6 @@
 import { existsSync, readFileSync, readdirSync, renameSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { ContentStatus, LEARNING_STRUCTURE, Level, QUESTION_PURPOSES, TEXT_BUDGET, validateContent, type ContentIssue } from '@brainscroll/core';
+import { ContentStatus, LEARNING_STRUCTURE, Level, MASCOT_LINE_MAX, QUESTION_PURPOSES, QUIET_MASCOT_POSES, TEXT_BUDGET, validateContent, type ContentIssue } from '@brainscroll/core';
 import { loadContent } from '../../scripts/lib/load-content';
 import { loadInsights } from './insights';
 
@@ -52,7 +52,7 @@ export function createStore({ contentRoot, bundlePath, insightsPath }: StoreOpti
       verification: raw.verification ?? [],
       levels: raw.levels.map((l) => ({ file: l.where, data: l.data })),
       // Limits the editor shows, straight from core so they never drift.
-      meta: { textBudget: TEXT_BUDGET, structure: LEARNING_STRUCTURE, purposes: QUESTION_PURPOSES, statuses: ContentStatus.options },
+      meta: { textBudget: TEXT_BUDGET, structure: LEARNING_STRUCTURE, purposes: QUESTION_PURPOSES, statuses: ContentStatus.options, mascotPoses: QUIET_MASCOT_POSES, mascotLineMax: MASCOT_LINE_MAX },
     };
   }
 

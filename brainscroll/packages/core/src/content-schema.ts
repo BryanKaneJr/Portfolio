@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { ID_PATTERNS, type IdKind } from './ids';
 import { LEVEL_TYPES, QUESTION_PURPOSES, TEXT_BUDGET } from './constants';
+import { MASCOT_LINE_MAX, QUIET_MASCOT_POSES } from './mascot';
 
 /**
  * Stage 1: content contract.
@@ -118,10 +119,19 @@ export const Concept = z.object({
 });
 export type Concept = z.infer<typeof Concept>;
 
+/**
+ * An optional Dr. Scroll aside on a learning card: a calm pose and one short
+ * line, placed deliberately by the writer (docs/mascot.md). Never on question
+ * cards: he doesn't appear before an answer.
+ */
+export const MascotAside = z.object({ pose: z.enum(QUIET_MASCOT_POSES), line: text(MASCOT_LINE_MAX) });
+export type MascotAside = z.infer<typeof MascotAside>;
+
 const cardBase = { id: id('card') };
+const learningCardBase = { ...cardBase, mascot: MascotAside.optional() };
 
 export const TextCard = z.object({
-  ...cardBase,
+  ...learningCardBase,
   type: z.literal('text'),
   /** hook | explain | connect: the editorial role, which lets the player style/pace it. */
   role: z.enum(['hook', 'explain', 'connect']),
@@ -131,28 +141,28 @@ export const TextCard = z.object({
 });
 
 export const ImageCard = z.object({
-  ...cardBase,
+  ...learningCardBase,
   type: z.literal('image'),
   assetId: id('asset'),
   caption: text(160).optional(),
 });
 
 export const FactCard = z.object({
-  ...cardBase,
+  ...learningCardBase,
   type: z.literal('fact'),
   fact: text(TEXT_BUDGET.factFact),
   context: text(TEXT_BUDGET.body).optional(),
 });
 
 export const TimelineCard = z.object({
-  ...cardBase,
+  ...learningCardBase,
   type: z.literal('timeline'),
   headline: text(TEXT_BUDGET.headline),
   events: z.array(z.object({ when: text(40), label: text(120) })).min(2).max(6),
 });
 
 export const ComparisonCard = z.object({
-  ...cardBase,
+  ...learningCardBase,
   type: z.literal('comparison'),
   headline: text(TEXT_BUDGET.headline),
   items: z.array(z.object({ label: text(40), points: z.array(text(100)).min(1).max(4) })).min(2).max(3),
@@ -172,7 +182,7 @@ export const RecallCard = z.object({
 });
 
 export const CheckpointCard = z.object({
-  ...cardBase,
+  ...learningCardBase,
   type: z.literal('checkpoint'),
   headline: text(TEXT_BUDGET.headline),
   learned: z.array(text(120)).min(1).max(5),

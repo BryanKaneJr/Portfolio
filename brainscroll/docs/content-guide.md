@@ -87,6 +87,15 @@ Headline ≤ 80 chars · body ≤ 360 · question prompt ≤ 200 · answer ≤ 8
 | Punctuation | **No em dashes**, ever (see *Editorial rules*) |
 | Completion | The learner can explain at least one new thing afterwards |
 
+## Dr. Scroll asides
+
+A learning card (never a question card) can carry an optional Dr. Scroll aside: `"mascot": { "pose": "whisper", "line": "..." }`. He appears after the card with one short line.
+
+- **Poses:** calm ones only: `pointing`, `thinking`, `idea`, `explaining`, `magnifier`, `whisper`, `thumbs-up`, `oops`. Anything louder is a validation error.
+- **The line:** at most 140 characters, in his voice (warm, delighted, never scolding). It reacts to the card. **It never adds a new fact**, because asides aren't in the claim ledger and aren't fact-checked.
+- **How often:** at most 2 per level (more is a warning), and most levels need none. He stays special.
+- The content admin has a "Dr. Scroll" pose picker and a "Says" field on every learning card. See `docs/mascot.md`.
+
 ## Editorial rules (all BrainScroll-authored text)
 
 These apply to everything BrainScroll writes:

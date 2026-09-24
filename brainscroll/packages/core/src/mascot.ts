@@ -41,7 +41,11 @@ export const MASCOT_POSES = [
 export type MascotPose = (typeof MASCOT_POSES)[number];
 
 /** Calm poses allowed inside a lesson. Learning mode stays quiet; the big poses belong to progress screens. */
-export const QUIET_MASCOT_POSES: readonly MascotPose[] = ['pointing', 'thinking', 'idea', 'explaining', 'magnifier', 'whisper', 'thumbs-up', 'oops'];
+export const QUIET_MASCOT_POSES = ['pointing', 'thinking', 'idea', 'explaining', 'magnifier', 'whisper', 'thumbs-up', 'oops'] as const satisfies readonly MascotPose[];
+export type QuietMascotPose = (typeof QUIET_MASCOT_POSES)[number];
+
+/** Most a level should use: he stays special. More is a validator warning. */
+export const MAX_MASCOT_ASIDES_PER_LEVEL = 2;
 
 /** Longest line he says in one bubble. He's a sidekick, not a lecturer. */
 export const MASCOT_LINE_MAX = 140;

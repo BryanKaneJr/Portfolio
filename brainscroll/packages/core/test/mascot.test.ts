@@ -9,11 +9,11 @@ describe('Dr. Scroll', () => {
 
   it('only uses calm poses in lessons', () => {
     for (const p of QUIET_MASCOT_POSES) expect(MASCOT_POSES).toContain(p);
-    for (const loud of ['celebrate', 'clapping', 'mastery'] as const) expect(QUIET_MASCOT_POSES).not.toContain(loud);
+    for (const loud of ['celebrate', 'clapping', 'mastery']) expect(QUIET_MASCOT_POSES as readonly string[]).not.toContain(loud);
   });
 
   it('tips use calm poses, because they appear inside lessons and review', () => {
-    for (const tip of Object.values(DR_SCROLL_TIPS)) expect(QUIET_MASCOT_POSES).toContain(tip.pose);
+    for (const tip of Object.values(DR_SCROLL_TIPS)) expect(QUIET_MASCOT_POSES as readonly string[]).toContain(tip.pose);
   });
 
   it('keeps every line short and free of em dashes', () => {
