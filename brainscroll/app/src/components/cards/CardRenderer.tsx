@@ -12,16 +12,18 @@ export function CardRenderer({
   card,
   level,
   attempts,
+  selected,
   busy,
   resolveCard,
-  onAnswer,
+  onSelect,
 }: {
   card: Card;
   level: Level;
   attempts: AttemptView[];
+  selected?: string;
   busy: boolean;
   resolveCard: (cardId: string) => Card | undefined;
-  onAnswer: (questionId: string, optionId: string) => void;
+  onSelect: (optionId: string) => void;
 }) {
   if (card.type === 'mcq' || card.type === 'recall') {
     const question = level.questions.find((q) => q.id === card.questionId);
@@ -32,9 +34,10 @@ export function CardRenderer({
         question={question}
         recall={card.type === 'recall'}
         attempts={attempts}
+        selected={selected}
         sourceCards={sourceCards}
         busy={busy}
-        onSelect={(opt) => onAnswer(question.id, opt)}
+        onSelect={onSelect}
       />
     );
   }

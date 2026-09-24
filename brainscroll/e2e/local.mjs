@@ -35,7 +35,7 @@ try {
     await page.waitForTimeout(400);
     await playLevel(page, { pick: (i) => i % 2 });
     const f = await completionFacts(page);
-    if (f.firstTry === f.total) sawPerfect ||= /Perfect Recall/.test(f.text);
+    if (f.firstTry === f.total) sawPerfect ||= /perfect recall/i.test(f.text);
     if (f.total === 3 && f.xp !== CURVE[f.firstTry]) throw new Error(`level ${n}: ${f.firstTry}/3 gave ${f.xp} XP`);
     if (n === 10) {
       check(/CHECKPOINT 10 COMPLETE/i.test(f.text), 'all ten Golden levels play from data; Level 10 is a checkpoint');

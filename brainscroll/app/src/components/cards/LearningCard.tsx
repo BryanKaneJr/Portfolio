@@ -1,47 +1,48 @@
 import type { Card } from '@brainscroll/core';
 import { StyleSheet, Text, View } from 'react-native';
-import { Body, Label, Title } from '@/components/ui';
-import { color, radius, space } from '@/theme/tokens';
+import { Eyebrow, H2, Reading, Title } from '@/components/ui';
+import { color, radius, space, type } from '@/theme/tokens';
 
 /**
- * Renders any non-question card. Used in the level scroll and, compactly, as
- * the evidence shown under a missed question ("Take another look").
+ * Renders any non-question card as a calm, readable page: a strong heading,
+ * short paragraphs at reading size, and at most one highlighted key figure.
+ * `compact` is the smaller rendering used as evidence under a missed question
+ * ("Take another look"), where it must be skimmable at a glance.
  */
-export function LearningCard({ card }: { card: Card }) {
+export function LearningCard({ card, compact }: { card: Card; compact?: boolean }) {
+  const Heading = compact ? Title : H2;
+  const Para = compact ? CompactReading : Reading;
   switch (card.type) {
     case 'text':
       return (
         <View style={styles.block}>
-          <Label tone={card.role === 'hook' ? 'brand' : 'muted'}>{ROLE_LABEL[card.role]}</Label>
-          <Text style={card.role === 'hook' ? styles.hook : styles.headline}>{card.headline}</Text>
-          {card.body && <Body>{card.body}</Body>}
-          {card.callout && (
-            <View style={styles.callout}>
-              <Text style={styles.calloutText}>{card.callout}</Text>
-            </View>
-          )}
+          {card.role === 'hook' && !compact ? <Text style={styles.hook}>{card.headline}</Text> : <Heading>{card.headline}</Heading>}
+          {card.body && <Para>{card.body}</Para>}
+          {card.callout && <KeyFigure text={card.callout} compact={compact} />}
         </View>
       );
     case 'fact':
       return (
         <View style={styles.block}>
-          <Label tone="brand">Fact</Label>
-          <Text style={styles.fact}>{card.fact}</Text>
-          {card.context && <Body muted>{card.context}</Body>}
+          {!compact && <Eyebrow tone="brand">Did you know</Eyebrow>}
+          <Text style={compact ? styles.factCompact : styles.fact}>{card.fact}</Text>
+          {card.context && <Para>{card.context}</Para>}
         </View>
       );
     case 'timeline':
       return (
         <View style={styles.block}>
-          <Label>Timeline</Label>
-          <Title>{card.headline}</Title>
-          <View style={{ gap: space.md, marginTop: space.sm }}>
+          <Heading>{card.headline}</Heading>
+          <View style={styles.timeline}>
             {card.events.map((e, i) => (
               <View key={i} style={styles.timelineRow}>
-                <View style={styles.timelineDot} />
-                <View style={{ flex: 1, gap: 2 }}>
-                  <Text style={styles.timelineWhen}>{e.when}</Text>
-                  <Body>{e.label}</Body>
+                <View style={styles.rail}>
+                  <View style={styles.dot} />
+                  {i < card.events.length - 1 && <View style={styles.line} />}
+                </View>
+                <View style={{ flex: 1, gap: space.xxs, paddingBottom: space.lg }}>
+                  <Text style={styles.when}>{e.when}</Text>
+                  <Para>{e.label}</Para>
                 </View>
               </View>
             ))}
@@ -51,14 +52,15 @@ export function LearningCard({ card }: { card: Card }) {
     case 'comparison':
       return (
         <View style={styles.block}>
-          <Label>Compare</Label>
-          <Title>{card.headline}</Title>
-          <View style={{ gap: space.md, marginTop: space.sm }}>
+          <Heading>{card.headline}</Heading>
+          <View style={{ gap: space.sm }}>
             {card.items.map((item) => (
               <View key={item.label} style={styles.compareItem}>
                 <Text style={styles.compareLabel}>{item.label}</Text>
                 {item.points.map((p) => (
-                  <Body key={p}>• {p}</Body>
+                  <Text key={p} style={styles.comparePoint}>
+                    {p}
+                  </Text>
                 ))}
               </View>
             ))}
@@ -66,21 +68,26 @@ export function LearningCard({ card }: { card: Card }) {
         </View>
       );
     case 'image':
-      // Assets ship in a later stage; show caption rather than a broken image.
+      // Assets ship in a later stage: a quiet frame with the caption, never a broken image.
       return (
         <View style={styles.block}>
-          <View style={styles.imagePlaceholder} accessibilityLabel={card.caption ?? 'Image'} />
-          {card.caption && <Body muted>{card.caption}</Body>}
+          <View style={styles.image} accessibilityLabel={card.caption ?? 'Illustration'} />
+          {card.caption && <Text style={styles.caption}>{card.caption}</Text>}
         </View>
       );
     case 'checkpoint':
       return (
         <View style={styles.block}>
-          <Label tone="success">Checkpoint</Label>
-          <Title>{card.headline}</Title>
-          <View style={{ gap: space.sm, marginTop: space.sm }}>
+          <Eyebrow tone="success">What you learned</Eyebrow>
+          <Heading>{card.headline}</Heading>
+          <View style={{ gap: space.md, marginTop: space.xs }}>
             {card.learned.map((l) => (
-              <Body key={l}>✓ {l}</Body>
+              <View key={l} style={styles.learnedRow}>
+                <View style={styles.check}>
+                  <Text style={styles.checkGlyph}>✓</Text>
+                </View>
+                <Text style={[type.reading, { color: color.textReading, flex: 1 }]}>{l}</Text>
+              </View>
             ))}
           </View>
         </View>
@@ -90,20 +97,38 @@ export function LearningCard({ card }: { card: Card }) {
   }
 }
 
+/** A single highlighted figure or takeaway ("≈ 8 minutes 20 seconds"). */
+function KeyFigure({ text, compact }: { text: string; compact?: boolean }) {
+  return (
+    <View style={styles.keyFigure}>
+      <Text style={[compact ? type.bodyStrong : styles.keyFigureText]}>{text}</Text>
+    </View>
+  );
+}
 
-const ROLE_LABEL = { hook: 'Level start', explain: 'Explain', connect: 'Connect' } as const;
+function CompactReading({ children }: { children: React.ReactNode }) {
+  return <Text style={[type.body, { color: color.textReading }]}>{children}</Text>;
+}
 
 const styles = StyleSheet.create({
   block: { gap: space.md },
-  hook: { color: color.text, fontSize: 28, fontWeight: '800', lineHeight: 35 },
-  headline: { color: color.text, fontSize: 22, fontWeight: '700', lineHeight: 29 },
-  fact: { color: color.text, fontSize: 26, fontWeight: '800', lineHeight: 33 },
-  callout: { borderLeftWidth: 3, borderLeftColor: color.brand, paddingLeft: space.md, paddingVertical: space.xs },
-  calloutText: { color: color.text, fontSize: 15, fontWeight: '600' },
-  timelineRow: { flexDirection: 'row', gap: space.md, alignItems: 'flex-start' },
-  timelineDot: { width: 10, height: 10, borderRadius: radius.pill, backgroundColor: color.info, marginTop: 6 },
-  timelineWhen: { color: color.info, fontSize: 13, fontWeight: '700' },
-  compareItem: { backgroundColor: color.surfaceRaised, borderRadius: radius.md, padding: space.md, gap: space.xs },
-  compareLabel: { color: color.text, fontSize: 17, fontWeight: '700', marginBottom: space.xs },
-  imagePlaceholder: { aspectRatio: 16 / 9, borderRadius: radius.md, backgroundColor: color.surfaceRaised },
+  hook: { ...type.h1, color: color.text },
+  fact: { ...type.h2, color: color.text },
+  factCompact: { ...type.title, color: color.text },
+  keyFigure: { backgroundColor: color.brandSoft, borderRadius: radius.md, paddingVertical: space.md, paddingHorizontal: space.lg, borderLeftWidth: 3, borderLeftColor: color.brand },
+  keyFigureText: { color: color.text, fontSize: 18, fontWeight: '700', lineHeight: 25 },
+  timeline: { marginTop: space.xs },
+  timelineRow: { flexDirection: 'row', gap: space.md },
+  rail: { width: 14, alignItems: 'center' },
+  dot: { width: 12, height: 12, borderRadius: radius.pill, backgroundColor: color.brand, marginTop: 5 },
+  line: { flex: 1, width: 2, backgroundColor: color.border, marginTop: space.xs },
+  when: { ...type.label, color: color.brand },
+  compareItem: { backgroundColor: color.surface, borderRadius: radius.md, borderWidth: 1, borderColor: color.border, padding: space.lg, gap: space.xs },
+  compareLabel: { color: color.text, fontSize: 18, fontWeight: '700', marginBottom: space.xxs },
+  comparePoint: { ...type.body, color: color.textReading },
+  image: { aspectRatio: 16 / 9, borderRadius: radius.lg, backgroundColor: color.surface, borderWidth: 1, borderColor: color.border },
+  caption: { ...type.caption, color: color.textMuted },
+  learnedRow: { flexDirection: 'row', gap: space.md, alignItems: 'flex-start' },
+  check: { width: 24, height: 24, borderRadius: radius.pill, backgroundColor: color.successSoft, borderWidth: 1, borderColor: color.successLine, alignItems: 'center', justifyContent: 'center', marginTop: 2 },
+  checkGlyph: { color: color.success, fontSize: 13, fontWeight: '900' },
 });

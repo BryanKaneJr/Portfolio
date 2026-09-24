@@ -27,28 +27,45 @@ export async function onboard(page, { start }) {
 }
 
 /**
- * Plays the open level to the end. `pick(i)` chooses the FIRST attempt at
- * question i. After a miss the level shows "Take another look" and the player
- * must choose again; we try the remaining options in order until one is right.
+ * Plays the open level to the end. Questions are select → CHECK. `pick(i)`
+ * chooses the FIRST attempt at question i. After a miss the level shows "Take
+ * another look" (the source cards, under the prompt) and the player must choose
+ * again; we try the remaining options in order until one is right.
  * Returns how many questions needed another look.
  */
+export const checkButton = (page) => page.getByRole('button', { name: 'Check', exact: true });
+
+async function answerStep(page, firstPick, onMiss) {
+  const missed = await page.getByText('Take another look').count();
+  if (missed) {
+    if (!(await page.getByText('Take another look').first().isVisible())) throw new Error('evidence not visible');
+    onMiss();
+    await page.getByRole('radio', { disabled: false }).first().click();
+  } else {
+    await page.getByRole('radio').nth(firstPick()).click();
+  }
+  await checkButton(page).click();
+  await page.waitForTimeout(150);
+}
+
 export async function playLevel(page, { pick = () => 0, doubleTapComplete = false } = {}) {
   let q = 0;
   let reinforced = 0;
   let missedThis = false;
-  for (let step = 0; step < 60; step++) {
+  for (let step = 0; step < 80; step++) {
     await page.waitForTimeout(150);
-    if (await button(page, 'Choose an answer').count()) {
-      await page.getByRole('radio').nth(pick(q++)).click();
-      missedThis = false;
-      continue;
-    }
-    if (await button(page, 'Choose again').count()) {
-      if (!(await page.getByText('Take another look').count())) throw new Error('a miss must show "Take another look"');
-      if (step === 0 || !(await page.getByText('Take another look').first().isVisible())) throw new Error('evidence not visible');
-      if (!missedThis) reinforced++;
-      missedThis = true;
-      await page.getByRole('radio', { disabled: false }).first().click();
+    if (await checkButton(page).count()) {
+      await answerStep(
+        page,
+        () => {
+          missedThis = false;
+          return pick(q++);
+        },
+        () => {
+          if (!missedThis) reinforced++;
+          missedThis = true;
+        },
+      );
       continue;
     }
     if (await button(page, 'Complete level').count()) {
@@ -82,18 +99,21 @@ export async function playReview(page) {
   let missedThis = false;
   for (let i = 0; i < 80; i++) {
     await page.waitForTimeout(200);
-    if (await button(page, 'Choose an answer').count()) {
-      const radios = page.getByRole('radio');
-      await radios.nth(item++ % (await radios.count())).click();
-      missedThis = false;
-    } else if (await button(page, 'Choose again').count()) {
-      if (!(await page.getByText('Take another look').first().isVisible())) throw new Error('a missed review must show its source cards');
-      if (!missedThis) corrected++;
-      missedThis = true;
-      await page.getByRole('radio', { disabled: false }).first().click();
+    if (await checkButton(page).count()) {
+      await answerStep(
+        page,
+        () => {
+          missedThis = false;
+          return item++ % 3;
+        },
+        () => {
+          if (!missedThis) corrected++;
+          missedThis = true;
+        },
+      );
     } else if (await button(page, 'Finish review').count()) {
       await button(page, 'Finish review').click();
-      await page.waitForTimeout(400);
+      await page.waitForTimeout(1600); // let the XP count-up settle
       return corrected;
     } else await button(page, 'Continue').click();
   }

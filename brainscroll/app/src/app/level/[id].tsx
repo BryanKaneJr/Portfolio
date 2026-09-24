@@ -1,19 +1,23 @@
 import { CompletionError, LEARNING_STRUCTURE, type Level, type StartReason } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
 import { CardRenderer } from '@/components/cards/CardRenderer';
+import { feedbackTone, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { ReportSheet } from '@/components/ReportSheet';
-import { Body, Button, Label, ProgressBar, Title } from '@/components/ui';
+import { Body, Button, Caption, H1, H2, IconButton, LessonShell } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
 import { useProgress, type LevelSession } from '@/progress/ProgressProvider';
-import { color, space } from '@/theme/tokens';
+import { haptic } from '@/theme/feedback';
+import { color, layout, space } from '@/theme/tokens';
 
 /**
- * The level player: a finite, authored sequence of cards with a visible end.
- * Position and answers are saved on every step so an interrupted level resumes.
+ * The level player: a finite, authored sequence of cards with a visible end,
+ * in the quiet lesson shell. One card per screen, one obvious action at the
+ * bottom. Position and answers are saved on every step so an interrupted level
+ * resumes exactly.
  */
 export default function LevelScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -24,7 +28,9 @@ export default function LevelScreen() {
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [answering, setAnswering] = useState(false);
+  const [selected, setSelected] = useState<string | undefined>();
   const [reporting, setReporting] = useState(false);
+  const scrollRef = useRef<ScrollView>(null);
   const inFlight = useRef(false);
   const answerInFlight = useRef(false);
   // Where a learner leaves an unfinished level (content health: which card loses people).
@@ -65,17 +71,20 @@ export default function LevelScreen() {
   if (blocked === 'LEVEL_NOT_AVAILABLE') return <Message title="This level doesn't exist." />;
   if (blocked === 'LEVEL_LOCKED') return <Message title="Not unlocked yet." body="Clear the levels before this one first." />;
   if (error && !session) return <Message title="Something went wrong." body={error} />;
-  if (!level || !session) return <View style={styles.screen} />;
+  if (!level || !session) return <View style={{ flex: 1, backgroundColor: color.bg }} />;
 
   const skill = getSkill(level.skillId);
   const card = level.cards[session.cardIndex]!;
   const isLast = session.cardIndex === level.cards.length - 1;
   const questionId = card.type === 'mcq' || card.type === 'recall' ? card.questionId : undefined;
   const attempts = questionId ? (session.attempts[questionId] ?? []) : [];
+  const status = questionStatus(attempts);
   // A question blocks progress until it's answered correctly (on any attempt).
-  const unresolved = questionId !== undefined && !attempts.some((a) => a.correct);
+  const unresolved = questionId !== undefined && !status.resolved;
   // Evidence cards: this level's cards first, then earlier levels in the offline bundle.
   const resolveCard = (cardId: string) => level.cards.find((c) => c.id === cardId) ?? getCard(cardId);
+  const typeLabel = LEARNING_STRUCTURE[level.type].label;
+  const context = level.type === 'regular' ? `${skill?.name ?? ''} · Level ${level.number}` : `${skill?.name ?? ''} · ${typeLabel} ${level.number}`;
 
   const update = (patch: Partial<LevelSession>) => {
     const next = { ...session, ...patch };
@@ -83,9 +92,10 @@ export default function LevelScreen() {
     p.updateSession(level.id, patch);
   };
 
-  const onAnswer = (qid: string, optionId: string) => {
-    const prior = session.attempts[qid] ?? [];
-    if (answerInFlight.current || prior.some((a) => a.correct) || prior.some((a) => a.optionId === optionId)) return;
+  const onCheck = () => {
+    const qid = questionId;
+    const optionId = selected;
+    if (!qid || !optionId || answerInFlight.current || status.resolved || attempts.some((a) => a.optionId === optionId)) return;
     answerInFlight.current = true;
     setAnswering(true);
     setError(null);
@@ -93,6 +103,13 @@ export default function LevelScreen() {
       .then((r) => {
         const attempt = { optionId, correct: r.correct, rationale: r.rationale, explanation: r.explanation };
         setSession((s) => (s ? { ...s, attempts: { ...s.attempts, [qid]: [...(s.attempts[qid] ?? []), attempt] } } : s));
+        setSelected(undefined);
+        if (r.correct) haptic.correct();
+        else {
+          haptic.incorrect();
+          // The evidence appears right under the prompt: bring it into view.
+          scrollRef.current?.scrollTo({ y: 0, animated: true });
+        }
       })
       .catch(() => setError("Couldn't check that answer. Try again."))
       .finally(() => {
@@ -103,6 +120,7 @@ export default function LevelScreen() {
 
   const onContinue = () => {
     if (!isLast) {
+      setSelected(undefined);
       update({ cardIndex: session.cardIndex + 1 });
       return;
     }
@@ -113,6 +131,7 @@ export default function LevelScreen() {
     p.completeLevel(level.id, level)
       .then(() => {
         if (exitRef.current) exitRef.current.done = true;
+        haptic.reward();
         router.replace('/level-complete');
       })
       .catch((e) => {
@@ -123,71 +142,70 @@ export default function LevelScreen() {
       });
   };
 
-  return (
-    <SafeAreaView style={styles.screen}>
-      <View style={styles.header}>
-        <Pressable accessibilityRole="button" accessibilityLabel="Leave level" onPress={() => router.back()} hitSlop={12}>
-          <Text style={styles.close}>✕</Text>
-        </Pressable>
-        <View style={{ flex: 1, gap: space.xs }}>
-          <Label>
-            {skill?.name} · Level {level.number}
-            {level.type !== 'regular' && ` · ${LEARNING_STRUCTURE[level.type].label}`}
-          </Label>
-          <ProgressBar value={(session.cardIndex + 1) / level.cards.length} />
-        </View>
-        <Pressable accessibilityRole="button" accessibilityLabel="Report a problem" onPress={() => setReporting(true)} hitSlop={12}>
-          <Text style={styles.close}>⚑</Text>
-        </Pressable>
-      </View>
-
-      <ScrollView contentContainerStyle={styles.body} key={card.id}>
-        {session.cardIndex === 0 && (
-          <View style={{ gap: space.xs, marginBottom: space.md }}>
-            <Title>{level.title}</Title>
-            <Body muted>{level.objective}</Body>
-          </View>
-        )}
-        <CardRenderer card={card} level={level} attempts={attempts} busy={answering} resolveCard={resolveCard} onAnswer={onAnswer} />
-      </ScrollView>
-
-      <View style={styles.footer}>
-        {error && <Body muted>{error}</Body>}
+  const footer = (
+    <>
+      {questionId && <QuestionFeedback attempts={attempts} />}
+      {error && <Body tone="danger">{error}</Body>}
+      {unresolved ? (
+        <Button label={answering ? 'Checking…' : 'Check'} disabled={!selected || answering} onPress={onCheck} />
+      ) : (
         <Button
-          label={submitting ? 'Saving…' : isLast ? 'Complete level' : unresolved ? (attempts.length ? 'Choose again' : 'Choose an answer') : 'Continue'}
-          disabled={unresolved || submitting || answering}
+          variant={questionId ? 'success' : 'primary'}
+          label={submitting ? 'Saving…' : isLast ? 'Complete level' : 'Continue'}
+          disabled={submitting}
           onPress={onContinue}
         />
-      </View>
+      )}
+    </>
+  );
+
+  return (
+    <>
+      <LessonShell
+        progress={(session.cardIndex + (unresolved ? 0 : 1)) / level.cards.length}
+        onClose={() => router.back()}
+        closeLabel="Leave level"
+        right={<IconButton label="Report a problem" glyph="⚑" onPress={() => setReporting(true)} />}
+        scrollRef={scrollRef}
+        contentKey={card.id}
+        footer={footer}
+        footerTone={questionId ? feedbackTone(attempts) : undefined}>
+        {session.cardIndex === 0 && (
+          <View style={{ gap: space.sm, marginBottom: space.lg }}>
+            <Caption tone="brand">{context}</Caption>
+            <H1>{level.title}</H1>
+            <Caption>{level.objective}</Caption>
+          </View>
+        )}
+        <CardRenderer
+          card={card}
+          level={level}
+          attempts={attempts}
+          selected={selected}
+          busy={answering}
+          resolveCard={resolveCard}
+          onSelect={(opt) => {
+            haptic.select();
+            setSelected(opt);
+          }}
+        />
+      </LessonShell>
       {reporting && (
         <ReportSheet
-          target={{
-            levelId: level.id,
-            revision: session.revision,
-            objectType: questionId ? 'question' : 'card',
-            objectId: questionId ?? card.id,
-          }}
+          target={{ levelId: level.id, revision: session.revision, objectType: questionId ? 'question' : 'card', objectId: questionId ?? card.id }}
           onClose={() => setReporting(false)}
         />
       )}
-    </SafeAreaView>
+    </>
   );
 }
 
 function Message({ title, body }: { title: string; body?: string }) {
   return (
-    <SafeAreaView style={[styles.screen, { padding: space.lg, gap: space.md }]}>
-      <Title>{title}</Title>
+    <SafeAreaView style={{ flex: 1, backgroundColor: color.bg, padding: layout.gutter, gap: space.lg, justifyContent: 'center' }}>
+      <H2>{title}</H2>
       {body && <Body muted>{body}</Body>}
       <Button variant="secondary" label="Back" onPress={() => router.back()} />
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: color.bg },
-  header: { flexDirection: 'row', alignItems: 'center', gap: space.lg, paddingHorizontal: space.lg, paddingVertical: space.md },
-  close: { color: color.textMuted, fontSize: 22, fontWeight: '600' },
-  body: { padding: space.lg, paddingTop: space.xl, gap: space.lg },
-  footer: { padding: space.lg, gap: space.sm, borderTopWidth: 1, borderTopColor: color.border },
-});

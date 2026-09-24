@@ -1,7 +1,7 @@
 // Supabase mode against the real SQL functions (via fake-supabase.mjs):
 // anonymous sign-in, server-graded completion, exactly-once XP, live content
 // revisions, the server-side 5/day cap, and review.
-import { CURVE, REVIEW_XP, bodyText, button, check, completionFacts, home, launch, onboard, playLevel, playReview, sql } from './helpers.mjs';
+import { CURVE, REVIEW_XP, bodyText, button, check, checkButton, completionFacts, home, launch, onboard, playLevel, playReview, sql } from './helpers.mjs';
 
 const { browser, page, errors } = await launch();
 // Every level bundle the app receives must be free of answer keys, and review
@@ -77,7 +77,7 @@ try {
   check(/worth refreshing/.test(await bodyText(page)), 'due concepts from the server surface on Home');
   const seenBefore = Number(sql('select sum(seen_count) from public.user_concept_mastery'));
   await button(page, 'Start review').click();
-  await button(page, 'Choose an answer').waitFor({ timeout: 10_000 });
+  await checkButton(page).waitFor({ timeout: 10_000 });
   check(true, 'the review session loads questions from the server');
   const corrected = await playReview(page);
   const reviewXp = (await bodyText(page)).match(/\+(\d+) XP/)?.[1];

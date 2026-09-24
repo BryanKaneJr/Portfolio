@@ -1,28 +1,28 @@
 import type { Card, Question } from '@brainscroll/core';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { Body, Label } from '@/components/ui';
+import { View } from 'react-native';
+import { AnswerOption, Body, EvidenceBlock, Eyebrow, FeedbackPanel, H2, type AnswerState } from '@/components/ui';
 import type { AttemptView } from '@/progress/ProgressProvider';
-import { color, radius, space } from '@/theme/tokens';
+import { space } from '@/theme/tokens';
 import { LearningCard } from './LearningCard';
 
 /**
- * A question inside a level. Learning first, testing second:
+ * A question, full-screen and tactile. Learning first, testing second:
  *
- * - Right first time → "Correct" + the explanation.
- * - Wrong → a restrained note, then "Take another look": the question's source
- *   cards, shown right here beneath it. The options stay open (the wrong picks
- *   are crossed out) until the right answer is chosen. No lives, no restart,
- *   no failure screen.
+ *   select an answer card → CHECK (in the lesson footer) → graded in context.
+ *   - Right → the card turns mint and the footer says so; CONTINUE.
+ *   - Wrong → the pick is crossed out, the footer says "Not quite", and
+ *     "Take another look" shows the question's source cards right under the
+ *     prompt. Choose again until right. No lives, no restart, no failure screen,
+ *     and the answer is never simply revealed.
  *
- * Review items work the same way: the answer is never simply revealed.
- *
- * Correctness always comes from graded attempts (server-side when online),
- * never from the bundle. Only the first attempt counts toward XP.
+ * Only the first CHECK counts toward XP (recorded server-side when online);
+ * selecting without checking records nothing.
  */
 export function QuestionCard({
   question,
   recall,
   attempts,
+  selected,
   sourceCards,
   busy,
   onSelect,
@@ -30,88 +30,77 @@ export function QuestionCard({
   question: Question;
   recall: boolean;
   attempts: AttemptView[];
+  selected?: string;
   sourceCards: Card[];
   busy: boolean;
   onSelect: (optionId: string) => void;
 }) {
-  const resolvedBy = attempts.find((a) => a.correct);
+  const s = questionStatus(attempts);
   const wrong = new Set(attempts.filter((a) => !a.correct).map((a) => a.optionId));
-  const last = attempts.at(-1);
-  const locked = !!resolvedBy || busy;
-  const needsAnotherLook = !resolvedBy && last && !last.correct;
-  const correctId = resolvedBy?.optionId;
 
   return (
-    <View style={{ gap: space.md }}>
-      <Label tone={recall ? 'success' : 'brand'}>{recall ? 'Recall · from an earlier level' : 'Question'}</Label>
-      <Text style={styles.prompt}>{question.prompt}</Text>
-
-      {needsAnotherLook && (
-        <View style={styles.lookAgain} accessibilityLiveRegion="polite">
-          <Text style={styles.notQuite}>Not quite{last.rationale ? `: ${last.rationale}` : '.'}</Text>
-          <Label tone="brand">Take another look</Label>
-          {sourceCards.map((c) => (
-            <View key={c.id} style={styles.evidence}>
-              <LearningCard card={c} />
-            </View>
-          ))}
-          <Body muted>Then choose again.</Body>
-        </View>
-      )}
-
-      <View style={{ gap: space.sm }} accessibilityRole="radiogroup">
-        {question.options.map((o) => {
-          const isCorrect = o.id === correctId;
-          const isWrong = wrong.has(o.id);
-          const state = isCorrect ? 'correct' : isWrong ? 'wrong' : locked ? 'dim' : 'idle';
-          return (
-            <Pressable
-              key={o.id}
-              accessibilityRole="radio"
-              accessibilityState={{ selected: isCorrect || isWrong, disabled: locked || isWrong }}
-              disabled={locked || isWrong}
-              onPress={() => onSelect(o.id)}
-              style={({ pressed }) => [styles.option, styles[state], pressed && { transform: [{ scale: 0.99 }] }]}>
-              <Text style={[styles.optionText, (state === 'dim' || state === 'wrong') && { color: color.textMuted }]}>{o.label}</Text>
-              {state === 'correct' && <Text style={[styles.mark, { color: color.success }]}>✓</Text>}
-              {state === 'wrong' && <Text style={[styles.mark, { color: color.danger }]}>✗</Text>}
-            </Pressable>
-          );
-        })}
+    <View style={{ gap: space.xl }}>
+      <View style={{ gap: space.sm }}>
+        <Eyebrow tone={recall ? 'success' : 'brand'}>{recall ? 'Recall · from an earlier level' : PURPOSE[question.purpose]}</Eyebrow>
+        <H2>{question.prompt}</H2>
       </View>
 
-      {resolvedBy && (
-        <View style={[styles.feedback, { borderColor: color.success }]} accessibilityLiveRegion="polite">
-          <Text style={[styles.verdict, { color: color.success }]}>{attempts.length === 1 ? 'Correct' : 'Reinforced'}</Text>
-          {resolvedBy.explanation ? <Body>{resolvedBy.explanation}</Body> : null}
-          {attempts.length > 1 && <Body muted>We’ll bring this back later so it sticks.</Body>}
-        </View>
+      {s.needsAnotherLook && (
+        <EvidenceBlock>
+          {sourceCards.map((c) => (
+            <LearningCard key={c.id} card={c} compact />
+          ))}
+        </EvidenceBlock>
       )}
+
+      <View style={{ gap: space.md }} accessibilityRole="radiogroup">
+        {question.options.map((o) => {
+          const state: AnswerState =
+            o.id === s.resolvedBy?.optionId ? 'correct' : wrong.has(o.id) ? 'eliminated' : s.resolved || busy ? 'locked' : o.id === selected ? 'selected' : 'idle';
+          return <AnswerOption key={o.id} letter={o.id} label={o.label} state={state} onPress={() => onSelect(o.id)} />;
+        })}
+      </View>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  prompt: { color: color.text, fontSize: 21, fontWeight: '700', lineHeight: 28 },
-  option: {
-    minHeight: 52,
-    borderRadius: radius.md,
-    borderWidth: 2,
-    paddingHorizontal: space.lg,
-    paddingVertical: space.md,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  idle: { borderColor: color.border, backgroundColor: color.surfaceRaised },
-  correct: { borderColor: color.success, backgroundColor: 'rgba(57,217,138,0.12)' },
-  wrong: { borderColor: 'rgba(255,107,107,0.5)', backgroundColor: color.surface },
-  dim: { borderColor: color.border, backgroundColor: color.surface },
-  optionText: { color: color.text, fontSize: 16, fontWeight: '600', flexShrink: 1 },
-  mark: { fontSize: 18, fontWeight: '800', marginLeft: space.sm },
-  lookAgain: { gap: space.sm, borderLeftWidth: 3, borderLeftColor: color.brand, paddingLeft: space.md },
-  notQuite: { color: color.danger, fontSize: 15, fontWeight: '700' },
-  evidence: { backgroundColor: color.surface, borderRadius: radius.md, padding: space.md, borderWidth: 1, borderColor: color.border },
-  feedback: { borderLeftWidth: 3, paddingLeft: space.md, gap: space.xs },
-  verdict: { fontSize: 16, fontWeight: '800' },
-});
+const PURPOSE = { recall: 'Remember', understanding: 'Understand', connection: 'Connect' } as const;
+
+export function questionStatus(attempts: AttemptView[]) {
+  const resolvedBy = attempts.find((a) => a.correct);
+  const last = attempts.at(-1);
+  return {
+    resolvedBy,
+    resolved: !!resolvedBy,
+    firstTry: !!resolvedBy && attempts.length === 1,
+    needsAnotherLook: !resolvedBy && !!last && !last.correct,
+    lastWrong: !resolvedBy && last && !last.correct ? last : undefined,
+  };
+}
+
+/**
+ * The footer verdict for a question, shown above the lesson's primary action.
+ * Returns null while the learner is still choosing.
+ */
+export function QuestionFeedback({ attempts }: { attempts: AttemptView[] }) {
+  const s = questionStatus(attempts);
+  if (s.resolvedBy)
+    return (
+      <FeedbackPanel tone="success" title={s.firstTry ? 'Correct' : 'Got it: reinforced'}>
+        {s.resolvedBy.explanation ? <Body>{s.resolvedBy.explanation}</Body> : null}
+        {!s.firstTry && <Body muted>We’ll bring this back later so it sticks.</Body>}
+      </FeedbackPanel>
+    );
+  if (s.lastWrong)
+    return (
+      <FeedbackPanel tone="reinforce" title="Not quite">
+        <Body>{s.lastWrong.rationale ?? 'That one doesn’t fit.'} Take another look above, then choose again.</Body>
+      </FeedbackPanel>
+    );
+  return null;
+}
+
+export function feedbackTone(attempts: AttemptView[]): 'success' | 'reinforce' | undefined {
+  const s = questionStatus(attempts);
+  return s.resolved ? 'success' : s.lastWrong ? 'reinforce' : undefined;
+}
