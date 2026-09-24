@@ -48,6 +48,7 @@ npm run verify:record -- fact.astronomy.alpha_centauri_triple source.brit_alpha_
   - L64 “The Main Sequence” · `card.astronomy.064.c4` (fact): Our nearest stellar neighbor is a red dwarf. / Proxima Centauri is small, cool and dim, far too faint to see without a telescope, but it will outlive the Sun by an enormous margin.
 - **Tested by:**
   - L64 `question.astronomy.064.q3`: From Level 8: Proxima Centauri is the nearest star after the Sun. What kind of star is it? → **A red dwarf that can shine for trillions of years**
+- **Fact-check (2026-09-24):** corroborated. Proxima Centauri, about 4.2 light-years away, is the closest star to the Sun and a red dwarf. Sources: https://www.britannica.com/science/Proxima-Centauri, https://earthsky.org/astronomy-essentials/proxima-centauri-our-suns-nearest-neighbor/
 
 ```sh
 npm run verify:record -- fact.astronomy.proxima_red_dwarf source.brit_alpha_centauri --status verified --by "Your Name" --quote "…"
@@ -92,6 +93,7 @@ npm run verify:record -- fact.astronomy.andromeda_approach source.brit_andromeda
   - L83 `question.astronomy.083.q1`: Which large galaxy is moving toward the Milky Way? → **Andromeda**
   - L83 `question.astronomy.083.q2`: When two galaxies collide, what happens to most of their stars? → **They pass each other without hitting**
   - L83 `question.astronomy.083.q3`: From Level 10: Andromeda is about 2.5 million light-years away. What did a 2025 study say about a merger? → **About a 50% chance within 10 billion years**
+- **Fact-check (2026-09-24):** corroborated. Galaxy collisions are driven by gravity and take hundreds of millions of years to unfold, reshaping the galaxies, often into ellipticals. Sources: https://www.scientificamerican.com/article/what-will-happen-if-the-milky-way-and-andromeda-galaxies-collide/
 
 ```sh
 npm run verify:record -- fact.astronomy.galaxies_merge source.brit_andromeda --status verified --by "Your Name" --quote "…"
@@ -106,6 +108,7 @@ npm run verify:record -- fact.astronomy.galaxies_merge source.brit_andromeda --s
   - L83 “When Galaxies Collide” · `card.astronomy.083.c3` (text): Crash without a crash / When galaxies collide, individual stars almost never hit each other. The spaces between stars are so vast that the galaxies pass through each other, their gravity reshaping both. Mergers like this are one way galaxies grow.
 - **Tested by:**
   - L83 `question.astronomy.083.q2`: When two galaxies collide, what happens to most of their stars? → **They pass each other without hitting**
+- **Fact-check (2026-09-24):** corroborated. In galaxy mergers such as the future Milky Way and Andromeda encounter, stars are so far apart that direct stellar collisions are extremely unlikely. Sources: https://en.wikipedia.org/wiki/Andromeda%E2%80%93Milky_Way_collision, https://www.skyatnightmagazine.com/space-science/andromeda-milky-way-galaxy-collision
 
 ```sh
 npm run verify:record -- fact.astronomy.stars_rarely_collide source.brit_andromeda --status verified --by "Your Name" --quote "…"
@@ -165,6 +168,7 @@ npm run verify:record -- fact.astronomy.au_definition source.brit_au --status ve
   - L28 “Measuring the Solar System” · `card.astronomy.028.c2` (text): A map without a scale / Kepler’s laws told astronomers the relative distances of the planets: Mars is about 1.5 times farther from the Sun than Earth, for example. But without one real distance in kilometers, the map had no scale. Every distance in the solar system depended on that one missing number.
 - **Tested by:**
   - L28 `question.astronomy.028.q2`: Why did astronomers still need to measure one real distance after Kepler? → **Kepler’s laws gave proportions but no kilometers**
+- **Fact-check (2026-09-24):** corroborated. Kepler's third law gave planetary distances in AU but not the AU's size; one absolute distance (e.g. Mars parallax 1672, transits of Venus) set the scale. Sources: https://annex.exploratorium.edu/venus/question4.html, https://ned.ipac.caltech.edu/level5/March19/Mignard/Mignard2.html
 
 ```sh
 npm run verify:record -- fact.astronomy.kepler_relative_distances source.brit_au --status verified --by "Your Name" --quote "…"
@@ -213,6 +217,7 @@ npm run verify:record -- fact.astronomy.radar_au source.brit_au --status verifie
   - L21 “The First Sky-Watchers” · `card.astronomy.021.c3` (text): Records that predicted the sky / Babylonian astronomers kept careful records of the Moon and planets on clay tablets. Over generations those records revealed repeating patterns, and they used them to predict eclipses.
 - **Tested by:**
   - L21 `question.astronomy.021.q2`: How could Babylonian astronomers predict eclipses without knowing what caused them? → **Long records revealed repeating patterns**
+- **Fact-check (2026-09-24):** corroborated. Babylonian astronomical diaries on clay tablets recorded lunar and planetary positions; these records let them predict eclipses (e.g. via the saros cycle). Sources: https://en.wikipedia.org/wiki/Babylonian_astronomical_diaries, https://skyandtelescope.org/astronomy-news/how-did-the-ancients-predicted-eclipses-the-saros-cycle/
 
 ```sh
 npm run verify:record -- fact.astronomy.babylon_records source.brit_babylonian_astronomy --status verified --by "Your Name" --quote "…"
@@ -296,6 +301,7 @@ npm run verify:record -- fact.astronomy.bb_hot_dense source.brit_big_bang --stat
 - **Tested by:**
   - L91 `question.astronomy.091.q3`: From Level 32: stars are made mostly of hydrogen and helium. Where did those elements first come from? → **The first minutes after the Big Bang**
   - L96 `question.astronomy.096.q1`: Which elements did the Big Bang itself produce? → **Hydrogen, helium and a trace of lithium**
+- **Fact-check (2026-09-24):** corroborated. Big Bang nucleosynthesis in the first few minutes produced hydrogen (with deuterium), helium and trace lithium-7; about 75% hydrogen, 25% helium by mass. Sources: https://en.wikipedia.org/wiki/Nucleosynthesis, https://www.astro.ubc.ca/people/scott/bbn.html
 
 ```sh
 npm run verify:record -- fact.astronomy.bb_light_elements source.brit_big_bang --status verified --by "Your Name" --quote "…"
@@ -326,6 +332,7 @@ npm run verify:record -- fact.astronomy.bb_name_hoyle source.brit_big_bang --sta
   - L91 “The Big Bang” · `card.astronomy.091.c3` (text): Not an explosion / Despite the name, the Big Bang was not an explosion into empty space. It was the expansion of space itself, happening everywhere at once. The name came in 1949 from astronomer Fred Hoyle, who favored a rival theory.
 - **Tested by:**
   - L91 `question.astronomy.091.q2`: Why is it misleading to picture the Big Bang as a bomb going off in space? → **Space itself expanded, everywhere at once**
+- **Fact-check (2026-09-24):** corroborated. Cosmology sources and Britannica explain the Big Bang was an expansion of space itself happening everywhere, not an explosion from a centre into empty space. Sources: https://www.britannica.com/story/was-the-big-bang-actually-an-explosion, https://bigthink.com/hard-science/the-big-bang-wasnt-an-explosion-visualize-it-like-this/
 
 ```sh
 npm run verify:record -- fact.astronomy.bb_not_explosion source.brit_big_bang --status verified --by "Your Name" --quote "…"
@@ -341,6 +348,7 @@ npm run verify:record -- fact.astronomy.bb_not_explosion source.brit_big_bang --
   - L99 “Integration: The Big Open Questions” · `card.astronomy.099.c3` (text): Unsolved puzzles / Different ways of measuring how fast the universe expands today disagree slightly, a puzzle called the Hubble tension. Why the Sun’s corona is so much hotter than its surface isn’t fully understood. And no one knows what, if anything, came before the Big Bang.
 - **Tested by:**
   - L91 `question.astronomy.091.q3`: From Level 32: stars are made mostly of hydrogen and helium. Where did those elements first come from? → **The first minutes after the Big Bang**
+- **Fact-check (2026-09-24):** corroborated. The Big Bang theory describes expansion from a hot dense state and says nothing about what, if anything, preceded it. Sources: https://www.iop.org/explore-physics/big-ideas-physics/big-bang, https://www.space.com/25126-big-bang-theory.html
 
 ```sh
 npm run verify:record -- fact.astronomy.bb_not_what_before source.brit_big_bang --status verified --by "Your Name" --quote "…"
@@ -548,6 +556,7 @@ npm run verify:record -- fact.astronomy.copernicus_1543 source.brit_copernicus -
 - **Tested by:**
   - L24 `question.astronomy.024.q2`: How did the heliocentric model explain retrograde motion? → **As Earth overtaking the slower outer planets**
   - L24 `question.astronomy.024.q3`: From Level 23: what was one weakness Copernicus’s model shared with Ptolemy’s? → **It still assumed perfectly circular orbits**
+- **Fact-check (2026-09-24):** corroborated. Copernicus kept uniform circular motion, so his model still needed epicycles to match observations; ellipses came with Kepler. Sources: https://www.pas.rochester.edu/~blackman/ast104/copernican9.html, https://explainingscience.org/2017/11/28/copernicus/
 
 ```sh
 npm run verify:record -- fact.astronomy.copernicus_circles source.brit_copernicus --status verified --by "Your Name" --quote "…"
@@ -563,6 +572,7 @@ npm run verify:record -- fact.astronomy.copernicus_circles source.brit_copernicu
 - **Tested by:**
   - L24 `question.astronomy.024.q2`: How did the heliocentric model explain retrograde motion? → **As Earth overtaking the slower outer planets**
   - L24 `question.astronomy.024.q3`: From Level 23: what was one weakness Copernicus’s model shared with Ptolemy’s? → **It still assumed perfectly circular orbits**
+- **Fact-check (2026-09-24):** corroborated. In the heliocentric model retrograde motion arises as Earth overtakes outer planets; Copernicus kept some epicycles for accuracy but not to explain retrograde motion. Sources: https://www.astronomy.ohio-state.edu/weinberg.21/A161/lecture5.html, https://en.wikipedia.org/wiki/Copernican_heliocentrism
 
 ```sh
 npm run verify:record -- fact.astronomy.copernicus_retrograde source.brit_copernicus --status verified --by "Your Name" --quote "…"
@@ -830,6 +840,7 @@ npm run verify:record -- fact.astronomy.orbit_is_falling source.brit_escape_velo
 - **Tested by:**
   - L86 `question.astronomy.086.q3`: From Level 85: what supplies much of the gravity holding galaxy clusters together? → **Dark matter**
   - L90 `question.astronomy.090.q2`: Which list runs from smallest to largest? → **Milky Way, Local Group, galaxy cluster, cosmic web**
+- **Fact-check (2026-09-24):** corroborated. Galaxy clusters contain hundreds to thousands of galaxies bound by gravity and are among the largest gravitationally bound structures. Sources: https://chandra.harvard.edu/xray_sources/galaxy_clusters.html, https://science.nasa.gov/universe/galaxies/large-scale-structures/
 
 ```sh
 npm run verify:record -- fact.astronomy.galaxy_clusters source.brit_galaxy_cluster --status verified --by "Your Name" --quote "…"
@@ -852,6 +863,7 @@ npm run verify:record -- fact.astronomy.galaxy_clusters source.brit_galaxy_clust
   - L81 `question.astronomy.081.q1`: Which kind of galaxy has a flat, rotating disk with arms winding out from its center? → **Spiral**
   - L81 `question.astronomy.081.q2`: An astronomer finds a galaxy of mostly old stars with little new star formation. What type is it most likely? → **Elliptical**
   - L81 `question.astronomy.081.q3`: From Level 66: where in a spiral galaxy would you expect to find the most stellar nurseries? → **In the spiral arms**
+- **Fact-check (2026-09-24):** corroborated. Ellipticals have smooth, featureless images, are dominated by old stars and have little gas and little ongoing star formation. Sources: https://en.wikipedia.org/wiki/Elliptical_galaxy, https://science.nasa.gov/universe/galaxies/types/
 
 ```sh
 npm run verify:record -- fact.astronomy.elliptical_galaxies source.brit_galaxy_types --status verified --by "Your Name" --quote "…"
@@ -869,6 +881,7 @@ npm run verify:record -- fact.astronomy.elliptical_galaxies source.brit_galaxy_t
   - L81 `question.astronomy.081.q1`: Which kind of galaxy has a flat, rotating disk with arms winding out from its center? → **Spiral**
   - L81 `question.astronomy.081.q2`: An astronomer finds a galaxy of mostly old stars with little new star formation. What type is it most likely? → **Elliptical**
   - L81 `question.astronomy.081.q3`: From Level 66: where in a spiral galaxy would you expect to find the most stellar nurseries? → **In the spiral arms**
+- **Fact-check (2026-09-24):** corroborated. Edwin Hubble proposed his morphological scheme in 1926, dividing galaxies into elliptical, spiral (normal and barred) and irregular types (the Hubble tuning fork). Sources: https://www.ebsco.com/research-starters/history/hubbles-galaxy-classification/, https://www.britannica.com/science/galaxy/Types-of-galaxies
 
 ```sh
 npm run verify:record -- fact.astronomy.galaxy_three_types source.brit_galaxy_types --status verified --by "Your Name" --quote "…"
@@ -884,6 +897,7 @@ npm run verify:record -- fact.astronomy.galaxy_three_types source.brit_galaxy_ty
   - L84 “The Local Group” · `card.astronomy.084.c3` (text): Our satellites / The Large and Small Magellanic Clouds are small galaxies orbiting the Milky Way. From the Southern Hemisphere they’re visible to the naked eye as two faint, cloudy patches of light.
 - **Tested by:**
   - L84 `question.astronomy.084.q3`: From Level 81: what type of galaxy are the Magellanic Clouds? → **Irregular**
+- **Fact-check (2026-09-24):** corroborated. Britannica-style summaries call both Magellanic Clouds irregular galaxies; the LMC is sometimes typed as a Magellanic (barred) spiral, but irregular is standard. Sources: https://en.wikipedia.org/wiki/Barred_irregular_galaxy, https://www.britannica.com/topic/Magellanic-Cloud
 
 ```sh
 npm run verify:record -- fact.astronomy.irregular_galaxies source.brit_galaxy_types --status verified --by "Your Name" --quote "…"
@@ -925,6 +939,7 @@ npm run verify:record -- fact.astronomy.spiral_galaxies source.brit_galaxy_types
   - L25 `question.astronomy.025.q2`: Why were Jupiter’s moons a problem for the Earth-centered model? → **They orbited Jupiter, not Earth**
   - L46 `question.astronomy.046.q3`: From Level 25: Galileo saw Jupiter’s four large moons as tiny dots. What do we know about Io today? → **It is the most volcanically active world in the solar system**
   - L100 `question.astronomy.100.q9`: Which list puts these discoveries in the order they happened? → **Jupiter’s moons → galaxy redshifts → the CMB**
+- **Fact-check (2026-09-24):** corroborated. Galileo observed Jupiter's four largest moons starting 7 January 1610; they are Io, Europa, Ganymede and Callisto (names proposed by Simon Marius). Sources: https://www.ebsco.com/research-starters/history/galileo-discovers-major-moons-jupiter, https://www.planetary.org/articles/what-are-jupiters-galilean-moons
 
 ```sh
 npm run verify:record -- fact.astronomy.galilean_moons source.brit_galileo --status verified --by "Your Name" --quote "…"
@@ -940,6 +955,7 @@ npm run verify:record -- fact.astronomy.galilean_moons source.brit_galileo --sta
 - **Tested by:**
   - L33 `question.astronomy.033.q3`: From Level 25: Galileo’s telescope used lenses. Why could later, bigger telescopes see much fainter objects? → **Their larger mirrors or lenses collect more light**
   - L57 `question.astronomy.057.q3`: From Level 25: besides Jupiter’s moons and Venus’s phases, what else did Galileo observe with his telescope? → **Sunspots, and the Sun’s rotation**
+- **Fact-check (2026-09-24):** corroborated. Telescope first appeared in the Netherlands (Lipperhey patent application Oct 1608); Galileo built improved instruments in 1609 and used them for astronomy. Sources: https://www.loc.gov/collections/finding-our-place-in-the-cosmos-with-carl-sagan/articles-and-essays/modeling-the-cosmos/galileo-and-the-telescope, https://www.space.com/21950-who-invented-the-telescope.html
 
 ```sh
 npm run verify:record -- fact.astronomy.galileo_not_inventor source.brit_galileo --status verified --by "Your Name" --quote "…"
@@ -1030,6 +1046,7 @@ npm run verify:record -- fact.astronomy.helium_1868 source.brit_helium --status 
 - **Tested by:**
   - L40 `question.astronomy.040.q5`: Chapter 4 recap: which pairing of tool and discovery is correct? → **Spectroscope → helium found in the Sun**
   - L100 `question.astronomy.100.q5`: How was helium discovered before anyone found it on Earth? → **From an unexplained line in the Sun’s spectrum**
+- **Fact-check (2026-09-24):** corroborated. Lockyer named helium (found in the solar spectrum in 1868) after Greek helios, the Sun. Sources: https://www.britannica.com/biography/Joseph-Norman-Lockyer, https://en.wikipedia.org/wiki/Helium
 
 ```sh
 npm run verify:record -- fact.astronomy.helium_name source.brit_helium --status verified --by "Your Name" --quote "…"
@@ -1067,6 +1084,7 @@ npm run verify:record -- fact.astronomy.hr_1910 source.brit_hr_diagram --status 
 - **Tested by:**
   - L63 `question.astronomy.063.q1`: What two properties does the H–R diagram plot? → **Luminosity and surface temperature**
   - L63 `question.astronomy.063.q3`: From Level 9: a blue-white star is hotter than a red one. On the H–R diagram, which side is it on? → **The left side, with hotter stars**
+- **Fact-check (2026-09-24):** corroborated. The H-R diagram plots stellar luminosity against surface (effective) temperature, with temperature increasing to the left. Sources: https://en.wikipedia.org/wiki/Hertzsprung%E2%80%93Russell_diagram, https://www.ebsco.com/research-starters/astronomy-and-astrophysics/hertzsprung-russell-diagram
 
 ```sh
 npm run verify:record -- fact.astronomy.hr_axes source.brit_hr_diagram --status verified --by "Your Name" --quote "…"
@@ -1082,6 +1100,7 @@ npm run verify:record -- fact.astronomy.hr_axes source.brit_hr_diagram --status 
 - **Tested by:**
   - L63 `question.astronomy.063.q2`: Where on the H–R diagram are white dwarfs found? → **Lower left: hot but dim**
   - L67 `question.astronomy.067.q3`: From Level 63: where on the H–R diagram would the Sun move as it becomes a red giant? → **Up and to the right: cooler but more luminous**
+- **Fact-check (2026-09-24):** corroborated. On the H-R diagram, cool but luminous giants lie at upper right and hot, dim white dwarfs at lower left. Sources: https://www.britannica.com/science/Hertzsprung-Russell-diagram, https://astro.unl.edu/naap/hr/hr_background3.html
 
 ```sh
 npm run verify:record -- fact.astronomy.hr_giants_dwarfs source.brit_hr_diagram --status verified --by "Your Name" --quote "…"
@@ -1098,6 +1117,7 @@ npm run verify:record -- fact.astronomy.hr_giants_dwarfs source.brit_hr_diagram 
 - **Tested by:**
   - L63 `question.astronomy.063.q2`: Where on the H–R diagram are white dwarfs found? → **Lower left: hot but dim**
   - L67 `question.astronomy.067.q3`: From Level 63: where on the H–R diagram would the Sun move as it becomes a red giant? → **Up and to the right: cooler but more luminous**
+- **Fact-check (2026-09-24):** corroborated. About 90 percent of stars, including the Sun, lie on the main sequence, a diagonal band on the H-R diagram. Sources: https://www.ebsco.com/research-starters/astronomy-and-astrophysics/hertzsprung-russell-diagram, https://lco.global/spacebook/stars/h-r-diagram/
 
 ```sh
 npm run verify:record -- fact.astronomy.hr_main_sequence_band source.brit_hr_diagram --status verified --by "Your Name" --quote "…"
@@ -1231,6 +1251,7 @@ npm run verify:record -- fact.astronomy.jansky_1932 source.brit_jansky --status 
   - L26 `question.astronomy.026.q1`: What shape did Kepler find planetary orbits to be? → **Ellipses**
   - L30 `question.astronomy.030.q2`: What did Kepler discover about the shape of orbits? → **They are ellipses**
   - L30 `question.astronomy.030.q5`: Chapter 3 recap: what put the final piece in place for why the planets move as they do? → **Newton’s gravity explaining Kepler’s laws**
+- **Fact-check (2026-09-24):** corroborated. Kepler's first law: planets move in elliptical orbits with the Sun at one focus. Sources: https://science.nasa.gov/solar-system/orbits-and-keplers-laws/, https://www.britannica.com/science/Keplers-first-law-of-planetary-motion
 
 ```sh
 npm run verify:record -- fact.astronomy.kepler_ellipse source.brit_kepler_laws --status verified --by "Your Name" --quote "…"
@@ -1248,6 +1269,7 @@ npm run verify:record -- fact.astronomy.kepler_ellipse source.brit_kepler_laws -
   - L26 `question.astronomy.026.q3`: From Level 5: Earth is closest to the Sun in early January. By Kepler’s second law, what follows? → **Earth moves fastest along its orbit in January**
   - L75 `question.astronomy.075.q3`: From Level 26: which laws let astronomers turn those stars’ orbits into a mass for Sagittarius A*? → **The laws of orbits and gravity from Kepler and Newton**
   - L85 `question.astronomy.085.q3`: From Level 26: planets far from the Sun orbit more slowly. Why was it surprising that outer stars in galaxies don’t slow down? → **It means far more mass is present than we can see**
+- **Fact-check (2026-09-24):** corroborated. Second law: the Sun-planet line sweeps equal areas in equal times, so the planet is fastest at perihelion (closest approach). Sources: https://science.nasa.gov/solar-system/orbits-and-keplers-laws/, https://www.britannica.com/science/Keplers-second-law-of-planetary-motion
 
 ```sh
 npm run verify:record -- fact.astronomy.kepler_equal_areas source.brit_kepler_laws --status verified --by "Your Name" --quote "…"
@@ -1283,6 +1305,7 @@ npm run verify:record -- fact.astronomy.kepler_third source.brit_kepler_laws --s
   - L26 `question.astronomy.026.q1`: What shape did Kepler find planetary orbits to be? → **Ellipses**
   - L30 `question.astronomy.030.q2`: What did Kepler discover about the shape of orbits? → **They are ellipses**
   - L30 `question.astronomy.030.q5`: Chapter 3 recap: what put the final piece in place for why the planets move as they do? → **Newton’s gravity explaining Kepler’s laws**
+- **Fact-check (2026-09-24):** corroborated. Kepler derived his laws from Tycho Brahe's precise pre-telescope observations, especially of Mars. Sources: https://earthobservatory.nasa.gov/features/OrbitsHistory/page2.php, https://science.nasa.gov/resource/orbits-and-keplers-laws/
 
 ```sh
 npm run verify:record -- fact.astronomy.kepler_tycho_data source.brit_kepler_laws --status verified --by "Your Name" --quote "…"
@@ -1300,6 +1323,7 @@ npm run verify:record -- fact.astronomy.kepler_tycho_data source.brit_kepler_law
   - L27 `question.astronomy.027.q3`: From Level 17: what connects Newton’s law to the ocean tides? → **The Moon’s gravity pulls on Earth’s oceans**
   - L30 `question.astronomy.030.q5`: Chapter 3 recap: what put the final piece in place for why the planets move as they do? → **Newton’s gravity explaining Kepler’s laws**
   - L37 `question.astronomy.037.q3`: From Level 27: which force makes a spacecraft fall around Earth in orbit? → **Earth’s gravity**
+- **Fact-check (2026-09-24):** corroborated. Newton showed that Kepler's laws follow mathematically from his inverse-square law of gravitation and laws of motion. Sources: http://galileo.phys.virginia.edu/classes/152.mf1i.spring02/KeplersLaws.htm, https://en.wikipedia.org/wiki/Kepler's_laws_of_planetary_motion
 
 ```sh
 npm run verify:record -- fact.astronomy.newton_explains_kepler source.brit_kepler_laws --status verified --by "Your Name" --quote "…"
@@ -1375,6 +1399,7 @@ npm run verify:record -- fact.astronomy.apparent_vs_true source.brit_luminosity 
 - **Tested by:**
   - L62 `question.astronomy.062.q2`: A star is moved to twice its distance. How bright does it look? → **A quarter as bright**
   - L62 `question.astronomy.062.q3`: From Level 27: which other effect weakens with the square of distance, just like starlight? → **Gravity**
+- **Fact-check (2026-09-24):** corroborated. Apparent brightness is inversely proportional to distance squared; a source twice as far appears one quarter as bright. Sources: https://www.astronomynotes.com/starprop/s3.htm, https://courses.ems.psu.edu/astro801/content/l4_p4.html
 
 ```sh
 npm run verify:record -- fact.astronomy.brightness_inverse_square source.brit_luminosity --status verified --by "Your Name" --quote "…"
@@ -1396,6 +1421,7 @@ npm run verify:record -- fact.astronomy.brightness_inverse_square source.brit_lu
   - L84 “The Local Group” · `card.astronomy.084.c3` (text): Our satellites / The Large and Small Magellanic Clouds are small galaxies orbiting the Milky Way. From the Southern Hemisphere they’re visible to the naked eye as two faint, cloudy patches of light.
 - **Tested by:**
   - L84 `question.astronomy.084.q3`: From Level 81: what type of galaxy are the Magellanic Clouds? → **Irregular**
+- **Fact-check (2026-09-24):** corroborated. Britannica-style summaries call both Magellanic Clouds irregular galaxies; the LMC is sometimes typed as a Magellanic (barred) spiral, but irregular is standard. Sources: https://en.wikipedia.org/wiki/Barred_irregular_galaxy, https://www.britannica.com/topic/Magellanic-Cloud
 
 ```sh
 npm run verify:record -- fact.astronomy.irregular_galaxies source.brit_magellanic --status verified --by "Your Name" --quote "…"
@@ -1411,6 +1437,7 @@ npm run verify:record -- fact.astronomy.irregular_galaxies source.brit_magellani
 - **Tested by:**
   - L84 `question.astronomy.084.q2`: Where can you see the Magellanic Clouds with the naked eye? → **From the Southern Hemisphere**
   - L84 `question.astronomy.084.q3`: From Level 81: what type of galaxy are the Magellanic Clouds? → **Irregular**
+- **Fact-check (2026-09-24):** corroborated. The LMC and SMC are dwarf satellite galaxies of the Milky Way, visible to the naked eye from the Southern Hemisphere (possibly on a first passage). Sources: https://www.britannica.com/topic/Magellanic-Cloud, https://aasnova.org/2018/05/18/history-of-the-magellanic-clouds/
 
 ```sh
 npm run verify:record -- fact.astronomy.magellanic_satellites source.brit_magellanic --status verified --by "Your Name" --quote "…"
@@ -1432,6 +1459,7 @@ npm run verify:record -- fact.astronomy.magellanic_satellites source.brit_magell
   - L70 “Checkpoint: The Lives of Stars” · `card.astronomy.070.c3` (timeline): A Sun-like star’s life: Birth: Collapses from a cloud of gas and dust; Main sequence: Fuses hydrogen for billions of years; Red giant: Core runs low on hydrogen; outer layers swell; The end: Sheds a planetary nebula; a white dwarf remains
 - **Tested by:**
   - L64 `question.astronomy.064.q1`: What is a main-sequence star doing in its core? → **Fusing hydrogen into helium**
+- **Fact-check (2026-09-24):** corroborated. Main-sequence stars fuse hydrogen into helium in their cores, and stars spend about 90% of their lives in this stage. Sources: https://www.space.com/22437-main-sequence-star.html, https://courses.lumenlearning.com/suny-astronomy/chapter/evolution-from-the-main-sequence-to-red-giants/
 
 ```sh
 npm run verify:record -- fact.astronomy.main_sequence_fusion source.brit_main_sequence --status verified --by "Your Name" --quote "…"
@@ -1542,6 +1570,7 @@ npm run verify:record -- fact.astronomy.gravity_universal source.brit_newton --s
   - L27 `question.astronomy.027.q3`: From Level 17: what connects Newton’s law to the ocean tides? → **The Moon’s gravity pulls on Earth’s oceans**
   - L30 `question.astronomy.030.q5`: Chapter 3 recap: what put the final piece in place for why the planets move as they do? → **Newton’s gravity explaining Kepler’s laws**
   - L37 `question.astronomy.037.q3`: From Level 27: which force makes a spacecraft fall around Earth in orbit? → **Earth’s gravity**
+- **Fact-check (2026-09-24):** corroborated. Newton showed that Kepler's laws follow mathematically from his inverse-square law of gravitation and laws of motion. Sources: http://galileo.phys.virginia.edu/classes/152.mf1i.spring02/KeplersLaws.htm, https://en.wikipedia.org/wiki/Kepler's_laws_of_planetary_motion
 
 ```sh
 npm run verify:record -- fact.astronomy.newton_explains_kepler source.brit_newton --status verified --by "Your Name" --quote "…"
@@ -1560,6 +1589,7 @@ npm run verify:record -- fact.astronomy.newton_explains_kepler source.brit_newto
   - L29 `question.astronomy.029.q3`: From Level 27: which law did Le Verrier use to predict Neptune’s position? → **Newton’s law of universal gravitation**
   - L62 `question.astronomy.062.q3`: From Level 27: which other effect weakens with the square of distance, just like starlight? → **Gravity**
   - L65 `question.astronomy.065.q3`: From Level 27: which law lets astronomers turn a binary star’s orbit into a mass? → **Newton’s law of universal gravitation**
+- **Fact-check (2026-09-24):** corroborated. Newton published his law of universal gravitation in the Philosophiae Naturalis Principia Mathematica in 1687. Sources: https://www.encyclopedia.com/science/encyclopedias-almanacs-transcripts-and-maps/newtons-law-universal-gravitation, https://www.loc.gov/static/collections/finding-our-place-in-the-cosmos-with-carl-sagan/articles-and-essays/modeling-the-cosmos/physical-astronomy-for-the-mechanistic-universe.html
 
 ```sh
 npm run verify:record -- fact.astronomy.newton_principia source.brit_newton --status verified --by "Your Name" --quote "…"
@@ -1585,6 +1615,7 @@ npm run verify:record -- fact.astronomy.newton_principia source.brit_newton --st
   - L69 `question.astronomy.069.q3`: From Level 32: how do astronomers know which elements a supernova blasted out? → **They read the spectral lines in its light**
   - L76 `question.astronomy.076.q3`: From Level 69: supernovae spread heavy elements. What other event, seen in 2017, forges elements like gold? → **Two neutron stars colliding**
   - L96 `question.astronomy.096.q3`: From Level 69: the iron in your blood was made inside stars. How did it reach the cloud that formed the solar system? → **Dying stars scattered it into space**
+- **Fact-check (2026-09-24):** corroborated. Elements up to iron form by fusion in stars; heavier ones in supernovae and neutron-star mergers (kilonova explosions). Some Li, Be, B come from cosmic-ray spallation, covered by 'nearly all'. Sources: https://public.nrao.edu/ask/how-are-elements-heavier-than-helium-formed/, https://www.energy.gov/science/doe-explainsnucleosynthesis
 
 ```sh
 npm run verify:record -- fact.astronomy.elements_in_stars source.brit_nucleosynthesis --status verified --by "Your Name" --quote "…"
@@ -1665,6 +1696,7 @@ npm run verify:record -- fact.astronomy.stars_form_dense_clouds source.brit_orio
 - **Tested by:**
   - L61 `question.astronomy.061.q2`: Star A shows a bigger parallax shift than Star B. What does that tell you? → **Star A is closer than Star B**
   - L61 `question.astronomy.061.q3`: From Level 30: Bessel measured stellar parallax in 1838. Why had no one managed it before? → **The shift is tiny, needing very precise telescopes**
+- **Fact-check (2026-09-24):** corroborated. Parallax is inversely proportional to distance (d in parsecs = 1/p in arcseconds), so closer stars show larger shifts. Sources: https://en.wikipedia.org/wiki/Parallax_in_astronomy, https://sci.esa.int/web/education/-/35616-stellar-distances
 
 ```sh
 npm run verify:record -- fact.astronomy.parallax_closer_bigger source.brit_parallax --status verified --by "Your Name" --quote "…"
@@ -1681,6 +1713,7 @@ npm run verify:record -- fact.astronomy.parallax_closer_bigger source.brit_paral
 - **Tested by:**
   - L61 `question.astronomy.061.q1`: What causes a nearby star’s parallax shift? → **Earth orbiting the Sun**
   - L70 `question.astronomy.070.q1`: What measures a nearby star’s distance directly? → **Its parallax shift**
+- **Fact-check (2026-09-24):** corroborated. Stellar parallax is the apparent shift of a nearby star against more distant stars as Earth moves around its orbit. Sources: https://www.britannica.com/science/stellar-parallax, https://en.wikipedia.org/wiki/Stellar_parallax
 
 ```sh
 npm run verify:record -- fact.astronomy.parallax_shift source.brit_parallax --status verified --by "Your Name" --quote "…"
@@ -1798,6 +1831,7 @@ npm run verify:record -- fact.astronomy.polynesian_wayfinding source.brit_polyne
   - L23 `question.astronomy.023.q1`: In Ptolemy’s model, what sat at the center of the universe? → **Earth**
   - L23 `question.astronomy.023.q3`: From Level 16: how did Ptolemy’s model explain retrograde motion? → **Planets riding epicycles as they circled Earth**
   - L24 `question.astronomy.024.q3`: From Level 23: what was one weakness Copernicus’s model shared with Ptolemy’s? → **It still assumed perfectly circular orbits**
+- **Fact-check (2026-09-24):** corroborated. Ptolemy placed each planet on an epicycle whose center moved on a deferent around Earth, producing retrograde loops. Sources: https://www.britannica.com/science/epicycle, https://en.wikipedia.org/wiki/Deferent_and_epicycle
 
 ```sh
 npm run verify:record -- fact.astronomy.epicycles source.brit_ptolemy --status verified --by "Your Name" --quote "…"
@@ -1810,6 +1844,7 @@ npm run verify:record -- fact.astronomy.epicycles source.brit_ptolemy --status v
 - **Concept:** The Earth-centered model (`concept.astronomy.geocentric_model`)
 - **Appears in:**
   - L23 “An Earth-Centered Universe” · `card.astronomy.023.c1` (text): For 1,400 years, scholars agreed: Earth sits still at the center. / It wasn’t a foolish idea. It fit what people could actually see.
+- **Fact-check (2026-09-24):** corroborated. Ptolemy's Almagest (2nd century CE) geocentric system remained dominant until after Copernicus (1543), roughly 1,400 years. Sources: https://www.teachastronomy.com/textbook/The-Copernican-Revolution/Ptolemy-and-the-Geocentric-Model/, https://oshermaps.org/special-map-exhibits/philosophy-religion-and-the-center-of-the-universe/ptolemy-vs-copernicus/
 
 ```sh
 npm run verify:record -- fact.astronomy.geocentric_lasted source.brit_ptolemy --status verified --by "Your Name" --quote "…"
@@ -1855,6 +1890,7 @@ npm run verify:record -- fact.astronomy.ptolemy_almagest source.brit_ptolemy --s
 - **Concept:** The Earth-centered model (`concept.astronomy.geocentric_model`)
 - **Appears in:**
   - L23 “An Earth-Centered Universe” · `card.astronomy.023.c3` (text): Why it made sense / You can’t feel Earth moving. And if Earth orbited the Sun, nearby stars should shift slightly over a year. Nobody could detect such a shift, called parallax, which seemed to prove Earth stood still. The model also predicted planet positions well enough to be useful.
+- **Fact-check (2026-09-24):** corroborated. Ptolemy's Almagest predicted planetary positions to within about a degree or two and remained the standard astronomy text for about 1,400 years. Sources: https://www.aip.org/library/initial-conditions-episode-11-the-legacy-of-ptolemys-almagest-1742381776081, https://mathshistory.st-andrews.ac.uk/Biographies/Ptolemy/
 
 ```sh
 npm run verify:record -- fact.astronomy.ptolemy_predictions source.brit_ptolemy --status verified --by "Your Name" --quote "…"
@@ -1909,6 +1945,7 @@ npm run verify:record -- fact.astronomy.pulsar_1967 source.brit_pulsar --status 
 - **Tested by:**
   - L72 `question.astronomy.072.q1`: What is a pulsar? → **A spinning neutron star whose beam sweeps past Earth**
   - L72 `question.astronomy.072.q2`: Why do we see a pulsar as a series of regular pulses? → **Its beam sweeps past Earth once each rotation**
+- **Fact-check (2026-09-24):** corroborated. Millisecond pulsars spin hundreds of times per second; the fastest known, PSR J1748-2446ad, rotates 716 times per second. Sources: https://www.science.org/doi/10.1126/science.1123430, https://en.wikipedia.org/wiki/Millisecond_pulsar
 
 ```sh
 npm run verify:record -- fact.astronomy.pulsar_fast source.brit_pulsar --status verified --by "Your Name" --quote "…"
@@ -1925,6 +1962,7 @@ npm run verify:record -- fact.astronomy.pulsar_fast source.brit_pulsar --status 
 - **Tested by:**
   - L72 `question.astronomy.072.q1`: What is a pulsar? → **A spinning neutron star whose beam sweeps past Earth**
   - L72 `question.astronomy.072.q2`: Why do we see a pulsar as a series of regular pulses? → **Its beam sweeps past Earth once each rotation**
+- **Fact-check (2026-09-24):** corroborated. A pulsar is a rotating magnetized neutron star emitting beams (typically radio) that sweep past Earth like a lighthouse. Sources: https://public.nrao.edu/radio-astronomy/pulsars/
 
 ```sh
 npm run verify:record -- fact.astronomy.pulsar_lighthouse source.brit_pulsar --status verified --by "Your Name" --quote "…"
@@ -1991,6 +2029,7 @@ npm run verify:record -- fact.astronomy.quasars_far source.brit_quasar --status 
 - **Tested by:**
   - L87 `question.astronomy.087.q1`: What powers a quasar? → **Gas heating up as it spirals toward a supermassive black hole**
   - L87 `question.astronomy.087.q3`: From Level 75: our galaxy has Sagittarius A*. Why isn’t the Milky Way a quasar? → **Sagittarius A* isn’t pulling in large amounts of gas right now**
+- **Fact-check (2026-09-24):** corroborated. NASA: supermassive black holes lurk in the centers of most big galaxies (smaller galaxies often lack them). Sources: https://science.nasa.gov/missions/hubble/massive-black-holes-dwell-in-most-galaxies-according-to-hubble-census/, https://www.psu.edu/news/eberly-college-science/story/small-galaxies-often-lack-supermassive-black-hole-cores
 
 ```sh
 npm run verify:record -- fact.astronomy.smbh_every_galaxy source.brit_quasar --status verified --by "Your Name" --quote "…"
@@ -2014,6 +2053,7 @@ npm run verify:record -- fact.astronomy.smbh_every_galaxy source.brit_quasar --s
   - L67 `question.astronomy.067.q2`: What happens to a Sun-like star when its core runs low on hydrogen? → **Its core contracts while its outer layers swell into a red giant**
   - L67 `question.astronomy.067.q3`: From Level 63: where on the H–R diagram would the Sun move as it becomes a red giant? → **Up and to the right: cooler but more luminous**
   - L70 `question.astronomy.070.q5`: Chapter 7 recap: which order follows a Sun-like star through its life? → **Cloud of gas → main sequence → red giant → white dwarf**
+- **Fact-check (2026-09-24):** corroborated. When core hydrogen is exhausted the core contracts and heats, shell hydrogen fusion begins, and the outer layers expand into a red giant. Sources: https://courses.lumenlearning.com/suny-astronomy/chapter/evolution-from-the-main-sequence-to-red-giants/, https://esahubble.org/wordbank/red-giant/
 
 ```sh
 npm run verify:record -- fact.astronomy.red_giant_swell source.brit_red_giant --status verified --by "Your Name" --quote "…"
@@ -2039,6 +2079,7 @@ npm run verify:record -- fact.astronomy.red_giant_swell source.brit_red_giant --
   - L89 `question.astronomy.089.q2`: Galaxy X’s spectral lines are shifted much farther toward the red than galaxy Y’s. What can you conclude? → **X is probably farther away than Y**
   - L89 `question.astronomy.089.q3`: From Level 32: why are spectral lines so useful for measuring redshift? → **Each element’s lines have known wavelengths**
   - L90 `question.astronomy.090.q4`: A faraway galaxy shows a very large redshift. What does that tell you? → **It is very far away and receding fast**
+- **Fact-check (2026-09-24):** corroborated. Redshift is the displacement of an object's spectrum toward longer (redder) wavelengths; light is stretched and spectral lines appear at longer wavelengths than expected. Sources: https://www.britannica.com/science/redshift, https://www.esa.int/Science_Exploration/Space_Science/What_is_red_shift
 
 ```sh
 npm run verify:record -- fact.astronomy.redshift_def source.brit_redshift --status verified --by "Your Name" --quote "…"
@@ -2058,6 +2099,7 @@ npm run verify:record -- fact.astronomy.redshift_def source.brit_redshift --stat
   - L89 `question.astronomy.089.q2`: Galaxy X’s spectral lines are shifted much farther toward the red than galaxy Y’s. What can you conclude? → **X is probably farther away than Y**
   - L89 `question.astronomy.089.q3`: From Level 32: why are spectral lines so useful for measuring redshift? → **Each element’s lines have known wavelengths**
   - L90 `question.astronomy.090.q4`: A faraway galaxy shows a very large redshift. What does that tell you? → **It is very far away and receding fast**
+- **Fact-check (2026-09-24):** corroborated. Hubble's law: the greater a galaxy's distance, the greater its redshift (recession speed proportional to distance). Sources: https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/hubble-cosmological-redshift/, https://www.britannica.com/science/Hubbles-law
 
 ```sh
 npm run verify:record -- fact.astronomy.redshift_distance source.brit_redshift --status verified --by "Your Name" --quote "…"
@@ -2074,6 +2116,7 @@ npm run verify:record -- fact.astronomy.redshift_distance source.brit_redshift -
 - **Tested by:**
   - L89 `question.astronomy.089.q1`: What is redshift? → **Light stretched to longer, redder wavelengths**
   - L92 `question.astronomy.092.q2`: Why does the CMB reach us as microwaves rather than visible light? → **Expanding space stretched its wavelengths**
+- **Fact-check (2026-09-24):** corroborated. Cosmological redshift: light traveling through expanding space is stretched to longer, redder wavelengths; more distant galaxies show larger redshifts. Sources: https://www.skyatnightmagazine.com/space-science/redshift, https://astronomy.swin.edu.au/cosmos/c/cosmological+redshift
 
 ```sh
 npm run verify:record -- fact.astronomy.stretched_by_expansion source.brit_redshift --status verified --by "Your Name" --quote "…"
@@ -2116,6 +2159,7 @@ npm run verify:record -- fact.astronomy.egypt_sirius_nile source.brit_sirius --s
 - **Tested by:**
   - L65 `question.astronomy.065.q1`: How many stars are in the Alpha Centauri system? → **Three**
   - L68 `question.astronomy.068.q3`: From Level 65: which famous star has a white dwarf as its companion? → **Sirius, the brightest star in the night sky**
+- **Fact-check (2026-09-24):** corroborated. Sirius B is a white dwarf companion about 10,000 times fainter than Sirius A. Sources: https://en.wikipedia.org/wiki/Sirius_B, https://www.esa.int/Science_Exploration/Space_Science/Weighing_the_Dog_Star_s_companion
 
 ```sh
 npm run verify:record -- fact.astronomy.sirius_b source.brit_sirius_star --status verified --by "Your Name" --quote "…"
@@ -2164,6 +2208,7 @@ npm run verify:record -- fact.astronomy.carrington_1859 source.brit_solar_flare 
   - L58 “Solar Storms and Auroras” · `card.astronomy.058.c2` (text): Wind and storms / The Sun constantly blows a stream of charged particles into space: the solar wind. Sometimes it erupts. Solar flares are sudden bursts of radiation, and coronal mass ejections hurl huge clouds of charged particles into space. / Solar wind · flares · CMEs
 - **Tested by:**
   - L58 `question.astronomy.058.q1`: What is the solar wind? → **A stream of charged particles from the Sun**
+- **Fact-check (2026-09-24):** corroborated. NASA: a flare is an intense burst of radiation; a CME is a huge cloud of charged plasma ejected from the Sun. Sources: https://science.nasa.gov/sun/solar-storms-and-flares/, https://www.esa.int/Science_Exploration/Space_Science/What_are_solar_flares
 
 ```sh
 npm run verify:record -- fact.astronomy.flares_cmes source.brit_solar_flare --status verified --by "Your Name" --quote "…"
@@ -2181,6 +2226,7 @@ npm run verify:record -- fact.astronomy.flares_cmes source.brit_solar_flare --st
   - L58 `question.astronomy.058.q2`: Why are auroras usually seen near the poles? → **Earth’s magnetic field steers solar particles toward the poles**
   - L58 `question.astronomy.058.q3`: From Level 43: what would happen to more of the solar wind’s particles without Earth’s magnetic field? → **They would reach Earth’s atmosphere directly**
   - L60 `question.astronomy.060.q4`: What do auroras on Earth have to do with the Sun? → **Solar particles striking the upper air near the poles**
+- **Fact-check (2026-09-24):** corroborated. NOAA: solar flares, CMEs and geomagnetic storms can cause radio blackouts, damage satellites and disrupt power grids. Sources: https://www.spaceweather.gov/impacts, https://www.nesdis.noaa.gov/our-environment/space-weather/the-effects-of-space-weather-earth
 
 ```sh
 npm run verify:record -- fact.astronomy.space_weather_tech source.brit_solar_flare --status verified --by "Your Name" --quote "…"
@@ -2202,6 +2248,7 @@ npm run verify:record -- fact.astronomy.space_weather_tech source.brit_solar_fla
 - **Tested by:**
   - L59 `question.astronomy.059.q1`: What did the solar system form from? → **A collapsing cloud of gas and dust**
   - L59 `question.astronomy.059.q3`: From Level 15: the planets all lie near the ecliptic. What does the formation story say about why? → **They formed from one flat, spinning disk**
+- **Fact-check (2026-09-24):** corroborated. The collapsing solar nebula spun faster and flattened into a disk with the Sun at the center, which is why planetary orbits lie nearly in one plane. Sources: https://openstax.org/books/astronomy-2e/pages/14-3-formation-of-the-solar-system
 
 ```sh
 npm run verify:record -- fact.astronomy.disk_flattened source.brit_solar_system_origin --status verified --by "Your Name" --quote "…"
@@ -2216,6 +2263,7 @@ npm run verify:record -- fact.astronomy.disk_flattened source.brit_solar_system_
   - L59 “How the Solar System Formed” · `card.astronomy.059.c3` (text): The frost line / Close to the young Sun it was too hot for ices to form, so only rock and metal could clump into planets: small, rocky worlds. Farther out, beyond the frost line, ices could condense too. With far more material to build from, the giant planets grew huge. / Inside: rock · Outside: rock + ice
 - **Tested by:**
   - L59 `question.astronomy.059.q2`: Why are the inner planets rocky and the outer planets giants? → **Beyond the frost line, ices could form too, giving giants more to build with**
+- **Fact-check (2026-09-24):** corroborated. Inside the frost line it was too hot for ices, so only metals and silicates condensed into rocky planets; beyond it abundant ices let cores grow large enough to capture gas. Sources: https://www.astronomy.ohio-state.edu/pogge.1/Ast161/Unit6/origin.html, https://lasp.colorado.edu/outerplanets/solsys_planets.php
 
 ```sh
 npm run verify:record -- fact.astronomy.frost_line source.brit_solar_system_origin --status verified --by "Your Name" --quote "…"
@@ -2233,6 +2281,7 @@ npm run verify:record -- fact.astronomy.frost_line source.brit_solar_system_orig
 - **Tested by:**
   - L59 `question.astronomy.059.q1`: What did the solar system form from? → **A collapsing cloud of gas and dust**
   - L59 `question.astronomy.059.q3`: From Level 15: the planets all lie near the ecliptic. What does the formation story say about why? → **They formed from one flat, spinning disk**
+- **Fact-check (2026-09-24):** corroborated. The Sun and planets formed together about 4.6 billion years ago from a cloud of gas and dust (solar nebula) that contracted under its own gravity. Sources: https://www.amnh.org/exhibitions/permanent/the-universe/planets/formation-of-our-solar-system, https://www.nhm.ac.uk/discover/how-our-solar-system-was-born.html
 
 ```sh
 npm run verify:record -- fact.astronomy.nebula_collapse source.brit_solar_system_origin --status verified --by "Your Name" --quote "…"
@@ -2254,6 +2303,7 @@ npm run verify:record -- fact.astronomy.nebula_collapse source.brit_solar_system
 - **Tested by:**
   - L60 `question.astronomy.060.q1`: What is the heliosphere? → **The bubble the solar wind blows around the Sun and planets**
   - L60 `question.astronomy.060.q3`: Voyager 1 has left the heliosphere. Has it left the solar system? → **Not by the Sun’s gravity: the Oort Cloud lies far beyond**
+- **Fact-check (2026-09-24):** corroborated. NASA: the solar wind creates a bubble around the planets called the heliosphere. Sources: https://science.nasa.gov/heliophysics/focus-areas/heliosphere/
 
 ```sh
 npm run verify:record -- fact.astronomy.heliosphere_bubble source.brit_solar_wind --status verified --by "Your Name" --quote "…"
@@ -2269,6 +2319,7 @@ npm run verify:record -- fact.astronomy.heliosphere_bubble source.brit_solar_win
   - L58 “Solar Storms and Auroras” · `card.astronomy.058.c2` (text): Wind and storms / The Sun constantly blows a stream of charged particles into space: the solar wind. Sometimes it erupts. Solar flares are sudden bursts of radiation, and coronal mass ejections hurl huge clouds of charged particles into space. / Solar wind · flares · CMEs
 - **Tested by:**
   - L58 `question.astronomy.058.q1`: What is the solar wind? → **A stream of charged particles from the Sun**
+- **Fact-check (2026-09-24):** corroborated. NASA: the Sun releases a constant stream of charged particles (plasma of mainly protons and electrons) called the solar wind. Sources: https://science.nasa.gov/sun/what-is-the-solar-wind/, https://www.nasa.gov/solar-system/swept-up-in-the-solar-wind/
 
 ```sh
 npm run verify:record -- fact.astronomy.solar_wind source.brit_solar_wind --status verified --by "Your Name" --quote "…"
@@ -2294,6 +2345,7 @@ npm run verify:record -- fact.astronomy.solar_wind source.brit_solar_wind --stat
   - L69 `question.astronomy.069.q3`: From Level 32: how do astronomers know which elements a supernova blasted out? → **They read the spectral lines in its light**
   - L77 `question.astronomy.077.q3`: From Level 32: how do spectra help find planets with the wobble method? → **The star’s spectral lines shift as it wobbles**
   - L89 `question.astronomy.089.q3`: From Level 32: why are spectral lines so useful for measuring redshift? → **Each element’s lines have known wavelengths**
+- **Fact-check (2026-09-24):** corroborated. Each element's electron energy levels are unique, so it absorbs and emits at a characteristic set of wavelengths (spectral lines), used as atomic fingerprints. Sources: https://www.sas.upenn.edu/~rachelmr/speclines2.htm, https://scienceinsights.org/what-are-spectral-lines-emission-absorption-more/
 
 ```sh
 npm run verify:record -- fact.astronomy.element_lines source.brit_spectroscopy --status verified --by "Your Name" --quote "…"
@@ -2331,6 +2383,7 @@ npm run verify:record -- fact.astronomy.spectra_composition source.brit_spectros
   - L32 `question.astronomy.032.q2`: How can astronomers tell which elements are in a distant star? → **By matching the lines in its spectrum to known elements**
   - L32 `question.astronomy.032.q3`: From Level 2: why does it make sense that stars are mostly hydrogen and helium? → **Stars fuse hydrogen into helium in their cores**
   - L91 `question.astronomy.091.q3`: From Level 32: stars are made mostly of hydrogen and helium. Where did those elements first come from? → **The first minutes after the Big Bang**
+- **Fact-check (2026-09-24):** corroborated. Cecilia Payne's 1925 analysis of stellar spectra showed stars are composed overwhelmingly of hydrogen and helium. Sources: https://www.amnh.org/learn-teach/curriculum-collections/cosmic-horizons-book/cecilia-payne-profile, https://en.wikipedia.org/wiki/Cecilia_Payne-Gaposchkin
 
 ```sh
 npm run verify:record -- fact.astronomy.stars_mostly_h_he source.brit_spectroscopy --status verified --by "Your Name" --quote "…"
@@ -2351,6 +2404,7 @@ npm run verify:record -- fact.astronomy.stars_mostly_h_he source.brit_spectrosco
   - L21 “The First Sky-Watchers” · `card.astronomy.021.c2` (text): Calendars in stone and stars / Stonehenge in England lines up with the midsummer sunrise and the midwinter sunset. In ancient Egypt, the first dawn appearance of the star Sirius each year was linked with the Nile’s annual flood, which made the farmland fertile.
 - **Tested by:**
   - L21 `question.astronomy.021.q1`: What is Stonehenge aligned with? → **The midsummer sunrise and midwinter sunset**
+- **Fact-check (2026-09-24):** corroborated. English Heritage: Stonehenge is aligned on the midsummer sunrise and midwinter sunset axis. Sources: https://www.english-heritage.org.uk/visit/places/stonehenge/history-and-stories/understanding-stonehenge/, https://www.britishmuseum.org/blog/here-comes-sun-stonehenge-and-summer-solstice
 
 ```sh
 npm run verify:record -- fact.astronomy.stonehenge_solstice source.brit_stonehenge --status verified --by "Your Name" --quote "…"
@@ -2394,6 +2448,7 @@ npm run verify:record -- fact.astronomy.sun_brightening source.brit_sun --status
   - L57 “Sunspots and the Solar Cycle” · `card.astronomy.057.c4` (fact): Galileo watched sunspots too. / In the early 1600s he was among the first to observe them through a telescope, and used their motion to show that the Sun rotates.
 - **Tested by:**
   - L57 `question.astronomy.057.q3`: From Level 25: besides Jupiter’s moons and Venus’s phases, what else did Galileo observe with his telescope? → **Sunspots, and the Sun’s rotation**
+- **Fact-check (2026-09-24):** corroborated. Harriot (Dec 1610), Fabricius, Scheiner and Galileo independently observed sunspots by telescope around 1610 to 1612; Galileo is rightly counted among the first. Sources: https://en.wikipedia.org/wiki/Solar_observation, https://thonyc.wordpress.com/2011/01/08/spotting-the-spots/
 
 ```sh
 npm run verify:record -- fact.astronomy.galileo_sunspots source.brit_sunspot --status verified --by "Your Name" --quote "…"
@@ -2424,6 +2479,7 @@ npm run verify:record -- fact.astronomy.solar_cycle_11 source.brit_sunspot --sta
   - L57 “Sunspots and the Solar Cycle” · `card.astronomy.057.c3` (text): An 11-year rhythm / The number of sunspots rises and falls over a solar cycle that lasts about 11 years. At solar maximum the Sun is spotty and active; at solar minimum it can go days with no spots at all.
 - **Tested by:**
   - L57 `question.astronomy.057.q1`: About how long is the solar cycle? → **About 11 years**
+- **Fact-check (2026-09-24):** corroborated. Spotless days are common near solar minimum; runs of 23 to 28 consecutive spotless days occurred in 2018 and 2020. Sources: https://www.sidc.be/SILSO/spotless, https://science.nasa.gov/photojournal/spotless-days/
 
 ```sh
 npm run verify:record -- fact.astronomy.solar_min_no_spots source.brit_sunspot --status verified --by "Your Name" --quote "…"
@@ -2472,6 +2528,7 @@ npm run verify:record -- fact.astronomy.sunspots_cooler source.brit_sunspot --st
   - L69 “Supernovae and Star Stuff” · `card.astronomy.069.c2` (text): Going out with a bang / Stars more than about eight times as massive as the Sun end their lives when their cores collapse. The collapse triggers a supernova, an explosion that can briefly outshine an entire galaxy. / Over ~8 Suns → core collapse
 - **Tested by:**
   - L69 `question.astronomy.069.q1`: Which stars end their lives in core-collapse supernovae? → **Stars more than about eight times the Sun’s mass**
+- **Fact-check (2026-09-24):** corroborated. Stars above about 8 solar masses build iron cores that collapse, producing core-collapse supernovae (some of the most massive may collapse with little visible explosion). Sources: https://lco.global/spacebook/stars/supernova/, https://www.pnas.org/doi/10.1073/pnas.1920319116
 
 ```sh
 npm run verify:record -- fact.astronomy.core_collapse source.brit_supernova --status verified --by "Your Name" --quote "…"
@@ -2565,6 +2622,7 @@ npm run verify:record -- fact.astronomy.largest_telescopes source.brit_telescope
   - L33 “How Telescopes Work” · `card.astronomy.033.c2` (text): Lenses or mirrors / Refracting telescopes, like Galileo’s, gather light with lenses. Reflecting telescopes gather it with curved mirrors. Isaac Newton built the first practical reflector in 1668. / Refractor = lens · Reflector = mirror
 - **Tested by:**
   - L33 `question.astronomy.033.q1`: What does a reflecting telescope use to gather light? → **A curved mirror**
+- **Fact-check (2026-09-24):** corroborated. Sources state that in 1668 Newton built the first practical reflecting telescope, the Newtonian reflector. Sources: https://en.wikipedia.org/wiki/Newton's_reflector, https://www.britannica.com/science/reflecting-telescope
 
 ```sh
 npm run verify:record -- fact.astronomy.newton_reflector source.brit_telescope --status verified --by "Your Name" --quote "…"
@@ -2579,6 +2637,7 @@ npm run verify:record -- fact.astronomy.newton_reflector source.brit_telescope -
   - L33 “How Telescopes Work” · `card.astronomy.033.c2` (text): Lenses or mirrors / Refracting telescopes, like Galileo’s, gather light with lenses. Reflecting telescopes gather it with curved mirrors. Isaac Newton built the first practical reflector in 1668. / Refractor = lens · Reflector = mirror
 - **Tested by:**
   - L33 `question.astronomy.033.q1`: What does a reflecting telescope use to gather light? → **A curved mirror**
+- **Fact-check (2026-09-24):** corroborated. Refracting telescopes use lenses as the main light-gathering element; reflecting telescopes use curved mirrors. Sources: https://spaceplace.nasa.gov/telescopes/en/
 
 ```sh
 npm run verify:record -- fact.astronomy.refractor_reflector source.brit_telescope --status verified --by "Your Name" --quote "…"
@@ -2613,6 +2672,7 @@ npm run verify:record -- fact.astronomy.segmented_mirrors source.brit_telescope 
   - L26 `question.astronomy.026.q1`: What shape did Kepler find planetary orbits to be? → **Ellipses**
   - L30 `question.astronomy.030.q2`: What did Kepler discover about the shape of orbits? → **They are ellipses**
   - L30 `question.astronomy.030.q5`: Chapter 3 recap: what put the final piece in place for why the planets move as they do? → **Newton’s gravity explaining Kepler’s laws**
+- **Fact-check (2026-09-24):** corroborated. Kepler derived his laws from Tycho Brahe's precise pre-telescope observations, especially of Mars. Sources: https://earthobservatory.nasa.gov/features/OrbitsHistory/page2.php, https://science.nasa.gov/resource/orbits-and-keplers-laws/
 
 ```sh
 npm run verify:record -- fact.astronomy.kepler_tycho_data source.brit_tycho --status verified --by "Your Name" --quote "…"
@@ -2780,6 +2840,7 @@ npm run verify:record -- fact.astronomy.most_stars_white_dwarfs source.brit_whit
 - **Tested by:**
   - L68 `question.astronomy.068.q2`: Why does a white dwarf slowly get dimmer? → **It no longer fuses, so it just cools off**
   - L68 `question.astronomy.068.q3`: From Level 65: which famous star has a white dwarf as its companion? → **Sirius, the brightest star in the night sky**
+- **Fact-check (2026-09-24):** corroborated. White dwarfs have exhausted fusion and shine by residual heat, cooling over billions of years toward theoretical black dwarfs. Sources: https://www.britannica.com/science/white-dwarf-star, https://www.nationalgeographic.com/science/article/white-dwarfs
 
 ```sh
 npm run verify:record -- fact.astronomy.white_dwarf_cools source.brit_white_dwarf --status verified --by "Your Name" --quote "…"
@@ -2818,6 +2879,7 @@ npm run verify:record -- fact.astronomy.white_dwarf_dense source.brit_white_dwar
   - L68 `question.astronomy.068.q1`: How big is a typical white dwarf? → **About the size of Earth**
   - L70 `question.astronomy.070.q2`: How will a Sun-like star end its life? → **As a white dwarf**
   - L71 `question.astronomy.071.q3`: From Level 68: a white dwarf teaspoon weighs several tons. How does a neutron star compare? → **A teaspoon weighs billions of tons**
+- **Fact-check (2026-09-24):** corroborated. A typical white dwarf has about the Sun's mass in an Earth-sized volume; it is the remnant core left after a Sun-like star sheds its outer layers. Sources: https://www.britannica.com/science/white-dwarf-star, https://www.space.com/23756-white-dwarf-stars.html
 
 ```sh
 npm run verify:record -- fact.astronomy.white_dwarf_size source.brit_white_dwarf --status verified --by "Your Name" --quote "…"
@@ -2876,6 +2938,7 @@ npm run verify:record -- fact.astronomy.eht_2019 source.eht --status verified --
 - **Tested by:**
   - L74 `question.astronomy.074.q2`: Why did the Event Horizon Telescope link dishes all around the world? → **To act like one Earth-sized telescope that sees fine detail**
   - L74 `question.astronomy.074.q3`: From Level 35: the Event Horizon Telescope is a supersized version of which radio-astronomy technique? → **Linking dishes into an array**
+- **Fact-check (2026-09-24):** corroborated. The EHT uses very long baseline interferometry to link radio dishes across the globe into a virtual Earth-sized telescope. Sources: https://iram-institute.org/about/the-event-horizon-telescope/, https://www.space.com/event-horizon-telescope.html
 
 ```sh
 npm run verify:record -- fact.astronomy.eht_network source.eht --status verified --by "Your Name" --quote "…"
@@ -2939,6 +3002,7 @@ npm run verify:record -- fact.astronomy.sgr_a_image_2022 source.eht --status ver
 - **Concept:** Measuring star distances with parallax (`concept.astronomy.parallax_method`)
 - **Appears in:**
   - L61 “Parallax: Measuring the Stars” · `card.astronomy.061.c4` (fact): The Gaia spacecraft has measured more than a billion stars. / This European Space Agency mission has mapped the positions and distances of stars across our galaxy using parallax.
+- **Fact-check (2026-09-24):** corroborated. Gaia DR3 gives positions for about 1.8 billion sources and parallaxes (distances) for about 1.46 to 1.47 billion stars. Sources: https://www.cosmos.esa.int/web/gaia/dr3, https://arxiv.org/pdf/2012.05220
 
 ```sh
 npm run verify:record -- fact.astronomy.gaia_billion source.esa_gaia --status verified --by "Your Name" --quote "…"
@@ -2974,6 +3038,7 @@ npm run verify:record -- fact.astronomy.big_dipper_asterism source.iau_constella
 - **Tested by:**
   - L13 `question.astronomy.013.q1`: How many official constellations are there? → **88**
   - L100 `question.astronomy.100.q1`: A friend calls the Big Dipper one of the official constellations. What’s the best correction? → **It’s an asterism, part of Ursa Major**
+- **Fact-check (2026-09-24):** corroborated. The IAU's 88 constellations have official boundaries (adopted 1928, published 1930) that together cover the entire sky without gaps. Sources: https://en.wikipedia.org/wiki/IAU_designated_constellations, https://en.wikipedia.org/wiki/Constellation
 
 ```sh
 npm run verify:record -- fact.astronomy.constellation_regions source.iau_constellations --status verified --by "Your Name" --quote "…"
@@ -3022,6 +3087,7 @@ npm run verify:record -- fact.astronomy.zodiac_band source.iau_constellations --
 - **Concept:** Dwarf planets and Pluto (`concept.astronomy.dwarf_planets`)
 - **Appears in:**
   - L51 “Pluto and the Dwarf Planets” · `card.astronomy.051.c3` (text): Five dwarf planets / The IAU recognizes five dwarf planets: Ceres, Pluto, Eris, Haumea and Makemake. Pluto itself was discovered in 1930 by Clyde Tombaugh.
+- **Fact-check (2026-09-24):** corroborated. The IAU currently recognizes five dwarf planets: Ceres, Pluto, Eris, Haumea and Makemake. Sources: https://www.planetary.org/articles/meet-the-dwarf-planets, https://www.britannica.com/list/our-5-dwarf-planets
 
 ```sh
 npm run verify:record -- fact.astronomy.five_dwarf_planets source.iau_pluto --status verified --by "Your Name" --quote "…"
@@ -3194,6 +3260,7 @@ npm run verify:record -- fact.astronomy.apollo17_last source.nasa_apollo_program
   - L39 “Humans on the Moon” · `card.astronomy.039.c2` (text): One small step / On July 20, 1969, Apollo 11 astronauts Neil Armstrong and Buzz Aldrin became the first people to walk on the Moon. Between 1969 and 1972, six Apollo landings put twelve astronauts on its surface. / Apollo 11 · July 20, 1969
 - **Tested by:**
   - L39 `question.astronomy.039.q1`: Who were the first two people to walk on the Moon? → **Neil Armstrong and Buzz Aldrin**
+- **Fact-check (2026-09-24):** corroborated. Twelve astronauts walked on the Moon on Apollo 11, 12, 14, 15, 16 and 17, from July 1969 to December 1972. Sources: https://www.rmg.co.uk/stories/space-astronomy/how-many-people-have-walked-on-moon, https://www.nasa.gov/the-apollo-program/
 
 ```sh
 npm run verify:record -- fact.astronomy.twelve_moonwalkers source.nasa_apollo_program --status verified --by "Your Name" --quote "…"
@@ -3252,6 +3319,7 @@ npm run verify:record -- fact.astronomy.asteroid_composition source.nasa_asteroi
 - **Appears in:**
   - L45 “The Asteroid Belt” · `card.astronomy.045.c1` (text): The asteroid belt isn’t like the movies. It’s mostly empty.
   - L45 “The Asteroid Belt” · `card.astronomy.045.c3` (text): Less than a Moon / All the asteroids in the main belt together have less mass than Earth’s Moon. They’re spread across such a vast space that spacecraft have crossed the belt without hitting anything.
+- **Fact-check (2026-09-24):** corroborated. Asteroids are on average hundreds of thousands of km apart; Pioneer 10, Voyagers, Cassini, New Horizons, Juno and others crossed the belt without collisions. Sources: https://www.astronomy.com/science/how-do-spacecraft-safely-navigate-the-asteroid-belt/, https://www.skyatnightmagazine.com/space-missions/spaceship-flying-through-asteroid-belt
 
 ```sh
 npm run verify:record -- fact.astronomy.belt_empty source.nasa_asteroids --status verified --by "Your Name" --quote "…"
@@ -3270,6 +3338,7 @@ npm run verify:record -- fact.astronomy.belt_empty source.nasa_asteroids --statu
   - L45 `question.astronomy.045.q3`: From Level 4: Jupiter outweighs all the other planets combined. How does that connect to the asteroid belt? → **Its huge gravity kept the belt’s material from forming a planet**
   - L52 `question.astronomy.052.q2`: What is the biggest difference between the Kuiper Belt and the asteroid belt? → **The Kuiper Belt is mostly ice; the asteroid belt is mostly rock**
   - L60 `question.astronomy.060.q5`: Chapter 6 recap: which list goes from nearest to farthest from the Sun? → **Asteroid belt → Kuiper Belt → Oort Cloud**
+- **Fact-check (2026-09-24):** corroborated. Jupiter's gravity stirred the belt so collisions were destructive, preventing accretion into a planet. Sources: https://www.astronomy.com/science/why-hasnt-the-asteroid-belt-formed-a-planet/, https://www.universetoday.com/articles/why-isnt-the-asteroid-belt-a-planet
 
 ```sh
 npm run verify:record -- fact.astronomy.belt_jupiter_gravity source.nasa_asteroids --status verified --by "Your Name" --quote "…"
@@ -3360,6 +3429,7 @@ npm run verify:record -- fact.astronomy.no_life_found_yet source.nasa_astrobiolo
   - L73 `question.astronomy.073.q1`: What makes a black hole “black”? → **Nothing, not even light, can escape its gravity**
   - L73 `question.astronomy.073.q3`: From Level 37: escape velocity is the speed needed to break free of gravity. What is true at a black hole? → **Its escape velocity exceeds the speed of light**
   - L80 `question.astronomy.080.q3`: Why can’t a black hole be photographed directly, only its shadow? → **No light escapes from inside its event horizon**
+- **Fact-check (2026-09-24):** corroborated. NASA: a black hole has gravity so strong that nothing, not even light, can escape its event horizon. Sources: https://science.nasa.gov/universe/black-holes/, https://www.nasa.gov/universe/what-are-black-holes/
 
 ```sh
 npm run verify:record -- fact.astronomy.black_hole_definition source.nasa_black_holes --status verified --by "Your Name" --quote "…"
@@ -3376,6 +3446,7 @@ npm run verify:record -- fact.astronomy.black_hole_definition source.nasa_black_
   - L73 `question.astronomy.073.q1`: What makes a black hole “black”? → **Nothing, not even light, can escape its gravity**
   - L73 `question.astronomy.073.q3`: From Level 37: escape velocity is the speed needed to break free of gravity. What is true at a black hole? → **Its escape velocity exceeds the speed of light**
   - L80 `question.astronomy.080.q3`: Why can’t a black hole be photographed directly, only its shadow? → **No light escapes from inside its event horizon**
+- **Fact-check (2026-09-24):** corroborated. NASA: when a very massive star (around 20+ solar masses) runs out of fuel, its core collapses into a stellar-mass black hole. Sources: https://science.nasa.gov/universe/black-holes/types/, https://blackholes.stardate.org/resources/article-stellar-mass-black-holes.html
 
 ```sh
 npm run verify:record -- fact.astronomy.black_hole_formation source.nasa_black_holes --status verified --by "Your Name" --quote "…"
@@ -3390,6 +3461,7 @@ npm run verify:record -- fact.astronomy.black_hole_formation source.nasa_black_h
   - L73 “Black Holes” · `card.astronomy.073.c3` (text): Not a cosmic vacuum cleaner / Black holes don’t suck everything in. From a safe distance, a black hole’s gravity is the same as that of any object with the same mass. If the Sun were swapped for a black hole of equal mass, the planets would keep orbiting just as they do now. / Same mass → same pull at a distance
 - **Tested by:**
   - L73 `question.astronomy.073.q2`: If the Sun were replaced by a black hole of the same mass, what would happen to Earth’s orbit? → **It would stay the same**
+- **Fact-check (2026-09-24):** corroborated. NASA: black holes do not suck in matter; from far enough away their gravitational effects are like those of any object of the same mass. Sources: https://science.nasa.gov/universe/black-holes/, https://courses.lumenlearning.com/suny-astronomy/chapter/black-holes/
 
 ```sh
 npm run verify:record -- fact.astronomy.black_hole_not_vacuum source.nasa_black_holes --status verified --by "Your Name" --quote "…"
@@ -3421,6 +3493,7 @@ npm run verify:record -- fact.astronomy.event_horizon_def source.nasa_black_hole
 - **Tested by:**
   - L80 `question.astronomy.080.q1`: Which stellar remnant is about the size of a city? → **A neutron star**
   - L80 `question.astronomy.080.q5`: Chapter 8 recap: which stellar remnant has no surface at all? → **A black hole**
+- **Fact-check (2026-09-24):** corroborated. A white dwarf is roughly Earth-sized, a neutron star about 20 km across (city-sized), and a black hole has no surface, only an event horizon. Sources: https://imagine.gsfc.nasa.gov/science/objects/dwarfs1.html, https://www.astronomynotes.com/evolutn/s13.htm
 
 ```sh
 npm run verify:record -- fact.astronomy.remnant_sizes source.nasa_black_holes --status verified --by "Your Name" --quote "…"
@@ -3441,6 +3514,7 @@ npm run verify:record -- fact.astronomy.remnant_sizes source.nasa_black_holes --
   - L45 “The Asteroid Belt” · `card.astronomy.045.c4` (fact): The biggest object in the asteroid belt is a dwarf planet. / Ceres is large enough to be rounded by its own gravity and is classified as a dwarf planet, like Pluto.
 - **Tested by:**
   - L51 `question.astronomy.051.q3`: From Level 45: Ceres is the largest object in the asteroid belt. Why is it a dwarf planet rather than a planet? → **It shares its orbit with the rest of the asteroid belt**
+- **Fact-check (2026-09-24):** corroborated. NASA: Ceres is the largest object in the asteroid belt and was classified as a dwarf planet in 2006. Sources: https://science.nasa.gov/dwarf-planets/ceres/, https://science.nasa.gov/dwarf-planets/ceres/facts/
 
 ```sh
 npm run verify:record -- fact.astronomy.ceres_dwarf source.nasa_ceres --status verified --by "Your Name" --quote "…"
@@ -3622,6 +3696,7 @@ npm run verify:record -- fact.astronomy.dark_matter_invisible source.nasa_dark_m
   - L90 “Checkpoint: A Universe of Galaxies” · `card.astronomy.090.c2` (text): A ladder of scale / The Sun circles the Milky Way once every 230 million years or so. The Milky Way is one of about 100 or more galaxies in the Local Group. Beyond that, galaxies gather in clusters of hundreds or thousands, held together largely by dark matter. / Galaxy → group → cluster
 - **Tested by:**
   - L86 `question.astronomy.086.q3`: From Level 85: what supplies much of the gravity holding galaxy clusters together? → **Dark matter**
+- **Fact-check (2026-09-24):** corroborated. Estimates put dark matter at about 27% and ordinary matter at about 5% of the universe, a ratio of roughly 5 to 1. Sources: https://science.nasa.gov/dark-matter/, https://science.nasa.gov/universe/overview/building-blocks/
 
 ```sh
 npm run verify:record -- fact.astronomy.dark_matter_share source.nasa_dark_matter --status verified --by "Your Name" --quote "…"
@@ -3638,6 +3713,7 @@ npm run verify:record -- fact.astronomy.dark_matter_share source.nasa_dark_matte
 - **Tested by:**
   - L85 `question.astronomy.085.q1`: How does dark matter reveal itself? → **Only through its gravity**
   - L94 `question.astronomy.094.q3`: From Level 85: how are dark matter and dark energy different? → **Dark matter adds gravity; dark energy speeds up expansion**
+- **Fact-check (2026-09-24):** corroborated. NASA: no one knows exactly what dark matter is; leading ideas involve undiscovered particles. Sources: https://spaceplace.nasa.gov/dark-matter/en/, https://science.nasa.gov/dark-matter/
 
 ```sh
 npm run verify:record -- fact.astronomy.dark_matter_unknown source.nasa_dark_matter --status verified --by "Your Name" --quote "…"
@@ -3674,6 +3750,7 @@ npm run verify:record -- fact.astronomy.de_share source.nasa_dark_matter --statu
   - L94 `question.astronomy.094.q2`: Roughly how much of the universe is ordinary matter, the stuff of stars, planets and people? → **About 5%**
   - L94 `question.astronomy.094.q3`: From Level 85: how are dark matter and dark energy different? → **Dark matter adds gravity; dark energy speeds up expansion**
   - L99 `question.astronomy.099.q2`: About how much of the universe is made of things we don’t yet understand? → **About 95%**
+- **Fact-check (2026-09-24):** corroborated. NASA: dark energy is the name for the unknown cause of the accelerating expansion; scientists do not know what it is. Sources: https://science.nasa.gov/dark-energy/, https://www.energy.gov/science/doe-explainscosmic-acceleration-and-dark-energy
 
 ```sh
 npm run verify:record -- fact.astronomy.de_unknown source.nasa_dark_matter --status verified --by "Your Name" --quote "…"
@@ -3732,6 +3809,7 @@ npm run verify:record -- fact.astronomy.auroras_poles source.nasa_earth_periheli
 - **Tested by:**
   - L11 `question.astronomy.011.q1`: What causes day and night? → **Earth spinning on its axis**
   - L20 `question.astronomy.020.q1`: Which motion gives us day and night? → **Earth spinning on its axis**
+- **Fact-check (2026-09-24):** corroborated. At any moment roughly half of Earth is lit by the Sun and has daytime while the other half has night, divided by the terminator line. Sources: https://www.ck12.org/flexi/earth-science/earths-revolutions/at-any-time-does-half-of-the-earth-face-the-sun-while-the-other-side-faces-away-from-the-sun/, https://www.lpi.usra.edu/education/skytellers/day_night/
 
 ```sh
 npm run verify:record -- fact.astronomy.day_night_halves source.nasa_earth_perihelion --status verified --by "Your Name" --quote "…"
@@ -3762,6 +3840,7 @@ npm run verify:record -- fact.astronomy.earth_air_mix source.nasa_earth_periheli
 - **Tested by:**
   - L11 `question.astronomy.011.q1`: What causes day and night? → **Earth spinning on its axis**
   - L20 `question.astronomy.020.q1`: Which motion gives us day and night? → **Earth spinning on its axis**
+- **Fact-check (2026-09-24):** corroborated. Earth's rotation axis is an imaginary line through the North Pole, the center of Earth and the South Pole, around which it spins. Sources: https://education.nationalgeographic.org/resource/axis/, https://astro4edu.org/resources/glossary/term/439/r496/
 
 ```sh
 npm run verify:record -- fact.astronomy.earth_axis_poles source.nasa_earth_perihelion --status verified --by "Your Name" --quote "…"
@@ -3778,6 +3857,7 @@ npm run verify:record -- fact.astronomy.earth_axis_poles source.nasa_earth_perih
   - L43 `question.astronomy.043.q2`: What generates Earth’s magnetic field? → **Molten iron moving in Earth’s outer core**
   - L58 `question.astronomy.058.q2`: Why are auroras usually seen near the poles? → **Earth’s magnetic field steers solar particles toward the poles**
   - L58 `question.astronomy.058.q3`: From Level 43: what would happen to more of the solar wind’s particles without Earth’s magnetic field? → **They would reach Earth’s atmosphere directly**
+- **Fact-check (2026-09-24):** corroborated. The geodynamo: convection of molten iron (with nickel) in the outer core generates Earth's magnetic field. Sources: https://science.nasa.gov/science-research/earth-science/earths-magnetosphere-protecting-our-planet-from-harmful-space-energy/, https://www.space.com/earths-magnetic-field-explained
 
 ```sh
 npm run verify:record -- fact.astronomy.earth_magnetic_field source.nasa_earth_perihelion --status verified --by "Your Name" --quote "…"
@@ -3926,6 +4006,7 @@ npm run verify:record -- fact.astronomy.equator_rotation_speed source.nasa_earth
   - L43 `question.astronomy.043.q2`: What generates Earth’s magnetic field? → **Molten iron moving in Earth’s outer core**
   - L58 `question.astronomy.058.q2`: Why are auroras usually seen near the poles? → **Earth’s magnetic field steers solar particles toward the poles**
   - L58 `question.astronomy.058.q3`: From Level 43: what would happen to more of the solar wind’s particles without Earth’s magnetic field? → **They would reach Earth’s atmosphere directly**
+- **Fact-check (2026-09-24):** corroborated. NASA: Earth's magnetosphere deflects most of the solar material (charged particles) streaming from the Sun. Sources: https://science.nasa.gov/science-research/earth-science/earths-magnetosphere-protecting-our-planet-from-harmful-space-energy/, https://science.nasa.gov/science-research/planetary-science/earths-magnetosphere/
 
 ```sh
 npm run verify:record -- fact.astronomy.magnetic_field_shield source.nasa_earth_perihelion --status verified --by "Your Name" --quote "…"
@@ -3940,6 +4021,7 @@ npm run verify:record -- fact.astronomy.magnetic_field_shield source.nasa_earth_
   - L43 “Earth: The Planet We Know Best” · `card.astronomy.043.c3` (text): Air and ozone / Earth’s atmosphere is about 78% nitrogen and 21% oxygen. High up, the ozone layer absorbs most of the Sun’s harmful ultraviolet light before it reaches the ground. / 78% nitrogen · 21% oxygen
 - **Tested by:**
   - L43 `question.astronomy.043.q1`: What is Earth’s atmosphere made of, mostly? → **Nitrogen, with about a fifth oxygen**
+- **Fact-check (2026-09-24):** corroborated. The stratospheric ozone layer absorbs 97 to 99 percent of the Sun's medium-wavelength UV (UV-B/UV-C), the most harmful part. Sources: https://www.epa.gov/ozone-layer-protection/basic-ozone-layer-science, https://scied.ucar.edu/learning-zone/atmosphere/ozone-layer
 
 ```sh
 npm run verify:record -- fact.astronomy.ozone_layer source.nasa_earth_perihelion --status verified --by "Your Name" --quote "…"
@@ -4062,6 +4144,7 @@ npm run verify:record -- fact.astronomy.lunar_eclipse source.nasa_eclipses --sta
   - L7 `question.astronomy.007.q3`: From Level 6: why can a lunar eclipse only happen at full Moon? → **Only then does Earth sit between the Sun and Moon**
   - L15 `question.astronomy.015.q3`: From Level 7: there’s a new Moon every month. Why isn’t there a solar eclipse every month? → **The Moon usually passes just above or below the Sun’s path**
   - L22 `question.astronomy.022.q3`: From Level 7: during a lunar eclipse, why does Earth’s curved shadow on the Moon show that Earth is round? → **Only a sphere casts a curved shadow every time, from every angle**
+- **Fact-check (2026-09-24):** corroborated. NASA: a solar eclipse occurs when the Moon passes between the Sun and Earth, casting a shadow over parts of Earth. Sources: https://science.nasa.gov/eclipses/types/, https://science.nasa.gov/eclipses/geometry/
 
 ```sh
 npm run verify:record -- fact.astronomy.solar_eclipse source.nasa_eclipses --status verified --by "Your Name" --quote "…"
@@ -4147,6 +4230,7 @@ npm run verify:record -- fact.astronomy.animals_uv source.nasa_ems --status veri
   - L34 `question.astronomy.034.q2`: Besides sharper images, what else do telescopes gain by going to space? → **Access to light the atmosphere blocks, like ultraviolet and X-rays**
   - L34 `question.astronomy.034.q3`: From Level 31: which kinds of light are mostly blocked before they reach the ground? → **Ultraviolet and X-rays**
   - L36 `question.astronomy.036.q3`: From Level 34: why does it help that Webb works in space? → **Much infrared light never reaches the ground**
+- **Fact-check (2026-09-24):** corroborated. The atmosphere blocks X-rays, gamma rays, most ultraviolet and most infrared radiation, so these are observed largely from space or high sites. Sources: https://courses.lumenlearning.com/suny-astronomy/chapter/observations-outside-earths-atmosphere/, https://www.ipac.caltech.edu/Outreach/Edu/Windows/irwindows.html
 
 ```sh
 npm run verify:record -- fact.astronomy.atmosphere_blocks source.nasa_ems --status verified --by "Your Name" --quote "…"
@@ -4191,6 +4275,7 @@ npm run verify:record -- fact.astronomy.light_is_evidence source.nasa_ems --stat
   - L89 “Redshift” · `card.astronomy.089.c2` (text): Stretched light / As light crosses expanding space, its wavelength is stretched. Red is the longest wavelength of visible light, so stretched light shifts toward the red end of the spectrum. Astronomers call this redshift. / Stretched light → redder
 - **Tested by:**
   - L31 `question.astronomy.031.q3`: From Level 8: light-years are based on the speed of light. Does a light-year mean the same distance for radio waves? → **Yes: every kind of light travels at the same speed**
+- **Fact-check (2026-09-24):** corroborated. NASA: in the visible spectrum red has the longest wavelength (about 700 nm) and violet the shortest (about 380 nm). Sources: https://science.nasa.gov/ems/09_visiblelight/
 
 ```sh
 npm run verify:record -- fact.astronomy.red_longest_violet_shortest source.nasa_ems --status verified --by "Your Name" --quote "…"
@@ -4236,6 +4321,7 @@ npm run verify:record -- fact.astronomy.visible_range source.nasa_ems --status v
   - L31 `question.astronomy.031.q1`: What makes radio waves, visible light and X-rays different? → **Their wavelength**
   - L31 `question.astronomy.031.q2`: Which list goes from longest wavelength to shortest? → **Radio waves → visible light → X-rays**
   - L34 `question.astronomy.034.q3`: From Level 31: which kinds of light are mostly blocked before they reach the ground? → **Ultraviolet and X-rays**
+- **Fact-check (2026-09-24):** corroborated. NASA: we can see only a small portion of electromagnetic radiation, the part called visible light (about 380 to 700 nm). Sources: https://science.nasa.gov/ems/09_visiblelight/, https://science.nasa.gov/ems/01_intro/
 
 ```sh
 npm run verify:record -- fact.astronomy.visible_small_part source.nasa_ems --status verified --by "Your Name" --quote "…"
@@ -4252,6 +4338,7 @@ npm run verify:record -- fact.astronomy.visible_small_part source.nasa_ems --sta
   - L31 `question.astronomy.031.q1`: What makes radio waves, visible light and X-rays different? → **Their wavelength**
   - L31 `question.astronomy.031.q2`: Which list goes from longest wavelength to shortest? → **Radio waves → visible light → X-rays**
   - L34 `question.astronomy.034.q3`: From Level 31: which kinds of light are mostly blocked before they reach the ground? → **Ultraviolet and X-rays**
+- **Fact-check (2026-09-24):** corroborated. NASA: EM waves differ in wavelength (and so frequency and energy); radio waves are longest and gamma rays shortest. Sources: https://science.nasa.gov/ems/01_intro/, https://science.nasa.gov/ems/12_gammarays/
 
 ```sh
 npm run verify:record -- fact.astronomy.wavelength_difference source.nasa_ems --status verified --by "Your Name" --quote "…"
@@ -4273,6 +4360,7 @@ npm run verify:record -- fact.astronomy.wavelength_difference source.nasa_ems --
 - **Tested by:**
   - L47 `question.astronomy.047.q1`: What did Cassini see spraying from Enceladus? → **Plumes of water ice**
   - L48 `question.astronomy.048.q3`: From Level 4: Saturn is famous for its rings. What else did exploring Saturn’s system reveal? → **A moon with methane lakes and one with water plumes**
+- **Fact-check (2026-09-24):** corroborated. NASA: Cassini found plumes of water ice and vapor spraying from the 'tiger stripe' fractures near Enceladus's south pole. Sources: https://science.nasa.gov/mission/cassini/science/enceladus/, https://www.jpl.nasa.gov/images/pia10352-tiger-stripes-on-enceladus-fracture-zones-and-plumes-sources/
 
 ```sh
 npm run verify:record -- fact.astronomy.enceladus_plumes source.nasa_enceladus --status verified --by "Your Name" --quote "…"
@@ -4370,6 +4458,7 @@ npm run verify:record -- fact.astronomy.tidal_heating source.nasa_europa --statu
   - L47 `question.astronomy.047.q3`: From Level 17: the Moon’s gravity raises tides on Earth. How is that like what heats Europa? → **Both are gravity stretching a world as bodies orbit**
   - L50 `question.astronomy.050.q6`: Europa and Enceladus are far from the Sun’s heat. What keeps their hidden oceans liquid? → **Tidal flexing by their planets’ gravity**
   - L79 `question.astronomy.079.q3`: From Level 47: why are Europa and Enceladus high on the list of places to look for life? → **They have liquid water, energy and the right chemistry**
+- **Fact-check (2026-09-24):** corroborated. Europa Clipper launched Oct. 14, 2024 on a Falcon Heavy to study Europa's ice shell and confirm its subsurface ocean. Sources: https://science.nasa.gov/mission/europa-clipper/, https://www.jpl.nasa.gov/news/liftoff-nasas-europa-clipper-sails-toward-ocean-moon-of-jupiter/
 
 ```sh
 npm run verify:record -- fact.astronomy.europa_clipper_2024 source.nasa_europa_clipper --status verified --by "Your Name" --quote "…"
@@ -4425,6 +4514,7 @@ npm run verify:record -- fact.astronomy.exoplanets_5000 source.nasa_exoplanets -
   - L78 `question.astronomy.078.q1`: What is a star’s habitable zone? → **Where a planet could be the right temperature for liquid water**
   - L78 `question.astronomy.078.q2`: Why is the habitable zone around a red dwarf so close to the star? → **Red dwarfs are dim and cool, so planets must be close to stay warm**
   - L100 `question.astronomy.100.q8`: A planet is found in its star’s habitable zone. What does that tell you? → **Liquid water could exist on its surface**
+- **Fact-check (2026-09-24):** corroborated. NASA defines the habitable zone as the distance from a star where liquid water could persist on a planet's surface, given a suitable atmosphere. Sources: https://science.nasa.gov/resource/what-is-the-habitable-zone/, https://www.planetary.org/articles/what-is-the-habitable-zone
 
 ```sh
 npm run verify:record -- fact.astronomy.hz_definition source.nasa_exoplanets --status verified --by "Your Name" --quote "…"
@@ -4476,6 +4566,7 @@ npm run verify:record -- fact.astronomy.hz_not_guarantee source.nasa_exoplanets 
   - L77 `question.astronomy.077.q2`: How does the transit method detect a planet? → **By a small, regular dip in the star’s light**
   - L77 `question.astronomy.077.q3`: From Level 32: how do spectra help find planets with the wobble method? → **The star’s spectral lines shift as it wobbles**
   - L80 `question.astronomy.080.q4`: A star dims by a tiny amount every 12 days. What is the most likely explanation? → **A planet is transiting it on a 12-day orbit**
+- **Fact-check (2026-09-24):** corroborated. The transit method detects planets by small, periodic dips in a star's brightness as a planet crosses in front of it (used by Kepler and TESS). Sources: https://science.nasa.gov/citizen-science/exoplanet-watch/background/, https://www.planetary.org/articles/down-in-front-the-transit-photometry-method
 
 ```sh
 npm run verify:record -- fact.astronomy.transit_method source.nasa_exoplanets --status verified --by "Your Name" --quote "…"
@@ -4627,6 +4718,7 @@ npm run verify:record -- fact.astronomy.hubble_1990 source.nasa_hubble --status 
 - **Tested by:**
   - L34 `question.astronomy.034.q2`: Besides sharper images, what else do telescopes gain by going to space? → **Access to light the atmosphere blocks, like ultraviolet and X-rays**
   - L40 `question.astronomy.040.q4`: Why was Hubble placed above Earth’s atmosphere? → **To escape blurring and see light the air blocks**
+- **Fact-check (2026-09-24):** corroborated. NASA: orbiting about 500 km up, Hubble avoids the blurring caused by Earth's turbulent atmosphere, giving much sharper images. Sources: https://science.nasa.gov/mission/hubble/overview/about-hubble/, https://science.nasa.gov/mission/hubble/observatory/design/
 
 ```sh
 npm run verify:record -- fact.astronomy.hubble_above_atmosphere source.nasa_hubble --status verified --by "Your Name" --quote "…"
@@ -4691,6 +4783,7 @@ npm run verify:record -- fact.astronomy.hubble_universe_age source.nasa_hubble -
   - L34 `question.astronomy.034.q2`: Besides sharper images, what else do telescopes gain by going to space? → **Access to light the atmosphere blocks, like ultraviolet and X-rays**
   - L34 `question.astronomy.034.q3`: From Level 31: which kinds of light are mostly blocked before they reach the ground? → **Ultraviolet and X-rays**
   - L36 `question.astronomy.036.q3`: From Level 34: why does it help that Webb works in space? → **Much infrared light never reaches the ground**
+- **Fact-check (2026-09-24):** corroborated. Twinkling (scintillation) is caused by turbulent air cells of varying density refracting starlight; stars do not twinkle from space. Sources: https://www.hko.gov.hk/en/education/earth-science/general/00356-why-do-stars-twinkle.html
 
 ```sh
 npm run verify:record -- fact.astronomy.twinkling source.nasa_hubble --status verified --by "Your Name" --quote "…"
@@ -4779,6 +4872,7 @@ npm run verify:record -- fact.astronomy.grs_shrinking source.nasa_jupiter_facts 
 - **Tested by:**
   - L45 `question.astronomy.045.q3`: From Level 4: Jupiter outweighs all the other planets combined. How does that connect to the asteroid belt? → **Its huge gravity kept the belt’s material from forming a planet**
   - L50 `question.astronomy.050.q3`: Which statement about Jupiter’s mass is true? → **It is more than twice all other planets combined**
+- **Fact-check (2026-09-24):** corroborated. NASA: Jupiter is more than twice as massive as the other planets combined (about 2.5 times). Sources: https://science.nasa.gov/jupiter/jupiter-facts/, https://www.esa.int/Science_Exploration/Space_Science/Juice/Facts_about_Jupiter
 
 ```sh
 npm run verify:record -- fact.astronomy.jupiter_mass source.nasa_jupiter_facts --status verified --by "Your Name" --quote "…"
@@ -4800,6 +4894,7 @@ npm run verify:record -- fact.astronomy.jupiter_mass source.nasa_jupiter_facts -
 - **Tested by:**
   - L46 `question.astronomy.046.q2`: Which of Jupiter’s moons is bigger than the planet Mercury? → **Ganymede**
   - L46 `question.astronomy.046.q3`: From Level 25: Galileo saw Jupiter’s four large moons as tiny dots. What do we know about Io today? → **It is the most volcanically active world in the solar system**
+- **Fact-check (2026-09-24):** corroborated. NASA calls Callisto's surface the most heavily cratered of any object in the solar system. Sources: https://science.nasa.gov/jupiter/jupiter-moons/callisto/
 
 ```sh
 npm run verify:record -- fact.astronomy.callisto_craters source.nasa_jupiter_moons --status verified --by "Your Name" --quote "…"
@@ -4819,6 +4914,7 @@ npm run verify:record -- fact.astronomy.callisto_craters source.nasa_jupiter_moo
   - L25 `question.astronomy.025.q2`: Why were Jupiter’s moons a problem for the Earth-centered model? → **They orbited Jupiter, not Earth**
   - L46 `question.astronomy.046.q3`: From Level 25: Galileo saw Jupiter’s four large moons as tiny dots. What do we know about Io today? → **It is the most volcanically active world in the solar system**
   - L100 `question.astronomy.100.q9`: Which list puts these discoveries in the order they happened? → **Jupiter’s moons → galaxy redshifts → the CMB**
+- **Fact-check (2026-09-24):** corroborated. Galileo observed Jupiter's four largest moons starting 7 January 1610; they are Io, Europa, Ganymede and Callisto (names proposed by Simon Marius). Sources: https://www.ebsco.com/research-starters/history/galileo-discovers-major-moons-jupiter, https://www.planetary.org/articles/what-are-jupiters-galilean-moons
 
 ```sh
 npm run verify:record -- fact.astronomy.galilean_moons source.nasa_jupiter_moons --status verified --by "Your Name" --quote "…"
@@ -4834,6 +4930,7 @@ npm run verify:record -- fact.astronomy.galilean_moons source.nasa_jupiter_moons
 - **Tested by:**
   - L46 `question.astronomy.046.q2`: Which of Jupiter’s moons is bigger than the planet Mercury? → **Ganymede**
   - L46 `question.astronomy.046.q3`: From Level 25: Galileo saw Jupiter’s four large moons as tiny dots. What do we know about Io today? → **It is the most volcanically active world in the solar system**
+- **Fact-check (2026-09-24):** corroborated. NASA: Ganymede is the largest moon in the solar system, bigger than Mercury and Pluto (diameter about 5,260 km). Sources: https://science.nasa.gov/jupiter/jupiter-moons/ganymede/facts/, https://science.nasa.gov/jupiter/jupiter-moons/
 
 ```sh
 npm run verify:record -- fact.astronomy.ganymede_largest source.nasa_jupiter_moons --status verified --by "Your Name" --quote "…"
@@ -4885,6 +4982,7 @@ npm run verify:record -- fact.astronomy.jupiter_many_moons source.nasa_jupiter_m
 - **Concept:** Finding exoplanets (`concept.astronomy.exoplanet_detection`)
 - **Appears in:**
   - L77 “Finding Exoplanets” · `card.astronomy.077.c4` (fact): NASA’s Kepler telescope found thousands of exoplanets. / It stared at the same patch of sky for years, watching for tiny dips in starlight as planets crossed their stars.
+- **Fact-check (2026-09-24):** corroborated. Kepler (2009-2018) used the transit method and discovered more than 2,600 confirmed exoplanets. Sources: https://science.nasa.gov/mission/kepler/
 
 ```sh
 npm run verify:record -- fact.astronomy.kepler_mission_thousands source.nasa_kepler_mission --status verified --by "Your Name" --quote "…"
@@ -5077,6 +5175,7 @@ npm run verify:record -- fact.astronomy.speed_of_light source.nasa_light_year --
   - L44 “Mars: A Planet That Lost Its Water” · `card.astronomy.044.c3` (text): Clues of a wetter past / Dry river valleys and ancient lake beds show liquid water once flowed on Mars. NASA’s Curiosity rover, which landed in 2012, found that Gale Crater once held a lake. Perseverance landed in 2021 in Jezero Crater, an old lake and river delta, and is collecting rock samples. / Curiosity 2012 · Perseverance 2021
 - **Tested by:**
   - L44 `question.astronomy.044.q2`: What did the Curiosity rover discover at Gale Crater? → **That the crater once held a lake**
+- **Fact-check (2026-09-24):** corroborated. Valley networks, deltas and lakebed mudstones (Curiosity at Gale, Perseverance at Jezero) show liquid water once flowed and pooled on Mars. Sources: https://www.jpl.nasa.gov/news/nasas-curiosity-rover-team-confirms-ancient-lakes-on-mars/, https://science.nasa.gov/solar-system/planets/mars/delta-like-fan-on-mars-suggests-ancient-rivers-were-persistent/
 
 ```sh
 npm run verify:record -- fact.astronomy.mars_ancient_water source.nasa_mars_facts --status verified --by "Your Name" --quote "…"
@@ -5091,6 +5190,7 @@ npm run verify:record -- fact.astronomy.mars_ancient_water source.nasa_mars_fact
   - L3 “The Rocky Four” · `card.astronomy.003.c4` (fact): Mars is red because it's rusty. / Iron oxide (the same stuff as rust) coats Martian dust and rocks, and fine red dust in its thin atmosphere tints the whole planet.
 - **Tested by:**
   - L50 `question.astronomy.050.q2`: What gives Mars its red color? → **Iron oxide, like rust, in its dust and rocks**
+- **Fact-check (2026-09-24):** corroborated. NASA: rusted iron in rocks, soil and dust makes Mars red; dust kicked into the atmosphere makes the planet appear red from afar. Sources: https://science.nasa.gov/mars/facts/, https://www.esa.int/Science_Exploration/Space_Science/Mars_Express/Have_we_been_wrong_about_why_Mars_is_red
 
 ```sh
 npm run verify:record -- fact.astronomy.mars_dust_atmosphere source.nasa_mars_facts --status verified --by "Your Name" --quote "…"
@@ -5207,6 +5307,7 @@ npm run verify:record -- fact.astronomy.mercury_polar_ice source.nasa_mercury_fa
   - L41 “Mercury: The Scorched Survivor” · `card.astronomy.041.c2` (text): Small, fast and close / Mercury is the smallest planet and the closest to the Sun. It races around its orbit in just 88 Earth days, the shortest year in the solar system. / Year: 88 Earth days
 - **Tested by:**
   - L41 `question.astronomy.041.q1`: Which is the smallest planet in the solar system? → **Mercury**
+- **Fact-check (2026-09-24):** corroborated. NASA: Mercury is the closest planet to the Sun and the smallest planet in the solar system. Sources: https://science.nasa.gov/mercury/, https://spaceplace.nasa.gov/all-about-mercury/en/
 
 ```sh
 npm run verify:record -- fact.astronomy.mercury_smallest source.nasa_mercury_facts --status verified --by "Your Name" --quote "…"
@@ -5249,14 +5350,16 @@ npm run verify:record -- fact.astronomy.mercury_year source.nasa_mercury_facts -
 
 ### ☐ `fact.astronomy.meteor_showers`: unverified
 
-> **Claim:** Meteor showers happen when Earth passes through the trail of debris left by a comet.
+> **Claim:** Meteor showers happen when Earth passes through a trail of debris, usually left by a comet (a few, like the Geminids, come from an asteroid).
 
 - **Concept:** Meteoroids, meteors and meteorites (`concept.astronomy.meteors`)
 - **Appears in:**
-  - L54 “Shooting Stars and Meteorites” · `card.astronomy.054.c3` (text): Showers from comets / Meteor showers happen when Earth passes through the trail of dust a comet left behind. Most of those meteors come from particles about the size of a grain of sand, burning up as streaks of light.
+  - L54 “Shooting Stars and Meteorites” · `card.astronomy.054.c3` (text): Showers from comets / Meteor showers happen when Earth passes through a trail of debris, usually dust a comet left behind (a few, like the Geminids, come from an asteroid). Most of those meteors come from particles about the size of a grain of sand, burning up as streaks of light.
 - **Tested by:**
   - L54 `question.astronomy.054.q2`: What causes a meteor shower? → **Earth passing through a comet’s trail of debris**
   - L54 `question.astronomy.054.q3`: From Level 53: why does a comet leave a trail of dust that can later make meteors? → **Near the Sun its ice turns to gas, releasing dust**
+- **Fact-check (2026-09-24):** corrected. NASA: most meteor showers come from comet debris, but the Geminids come from asteroid 3200 Phaethon, so 'a comet' is not always the source. Sources: https://www.nasa.gov/blogs/watch-the-skies/2024/12/12/its-an-asteroid-its-a-comet-its-the-geminids-meteor-shower, https://www.nationalgeographic.com/science/article/geminids-meteor-shower-phaethon-asteroid
+- **Previous wording:** Meteor showers happen when Earth passes through the trail of debris left by a comet.
 
 ```sh
 npm run verify:record -- fact.astronomy.meteor_showers source.nasa_meteors --status verified --by "Your Name" --quote "…"
@@ -5269,10 +5372,11 @@ npm run verify:record -- fact.astronomy.meteor_showers source.nasa_meteors --sta
 - **Concept:** Meteoroids, meteors and meteorites (`concept.astronomy.meteors`)
 - **Appears in:**
   - L54 “Shooting Stars and Meteorites” · `card.astronomy.054.c1` (text): Most shooting stars are no bigger than a grain of sand.
-  - L54 “Shooting Stars and Meteorites” · `card.astronomy.054.c3` (text): Showers from comets / Meteor showers happen when Earth passes through the trail of dust a comet left behind. Most of those meteors come from particles about the size of a grain of sand, burning up as streaks of light.
+  - L54 “Shooting Stars and Meteorites” · `card.astronomy.054.c3` (text): Showers from comets / Meteor showers happen when Earth passes through a trail of debris, usually dust a comet left behind (a few, like the Geminids, come from an asteroid). Most of those meteors come from particles about the size of a grain of sand, burning up as streaks of light.
 - **Tested by:**
   - L54 `question.astronomy.054.q2`: What causes a meteor shower? → **Earth passing through a comet’s trail of debris**
   - L54 `question.astronomy.054.q3`: From Level 53: why does a comet leave a trail of dust that can later make meteors? → **Near the Sun its ice turns to gas, releasing dust**
+- **Fact-check (2026-09-24):** corroborated. Most meteors are caused by meteoroids about the size of a grain of sand (1 mm or smaller); NASA notes most comet debris is between sand-grain and pea size. Sources: https://en.wikipedia.org/wiki/Meteor, https://science.nasa.gov/solar-system/meteors-meteorites/facts/
 
 ```sh
 npm run verify:record -- fact.astronomy.meteor_size source.nasa_meteors --status verified --by "Your Name" --quote "…"
@@ -5287,6 +5391,7 @@ npm run verify:record -- fact.astronomy.meteor_size source.nasa_meteors --status
   - L54 “Shooting Stars and Meteorites” · `card.astronomy.054.c2` (text): Three names, one journey / A meteoroid is a small piece of rock or debris in space. When it plunges into Earth’s atmosphere and burns up, the streak of light is a meteor, or shooting star. Any piece that survives to reach the ground is a meteorite. / Meteoroid → meteor → meteorite
 - **Tested by:**
   - L54 `question.astronomy.054.q1`: What is a meteorite? → **A piece that survives to reach the ground**
+- **Fact-check (2026-09-24):** corroborated. NASA: meteoroids are space rocks; a meteor is the light as one vaporizes in the atmosphere; a meteorite is one that survives to reach the ground. Sources: https://science.nasa.gov/solar-system/meteors-meteorites/facts/, https://science.nasa.gov/solar-system/meteors-meteorites/
 
 ```sh
 npm run verify:record -- fact.astronomy.meteor_terms source.nasa_meteors --status verified --by "Your Name" --quote "…"
@@ -5309,6 +5414,7 @@ npm run verify:record -- fact.astronomy.meteor_terms source.nasa_meteors --statu
 - **Tested by:**
   - L82 `question.astronomy.082.q1`: How long does the Sun take to orbit the center of the Milky Way? → **About 230 million years**
   - L82 `question.astronomy.082.q2`: Where is the Sun located in the Milky Way? → **In the disk, about 26,000 light-years from the center**
+- **Fact-check (2026-09-24):** corroborated. NASA: the solar system takes about 230 million years to orbit the galactic center; estimates range roughly 225 to 250 million years. Sources: https://science.nasa.gov/solar-system/solar-system-facts/, https://public.nrao.edu/ask/how-long-does-it-take-the-sun-to-orbit-the-center-of-our-galaxy/
 
 ```sh
 npm run verify:record -- fact.astronomy.galactic_year source.nasa_milky_way --status verified --by "Your Name" --quote "…"
@@ -5325,6 +5431,7 @@ npm run verify:record -- fact.astronomy.galactic_year source.nasa_milky_way --st
   - L1 `question.astronomy.001.q2`: Which is the most accurate description of the Sun? → **One star among many in the Milky Way**
   - L1 `question.astronomy.001.q3`: Which list goes from smallest to largest? → **Earth → solar system → Milky Way**
   - L10 `question.astronomy.010.q1`: From Level 1: which galaxy is the Sun part of? → **The Milky Way**
+- **Fact-check (2026-09-24):** corroborated. The Milky Way band is the combined light of stars in the galaxy's disk, seen as a band because the Sun lies within the disk. Sources: https://stardate.org/astro-guide/topic/the-milky-way, https://imagine.gsfc.nasa.gov/science/objects/milkyway1.html
 
 ```sh
 npm run verify:record -- fact.astronomy.milky_way_band source.nasa_milky_way --status verified --by "Your Name" --quote "…"
@@ -5342,6 +5449,7 @@ npm run verify:record -- fact.astronomy.milky_way_band source.nasa_milky_way --s
   - L1 `question.astronomy.001.q2`: Which is the most accurate description of the Sun? → **One star among many in the Milky Way**
   - L1 `question.astronomy.001.q3`: Which list goes from smallest to largest? → **Earth → solar system → Milky Way**
   - L10 `question.astronomy.010.q1`: From Level 1: which galaxy is the Sun part of? → **The Milky Way**
+- **Fact-check (2026-09-24):** corroborated. NASA and others classify the Milky Way as a barred spiral with a central bar roughly 27,000 light-years long. Sources: https://science.nasa.gov/image-article/apod-2005-august-25-barred-spiral-milky-way/, https://imagine.gsfc.nasa.gov/features/cosmic/milkyway_info.html
 
 ```sh
 npm run verify:record -- fact.astronomy.milky_way_barred_spiral source.nasa_milky_way --status verified --by "Your Name" --quote "…"
@@ -5374,6 +5482,7 @@ npm run verify:record -- fact.astronomy.milky_way_star_count source.nasa_milky_w
   - L82 “Inside the Milky Way” · `card.astronomy.082.c2` (text): The anatomy of a galaxy / The Milky Way has a central bulge of stars, a flat disk about 100,000 light-years across with spiral arms, and a surrounding halo of old stars and globular star clusters. At the very center sits Sagittarius A*. / Bulge · disk · arms · halo
 - **Tested by:**
   - L82 `question.astronomy.082.q3`: From Level 75: what sits at the very center of the Milky Way’s bulge? → **A supermassive black hole, Sagittarius A***
+- **Fact-check (2026-09-24):** corroborated. The Milky Way has a central bulge, a disk with spiral arms, and a stellar halo containing old stars and globular clusters. Sources: https://www.ebsco.com/research-starters/astronomy-and-astrophysics/milky-ways-structure/, https://lco.global/spacebook/galaxies/the-milky-way-galaxy/
 
 ```sh
 npm run verify:record -- fact.astronomy.mw_parts source.nasa_milky_way --status verified --by "Your Name" --quote "…"
@@ -5475,6 +5584,7 @@ npm run verify:record -- fact.astronomy.craters_preserved source.nasa_moon_crate
 - **Tested by:**
   - L19 `question.astronomy.019.q1`: What are the dark patches on the Moon, called maria? → **Plains of ancient hardened lava**
   - L19 `question.astronomy.019.q3`: From Level 6: why can we see most of the Moon’s maria from Earth? → **Most maria are on the near side, which always faces Earth**
+- **Fact-check (2026-09-24):** corroborated. Maria (Latin 'seas') are dark plains of basaltic lava erupted mostly 3.3 to 3.8 billion years ago. Sources: https://open.maricopa.edu/asttemp/chapter/the-lunar-surface/, https://www.ebsco.com/research-starters/geology/lunar-maria
 
 ```sh
 npm run verify:record -- fact.astronomy.maria_lava source.nasa_moon_craters --status verified --by "Your Name" --quote "…"
@@ -5490,6 +5600,7 @@ npm run verify:record -- fact.astronomy.maria_lava source.nasa_moon_craters --st
 - **Tested by:**
   - L19 `question.astronomy.019.q1`: What are the dark patches on the Moon, called maria? → **Plains of ancient hardened lava**
   - L19 `question.astronomy.019.q3`: From Level 6: why can we see most of the Moon’s maria from Earth? → **Most maria are on the near side, which always faces Earth**
+- **Fact-check (2026-09-24):** corroborated. Maria cover about 31 percent of the near side but only about 1 percent of the far side. Sources: https://en.wikipedia.org/wiki/Lunar_mare
 
 ```sh
 npm run verify:record -- fact.astronomy.maria_mostly_near_side source.nasa_moon_craters --status verified --by "Your Name" --quote "…"
@@ -5511,6 +5622,7 @@ npm run verify:record -- fact.astronomy.maria_mostly_near_side source.nasa_moon_
 - **Tested by:**
   - L6 `question.astronomy.006.q2`: Why do we always see the same side of the Moon? → **It rotates once for every orbit around Earth**
   - L19 `question.astronomy.019.q3`: From Level 6: why can we see most of the Moon’s maria from Earth? → **Most maria are on the near side, which always faces Earth**
+- **Fact-check (2026-09-24):** corroborated. The mean Earth-Moon distance (semimajor axis) is 384,400 km, varying between about 363,300 km and 405,500 km. Sources: https://en.wikipedia.org/wiki/Lunar_distance, https://www.rmg.co.uk/stories/space-astronomy/how-far-away-moon
 
 ```sh
 npm run verify:record -- fact.astronomy.moon_distance source.nasa_moon_facts --status verified --by "Your Name" --quote "…"
@@ -5716,6 +5828,7 @@ npm run verify:record -- fact.astronomy.moon_half_lit source.nasa_moon_phases --
   - L7 `question.astronomy.007.q3`: From Level 6: why can a lunar eclipse only happen at full Moon? → **Only then does Earth sit between the Sun and Moon**
   - L17 `question.astronomy.017.q3`: From Level 6: spring tides happen at new and full Moon. What do those two phases have in common? → **The Sun, Earth and Moon are in a line**
   - L25 `question.astronomy.025.q3`: From Level 6: our Moon shows phases because it orbits Earth and we see varying amounts of its lit half. What did Venus’s full set of phases suggest? → **Venus orbits the Sun**
+- **Fact-check (2026-09-24):** corroborated. NASA: the Moon's phase cycle (synodic month) repeats about every 29.5 days (mean 29.53 days). Sources: https://science.nasa.gov/moon/moon-phases/, https://eclipse.gsfc.nasa.gov/SEhelp/moonorbit.html
 
 ```sh
 npm run verify:record -- fact.astronomy.moon_phase_cycle source.nasa_moon_phases --status verified --by "Your Name" --quote "…"
@@ -5736,6 +5849,7 @@ npm run verify:record -- fact.astronomy.moon_phase_cycle source.nasa_moon_phases
   - L17 “Tides: The Moon’s Pull on the Ocean” · `card.astronomy.017.c3` (text): The Sun joins in / The Sun pulls on the oceans too, more weakly. Around new and full Moon, the Sun, Moon and Earth line up and their pulls combine into extra-high and extra-low tides: spring tides. Around the quarter Moons they pull at right angles and tides are gentler: neap tides.
 - **Tested by:**
   - L17 `question.astronomy.017.q3`: From Level 6: spring tides happen at new and full Moon. What do those two phases have in common? → **The Sun, Earth and Moon are in a line**
+- **Fact-check (2026-09-24):** corroborated. Neap tides have the smallest tidal range and occur at first and last quarter, when Sun and Moon are at right angles to Earth. Sources: https://science.nasa.gov/moon/tides/, https://oceanservice.noaa.gov/facts/springtide.html
 
 ```sh
 npm run verify:record -- fact.astronomy.neap_tides source.nasa_moon_tides --status verified --by "Your Name" --quote "…"
@@ -5782,6 +5896,7 @@ npm run verify:record -- fact.astronomy.spring_tides source.nasa_moon_tides --st
   - L20 `question.astronomy.020.q5`: Chapter 2 recap: which pairing of cause and effect is correct? → **Earth’s spin → stars rising in the east**
   - L27 `question.astronomy.027.q3`: From Level 17: what connects Newton’s law to the ocean tides? → **The Moon’s gravity pulls on Earth’s oceans**
   - L47 `question.astronomy.047.q3`: From Level 17: the Moon’s gravity raises tides on Earth. How is that like what heats Europa? → **Both are gravity stretching a world as bodies orbit**
+- **Fact-check (2026-09-24):** corroborated. NOAA: tides are caused mainly by the Moon; the Sun's tide-generating force is about half the Moon's. Sources: https://oceanservice.noaa.gov/education/tutorial_tides/tides02_cause.html, https://science.nasa.gov/moon/tides/
 
 ```sh
 npm run verify:record -- fact.astronomy.tides_moon_gravity source.nasa_moon_tides --status verified --by "Your Name" --quote "…"
@@ -5841,6 +5956,7 @@ npm run verify:record -- fact.astronomy.two_tidal_bulges source.nasa_moon_tides 
   - L49 “The Tilted and the Windy: Uranus and Neptune” · `card.astronomy.049.c4` (fact): Methane makes Uranus and Neptune blue. / Methane in their atmospheres absorbs red light, so the sunlight they reflect back looks blue.
 - **Tested by:**
   - L49 `question.astronomy.049.q2`: What gives Uranus and Neptune their blue color? → **Methane in their atmospheres absorbing red light**
+- **Fact-check (2026-09-24):** corroborated. Methane in Uranus's and Neptune's atmospheres absorbs red light and reflects blue, giving both their blue color; haze explains their shade difference. Sources: https://science.nasa.gov/solar-system/why-uranus-and-neptune-are-different-colors/
 
 ```sh
 npm run verify:record -- fact.astronomy.methane_blue source.nasa_neptune_facts --status verified --by "Your Name" --quote "…"
@@ -5904,6 +6020,7 @@ npm run verify:record -- fact.astronomy.neptune_galle source.nasa_neptune_facts 
 - **Tested by:**
   - L29 `question.astronomy.029.q1`: How was Neptune discovered? → **Its position was predicted by math, then observed**
   - L29 `question.astronomy.029.q3`: From Level 27: which law did Le Verrier use to predict Neptune’s position? → **Newton’s law of universal gravitation**
+- **Fact-check (2026-09-24):** corroborated. Galle observed Neptune on 23 Sept 1846 within 1 degree of Le Verrier's predicted position, derived from perturbations of Uranus's orbit; Adams made an independent prediction. Sources: https://aas.org/posts/story/2017/09/month-astronomical-history-discovery-neptune, https://en.wikipedia.org/wiki/Neptune
 
 ```sh
 npm run verify:record -- fact.astronomy.neptune_math source.nasa_neptune_facts --status verified --by "Your Name" --quote "…"
@@ -5975,6 +6092,7 @@ npm run verify:record -- fact.astronomy.neutron_star_dense source.nasa_neutron_s
 - **Tested by:**
   - L71 `question.astronomy.071.q2`: What makes a neutron star so incredibly dense? → **Gravity crushes its matter into tightly packed neutrons**
   - L71 `question.astronomy.071.q3`: From Level 68: a white dwarf teaspoon weighs several tons. How does a neutron star compare? → **A teaspoon weighs billions of tons**
+- **Fact-check (2026-09-24):** corroborated. NASA Imagine the Universe: neutron stars are very dense objects mostly made up of tightly packed neutrons. Sources: https://imagine.gsfc.nasa.gov/science/objects/neutron_stars1.html
 
 ```sh
 npm run verify:record -- fact.astronomy.neutron_star_made_of source.nasa_neutron_stars --status verified --by "Your Name" --quote "…"
@@ -5990,6 +6108,7 @@ npm run verify:record -- fact.astronomy.neutron_star_made_of source.nasa_neutron
 - **Tested by:**
   - L71 `question.astronomy.071.q1`: About how wide is a neutron star? → **About 20 km, the size of a city**
   - L80 `question.astronomy.080.q1`: Which stellar remnant is about the size of a city? → **A neutron star**
+- **Fact-check (2026-09-24):** corroborated. NASA Imagine the Universe: when a massive star runs out of fuel its core collapses in a supernova, leaving a neutron star if the core is not massive enough to become a black hole. Sources: https://imagine.gsfc.nasa.gov/science/objects/neutron_stars1.html
 
 ```sh
 npm run verify:record -- fact.astronomy.neutron_star_origin source.nasa_neutron_stars --status verified --by "Your Name" --quote "…"
@@ -6006,6 +6125,7 @@ npm run verify:record -- fact.astronomy.neutron_star_origin source.nasa_neutron_
 - **Tested by:**
   - L71 `question.astronomy.071.q1`: About how wide is a neutron star? → **About 20 km, the size of a city**
   - L80 `question.astronomy.080.q1`: Which stellar remnant is about the size of a city? → **A neutron star**
+- **Fact-check (2026-09-24):** corroborated. Neutron stars are about 20 km in diameter with typical masses around 1.4 solar masses. Sources: https://en.wikipedia.org/wiki/Neutron_star, https://pages.astro.umd.edu/~mcmiller/nstar.html
 
 ```sh
 npm run verify:record -- fact.astronomy.neutron_star_size source.nasa_neutron_stars --status verified --by "Your Name" --quote "…"
@@ -6021,6 +6141,7 @@ npm run verify:record -- fact.astronomy.neutron_star_size source.nasa_neutron_st
 - **Tested by:**
   - L71 `question.astronomy.071.q2`: What makes a neutron star so incredibly dense? → **Gravity crushes its matter into tightly packed neutrons**
   - L71 `question.astronomy.071.q3`: From Level 68: a white dwarf teaspoon weighs several tons. How does a neutron star compare? → **A teaspoon weighs billions of tons**
+- **Fact-check (2026-09-24):** corroborated. Neutron stars can rotate up to hundreds of times per second (record 716) and typically have magnetic fields trillions of times Earth's. Sources: https://imagine.gsfc.nasa.gov/science/objects/neutron_stars1.html, https://pages.astro.umd.edu/~mcmiller/nstar.html
 
 ```sh
 npm run verify:record -- fact.astronomy.neutron_star_spin_magnetic source.nasa_neutron_stars --status verified --by "Your Name" --quote "…"
@@ -6036,6 +6157,7 @@ npm run verify:record -- fact.astronomy.neutron_star_spin_magnetic source.nasa_n
 - **Tested by:**
   - L80 `question.astronomy.080.q1`: Which stellar remnant is about the size of a city? → **A neutron star**
   - L80 `question.astronomy.080.q5`: Chapter 8 recap: which stellar remnant has no surface at all? → **A black hole**
+- **Fact-check (2026-09-24):** corroborated. A white dwarf is roughly Earth-sized, a neutron star about 20 km across (city-sized), and a black hole has no surface, only an event horizon. Sources: https://imagine.gsfc.nasa.gov/science/objects/dwarfs1.html, https://www.astronomynotes.com/evolutn/s13.htm
 
 ```sh
 npm run verify:record -- fact.astronomy.remnant_sizes source.nasa_neutron_stars --status verified --by "Your Name" --quote "…"
@@ -6121,6 +6243,7 @@ npm run verify:record -- fact.astronomy.oort_long_comets source.nasa_oort_cloud 
 - **Tested by:**
   - L55 `question.astronomy.055.q1`: What is the Oort Cloud thought to be? → **A giant shell of icy bodies around the solar system**
   - L60 `question.astronomy.060.q5`: Chapter 6 recap: which list goes from nearest to farthest from the Sun? → **Asteroid belt → Kuiper Belt → Oort Cloud**
+- **Fact-check (2026-09-24):** corroborated. NASA: the Oort Cloud is thought to be a giant spherical shell of icy bodies surrounding the Sun, planets and Kuiper Belt. Sources: https://science.nasa.gov/solar-system/oort-cloud/, https://www.space.com/16401-oort-cloud-the-outer-solar-system-s-icy-shell.html
 
 ```sh
 npm run verify:record -- fact.astronomy.oort_shell source.nasa_oort_cloud --status verified --by "Your Name" --quote "…"
@@ -6137,6 +6260,7 @@ npm run verify:record -- fact.astronomy.oort_shell source.nasa_oort_cloud --stat
 - **Tested by:**
   - L55 `question.astronomy.055.q2`: If no one has seen the Oort Cloud, why do astronomers think it exists? → **Long-period comets trace back to a distant shell**
   - L55 `question.astronomy.055.q3`: From Level 53: which comets come from the Oort Cloud rather than the Kuiper Belt? → **Comets that take thousands of years to orbit**
+- **Fact-check (2026-09-24):** corroborated. NASA: the Oort Cloud has not been directly observed; its existence is inferred from long-period comets. Sedna is only a candidate inner Oort Cloud object. Sources: https://science.nasa.gov/solar-system/oort-cloud/facts/, https://www.aanda.org/articles/aa/full_html/2023/08/aa43728-22/aa43728-22.html
 
 ```sh
 npm run verify:record -- fact.astronomy.oort_unseen source.nasa_oort_cloud --status verified --by "Your Name" --quote "…"
@@ -6152,6 +6276,7 @@ npm run verify:record -- fact.astronomy.oort_unseen source.nasa_oort_cloud --sta
   - L60 “Checkpoint: The Sun’s Domain” · `card.astronomy.060.c3` (text): But gravity reaches farther / The Sun’s gravity still holds on far beyond the heliosphere. The Oort Cloud, thought to reach as far as 100,000 AU, is the outermost part of the solar system, which Voyager 1 won’t reach for about 300 years.
 - **Tested by:**
   - L60 `question.astronomy.060.q3`: Voyager 1 has left the heliosphere. Has it left the solar system? → **Not by the Sun’s gravity: the Oort Cloud lies far beyond**
+- **Fact-check (2026-09-24):** corroborated. NASA: it will take about 300 years for Voyager 1 to reach the inner edge of the Oort Cloud and perhaps 30,000 years to pass beyond it. Sources: https://science.nasa.gov/resource/oort-cloud-and-scale-of-the-solar-system-infographic/, https://science.nasa.gov/mission/voyager/frequently-asked-questions/
 
 ```sh
 npm run verify:record -- fact.astronomy.voyager_oort_300 source.nasa_oort_cloud --status verified --by "Your Name" --quote "…"
@@ -6335,6 +6460,7 @@ npm run verify:record -- fact.astronomy.pluto_heart source.nasa_pluto --status v
   - L14 “The North Star” · `card.astronomy.014.c3` (text): Stars that never set / From mid-northern latitudes, stars close to Polaris trace small circles around it and never dip below the horizon. They’re called circumpolar stars. Bonus: Polaris’s height above your horizon, in degrees, roughly equals your latitude.
 - **Tested by:**
   - L14 `question.astronomy.014.q3`: From Level 11: most stars rise in the east and set in the west. Why don’t the circumpolar stars set? → **Their circles around the pole stay above the horizon**
+- **Fact-check (2026-09-24):** corroborated. From the Northern Hemisphere circumpolar stars circle Polaris and never set; the circle grows with latitude. Sources: https://earthsky.org/astronomy-essentials/what-are-circumpolar-stars/, https://en.wikipedia.org/wiki/Circumpolar_star
 
 ```sh
 npm run verify:record -- fact.astronomy.circumpolar_never_set source.nasa_polaris --status verified --by "Your Name" --quote "…"
@@ -6365,6 +6491,7 @@ npm run verify:record -- fact.astronomy.no_south_pole_star source.nasa_polaris -
 - **Tested by:**
   - L14 `question.astronomy.014.q1`: Why does Polaris barely move across the night sky? → **It lies almost directly above Earth’s North Pole**
   - L20 `question.astronomy.020.q2`: Which star stays almost fixed above the North Pole? → **Polaris**
+- **Fact-check (2026-09-24):** corroborated. Polaris lies about 0.7 degree from the north celestial pole, so it appears nearly fixed while other stars circle it. Sources: https://earthsky.org/astronomy-essentials/north-star-movement/, https://www.space.com/15567-north-star-polaris.html
 
 ```sh
 npm run verify:record -- fact.astronomy.polaris_above_pole source.nasa_polaris --status verified --by "Your Name" --quote "…"
@@ -6379,6 +6506,7 @@ npm run verify:record -- fact.astronomy.polaris_above_pole source.nasa_polaris -
   - L14 “The North Star” · `card.astronomy.014.c3` (text): Stars that never set / From mid-northern latitudes, stars close to Polaris trace small circles around it and never dip below the horizon. They’re called circumpolar stars. Bonus: Polaris’s height above your horizon, in degrees, roughly equals your latitude.
 - **Tested by:**
   - L14 `question.astronomy.014.q2`: You see Polaris about 40° above the horizon. What does that tell you? → **You are at roughly 40° north latitude**
+- **Fact-check (2026-09-24):** corroborated. In the Northern Hemisphere, Polaris's altitude above the horizon approximately equals the observer's latitude. Sources: https://www.nsta.org/science-teacher/science-teacher-marchapril-2023/fram-polar-expedition-and-determining-latitude, https://en.wikipedia.org/wiki/Circumpolar_star
 
 ```sh
 npm run verify:record -- fact.astronomy.polaris_latitude source.nasa_polaris --status verified --by "Your Name" --quote "…"
@@ -6394,6 +6522,7 @@ npm run verify:record -- fact.astronomy.polaris_latitude source.nasa_polaris --s
 - **Tested by:**
   - L14 `question.astronomy.014.q1`: Why does Polaris barely move across the night sky? → **It lies almost directly above Earth’s North Pole**
   - L20 `question.astronomy.020.q2`: Which star stays almost fixed above the North Pole? → **Polaris**
+- **Fact-check (2026-09-24):** corroborated. Polaris (magnitude about 2.0) ranks around 48th in brightness; Sirius (magnitude -1.46) is the brightest star in the night sky. Sources: https://www.farmersalmanac.com/north-star-brightest-star, https://www.sciencing.com/1863568/myth-north-star-isnt-brightest-star-sky/
 
 ```sh
 npm run verify:record -- fact.astronomy.polaris_not_brightest source.nasa_polaris --status verified --by "Your Name" --quote "…"
@@ -6511,6 +6640,7 @@ npm run verify:record -- fact.astronomy.planets_near_ecliptic source.nasa_skywat
 - **Appears in:**
   - L16 “Wanderers: How Planets Move Across the Sky” · `card.astronomy.016.c1` (text): Every few years, Mars seems to stop, reverse and loop back across the sky. / It never actually turns around. You’re watching from a moving planet.
   - L16 “Wanderers: How Planets Move Across the Sky” · `card.astronomy.016.c4` (fact): Retrograde motion is only apparent. / No planet ever reverses direction in its orbit. The backwards loop is a change in our viewpoint, not in the planet’s path.
+- **Fact-check (2026-09-24):** corroborated. Apparent retrograde motion results from Earth overtaking or being overtaken by other planets; planets do not physically reverse. Sources: https://starchild.gsfc.nasa.gov/docs/StarChild/questions/question46.html, https://en.wikipedia.org/wiki/Apparent_retrograde_motion
 
 ```sh
 npm run verify:record -- fact.astronomy.retrograde_apparent source.nasa_skywatching_planets --status verified --by "Your Name" --quote "…"
@@ -6569,6 +6699,7 @@ npm run verify:record -- fact.astronomy.earth_third_planet source.nasa_solar_sys
   - L1 `question.astronomy.001.q3`: Which list goes from smallest to largest? → **Earth → solar system → Milky Way**
   - L3 `question.astronomy.003.q3`: From Level 1: Earth is the third planet from the Sun. Which rocky planet comes next? → **Mars**
   - L43 `question.astronomy.043.q3`: From Level 1: Earth is the third planet from the Sun. What else about Earth is, so far, unique? → **It is the only planet known to have life**
+- **Fact-check (2026-09-24):** corroborated. NASA: the solar system has eight planets, Mercury through Neptune, since Pluto's 2006 reclassification. Sources: https://science.nasa.gov/solar-system/planets/, https://www.jpl.nasa.gov/images/pia11800-our-solar-system-features-eight-planets/
 
 ```sh
 npm run verify:record -- fact.astronomy.eight_planets source.nasa_solar_system --status verified --by "Your Name" --quote "…"
@@ -6586,6 +6717,7 @@ npm run verify:record -- fact.astronomy.eight_planets source.nasa_solar_system -
   - L1 `question.astronomy.001.q3`: Which list goes from smallest to largest? → **Earth → solar system → Milky Way**
   - L3 `question.astronomy.003.q3`: From Level 1: Earth is the third planet from the Sun. Which rocky planet comes next? → **Mars**
   - L43 `question.astronomy.043.q3`: From Level 1: Earth is the third planet from the Sun. What else about Earth is, so far, unique? → **It is the only planet known to have life**
+- **Fact-check (2026-09-24):** corroborated. NASA describes the solar system as the Sun and everything held in orbit by its gravity: planets, moons, asteroids, comets and debris. Sources: https://science.nasa.gov/solar-system/solar-system-facts/
 
 ```sh
 npm run verify:record -- fact.astronomy.solar_system_definition source.nasa_solar_system --status verified --by "Your Name" --quote "…"
@@ -6607,6 +6739,7 @@ npm run verify:record -- fact.astronomy.solar_system_definition source.nasa_sola
 - **Tested by:**
   - L13 `question.astronomy.013.q1`: How many official constellations are there? → **88**
   - L100 `question.astronomy.100.q1`: A friend calls the Big Dipper one of the official constellations. What’s the best correction? → **It’s an asterism, part of Ursa Major**
+- **Fact-check (2026-09-24):** corroborated. NASA Space Place: constellations were named long ago after objects, animals and people seen in star patterns. Sources: https://spaceplace.nasa.gov/constellations/en/
 
 ```sh
 npm run verify:record -- fact.astronomy.constellation_patterns source.nasa_spaceplace_constellations --status verified --by "Your Name" --quote "…"
@@ -6623,6 +6756,7 @@ npm run verify:record -- fact.astronomy.constellation_patterns source.nasa_space
 - **Tested by:**
   - L13 `question.astronomy.013.q2`: Two stars sit side by side in the same constellation. What’s most likely true? → **They may be very different distances from Earth**
   - L13 `question.astronomy.013.q3`: From Level 8: two stars in Orion are 50 and 500 light-years away. What does that mean for their light? → **The farther star’s light left it about 450 years earlier**
+- **Fact-check (2026-09-24):** corroborated. NASA Space Place: stars in a constellation may look close from Earth but can be very far apart; e.g., Orion's belt stars lie about 817, 1340 and 916 light-years away. Sources: https://spaceplace.nasa.gov/constellations/en/, https://starchild.gsfc.nasa.gov/docs/StarChild/questions/question9.html
 
 ```sh
 npm run verify:record -- fact.astronomy.constellation_star_distances source.nasa_spaceplace_constellations --status verified --by "Your Name" --quote "…"
@@ -6638,6 +6772,7 @@ npm run verify:record -- fact.astronomy.constellation_star_distances source.nasa
   - L20 “Checkpoint: Reading the Sky” · `card.astronomy.020.c2` (text): Spin, orbit, pull / Earth’s spin gives day and night and sweeps the stars across the sky. Its orbit gives the year, the seasons and a changing night sky. And the Moon, circling us, brings phases, eclipses and tides. / Spin → day · Orbit → year · Moon → tides
 - **Tested by:**
   - L20 `question.astronomy.020.q3`: Why does the night sky show different constellations in different seasons? → **As Earth orbits, night faces a new part of space**
+- **Fact-check (2026-09-24):** corroborated. NASA Space Place: as Earth orbits, its night side faces different directions in space, so different constellations appear through the year. Sources: https://spaceplace.nasa.gov/constellations/en/
 
 ```sh
 npm run verify:record -- fact.astronomy.night_sky_changes source.nasa_spaceplace_constellations --status verified --by "Your Name" --quote "…"
@@ -6714,6 +6849,7 @@ npm run verify:record -- fact.astronomy.earth_axial_tilt source.nasa_spaceplace_
   - L5 “Why We Have Seasons” · `card.astronomy.005.c4` (text): Opposite seasons / Because the hemispheres lean opposite ways, December is winter in New York and summer in Sydney. Same planet, same distance, different lean.
 - **Tested by:**
   - L5 `question.astronomy.005.q2`: It's July. What season is it in Australia? → **Winter**
+- **Fact-check (2026-09-24):** corroborated. Because of Earth's axial tilt, one hemisphere tilts toward the Sun while the other tilts away, so the hemispheres have opposite seasons. Sources: https://spaceplace.nasa.gov/seasons/en/, https://aa.usno.navy.mil/faq/seasons_orbit
 
 ```sh
 npm run verify:record -- fact.astronomy.opposite_hemisphere_seasons source.nasa_spaceplace_seasons --status verified --by "Your Name" --quote "…"
@@ -6797,7 +6933,7 @@ npm run verify:record -- fact.astronomy.massive_star_supernova source.nasa_star_
 
 - **Concept:** A star's color is its temperature (`concept.astronomy.star_color_temperature`)
 - **Appears in:**
-  - L9 “The Life of a Star” · `card.astronomy.009.c2` (text): Color is temperature / Look closely and stars have colors. Blue-white stars are the hottest; red stars are the coolest. The Sun sits in between, which is why it looks white-yellow. / Blue = hot · Red = cool
+  - L9 “The Life of a Star” · `card.astronomy.009.c2` (text): Color is temperature / Look closely and stars have colors. Blue-white stars are the hottest; red stars are the coolest. The Sun sits in between: it shines white from space, and our air makes it look yellowish from the ground. / Blue = hot · Red = cool
 - **Tested by:**
   - L9 `question.astronomy.009.q1`: A star looks blue-white. What does that tell you? → **It's hotter than the Sun**
   - L63 `question.astronomy.063.q3`: From Level 9: a blue-white star is hotter than a red one. On the H–R diagram, which side is it on? → **The left side, with hotter stars**
@@ -6835,6 +6971,7 @@ npm run verify:record -- fact.astronomy.stars_form_dense_clouds source.nasa_star
 - **Tested by:**
   - L9 `question.astronomy.009.q2`: How will the Sun most likely end its life? → **As a red giant, then a white dwarf**
   - L9 `question.astronomy.009.q3`: From Level 2: when the Sun swells into a red giant, what is it running low on? → **Hydrogen to fuse in its core**
+- **Fact-check (2026-09-24):** corroborated. NASA: stars are born from clouds of gas and dust that collapse under their own gravity. Sources: https://science.nasa.gov/universe/stars/, https://www.cfa.harvard.edu/research/topic/star-formation
 
 ```sh
 npm run verify:record -- fact.astronomy.stars_form_in_clouds source.nasa_star_life_cycle --status verified --by "Your Name" --quote "…"
@@ -6842,14 +6979,16 @@ npm run verify:record -- fact.astronomy.stars_form_in_clouds source.nasa_star_li
 
 ### ☐ `fact.astronomy.sun_color`: unverified
 
-> **Claim:** The Sun is intermediate in temperature, which is why it appears white-yellow.
+> **Claim:** The Sun is intermediate in temperature, so it gives off a fairly even mix of colors and looks white from space. From the ground it looks yellowish because our atmosphere scatters away some of its blue light.
 
 - **Concept:** A star's color is its temperature (`concept.astronomy.star_color_temperature`)
 - **Appears in:**
-  - L9 “The Life of a Star” · `card.astronomy.009.c2` (text): Color is temperature / Look closely and stars have colors. Blue-white stars are the hottest; red stars are the coolest. The Sun sits in between, which is why it looks white-yellow. / Blue = hot · Red = cool
+  - L9 “The Life of a Star” · `card.astronomy.009.c2` (text): Color is temperature / Look closely and stars have colors. Blue-white stars are the hottest; red stars are the coolest. The Sun sits in between: it shines white from space, and our air makes it look yellowish from the ground. / Blue = hot · Red = cool
 - **Tested by:**
   - L9 `question.astronomy.009.q1`: A star looks blue-white. What does that tell you? → **It's hotter than the Sun**
   - L63 `question.astronomy.063.q3`: From Level 9: a blue-white star is hotter than a red one. On the H–R diagram, which side is it on? → **The left side, with hotter stars**
+- **Fact-check (2026-09-24):** corrected. The Sun's ~5,800 K surface emits a broad mix of colors and looks white from space; it appears yellowish from Earth because the atmosphere scatters away some blue light. Temperature alone does not make it yellow. Sources: https://www.skyatnightmagazine.com/space-science/what-colour-sun, https://www.newsweek.com/color-sun-yellow-white-spectrum-1742550
+- **Previous wording:** The Sun is intermediate in temperature, which is why it appears white-yellow.
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_color source.nasa_star_life_cycle --status verified --by "Your Name" --quote "…"
@@ -6938,6 +7077,7 @@ npm run verify:record -- fact.astronomy.corona_hot source.nasa_sun_facts --statu
   - L56 `question.astronomy.056.q2`: What is surprising about the Sun’s corona? → **It is far hotter than the surface beneath it**
   - L56 `question.astronomy.056.q3`: From Level 7: when can we most easily see the Sun’s corona from Earth? → **During a total solar eclipse**
   - L60 `question.astronomy.060.q2`: Which layer of the Sun is over a million degrees Celsius? → **The corona**
+- **Fact-check (2026-09-24):** corroborated. The coronal heating problem remains open; nanoflares and Alfven waves are leading candidate explanations. Sources: https://spaceplace.nasa.gov/sun-corona/en/, https://physicstoday.aip.org/features/unveiling-the-mystery-of-solar-coronal-heating
 
 ```sh
 npm run verify:record -- fact.astronomy.corona_puzzle source.nasa_sun_facts --status verified --by "Your Name" --quote "…"
@@ -6968,6 +7108,7 @@ npm run verify:record -- fact.astronomy.energy_slow_escape source.nasa_sun_facts
   - L1 `question.astronomy.001.q2`: Which is the most accurate description of the Sun? → **One star among many in the Milky Way**
   - L2 `question.astronomy.002.q2`: From Level 1: what kind of object is the Sun? → **A star**
   - L11 `question.astronomy.011.q3`: From Level 1, stars are distant suns. Why do they rise in the east and set in the west, just like the Sun? → **Earth’s spin sweeps them all across the sky the same way**
+- **Fact-check (2026-09-24):** corroborated. Stars seen at night are distant suns that look like points because they are so far away (NRAO). Sources: https://public.nrao.edu/ask/how-can-we-see-stars-in-the-night-sky-when-they-are-so-far-away/
 
 ```sh
 npm run verify:record -- fact.astronomy.other_stars_are_suns source.nasa_sun_facts --status verified --by "Your Name" --quote "…"
@@ -7024,14 +7165,16 @@ npm run verify:record -- fact.astronomy.sun_age source.nasa_sun_facts --status v
 
 ### ☐ `fact.astronomy.sun_color`: unverified
 
-> **Claim:** The Sun is intermediate in temperature, which is why it appears white-yellow.
+> **Claim:** The Sun is intermediate in temperature, so it gives off a fairly even mix of colors and looks white from space. From the ground it looks yellowish because our atmosphere scatters away some of its blue light.
 
 - **Concept:** A star's color is its temperature (`concept.astronomy.star_color_temperature`)
 - **Appears in:**
-  - L9 “The Life of a Star” · `card.astronomy.009.c2` (text): Color is temperature / Look closely and stars have colors. Blue-white stars are the hottest; red stars are the coolest. The Sun sits in between, which is why it looks white-yellow. / Blue = hot · Red = cool
+  - L9 “The Life of a Star” · `card.astronomy.009.c2` (text): Color is temperature / Look closely and stars have colors. Blue-white stars are the hottest; red stars are the coolest. The Sun sits in between: it shines white from space, and our air makes it look yellowish from the ground. / Blue = hot · Red = cool
 - **Tested by:**
   - L9 `question.astronomy.009.q1`: A star looks blue-white. What does that tell you? → **It's hotter than the Sun**
   - L63 `question.astronomy.063.q3`: From Level 9: a blue-white star is hotter than a red one. On the H–R diagram, which side is it on? → **The left side, with hotter stars**
+- **Fact-check (2026-09-24):** corrected. The Sun's ~5,800 K surface emits a broad mix of colors and looks white from space; it appears yellowish from Earth because the atmosphere scatters away some blue light. Temperature alone does not make it yellow. Sources: https://www.skyatnightmagazine.com/space-science/what-colour-sun, https://www.newsweek.com/color-sun-yellow-white-spectrum-1742550
+- **Previous wording:** The Sun is intermediate in temperature, which is why it appears white-yellow.
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_color source.nasa_sun_facts --status verified --by "Your Name" --quote "…"
@@ -7067,6 +7210,7 @@ npm run verify:record -- fact.astronomy.sun_core_temperature source.nasa_sun_fac
   - L67 `question.astronomy.067.q2`: What happens to a Sun-like star when its core runs low on hydrogen? → **Its core contracts while its outer layers swell into a red giant**
   - L67 `question.astronomy.067.q3`: From Level 63: where on the H–R diagram would the Sun move as it becomes a red giant? → **Up and to the right: cooler but more luminous**
   - L70 `question.astronomy.070.q5`: Chapter 7 recap: which order follows a Sun-like star through its life? → **Cloud of gas → main sequence → red giant → white dwarf**
+- **Fact-check (2026-09-24):** corroborated. NASA: the red giant Sun will engulf Mercury and Venus and possibly Earth; Earth's fate is debated, which the claim's hedge reflects. Sources: https://science.nasa.gov/sun/facts/, https://www.space.com/astronomy/earth/earth-may-survive-the-suns-death-after-all-new-study-suggests
 
 ```sh
 npm run verify:record -- fact.astronomy.sun_engulf source.nasa_sun_facts --status verified --by "Your Name" --quote "…"
@@ -7222,6 +7366,7 @@ npm run verify:record -- fact.astronomy.huygens_2005 source.nasa_titan --status 
   - L48 `question.astronomy.048.q1`: What fills the lakes and seas of Titan? → **Liquid methane and ethane**
   - L48 `question.astronomy.048.q2`: What makes Titan unique among the solar system’s moons? → **It is the only moon with a thick atmosphere**
   - L48 `question.astronomy.048.q3`: From Level 4: Saturn is famous for its rings. What else did exploring Saturn’s system reveal? → **A moon with methane lakes and one with water plumes**
+- **Fact-check (2026-09-24):** corroborated. NASA: Titan is the only moon with a dense atmosphere, about 95 percent nitrogen and 5 percent methane. Sources: https://science.nasa.gov/saturn/moons/titan/facts/, https://www.planetary.org/worlds/titan
 
 ```sh
 npm run verify:record -- fact.astronomy.titan_atmosphere source.nasa_titan --status verified --by "Your Name" --quote "…"
@@ -7239,6 +7384,7 @@ npm run verify:record -- fact.astronomy.titan_atmosphere source.nasa_titan --sta
   - L48 `question.astronomy.048.q1`: What fills the lakes and seas of Titan? → **Liquid methane and ethane**
   - L48 `question.astronomy.048.q2`: What makes Titan unique among the solar system’s moons? → **It is the only moon with a thick atmosphere**
   - L48 `question.astronomy.048.q3`: From Level 4: Saturn is famous for its rings. What else did exploring Saturn’s system reveal? → **A moon with methane lakes and one with water plumes**
+- **Fact-check (2026-09-24):** corroborated. Cassini showed Titan's lakes and seas are mostly liquid methane and ethane, fed by hydrocarbon (methane) rain in a cycle like Earth's water cycle. Sources: https://science.nasa.gov/missions/cassini/cassini-reveals-surprises-with-titans-lakes/, https://www.planetary.org/articles/0315-titans-lakes-the-basics
 
 ```sh
 npm run verify:record -- fact.astronomy.titan_lakes source.nasa_titan --status verified --by "Your Name" --quote "…"
@@ -7255,6 +7401,7 @@ npm run verify:record -- fact.astronomy.titan_lakes source.nasa_titan --status v
   - L48 `question.astronomy.048.q1`: What fills the lakes and seas of Titan? → **Liquid methane and ethane**
   - L48 `question.astronomy.048.q2`: What makes Titan unique among the solar system’s moons? → **It is the only moon with a thick atmosphere**
   - L48 `question.astronomy.048.q3`: From Level 4: Saturn is famous for its rings. What else did exploring Saturn’s system reveal? → **A moon with methane lakes and one with water plumes**
+- **Fact-check (2026-09-24):** corroborated. Titan (about 5,150 km across) is Saturn's largest moon and larger in diameter than Mercury, though only about 40% of Mercury's mass. Sources: https://science.nasa.gov/saturn/moons/titan/facts/, https://www.space.com/15257-titan-saturn-largest-moon-facts-discovery-sdcmp.html
 
 ```sh
 npm run verify:record -- fact.astronomy.titan_largest_saturn source.nasa_titan --status verified --by "Your Name" --quote "…"
@@ -7269,6 +7416,7 @@ npm run verify:record -- fact.astronomy.titan_largest_saturn source.nasa_titan -
   - L48 “Titan: A World of Methane Lakes” · `card.astronomy.048.c3` (text): Earth’s strange cousin / Apart from Earth, Titan is the only world known to have stable liquid on its surface. In 2005 the Huygens probe parachuted through its haze and landed, the first landing ever on a world in the outer solar system. / Huygens landed 2005
 - **Tested by:**
   - L50 `question.astronomy.050.q7`: Besides Earth, which world has stable liquid on its surface? → **Titan, with methane lakes**
+- **Fact-check (2026-09-24):** corroborated. NASA: Titan is the only world in our solar system other than Earth known to have stable liquid on its surface (methane and ethane lakes and seas). Sources: https://science.nasa.gov/saturn/moons/titan/facts/
 
 ```sh
 npm run verify:record -- fact.astronomy.titan_liquid_surface source.nasa_titan --status verified --by "Your Name" --quote "…"
@@ -7323,6 +7471,7 @@ npm run verify:record -- fact.astronomy.venus_transits_au source.nasa_transit_ve
 - **Appears in:**
   - L78 “The Habitable Zone” · `card.astronomy.078.c4` (fact): TRAPPIST-1 has seven Earth-sized planets. / This red dwarf about 40 light-years away has several planets in its habitable zone, all orbiting much closer than Mercury does to the Sun.
   - L80 “Checkpoint: Extreme Objects and Other Worlds” · `card.astronomy.080.c3` (text): Listening and looking / Pulsars announce neutron stars with radio pulses. Gravitational waves reveal black holes and neutron stars colliding. And transits and wobbles have uncovered thousands of worlds around other stars, some in their habitable zones. Each discovery came from reading a different kind of signal.
+- **Fact-check (2026-09-24):** corroborated. TRAPPIST-1 is a red dwarf about 40 light-years away with seven roughly Earth-size planets; three (e, f, g) lie in its habitable zone. Sources: https://www.spitzer.caltech.edu/explore/trappist-1, https://science.nasa.gov/exoplanets/trappist1
 
 ```sh
 npm run verify:record -- fact.astronomy.trappist1 source.nasa_trappist1 --status verified --by "Your Name" --quote "…"
@@ -7363,6 +7512,7 @@ npm run verify:record -- fact.astronomy.bb_hot_dense source.nasa_universe_age --
   - L96 “Integration: From Atoms to Galaxies” · `card.astronomy.096.c1` (text): The atoms in your body have been on a 13.8-billion-year journey.
 - **Tested by:**
   - L10 `question.astronomy.010.q2`: About how old is the universe? → **13.8 billion years**
+- **Fact-check (2026-09-24):** corroborated. The standard cosmological model, based on Planck CMB data and confirmed by ACT, gives an age of about 13.8 billion years. Sources: https://imagine.gsfc.nasa.gov/science/featured_science/tenyear/age.html, https://science.nasa.gov/universe/overview/
 
 ```sh
 npm run verify:record -- fact.astronomy.universe_age source.nasa_universe_age --status verified --by "Your Name" --quote "…"
@@ -7400,6 +7550,7 @@ npm run verify:record -- fact.astronomy.herschel_1781 source.nasa_uranus_facts -
   - L49 “The Tilted and the Windy: Uranus and Neptune” · `card.astronomy.049.c4` (fact): Methane makes Uranus and Neptune blue. / Methane in their atmospheres absorbs red light, so the sunlight they reflect back looks blue.
 - **Tested by:**
   - L49 `question.astronomy.049.q2`: What gives Uranus and Neptune their blue color? → **Methane in their atmospheres absorbing red light**
+- **Fact-check (2026-09-24):** corroborated. Methane in Uranus's and Neptune's atmospheres absorbs red light and reflects blue, giving both their blue color; haze explains their shade difference. Sources: https://science.nasa.gov/solar-system/why-uranus-and-neptune-are-different-colors/
 
 ```sh
 npm run verify:record -- fact.astronomy.methane_blue source.nasa_uranus_facts --status verified --by "Your Name" --quote "…"
@@ -7415,6 +7566,7 @@ npm run verify:record -- fact.astronomy.methane_blue source.nasa_uranus_facts --
   - L49 “The Tilted and the Windy: Uranus and Neptune” · `card.astronomy.049.c2` (text): A planet on its side / Uranus is tilted about 98°, so it essentially rolls around the Sun on its side. Each pole gets about 42 years of continuous sunlight, followed by 42 years of darkness. / Tilt: ~98°
 - **Tested by:**
   - L49 `question.astronomy.049.q3`: From Level 5: Earth’s 23.5° tilt gives us seasons. What does Uranus’s ~98° tilt do? → **It gives extreme seasons, with 42-year polar days**
+- **Fact-check (2026-09-24):** corroborated. Uranus's 97 degree tilt and 84-year orbit give each pole about 42 years of sunlight followed by 42 years of darkness (NASA Webb, SSEC). Sources: https://x.com/NASAWebb/status/1643979296590168070?lang=en, https://www.ssec.wisc.edu/planetary/uranus/science/
 
 ```sh
 npm run verify:record -- fact.astronomy.uranus_seasons source.nasa_uranus_facts --status verified --by "Your Name" --quote "…"
@@ -7446,6 +7598,7 @@ npm run verify:record -- fact.astronomy.uranus_seen_earlier source.nasa_uranus_f
   - L49 “The Tilted and the Windy: Uranus and Neptune” · `card.astronomy.049.c2` (text): A planet on its side / Uranus is tilted about 98°, so it essentially rolls around the Sun on its side. Each pole gets about 42 years of continuous sunlight, followed by 42 years of darkness. / Tilt: ~98°
 - **Tested by:**
   - L49 `question.astronomy.049.q3`: From Level 5: Earth’s 23.5° tilt gives us seasons. What does Uranus’s ~98° tilt do? → **It gives extreme seasons, with 42-year polar days**
+- **Fact-check (2026-09-24):** corroborated. NASA gives Uranus an axial tilt of 97.77 degrees, so it rotates nearly on its side relative to its orbit. Sources: https://science.nasa.gov/uranus/facts/
 
 ```sh
 npm run verify:record -- fact.astronomy.uranus_tilt source.nasa_uranus_facts --status verified --by "Your Name" --quote "…"
@@ -7514,6 +7667,7 @@ npm run verify:record -- fact.astronomy.venus_co2_traps_heat source.nasa_venus_f
 - **Tested by:**
   - L42 `question.astronomy.042.q2`: Why is a day on Venus longer than its year? → **It rotates so slowly that one spin takes longer than one orbit**
   - L42 `question.astronomy.042.q3`: From Level 11: on Earth the Sun rises in the east because Earth spins west to east. What does a western sunrise on Venus tell you? → **Venus spins the opposite way to Earth**
+- **Fact-check (2026-09-24):** corroborated. NASA: Venus rotates once in about 243 Earth days (sidereal) and orbits the Sun in about 225 Earth days, so its rotation period exceeds its year. Sources: https://science.nasa.gov/venus/venus-facts/, https://spaceplace.nasa.gov/all-about-venus/en/
 
 ```sh
 npm run verify:record -- fact.astronomy.venus_day_longer source.nasa_venus_facts --status verified --by "Your Name" --quote "…"
@@ -7563,6 +7717,7 @@ npm run verify:record -- fact.astronomy.venus_hotter_than_mercury source.nasa_ve
   - L5 `question.astronomy.005.q3`: Venus is hotter than Mercury (Level 3), and northern summer happens when Earth is farther from the Sun. What do both show? → **Distance alone doesn’t set temperature**
   - L41 `question.astronomy.041.q3`: From Level 3: Venus stays scorching all night, but Mercury freezes. What makes the difference? → **Venus has a thick heat-trapping atmosphere; Mercury has almost none**
   - L78 `question.astronomy.078.q3`: From Level 3: Venus sits near the inner edge of the Sun’s habitable zone. Why isn’t it habitable? → **Its thick carbon dioxide atmosphere traps too much heat**
+- **Fact-check (2026-09-24):** corroborated. NASA: Venus is the hottest planet, surface about 464 to 467 C, due to a runaway greenhouse effect. Sources: https://science.nasa.gov/venus/venus-facts/, https://science.nasa.gov/resource/solar-system-temperatures/
 
 ```sh
 npm run verify:record -- fact.astronomy.venus_hottest source.nasa_venus_facts --status verified --by "Your Name" --quote "…"
@@ -7628,6 +7783,7 @@ npm run verify:record -- fact.astronomy.heliopause_voyager source.nasa_voyager -
 - **Tested by:**
   - L38 `question.astronomy.038.q1`: Which spacecraft is the only one to have visited Uranus and Neptune? → **Voyager 2**
   - L38 `question.astronomy.038.q3`: From Level 29: Herschel found Uranus with a telescope in 1781. How did Voyager 2 add to that? → **It gave humanity its only close-up visit to Uranus**
+- **Fact-check (2026-09-24):** corroborated. Voyager 2 launched August 20, 1977 and Voyager 1 on September 5, 1977. Sources: https://science.nasa.gov/mission/voyager/fact-sheet/, https://voyager.jpl.nasa.gov/mission/
 
 ```sh
 npm run verify:record -- fact.astronomy.voyager_1977 source.nasa_voyager --status verified --by "Your Name" --quote "…"
@@ -7730,6 +7886,7 @@ npm run verify:record -- fact.astronomy.infrared_dust source.nasa_webb --status 
 - **Tested by:**
   - L36 `question.astronomy.036.q1`: What kind of light is the James Webb Space Telescope built to see? → **Infrared light**
   - L36 `question.astronomy.036.q3`: From Level 34: why does it help that Webb works in space? → **Much infrared light never reaches the ground**
+- **Fact-check (2026-09-24):** corroborated. NASA: Webb launched December 25, 2021, on an Ariane 5 from French Guiana. Sources: https://science.nasa.gov/mission/webb/webb-mission-timeline/, https://science.nasa.gov/mission/webb/launch/
 
 ```sh
 npm run verify:record -- fact.astronomy.webb_2021 source.nasa_webb --status verified --by "Your Name" --quote "…"
@@ -7747,6 +7904,7 @@ npm run verify:record -- fact.astronomy.webb_2021 source.nasa_webb --status veri
   - L79 `question.astronomy.079.q1`: What is a biosignature? → **A sign, like certain gases, that life might be present**
   - L79 `question.astronomy.079.q2`: How can Webb study an exoplanet’s atmosphere without visiting it? → **By analyzing starlight that passes through the atmosphere**
   - L99 `question.astronomy.099.q3`: From Level 79: why is “Is there life elsewhere?” still an open question? → **No life has been confirmed beyond Earth yet**
+- **Fact-check (2026-09-24):** corroborated. Webb uses transmission spectroscopy of starlight passing through transiting planets' atmospheres; it made the first clear detection of CO2 in exoplanet WASP-39 b's atmosphere. Sources: https://science.nasa.gov/missions/webb/nasas-webb-detects-carbon-dioxide-in-exoplanet-atmosphere, https://esawebb.org/news/weic2213/
 
 ```sh
 npm run verify:record -- fact.astronomy.webb_atmospheres source.nasa_webb --status verified --by "Your Name" --quote "…"
@@ -7811,6 +7969,7 @@ npm run verify:record -- fact.astronomy.webb_mirror source.nasa_webb --status ve
 - **Tested by:**
   - L36 `question.astronomy.036.q1`: What kind of light is the James Webb Space Telescope built to see? → **Infrared light**
   - L36 `question.astronomy.036.q3`: From Level 34: why does it help that Webb works in space? → **Much infrared light never reaches the ground**
+- **Fact-check (2026-09-24):** corroborated. Webb's sunshield has five Kapton layers and measures about 21 m by 14 m, roughly the size of a tennis court. Sources: https://esawebb.org/about/general/sun-shield/, https://en.wikipedia.org/wiki/James_Webb_Space_Telescope_sunshield
 
 ```sh
 npm run verify:record -- fact.astronomy.webb_sunshield source.nasa_webb --status verified --by "Your Name" --quote "…"
@@ -7891,6 +8050,7 @@ npm run verify:record -- fact.astronomy.first_stars_when source.nasa_webb_early 
   - L93 “The First Stars and Galaxies” · `card.astronomy.093.c4` (text): Finding the first galaxies / Light from these early galaxies has been stretched into infrared by the expanding universe. That’s why Webb, an infrared telescope, is built to find them. It has already seen galaxies as they were only a few hundred million years after the Big Bang. / Early light → infrared → Webb
 - **Tested by:**
   - L93 `question.astronomy.093.q3`: From Level 36: why does Webb look for the first galaxies in infrared? → **Their light has been stretched into infrared**
+- **Fact-check (2026-09-24):** corroborated. Webb has confirmed galaxies seen about 280 to 290 million years after the Big Bang (MoM-z14, JADES-GS-z14-0). Sources: https://esawebb.org/images/jades4/, https://www.space.com/astronomy/cosmic-miracle-james-webb-space-telescope-discovers-the-earliest-galaxy-ever-seen
 
 ```sh
 npm run verify:record -- fact.astronomy.webb_early_galaxies source.nasa_webb_early --status verified --by "Your Name" --quote "…"
