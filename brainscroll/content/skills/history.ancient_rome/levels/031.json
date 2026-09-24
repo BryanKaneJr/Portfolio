@@ -1,0 +1,205 @@
+{
+  "id": "level.history.ancient_rome.031",
+  "skillId": "skill.history.ancient_rome",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Gracchi Brothers",
+  "objective": "After this level you can explain the land reforms of the Gracchi and why they ended in violence.",
+  "summary": "As estates swallowed small farms, the tribunes Tiberius and Gaius Gracchus pushed land and grain reforms. Both were killed.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.gracchi",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.tribunes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.030"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two brothers tried to give land to the poor. Both were killed for it."
+    },
+    {
+      "id": "card.ancient_rome.031.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rich estates, poor farmers",
+      "body": "Rome’s conquests brought wealth, but not to everyone. By the 2nd century BCE, rich Romans had built huge estates worked by enslaved people, while many small farmers lost their land. In 133 BCE the tribune Tiberius Gracchus proposed giving public land to poor citizens."
+    },
+    {
+      "id": "card.ancient_rome.031.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Blood in the Forum",
+      "body": "Many senators saw a threat to their power and property. Tiberius was killed by a mob of senators and their supporters, the worst political bloodshed in Rome in centuries. His brother Gaius pushed wider reforms, including cheap grain for citizens, and was killed in 121 BCE."
+    },
+    {
+      "id": "card.ancient_rome.031.c4",
+      "type": "fact",
+      "fact": "A dangerous precedent.",
+      "context": "The deaths of the Gracchi showed that political disputes in Rome could now be settled with violence rather than votes."
+    },
+    {
+      "id": "card.ancient_rome.031.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.031.q1"
+    },
+    {
+      "id": "card.ancient_rome.031.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.031.q2"
+    },
+    {
+      "id": "card.ancient_rome.031.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.031.q3"
+    },
+    {
+      "id": "card.ancient_rome.031.c8",
+      "type": "checkpoint",
+      "headline": "The Gracchi: remembered",
+      "learned": [
+        "Estates grew as small farmers lost land",
+        "Tiberius Gracchus proposed land reform in 133 BCE",
+        "Both brothers were killed",
+        "Violence entered Roman politics"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.gracchi"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.031.c2"
+      ],
+      "prompt": "What did Tiberius Gracchus propose in 133 BCE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Making himself king",
+          "correct": false,
+          "rationale": "He proposed a land reform."
+        },
+        {
+          "id": "b",
+          "label": "Giving public land to poor citizens",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Abolishing the tribunes",
+          "correct": false,
+          "rationale": "He was a tribune himself."
+        },
+        {
+          "id": "d",
+          "label": "Declaring war on Carthage",
+          "correct": false,
+          "rationale": "Carthage was already gone."
+        }
+      ],
+      "explanation": "He proposed distributing public land to poor citizens who had lost their farms.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.gracchi"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.031.c4"
+      ],
+      "prompt": "Why were the deaths of the Gracchi a turning point?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Political disputes were now settled by violence",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They ended the Conflict of the Orders",
+          "correct": false,
+          "rationale": "That ended in 287 BCE."
+        },
+        {
+          "id": "c",
+          "label": "They made Rome a monarchy",
+          "correct": false,
+          "rationale": "The Republic continued."
+        },
+        {
+          "id": "d",
+          "label": "They gave the poor all public land",
+          "correct": false,
+          "rationale": "The reforms were blocked."
+        }
+      ],
+      "explanation": "Killing sitting reformers showed that votes and vetoes could be overruled by force.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.gracchi",
+        "concept.ancient_rome.tribunes"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.031.c2",
+        "card.ancient_rome.016.c2"
+      ],
+      "prompt": "From Level 16: Tiberius Gracchus held which office, meant to protect plebeians?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Consul",
+          "correct": false,
+          "rationale": "He held a plebeian office."
+        },
+        {
+          "id": "b",
+          "label": "Dictator",
+          "correct": false,
+          "rationale": "He held a plebeian office."
+        },
+        {
+          "id": "c",
+          "label": "Censor",
+          "correct": false,
+          "rationale": "He held a plebeian office."
+        },
+        {
+          "id": "d",
+          "label": "Tribune of the plebs",
+          "correct": true
+        }
+      ],
+      "explanation": "Both brothers were tribunes of the plebs, the office created to protect ordinary citizens.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_tiberius_gracchus",
+    "source.brit_gaius_gracchus"
+  ]
+}

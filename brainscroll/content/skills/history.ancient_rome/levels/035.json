@@ -1,0 +1,204 @@
+{
+  "id": "level.history.ancient_rome.035",
+  "skillId": "skill.history.ancient_rome",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pompey the Great",
+  "objective": "After this level you can describe Pompey’s rise and his conquests in the East.",
+  "summary": "Pompey rose under Sulla, won huge commands, swept the pirates from the sea in 67 BCE and remade the East. He called himself Magnus.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.pompey",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.sulla",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.034"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "He called himself “the Great” before most Romans agreed he was."
+    },
+    {
+      "id": "card.ancient_rome.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A general of special commands",
+      "body": "Pompey first rose to fame as a young commander fighting for Sulla. Later the Roman people voted him extraordinary commands that gave him power over huge areas for years at a time. In 67 BCE he cleared the Mediterranean of pirates in about three months."
+    },
+    {
+      "id": "card.ancient_rome.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Remaking the East",
+      "body": "Pompey then defeated King Mithridates and reorganized the eastern Mediterranean. He made Syria a Roman province and captured Jerusalem in 63 BCE. He took the name Magnus, “the Great,” in imitation of Alexander the Great."
+    },
+    {
+      "id": "card.ancient_rome.035.c4",
+      "type": "fact",
+      "fact": "Pompey swept the pirates from the Mediterranean in about three months.",
+      "context": "The campaign of 67 BCE was one of the extraordinary commands the Roman people voted him, and its speed made him a hero."
+    },
+    {
+      "id": "card.ancient_rome.035.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.035.q1"
+    },
+    {
+      "id": "card.ancient_rome.035.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.035.q2"
+    },
+    {
+      "id": "card.ancient_rome.035.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.035.q3"
+    },
+    {
+      "id": "card.ancient_rome.035.c8",
+      "type": "checkpoint",
+      "headline": "Pompey: met",
+      "learned": [
+        "Pompey rose under Sulla",
+        "He won extraordinary commands",
+        "He cleared the sea of pirates in 67 BCE",
+        "He reorganized the East and took Jerusalem"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.pompey"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.035.c3"
+      ],
+      "prompt": "What name did Pompey take for himself?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Africanus",
+          "correct": false,
+          "rationale": "That was Scipio."
+        },
+        {
+          "id": "b",
+          "label": "Cunctator",
+          "correct": false,
+          "rationale": "That was Fabius."
+        },
+        {
+          "id": "c",
+          "label": "Augustus",
+          "correct": false,
+          "rationale": "That came later, with someone else."
+        },
+        {
+          "id": "d",
+          "label": "Magnus, “the Great”",
+          "correct": true
+        }
+      ],
+      "explanation": "Pompey called himself Magnus, imitating Alexander the Great.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.pompey"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.035.c2"
+      ],
+      "prompt": "Why did Pompey’s commands worry many senators?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They gave one man vast power for years",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They cost Rome its eastern provinces",
+          "correct": false,
+          "rationale": "He gained provinces."
+        },
+        {
+          "id": "c",
+          "label": "They were won by bribing the Vestals",
+          "correct": false,
+          "rationale": "The worry was concentrated power."
+        },
+        {
+          "id": "d",
+          "label": "They put Carthage back in power",
+          "correct": false,
+          "rationale": "Carthage was destroyed."
+        }
+      ],
+      "explanation": "Extraordinary commands concentrated power in one man, the very thing the Republic was built to prevent.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.pompey",
+        "concept.ancient_rome.sulla"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.035.c2",
+        "card.ancient_rome.033.c2"
+      ],
+      "prompt": "From Level 33: under which general did Pompey first make his name?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Marius",
+          "correct": false,
+          "rationale": "He fought on the other side."
+        },
+        {
+          "id": "b",
+          "label": "Sulla",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Scipio",
+          "correct": false,
+          "rationale": "Scipio lived long before."
+        },
+        {
+          "id": "d",
+          "label": "Crassus",
+          "correct": false,
+          "rationale": "They were later rivals and partners."
+        }
+      ],
+      "explanation": "Pompey rose as a young commander fighting for Sulla.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_pompey"
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "id": "level.history.ancient_rome.036",
+  "skillId": "skill.history.ancient_rome",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Cicero Against Catiline",
+  "objective": "After this level you can explain the Catiline conspiracy and Cicero’s role as consul.",
+  "summary": "Cicero, a “new man” and Rome’s great orator, became consul in 63 BCE and exposed Catiline’s plot, but executed conspirators without trial.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.cicero_catiline",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.consuls",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.035"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome’s greatest speaker won his biggest fight with words, then paid for it."
+    },
+    {
+      "id": "card.ancient_rome.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A new man",
+      "body": "Cicero was a “new man,” the first in his family to reach the Senate. His speeches made him Rome’s greatest orator. Hundreds of his letters survive, which makes him the best-documented person of the late Republic."
+    },
+    {
+      "id": "card.ancient_rome.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The conspiracy",
+      "body": "Cicero was elected consul for 63 BCE. That year he exposed a conspiracy by Catiline to seize power and denounced him in a series of famous speeches. He then had several conspirators executed without trial. That decision later led to his exile."
+    },
+    {
+      "id": "card.ancient_rome.036.c4",
+      "type": "fact",
+      "fact": "Hundreds of Cicero’s letters survive.",
+      "context": "They make him the best-documented person of the late Republic. We can follow his hopes, worries and quarrels in his own words."
+    },
+    {
+      "id": "card.ancient_rome.036.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.036.q1"
+    },
+    {
+      "id": "card.ancient_rome.036.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.036.q2"
+    },
+    {
+      "id": "card.ancient_rome.036.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.036.q3"
+    },
+    {
+      "id": "card.ancient_rome.036.c8",
+      "type": "checkpoint",
+      "headline": "Cicero: heard",
+      "learned": [
+        "Cicero was a “new man” and a great orator",
+        "He was consul in 63 BCE",
+        "He exposed Catiline’s conspiracy",
+        "Executions without trial led to his exile"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.cicero_catiline"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.036.c3"
+      ],
+      "prompt": "Who exposed Catiline’s conspiracy in 63 BCE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pompey",
+          "correct": false,
+          "rationale": "Pompey was in the East."
+        },
+        {
+          "id": "b",
+          "label": "Sulla",
+          "correct": false,
+          "rationale": "Sulla was dead by then."
+        },
+        {
+          "id": "c",
+          "label": "Cicero",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Marius",
+          "correct": false,
+          "rationale": "Marius was dead by then."
+        }
+      ],
+      "explanation": "As consul, Cicero exposed the plot and denounced Catiline in famous speeches.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.cicero_catiline"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.036.c3"
+      ],
+      "prompt": "Why was Cicero later sent into exile?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He lost a war in Gaul",
+          "correct": false,
+          "rationale": "He wasn’t a general there."
+        },
+        {
+          "id": "b",
+          "label": "He tried to make himself king",
+          "correct": false,
+          "rationale": "He defended the Republic."
+        },
+        {
+          "id": "c",
+          "label": "He freed Spartacus’s followers",
+          "correct": false,
+          "rationale": "Not related."
+        },
+        {
+          "id": "d",
+          "label": "He had conspirators executed without trial",
+          "correct": true
+        }
+      ],
+      "explanation": "Executing Roman citizens without trial was used against him afterwards.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.cicero_catiline",
+        "concept.ancient_rome.consuls"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.036.c3",
+        "card.ancient_rome.012.c2"
+      ],
+      "prompt": "From Level 12: Cicero held Rome’s top yearly office in 63 BCE. Which one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Consul",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Tribune of the plebs",
+          "correct": false,
+          "rationale": "That was a plebeian office."
+        },
+        {
+          "id": "c",
+          "label": "Dictator",
+          "correct": false,
+          "rationale": "That was an emergency office."
+        },
+        {
+          "id": "d",
+          "label": "Paterfamilias",
+          "correct": false,
+          "rationale": "That was a family role."
+        }
+      ],
+      "explanation": "Cicero was one of the two consuls for 63 BCE.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_cicero",
+    "source.brit_catiline"
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "id": "level.history.ancient_rome.034",
+  "skillId": "skill.history.ancient_rome",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Spartacus",
+  "objective": "After this level you can describe the slave revolt led by Spartacus and how it ended.",
+  "summary": "In 73 BCE the gladiator Spartacus led a slave revolt that grew to tens of thousands. Crassus crushed it in 71 BCE.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.spartacus",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.gracchi",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.conquest_italy",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.033"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A gladiator escaped his school and raised an army that shook Rome."
+    },
+    {
+      "id": "card.ancient_rome.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The breakout",
+      "body": "In 73 BCE Spartacus, a gladiator from Thrace, escaped from a gladiator school at Capua with a band of fellow fighters. Enslaved people from Italy’s great estates joined him. His army grew to tens of thousands and defeated several Roman forces."
+    },
+    {
+      "id": "card.ancient_rome.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A brutal end",
+      "body": "In 71 BCE the wealthy general Marcus Crassus crushed the revolt. Some 6,000 captured rebels were crucified along the Appian Way as a warning. Spartacus himself became a lasting symbol of resistance to oppression."
+    },
+    {
+      "id": "card.ancient_rome.034.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Why Rome was afraid",
+      "body": "The great estates that the Gracchi had tried to break up were worked by enslaved people. That is why a slave army frightened wealthy Romans so much: their fortunes depended on the very people now in revolt."
+    },
+    {
+      "id": "card.ancient_rome.034.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.034.q1"
+    },
+    {
+      "id": "card.ancient_rome.034.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.034.q2"
+    },
+    {
+      "id": "card.ancient_rome.034.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.034.q3"
+    },
+    {
+      "id": "card.ancient_rome.034.c8",
+      "type": "checkpoint",
+      "headline": "The revolt: ended",
+      "learned": [
+        "Spartacus was a Thracian gladiator",
+        "His revolt began at Capua in 73 BCE",
+        "Crassus crushed it in 71 BCE",
+        "Some 6,000 rebels were crucified"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.spartacus"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.034.c2"
+      ],
+      "prompt": "What was Spartacus before he led the revolt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A Roman senator",
+          "correct": false,
+          "rationale": "He was enslaved."
+        },
+        {
+          "id": "b",
+          "label": "A gladiator",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A Carthaginian general",
+          "correct": false,
+          "rationale": "He came from Thrace."
+        },
+        {
+          "id": "d",
+          "label": "A tribune of the plebs",
+          "correct": false,
+          "rationale": "He was enslaved."
+        }
+      ],
+      "explanation": "Spartacus was a Thracian gladiator who escaped from a school at Capua.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.spartacus",
+        "concept.ancient_rome.gracchi"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.034.c2"
+      ],
+      "prompt": "Why did the revolt alarm Rome’s wealthy so much?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gladiators were Rome’s only soldiers",
+          "correct": false,
+          "rationale": "Rome had legions."
+        },
+        {
+          "id": "b",
+          "label": "Spartacus planned to become king",
+          "correct": false,
+          "rationale": "The fear was economic and social."
+        },
+        {
+          "id": "c",
+          "label": "Their estates depended on enslaved workers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The rebels had captured Carthage",
+          "correct": false,
+          "rationale": "The revolt was in Italy."
+        }
+      ],
+      "explanation": "Italy’s great estates were worked by enslaved people, so a slave army threatened the whole system.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.spartacus",
+        "concept.ancient_rome.conquest_italy"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.034.c3",
+        "card.ancient_rome.019.c3"
+      ],
+      "prompt": "From Level 19: along which road were the captured rebels crucified?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Via Appia",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Via Salaria",
+          "correct": false,
+          "rationale": "That was the salt route."
+        },
+        {
+          "id": "c",
+          "label": "The Via Sacra",
+          "correct": false,
+          "rationale": "That ran through the Forum."
+        },
+        {
+          "id": "d",
+          "label": "The Via Flaminia",
+          "correct": false,
+          "rationale": "It was the Appian Way."
+        }
+      ],
+      "explanation": "Crassus lined the Appian Way, Rome’s first great road, with crucified rebels.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_spartacus",
+    "source.brit_tiberius_gracchus",
+    "source.brit_crassus"
+  ]
+}

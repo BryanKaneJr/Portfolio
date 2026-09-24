@@ -1,0 +1,213 @@
+{
+  "id": "level.history.ancient_rome.037",
+  "skillId": "skill.history.ancient_rome",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The First Triumvirate",
+  "objective": "After this level you can explain the informal alliance of Caesar, Pompey and Crassus.",
+  "summary": "In 60 BCE Caesar, Pompey and Crassus pooled their power. Julia’s death in 54 BCE and Crassus’s at Carrhae in 53 BCE broke it apart.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.first_triumvirate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.spartacus",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.pompey",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.036"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Three ambitious men agreed to share Rome. It couldn’t last."
+    },
+    {
+      "id": "card.ancient_rome.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A private deal",
+      "body": "In 60 BCE Julius Caesar, Pompey and Crassus formed an informal alliance, later called the First Triumvirate. Each gained something the Senate had refused him: Caesar a consulship, Pompey land for his veterans, and Crassus favors for his allies. Pompey married Caesar’s daughter Julia to seal it."
+    },
+    {
+      "id": "card.ancient_rome.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Falling apart",
+      "body": "Julia died in 54 BCE, weakening the bond between her husband and her father. Then Crassus, the richest man in Rome and the victor over Spartacus, was killed in 53 BCE after a disastrous defeat by the Parthians at Carrhae. Only two rivals were left."
+    },
+    {
+      "id": "card.ancient_rome.037.c4",
+      "type": "fact",
+      "fact": "Pompey married Caesar’s daughter Julia to seal the alliance.",
+      "context": "Her death in 54 BCE removed the family tie between the two most powerful men in Rome."
+    },
+    {
+      "id": "card.ancient_rome.037.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.037.q1"
+    },
+    {
+      "id": "card.ancient_rome.037.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.037.q2"
+    },
+    {
+      "id": "card.ancient_rome.037.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.037.q3"
+    },
+    {
+      "id": "card.ancient_rome.037.c8",
+      "type": "checkpoint",
+      "headline": "The Triumvirate: formed and broken",
+      "learned": [
+        "Caesar, Pompey and Crassus allied in 60 BCE",
+        "Each gained what the Senate refused him",
+        "Julia’s death weakened the bond",
+        "Crassus died at Carrhae in 53 BCE"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.first_triumvirate"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.037.c2"
+      ],
+      "prompt": "Who formed the First Triumvirate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Caesar, Pompey and Crassus",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Caesar, Cicero and Sulla",
+          "correct": false,
+          "rationale": "Sulla was dead."
+        },
+        {
+          "id": "c",
+          "label": "Pompey, Marius and Cato",
+          "correct": false,
+          "rationale": "Marius was dead."
+        },
+        {
+          "id": "d",
+          "label": "Crassus, Cicero and Catiline",
+          "correct": false,
+          "rationale": "Wrong trio."
+        }
+      ],
+      "explanation": "Caesar, Pompey and Crassus formed the informal alliance in 60 BCE.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.first_triumvirate"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.037.c3"
+      ],
+      "prompt": "Why did the First Triumvirate fall apart?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Senate dissolved it by law",
+          "correct": false,
+          "rationale": "It was never an official office."
+        },
+        {
+          "id": "b",
+          "label": "Pompey and Crassus retired to farms",
+          "correct": false,
+          "rationale": "Crassus died in battle."
+        },
+        {
+          "id": "c",
+          "label": "Julia and Crassus died, leaving two rivals",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Caesar was exiled to Egypt",
+          "correct": false,
+          "rationale": "Caesar was in Gaul."
+        }
+      ],
+      "explanation": "Julia’s death in 54 BCE and Crassus’s at Carrhae in 53 BCE left Caesar and Pompey facing each other.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.first_triumvirate",
+        "concept.ancient_rome.spartacus"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.037.c3",
+        "card.ancient_rome.034.c3"
+      ],
+      "prompt": "From Level 34: which revolt had Crassus crushed years earlier?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The secession of the plebs",
+          "correct": false,
+          "rationale": "That was in 494 BCE."
+        },
+        {
+          "id": "b",
+          "label": "Catiline’s conspiracy",
+          "correct": false,
+          "rationale": "That was Cicero."
+        },
+        {
+          "id": "c",
+          "label": "The revolt of the Gracchi",
+          "correct": false,
+          "rationale": "They were reformers, not rebels."
+        },
+        {
+          "id": "d",
+          "label": "The slave revolt of Spartacus",
+          "correct": true
+        }
+      ],
+      "explanation": "Crassus crushed the revolt of Spartacus in 71 BCE.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_triumvirate",
+    "source.brit_caesar",
+    "source.brit_pompey",
+    "source.brit_crassus",
+    "source.brit_spartacus"
+  ]
+}

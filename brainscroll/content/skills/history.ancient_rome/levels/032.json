@@ -1,0 +1,205 @@
+{
+  "id": "level.history.ancient_rome.032",
+  "skillId": "skill.history.ancient_rome",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Marius Remakes the Army",
+  "objective": "After this level you can explain how Marius’s reforms tied soldiers to their generals.",
+  "summary": "Seven-time consul Marius opened the legions to landless volunteers paid by the state. Soldiers began to look to generals, not the Senate.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.marian_reforms",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.legion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.031"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The man who saved Rome from invaders also changed whom its soldiers served."
+    },
+    {
+      "id": "card.ancient_rome.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An army of the poor",
+      "body": "Gaius Marius was elected consul an unprecedented seven times. Facing a shortage of recruits, he enrolled poor citizens with no property, equipped and paid by the state. He led them to victory over the invading Cimbri and Teutones in 102 and 101 BCE."
+    },
+    {
+      "id": "card.ancient_rome.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Loyal to the general",
+      "body": "The new soldiers had no farms to return to. They looked to their general, not the Senate, for pay and for land when they retired. An army that depended on its commander could be turned against Rome itself.",
+      "callout": "Soldiers now served their general"
+    },
+    {
+      "id": "card.ancient_rome.032.c4",
+      "type": "fact",
+      "fact": "Every legion got an eagle.",
+      "context": "Marius made the silver eagle, the aquila, the standard of every legion. Losing it in battle was a disgrace."
+    },
+    {
+      "id": "card.ancient_rome.032.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.032.q1"
+    },
+    {
+      "id": "card.ancient_rome.032.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.032.q2"
+    },
+    {
+      "id": "card.ancient_rome.032.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.032.q3"
+    },
+    {
+      "id": "card.ancient_rome.032.c8",
+      "type": "checkpoint",
+      "headline": "The army: remade",
+      "learned": [
+        "Marius was consul seven times",
+        "He enrolled landless volunteers",
+        "Soldiers began serving their general",
+        "Every legion carried an eagle"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.marian_reforms"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.032.c2"
+      ],
+      "prompt": "How many times was Marius elected consul?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Once",
+          "correct": false,
+          "rationale": "He held it far more often."
+        },
+        {
+          "id": "b",
+          "label": "Twice",
+          "correct": false,
+          "rationale": "He held it far more often."
+        },
+        {
+          "id": "c",
+          "label": "Ten times",
+          "correct": false,
+          "rationale": "Not that many."
+        },
+        {
+          "id": "d",
+          "label": "Seven times",
+          "correct": true
+        }
+      ],
+      "explanation": "Marius was elected consul an unprecedented seven times.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.marian_reforms"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.032.c3"
+      ],
+      "prompt": "Why did Marius’s reforms become a threat to the Republic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Soldiers refused to fight abroad",
+          "correct": false,
+          "rationale": "They fought well."
+        },
+        {
+          "id": "b",
+          "label": "Soldiers looked to their general, not the Senate, for their future",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The army became too small to defend Italy",
+          "correct": false,
+          "rationale": "It grew."
+        },
+        {
+          "id": "d",
+          "label": "Generals could no longer command legions",
+          "correct": false,
+          "rationale": "They commanded them."
+        }
+      ],
+      "explanation": "Landless soldiers depended on their commander for pay and land, so their loyalty followed him.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.marian_reforms",
+        "concept.ancient_rome.legion"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.032.c2",
+        "card.ancient_rome.029.c2"
+      ],
+      "prompt": "From Level 29: whom had legions recruited before Marius?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only enslaved people",
+          "correct": false,
+          "rationale": "They were citizens."
+        },
+        {
+          "id": "b",
+          "label": "Foreign mercenaries",
+          "correct": false,
+          "rationale": "They were citizens."
+        },
+        {
+          "id": "c",
+          "label": "Property-owning citizens with their own gear",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Anyone who volunteered",
+          "correct": false,
+          "rationale": "That was Marius’s change."
+        }
+      ],
+      "explanation": "Earlier legionaries were property-owning citizens who bought their own equipment; Marius opened the ranks to the landless.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_marius"
+  ]
+}

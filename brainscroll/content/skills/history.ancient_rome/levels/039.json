@@ -1,0 +1,210 @@
+{
+  "id": "level.history.ancient_rome.039",
+  "skillId": "skill.history.ancient_rome",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Crossing the Rubicon",
+  "objective": "After this level you can explain why crossing the Rubicon meant civil war.",
+  "summary": "In 49 BCE Caesar led his army across the Rubicon into Italy: civil war. He beat Pompey at Pharsalus in 48 BCE.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.rubicon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.sulla",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.pompey",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.038"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A small river. One step across. No way back."
+    },
+    {
+      "id": "card.ancient_rome.039.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The boundary",
+      "body": "The Rubicon was a small river marking the boundary between Caesar’s province and Italy. A general had to leave his army behind before crossing it. In January 49 BCE Caesar crossed with his army anyway. He is said to have declared “alea iacta est”: the die is cast."
+    },
+    {
+      "id": "card.ancient_rome.039.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Caesar against Pompey",
+      "body": "The crossing started a civil war. Caesar defeated Pompey at Pharsalus in Greece in 48 BCE. Pompey fled to Egypt, where he was murdered. Today, “crossing the Rubicon” means passing a point of no return."
+    },
+    {
+      "id": "card.ancient_rome.039.c4",
+      "type": "fact",
+      "fact": "“Alea iacta est”: the die is cast.",
+      "context": "Caesar is said to have spoken these words as he crossed the Rubicon in 49 BCE. Once a die is thrown, the throw can’t be taken back."
+    },
+    {
+      "id": "card.ancient_rome.039.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.039.q1"
+    },
+    {
+      "id": "card.ancient_rome.039.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.039.q2"
+    },
+    {
+      "id": "card.ancient_rome.039.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.039.q3"
+    },
+    {
+      "id": "card.ancient_rome.039.c8",
+      "type": "checkpoint",
+      "headline": "The Rubicon: crossed",
+      "learned": [
+        "The Rubicon marked the edge of Italy",
+        "Caesar crossed with his army in 49 BCE",
+        "He beat Pompey at Pharsalus in 48 BCE",
+        "Pompey was murdered in Egypt"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.rubicon"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.039.c3"
+      ],
+      "prompt": "What does “crossing the Rubicon” mean today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Winning a battle against the odds",
+          "correct": false,
+          "rationale": "It’s about commitment."
+        },
+        {
+          "id": "b",
+          "label": "Passing a point of no return",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Starting a long journey",
+          "correct": false,
+          "rationale": "It’s about commitment."
+        },
+        {
+          "id": "d",
+          "label": "Obeying the law",
+          "correct": false,
+          "rationale": "Caesar broke the law."
+        }
+      ],
+      "explanation": "Caesar’s crossing couldn’t be undone, so the phrase means an irreversible step.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.rubicon"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.039.c2"
+      ],
+      "prompt": "Why was it illegal for Caesar to cross the Rubicon with his army?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The river was sacred to Jupiter",
+          "correct": false,
+          "rationale": "The rule was political."
+        },
+        {
+          "id": "b",
+          "label": "Pompey owned the land on the other side",
+          "correct": false,
+          "rationale": "It was Italy."
+        },
+        {
+          "id": "c",
+          "label": "Generals had to leave their armies before entering Italy",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Caesar had lost his command in Gaul years before",
+          "correct": false,
+          "rationale": "His army was still with him."
+        }
+      ],
+      "explanation": "Bringing an army into Italy was treated as an attack on the state itself.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.rubicon",
+        "concept.ancient_rome.sulla"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.039.c2",
+        "card.ancient_rome.033.c2"
+      ],
+      "prompt": "From Level 33: which general had already led his army against Rome, in 88 BCE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sulla",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Marius",
+          "correct": false,
+          "rationale": "Sulla marched first."
+        },
+        {
+          "id": "c",
+          "label": "Cincinnatus",
+          "correct": false,
+          "rationale": "He was a model of restraint."
+        },
+        {
+          "id": "d",
+          "label": "Scipio",
+          "correct": false,
+          "rationale": "He fought abroad."
+        }
+      ],
+      "explanation": "Sulla’s march on Rome in 88 BCE set the precedent Caesar followed.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_rubicon",
+    "source.brit_pompey"
+  ]
+}
