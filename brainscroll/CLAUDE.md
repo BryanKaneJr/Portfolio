@@ -25,7 +25,7 @@ Read `docs/product-rules.md` before changing anything that touches progression, 
 - The app talks to progress only through `ProgressBackend` (`app/src/progress/backend.ts`). `remoteBackend.ts` calls Supabase RPCs, and `localBackend.ts` is for offline play. Keep both implementations in step.
 - Local play (`app/src/progress/localBackend.ts`) runs `completeLevel` from `packages/core/src/completion.ts`, which mirrors the SQL `complete_level`. The same goes for `buildReviewQueue`/`submitReview` and `get_review_queue`/`submit_review`. If you change one, change the other, and keep `completion.test.ts`/`review.test.ts` in step with `core-loop.test.sql`/`review.test.sql`.
 - Constants live in `packages/core/src/constants.ts` **and** `app_settings` / SQL helpers in the migration. Change both together.
-- Don't add ads, currencies, hearts/lives, energy, streak punishment, or paywalled subjects. Leaderboards, friends and challenges are post-MVP only (friends-only, weekly reset, never time/speed-based); don't build them yet. See "Never build" in the product rules.
+- Don't add ads, currencies, hearts/lives, energy, streak punishment, or paywalled subjects. Unlimited's only progression effect is removing the daily cap; it may carry cosmetic/personalization perks, but never XP, knowledge, trophies or accomplishment cosmetics (those stay earned). Leaderboards, friends and challenges are post-MVP only (friends-only, weekly reset, never time/speed-based); don't build them yet. See "Never build" in the product rules.
 
 ## Layout
 

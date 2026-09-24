@@ -111,7 +111,7 @@ do $$ begin
   assert (select count(*) from public.questions) = 0, 'questions (with explanations) are not readable';
 end $$;
 
--- 8. Unlimited removes the cap (and nothing else).
+-- 8. Unlimited removes the cap (its only progression effect).
 reset role;
 insert into public.entitlements (user_id, entitlement, active) values ('00000000-0000-0000-0000-00000000000a', 'unlimited_learning', true);
 set role authenticated;

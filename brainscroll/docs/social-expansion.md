@@ -86,7 +86,7 @@ Per-requirement progress is **computed, not stored**: count `xp_events` of type 
 ## Gaps and decisions to make
 
 1. **Accounts come first.** Players are anonymous today. Friends need persistent identity plus a **unique username**, so account linking (email/Apple/Google) and a username table are prerequisites. This makes account linking the next core task either way.
-2. **Premium themes vs. "Unlimited only removes the cap".** The spec says premium *may eventually* offer neutral themes or extra customization slots. [`product-rules.md`](product-rules.md) rule 10 currently says Unlimited removes the cap and nothing else. **This needs a product decision.** Until it's made, rule 10 stands.
+2. **Premium themes (settled 2026-09-24).** Unlimited's only gameplay/progression advantage is removing the daily cap; it may also include non-progression cosmetic or personalization perks such as themes or profile customization. Accomplishment cosmetics (mastery frames, quest rewards, rare trophy treatments, prestige effects) stay earned, never purchasable or subscription-gated. See [`product-rules.md`](product-rules.md) rule 10.
 3. **Challenge XP.** "Small verified XP bonus" needs a number and a cap (e.g. per-day or per-opponent) before Phase 7.
 4. **"Oddities" trophies** (*Night Owl*, *Rabbit Hole*) arguably fail the spec's own reward test ("what did you learn / how deeply / how consistently / what difficult combination"). *Wrong Turn* passes because it's about eventually mastering a concept. Decide per trophy.
 5. **Underage users.** The spec asks for a policy review before any public discovery. That needs deciding before friends ship, not after.

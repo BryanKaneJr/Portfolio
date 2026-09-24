@@ -6,7 +6,7 @@ BrainScroll is an anti-doomscrolling knowledge RPG. It uses the familiar feel of
 
 - **Canonical levels 1–100 per skill tree.** Level 63 means something. Mastery stars at 100, 200… and prestige never resets.
 - **5 new levels a day, free forever.** Then the app tells you you're done: *"No more doomscrolling. Go touch grass."* Review stays unlimited.
-- **Unlimited ($4.99/mo) removes the cap. That's all it does.** There's no premium knowledge, no ads, no gems, no hearts and no energy.
+- **Unlimited ($4.99/mo) removes the cap.** That's its only gameplay or progression advantage; it may add cosmetic or personalization perks, but never knowledge, XP, trophies or anything that signals mastery. There are no ads, gems, hearts or energy.
 - **Source-backed, versioned content**, served from our own data. The app never invents facts on the fly.
 
 ## Repository layout

@@ -146,6 +146,9 @@ Review never consumes one of the 5 daily new-level allowances.
 
 - Free users: **5 new resolved levels per day**.
 - Unlimited users: no new-level daily cap.
+- Unlimited’s only gameplay/progression advantage is removing the daily new-level cap. Unlimited may also include non-progression cosmetic or personalization benefits (themes, profile customization).
+- Unlimited never provides exclusive knowledge, stronger progression, better XP rates, exclusive achievement trophies, or anything that implies greater mastery.
+- Cosmetics that signify accomplishment (mastery frames, quest rewards, rare trophy treatments, prestige effects) are always earned, never purchasable or subscription-gated.
 - Review remains available after the cap.
 - No ads, hearts, energy, gems, loot boxes, or exclusive paid knowledge.
 - The subscription sells freedom to continue, not stronger stats or exclusive curriculum.

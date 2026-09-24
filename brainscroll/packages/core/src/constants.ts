@@ -18,7 +18,7 @@ export const FIRST_DAY_NEW_LEVELS = 10;
 /** One mastery band. Level 100 is Mastery I; 200 is Mastery II; prestige never resets. */
 export const MASTERY_BAND_SIZE = 100;
 
-/** The single premium entitlement. It removes the daily new-level cap and nothing else. */
+/** The single premium entitlement. Its only gameplay/progression effect is removing the daily new-level cap (cosmetic perks never touch progression). */
 export const ENTITLEMENT_UNLIMITED = 'unlimited_learning' as const;
 
 /** Launch pricing hypotheses (USD). Display only — the store is authoritative. */
