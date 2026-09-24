@@ -143,7 +143,7 @@ Every factual statement a learner reads is a **claim**: a concept `fact` with a 
 ```
 
 - **Every factual sentence on a learning or hook card maps to a claim.** If a card says it, a fact says it, word-for-word in meaning. Numbers in the card and the fact must match. Arithmetic derived from other claims (e.g. Moon–Earth light time) is its own claim that cites the sources of its inputs.
-- **Verification is a separate ledger**, `content/verification.json`: one record per (fact, source) with `status` (`unverified` / `verified` / `unsupported` / `incorrect`), and for any checked status who checked it, when, and the supporting quote from the page. Only a person sets `verified`. Drafting tools may add a `preCheck` note pointing at something to look at. That is never a verification.
+- **Verification is a separate ledger**, `content/verification.json`: one record per (fact, source) with `status` (`unverified` / `verified` / `unsupported` / `incorrect`), and for any checked status who checked it, when, and the supporting quote from the page. Only a person sets `verified`. Drafting tools may add a `preCheck` note pointing at something to look at. That is never a verification. An automated `factCheck` (result `corroborated`, `corrected` or `disputed`, with the evidence, up to three URLs and, for a correction, the previous wording) records a check against independent sources found by web search. It can justify rewording a claim before a human sees it, but it is never a verification either: the cited page still has to be checked.
 - **Publishing needs verified claims.** A `published` level must have every claim it states (on its cards) or teaches (its `teach` concepts) verified against every cited source. Drafts get a count as a warning.
 
 Workflow:

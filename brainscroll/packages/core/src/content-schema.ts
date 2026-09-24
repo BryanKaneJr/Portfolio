@@ -74,6 +74,24 @@ export type Fact = z.infer<typeof Fact>;
  * supporting text from the page.
  */
 export const VERIFICATION_STATUSES = ['unverified', 'verified', 'incorrect', 'unsupported'] as const;
+
+/**
+ * An automated fact-check against independent sources found by web search
+ * (not the cited page). It can correct a claim before a human checks it, but
+ * it is never a verification: `status` stays as the human left it.
+ */
+export const FACT_CHECK_RESULTS = ['corroborated', 'corrected', 'disputed'] as const;
+export const FactCheck = z.object({
+  result: z.enum(FACT_CHECK_RESULTS),
+  /** What the independent sources say, in a sentence or two. */
+  evidence: z.string().trim().min(1).max(400),
+  urls: z.array(z.url()).min(1).max(3),
+  checkedAt: z.iso.date(),
+  /** The claim's wording before a correction, so a verifier can see what changed. */
+  previousText: z.string().max(300).optional(),
+});
+export type FactCheck = z.infer<typeof FactCheck>;
+
 export const VerificationRecord = z.object({
   factId: id('fact'),
   sourceId: id('source'),
@@ -85,6 +103,8 @@ export const VerificationRecord = z.object({
   notes: z.string().max(600).optional(),
   /** Automated drafting note flagging what to look at. Never a verification. */
   preCheck: z.string().max(600).optional(),
+  /** Automated fact-check against independent sources. Never a verification. */
+  factCheck: FactCheck.optional(),
 });
 export type VerificationRecord = z.infer<typeof VerificationRecord>;
 

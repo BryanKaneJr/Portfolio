@@ -16,6 +16,8 @@
 
 "Pre-check" notes were written while drafting. They point at what to look at closely. They are not verification.
 
+"Fact-check" results come from an automated check against independent sources found by web search (not the cited page, which couldn't be opened). A **corrected** or **disputed** claim was reworded to match those sources; the old wording is shown. They are not verification either: the cited page still has to be checked.
+
 ## Battle of Actium (Encyclopaedia Britannica)
 
 - **Source:** `source.brit_actium`

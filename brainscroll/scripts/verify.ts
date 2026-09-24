@@ -88,6 +88,8 @@ function report() {
       '',
       '"Pre-check" notes were written while drafting. They point at what to look at closely. They are not verification.',
       '',
+      '"Fact-check" results come from an automated check against independent sources found by web search (not the cited page, which couldn\'t be opened). A **corrected** or **disputed** claim was reworded to match those sources; the old wording is shown. They are not verification either: the cited page still has to be checked.',
+      '',
     ];
     const bySource = new Map<string, ClaimRow[]>();
     for (const r of list) bySource.set(r.sourceId, [...(bySource.get(r.sourceId) ?? []), r]);
@@ -110,6 +112,11 @@ function report() {
           for (const t of r.testedBy) md.push(`  - L${t.level.number} \`${t.question.id}\`: ${esc(t.question.prompt)} → **${esc(t.answer)}**`);
         }
         if (r.record.preCheck) md.push(`- **Pre-check:** ${esc(r.record.preCheck)}`);
+        const fc = r.record.factCheck;
+        if (fc) {
+          md.push(`- **Fact-check (${fc.checkedAt}):** ${fc.result}. ${esc(fc.evidence)} Sources: ${fc.urls.join(', ')}`);
+          if (fc.previousText) md.push(`- **Previous wording:** ${esc(fc.previousText)}`);
+        }
         if (r.record.status !== 'unverified')
           md.push(`- **Checked by:** ${r.record.checkedBy ?? 'not yet'} on ${r.record.checkedAt ?? 'n/a'}`, `- **Quote:** ${r.record.supportingQuote ? `“${esc(r.record.supportingQuote)}”` : 'none yet'}`);
         if (r.record.notes) md.push(`- **Notes:** ${esc(r.record.notes)}`);
@@ -118,7 +125,7 @@ function report() {
     }
     writeFileSync(join(outDir, `${skill}.md`), md.join('\n'));
 
-    const header = ['fact_id', 'source_id', 'status', 'claim', 'source_url', 'appears_in', 'tested_by', 'supporting_quote', 'checked_by', 'checked_at', 'notes', 'pre_check'];
+    const header = ['fact_id', 'source_id', 'status', 'claim', 'source_url', 'appears_in', 'tested_by', 'supporting_quote', 'checked_by', 'checked_at', 'notes', 'pre_check', 'fact_check', 'fact_check_evidence'];
     const csv = [header.join(',')];
     for (const r of list)
       csv.push(
@@ -135,6 +142,8 @@ function report() {
           r.record.checkedAt,
           r.record.notes,
           r.record.preCheck,
+          r.record.factCheck?.result,
+          r.record.factCheck ? `${r.record.factCheck.evidence} (${r.record.factCheck.urls.join(' ')})` : undefined,
         ].map(csvCell).join(','),
       );
     writeFileSync(join(outDir, `${skill}.csv`), csv.join('\n') + '\n');
