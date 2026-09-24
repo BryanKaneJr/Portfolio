@@ -1,8 +1,8 @@
 # Image list
 
-A small, reusable set of illustrations for BrainScroll, in the same style as the icon generator's first batch. Distinct things get their own image (Mars, Saturn, the Colosseum). Similar concepts share one (ruins cover the fall of Carthage, the sack of Rome and archaeology; one star covers most star-physics levels). Every level in all six trees maps to exactly one image below.
+A small, reusable set of illustrations for BrainScroll, in the same style as the icon generator's first batch. Distinct things get their own image (Mars, Saturn, the Colosseum). Similar concepts share one (ruins cover the fall of Carthage, the sack of Rome and archaeology; one star covers most star-physics levels). Every level in all ten trees maps to exactly one image below.
 
-**191 images in total. 8 already exist in the first batch, so 183 are new: 66 for Astronomy, Rome and the app screens, and 117 for the next four trees.** The Astronomy and Rome lists are the place to start, since those levels are written.
+**293 images in total. 8 already exist in the first batch, so 285 are new: 66 for Astronomy, Rome and the app screens, 117 for the next four trees and 102 for the four after that.** The Astronomy and Rome lists are the place to start, since those levels are written.
 
 ## Style (every image)
 
@@ -268,6 +268,155 @@ And from the shared table: `geo.mountains`, `geo.wave`, `geo.rocks`, `geo.pyrami
 Also uses, from earlier lists: `astronomy.sun` (2); `technology.gears` (1, 21, 27, 29, 50 (milestone), 57); `rome.dome` (84); `astronomy.radio-dish` (35); `astronomy.rocket` (36); `science.microscope` (76, 78).
 
 And from the shared table: `technology.satellite`, `nature.water-drop`, `nature.lightning`, `nature.thermometer`, `geo.skyline`, `geo.oil-derrick`, `geo.speech-bubbles`, `technology.chip`, `object.padlock`, `money.container-ship`, `technology.lightbulb`, `technology.factory`, `technology.robot`, `technology.printing-press`, `technology.camera`, `object.magnifier`, `technology.smartphone`.
+
+## Four more trees
+
+The Human Body, The Middle Ages, Music and The Animal Kingdom are planned to 100 levels (chapter and level titles in each skill's `syllabus.json`), so their images can be made now. Level numbers below are per tree. Mastery images are level 100.
+
+**102 new images** cover all 400 levels. They also reuse 48 images from the lists above (the Moon, the Pantheon dome, the DNA helix, the cathedral and so on), noted under each tree.
+
+### Shared by several of these trees
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `body.bone` | Single white bone | Body 11, 12, 13, 17, 19; Animals 3 |
+| `body.ear` | Stylized ear with sound waves | Body 65, 66; Music 42 |
+| `body.germ` | Round microbe with little spikes, cute not scary | Body 72, 79, 80 (checkpoint); Middle Ages 82, 83, 90 (checkpoint); Animals 59 |
+| `body.heart` | Rounded anatomical heart in soft red | Body 21, 22, 23, 29, 30 (checkpoint), 59, 94, 98; Music 93 |
+| `body.neuron` | Glowing nerve cell with branching arms | Body 51, 52, 53, 54, 55, 60 (checkpoint); Music 91 |
+| `medieval.camel` | Camel with trade bundles | Middle Ages 68, 95; Animals 65 |
+| `medieval.caravel` | Wooden sailing ship with square sails | Middle Ages 93, 94; Animals 81 |
+| `medieval.horse` | Horse with a saddle | Middle Ages 67; Animals 91 |
+| `music.lute` | Lute (also works for the oud) | Middle Ages 59; Music 26, 28, 30 (checkpoint), 55 |
+| `object.hourglass` | Wooden hourglass with sand running | Body 85, 86; Middle Ages 98; Animals 94 |
+
+### The Human Body (17 images)
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `body.figure` | Wooden artist's mannequin figure, no face | 1, 50 (milestone), 61, 84, 88 |
+| `body.cell` | Round cell with a visible nucleus | 2, 3, 4, 10 (checkpoint), 81 |
+| `body.muscle` | Flexed arm showing the bicep, no face | 15, 16, 20 (checkpoint) |
+| `body.dumbbell` | Pair of dumbbells | 18, 92 |
+| `body.blood-cells` | Red disc-shaped blood cells and one white cell | 24, 25, 73 |
+| `body.stethoscope` | Stethoscope | 26, 39, 97 |
+| `body.bandage` | Adhesive bandage | 28, 68, 71 |
+| `body.lungs` | Pair of pink lungs | 31, 32, 33, 35, 37, 38, 40 (checkpoint) |
+| `body.stomach` | Soft pink stomach and coiled intestines | 41, 43, 44, 45 |
+| `body.tooth` | Shiny white tooth | 42 |
+| `body.food-plate` | Plate with vegetables, grains and fish | 47, 48, 49, 67, 91 |
+| `body.eye` | Stylized eyeball with a blue iris | 62, 69, 70 (checkpoint) |
+| `body.glasses` | Pair of glasses | 64 |
+| `body.syringe` | Syringe | 75, 76 |
+| `body.soap` | Bar of soap with bubbles | 78 |
+| `body.pill` | Two-color capsule pill | 96 |
+| `body.mastery` | Gold heart with a soft glow | 100 |
+
+Also uses, from earlier lists: `technology.dna` (5, 6, 82, 83, 90 (checkpoint)); `nature.water-drop` (7, 46); `science.microscope` (8, 9, 77); `technology.x-ray` (14); `arts.quill` (27); `geo.speech-bubbles` (34); `geo.mountains` (36); `technology.lightbulb` (56); `astronomy.moon` (57, 58, 93); `object.palette` (63); `nature.thermometer` (74); `arts.cave-hand` (87); `astronomy.sun` (89, 95); `object.magnifier` (99).
+
+And from the shared table: `body.bone`, `body.heart`, `body.neuron`, `body.ear`, `body.germ`, `object.hourglass`.
+
+### The Middle Ages (16 images)
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `medieval.castle` | Stone castle with towers and a flag | 1, 23, 24, 30 (checkpoint), 43, 50 (milestone), 99 |
+| `medieval.crown` | Jeweled silver crown | 6, 9, 11, 12, 21, 32, 45, 72, 79 |
+| `medieval.viking-ship` | Viking longship with a striped sail | 13, 14, 20 (checkpoint) |
+| `medieval.shield` | Shield with a simple heraldic pattern | 16, 17, 28, 29, 41, 46 |
+| `medieval.trebuchet` | Wooden trebuchet | 25 |
+| `medieval.helmet` | Knight's steel helmet with a visor | 26, 27 |
+| `medieval.scallop` | Scallop shell (pilgrim badge) | 34 |
+| `medieval.town` | Row of half-timbered houses | 51, 55, 60 (checkpoint), 84 |
+| `medieval.anvil` | Blacksmith anvil and hammer | 53 |
+| `medieval.windmill` | Wooden windmill | 56 |
+| `medieval.herbs` | Mortar and pestle with herbs | 57, 64 |
+| `medieval.astrolabe` | Brass astrolabe | 62, 63, 70 (checkpoint) |
+| `medieval.longbow` | Longbow and arrows | 75, 76, 78 |
+| `medieval.cannon` | Old bronze cannon | 86, 87 |
+| `medieval.rose` | One red rose and one white rose | 88 |
+| `medieval.mastery` | Gold crown with a soft glow | 100 |
+
+Also uses, from earlier lists: `arts.quill` (36, 58); `object.book` (2, 7, 19, 35, 37, 61, 65); `rome.ruins` (3, 10 (checkpoint)); `rome.dome` (4, 5, 92); `arts.pattern-tile` (8, 48, 89); `geo.map` (15, 69); `rome.crossed-swords` (18, 42, 44); `rome.farm` (22); `arts.cathedral` (31, 33, 40 (checkpoint)); `arts.mosaic` (38); `arts.candle` (39); `rome.city-fire` (47); `money.market-stall` (49, 52); `rome.amphora` (54); `geo.pagoda` (66); `rome.scroll` (71, 80 (checkpoint)); `money.scale` (73, 74); `object.flag` (77); `nature.wheat` (81); `rome.broken-chains` (85); `technology.printing-press` (91); `rome.wall` (96); `arts.step-pyramid` (97).
+
+And from the shared table: `body.germ`, `object.hourglass`, `music.lute`, `medieval.horse`, `medieval.camel`, `medieval.caravel`.
+
+### Music (26 images)
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `music.notes` | Pair of musical notes | 1, 5, 9, 10 (checkpoint), 25, 34, 61 |
+| `music.sound-wave` | Speaker cone sending out ripple waves | 2 |
+| `music.tuning-fork` | Tuning fork with vibration lines | 3, 98 |
+| `music.metronome` | Wooden metronome | 4, 97 |
+| `music.piano` | Grand piano | 6, 7, 8, 16, 38, 41, 44, 63, 67 |
+| `music.violin` | Violin and bow | 11, 12, 20 (checkpoint), 33, 39, 45 |
+| `music.flute` | Silver flute | 13, 21, 56 |
+| `music.trumpet` | Brass trumpet | 14, 64, 65, 70 (checkpoint) |
+| `music.drum` | Hand drum | 15, 54, 58 |
+| `music.guitar` | Acoustic guitar | 17, 57, 59, 62 |
+| `music.organ` | Pipe organ pipes | 18, 31, 32 |
+| `music.microphone` | Classic stage microphone | 19, 76, 83 |
+| `music.harp` | Harp | 22 |
+| `music.gong` | Bronze gong on a stand | 23, 53 |
+| `music.stage` | Stage with red curtains and a spotlight | 35, 43, 46, 47, 49, 77 |
+| `music.baton` | Conductor's baton over a music stand | 36, 37, 40 (checkpoint), 50 (milestone) |
+| `music.sitar` | Sitar | 52 |
+| `music.saxophone` | Saxophone | 66, 68, 69 |
+| `music.vinyl` | Vinyl record | 71, 75, 80 (checkpoint) |
+| `music.electric-guitar` | Red electric guitar | 73, 74, 78 |
+| `music.turntable` | DJ turntable | 81, 82, 90 (checkpoint) |
+| `music.synth` | Synthesizer keyboard with knobs | 84, 85 |
+| `music.speaker` | Big speaker cabinet | 86 |
+| `music.headphones` | Headphones | 88, 92, 99 |
+| `music.game-controller` | Game controller | 95 |
+| `music.mastery` | Gold trumpet with a soft glow | 100 |
+
+Also uses, from earlier lists: `arts.cathedral` (24, 27); `money.scale` (96); `object.flag` (48); `technology.printing-press` (29); `object.globe` (51, 60 (checkpoint), 87); `technology.radio` (72); `technology.tv` (79); `technology.smartphone` (89); `technology.camera` (94).
+
+And from the shared table: `body.heart`, `body.neuron`, `body.ear`, `music.lute`.
+
+### The Animal Kingdom (33 images)
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `animals.paw` | Paw print | 1, 2, 10 (checkpoint), 11, 50 (milestone), 71, 96 |
+| `animals.lion` | Lion | 6, 12 |
+| `animals.whale` | Blue whale | 9, 14, 88 |
+| `animals.elephant` | Elephant | 13, 20 (checkpoint) |
+| `animals.bat` | Bat with open wings | 15 |
+| `animals.kangaroo` | Kangaroo with a joey in its pouch | 16, 76 |
+| `animals.egg` | Eggs in a nest | 17, 23 |
+| `animals.chimp` | Chimpanzee | 18, 77 |
+| `animals.wolf` | Grey wolf | 19, 74, 79, 80 (checkpoint) |
+| `animals.eagle` | Eagle in flight | 21, 22, 24, 30 (checkpoint), 95 |
+| `animals.owl` | Owl | 25, 68 |
+| `animals.penguin` | Penguin | 26, 66 |
+| `animals.hummingbird` | Hummingbird at a flower | 27 |
+| `animals.parrot` | Colorful parrot | 28, 75 |
+| `animals.turtle` | Sea turtle | 31, 34, 40 (checkpoint), 67 |
+| `animals.snake` | Coiled green snake | 32, 33 |
+| `animals.crocodile` | Crocodile | 35 |
+| `animals.chameleon` | Chameleon on a branch | 36, 61, 62, 70 (checkpoint) |
+| `animals.dinosaur` | Dinosaur skeleton fossil | 39, 83, 84, 85, 90 (checkpoint) |
+| `animals.shark` | Shark | 42, 69 |
+| `animals.anglerfish` | Deep-sea anglerfish with a glowing lure | 43 |
+| `animals.octopus` | Octopus | 44, 78 |
+| `animals.jellyfish` | Glowing jellyfish | 45 |
+| `animals.crab` | Red crab | 48, 58 |
+| `animals.bee` | Honeybee | 51, 53, 73 |
+| `animals.ant` | Ant | 52 |
+| `animals.butterfly` | Butterfly | 54, 60 (checkpoint), 63, 89 |
+| `animals.spider` | Spider on a web | 55 |
+| `animals.snail` | Snail | 56 |
+| `animals.bear` | Brown bear | 64 |
+| `animals.finch` | Small finch | 82 |
+| `animals.panda` | Giant panda eating bamboo | 93, 97 |
+| `animals.mastery` | Gold paw print with a soft glow | 100 |
+
+Also uses, from earlier lists: `geo.speech-bubbles` (72); `technology.lightbulb` (99); `nature.thermometer` (5); `object.book` (4); `rome.farm` (57, 92); `object.globe` (29); `geo.savanna` (7); `geo.rainforest` (8, 37, 38); `geo.coral` (41, 46); `geo.river` (47, 87); `geo.wave` (49); `astronomy.asteroid` (86); `astronomy.rocket` (98).
+
+And from the shared table: `body.bone`, `body.germ`, `object.hourglass`, `medieval.horse`, `medieval.camel`, `medieval.caravel`.
 
 ## Adding more later
 
