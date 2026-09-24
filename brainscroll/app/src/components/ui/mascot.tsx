@@ -1,5 +1,5 @@
 import { MASCOT_NAME, type MascotPose } from '@brainscroll/core';
-import { Image, type ImageSourcePropType, StyleSheet, Text, View, type ViewStyle } from 'react-native';
+import { Image, type ImageSourcePropType, Pressable, StyleSheet, Text, View, type ViewStyle } from 'react-native';
 import { color, radius, space, type } from '@/theme/tokens';
 
 const reference: ImageSourcePropType = require('../../../assets/images/mascot/reference.webp');
@@ -32,27 +32,33 @@ export function DrScroll({ pose = 'reference', size = 'md', style }: { pose?: Ma
  * reactions); `stack` puts him above it (intros and big moments). Screen
  * readers hear "Dr. Scroll says: …" and skip the picture.
  */
-export function DrScrollSays({ pose = 'reference', lines, size, layout = 'row', style }: {
+export function DrScrollSays({ pose = 'reference', lines, size, layout = 'row', action, style }: {
   pose?: MascotPose;
   lines: readonly string[];
   size?: MascotSize;
   layout?: 'row' | 'stack';
+  /** A small text button inside the bubble, e.g. "Got it" on a tip. */
+  action?: { label: string; onPress: () => void };
   style?: ViewStyle;
 }) {
   const stack = layout === 'stack';
   return (
     <View style={[stack ? styles.stack : styles.row, style]}>
       <DrScroll pose={pose} size={size ?? (stack ? 'lg' : 'sm')} />
-      <View
-        accessible
-        accessibilityLabel={`${MASCOT_NAME} says: ${lines.join(' ')}`}
-        style={[styles.bubble, stack ? styles.bubbleStack : styles.bubbleRow]}>
+      <View style={[styles.bubble, stack ? styles.bubbleStack : styles.bubbleRow]}>
         <View style={[styles.tail, stack ? styles.tailUp : styles.tailLeft]} />
-        {lines.map((line, i) => (
-          <Text key={i} style={i === 0 && lines.length > 1 ? [type.title, { color: color.text }] : [type.body, { color: lines.length > 1 ? color.textMuted : color.text }]}>
-            {line}
-          </Text>
-        ))}
+        <View accessible accessibilityLabel={`${MASCOT_NAME} says: ${lines.join(' ')}`} style={{ gap: space.sm }}>
+          {lines.map((line, i) => (
+            <Text key={i} style={i === 0 && lines.length > 1 ? [type.title, { color: color.text }] : [type.body, { color: lines.length > 1 ? color.textMuted : color.text }]}>
+              {line}
+            </Text>
+          ))}
+        </View>
+        {action && (
+          <Pressable accessibilityRole="button" accessibilityLabel={action.label} onPress={action.onPress} hitSlop={8} style={styles.action}>
+            <Text style={[type.bodyStrong, { color: color.brand }]}>{action.label}</Text>
+          </Pressable>
+        )}
       </View>
     </View>
   );
@@ -68,4 +74,5 @@ const styles = StyleSheet.create({
   tail: { position: 'absolute', width: TAIL * 2, height: TAIL * 2, backgroundColor: color.surface, borderColor: color.border, transform: [{ rotate: '45deg' }] },
   tailLeft: { left: -TAIL, bottom: space.lg, borderLeftWidth: 1, borderBottomWidth: 1 },
   tailUp: { top: -TAIL, alignSelf: 'center', borderLeftWidth: 1, borderTopWidth: 1 },
+  action: { alignSelf: 'flex-start', paddingTop: space.xs },
 });

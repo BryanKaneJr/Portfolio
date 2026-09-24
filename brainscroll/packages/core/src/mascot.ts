@@ -61,3 +61,16 @@ export const DR_SCROLL_LINES = {
   dailyComplete: "I'll save your spot for tomorrow.",
   reviewEmpty: "Nothing to refresh. Your memory's in good shape.",
 } as const;
+
+/**
+ * One-time tips: each shows once per account, the first time its moment comes
+ * up, and can be dismissed. Inside lessons they use calm poses only.
+ */
+export const DR_SCROLL_TIPS = {
+  'first-question': { pose: 'pointing', line: 'Pick an answer, then tap Check. Only your first try counts toward XP, so take your time.' },
+  'first-miss': { pose: 'explaining', line: 'Missing one costs you nothing. The cards that explain it are right above. Have another look.' },
+  'first-checkpoint': { pose: 'idea', line: "A checkpoint mixes the whole chapter. It's a look back, not a test you can fail." },
+  'first-review': { pose: 'thinking', line: "Review brings things back right before you'd forget them. It never uses your daily levels." },
+} as const satisfies Record<string, { pose: MascotPose; line: string }>;
+export type DrScrollTipId = keyof typeof DR_SCROLL_TIPS;
+export const DR_SCROLL_TIP_DISMISS = 'Got it';

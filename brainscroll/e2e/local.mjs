@@ -27,8 +27,16 @@ try {
   await onboard(page, { start: true });
   check((await bodyText(page)).includes('Your Cosmic Address'), 'onboarding lands in Level 1');
 
-  const reinforced = await playLevel(page, { pick: (i) => (i === 0 ? 3 : 0) });
+  const l1Texts = [];
+  const reinforced = await playLevel(page, { pick: (i) => (i === 0 ? 3 : 0), texts: l1Texts });
   check(reinforced > 0, 'a missed question shows "Take another look" and must be answered correctly');
+  const TIP_QUESTION = 'Pick an answer, then tap Check.';
+  const TIP_MISS = 'Missing one costs you nothing.';
+  check(l1Texts[0].includes(TIP_QUESTION), "Dr. Scroll's first-question tip appears on the first question");
+  check(l1Texts.filter((t) => t.includes(TIP_QUESTION)).length === 1, 'and only there');
+  const missAt = l1Texts.map((t) => t.includes(TIP_MISS));
+  check(!missAt[0] && missAt.some(Boolean), 'the first-miss tip appears after the first miss, not before');
+  check(missAt.lastIndexOf(true) < missAt.length - 2, 'and not on later questions');
   const l1 = await completionFacts(page);
   check(/LEVEL 1 COMPLETE/i.test(l1.text), 'Level 1 completes once every question is resolved');
   check(l1.total === 3 && l1.xp === CURVE[l1.firstTry], `XP follows the first-attempt curve (${l1.firstTry}/3 → ${l1.xp} XP)`);
@@ -46,7 +54,9 @@ try {
   await button(page, 'Resume Level 2').click();
   await page.waitForTimeout(600);
   check((await bodyText(page)).slice(0, 200) === before, 'an interrupted level resumes on the same card');
-  await playLevel(page);
+  const l2Texts = [];
+  await playLevel(page, { texts: l2Texts });
+  check(!l2Texts.some((t) => t.includes(TIP_QUESTION) || t.includes(TIP_MISS)), 'seen tips never come back (saved per account)');
 
   let sawPerfect = false;
   for (let n = 3; n <= 10; n++) {

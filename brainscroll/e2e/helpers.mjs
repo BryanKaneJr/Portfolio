@@ -74,13 +74,15 @@ async function answerStep(page, firstPick, onMiss) {
   await page.waitForTimeout(150);
 }
 
-export async function playLevel(page, { pick = () => 0, doubleTapComplete = false } = {}) {
+/** `texts`, if given, collects the page text at every question step (for checking what was shown). */
+export async function playLevel(page, { pick = () => 0, doubleTapComplete = false, texts } = {}) {
   let q = 0;
   let reinforced = 0;
   let missedThis = false;
   for (let step = 0; step < 80; step++) {
     await page.waitForTimeout(150);
     if (await checkButton(page).count()) {
+      if (texts) texts.push(await bodyText(page));
       await answerStep(
         page,
         () => {

@@ -5,6 +5,7 @@ import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
 import { CardRenderer } from '@/components/cards/CardRenderer';
+import { DrScrollTip } from '@/components/DrScrollTip';
 import { feedbackTone, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { ReportSheet } from '@/components/ReportSheet';
 import { Body, Button, Caption, H1, H2, IconButton, LessonShell } from '@/components/ui';
@@ -177,6 +178,9 @@ export default function LevelScreen() {
             <Caption>{level.objective}</Caption>
           </View>
         )}
+        {level.type === 'checkpoint' && session.cardIndex === 0 && <DrScrollTip key="checkpoint" tip="first-checkpoint" />}
+        {questionId && <DrScrollTip key={`question-${card.id}`} tip="first-question" when={attempts.length === 0} />}
+        {questionId && <DrScrollTip key={`miss-${card.id}`} tip="first-miss" when={status.needsAnotherLook} />}
         <CardRenderer
           card={card}
           level={level}

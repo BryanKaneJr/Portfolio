@@ -149,6 +149,9 @@ That's 29 core poses plus 38 topic scenes. Start with the simplified reference a
 - His lines, poses and the calm in-lesson poses live in `packages/core/src/mascot.ts`.
 - **Onboarding intro:** the first onboarding screen after sign-in is Dr. Scroll saying hello (screenshot: `docs/ui/dr-scroll-intro.png`), then pick a skill, then the deal.
 
+- **Reactions:** a small thumbs-up or kind shrug beside answer feedback, and one line on Level Complete, Daily Complete and the empty Review tab.
+- **One-time tips** (`DrScrollTip`): first question, first miss, first checkpoint and first review. Each shows once per account and can be dismissed. Tips are the one place he appears before an answer, because they explain how the app works.
+
 **Still to build:**
 
 - **Voice split:** he speaks at fun, low-stakes moments (onboarding, first-time tips, answer reactions, rewards, empty states). Sign-in, accounts, data errors, payments, deletion and legal text stay in the plain app voice. He never guilt-trips.

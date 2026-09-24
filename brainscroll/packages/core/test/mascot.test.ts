@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { EM_DASH } from '../src/editorial';
-import { DR_SCROLL_LINES, MASCOT_LINE_MAX, MASCOT_POSES, QUIET_MASCOT_POSES } from '../src/mascot';
+import { DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, QUIET_MASCOT_POSES } from '../src/mascot';
 
 describe('Dr. Scroll', () => {
   it('has unique poses', () => {
@@ -12,8 +12,12 @@ describe('Dr. Scroll', () => {
     for (const loud of ['celebrate', 'clapping', 'mastery'] as const) expect(QUIET_MASCOT_POSES).not.toContain(loud);
   });
 
+  it('tips use calm poses, because they appear inside lessons and review', () => {
+    for (const tip of Object.values(DR_SCROLL_TIPS)) expect(QUIET_MASCOT_POSES).toContain(tip.pose);
+  });
+
   it('keeps every line short and free of em dashes', () => {
-    for (const line of Object.values(DR_SCROLL_LINES)) {
+    for (const line of [...Object.values(DR_SCROLL_LINES), ...Object.values(DR_SCROLL_TIPS).map((t) => t.line)]) {
       expect(line.length).toBeLessThanOrEqual(MASCOT_LINE_MAX);
       expect(line).not.toContain(EM_DASH);
     }

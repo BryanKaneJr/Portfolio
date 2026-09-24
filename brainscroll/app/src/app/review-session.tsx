@@ -3,6 +3,7 @@ import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { DrScrollTip } from '@/components/DrScrollTip';
 import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { Body, Button, Caption, Eyebrow, H2, LessonShell, Numeral, Pop, Reveal, useCountUp } from '@/components/ui';
 import { getCard, getConcept, getSkill } from '@/content';
@@ -110,6 +111,7 @@ export default function ReviewSessionScreen() {
           )}
         </>
       }>
+      <DrScrollTip key="review" tip="first-review" when={index === 0} />
       <Caption>
         Review · {getSkill(item.skillId)?.name} · {index + 1} of {queue.length}
         {concept ? ` · ${concept.title}` : ''}

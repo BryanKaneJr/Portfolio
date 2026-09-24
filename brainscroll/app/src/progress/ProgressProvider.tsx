@@ -22,6 +22,8 @@ const SESSIONS_KEY = 'brainscroll.sessions.v2';
 const ONBOARDED_KEY = 'brainscroll.onboarded.v2';
 /** The skill Home offers to continue: the one the learner last chose or played. */
 const ACTIVE_SKILL_KEY = 'brainscroll.activeSkill.v2';
+/** Dr. Scroll's one-time tips this account has already seen. */
+const TIPS_KEY = 'brainscroll.tips.v1';
 const userKey = (key: string, userId: string) => `${key}:${userId}`;
 /** Pre-accounts, device-wide state. There is no guest progress to keep: it's dropped on launch. */
 const LEGACY_DEVICE_KEYS = ['brainscroll.sessions.v1', 'brainscroll.onboarded.v1', 'brainscroll.activeSkill.v1'];
@@ -51,6 +53,9 @@ interface ProgressContextValue {
   sessions: Record<string, LevelSession>;
   lastSummary: CompletionSummary | undefined;
   onboarded: boolean;
+  /** Dr. Scroll tips this account has already seen (each shows once). */
+  seenTips: readonly string[];
+  markTipSeen(tipId: string): void;
   isCompleted(levelId: string): boolean;
   /** The next level to play in a skill, if it exists in the bundle. */
   nextLevelId(skillId: string): string | undefined;
@@ -118,6 +123,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [sessions, setSessions] = useState<Record<string, LevelSession>>({});
   const [lastSummary, setLastSummary] = useState<CompletionSummary>();
   const [onboarded, setOnboarded] = useState(false);
+  const [seenTips, setSeenTips] = useState<string[]>([]);
+  const seenTipsRef = useRef<string[]>([]);
   const [activeSkillId, setActiveSkillId] = useState<string | undefined>();
   const [account, setAccount] = useState<AccountState | null>(null);
   const [signInMethods, setSignInMethods] = useState<SignInMethod[]>([]);
@@ -163,14 +170,19 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         setLastSummary(undefined);
         setOnboarded(false);
         setActiveSkillId(undefined);
+        seenTipsRef.current = [];
+        setSeenTips([]);
         setAccount(next);
         return;
       }
-      const [s, o, active] = await Promise.all([
+      const [s, o, active, tips] = await Promise.all([
         load<Record<string, LevelSession>>(userKey(SESSIONS_KEY, next.userId)),
         load<boolean>(userKey(ONBOARDED_KEY, next.userId)),
         load<string>(userKey(ACTIVE_SKILL_KEY, next.userId)),
+        load<string[]>(userKey(TIPS_KEY, next.userId)),
       ]);
+      seenTipsRef.current = tips ?? [];
+      setSeenTips(tips ?? []);
       sessionsRef.current = s ?? {};
       setSessions(s ?? {});
       setActiveSkillId(active);
@@ -222,6 +234,14 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       sessions,
       lastSummary,
       onboarded,
+      seenTips,
+      markTipSeen(tipId) {
+        if (seenTipsRef.current.includes(tipId)) return;
+        const next = [...seenTipsRef.current, tipId];
+        seenTipsRef.current = next;
+        setSeenTips(next);
+        void save(userKey(TIPS_KEY, userIdOrThrow()), next);
+      },
       isCompleted: (levelId) => snapshotRef.current.completedLevels.includes(levelId),
       nextLevelId(skillId) {
         const cleared = snapshotRef.current.skills[skillId]?.highestCleared ?? 0;
@@ -286,6 +306,9 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         void save(userKey(ONBOARDED_KEY, userId), false);
         setActiveSkillId(undefined);
         void save(userKey(ACTIVE_SKILL_KEY, userId), null);
+        seenTipsRef.current = [];
+        setSeenTips([]);
+        void save(userKey(TIPS_KEY, userId), []);
         await enter(await backendOrThrow().account());
       },
       account,
@@ -314,7 +337,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         await enter(await backendOrThrow().signOut());
       },
     }),
-    [ready, error, snapshot, sessions, lastSummary, onboarded, account, signInMethods, activeSkillId, refresh, commitSessions, backendOrThrow, userIdOrThrow, enter, signedIn],
+    [ready, error, snapshot, sessions, lastSummary, onboarded, seenTips, account, signInMethods, activeSkillId, refresh, commitSessions, backendOrThrow, userIdOrThrow, enter, signedIn],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;
