@@ -38,6 +38,7 @@ Read `docs/product-rules.md` before changing anything that touches progression, 
 ## UI
 
 - Build screens from `app/src/components/ui` primitives and `theme/tokens.ts`; don't restyle raw views. **Learning mode is quiet and progression mode is loud:** no glow, gold, XP or stats on lesson screens, and gold only for mastery. See `docs/design-system.md`.
+- **Dr. Scroll** (the mascot) appears only through spots: `DrScroll` / `DrScrollSays` with a `spot` from `MASCOT_SPOTS` (core), never a raw image. Artwork is wired in `app/src/components/ui/mascotArt.ts` only. His colour is `plum` (speech bubbles, tips, "Did you know"); never use it for actions or progress. See `docs/mascot.md`.
 - Questions are select → CHECK. Only a checked answer is an attempt, and the first checked answer is the first attempt. Keep e2e helpers (`e2e/helpers.mjs`) in step with the interaction.
 
 ## Layout

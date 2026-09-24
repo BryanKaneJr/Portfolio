@@ -31,6 +31,12 @@ export const color = {
   danger: '#FF6B6B', // Coral: incorrect/reinforcement; always restrained
   dangerSoft: 'rgba(255,107,107,0.10)',
   dangerLine: 'rgba(255,107,107,0.45)',
+  // Bow Tie Plum: Dr. Scroll's color, from his bow tie. Anything he says wears it
+  // (speech bubbles, tips). Brand violet stays for actions and progression.
+  plum: '#C07BE8', // text-safe on surface (5.3:1)
+  plumDeep: '#9B4FCB', // borders and fills; white text on it passes (4.6:1)
+  plumSoft: 'rgba(192,123,232,0.10)',
+  plumLine: 'rgba(192,123,232,0.40)',
   text: '#F7F9FC', // Soft White
   textReading: '#E3E8F1', // long-form paragraphs: a touch softer than headings
   textMuted: '#A7B0C0', // Cool Gray: secondary copy, locked

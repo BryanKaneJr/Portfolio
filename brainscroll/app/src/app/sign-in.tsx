@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppleSignInButton } from '@/auth/AppleSignInButton';
-import { Body, Button, Caption, Display, Eyebrow, Field, H1 } from '@/components/ui';
+import { Body, Button, Caption, Display, DrScroll, Eyebrow, Field, H1 } from '@/components/ui';
 import { DEV_CODE } from '@/progress/localBackend';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, layout, space } from '@/theme/tokens';
@@ -55,6 +55,7 @@ export default function SignInScreen() {
         <ScrollView contentContainerStyle={styles.body} keyboardShouldPersistTaps="handled">
           {step.kind === 'choose' && (
             <>
+              <DrScroll spot="sign-in" size="md" />
               <Eyebrow tone="brand">BrainScroll</Eyebrow>
               <Display>{VOICE.tagline}</Display>
               <Body>

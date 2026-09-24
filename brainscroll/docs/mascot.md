@@ -141,11 +141,45 @@ Mastery images: you already have Dr. Scroll holding trophies and gold objects (f
 
 That's 29 core poses plus 38 topic scenes. Start with the simplified reference and 5 core poses (wave, pointing, thinking, thumbs-up, oops). Check that he stays consistent, then do the rest.
 
+## Spots: every place he appears
+
+Each fixed place in the app is a **spot** with a stable ID. Screens ask for a spot, never a picture, so any image can be replaced without touching a screen. All artwork is wired in one file, `app/src/components/ui/mascotArt.ts`, and every placement carries `testID="mascot:<spot>"`.
+
+**To replace an image:**
+
+- **One pose everywhere:** save it as `app/assets/images/mascot/<pose>.webp` and uncomment that pose's line in `POSE_ART`.
+- **Just one spot:** save it as `app/assets/images/mascot/spots/<spot>.webp` and uncomment that spot's line in `SPOT_ART`.
+- The app shows the spot image if there is one, else the pose image, else the reference.
+
+| Spot | Default pose | Where |
+| --- | --- | --- |
+| `sign-in` | `reference` | Sign-in screen, above the tagline (no speech: sign-in keeps the plain app voice) |
+| `onboarding.hello` | `wave` | Onboarding, first screen: "Hi, I'm Dr. Scroll." |
+| `tip.first-question` | `pointing` | Lesson: tip on the first question ever (lesson: calm pose) |
+| `tip.first-miss` | `explaining` | Lesson: tip after the first wrong answer ever (lesson: calm pose) |
+| `tip.first-checkpoint` | `idea` | Lesson: tip on the first checkpoint level (lesson: calm pose) |
+| `tip.first-review` | `thinking` | Review session: tip on the first review (lesson: calm pose) |
+| `checkpoint.intro` | `checkpoint` | Lesson: beside the title of every checkpoint level (lesson: calm pose) |
+| `feedback.correct` | `thumbs-up` | Lesson and review: beside "Correct" (lesson: calm pose) |
+| `feedback.wrong` | `oops` | Lesson and review: beside "Not quite" (lesson: calm pose) |
+| `level-complete.cleared` | `clapping` | Level Complete, no level-up (replays) |
+| `level-complete.level-up` | `celebrate` | Level Complete with a level-up |
+| `level-complete.mastery` | `mastery` | Level Complete on a mastery star |
+| `review-complete` | `clapping` | Review Complete screen |
+| `daily-complete` | `go-outside` | Daily Knowledge Complete: "Go touch grass." |
+| `review.empty` | `sleeping` | Review tab when nothing is due |
+| `loading` | `waiting` | Loading a level or the review queue (after a short delay) |
+| `error.load` | `tangled` | A level or screen that could not load (never about account or payment data) |
+| `level.locked` | `thinking` | Opening a level that is not unlocked yet |
+| `not-found` | `tangled` | A link to something that does not exist |
+
+Writer-placed card asides (`mascot` on a learning card) aren't spots; their pose comes from the content, and they're labeled `mascot:pose:<pose>`.
+
 ## In the app (later)
 
 **Built so far:**
 
-- `DrScroll` and `DrScrollSays` in `app/src/components/ui/mascot.tsx`: Dr. Scroll on his own, or with a speech bubble beside him (`row`) or below him (`stack`). The image is decorative; screen readers hear "Dr. Scroll says: ..." instead. Until each pose image is approved, every pose shows the reference image (`app/assets/images/mascot/reference.webp`); add poses to `POSE_ART` as they arrive.
+- `DrScroll` and `DrScrollSays` in `app/src/components/ui/mascot.tsx`: Dr. Scroll on his own, or with a speech bubble beside him (`row`) or below him (`stack`). The image is decorative; screen readers hear "Dr. Scroll says: ..." instead. Until each pose image is approved, every pose shows the reference image (`app/assets/images/mascot/reference.webp`).
 - His lines, poses and the calm in-lesson poses live in `packages/core/src/mascot.ts`.
 - **Onboarding intro:** the first onboarding screen after sign-in is Dr. Scroll saying hello (screenshot: `docs/ui/dr-scroll-intro.png`), then pick a skill, then the deal.
 
@@ -161,8 +195,6 @@ That's 29 core poses plus 38 topic scenes. Start with the simplified reference a
 
 **Still to build:**
 
-- Loading (`waiting`) and friendly error (`tangled`) states, where they aren't about the learner's data.
-- A checkpoint pose on the checkpoint level's opening card.
 - **Motion:** a small bounce when he appears, no more. He should never block the content or slow a lesson down.
 - Real pose art: add each approved `mascot.<pose>` image to `POSE_ART` in `app/src/components/ui/mascot.tsx`.
 

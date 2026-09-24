@@ -106,7 +106,7 @@ export default function LevelCompleteScreen() {
           <Reveal delay={900}>
             <View style={{ alignItems: 'center', gap: space.lg }}>
               <DrScrollSays
-                pose={mastery ? 'mastery' : leveledUp ? 'celebrate' : 'clapping'}
+                spot={mastery ? 'level-complete.mastery' : leveledUp ? 'level-complete.level-up' : 'level-complete.cleared'}
                 lines={[s.alreadyCompleted ? DR_SCROLL_LINES.levelReplay : mastery ? DR_SCROLL_LINES.levelMastery : DR_SCROLL_OUTCOME[s.outcome]]}
                 style={{ width: '100%', minWidth: 300 }}
               />

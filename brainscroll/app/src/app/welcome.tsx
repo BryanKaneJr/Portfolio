@@ -38,7 +38,7 @@ export default function WelcomeScreen() {
       <View style={styles.body}>
         {step === 0 && (
           <DrScrollSays
-            pose="wave"
+            spot="onboarding.hello"
             layout="stack"
             lines={[DR_SCROLL_LINES.introHello, DR_SCROLL_LINES.introLessons, DR_SCROLL_LINES.introPromise]}
           />

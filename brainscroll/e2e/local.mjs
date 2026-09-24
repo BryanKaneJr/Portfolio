@@ -12,6 +12,7 @@ try {
   check(first.includes('Stop scrolling. Start leveling.') && /Continue with email/i.test(first), 'first run opens on the sign-in screen');
   check(['Apple', 'Google', 'phone number', 'email'].every((m) => new RegExp(`Continue with ${m}`, 'i').test(first)), 'Apple, Google, phone and email are offered');
   check(/accounts are simulated/i.test(first), 'the development harness says its accounts are simulated');
+  check((await page.getByTestId('mascot:sign-in').count()) === 1, 'Dr. Scroll appears on the sign-in screen, labeled by his spot');
   check((await progressKeys(page)).length === 0, 'nothing is saved before signing in (no guest progress)');
   await button(page, 'Continue with email').click();
   await field(page, 'Email').fill('Learner@Example.com');
@@ -24,6 +25,7 @@ try {
   await exactButton(page, 'Continue').click();
   await page.waitForTimeout(1200);
   check(/Hi, I'm Dr\. Scroll/.test(await bodyText(page)), 'signing in goes straight to onboarding');
+  check((await page.getByTestId('mascot:onboarding.hello').count()) === 1, 'his hello is the onboarding.hello spot');
   await onboard(page, { start: true });
   check((await bodyText(page)).includes('Your Cosmic Address'), 'onboarding lands in Level 1');
 

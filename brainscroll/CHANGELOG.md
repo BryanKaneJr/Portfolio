@@ -4,6 +4,8 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Dr. Scroll spots:** every place he appears has a stable spot ID (23 in all, in `packages/core/src/mascot.ts`), and all artwork is wired in one file (`app/src/components/ui/mascotArt.ts`): a spot image, else the pose image, else the reference. New spots: sign-in, checkpoint levels, Review Complete, loading (after a short delay), level load errors, locked levels and not found. Each placement is labeled `testID="mascot:<spot>"`.
+- **Bow Tie Plum:** Dr. Scroll's color (`plum`, `#C07BE8`) joins the palette. His speech bubbles, tip actions and the "Did you know" label on fact cards use it; buttons and progress stay brand violet.
 - **Dr. Scroll card asides:** learning cards can carry an optional `mascot: { pose, line }` (calm poses only, 140 characters, no new facts, a warning above 2 per level). The lesson shows him after the card, the content admin can edit it, and Astronomy Level 1 has the first one.
 - **Dr. Scroll's one-time tips:** on the first question ("Pick an answer, then tap Check"), the first miss, the first checkpoint and the first review. Each shows once per account (stored with the account's device-side state), can be dismissed with "Got it", and uses a calm pose. The local e2e suite checks they appear once and never return.
 - **Dr. Scroll reactions:** a small thumbs-up or kind shrug beside answer feedback (image only, lessons stay quiet), and a one-line bubble on Level Complete (by outcome, level-up and mastery), Daily Complete and the empty Review tab.

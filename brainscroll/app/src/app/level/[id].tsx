@@ -1,4 +1,4 @@
-import { CompletionError, LEARNING_STRUCTURE, type Level, type StartReason } from '@brainscroll/core';
+import { CompletionError, LEARNING_STRUCTURE, type Level, type MascotSpot, type StartReason } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
@@ -8,7 +8,7 @@ import { CardRenderer } from '@/components/cards/CardRenderer';
 import { DrScrollTip } from '@/components/DrScrollTip';
 import { feedbackTone, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { ReportSheet } from '@/components/ReportSheet';
-import { Body, Button, Caption, H1, H2, IconButton, LessonShell } from '@/components/ui';
+import { Body, Button, Caption, DrScroll, DrScrollLoading, H1, H2, IconButton, LessonShell, Row } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
 import { useProgress, type LevelSession } from '@/progress/ProgressProvider';
 import { haptic } from '@/theme/feedback';
@@ -69,10 +69,15 @@ export default function LevelScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [p.ready, id]);
 
-  if (blocked === 'LEVEL_NOT_AVAILABLE') return <Message title="This level doesn't exist." />;
-  if (blocked === 'LEVEL_LOCKED') return <Message title="Not unlocked yet." body="Clear the levels before this one first." />;
-  if (error && !session) return <Message title="Something went wrong." body={error} />;
-  if (!level || !session) return <View style={{ flex: 1, backgroundColor: color.bg }} />;
+  if (blocked === 'LEVEL_NOT_AVAILABLE') return <Message spot="not-found" title="This level doesn't exist." />;
+  if (blocked === 'LEVEL_LOCKED') return <Message spot="level.locked" title="Not unlocked yet." body="Clear the levels before this one first." />;
+  if (error && !session) return <Message spot="error.load" title="Something went wrong." body={error} />;
+  if (!level || !session)
+    return (
+      <View style={{ flex: 1, backgroundColor: color.bg, justifyContent: 'center' }}>
+        <DrScrollLoading />
+      </View>
+    );
 
   const skill = getSkill(level.skillId);
   const card = level.cards[session.cardIndex]!;
@@ -173,7 +178,14 @@ export default function LevelScreen() {
         footerTone={questionId ? feedbackTone(attempts) : undefined}>
         {session.cardIndex === 0 && (
           <View style={{ gap: space.sm, marginBottom: space.lg }}>
-            <Caption tone="brand">{context}</Caption>
+            {level.type === 'checkpoint' ? (
+              <Row gap={space.sm}>
+                <DrScroll spot="checkpoint.intro" size="xs" />
+                <Caption tone="brand">{context}</Caption>
+              </Row>
+            ) : (
+              <Caption tone="brand">{context}</Caption>
+            )}
             <H1>{level.title}</H1>
             <Caption>{level.objective}</Caption>
           </View>
@@ -204,9 +216,10 @@ export default function LevelScreen() {
   );
 }
 
-function Message({ title, body }: { title: string; body?: string }) {
+function Message({ spot, title, body }: { spot: MascotSpot; title: string; body?: string }) {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bg, padding: layout.gutter, gap: space.lg, justifyContent: 'center' }}>
+      <DrScroll spot={spot} size="md" />
       <H2>{title}</H2>
       {body && <Body muted>{body}</Body>}
       <Button variant="secondary" label="Back" onPress={() => router.back()} />

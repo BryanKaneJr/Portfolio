@@ -16,7 +16,8 @@ If everything glows, nothing feels special. `glow.*`, `Halo`, `Emblem glowing`, 
 
 ## Tokens (`theme/tokens.ts`)
 
-- **Colour:** `bg`, `bgDeep`, `surface`, `surfaceRaised`, `surfacePressed`, `border(Strong)`; `brand` (+`Pressed`, `Soft`, `Line`); `success`, `danger`, `mastery` (each with `Soft`/`Line` tints); `info`; `text`, `textReading` (paragraphs, a touch softer), `textMuted`, `textFaint`; `scrim`.
+- **Colour:** `bg`, `bgDeep`, `surface`, `surfaceRaised`, `surfacePressed`, `border(Strong)`; `brand` (+`Pressed`, `Soft`, `Line`); `success`, `danger`, `mastery` (each with `Soft`/`Line` tints); `info`; `plum` (+`Deep`, `Soft`, `Line`); `text`, `textReading` (paragraphs, a touch softer), `textMuted`, `textFaint`; `scrim`.
+- **Bow Tie Plum (`plum`) is Dr. Scroll's colour**, taken from his bow tie. Anything he says wears it: speech-bubble borders, tip actions ("Got it"), and the "Did you know" label on fact cards (fun facts are his territory). It never marks an action or progress: those stay brand violet, and gold stays mastery-only. `plum` text passes contrast on `surface` (5.3:1); use `plumDeep` for fills.
 - **Type scale:**
   - `hero` 56 / `display` 40 / `h1` 30 / `h2` 24 / `title` 20: progression and structure
   - **`reading` 18/28:** lesson paragraphs

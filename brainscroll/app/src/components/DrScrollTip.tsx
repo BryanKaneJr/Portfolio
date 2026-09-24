@@ -21,6 +21,6 @@ export function DrScrollTip({ tip, when = true }: { tip: DrScrollTipId; when?: b
   }, [visible, tip, markTipSeen]);
 
   if (!visible) return null;
-  const { pose, line } = DR_SCROLL_TIPS[tip];
-  return <DrScrollSays pose={pose} lines={[line]} action={{ label: DR_SCROLL_TIP_DISMISS, onPress: () => setDismissed(true) }} style={{ marginBottom: space.lg }} />;
+  const { line } = DR_SCROLL_TIPS[tip];
+  return <DrScrollSays spot={`tip.${tip}`} lines={[line]} action={{ label: DR_SCROLL_TIP_DISMISS, onPress: () => setDismissed(true) }} style={{ marginBottom: space.lg }} />;
 }

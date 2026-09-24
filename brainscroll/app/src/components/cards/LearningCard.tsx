@@ -24,7 +24,8 @@ export function LearningCard({ card, compact }: { card: Card; compact?: boolean 
     case 'fact':
       return (
         <View style={styles.block}>
-          {!compact && <Eyebrow tone="brand">Did you know</Eyebrow>}
+          {/* Fun facts are Dr. Scroll's territory: his bow-tie plum. */}
+          {!compact && <Eyebrow tone="plum">Did you know</Eyebrow>}
           <Text style={compact ? styles.factCompact : styles.fact}>{card.fact}</Text>
           {card.context && <Para>{card.context}</Para>}
         </View>

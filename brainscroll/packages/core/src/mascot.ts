@@ -41,7 +41,7 @@ export const MASCOT_POSES = [
 export type MascotPose = (typeof MASCOT_POSES)[number];
 
 /** Calm poses allowed inside a lesson. Learning mode stays quiet; the big poses belong to progress screens. */
-export const QUIET_MASCOT_POSES = ['pointing', 'thinking', 'idea', 'explaining', 'magnifier', 'whisper', 'thumbs-up', 'oops'] as const satisfies readonly MascotPose[];
+export const QUIET_MASCOT_POSES = ['pointing', 'thinking', 'idea', 'explaining', 'magnifier', 'whisper', 'thumbs-up', 'oops', 'checkpoint'] as const satisfies readonly MascotPose[];
 export type QuietMascotPose = (typeof QUIET_MASCOT_POSES)[number];
 
 /** Most a level should use: he stays special. More is a validator warning. */
@@ -78,3 +78,33 @@ export const DR_SCROLL_TIPS = {
 } as const satisfies Record<string, { pose: MascotPose; line: string }>;
 export type DrScrollTipId = keyof typeof DR_SCROLL_TIPS;
 export const DR_SCROLL_TIP_DISMISS = 'Got it';
+
+/**
+ * Every fixed place Dr. Scroll appears in the app, by a stable spot ID. Screens
+ * ask for a spot, never a picture, so any spot's image can be swapped on its
+ * own (app/src/components/ui/mascotArt.ts). `lesson: true` spots sit inside
+ * lessons or review and must use a calm pose. Writer-placed card asides aren't
+ * spots: their pose comes from the content.
+ */
+export const MASCOT_SPOTS = {
+  'sign-in': { pose: 'reference', where: 'Sign-in screen, above the tagline (no speech: sign-in keeps the plain app voice)' },
+  'onboarding.hello': { pose: 'wave', where: 'Onboarding, first screen: "Hi, I\'m Dr. Scroll."' },
+  'tip.first-question': { pose: 'pointing', where: 'Lesson: tip on the first question ever', lesson: true },
+  'tip.first-miss': { pose: 'explaining', where: 'Lesson: tip after the first wrong answer ever', lesson: true },
+  'tip.first-checkpoint': { pose: 'idea', where: 'Lesson: tip on the first checkpoint level', lesson: true },
+  'tip.first-review': { pose: 'thinking', where: 'Review session: tip on the first review', lesson: true },
+  'checkpoint.intro': { pose: 'checkpoint', where: 'Lesson: beside the title of every checkpoint level', lesson: true },
+  'feedback.correct': { pose: 'thumbs-up', where: 'Lesson and review: beside "Correct"', lesson: true },
+  'feedback.wrong': { pose: 'oops', where: 'Lesson and review: beside "Not quite"', lesson: true },
+  'level-complete.cleared': { pose: 'clapping', where: 'Level Complete, no level-up (replays)' },
+  'level-complete.level-up': { pose: 'celebrate', where: 'Level Complete with a level-up' },
+  'level-complete.mastery': { pose: 'mastery', where: 'Level Complete on a mastery star' },
+  'review-complete': { pose: 'clapping', where: 'Review Complete screen' },
+  'daily-complete': { pose: 'go-outside', where: 'Daily Knowledge Complete: "Go touch grass."' },
+  'review.empty': { pose: 'sleeping', where: 'Review tab when nothing is due' },
+  'loading': { pose: 'waiting', where: 'Loading a level or the review queue (after a short delay)' },
+  'error.load': { pose: 'tangled', where: 'A level or screen that could not load (never about account or payment data)' },
+  'level.locked': { pose: 'thinking', where: 'Opening a level that is not unlocked yet' },
+  'not-found': { pose: 'tangled', where: 'A link to something that does not exist' },
+} as const satisfies Record<string, { pose: MascotPose; where: string; lesson?: boolean }>;
+export type MascotSpot = keyof typeof MASCOT_SPOTS;

@@ -39,7 +39,7 @@ export default function DailyCompleteScreen() {
           <Reveal delay={300}>
             <View style={{ gap: space.lg, alignItems: 'center' }}>
               <Display center>Brain successfully fed.</Display>
-              <DrScrollSays pose="go-outside" lines={[`${VOICE.dailyComplete} 🌱`, DR_SCROLL_LINES.dailyComplete]} style={{ width: '100%', minWidth: 280 }} />
+              <DrScrollSays spot="daily-complete" lines={[`${VOICE.dailyComplete} 🌱`, DR_SCROLL_LINES.dailyComplete]} style={{ width: '100%', minWidth: 280 }} />
             </View>
           </Reveal>
           <Reveal delay={600}>

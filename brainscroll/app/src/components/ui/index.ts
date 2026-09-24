@@ -10,3 +10,4 @@ export * from './answer';
 export * from './shell';
 export * from './reward';
 export * from './mascot';
+export { mascotArt } from './mascotArt';

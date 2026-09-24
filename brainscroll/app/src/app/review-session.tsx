@@ -5,7 +5,7 @@ import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { DrScrollTip } from '@/components/DrScrollTip';
 import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
-import { Body, Button, Caption, Eyebrow, H2, LessonShell, Numeral, Pop, Reveal, useCountUp } from '@/components/ui';
+import { Body, Button, Caption, DrScroll, Eyebrow, H2, LessonShell, Numeral, Pop, Reveal, useCountUp } from '@/components/ui';
 import { getCard, getConcept, getSkill } from '@/content';
 import { useProgress, type AttemptView } from '@/progress/ProgressProvider';
 import { haptic } from '@/theme/feedback';
@@ -138,6 +138,7 @@ function ReviewComplete({ xp, firstTry, total, onDone }: { xp: number; firstTry:
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep, padding: layout.gutter }}>
       <View style={{ flex: 1, justifyContent: 'center', gap: space.lg, alignItems: 'center' }}>
+        <DrScroll spot="review-complete" size="md" />
         <Eyebrow tone="success">Review complete</Eyebrow>
         <Pop>
           <Numeral size="hero" tone="brand">
