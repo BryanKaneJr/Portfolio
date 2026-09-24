@@ -1,0 +1,210 @@
+{
+  "id": "level.science.astronomy.017",
+  "skillId": "skill.science.astronomy",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tides: The Moon’s Pull on the Ocean",
+  "objective": "After this level you can explain why most coasts get two high tides a day and what spring and neap tides are.",
+  "summary": "The Moon’s gravity makes two bulges of ocean water. Earth spins through both each day; the Sun makes tides bigger or smaller.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.tides_moon_gravity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.spring_neap_tides",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.moon_phases",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.016"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Moon moves oceans. Twice a day."
+    },
+    {
+      "id": "card.astronomy.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two bulges, not one",
+      "body": "The Moon’s gravity pulls on Earth’s oceans, stretching them into two bulges: one facing the Moon and one on the opposite side of Earth. As Earth spins, most coastlines pass through both bulges, getting two high tides and two low tides about every 24 hours and 50 minutes.",
+      "callout": "Two bulges → two high tides"
+    },
+    {
+      "id": "card.astronomy.017.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Sun joins in",
+      "body": "The Sun pulls on the oceans too, more weakly. Around new and full Moon, the Sun, Moon and Earth line up and their pulls combine into extra-high and extra-low tides: spring tides. Around the quarter Moons they pull at right angles and tides are gentler: neap tides."
+    },
+    {
+      "id": "card.astronomy.017.c4",
+      "type": "fact",
+      "fact": "Spring tides have nothing to do with spring.",
+      "context": "They happen twice a month, all year round. The name comes from water “springing” up higher."
+    },
+    {
+      "id": "card.astronomy.017.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.017.q1"
+    },
+    {
+      "id": "card.astronomy.017.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.017.q2"
+    },
+    {
+      "id": "card.astronomy.017.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.017.q3"
+    },
+    {
+      "id": "card.astronomy.017.c8",
+      "type": "checkpoint",
+      "headline": "Tides: explained",
+      "learned": [
+        "The Moon’s gravity makes two ocean bulges",
+        "Most coasts get two high tides a day",
+        "Spring tides: Sun and Moon lined up",
+        "Neap tides: Sun and Moon at right angles"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.tides_moon_gravity"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.017.c2"
+      ],
+      "prompt": "What mainly causes ocean tides?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon’s gravity",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Wind blowing across the ocean",
+          "correct": false,
+          "rationale": "Wind makes waves, not tides."
+        },
+        {
+          "id": "c",
+          "label": "Earth’s tilt",
+          "correct": false,
+          "rationale": "Tilt causes seasons."
+        },
+        {
+          "id": "d",
+          "label": "The Sun’s heat",
+          "correct": false,
+          "rationale": "Heat drives weather, not the tides."
+        }
+      ],
+      "explanation": "Tides come mainly from the Moon’s gravity, with a smaller pull from the Sun.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.tides_moon_gravity"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.017.c2"
+      ],
+      "prompt": "Why do most coasts get two high tides a day, not one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon orbits Earth twice a day",
+          "correct": false,
+          "rationale": "The Moon orbits once a month."
+        },
+        {
+          "id": "b",
+          "label": "The Moon’s pull makes two bulges, and Earth spins through both",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Sun and Moon each make one tide",
+          "correct": false,
+          "rationale": "The two bulges both come from the Moon’s pull."
+        },
+        {
+          "id": "d",
+          "label": "The ocean sloshes back after each tide",
+          "correct": false,
+          "rationale": "The pattern comes from two tidal bulges."
+        }
+      ],
+      "explanation": "There’s a bulge facing the Moon and another on Earth’s far side. Spinning through both gives two high tides a day.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.spring_neap_tides",
+        "concept.astronomy.moon_phases"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.017.c3",
+        "card.astronomy.006.c2"
+      ],
+      "prompt": "From Level 6: spring tides happen at new and full Moon. What do those two phases have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon is closest to Earth",
+          "correct": false,
+          "rationale": "Phase doesn’t depend on the Moon’s distance."
+        },
+        {
+          "id": "b",
+          "label": "The Moon is half lit",
+          "correct": false,
+          "rationale": "That’s the quarter Moons, when neap tides happen."
+        },
+        {
+          "id": "c",
+          "label": "The Moon is on the far side of the Sun",
+          "correct": false,
+          "rationale": "At new Moon it’s between Earth and the Sun."
+        },
+        {
+          "id": "d",
+          "label": "The Sun, Earth and Moon are in a line",
+          "correct": true
+        }
+      ],
+      "explanation": "At new Moon the Moon is between Earth and the Sun; at full Moon, Earth is between them. Either way they line up, and their pulls add up.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_moon_tides"
+  ]
+}

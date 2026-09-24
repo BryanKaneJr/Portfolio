@@ -32,6 +32,7 @@ export function loadContent(root: string): RawContentBundle {
     skills: [],
     concepts: [],
     levels: [],
+    syllabi: [],
     verification: existsSync(join(root, 'verification.json')) ? array(join(root, 'verification.json')) : [],
   };
 
@@ -44,6 +45,8 @@ export function loadContent(root: string): RawContentBundle {
     if (existsSync(conceptsFile)) {
       array(conceptsFile).forEach((data, i) => bundle.concepts.push({ where: `${rel(conceptsFile)}[${i}]`, data }));
     }
+    const syllabusFile = join(base, 'syllabus.json');
+    if (existsSync(syllabusFile)) bundle.syllabi!.push({ where: rel(syllabusFile), data: json(syllabusFile) });
     const levelsDir = join(base, 'levels');
     if (existsSync(levelsDir)) {
       for (const f of readdirSync(levelsDir).filter((f) => f.endsWith('.json')).sort()) {

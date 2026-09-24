@@ -1,0 +1,224 @@
+{
+  "id": "level.science.astronomy.012",
+  "skillId": "skill.science.astronomy",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "A Year Around the Sun",
+  "objective": "After this level you can explain what a year is, why leap years exist, and why the night sky changes with the seasons.",
+  "summary": "A year is one orbit of about 365.25 days. The quarter-days add up to leap days, and the night sky shifts as we orbit.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.earth_orbit_year",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.leap_years",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.night_sky_seasons",
+      "role": "teach",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.seasons_tilt",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.earth_rotation",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.011"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A year is just one lap.",
+      "body": "Every birthday, Earth has made one full trip around the Sun since the last one."
+    },
+    {
+      "id": "card.astronomy.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One lap, 940 million kilometers",
+      "body": "Earth takes about 365.25 days to orbit the Sun once. In that time it travels roughly 940 million km, which works out to about 30 km every second. Right now you’re moving faster than any rocket has ever launched.",
+      "callout": "Orbit = year · Spin = day"
+    },
+    {
+      "id": "card.astronomy.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the quarter-days go",
+      "body": "Calendars count 365 days, but each orbit takes about a quarter of a day longer. Those quarters add up to roughly one full day every four years, so we add February 29 in leap years to keep the calendar in step with the seasons."
+    },
+    {
+      "id": "card.astronomy.012.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "A different night sky each season",
+      "body": "At night you face away from the Sun. As Earth moves around its orbit, that view swings toward different parts of space, so each season has its own constellations. Orion, for example, is a winter evening sight in the Northern Hemisphere."
+    },
+    {
+      "id": "card.astronomy.012.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.012.q1"
+    },
+    {
+      "id": "card.astronomy.012.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.012.q2"
+    },
+    {
+      "id": "card.astronomy.012.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.012.q3"
+    },
+    {
+      "id": "card.astronomy.012.c8",
+      "type": "checkpoint",
+      "headline": "Orbit: understood",
+      "learned": [
+        "A year is one orbit: about 365.25 days",
+        "Earth travels about 30 km every second",
+        "Leap days catch up the extra quarter-days",
+        "The night sky changes as we orbit"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.earth_orbit_year"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.012.c2"
+      ],
+      "prompt": "About how long does Earth take to orbit the Sun once?",
+      "options": [
+        {
+          "id": "a",
+          "label": "24 hours",
+          "correct": false,
+          "rationale": "That’s one spin on its axis: a day."
+        },
+        {
+          "id": "b",
+          "label": "29.5 days",
+          "correct": false,
+          "rationale": "That’s the Moon’s cycle of phases."
+        },
+        {
+          "id": "c",
+          "label": "365.25 days",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "4 years",
+          "correct": false,
+          "rationale": "Leap years come every four years; the orbit takes one."
+        }
+      ],
+      "explanation": "One orbit of the Sun takes about 365.25 days: one year.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.astronomy.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.leap_years"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.012.c3"
+      ],
+      "prompt": "Why do we add a leap day about every four years?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each orbit takes about a quarter-day longer than 365 days",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Earth slows down every four years",
+          "correct": false,
+          "rationale": "Earth’s orbit doesn’t change like that."
+        },
+        {
+          "id": "c",
+          "label": "To make up for the Moon’s orbit",
+          "correct": false,
+          "rationale": "Leap days track Earth’s orbit around the Sun, not the Moon."
+        },
+        {
+          "id": "d",
+          "label": "Because February is too short",
+          "correct": false,
+          "rationale": "February is just where the extra day goes."
+        }
+      ],
+      "explanation": "A year is about 365.25 days. The extra quarter-days add up to about one day every four years, so leap years add February 29.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.earth_orbit_year",
+        "concept.astronomy.seasons_tilt"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.012.c2",
+        "card.astronomy.005.c3"
+      ],
+      "prompt": "From Level 5: seasons repeat every year. What happens during one orbit to cause them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Earth moves much closer to the Sun, then farther away",
+          "correct": false,
+          "rationale": "Distance isn’t the cause; Earth is closest in January."
+        },
+        {
+          "id": "b",
+          "label": "The Sun gets hotter, then cooler",
+          "correct": false,
+          "rationale": "The Sun’s output barely changes over a year."
+        },
+        {
+          "id": "c",
+          "label": "Earth’s tilted axis leans each hemisphere toward, then away from, the Sun",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Earth spins faster in summer",
+          "correct": false,
+          "rationale": "Earth’s spin rate stays essentially the same."
+        }
+      ],
+      "explanation": "Earth’s axis stays tilted the same way as it orbits, so over one year each hemisphere leans toward the Sun (summer) and then away from it (winter).",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_earth_perihelion",
+    "source.nasa_spaceplace_leap_year",
+    "source.nasa_spaceplace_constellations"
+  ]
+}

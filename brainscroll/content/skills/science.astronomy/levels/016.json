@@ -1,0 +1,216 @@
+{
+  "id": "level.science.astronomy.016",
+  "skillId": "skill.science.astronomy",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Wanderers: How Planets Move Across the Sky",
+  "objective": "After this level you can explain why planets drift against the stars and sometimes appear to loop backwards.",
+  "summary": "Planets drift against the stars as they orbit. When Earth overtakes an outer planet, it seems to go backwards: retrograde motion.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.planets_wander",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.retrograde_motion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.ecliptic",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.rocky_planets",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.015"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every few years, Mars seems to stop, reverse and loop back across the sky.",
+      "body": "It never actually turns around. You’re watching from a moving planet."
+    },
+    {
+      "id": "card.astronomy.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The wanderers",
+      "body": "Night after night, the stars keep the same patterns. Planets don’t: they slowly shift position against the background stars as they orbit the Sun. The ancient Greeks noticed, and the word “planet” comes from their word for “wanderer.”"
+    },
+    {
+      "id": "card.astronomy.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Overtaking on the inside lane",
+      "body": "Earth orbits closer to the Sun than Mars does, so it moves faster. When Earth catches up with Mars and passes it, Mars appears to slide backwards against the stars for a few weeks, then forward again. It’s like passing a slower car: it seems to drift backwards, though both are going forward.",
+      "callout": "Retrograde = an overtaking illusion"
+    },
+    {
+      "id": "card.astronomy.016.c4",
+      "type": "fact",
+      "fact": "Retrograde motion is only apparent.",
+      "context": "No planet ever reverses direction in its orbit. The backwards loop is a change in our viewpoint, not in the planet’s path."
+    },
+    {
+      "id": "card.astronomy.016.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.016.q1"
+    },
+    {
+      "id": "card.astronomy.016.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.016.q2"
+    },
+    {
+      "id": "card.astronomy.016.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.016.q3"
+    },
+    {
+      "id": "card.astronomy.016.c8",
+      "type": "checkpoint",
+      "headline": "Wanderers: explained",
+      "learned": [
+        "Planets drift against the stars as they orbit",
+        "“Planet” means wanderer",
+        "Earth overtaking Mars makes it seem to go backwards",
+        "Retrograde motion is only apparent"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.planets_wander"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.016.c2"
+      ],
+      "prompt": "What does the word “planet” originally mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Round world",
+          "correct": false,
+          "rationale": "The name comes from how planets move, not their shape."
+        },
+        {
+          "id": "b",
+          "label": "Bright star",
+          "correct": false,
+          "rationale": "Planets were named for moving against the stars."
+        },
+        {
+          "id": "c",
+          "label": "Wanderer",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Child of the Sun",
+          "correct": false,
+          "rationale": "That’s not the word’s origin."
+        }
+      ],
+      "explanation": "Planets drift against the fixed patterns of stars, so the Greeks called them “wanderers.”",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.retrograde_motion"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.016.c3"
+      ],
+      "prompt": "Why does Mars sometimes appear to move backwards across the sky?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mars reverses its orbit for a few weeks",
+          "correct": false,
+          "rationale": "Planets never reverse; this is an illusion."
+        },
+        {
+          "id": "b",
+          "label": "The Sun pulls Mars backwards",
+          "correct": false,
+          "rationale": "The Sun’s gravity doesn’t make Mars reverse."
+        },
+        {
+          "id": "c",
+          "label": "Mars is hidden behind the Moon",
+          "correct": false,
+          "rationale": "That would hide Mars, not move it."
+        },
+        {
+          "id": "d",
+          "label": "Earth, on its faster inner orbit, is overtaking it",
+          "correct": true
+        }
+      ],
+      "explanation": "Earth moves faster than Mars. As Earth passes Mars, Mars appears to slip backwards against the stars, just like a slower car you overtake.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.retrograde_motion",
+        "concept.astronomy.rocky_planets"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.016.c3",
+        "card.astronomy.003.c2"
+      ],
+      "prompt": "From Level 3: which of these planets can show retrograde motion caused by Earth overtaking it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mercury",
+          "correct": false,
+          "rationale": "Mercury orbits inside Earth’s orbit, so Earth never overtakes it."
+        },
+        {
+          "id": "b",
+          "label": "Venus",
+          "correct": false,
+          "rationale": "Venus orbits inside Earth’s orbit and moves faster than Earth."
+        },
+        {
+          "id": "c",
+          "label": "Mars",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Earth",
+          "correct": false,
+          "rationale": "We watch from Earth; it can’t appear to move against the stars."
+        }
+      ],
+      "explanation": "Mars is the rocky planet just outside Earth’s orbit. Earth overtakes it every couple of years, causing its retrograde loop.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_skywatching_planets"
+  ]
+}

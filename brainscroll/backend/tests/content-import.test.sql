@@ -15,16 +15,20 @@ end $$;
 \i :content_sql
 \i :content_sql
 \o
-do $$ begin
-  assert (select count(*) from public.levels where status = 'published') = 10, 'all 10 levels published';
-  assert (select count(*) from public.level_revisions) = 10, 're-import must not create revisions';
-  assert (select max_published_level from public.skills where id = 'skill.science.astronomy') = 10;
-  -- Testing is proportional: regular levels have 3 questions, the Level 10 checkpoint 5.
+-- Counts come from the curriculum itself, so this keeps working as content grows.
+do $$
+declare v_levels int := (select count(*) from public.levels);
+begin
+  assert v_levels >= 10, format('expected at least the Golden 10 levels, got %s', v_levels);
+  assert (select count(*) from public.levels where status = 'published') = v_levels, 'all levels published';
+  assert (select count(*) from public.level_revisions) = v_levels, 're-import must not create revisions';
+  assert (select max_published_level from public.skills where id = 'skill.science.astronomy') = v_levels;
+  -- Testing is proportional: regular 3 questions, checkpoint 5, milestone 7, mastery 10.
   assert (select level_type from public.levels where number = 10) = 'checkpoint';
-  assert (select count(*) from public.levels where level_type = 'regular') = 9;
-  assert (select bool_and(n = 3) from (select count(*) n from public.questions q join public.levels l on l.id = q.level_id
-          where l.level_type = 'regular' group by q.level_id) x), 'every regular level has 3 questions';
-  assert (select count(*) from public.questions where level_id = 'level.science.astronomy.010') = 5;
+  assert (select count(*) from public.levels where level_type = 'checkpoint') = (select count(*) from public.levels where number % 10 = 0 and number % 50 <> 0);
+  assert (select bool_and(n = case l.level_type when 'regular' then 3 when 'checkpoint' then 5 when 'milestone' then 7 else 10 end)
+          from (select q.level_id, count(*) n from public.questions q group by q.level_id) x join public.levels l on l.id = x.level_id),
+    'every level has its canonical question count';
   assert (select count(*) from public.answer_options where correct) = (select count(*) from public.questions),
     'every question has exactly one correct option';
   assert (select count(*) from public.source_links where object_type = 'concept') > 0;
@@ -41,7 +45,7 @@ set role authenticated;
 do $$
 declare s jsonb; r jsonb; answers jsonb;
 begin
-  assert (select count(*) from public.levels) = 10, 'published levels are readable';
+  assert (select count(*) from public.levels) >= 10, 'published levels are readable';
   s := public.start_level('level.science.astronomy.001');
   assert s ->> 'reason' = 'NEW' and s -> 'bundle' ->> 'title' = 'Your Cosmic Address', format('got %s', s ->> 'reason');
   assert not (s -> 'bundle' -> 'questions' -> 0 -> 'options' -> 0 ? 'correct'), 'bundles carry no answer keys';

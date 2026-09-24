@@ -1,0 +1,215 @@
+{
+  "id": "level.science.astronomy.014",
+  "skillId": "skill.science.astronomy",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The North Star",
+  "objective": "After this level you can find north with Polaris and explain why some stars never set.",
+  "summary": "Polaris sits above the North Pole, so it stays put while the sky wheels around it. Its height gives your latitude.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.polaris_north",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.circumpolar_stars",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.precession",
+      "role": "teach",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.sky_rises_east",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.013"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One star barely moves all night. It has guided travelers for centuries."
+    },
+    {
+      "id": "card.astronomy.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The star above the pole",
+      "body": "Polaris, the North Star, lies almost directly above Earth’s North Pole. As Earth spins, every other star circles around it while Polaris stays nearly fixed, marking north. It isn’t the brightest star, either: that’s Sirius.",
+      "callout": "Polaris = north"
+    },
+    {
+      "id": "card.astronomy.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stars that never set",
+      "body": "From mid-northern latitudes, stars close to Polaris trace small circles around it and never dip below the horizon. They’re called circumpolar stars. Bonus: Polaris’s height above your horizon, in degrees, roughly equals your latitude."
+    },
+    {
+      "id": "card.astronomy.014.c4",
+      "type": "fact",
+      "fact": "Polaris won’t be the North Star forever.",
+      "context": "Earth’s axis slowly wobbles, tracing a circle about every 26,000 years, so the pole points at different stars over the ages. The Southern Hemisphere has no bright pole star at all; navigators there use the Southern Cross to find south."
+    },
+    {
+      "id": "card.astronomy.014.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.014.q1"
+    },
+    {
+      "id": "card.astronomy.014.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.014.q2"
+    },
+    {
+      "id": "card.astronomy.014.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.014.q3"
+    },
+    {
+      "id": "card.astronomy.014.c8",
+      "type": "checkpoint",
+      "headline": "North: found",
+      "learned": [
+        "Polaris sits almost directly above the North Pole",
+        "It marks north; its height gives your latitude",
+        "Circumpolar stars never set",
+        "Earth’s 26,000-year wobble changes the pole star"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.polaris_north"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.014.c2"
+      ],
+      "prompt": "Why does Polaris barely move across the night sky?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is the closest star to Earth",
+          "correct": false,
+          "rationale": "The closest star is Proxima Centauri (after the Sun)."
+        },
+        {
+          "id": "b",
+          "label": "It lies almost directly above Earth’s North Pole",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is the brightest star",
+          "correct": false,
+          "rationale": "The brightest night-time star is Sirius."
+        },
+        {
+          "id": "d",
+          "label": "It orbits Earth at the same speed Earth spins",
+          "correct": false,
+          "rationale": "Stars don’t orbit Earth."
+        }
+      ],
+      "explanation": "Polaris sits nearly on the line of Earth’s axis, so as Earth spins, it stays almost fixed while other stars circle it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.polaris_north"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.014.c3"
+      ],
+      "prompt": "You see Polaris about 40° above the horizon. What does that tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "You are in the Southern Hemisphere",
+          "correct": false,
+          "rationale": "Polaris can’t be seen from the Southern Hemisphere; the Earth itself blocks it."
+        },
+        {
+          "id": "b",
+          "label": "It is about 40 light-years away",
+          "correct": false,
+          "rationale": "Its height in the sky shows your latitude, not its distance."
+        },
+        {
+          "id": "c",
+          "label": "It is 4 o’clock",
+          "correct": false,
+          "rationale": "Polaris stays put all night, so it can’t tell the time."
+        },
+        {
+          "id": "d",
+          "label": "You are at roughly 40° north latitude",
+          "correct": true
+        }
+      ],
+      "explanation": "In the Northern Hemisphere, Polaris’s height above the horizon in degrees roughly equals your latitude.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.circumpolar_stars",
+        "concept.astronomy.sky_rises_east"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.014.c3",
+        "card.astronomy.011.c3"
+      ],
+      "prompt": "From Level 11: most stars rise in the east and set in the west. Why don’t the circumpolar stars set?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They circle so close to the pole that they never dip below the horizon",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They are too bright to set",
+          "correct": false,
+          "rationale": "Brightness has nothing to do with setting."
+        },
+        {
+          "id": "c",
+          "label": "They orbit Polaris",
+          "correct": false,
+          "rationale": "They only appear to circle it because Earth spins."
+        },
+        {
+          "id": "d",
+          "label": "They only appear in winter",
+          "correct": false,
+          "rationale": "Circumpolar stars are visible all year from mid-northern latitudes."
+        }
+      ],
+      "explanation": "Earth’s spin makes every star appear to circle the pole. Stars close to Polaris trace circles small enough to stay above the horizon all night.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_polaris"
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "id": "level.science.astronomy.019",
+  "skillId": "skill.science.astronomy",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Craters and Seas on the Moon",
+  "objective": "After this level you can explain where lunar craters and the dark “seas” came from and why they last so long.",
+  "summary": "Craters are impact scars preserved for billions of years; the dark maria are ancient hardened lava.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.lunar_craters",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.lunar_maria",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.moon_tidal_lock",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.018"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The “Man in the Moon” is made of ancient lava."
+    },
+    {
+      "id": "card.astronomy.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Scars that never heal",
+      "body": "The Moon’s craters were blasted out by asteroids and comets, and range from tiny pits to basins hundreds of kilometers wide. On Earth, wind, rain and shifting plates wear craters away. The Moon has almost no atmosphere, no liquid water and no plate tectonics, so its craters survive for billions of years.",
+      "callout": "No air, no water, no erasing"
+    },
+    {
+      "id": "card.astronomy.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seas without water",
+      "body": "The dark patches are called maria, Latin for “seas,” because early astronomers thought they might be water. They’re actually vast plains of ancient lava that flooded low areas and hardened. Most of them are on the near side, the side that faces Earth."
+    },
+    {
+      "id": "card.astronomy.019.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.019.q1"
+    },
+    {
+      "id": "card.astronomy.019.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.019.q2"
+    },
+    {
+      "id": "card.astronomy.019.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.019.q3"
+    },
+    {
+      "id": "card.astronomy.019.c7",
+      "type": "checkpoint",
+      "headline": "Lunar surface: surveyed",
+      "learned": [
+        "Craters come from asteroid and comet impacts",
+        "No air, water or plate tectonics erase them",
+        "Maria are plains of ancient hardened lava",
+        "Most maria are on the near side"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.lunar_maria"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.019.c3"
+      ],
+      "prompt": "What are the dark patches on the Moon, called maria?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Oceans of water",
+          "correct": false,
+          "rationale": "The name means “seas,” but they’re dry."
+        },
+        {
+          "id": "b",
+          "label": "Shadows of mountains",
+          "correct": false,
+          "rationale": "The patches are dark rock, not shadows."
+        },
+        {
+          "id": "c",
+          "label": "Plains of ancient hardened lava",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Areas the Sun never lights",
+          "correct": false,
+          "rationale": "Sunlight reaches them like the rest of the surface."
+        }
+      ],
+      "explanation": "The maria are enormous plains of lava that erupted and hardened long ago.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.lunar_craters"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.019.c2"
+      ],
+      "prompt": "Why do craters last so much longer on the Moon than on Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon is hit less often",
+          "correct": false,
+          "rationale": "It’s more that nothing erases the craters."
+        },
+        {
+          "id": "b",
+          "label": "The Moon has no weather, water or plate tectonics to erase them",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Moon rock is harder than Earth rock",
+          "correct": false,
+          "rationale": "The difference is what wears craters away."
+        },
+        {
+          "id": "d",
+          "label": "The Moon’s gravity is stronger",
+          "correct": false,
+          "rationale": "The Moon’s gravity is weaker than Earth’s."
+        }
+      ],
+      "explanation": "Wind, water and moving plates wear down Earth’s craters. The Moon has none of these, so its craters survive for billions of years.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.lunar_maria",
+        "concept.astronomy.moon_tidal_lock"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.019.c3",
+        "card.astronomy.006.c3"
+      ],
+      "prompt": "From Level 6: why can we see most of the Moon’s maria from Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The maria reflect the most sunlight",
+          "correct": false,
+          "rationale": "They’re actually darker than the rest of the Moon."
+        },
+        {
+          "id": "b",
+          "label": "The Moon rotates so we see all sides",
+          "correct": false,
+          "rationale": "The Moon is tidally locked; we see one side."
+        },
+        {
+          "id": "c",
+          "label": "The far side has no surface features",
+          "correct": false,
+          "rationale": "The far side is heavily cratered."
+        },
+        {
+          "id": "d",
+          "label": "Most maria are on the near side, which always faces Earth",
+          "correct": true
+        }
+      ],
+      "explanation": "The Moon is tidally locked, always showing us the same face, and most of the maria are on that near side.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_moon_craters"
+  ]
+}

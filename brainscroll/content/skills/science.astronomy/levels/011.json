@@ -1,0 +1,211 @@
+{
+  "id": "level.science.astronomy.011",
+  "skillId": "skill.science.astronomy",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why the Sky Turns",
+  "objective": "After this level you can explain that day and night, and the stars rising and setting, come from Earth spinning.",
+  "summary": "Earth spins once a day from west to east, so the Sun and stars appear to rise in the east and set in the west.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.earth_rotation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.sky_rises_east",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.sun_is_a_star",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.010"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The sky isn’t turning. You are.",
+      "body": "Every sunrise is really your patch of Earth rolling toward the Sun. Stay up all night and you’ll see the stars do exactly the same thing."
+    },
+    {
+      "id": "card.astronomy.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One spin, one day",
+      "body": "Earth spins around its axis, an imaginary line through the North and South Poles, about once every 24 hours. The half facing the Sun has day; the half facing away has night. As Earth turns, you’re carried from one half into the other.",
+      "callout": "One rotation ≈ one day"
+    },
+    {
+      "id": "card.astronomy.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why everything rises in the east",
+      "body": "Earth spins from west to east. That turns your eastern horizon toward the Sun first, so the Sun seems to climb up in the east and sink in the west. The Moon, the planets and the stars cross the sky the same way, for the same reason."
+    },
+    {
+      "id": "card.astronomy.011.c4",
+      "type": "fact",
+      "fact": "At the equator, Earth’s surface moves at about 1,670 km/h.",
+      "context": "You don’t feel it because you, the ground and the air all move together at a steady speed."
+    },
+    {
+      "id": "card.astronomy.011.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.011.q1"
+    },
+    {
+      "id": "card.astronomy.011.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.011.q2"
+    },
+    {
+      "id": "card.astronomy.011.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.011.q3"
+    },
+    {
+      "id": "card.astronomy.011.c8",
+      "type": "checkpoint",
+      "headline": "Daily spin: understood",
+      "learned": [
+        "Earth spins once about every 24 hours",
+        "Day is the half of Earth facing the Sun",
+        "Earth spins from west to east",
+        "So the Sun, Moon and stars rise in the east"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.earth_rotation"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.011.c2"
+      ],
+      "prompt": "What causes day and night?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Sun circling Earth",
+          "correct": false,
+          "rationale": "It looks that way, but it’s Earth that turns."
+        },
+        {
+          "id": "b",
+          "label": "Earth spinning on its axis",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Earth orbiting the Sun",
+          "correct": false,
+          "rationale": "That takes a whole year, not a day."
+        },
+        {
+          "id": "d",
+          "label": "The Moon blocking the Sun",
+          "correct": false,
+          "rationale": "That’s an eclipse, and it’s rare."
+        }
+      ],
+      "explanation": "Earth spins about once every 24 hours; the half facing the Sun has day and the other half has night.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.astronomy.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.sky_rises_east"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.011.c3"
+      ],
+      "prompt": "Why does the Sun rise in the east?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Sun orbits Earth from east to west",
+          "correct": false,
+          "rationale": "Earth’s spin creates the Sun’s daily path, not an orbit of the Sun."
+        },
+        {
+          "id": "b",
+          "label": "The east is closer to the Sun",
+          "correct": false,
+          "rationale": "Every horizon is the same distance from the Sun."
+        },
+        {
+          "id": "c",
+          "label": "Earth spins toward the east, turning the eastern horizon to face the Sun first",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Earth’s tilt points the east at the Sun",
+          "correct": false,
+          "rationale": "Tilt causes seasons, not sunrise."
+        }
+      ],
+      "explanation": "Earth rotates from west to east, so your eastern horizon swings into sunlight first and the Sun appears to rise there.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.sky_rises_east",
+        "concept.astronomy.sun_is_a_star"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.011.c3",
+        "card.astronomy.001.c1"
+      ],
+      "prompt": "From Level 1, stars are distant suns. Why do they rise in the east and set in the west, just like the Sun?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stars orbit Earth once a day",
+          "correct": false,
+          "rationale": "Stars are far beyond Earth; they don’t orbit us."
+        },
+        {
+          "id": "b",
+          "label": "They follow the Sun across the sky",
+          "correct": false,
+          "rationale": "Stars and the Sun each appear to move because of Earth’s spin."
+        },
+        {
+          "id": "c",
+          "label": "Stars are pulled by the Moon",
+          "correct": false,
+          "rationale": "The Moon doesn’t move the stars."
+        },
+        {
+          "id": "d",
+          "label": "Earth’s spin sweeps every object in the sky across it the same way",
+          "correct": true
+        }
+      ],
+      "explanation": "The stars aren’t moving across the sky. Earth’s west-to-east spin makes the Sun and every distant sun appear to rise in the east and set in the west.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_earth_perihelion"
+  ]
+}

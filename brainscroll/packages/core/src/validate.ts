@@ -1,5 +1,5 @@
 import { QUESTION_PURPOSES } from './constants';
-import { Asset, Concept, Level, Skill, Source, Subject, VerificationRecord, type Fact } from './content-schema';
+import { Asset, Concept, Level, Skill, Source, Subject, Syllabus, VerificationRecord, type Fact } from './content-schema';
 import { levelId, levelScope, parseLevelId } from './ids';
 import { levelTypeFor } from './progression';
 import { cardRole, learningCards, learningWordCount, structureFor } from './structure';
@@ -21,6 +21,8 @@ export interface RawContentBundle {
   levels: { where: string; data: unknown }[];
   /** content/verification.json: one record per (fact, source) pair. */
   verification?: unknown[];
+  /** content/skills/<skill>/syllabus.json, when present. */
+  syllabi?: { where: string; data: unknown }[];
 }
 
 export interface ValidatedContent {
@@ -31,6 +33,7 @@ export interface ValidatedContent {
   concepts: Concept[];
   levels: Level[];
   verification: VerificationRecord[];
+  syllabi: Syllabus[];
 }
 
 /**
@@ -65,6 +68,7 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
   const concepts = parseAll(Concept, raw.concepts);
   const levels = parseAll(Level, raw.levels);
   const verification = parseAll(VerificationRecord, tag('verification.json', raw.verification ?? []));
+  const syllabi = parseAll(Syllabus, raw.syllabi ?? []);
 
   const dupes = (kind: string, ids: string[]) => {
     const seen = new Set<string>();
@@ -238,6 +242,7 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
   }
 
   checkClaims(concepts, levels, verification, sourceById, err, warn);
+  for (const s of syllabi) checkSyllabus(s, levelsBySkill.get(s.skillId) ?? [], skillIds, err, warn);
 
   // Predictable answers undermine learning: warn when one slot dominates a skill.
   for (const [skill, list] of levelsBySkill) {
@@ -251,7 +256,28 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
     }
   }
 
-  return { issues, content: { subjects, skills, sources, assets, concepts, levels, verification } };
+  return { issues, content: { subjects, skills, sources, assets, concepts, levels, verification, syllabi } };
+}
+
+/** A syllabus covers levels 1..N with contiguous chapters; drafted levels should match their planned title. */
+function checkSyllabus(s: Syllabus, levels: Level[], skillIds: Set<string>, err: Report, warn: Report): void {
+  const where = `${s.skillId} syllabus`;
+  if (!skillIds.has(s.skillId)) err(where, `unknown skill ${s.skillId}`);
+  s.levels.forEach((l, i) => {
+    if (l.number !== i + 1) err(where, `levels must run 1..N in order; found ${l.number} at position ${i + 1}`);
+  });
+  let next = 1;
+  for (const c of s.chapters) {
+    if (c.levels[0] !== next || c.levels[1] < c.levels[0]) err(where, `chapter ${c.number} must start at level ${next}`);
+    next = c.levels[1] + 1;
+  }
+  if (next - 1 !== s.levels.length) err(where, `chapters cover 1–${next - 1} but the syllabus lists ${s.levels.length} levels`);
+  const planned = new Map(s.levels.map((l) => [l.number, l]));
+  for (const level of levels) {
+    const p = planned.get(level.number);
+    if (!p) warn(level.id, 'is not in the syllabus');
+    else if (p.title !== level.title) warn(level.id, `title "${level.title}" differs from the syllabus ("${p.title}"); update one of them`);
+  }
 }
 
 type Report = (where: string, message: string) => void;

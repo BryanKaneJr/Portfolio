@@ -243,3 +243,17 @@ export const Subject = z.object({
   status: ContentStatus,
 });
 export type Subject = z.infer<typeof Subject>;
+
+/**
+ * The planned 1–100 outline for a skill: chapter titles and, per level, the
+ * title and learning objective. Levels are drafted against it; the validator
+ * warns when a drafted level drifts from its plan.
+ */
+export const Syllabus = z.object({
+  skillId: id('skill'),
+  chapters: z
+    .array(z.object({ number: z.number().int().positive(), title: text(60), levels: z.tuple([z.number().int().positive(), z.number().int().positive()]) }))
+    .min(1),
+  levels: z.array(z.object({ number: z.number().int().positive(), title: text(60), objective: text(200) })).min(1),
+});
+export type Syllabus = z.infer<typeof Syllabus>;

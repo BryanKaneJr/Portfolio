@@ -1,0 +1,212 @@
+{
+  "id": "level.science.astronomy.015",
+  "skillId": "skill.science.astronomy",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Ecliptic: The Planets’ Highway",
+  "objective": "After this level you can explain why the Sun, Moon and planets all travel along the same narrow band of sky.",
+  "summary": "The ecliptic is the Sun’s yearly path. The Moon and planets stay near it because the solar system is flat.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.ecliptic",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.earth_orbit_year",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.eclipse_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.014"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The planets don’t roam the whole sky. They stick to one narrow road."
+    },
+    {
+      "id": "card.astronomy.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Sun’s yearly path",
+      "body": "As Earth orbits, the Sun seems to drift slowly against the background stars, returning to the same spot after a year. The line it traces is called the ecliptic. The constellations it passes through are the zodiac constellations.",
+      "callout": "Ecliptic = the Sun’s path over a year"
+    },
+    {
+      "id": "card.astronomy.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A flat solar system",
+      "body": "The planets all orbit the Sun in nearly the same flat plane, and the Moon orbits Earth close to it too. Seen from inside that plane, we see everything strung along one line: the ecliptic. Spot a bright “star” near where the Sun set? Check if it’s a planet."
+    },
+    {
+      "id": "card.astronomy.015.c4",
+      "type": "fact",
+      "fact": "Eclipses can only happen when the Moon is on the ecliptic.",
+      "context": "The Moon’s orbit is tilted slightly, so most months it passes just above or below the Sun’s path. Only when it crosses the ecliptic at the right moment do we get an eclipse."
+    },
+    {
+      "id": "card.astronomy.015.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.015.q1"
+    },
+    {
+      "id": "card.astronomy.015.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.015.q2"
+    },
+    {
+      "id": "card.astronomy.015.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.015.q3"
+    },
+    {
+      "id": "card.astronomy.015.c8",
+      "type": "checkpoint",
+      "headline": "Planetary highway: mapped",
+      "learned": [
+        "The ecliptic is the Sun’s path over a year",
+        "Zodiac constellations lie along it",
+        "The planets stay near it because the solar system is flat",
+        "Eclipses need the Moon on the ecliptic"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.ecliptic"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.015.c2"
+      ],
+      "prompt": "What is the ecliptic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The line of Earth’s equator in the sky",
+          "correct": false,
+          "rationale": "That’s the celestial equator, a different line."
+        },
+        {
+          "id": "b",
+          "label": "The path of the Moon’s shadow",
+          "correct": false,
+          "rationale": "Shadows cause eclipses; the ecliptic is the Sun’s path."
+        },
+        {
+          "id": "c",
+          "label": "The path the Sun appears to follow across the sky over a year",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The edge of the Milky Way",
+          "correct": false,
+          "rationale": "The ecliptic is set by Earth’s orbit."
+        }
+      ],
+      "explanation": "Over a year, the Sun appears to move against the stars along a line called the ecliptic.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.ecliptic"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.015.c3"
+      ],
+      "prompt": "Why do the planets always appear near the ecliptic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are pulled toward the Sun’s path by the stars",
+          "correct": false,
+          "rationale": "Distant stars have no such effect."
+        },
+        {
+          "id": "b",
+          "label": "Their orbits lie in nearly the same flat plane as Earth’s",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The ecliptic is where the sky is darkest",
+          "correct": false,
+          "rationale": "Darkness has nothing to do with it."
+        },
+        {
+          "id": "d",
+          "label": "They orbit Earth along that line",
+          "correct": false,
+          "rationale": "Planets orbit the Sun, not Earth."
+        }
+      ],
+      "explanation": "The solar system is flat: the planets orbit in nearly the same plane as Earth, so from Earth they all appear close to the Sun’s path.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.ecliptic",
+        "concept.astronomy.eclipse_types"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.015.c4",
+        "card.astronomy.007.c2"
+      ],
+      "prompt": "From Level 7: there’s a new Moon every month. Why isn’t there a solar eclipse every month?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon is too small most months",
+          "correct": false,
+          "rationale": "The Moon’s size doesn’t change month to month."
+        },
+        {
+          "id": "b",
+          "label": "Solar eclipses only happen in summer",
+          "correct": false,
+          "rationale": "Eclipses can happen in any season."
+        },
+        {
+          "id": "c",
+          "label": "Earth’s shadow gets in the way",
+          "correct": false,
+          "rationale": "In a solar eclipse it’s the Moon’s shadow that matters."
+        },
+        {
+          "id": "d",
+          "label": "The Moon usually passes just above or below the Sun’s path",
+          "correct": true
+        }
+      ],
+      "explanation": "The Moon’s orbit is slightly tilted to the ecliptic. Most new Moons pass above or below the Sun; only a line-up on the ecliptic gives a solar eclipse.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_skywatching_planets",
+    "source.iau_constellations",
+    "source.nasa_eclipses"
+  ]
+}

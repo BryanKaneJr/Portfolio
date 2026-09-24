@@ -1,0 +1,205 @@
+{
+  "id": "level.science.astronomy.018",
+  "skillId": "skill.science.astronomy",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Where the Moon Came From",
+  "objective": "After this level you can describe the giant-impact explanation for the Moon’s origin and the evidence for it.",
+  "summary": "The Moon most likely formed from debris after a Mars-sized body hit the young Earth about 4.5 billion years ago.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.moon_giant_impact",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.moon_rock_evidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.sun_age",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.017"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Moon may be made of pieces of Earth.",
+      "body": "The leading explanation starts with one of the biggest collisions in the solar system’s history."
+    },
+    {
+      "id": "card.astronomy.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The giant impact",
+      "body": "About 4.5 billion years ago, soon after Earth formed, a Mars-sized body (scientists call it Theia) is thought to have slammed into it. The crash threw huge amounts of molten rock into orbit, and that debris gathered to form the Moon.",
+      "callout": "Collision → debris → Moon"
+    },
+    {
+      "id": "card.astronomy.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The clues",
+      "body": "Rocks brought back by Apollo astronauts are chemically very similar to rocks from Earth’s mantle, the layer below the crust. And the Moon has only a small iron core, which fits a Moon built mostly from rocky outer layers rather than Earth’s iron heart. Computer simulations of such a collision can produce exactly this kind of Moon."
+    },
+    {
+      "id": "card.astronomy.018.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.018.q1"
+    },
+    {
+      "id": "card.astronomy.018.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.018.q2"
+    },
+    {
+      "id": "card.astronomy.018.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.018.q3"
+    },
+    {
+      "id": "card.astronomy.018.c7",
+      "type": "checkpoint",
+      "headline": "Moon origin: reconstructed",
+      "learned": [
+        "The Moon likely formed from a giant impact",
+        "A Mars-sized body (Theia) hit the young Earth",
+        "That was about 4.5 billion years ago",
+        "Moon rocks closely match Earth’s mantle"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.moon_giant_impact"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.018.c2"
+      ],
+      "prompt": "What is the leading explanation for how the Moon formed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Earth captured a passing asteroid",
+          "correct": false,
+          "rationale": "Capture doesn’t explain the Moon’s Earth-like rocks."
+        },
+        {
+          "id": "b",
+          "label": "Debris from a giant collision with the young Earth",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It formed from the Sun’s leftover gas",
+          "correct": false,
+          "rationale": "The Moon is rock, formed from a collision."
+        },
+        {
+          "id": "d",
+          "label": "It split off from Mars",
+          "correct": false,
+          "rationale": "The impactor was Mars-sized; the Moon didn’t come from Mars."
+        }
+      ],
+      "explanation": "A Mars-sized body likely hit the young Earth, and the Moon formed from the debris.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.moon_rock_evidence"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.018.c3"
+      ],
+      "prompt": "Which clue supports the idea that the Moon formed from material blasted off Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon has many craters",
+          "correct": false,
+          "rationale": "Craters come from later impacts."
+        },
+        {
+          "id": "b",
+          "label": "The Moon is tidally locked",
+          "correct": false,
+          "rationale": "That’s about its spin, not its origin."
+        },
+        {
+          "id": "c",
+          "label": "The Moon has dark “seas”",
+          "correct": false,
+          "rationale": "Those are ancient lava plains, formed later."
+        },
+        {
+          "id": "d",
+          "label": "Moon rocks are chemically very similar to Earth’s mantle",
+          "correct": true
+        }
+      ],
+      "explanation": "Apollo samples closely match Earth’s mantle rocks, and the Moon has only a small iron core: what you’d expect from debris of Earth’s outer layers.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.moon_giant_impact",
+        "concept.astronomy.sun_age"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.018.c2",
+        "card.astronomy.002.c4"
+      ],
+      "prompt": "From Level 2: the Sun is about 4.6 billion years old. What does the Moon’s age of about 4.5 billion years suggest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It formed early in the solar system’s history, soon after Earth",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is older than the Sun",
+          "correct": false,
+          "rationale": "4.5 billion is younger than 4.6 billion."
+        },
+        {
+          "id": "c",
+          "label": "It formed very recently",
+          "correct": false,
+          "rationale": "Billions of years is anything but recent."
+        },
+        {
+          "id": "d",
+          "label": "It came from another star system",
+          "correct": false,
+          "rationale": "Its age fits our own solar system’s early history."
+        }
+      ],
+      "explanation": "The Moon is only a little younger than the Sun, so it formed early, not long after Earth itself.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_moon_formation"
+  ]
+}
