@@ -1,0 +1,205 @@
+{
+  "id": "level.science.astronomy.083",
+  "skillId": "skill.science.astronomy",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "When Galaxies Collide",
+  "objective": "After this level you can explain galaxy collisions and the future merger of the Milky Way and Andromeda.",
+  "summary": "Galaxies merge over hundreds of millions of years. Andromeda is heading our way, but stars almost never hit each other.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.galaxy_collisions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.andromeda",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.galaxy_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.082"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Andromeda is on a collision course with the Milky Way."
+    },
+    {
+      "id": "card.astronomy.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cosmic collisions",
+      "body": "Galaxies can collide and merge, pulling each other into new shapes over hundreds of millions of years. Andromeda, about 2.5 million light-years away, is moving toward the Milky Way, and the two are expected to merge in about 4.5 billion years.",
+      "callout": "Merger: ~4.5 billion years"
+    },
+    {
+      "id": "card.astronomy.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Crash without a crash",
+      "body": "When galaxies collide, individual stars almost never hit each other. The spaces between stars are so vast that the galaxies pass through each other, their gravity reshaping both. Mergers like this are one way galaxies grow."
+    },
+    {
+      "id": "card.astronomy.083.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.083.q1"
+    },
+    {
+      "id": "card.astronomy.083.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.083.q2"
+    },
+    {
+      "id": "card.astronomy.083.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.083.q3"
+    },
+    {
+      "id": "card.astronomy.083.c7",
+      "type": "checkpoint",
+      "headline": "Galaxy collisions: forecast",
+      "learned": [
+        "Galaxies can collide and merge",
+        "Andromeda is heading toward the Milky Way",
+        "A merger is expected in ~4.5 billion years",
+        "Stars almost never hit each other"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.galaxy_collisions"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.083.c2"
+      ],
+      "prompt": "Which galaxy is expected to merge with the Milky Way?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Andromeda",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Large Magellanic Cloud only",
+          "correct": false,
+          "rationale": "The big merger is with Andromeda."
+        },
+        {
+          "id": "c",
+          "label": "M87",
+          "correct": false,
+          "rationale": "M87 is far away in another cluster."
+        },
+        {
+          "id": "d",
+          "label": "The Sombrero galaxy",
+          "correct": false,
+          "rationale": "Not on course for us."
+        }
+      ],
+      "explanation": "Andromeda is approaching the Milky Way, and the two galaxies are expected to merge.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.galaxy_collisions"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.083.c3"
+      ],
+      "prompt": "When two galaxies collide, what happens to most of their stars?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They smash together and explode",
+          "correct": false,
+          "rationale": "Direct hits are extremely rare."
+        },
+        {
+          "id": "b",
+          "label": "They are swallowed by black holes",
+          "correct": false,
+          "rationale": "Most stars simply pass by."
+        },
+        {
+          "id": "c",
+          "label": "They pass each other without hitting",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They stop moving entirely",
+          "correct": false,
+          "rationale": "They keep moving."
+        }
+      ],
+      "explanation": "The spaces between stars are so vast that stars almost never collide, even when whole galaxies merge.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.galaxy_collisions",
+        "concept.astronomy.andromeda"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.083.c2",
+        "card.astronomy.010.c3"
+      ],
+      "prompt": "From Level 10: Andromeda is about 2.5 million light-years away. Roughly how long until the merger?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 2.5 million years",
+          "correct": false,
+          "rationale": "That’s the light travel time, not the merger."
+        },
+        {
+          "id": "b",
+          "label": "About 230 million years",
+          "correct": false,
+          "rationale": "That’s the Sun’s galactic year."
+        },
+        {
+          "id": "c",
+          "label": "About 13.8 billion years",
+          "correct": false,
+          "rationale": "That’s the age of the universe."
+        },
+        {
+          "id": "d",
+          "label": "About 4.5 billion years",
+          "correct": true
+        }
+      ],
+      "explanation": "Andromeda is 2.5 million light-years away but moving slowly by cosmic standards: the merger is expected in about 4.5 billion years.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_andromeda",
+    "source.nasa_galaxies"
+  ]
+}

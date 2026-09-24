@@ -1,0 +1,218 @@
+{
+  "id": "level.science.astronomy.089",
+  "skillId": "skill.science.astronomy",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Redshift",
+  "objective": "After this level you can explain what redshift is and how it reveals the expanding universe.",
+  "summary": "Expanding space stretches light to longer, redder wavelengths. The farther the galaxy, the bigger its redshift.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.redshift",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.em_spectrum",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.spectral_lines",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.hubble_expansion",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.088"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Distant galaxies look a little redder than they should."
+    },
+    {
+      "id": "card.astronomy.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stretched light",
+      "body": "As light crosses expanding space, its wavelength is stretched. Red is the longest wavelength of visible light, so stretched light shifts toward the red end of the spectrum. Astronomers call this redshift.",
+      "callout": "Stretched light → redder"
+    },
+    {
+      "id": "card.astronomy.089.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reading the shift",
+      "body": "Redshift shows up in spectral lines. Each element leaves lines at its own known wavelengths, and in a distant galaxy those familiar lines appear shifted toward the red. The more distant the galaxy, the bigger the shift.",
+      "callout": "Farther → redder"
+    },
+    {
+      "id": "card.astronomy.089.c4",
+      "type": "fact",
+      "fact": "Redshift is a cosmic yardstick.",
+      "context": "Because redshift grows with distance, measuring a galaxy’s redshift tells astronomers roughly how far away it is."
+    },
+    {
+      "id": "card.astronomy.089.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.089.q1"
+    },
+    {
+      "id": "card.astronomy.089.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.089.q2"
+    },
+    {
+      "id": "card.astronomy.089.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.089.q3"
+    },
+    {
+      "id": "card.astronomy.089.c8",
+      "type": "checkpoint",
+      "headline": "Redshift: decoded",
+      "learned": [
+        "Redshift is light stretched to redder wavelengths",
+        "Expanding space stretches light",
+        "Spectral lines reveal the shift",
+        "Farther galaxies show bigger redshifts"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.redshift"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.089.c2"
+      ],
+      "prompt": "What is redshift?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Light given off by cool red giant stars",
+          "correct": false,
+          "rationale": "Redshift is stretched light, not star color."
+        },
+        {
+          "id": "b",
+          "label": "Red dust dimming the light of distant galaxies",
+          "correct": false,
+          "rationale": "Dust isn’t the cause."
+        },
+        {
+          "id": "c",
+          "label": "Light squeezed to shorter, bluer wavelengths",
+          "correct": false,
+          "rationale": "That’s the opposite direction."
+        },
+        {
+          "id": "d",
+          "label": "Light stretched to longer, redder wavelengths",
+          "correct": true
+        }
+      ],
+      "explanation": "Redshift is the stretching of light to longer, redder wavelengths.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.redshift"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.089.c3"
+      ],
+      "prompt": "Galaxy X’s spectral lines are shifted much farther toward the red than galaxy Y’s. What can you conclude?",
+      "options": [
+        {
+          "id": "a",
+          "label": "X is probably farther away than Y",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "X is probably closer than Y",
+          "correct": false,
+          "rationale": "A bigger redshift means more distant."
+        },
+        {
+          "id": "c",
+          "label": "X is made of different elements",
+          "correct": false,
+          "rationale": "The same lines appear, just shifted."
+        },
+        {
+          "id": "d",
+          "label": "X contains more red stars",
+          "correct": false,
+          "rationale": "The shift isn’t about star color."
+        }
+      ],
+      "explanation": "The more distant a galaxy, the greater its redshift, so X is most likely the farther galaxy.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.astronomy.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.redshift",
+        "concept.astronomy.spectral_lines"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.089.c3",
+        "card.astronomy.032.c2"
+      ],
+      "prompt": "From Level 32: why are spectral lines so useful for measuring redshift?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spectral lines appear only in red light",
+          "correct": false,
+          "rationale": "Lines appear across the spectrum."
+        },
+        {
+          "id": "b",
+          "label": "Each element’s lines have known wavelengths",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They make faraway galaxies look brighter",
+          "correct": false,
+          "rationale": "They don’t change brightness."
+        },
+        {
+          "id": "d",
+          "label": "They reveal each galaxy’s exact age",
+          "correct": false,
+          "rationale": "They reveal composition and motion."
+        }
+      ],
+      "explanation": "Because every element’s lines sit at known wavelengths, a shift toward the red is easy to measure.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_redshift",
+    "source.nasa_ems",
+    "source.brit_spectroscopy"
+  ]
+}

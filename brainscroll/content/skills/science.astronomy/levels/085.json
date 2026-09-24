@@ -1,0 +1,212 @@
+{
+  "id": "level.science.astronomy.085",
+  "skillId": "skill.science.astronomy",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Dark Matter",
+  "objective": "After this level you can explain the evidence for dark matter from how galaxies spin.",
+  "summary": "Galaxies spin too fast for their visible matter. Unseen dark matter, about five times ordinary matter, holds them together.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.dark_matter",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.newton_gravity",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.kepler_laws",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.084"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most of the matter in the universe is invisible."
+    },
+    {
+      "id": "card.astronomy.085.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Galaxies spin too fast",
+      "body": "In the 1970s Vera Rubin measured how fast stars orbit in spiral galaxies. Stars far from the center moved as fast as those closer in, far too fast for the visible matter to hold them. Something unseen had to be adding gravity.",
+      "callout": "Too fast → hidden mass"
+    },
+    {
+      "id": "card.astronomy.085.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "An older clue",
+      "body": "Back in 1933, Fritz Zwicky had noticed that galaxies in the Coma Cluster moved too fast to be held together by their visible mass. Today astronomers estimate there’s roughly five times as much dark matter as ordinary matter."
+    },
+    {
+      "id": "card.astronomy.085.c4",
+      "type": "fact",
+      "fact": "Dark matter doesn’t shine, absorb or reflect light.",
+      "context": "We detect it only through its gravity. What it actually is remains one of the biggest open questions in physics."
+    },
+    {
+      "id": "card.astronomy.085.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.085.q1"
+    },
+    {
+      "id": "card.astronomy.085.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.085.q2"
+    },
+    {
+      "id": "card.astronomy.085.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.085.q3"
+    },
+    {
+      "id": "card.astronomy.085.c8",
+      "type": "checkpoint",
+      "headline": "Dark matter: inferred",
+      "learned": [
+        "Galaxies spin too fast for their visible matter",
+        "Vera Rubin’s work in the 1970s made the case",
+        "Dark matter is detected only by its gravity",
+        "There’s ~5× more dark matter than ordinary matter"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.dark_matter"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.085.c4"
+      ],
+      "prompt": "How does dark matter reveal itself?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It glows faintly in infrared light",
+          "correct": false,
+          "rationale": "It gives off no light at all."
+        },
+        {
+          "id": "b",
+          "label": "It blocks the light of stars behind it",
+          "correct": false,
+          "rationale": "It doesn’t absorb light."
+        },
+        {
+          "id": "c",
+          "label": "Only through its gravity",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It appears as dark spots on telescope images",
+          "correct": false,
+          "rationale": "It’s invisible, not dark-colored."
+        }
+      ],
+      "explanation": "Dark matter gives off, absorbs and reflects no light; we detect it only through its gravitational pull.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.dark_matter"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.085.c2"
+      ],
+      "prompt": "What did Vera Rubin find about stars far from the centers of spiral galaxies?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They orbit much faster than visible matter can explain",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They orbit much more slowly than expected",
+          "correct": false,
+          "rationale": "They were surprisingly fast."
+        },
+        {
+          "id": "c",
+          "label": "They don’t orbit the center at all",
+          "correct": false,
+          "rationale": "They do orbit."
+        },
+        {
+          "id": "d",
+          "label": "They are all younger than central stars",
+          "correct": false,
+          "rationale": "Her finding was about speed."
+        }
+      ],
+      "explanation": "Outer stars moved so fast that the galaxy’s visible matter couldn’t hold them: evidence of extra, unseen mass.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.astronomy.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.dark_matter",
+        "concept.astronomy.kepler_laws"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.085.c2",
+        "card.astronomy.026.c3"
+      ],
+      "prompt": "From Level 26: planets far from the Sun orbit more slowly. Why was it surprising that outer stars in galaxies don’t slow down?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stars never follow the laws of gravity",
+          "correct": false,
+          "rationale": "They do; the missing mass is the surprise."
+        },
+        {
+          "id": "b",
+          "label": "Galaxies have no center to orbit",
+          "correct": false,
+          "rationale": "They do orbit a center."
+        },
+        {
+          "id": "c",
+          "label": "Outer stars are pushed by the solar wind",
+          "correct": false,
+          "rationale": "Not the cause."
+        },
+        {
+          "id": "d",
+          "label": "It means far more mass is present than we can see",
+          "correct": true
+        }
+      ],
+      "explanation": "If most mass were in the bright center, outer stars would orbit slowly, like outer planets. Their high speed means much more unseen mass.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_dark_matter",
+    "source.brit_vera_rubin",
+    "source.brit_zwicky"
+  ]
+}

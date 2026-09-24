@@ -1,0 +1,207 @@
+{
+  "id": "level.science.astronomy.086",
+  "skillId": "skill.science.astronomy",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Galaxy Clusters and Gravitational Lenses",
+  "objective": "After this level you can describe galaxy clusters and how their gravity bends light.",
+  "summary": "Galaxies gather in clusters of hundreds or thousands. Their gravity bends light, magnifying galaxies behind them.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.clusters_lensing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.dark_matter",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.webb_telescope",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.085"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some of the universe’s best telescopes are made of gravity."
+    },
+    {
+      "id": "card.astronomy.086.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cities of galaxies",
+      "body": "Galaxies aren’t spread evenly. Many are gathered into clusters of hundreds or thousands of galaxies, bound together by gravity, much of it from dark matter."
+    },
+    {
+      "id": "card.astronomy.086.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bending light",
+      "body": "Einstein’s relativity predicts that mass bends light. A massive galaxy cluster bends and magnifies the light of galaxies far behind it, acting as a natural lens. Webb’s first deep-field image, released in 2022, used exactly this trick to reveal much more distant galaxies.",
+      "callout": "Mass bends light"
+    },
+    {
+      "id": "card.astronomy.086.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.086.q1"
+    },
+    {
+      "id": "card.astronomy.086.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.086.q2"
+    },
+    {
+      "id": "card.astronomy.086.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.086.q3"
+    },
+    {
+      "id": "card.astronomy.086.c7",
+      "type": "checkpoint",
+      "headline": "Clusters: explored",
+      "learned": [
+        "Galaxies gather in clusters of hundreds or thousands",
+        "Mass bends light, as Einstein predicted",
+        "Clusters act as natural gravitational lenses",
+        "Webb’s first deep field used a lens (2022)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.clusters_lensing"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.086.c3"
+      ],
+      "prompt": "What is a gravitational lens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A special telescope mirror",
+          "correct": false,
+          "rationale": "The lens is natural, made of gravity."
+        },
+        {
+          "id": "b",
+          "label": "A lens made of dark glass",
+          "correct": false,
+          "rationale": "No glass involved."
+        },
+        {
+          "id": "c",
+          "label": "A cloud of dust around a star",
+          "correct": false,
+          "rationale": "Dust doesn’t lens light this way."
+        },
+        {
+          "id": "d",
+          "label": "A massive object whose gravity bends light from behind it",
+          "correct": true
+        }
+      ],
+      "explanation": "A massive galaxy cluster bends and magnifies light from more distant galaxies behind it, like a lens.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.clusters_lensing"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.086.c3"
+      ],
+      "prompt": "How did Webb’s first deep-field image see such distant galaxies?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It flew closer to them",
+          "correct": false,
+          "rationale": "Webb stays near Earth."
+        },
+        {
+          "id": "b",
+          "label": "A foreground galaxy cluster magnified their light",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It used radio waves instead of infrared",
+          "correct": false,
+          "rationale": "Webb is an infrared telescope."
+        },
+        {
+          "id": "d",
+          "label": "It took pictures from two sides of the galaxy",
+          "correct": false,
+          "rationale": "Not how it worked."
+        }
+      ],
+      "explanation": "A galaxy cluster in the foreground acted as a gravitational lens, magnifying far more distant galaxies.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.clusters_lensing",
+        "concept.astronomy.dark_matter"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.086.c2",
+        "card.astronomy.085.c3"
+      ],
+      "prompt": "From Level 85: what supplies much of the gravity holding galaxy clusters together?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hot stars in the clusters",
+          "correct": false,
+          "rationale": "Stars are only a small part of the mass."
+        },
+        {
+          "id": "b",
+          "label": "Black holes at every galaxy’s center",
+          "correct": false,
+          "rationale": "Their mass is small compared with the cluster."
+        },
+        {
+          "id": "c",
+          "label": "Dark matter",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The light from the galaxies",
+          "correct": false,
+          "rationale": "Light carries negligible mass."
+        }
+      ],
+      "explanation": "Much of a cluster’s mass, and so its gravity, is dark matter, which outweighs ordinary matter about five to one.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_grav_lens",
+    "source.brit_galaxy_cluster",
+    "source.nasa_dark_matter",
+    "source.nasa_webb"
+  ]
+}

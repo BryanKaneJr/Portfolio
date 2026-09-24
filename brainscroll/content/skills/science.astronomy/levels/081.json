@@ -1,0 +1,212 @@
+{
+  "id": "level.science.astronomy.081",
+  "skillId": "skill.science.astronomy",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Kinds of Galaxies",
+  "objective": "After this level you can tell spiral, elliptical and irregular galaxies apart.",
+  "summary": "Galaxies come in three main shapes: spirals with arms and new stars, smooth ellipticals of old stars, and shapeless irregulars.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.galaxy_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.milky_way_home",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.star_formation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.080"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.081.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Galaxies come in shapes, and each shape tells a story."
+    },
+    {
+      "id": "card.astronomy.081.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three main types",
+      "body": "In the 1920s Edwin Hubble sorted galaxies by shape. Spiral galaxies have a flat, rotating disk with spiral arms, where young stars are still forming. Elliptical galaxies are smooth, rounded collections of mostly older stars, with little new star formation.",
+      "callout": "Spiral · Elliptical · Irregular"
+    },
+    {
+      "id": "card.astronomy.081.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "And the rest",
+      "body": "Irregular galaxies have no clear shape at all. Two of the best known, the Large and Small Magellanic Clouds, are close neighbors of the Milky Way."
+    },
+    {
+      "id": "card.astronomy.081.c4",
+      "type": "fact",
+      "fact": "Our galaxy is a barred spiral.",
+      "context": "The Milky Way is a spiral with a bar of stars across its center, as you first learned back in Level 1."
+    },
+    {
+      "id": "card.astronomy.081.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.081.q1"
+    },
+    {
+      "id": "card.astronomy.081.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.081.q2"
+    },
+    {
+      "id": "card.astronomy.081.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.081.q3"
+    },
+    {
+      "id": "card.astronomy.081.c8",
+      "type": "checkpoint",
+      "headline": "Galaxy types: sorted",
+      "learned": [
+        "Galaxies are spiral, elliptical or irregular",
+        "Spirals have arms full of young stars",
+        "Ellipticals are smooth and mostly old",
+        "The Magellanic Clouds are irregulars"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.galaxy_types"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.081.c2"
+      ],
+      "prompt": "Which kind of galaxy has a flat, rotating disk with arms winding out from its center?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Elliptical",
+          "correct": false,
+          "rationale": "Ellipticals are smooth and rounded."
+        },
+        {
+          "id": "b",
+          "label": "Irregular",
+          "correct": false,
+          "rationale": "Irregulars have no clear shape."
+        },
+        {
+          "id": "c",
+          "label": "Spiral",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Globular",
+          "correct": false,
+          "rationale": "Globular clusters are star clusters, not galaxy types."
+        }
+      ],
+      "explanation": "Spiral galaxies have flat, rotating disks with spiral arms.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.galaxy_types"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.081.c2"
+      ],
+      "prompt": "An astronomer finds a galaxy of mostly old stars with little new star formation. What type is it most likely?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Elliptical",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Spiral",
+          "correct": false,
+          "rationale": "Spirals are still forming young stars in their arms."
+        },
+        {
+          "id": "c",
+          "label": "Irregular",
+          "correct": false,
+          "rationale": "Irregulars often form stars actively."
+        },
+        {
+          "id": "d",
+          "label": "Barred spiral",
+          "correct": false,
+          "rationale": "Barred spirals also form stars in their arms."
+        }
+      ],
+      "explanation": "Elliptical galaxies are smooth collections of mostly older stars with little ongoing star formation.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.galaxy_types",
+        "concept.astronomy.star_formation"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.081.c2",
+        "card.astronomy.066.c2"
+      ],
+      "prompt": "From Level 66: where in a spiral galaxy would you expect to find the most stellar nurseries?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the halo around the galaxy",
+          "correct": false,
+          "rationale": "The halo holds old stars."
+        },
+        {
+          "id": "b",
+          "label": "Only at the exact center",
+          "correct": false,
+          "rationale": "Most star formation is in the disk."
+        },
+        {
+          "id": "c",
+          "label": "Nowhere: spirals no longer form stars",
+          "correct": false,
+          "rationale": "Spirals are still forming stars."
+        },
+        {
+          "id": "d",
+          "label": "In the spiral arms",
+          "correct": true
+        }
+      ],
+      "explanation": "Spiral arms are rich in gas and dust, where new stars are forming.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_galaxy_types",
+    "source.brit_magellanic",
+    "source.nasa_milky_way"
+  ]
+}

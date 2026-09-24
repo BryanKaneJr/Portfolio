@@ -1,0 +1,206 @@
+{
+  "id": "level.science.astronomy.084",
+  "skillId": "skill.science.astronomy",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Local Group",
+  "objective": "After this level you can describe the small group of galaxies the Milky Way belongs to.",
+  "summary": "The Milky Way is one of more than 50 galaxies in the Local Group, dominated by us and Andromeda, about 10 million light-years across.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.local_group",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.galaxy_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.galaxy_collisions",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.083"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Our galaxy lives in a neighborhood."
+    },
+    {
+      "id": "card.astronomy.084.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The neighborhood",
+      "body": "The Milky Way belongs to the Local Group, a gathering of more than 50 galaxies about 10 million light-years across. Two big spirals dominate it: the Milky Way and Andromeda. Most of the rest are small dwarf galaxies.",
+      "callout": "50+ galaxies · ~10 million ly"
+    },
+    {
+      "id": "card.astronomy.084.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Our satellites",
+      "body": "The Large and Small Magellanic Clouds are small galaxies orbiting the Milky Way. From the Southern Hemisphere they’re visible to the naked eye as two faint, cloudy patches of light."
+    },
+    {
+      "id": "card.astronomy.084.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.084.q1"
+    },
+    {
+      "id": "card.astronomy.084.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.084.q2"
+    },
+    {
+      "id": "card.astronomy.084.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.084.q3"
+    },
+    {
+      "id": "card.astronomy.084.c7",
+      "type": "checkpoint",
+      "headline": "Local Group: mapped",
+      "learned": [
+        "The Milky Way belongs to the Local Group",
+        "It has more than 50 galaxies",
+        "The Milky Way and Andromeda dominate it",
+        "The Magellanic Clouds orbit our galaxy"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.local_group"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.084.c2"
+      ],
+      "prompt": "Which two galaxies dominate the Local Group?",
+      "options": [
+        {
+          "id": "a",
+          "label": "M87 and the Sombrero",
+          "correct": false,
+          "rationale": "They aren’t Local Group members."
+        },
+        {
+          "id": "b",
+          "label": "The Milky Way and Andromeda",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The two Magellanic Clouds",
+          "correct": false,
+          "rationale": "They’re small satellites."
+        },
+        {
+          "id": "d",
+          "label": "Andromeda and M87",
+          "correct": false,
+          "rationale": "M87 is far outside the Local Group."
+        }
+      ],
+      "explanation": "The Milky Way and Andromeda are the two big spirals that dominate the Local Group.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.local_group"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.084.c3"
+      ],
+      "prompt": "Where can you see the Magellanic Clouds with the naked eye?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only through a large telescope",
+          "correct": false,
+          "rationale": "They’re visible without one."
+        },
+        {
+          "id": "b",
+          "label": "From anywhere on Earth",
+          "correct": false,
+          "rationale": "They’re in the far southern sky."
+        },
+        {
+          "id": "c",
+          "label": "From the Southern Hemisphere",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only from the North Pole",
+          "correct": false,
+          "rationale": "They’re southern-sky objects."
+        }
+      ],
+      "explanation": "The Magellanic Clouds sit in the southern sky and are visible to the naked eye from the Southern Hemisphere.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.local_group",
+        "concept.astronomy.galaxy_types"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.084.c3",
+        "card.astronomy.081.c3"
+      ],
+      "prompt": "From Level 81: what type of galaxy are the Magellanic Clouds?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spiral",
+          "correct": false,
+          "rationale": "They lack spiral arms."
+        },
+        {
+          "id": "b",
+          "label": "Elliptical",
+          "correct": false,
+          "rationale": "They aren’t smooth and rounded."
+        },
+        {
+          "id": "c",
+          "label": "Barred spiral",
+          "correct": false,
+          "rationale": "That’s the Milky Way."
+        },
+        {
+          "id": "d",
+          "label": "Irregular",
+          "correct": true
+        }
+      ],
+      "explanation": "The Large and Small Magellanic Clouds are irregular galaxies, with no clear shape.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_local_group",
+    "source.brit_magellanic",
+    "source.brit_galaxy_types"
+  ]
+}

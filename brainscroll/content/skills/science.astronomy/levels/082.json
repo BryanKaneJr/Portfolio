@@ -1,0 +1,213 @@
+{
+  "id": "level.science.astronomy.082",
+  "skillId": "skill.science.astronomy",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Inside the Milky Way",
+  "objective": "After this level you can describe the Milky Way’s disk, spiral arms, central bulge and halo.",
+  "summary": "The Milky Way has a bulge, a disk with arms and a halo. The Sun sits 26,000 light-years out and circles every 230 million years.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.milky_way_structure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.milky_way_size",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.sagittarius_a",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.sun_age",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.081"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Sun has circled the Milky Way only about 20 times since it formed."
+    },
+    {
+      "id": "card.astronomy.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The anatomy of a galaxy",
+      "body": "The Milky Way has a central bulge of stars, a flat disk about 100,000 light-years across with spiral arms, and a surrounding halo of old stars and globular star clusters. At the very center sits Sagittarius A*.",
+      "callout": "Bulge · disk · arms · halo"
+    },
+    {
+      "id": "card.astronomy.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Our place in it",
+      "body": "The Sun lies about 26,000 light-years from the center, in a minor spiral arm. It orbits the galactic center too, taking about 230 million years for one lap, a “galactic year.” Since the Sun formed about 4.6 billion years ago, it has made only about 20 laps.",
+      "callout": "1 galactic year ≈ 230 million years"
+    },
+    {
+      "id": "card.astronomy.082.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.082.q1"
+    },
+    {
+      "id": "card.astronomy.082.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.082.q2"
+    },
+    {
+      "id": "card.astronomy.082.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.082.q3"
+    },
+    {
+      "id": "card.astronomy.082.c7",
+      "type": "checkpoint",
+      "headline": "Our galaxy: mapped",
+      "learned": [
+        "The Milky Way has a bulge, a disk with arms, and a halo",
+        "The Sun is ~26,000 light-years from the center",
+        "One galactic orbit takes ~230 million years",
+        "Sagittarius A* sits at the center"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.milky_way_structure"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.082.c3"
+      ],
+      "prompt": "How long does the Sun take to orbit the center of the Milky Way?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One Earth year",
+          "correct": false,
+          "rationale": "That’s Earth around the Sun."
+        },
+        {
+          "id": "b",
+          "label": "About 11 years",
+          "correct": false,
+          "rationale": "That’s the solar cycle."
+        },
+        {
+          "id": "c",
+          "label": "About 230 million years",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 13.8 billion years",
+          "correct": false,
+          "rationale": "That’s the age of the universe."
+        }
+      ],
+      "explanation": "The Sun takes about 230 million years to circle the Milky Way’s center once.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.milky_way_structure"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.082.c3"
+      ],
+      "prompt": "Where is the Sun located in the Milky Way?",
+      "options": [
+        {
+          "id": "a",
+          "label": "At the exact center, near Sagittarius A*",
+          "correct": false,
+          "rationale": "The center is about 26,000 light-years away."
+        },
+        {
+          "id": "b",
+          "label": "In the disk, about 26,000 light-years from the center",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In the halo, far above the disk",
+          "correct": false,
+          "rationale": "The Sun is in the disk."
+        },
+        {
+          "id": "d",
+          "label": "At the outer edge of the galaxy",
+          "correct": false,
+          "rationale": "It’s about halfway out."
+        }
+      ],
+      "explanation": "The Sun sits in the disk, in a minor spiral arm, about 26,000 light-years from the galactic center.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.milky_way_structure",
+        "concept.astronomy.sagittarius_a"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.082.c2",
+        "card.astronomy.075.c2"
+      ],
+      "prompt": "From Level 75: what sits at the very center of the Milky Way’s bulge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A giant red star",
+          "correct": false,
+          "rationale": "The center holds something far more massive."
+        },
+        {
+          "id": "b",
+          "label": "A huge star-forming nebula",
+          "correct": false,
+          "rationale": "Not what defines the center."
+        },
+        {
+          "id": "c",
+          "label": "A second, smaller galaxy",
+          "correct": false,
+          "rationale": "The center is a single object."
+        },
+        {
+          "id": "d",
+          "label": "A supermassive black hole, Sagittarius A*",
+          "correct": true
+        }
+      ],
+      "explanation": "At the galaxy’s heart is Sagittarius A*, a black hole of about 4 million solar masses.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_milky_way",
+    "source.nasa_galaxies",
+    "source.nobel_2020",
+    "source.nasa_sun_facts"
+  ]
+}

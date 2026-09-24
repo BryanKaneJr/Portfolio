@@ -1,0 +1,210 @@
+{
+  "id": "level.science.astronomy.087",
+  "skillId": "skill.science.astronomy",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Quasars and Active Galaxies",
+  "objective": "After this level you can explain how feeding supermassive black holes can outshine whole galaxies.",
+  "summary": "Most big galaxies hide a supermassive black hole. When it feeds, its glowing disk can outshine the galaxy: a quasar.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.quasars",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.sagittarius_a",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.black_holes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.086"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.087.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some of the brightest objects in the universe are powered by black holes."
+    },
+    {
+      "id": "card.astronomy.087.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Monsters at the center",
+      "body": "Most large galaxies have a supermassive black hole at their center. When one pulls in large amounts of gas, the gas spirals in, heats up in a swirling disk and glows fiercely, before it crosses the event horizon."
+    },
+    {
+      "id": "card.astronomy.087.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Brighter than a galaxy",
+      "body": "A feeding black hole’s glowing disk can outshine all the stars of its galaxy combined. The brightest of these are called quasars. They’re among the most distant and luminous objects known.",
+      "callout": "Feeding black hole → quasar"
+    },
+    {
+      "id": "card.astronomy.087.c4",
+      "type": "fact",
+      "fact": "The first quasar was identified in 1963.",
+      "context": "Maarten Schmidt realized that the object 3C 273, which looked like a faint star, was actually extremely distant and enormously luminous."
+    },
+    {
+      "id": "card.astronomy.087.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.087.q1"
+    },
+    {
+      "id": "card.astronomy.087.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.087.q2"
+    },
+    {
+      "id": "card.astronomy.087.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.087.q3"
+    },
+    {
+      "id": "card.astronomy.087.c8",
+      "type": "checkpoint",
+      "headline": "Quasars: understood",
+      "learned": [
+        "Most big galaxies have a supermassive black hole",
+        "Feeding black holes heat gas to a fierce glow",
+        "Quasars can outshine their whole galaxy",
+        "The first quasar was identified in 1963"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.quasars"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.087.c2"
+      ],
+      "prompt": "What powers a quasar?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gas heating up as it spirals toward a supermassive black hole",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Millions of supernovae exploding at once",
+          "correct": false,
+          "rationale": "Not what powers a quasar."
+        },
+        {
+          "id": "c",
+          "label": "Two galaxies colliding head-on",
+          "correct": false,
+          "rationale": "Collisions can feed a quasar, but the power comes from the black hole."
+        },
+        {
+          "id": "d",
+          "label": "A giant star at the galaxy’s center",
+          "correct": false,
+          "rationale": "No star is that bright."
+        }
+      ],
+      "explanation": "Gas swirling into a supermassive black hole heats up and glows, sometimes outshining the whole galaxy.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.quasars"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.087.c3"
+      ],
+      "prompt": "Why can a quasar outshine an entire galaxy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is closer to Earth than the galaxy",
+          "correct": false,
+          "rationale": "It’s part of the same galaxy."
+        },
+        {
+          "id": "b",
+          "label": "It reflects light from nearby stars",
+          "correct": false,
+          "rationale": "It produces its own light."
+        },
+        {
+          "id": "c",
+          "label": "Gas heated around its black hole glows more brightly than all the stars combined",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is made of many bright stars packed together",
+          "correct": false,
+          "rationale": "Its light comes from gas around a black hole."
+        }
+      ],
+      "explanation": "The disk of gas falling into a supermassive black hole gets so hot it can outshine all the galaxy’s stars together.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.astronomy.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.quasars",
+        "concept.astronomy.sagittarius_a"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.087.c2",
+        "card.astronomy.075.c2"
+      ],
+      "prompt": "From Level 75: our galaxy has Sagittarius A*. Why isn’t the Milky Way a quasar?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sagittarius A* is too small to be a black hole",
+          "correct": false,
+          "rationale": "It’s a supermassive black hole."
+        },
+        {
+          "id": "b",
+          "label": "The Milky Way is too young",
+          "correct": false,
+          "rationale": "Age isn’t the reason."
+        },
+        {
+          "id": "c",
+          "label": "Quasars only exist in elliptical galaxies",
+          "correct": false,
+          "rationale": "Quasars aren’t limited to ellipticals."
+        },
+        {
+          "id": "d",
+          "label": "Sagittarius A* isn’t pulling in large amounts of gas right now",
+          "correct": true
+        }
+      ],
+      "explanation": "A black hole only shines as a quasar while it’s feeding heavily. Sagittarius A* is relatively quiet today.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_quasar"
+  ]
+}

@@ -1,0 +1,334 @@
+{
+  "id": "level.science.astronomy.090",
+  "skillId": "skill.science.astronomy",
+  "number": 90,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: A Universe of Galaxies",
+  "objective": "After this level you can describe the universe’s structure from our galaxy up to the cosmic web.",
+  "summary": "From the Milky Way to the Local Group, clusters and the cosmic web: a universe of galaxies, all moving apart.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.cosmic_web",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.galaxy_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.milky_way_structure",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.local_group",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.dark_matter",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.clusters_lensing",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.quasars",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.hubble_expansion",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.redshift",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.089"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.090.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 9 finale. Zoom out as far as galaxies go.",
+      "body": "From our home galaxy to the largest structures in the universe."
+    },
+    {
+      "id": "card.astronomy.090.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A ladder of scale",
+      "body": "The Sun circles the Milky Way once every 230 million years or so. The Milky Way is one of more than 50 galaxies in the Local Group. Beyond that, galaxies gather in clusters of hundreds or thousands, held together largely by dark matter.",
+      "callout": "Galaxy → group → cluster"
+    },
+    {
+      "id": "card.astronomy.090.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The cosmic web",
+      "body": "On the largest scales, galaxies and clusters form a vast web of long filaments and sheets wrapped around huge, nearly empty voids. And the whole web is stretching as the universe expands, which is why distant galaxies look redshifted.",
+      "callout": "Filaments · sheets · voids"
+    },
+    {
+      "id": "card.astronomy.090.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.090.q1"
+    },
+    {
+      "id": "card.astronomy.090.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.090.q2"
+    },
+    {
+      "id": "card.astronomy.090.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.090.q3"
+    },
+    {
+      "id": "card.astronomy.090.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.090.q4"
+    },
+    {
+      "id": "card.astronomy.090.c8",
+      "type": "recall",
+      "questionId": "question.astronomy.090.q5"
+    },
+    {
+      "id": "card.astronomy.090.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 9 complete",
+      "learned": [
+        "Galaxies are spiral, elliptical or irregular",
+        "Local Group → clusters → the cosmic web",
+        "Dark matter holds galaxies and clusters together",
+        "Redshift reveals an expanding universe"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.090.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.cosmic_web"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.090.c3"
+      ],
+      "prompt": "On the largest scales, how are galaxies arranged?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spread perfectly evenly through space",
+          "correct": false,
+          "rationale": "They are clumped, not even."
+        },
+        {
+          "id": "b",
+          "label": "In one giant sphere around the Milky Way",
+          "correct": false,
+          "rationale": "The Milky Way isn’t at any center."
+        },
+        {
+          "id": "c",
+          "label": "In a web of filaments and sheets around voids",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "In a single flat disk, like one huge spiral",
+          "correct": false,
+          "rationale": "The structure is a web, not a disk."
+        }
+      ],
+      "explanation": "Galaxies and clusters form a cosmic web of filaments and sheets surrounding vast, nearly empty voids.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.090.q2",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.cosmic_web",
+        "concept.astronomy.local_group",
+        "concept.astronomy.clusters_lensing"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.090.c2",
+        "card.astronomy.090.c3"
+      ],
+      "prompt": "Which list runs from smallest to largest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Milky Way, Local Group, galaxy cluster, cosmic web",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Local Group, Milky Way, cosmic web, galaxy cluster",
+          "correct": false,
+          "rationale": "The Milky Way is one member of the Local Group."
+        },
+        {
+          "id": "c",
+          "label": "Galaxy cluster, Milky Way, Local Group, cosmic web",
+          "correct": false,
+          "rationale": "A cluster holds hundreds or thousands of galaxies."
+        },
+        {
+          "id": "d",
+          "label": "Cosmic web, galaxy cluster, Local Group, Milky Way",
+          "correct": false,
+          "rationale": "That runs from largest to smallest."
+        }
+      ],
+      "explanation": "Our galaxy belongs to the Local Group; bigger clusters hold hundreds or thousands of galaxies; clusters are strung along the cosmic web.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.090.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.dark_matter"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.085.c2"
+      ],
+      "prompt": "A galaxy’s outer stars orbit much faster than its visible matter can explain. What is the most likely reason?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A quasar is pushing its outer stars",
+          "correct": false,
+          "rationale": "Quasars don’t speed up outer stars."
+        },
+        {
+          "id": "b",
+          "label": "Unseen dark matter is adding gravity",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is colliding with Andromeda",
+          "correct": false,
+          "rationale": "A collision wouldn’t explain this pattern."
+        },
+        {
+          "id": "d",
+          "label": "Redshift makes the stars look fast",
+          "correct": false,
+          "rationale": "Redshift reveals distance, not orbital speed."
+        }
+      ],
+      "explanation": "Stars moving too fast for the visible mass were the key evidence for dark matter.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.090.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.redshift",
+        "concept.astronomy.hubble_expansion"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.089.c3",
+        "card.astronomy.088.c3"
+      ],
+      "prompt": "A faraway galaxy shows a very large redshift. What does that tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is made mostly of red giant stars",
+          "correct": false,
+          "rationale": "Redshift isn’t about star color."
+        },
+        {
+          "id": "b",
+          "label": "It is heading toward the Milky Way",
+          "correct": false,
+          "rationale": "Approaching light would shift toward blue."
+        },
+        {
+          "id": "c",
+          "label": "It is an elliptical full of old stars",
+          "correct": false,
+          "rationale": "Shape can’t be read from redshift."
+        },
+        {
+          "id": "d",
+          "label": "It is very far away and receding fast",
+          "correct": true
+        }
+      ],
+      "explanation": "A big redshift means a distant galaxy, carried away quickly by the expansion of space.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.astronomy.090.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.clusters_lensing",
+        "concept.astronomy.dark_matter"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.086.c3"
+      ],
+      "prompt": "Chapter 9 recap: why can a galaxy cluster act as a gravitational lens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its hot gas works like a glass lens",
+          "correct": false,
+          "rationale": "The bending comes from gravity, not gas."
+        },
+        {
+          "id": "b",
+          "label": "Its quasars focus light into beams",
+          "correct": false,
+          "rationale": "Quasars don’t focus other galaxies’ light."
+        },
+        {
+          "id": "c",
+          "label": "Its enormous mass bends passing light",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its galaxies reflect light toward us",
+          "correct": false,
+          "rationale": "Galaxies don’t act as mirrors."
+        }
+      ],
+      "explanation": "A cluster’s huge mass, much of it dark matter, bends and magnifies the light of galaxies behind it.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_milky_way",
+    "source.brit_local_group",
+    "source.brit_galaxy_cluster",
+    "source.nasa_dark_matter",
+    "source.brit_cosmic_web",
+    "source.brit_hubble_law",
+    "source.brit_redshift"
+  ]
+}

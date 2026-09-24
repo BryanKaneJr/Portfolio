@@ -1,0 +1,213 @@
+{
+  "id": "level.science.astronomy.088",
+  "skillId": "skill.science.astronomy",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hubble’s Expanding Universe",
+  "objective": "After this level you can explain how Hubble showed that galaxies are moving apart and the universe is expanding.",
+  "summary": "Hubble showed Andromeda is another galaxy, then that galaxies recede faster the farther they are: the universe is expanding.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.hubble_expansion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.andromeda",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.galaxy_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.087"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1924, the known universe suddenly got much bigger."
+    },
+    {
+      "id": "card.astronomy.088.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One galaxy among many",
+      "body": "Fuzzy patches like the Andromeda “nebula” were once debated: were they clouds inside the Milky Way, or separate galaxies? In 1924 Edwin Hubble settled it. Andromeda is a separate galaxy about 2.5 million light-years away, far beyond our own."
+    },
+    {
+      "id": "card.astronomy.088.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Everything is moving apart",
+      "body": "In 1929 Hubble reported that galaxies are moving away from us, and the farther away a galaxy is, the faster it recedes. This is Hubble’s law, and it means the universe is expanding. Georges Lemaître had proposed the same idea a few years earlier.",
+      "callout": "Farther → faster"
+    },
+    {
+      "id": "card.astronomy.088.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "No center",
+      "body": "The expansion has no center. Space itself is stretching, so every galaxy sees the others moving away, like raisins in rising dough that all drift apart from one another."
+    },
+    {
+      "id": "card.astronomy.088.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.088.q1"
+    },
+    {
+      "id": "card.astronomy.088.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.088.q2"
+    },
+    {
+      "id": "card.astronomy.088.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.088.q3"
+    },
+    {
+      "id": "card.astronomy.088.c8",
+      "type": "checkpoint",
+      "headline": "Expansion: discovered",
+      "learned": [
+        "In 1924 Hubble showed Andromeda is another galaxy",
+        "Galaxies recede faster the farther they are",
+        "The universe is expanding",
+        "The expansion has no center"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.hubble_expansion"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.088.c3"
+      ],
+      "prompt": "What did Hubble report in 1929?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Galaxies are all moving toward the Milky Way",
+          "correct": false,
+          "rationale": "Most galaxies are moving away."
+        },
+        {
+          "id": "b",
+          "label": "Galaxies recede faster the farther away they are",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Galaxies are fixed in place and never move",
+          "correct": false,
+          "rationale": "They are receding."
+        },
+        {
+          "id": "d",
+          "label": "Only the nearest galaxies are moving away",
+          "correct": false,
+          "rationale": "Distant ones recede even faster."
+        }
+      ],
+      "explanation": "Hubble’s law: the farther away a galaxy is, the faster it recedes, evidence that the universe is expanding.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.hubble_expansion"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.088.c4"
+      ],
+      "prompt": "Observers in every galaxy would see the other galaxies moving away. What does this tell us?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Milky Way is the center of the universe",
+          "correct": false,
+          "rationale": "Every galaxy would see the same thing."
+        },
+        {
+          "id": "b",
+          "label": "Galaxies are fleeing one point in space",
+          "correct": false,
+          "rationale": "There is no single point they flee from."
+        },
+        {
+          "id": "c",
+          "label": "Space itself is expanding, with no center",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Telescopes distort the motion of galaxies",
+          "correct": false,
+          "rationale": "The motion is real."
+        }
+      ],
+      "explanation": "Because space itself stretches, every galaxy sees the others receding. No galaxy sits at the center.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.astronomy.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.hubble_expansion",
+        "concept.astronomy.andromeda"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.088.c2",
+        "card.astronomy.010.c3"
+      ],
+      "prompt": "From Level 10: Andromeda is about 2.5 million light-years away. Why did Hubble’s 1924 finding about it matter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It proved galaxies exist beyond the Milky Way",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It showed Andromeda is part of the Milky Way",
+          "correct": false,
+          "rationale": "He showed the opposite."
+        },
+        {
+          "id": "c",
+          "label": "It proved Andromeda is moving away from us",
+          "correct": false,
+          "rationale": "Andromeda is actually approaching us."
+        },
+        {
+          "id": "d",
+          "label": "It showed that the Sun orbits Andromeda",
+          "correct": false,
+          "rationale": "The Sun orbits the Milky Way’s center."
+        }
+      ],
+      "explanation": "Showing that Andromeda lies far outside the Milky Way proved that our galaxy is one of many.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_edwin_hubble",
+    "source.nasa_galaxies",
+    "source.brit_hubble_law"
+  ]
+}
