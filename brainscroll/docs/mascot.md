@@ -92,7 +92,54 @@ A character only works if he looks like the same person in every image.
 | `mascot.arts` | Holding up a paintbrush | Arts & Culture |
 | `mascot.world-systems` | Holding a big wrench | How the World Works |
 
-That's 29 images. Start with the simplified reference and 5 core poses (wave, pointing, thinking, thumbs-up, oops). Check that he stays consistent, then do the rest.
+### Topic scenes (Dr. Scroll doing things)
+
+Dr. Scroll taking part in a topic makes a lesson feel alive. Use one as a level's hook image, or where he appears beside a card. Each is one activity with one prop, and his look stays exactly the same. Pick the closest scene, and reuse them freely across trees.
+
+| Image ID | Scene | Good for |
+| --- | --- | --- |
+| `mascot.telescope` | Peering through a small telescope | Astronomy, exploration |
+| `mascot.space-helmet` | Wearing a round bubble space helmet, floating a little | Rockets, the Moon, space travel |
+| `mascot.juggling-planets` | Juggling three small planets | The solar system, orbits, gravity |
+| `mascot.laurel` | Wearing a green laurel wreath, chin up proudly | Rome, Greece, victories, emperors |
+| `mascot.toga` | Wrapped in a white toga over his clothes, bow tie still showing | Roman and Greek daily life, the Senate |
+| `mascot.archaeologist` | Kneeling and brushing sand off a pottery shard | Archaeology in any history tree, Egypt, fossils |
+| `mascot.torch` | Holding up a flaming torch | The Olympics, the Underworld, exploring in the dark |
+| `mascot.knight` | Holding up a toy wooden sword like a knight | The Middle Ages, battles, chivalry |
+| `mascot.crown` | Trying on a slightly too-big crown | Kings, queens, pharaohs, government |
+| `mascot.map` | Holding open a big paper map, puzzled | Geography, explorers, trade routes |
+| `mascot.hiking` | Walking with a backpack and a walking stick | Mountains, biomes, travel, migration |
+| `mascot.umbrella` | Under an umbrella in a little rain cloud | Weather, climate, the water cycle |
+| `mascot.sailboat` | Sailing a tiny wooden boat | Oceans, explorers, trade, the Vikings |
+| `mascot.diving` | Wearing a snorkel mask, holding his breath | Oceans, the deep sea, coral reefs |
+| `mascot.fishing` | Sitting with a fishing rod | Oceans, food, patience |
+| `mascot.binoculars` | Looking through binoculars | Animals, birds, nature, exploring |
+| `mascot.gardening` | Watering a small plant with a watering can | Plants, farming, photosynthesis, biomes |
+| `mascot.cooking` | Stirring a pot with a wooden spoon | Kitchen chemistry, food, nutrients |
+| `mascot.piggy-bank` | Dropping a coin into a piggy bank | Saving, budgets, interest |
+| `mascot.shopping` | Pushing a small shopping cart | Prices, demand, inflation |
+| `mascot.market-stall` | Selling apples from a market stall | Markets, trade, supply and demand |
+| `mascot.easel` | Painting at an easel | Art History, painters, color |
+| `mascot.sculpting` | Chiseling a small marble block | Sculpture, Greece, the Renaissance |
+| `mascot.piano` | Playing a piano | Music, harmony, composers |
+| `mascot.violin` | Playing a violin | Music, orchestras, the Baroque |
+| `mascot.conducting` | Conducting with a baton, eyes closed | Orchestras, symphonies, rhythm |
+| `mascot.guitar` | Strumming an acoustic guitar | Folk, blues, rock, world music |
+| `mascot.drums` | Playing a hand drum | Rhythm, world music, jazz |
+| `mascot.headphones` | Bobbing his head to big headphones | Recorded music, hip-hop, sound |
+| `mascot.laptop` | Typing on a laptop | Computers, the internet, code, AI |
+| `mascot.goggles` | Wearing safety goggles, pouring a test tube | Chemistry, experiments, the lab |
+| `mascot.doctor` | Listening with a stethoscope | The Human Body, medicine, health |
+| `mascot.exercise` | Lifting a small dumbbell, straining happily | Muscles, exercise, energy |
+| `mascot.hard-hat` | Wearing a yellow hard hat, holding a blueprint | Architecture, engineering, building |
+| `mascot.ballot` | Dropping a ballot into a box | Government, elections, democracy |
+| `mascot.podium` | Speaking at a small podium | Speeches, debates, parliaments, Pericles |
+| `mascot.bicycle` | Riding a bicycle | Technology, physics, transport |
+| `mascot.camera` | Taking a photo with an old camera | Photography, film, how we see |
+
+Mastery images: you already have Dr. Scroll holding trophies and gold objects (for example, a gold coin with a paw print for The Animal Kingdom). Those can be each tree's `*.mastery` image in [`image-manifest.md`](image-manifest.md), with the same gold-only-for-mastery rule.
+
+That's 29 core poses plus 38 topic scenes. Start with the simplified reference and 5 core poses (wave, pointing, thinking, thumbs-up, oops). Check that he stays consistent, then do the rest.
 
 ## In the app (later)
 
