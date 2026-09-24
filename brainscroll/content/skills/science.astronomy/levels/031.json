@@ -1,0 +1,206 @@
+{
+  "id": "level.science.astronomy.031",
+  "skillId": "skill.science.astronomy",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "More Than Meets the Eye: The Spectrum",
+  "objective": "After this level you can explain that visible light is one small part of the electromagnetic spectrum.",
+  "summary": "Radio waves, infrared, visible light, ultraviolet, X-rays and gamma rays are all light, differing only in wavelength.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.em_spectrum",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.light_year",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.030"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your eyes are missing almost everything.",
+      "body": "Most of the light in the universe is invisible to us. Astronomers have learned to see it anyway."
+    },
+    {
+      "id": "card.astronomy.031.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One spectrum, many names",
+      "body": "Radio waves, microwaves, infrared, visible light, ultraviolet, X-rays and gamma rays are all the same thing: light. What makes them different is wavelength. Radio waves are the longest, gamma rays the shortest, and visible light is a thin sliver in between.",
+      "callout": "Radio → gamma: long to short"
+    },
+    {
+      "id": "card.astronomy.031.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same speed, every kind",
+      "body": "Every kind of light, from radio to gamma rays, crosses space at the speed of light. Within the visible band, the colors are wavelengths too: red is the longest and violet the shortest."
+    },
+    {
+      "id": "card.astronomy.031.c4",
+      "type": "fact",
+      "fact": "Human eyes see only wavelengths from about 380 to 700 nanometers.",
+      "context": "Anything longer, like infrared, or shorter, like ultraviolet, is invisible to us. Some animals, such as bees, can see ultraviolet."
+    },
+    {
+      "id": "card.astronomy.031.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.031.q1"
+    },
+    {
+      "id": "card.astronomy.031.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.031.q2"
+    },
+    {
+      "id": "card.astronomy.031.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.031.q3"
+    },
+    {
+      "id": "card.astronomy.031.c8",
+      "type": "checkpoint",
+      "headline": "Spectrum: revealed",
+      "learned": [
+        "Visible light is a small part of the spectrum",
+        "Radio → gamma rays: long to short wavelengths",
+        "All light travels at the same speed",
+        "Red is the longest visible wavelength; violet the shortest"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.em_spectrum"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.031.c2"
+      ],
+      "prompt": "What makes radio waves, visible light and X-rays different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How fast each one travels through space",
+          "correct": false,
+          "rationale": "They all travel at the speed of light."
+        },
+        {
+          "id": "b",
+          "label": "Which objects are able to give them off",
+          "correct": false,
+          "rationale": "The key difference is a property of the light itself."
+        },
+        {
+          "id": "c",
+          "label": "Their wavelength",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Whether they are made of particles",
+          "correct": false,
+          "rationale": "They are all forms of light."
+        }
+      ],
+      "explanation": "They are all light. The difference is wavelength: radio waves are longest, gamma rays shortest.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.em_spectrum"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.031.c2"
+      ],
+      "prompt": "Which list goes from longest wavelength to shortest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gamma rays → visible light → radio waves",
+          "correct": false,
+          "rationale": "That’s shortest to longest."
+        },
+        {
+          "id": "b",
+          "label": "Visible light → radio waves → X-rays",
+          "correct": false,
+          "rationale": "Radio waves are longer than visible light."
+        },
+        {
+          "id": "c",
+          "label": "X-rays → radio waves → gamma rays",
+          "correct": false,
+          "rationale": "Radio waves are the longest of all."
+        },
+        {
+          "id": "d",
+          "label": "Radio waves → visible light → X-rays",
+          "correct": true
+        }
+      ],
+      "explanation": "Radio waves are the longest, visible light sits in the middle, and X-rays (then gamma rays) are the shortest.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.em_spectrum",
+        "concept.astronomy.light_year"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.031.c3",
+        "card.astronomy.008.c2"
+      ],
+      "prompt": "From Level 8: light-years are based on the speed of light. Does a light-year mean the same distance for radio waves?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Yes: every kind of light travels at the same speed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "No: radio waves are much slower than visible light",
+          "correct": false,
+          "rationale": "All light travels at the same speed."
+        },
+        {
+          "id": "c",
+          "label": "No: only visible light counts as real light",
+          "correct": false,
+          "rationale": "Radio waves are light too."
+        },
+        {
+          "id": "d",
+          "label": "Only for radio waves from nearby stars",
+          "correct": false,
+          "rationale": "The speed doesn’t depend on the source."
+        }
+      ],
+      "explanation": "All electromagnetic radiation travels at the speed of light, so a light-year is the same distance whichever kind of light you measure with.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_ems"
+  ]
+}

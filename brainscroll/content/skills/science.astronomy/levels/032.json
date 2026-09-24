@@ -1,0 +1,212 @@
+{
+  "id": "level.science.astronomy.032",
+  "skillId": "skill.science.astronomy",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Starlight’s Fingerprints",
+  "objective": "After this level you can explain how spectra reveal what stars are made of.",
+  "summary": "Each element leaves its own lines in a spectrum, so starlight reveals what stars are made of: mostly hydrogen and helium.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.spectral_lines",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.helium_discovery",
+      "role": "teach",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.sun_fusion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.031"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "We know what stars are made of without ever touching one."
+    },
+    {
+      "id": "card.astronomy.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lines like barcodes",
+      "body": "Spread starlight into a rainbow and you’ll find thin dark lines crossing it. Each chemical element absorbs and emits light only at its own set of wavelengths, so each makes its own pattern of lines, like a barcode.",
+      "callout": "Element → unique set of lines"
+    },
+    {
+      "id": "card.astronomy.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reading a star",
+      "body": "By matching the lines in a star’s spectrum to elements measured in the lab, astronomers can tell what the star contains. The answer, for almost every star: mostly hydrogen and helium."
+    },
+    {
+      "id": "card.astronomy.032.c4",
+      "type": "fact",
+      "fact": "Helium was discovered in the Sun before it was found on Earth.",
+      "context": "In 1868 astronomers saw an unknown line in the Sun’s spectrum. The new element was named after Helios, the Greek word for the Sun."
+    },
+    {
+      "id": "card.astronomy.032.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.032.q1"
+    },
+    {
+      "id": "card.astronomy.032.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.032.q2"
+    },
+    {
+      "id": "card.astronomy.032.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.032.q3"
+    },
+    {
+      "id": "card.astronomy.032.c8",
+      "type": "checkpoint",
+      "headline": "Starlight: decoded",
+      "learned": [
+        "Each element leaves its own spectral lines",
+        "Spectra reveal what stars are made of",
+        "Stars are mostly hydrogen and helium",
+        "Helium was found in the Sun in 1868"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.spectral_lines"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.032.c3"
+      ],
+      "prompt": "What are stars made of, mostly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Iron and nickel, like Earth’s core",
+          "correct": false,
+          "rationale": "Stars are mostly the two lightest elements."
+        },
+        {
+          "id": "b",
+          "label": "Hydrogen and helium",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Oxygen and carbon, like living things",
+          "correct": false,
+          "rationale": "Those are only small traces in stars."
+        },
+        {
+          "id": "d",
+          "label": "Rock and ice, like the planets",
+          "correct": false,
+          "rationale": "Stars are hot gas, not rock or ice."
+        }
+      ],
+      "explanation": "Their spectra show stars are made mostly of hydrogen and helium.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.spectral_lines"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.032.c2",
+        "card.astronomy.032.c3"
+      ],
+      "prompt": "How can astronomers tell which elements are in a distant star?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By collecting samples with space probes",
+          "correct": false,
+          "rationale": "No probe has ever reached another star."
+        },
+        {
+          "id": "b",
+          "label": "By measuring how bright the star looks",
+          "correct": false,
+          "rationale": "Brightness doesn’t reveal the ingredients."
+        },
+        {
+          "id": "c",
+          "label": "By matching the lines in its spectrum to known elements",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By timing how long its light takes to arrive",
+          "correct": false,
+          "rationale": "That gives distance, not composition."
+        }
+      ],
+      "explanation": "Each element leaves its own pattern of spectral lines. Matching those patterns reveals a star’s ingredients.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.spectral_lines",
+        "concept.astronomy.sun_fusion"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.032.c3",
+        "card.astronomy.002.c2"
+      ],
+      "prompt": "From Level 2: why does it make sense that stars are mostly hydrogen and helium?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were formed from melted rock",
+          "correct": false,
+          "rationale": "Stars form from gas clouds."
+        },
+        {
+          "id": "b",
+          "label": "Helium is heavier than all other elements",
+          "correct": false,
+          "rationale": "Helium is one of the lightest elements."
+        },
+        {
+          "id": "c",
+          "label": "Stars are burning oxygen",
+          "correct": false,
+          "rationale": "Stars don’t burn; they fuse."
+        },
+        {
+          "id": "d",
+          "label": "Stars fuse hydrogen into helium in their cores",
+          "correct": true
+        }
+      ],
+      "explanation": "A star like the Sun shines by fusing hydrogen into helium, so its main fuel and its main product are exactly what spectra show.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_spectroscopy",
+    "source.brit_helium"
+  ]
+}

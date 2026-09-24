@@ -1,0 +1,205 @@
+{
+  "id": "level.science.astronomy.036",
+  "skillId": "skill.science.astronomy",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Seeing Heat: Infrared and Webb",
+  "objective": "After this level you can explain why infrared light reveals hidden and very distant objects.",
+  "summary": "Infrared passes through dust and catches the stretched light of the first galaxies. Webb, launched in 2021, is built for it.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.infrared_astronomy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.webb_telescope",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.atmosphere_blurs",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.035"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The newest great telescope sees in heat."
+    },
+    {
+      "id": "card.astronomy.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seeing through dust",
+      "body": "Infrared is the light we feel as heat. It passes through clouds of dust that block visible light, revealing stars forming inside them. And light from the most distant galaxies has been stretched by the expanding universe into infrared."
+    },
+    {
+      "id": "card.astronomy.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The James Webb Space Telescope",
+      "body": "Webb launched on December 25, 2021. Its main mirror is 6.5 meters across, made of 18 gold-coated segments. It orbits the Sun about 1.5 million km from Earth, behind a sunshield that keeps it extremely cold, as an infrared telescope must be. That five-layer sunshield is about the size of a tennis court.",
+      "callout": "6.5 m mirror · 18 segments"
+    },
+    {
+      "id": "card.astronomy.036.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.036.q1"
+    },
+    {
+      "id": "card.astronomy.036.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.036.q2"
+    },
+    {
+      "id": "card.astronomy.036.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.036.q3"
+    },
+    {
+      "id": "card.astronomy.036.c7",
+      "type": "checkpoint",
+      "headline": "Infrared: unveiled",
+      "learned": [
+        "Infrared is light we feel as heat",
+        "It reveals stars forming inside dust",
+        "Distant galaxies’ light is stretched into infrared",
+        "Webb (2021): 6.5 m mirror, very cold"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.webb_telescope"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.036.c3"
+      ],
+      "prompt": "What kind of light is the James Webb Space Telescope built to see?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Radio waves",
+          "correct": false,
+          "rationale": "That’s the job of radio dishes."
+        },
+        {
+          "id": "b",
+          "label": "X-rays",
+          "correct": false,
+          "rationale": "X-ray telescopes like Chandra do that."
+        },
+        {
+          "id": "c",
+          "label": "Ultraviolet light",
+          "correct": false,
+          "rationale": "Webb works mainly in infrared."
+        },
+        {
+          "id": "d",
+          "label": "Infrared light",
+          "correct": true
+        }
+      ],
+      "explanation": "Webb is an infrared telescope, built to see through dust and to catch the stretched light of distant galaxies.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.infrared_astronomy"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.036.c2"
+      ],
+      "prompt": "Why is infrared ideal for watching stars being born?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Infrared passes through the dust clouds where stars form",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Newborn stars give off only infrared light",
+          "correct": false,
+          "rationale": "They give off many kinds of light."
+        },
+        {
+          "id": "c",
+          "label": "Infrared travels faster than visible light",
+          "correct": false,
+          "rationale": "All light travels at the same speed."
+        },
+        {
+          "id": "d",
+          "label": "Dust clouds are brighter in ultraviolet",
+          "correct": false,
+          "rationale": "The point is to see through the dust."
+        }
+      ],
+      "explanation": "Stars form inside dusty clouds that block visible light. Infrared passes through that dust.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.webb_telescope",
+        "concept.astronomy.atmosphere_blurs"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.036.c3",
+        "card.astronomy.034.c2"
+      ],
+      "prompt": "From Level 34: why does it help that Webb works in space?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It can repair itself more easily there",
+          "correct": false,
+          "rationale": "Webb isn’t designed for servicing."
+        },
+        {
+          "id": "b",
+          "label": "Much infrared light never reaches the ground",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Infrared light only exists in space",
+          "correct": false,
+          "rationale": "Infrared exists everywhere, even as heat on Earth."
+        },
+        {
+          "id": "d",
+          "label": "It is closer to the distant galaxies",
+          "correct": false,
+          "rationale": "A million km is nothing on galactic scales."
+        }
+      ],
+      "explanation": "Earth’s atmosphere blocks much infrared light, so an infrared telescope does its best work in space.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_ems",
+    "source.nasa_webb"
+  ]
+}

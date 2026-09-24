@@ -80,6 +80,12 @@ describe('checkQuality', () => {
     expect(r.warnings).toContain('card.astronomy.001.c2: number 4.6 is not in any claim on this card (unsupported or mismatched figure)');
   });
 
+  it('ignores level and chapter references when checking numbers', () => {
+    const l = level(1);
+    (l.cards[1] as { body: string }).body = 'The Sun is about 4.6 billion years old, as you saw in Level 10 and Chapter 3.';
+    expect(run([l]).warnings).toEqual([]);
+  });
+
   it('flags learning cards that state no claim', () => {
     expect(run([level(1)], [concept([])]).warnings).toContain('card.astronomy.001.c2: states no claim; add this card to the cardIds of the facts it states');
   });

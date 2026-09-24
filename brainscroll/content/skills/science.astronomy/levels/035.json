@@ -1,0 +1,211 @@
+{
+  "id": "level.science.astronomy.035",
+  "skillId": "skill.science.astronomy",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Listening to the Sky: Radio Astronomy",
+  "objective": "After this level you can explain what radio telescopes detect and why they are so large.",
+  "summary": "Radio telescopes catch long radio waves that pierce dust and work day or night. Linked dishes act like one giant telescope.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.radio_astronomy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.telescope_aperture",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.em_spectrum",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.034"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some telescopes don’t need darkness. They work at noon, through clouds."
+    },
+    {
+      "id": "card.astronomy.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A new window",
+      "body": "In the early 1930s, Karl Jansky picked up radio waves coming from the Milky Way. Radio astronomy was born. Radio waves pass through cosmic dust and Earth’s clouds, and radio telescopes can observe in daylight."
+    },
+    {
+      "id": "card.astronomy.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the dishes are huge",
+      "body": "Radio waves are very long, so seeing fine detail takes an enormous dish. Astronomers go further by linking many dishes into arrays that work together like one much larger telescope.",
+      "callout": "Longer waves → bigger dishes"
+    },
+    {
+      "id": "card.astronomy.035.c4",
+      "type": "fact",
+      "fact": "The Very Large Array in New Mexico links 27 radio dishes.",
+      "context": "Spread out over up to 36 km, they work together like a single dish of that size, sharp enough to map the radio sky in fine detail."
+    },
+    {
+      "id": "card.astronomy.035.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.035.q1"
+    },
+    {
+      "id": "card.astronomy.035.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.035.q2"
+    },
+    {
+      "id": "card.astronomy.035.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.035.q3"
+    },
+    {
+      "id": "card.astronomy.035.c8",
+      "type": "checkpoint",
+      "headline": "Radio sky: tuned in",
+      "learned": [
+        "Radio waves pass through dust and clouds",
+        "Radio telescopes work day and night",
+        "Jansky founded radio astronomy in the 1930s",
+        "Arrays link dishes into one giant telescope"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.radio_astronomy"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.035.c2"
+      ],
+      "prompt": "What did Karl Jansky detect in the early 1930s?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The first planet beyond Neptune",
+          "correct": false,
+          "rationale": "He detected radio waves, not a planet."
+        },
+        {
+          "id": "b",
+          "label": "X-rays from the Sun’s corona",
+          "correct": false,
+          "rationale": "X-rays can’t reach the ground."
+        },
+        {
+          "id": "c",
+          "label": "Radio waves coming from the Milky Way",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Infrared light from star-forming clouds",
+          "correct": false,
+          "rationale": "His discovery was in radio."
+        }
+      ],
+      "explanation": "Jansky’s detection of radio waves from the Milky Way launched radio astronomy.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.radio_astronomy"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.035.c3"
+      ],
+      "prompt": "Why are radio telescopes usually so much bigger than optical ones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Radio sources are much closer than stars",
+          "correct": false,
+          "rationale": "Distance isn’t the reason."
+        },
+        {
+          "id": "b",
+          "label": "Radio waves are very long, so fine detail needs a huge dish",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Radio waves travel more slowly than light",
+          "correct": false,
+          "rationale": "They travel at the speed of light."
+        },
+        {
+          "id": "d",
+          "label": "Radio telescopes must block the daylight",
+          "correct": false,
+          "rationale": "They can observe in daylight."
+        }
+      ],
+      "explanation": "The longer the wavelength, the bigger the dish must be to see fine detail. Radio waves are the longest of all.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.radio_astronomy",
+        "concept.astronomy.telescope_aperture"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.035.c3",
+        "card.astronomy.033.c3"
+      ],
+      "prompt": "From Level 33: a bigger aperture shows finer detail. How do radio astronomers get an aperture bigger than any single dish?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By cooling the dishes to very low temperatures",
+          "correct": false,
+          "rationale": "Cooling reduces noise; it doesn’t enlarge the aperture."
+        },
+        {
+          "id": "b",
+          "label": "By pointing the dishes at brighter sources",
+          "correct": false,
+          "rationale": "That doesn’t change the aperture."
+        },
+        {
+          "id": "c",
+          "label": "By using lenses instead of dishes",
+          "correct": false,
+          "rationale": "Radio telescopes don’t use lenses."
+        },
+        {
+          "id": "d",
+          "label": "By linking many dishes into one array",
+          "correct": true
+        }
+      ],
+      "explanation": "Linked dishes work together like one telescope as large as the spread of the array.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nrao_radio",
+    "source.brit_jansky"
+  ]
+}

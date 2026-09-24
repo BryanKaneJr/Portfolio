@@ -1,0 +1,212 @@
+{
+  "id": "level.science.astronomy.037",
+  "skillId": "skill.science.astronomy",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Getting to Orbit",
+  "objective": "After this level you can explain that an orbit is falling around a planet, and what escape velocity means.",
+  "summary": "Orbiting means falling while moving sideways so fast you keep missing. The ISS does it at 28,000 km/h; escaping takes 11.2 km/s.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.orbit_falling",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.escape_velocity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.newton_gravity",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.036"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Astronauts aren’t floating. They’re falling, and missing."
+    },
+    {
+      "id": "card.astronomy.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Falling around Earth",
+      "body": "Throw a ball and it curves down to the ground. Throw it fast enough and the ground curves away beneath it as quickly as it falls. That’s an orbit. The International Space Station does this at about 28,000 km/h, circling Earth about every 90 minutes.",
+      "callout": "Orbit = falling while moving sideways"
+    },
+    {
+      "id": "card.astronomy.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why astronauts float",
+      "body": "Gravity in orbit is still strong. Astronauts float because they and their spacecraft are falling together, so nothing presses them against the floor."
+    },
+    {
+      "id": "card.astronomy.037.c4",
+      "type": "fact",
+      "fact": "To leave Earth for good, you need about 11.2 km per second.",
+      "context": "That’s escape velocity: about 40,000 km/h. Slower, and Earth’s gravity eventually pulls you back or holds you in orbit."
+    },
+    {
+      "id": "card.astronomy.037.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.037.q1"
+    },
+    {
+      "id": "card.astronomy.037.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.037.q2"
+    },
+    {
+      "id": "card.astronomy.037.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.037.q3"
+    },
+    {
+      "id": "card.astronomy.037.c8",
+      "type": "checkpoint",
+      "headline": "Orbits: understood",
+      "learned": [
+        "An orbit is falling while moving sideways",
+        "The ISS circles Earth about every 90 minutes",
+        "Astronauts float because they fall together",
+        "Escape velocity is about 11.2 km/s"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.orbit_falling"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.037.c3"
+      ],
+      "prompt": "Why do astronauts float inside the space station?",
+      "options": [
+        {
+          "id": "a",
+          "label": "There is no gravity at that height",
+          "correct": false,
+          "rationale": "Gravity in orbit is still strong."
+        },
+        {
+          "id": "b",
+          "label": "The station spins to cancel gravity",
+          "correct": false,
+          "rationale": "The station doesn’t spin for gravity."
+        },
+        {
+          "id": "c",
+          "label": "They and the station are falling around Earth together",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Space is a vacuum, so nothing weighs anything",
+          "correct": false,
+          "rationale": "A vacuum doesn’t remove gravity."
+        }
+      ],
+      "explanation": "Astronauts and their spacecraft fall together around Earth, so nothing pushes them against the floor.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.escape_velocity",
+        "concept.astronomy.orbit_falling"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.037.c4"
+      ],
+      "prompt": "A probe launches at more than 11.2 km per second. What can it do that the space station can’t?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stay in the same spot above Earth",
+          "correct": false,
+          "rationale": "Escaping carries it away, not in place."
+        },
+        {
+          "id": "b",
+          "label": "Orbit much closer to the ground",
+          "correct": false,
+          "rationale": "Escape speed takes it away from Earth."
+        },
+        {
+          "id": "c",
+          "label": "Float without any gravity acting on it",
+          "correct": false,
+          "rationale": "Gravity still acts on it as it leaves."
+        },
+        {
+          "id": "d",
+          "label": "Leave Earth for good instead of orbiting",
+          "correct": true
+        }
+      ],
+      "explanation": "At about 11.2 km/s, escape velocity, a spacecraft can break free of Earth’s gravity instead of falling around it.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.orbit_falling",
+        "concept.astronomy.newton_gravity"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.037.c2",
+        "card.astronomy.027.c3"
+      ],
+      "prompt": "From Level 27: which force makes a spacecraft fall around Earth in orbit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Earth’s gravity",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Sun’s light pressure",
+          "correct": false,
+          "rationale": "That’s a tiny push, not what shapes an orbit."
+        },
+        {
+          "id": "c",
+          "label": "The Moon’s tidal pull",
+          "correct": false,
+          "rationale": "The Moon’s pull is small near Earth."
+        },
+        {
+          "id": "d",
+          "label": "Air resistance at high altitude",
+          "correct": false,
+          "rationale": "Air resistance slows orbits down."
+        }
+      ],
+      "explanation": "Newton’s gravity is what makes an orbiting spacecraft keep falling toward Earth, just like the Moon.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_iss",
+    "source.brit_escape_velocity"
+  ]
+}

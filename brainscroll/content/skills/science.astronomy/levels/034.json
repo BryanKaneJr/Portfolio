@@ -1,0 +1,213 @@
+{
+  "id": "level.science.astronomy.034",
+  "skillId": "skill.science.astronomy",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Put Telescopes in Space?",
+  "objective": "After this level you can explain what Earth’s atmosphere does to starlight and what Hubble gained by leaving it.",
+  "summary": "Air makes stars twinkle and blocks much of the spectrum. Above it, Hubble (1990) takes sharp images across more wavelengths.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.atmosphere_blurs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.hubble_telescope",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.em_spectrum",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.033"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Twinkling is beautiful. For astronomers, it’s a problem."
+    },
+    {
+      "id": "card.astronomy.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The trouble with air",
+      "body": "Stars twinkle because moving pockets of air bend their light back and forth, blurring what telescopes see. The atmosphere also blocks most ultraviolet light and X-rays, and much infrared, from ever reaching the ground."
+    },
+    {
+      "id": "card.astronomy.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hubble, above it all",
+      "body": "The Hubble Space Telescope launched in 1990 and orbits above the atmosphere, so its images are free of that blurring. It’s also the only space telescope designed to be repaired and upgraded by astronauts in orbit.",
+      "callout": "Launched 1990"
+    },
+    {
+      "id": "card.astronomy.034.c4",
+      "type": "fact",
+      "fact": "Hubble helped measure the age of the universe.",
+      "context": "Its sharp observations of distant galaxies helped pin the universe’s age at about 13.8 billion years, a number you met back in Level 10."
+    },
+    {
+      "id": "card.astronomy.034.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.034.q1"
+    },
+    {
+      "id": "card.astronomy.034.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.034.q2"
+    },
+    {
+      "id": "card.astronomy.034.c7",
+      "type": "mcq",
+      "questionId": "question.astronomy.034.q3"
+    },
+    {
+      "id": "card.astronomy.034.c8",
+      "type": "checkpoint",
+      "headline": "Space telescopes: explained",
+      "learned": [
+        "Moving air makes stars twinkle",
+        "The atmosphere blocks most UV and X-rays",
+        "Hubble launched in 1990, above the air",
+        "Astronauts can repair and upgrade Hubble"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.atmosphere_blurs"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.034.c2"
+      ],
+      "prompt": "Why do stars twinkle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They flicker as they burn their fuel",
+          "correct": false,
+          "rationale": "The star’s light is steady; the flicker happens here."
+        },
+        {
+          "id": "b",
+          "label": "Moving air in Earth’s atmosphere bends their light",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Moon’s light interferes with them",
+          "correct": false,
+          "rationale": "Twinkling happens with or without the Moon."
+        },
+        {
+          "id": "d",
+          "label": "They are spinning very fast",
+          "correct": false,
+          "rationale": "Spinning doesn’t make a star twinkle."
+        }
+      ],
+      "explanation": "Turbulent air bends starlight back and forth, making stars appear to twinkle.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.atmosphere_blurs",
+        "concept.astronomy.hubble_telescope"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.034.c2",
+        "card.astronomy.034.c3"
+      ],
+      "prompt": "Besides sharper images, what else do telescopes gain by going to space?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A closer view of the stars",
+          "correct": false,
+          "rationale": "A few hundred km closer makes no difference."
+        },
+        {
+          "id": "b",
+          "label": "Protection from meteors",
+          "correct": false,
+          "rationale": "Space actually has more debris risk."
+        },
+        {
+          "id": "c",
+          "label": "Access to light the atmosphere blocks, like ultraviolet and X-rays",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Freedom from the Sun’s gravity",
+          "correct": false,
+          "rationale": "They’re still in orbit around Earth."
+        }
+      ],
+      "explanation": "The atmosphere absorbs most ultraviolet and X-ray light and much infrared. From space, telescopes can see those wavelengths.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.atmosphere_blurs",
+        "concept.astronomy.em_spectrum"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.034.c2",
+        "card.astronomy.031.c2"
+      ],
+      "prompt": "From Level 31: which kinds of light are mostly blocked before they reach the ground?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ultraviolet and X-rays",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Visible light and radio waves",
+          "correct": false,
+          "rationale": "Both reach the ground, which is why we see and use radio."
+        },
+        {
+          "id": "c",
+          "label": "Only red and orange light",
+          "correct": false,
+          "rationale": "Visible colors reach the ground."
+        },
+        {
+          "id": "d",
+          "label": "Only light from distant galaxies",
+          "correct": false,
+          "rationale": "Blocking depends on wavelength, not distance."
+        }
+      ],
+      "explanation": "Earth’s atmosphere absorbs most ultraviolet and X-ray light, which is why those telescopes must go to space.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_hubble",
+    "source.nasa_ems"
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "id": "level.science.astronomy.039",
+  "skillId": "skill.science.astronomy",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Humans on the Moon",
+  "objective": "After this level you can describe the Apollo Moon landings and what they brought back.",
+  "summary": "Apollo 11 landed on July 20, 1969. Twelve astronauts walked on the Moon by 1972 and brought back 382 kg of samples.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.apollo_landings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.moon_rock_evidence",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.moon_giant_impact",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.038"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Only twelve people have ever walked on another world."
+    },
+    {
+      "id": "card.astronomy.039.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One small step",
+      "body": "On July 20, 1969, Apollo 11 astronauts Neil Armstrong and Buzz Aldrin became the first people to walk on the Moon. Between 1969 and 1972, six Apollo landings put twelve astronauts on its surface.",
+      "callout": "Apollo 11 · July 20, 1969"
+    },
+    {
+      "id": "card.astronomy.039.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bringing the Moon home",
+      "body": "The Apollo astronauts brought back 382 kg of Moon rocks and soil. Scientists are still studying them, and they’re among the best evidence for how the Moon formed."
+    },
+    {
+      "id": "card.astronomy.039.c4",
+      "type": "fact",
+      "fact": "The last Moonwalkers left in December 1972.",
+      "context": "Their footprints are still up there. With no wind or rain on the Moon, nothing wears them away."
+    },
+    {
+      "id": "card.astronomy.039.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.039.q1"
+    },
+    {
+      "id": "card.astronomy.039.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.039.q2"
+    },
+    {
+      "id": "card.astronomy.039.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.039.q3"
+    },
+    {
+      "id": "card.astronomy.039.c8",
+      "type": "checkpoint",
+      "headline": "Moonwalk: recorded",
+      "learned": [
+        "Apollo 11 landed on July 20, 1969",
+        "Armstrong and Aldrin walked first",
+        "Twelve astronauts walked on the Moon by 1972",
+        "They brought back 382 kg of samples"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.apollo_landings"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.039.c2"
+      ],
+      "prompt": "Who were the first two people to walk on the Moon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Yuri Gagarin and Valentina Tereshkova",
+          "correct": false,
+          "rationale": "They were early spaceflight pioneers but never went to the Moon."
+        },
+        {
+          "id": "b",
+          "label": "Neil Armstrong and Buzz Aldrin",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "John Glenn and Alan Shepard",
+          "correct": false,
+          "rationale": "They flew early US missions, not Moon landings."
+        },
+        {
+          "id": "d",
+          "label": "Galileo and Kepler",
+          "correct": false,
+          "rationale": "They studied the sky centuries earlier."
+        }
+      ],
+      "explanation": "Neil Armstrong and Buzz Aldrin walked on the Moon during Apollo 11 on July 20, 1969.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.apollo_landings"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.039.c3"
+      ],
+      "prompt": "Why are the Apollo samples still valuable today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are the only rocks from space on Earth",
+          "correct": false,
+          "rationale": "Meteorites from space fall to Earth too."
+        },
+        {
+          "id": "b",
+          "label": "They prove the Moon is made of cheese",
+          "correct": false,
+          "rationale": "They’re rock and soil."
+        },
+        {
+          "id": "c",
+          "label": "They were used to fuel later rockets",
+          "correct": false,
+          "rationale": "They’re kept for science."
+        },
+        {
+          "id": "d",
+          "label": "Scientists keep studying them to learn how the Moon formed",
+          "correct": true
+        }
+      ],
+      "explanation": "The 382 kg of Apollo samples keep yielding new evidence, including about how the Moon formed.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.apollo_landings",
+        "concept.astronomy.moon_rock_evidence"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.039.c3",
+        "card.astronomy.018.c3"
+      ],
+      "prompt": "From Level 18: what did Apollo samples reveal about where the Moon came from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon is made of the same rock as Mars",
+          "correct": false,
+          "rationale": "The match is with Earth, not Mars."
+        },
+        {
+          "id": "b",
+          "label": "The Moon is older than the solar system",
+          "correct": false,
+          "rationale": "It formed about 4.5 billion years ago."
+        },
+        {
+          "id": "c",
+          "label": "Moon rocks are chemically very similar to Earth’s mantle",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Moon was captured from the asteroid belt",
+          "correct": false,
+          "rationale": "The chemistry points to Earth."
+        }
+      ],
+      "explanation": "Apollo rocks closely match Earth’s mantle, supporting the idea that the Moon formed from debris of a giant impact.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_apollo_program",
+    "source.nasa_apollo11",
+    "source.nasa_moon_formation"
+  ]
+}

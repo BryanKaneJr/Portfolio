@@ -1,0 +1,355 @@
+{
+  "id": "level.science.astronomy.040",
+  "skillId": "skill.science.astronomy",
+  "number": 40,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: The Tools of Astronomy",
+  "objective": "After this level you can match each kind of light and instrument to what it lets astronomers study.",
+  "summary": "Each wavelength needs its own tools: radio dishes, infrared and X-ray telescopes in space, and spacecraft that go and look.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.multiwavelength",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.em_spectrum",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.radio_astronomy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.infrared_astronomy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.hubble_telescope",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.voyager_probes",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.spectral_lines",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.helium_discovery",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.apollo_landings",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.039"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.040.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 4 finale. One sky, many kinds of light.",
+      "body": "Every kind of light shows something the others miss. Here’s the full toolkit."
+    },
+    {
+      "id": "card.astronomy.040.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "X-rays: the hottest things",
+      "body": "X-ray telescopes reveal extremely hot gas, like the gas swirling around black holes. Because Earth’s atmosphere absorbs X-rays, they must work in space. NASA’s Chandra X-ray Observatory launched in 1999.",
+      "callout": "Chandra · launched 1999"
+    },
+    {
+      "id": "card.astronomy.040.c3",
+      "type": "comparison",
+      "headline": "Match the light to the job",
+      "items": [
+        {
+          "label": "Radio",
+          "points": [
+            "Passes through dust",
+            "Huge dishes and arrays"
+          ]
+        },
+        {
+          "label": "Infrared",
+          "points": [
+            "Star birth inside dust",
+            "The most distant galaxies"
+          ]
+        },
+        {
+          "label": "X-ray",
+          "points": [
+            "Extremely hot gas",
+            "Only from space"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.astronomy.040.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Or just go there",
+      "body": "Some questions can’t be answered from a distance. Robotic probes like Voyager 2 flew past Uranus and Neptune, and Apollo astronauts brought 382 kg of the Moon home to study."
+    },
+    {
+      "id": "card.astronomy.040.c5",
+      "type": "recall",
+      "questionId": "question.astronomy.040.q1"
+    },
+    {
+      "id": "card.astronomy.040.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.040.q2"
+    },
+    {
+      "id": "card.astronomy.040.c7",
+      "type": "mcq",
+      "questionId": "question.astronomy.040.q3"
+    },
+    {
+      "id": "card.astronomy.040.c8",
+      "type": "recall",
+      "questionId": "question.astronomy.040.q4"
+    },
+    {
+      "id": "card.astronomy.040.c9",
+      "type": "recall",
+      "questionId": "question.astronomy.040.q5"
+    },
+    {
+      "id": "card.astronomy.040.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 4 complete",
+      "learned": [
+        "X-ray telescopes see extremely hot gas, only from space",
+        "Radio passes through dust; infrared sees star birth",
+        "Spectra reveal what stars are made of",
+        "Each wavelength needs its own tools"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.040.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.spectral_lines"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.032.c2"
+      ],
+      "prompt": "What do spectral lines tell astronomers about a star?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How old the star is",
+          "correct": false,
+          "rationale": "Lines identify ingredients."
+        },
+        {
+          "id": "b",
+          "label": "Which elements the star contains",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How far away the star is",
+          "correct": false,
+          "rationale": "Distance comes from other methods, like parallax."
+        },
+        {
+          "id": "d",
+          "label": "How many planets orbit it",
+          "correct": false,
+          "rationale": "Planets need other methods."
+        }
+      ],
+      "explanation": "Each element leaves its own lines, so a spectrum reveals a star’s composition.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.040.q2",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.radio_astronomy"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.035.c2"
+      ],
+      "prompt": "Which kind of telescope can observe through clouds and in daylight?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An X-ray telescope on the ground",
+          "correct": false,
+          "rationale": "X-rays can’t reach the ground."
+        },
+        {
+          "id": "b",
+          "label": "An optical reflector on a mountain",
+          "correct": false,
+          "rationale": "Clouds and daylight stop optical telescopes."
+        },
+        {
+          "id": "c",
+          "label": "A radio telescope",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "An ultraviolet telescope at sea level",
+          "correct": false,
+          "rationale": "The atmosphere blocks most ultraviolet."
+        }
+      ],
+      "explanation": "Radio waves pass through clouds and dust, and radio telescopes can observe during the day.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.040.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.multiwavelength"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.040.c2"
+      ],
+      "prompt": "An astronomer wants to study the extremely hot gas around a black hole. Which tool fits best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A radio telescope in a desert",
+          "correct": false,
+          "rationale": "Radio is better for cooler gas and dust."
+        },
+        {
+          "id": "b",
+          "label": "A small refracting telescope",
+          "correct": false,
+          "rationale": "Visible light won’t show that hot gas well."
+        },
+        {
+          "id": "c",
+          "label": "An infrared telescope inside a dust cloud",
+          "correct": false,
+          "rationale": "Infrared suits dust and cool objects."
+        },
+        {
+          "id": "d",
+          "label": "An X-ray telescope in space, like Chandra",
+          "correct": true
+        }
+      ],
+      "explanation": "Extremely hot gas glows in X-rays, and only space telescopes can see X-rays.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.040.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.hubble_telescope"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.034.c2",
+        "card.astronomy.034.c3"
+      ],
+      "prompt": "Why was Hubble placed above Earth’s atmosphere?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To escape blurring and see light the air blocks",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To get much closer to the stars",
+          "correct": false,
+          "rationale": "A few hundred km makes no difference to star distances."
+        },
+        {
+          "id": "c",
+          "label": "To escape the pull of Earth’s gravity",
+          "correct": false,
+          "rationale": "Hubble orbits Earth; gravity still holds it."
+        },
+        {
+          "id": "d",
+          "label": "To travel onward to other planets",
+          "correct": false,
+          "rationale": "It stays in orbit around Earth."
+        }
+      ],
+      "explanation": "Above the atmosphere, Hubble avoids blurring and can see ultraviolet light that never reaches the ground.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.040.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.helium_discovery",
+        "concept.astronomy.spectral_lines"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.032.c4"
+      ],
+      "prompt": "Chapter 4 recap: which pairing of tool and discovery is correct?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Radio telescope → Galileo’s moons of Jupiter",
+          "correct": false,
+          "rationale": "Galileo used an optical telescope."
+        },
+        {
+          "id": "b",
+          "label": "X-ray telescope → Helium in the Sun",
+          "correct": false,
+          "rationale": "Helium was found in the Sun’s visible spectrum."
+        },
+        {
+          "id": "c",
+          "label": "Spectroscope → helium found in the Sun",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Infrared telescope → the first Moon rocks",
+          "correct": false,
+          "rationale": "Moon rocks came back with Apollo astronauts."
+        }
+      ],
+      "explanation": "Helium was discovered in 1868 as a line in the Sun’s spectrum, before it was found on Earth.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_chandra",
+    "source.nrao_radio",
+    "source.nasa_webb",
+    "source.nasa_voyager",
+    "source.nasa_apollo_program"
+  ]
+}

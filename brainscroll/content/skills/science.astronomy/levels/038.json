@@ -1,0 +1,210 @@
+{
+  "id": "level.science.astronomy.038",
+  "skillId": "skill.science.astronomy",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Robot Explorers",
+  "objective": "After this level you can describe how robotic probes like Voyager explored the outer planets.",
+  "summary": "The twin Voyagers (1977) toured the giant planets; Voyager 2 alone visited Uranus and Neptune; Voyager 1 is now interstellar.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.voyager_probes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.giant_planets",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.uranus_discovery",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.037"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The farthest thing humans ever built is still sending messages home."
+    },
+    {
+      "id": "card.astronomy.038.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The grand tour",
+      "body": "Voyager 1 and Voyager 2 launched in 1977. Between them they flew past Jupiter, Saturn, Uranus and Neptune. Voyager 2 is still the only spacecraft to have visited Uranus, in 1986, and Neptune, in 1989.",
+      "callout": "Launched 1977"
+    },
+    {
+      "id": "card.astronomy.038.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Into interstellar space",
+      "body": "In 2012 Voyager 1 crossed into interstellar space, the most distant human-made object. Each Voyager carries a Golden Record of sounds and images from Earth, a message for anyone who might one day find it."
+    },
+    {
+      "id": "card.astronomy.038.c4",
+      "type": "fact",
+      "fact": "Voyager 1’s radio signals take more than 20 hours to reach Earth.",
+      "context": "Traveling at the speed of light, each message from the edge of the solar system is almost a day old when it arrives, and the gap grows every year."
+    },
+    {
+      "id": "card.astronomy.038.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.038.q1"
+    },
+    {
+      "id": "card.astronomy.038.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.038.q2"
+    },
+    {
+      "id": "card.astronomy.038.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.038.q3"
+    },
+    {
+      "id": "card.astronomy.038.c8",
+      "type": "checkpoint",
+      "headline": "Robot explorers: logged",
+      "learned": [
+        "The Voyagers launched in 1977",
+        "They flew past all four giant planets",
+        "Voyager 2 alone visited Uranus and Neptune",
+        "Voyager 1 reached interstellar space in 2012"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.voyager_probes"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.038.c2"
+      ],
+      "prompt": "Which spacecraft is the only one to have visited Uranus and Neptune?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Voyager 1",
+          "correct": false,
+          "rationale": "Voyager 1 left the planets after Saturn."
+        },
+        {
+          "id": "b",
+          "label": "Hubble",
+          "correct": false,
+          "rationale": "Hubble orbits Earth."
+        },
+        {
+          "id": "c",
+          "label": "Voyager 2",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The James Webb telescope",
+          "correct": false,
+          "rationale": "Webb orbits far from the giant planets."
+        }
+      ],
+      "explanation": "Voyager 2 flew past Uranus in 1986 and Neptune in 1989, the only spacecraft ever to visit them.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.voyager_probes"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.038.c3"
+      ],
+      "prompt": "What is special about Voyager 1’s location today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has reached interstellar space, farther than any human-made object",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is orbiting Neptune’s largest moon",
+          "correct": false,
+          "rationale": "It never visited Neptune."
+        },
+        {
+          "id": "c",
+          "label": "It has landed on the surface of Pluto",
+          "correct": false,
+          "rationale": "No spacecraft has landed on Pluto."
+        },
+        {
+          "id": "d",
+          "label": "It has returned to orbit around the Earth",
+          "correct": false,
+          "rationale": "It is heading away forever."
+        }
+      ],
+      "explanation": "Voyager 1 entered interstellar space in 2012 and is the most distant object humans have made.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.voyager_probes",
+        "concept.astronomy.uranus_discovery"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.038.c2",
+        "card.astronomy.029.c2"
+      ],
+      "prompt": "From Level 29: Herschel found Uranus with a telescope in 1781. How did Voyager 2 add to that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It discovered Uranus a second time",
+          "correct": false,
+          "rationale": "Uranus was already known."
+        },
+        {
+          "id": "b",
+          "label": "It gave humanity its only close-up visit to Uranus",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It brought rock samples back from Uranus",
+          "correct": false,
+          "rationale": "No mission has returned samples from Uranus."
+        },
+        {
+          "id": "d",
+          "label": "It landed on the surface of Uranus",
+          "correct": false,
+          "rationale": "Uranus has no solid surface to land on."
+        }
+      ],
+      "explanation": "Herschel spotted Uranus from Earth; Voyager 2’s 1986 flyby remains the only close-up visit.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_voyager"
+  ]
+}

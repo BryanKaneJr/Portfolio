@@ -105,7 +105,8 @@ export function checkQuality(
       if (role === 'learning' && facts.length === 0 && card.type !== 'image')
         warn(card.id, 'states no claim; add this card to the cardIds of the facts it states');
       const backed = new Set(facts.flatMap(numbersIn));
-      for (const n of numbersIn(text))
+      // "Level 10" or "Chapter 3" are references, not figures.
+      for (const n of numbersIn(text.replace(/\b(levels?|chapters?|lv\.)\s*\d+(\s*[–-]\s*\d+)?/gi, ' ')))
         if (!backed.has(n) && !/^[0-9]$/.test(n)) warn(card.id, `number ${n} is not in any claim on this card (unsupported or mismatched figure)`);
     }
 
