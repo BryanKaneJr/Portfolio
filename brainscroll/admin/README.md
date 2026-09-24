@@ -17,6 +17,7 @@ CONTENT_ROOT=/path/to/content npm run admin   # point it at another copy
 | **Preview** | A phone-width rendering in the app's colors. Tap options to walk the answer flow: a wrong answer shows its rationale and the "Take another look" source cards, and the answer is never revealed. |
 | **JSON** | Edit the raw level for anything the form doesn't cover, then apply it. |
 | **Issues** | Validation issues for this level, or all issues (with filters). **Run validation** re-runs the full validator. |
+| **Learners / Learner health** | With `npm run insights:pull` data (from a live Supabase project), you get per-level funnels, per-question first-try and recall rates, first-pick counts per option, open content reports, and plain-language flags. Without it, these views explain how to load it. See `docs/analytics.md`. |
 | **Concepts / Sources** | Read-only. Concepts show their claims, each claim's verification status per source, the cards stating it, and the levels using the concept. Sources show license, verified flag and claims verified. |
 
 ## Rules it enforces
@@ -34,5 +35,5 @@ After editing, run `npm run content:build` and `npm run check`, then commit the 
 - Editing concepts, claims or sources: use the JSON files and the `verify:*` scripts.
 - Asset upload, and creating new levels or skills: copy a level file.
 - Revision history: it's git.
-- A content-report inbox: see `docs/analytics.md`.
+- Triage of content reports (changing their status) from the UI: use `admin_set_report_status` (see `docs/analytics.md`).
 - Auth or multi-user editing: it's a local tool. A hosted version would need Supabase auth with an admin role.

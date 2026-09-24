@@ -29,11 +29,25 @@ try {
   await home(page);
   check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'session and server progress survive a reload');
 
+  // Content report + drop-off: open Level 2, report the card on screen, then leave it unfinished.
+  await button(page, 'Start Level 2').click();
+  await page.waitForTimeout(800);
+  await button(page, 'Report a problem').click();
+  await button(page, 'Typo or grammar').click();
+  await page.getByLabel('Details (optional)', { exact: true }).fill('Missing comma');
+  await button(page, 'Send report').click();
+  await page.getByText('Thanks.', { exact: false }).waitFor();
+  check(sql(`select object_type || ':' || object_id || ':' || category || ':' || message from public.content_reports`) === 'card:card.astronomy.002.c1:typo:Missing comma',
+    'a report reaches content_reports for the card on screen');
+  await button(page, 'Back to the level').click();
+  await button(page, 'Leave level').click();
+  await page.waitForTimeout(500);
+
   // Publish a correction to Level 2 while the app is running.
   sql(`select public.import_content(jsonb_build_object('levels', jsonb_build_array(
          jsonb_set(jsonb_set(bundle, '{title}', '"The Sun, Up Close (revised)"'), '{revision}', '2') || '{"status":"published"}')))
        from public.level_revisions where level_id = 'level.science.astronomy.002' and revision = 1`);
-  await button(page, 'Start Level 2').click();
+  await button(page, /(Start|Resume) Level 2/).click();
   await page.waitForTimeout(800);
   check((await bodyText(page)).includes('The Sun, Up Close (revised)'), 'a published correction reaches the app without a new build');
   await playLevel(page);
@@ -122,6 +136,14 @@ try {
   check((await bodyText(page)).includes('Progress saved to player@example.com'), 'signing in with a code restores the saved account');
   check((await bodyText(page)).includes(`${xpBefore} XP earned`), `the saved account's progress (${xpBefore} XP) is back on this device`);
 
+  // Analytics: only allowlisted, PII-free events; no durations anywhere.
+  await page.waitForTimeout(5500); // the tracker flushes in batches
+  check(Number(sql(`select count(*) from public.analytics_events where name = 'app_open'`)) >= 1, 'app opens are logged (return days, not minutes)');
+  check(sql(`select count(*) from public.analytics_events where name = 'onboarding_step'`) === '2', 'both onboarding steps are logged');
+  check(sql(`select props->>'card_index' || '/' || (props->>'card_count') from public.analytics_events where name = 'level_exit' and props->>'level_id' = 'level.science.astronomy.002'`).startsWith('0/'),
+    'leaving an unfinished level logs where the learner left');
+  check(sql(`select count(*) from public.analytics_events where name in ('account_link_started', 'account_linked')`) === '2', 'the account-link funnel is logged');
+  check(sql(`select count(*) from public.analytics_events where props::text ~ '@'`) === '0', 'no email addresses reach analytics');
   check(errors.length === 0, `no page errors ${errors.join('; ')}`);
 } finally {
   await browser.close();

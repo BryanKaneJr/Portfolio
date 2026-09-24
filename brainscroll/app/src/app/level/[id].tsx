@@ -3,7 +3,9 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { track } from '@/analytics/track';
 import { CardRenderer } from '@/components/cards/CardRenderer';
+import { ReportSheet } from '@/components/ReportSheet';
 import { Body, Button, Label, ProgressBar, Title } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
 import { useProgress, type LevelSession } from '@/progress/ProgressProvider';
@@ -22,8 +24,23 @@ export default function LevelScreen() {
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [answering, setAnswering] = useState(false);
+  const [reporting, setReporting] = useState(false);
   const inFlight = useRef(false);
   const answerInFlight = useRef(false);
+  // Where a learner leaves an unfinished level (content health: which card loses people).
+  const exitRef = useRef<{ levelId: string; cardIndex: number; cardCount: number; done: boolean } | null>(null);
+  useEffect(
+    () => () => {
+      const x = exitRef.current;
+      if (x && !x.done) track('level_exit', { level_id: x.levelId, card_index: x.cardIndex, card_count: x.cardCount });
+    },
+    [],
+  );
+  const cardIndex = session?.cardIndex;
+  useEffect(() => {
+    if (level && cardIndex !== undefined)
+      exitRef.current = { levelId: level.id, cardIndex, cardCount: level.cards.length, done: exitRef.current?.done ?? false };
+  }, [level, cardIndex]);
 
   useEffect(() => {
     if (!p.ready) return;
@@ -94,7 +111,10 @@ export default function LevelScreen() {
     setSubmitting(true);
     setError(null);
     p.completeLevel(level.id, level)
-      .then(() => router.replace('/level-complete'))
+      .then(() => {
+        if (exitRef.current) exitRef.current.done = true;
+        router.replace('/level-complete');
+      })
       .catch((e) => {
         inFlight.current = false;
         setSubmitting(false);
@@ -116,6 +136,9 @@ export default function LevelScreen() {
           </Label>
           <ProgressBar value={(session.cardIndex + 1) / level.cards.length} />
         </View>
+        <Pressable accessibilityRole="button" accessibilityLabel="Report a problem" onPress={() => setReporting(true)} hitSlop={12}>
+          <Text style={styles.close}>⚑</Text>
+        </Pressable>
       </View>
 
       <ScrollView contentContainerStyle={styles.body} key={card.id}>
@@ -136,6 +159,17 @@ export default function LevelScreen() {
           onPress={onContinue}
         />
       </View>
+      {reporting && (
+        <ReportSheet
+          target={{
+            levelId: level.id,
+            revision: session.revision,
+            objectType: questionId ? 'question' : 'card',
+            objectId: questionId ?? card.id,
+          }}
+          onClose={() => setReporting(false)}
+        />
+      )}
     </SafeAreaView>
   );
 }

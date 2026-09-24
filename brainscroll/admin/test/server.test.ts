@@ -1,6 +1,6 @@
 import { after, before, test } from 'node:test';
 import assert from 'node:assert/strict';
-import { cpSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import type { AddressInfo } from 'node:net';
@@ -16,7 +16,14 @@ const LEVEL = 'skills/science.astronomy/levels/002.json';
 before(async () => {
   dir = mkdtempSync(join(tmpdir(), 'bs-admin-'));
   cpSync(repoContent, dir, { recursive: true });
-  server = createAdminServer({ contentRoot: dir });
+  const insightsPath = join(dir, 'insights.json');
+  writeFileSync(insightsPath, JSON.stringify({
+    pulledAt: '2026-09-24T00:00:00Z', source: 'https://x.supabase.co', health: { active_learners: 40 },
+    questions: [{ question_id: 'question.astronomy.001.q1', level_id: 'level.science.astronomy.001', learners: 40, first_try_rate: 0.2, avg_attempts: 2, first_picks: {}, review_attempts: 0, review_first_try_rate: null }],
+    levels: [{ level_id: 'level.science.astronomy.001', started: 40, completed: 38, completion_rate: 0.95, mean_first_try_share: 0.5, exits_by_card: {} }],
+    reports: [{ id: 'r1', level_id: 'level.science.astronomy.001', revision: 1, object_type: 'card', object_id: 'card.astronomy.001.c2', category: 'typo', message: 'Missing comma', status: 'open', created_at: '2026-09-23T00:00:00Z' }],
+  }));
+  server = createAdminServer({ contentRoot: dir, insightsPath });
   await new Promise<void>((r) => server.listen(0, '127.0.0.1', r));
   base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
 });
@@ -36,6 +43,14 @@ test('serves the UI and a content snapshot with editor limits', async () => {
   assert.ok(c.concepts.length > 0 && c.sources.length > 0);
   assert.equal(c.meta.textBudget.headline, 80);
   assert.equal(c.meta.structure.mastery.questions.standard, 10);
+});
+
+test('serves learner insights with flags and reports per level', async () => {
+  const i = await (await fetch(base + '/api/insights')).json();
+  assert.equal(i.available, true);
+  const l1 = i.levels['level.science.astronomy.001'];
+  assert.equal(l1.reports.length, 1);
+  assert.ok(l1.questions.find((q: { id: string }) => q.id === 'question.astronomy.001.q1').flags.some((f: string) => f.startsWith('Hard')));
 });
 
 test('runs validation', async () => {

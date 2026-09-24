@@ -1,5 +1,6 @@
-import { skillProgressView, type AccountState, type AnswerResult, type CompletionSummary, type Level, type ReviewItem, type ReviewResult } from '@brainscroll/core';
+import { skillProgressView, type AccountState, type AnswerResult, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { configureAnalytics, track } from '@/analytics/track';
 import { levelByNumber, skills } from '@/content';
 import type { ProgressBackend, ProgressSnapshot, StartResult } from './backend';
 import { createLocalBackend } from './localBackend';
@@ -64,6 +65,7 @@ interface ProgressContextValue {
   /** Switches this device to another account; in-progress level sessions belong to the old one and are dropped. */
   confirmSignIn(email: string, code: string): Promise<void>;
   signOut(): Promise<void>;
+  reportContent(input: ContentReportInput): Promise<{ duplicate: boolean }>;
 }
 
 const EMPTY_SNAPSHOT: ProgressSnapshot = {
@@ -122,6 +124,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       }
       try {
         await backend.init();
+        void configureAnalytics((events) => backend.logEvents(events));
+        track('app_open', { backend: backend.kind });
         await refresh();
         setAccount(await backend.account());
         // Anyone who has already cleared a level has effectively onboarded.
@@ -227,6 +231,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         setAccount(next);
         await refresh();
       },
+      reportContent: (input) => backendOrThrow().reportContent(input),
       async signOut() {
         const next = await backendOrThrow().signOut();
         commitSessions({});

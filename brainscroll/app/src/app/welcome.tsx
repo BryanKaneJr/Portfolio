@@ -3,6 +3,7 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { track } from '@/analytics/track';
 import { Body, Button, Label, ProgressBar } from '@/components/ui';
 import { levelByNumber, skills, subjects } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
@@ -81,7 +82,7 @@ export default function WelcomeScreen() {
 
       <View style={styles.footer}>
         {step < 2 ? (
-          <Button label="Continue" onPress={() => setStep(step + 1)} disabled={step === 1 && !skillId} />
+          <Button label="Continue" onPress={() => { track('onboarding_step', { step }); setStep(step + 1); }} disabled={step === 1 && !skillId} />
         ) : (
           <>
             <Button label={firstLevel ? `Start ${firstLevel.title}` : 'Let’s go'} onPress={start} />

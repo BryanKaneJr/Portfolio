@@ -7,6 +7,8 @@ import {
   isValidOtp,
   normalizeEmail,
   type AccountState,
+  type AnalyticsEvent,
+  type ContentReportInput,
   checkClientConfig,
   CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type ReviewItem, type StartReason } from '@brainscroll/core';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
@@ -164,6 +166,8 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       await rpc('update_profile', { p_timezone: deviceTimeZone() });
       return currentAccount();
     },
+    logEvents,
+    reportContent,
     async signOut() {
       const now = await currentAccount();
       if (now.status !== 'saved') throw new AccountError('NOT_ALLOWED', 'Add an email first, or your progress would be lost.');
@@ -173,6 +177,22 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       return currentAccount();
     },
   };
+
+  async function logEvents(events: AnalyticsEvent[]) {
+    if (events.length) await rpc('log_events', { p_events: events });
+  }
+
+  async function reportContent(input: ContentReportInput) {
+    const r = await rpc<{ id: string; duplicate: boolean }>('report_content', {
+      p_level_id: input.levelId,
+      p_revision: input.revision,
+      p_object_type: input.objectType,
+      p_object_id: input.objectId,
+      p_category: input.category,
+      p_message: input.message?.trim() || null,
+    });
+    return { duplicate: r.duplicate };
+  }
 
   async function currentAccount(): Promise<AccountState> {
     const { data, error } = await supabase.auth.getUser();

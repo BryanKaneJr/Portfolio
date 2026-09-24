@@ -1,5 +1,7 @@
 import { PRICING, VOICE } from '@brainscroll/core';
 import { router } from 'expo-router';
+import { useEffect } from 'react';
+import { track } from '@/analytics/track';
 import { Body, BigNumber, Button, Card, Label, Screen, Title } from '@/components/ui';
 import { useProgressView } from '@/progress/ProgressProvider';
 
@@ -9,6 +11,8 @@ import { useProgressView } from '@/progress/ProgressProvider';
  */
 export default function DailyCompleteScreen() {
   const { today, xpToday } = useProgressView();
+  // Product health: how often learners reach the cap (not how long they stay).
+  useEffect(() => track('daily_complete_seen', { used: today.used, cap: today.cap ?? today.used }), [today.used, today.cap]);
 
   return (
     <Screen>

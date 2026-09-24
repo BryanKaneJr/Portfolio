@@ -23,6 +23,9 @@ tests/                 SQL acceptance tests, runner and shared helpers (lib.sh) 
 | `get_progress()` | Returns the app's snapshot: skills, completed levels, daily status, XP totals and the number of reviews due. |
 | `get_level_bundles(ids)` | Returns the current published bundles, so corrections reach players without an app release. |
 | `update_profile(timezone, display_name)` | Profile settings. The time zone defines the local day for the daily cap. |
+| `log_events(events)` | Allowlisted, PII-free client events (≤50 per call, ≤500/day). Unknown names and nested props are dropped. See `docs/analytics.md`. |
+| `report_content(level_id, revision, object_type, object_id, category, message)` | Files a content report after checking the object belongs to that level revision. A repeat updates the learner's open report; max 20/day. |
+| `admin_learning_health(days)`, `admin_question_stats(skill)`, `admin_level_funnel(skill)`, `admin_content_reports(status)`, `admin_set_report_status(id, status)` | **Service role only.** Aggregate learning and product-health insights (never time spent) and report triage, for `npm run insights:pull` and Content Admin. |
 | `import_content(payload, publish_drafts)` | **Service role only.** Upserts curriculum and publishes immutable level revisions. Raises `REVISION_CONFLICT` or `REVISION_REGRESSION`. |
 
 Clients can **read** published content and their own progress (RLS). They **can't write** progress, XP, allowances or entitlements. Those change only through the functions above, or through the service role for the importer, admin and RevenueCat webhooks.

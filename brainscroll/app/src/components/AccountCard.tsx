@@ -1,5 +1,6 @@
 import { AccountError, ACCOUNT_ERROR_TEXT } from '@brainscroll/core';
 import { useState } from 'react';
+import { track } from '@/analytics/track';
 import { Body, Button, Card, Field, Label } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
 
@@ -81,7 +82,7 @@ export function AccountCard() {
       {mode.kind === 'link-email' && (
         <>
           <Field label="Email" value={email} onChangeText={setEmail} placeholder="you@example.com" keyboardType="email-address" autoComplete="email" textContentType="emailAddress" autoFocus />
-          <Button label="Send code" disabled={busy || !email} onPress={() => void run(async () => { await p.startEmailLink(email); setMode({ kind: 'link-code', email }); })} />
+          <Button label="Send code" disabled={busy || !email} onPress={() => void run(async () => { await p.startEmailLink(email); track('account_link_started'); setMode({ kind: 'link-code', email }); })} />
           <Button variant="secondary" label="Cancel" onPress={reset} />
         </>
       )}
@@ -90,7 +91,7 @@ export function AccountCard() {
         <>
           <Body muted>We sent a code to {mode.email}. Enter it to save your progress.</Body>
           <Field label="Code" value={code} onChangeText={setCode} placeholder="123456" keyboardType="number-pad" textContentType="oneTimeCode" maxLength={10} autoFocus />
-          <Button label="Confirm" disabled={busy || !code} onPress={() => void run(async () => { await p.confirmEmailLink(mode.email, code); reset(); })} />
+          <Button label="Confirm" disabled={busy || !code} onPress={() => void run(async () => { await p.confirmEmailLink(mode.email, code); track('account_linked'); reset(); })} />
           <Button variant="secondary" label="Send a new code" disabled={busy} onPress={() => void run(() => p.startEmailLink(mode.email))} />
           <Button variant="secondary" label="Cancel" onPress={reset} />
         </>

@@ -43,9 +43,10 @@ async function api(path, init) {
   return { status: r.status, body };
 }
 async function load() {
-  const [c, v] = await Promise.all([api('/api/content'), api('/api/validate')]);
+  const [c, v, ins] = await Promise.all([api('/api/content'), api('/api/validate'), api('/api/insights')]);
   state.data = c.body;
   state.issues = v.body.issues ?? [];
+  state.insights = ins.body ?? { available: false };
   state.skill ??= state.data.skills[0]?.id ?? null;
   if (state.file && !state.dirty) selectLevel(state.file, true);
   render();
@@ -214,13 +215,14 @@ function render() {
   if (state.view === 'concepts') main.append(renderConcepts());
   else if (state.view === 'sources') main.append(renderSources());
   else if (state.view === 'issues') main.append(renderAllIssues());
+  else if (state.view === 'health') main.append(renderHealth());
   else if (state.draft) main.append(renderLevel());
   else main.append(h('p', { class: 'muted' }, 'Pick a level on the left.'));
 }
 function renderNav() {
   const nav = $('#nav');
   nav.replaceChildren(
-    ...[['levels', 'Curriculum'], ['concepts', 'Concepts'], ['sources', 'Sources'], ['issues', 'All issues']].map(([v, label]) =>
+    ...[['levels', 'Curriculum'], ['concepts', 'Concepts'], ['sources', 'Sources'], ['issues', 'All issues'], ['health', 'Learner health']].map(([v, label]) =>
       h('button', { class: state.view === v ? 'active' : '', onclick: () => { state.view = v; render(); } }, label)),
     h('select', { onchange: (e) => { state.skill = e.target.value; render(); } },
       state.data.skills.map((s) => h('option', { value: s.id, selected: s.id === state.skill ? 'selected' : undefined }, s.name))),
@@ -245,6 +247,7 @@ function renderSidebar() {
         h('span', { class: 't' }, l.data.title),
         e ? h('span', { class: 'badge e' }, e) : null,
         w ? h('span', { class: 'badge w', title: 'warnings other than verification' }, w) : null,
+        learnerBadge(l.data.id),
         h('span', { class: `badge ${l.data.status}` }, l.data.status)));
     }
   }
@@ -268,9 +271,9 @@ function renderLevel() {
       h('span', { class: `badge ${l.status}` }, l.status),
       h('span', { class: 'muted' }, `${l.type} · revision ${l.revision} · ${state.file}`)),
     h('div', { class: 'bar', id: 'savebar' }),
-    h('div', { class: 'tabs' }, ...[['edit', 'Edit'], ['preview', 'Preview'], ['json', 'JSON'], ['issues', `Issues (${e} / ${iss.length})`]].map(([t, label]) =>
+    h('div', { class: 'tabs' }, ...[['edit', 'Edit'], ['preview', 'Preview'], ['json', 'JSON'], ['issues', `Issues (${e} / ${iss.length})`], ['learners', `Learners${learnerCount(l.id) ? ` (${learnerCount(l.id)})` : ''}`]].map(([t, label]) =>
       h('button', { class: state.tab === t ? 'active' : '', onclick: () => { state.tab = t; render(); } }, label))));
-  const body = { edit: renderEdit, preview: renderPreview, json: renderJson, issues: () => renderIssueList(iss) }[state.tab]();
+  const body = { edit: renderEdit, preview: renderPreview, json: renderJson, issues: () => renderIssueList(iss), learners: renderLearners }[state.tab]();
   wrap.append(body);
   queueMicrotask(renderSaveBar);
   return wrap;
@@ -454,6 +457,67 @@ function renderSources() {
         h('td', { class: s.verified ? 'status-verified' : 'status-unverified' }, s.verified ? 'yes' : 'no'),
         h('td', {}, `${c.verified}/${c.total}`),
         h('td', { class: 'muted' }, s.notes ?? '')); }))));
+}
+
+// ── learner insights (npm run insights:pull) ─────────────────────
+const levelInsight = (id) => (state.insights?.available ? state.insights.levels[id] : null);
+function learnerCount(id) {
+  const li = levelInsight(id);
+  if (!li) return 0;
+  return li.flags.length + li.questions.reduce((n, q) => n + q.flags.length, 0) + li.reports.length;
+}
+function learnerBadge(id) {
+  const n = learnerCount(id);
+  return n ? h('span', { class: 'badge', style: 'color:var(--brand);border-color:var(--brand)', title: 'learner flags and open reports' }, `◆${n}`) : null;
+}
+const pct = (x) => (x === null || x === undefined ? '—' : `${Math.round(Number(x) * 100)}%`);
+function noInsights() {
+  return h('div', { class: 'box' }, h('p', {}, 'No learner data loaded.'),
+    h('p', { class: 'muted' }, 'Once the app is connected to Supabase, run `SUPABASE_URL=… SUPABASE_SERVICE_ROLE_KEY=… npm run insights:pull`, then reload. Data is aggregate, read-only, and stays in admin/.data/ (gitignored).'));
+}
+function renderLearners() {
+  if (!state.insights?.available) return noInsights();
+  const l = state.draft;
+  const li = levelInsight(l.id);
+  const out = h('div', {}, h('p', { class: 'muted' }, `Pulled ${state.insights.pulledAt} from ${state.insights.source}. Flags need at least ${state.insights.minLearners} learners.`));
+  if (!li) return out.append(h('p', {}, 'No learners have reached this level yet.')), out;
+  const f = li.funnel;
+  out.append(h('div', { class: 'box' }, h('h3', {}, 'Level'), f ? grid(
+    ['Started / completed', `${f.started} / ${f.completed} (${pct(f.completion_rate)})`],
+    ['Mean first-try share', pct(f.mean_first_try_share)],
+    ['Exits by card', Object.entries(f.exits_by_card).map(([i, n]) => `card ${Number(i) + 1}: ${n}`).join(' · ') || '—'],
+  ) : h('p', { class: 'muted' }, 'No starts yet.'), ...li.flags.map((x) => h('p', { class: 'sev-warning' }, '◆ ', x))));
+  const qById = new Map(l.questions.map((q) => [q.id, q]));
+  for (const q of li.questions) {
+    const def = qById.get(q.id);
+    const st = q.stat;
+    out.append(h('div', { class: 'box' }, h('h3', {}, short(q.id), h('span', { class: 'muted' }, def?.prompt ?? '')), st ? h('div', {},
+      grid(['Learners', st.learners], ['First try', pct(st.first_try_rate)], ['Avg attempts', st.avg_attempts ?? '—'], ['Review first try', `${pct(st.review_first_try_rate)} of ${st.review_attempts}`]),
+      h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Option'), h('th', {}, 'Picked first'))), h('tbody', {}, (def?.options ?? []).map((o) =>
+        h('tr', {}, h('td', {}, o.correct ? '✓ ' : '', o.label), h('td', {}, `${st.first_picks[o.id] ?? 0} (${pct((st.first_picks[o.id] ?? 0) / Math.max(st.learners, 1))})`))))),
+      ...q.flags.map((x) => h('p', { class: 'sev-warning' }, '◆ ', x))) : h('p', { class: 'muted' }, 'No attempts yet.')));
+  }
+  out.append(h('div', { class: 'box' }, h('h3', {}, `Open reports (${li.reports.length})`),
+    li.reports.length ? h('ul', { class: 'issues' }, li.reports.map((r) => h('li', {}, h('strong', {}, r.category), ' · ', h('code', {}, short(r.object_id)), ' · ', r.message ?? h('span', { class: 'muted' }, 'no message'), h('span', { class: 'muted' }, ` · ${r.created_at.slice(0, 10)}`)))) : h('p', { class: 'muted' }, 'None.')));
+  return out;
+}
+function renderHealth() {
+  if (!state.insights?.available) return noInsights();
+  const hdata = state.insights.health;
+  const label = {
+    active_learners: 'Active learners', learning_days: 'Learner-days with learning', levels_completed: 'Levels completed',
+    first_try_rate_new_levels: 'First-try rate on new levels', review_first_try_rate: 'Delayed recall (review first try)', reviews_answered: 'Review items answered',
+    days_at_daily_cap_share: 'Learning days that reached the daily cap', returned_next_day_share: 'Came back the next day', returned_within_7_days_share: 'Came back within 7 days',
+    saved_account_share: 'Players with a saved account', open_reports: 'Open content reports', concept_strength_distribution: 'Concept strength (0–5 → learners×concepts)', window_days: 'Window (days)',
+  };
+  const fmt = (k, v) => (/share|rate/.test(k) ? pct(v) : typeof v === 'object' ? JSON.stringify(v) : String(v ?? '—'));
+  const flagged = Object.entries(state.insights.levels).filter(([id]) => learnerCount(id) > 0).sort((a, b) => learnerCount(b[0]) - learnerCount(a[0]));
+  return h('div', {}, h('h2', {}, 'Learner health'),
+    h('p', { class: 'muted' }, `Learning and product health, never time spent. Pulled ${state.insights.pulledAt}.`),
+    h('table', {}, h('tbody', {}, Object.entries(hdata).map(([k, v]) => h('tr', {}, h('td', {}, label[k] ?? k), h('td', {}, fmt(k, v)))))),
+    h('h3', {}, `Levels needing attention (${flagged.length})`),
+    h('ul', { class: 'issues' }, flagged.map(([id]) => { const lf = state.data.levels.find((x) => x.data.id === id); return h('li', {},
+      h('a', { href: '#', onclick: (e) => { e.preventDefault(); if (lf) { selectLevel(lf.file); state.tab = 'learners'; render(); } } }, `${short(id)} ${lf?.data.title ?? ''}`), ` — ${learnerCount(id)} flags/reports`); })));
 }
 
 // ── boot ─────────────────────────────────────────────────────────

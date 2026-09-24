@@ -10,6 +10,7 @@ import {
   localDate,
   submitReview,
   totalCleared,
+  type ContentReportInput,
   type ProgressState,
 } from '@brainscroll/core';
 import { allLevels, getLevel } from '@/content';
@@ -82,8 +83,19 @@ export function createLocalBackend(): ProgressBackend {
     startSignIn: unavailable,
     confirmSignIn: unavailable,
     signOut: unavailable,
+    // Offline builds send nothing anywhere.
+    async logEvents() {},
+    async reportContent(input) {
+      // Kept on-device (there's no server to send them to); newest wins per object.
+      const reports = (await load<ContentReportInput[]>(REPORTS_KEY)) ?? [];
+      const duplicate = reports.some((r) => r.objectId === input.objectId);
+      await save(REPORTS_KEY, [...reports.filter((r) => r.objectId !== input.objectId), input].slice(-100));
+      return { duplicate };
+    },
   };
 }
+
+const REPORTS_KEY = 'brainscroll.reports.v1';
 
 async function unavailable(): Promise<never> {
   throw new AccountError('ACCOUNTS_UNAVAILABLE');

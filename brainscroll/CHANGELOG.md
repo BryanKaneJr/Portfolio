@@ -5,6 +5,15 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 ## 2026-09-24 — Autonomous build pass (no Supabase/phone testing yet)
 
 - **Product decision recorded: Unlimited perks.** Unlimited's only gameplay/progression advantage is removing the daily new-level cap; it may also include non-progression cosmetic or personalization benefits (themes, profile customization). Accomplishment cosmetics (mastery frames, quest rewards, rare trophy treatments, prestige effects) stay earned. Updated product-rules rule 10, CURRENT_PRODUCT_DECISIONS §8, README, CLAUDE.md, social-expansion.md (open question closed) and code comments.
+- **Analytics and content reporting** (`docs/analytics.md`). It measures learning and product health, **never time spent**: no durations anywhere, and a test enforces it.
+  - **Server** (migration `20260929`):
+    - service-role insight functions built on existing records: per-question first-try rate and **first-pick counts per option**, delayed-recall rate, level funnel with the card where people leave, return days, daily-cap reach, saved-account share
+    - an allowlisted, rate-limited `log_events`
+    - a validated, deduped, rate-limited `report_content`; direct inserts are now blocked
+  - **Client:** a 7-event catalog in core, mirrored in SQL with a sync test. It's sanitized twice: typed flat props, no emails. The queue batches and persists across reloads; offline builds send nothing, and `EXPO_PUBLIC_ANALYTICS=off` turns it off.
+  - **App:** a ⚑ **Report a problem** sheet in the level player for the card or question on screen.
+  - **Content Admin:** after `npm run insights:pull`, there's a Learner health view, a per-level Learners tab and plain-language flags (hard question, tempting distractor, never-picked distractor, weak recall, drop-off card), shown only with at least 20 learners.
+  - **Tests:** a new SQL suite, core, sync, pull and admin tests, and 6 new remote e2e checks, including that a report lands and that no email reaches analytics.
 - **Account persistence: anonymous → permanent** (`docs/accounts.md`). A guest adds an email to the **same** Supabase user, so progress is never migrated and can't be lost. Flows:
   - save progress (email → one-time code)
   - sign in on another device (never creates accounts)

@@ -1,4 +1,4 @@
-import type { AccountState, AnswerResult, CompletionSummary, DailyAllowance, Level, ReviewItem, ReviewResult, StartReason } from '@brainscroll/core';
+import type { AccountState, AnalyticsEvent, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, Level, ReviewItem, ReviewResult, StartReason } from '@brainscroll/core';
 
 /**
  * Where progress lives. `local` runs the shared rules on-device (offline play);
@@ -53,6 +53,12 @@ export interface ProgressBackend {
   confirmSignIn(email: string, code: string): Promise<AccountState>;
   /** Saved accounts only: sign out and continue as a fresh guest. Guests can't sign out (it would orphan their progress). */
   signOut(): Promise<AccountState>;
+
+  // ── Analytics & content reports (docs/analytics.md) ──
+  /** Sends already-sanitized events. Remote: log_events (allowlisted server-side). Local: dropped. */
+  logEvents(events: AnalyticsEvent[]): Promise<void>;
+  /** Files a report about a level, card or question. A repeat for the same object updates the open report. */
+  reportContent(input: ContentReportInput): Promise<{ duplicate: boolean }>;
 }
 
 export function deviceTimeZone(): string {

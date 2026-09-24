@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync, renameSync, writeFileSync } from
 import { join } from 'node:path';
 import { ContentStatus, LEARNING_STRUCTURE, Level, QUESTION_PURPOSES, TEXT_BUDGET, validateContent, type ContentIssue } from '@brainscroll/core';
 import { loadContent } from '../../scripts/lib/load-content';
+import { loadInsights } from './insights';
 
 /**
  * File-backed access to content/ for the admin tool. Every read goes to disk,
@@ -14,6 +15,8 @@ export interface StoreOptions {
   contentRoot: string;
   /** The committed app bundle, used as the revision baseline (optional). */
   bundlePath?: string;
+  /** Pulled learner insights (npm run insights:pull), optional. */
+  insightsPath?: string;
 }
 
 export type SaveResult =
@@ -23,7 +26,7 @@ export type SaveResult =
 const SKILL_DIR = /^[a-z0-9_]+\.[a-z0-9_]+$/;
 const LEVEL_FILE = /^\d{3}$/;
 
-export function createStore({ contentRoot, bundlePath }: StoreOptions) {
+export function createStore({ contentRoot, bundlePath, insightsPath }: StoreOptions) {
   const baseline = () =>
     bundlePath && existsSync(bundlePath) ? (JSON.parse(readFileSync(bundlePath, 'utf8')) as { levels: unknown[] }).levels : undefined;
 
@@ -92,7 +95,12 @@ export function createStore({ contentRoot, bundlePath }: StoreOptions) {
     return { ok: true, issues: own };
   }
 
-  return { snapshot, validate: () => validate(), saveLevel };
+  function insights() {
+    const levels = loadContent(contentRoot).levels.map((l) => l.data as Parameters<typeof loadInsights>[1][number]);
+    return loadInsights(insightsPath, levels);
+  }
+
+  return { snapshot, validate: () => validate(), saveLevel, insights };
 }
 
 /** Issues that belong to one level: the level itself, its file, and its cards and questions. */

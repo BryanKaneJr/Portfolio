@@ -10,3 +10,4 @@ export * from './structure';
 export * from './quality';
 export * from './supabase-config';
 export * from './account';
+export * from './analytics';

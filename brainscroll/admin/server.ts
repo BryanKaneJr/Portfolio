@@ -56,6 +56,7 @@ export function createAdminServer(options: StoreOptions): Server {
       }
       if (req.method === 'GET' && url.pathname === '/api/content') return send(res, 200, store.snapshot());
       if (req.method === 'GET' && url.pathname === '/api/validate') return send(res, 200, { issues: store.validate() });
+      if (req.method === 'GET' && url.pathname === '/api/insights') return send(res, 200, store.insights());
 
       const m = /^\/api\/levels\/([^/]+)\/(\d{3})$/.exec(url.pathname);
       if (req.method === 'PUT' && m) {
@@ -80,7 +81,11 @@ export function createAdminServer(options: StoreOptions): Server {
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const repo = join(here, '..');
   const port = Number(process.env.ADMIN_PORT ?? 4321);
-  createAdminServer({ contentRoot: process.env.CONTENT_ROOT ?? join(repo, 'content'), bundlePath: join(repo, 'app', 'src', 'content', 'bundle.json') }).listen(
+  createAdminServer({
+    contentRoot: process.env.CONTENT_ROOT ?? join(repo, 'content'),
+    bundlePath: join(repo, 'app', 'src', 'content', 'bundle.json'),
+    insightsPath: process.env.INSIGHTS_PATH ?? join(here, '.data', 'insights.json'),
+  }).listen(
     port,
     '127.0.0.1',
     () => console.log(`BrainScroll Content Admin → http://127.0.0.1:${port}`),
