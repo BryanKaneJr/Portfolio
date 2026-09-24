@@ -1,8 +1,8 @@
-import { REVIEW_SESSION_MAX_QUESTIONS, type ReviewItem } from '@brainscroll/core';
+import { DR_SCROLL_LINES, REVIEW_SESSION_MAX_QUESTIONS, type ReviewItem } from '@brainscroll/core';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { View } from 'react-native';
-import { Body, Button, Caption, Card, Eyebrow, H2, Numeral, Row, Screen, ScreenHeader } from '@/components/ui';
+import { Body, Button, Caption, Card, DrScrollSays, Eyebrow, H2, Numeral, Row, Screen, ScreenHeader } from '@/components/ui';
 import { getConcept } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { space } from '@/theme/tokens';
@@ -61,6 +61,7 @@ export default function ReviewScreen() {
           <Eyebrow tone="success">All caught up</Eyebrow>
           <H2>Nothing to refresh right now.</H2>
           <Body muted>Concepts come back here on a schedule: sooner if you missed them, later as they stick.</Body>
+          <DrScrollSays pose="sleeping" lines={[DR_SCROLL_LINES.reviewEmpty]} />
         </Card>
       )}
       <Caption>Right first time earns +10 XP per item. Reviews never use your daily levels.</Caption>

@@ -14,7 +14,7 @@ export function mascotArt(pose: MascotPose): ImageSourcePropType {
   return POSE_ART[pose] ?? reference;
 }
 
-const SIZE = { sm: 64, md: 96, lg: 168 } as const;
+const SIZE = { xs: 44, sm: 64, md: 96, lg: 168 } as const;
 export type MascotSize = keyof typeof SIZE;
 
 /** Dr. Scroll on his own. Decorative: whatever he says must also be in text. */

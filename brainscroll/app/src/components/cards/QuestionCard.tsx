@@ -86,14 +86,14 @@ export function QuestionFeedback({ attempts }: { attempts: AttemptView[] }) {
   const s = questionStatus(attempts);
   if (s.resolvedBy)
     return (
-      <FeedbackPanel tone="success" title={s.firstTry ? 'Correct' : 'Got it: reinforced'}>
+      <FeedbackPanel tone="success" mascot="thumbs-up" title={s.firstTry ? 'Correct' : 'Got it: reinforced'}>
         {s.resolvedBy.explanation ? <Body>{s.resolvedBy.explanation}</Body> : null}
         {!s.firstTry && <Body muted>We’ll bring this back later so it sticks.</Body>}
       </FeedbackPanel>
     );
   if (s.lastWrong)
     return (
-      <FeedbackPanel tone="reinforce" title="Not quite">
+      <FeedbackPanel tone="reinforce" mascot="oops" title="Not quite">
         <Body>{s.lastWrong.rationale ?? 'That one doesn’t fit.'} Take another look above, then choose again.</Body>
       </FeedbackPanel>
     );

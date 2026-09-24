@@ -1,4 +1,4 @@
-import { LEARNING_STRUCTURE, MASTERY_BAND_SIZE, skillProgressView, type CompletionOutcome } from '@brainscroll/core';
+import { DR_SCROLL_LINES, LEARNING_STRUCTURE, MASTERY_BAND_SIZE, skillProgressView, type CompletionOutcome } from '@brainscroll/core';
 import { Redirect, router } from 'expo-router';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -8,6 +8,7 @@ import {
   Card,
   Chip,
   Display,
+  DrScrollSays,
   Emblem,
   Eyebrow,
   Halo,
@@ -103,7 +104,12 @@ export default function LevelCompleteScreen() {
           </Reveal>
 
           <Reveal delay={900}>
-            <View style={{ alignItems: 'center', gap: space.sm }}>
+            <View style={{ alignItems: 'center', gap: space.lg }}>
+              <DrScrollSays
+                pose={mastery ? 'mastery' : leveledUp ? 'celebrate' : 'clapping'}
+                lines={[s.alreadyCompleted ? DR_SCROLL_LINES.levelReplay : mastery ? DR_SCROLL_LINES.levelMastery : DR_SCROLL_OUTCOME[s.outcome]]}
+                style={{ width: '100%', minWidth: 300 }}
+              />
               <Row>
                 <Chip tone="brand">
                   <Caption tone="text">Knowledge Lv. {s.knowledgeLevel}</Caption>
@@ -142,6 +148,13 @@ export default function LevelCompleteScreen() {
     </SafeAreaView>
   );
 }
+
+const DR_SCROLL_OUTCOME: Record<CompletionOutcome, string> = {
+  perfect: DR_SCROLL_LINES.levelPerfect,
+  strong: DR_SCROLL_LINES.levelStrong,
+  reinforced: DR_SCROLL_LINES.levelReinforced,
+  heavily_reinforced: DR_SCROLL_LINES.levelHeavilyReinforced,
+};
 
 const OUTCOME: Record<CompletionOutcome, string> = {
   perfect: 'Perfect Recall',

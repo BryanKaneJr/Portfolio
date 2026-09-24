@@ -52,4 +52,12 @@ export const DR_SCROLL_LINES = {
   introLessons: 'Every level here is a short lesson with a few questions. Clear it, and that skill levels up for good.',
   introPromise: "I'll pop in now and then with a tip. Mostly I'll stay out of your way.",
   introReply: 'Nice to meet you',
+  levelPerfect: 'First try on every question. Beautiful.',
+  levelStrong: "Nicely done. That one's yours now.",
+  levelReinforced: "You fixed every miss. That's exactly how it sticks.",
+  levelHeavilyReinforced: "Cleared! The tricky ones come back in Review, and they'll feel easier.",
+  levelMastery: "A mastery star! I'm framing this one.",
+  levelReplay: 'Good refresher. Knowledge likes a second visit.',
+  dailyComplete: "I'll save your spot for tomorrow.",
+  reviewEmpty: "Nothing to refresh. Your memory's in good shape.",
 } as const;

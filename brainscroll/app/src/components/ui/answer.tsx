@@ -1,6 +1,8 @@
+import type { MascotPose } from '@brainscroll/core';
 import type { ReactNode } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { color, layout, radius, space, type } from '@/theme/tokens';
+import { DrScroll } from './mascot';
 import { Eyebrow } from './text';
 
 export type AnswerState = 'idle' | 'selected' | 'correct' | 'eliminated' | 'locked';
@@ -40,8 +42,20 @@ export function AnswerOption({ label, state, onPress, letter }: { label: string;
 /**
  * The in-context verdict, anchored above the bottom action (never a separate
  * screen). Success is mint and short; "reinforce" is teaching, not punishment.
+ * `mascot` adds a small, quiet Dr. Scroll reaction beside it (decorative).
  */
-export function FeedbackPanel({ tone, title, children }: { tone: 'success' | 'reinforce'; title: string; children?: ReactNode }) {
+export function FeedbackPanel({ tone, title, mascot, children }: { tone: 'success' | 'reinforce'; title: string; mascot?: MascotPose; children?: ReactNode }) {
+  const panel = <FeedbackBody tone={tone} title={title}>{children}</FeedbackBody>;
+  if (!mascot) return panel;
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: space.md }}>
+      <DrScroll pose={mascot} size="xs" />
+      <View style={{ flex: 1 }}>{panel}</View>
+    </View>
+  );
+}
+
+function FeedbackBody({ tone, title, children }: { tone: 'success' | 'reinforce'; title: string; children?: ReactNode }) {
   const success = tone === 'success';
   return (
     <View style={styles.feedback} accessibilityLiveRegion="polite">

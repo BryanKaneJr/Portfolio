@@ -1,10 +1,10 @@
-import { PRICING, VOICE } from '@brainscroll/core';
+import { DR_SCROLL_LINES, PRICING, VOICE } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useEffect } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, Caption, Card, Display, Eyebrow, Halo, Numeral, Pips, Pop, Reveal } from '@/components/ui';
+import { Body, Button, Caption, Card, Display, DrScrollSays, Eyebrow, Halo, Numeral, Pips, Pop, Reveal } from '@/components/ui';
 import { useProgressView } from '@/progress/ProgressProvider';
 import { color, layout, space } from '@/theme/tokens';
 
@@ -37,11 +37,9 @@ export default function DailyCompleteScreen() {
             <Pips filled={today.used} total={today.cap ?? today.used} tone="success" />
           </View>
           <Reveal delay={300}>
-            <View style={{ gap: space.sm, alignItems: 'center' }}>
+            <View style={{ gap: space.lg, alignItems: 'center' }}>
               <Display center>Brain successfully fed.</Display>
-              <Body center muted>
-                {VOICE.dailyComplete} 🌱
-              </Body>
+              <DrScrollSays pose="go-outside" lines={[`${VOICE.dailyComplete} 🌱`, DR_SCROLL_LINES.dailyComplete]} style={{ width: '100%', minWidth: 280 }} />
             </View>
           </Reveal>
           <Reveal delay={600}>
