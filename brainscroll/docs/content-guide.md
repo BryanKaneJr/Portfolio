@@ -124,6 +124,28 @@ npm run verify:record -- fact.astronomy.sun_age source.nasa_sun_facts --status v
 npm run verify:import-csv -- docs/verification/astronomy.csv --by "Name"   # or fill in the CSV instead
 ```
 
+## Automated quality checks
+
+`npm run validate:content` (add `-- --json` for machine-readable output) runs, beyond the schema and references:
+
+| Check | Severity |
+| --- | --- |
+| Level file name matches its number; at most 16 cards per level | error |
+| Identical question prompt anywhere in the skill | error |
+| Published level changed without a `revision` bump, a published level deleted, or a revision going backwards (baseline: the committed app bundle) | error |
+| An asset reproduced from a `reference_only` source | error |
+| A number on a hook/learning card that isn't in any claim on that card (unsupported or mismatched figure) | warning |
+| A learning card that states no claim | warning |
+| A prompt containing its own answer, or an earlier question's feedback giving away a later answer in the same level | warning |
+| Near-duplicate question (very similar prompt, same answer) in the skill | warning |
+| The right answer is ≥30% longer than every distractor in more than 25% of a skill's questions (a length tell) | warning |
+| A question whose `sourceCardIds` state no claim of the concepts it tests | warning |
+| "All/none of the above", or fewer than 3 options | warning |
+| A concept taught by more than one level, taught but never tested (it could never return in review), reinforced before it's taught, or unused | warning |
+| A source nobody cites | warning |
+
+Plus the syllabus checks (coverage, chapters, title drift) and the claim/verification checks above.
+
 ## Weekly Quests (post-MVP)
 
 Quests are content too: data-driven definitions, never hard-coded. When they're built they'll live in `content/quests/<id>.json`, be validated like levels, and be imported by the same pipeline. Rules for authors:

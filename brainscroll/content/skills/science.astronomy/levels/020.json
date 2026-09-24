@@ -43,6 +43,26 @@
       "conceptId": "concept.astronomy.lunar_craters",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.night_sky_seasons",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.moon_phases",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.eclipse_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.sky_rises_east",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -191,7 +211,7 @@
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.astronomy.earth_orbit_year",
+        "concept.astronomy.night_sky_seasons",
         "concept.astronomy.sky_motion_summary"
       ],
       "sourceCardIds": [
@@ -214,7 +234,7 @@
         },
         {
           "id": "c",
-          "label": "As Earth orbits, the night side faces different parts of space",
+          "label": "As Earth orbits, night faces a new part of space",
           "correct": true
         },
         {
@@ -241,19 +261,19 @@
       "options": [
         {
           "id": "a",
-          "label": "Mars reverses in its orbit",
+          "label": "Mars briefly reverses direction in its orbit",
           "correct": false,
           "rationale": "Planets never reverse; it’s an illusion."
         },
         {
           "id": "b",
-          "label": "The Moon pulls Mars backwards",
+          "label": "The Moon’s gravity drags Mars backwards",
           "correct": false,
           "rationale": "The Moon doesn’t affect Mars’s motion."
         },
         {
           "id": "c",
-          "label": "Mars is behind the Sun",
+          "label": "Mars is passing behind the Sun",
           "correct": false,
           "rationale": "Then we couldn’t see it at all."
         },
@@ -311,6 +331,10 @@
     }
   ],
   "sourceIds": [
-    "source.nasa_earth_perihelion"
+    "source.nasa_earth_perihelion",
+    "source.nasa_moon_phases",
+    "source.nasa_eclipses",
+    "source.nasa_spaceplace_constellations",
+    "source.nasa_moon_tides"
   ]
 }

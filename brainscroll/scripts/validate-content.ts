@@ -3,14 +3,27 @@
  * the importer refuse malformed levels before they reach the database.
  *
  *   npm run validate:content
+ *   npm run validate:content -- --json   # machine-readable issues (admin tool, CI)
  */
+import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateContent } from '@brainscroll/core';
 import { loadContent } from './lib/load-content';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..', 'content');
-const { issues, content } = validateContent(loadContent(root));
+const repo = join(dirname(fileURLToPath(import.meta.url)), '..');
+const root = join(repo, 'content');
+const asJson = process.argv.includes('--json');
+// The committed app bundle is the last built snapshot: published levels in it
+// must not change without a revision bump, and stable IDs must not vanish.
+const bundlePath = join(repo, 'app', 'src', 'content', 'bundle.json');
+const baselineLevels = existsSync(bundlePath) ? (JSON.parse(readFileSync(bundlePath, 'utf8')) as { levels: unknown[] }).levels : undefined;
+const { issues, content } = validateContent({ ...loadContent(root), baselineLevels });
+
+if (asJson) {
+  process.stdout.write(JSON.stringify({ issues }, null, 2) + '\n');
+  process.exit(issues.some((i) => i.severity === 'error') ? 1 : 0);
+}
 
 for (const i of issues) {
   const tag = i.severity === 'error' ? '✖ error  ' : '⚠ warning';

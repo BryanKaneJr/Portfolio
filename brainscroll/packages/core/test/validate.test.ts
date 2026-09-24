@@ -14,7 +14,7 @@ function makeLevel(n: number, overrides: Record<string, unknown> = {}): Record<s
     purpose: PURPOSES[(i - 1) % 3],
     conceptIds: [CONCEPT],
     sourceCardIds: [`card.astronomy.${num}.c2`],
-    prompt: `Question ${i}?`,
+    prompt: `Question ${i} of level ${n}?`,
     options: [
       { id: 'a', label: 'A star', correct: i === 1 },
       { id: 'b', label: 'A planet', correct: i === 2 },
@@ -60,7 +60,7 @@ function bundle(levels: Record<string, unknown>[] = [makeLevel(1)], verified = t
     concepts: [
       {
         where: 'concepts',
-        data: { id: CONCEPT, title: 'The Sun is a star', description: 'The Sun is a star.', difficulty: 0.05, facts: [{ id: FACT, text: 'The Sun is a star.', sourceIds: ['source.nasa_sun'], cardIds: ['card.astronomy.001.c2'] }] },
+        data: { id: CONCEPT, title: 'The Sun is a star', description: 'The Sun is a star.', difficulty: 0.05, facts: [{ id: FACT, text: 'The Sun is a star.', sourceIds: ['source.nasa_sun'], cardIds: ['card.astronomy.001.c2', 'card.astronomy.001.c3'] }] },
       },
     ],
     levels: levels.map((data, i) => ({ where: `l${i + 1}`, data })),

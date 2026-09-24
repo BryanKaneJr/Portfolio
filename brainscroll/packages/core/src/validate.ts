@@ -3,6 +3,7 @@ import { Asset, Concept, Level, Skill, Source, Subject, Syllabus, VerificationRe
 import { levelId, levelScope, parseLevelId } from './ids';
 import { levelTypeFor } from './progression';
 import { cardRole, learningCards, learningWordCount, structureFor } from './structure';
+import { checkQuality, checkRevisions } from './quality';
 
 export interface ContentIssue {
   severity: 'error' | 'warning';
@@ -23,6 +24,8 @@ export interface RawContentBundle {
   verification?: unknown[];
   /** content/skills/<skill>/syllabus.json, when present. */
   syllabi?: { where: string; data: unknown }[];
+  /** The last published snapshot (e.g. the committed app bundle), for revision/stable-ID checks. */
+  baselineLevels?: unknown[];
 }
 
 export interface ValidatedContent {
@@ -243,6 +246,14 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
 
   checkClaims(concepts, levels, verification, sourceById, err, warn);
   for (const s of syllabi) checkSyllabus(s, levelsBySkill.get(s.skillId) ?? [], skillIds, err, warn);
+  checkQuality({ levels, concepts, sources, assets, levelFiles: new Map(raw.levels.map((l, i) => [levels[i]?.id ?? '', l.where])) }, err, warn);
+  if (raw.baselineLevels) {
+    const baseline = raw.baselineLevels.flatMap((l) => {
+      const r = Level.safeParse(l);
+      return r.success ? [r.data] : [];
+    });
+    checkRevisions(baseline, levels, err, warn);
+  }
 
   // Predictable answers undermine learning: warn when one slot dominates a skill.
   for (const [skill, list] of levelsBySkill) {
