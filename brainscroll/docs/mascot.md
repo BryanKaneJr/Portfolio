@@ -12,12 +12,14 @@ He's inspired by the "wild-haired genius professor" idea, but he must not be Alb
 
 ## Look (every image)
 
-- **Shape:** short and round, like a toy or a chibi figure. His head is about 40% of his height. He has a small round belly and short arms and legs.
-- **Hair:** a fluffy white cloud of hair on the sides and back, a shiny bald crown, and bushy white eyebrows. He's clean-shaven or has only a tiny tidy white mustache, never a big droopy one.
-- **Face:** big round glasses, twinkling kind eyes, rosy cheeks and a warm smile.
-- **Clothes:** a brown tweed jacket with elbow patches, a cream shirt and a **violet bow tie** in `#7C5CFF`, the brand accent and his signature. A yellow pencil is tucked behind one ear.
-- **Style:** the same glossy 3D "clay" look as every other BrainScroll image. Soft light from the top left and a gentle shadow.
-- **Background:** transparent PNG if the image tool supports it, because he'll sit on top of cards and screens. Otherwise use plain Midnight Navy `#111827`.
+**The approved reference is [`mascot-reference.webp`](mascot-reference.webp)** (it becomes `mascot.reference`). When this text and the image disagree, the image wins. Every pose must match it:
+
+- **Shape:** short and round, like a toy. His head is a bit under half his height. He has short arms and legs and simple mitten-like hands.
+- **Hair:** a bald, smooth crown with two fluffy white clouds of hair at the sides, and thick white rounded eyebrows. He's clean-shaven, with no mustache or beard.
+- **Face:** thin dark round glasses, small black oval eyes, a round nose, soft warm cheeks and a gentle closed smile.
+- **Clothes:** a plain brown jacket with two buttons and faint elbow patches, matching brown trousers and shoes, a cream shirt and a **violet bow tie**, his signature. A yellow pencil is tucked into the hair above his right ear (his right, the viewer's left).
+- **Style:** soft matte 3D clay, smooth and slightly velvety. It's softer than the glossy object icons, and that's fine for a character. Soft even light, with a gentle shadow under his feet.
+- **Background:** transparent. The reference has a transparent background, so keep every pose transparent to sit on top of cards and screens.
 - **Rules:** he's the only character in the image, with no text, letters or numbers anywhere, and no gold except in `mascot.mastery`.
 
 ## Personality (for copy written next to him)
@@ -31,7 +33,7 @@ He's inspired by the "wild-haired genius professor" idea, but he must not be Alb
 
 A character only works if he looks like the same person in every image.
 
-1. Generate `mascot.reference` first: a front view, standing, neutral and friendly. Iterate until it's right, then approve it.
+1. `mascot.reference` is done and approved: [`mascot-reference.webp`](mascot-reference.webp).
 2. Make every pose **from that reference image**, using the image model's reference or edit input, not text alone. The prompt should say "the same character" and describe only the pose and prop.
 3. Review the poses side by side. Reject any where the hair, glasses, bow tie or proportions drift.
 
@@ -96,6 +98,7 @@ Nothing shows him yet. Once the images exist:
 - **Fixed spots:**
   - sign-in (`wave`), answer feedback (`thumbs-up` and `oops`), level complete (`clapping`), level up (`celebrate`);
   - checkpoints (`checkpoint`), mastery (`mastery`), Daily Complete (`go-outside`), loading (`waiting`), errors (`tangled`), empty states (`sleeping`).
+- **Quiet in lessons, loud in progress:** inside a lesson he uses calm poses only (pointing, thinking, idea, explaining, magnifier, whisper, thumbs-up, oops), matching the design rule that learning mode stays quiet. The big poses (celebrate, clapping, mastery) belong on the progress screens.
 - **Motion:** a small bounce when he appears, no more. He should never block the content or slow a lesson down.
 
 ## Name
