@@ -1,0 +1,206 @@
+{
+  "id": "level.history.ancient_rome.052",
+  "skillId": "skill.history.ancient_rome",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Caligula",
+  "objective": "After this level you can separate what is known about Caligula from later rumor.",
+  "summary": "Caligula, “little boot,” began popular in 37 CE and became autocratic. His own guard killed him in 41 CE. Many tales about him are hostile rumor.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.caligula",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.tiberius",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.051"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most of what you’ve heard about Caligula was written by people who hated him."
+    },
+    {
+      "id": "card.ancient_rome.052.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Little Boot",
+      "body": "Gaius, known as Caligula, became emperor in 37 CE. Caligula means “little boot,” a nickname soldiers gave him as a child, when he wore a small soldier’s uniform in his father’s camp. He was popular at first, but his rule soon became autocratic and extravagant."
+    },
+    {
+      "id": "card.ancient_rome.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stories and evidence",
+      "body": "Most accounts of Caligula come from later writers hostile to him, so historians treat the wildest stories with caution. The tale that he planned to make his horse a consul may be a joke or an exaggeration.",
+      "callout": "Ask who wrote a story, and why"
+    },
+    {
+      "id": "card.ancient_rome.052.c4",
+      "type": "fact",
+      "fact": "Caligula was murdered by officers of his own guard in 41 CE.",
+      "context": "The Praetorian Guard, meant to protect the emperor, ended his reign."
+    },
+    {
+      "id": "card.ancient_rome.052.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.052.q1"
+    },
+    {
+      "id": "card.ancient_rome.052.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.052.q2"
+    },
+    {
+      "id": "card.ancient_rome.052.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.052.q3"
+    },
+    {
+      "id": "card.ancient_rome.052.c8",
+      "type": "checkpoint",
+      "headline": "Caligula: sifted",
+      "learned": [
+        "Caligula means “little boot”",
+        "He ruled from 37 to 41 CE",
+        "His guard murdered him",
+        "Hostile sources shape his legend"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.caligula"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.052.c2"
+      ],
+      "prompt": "What does the nickname Caligula mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Little boot",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Golden helmet",
+          "correct": false,
+          "rationale": "It was about his footwear."
+        },
+        {
+          "id": "c",
+          "label": "Young wolf",
+          "correct": false,
+          "rationale": "It was about his footwear."
+        },
+        {
+          "id": "d",
+          "label": "Little soldier",
+          "correct": false,
+          "rationale": "Close, but it was about his footwear."
+        }
+      ],
+      "explanation": "Soldiers called the child Gaius “little boot” because of his small uniform.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.caligula"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.052.c3"
+      ],
+      "prompt": "Why do historians doubt many stories about Caligula?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He banned all writing during his reign",
+          "correct": false,
+          "rationale": "Writers were active."
+        },
+        {
+          "id": "b",
+          "label": "The stories were all written in Greek",
+          "correct": false,
+          "rationale": "Language isn’t the problem."
+        },
+        {
+          "id": "c",
+          "label": "His coins show he was a gentle ruler",
+          "correct": false,
+          "rationale": "The problem is the writers."
+        },
+        {
+          "id": "d",
+          "label": "They come from later writers who hated him",
+          "correct": true
+        }
+      ],
+      "explanation": "Hostile later writers had reasons to exaggerate, so their wildest claims need caution.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.caligula",
+        "concept.ancient_rome.tiberius"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.052.c4",
+        "card.ancient_rome.051.c4"
+      ],
+      "prompt": "From Level 51: which force, meant to protect the emperor, killed Caligula?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The legions on the Rhine",
+          "correct": false,
+          "rationale": "They were far away."
+        },
+        {
+          "id": "b",
+          "label": "The Praetorian Guard",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The tribunes of the plebs",
+          "correct": false,
+          "rationale": "They had no soldiers."
+        },
+        {
+          "id": "d",
+          "label": "The Senate’s own bodyguard",
+          "correct": false,
+          "rationale": "It had none."
+        }
+      ],
+      "explanation": "Officers of the Praetorian Guard, stationed in Rome, murdered Caligula in 41 CE.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_caligula",
+    "source.brit_praetorian"
+  ]
+}

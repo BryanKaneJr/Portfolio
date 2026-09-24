@@ -1,0 +1,205 @@
+{
+  "id": "level.history.ancient_rome.054",
+  "skillId": "skill.history.ancient_rome",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Nero and the Great Fire",
+  "objective": "After this level you can explain the Great Fire of Rome and Nero's reputation.",
+  "summary": "Nero became emperor at 16. After the fire of 64 CE he blamed the Christians and built a palace on the ruins. His death in 68 CE ended Augustus’ line.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.nero",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.claudius",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.053"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome burned for six days, and people have blamed Nero ever since."
+    },
+    {
+      "id": "card.ancient_rome.054.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The young emperor",
+      "body": "Nero, Claudius’ adopted son, became emperor in 54 CE at the age of 16. Facing revolt, he took his own life in 68 CE, ending the Julio-Claudian dynasty, the family line of Augustus."
+    },
+    {
+      "id": "card.ancient_rome.054.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Great Fire",
+      "body": "In 64 CE a great fire burned in Rome for six days. Three of the city’s 14 districts were destroyed and seven more badly damaged. Nero blamed the Christians in Rome and had many of them executed. On land cleared by the fire, he built a vast palace, the Golden House."
+    },
+    {
+      "id": "card.ancient_rome.054.c4",
+      "type": "fact",
+      "fact": "Nero did not fiddle while Rome burned.",
+      "context": "The fiddle did not yet exist, and the historian Tacitus says Nero was away at Antium when the fire began."
+    },
+    {
+      "id": "card.ancient_rome.054.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.054.q1"
+    },
+    {
+      "id": "card.ancient_rome.054.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.054.q2"
+    },
+    {
+      "id": "card.ancient_rome.054.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.054.q3"
+    },
+    {
+      "id": "card.ancient_rome.054.c8",
+      "type": "checkpoint",
+      "headline": "Nero: judged",
+      "learned": [
+        "Nero became emperor at 16 in 54 CE",
+        "Rome burned for six days in 64 CE",
+        "He blamed the Christians",
+        "His death in 68 CE ended Augustus’ line"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.nero"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.054.c3"
+      ],
+      "prompt": "Whom did Nero blame for the Great Fire?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Praetorian Guard",
+          "correct": false,
+          "rationale": "He blamed a religious group."
+        },
+        {
+          "id": "b",
+          "label": "Rome’s Christians",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Senate",
+          "correct": false,
+          "rationale": "He blamed a religious group."
+        },
+        {
+          "id": "d",
+          "label": "The Vestal Virgins",
+          "correct": false,
+          "rationale": "He blamed a religious group."
+        }
+      ],
+      "explanation": "Nero blamed the Christians in Rome and had many executed.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.nero"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.054.c4"
+      ],
+      "prompt": "Why is “Nero fiddled while Rome burned” a myth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He was dead before the fire began",
+          "correct": false,
+          "rationale": "He died in 68 CE."
+        },
+        {
+          "id": "b",
+          "label": "He played the flute, not the fiddle",
+          "correct": false,
+          "rationale": "The fiddle didn’t exist at all."
+        },
+        {
+          "id": "c",
+          "label": "The fire happened under Caligula",
+          "correct": false,
+          "rationale": "It was in 64 CE, under Nero."
+        },
+        {
+          "id": "d",
+          "label": "The fiddle didn’t exist, and he was away",
+          "correct": true
+        }
+      ],
+      "explanation": "The instrument was invented much later, and Tacitus places Nero at Antium when the fire started.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.nero",
+        "concept.ancient_rome.claudius"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.054.c2",
+        "card.ancient_rome.053.c2"
+      ],
+      "prompt": "From Level 53: Nero was the adopted son of which emperor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tiberius",
+          "correct": false,
+          "rationale": "He died in 37 CE."
+        },
+        {
+          "id": "b",
+          "label": "Caligula",
+          "correct": false,
+          "rationale": "He died in 41 CE."
+        },
+        {
+          "id": "c",
+          "label": "Augustus",
+          "correct": false,
+          "rationale": "He died in 14 CE."
+        },
+        {
+          "id": "d",
+          "label": "Claudius",
+          "correct": true
+        }
+      ],
+      "explanation": "Nero was Claudius’ adopted son and succeeded him in 54 CE.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_great_fire",
+    "source.brit_nero"
+  ]
+}

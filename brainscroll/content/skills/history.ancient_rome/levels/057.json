@@ -1,0 +1,206 @@
+{
+  "id": "level.history.ancient_rome.057",
+  "skillId": "skill.history.ancient_rome",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pompeii and Vesuvius",
+  "objective": "After this level you can explain the eruption of Vesuvius and why Pompeii is so valuable to historians.",
+  "summary": "In 79 CE Vesuvius buried Pompeii and Herculaneum. The ash that killed the towns preserved them, and Pliny the Younger described it all.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.pompeii",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.flavians_colosseum",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.056"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A volcano destroyed a town, and by burying it, saved it for us."
+    },
+    {
+      "id": "card.ancient_rome.057.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The eruption",
+      "body": "In 79 CE Mount Vesuvius erupted and buried the towns of Pompeii and Herculaneum. Titus was emperor. Pliny the Younger described the eruption in letters to the historian Tacitus. His uncle, Pliny the Elder, died trying to rescue people."
+    },
+    {
+      "id": "card.ancient_rome.057.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A town frozen in time",
+      "body": "Pompeii was buried under several meters of ash and pumice, which preserved buildings, paintings and everyday objects. Its walls still carry painted notices and scratched graffiti, including election slogans. Together they give historians a rare snapshot of ordinary town life."
+    },
+    {
+      "id": "card.ancient_rome.057.c4",
+      "type": "fact",
+      "fact": "Plaster casts show victims in their final moments.",
+      "context": "In the 1800s, excavators poured plaster into hollows left in the ash by victims’ bodies, recording their final positions."
+    },
+    {
+      "id": "card.ancient_rome.057.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.057.q1"
+    },
+    {
+      "id": "card.ancient_rome.057.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.057.q2"
+    },
+    {
+      "id": "card.ancient_rome.057.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.057.q3"
+    },
+    {
+      "id": "card.ancient_rome.057.c8",
+      "type": "checkpoint",
+      "headline": "Pompeii: uncovered",
+      "learned": [
+        "Vesuvius erupted in 79 CE",
+        "It buried Pompeii and Herculaneum",
+        "Pliny the Younger described it",
+        "The ash preserved a whole town"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.pompeii"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.057.c2"
+      ],
+      "prompt": "Which two towns did Vesuvius bury in 79 CE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ostia and Capua",
+          "correct": false,
+          "rationale": "Both lie far from Vesuvius."
+        },
+        {
+          "id": "b",
+          "label": "Pompeii and Herculaneum",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Pompeii and Carthage",
+          "correct": false,
+          "rationale": "Carthage is in Africa."
+        },
+        {
+          "id": "d",
+          "label": "Rome and Ostia",
+          "correct": false,
+          "rationale": "Both lie far from Vesuvius."
+        }
+      ],
+      "explanation": "The eruption buried Pompeii and Herculaneum.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.pompeii"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.057.c3"
+      ],
+      "prompt": "Why is Pompeii so valuable to historians?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the empire’s richest and largest city",
+          "correct": false,
+          "rationale": "It was an ordinary town."
+        },
+        {
+          "id": "b",
+          "label": "Its people wrote the first Roman history",
+          "correct": false,
+          "rationale": "Its value is its preservation."
+        },
+        {
+          "id": "c",
+          "label": "Ash preserved ordinary town life as it was",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It was the only town the eruption spared",
+          "correct": false,
+          "rationale": "It was buried."
+        }
+      ],
+      "explanation": "Buried under ash, Pompeii kept buildings, paintings, objects and graffiti that usually disappear.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.pompeii",
+        "concept.ancient_rome.flavians_colosseum"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.057.c2",
+        "card.ancient_rome.056.c3"
+      ],
+      "prompt": "From Level 56: which emperor, who opened the Colosseum a year later, ruled when Vesuvius erupted?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nero",
+          "correct": false,
+          "rationale": "He died in 68 CE."
+        },
+        {
+          "id": "b",
+          "label": "Domitian",
+          "correct": false,
+          "rationale": "He came after Titus."
+        },
+        {
+          "id": "c",
+          "label": "Vespasian",
+          "correct": false,
+          "rationale": "He had died just before."
+        },
+        {
+          "id": "d",
+          "label": "Titus",
+          "correct": true
+        }
+      ],
+      "explanation": "Titus was emperor in 79 CE and opened the Colosseum in 80 CE.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_pompeii",
+    "source.brit_titus",
+    "source.brit_pliny_younger"
+  ]
+}

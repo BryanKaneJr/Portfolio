@@ -1,0 +1,212 @@
+{
+  "id": "level.history.ancient_rome.056",
+  "skillId": "skill.history.ancient_rome",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Flavians and the Colosseum",
+  "objective": "After this level you can describe the Flavian dynasty and the building of the Colosseum.",
+  "summary": "Vespasian and his sons Titus and Domitian ruled until 96 CE. They built the Colosseum on the grounds of Nero’s palace.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.flavians_colosseum",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.nero",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.four_emperors",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.055"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Colosseum stands where an emperor’s private lake used to be."
+    },
+    {
+      "id": "card.ancient_rome.056.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A family of soldiers",
+      "body": "In 70 CE Vespasian’s son Titus captured Jerusalem and destroyed its Temple. Titus succeeded Vespasian and was followed by his brother Domitian, whose harsh rule ended with his murder in 96 CE."
+    },
+    {
+      "id": "card.ancient_rome.056.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Colosseum",
+      "body": "Vespasian began the Colosseum, and Titus opened it in 80 CE with games that lasted 100 days. It could hold about 50,000 spectators. It stood on the site of a lake in the grounds of Nero’s Golden House, giving the land back to public use."
+    },
+    {
+      "id": "card.ancient_rome.056.c4",
+      "type": "fact",
+      "fact": "The Colosseum’s real name was the Flavian Amphitheatre.",
+      "context": "The name Colosseum came later, probably from a colossal statue of Nero that stood nearby."
+    },
+    {
+      "id": "card.ancient_rome.056.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.056.q1"
+    },
+    {
+      "id": "card.ancient_rome.056.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.056.q2"
+    },
+    {
+      "id": "card.ancient_rome.056.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.056.q3"
+    },
+    {
+      "id": "card.ancient_rome.056.c8",
+      "type": "checkpoint",
+      "headline": "The Colosseum: opened",
+      "learned": [
+        "Titus took Jerusalem in 70 CE",
+        "The Colosseum opened in 80 CE",
+        "It held about 50,000 people",
+        "It was built on Nero’s palace grounds"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.flavians_colosseum"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.056.c3"
+      ],
+      "prompt": "About how many spectators could the Colosseum hold?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 5,000",
+          "correct": false,
+          "rationale": "Ten times more."
+        },
+        {
+          "id": "b",
+          "label": "About 50,000",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 500,000",
+          "correct": false,
+          "rationale": "Ten times fewer."
+        },
+        {
+          "id": "d",
+          "label": "About 5 million",
+          "correct": false,
+          "rationale": "Far too many."
+        }
+      ],
+      "explanation": "The Colosseum held about 50,000 spectators.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.flavians_colosseum"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.056.c3"
+      ],
+      "prompt": "Why did building on Nero’s palace grounds send a message?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It hid the damage from the Great Fire",
+          "correct": false,
+          "rationale": "The message was political."
+        },
+        {
+          "id": "b",
+          "label": "It gave a hated ruler’s land back to the people",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It honored Nero as the Flavians’ ancestor",
+          "correct": false,
+          "rationale": "They weren’t related."
+        },
+        {
+          "id": "d",
+          "label": "It was the only flat land left in Rome",
+          "correct": false,
+          "rationale": "The message was political."
+        }
+      ],
+      "explanation": "Turning Nero’s private lake into a public arena showed the new dynasty sharing Rome with its people.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.flavians_colosseum",
+        "concept.ancient_rome.nero"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.056.c3",
+        "card.ancient_rome.054.c3"
+      ],
+      "prompt": "From Level 54: what had Nero built on land cleared by the Great Fire?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A temple to the god Janus",
+          "correct": false,
+          "rationale": "It was for himself."
+        },
+        {
+          "id": "b",
+          "label": "A new wall around the city",
+          "correct": false,
+          "rationale": "It was for himself."
+        },
+        {
+          "id": "c",
+          "label": "A vast palace, the Golden House",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A harbor for the grain ships",
+          "correct": false,
+          "rationale": "It was for himself."
+        }
+      ],
+      "explanation": "Nero built the Golden House on land cleared by the fire; the Flavians built the Colosseum on its grounds.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_colosseum",
+    "source.brit_titus",
+    "source.brit_domitian",
+    "source.brit_vespasian"
+  ]
+}

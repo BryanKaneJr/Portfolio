@@ -1,0 +1,211 @@
+{
+  "id": "level.history.ancient_rome.053",
+  "skillId": "skill.history.ancient_rome",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Claudius Conquers Britain",
+  "objective": "After this level you can describe Claudius's reign and the invasion of Britain.",
+  "summary": "The guard made Claudius emperor in 41 CE. The scholar few took seriously invaded Britain in 43 CE, where Boudica later rose in revolt.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.claudius",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.caesar_gaul",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.caligula",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.052"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The emperor nobody took seriously conquered a land Caesar only raided."
+    },
+    {
+      "id": "card.ancient_rome.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The unlikely emperor",
+      "body": "After Caligula’s murder, the Praetorian Guard made his uncle Claudius emperor in 41 CE. Claudius had a limp and a stammer, and his family kept him out of public life. He was a scholar who wrote histories, now lost, and he relied on freedmen, formerly enslaved people, as powerful officials."
+    },
+    {
+      "id": "card.ancient_rome.053.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Britain becomes Roman",
+      "body": "In 43 CE Claudius launched the invasion of Britain, which became a Roman province. In about 60 CE Boudica, queen of the Iceni, led a revolt that burned London before the Romans crushed it."
+    },
+    {
+      "id": "card.ancient_rome.053.c4",
+      "type": "fact",
+      "fact": "Caesar had raided Britain twice, in 55 and 54 BCE.",
+      "context": "Claudius’ invasion came nearly a century later, and this time Rome stayed."
+    },
+    {
+      "id": "card.ancient_rome.053.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.053.q1"
+    },
+    {
+      "id": "card.ancient_rome.053.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.053.q2"
+    },
+    {
+      "id": "card.ancient_rome.053.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.053.q3"
+    },
+    {
+      "id": "card.ancient_rome.053.c8",
+      "type": "checkpoint",
+      "headline": "Britain: conquered",
+      "learned": [
+        "The guard made Claudius emperor in 41 CE",
+        "He was a scholar kept out of public life",
+        "He invaded Britain in 43 CE",
+        "Boudica revolted around 60 CE"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.claudius"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.053.c3"
+      ],
+      "prompt": "When did Claudius launch the invasion of Britain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "55 BCE",
+          "correct": false,
+          "rationale": "That was Caesar’s first raid."
+        },
+        {
+          "id": "b",
+          "label": "9 CE",
+          "correct": false,
+          "rationale": "That was the Teutoburg Forest."
+        },
+        {
+          "id": "c",
+          "label": "43 CE",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "14 CE",
+          "correct": false,
+          "rationale": "That was when Augustus died."
+        }
+      ],
+      "explanation": "Claudius invaded Britain in 43 CE, and it became a province.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.claudius"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.053.c2"
+      ],
+      "prompt": "Why was Claudius an unexpected emperor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His family had kept him out of public life",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He had never been to Rome before",
+          "correct": false,
+          "rationale": "He grew up in the imperial family."
+        },
+        {
+          "id": "c",
+          "label": "He was born a Gaulish prince",
+          "correct": false,
+          "rationale": "He was Caligula’s uncle."
+        },
+        {
+          "id": "d",
+          "label": "He had led a revolt against Caligula",
+          "correct": false,
+          "rationale": "The guard chose him after the murder."
+        }
+      ],
+      "explanation": "With a limp and a stammer, Claudius was kept out of public life until the guard made him emperor.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.claudius",
+        "concept.ancient_rome.caesar_gaul"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.053.c4",
+        "card.ancient_rome.038.c2"
+      ],
+      "prompt": "From Level 38: what had Julius Caesar achieved in Britain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Full conquest of the whole island",
+          "correct": false,
+          "rationale": "Claudius began that."
+        },
+        {
+          "id": "b",
+          "label": "Two raids, in 55 and 54 BCE",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A peace treaty with Boudica",
+          "correct": false,
+          "rationale": "She lived a century later."
+        },
+        {
+          "id": "d",
+          "label": "A wall across the north",
+          "correct": false,
+          "rationale": "That was Hadrian, later."
+        }
+      ],
+      "explanation": "Caesar led two expeditions to Britain but did not conquer it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_claudius",
+    "source.brit_caesar",
+    "source.brit_boudica"
+  ]
+}

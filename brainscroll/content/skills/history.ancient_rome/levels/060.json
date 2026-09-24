@@ -1,0 +1,307 @@
+{
+  "id": "level.history.ancient_rome.060",
+  "skillId": "skill.history.ancient_rome",
+  "number": 60,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: The Five Good Emperors",
+  "objective": "After this level you can explain the era of the Five Good Emperors, ending with Marcus Aurelius.",
+  "summary": "From 96 to 180 CE, emperors chosen by adoption gave Rome its steadiest era. Marcus Aurelius passed power to his son Commodus, and it ended.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.five_good",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.trajan",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.hadrian",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.pax_romana",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.tiberius",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.059"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.060.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 6 finale. Five emperors in a row who ruled well. Then it ended.",
+      "body": "How Rome found good rulers for most of a century, and how it lost them."
+    },
+    {
+      "id": "card.ancient_rome.060.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Choosing the best",
+      "body": "Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. Each of the first four chose his successor by adoption, picking a capable adult rather than relying on a son. The historian Edward Gibbon called it the time when the human race was most happy and prosperous."
+    },
+    {
+      "id": "card.ancient_rome.060.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The philosopher emperor",
+      "body": "Marcus Aurelius, a Stoic philosopher, wrote his private reflections, the Meditations, while on campaign. A deadly epidemic, the Antonine Plague, swept the empire from about 165 CE. Marcus was succeeded by his own son Commodus, whose disastrous reign ended the era."
+    },
+    {
+      "id": "card.ancient_rome.060.c4",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.060.q1"
+    },
+    {
+      "id": "card.ancient_rome.060.c5",
+      "type": "recall",
+      "questionId": "question.ancient_rome.060.q2"
+    },
+    {
+      "id": "card.ancient_rome.060.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.060.q3"
+    },
+    {
+      "id": "card.ancient_rome.060.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.060.q4"
+    },
+    {
+      "id": "card.ancient_rome.060.c8",
+      "type": "recall",
+      "questionId": "question.ancient_rome.060.q5"
+    },
+    {
+      "id": "card.ancient_rome.060.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 6 complete",
+      "learned": [
+        "The Five Good Emperors ruled 96 to 180 CE",
+        "The first four chose heirs by adoption",
+        "Marcus Aurelius wrote the Meditations",
+        "His son Commodus ended the era"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.060.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.five_good"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.060.c3"
+      ],
+      "prompt": "Who was the last of the Five Good Emperors?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nerva",
+          "correct": false,
+          "rationale": "He was the first."
+        },
+        {
+          "id": "b",
+          "label": "Commodus",
+          "correct": false,
+          "rationale": "He was Marcus’s son, and ended the era."
+        },
+        {
+          "id": "c",
+          "label": "Marcus Aurelius",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Domitian",
+          "correct": false,
+          "rationale": "He came before Nerva."
+        }
+      ],
+      "explanation": "Marcus Aurelius, the philosopher emperor, was the last of the five.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.060.q2",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.trajan"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.058.c3"
+      ],
+      "prompt": "Under which emperor did the empire reach its greatest extent?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Augustus",
+          "correct": false,
+          "rationale": "It grew after him."
+        },
+        {
+          "id": "b",
+          "label": "Hadrian",
+          "correct": false,
+          "rationale": "He gave up some conquests."
+        },
+        {
+          "id": "c",
+          "label": "Claudius",
+          "correct": false,
+          "rationale": "He added Britain, but it grew later."
+        },
+        {
+          "id": "d",
+          "label": "Trajan",
+          "correct": true
+        }
+      ],
+      "explanation": "Under Trajan the empire reached its greatest extent, in 117 CE.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.060.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.five_good"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.060.c2"
+      ],
+      "prompt": "How did the first four Good Emperors choose their heirs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By letting the army vote",
+          "correct": false,
+          "rationale": "They chose for themselves."
+        },
+        {
+          "id": "b",
+          "label": "By passing power to their eldest son",
+          "correct": false,
+          "rationale": "That’s what ended the era."
+        },
+        {
+          "id": "c",
+          "label": "By adopting a capable adult",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By asking the Senate to hold elections",
+          "correct": false,
+          "rationale": "They chose for themselves."
+        }
+      ],
+      "explanation": "Each adopted a capable adult successor rather than relying on a son.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.060.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.five_good",
+        "concept.ancient_rome.tiberius"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.060.c3",
+        "card.ancient_rome.051.c2"
+      ],
+      "prompt": "Why does Commodus mark the end of the era?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He was the first emperor from outside Italy",
+          "correct": false,
+          "rationale": "That was Trajan."
+        },
+        {
+          "id": "b",
+          "label": "A son inherited, not a chosen adult",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He moved the capital away from Rome",
+          "correct": false,
+          "rationale": "That came much later."
+        },
+        {
+          "id": "d",
+          "label": "He was elected by the Praetorian Guard",
+          "correct": false,
+          "rationale": "His father chose him."
+        }
+      ],
+      "explanation": "Marcus Aurelius passed power to his own son, and Commodus’ disastrous reign broke the pattern of adoption.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.060.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.five_good",
+        "concept.ancient_rome.pax_romana"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.060.c2",
+        "card.ancient_rome.045.c2"
+      ],
+      "prompt": "Chapter 6 recap: when is the Pax Romana usually said to end?",
+      "options": [
+        {
+          "id": "a",
+          "label": "With the Great Fire of Rome in 64 CE",
+          "correct": false,
+          "rationale": "Peace continued long after."
+        },
+        {
+          "id": "b",
+          "label": "With the eruption of Vesuvius in 79 CE",
+          "correct": false,
+          "rationale": "Peace continued long after."
+        },
+        {
+          "id": "c",
+          "label": "With Hadrian’s Wall being built in 122 CE",
+          "correct": false,
+          "rationale": "Peace continued after."
+        },
+        {
+          "id": "d",
+          "label": "With Marcus Aurelius’ death in 180 CE",
+          "correct": true
+        }
+      ],
+      "explanation": "The Pax Romana is usually dated from 27 BCE to 180 CE, when Marcus Aurelius died.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_five_good",
+    "source.brit_gibbon",
+    "source.brit_marcus",
+    "source.brit_commodus"
+  ]
+}
