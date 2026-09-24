@@ -1,16 +1,67 @@
 # Image list
 
-A small, reusable set of illustrations for BrainScroll, in the same style as the icon generator's first batch. Distinct things get their own image (Mars, Saturn, the Colosseum). Similar concepts share one (ruins cover the fall of Carthage, the sack of Rome and archaeology; one star covers most star-physics levels). Every level in all ten trees maps to exactly one image below.
+A small, reusable set of illustrations for BrainScroll, in the same style as the icon generator's first batch. Distinct things get their own image (Mars, Saturn, the Colosseum). Similar concepts share one (ruins cover the fall of Carthage, the sack of Rome and archaeology; one star covers most star-physics levels). Every level in all 16 trees maps to exactly one image below.
 
-**293 images in total. 8 already exist in the first batch, so 285 are new: 66 for Astronomy, Rome and the app screens, 117 for the next four trees and 102 for the four after that.** The Astronomy and Rome lists are the place to start, since those levels are written.
+**376 distinct images cover all 16 trees (1,600 levels), about four levels per image.** Your library already has some of them: the first batch, plus whatever you approved from the first-round list. The image tool knows which, so let it skip those. The next section shows where a first-round image can stand in for a planned one.
 
 ## Style (every image)
 
 - One glossy 3D "clay" object, centered, soft light from the top left, gentle shadow.
 - Plain Midnight Navy background `#111827`.
-- Warm saturated colors. Gold only on the two mastery images and the mastery star.
+- Warm saturated colors. Gold only on the mastery images (one per tree) and the mastery star.
+- One object per image. A mass of identical small things (a stack of coins, a crowd, a cluster of crystals) counts as one object.
 - No text, letters or numbers, and no real people's faces.
 - 1024 × 1024 PNG named by its ID.
+
+## Already approved? Swap it in
+
+The first-round list (213 images, one per level) had many images that fit a planned image below just as well. If one of these first-round images is already approved, use it and skip generating the planned one. A machine-readable copy is in [`image-substitutes.json`](image-substitutes.json).
+
+| Planned image | First-round image that can stand in |
+| --- | --- |
+| `astronomy.moon` | `astronomy.moon-craters` |
+| `astronomy.icy-moon` | `astronomy.europa` |
+| `astronomy.asteroid` | `astronomy.asteroids` |
+| `astronomy.uranus-neptune` | `astronomy.tilted-uranus` |
+| `astronomy.star-chart` | `astronomy.constellation` |
+| `astronomy.orrery` | `astronomy.heliocentric` |
+| `astronomy.space-telescope` | `astronomy.webb` |
+| `astronomy.black-hole` | `astronomy.event-horizon` |
+| `astronomy.exoplanet` | `astronomy.exoplanet-transit` |
+| `astronomy.galaxy` | `astronomy.milky-way` |
+| `astronomy.galaxy-cluster` | `astronomy.local-group` |
+| `astronomy.dying-star` | `astronomy.white-dwarf` |
+| `astronomy.nebula` | `astronomy.planetary-nebula` |
+| `rome.hills-and-river` | `rome.seven-hills` |
+| `rome.pottery` | `rome.etruscan-vase` |
+| `rome.forum` | `rome.curia` |
+| `rome.farm` | `rome.plough` |
+| `rome.city-fire` | `rome.great-fire` |
+| `rome.road` | `rome.stone-road`, `rome.milestone-marker` |
+| `rome.warship` | `rome.carthage-ship`, `rome.corvus` |
+| `rome.legion` | `rome.legion-kit` |
+| `rome.broken-chains` | `rome.freedom-cap` |
+| `rome.laurel` | `rome.laurel-wreath` |
+| `rome.arch` | `rome.triumphal-arch` |
+| `rome.calendar` | `rome.calendar-wheel` |
+| `rome.wall` | `rome.hadrians-wall` |
+| `rome.house` | `rome.domus` |
+| `rome.amphora` | `rome.amphora-feast` |
+| `rome.dome` | `rome.pantheon` |
+| `rome.coins` | `rome.denarius` |
+| `rome.chi-rho` | `rome.chi-rho-shield` |
+| `rome.ruins` | `rome.crumbling-column` |
+| `rome.bronze-tablets` | `rome.citizen-diploma` |
+| `rome.temple` | `rome.greek-temple` |
+| `nature.volcano` | `rome.vesuvius` |
+| `money.capitol` | `rome.capitol-dome` |
+| `money.scale` | `rome.scales` |
+| `arts.stonehenge` | `astronomy.stone-circle` |
+| `arts.candle` | `rome.catacomb-lamp` |
+| `object.magnifier` | `rome.archaeology-kit` |
+| `ui.review` | `ui.review-clear` |
+
+First-round images that aren't listed here or used by a tree below are still fine to keep in the library for later levels.
 
 ## Subjects, skills and app screens
 
@@ -39,13 +90,13 @@ Checkpoints (every 10th level) reuse their chapter's image, listed with "(checkp
 | `astronomy.sun` | Glowing orange-yellow Sun with a few soft flares | 2, 56, 57, 60 (checkpoint) |
 | `astronomy.moon` | Grey cratered Moon | 6, 17, 18, 19, 39 |
 | `astronomy.eclipse` | Dark Moon disc covering the Sun, glowing corona around it | 7 |
-| `astronomy.rocky-planets` | Four small rocky planets in a row: grey, cream, blue-green, red | 3 |
+| `astronomy.rocky-planets` | Small grey rocky planet with craters | 3 |
 | `astronomy.saturn` | Saturn with its rings | 4 |
 | `astronomy.jupiter` | Banded Jupiter with the Great Red Spot | 46 |
 | `astronomy.mercury` | Small cratered grey planet | 41 |
 | `astronomy.venus` | Yellow planet wrapped in thick swirling clouds | 42 |
 | `astronomy.mars` | Rusty red planet | 44 |
-| `astronomy.uranus-neptune` | Pale cyan Uranus (tipped on its side) and deep blue Neptune | 29, 49 |
+| `astronomy.uranus-neptune` | Pale cyan ice giant tipped on its side | 29, 49 |
 | `astronomy.icy-moon` | Icy moon with cracks, a hint of blue ocean below | 47, 48 |
 | `astronomy.pluto` | Small beige world with a pale heart-shaped patch | 51 |
 | `astronomy.asteroid` | Lumpy grey space rocks | 45, 52, 54 |
@@ -61,12 +112,12 @@ Checkpoints (every 10th level) reuse their chapter's image, listed with "(checkp
 | `astronomy.rover` | Six-wheeled Mars rover | 38 |
 | `astronomy.aurora` | Green and violet aurora over a small snowy hill | 58 |
 | `astronomy.nebula` | Glowing colorful gas cloud with tiny young stars | 59, 66, 67, 70 (checkpoint) |
-| `astronomy.dying-star` | Swollen red giant beside a tiny white dwarf | 68, 98 |
+| `astronomy.dying-star` | Swollen red giant star | 68, 98 |
 | `astronomy.supernova` | Star exploding in a bright burst | 69, 71, 72 |
 | `astronomy.black-hole` | Black sphere with a glowing orange disk around it | 73, 74, 75, 76, 87, 80 (checkpoint) |
-| `astronomy.exoplanet` | Small planet in front of its star, a second planet in the background | 77, 78, 79 |
+| `astronomy.exoplanet` | Blue-green planet lit on one side by its star | 77, 78, 79 |
 | `astronomy.galaxy` | Spiral galaxy seen at an angle | 81, 82, 85, 99, 90 (checkpoint) |
-| `astronomy.galaxy-cluster` | Two spiral galaxies merging, with small galaxies around | 83, 84, 86 |
+| `astronomy.galaxy-cluster` | Glowing cluster of many tiny galaxies forming one soft cloud | 83, 84, 86 |
 | `astronomy.big-bang` | Bright burst of light and particles from a single point | 88, 91, 92, 93, 94, 95, 96, 100 (checkpoint) |
 | `astronomy.mastery` | Gold-trimmed telescope under a gold star | 100 (Mastery Challenge) |
 
@@ -88,7 +139,7 @@ Checkpoints (every 10th level) reuse their chapter's image, listed with "(checkp
 | `rome.warship` | Roman warship with oars and a sail | 21, 22, 42, 43, 53, 30 (checkpoint) |
 | `rome.war-elephant` | War elephant in snowy mountains | 23 |
 | `rome.crossed-swords` | Two crossed Roman swords | 24, 25, 26, 40, 89, 92, 40 (checkpoint) |
-| `rome.legion` | Red curved legion shield with a short sword and eagle standard | 29, 32, 33, 38, 49 |
+| `rome.legion` | Red curved legion shield | 29, 32, 33, 38, 49 |
 | `rome.broken-chains` | Broken iron chain | 34, 62 |
 | `rome.laurel` | Green laurel wreath | 35, 41, 44, 51, 52, 55 |
 | `rome.arch` | Roman triumphal arch | 1, 50, 58, 99 |
@@ -99,13 +150,13 @@ Checkpoints (every 10th level) reuse their chapter's image, listed with "(checkp
 | `rome.wall` | Stone frontier wall with a fort tower | 59, 79 |
 | `rome.house` | Roman house with an open courtyard | 8, 61, 69, 70 (checkpoint) |
 | `rome.aqueduct` | Arched aqueduct carrying water | 66, 72, 80 (checkpoint) |
-| `rome.amphora` | Amphora with olives, bread and grapes | 67 |
+| `rome.amphora` | Clay amphora | 67 |
 | `rome.dome` | Great domed building with a beam of light through the top | 73, 74, 86, 95, 96 |
 | `rome.coins` | Small pile of silver coins | 78, 81 |
 | `rome.chi-rho` | Round shield marked with the Chi-Rho symbol | 83, 84, 85, 88, 90 (checkpoint) |
 | `rome.mastery` | Gold laurel wreath | 100 (Mastery Challenge) |
 
-## The next four trees
+## World Geography, How Money Works, Art History and Everyday Technology
 
 World Geography, How Money Works, Art History and Everyday Technology are planned to 100 levels (chapter and level titles in each skill's `syllabus.json`), so their images can be made now. Level numbers below are per tree. Mastery images are level 100.
 
@@ -118,11 +169,11 @@ World Geography, How Money Works, Art History and Everyday Technology are planne
 | `geo.lighthouse` | Red and white lighthouse on rocks | Geography 24, 63; Money 53 |
 | `geo.mountains` | Snow-capped mountain range | Geography 7, 17, 47, 55, 62, 66, 70 (checkpoint), 72, 84; Art 53 |
 | `geo.oil-derrick` | Oil pump jack nodding over the ground | Geography 59, 97; Technology 13 |
-| `geo.people` | Group of simple faceless figures in different colors | Geography 91, 95, 98; Money 87 |
+| `geo.people` | Crowd of small faceless figures packed into one rounded group | Geography 91, 95, 98; Money 87 |
 | `geo.pyramids` | Egyptian pyramids on sand | Geography 53, 60 (checkpoint); Art 12, 13, 20 (checkpoint) |
 | `geo.rocks` | Layered red rock formation | Geography 18, 82; Art 87 |
 | `geo.skyline` | Cluster of modern skyscrapers | Geography 57, 92; Technology 81, 82 |
-| `geo.speech-bubbles` | Two overlapping speech bubbles, no text | Geography 94; Technology 92 |
+| `geo.speech-bubbles` | Speech bubble, no text | Geography 94; Technology 92 |
 | `geo.wave` | Large curling ocean wave | Geography 16, 22, 23, 30 (checkpoint); Art 51, 71, 72 |
 | `money.container-ship` | Cargo ship stacked with colorful containers | Money 73, 76, 80 (checkpoint); Technology 34 |
 | `money.price-tag` | Paper price tag on a string | Money 16, 74, 89; Art 89 |
@@ -183,7 +234,7 @@ And from the shared table: `geo.mountains`, `technology.satellite`, `geo.wave`, 
 | `money.chart-up` | Bar chart with a rising arrow | 26, 33, 35, 40 (checkpoint), 65 |
 | `money.house-key` | House-shaped key ring with a key | 27, 39 |
 | `money.chart-down` | Bar chart with a falling red arrow | 29, 69 |
-| `money.eggs-basket` | Eggs spread across three small baskets | 36, 37 |
+| `money.eggs-basket` | Egg carton holding eggs of different colors | 36, 37 |
 | `money.market-stall` | Market stall with a striped awning and fruit | 41, 42, 45, 46, 50 (milestone) |
 | `money.chess-king` | Chess king piece | 47, 96 |
 | `money.carrot` | Carrot dangling from a stick | 48, 95 |
@@ -191,7 +242,7 @@ And from the shared table: `geo.mountains`, `technology.satellite`, `geo.wave`, 
 | `money.balloon` | Inflating balloon with a silver coin inside | 61, 64, 68 |
 | `money.rollercoaster` | Rollercoaster track with ups and downs and one small car | 66, 70 (checkpoint) |
 | `money.briefcase` | Brown briefcase | 67, 81, 90 (checkpoint) |
-| `arts.quill` | Feather quill and a small ink pot | 91, 92 |
+| `arts.quill` | Feather quill in an ink pot | 91, 92 |
 | `money.mastery` | Gold coin with a small green sprout growing from it | 100 |
 
 Also uses, from earlier lists: `object.globe` (77, 78); `rome.coins` (1, 4, 10 (checkpoint)); `architecture.bank` (7, 21, 22, 30 (checkpoint), 55, 56); `technology.gears` (85).
@@ -204,7 +255,7 @@ And from the shared table: `geo.lighthouse`, `geo.people`, `technology.chip`, `m
 | --- | --- | --- |
 | `arts.frame` | Empty ornate wooden picture frame | 2, 47, 48, 68, 94, 97 |
 | `arts.brushes` | Jar of paintbrushes | 3, 38, 59, 65, 78, 95 |
-| `arts.cave-hand` | Red handprint and a painted animal on a cave wall | 5, 6, 9, 10 (checkpoint), 76 |
+| `arts.cave-hand` | Cave wall with a red handprint | 5, 6, 9, 10 (checkpoint), 76 |
 | `arts.clay-figure` | Small carved clay figure, simple and rounded | 7, 19 |
 | `arts.stonehenge` | Ring of standing stones with a lintel | 8 |
 | `arts.step-pyramid` | Stepped stone pyramid with a small temple on top | 11, 77 |
@@ -214,7 +265,7 @@ And from the shared table: `geo.lighthouse`, `geo.people`, `technology.chip`, `m
 | `arts.cathedral` | Gothic cathedral with pointed towers | 25, 26, 30 (checkpoint) |
 | `arts.stained-glass` | Round stained glass window glowing with color | 27, 64 |
 | `arts.easel` | Wooden easel with a canvas | 28, 35, 37, 40 (checkpoint), 46, 58, 79 |
-| `arts.ink-brush` | Chinese ink brush with an ink stone | 29, 73 |
+| `arts.ink-brush` | Chinese ink brush | 29, 73 |
 | `arts.perspective` | Checkered floor running to a vanishing point | 32, 92 |
 | `arts.candle` | Candle lighting a dark space | 41, 42, 44, 52 |
 | `arts.still-life` | Fruit bowl with a lemon and grapes | 45, 61, 93 |
@@ -269,7 +320,7 @@ Also uses, from earlier lists: `astronomy.sun` (2); `technology.gears` (1, 21, 2
 
 And from the shared table: `technology.satellite`, `nature.water-drop`, `nature.lightning`, `nature.thermometer`, `geo.skyline`, `geo.oil-derrick`, `geo.speech-bubbles`, `technology.chip`, `object.padlock`, `money.container-ship`, `technology.lightbulb`, `technology.factory`, `technology.robot`, `technology.printing-press`, `technology.camera`, `object.magnifier`, `technology.smartphone`.
 
-## Four more trees
+## The Human Body, The Middle Ages, Music and The Animal Kingdom
 
 The Human Body, The Middle Ages, Music and The Animal Kingdom are planned to 100 levels (chapter and level titles in each skill's `syllabus.json`), so their images can be made now. Level numbers below are per tree. Mastery images are level 100.
 
@@ -297,8 +348,8 @@ The Human Body, The Middle Ages, Music and The Animal Kingdom are planned to 100
 | `body.figure` | Wooden artist's mannequin figure, no face | 1, 50 (milestone), 61, 84, 88 |
 | `body.cell` | Round cell with a visible nucleus | 2, 3, 4, 10 (checkpoint), 81 |
 | `body.muscle` | Flexed arm showing the bicep, no face | 15, 16, 20 (checkpoint) |
-| `body.dumbbell` | Pair of dumbbells | 18, 92 |
-| `body.blood-cells` | Red disc-shaped blood cells and one white cell | 24, 25, 73 |
+| `body.dumbbell` | Dumbbell | 18, 92 |
+| `body.blood-cells` | Red disc-shaped blood cell | 24, 25, 73 |
 | `body.stethoscope` | Stethoscope | 26, 39, 97 |
 | `body.bandage` | Adhesive bandage | 28, 68, 71 |
 | `body.lungs` | Pair of pink lungs | 31, 32, 33, 35, 37, 38, 40 (checkpoint) |
@@ -334,7 +385,7 @@ And from the shared table: `body.bone`, `body.heart`, `body.neuron`, `body.ear`,
 | `medieval.astrolabe` | Brass astrolabe | 62, 63, 70 (checkpoint) |
 | `medieval.longbow` | Longbow and arrows | 75, 76, 78 |
 | `medieval.cannon` | Old bronze cannon | 86, 87 |
-| `medieval.rose` | One red rose and one white rose | 88 |
+| `medieval.rose` | Rose with red and white petals | 88 |
 | `medieval.mastery` | Gold crown with a soft glow | 100 |
 
 Also uses, from earlier lists: `arts.quill` (36, 58); `object.book` (2, 7, 19, 35, 37, 61, 65); `rome.ruins` (3, 10 (checkpoint)); `rome.dome` (4, 5, 92); `arts.pattern-tile` (8, 48, 89); `geo.map` (15, 69); `rome.crossed-swords` (18, 42, 44); `rome.farm` (22); `arts.cathedral` (31, 33, 40 (checkpoint)); `arts.mosaic` (38); `arts.candle` (39); `rome.city-fire` (47); `money.market-stall` (49, 52); `rome.amphora` (54); `geo.pagoda` (66); `rome.scroll` (71, 80 (checkpoint)); `money.scale` (73, 74); `object.flag` (77); `nature.wheat` (81); `rome.broken-chains` (85); `technology.printing-press` (91); `rome.wall` (96); `arts.step-pyramid` (97).
@@ -417,6 +468,183 @@ And from the shared table: `body.heart`, `body.neuron`, `body.ear`, `music.lute`
 Also uses, from earlier lists: `geo.speech-bubbles` (72); `technology.lightbulb` (99); `nature.thermometer` (5); `object.book` (4); `rome.farm` (57, 92); `object.globe` (29); `geo.savanna` (7); `geo.rainforest` (8, 37, 38); `geo.coral` (41, 46); `geo.river` (47, 87); `geo.wave` (49); `astronomy.asteroid` (86); `astronomy.rocket` (98).
 
 And from the shared table: `body.bone`, `body.germ`, `object.hourglass`, `medieval.horse`, `medieval.camel`, `medieval.caravel`.
+
+## Ancient Egypt, Ancient Greece, Chemistry, Architecture, How Government Works and The Oceans
+
+Ancient Egypt, Ancient Greece, Chemistry, Architecture, How Government Works and The Oceans are planned to 100 levels (chapter and level titles in each skill's `syllabus.json`), so their images can be made now. Level numbers below are per tree. Mastery images are level 100.
+
+**63 new images** cover all 600 levels. These trees were written to lean on what exists: they reuse 130 images from the lists above and 20 from your first-round list (the curia, the rostra, the chariot and so on), noted under each tree.
+
+### Shared by several of these trees
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `chem.crystal` | Cluster of white salt crystals | Chemistry 43, 46; Oceans 5 |
+| `chem.molecule` | Ball-and-stick molecule model | Chemistry 41, 44, 48, 49, 50 (milestone), 73; Oceans 37 |
+| `egypt.house` | Flat-roofed mud-brick house | Egypt 51, 59, 60 (checkpoint); Architecture 44 |
+| `egypt.temple` | Egyptian temple gateway with tall columns | Egypt 34, 63, 70 (checkpoint), 72, 73, 76, 82; Architecture 14 |
+
+### Ancient Egypt (13 images)
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `egypt.boat` | Reed boat with a white sail | 5, 68 |
+| `egypt.headdress` | Pharaoh's striped headdress on a stand, no face | 6, 8, 11, 20 (checkpoint), 71, 80 (checkpoint) |
+| `egypt.crook-flail` | Pharaoh's crook and flail crossed | 12 |
+| `egypt.scribe-palette` | Scribe's palette with reed pens | 13, 43, 54 |
+| `egypt.obelisk` | Stone obelisk | 18, 65, 94 |
+| `egypt.sledge` | Stone block on a wooden sledge | 26 |
+| `egypt.sphinx` | The Great Sphinx | 27 |
+| `egypt.ankh` | Ankh symbol in blue faience | 31, 33, 40 (checkpoint) |
+| `egypt.canopic-jar` | Canopic jar with a jackal-head lid | 35, 79, 95 |
+| `egypt.cat` | Sitting Egyptian cat statue | 38, 56 |
+| `egypt.scarab` | Blue scarab beetle charm | 39 |
+| `egypt.papyrus` | Papyrus reeds | 42 |
+| `egypt.mastery` | Gold scarab with a soft glow | 100 |
+
+From your first-round list (probably already approved; make them only if not):
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `rome.chariot` | Racing chariot with one horse | 15, 61, 62, 74 |
+| `rome.cobra-diadem` | Egyptian cobra diadem | 17, 67, 77 |
+| `rome.jewelry` | Ornate jeweled necklace | 19, 49, 53 |
+| `rome.carved-stone` | Stone slab with carved, unreadable signs | 41, 44, 69, 78, 91, 92 |
+
+Also uses, from earlier lists: `geo.pyramids` (1, 23, 24, 30 (checkpoint), 50 (milestone), 75, 83, 99); `geo.river` (2, 10 (checkpoint)); `geo.desert` (3); `nature.wheat` (4, 14, 88); `rome.pottery` (7, 58); `object.hourglass` (9); `money.scale` (16, 36, 55); `arts.step-pyramid` (21, 22); `geo.people` (25); `rome.amphora` (28, 52); `geo.canyon` (29, 64); `astronomy.sun` (32, 66); `rome.scroll` (37); `rome.calendar` (45); `medieval.herbs` (46); `astronomy.star` (47); `arts.brushes` (48); `music.harp` (57); `rome.warship` (81); `rome.crossed-swords` (84); `rome.laurel` (85); `geo.lighthouse` (86); `rome.coins` (87); `rome.chi-rho` (89); `rome.ruins` (90 (checkpoint)); `object.magnifier` (93, 98); `technology.satellite` (96); `arts.frame` (97).
+
+And from the shared table: `egypt.temple`, `egypt.house`.
+
+### Ancient Greece (9 images)
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `greece.labyrinth` | Stone maze seen from above | 3, 48 |
+| `greece.helmet` | Bronze Greek helmet with a crest, no face | 4, 31, 36, 40 (checkpoint), 81 |
+| `greece.trojan-horse` | Wooden horse on wheels | 5, 10 (checkpoint) |
+| `greece.shield` | Round bronze hoplite shield | 16, 32, 35 |
+| `greece.torch` | Flaming torch | 18, 93 |
+| `greece.geometry` | Drawing compass over a triangle | 53, 61, 70 (checkpoint) |
+| `greece.cup` | Plain clay drinking cup | 55 |
+| `greece.mask` | Theater mask, not a real person | 71, 72, 73, 80 (checkpoint) |
+| `greece.mastery` | Gold olive wreath with a soft glow | 100 |
+
+From your first-round list (probably already approved; make them only if not):
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `rome.carved-stone` | Stone slab with carved, unreadable signs | 8 |
+| `rome.altar-flame` | Small stone altar with a flame | 19 |
+| `rome.raised-hand` | Raised open bronze hand | 23, 24, 30 (checkpoint), 92 |
+| `rome.rostra` | Speaker's stone platform | 27 |
+| `rome.catacomb-lamp` | Clay oil lamp with a flame | 45, 59 |
+| `rome.olive-branch` | Olive branch | 58 |
+| `rome.baths` | Steaming bath pool framed by columns | 62 |
+| `astronomy.eratosthenes` | Stone well with a sunbeam shining straight down | 63 |
+| `astronomy.geocentric` | Brass armillary sphere | 64 |
+
+Also uses, from earlier lists: `rome.pottery` (25, 77); `money.scale` (26); `geo.people` (14, 29); `rome.scroll` (6, 22, 79); `medieval.herbs` (66); `music.harp` (74); `rome.warship` (9, 37, 49); `rome.crossed-swords` (39); `rome.laurel` (33, 86); `geo.lighthouse` (88); `rome.coins` (17, 38); `rome.ruins` (7); `rome.temple` (1, 11, 20 (checkpoint), 28, 50 (milestone), 78, 99); `geo.mountains` (2, 41); `money.market-stall` (12); `medieval.crown` (13, 34, 87); `rome.broken-chains` (15); `animals.owl` (21, 44); `nature.lightning` (42); `geo.wave` (43, 52); `animals.lion` (46); `animals.snake` (47); `object.book` (51, 57, 60 (checkpoint), 82, 97); `geo.speech-bubbles` (54, 91); `arts.candle` (56); `technology.gears` (65, 69); `technology.atom` (67, 96); `geo.map` (68, 84); `arts.quill` (75); `arts.marble-block` (76, 98); `medieval.horse` (83, 90 (checkpoint)); `animals.elephant` (85); `rome.arch` (89); `architecture.bank` (94); `technology.camera` (95).
+
+And from the shared table: .
+
+### Chemistry (10 images)
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `chem.flask` | Glass flask with bubbling colored liquid | 1, 6, 7, 51, 56, 64, 84, 86, 88 |
+| `chem.ice-cube` | Ice cube melting into a puddle | 3, 4, 8, 10 (checkpoint) |
+| `chem.flame` | Bunsen burner with a blue flame | 9, 26, 53, 60 (checkpoint) |
+| `chem.element-grid` | Grid of colored tiles, no letters | 21, 22, 23, 30 (checkpoint), 40 (checkpoint) |
+| `chem.diamond` | Cut diamond | 33, 34 |
+| `chem.rusty-nail` | Rusty nail | 54 |
+| `chem.fireworks` | Firework burst | 58, 59 |
+| `chem.lemon` | Sliced lemon | 61, 63, 70 (checkpoint) |
+| `chem.test-tubes` | Rack of test tubes with colored liquids | 65, 92, 95 |
+| `chem.mastery` | Gold-trimmed glass flask with a soft glow | 100 |
+
+Also uses, from earlier lists: `object.hourglass` (17, 55); `money.scale` (52, 93); `rome.amphora` (82); `astronomy.sun` (31); `medieval.herbs` (79, 91); `rome.coins` (36); `object.magnifier` (13, 99); `nature.lightning` (5); `technology.atom` (2, 11, 12, 14, 15, 16, 19, 20 (checkpoint), 28, 94); `science.microscope` (18); `medieval.anvil` (24, 35, 45); `money.balloon` (25); `nature.water-drop` (27, 42); `astronomy.supernova` (29); `body.lungs` (32, 76); `music.gong` (37); `arts.soup-can` (38); `technology.chip` (39); `technology.plastic-bottle` (47, 87, 97); `nature.thermometer` (57); `body.soap` (62, 83, 90 (checkpoint)); `nature.rain-cloud` (66); `geo.coral` (67); `technology.battery` (68); `body.stomach` (69, 77); `technology.dna` (71, 80 (checkpoint), 96); `body.food-plate` (72, 74, 81); `plant.tree` (75, 98); `body.pill` (78); `object.palette` (85); `geo.oil-derrick` (89).
+
+And from the shared table: `chem.molecule`, `chem.crystal`.
+
+### Architecture (11 images)
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `arch.blueprint` | Rolled blueprint with a pencil | 1, 9, 50 (milestone), 98 |
+| `arch.brick` | Red brick | 2, 6, 58 |
+| `arch.taj` | White marble domed mausoleum with minarets | 36 |
+| `arch.igloo` | Igloo | 42 |
+| `arch.yurt` | Round felt yurt | 43 |
+| `arch.stilt-house` | Wooden house on stilts over water | 45 |
+| `arch.modern-house` | Modern house with flat roofs and big windows | 49, 72, 73, 80 (checkpoint) |
+| `arch.iron-tower` | Iron lattice tower | 53 |
+| `arch.hard-hat` | Yellow hard hat | 68 |
+| `arch.opera-house` | White building with sail-shaped roofs | 76, 77 |
+| `arch.mastery` | Gold-trimmed rolled blueprint | 100 |
+
+From your first-round list (probably already approved; make them only if not):
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `rome.concrete` | Bucket of grey concrete with a trowel | 7, 78 |
+| `rome.hagia-sophia` | Great domed church with small domes around it | 21 |
+| `rome.insula` | Tall Roman apartment block with shops below | 48, 88 |
+| `rome.grid-city` | Small city laid out on a street grid | 82 |
+
+Also uses, from earlier lists: `geo.pyramids` (13, 20 (checkpoint)); `arts.step-pyramid` (12, 26, 28, 81); `geo.lighthouse` (15, 57); `rome.ruins` (97); `object.magnifier` (99); `arts.frame` (79); `rome.temple` (16); `geo.mountains` (38); `money.market-stall` (85); `medieval.crown` (33, 37); `rome.arch` (4, 10 (checkpoint)); `plant.tree` (84, 92, 93); `arts.stonehenge` (3, 11); `rome.dome` (5, 19, 29); `geo.skyline` (8, 61, 62, 63, 65, 66, 69, 70 (checkpoint), 75, 90 (checkpoint)); `rome.colosseum` (17); `rome.aqueduct` (18); `arts.pattern-tile` (22, 35); `arts.cathedral` (23, 24, 30 (checkpoint)); `arts.stained-glass` (25); `geo.pagoda` (27, 34); `medieval.castle` (31, 39, 40 (checkpoint)); `rome.wall` (32, 83); `rome.house` (41, 46); `medieval.town` (47); `technology.bridge` (51, 52, 60 (checkpoint)); `technology.crane` (54, 67); `technology.dam` (55); `money.container-ship` (56); `geo.earth-layers` (59); `nature.hurricane` (64); `arts.mosaic` (71); `arts.shapes` (74); `technology.train` (86); `technology.car` (87); `money.capitol` (89); `technology.solar-panel` (91); `technology.3d-printer` (94); `geo.island` (95); `astronomy.moon` (96).
+
+And from the shared table: `egypt.temple`, `egypt.house`.
+
+### How Government Works (7 images)
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `gov.gavel` | Judge's wooden gavel | 4, 51, 52, 55, 57, 60 (checkpoint), 87 |
+| `gov.newspaper` | Folded newspaper with blank columns | 28, 95 |
+| `gov.megaphone` | Megaphone | 29, 65, 96 |
+| `gov.dove` | White dove with an olive sprig | 34, 35, 86 |
+| `gov.ballot-box` | Ballot box with a paper going in | 37, 38, 61, 62, 63, 68, 70 (checkpoint) |
+| `gov.badge` | Plain silver badge, no text | 58 |
+| `gov.mastery` | Gold gavel with a soft glow | 100 |
+
+From your first-round list (probably already approved; make them only if not):
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `rome.altar-flame` | Small stone altar with a flame | 15 |
+| `rome.raised-hand` | Raised open bronze hand | 16, 30 (checkpoint), 45, 67 |
+| `rome.rostra` | Speaker's stone platform | 42 |
+| `rome.curule-chair` | Folding ivory seat of office | 14, 43 |
+| `rome.curia` | Plain brick senate house with a bronze door | 17, 23 |
+| `rome.wax-seal` | Red wax seal on a folded letter | 22, 83 |
+
+Also uses, from earlier lists: `money.scale` (25, 26, 50 (milestone), 53, 54, 92); `geo.people` (27, 88); `rome.scroll` (2, 31, 32, 40 (checkpoint), 41); `rome.ruins` (19); `object.magnifier` (69, 98); `rome.temple` (21); `medieval.crown` (11, 12, 20 (checkpoint)); `rome.broken-chains` (39, 48); `object.book` (46, 56, 73); `geo.speech-bubbles` (93, 99); `geo.map` (18, 64); `arts.quill` (33); `nature.water-drop` (5); `nature.thermometer` (89); `medieval.town` (47, 97); `technology.bridge` (76); `money.capitol` (1, 8, 10 (checkpoint), 24, 71); `rome.fasces` (3, 13); `money.receipt` (6, 72, 80 (checkpoint)); `money.handshake` (7, 44, 82, 94); `object.flag` (9, 81, 85, 91); `object.padlock` (36, 59); `object.globe` (49, 84, 90 (checkpoint)); `money.chart-up` (66); `body.stethoscope` (74); `money.piggy-bank` (75); `money.banknote` (77); `money.chart-down` (78); `rome.legion` (79).
+
+And from the shared table: .
+
+### The Oceans (9 images)
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `ocean.submersible` | Round deep-sea submersible with lights | 9, 14, 51, 87, 88, 90 (checkpoint) |
+| `ocean.kelp` | Tall kelp fronds | 42 |
+| `ocean.dolphin` | Leaping dolphin | 46 |
+| `ocean.seal` | Seal on a rock | 47, 77 |
+| `ocean.anchor` | Ship anchor | 66, 78 |
+| `ocean.oyster` | Open oyster with a pearl | 68 |
+| `ocean.diving-helmet` | Brass diving helmet | 85, 86 |
+| `ocean.fishing-net` | Fishing net with floats | 91, 92 |
+| `ocean.mastery` | Gold anchor with a soft glow | 100 |
+
+From your first-round list (probably already approved; make them only if not):
+
+| Image ID | Draw | Levels |
+| --- | --- | --- |
+| `rome.pirate-ship` | Small pirate ship | 97 |
+
+Also uses, from earlier lists: `geo.river` (63); `astronomy.sun` (8); `geo.lighthouse` (26, 69); `object.magnifier` (59); `technology.satellite` (89); `geo.wave` (1, 19, 21, 22, 23, 30 (checkpoint)); `geo.map` (3, 11, 12, 84); `science.microscope` (41, 75); `nature.water-drop` (7, 99); `technology.plastic-bottle` (39, 95); `nature.thermometer` (6, 34, 36, 79); `geo.coral` (43, 44, 50 (milestone), 96); `technology.dam` (28); `money.container-ship` (93); `geo.earth-layers` (13, 18, 20 (checkpoint)); `nature.hurricane` (29, 35); `geo.island` (65, 70 (checkpoint)); `astronomy.moon` (24, 25); `object.globe` (2, 10 (checkpoint), 31, 32, 33, 40 (checkpoint)); `astronomy.comet` (4); `nature.volcano` (15, 16, 57, 64); `geo.rocks` (17, 62); `animals.crab` (27); `geo.glacier` (38, 71, 72, 73, 80 (checkpoint)); `animals.turtle` (45); `animals.eagle` (48); `animals.shark` (49); `animals.jellyfish` (52); `animals.anglerfish` (53, 55, 60 (checkpoint)); `animals.octopus` (54, 58, 98); `animals.whale` (56, 76); `medieval.scallop` (61, 67); `animals.penguin` (74); `medieval.caravel` (81, 83); `astronomy.star-chart` (82); `technology.wind-turbine` (94).
+
+And from the shared table: `chem.molecule`, `chem.crystal`.
 
 ## Adding more later
 

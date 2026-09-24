@@ -4,6 +4,9 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Six more trees planned, bringing the total to 16:** Ancient Egypt, Ancient Greece, Chemistry, Architecture, How Government Works and The Oceans. They were written to reuse images: 600 levels need only 63 new images, plus 20 from the first-round image list.
+  - The image list now has a substitutes table (and `docs/image-substitutes.json`) that maps 41 planned images to first-round images that can stand in, so images already approved from that list get used.
+  - The list's descriptions that described two subjects now describe one object each (for example, rocky planets, merging galaxies, eggs across baskets).
 - **Four more trees planned, bringing the total to 10:** The Human Body and The Animal Kingdom (Science), The Middle Ages (History) and Music (Arts & Culture). Same setup: a skill and a 100-level syllabus, no levels yet, kept out of the app. The image list adds 102 images for them, and reuses 48 existing ones.
 - **Four more trees planned to 100 levels:** World Geography, How Money Works, Art History and Everyday Technology, one for each subject that had none.
   - Each has a `skill.json` and a `syllabus.json` (10 chapters, 100 level titles and objectives). No levels are written yet.
