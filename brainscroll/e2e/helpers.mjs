@@ -19,8 +19,9 @@ export async function home(page) {
   await page.waitForTimeout(1500);
 }
 
-export async function onboard(page, { start }) {
+export async function onboard(page, { start, skill = 'Astronomy' }) {
   await button(page, 'Continue').click();
+  await page.getByRole('radio', { name: new RegExp(skill) }).click();
   await button(page, 'Continue').click();
   await button(page, start ? 'Start Your Cosmic Address' : 'Look around first').click();
   await page.waitForTimeout(800);

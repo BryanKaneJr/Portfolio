@@ -14,7 +14,7 @@ import { color, layout, radius, space, type } from '@/theme/tokens';
  * Only skills with published levels can be picked; the rest say so honestly.
  */
 export default function WelcomeScreen() {
-  const { finishOnboarding } = useProgress();
+  const { finishOnboarding, setActiveSkill } = useProgress();
   const [step, setStep] = useState(0);
   const playable = skills.filter((s) => levelByNumber(s.id, 1));
   const [skillId, setSkillId] = useState(playable[0]?.id);
@@ -22,6 +22,7 @@ export default function WelcomeScreen() {
 
   const start = () => {
     finishOnboarding();
+    if (skillId) setActiveSkill(skillId);
     if (firstLevel) router.replace({ pathname: '/level/[id]', params: { id: firstLevel.id } });
     else router.replace('/');
   };
@@ -91,6 +92,7 @@ export default function WelcomeScreen() {
               label="Look around first"
               onPress={() => {
                 finishOnboarding();
+                if (skillId) setActiveSkill(skillId);
                 router.replace('/');
               }}
             />

@@ -1,0 +1,206 @@
+{
+  "id": "level.history.ancient_rome.002",
+  "skillId": "skill.history.ancient_rome",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Romulus and Remus",
+  "objective": "After this level you can retell Rome’s founding legend and explain why Romans valued it.",
+  "summary": "Legend says twin sons of Mars, nursed by a she-wolf, founded Rome, and Romulus killed Remus. Historians treat it as legend, not history.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.founding_legend",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.rome_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.001"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every Roman knew how their city began: with twins, a wolf and a killing."
+    },
+    {
+      "id": "card.ancient_rome.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Raised by a wolf",
+      "body": "In the legend, the twins Romulus and Remus were sons of the war god Mars. Abandoned as babies beside the river Tiber, they were found and nursed by a she-wolf. The image of the wolf and the twins became one of Rome’s best-known symbols."
+    },
+    {
+      "id": "card.ancient_rome.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A city named in blood",
+      "body": "When the grown twins founded their city, they quarreled over it, and Romulus killed Remus. The new city took Romulus’s name. Roman writers retold the story for centuries, uncomfortable parts included."
+    },
+    {
+      "id": "card.ancient_rome.002.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Legend, not history",
+      "body": "Romans also claimed descent from Aeneas, a Trojan prince who fled the fall of Troy to Italy. Historians treat both stories as legend, written down centuries after the events they describe. They still matter, because they show how Romans saw themselves."
+    },
+    {
+      "id": "card.ancient_rome.002.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.002.q1"
+    },
+    {
+      "id": "card.ancient_rome.002.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.002.q2"
+    },
+    {
+      "id": "card.ancient_rome.002.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.002.q3"
+    },
+    {
+      "id": "card.ancient_rome.002.c8",
+      "type": "checkpoint",
+      "headline": "Founding legend: known",
+      "learned": [
+        "Legend: twin sons of Mars founded Rome",
+        "A she-wolf nursed them",
+        "Romulus killed Remus; the city took his name",
+        "Historians treat it as legend"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.founding_legend"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.002.c2"
+      ],
+      "prompt": "In the legend, what nursed the abandoned Romulus and Remus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An eagle sent by Jupiter",
+          "correct": false,
+          "rationale": "The animal was a wolf."
+        },
+        {
+          "id": "b",
+          "label": "A she-wolf",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A goddess of the hearth",
+          "correct": false,
+          "rationale": "No goddess nursed them."
+        },
+        {
+          "id": "d",
+          "label": "A herd of goats",
+          "correct": false,
+          "rationale": "Not in the Roman legend."
+        }
+      ],
+      "explanation": "A she-wolf found and nursed the twins, an image that became a symbol of Rome.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.founding_legend"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.002.c4"
+      ],
+      "prompt": "Why do historians treat the Romulus and Remus story as legend?",
+      "options": [
+        {
+          "id": "a",
+          "label": "No Roman believed it",
+          "correct": false,
+          "rationale": "Romans told it proudly."
+        },
+        {
+          "id": "b",
+          "label": "Modern historians invented it",
+          "correct": false,
+          "rationale": "Romans told it themselves."
+        },
+        {
+          "id": "c",
+          "label": "It was written down centuries after the events",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Archaeology shows Rome was never founded",
+          "correct": false,
+          "rationale": "Rome was founded; the story is the question."
+        }
+      ],
+      "explanation": "The founding stories were recorded long after the events, so they tell us more about how Romans saw themselves.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.founding_legend",
+        "concept.ancient_rome.rome_eras"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.002.c3",
+        "card.ancient_rome.001.c2"
+      ],
+      "prompt": "From Level 1: Romans dated the founding to 753 BCE. How did the legend explain the city’s name?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was named after the Tiber",
+          "correct": false,
+          "rationale": "The legend credits a founder."
+        },
+        {
+          "id": "b",
+          "label": "It was named after Aeneas",
+          "correct": false,
+          "rationale": "Aeneas came much earlier."
+        },
+        {
+          "id": "c",
+          "label": "It was named after the she-wolf",
+          "correct": false,
+          "rationale": "The wolf nursed the founders."
+        },
+        {
+          "id": "d",
+          "label": "It was named after Romulus",
+          "correct": true
+        }
+      ],
+      "explanation": "After Romulus killed Remus, the new city took Romulus’s name.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_romulus_remus",
+    "source.brit_aeneas"
+  ]
+}

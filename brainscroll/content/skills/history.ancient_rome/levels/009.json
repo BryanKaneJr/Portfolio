@@ -1,0 +1,208 @@
+{
+  "id": "level.history.ancient_rome.009",
+  "skillId": "skill.history.ancient_rome",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Last King",
+  "objective": "After this level you can explain how Rome overthrew Tarquin the Proud and why it rejected kings.",
+  "summary": "Tarquin the Proud ruled as a tyrant. After the Lucretia scandal, Brutus led the Romans to expel him in 509 BCE and swear off kings.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.fall_of_kings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.roman_kings",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.008"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome’s kings ended with a crime, an uprising and an oath never to have another."
+    },
+    {
+      "id": "card.ancient_rome.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A tyrant king",
+      "body": "The seventh king, Tarquin the Proud, was remembered as a tyrant who ruled by force and ignored the Senate. According to tradition, his son then assaulted a noblewoman named Lucretia. Her death turned anger into revolt."
+    },
+    {
+      "id": "card.ancient_rome.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "No more kings",
+      "body": "Led by Lucius Junius Brutus, the Romans drove the king out in 509 BCE. Brutus had them swear never again to let anyone be king in Rome.",
+      "callout": "The end of the monarchy: 509 BCE"
+    },
+    {
+      "id": "card.ancient_rome.009.c4",
+      "type": "fact",
+      "fact": "Romans hated the word “king.”",
+      "context": "The title rex became so unpopular that, centuries later, even the most powerful Romans avoided it and found other names for their power."
+    },
+    {
+      "id": "card.ancient_rome.009.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.009.q1"
+    },
+    {
+      "id": "card.ancient_rome.009.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.009.q2"
+    },
+    {
+      "id": "card.ancient_rome.009.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.009.q3"
+    },
+    {
+      "id": "card.ancient_rome.009.c8",
+      "type": "checkpoint",
+      "headline": "The monarchy: ended",
+      "learned": [
+        "Tarquin the Proud ruled as a tyrant",
+        "The Lucretia scandal sparked revolt",
+        "Brutus expelled the king in 509 BCE",
+        "Romans swore never to have a king again"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.fall_of_kings"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.009.c3"
+      ],
+      "prompt": "In what year, by tradition, did the Romans expel their last king?",
+      "options": [
+        {
+          "id": "a",
+          "label": "753 BCE",
+          "correct": false,
+          "rationale": "That’s the traditional founding."
+        },
+        {
+          "id": "b",
+          "label": "27 BCE",
+          "correct": false,
+          "rationale": "That’s the start of the Empire."
+        },
+        {
+          "id": "c",
+          "label": "509 BCE",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "476 CE",
+          "correct": false,
+          "rationale": "That’s the fall of the West."
+        }
+      ],
+      "explanation": "Tradition dates the expulsion of Tarquin the Proud to 509 BCE.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.fall_of_kings"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.009.c4"
+      ],
+      "prompt": "Why did later powerful Romans avoid calling themselves king?",
+      "options": [
+        {
+          "id": "a",
+          "label": "After the tyrant kings, the title was hated",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Only priests could be called king",
+          "correct": false,
+          "rationale": "The issue was hatred of the title."
+        },
+        {
+          "id": "c",
+          "label": "The Senate had never used the word",
+          "correct": false,
+          "rationale": "The word was widely known."
+        },
+        {
+          "id": "d",
+          "label": "Kings had to be Etruscan by law",
+          "correct": false,
+          "rationale": "No such law."
+        }
+      ],
+      "explanation": "After Tarquin, rex became a hated title, and Romans had sworn never to have a king again.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.fall_of_kings",
+        "concept.ancient_rome.roman_kings"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.009.c2",
+        "card.ancient_rome.006.c4"
+      ],
+      "prompt": "From Level 6: which body began as the kings’ council of elders and survived their fall?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The royal household",
+          "correct": false,
+          "rationale": "It fell with the king."
+        },
+        {
+          "id": "b",
+          "label": "The Etruscan league",
+          "correct": false,
+          "rationale": "That wasn’t a Roman body."
+        },
+        {
+          "id": "c",
+          "label": "The king’s bodyguard",
+          "correct": false,
+          "rationale": "It fell with the king."
+        },
+        {
+          "id": "d",
+          "label": "The Senate",
+          "correct": true
+        }
+      ],
+      "explanation": "The Senate began as a council advising the kings and long outlasted them.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_lucretia",
+    "source.brit_brutus_lucius",
+    "source.brit_tarquin",
+    "source.brit_ancient_rome"
+  ]
+}

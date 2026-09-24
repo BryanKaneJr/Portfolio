@@ -4,6 +4,15 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Second skill tree started: History · Ancient Rome.** Build Order step 35 says a second tree "with a different structure" should prove the schema isn't overfit. The roadmap names Ancient Rome alongside Astronomy as a flagship prototype, and Rome is chronology (people, events, cause and effect) where Astronomy is conceptual science.
+  - **Syllabus:** a 100-level syllabus in 10 chapters: founding and kings, the early Republic, Carthage, the Republic's crisis, Augustus (Level 50 milestone), the emperors, daily life, how Rome held an empire, crisis and Christianity, the fall and legacy (96–99 integration, Level 100 Mastery).
+  - **Golden 10:** Levels 1–10 drafted to the Astronomy standard (11 concepts, 45 claims, all unverified, Britannica as the working reference). The validator reports 0 errors, with no quality warnings other than verification.
+  - **Schema:** no changes were needed.
+  - **Single-skill assumptions fixed in code:**
+    - Home always showed the first skill. It now follows an **active skill**, set by onboarding and whenever a level starts from any skill.
+    - The DB import test compared one skill's top level with the total. It now checks every skill's 1..n.
+    - The authoring helper was hard-wired to Astronomy.
+  - **Tests:** a new e2e check confirms choosing Rome on the Skills tab moves Home to it. `docs/build-order.md` statuses were refreshed; they had fallen behind.
 - **In-app account deletion** (App Store / Google Play requirement; it was the pre-launch gap flagged in `docs/accounts.md`).
   - **Server:** `delete_my_account()` removes the auth user, and every learner table cascades through `profiles`. A new SQL suite checks all 11 tables are emptied for that learner and nobody else is touched, and that anonymous callers are refused.
   - **App:** Profile → **Delete account** → one honest confirmation. It lists what goes, notes that store subscriptions are cancelled in the store, and offers "Keep my account". The app then restarts at onboarding as a fresh guest, with the local session, level sessions and queued analytics cleared. Offline builds offer **Erase my progress**.

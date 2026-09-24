@@ -72,6 +72,15 @@ try {
   await page.waitForTimeout(800);
   const profileText = await bodyText(page);
   check(profileText.includes('saved on this device') && !profileText.includes('Save my progress'), 'offline play shows device-only saving, with no account actions');
+  // A second skill: choosing it on the Skills tab makes Home follow it.
+  await page.getByRole('tab', { name: /Skills/ }).click();
+  await page.waitForTimeout(600);
+  await button(page, 'Continue Ancient Rome').click();
+  await page.waitForTimeout(800);
+  await home(page);
+  check((await bodyText(page)).includes('Ancient Rome · Lv. 0'), 'Home follows the skill the learner chose last (a second tree plays from data)');
+  await page.getByRole('tab', { name: /Profile/ }).click();
+  await page.waitForTimeout(800);
   await button(page, 'Erase my progress').click();
   await button(page, 'Erase permanently').click();
   await page.waitForTimeout(1200);

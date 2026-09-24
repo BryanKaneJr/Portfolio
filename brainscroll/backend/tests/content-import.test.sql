@@ -22,9 +22,13 @@ begin
   assert v_levels >= 10, format('expected at least the Golden 10 levels, got %s', v_levels);
   assert (select count(*) from public.levels where status = 'published') = v_levels, 'all levels published';
   assert (select count(*) from public.level_revisions) = v_levels, 're-import must not create revisions';
-  assert (select max_published_level from public.skills where id = 'skill.science.astronomy') = v_levels;
+  -- Every skill's highest published level equals its own level count (levels are contiguous from 1).
+  assert (select bool_and(s.max_published_level = (select count(*) from public.levels l where l.skill_id = s.id))
+          from public.skills s where exists (select 1 from public.levels l where l.skill_id = s.id)),
+    'each skill publishes a contiguous 1..n';
+  assert (select count(distinct skill_id) from public.levels) >= 1;
   -- Testing is proportional: regular 3 questions, checkpoint 5, milestone 7, mastery 10.
-  assert (select level_type from public.levels where number = 10) = 'checkpoint';
+  assert (select bool_and(level_type = 'checkpoint') from public.levels where number = 10), 'every Level 10 is a checkpoint';
   assert (select count(*) from public.levels where level_type = 'checkpoint') = (select count(*) from public.levels where number % 10 = 0 and number % 50 <> 0);
   assert (select bool_and(n = case l.level_type when 'regular' then 3 when 'checkpoint' then 5 when 'milestone' then 7 else 10 end)
           from (select q.level_id, count(*) n from public.questions q group by q.level_id) x join public.levels l on l.id = x.level_id),

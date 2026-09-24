@@ -16,15 +16,15 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | --- | --- | --- | --- |
 | 0 | Freeze rules | Rules file is authoritative; ID format frozen; new level/review/completion/mastery/prestige are unambiguous | ✅ [`product-rules.md`](product-rules.md) |
 | 1 | Data contracts | A level's JSON validates without the app; migrations rebuild from scratch; revision + source/licence fields exist; completion is an idempotent server contract | ✅ core schema + validator, migration, `complete_level`, SQL tests |
-| 2 | Golden 10 levels | One real skill (Astronomy), Levels 1–10 hand-polished and source-verified | 🟡 Levels 1–9 regular (learn → 3 questions), Level 10 a 5-question checkpoint; sources need editor verification; no image asset yet |
-| 3 | Lesson player | All 10 levels render from data with no level-specific UI; resume works; double tap can't duplicate XP; wrong answers teach | ✅ offline (bundled content, local progress); server fetch pending |
-| 4 | Progress & character sheet | Two users see distinct sheets; reinstall restores progress; revisions never move progress back | 🟡 server-authoritative via anonymous accounts; account linking for reinstall/second device pending |
+| 2 | Golden 10 levels | One real skill (Astronomy), Levels 1–10 hand-polished and source-verified | 🟡 drafted and validated (Astronomy, and now Ancient Rome); claims recorded but not yet verified against sources; no image assets yet |
+| 3 | Lesson player | All 10 levels render from data with no level-specific UI; resume works; double tap can't duplicate XP; wrong answers teach | ✅ offline and server-backed; redesigned lesson shell (select → CHECK, Take another look) |
+| 4 | Progress & character sheet | Two users see distinct sheets; reinstall restores progress; revisions never move progress back | ✅ server-authoritative; email account linking restores progress on reinstall or a second device (e2e-tested) |
 | 5 | Review & mastery | Concept-level review queue; alternative questions per concept; review never uses allowance | ✅ `get_review_queue`/`submit_review` + local review sessions, tested |
-| 6 | Daily cap | 5/day enforced server-side; Daily Complete screen; review stays open | 🟡 enforced server-side and locally; Daily Complete live; paywall not wired |
-| 7 | Content tooling | Editor/importer/validator so Levels 11–100 can scale safely | 🟡 validator + importer (`import_content`, immutable revisions); admin UI pending |
+| 6 | Daily cap | 5/day enforced server-side; Daily Complete screen; review stays open | 🟡 enforced server-side and locally; Daily Complete live; paywall held with subscriptions |
+| 7 | Content tooling | Editor/importer/validator so Levels 11–100 can scale safely | ✅ validator (quality, claims, editorial rules) + importer + Content Admin v1 |
 | 8 | Subscriptions | RevenueCat `unlimited_learning`, restore, expiry | ⬜ |
-| 9 | Analytics & reporting | Mission-aligned events, content reports, funnel | ⬜ |
-| 10 | Scale launch content | Flagship to 100, then a second skill of a different shape, then 6–10 trees | ⬜ |
+| 9 | Analytics & reporting | Mission-aligned events, content reports, funnel | ✅ built and tested locally; configured once Supabase is connected (`docs/analytics.md`) |
+| 10 | Scale launch content | Flagship to 100, then a second skill of a different shape, then 6–10 trees | 🟡 Astronomy 1–100 drafted; Ancient Rome (chronology) under way |
 | 11 | Beta & release | TestFlight/Play testing, QA matrix, store submission | ⬜ |
 
 ## Critical-path backlog
@@ -34,7 +34,7 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | 1 | Repo + environments | App boots in development; staging backend exists | 🟡 app + Supabase mode ready; staging project not yet created |
 | 2 | Migrations + ID rules | Fresh DB can be recreated reliably | ✅ `npm run test:db` |
 | 3 | Content JSON validator | Malformed levels fail before import | ✅ `npm run validate:content` |
-| 4 | 10 golden levels | Real content available as canonical seed data | 🟡 10/10 drafted; awaiting source verification |
+| 4 | 10 golden levels | Real content available as canonical seed data | 🟡 drafted for Astronomy and Ancient Rome; awaiting source verification |
 | 5 | Read-only content API | App can fetch skills/levels/cards/questions | ✅ app renders the server's current revision; e2e-tested |
 | 6 | Mobile navigation shell | Onboarding → skill → lesson → completion path exists | ✅ |
 | 7 | Generic card renderer | Golden levels render from data only | ✅ `app/src/components/cards` |
@@ -42,13 +42,13 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | 9 | Completion transaction | Exactly-once progress/XP update | ✅ server side |
 | 10 | Character sheet | Skill and overall progress visible | ✅ from `get_progress()` (Supabase) or on-device |
 | 11 | Review queue | Prior concepts reappear and update mastery | ✅ |
-| 12 | 5/day allowance | Free path ends deliberately; review remains open | ✅ server + local; review flow pending |
-| 13 | Content admin v1 | Edit/validate/preview/publish without raw DB editing | ⬜ |
+| 12 | 5/day allowance | Free path ends deliberately; review remains open | ✅ server + local, including review sessions |
+| 13 | Content admin v1 | Edit/validate/preview/publish without raw DB editing | ✅ `npm run admin` (file-based; publishing still goes through the importer) |
 | 14 | Publishing/revisions | Corrections are versioned; progress survives | ✅ tested: conflict, bump, regression |
-| 15 | RevenueCat | Unlimited + restore + expiry | ⬜ |
-| 16 | Analytics + reports | Detect funnel/content/technical failures | ⬜ `content_reports` table exists |
-| 17 | Finish flagship 1–100 | Whole depth curve proven | ⬜ |
-| 18 | Scale launch trees | Content pipeline used repeatedly | ⬜ |
+| 15 | RevenueCat | Unlimited + restore + expiry | ⬜ held (needs store setup) |
+| 16 | Analytics + reports | Detect funnel/content/technical failures | ✅ locally; configured with Supabase |
+| 17 | Finish flagship 1–100 | Whole depth curve proven | 🟡 Astronomy 1–100 drafted; sources unverified; pacing not yet tested on a phone |
+| 18 | Scale launch trees | Content pipeline used repeatedly | 🟡 second tree (Ancient Rome) under way |
 | 19 | Closed beta | Unknown users complete core loop without coaching | ⬜ |
 | 20 | Store release | Monitoring + correction workflow ready | ⬜ |
 
@@ -61,13 +61,13 @@ Dependency order, with where we are today:
 | # | Step | Status |
 | --- | --- | --- |
 | **Core** | | |
-| 1 | Auth / user accounts | 🟡 anonymous accounts work; account linking and usernames are missing |
-| 2 | Canonical curriculum | 🟡 Astronomy 1–10 drafted; sources unverified |
+| 1 | Auth / user accounts | 🟡 anonymous accounts, email linking and account deletion work; usernames are missing (post-MVP) |
+| 2 | Canonical curriculum | 🟡 Astronomy 1–100 and Ancient Rome drafted; sources unverified |
 | 3 | Regular 3-question learning levels | ✅ |
 | 4 | Level completion | ✅ exactly-once, server-authoritative |
 | 5 | Skill progression | ✅ |
 | 6 | XP | ✅ ledger (`xp_events`) |
-| 7 | Level 1–100 progression | ✅ rules, bands and stars; content only to Level 10 |
+| 7 | Level 1–100 progression | ✅ rules, bands and stars; Astronomy content through Level 100 |
 | 8 | Daily 5-new-level free cap | ✅ |
 | 9 | Unlimited subscription | ⬜ |
 | 10 | Review / recall | ✅ |

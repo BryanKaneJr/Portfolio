@@ -15,6 +15,8 @@ import { load, newIdempotencyKey, save } from './storage';
 
 const SESSIONS_KEY = 'brainscroll.sessions.v1';
 const ONBOARDED_KEY = 'brainscroll.onboarded.v1';
+/** The skill Home offers to continue: the one the learner last chose or played. */
+const ACTIVE_SKILL_KEY = 'brainscroll.activeSkill.v1';
 
 /** One graded attempt, as the server (or local engine) judged it. */
 export interface AttemptView {
@@ -55,6 +57,9 @@ interface ProgressContextValue {
   submitReview(item: ReviewItem, optionId: string): Promise<ReviewResult>;
   refresh(): Promise<void>;
   finishOnboarding(): void;
+  /** The skill Home's Continue card follows. Set by onboarding and whenever a level starts. */
+  activeSkillId: string | undefined;
+  setActiveSkill(skillId: string): void;
   resetAll(): Promise<void>;
   /** Where progress is kept (device, guest, or a saved email account). Null until known. */
   account: AccountState | null;
@@ -99,6 +104,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [sessions, setSessions] = useState<Record<string, LevelSession>>({});
   const [lastSummary, setLastSummary] = useState<CompletionSummary>();
   const [onboarded, setOnboarded] = useState(false);
+  const [activeSkillId, setActiveSkillId] = useState<string | undefined>();
   const [account, setAccount] = useState<AccountState | null>(null);
   // Synchronous mirrors for handlers.
   const sessionsRef = useRef(sessions);
@@ -119,7 +125,12 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     backendRef.current ??= createBackend();
     const backend = backendRef.current;
     (async () => {
-      const [s, o] = await Promise.all([load<Record<string, LevelSession>>(SESSIONS_KEY), load<boolean>(ONBOARDED_KEY)]);
+      const [s, o, active] = await Promise.all([
+        load<Record<string, LevelSession>>(SESSIONS_KEY),
+        load<boolean>(ONBOARDED_KEY),
+        load<string>(ACTIVE_SKILL_KEY),
+      ]);
+      if (active) setActiveSkillId(active);
       if (s) {
         sessionsRef.current = s;
         setSessions(s);
@@ -205,12 +216,19 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         setOnboarded(true);
         void save(ONBOARDED_KEY, true);
       },
+      activeSkillId,
+      setActiveSkill(skillId) {
+        setActiveSkillId(skillId);
+        void save(ACTIVE_SKILL_KEY, skillId);
+      },
       async resetAll() {
         await backendOrThrow().reset();
         commitSessions({});
         setLastSummary(undefined);
         setOnboarded(false);
         void save(ONBOARDED_KEY, false);
+        setActiveSkillId(undefined);
+        void save(ACTIVE_SKILL_KEY, null);
         await refresh();
         setAccount(await backendOrThrow().account());
       },
@@ -241,6 +259,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         setLastSummary(undefined);
         setOnboarded(false);
         void save(ONBOARDED_KEY, false);
+        setActiveSkillId(undefined);
+        void save(ACTIVE_SKILL_KEY, null);
         setAccount(next);
         await refresh();
       },
@@ -252,7 +272,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         await refresh();
       },
     }),
-    [ready, error, snapshot, sessions, lastSummary, onboarded, account, refresh, commitSessions, backendOrThrow],
+    [ready, error, snapshot, sessions, lastSummary, onboarded, account, activeSkillId, refresh, commitSessions, backendOrThrow],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

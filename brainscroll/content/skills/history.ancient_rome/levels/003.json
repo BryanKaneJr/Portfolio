@@ -1,0 +1,207 @@
+{
+  "id": "level.history.ancient_rome.003",
+  "skillId": "skill.history.ancient_rome",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What the Ground Remembers",
+  "objective": "After this level you can explain what archaeology shows about Rome’s earliest villages.",
+  "summary": "Latin farmers built huts on the Palatine by about the 8th century BCE. Hilltop villages merged, and the marshy Forum valley was drained.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.early_settlement",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.rome_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.002"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Beneath the ruins on the Palatine Hill lie traces of Rome’s first huts."
+    },
+    {
+      "id": "card.ancient_rome.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Huts on a hill",
+      "body": "The earliest Romans were Latins, farmers and herders from the region called Latium. Archaeologists have found traces of their huts on the Palatine Hill from around the 8th century BCE. That fits surprisingly well with the traditional founding date."
+    },
+    {
+      "id": "card.ancient_rome.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "From villages to a town",
+      "body": "Early Rome was not one city but several hilltop villages. Over time they grew together. The marshy valley between them was drained and paved, and it became the Roman Forum, the heart of the city."
+    },
+    {
+      "id": "card.ancient_rome.003.c4",
+      "type": "fact",
+      "fact": "Rome’s great drain still works.",
+      "context": "The Cloaca Maxima, the city’s great early drain, helped dry out the Forum valley. Parts of it still carry water today."
+    },
+    {
+      "id": "card.ancient_rome.003.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.003.q1"
+    },
+    {
+      "id": "card.ancient_rome.003.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.003.q2"
+    },
+    {
+      "id": "card.ancient_rome.003.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.003.q3"
+    },
+    {
+      "id": "card.ancient_rome.003.c8",
+      "type": "checkpoint",
+      "headline": "Early Rome: excavated",
+      "learned": [
+        "The first Romans were Latins",
+        "Huts on the Palatine date to about the 8th century BCE",
+        "Hilltop villages merged into a town",
+        "The drained valley became the Forum"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.early_settlement"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.003.c2"
+      ],
+      "prompt": "What have archaeologists found on the Palatine Hill?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Coins minted by Romulus",
+          "correct": false,
+          "rationale": "Rome had no coins then."
+        },
+        {
+          "id": "b",
+          "label": "A stone list of the seven kings",
+          "correct": false,
+          "rationale": "No such list survives."
+        },
+        {
+          "id": "c",
+          "label": "Traces of Iron Age huts",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Remains of a Greek colony",
+          "correct": false,
+          "rationale": "Rome was not a Greek colony."
+        }
+      ],
+      "explanation": "Hut remains from around the 8th century BCE show where early Romans lived.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.early_settlement"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.003.c3"
+      ],
+      "prompt": "How did the Roman Forum come to exist?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A marshy valley was drained and paved",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was carved into the top of a hill",
+          "correct": false,
+          "rationale": "It lies in a valley between hills."
+        },
+        {
+          "id": "c",
+          "label": "It was dug out as a stone quarry",
+          "correct": false,
+          "rationale": "It began as marshland."
+        },
+        {
+          "id": "d",
+          "label": "It began as a harbor on the sea",
+          "correct": false,
+          "rationale": "Rome lies inland."
+        }
+      ],
+      "explanation": "The low, marshy ground between the hills was drained, helped by the Cloaca Maxima, and became the Forum.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.early_settlement",
+        "concept.ancient_rome.rome_eras"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.003.c2",
+        "card.ancient_rome.001.c2"
+      ],
+      "prompt": "From Level 1: how does the date of the Palatine huts compare with Rome’s traditional founding?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are a thousand years older",
+          "correct": false,
+          "rationale": "They date close to it."
+        },
+        {
+          "id": "b",
+          "label": "They date close to the traditional founding",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They prove Romulus existed",
+          "correct": false,
+          "rationale": "Archaeology can’t show that."
+        },
+        {
+          "id": "d",
+          "label": "They date from the time of the emperors",
+          "correct": false,
+          "rationale": "They are far earlier."
+        }
+      ],
+      "explanation": "Huts from around the 8th century BCE sit close to the traditional date of 753 BCE.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_palatine",
+    "source.brit_ancient_rome",
+    "source.brit_forum",
+    "source.brit_cloaca_maxima"
+  ]
+}

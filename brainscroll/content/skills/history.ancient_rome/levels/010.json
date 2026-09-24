@@ -1,0 +1,342 @@
+{
+  "id": "level.history.ancient_rome.010",
+  "skillId": "skill.history.ancient_rome",
+  "number": 10,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: How Rome Began",
+  "objective": "After this level you can connect Rome’s geography, neighbors, legends and kings into one founding story.",
+  "summary": "Legend and evidence tell one story: a river-crossing site, Latin villages, Etruscan influence, and kings until 509 BCE.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.early_rome_story",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.founding_legend",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.early_settlement",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.rome_geography",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.etruscans",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.roman_kings",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.fall_of_kings",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.rome_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.009"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.010.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 1 finale. Put legend and evidence side by side.",
+      "body": "Here’s what Romans said about their beginnings, and what the ground says."
+    },
+    {
+      "id": "card.ancient_rome.010.c2",
+      "type": "comparison",
+      "headline": "Legend and evidence",
+      "items": [
+        {
+          "label": "What legend says",
+          "points": [
+            "Founded by Romulus in 753 BCE",
+            "Seven kings ruled until 509 BCE"
+          ]
+        },
+        {
+          "label": "What evidence shows",
+          "points": [
+            "Huts on the Palatine by the 8th century BCE",
+            "Hilltop villages merged; the Forum was drained"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.ancient_rome.010.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One story",
+      "body": "Early Rome rose from a strategic site on the Tiber, where Latin villages merged into a town. Strong Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Its founding legends explained who Romans believed they were. Then, in 509 BCE, the Romans expelled their seventh king and chose a new way to govern."
+    },
+    {
+      "id": "card.ancient_rome.010.c4",
+      "type": "recall",
+      "questionId": "question.ancient_rome.010.q1"
+    },
+    {
+      "id": "card.ancient_rome.010.c5",
+      "type": "recall",
+      "questionId": "question.ancient_rome.010.q2"
+    },
+    {
+      "id": "card.ancient_rome.010.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.010.q3"
+    },
+    {
+      "id": "card.ancient_rome.010.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.010.q4"
+    },
+    {
+      "id": "card.ancient_rome.010.c8",
+      "type": "recall",
+      "questionId": "question.ancient_rome.010.q5"
+    },
+    {
+      "id": "card.ancient_rome.010.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "Legend: Romulus founded Rome in 753 BCE",
+        "Evidence: Latin villages on the hills merged",
+        "Etruscan neighbors shaped early Rome",
+        "Seven kings, then none after 509 BCE"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.010.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.rome_eras",
+        "concept.ancient_rome.fall_of_kings"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.001.c2",
+        "card.ancient_rome.009.c3"
+      ],
+      "prompt": "Which order is right?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Kings expelled, Rome founded, first emperor",
+          "correct": false,
+          "rationale": "The founding came first."
+        },
+        {
+          "id": "b",
+          "label": "Rome founded, kings expelled, first emperor",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "First emperor, Rome founded, kings expelled",
+          "correct": false,
+          "rationale": "The emperors came last."
+        },
+        {
+          "id": "d",
+          "label": "Rome founded, first emperor, kings expelled",
+          "correct": false,
+          "rationale": "Kings were expelled before any emperor."
+        }
+      ],
+      "explanation": "By tradition: founded in 753 BCE, kings expelled in 509 BCE, the Empire from 27 BCE.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_rome.010.q2",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.etruscans"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.005.c4"
+      ],
+      "prompt": "Which neighbors gave Rome the fasces and haruspicy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Etruscans",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Greeks",
+          "correct": false,
+          "rationale": "These came from Etruria."
+        },
+        {
+          "id": "c",
+          "label": "The Gauls",
+          "correct": false,
+          "rationale": "These came from Etruria."
+        },
+        {
+          "id": "d",
+          "label": "The Egyptians",
+          "correct": false,
+          "rationale": "These came from Etruria."
+        }
+      ],
+      "explanation": "Both the fasces and haruspicy came to Rome from the Etruscans.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.010.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.early_settlement",
+        "concept.ancient_rome.early_rome_story"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.010.c2",
+        "card.ancient_rome.003.c2"
+      ],
+      "prompt": "What does archaeology add to Rome’s founding legend?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Proof that Romulus existed",
+          "correct": false,
+          "rationale": "Archaeology can’t prove that."
+        },
+        {
+          "id": "b",
+          "label": "Proof that Greeks founded Rome",
+          "correct": false,
+          "rationale": "It shows Latin villages."
+        },
+        {
+          "id": "c",
+          "label": "Evidence of real huts near the traditional date",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nothing: no early remains survive",
+          "correct": false,
+          "rationale": "Hut traces survive on the Palatine."
+        }
+      ],
+      "explanation": "Hut remains on the Palatine from around the 8th century BCE sit close to the traditional founding date.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.010.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.founding_legend",
+        "concept.ancient_rome.early_rome_story"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.002.c4"
+      ],
+      "prompt": "If the founding stories are legends, why do historians still study them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are accurate in every detail",
+          "correct": false,
+          "rationale": "They were written centuries later."
+        },
+        {
+          "id": "b",
+          "label": "They contain the only dates we have",
+          "correct": false,
+          "rationale": "Archaeology provides evidence too."
+        },
+        {
+          "id": "c",
+          "label": "They were written by the kings",
+          "correct": false,
+          "rationale": "They came much later."
+        },
+        {
+          "id": "d",
+          "label": "They show how Romans saw themselves",
+          "correct": true
+        }
+      ],
+      "explanation": "Legends reveal Roman values and identity, even when they aren’t reliable history.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.010.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.rome_geography",
+        "concept.ancient_rome.early_rome_story"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.004.c2",
+        "card.ancient_rome.010.c3"
+      ],
+      "prompt": "Chapter 1 recap: why did a site on the Tiber become worth fighting over?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sat on a river crossing between coast and inland Italy",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was the only flat land in Italy",
+          "correct": false,
+          "rationale": "Rome is famous for its hills."
+        },
+        {
+          "id": "c",
+          "label": "It had Italy’s largest gold mines",
+          "correct": false,
+          "rationale": "Its value was position, not gold."
+        },
+        {
+          "id": "d",
+          "label": "It was an island safe from any attack",
+          "correct": false,
+          "rationale": "It was on the riverbank, beside hills."
+        }
+      ],
+      "explanation": "A crossing of the Tiber on a trade route drew traders and rivals alike.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ancient_rome",
+    "source.brit_palatine",
+    "source.brit_forum",
+    "source.brit_cloaca_maxima",
+    "source.brit_etruscans",
+    "source.brit_tarquin",
+    "source.brit_brutus_lucius"
+  ]
+}

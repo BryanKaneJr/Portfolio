@@ -1,0 +1,210 @@
+{
+  "id": "level.history.ancient_rome.005",
+  "skillId": "skill.history.ancient_rome",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Etruscans Next Door",
+  "objective": "After this level you can describe who the Etruscans were and what Rome borrowed from them.",
+  "summary": "The Etruscans of Tuscany were early Italy’s great power. Rome had Etruscan kings and borrowed the fasces and haruspicy from them.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.etruscans",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.rome_geography",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.004"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Before Rome dominated Italy, it lived in the shadow of a richer neighbor."
+    },
+    {
+      "id": "card.ancient_rome.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rome’s powerful neighbors",
+      "body": "North of Rome, in what is now Tuscany, lived the Etruscans. They were organized in independent cities and were among the most powerful peoples of early Italy. Their language was unrelated to Latin, and it is still only partly understood."
+    },
+    {
+      "id": "card.ancient_rome.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Etruscan kings",
+      "body": "According to Roman tradition, the last three kings of Rome were Etruscans. Whether or not every detail is true, Rome clearly grew up under strong Etruscan influence."
+    },
+    {
+      "id": "card.ancient_rome.005.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What Rome borrowed",
+      "body": "Romans took over the fasces, a bundle of rods around an axe that attendants carried before officials as a sign of their power. They also learned haruspicy from the Etruscans: reading omens in the organs of sacrificed animals.",
+      "callout": "Fasces: rods and an axe, the symbol of authority"
+    },
+    {
+      "id": "card.ancient_rome.005.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.005.q1"
+    },
+    {
+      "id": "card.ancient_rome.005.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.005.q2"
+    },
+    {
+      "id": "card.ancient_rome.005.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.005.q3"
+    },
+    {
+      "id": "card.ancient_rome.005.c8",
+      "type": "checkpoint",
+      "headline": "The Etruscans: met",
+      "learned": [
+        "The Etruscans lived north of Rome, in Tuscany",
+        "Their language is only partly understood",
+        "Tradition says Rome’s last three kings were Etruscan",
+        "Rome borrowed the fasces and haruspicy"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.etruscans"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.005.c2"
+      ],
+      "prompt": "Where did the Etruscans live?",
+      "options": [
+        {
+          "id": "a",
+          "label": "South of Rome, near Naples",
+          "correct": false,
+          "rationale": "They lived to the north."
+        },
+        {
+          "id": "b",
+          "label": "North of Rome, in modern Tuscany",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "On the island of Sicily",
+          "correct": false,
+          "rationale": "They lived on the mainland."
+        },
+        {
+          "id": "d",
+          "label": "Across the sea in North Africa",
+          "correct": false,
+          "rationale": "They lived in Italy."
+        }
+      ],
+      "explanation": "Etruria, the Etruscan homeland, lay north of Rome in what is now Tuscany.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.etruscans"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.005.c4"
+      ],
+      "prompt": "Attendants carried the fasces in front of a Roman official. What did they signal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A festival was about to begin",
+          "correct": false,
+          "rationale": "The fasces weren’t festive."
+        },
+        {
+          "id": "b",
+          "label": "The official’s family wealth",
+          "correct": false,
+          "rationale": "They showed office, not wealth."
+        },
+        {
+          "id": "c",
+          "label": "A declaration of war",
+          "correct": false,
+          "rationale": "They were carried in peacetime too."
+        },
+        {
+          "id": "d",
+          "label": "The official’s authority",
+          "correct": true
+        }
+      ],
+      "explanation": "The fasces, rods around an axe, were a visible sign of an official’s power.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.etruscans",
+        "concept.ancient_rome.rome_geography"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.005.c2",
+        "card.ancient_rome.004.c2"
+      ],
+      "prompt": "From Level 4: why would both Etruscans and Latins care about the site of Rome?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It controlled a Tiber crossing on a trade route",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It had rich gold mines",
+          "correct": false,
+          "rationale": "Its value was its position."
+        },
+        {
+          "id": "c",
+          "label": "It was the only harbor in Italy",
+          "correct": false,
+          "rationale": "Rome lies inland."
+        },
+        {
+          "id": "d",
+          "label": "It was sacred to Etruscan gods",
+          "correct": false,
+          "rationale": "The draw was trade and crossing."
+        }
+      ],
+      "explanation": "A river crossing on the route between coast and inland Italy made the site valuable to anyone who traded.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_etruscans",
+    "source.brit_etruscan_language",
+    "source.brit_tarquin",
+    "source.brit_fasces",
+    "source.brit_haruspex"
+  ]
+}

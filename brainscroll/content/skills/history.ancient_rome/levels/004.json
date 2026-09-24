@@ -1,0 +1,208 @@
+{
+  "id": "level.history.ancient_rome.004",
+  "skillId": "skill.history.ancient_rome",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Seven Hills and a River",
+  "objective": "After this level you can explain how the Tiber and the seven hills shaped where and why Rome grew.",
+  "summary": "Rome grew at a crossing of the Tiber on a trade route, on hills that were easy to defend and stayed dry. Ostia became its port.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.rome_geography",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.early_settlement",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.003"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Where you build a city decides a lot about its future."
+    },
+    {
+      "id": "card.ancient_rome.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A river crossing",
+      "body": "Rome grew where the Tiber River could be crossed, near an island in its stream, about 25 km from the sea. Anyone moving goods between the coast and inland Italy passed this way, including traders on an old salt route later called the Via Salaria.",
+      "callout": "River crossing + trade route = a place worth holding"
+    },
+    {
+      "id": "card.ancient_rome.004.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seven hills",
+      "body": "The city spread across seven hills beside the river, among them the Palatine and the Capitoline. The hills were easier to defend, and they stayed dry when the Tiber flooded the low ground between them."
+    },
+    {
+      "id": "card.ancient_rome.004.c4",
+      "type": "fact",
+      "fact": "Rome had its own port.",
+      "context": "Ostia, at the mouth of the Tiber, grew into Rome’s harbor. Grain and other goods came through it and up the river to the city."
+    },
+    {
+      "id": "card.ancient_rome.004.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.004.q1"
+    },
+    {
+      "id": "card.ancient_rome.004.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.004.q2"
+    },
+    {
+      "id": "card.ancient_rome.004.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.004.q3"
+    },
+    {
+      "id": "card.ancient_rome.004.c8",
+      "type": "checkpoint",
+      "headline": "Rome’s geography: mapped",
+      "learned": [
+        "Rome grew at a crossing of the Tiber",
+        "A salt route passed through its site",
+        "Seven hills gave defense and dry ground",
+        "Ostia became Rome’s port"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.rome_geography"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.004.c2"
+      ],
+      "prompt": "Beside which river was Rome built?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Po",
+          "correct": false,
+          "rationale": "The Po runs across northern Italy."
+        },
+        {
+          "id": "b",
+          "label": "The Arno",
+          "correct": false,
+          "rationale": "The Arno flows through Florence."
+        },
+        {
+          "id": "c",
+          "label": "The Rhône",
+          "correct": false,
+          "rationale": "The Rhône is in France."
+        },
+        {
+          "id": "d",
+          "label": "The Tiber",
+          "correct": true
+        }
+      ],
+      "explanation": "Rome grew beside the Tiber, at a point where the river could be crossed.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.rome_geography"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.004.c3"
+      ],
+      "prompt": "Why did early Romans prefer to live on the hills?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were closer to the sea",
+          "correct": false,
+          "rationale": "The coast is about 25 km away."
+        },
+        {
+          "id": "b",
+          "label": "They were easier to defend and stayed dry",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The soil there was best for vines",
+          "correct": false,
+          "rationale": "Not the main reason."
+        },
+        {
+          "id": "d",
+          "label": "The kings forbade building below",
+          "correct": false,
+          "rationale": "No such rule."
+        }
+      ],
+      "explanation": "Hills could be defended, and they stayed above the Tiber’s floods.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_rome.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.rome_geography",
+        "concept.ancient_rome.early_settlement"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.004.c3",
+        "card.ancient_rome.003.c2"
+      ],
+      "prompt": "From Level 3: on which of the seven hills are Rome’s earliest known huts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Capitoline",
+          "correct": false,
+          "rationale": "Its temple came later."
+        },
+        {
+          "id": "b",
+          "label": "The Aventine",
+          "correct": false,
+          "rationale": "The earliest huts were elsewhere."
+        },
+        {
+          "id": "c",
+          "label": "The Palatine",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Janiculum",
+          "correct": false,
+          "rationale": "It isn’t one of the traditional seven."
+        }
+      ],
+      "explanation": "Iron Age hut remains have been found on the Palatine, one of the seven hills.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_tiber",
+    "source.brit_ancient_rome",
+    "source.brit_seven_hills",
+    "source.brit_ostia"
+  ]
+}

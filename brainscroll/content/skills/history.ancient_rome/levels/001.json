@@ -1,0 +1,204 @@
+{
+  "id": "level.history.ancient_rome.001",
+  "skillId": "skill.history.ancient_rome",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rome in One Level",
+  "objective": "After this level you can describe the three big eras of Roman history and roughly when each began and ended.",
+  "summary": "Rome went from Kingdom to Republic (509 BCE) to Empire (27 BCE). It ringed the Mediterranean; the West fell in 476 and the East in 1453.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.rome_eras",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.rome_extent",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.ancient_rome.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One city, three kinds of government, and more than a thousand years of history."
+    },
+    {
+      "id": "card.ancient_rome.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Kingdom, Republic, Empire",
+      "body": "Romans dated their city’s founding to 753 BCE. Historians divide what followed into three eras. First came the Kingdom, ruled by kings. In 509 BCE the Romans threw out their last king and formed a Republic. In 27 BCE a single ruler, Augustus, took power, and the Empire began.",
+      "callout": "Kingdom → Republic (509 BCE) → Empire (27 BCE)"
+    },
+    {
+      "id": "card.ancient_rome.001.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "An empire around a sea",
+      "body": "At its height, Rome ruled every coast of the Mediterranean, stretching from Britain to Egypt and from Spain to the Middle East. Romans simply called the Mediterranean Mare Nostrum: “our sea.”"
+    },
+    {
+      "id": "card.ancient_rome.001.c4",
+      "type": "fact",
+      "fact": "Rome fell twice.",
+      "context": "The western half of the empire ended in 476 CE, when its last emperor was deposed. The eastern half, ruled from Constantinople, lasted until 1453."
+    },
+    {
+      "id": "card.ancient_rome.001.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.001.q1"
+    },
+    {
+      "id": "card.ancient_rome.001.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.001.q2"
+    },
+    {
+      "id": "card.ancient_rome.001.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.001.q3"
+    },
+    {
+      "id": "card.ancient_rome.001.c8",
+      "type": "checkpoint",
+      "headline": "Rome: the big picture",
+      "learned": [
+        "Rome was founded, by tradition, in 753 BCE",
+        "Kingdom, then Republic (509 BCE), then Empire (27 BCE)",
+        "The empire ringed the Mediterranean",
+        "The West fell in 476; the East lasted to 1453"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.rome_eras"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.001.c2"
+      ],
+      "prompt": "Which list gives Rome’s three eras in order?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Republic, Kingdom, Empire",
+          "correct": false,
+          "rationale": "Kings came first."
+        },
+        {
+          "id": "b",
+          "label": "Empire, Republic, Kingdom",
+          "correct": false,
+          "rationale": "That runs backwards."
+        },
+        {
+          "id": "c",
+          "label": "Kingdom, Republic, Empire",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Kingdom, Empire, Republic",
+          "correct": false,
+          "rationale": "The Republic came before the emperors."
+        }
+      ],
+      "explanation": "First kings, then the Republic from 509 BCE, then the Empire from 27 BCE.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.rome_eras"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.001.c4"
+      ],
+      "prompt": "Why do historians give two different dates for the end of the Roman Empire?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its western and eastern halves ended at different times",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Historians disagree about when Rome was founded",
+          "correct": false,
+          "rationale": "The founding date isn’t the issue."
+        },
+        {
+          "id": "c",
+          "label": "Rome was conquered twice by the same army",
+          "correct": false,
+          "rationale": "Different events ended each half."
+        },
+        {
+          "id": "d",
+          "label": "The empire ended, then briefly restarted",
+          "correct": false,
+          "rationale": "Neither half restarted."
+        }
+      ],
+      "explanation": "The West ended in 476 CE; the East, ruled from Constantinople, lasted until 1453.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.rome_extent"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.001.c3"
+      ],
+      "prompt": "Why did Romans call the Mediterranean “our sea”?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the only sea they knew of",
+          "correct": false,
+          "rationale": "They knew the Atlantic too."
+        },
+        {
+          "id": "b",
+          "label": "The sea was named after Romulus",
+          "correct": false,
+          "rationale": "The phrase is about ownership."
+        },
+        {
+          "id": "c",
+          "label": "They had crossed it in a single war",
+          "correct": false,
+          "rationale": "It took centuries of expansion."
+        },
+        {
+          "id": "d",
+          "label": "Their empire held every coast around it",
+          "correct": true
+        }
+      ],
+      "explanation": "At its height the empire surrounded the whole Mediterranean, from Spain to the Middle East.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ancient_rome",
+    "source.brit_mediterranean",
+    "source.brit_romulus_augustulus",
+    "source.brit_byzantine"
+  ]
+}

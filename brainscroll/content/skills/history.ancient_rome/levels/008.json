@@ -1,0 +1,206 @@
+{
+  "id": "level.history.ancient_rome.008",
+  "skillId": "skill.history.ancient_rome",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Roman Family",
+  "objective": "After this level you can explain the power of the paterfamilias and how Roman families were organized.",
+  "summary": "The paterfamilias held legal power over his descendants, even adults. The familia included the whole household, enslaved people too.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.roman_family",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.roman_religion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.007"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In a Roman family, a grown man could still be under his father’s legal power."
+    },
+    {
+      "id": "card.ancient_rome.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The father’s power",
+      "body": "Every Roman family had a paterfamilias: its oldest living male. He held legal power over his children and grandchildren, even when they were adults. In early Roman law this power, patria potestas, in theory reached as far as life and death."
+    },
+    {
+      "id": "card.ancient_rome.008.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "More than relatives",
+      "body": "The Roman familia meant the whole household, including the enslaved people who lived and worked in it. Noble families also honored their dead: they kept wax masks of their ancestors and carried them in funeral processions."
+    },
+    {
+      "id": "card.ancient_rome.008.c4",
+      "type": "fact",
+      "fact": "Names came in three parts.",
+      "context": "A Roman man’s name, like Gaius Julius Caesar, joined a personal name, a clan name and a family branch name."
+    },
+    {
+      "id": "card.ancient_rome.008.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.008.q1"
+    },
+    {
+      "id": "card.ancient_rome.008.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.008.q2"
+    },
+    {
+      "id": "card.ancient_rome.008.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.008.q3"
+    },
+    {
+      "id": "card.ancient_rome.008.c8",
+      "type": "checkpoint",
+      "headline": "The Roman family: understood",
+      "learned": [
+        "The paterfamilias was the oldest living male",
+        "His power covered even adult children",
+        "The familia included enslaved people",
+        "Roman men’s names had three parts"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.roman_family"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.008.c2"
+      ],
+      "prompt": "Who was the paterfamilias?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The eldest son, once he married",
+          "correct": false,
+          "rationale": "Power stayed with the oldest male."
+        },
+        {
+          "id": "b",
+          "label": "The oldest living male of the family",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A priest who blessed the household",
+          "correct": false,
+          "rationale": "He was a family head, not a priest."
+        },
+        {
+          "id": "d",
+          "label": "The man who owned the most land",
+          "correct": false,
+          "rationale": "Wealth didn’t decide it."
+        }
+      ],
+      "explanation": "The paterfamilias was the oldest living male, with legal power over his descendants.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.roman_family"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.008.c2"
+      ],
+      "prompt": "A 40-year-old Roman’s father is still alive. Who holds legal power over him?",
+      "options": [
+        {
+          "id": "a",
+          "label": "No one: he is an adult",
+          "correct": false,
+          "rationale": "Adulthood didn’t end patria potestas."
+        },
+        {
+          "id": "b",
+          "label": "The Senate",
+          "correct": false,
+          "rationale": "This was family law."
+        },
+        {
+          "id": "c",
+          "label": "His father, as paterfamilias",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "His eldest son",
+          "correct": false,
+          "rationale": "Power ran up the generations, not down."
+        }
+      ],
+      "explanation": "Patria potestas lasted as long as the paterfamilias lived, whatever his children’s ages.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.roman_family",
+        "concept.ancient_rome.roman_religion"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.008.c3",
+        "card.ancient_rome.007.c2"
+      ],
+      "prompt": "From Level 7: which guardian spirits did a Roman family honor at its household shrine?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Jupiter, Juno and Minerva",
+          "correct": false,
+          "rationale": "They had the great Capitoline temple."
+        },
+        {
+          "id": "b",
+          "label": "The Vestal Virgins",
+          "correct": false,
+          "rationale": "Vestals were priestesses, not spirits."
+        },
+        {
+          "id": "c",
+          "label": "The augurs",
+          "correct": false,
+          "rationale": "Augurs were priests."
+        },
+        {
+          "id": "d",
+          "label": "The Lares and Penates",
+          "correct": true
+        }
+      ],
+      "explanation": "The Lares and Penates guarded the home and its food store.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_patria_potestas",
+    "source.brit_ancient_rome",
+    "source.brit_roman_names"
+  ]
+}
