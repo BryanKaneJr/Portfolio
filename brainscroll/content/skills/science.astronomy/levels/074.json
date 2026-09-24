@@ -1,0 +1,210 @@
+{
+  "id": "level.science.astronomy.074",
+  "skillId": "skill.science.astronomy",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Event Horizon",
+  "objective": "After this level you can explain the event horizon and what the first black hole image showed.",
+  "summary": "The event horizon is the point of no return. In 2019 an Earth-sized network of radio dishes imaged M87’s black hole.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.event_horizon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.black_holes",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.radio_astronomy",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.073"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.074.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2019, humanity saw a black hole for the first time. Sort of."
+    },
+    {
+      "id": "card.astronomy.074.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The point of no return",
+      "body": "Every black hole is surrounded by an event horizon: the boundary beyond which nothing, not even light, can escape. Outside it, light and matter can still get away. Inside it, there is no way back."
+    },
+    {
+      "id": "card.astronomy.074.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "An Earth-sized telescope",
+      "body": "To see something that small and far away, astronomers linked radio telescopes around the world into the Event Horizon Telescope, which works like one Earth-sized dish. In 2019 it released the first image of a black hole: a dark shadow ringed by glowing gas, at the center of the galaxy M87."
+    },
+    {
+      "id": "card.astronomy.074.c4",
+      "type": "fact",
+      "fact": "M87’s black hole is about 6.5 billion times the mass of the Sun.",
+      "context": "It isn’t a stellar black hole but a supermassive one, sitting at the heart of a giant galaxy."
+    },
+    {
+      "id": "card.astronomy.074.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.074.q1"
+    },
+    {
+      "id": "card.astronomy.074.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.074.q2"
+    },
+    {
+      "id": "card.astronomy.074.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.074.q3"
+    },
+    {
+      "id": "card.astronomy.074.c8",
+      "type": "checkpoint",
+      "headline": "Event horizon: seen",
+      "learned": [
+        "The event horizon is the point of no return",
+        "The EHT links dishes into an Earth-sized telescope",
+        "It imaged M87’s black hole in 2019",
+        "That black hole is ~6.5 billion Suns"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.event_horizon"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.074.c2"
+      ],
+      "prompt": "What is a black hole’s event horizon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The glowing ring of gas around it",
+          "correct": false,
+          "rationale": "That gas is outside the horizon."
+        },
+        {
+          "id": "b",
+          "label": "The boundary beyond which nothing can escape",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The center where all its mass sits",
+          "correct": false,
+          "rationale": "The horizon is a boundary, not the center."
+        },
+        {
+          "id": "d",
+          "label": "The jet of particles it shoots out",
+          "correct": false,
+          "rationale": "Jets come from outside the horizon."
+        }
+      ],
+      "explanation": "The event horizon is the point of no return: beyond it, nothing can escape, not even light.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.event_horizon"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.074.c3"
+      ],
+      "prompt": "Why did the Event Horizon Telescope link dishes all around the world?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To see the black hole from every side",
+          "correct": false,
+          "rationale": "Earth-sized spacing is about detail, not viewing angle."
+        },
+        {
+          "id": "b",
+          "label": "To shield the telescopes from sunlight",
+          "correct": false,
+          "rationale": "Sunlight isn’t the issue."
+        },
+        {
+          "id": "c",
+          "label": "To act like one Earth-sized telescope that sees fine detail",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To cancel out Earth’s rotation",
+          "correct": false,
+          "rationale": "The goal was resolution."
+        }
+      ],
+      "explanation": "Linked dishes spread across Earth work like one enormous telescope, sharp enough to image a black hole’s shadow.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.event_horizon",
+        "concept.astronomy.radio_astronomy"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.074.c3",
+        "card.astronomy.035.c3"
+      ],
+      "prompt": "From Level 35: the Event Horizon Telescope is a supersized version of which radio-astronomy technique?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Linking dishes into an array",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Using a single giant mirror",
+          "correct": false,
+          "rationale": "It combines many separate dishes."
+        },
+        {
+          "id": "c",
+          "label": "Observing only at night",
+          "correct": false,
+          "rationale": "Radio telescopes can observe by day."
+        },
+        {
+          "id": "d",
+          "label": "Cooling the air above the dishes",
+          "correct": false,
+          "rationale": "Not the technique used."
+        }
+      ],
+      "explanation": "Like the arrays in Level 35, the EHT links many dishes, spread across a whole planet.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eht",
+    "source.nasa_black_holes"
+  ]
+}

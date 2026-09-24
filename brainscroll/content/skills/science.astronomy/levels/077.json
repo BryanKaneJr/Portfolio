@@ -1,0 +1,213 @@
+{
+  "id": "level.science.astronomy.077",
+  "skillId": "skill.science.astronomy",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Finding Exoplanets",
+  "objective": "After this level you can explain the transit and wobble methods for finding planets around other stars.",
+  "summary": "Since 1995, astronomers have found more than 5,000 exoplanets, mostly from the dips and wobbles they cause in their stars.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.exoplanet_detection",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.eclipse_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.spectral_lines",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.076"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.077.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Thousands of planets found, and almost none of them actually seen."
+    },
+    {
+      "id": "card.astronomy.077.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Worlds beyond the Sun",
+      "body": "An exoplanet is a planet orbiting a star other than the Sun. In 1995 Michel Mayor and Didier Queloz found the first around a Sun-like star, 51 Pegasi b, work that earned the 2019 Nobel Prize in Physics. Today more than 5,000 are confirmed.",
+      "callout": "1995: the first around a Sun-like star"
+    },
+    {
+      "id": "card.astronomy.077.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dips and wobbles",
+      "body": "Most exoplanets are found indirectly. The transit method watches for the small, regular dip in a star’s light when a planet passes in front of it. The wobble method detects the slight back-and-forth motion a planet’s gravity gives its star, measured through shifts in the star’s spectrum.",
+      "callout": "Transit = dip · Wobble = spectrum shift"
+    },
+    {
+      "id": "card.astronomy.077.c4",
+      "type": "fact",
+      "fact": "NASA’s Kepler telescope found thousands of exoplanets.",
+      "context": "It stared at the same patch of sky for years, watching for tiny dips in starlight as planets crossed their stars."
+    },
+    {
+      "id": "card.astronomy.077.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.077.q1"
+    },
+    {
+      "id": "card.astronomy.077.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.077.q2"
+    },
+    {
+      "id": "card.astronomy.077.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.077.q3"
+    },
+    {
+      "id": "card.astronomy.077.c8",
+      "type": "checkpoint",
+      "headline": "Exoplanets: detected",
+      "learned": [
+        "An exoplanet orbits a star other than the Sun",
+        "The first around a Sun-like star was found in 1995",
+        "Transits: a planet dims its star",
+        "Wobbles: the star’s spectrum shifts"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.exoplanet_detection"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.077.c2"
+      ],
+      "prompt": "What is an exoplanet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A planet with no moons",
+          "correct": false,
+          "rationale": "Moons don’t define exoplanets."
+        },
+        {
+          "id": "b",
+          "label": "A planet that has left the solar system",
+          "correct": false,
+          "rationale": "It orbits another star."
+        },
+        {
+          "id": "c",
+          "label": "A planet orbiting a star other than the Sun",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A dwarf planet beyond Neptune",
+          "correct": false,
+          "rationale": "Those orbit the Sun."
+        }
+      ],
+      "explanation": "An exoplanet is any planet orbiting a star other than the Sun.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.exoplanet_detection"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.077.c3"
+      ],
+      "prompt": "How does the transit method detect a planet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By a small, regular dip in the star’s light",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "By photographing the planet directly",
+          "correct": false,
+          "rationale": "Most are never seen directly."
+        },
+        {
+          "id": "c",
+          "label": "By hearing the planet’s radio signals",
+          "correct": false,
+          "rationale": "Planets aren’t found that way."
+        },
+        {
+          "id": "d",
+          "label": "By measuring the star’s color change",
+          "correct": false,
+          "rationale": "It’s the brightness that dips."
+        }
+      ],
+      "explanation": "When a planet passes in front of its star, the star’s light dips slightly, again and again on each orbit.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.exoplanet_detection",
+        "concept.astronomy.spectral_lines"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.077.c3",
+        "card.astronomy.032.c2"
+      ],
+      "prompt": "From Level 32: how do spectra help find planets with the wobble method?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They show the planet’s own colors",
+          "correct": false,
+          "rationale": "The planet’s light is swamped by the star’s."
+        },
+        {
+          "id": "b",
+          "label": "They reveal the planet’s water",
+          "correct": false,
+          "rationale": "That’s atmosphere study, not detection."
+        },
+        {
+          "id": "c",
+          "label": "They measure the planet’s shadow",
+          "correct": false,
+          "rationale": "Shadows are the transit method."
+        },
+        {
+          "id": "d",
+          "label": "The star’s spectral lines shift as it wobbles",
+          "correct": true
+        }
+      ],
+      "explanation": "As the planet tugs its star back and forth, the star’s spectral lines shift slightly, revealing the unseen planet.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_exoplanets",
+    "source.nobel_2019",
+    "source.nasa_kepler_mission"
+  ]
+}

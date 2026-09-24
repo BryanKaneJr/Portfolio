@@ -1,0 +1,205 @@
+{
+  "id": "level.science.astronomy.071",
+  "skillId": "skill.science.astronomy",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Neutron Stars",
+  "objective": "After this level you can describe neutron stars and how dense they are.",
+  "summary": "A supernova can leave a neutron star: about 20 km across, heavier than the Sun, so dense a teaspoon weighs billions of tons.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.neutron_stars",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.supernovae_elements",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.white_dwarfs",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.070"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A star heavier than the Sun, squeezed into the size of a city."
+    },
+    {
+      "id": "card.astronomy.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What a supernova leaves behind",
+      "body": "When a massive star explodes as a supernova, its core can collapse into a neutron star. It’s only about 20 km across, about the size of a city, yet it can hold more mass than the Sun.",
+      "callout": "~20 km across"
+    },
+    {
+      "id": "card.astronomy.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Crushed to neutrons",
+      "body": "Gravity squeezes the core so hard that its matter becomes mostly neutrons, packed tightly together. The result is so dense that a teaspoonful would weigh billions of tons on Earth, far more than a white dwarf’s few tons. Many neutron stars also spin many times per second, with magnetic fields far stronger than Earth’s."
+    },
+    {
+      "id": "card.astronomy.071.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.071.q1"
+    },
+    {
+      "id": "card.astronomy.071.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.071.q2"
+    },
+    {
+      "id": "card.astronomy.071.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.071.q3"
+    },
+    {
+      "id": "card.astronomy.071.c7",
+      "type": "checkpoint",
+      "headline": "Neutron stars: understood",
+      "learned": [
+        "A neutron star is a supernova’s collapsed core",
+        "It is about 20 km across",
+        "It can hold more mass than the Sun",
+        "A teaspoon would weigh billions of tons"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.neutron_stars"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.071.c2"
+      ],
+      "prompt": "About how wide is a neutron star?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About the size of the Sun",
+          "correct": false,
+          "rationale": "Far, far smaller."
+        },
+        {
+          "id": "b",
+          "label": "About the size of Earth",
+          "correct": false,
+          "rationale": "That’s a white dwarf."
+        },
+        {
+          "id": "c",
+          "label": "About 20 km, the size of a city",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About the size of Jupiter",
+          "correct": false,
+          "rationale": "Much smaller than that."
+        }
+      ],
+      "explanation": "A neutron star packs more than the Sun’s mass into a ball only about 20 km across.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.neutron_stars"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.071.c3"
+      ],
+      "prompt": "What makes a neutron star so incredibly dense?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gravity crushes its matter into tightly packed neutrons",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is made of solid iron",
+          "correct": false,
+          "rationale": "It’s mostly neutrons."
+        },
+        {
+          "id": "c",
+          "label": "It absorbs nearby planets",
+          "correct": false,
+          "rationale": "Density comes from collapse, not eating planets."
+        },
+        {
+          "id": "d",
+          "label": "It is very cold",
+          "correct": false,
+          "rationale": "Temperature isn’t the reason."
+        }
+      ],
+      "explanation": "The collapsing core is crushed until its matter is mostly neutrons packed tightly together.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.neutron_stars",
+        "concept.astronomy.white_dwarfs"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.071.c3",
+        "card.astronomy.068.c2"
+      ],
+      "prompt": "From Level 68: a white dwarf teaspoon weighs several tons. How does a neutron star compare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is lighter than a white dwarf",
+          "correct": false,
+          "rationale": "It’s vastly denser."
+        },
+        {
+          "id": "b",
+          "label": "It is about the same weight",
+          "correct": false,
+          "rationale": "It’s billions of tons per teaspoon."
+        },
+        {
+          "id": "c",
+          "label": "It weighs nothing, being a star",
+          "correct": false,
+          "rationale": "Stars have mass."
+        },
+        {
+          "id": "d",
+          "label": "A teaspoon weighs billions of tons",
+          "correct": true
+        }
+      ],
+      "explanation": "A white dwarf teaspoon weighs a few tons; a neutron star teaspoon weighs billions of tons.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_neutron_stars",
+    "source.brit_white_dwarf"
+  ]
+}

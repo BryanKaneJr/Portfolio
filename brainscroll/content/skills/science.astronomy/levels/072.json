@@ -1,0 +1,212 @@
+{
+  "id": "level.science.astronomy.072",
+  "skillId": "skill.science.astronomy",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pulsars: Cosmic Lighthouses",
+  "objective": "After this level you can explain what pulsars are and how they were discovered.",
+  "summary": "Pulsars are spinning neutron stars whose beams sweep past Earth. Jocelyn Bell Burnell discovered the first in 1967.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.pulsars",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.neutron_stars",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.radio_astronomy",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.071"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A signal so regular it was nicknamed “LGM”: little green men.",
+      "body": "In 1967 a radio telescope picked up a pulse that ticked like a clock. It wasn’t aliens."
+    },
+    {
+      "id": "card.astronomy.072.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lighthouses in space",
+      "body": "A pulsar is a spinning neutron star that sends out beams of radio waves. Each time a beam sweeps past Earth, we see a pulse, just like a lighthouse. Some pulsars spin hundreds of times every second.",
+      "callout": "Spin + beam = pulse"
+    },
+    {
+      "id": "card.astronomy.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The discovery",
+      "body": "The first pulsar was discovered in 1967 by Jocelyn Bell Burnell, then a graduate student, while studying radio signals. The pulses were so regular that her team briefly considered, half-jokingly, that they might be artificial."
+    },
+    {
+      "id": "card.astronomy.072.c4",
+      "type": "fact",
+      "fact": "The Crab Nebula has a pulsar at its heart.",
+      "context": "The nebula is the remains of a supernova that Chinese astronomers recorded in 1054."
+    },
+    {
+      "id": "card.astronomy.072.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.072.q1"
+    },
+    {
+      "id": "card.astronomy.072.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.072.q2"
+    },
+    {
+      "id": "card.astronomy.072.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.072.q3"
+    },
+    {
+      "id": "card.astronomy.072.c8",
+      "type": "checkpoint",
+      "headline": "Pulsars: detected",
+      "learned": [
+        "A pulsar is a spinning neutron star",
+        "Its beams sweep past Earth like a lighthouse",
+        "Jocelyn Bell Burnell found the first in 1967",
+        "The Crab Nebula has a pulsar at its center"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.pulsars"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.072.c2"
+      ],
+      "prompt": "What is a pulsar?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A star that grows and shrinks each day",
+          "correct": false,
+          "rationale": "Pulses come from a spinning beam."
+        },
+        {
+          "id": "b",
+          "label": "A spinning neutron star whose beam sweeps past Earth",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A planet that reflects starlight in flashes",
+          "correct": false,
+          "rationale": "Pulsars are stellar remnants."
+        },
+        {
+          "id": "d",
+          "label": "A comet that brightens each orbit",
+          "correct": false,
+          "rationale": "Comets aren’t pulsars."
+        }
+      ],
+      "explanation": "A pulsar is a spinning neutron star whose beams sweep past Earth like a lighthouse.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.pulsars"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.072.c2"
+      ],
+      "prompt": "Why do we see a pulsar as a series of regular pulses?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It switches its beam on and off",
+          "correct": false,
+          "rationale": "The beam is steady; the star spins."
+        },
+        {
+          "id": "b",
+          "label": "Clouds keep passing in front of it",
+          "correct": false,
+          "rationale": "The timing is far too regular."
+        },
+        {
+          "id": "c",
+          "label": "Its beam sweeps past Earth once each rotation",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its light is bent by the Moon",
+          "correct": false,
+          "rationale": "The Moon doesn’t affect it."
+        }
+      ],
+      "explanation": "Like a lighthouse, the pulsar’s beam sweeps past us once per rotation, so we see regular pulses.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.pulsars",
+        "concept.astronomy.radio_astronomy"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.072.c3",
+        "card.astronomy.035.c2"
+      ],
+      "prompt": "From Level 35: what kind of telescope found the first pulsar?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An X-ray telescope in space",
+          "correct": false,
+          "rationale": "It was found with radio waves."
+        },
+        {
+          "id": "b",
+          "label": "An infrared telescope like Webb",
+          "correct": false,
+          "rationale": "Webb launched decades later."
+        },
+        {
+          "id": "c",
+          "label": "An optical refractor like Galileo’s",
+          "correct": false,
+          "rationale": "Pulsars were found by their radio pulses."
+        },
+        {
+          "id": "d",
+          "label": "A radio telescope",
+          "correct": true
+        }
+      ],
+      "explanation": "Jocelyn Bell Burnell found the first pulsar in radio data in 1967.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_pulsar",
+    "source.brit_crab_nebula"
+  ]
+}

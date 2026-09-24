@@ -1,0 +1,211 @@
+{
+  "id": "level.science.astronomy.076",
+  "skillId": "skill.science.astronomy",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Gravitational Waves",
+  "objective": "After this level you can explain gravitational waves and how LIGO first detected them.",
+  "summary": "Einstein predicted ripples in spacetime in 1916. LIGO caught them in 2015 from merging black holes 1.3 billion light-years away.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.gravitational_waves",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.black_holes",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.supernovae_elements",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.075"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2015, humans felt two black holes collide."
+    },
+    {
+      "id": "card.astronomy.076.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ripples in spacetime",
+      "body": "Albert Einstein’s general theory of relativity predicted in 1916 that massive objects accelerating violently would send ripples through spacetime itself: gravitational waves. For almost a century, they were too faint to detect."
+    },
+    {
+      "id": "card.astronomy.076.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The first detection",
+      "body": "On September 14, 2015, LIGO detected gravitational waves from two black holes merging about 1.3 billion light-years away. The discovery earned the 2017 Nobel Prize in Physics. To catch it, LIGO measured a change in length far smaller than the width of a proton.",
+      "callout": "Detected 2015 · Nobel 2017"
+    },
+    {
+      "id": "card.astronomy.076.c4",
+      "type": "fact",
+      "fact": "In 2017, astronomers saw two neutron stars collide, and caught its ripples.",
+      "context": "The merger sent out gravitational waves and light, and it forged heavy elements like gold."
+    },
+    {
+      "id": "card.astronomy.076.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.076.q1"
+    },
+    {
+      "id": "card.astronomy.076.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.076.q2"
+    },
+    {
+      "id": "card.astronomy.076.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.076.q3"
+    },
+    {
+      "id": "card.astronomy.076.c8",
+      "type": "checkpoint",
+      "headline": "Gravitational waves: detected",
+      "learned": [
+        "Einstein predicted gravitational waves in 1916",
+        "LIGO detected them in 2015 from merging black holes",
+        "The discovery won the 2017 Nobel Prize",
+        "Merging neutron stars forge gold"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.gravitational_waves"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.076.c2"
+      ],
+      "prompt": "What are gravitational waves?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ripples in spacetime",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Sound waves traveling through space",
+          "correct": false,
+          "rationale": "Sound can’t travel through empty space."
+        },
+        {
+          "id": "c",
+          "label": "Waves in the ocean caused by gravity",
+          "correct": false,
+          "rationale": "Those are tides."
+        },
+        {
+          "id": "d",
+          "label": "Bursts of radio waves from pulsars",
+          "correct": false,
+          "rationale": "Pulsar pulses are light."
+        }
+      ],
+      "explanation": "Gravitational waves are ripples in spacetime, predicted by Einstein and caused by massive objects accelerating violently.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.gravitational_waves"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.076.c3"
+      ],
+      "prompt": "What produced the first gravitational waves LIGO detected in 2015?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A supernova in our galaxy",
+          "correct": false,
+          "rationale": "It came from much farther away."
+        },
+        {
+          "id": "b",
+          "label": "The Big Bang",
+          "correct": false,
+          "rationale": "The first detection was of a specific merger."
+        },
+        {
+          "id": "c",
+          "label": "A pulsar spinning up",
+          "correct": false,
+          "rationale": "Not the 2015 source."
+        },
+        {
+          "id": "d",
+          "label": "Two black holes merging",
+          "correct": true
+        }
+      ],
+      "explanation": "LIGO’s first detection came from two black holes merging about 1.3 billion light-years away.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.gravitational_waves",
+        "concept.astronomy.supernovae_elements"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.076.c4",
+        "card.astronomy.069.c3"
+      ],
+      "prompt": "From Level 69: supernovae spread heavy elements. What other event, seen in 2017, forges elements like gold?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two red giants touching",
+          "correct": false,
+          "rationale": "The 2017 event was a neutron star merger."
+        },
+        {
+          "id": "b",
+          "label": "Two neutron stars colliding",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A comet hitting a planet",
+          "correct": false,
+          "rationale": "Comets don’t forge gold."
+        },
+        {
+          "id": "d",
+          "label": "Sunspots on the Sun",
+          "correct": false,
+          "rationale": "Sunspots don’t make heavy elements."
+        }
+      ],
+      "explanation": "In 2017 two neutron stars merged, sending out gravitational waves and light and forging heavy elements like gold.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.ligo",
+    "source.nobel_2017"
+  ]
+}

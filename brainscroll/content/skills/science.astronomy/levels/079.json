@@ -1,0 +1,219 @@
+{
+  "id": "level.science.astronomy.079",
+  "skillId": "skill.science.astronomy",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Search for Life",
+  "objective": "After this level you can describe how scientists look for signs of life beyond Earth.",
+  "summary": "Scientists hunt for biosignatures on Mars, in ocean moons and in exoplanet air, and SETI listens for signals. None confirmed yet.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.search_for_life",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.ocean_worlds",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.mars_water_past",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.webb_telescope",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.078"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.079.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Are we alone? We finally have tools that could answer."
+    },
+    {
+      "id": "card.astronomy.079.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Close to home",
+      "body": "In our own solar system, scientists search places where water exists or once existed: ancient Martian lake beds, where Perseverance is collecting rock samples, and ocean moons like Europa and Enceladus. Liquid water, energy and the right chemistry are the clues to follow."
+    },
+    {
+      "id": "card.astronomy.079.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reading alien air",
+      "body": "Around other stars, scientists look for biosignatures: gases, such as oxygen and methane together, that living things could produce. The James Webb Space Telescope can analyze starlight filtering through some exoplanets’ atmospheres to see what gases they hold."
+    },
+    {
+      "id": "card.astronomy.079.c4",
+      "type": "fact",
+      "fact": "No life has yet been confirmed beyond Earth.",
+      "context": "Meanwhile, SETI projects listen for radio and other signals that a technological civilization might send."
+    },
+    {
+      "id": "card.astronomy.079.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.079.q1"
+    },
+    {
+      "id": "card.astronomy.079.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.079.q2"
+    },
+    {
+      "id": "card.astronomy.079.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.079.q3"
+    },
+    {
+      "id": "card.astronomy.079.c8",
+      "type": "checkpoint",
+      "headline": "Search for life: underway",
+      "learned": [
+        "Scientists search Mars and ocean moons for signs of life",
+        "Biosignatures are gases life could produce",
+        "Webb reads exoplanet atmospheres",
+        "No life beyond Earth is confirmed yet"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.search_for_life"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.079.c3"
+      ],
+      "prompt": "What is a biosignature?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A radio signal from aliens",
+          "correct": false,
+          "rationale": "That would be a technosignature, SETI’s target."
+        },
+        {
+          "id": "b",
+          "label": "A fossil found on Earth",
+          "correct": false,
+          "rationale": "Biosignatures are signs of life elsewhere."
+        },
+        {
+          "id": "c",
+          "label": "The signature on a space mission",
+          "correct": false,
+          "rationale": "Not what the term means."
+        },
+        {
+          "id": "d",
+          "label": "A sign, like certain gases, that life might be present",
+          "correct": true
+        }
+      ],
+      "explanation": "A biosignature is evidence, such as oxygen and methane together, that life could be producing.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.search_for_life",
+        "concept.astronomy.webb_telescope"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.079.c3"
+      ],
+      "prompt": "How can Webb study an exoplanet’s atmosphere without visiting it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By sending a probe",
+          "correct": false,
+          "rationale": "Exoplanets are light-years away."
+        },
+        {
+          "id": "b",
+          "label": "By analyzing starlight that passes through the atmosphere",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "By listening to its radio signals",
+          "correct": false,
+          "rationale": "That’s SETI’s approach."
+        },
+        {
+          "id": "d",
+          "label": "By counting its moons",
+          "correct": false,
+          "rationale": "Moons don’t reveal its air."
+        }
+      ],
+      "explanation": "Gases in the atmosphere absorb specific wavelengths of the starlight passing through, leaving fingerprints Webb can read.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.search_for_life",
+        "concept.astronomy.ocean_worlds"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.079.c2",
+        "card.astronomy.047.c3"
+      ],
+      "prompt": "From Level 47: why are Europa and Enceladus high on the list of places to look for life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They have thick, oxygen-rich atmospheres",
+          "correct": false,
+          "rationale": "They have almost none."
+        },
+        {
+          "id": "b",
+          "label": "They are the warmest worlds in the solar system",
+          "correct": false,
+          "rationale": "They’re icy."
+        },
+        {
+          "id": "c",
+          "label": "They have liquid water, energy and the right chemistry",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They are the closest moons to Earth",
+          "correct": false,
+          "rationale": "They orbit Jupiter and Saturn."
+        }
+      ],
+      "explanation": "These moons hide liquid water oceans heated by tidal flexing: key ingredients for life as we know it.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_astrobiology",
+    "source.nasa_perseverance",
+    "source.nasa_europa",
+    "source.nasa_webb",
+    "source.seti_institute"
+  ]
+}

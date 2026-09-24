@@ -1,0 +1,213 @@
+{
+  "id": "level.science.astronomy.078",
+  "skillId": "skill.science.astronomy",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Habitable Zone",
+  "objective": "After this level you can explain the habitable zone and why liquid water matters.",
+  "summary": "The habitable zone is where a planet could hold liquid water. It sits closer to dim stars; TRAPPIST-1 has planets in its zone.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.habitable_zone",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.main_sequence_mass",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.venus_greenhouse",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.077"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Not too hot, not too cold. Planets have a Goldilocks zone."
+    },
+    {
+      "id": "card.astronomy.078.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Just right for water",
+      "body": "The habitable zone is the range of distances from a star where a planet’s surface could be the right temperature for liquid water. Around dim, cool stars it lies much closer in; around bright stars, farther out.",
+      "callout": "Dim star → close zone · Bright star → far zone"
+    },
+    {
+      "id": "card.astronomy.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not a guarantee",
+      "body": "Being in the habitable zone doesn’t guarantee water, let alone life. A planet’s atmosphere matters too: too thick and it overheats, too thin and water escapes or freezes."
+    },
+    {
+      "id": "card.astronomy.078.c4",
+      "type": "fact",
+      "fact": "TRAPPIST-1 has seven Earth-sized planets.",
+      "context": "This red dwarf about 40 light-years away has several planets in its habitable zone, all orbiting much closer than Mercury does to the Sun."
+    },
+    {
+      "id": "card.astronomy.078.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.078.q1"
+    },
+    {
+      "id": "card.astronomy.078.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.078.q2"
+    },
+    {
+      "id": "card.astronomy.078.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.078.q3"
+    },
+    {
+      "id": "card.astronomy.078.c8",
+      "type": "checkpoint",
+      "headline": "Habitable zone: mapped",
+      "learned": [
+        "The habitable zone allows liquid surface water",
+        "Dim stars have close-in zones",
+        "Location isn’t a guarantee: atmospheres matter",
+        "TRAPPIST-1 has planets in its zone"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.habitable_zone"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.078.c2"
+      ],
+      "prompt": "What is a star’s habitable zone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The region where a star is born",
+          "correct": false,
+          "rationale": "That’s a stellar nursery."
+        },
+        {
+          "id": "b",
+          "label": "Where a planet could be the right temperature for liquid water",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The part of a star that can be seen",
+          "correct": false,
+          "rationale": "That’s the photosphere."
+        },
+        {
+          "id": "d",
+          "label": "The area where comets form",
+          "correct": false,
+          "rationale": "Comets come from the Kuiper Belt and Oort Cloud."
+        }
+      ],
+      "explanation": "The habitable zone is the range of distances where a planet’s surface could hold liquid water.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.habitable_zone",
+        "concept.astronomy.main_sequence_mass"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.078.c2",
+        "card.astronomy.064.c3"
+      ],
+      "prompt": "Why is the habitable zone around a red dwarf so close to the star?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Red dwarfs are dim and cool, so planets must be close to stay warm",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Red dwarfs have stronger gravity",
+          "correct": false,
+          "rationale": "Gravity isn’t what sets the zone."
+        },
+        {
+          "id": "c",
+          "label": "Red dwarfs are bigger than the Sun",
+          "correct": false,
+          "rationale": "They’re smaller."
+        },
+        {
+          "id": "d",
+          "label": "Red dwarfs have no planets far away",
+          "correct": false,
+          "rationale": "The zone is set by warmth."
+        }
+      ],
+      "explanation": "A dim star gives off little heat, so the zone where water could stay liquid lies close to it.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.habitable_zone",
+        "concept.astronomy.venus_greenhouse"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.078.c3",
+        "card.astronomy.003.c3"
+      ],
+      "prompt": "From Level 3: Venus sits near the inner edge of the Sun’s habitable zone. Why isn’t it habitable?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is too far from the Sun",
+          "correct": false,
+          "rationale": "It’s closer than Earth."
+        },
+        {
+          "id": "b",
+          "label": "It has no atmosphere",
+          "correct": false,
+          "rationale": "It has a very thick one."
+        },
+        {
+          "id": "c",
+          "label": "It is made of gas",
+          "correct": false,
+          "rationale": "Venus is rocky."
+        },
+        {
+          "id": "d",
+          "label": "Its thick carbon dioxide atmosphere traps too much heat",
+          "correct": true
+        }
+      ],
+      "explanation": "Venus’s thick atmosphere traps heat, pushing its surface over 450 °C. Location alone doesn’t make a planet habitable.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_exoplanets",
+    "source.nasa_trappist1"
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "id": "level.science.astronomy.073",
+  "skillId": "skill.science.astronomy",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Black Holes",
+  "objective": "After this level you can explain what a black hole is and how one forms.",
+  "summary": "A black hole is where gravity is so strong nothing escapes. Stellar ones form when very massive stars collapse.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.black_holes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.newton_gravity",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.escape_velocity",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.072"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A place where escape velocity is faster than light."
+    },
+    {
+      "id": "card.astronomy.073.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Gravity wins",
+      "body": "A black hole is a region of space where gravity is so strong that nothing, not even light, can escape. Stellar black holes form when the core of a very massive star collapses at the end of its life, with nothing strong enough to stop the collapse."
+    },
+    {
+      "id": "card.astronomy.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not a cosmic vacuum cleaner",
+      "body": "Black holes don’t suck everything in. From a safe distance, a black hole’s gravity is the same as that of any object with the same mass. If the Sun were swapped for a black hole of equal mass, the planets would keep orbiting just as they do now.",
+      "callout": "Same mass → same pull at a distance"
+    },
+    {
+      "id": "card.astronomy.073.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.073.q1"
+    },
+    {
+      "id": "card.astronomy.073.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.073.q2"
+    },
+    {
+      "id": "card.astronomy.073.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.073.q3"
+    },
+    {
+      "id": "card.astronomy.073.c7",
+      "type": "checkpoint",
+      "headline": "Black holes: understood",
+      "learned": [
+        "Nothing, not even light, escapes a black hole",
+        "Stellar black holes form from collapsing massive stars",
+        "At a distance, their gravity is like any equal mass",
+        "They don’t suck everything in"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.black_holes"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.073.c2"
+      ],
+      "prompt": "What makes a black hole “black”?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nothing, not even light, can escape its gravity",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is made of dark rock",
+          "correct": false,
+          "rationale": "It isn’t made of rock."
+        },
+        {
+          "id": "c",
+          "label": "It is too far away to see",
+          "correct": false,
+          "rationale": "Distance isn’t what makes it black."
+        },
+        {
+          "id": "d",
+          "label": "It is surrounded by dust clouds",
+          "correct": false,
+          "rationale": "The darkness comes from gravity."
+        }
+      ],
+      "explanation": "A black hole’s gravity is so strong that no light escapes, so it appears black.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.black_holes"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.073.c3"
+      ],
+      "prompt": "If the Sun were replaced by a black hole of the same mass, what would happen to Earth’s orbit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Earth would be pulled in immediately",
+          "correct": false,
+          "rationale": "Its gravity at our distance would be unchanged."
+        },
+        {
+          "id": "b",
+          "label": "Earth would fly off into space",
+          "correct": false,
+          "rationale": "The pull would stay the same."
+        },
+        {
+          "id": "c",
+          "label": "Earth would stop orbiting and freeze in place",
+          "correct": false,
+          "rationale": "It would keep orbiting."
+        },
+        {
+          "id": "d",
+          "label": "It would stay the same",
+          "correct": true
+        }
+      ],
+      "explanation": "At a distance, a black hole’s gravity equals that of any object with the same mass, so Earth’s orbit wouldn’t change, though it would get very cold.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.astronomy.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.black_holes",
+        "concept.astronomy.escape_velocity"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.073.c2",
+        "card.astronomy.037.c4"
+      ],
+      "prompt": "From Level 37: escape velocity is the speed needed to break free of gravity. What is true at a black hole?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its escape velocity is about 11.2 km/s",
+          "correct": false,
+          "rationale": "That’s Earth’s."
+        },
+        {
+          "id": "b",
+          "label": "Its escape velocity exceeds the speed of light",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It has no escape velocity at all",
+          "correct": false,
+          "rationale": "It has an extreme one."
+        },
+        {
+          "id": "d",
+          "label": "Its escape velocity is lower than Earth’s",
+          "correct": false,
+          "rationale": "It’s vastly higher."
+        }
+      ],
+      "explanation": "Near a black hole, escaping would require going faster than light, which nothing can do.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_black_holes"
+  ]
+}

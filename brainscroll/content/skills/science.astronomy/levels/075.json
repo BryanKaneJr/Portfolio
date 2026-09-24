@@ -1,0 +1,206 @@
+{
+  "id": "level.science.astronomy.075",
+  "skillId": "skill.science.astronomy",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Black Hole at Our Center",
+  "objective": "After this level you can describe Sagittarius A* and how astronomers found it.",
+  "summary": "At the Milky Way’s heart lies Sagittarius A*, about 4 million Suns. Stars orbiting it revealed it; the EHT imaged it in 2022.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.sagittarius_a",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.kepler_laws",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.event_horizon",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.074"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.075.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Our galaxy has a monster at its center, and we watched stars orbit it."
+    },
+    {
+      "id": "card.astronomy.075.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Following the stars",
+      "body": "About 27,000 light-years away, at the center of the Milky Way, stars race around an invisible object. By tracking their orbits for decades, astronomers worked out its mass: about 4 million times the Sun’s, packed into a region far too small to be anything but a black hole. One star, S2, circles it about every 16 years.",
+      "callout": "~4 million Suns"
+    },
+    {
+      "id": "card.astronomy.075.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A prize and a picture",
+      "body": "Reinhard Genzel and Andrea Ghez shared the 2020 Nobel Prize in Physics for this discovery. In 2022 the Event Horizon Telescope released an image of Sagittarius A* itself.",
+      "callout": "Nobel 2020 · image 2022"
+    },
+    {
+      "id": "card.astronomy.075.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.075.q1"
+    },
+    {
+      "id": "card.astronomy.075.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.075.q2"
+    },
+    {
+      "id": "card.astronomy.075.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.075.q3"
+    },
+    {
+      "id": "card.astronomy.075.c7",
+      "type": "checkpoint",
+      "headline": "Galactic center: reached",
+      "learned": [
+        "Sagittarius A* is at the Milky Way’s center",
+        "It holds about 4 million solar masses",
+        "Stars orbiting it revealed it (Nobel 2020)",
+        "The EHT imaged it in 2022"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.sagittarius_a"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.075.c2"
+      ],
+      "prompt": "About how massive is Sagittarius A*, the Milky Way’s central black hole?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About as massive as the Sun",
+          "correct": false,
+          "rationale": "It’s millions of times more massive."
+        },
+        {
+          "id": "b",
+          "label": "About 100 times the Sun’s mass",
+          "correct": false,
+          "rationale": "Much more."
+        },
+        {
+          "id": "c",
+          "label": "About 6.5 billion Suns",
+          "correct": false,
+          "rationale": "That’s M87’s black hole."
+        },
+        {
+          "id": "d",
+          "label": "About 4 million times the Sun’s mass",
+          "correct": true
+        }
+      ],
+      "explanation": "Sagittarius A* has about 4 million times the mass of the Sun.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.sagittarius_a"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.075.c2"
+      ],
+      "prompt": "How did astronomers first show that a supermassive black hole sits at our galaxy’s center?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They saw it swallow a star",
+          "correct": false,
+          "rationale": "The evidence came from orbits."
+        },
+        {
+          "id": "b",
+          "label": "They tracked stars orbiting an invisible massive object",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They landed a probe near the center",
+          "correct": false,
+          "rationale": "It’s 27,000 light-years away."
+        },
+        {
+          "id": "d",
+          "label": "They heard it with gravitational waves",
+          "correct": false,
+          "rationale": "The key evidence was stellar orbits."
+        }
+      ],
+      "explanation": "Stars racing around an unseen object revealed its enormous mass in a tiny space: a supermassive black hole.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.sagittarius_a",
+        "concept.astronomy.kepler_laws"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.075.c2",
+        "card.astronomy.026.c3"
+      ],
+      "prompt": "From Level 26: which laws let astronomers turn those stars’ orbits into a mass for Sagittarius A*?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The laws of the tides",
+          "correct": false,
+          "rationale": "Tides are one effect of gravity."
+        },
+        {
+          "id": "b",
+          "label": "The inverse square law of light",
+          "correct": false,
+          "rationale": "That relates brightness and distance."
+        },
+        {
+          "id": "c",
+          "label": "The laws of orbits and gravity from Kepler and Newton",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The rules of stellar parallax",
+          "correct": false,
+          "rationale": "Parallax gives distance, not mass."
+        }
+      ],
+      "explanation": "The same laws that describe planets orbiting the Sun reveal the mass that stars are orbiting at the galaxy’s center.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nobel_2020",
+    "source.eht"
+  ]
+}
