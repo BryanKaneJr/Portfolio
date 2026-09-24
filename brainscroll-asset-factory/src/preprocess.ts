@@ -2,7 +2,7 @@
 import { randomUUID } from 'node:crypto';
 import { chatJSON, hasLLM } from './llm.ts';
 import {
-  ID_CATEGORIES, ID_PATTERN, cleanText, looksAbstract, normalizeConcept, slugify, titleCase,
+  CATEGORY_GUIDE, cleanText, idError, looksAbstract, normalizeConcept, slugify, titleCase,
 } from './normalize.ts';
 import { aliases, findEntry, queue, registry, saveQueue } from './store.ts';
 import type { QueueItem } from './types.ts';
@@ -57,8 +57,10 @@ async function llmProposals(concepts: string[], category: string): Promise<Propo
   const library = registry.map((e) => `${e.id}: ${e.canonical_concept}`).join('\n') || '(empty)';
   const user = `Batch context category: ${category || 'none'}. This is context only. Choose the asset category from what the thing IS; a telescope is object.telescope even in an Astronomy batch.
 
-Allowed ID categories: ${ID_CATEGORIES.join(', ')}.
-ID format: category.name with lowercase words joined by hyphens, e.g. object.telescope, object.roman-helmet, place.castle, animal.horse, nature.volcano. Buildings and structures use place. Only named entities get a third segment, e.g. science.planet.saturn.
+Allowed ID categories (use exactly one of these as the first segment):
+${Object.entries(CATEGORY_GUIDE).map(([k, v]) => `- ${k}: ${v}`).join('\n')}
+
+ID format: category.name with lowercase words joined by hyphens, e.g. object.telescope, artifact.roman-helmet, architecture.castle, animal.horse, nature.volcano. Only named entities get a third segment, e.g. science.planet.saturn.
 
 Existing library assets (id: concept):
 ${library}
@@ -85,7 +87,7 @@ Incoming concepts that would produce the same picture must share the same id.`;
   return concepts.map((concept, i) => {
     const r = items[i] ?? {};
     const base = heuristicProposal(concept);
-    const id = typeof r.id === 'string' && ID_PATTERN.test(r.id) ? r.id : base.id;
+    const id = typeof r.id === 'string' && !idError(r.id) ? r.id : base.id;
     const canonical = normalizeConcept(cleanText(r.canonical_concept)) || concept;
     const existing = typeof r.existing_id === 'string' && findEntry(r.existing_id) ? r.existing_id : null;
     return {

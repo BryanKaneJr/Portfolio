@@ -53,7 +53,12 @@ async function generateOne(item: QueueItem): Promise<void> {
   saveQueue();
   try {
     const result = await generateImage(prompt, item.id);
-    const info = inspectPng(result.png);
+    let info;
+    try {
+      info = inspectPng(result.png);
+    } catch {
+      throw new Error(`${result.model} did not return a PNG. Set output_format to png via OPENAI_IMAGE_PARAMS.`);
+    }
     const file = `${item.id.replace(/\./g, '_')}__${Date.now()}.png`;
     fs.writeFileSync(path.join(paths.generated, file), result.png);
     if (item.image) item.history.push(item.image);

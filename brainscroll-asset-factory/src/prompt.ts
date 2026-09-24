@@ -3,8 +3,18 @@ import fs from 'node:fs';
 import { paths, settings } from './config.ts';
 import type { QueueItem } from './types.ts';
 
+/** The spec file as sent to the model: lines starting with # are editor notes and are dropped. */
 export function readStyle(): string {
-  return fs.readFileSync(paths.style, 'utf8').trim();
+  return fs
+    .readFileSync(paths.style, 'utf8')
+    .split(/\r?\n/)
+    .filter((l) => !l.trimStart().startsWith('#'))
+    .join('\n')
+    .trim();
+}
+
+export function readStyleFile(): string {
+  return fs.readFileSync(paths.style, 'utf8');
 }
 
 export function buildPrompt(item: Pick<QueueItem, 'label' | 'subject' | 'notes'>): string {

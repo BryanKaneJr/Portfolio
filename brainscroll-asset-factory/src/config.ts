@@ -13,14 +13,26 @@ export const settings = {
   port: Number(env.PORT || 4321),
   apiKey: env.OPENAI_API_KEY || '',
   baseUrl: (env.OPENAI_BASE_URL || 'https://api.openai.com/v1').replace(/\/$/, ''),
+  // The image model is a setting, not an assumption. gpt-image-1 is only the fallback.
   imageModel: env.OPENAI_IMAGE_MODEL || 'gpt-image-1',
   imageSize: env.OPENAI_IMAGE_SIZE || '1024x1024',
-  imageQuality: env.OPENAI_IMAGE_QUALITY || 'medium',
+  imageQuality: env.OPENAI_IMAGE_QUALITY ?? 'medium',
+  imageParams: parseParams(env.OPENAI_IMAGE_PARAMS),
   textModel: env.OPENAI_TEXT_MODEL || 'gpt-4.1-mini',
-  concurrency: Math.min(3, Math.max(1, Number(env.CONCURRENCY || 2) || 2)),
+  concurrency: Math.min(3, Math.max(1, Number(env.CONCURRENCY || 1) || 1)),
   mock: env.MOCK_OPENAI === '1',
   styleVersion,
 };
+
+/** OPENAI_IMAGE_PARAMS: JSON merged into the request. A null value removes a default parameter. */
+function parseParams(raw: string | undefined): Record<string, unknown> {
+  if (!raw?.trim()) return {};
+  try {
+    const v = JSON.parse(raw);
+    if (v && typeof v === 'object' && !Array.isArray(v)) return v;
+  } catch {}
+  throw new Error('OPENAI_IMAGE_PARAMS must be a JSON object, e.g. {"quality":"high"}');
+}
 
 export const paths = {
   public: path.join(ROOT, 'public'),

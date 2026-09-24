@@ -4,14 +4,14 @@ import path from 'node:path';
 import { paths, settings } from './config.ts';
 import { generateMetadata, registerAliases } from './metadata.ts';
 import {
-  ID_PATTERN, cleanList, cleanText, idToFilename, normalizeConcept,
+  cleanList, idError, cleanText, idToFilename, normalizeConcept,
 } from './normalize.ts';
 import { aliases, findEntry, queue, registry, saveAliases, saveQueue, saveRegistry, touch } from './store.ts';
 import type { QueueItem, RegistryEntry, Specificity } from './types.ts';
 
 export function approve(item: QueueItem): RegistryEntry {
   if (item.status !== 'GENERATED' || !item.image) throw new Error('Only generated images can be approved.');
-  if (!ID_PATTERN.test(item.id)) throw new Error(`Invalid asset ID "${item.id}".`);
+  if (idError(item.id)) throw new Error(idError(item.id));
 
   const filename = idToFilename(item.id);
   fs.copyFileSync(path.join(paths.assets, item.image), path.join(paths.approved, filename));
@@ -93,7 +93,7 @@ export function updateEntry(id: string, patch: Record<string, unknown>): Registr
 
   const newId = typeof patch.id === 'string' ? patch.id.trim() : id;
   if (newId !== id) {
-    if (!ID_PATTERN.test(newId)) throw new Error(`Invalid asset ID "${newId}". Use lowercase like object.telescope.`);
+    if (idError(newId)) throw new Error(idError(newId));
     if (findEntry(newId)) throw new Error(`Asset "${newId}" already exists.`);
     const filename = idToFilename(newId);
     fs.renameSync(path.join(paths.approved, e.filename), path.join(paths.approved, filename));

@@ -1,11 +1,35 @@
 // Lightweight text normalization used for duplicate detection and IDs.
 
-export const ID_CATEGORIES = [
-  'object', 'animal', 'plant', 'food', 'nature', 'place',
-  'vehicle', 'science', 'technology', 'person', 'clothing',
-];
+/** Allowed first segment of an asset ID, with a one-line rule for when to use it. */
+export const CATEGORY_GUIDE: Record<string, string> = {
+  object: 'everyday human-made items (book, coin, crown, globe, chair)',
+  animal: 'animals (horse, eagle, shark)',
+  plant: 'plants, trees, flowers, fungi (tree, rose, cactus)',
+  food: 'food and drink (apple, bread, cheese)',
+  nature: 'natural features and phenomena that can be drawn as one thing (volcano, mountain, cloud, crystal)',
+  place: 'a recognizable location type that is not a single building (island, oasis, desert well)',
+  vehicle: 'vehicles and craft (ship, car, rocket, hot air balloon)',
+  science: 'scientific equipment and scientific subjects (microscope, planet, atom model, test tube)',
+  technology: 'modern devices and electronics (smartphone, satellite, laptop, robot)',
+  person: 'a single person identified by role, never a real individual (farmer, knight, astronaut)',
+  clothing: 'garments and wearable items (dress, boot, hat)',
+  architecture: 'buildings and built structures (castle, temple, bank building, factory, bridge)',
+  artifact: 'historical or cultural objects (Roman helmet, amphora, papyrus scroll, Viking axe)',
+  symbol: 'widely recognized symbols with no text (peace symbol, heart, recycling symbol, flag shape)',
+  tool: 'hand tools and working instruments (hammer, saw, shovel, paintbrush)',
+};
+
+export const ID_CATEGORIES = Object.keys(CATEGORY_GUIDE);
 
 export const ID_PATTERN = /^[a-z][a-z0-9]*(\.[a-z0-9][a-z0-9-]*)+$/;
+
+/** Returns an error message for a bad ID, or '' when the ID is valid. */
+export function idError(id: string): string {
+  if (!ID_PATTERN.test(id)) return `Invalid asset ID "${id}". Use lowercase like object.telescope.`;
+  const cat = id.split('.')[0];
+  if (!CATEGORY_GUIDE[cat]) return `Unknown category "${cat}". Use one of: ${ID_CATEGORIES.join(', ')}.`;
+  return '';
+}
 
 /** BrainScroll text never uses em dashes. */
 export function noEmDash(s: string): string {

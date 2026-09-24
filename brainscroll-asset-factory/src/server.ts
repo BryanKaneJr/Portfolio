@@ -7,9 +7,9 @@ import { paths, settings } from './config.ts';
 import { IMAGE_MODEL, IMAGE_PROVIDER } from './image-provider.ts';
 import { approve, reject, search, updateEntry } from './library.ts';
 import { generateMetadata } from './metadata.ts';
-import { ID_PATTERN, cleanText, normalizeConcept } from './normalize.ts';
+import { cleanText, idError, normalizeConcept } from './normalize.ts';
 import { preprocess } from './preprocess.ts';
-import { buildPrompt, readStyle } from './prompt.ts';
+import { buildPrompt, readStyleFile } from './prompt.ts';
 import { enqueue, run } from './queue.ts';
 import { findEntry, findItem, queue, registry, saveQueue, touch } from './store.ts';
 import type { QueueItem } from './types.ts';
@@ -75,7 +75,7 @@ function readStyleTest(): { id: string; label: string; subject: string }[] {
     .filter((l) => l && !l.startsWith('#'))
     .map((l) => {
       const [id, label, subject] = l.split('|').map((s) => s.trim());
-      if (!ID_PATTERN.test(id) || !label) throw new HttpError(400, `Bad style test line: "${l}"`);
+      if (idError(id) || !label) throw new HttpError(400, `Bad style test line: "${l}". ${idError(id)}`.trim());
       return { id, label, subject: subject || `${label}.` };
     });
 }
@@ -143,7 +143,7 @@ const routes: [string, RegExp, Handler][] = [
     if (['GENERATING', 'APPROVED'].includes(item.status)) throw new HttpError(409, 'This item cannot be edited right now.');
     if (typeof b.id === 'string') {
       const id = b.id.trim();
-      if (!ID_PATTERN.test(id)) throw new HttpError(400, `Invalid asset ID "${id}". Use lowercase like object.telescope.`);
+      if (idError(id)) throw new HttpError(400, idError(id));
       item.id = id;
       item.category = id.split('.')[0];
     }
@@ -192,13 +192,15 @@ const routes: [string, RegExp, Handler][] = [
 
   ['GET', /^\/api\/style$/, () => ({
     version: settings.styleVersion,
-    style: readStyle(),
+    style: readStyleFile(),
     styleTest: fs.readFileSync(paths.styleTest, 'utf8'),
     preview: buildPrompt({ label: 'Telescope', subject: 'Optical telescope mounted on a tripod.', notes: '' }),
   })],
   ['PUT', /^\/api\/style$/, (b) => {
     if (typeof b.style === 'string') {
-      if (!b.style.trim()) throw new HttpError(400, 'The style specification cannot be empty.');
+      if (!b.style.split('\n').some((l) => l.trim() && !l.trim().startsWith('#'))) {
+        throw new HttpError(400, 'The style specification cannot be empty.');
+      }
       fs.writeFileSync(paths.style, b.style.trim() + '\n');
     }
     if (typeof b.styleTest === 'string') {
