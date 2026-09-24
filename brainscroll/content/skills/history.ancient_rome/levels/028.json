@@ -1,0 +1,214 @@
+{
+  "id": "level.history.ancient_rome.028",
+  "skillId": "skill.history.ancient_rome",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Carthage Must Be Destroyed",
+  "objective": "After this level you can explain how and why Rome destroyed Carthage in 146 BCE.",
+  "summary": "Cato demanded that Carthage be destroyed. In the Third Punic War (149–146 BCE) Rome did it, and Carthage became the province of Africa.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.carthage_destroyed",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.scipio_zama",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.rome_east",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.027"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One senator ended every speech the same way: Carthage must be destroyed."
+    },
+    {
+      "id": "card.ancient_rome.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A rival that recovered",
+      "body": "After Zama, Carthage recovered its wealth through trade. In the Senate, Cato the Elder was said to end his speeches, whatever the topic, with the demand that Carthage must be destroyed."
+    },
+    {
+      "id": "card.ancient_rome.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The end of Carthage",
+      "body": "In the Third Punic War, from 149 to 146 BCE, Rome besieged, captured and destroyed Carthage. Its lands became the Roman province of Africa. The same year, Rome destroyed Corinth in Greece.",
+      "callout": "146 BCE: Carthage and Corinth fall"
+    },
+    {
+      "id": "card.ancient_rome.028.c4",
+      "type": "fact",
+      "fact": "The salted earth is a myth.",
+      "context": "The famous story that Rome sowed salt on Carthage’s fields was invented much later. Carthage was eventually refounded as a Roman colony and became one of the empire’s great cities."
+    },
+    {
+      "id": "card.ancient_rome.028.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.028.q1"
+    },
+    {
+      "id": "card.ancient_rome.028.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.028.q2"
+    },
+    {
+      "id": "card.ancient_rome.028.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.028.q3"
+    },
+    {
+      "id": "card.ancient_rome.028.c8",
+      "type": "checkpoint",
+      "headline": "Carthage: fallen",
+      "learned": [
+        "Cato demanded Carthage’s destruction",
+        "The Third Punic War ran from 149 to 146 BCE",
+        "Carthage became the province of Africa",
+        "The salted-earth story is a later myth"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.carthage_destroyed"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.028.c2"
+      ],
+      "prompt": "Which senator demanded that Carthage must be destroyed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Scipio",
+          "correct": false,
+          "rationale": "Scipio was the general at Zama."
+        },
+        {
+          "id": "b",
+          "label": "Cato the Elder",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Fabius Maximus",
+          "correct": false,
+          "rationale": "Fabius was the Delayer."
+        },
+        {
+          "id": "d",
+          "label": "Cincinnatus",
+          "correct": false,
+          "rationale": "Cincinnatus lived centuries earlier."
+        }
+      ],
+      "explanation": "Cato the Elder was said to end his speeches by demanding Carthage’s destruction.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.carthage_destroyed"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.028.c3",
+        "card.ancient_rome.028.c4"
+      ],
+      "prompt": "What happened to Carthage’s land after 146 BCE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was given back to the Phoenicians",
+          "correct": false,
+          "rationale": "Rome kept it."
+        },
+        {
+          "id": "b",
+          "label": "It was sown with salt and abandoned forever",
+          "correct": false,
+          "rationale": "The salt story is a later myth."
+        },
+        {
+          "id": "c",
+          "label": "It became part of Egypt",
+          "correct": false,
+          "rationale": "Rome kept it."
+        },
+        {
+          "id": "d",
+          "label": "It became the Roman province of Africa",
+          "correct": true
+        }
+      ],
+      "explanation": "Carthage’s territory became the province of Africa, and the city was later refounded as a Roman colony.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.carthage_destroyed",
+        "concept.ancient_rome.rome_east"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.028.c3",
+        "card.ancient_rome.027.c4"
+      ],
+      "prompt": "From Level 27: which Greek city did Rome destroy in the same year as Carthage?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Corinth",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Athens",
+          "correct": false,
+          "rationale": "Athens was not destroyed."
+        },
+        {
+          "id": "c",
+          "label": "Sparta",
+          "correct": false,
+          "rationale": "Sparta was not destroyed."
+        },
+        {
+          "id": "d",
+          "label": "Syracuse",
+          "correct": false,
+          "rationale": "Syracuse is in Sicily."
+        }
+      ],
+      "explanation": "In 146 BCE Rome destroyed both Carthage and Corinth.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_cato",
+    "source.brit_punic_wars",
+    "source.brit_corinth",
+    "source.brit_carthage"
+  ]
+}

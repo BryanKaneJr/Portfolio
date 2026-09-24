@@ -1,0 +1,207 @@
+{
+  "id": "level.history.ancient_rome.027",
+  "skillId": "skill.history.ancient_rome",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rome Turns East",
+  "objective": "After this level you can describe how Rome came to dominate Greece and the Hellenistic kingdoms.",
+  "summary": "Rome beat Macedon and came to control Greece, destroying Corinth in 146 BCE. Meanwhile Greek culture conquered Rome from within.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.rome_east",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.scipio_zama",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.026"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome conquered Greece. Then Greece conquered Rome right back."
+    },
+    {
+      "id": "card.ancient_rome.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wars with Macedon",
+      "body": "In a series of wars against the kingdom of Macedon, ending in 148 BCE, Rome came to control Greece. In 196 BCE the Roman general Flamininus had proclaimed the Greek cities free. Yet Roman influence over them only kept growing."
+    },
+    {
+      "id": "card.ancient_rome.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Captive Greece",
+      "body": "Greek art, literature and philosophy deeply shaped Roman culture. Wealthy Romans learned Greek, hired Greek tutors and copied Greek statues. The poet Horace later wrote that captive Greece took its fierce conqueror captive."
+    },
+    {
+      "id": "card.ancient_rome.027.c4",
+      "type": "fact",
+      "fact": "Corinth was destroyed in 146 BCE.",
+      "context": "In the same year that Carthage fell, Rome also destroyed the great and wealthy Greek city of Corinth."
+    },
+    {
+      "id": "card.ancient_rome.027.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.027.q1"
+    },
+    {
+      "id": "card.ancient_rome.027.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.027.q2"
+    },
+    {
+      "id": "card.ancient_rome.027.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.027.q3"
+    },
+    {
+      "id": "card.ancient_rome.027.c8",
+      "type": "checkpoint",
+      "headline": "The east: won",
+      "learned": [
+        "Rome defeated Macedon and controlled Greece",
+        "Flamininus proclaimed the Greeks free in 196 BCE",
+        "Greek culture transformed Rome",
+        "Rome destroyed Corinth in 146 BCE"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.rome_east"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.027.c2"
+      ],
+      "prompt": "Which kingdom did Rome defeat to gain control of Greece?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Macedon",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Egypt",
+          "correct": false,
+          "rationale": "Egypt came later."
+        },
+        {
+          "id": "c",
+          "label": "Persia",
+          "correct": false,
+          "rationale": "Rome never ruled Persia."
+        },
+        {
+          "id": "d",
+          "label": "Carthage",
+          "correct": false,
+          "rationale": "Carthage was in Africa."
+        }
+      ],
+      "explanation": "A series of wars against Macedon, ending in 148 BCE, left Rome in control of Greece.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.rome_east"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.027.c3"
+      ],
+      "prompt": "What did Horace mean by “captive Greece took its conqueror captive”?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Greek armies later captured Rome",
+          "correct": false,
+          "rationale": "He meant something cultural."
+        },
+        {
+          "id": "b",
+          "label": "Greece paid Rome in captives",
+          "correct": false,
+          "rationale": "He meant something cultural."
+        },
+        {
+          "id": "c",
+          "label": "Greek culture came to shape Roman culture",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Romans were held hostage in Athens",
+          "correct": false,
+          "rationale": "He meant something cultural."
+        }
+      ],
+      "explanation": "Rome won the wars, but Greek art, literature and philosophy transformed Roman life.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.rome_east",
+        "concept.ancient_rome.scipio_zama"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.027.c2",
+        "card.ancient_rome.026.c3"
+      ],
+      "prompt": "From Level 26: which western rival had Rome just defeated before its wars in the east?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Gauls",
+          "correct": false,
+          "rationale": "The great western rival was Carthage."
+        },
+        {
+          "id": "b",
+          "label": "The Etruscans",
+          "correct": false,
+          "rationale": "They had long been absorbed."
+        },
+        {
+          "id": "c",
+          "label": "The Samnites",
+          "correct": false,
+          "rationale": "They were conquered earlier."
+        },
+        {
+          "id": "d",
+          "label": "Carthage",
+          "correct": true
+        }
+      ],
+      "explanation": "Victory over Carthage at Zama in 202 BCE freed Rome to turn east.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_horace",
+    "source.brit_macedonian_wars",
+    "source.brit_flamininus",
+    "source.brit_corinth"
+  ]
+}

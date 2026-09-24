@@ -1,0 +1,212 @@
+{
+  "id": "level.history.ancient_rome.021",
+  "skillId": "skill.history.ancient_rome",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Carthage, Queen of the Sea",
+  "objective": "After this level you can describe Carthage and why it clashed with Rome.",
+  "summary": "Carthage, founded by Phoenicians in 814 BCE, ruled the western seas. In 264 BCE it and Rome went to war over Sicily: the Punic Wars.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.carthage_rival",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.conquest_italy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.rome_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.020"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Once Rome held Italy, it looked across the water and found a rival."
+    },
+    {
+      "id": "card.ancient_rome.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A city of traders",
+      "body": "Carthage was founded by Phoenician settlers from Tyre, traditionally in 814 BCE, on the coast of what is now Tunisia. It grew rich from trade and became the leading naval power of the western Mediterranean."
+    },
+    {
+      "id": "card.ancient_rome.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sicily in between",
+      "body": "Sicily lies between Italy and North Africa. In 264 BCE a local conflict there drew in both powers, and Rome and Carthage went to war. The wars that followed are called Punic, from the Latin Punicus, “Phoenician.”",
+      "callout": "Punic = Phoenician"
+    },
+    {
+      "id": "card.ancient_rome.021.c4",
+      "type": "fact",
+      "fact": "Carthage was older than Rome.",
+      "context": "Its traditional founding date of 814 BCE comes even before Rome’s own, 753 BCE. By the time the two met, Carthage had ruled the sea for centuries."
+    },
+    {
+      "id": "card.ancient_rome.021.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.021.q1"
+    },
+    {
+      "id": "card.ancient_rome.021.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.021.q2"
+    },
+    {
+      "id": "card.ancient_rome.021.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.021.q3"
+    },
+    {
+      "id": "card.ancient_rome.021.c8",
+      "type": "checkpoint",
+      "headline": "Carthage: introduced",
+      "learned": [
+        "Carthage was founded by Phoenicians, traditionally 814 BCE",
+        "It was the western Mediterranean’s naval power",
+        "Rome and Carthage went to war over Sicily in 264 BCE",
+        "Punic means Phoenician"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.carthage_rival"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.021.c2"
+      ],
+      "prompt": "Who founded Carthage?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Greeks from Corinth",
+          "correct": false,
+          "rationale": "Carthage was Phoenician."
+        },
+        {
+          "id": "b",
+          "label": "Phoenician settlers from Tyre",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Etruscans from Tuscany",
+          "correct": false,
+          "rationale": "Carthage was Phoenician."
+        },
+        {
+          "id": "d",
+          "label": "Romans from Ostia",
+          "correct": false,
+          "rationale": "Carthage was older than Rome."
+        }
+      ],
+      "explanation": "Phoenicians from Tyre founded Carthage, traditionally in 814 BCE.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.carthage_rival"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.021.c3"
+      ],
+      "prompt": "Why are Rome’s wars with Carthage called the Punic Wars?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were fought with punishing cruelty",
+          "correct": false,
+          "rationale": "The name has a different source."
+        },
+        {
+          "id": "b",
+          "label": "They were named after a Carthaginian general",
+          "correct": false,
+          "rationale": "The name comes from a people."
+        },
+        {
+          "id": "c",
+          "label": "They began in the city of Punica",
+          "correct": false,
+          "rationale": "There was no such city."
+        },
+        {
+          "id": "d",
+          "label": "Punicus is Latin for Phoenician",
+          "correct": true
+        }
+      ],
+      "explanation": "Carthage was a Phoenician city, and Punicus is the Latin word for Phoenician.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.carthage_rival",
+        "concept.ancient_rome.conquest_italy"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.021.c3",
+        "card.ancient_rome.019.c2"
+      ],
+      "prompt": "From Level 19: why did Rome and Carthage come into conflict after about 264 BCE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rome now held Italy and faced Carthage across the sea",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Carthage invaded Rome by land",
+          "correct": false,
+          "rationale": "The first clash was over Sicily."
+        },
+        {
+          "id": "c",
+          "label": "Rome wanted Carthage’s gold mines",
+          "correct": false,
+          "rationale": "The trigger was Sicily."
+        },
+        {
+          "id": "d",
+          "label": "Carthage sheltered the Gauls",
+          "correct": false,
+          "rationale": "The trigger was Sicily."
+        }
+      ],
+      "explanation": "With the peninsula under its control by about 264 BCE, Rome’s interests reached Sicily, where Carthage was strong.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_carthage",
+    "source.brit_punic_wars",
+    "source.brit_ancient_rome"
+  ]
+}

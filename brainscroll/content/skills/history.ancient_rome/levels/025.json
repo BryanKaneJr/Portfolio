@@ -1,0 +1,212 @@
+{
+  "id": "level.history.ancient_rome.025",
+  "skillId": "skill.history.ancient_rome",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Fabius the Delayer",
+  "objective": "After this level you can explain Fabius Maximus’s strategy of avoiding battle and why it worked.",
+  "summary": "Fabius shadowed Hannibal and cut his supplies instead of fighting. Mocked as the Delayer, he was proved right as Italy’s allies held firm.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.fabian_strategy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.cannae",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.conquest_italy",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.024"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Sometimes the best way to beat a genius is to refuse to fight him."
+    },
+    {
+      "id": "card.ancient_rome.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Don’t fight, follow",
+      "body": "Fabius Maximus refused to meet Hannibal in a pitched battle. Instead he shadowed Hannibal’s army and cut off its supplies. Romans first mocked him as Cunctator, “the Delayer.” After Cannae, the name became praise."
+    },
+    {
+      "id": "card.ancient_rome.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it worked",
+      "body": "Hannibal was far from home and needed Italian cities to join him. But most of Rome’s allies stayed loyal, so he never got the reinforcements he needed. Time, and Hannibal’s distance from home, were on Rome’s side."
+    },
+    {
+      "id": "card.ancient_rome.025.c4",
+      "type": "fact",
+      "fact": "His name became a strategy.",
+      "context": "A “Fabian strategy” still means wearing down a stronger enemy by avoiding a decisive battle, exactly as Fabius did."
+    },
+    {
+      "id": "card.ancient_rome.025.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.025.q1"
+    },
+    {
+      "id": "card.ancient_rome.025.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.025.q2"
+    },
+    {
+      "id": "card.ancient_rome.025.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.025.q3"
+    },
+    {
+      "id": "card.ancient_rome.025.c8",
+      "type": "checkpoint",
+      "headline": "Delay: vindicated",
+      "learned": [
+        "Fabius avoided battle with Hannibal",
+        "He cut off Hannibal’s supplies instead",
+        "“The Delayer” became a compliment",
+        "Italy’s loyal allies starved Hannibal of men"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.fabian_strategy"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.025.c2"
+      ],
+      "prompt": "What nickname did Fabius Maximus earn?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Conqueror",
+          "correct": false,
+          "rationale": "His fame came from not fighting."
+        },
+        {
+          "id": "b",
+          "label": "The Lion of Italy",
+          "correct": false,
+          "rationale": "That wasn’t his name."
+        },
+        {
+          "id": "c",
+          "label": "The Wall",
+          "correct": false,
+          "rationale": "That wasn’t his name."
+        },
+        {
+          "id": "d",
+          "label": "The Delayer",
+          "correct": true
+        }
+      ],
+      "explanation": "Cunctator, “the Delayer,” began as an insult and became praise.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.fabian_strategy"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.025.c3"
+      ],
+      "prompt": "Why did avoiding battle hurt Hannibal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His elephants needed battles to stay fit",
+          "correct": false,
+          "rationale": "The issue was supplies and allies."
+        },
+        {
+          "id": "b",
+          "label": "Far from home, he needed supplies and new allies",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Roman law forbade him to march",
+          "correct": false,
+          "rationale": "Rome couldn’t forbid him anything."
+        },
+        {
+          "id": "d",
+          "label": "His soldiers were paid only after victories",
+          "correct": false,
+          "rationale": "The issue was supplies and allies."
+        }
+      ],
+      "explanation": "Without battles to win over Italian cities, Hannibal’s army slowly ran short of supplies and men.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.fabian_strategy",
+        "concept.ancient_rome.conquest_italy"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.025.c3",
+        "card.ancient_rome.019.c3"
+      ],
+      "prompt": "From Level 19: what Roman policy helped Fabius’s strategy work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Turning defeated Italians into loyal allies",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Building walls around every Italian town",
+          "correct": false,
+          "rationale": "The key was loyalty."
+        },
+        {
+          "id": "c",
+          "label": "Paying Gaulish mercenaries",
+          "correct": false,
+          "rationale": "The key was Italian allies."
+        },
+        {
+          "id": "d",
+          "label": "Keeping the navy in harbor",
+          "correct": false,
+          "rationale": "The key was allies on land."
+        }
+      ],
+      "explanation": "Rome had made defeated peoples allies; most stayed loyal, so Hannibal couldn’t replace his losses.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_fabius",
+    "source.brit_cannae",
+    "source.brit_punic_wars",
+    "source.brit_ancient_rome"
+  ]
+}

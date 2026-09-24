@@ -1,0 +1,207 @@
+{
+  "id": "level.history.ancient_rome.026",
+  "skillId": "skill.history.ancient_rome",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Scipio and Zama",
+  "objective": "After this level you can explain how Scipio Africanus defeated Hannibal at Zama.",
+  "summary": "Scipio took Spain, invaded Africa and beat Hannibal at Zama in 202 BCE. Carthage lost its empire and fleet and paid a huge indemnity.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.scipio_zama",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.hannibal_alps",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.025"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome finally beat Hannibal by making him come home."
+    },
+    {
+      "id": "card.ancient_rome.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Take the war to Africa",
+      "body": "Publius Cornelius Scipio drove the Carthaginians out of Spain. Then, in a bold gamble, he invaded Africa and threatened Carthage itself. Carthage recalled Hannibal from Italy to defend the city."
+    },
+    {
+      "id": "card.ancient_rome.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Zama, 202 BCE",
+      "body": "At the Battle of Zama in 202 BCE, Scipio defeated Hannibal and won the Second Punic War. Carthage lost its overseas territories and most of its fleet, and had to pay Rome a huge indemnity.",
+      "callout": "Zama, 202 BCE: the war is won"
+    },
+    {
+      "id": "card.ancient_rome.026.c4",
+      "type": "fact",
+      "fact": "He was named for his victory.",
+      "context": "Scipio was given the name Africanus, after the continent where he won the war."
+    },
+    {
+      "id": "card.ancient_rome.026.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.026.q1"
+    },
+    {
+      "id": "card.ancient_rome.026.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.026.q2"
+    },
+    {
+      "id": "card.ancient_rome.026.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.026.q3"
+    },
+    {
+      "id": "card.ancient_rome.026.c8",
+      "type": "checkpoint",
+      "headline": "Zama: won",
+      "learned": [
+        "Scipio drove Carthage out of Spain",
+        "He invaded Africa, forcing Hannibal home",
+        "He won at Zama in 202 BCE",
+        "Carthage lost its empire and fleet"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.scipio_zama"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.026.c3"
+      ],
+      "prompt": "Who defeated Hannibal at Zama?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fabius Maximus",
+          "correct": false,
+          "rationale": "Fabius avoided battle."
+        },
+        {
+          "id": "b",
+          "label": "Scipio",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Cato the Elder",
+          "correct": false,
+          "rationale": "Cato was a senator."
+        },
+        {
+          "id": "d",
+          "label": "Brennus",
+          "correct": false,
+          "rationale": "Brennus was a Gaul."
+        }
+      ],
+      "explanation": "Scipio beat Hannibal at Zama in 202 BCE and was named Africanus.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.scipio_zama"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.026.c2"
+      ],
+      "prompt": "How did Scipio get Hannibal out of Italy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He paid him to leave",
+          "correct": false,
+          "rationale": "He forced the issue militarily."
+        },
+        {
+          "id": "b",
+          "label": "He defeated him in the Alps",
+          "correct": false,
+          "rationale": "Hannibal was already in Italy."
+        },
+        {
+          "id": "c",
+          "label": "He invaded Africa and threatened Carthage",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He cut the Alpine passes",
+          "correct": false,
+          "rationale": "The key move was in Africa."
+        }
+      ],
+      "explanation": "By taking the war to Africa, Scipio forced Carthage to recall Hannibal to defend the city.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.scipio_zama",
+        "concept.ancient_rome.hannibal_alps"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.026.c3",
+        "card.ancient_rome.023.c2"
+      ],
+      "prompt": "From Level 23: Zama ended the war that began with which event?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The first secession of the plebs",
+          "correct": false,
+          "rationale": "That was an internal conflict."
+        },
+        {
+          "id": "b",
+          "label": "The Gallic sack of Rome",
+          "correct": false,
+          "rationale": "That was much earlier."
+        },
+        {
+          "id": "c",
+          "label": "The fight over Sicily in 264 BCE",
+          "correct": false,
+          "rationale": "That began the First Punic War."
+        },
+        {
+          "id": "d",
+          "label": "Hannibal’s invasion of Italy in 218 BCE",
+          "correct": true
+        }
+      ],
+      "explanation": "The Second Punic War began with Hannibal’s invasion in 218 BCE and ended at Zama in 202 BCE.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_scipio",
+    "source.brit_zama",
+    "source.brit_punic_wars"
+  ]
+}

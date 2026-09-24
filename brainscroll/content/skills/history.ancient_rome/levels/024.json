@@ -1,0 +1,200 @@
+{
+  "id": "level.history.ancient_rome.024",
+  "skillId": "skill.history.ancient_rome",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Disaster at Cannae",
+  "objective": "After this level you can explain what happened at Cannae and why it is still studied.",
+  "summary": "At Cannae in 216 BCE Hannibal encircled a much larger Roman army and destroyed it. Rome lost tens of thousands, yet refused to make peace.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.cannae",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.hannibal_alps",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.023"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome’s biggest army walked into a trap it couldn’t escape."
+    },
+    {
+      "id": "card.ancient_rome.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The trap",
+      "body": "At Cannae in 216 BCE, Hannibal faced a much larger Roman army. He let the center of his line fall back as the Romans pushed forward. Then his wings and cavalry closed around them from both sides. It was a double envelopment.",
+      "callout": "Center falls back, wings close in"
+    },
+    {
+      "id": "card.ancient_rome.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A catastrophe, and a refusal",
+      "body": "Ancient sources report Roman losses in the tens of thousands, one of the worst defeats in Roman history. Yet Rome refused to make peace. Hannibal had won a battle. He had not won the war, because Rome would not quit. Cannae is still studied as the classic example of encirclement."
+    },
+    {
+      "id": "card.ancient_rome.024.c4",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.024.q1"
+    },
+    {
+      "id": "card.ancient_rome.024.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.024.q2"
+    },
+    {
+      "id": "card.ancient_rome.024.c6",
+      "type": "recall",
+      "questionId": "question.ancient_rome.024.q3"
+    },
+    {
+      "id": "card.ancient_rome.024.c7",
+      "type": "checkpoint",
+      "headline": "Cannae: studied",
+      "learned": [
+        "Cannae, 216 BCE: Hannibal’s greatest victory",
+        "He encircled a larger Roman army",
+        "Rome lost tens of thousands",
+        "Rome still refused to make peace"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.cannae"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.024.c2"
+      ],
+      "prompt": "In what year was the Battle of Cannae?",
+      "options": [
+        {
+          "id": "a",
+          "label": "264 BCE",
+          "correct": false,
+          "rationale": "That’s when the Punic Wars began."
+        },
+        {
+          "id": "b",
+          "label": "202 BCE",
+          "correct": false,
+          "rationale": "That’s the Battle of Zama."
+        },
+        {
+          "id": "c",
+          "label": "216 BCE",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "390 BCE",
+          "correct": false,
+          "rationale": "That’s the Gallic sack."
+        }
+      ],
+      "explanation": "Hannibal destroyed a Roman army at Cannae in 216 BCE.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.cannae"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.024.c2"
+      ],
+      "prompt": "How did Hannibal defeat a larger army at Cannae?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He let his center give way, then closed in from both sides",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He attacked the Roman camp at night",
+          "correct": false,
+          "rationale": "It was a pitched battle."
+        },
+        {
+          "id": "c",
+          "label": "He used elephants to break the Roman line",
+          "correct": false,
+          "rationale": "The trap was about movement, not elephants."
+        },
+        {
+          "id": "d",
+          "label": "He flooded the battlefield",
+          "correct": false,
+          "rationale": "The trap was an encirclement."
+        }
+      ],
+      "explanation": "A retreating center drew the Romans in while the wings and cavalry surrounded them: a double envelopment.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.cannae",
+        "concept.ancient_rome.hannibal_alps"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.024.c2",
+        "card.ancient_rome.023.c3"
+      ],
+      "prompt": "From Level 23: how had Hannibal’s army reached Italy before Cannae?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By sailing from Carthage",
+          "correct": false,
+          "rationale": "He came overland."
+        },
+        {
+          "id": "b",
+          "label": "Through the Samnite hills",
+          "correct": false,
+          "rationale": "He came from the north."
+        },
+        {
+          "id": "c",
+          "label": "By a secret treaty with Rome",
+          "correct": false,
+          "rationale": "He invaded."
+        },
+        {
+          "id": "d",
+          "label": "By marching over the Alps from Spain",
+          "correct": true
+        }
+      ],
+      "explanation": "Hannibal crossed the Alps from Spain in 218 BCE, two years before Cannae.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_cannae",
+    "source.brit_punic_wars"
+  ]
+}

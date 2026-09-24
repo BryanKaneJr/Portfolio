@@ -1,0 +1,205 @@
+{
+  "id": "level.history.ancient_rome.029",
+  "skillId": "skill.history.ancient_rome",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Legion",
+  "objective": "After this level you can describe how a Roman legion was organized, equipped and trained.",
+  "summary": "Republican legions had 4,000 to 5,000 citizen infantry in flexible maniples, three lines deep, armed with the gladius and pila.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.legion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.cannae",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.028"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.029.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome’s real weapon was organization."
+    },
+    {
+      "id": "card.ancient_rome.029.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Citizens under arms",
+      "body": "In the Republic, a legion had roughly 4,000 to 5,000 infantry. In the earlier Republic, legionaries were property-owning citizens who bought their own equipment. Each carried a short stabbing sword, the gladius, and heavy throwing javelins called pila."
+    },
+    {
+      "id": "card.ancient_rome.029.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Flexible blocks",
+      "body": "Legions fought in maniples, small units that could move and turn independently. They were arranged in three lines: the young hastati in front, the principes behind them, and the veteran triarii at the back.",
+      "callout": "Hastati → principes → triarii"
+    },
+    {
+      "id": "card.ancient_rome.029.c4",
+      "type": "fact",
+      "fact": "The pilum was built to bend.",
+      "context": "Its long iron shank was designed to bend on impact, so an enemy couldn’t simply throw it back at the Romans."
+    },
+    {
+      "id": "card.ancient_rome.029.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.029.q1"
+    },
+    {
+      "id": "card.ancient_rome.029.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.029.q2"
+    },
+    {
+      "id": "card.ancient_rome.029.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.029.q3"
+    },
+    {
+      "id": "card.ancient_rome.029.c8",
+      "type": "checkpoint",
+      "headline": "The legion: drilled",
+      "learned": [
+        "A legion had about 4,000 to 5,000 infantry",
+        "Early legionaries were property-owning citizens",
+        "They carried the gladius and pila",
+        "Maniples fought in three lines"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.legion"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.029.c2"
+      ],
+      "prompt": "What was a gladius?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A throwing javelin",
+          "correct": false,
+          "rationale": "That was the pilum."
+        },
+        {
+          "id": "b",
+          "label": "A large oval shield",
+          "correct": false,
+          "rationale": "It was a sword."
+        },
+        {
+          "id": "c",
+          "label": "A short stabbing sword",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A bronze helmet",
+          "correct": false,
+          "rationale": "It was a sword."
+        }
+      ],
+      "explanation": "The gladius was the legionary’s short stabbing sword.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.legion"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.029.c3"
+      ],
+      "prompt": "Why did a legion arrange its soldiers in three lines?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To keep the three social classes apart",
+          "correct": false,
+          "rationale": "The lines were about experience."
+        },
+        {
+          "id": "b",
+          "label": "So the back line could guard the camp",
+          "correct": false,
+          "rationale": "All three fought."
+        },
+        {
+          "id": "c",
+          "label": "Because of a religious rule",
+          "correct": false,
+          "rationale": "It was a military design."
+        },
+        {
+          "id": "d",
+          "label": "Veterans at the back could steady or relieve the front",
+          "correct": true
+        }
+      ],
+      "explanation": "Young soldiers led, and experienced lines behind could reinforce them, with the veteran triarii last.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.legion",
+        "concept.ancient_rome.cannae"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.029.c3",
+        "card.ancient_rome.024.c2"
+      ],
+      "prompt": "From Level 24: at Cannae, how did Hannibal defeat the legions’ strength in numbers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He surrounded them from both sides",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He fought only at night",
+          "correct": false,
+          "rationale": "It was a daytime battle."
+        },
+        {
+          "id": "c",
+          "label": "He poisoned their water",
+          "correct": false,
+          "rationale": "It was a battlefield trap."
+        },
+        {
+          "id": "d",
+          "label": "He bribed their officers",
+          "correct": false,
+          "rationale": "It was a battlefield trap."
+        }
+      ],
+      "explanation": "A double envelopment trapped the Romans so their numbers couldn’t help them.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_legion"
+  ]
+}

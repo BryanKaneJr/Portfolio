@@ -1,0 +1,200 @@
+{
+  "id": "level.history.ancient_rome.023",
+  "skillId": "skill.history.ancient_rome",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hannibal Crosses the Alps",
+  "objective": "After this level you can retell Hannibal’s march over the Alps with his army and elephants.",
+  "summary": "In 218 BCE Hannibal led an army with war elephants from Spain over the Alps into Italy, beginning the Second Punic War.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.hannibal_alps",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.first_punic_war",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.022"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The attack Rome never expected came over the mountains, with elephants."
+    },
+    {
+      "id": "card.ancient_rome.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A general sworn against Rome",
+      "body": "According to tradition, Hannibal’s father made him swear as a boy never to be a friend of Rome. As a Carthaginian general based in Spain, Hannibal invaded Italy and began the Second Punic War, which lasted from 218 to 201 BCE."
+    },
+    {
+      "id": "card.ancient_rome.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Over the Alps",
+      "body": "In 218 BCE Hannibal marched his army, including war elephants, from Spain over the Alps. The crossing cost him many men and most of the elephants. But he reached Italy and began winning battles almost at once. He would stay and fight in Italy for about 15 years.",
+      "callout": "Spain → Alps → Italy, 218 BCE"
+    },
+    {
+      "id": "card.ancient_rome.023.c4",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.023.q1"
+    },
+    {
+      "id": "card.ancient_rome.023.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.023.q2"
+    },
+    {
+      "id": "card.ancient_rome.023.c6",
+      "type": "recall",
+      "questionId": "question.ancient_rome.023.q3"
+    },
+    {
+      "id": "card.ancient_rome.023.c7",
+      "type": "checkpoint",
+      "headline": "The Alps: crossed",
+      "learned": [
+        "The Second Punic War ran from 218 to 201 BCE",
+        "Hannibal invaded Italy from Spain",
+        "He crossed the Alps with war elephants",
+        "The march was costly, but he won early battles"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.hannibal_alps"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.023.c3"
+      ],
+      "prompt": "Which route did Hannibal take to invade Italy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From Spain over the Alps",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "By sea from Carthage to Ostia",
+          "correct": false,
+          "rationale": "He came overland."
+        },
+        {
+          "id": "c",
+          "label": "From Sicily across the strait",
+          "correct": false,
+          "rationale": "He came overland."
+        },
+        {
+          "id": "d",
+          "label": "Through Greece and across the Adriatic",
+          "correct": false,
+          "rationale": "He came from Spain."
+        }
+      ],
+      "explanation": "Hannibal marched from Spain over the Alps into Italy in 218 BCE.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.hannibal_alps"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.023.c3"
+      ],
+      "prompt": "What did the Alpine crossing cost Hannibal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nothing: the pass was easy",
+          "correct": false,
+          "rationale": "It was very costly."
+        },
+        {
+          "id": "b",
+          "label": "His whole army",
+          "correct": false,
+          "rationale": "He reached Italy and won battles."
+        },
+        {
+          "id": "c",
+          "label": "Many men and most of his elephants",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "His command, which went to his brother",
+          "correct": false,
+          "rationale": "He stayed in command."
+        }
+      ],
+      "explanation": "The crossing was brutal, but Hannibal reached Italy with enough of his army to win.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.hannibal_alps",
+        "concept.ancient_rome.first_punic_war"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.023.c3",
+        "card.ancient_rome.022.c2"
+      ],
+      "prompt": "From Level 22: why might Hannibal have chosen to come by land rather than by sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carthage had no ships at all",
+          "correct": false,
+          "rationale": "It still had ships."
+        },
+        {
+          "id": "b",
+          "label": "The Alps were Carthaginian territory",
+          "correct": false,
+          "rationale": "They weren’t."
+        },
+        {
+          "id": "c",
+          "label": "Roman law banned foreign fleets",
+          "correct": false,
+          "rationale": "No such law."
+        },
+        {
+          "id": "d",
+          "label": "Rome now had a strong navy of its own",
+          "correct": true
+        }
+      ],
+      "explanation": "After building a fleet in the First Punic War, Rome could contest the sea, so a land invasion avoided it.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_hannibal",
+    "source.brit_punic_wars"
+  ]
+}
