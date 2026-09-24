@@ -4,6 +4,27 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Fact-check complete: all 943 claims** have an automated fact-check against independent sources. The session's web-search allowance was raised to 2,000. Nothing is marked verified: all 979 ledger records stay `unverified` until a person checks the cited page.
+  - **This round:** the last 599 claims came back 579 corroborated, 11 corrected (including one I corrected myself from my own search: the 2019 Nobel was split, half to Peebles) and 9 disputed and hedged. Cards, questions, summaries and recaps were updated to match.
+  - **Astronomy changes:**
+    - The hottest stars are blue, not blue-white.
+    - The Sun is hotter and brighter than most stars (most are red dwarfs), not "a thoroughly average star".
+    - It looks white from space and yellowish only through our air.
+    - The ecliptic also crosses Ophiuchus.
+    - An exoplanet is any planet outside the solar system, including free-floating ones.
+    - Mayor and Queloz shared *half* of the 2019 Nobel.
+    - A few meteor showers (the Geminids) come from an asteroid.
+    - The observable universe holds billions of galaxies, *many* (not each) with billions of stars.
+  - **Rome changes:**
+    - More than a thousand Vindolanda tablets have been found, not hundreds.
+    - Etruria was mostly Tuscany, plus parts of Lazio and Umbria.
+    - The tribune's veto covered other magistrates, but probably not a dictator.
+    - Pompey was *hailed* Magnus rather than taking the name himself.
+    - Nero blaming the Christians rests on Tacitus.
+    - The patrician monopoly on magistracies is tradition.
+    - The Colosseum is "also known as" the Flavian Amphitheatre.
+    - Where Romanian took shape is debated.
+  - **Totals:** 905 corroborated, 24 corrected and 14 disputed. `check` and `test:db` pass.
 - **Fact-check, wave 2 (claims with numbers first):** 214 more claims checked the same way (independent sources, never marked verified).
   - **Results:** 204 corroborated, 7 corrected, 3 disputed and hedged. Cards, questions and recaps were updated to match.
   - **Astronomy changes:**

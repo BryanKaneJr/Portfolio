@@ -95,6 +95,6 @@ Dependency order, with where we are today:
 
 1. **Create the staging Supabase project** ([`supabase-setup.md`](supabase-setup.md)). This needs you. After that, a smoke test on a real phone.
 2. **Sign-in credentials:** create the Apple Services ID and key, the Google OAuth clients and an SMS provider, then test the native Apple/Google sheets on a device build. The code, config and e2e flows are ready ([`accounts.md`](accounts.md)).
-3. **Verify the Golden 10:** an editor checks the facts against their sources, flips `verified: true`, and adds one licensed image asset. 344 of the 943 claims already have an automated fact-check against independent sources (22 were corrected or hedged); the other 599 still need one (each session allows 200 web searches). The editor can start from `docs/verification/*.md`.
+3. **Verify the Golden 10:** an editor checks the facts against their sources, flips `verified: true`, and adds one licensed image asset. Every claim (943) already has an automated fact-check against independent sources; 38 were corrected or hedged. The editor can start from `docs/verification/*.md`, where each result sits next to its claim.
 4. **Subscriptions (Stage 8):** RevenueCat `unlimited_learning`, offered only at Daily Complete.
 5. **Content admin v1:** a web editor, preview and publish flow on top of `validateContent` and `import_content`.
