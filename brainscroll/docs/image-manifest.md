@@ -65,7 +65,7 @@ First-round images that aren't listed here or used by a tree below are still fin
 
 ## Mascot
 
-The Professor, a cute, round old genius in a tweed jacket and violet bow tie, has 29 poses: waving, pointing at a card, thinking, cheering, a kind shrug for wrong answers, and one per subject. His look, the rules that keep him an original character, and how to keep him consistent are in [`mascot.md`](mascot.md). Make `mascot.reference` first and generate every pose from it.
+Dr. Scroll, a cute, round old genius in a tweed jacket and violet bow tie, has 29 poses: waving, pointing at a card, thinking, cheering, a kind shrug for wrong answers, and one per subject. His look, the rules that keep him an original character, and how to keep him consistent are in [`mascot.md`](mascot.md). Make `mascot.reference` first and generate every pose from it.
 
 ## Subjects, skills and app screens
 

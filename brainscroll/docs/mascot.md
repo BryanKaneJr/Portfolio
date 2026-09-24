@@ -1,6 +1,6 @@
-# Mascot: the Professor
+# Mascot: Dr. Scroll
 
-A small, round, cheerful old genius who shows up throughout BrainScroll: waving on the sign-in screen, pointing at the key idea on a card, cheering a level-up, shrugging kindly at a wrong answer. His name is still to be chosen (see the end); "the Professor" is a placeholder.
+A small, round, cheerful old genius who shows up throughout BrainScroll: waving on the sign-in screen, pointing at the key idea on a card, cheering a level-up, shrugging kindly at a wrong answer. His name is **Dr. Scroll**.
 
 ## He is our own character, not Einstein
 
@@ -98,6 +98,6 @@ Nothing shows him yet. Once the images exist:
   - checkpoints (`checkpoint`), mastery (`mastery`), Daily Complete (`go-outside`), loading (`waiting`), errors (`tangled`), empty states (`sleeping`).
 - **Motion:** a small bounce when he appears, no more. He should never block the content or slow a lesson down.
 
-## Name ideas (owner to choose)
+## Name
 
-Professor Quill, Professor Pip, Doc Wiggleby, Professor Noodle. The name should be original, easy to say, and not a real scientist's.
+**Dr. Scroll**, chosen by the owner. It echoes BrainScroll and his scroll in `mascot.history`. In copy he's "Dr. Scroll", never shortened to "Scroll" on its own, so he isn't confused with scrolling the feed. Image IDs stay `mascot.*`.
