@@ -1,0 +1,206 @@
+{
+  "id": "level.history.ancient_rome.042",
+  "skillId": "skill.history.ancient_rome",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Antony and Cleopatra",
+  "objective": "After this level you can describe the alliance of Mark Antony and Cleopatra and why it alarmed Rome.",
+  "summary": "Antony ruled the East and allied with Cleopatra, last of the Ptolemies. When he gave her Roman lands, Octavian called him a traitor.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.antony_cleopatra",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.octavian",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.041"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A Roman general and an Egyptian queen formed a partnership Rome called treason."
+    },
+    {
+      "id": "card.ancient_rome.042.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The queen of Egypt",
+      "body": "Cleopatra VII was the last active ruler of Egypt’s Ptolemaic dynasty, a Greek-speaking family descended from a general of Alexander the Great. She had earlier been Julius Caesar’s ally and lover, and had a son, Caesarion, whom she said was Caesar’s."
+    },
+    {
+      "id": "card.ancient_rome.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Antony in the East",
+      "body": "After Philippi, Mark Antony took charge of Rome’s eastern provinces and allied with Cleopatra. He married Octavian’s sister Octavia in 40 BCE, but later left her for Cleopatra. In 34 BCE, in the Donations of Alexandria, he gave Roman lands in the East to Cleopatra and her children."
+    },
+    {
+      "id": "card.ancient_rome.042.c4",
+      "type": "fact",
+      "fact": "Octavian turned the romance into a weapon.",
+      "context": "He portrayed Antony as a traitor under the spell of a foreign queen, and opinion in Rome turned against Antony."
+    },
+    {
+      "id": "card.ancient_rome.042.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.042.q1"
+    },
+    {
+      "id": "card.ancient_rome.042.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.042.q2"
+    },
+    {
+      "id": "card.ancient_rome.042.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.042.q3"
+    },
+    {
+      "id": "card.ancient_rome.042.c8",
+      "type": "checkpoint",
+      "headline": "The alliance: met",
+      "learned": [
+        "Cleopatra was the last Ptolemaic ruler",
+        "Antony ruled the East and allied with her",
+        "He gave Roman lands to her children",
+        "Octavian called him a traitor"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.antony_cleopatra"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.042.c2"
+      ],
+      "prompt": "Which ruling family did Cleopatra belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Tarquins",
+          "correct": false,
+          "rationale": "They were Rome’s last kings."
+        },
+        {
+          "id": "b",
+          "label": "The Ptolemies",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Julian family",
+          "correct": false,
+          "rationale": "That was Caesar’s family."
+        },
+        {
+          "id": "d",
+          "label": "The Gracchi",
+          "correct": false,
+          "rationale": "They were Roman tribunes."
+        }
+      ],
+      "explanation": "Cleopatra VII was the last active ruler of the Ptolemaic dynasty of Egypt.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.antony_cleopatra"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.042.c3",
+        "card.ancient_rome.042.c4"
+      ],
+      "prompt": "Why did the Donations of Alexandria anger Romans?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Antony gave Roman lands to Cleopatra’s family",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Antony moved the Senate to Alexandria",
+          "correct": false,
+          "rationale": "The Senate stayed in Rome."
+        },
+        {
+          "id": "c",
+          "label": "Cleopatra refused to trade grain with Rome",
+          "correct": false,
+          "rationale": "The anger was about Roman land."
+        },
+        {
+          "id": "d",
+          "label": "Antony freed all of Egypt’s slaves",
+          "correct": false,
+          "rationale": "The anger was about Roman land."
+        }
+      ],
+      "explanation": "Handing Roman territory to Cleopatra’s family let Octavian paint Antony as a traitor.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.antony_cleopatra",
+        "concept.ancient_rome.octavian"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.042.c3",
+        "card.ancient_rome.041.c3"
+      ],
+      "prompt": "From Level 41: after which battle did Antony take charge of the East?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Actium",
+          "correct": false,
+          "rationale": "That came later."
+        },
+        {
+          "id": "b",
+          "label": "Pharsalus",
+          "correct": false,
+          "rationale": "That was Caesar against Pompey."
+        },
+        {
+          "id": "c",
+          "label": "Alesia",
+          "correct": false,
+          "rationale": "That was Caesar in Gaul."
+        },
+        {
+          "id": "d",
+          "label": "Philippi",
+          "correct": true
+        }
+      ],
+      "explanation": "After Antony and Octavian beat Brutus and Cassius at Philippi, Antony took charge of the eastern provinces.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_cleopatra",
+    "source.brit_antony"
+  ]
+}

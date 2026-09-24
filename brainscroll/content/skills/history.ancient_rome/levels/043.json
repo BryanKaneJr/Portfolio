@@ -1,0 +1,209 @@
+{
+  "id": "level.history.ancient_rome.043",
+  "skillId": "skill.history.ancient_rome",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Actium",
+  "objective": "After this level you can explain the Battle of Actium and its consequences.",
+  "summary": "In 31 BCE Agrippa’s fleet beat Antony and Cleopatra at Actium. Both died in 30 BCE, Egypt became Roman, and Octavian stood alone.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.actium",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.antony_cleopatra",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.042"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.043.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One sea battle decided who would rule the Roman world."
+    },
+    {
+      "id": "card.ancient_rome.043.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "War on a queen",
+      "body": "In 32 BCE Rome declared war on Cleopatra, not on Antony, so the conflict looked like a foreign war rather than another civil war. Octavian’s closest friend, Marcus Agrippa, was his leading general and admiral, and commanded his fleet."
+    },
+    {
+      "id": "card.ancient_rome.043.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The battle",
+      "body": "On 2 September 31 BCE, Octavian’s fleet defeated Antony and Cleopatra at Actium, off western Greece. The next year, as Octavian took Alexandria, Antony and Cleopatra both took their own lives.",
+      "callout": "Actium: 2 September 31 BCE"
+    },
+    {
+      "id": "card.ancient_rome.043.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Master of the Roman world",
+      "body": "Egypt became a Roman province under Octavian’s personal control, and its grain helped feed Rome. After Actium, one man stood alone at the top of the Roman world."
+    },
+    {
+      "id": "card.ancient_rome.043.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.043.q1"
+    },
+    {
+      "id": "card.ancient_rome.043.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.043.q2"
+    },
+    {
+      "id": "card.ancient_rome.043.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.043.q3"
+    },
+    {
+      "id": "card.ancient_rome.043.c8",
+      "type": "checkpoint",
+      "headline": "Actium: decided",
+      "learned": [
+        "Rome declared war on Cleopatra",
+        "Agrippa won at Actium in 31 BCE",
+        "Antony and Cleopatra died in 30 BCE",
+        "Egypt became a Roman province"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.actium"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.043.c2"
+      ],
+      "prompt": "Who commanded Octavian’s fleet at Actium?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Marcus Agrippa",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Mark Antony",
+          "correct": false,
+          "rationale": "He was on the other side."
+        },
+        {
+          "id": "c",
+          "label": "Lepidus",
+          "correct": false,
+          "rationale": "He wasn’t a commander there."
+        },
+        {
+          "id": "d",
+          "label": "Caesarion",
+          "correct": false,
+          "rationale": "He was Cleopatra’s young son."
+        }
+      ],
+      "explanation": "Agrippa, Octavian’s closest friend, commanded his fleet.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.actium"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.043.c2"
+      ],
+      "prompt": "Why did Rome declare war on Cleopatra rather than on Antony?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Antony had already died",
+          "correct": false,
+          "rationale": "He died after Actium."
+        },
+        {
+          "id": "b",
+          "label": "Cleopatra had invaded Italy",
+          "correct": false,
+          "rationale": "She never did."
+        },
+        {
+          "id": "c",
+          "label": "To make it look like a foreign war",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Senate still trusted Antony",
+          "correct": false,
+          "rationale": "Opinion had turned against him."
+        }
+      ],
+      "explanation": "A war against a foreign queen was easier to rally Romans behind than one more civil war.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_rome.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.actium",
+        "concept.ancient_rome.antony_cleopatra"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.043.c2",
+        "card.ancient_rome.042.c3"
+      ],
+      "prompt": "From Level 42: what had Antony done that let Octavian call him a traitor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Surrendered his legions to the Parthians",
+          "correct": false,
+          "rationale": "That didn’t happen."
+        },
+        {
+          "id": "b",
+          "label": "Crossed the Rubicon",
+          "correct": false,
+          "rationale": "That was Caesar."
+        },
+        {
+          "id": "c",
+          "label": "Killed Octavian’s sister",
+          "correct": false,
+          "rationale": "He left her; he didn’t kill her."
+        },
+        {
+          "id": "d",
+          "label": "Given Roman lands to Cleopatra and her children",
+          "correct": true
+        }
+      ],
+      "explanation": "The Donations of Alexandria handed Roman territory to Cleopatra’s family.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_actium",
+    "source.brit_agrippa",
+    "source.brit_cleopatra",
+    "source.brit_augustus"
+  ]
+}

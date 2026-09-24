@@ -1,0 +1,205 @@
+{
+  "id": "level.history.ancient_rome.049",
+  "skillId": "skill.history.ancient_rome",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Teutoburg Forest",
+  "objective": "After this level you can explain the disaster in the Teutoburg Forest and how it fixed the Rhine frontier.",
+  "summary": "In 9 CE Arminius led three legions under Varus into an ambush and destroyed them. Rome gave up on Germany and held the Rhine.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.teutoburg",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.legion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.048"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.049.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 9 CE three Roman legions marched into a German forest. They never came out."
+    },
+    {
+      "id": "card.ancient_rome.049.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The ambush",
+      "body": "In 9 CE, Germanic warriors led by Arminius destroyed three Roman legions under the governor Varus in the Teutoburg Forest. Arminius had served with the Roman army and was trusted by Varus, whom he led into an ambush."
+    },
+    {
+      "id": "card.ancient_rome.049.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The river becomes a border",
+      "body": "After the disaster, Rome gave up plans to conquer Germany east of the Rhine, and the river became a lasting frontier. Archaeologists believe the battlefield lies near Kalkriese in Germany, where Roman weapons and coins have been found."
+    },
+    {
+      "id": "card.ancient_rome.049.c4",
+      "type": "fact",
+      "fact": "“Quintilius Varus, give me back my legions!”",
+      "context": "According to the historian Suetonius, Augustus cried out these words after hearing of the disaster."
+    },
+    {
+      "id": "card.ancient_rome.049.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.049.q1"
+    },
+    {
+      "id": "card.ancient_rome.049.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.049.q2"
+    },
+    {
+      "id": "card.ancient_rome.049.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.049.q3"
+    },
+    {
+      "id": "card.ancient_rome.049.c8",
+      "type": "checkpoint",
+      "headline": "The frontier: fixed",
+      "learned": [
+        "Arminius ambushed Varus in 9 CE",
+        "Three legions were destroyed",
+        "The Rhine became the frontier",
+        "Augustus mourned his lost legions"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.teutoburg"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.049.c2"
+      ],
+      "prompt": "Who led the Germanic warriors in the Teutoburg Forest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Varus",
+          "correct": false,
+          "rationale": "He commanded the Romans."
+        },
+        {
+          "id": "b",
+          "label": "Arminius",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Vercingetorix",
+          "correct": false,
+          "rationale": "He fought Caesar in Gaul."
+        },
+        {
+          "id": "d",
+          "label": "Spartacus",
+          "correct": false,
+          "rationale": "He led a slave revolt in Italy."
+        }
+      ],
+      "explanation": "Arminius, who had served with the Roman army, led the ambush.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.teutoburg"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.049.c3"
+      ],
+      "prompt": "What lasting effect did the Teutoburg disaster have?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rome abandoned the province of Gaul",
+          "correct": false,
+          "rationale": "Gaul stayed Roman."
+        },
+        {
+          "id": "b",
+          "label": "Augustus disbanded the Rhine legions",
+          "correct": false,
+          "rationale": "The legions remained."
+        },
+        {
+          "id": "c",
+          "label": "Rome gave up conquering Germany past the Rhine",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Arminius became a Roman consul",
+          "correct": false,
+          "rationale": "He was Rome’s enemy."
+        }
+      ],
+      "explanation": "Rome gave up conquering Germany east of the Rhine, which became a lasting frontier.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.teutoburg",
+        "concept.ancient_rome.legion"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.049.c2",
+        "card.ancient_rome.029.c2"
+      ],
+      "prompt": "From Level 29: a legion had roughly 4,000 to 5,000 infantry. About how many were in three?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1,000 to 2,000",
+          "correct": false,
+          "rationale": "Far too few."
+        },
+        {
+          "id": "b",
+          "label": "About 50,000",
+          "correct": false,
+          "rationale": "Too many."
+        },
+        {
+          "id": "c",
+          "label": "About 100,000",
+          "correct": false,
+          "rationale": "Far too many."
+        },
+        {
+          "id": "d",
+          "label": "12,000 to 15,000",
+          "correct": true
+        }
+      ],
+      "explanation": "Three legions of 4,000 to 5,000 infantry each make roughly 12,000 to 15,000 soldiers.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_teutoburg",
+    "source.brit_arminius"
+  ]
+}

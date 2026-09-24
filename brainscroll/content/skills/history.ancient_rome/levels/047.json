@@ -1,0 +1,207 @@
+{
+  "id": "level.history.ancient_rome.047",
+  "skillId": "skill.history.ancient_rome",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Virgil and the Aeneid",
+  "objective": "After this level you can explain what the Aeneid is and why Augustus's Rome valued it.",
+  "summary": "Virgil’s Aeneid follows the Trojan Aeneas to Italy. It gave Rome an epic to rival Homer’s, and Augustus’ family a heroic ancestor.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.aeneid",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.founding_legend",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.046"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome’s greatest poem is about a refugee from a burning city."
+    },
+    {
+      "id": "card.ancient_rome.047.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The poem",
+      "body": "Virgil, who lived from 70 to 19 BCE, was the greatest poet of Augustan Rome. His Aeneid is an epic poem in 12 books, modeled on Homer’s Iliad and Odyssey. It tells how the Trojan prince Aeneas escaped burning Troy and, guided by fate, came to Italy."
+    },
+    {
+      "id": "card.ancient_rome.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A poem for Augustus",
+      "body": "The Julian family, including Caesar and Augustus, claimed descent from Aeneas through his son Iulus. So the poem gave Augustus a heroic ancestor. Its hero is famous for pietas: dutiful devotion to the gods, his family and his country.",
+      "callout": "Pietas: duty to gods, family and country"
+    },
+    {
+      "id": "card.ancient_rome.047.c4",
+      "type": "fact",
+      "fact": "Virgil wanted the Aeneid burned.",
+      "context": "He died before finishing it and asked for the manuscript to be destroyed. Augustus had it published instead."
+    },
+    {
+      "id": "card.ancient_rome.047.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.047.q1"
+    },
+    {
+      "id": "card.ancient_rome.047.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.047.q2"
+    },
+    {
+      "id": "card.ancient_rome.047.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.047.q3"
+    },
+    {
+      "id": "card.ancient_rome.047.c8",
+      "type": "checkpoint",
+      "headline": "The Aeneid: read",
+      "learned": [
+        "Virgil was Augustan Rome’s great poet",
+        "The Aeneid follows Aeneas from Troy to Italy",
+        "Augustus’ family claimed Aeneas as ancestor",
+        "Aeneas stands for pietas, duty"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.aeneid"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.047.c2"
+      ],
+      "prompt": "Who is the hero of the Aeneid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Romulus",
+          "correct": false,
+          "rationale": "He comes much later in Rome’s story."
+        },
+        {
+          "id": "b",
+          "label": "Aeneas",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Odysseus",
+          "correct": false,
+          "rationale": "He is Homer’s hero."
+        },
+        {
+          "id": "d",
+          "label": "Hannibal",
+          "correct": false,
+          "rationale": "He was Rome’s enemy."
+        }
+      ],
+      "explanation": "The Aeneid follows the Trojan prince Aeneas from Troy to Italy.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.aeneid"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.047.c3"
+      ],
+      "prompt": "Why did the Aeneid suit Augustus so well?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It gave his family a heroic ancestor in Aeneas",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It described his victory at Actium in full",
+          "correct": false,
+          "rationale": "It is about Aeneas."
+        },
+        {
+          "id": "c",
+          "label": "It was written in Greek for the East",
+          "correct": false,
+          "rationale": "It is a Latin poem."
+        },
+        {
+          "id": "d",
+          "label": "It mocked the Senate",
+          "correct": false,
+          "rationale": "It celebrates Rome."
+        }
+      ],
+      "explanation": "The Julian family claimed descent from Aeneas, so Rome’s founding epic honored Augustus’ own line.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.aeneid",
+        "concept.ancient_rome.founding_legend"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.047.c2",
+        "card.ancient_rome.002.c2",
+        "card.ancient_rome.002.c4"
+      ],
+      "prompt": "From Level 2: Aeneas was one founding legend. Who, in the other, founded the city itself?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Numa",
+          "correct": false,
+          "rationale": "He was the second king."
+        },
+        {
+          "id": "b",
+          "label": "Brutus",
+          "correct": false,
+          "rationale": "He expelled the last king."
+        },
+        {
+          "id": "c",
+          "label": "Tarquin",
+          "correct": false,
+          "rationale": "He was the last king."
+        },
+        {
+          "id": "d",
+          "label": "Romulus",
+          "correct": true
+        }
+      ],
+      "explanation": "Legend said the twins Romulus and Remus were raised by a wolf, and Romulus founded and named Rome.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_aeneid",
+    "source.brit_virgil"
+  ]
+}

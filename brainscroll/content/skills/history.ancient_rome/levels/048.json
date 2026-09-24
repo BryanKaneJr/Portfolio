@@ -1,0 +1,208 @@
+{
+  "id": "level.history.ancient_rome.048",
+  "skillId": "skill.history.ancient_rome",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Months Named for Emperors",
+  "objective": "After this level you can explain the Julian calendar and how July and August got their names.",
+  "summary": "Caesar’s Julian calendar of 46 BCE gave us 365 days and leap years. Two months were renamed for him and for Augustus.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.julian_calendar",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.ides_of_march",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.047"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.048.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two of your months are named after Roman rulers."
+    },
+    {
+      "id": "card.ancient_rome.048.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Caesar fixes the year",
+      "body": "In 46 BCE Julius Caesar introduced the Julian calendar, with 365 days and a leap day every fourth year, an average of 365.25 days. He based the reform on the advice of the astronomer Sosigenes of Alexandria.",
+      "callout": "Leap day: every fourth year"
+    },
+    {
+      "id": "card.ancient_rome.048.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "New names",
+      "body": "The Roman year once began in March, so Quintilis meant “fifth month.” It was renamed Julius, our July, in honor of Julius Caesar. Sextilis was renamed Augustus, our August, in honor of Augustus in 8 BCE."
+    },
+    {
+      "id": "card.ancient_rome.048.c4",
+      "type": "fact",
+      "fact": "The Julian calendar was slightly too long.",
+      "context": "It drifted against the seasons, so in 1582 Pope Gregory XIII replaced it with the Gregorian calendar we use today."
+    },
+    {
+      "id": "card.ancient_rome.048.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.048.q1"
+    },
+    {
+      "id": "card.ancient_rome.048.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.048.q2"
+    },
+    {
+      "id": "card.ancient_rome.048.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.048.q3"
+    },
+    {
+      "id": "card.ancient_rome.048.c8",
+      "type": "checkpoint",
+      "headline": "The calendar: set",
+      "learned": [
+        "Caesar’s calendar began in 46 BCE",
+        "It had 365 days and a leap day",
+        "July honors Caesar and August honors Augustus",
+        "The Gregorian calendar replaced it in 1582"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.julian_calendar"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.048.c3"
+      ],
+      "prompt": "Which month is named after Julius Caesar?",
+      "options": [
+        {
+          "id": "a",
+          "label": "June",
+          "correct": false,
+          "rationale": "Caesar’s month was Quintilis."
+        },
+        {
+          "id": "b",
+          "label": "March",
+          "correct": false,
+          "rationale": "Caesar’s month was Quintilis."
+        },
+        {
+          "id": "c",
+          "label": "July",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "January",
+          "correct": false,
+          "rationale": "Caesar’s month was Quintilis."
+        }
+      ],
+      "explanation": "Quintilis was renamed Julius, our July, in Caesar’s honor.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.julian_calendar"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.048.c2"
+      ],
+      "prompt": "Why does the Julian calendar add a leap day every fourth year?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To honor Augustus with an extra day",
+          "correct": false,
+          "rationale": "The reason is astronomical."
+        },
+        {
+          "id": "b",
+          "label": "To make every month the same length",
+          "correct": false,
+          "rationale": "Months still differ."
+        },
+        {
+          "id": "c",
+          "label": "To fit the Roman festival cycle",
+          "correct": false,
+          "rationale": "The reason is astronomical."
+        },
+        {
+          "id": "d",
+          "label": "A year is about 365 and a quarter days long",
+          "correct": true
+        }
+      ],
+      "explanation": "Three 365-day years and one 366-day year average 365.25 days.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.julian_calendar",
+        "concept.ancient_rome.ides_of_march"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.048.c2",
+        "card.ancient_rome.040.c3"
+      ],
+      "prompt": "From Level 40: Caesar didn’t live long with his new calendar. When was he killed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "27 BCE",
+          "correct": false,
+          "rationale": "That’s when Octavian became Augustus."
+        },
+        {
+          "id": "b",
+          "label": "44 BCE",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "31 BCE",
+          "correct": false,
+          "rationale": "That’s the Battle of Actium."
+        },
+        {
+          "id": "d",
+          "label": "49 BCE",
+          "correct": false,
+          "rationale": "That’s the Rubicon crossing."
+        }
+      ],
+      "explanation": "Caesar was killed on the Ides of March, 15 March 44 BCE, two years after his calendar began.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_julian_calendar",
+    "source.brit_july",
+    "source.brit_august",
+    "source.brit_gregorian"
+  ]
+}
