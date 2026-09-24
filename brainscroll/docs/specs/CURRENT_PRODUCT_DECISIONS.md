@@ -261,3 +261,15 @@ Replace each one by rewriting the sentence according to its purpose: a comma, co
 - An authored em dash is a validation error, so it blocks publish-ready status until corrected.
 
 See `docs/content-guide.md` ("Editorial rules").
+
+## 14. Accounts are required; there is no guest mode
+
+BrainScroll requires an account before persistent learning progress begins.
+
+- **Flow:** open the app → choose a sign-in method → account created or signed in → onboarding → start learning. Signing in creates the account on first use, so there's no separate sign-up form. The goal is extremely low friction: one tap with Apple or Google.
+- **Methods:** Sign in with Apple, Sign in with Google, phone number (SMS code), and email (code) as the fallback. A method appears only once it's configured. A missing credential never turns into a guest fallback.
+- **Never:** anonymous user records, guest progress, guest-to-account migration, guest cleanup jobs, or merge logic.
+- **Persistence:** progress belongs to the authenticated account, so it survives reinstalls and follows the learner to any device.
+- **Enforcement:** anonymous sign-ins are off in the project, and the database refuses anonymous users (`20261001000000_accounts_required.sql`).
+
+See `docs/accounts.md`.

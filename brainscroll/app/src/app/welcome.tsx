@@ -4,14 +4,15 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, Caption, Display, Eyebrow, H1, ProgressBar } from '@/components/ui';
+import { Body, Button, Caption, Eyebrow, H1, ProgressBar } from '@/components/ui';
 import { levelByNumber, skills, subjects } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, layout, radius, space, type } from '@/theme/tokens';
 
 /**
- * First run: premise → pick a skill → the rules → Level 1, in about a minute.
- * Only skills with published levels can be picked; the rest say so honestly.
+ * First run, right after signing in (the premise is on the sign-in screen):
+ * pick a skill → the rules → Level 1, in well under a minute. Only skills with
+ * published levels can be picked; the rest say so honestly.
  */
 export default function WelcomeScreen() {
   const { finishOnboarding, setActiveSkill } = useProgress();
@@ -30,22 +31,11 @@ export default function WelcomeScreen() {
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.top}>
-        <ProgressBar value={(step + 1) / 3} size="lesson" />
+        <ProgressBar value={(step + 1) / 2} size="lesson" />
       </View>
 
       <View style={styles.body}>
         {step === 0 && (
-          <>
-            <Eyebrow tone="brand">BrainScroll</Eyebrow>
-            <Display>{VOICE.tagline}</Display>
-            <Body>
-              Every level is a short, finished lesson in a real curriculum. Level up skills from 1 to 100 like an RPG
-              character, except the stats are things you actually know.
-            </Body>
-          </>
-        )}
-
-        {step === 1 && (
           <>
             <Eyebrow>Pick your first skill</Eyebrow>
             <H1>What do you want to level first?</H1>
@@ -70,7 +60,7 @@ export default function WelcomeScreen() {
           </>
         )}
 
-        {step === 2 && (
+        {step === 1 && (
           <>
             <Eyebrow>The deal</Eyebrow>
             <H1>{DAILY_FREE_NEW_LEVELS} new levels a day. Free, forever.</H1>
@@ -82,8 +72,8 @@ export default function WelcomeScreen() {
       </View>
 
       <View style={styles.footer}>
-        {step < 2 ? (
-          <Button label="Continue" onPress={() => { track('onboarding_step', { step }); setStep(step + 1); }} disabled={step === 1 && !skillId} />
+        {step < 1 ? (
+          <Button label="Continue" onPress={() => { track('onboarding_step', { step }); setStep(step + 1); }} disabled={!skillId} />
         ) : (
           <>
             <Button label={firstLevel ? `Start ${firstLevel.title}` : 'Let’s go'} onPress={start} />

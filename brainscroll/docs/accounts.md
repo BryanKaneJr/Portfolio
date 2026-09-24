@@ -1,75 +1,129 @@
-# Accounts: anonymous → permanent
+# Accounts: sign in first, no guest mode
 
-Every player starts playing immediately with no sign-up. Later they can attach an email so their progress survives a lost phone and follows them to other devices. This page is the architecture. The code is in `packages/core/src/account.ts`, `app/src/progress/{backend,remoteBackend,localBackend}.ts`, `app/src/components/AccountCard.tsx` (Profile tab), and `e2e/remote.mjs` (the tested flow).
+BrainScroll requires an account before any learning progress exists. There are no anonymous or guest users, no guest progress, no guest-to-account migration, no merge logic and no guest cleanup jobs. The first-run path is:
 
-## The one idea: same user, more identity
+**Open the app → choose a sign-in method → account created or signed in → onboarding (pick a skill, the deal) → Level 1.**
 
-A new install signs in **anonymously** (`signInAnonymously`). That creates a real `auth.users` row, and all progress (`xp_events`, `user_level_progress`, review state and so on) is keyed to that user id from the first tap.
+Signing in *is* signing up: the first sign-in with a method creates the account, so there's no separate registration form. Progress is keyed to the account's user id, so it survives reinstalls and follows the learner to any device where they sign in the same way.
 
-"Saving progress" **adds an email to that same user** (`updateUser({ email })`, confirmed with a one-time code). The user id never changes. So there's:
+The code is in:
 
-- **no data migration**, no copy step, nothing that can half-fail;
-- no change to any server function, RLS policy or ledger rule;
-- exactly-once XP, first attempts and canonical completions stay intact by construction.
+- `packages/core/src/account.ts`: states, methods, phone/email checks, error mapping.
+- `app/src/progress/{backend,remoteBackend,localBackend}.ts`: the backends.
+- `app/src/auth/`: native Apple/Google adapters and the Apple button.
+- `app/src/app/sign-in.tsx`: the sign-in screen.
+- `app/src/app/_layout.tsx`: `AuthGate`.
+- `app/src/components/AccountCard.tsx`: the Profile card.
+- `backend/supabase/migrations/20261001000000_accounts_required.sql`: the server rule.
+- `e2e/{local,remote}.mjs`: the tested flows.
 
-The e2e test asserts this directly: after linking there's still one user, with the same id and the same XP total.
+## Sign-in methods
+
+| Method | Native (iOS / Android) | Web | Supabase call |
+|---|---|---|---|
+| **Sign in with Apple** | iOS only: the system sheet (`expo-apple-authentication`) returns an ID token. A random nonce is sent hashed and verified raw. | OAuth redirect (PKCE) | `signInWithIdToken({ provider: 'apple', token, nonce })` / `signInWithOAuth` |
+| **Sign in with Google** | The Google sheet (`@react-native-google-signin/google-signin`) returns an ID token for the web client id | OAuth redirect (PKCE) | `signInWithIdToken({ provider: 'google', token })` / `signInWithOAuth` |
+| **Phone number** | SMS one-time code; the number must include its country code (E.164) | same | `signInWithOtp({ phone })` → `verifyOtp({ type: 'sms' })` |
+| **Email** (fallback) | Email one-time code (no magic links, no deep links) | same | `signInWithOtp({ email })` → `verifyOtp({ type: 'email' })` |
+
+- **Order:** the screen shows one-tap methods first: Apple, Google, phone, then email as the quiet fallback.
+- **What's offered:** `signInMethods()` offers only methods that are both switched on in the project and usable on the device.
+  - The project's switches come from `/auth/v1/settings`, so turning a provider on in Supabase needs no app release.
+  - On the device, Apple needs iOS (or web), and native Google needs its client ids.
+  - A method without credentials is simply not shown. Nothing falls back to a guest mode.
+- **Identity linking:** Supabase links identities that share a verified email, so signing in with Apple and later with Google (same email) reaches the same account.
+- **Phone accounts:** a phone account has no email to link, so a learner who signs in by phone should keep using their phone.
 
 ## States
 
-| State | Meaning | What the Profile card offers |
+| State | Meaning | What the app shows |
 |---|---|---|
-| `device_only` | Offline build (no Supabase config). Progress is in on-device storage. | Nothing: "saved on this device" |
-| `guest` | Anonymous server account. Progress is on the server but reachable only from this install's session. | **Save my progress** (add email); **I already have an account** (sign in) |
-| `linking` | A code was sent to `pendingEmail` (e.g. the app was closed mid-flow). | Enter the code, or send a new one |
-| `saved` | Permanent account with a confirmed email. | Sign out |
+| `signed_out` | No session. | Only the sign-in screen: `AuthGate` redirects every route there. |
+| `signed_in` | A permanent account: `userId`, `method`, and its `email` or `phone`. | Onboarding if this account hasn't onboarded, else Home. Profile shows the account and **Sign out**. |
 
-`accountFromUser()` derives the state from the Supabase user (`is_anonymous`, `email`, `new_email`). There's no extra table and no second source of truth.
+`accountFromUser()` derives the state from the Supabase user. It never treats an anonymous user as signed in; a leftover anonymous session from the old guest-first design is signed out on launch.
 
-## Flows
+## Enforcement (no anonymous users, anywhere)
 
-All flows use **email one-time codes**, not magic links. There are no deep links, redirect handling or universal links to get wrong, and it works the same on iOS, Android and web.
+1. **Project setting:** *Allow anonymous sign-ins* is **off** (`config.toml`: `enable_anonymous_sign_ins = false`). `npm run supabase:check` fails if it's on.
+2. **Database:** `handle_new_user()` raises `ANONYMOUS_ACCOUNTS_NOT_SUPPORTED` for any anonymous `auth.users` insert. The sign-up aborts, so no user row and no profile are created even if the setting is switched on by mistake. The same migration deletes any anonymous users left over, and their data cascades away.
+3. **App:** no code path calls `signInAnonymously`. The backend's progress calls require a signed-in account (`NOT_SIGNED_IN` otherwise), and analytics are only sent under a signed-in account.
 
-1. **Save my progress (guest → saved).** `startEmailLink(email)` → `auth.updateUser({ email })` emails a code. Then `confirmEmailLink(email, code)` → `auth.verifyOtp({ type: 'email_change' })`. The same user is now permanent.
-2. **Sign in on another device.** `startSignIn(email)` → `auth.signInWithOtp({ shouldCreateUser: false })`. It never creates accounts, so a typo can't make a stray one. Then `confirmSignIn(email, code)` → `verifyOtp({ type: 'email' })`. The device switches to that user. In-progress level sessions (local, keyed to the old user) are dropped, and the snapshot is reloaded from the server.
-3. **Email already in use.** If a guest tries to save to an email that already has an account, Supabase returns `email_exists`, and the card switches to sign-in with a clear message. If the guest has cleared any levels, they're warned first that **this device's guest progress won't be added** to that account.
-4. **Sign out (saved only).** It signs out and continues as a fresh guest. Guests can't sign out, because that would orphan their progress. `NOT_ALLOWED` enforces this in the backend, not just the UI.
+Tested in `backend/tests/accounts.test.sql`, `packages/core/test/account.test.ts` and both e2e suites.
 
-Errors map from Supabase Auth codes to stable `AccountErrorCode`s (`EMAIL_IN_USE`, `INVALID_CODE`, `NO_ACCOUNT`, `RATE_LIMITED`, …), each with calm player-facing copy in `ACCOUNT_ERROR_TEXT`.
+## Device-side state is per account
+
+- Level sessions in progress, the onboarding flag and the active skill are stored on the device under `…:<userId>`.
+- A second account on the same device never inherits the first one's sessions or onboarding.
+- Anyone who has cleared a level has onboarded, whichever device they cleared it on. That's why a reinstall skips onboarding.
+
+## Sign out and delete
+
+- **Sign out** (every account): it flushes this account's queued analytics, signs out, and returns to the sign-in screen. Progress stays with the account.
+- **Delete account:** Profile → **Delete account** → one confirmation → `delete_my_account()` removes the auth user, and every learner table cascades through `profiles`.
+  - That covers progress, attempts, review, XP, allowances, entitlement rows, reports and analytics.
+  - The app returns to the sign-in screen, and nothing is created in its place.
+  - It warns that store subscriptions must be cancelled in the store.
+  - Tested in `account-deletion.test.sql` and both e2e suites.
+
+## Development without credentials
+
+With no Supabase config, the app runs the **development harness** (`localBackend.ts`):
+
+- The flow is the real one (sign-in screen → onboarding → learning), but accounts are simulated on the device.
+- All four methods work. Apple/Google sign in as a fixed simulated identity, and every phone/email code is `123456`.
+- The sign-in screen says so.
+- Progress belongs to the simulated account, never to the device.
+
+Store builds set `EXPO_PUBLIC_RELEASE=1`. That makes the app refuse to start without a Supabase project instead of falling back to the harness.
+
+For the remote e2e suite, `backend/tests/fake-supabase.mjs` implements the same auth endpoints: codes, native ID tokens, the web OAuth redirect with PKCE, and settings. It refuses anonymous sign-up the way a correctly configured project does.
+
+## Configuring the real project
+
+See [`supabase-setup.md`](supabase-setup.md) §1 for the dashboard steps. In short:
+
+1. **Anonymous sign-ins off.** Email on. Phone on, with an SMS provider (Twilio or similar). Apple and Google on, with their credentials.
+2. **Email templates must show the code.** Put `{{ .Token }}` in the **Magic Link** and **Confirm signup** templates.
+3. **Custom SMTP and an SMS provider** before real users, because the built-in mailer is for testing only.
+4. **App build variables** (public ids only):
+   - `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` (all platforms).
+   - `EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID` (iOS). `app.config.ts` derives the URL scheme from it.
+   - Sign in with Apple needs the `usesAppleSignIn` entitlement (already in `app.config.ts`) and the bundle id `app.brainscroll` as an authorized client id in Supabase.
+5. `npm run supabase:check` reports:
+   - each method as ok or not-enabled-yet;
+   - failure if anonymous sign-ins are on, or if no method is enabled at all.
+
+### Needs credentials (not verifiable here)
+
+- The Apple Services ID, key and team, and the Google OAuth clients, are external credentials. They haven't been created.
+- The native Apple/Google sheets have only been typechecked. They need a device build (EAS / `expo run:ios`) to test.
+- The web OAuth redirect and every code flow are e2e-tested against `fake-supabase.mjs`.
+
+## Errors
+
+Supabase Auth codes map to stable `AccountErrorCode`s, each with calm player-facing copy in `ACCOUNT_ERROR_TEXT`:
+
+- `INVALID_PHONE`, `INVALID_EMAIL` and `INVALID_CODE`
+- `RATE_LIMITED`
+- `PROVIDER_UNAVAILABLE`
+- `NOT_SIGNED_IN`
+
+Closing the Apple/Google sheet is `CANCELLED` and shows nothing.
 
 ## Security
 
 - The app only ever holds the anon/publishable key. It refuses to start with a secret key (`checkClientConfig`), and `npm run supabase:check` fails on one.
-- The server still owns every award. Linking changes identity, never progress.
-- One-time codes are Supabase's, with its rate limits (`config.toml` `[auth.rate_limit]`). The client validates the email and code shape only to catch typos.
-- In-progress sessions are dropped on account switch, so answers recorded under one user can't be submitted under another. The server would reject them anyway, because first attempts are per user.
-
-## Configuring the real project (no code changes)
-
-1. **Authentication → Providers:** Anonymous sign-ins **on**, Email **on** (see `docs/supabase-setup.md`). `npm run supabase:check` verifies both.
-2. **Email templates must include the code.** Edit **Change Email Address** and **Magic Link** to show `{{ .Token }}` (e.g. "Your BrainScroll code: {{ .Token }}"). The default templates only contain a link. This is the one step the checker can't verify.
-3. **Custom SMTP before real users.** Supabase's built-in mailer is heavily rate-limited and meant for testing. Set up SMTP under **Project Settings → Authentication → SMTP**.
-4. Locally, `supabase start` runs Inbucket at http://localhost:54324 to read the emails.
-
-## Tested
-
-- `packages/core/test/account.test.ts`: state mapping (same id through linking), email/code checks, error mapping.
-- `e2e/remote.mjs` (real app, real SQL via `backend/tests/fake-supabase.mjs`):
-  - guest shown
-  - code requested for the normalised email
-  - wrong code refused
-  - linking keeps the same id and all XP
-  - survives reload
-  - sign-out gives a fresh guest
-  - email-in-use points to sign-in
-  - sign-in restores the saved account's progress
-- `e2e/local.mjs`: offline builds show device-only saving and no account actions.
+- The server still owns every award. Signing in changes who you are, never your progress.
+- One-time codes are Supabase's, with its rate limits (`config.toml` `[auth.rate_limit]`). The client checks the email, phone and code shape only to catch typos.
+- Apple sign-in uses a hashed nonce, and web OAuth uses PKCE.
+- Analytics never carry an email or phone number: the sanitizer drops anything that looks like one.
 
 ## Open product decisions
 
 These don't block anything above.
 
-1. **Merging guest progress into an existing account.** Today it isn't merged: the player is warned and chooses. A merge is possible later with a server function that proves ownership of both users (a one-time merge ticket issued to the guest session), and it could reuse the ledger's idempotency keys to keep XP exactly-once. But it needs rules for conflicting progress, e.g. both accounts cleared different levels on the same day. Recommendation: keep "no merge" for MVP, since most people link before they have a second device.
-2. **Abandoned guest accounts.** Anonymous users who never return accumulate. Suggested policy: delete anonymous users with no activity for 90 days (a scheduled SQL job). It needs a decision on the window.
-3. **Account deletion: built.** Profile → **Delete account** → one confirmation → `delete_my_account()` removes the auth user, and every learner table cascades through `profiles`. That covers progress, attempts, review, XP, allowances, entitlement rows, reports and analytics. The app then starts over as a fresh guest at onboarding. It warns that store subscriptions must be cancelled in the store. Offline builds offer **Erase my progress** instead. Tested in `account-deletion.test.sql` and both e2e suites.
-4. **Apple/Google sign-in** (held by instruction). It slots in via `linkIdentity()` on the same user (enable `enable_manual_linking` in `config.toml`), with no change to progress.
-5. **Usernames** are needed for friends (post-MVP, see `social-expansion.md`), not for saving progress.
+1. **Apple/Google/SMS credentials.** Someone with the Apple Developer and Google Cloud accounts must create them, and an SMS provider must be chosen and paid for.
+2. **Country picker for phone numbers.** Today the learner types the country code (`+1 …`). A picker that pre-fills it from the device region would cut friction.
+3. **Google and Apple button branding.** The Apple button uses Apple's native component on iOS. The Google button is a styled BrainScroll button. Google's branding guidelines prefer their logo mark, so decide before launch.
+4. **Usernames** are needed for friends (post-MVP, see `social-expansion.md`), not for signing in.

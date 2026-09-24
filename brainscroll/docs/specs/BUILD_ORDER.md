@@ -592,7 +592,7 @@ At this point the lesson schema, mobile renderer, review tagging, progression se
 
 | **Area**      | **Must test**                                                                                  |
 |---------------|------------------------------------------------------------------------------------------------|
-| Account       | Guest/first run, sign-up/login, logout/login, second device, account deletion flow             |
+| Account       | First-run sign-in (Apple, Google, phone, email), reinstall, logout/login, second device, account deletion flow; no guest mode |
 | Progress      | Resume midway, double completion, retry, revision after completion, offline interruption       |
 | Daily limit   | 4→5→blocked-new flow, next-day reset, premium bypass, clock manipulation edge case             |
 | Subscription  | Purchase, restore, cancel, expire, renew, no-network launch, store error                       |

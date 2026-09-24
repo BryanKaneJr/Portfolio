@@ -12,7 +12,7 @@ exception when others then
   if sqlerrm not like '%' || code || '%' then raise exception 'expected error % but got: %', code, sqlerrm; end if;
 end $$;
 
--- Anonymous callers can't delete anything.
+-- Signed-out callers (the anon API role) can't delete anything.
 set role anon;
 select pg_temp.expect_error($$select public.delete_my_account()$$, 'permission denied');
 reset role;

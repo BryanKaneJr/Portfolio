@@ -12,7 +12,7 @@ exception when others then
   if sqlerrm <> code and sqlerrm not like '%' || code || '%' then raise exception 'expected error % but got: %', code, sqlerrm; end if;
 end $$;
 
--- 1. Anonymous callers can't log or report.
+-- 1. Signed-out callers (the anon API role) can't log or report.
 set role anon;
 select pg_temp.expect_error($$select public.log_events('[{"name":"app_open"}]')$$, 'NOT_AUTHENTICATED');
 select pg_temp.expect_error($$select public.report_content('level.science.testing.001', 1, 'level', 'level.science.testing.001', 'typo')$$, 'NOT_AUTHENTICATED');
@@ -99,6 +99,8 @@ begin
   assert (h ->> 'first_try_rate_new_levels')::numeric = 0.5, 'first-try rate on new levels';
   assert (h ->> 'open_reports')::int = 1, 'one open report';
   assert not (h ? 'avg_session_minutes') and not (h ? 'time_in_app'), 'no time-spent metrics';
+  assert h -> 'new_accounts_by_method' = '{"apple": 1, "email": 1}'::jsonb, format('new accounts by sign-in method: %s', h -> 'new_accounts_by_method');
+  assert not (h ? 'saved_account_share'), 'no guest-vs-saved metric: every learner has an account';
 
   reports := public.admin_content_reports();
   assert jsonb_array_length(reports) = 1 and reports -> 0 ->> 'object_id' = 'question.testing.001.q1', 'admin sees the report';

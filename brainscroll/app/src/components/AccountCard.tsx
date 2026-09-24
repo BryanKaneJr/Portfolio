@@ -1,133 +1,48 @@
-import { AccountError, ACCOUNT_ERROR_TEXT } from '@brainscroll/core';
+import { AccountError, ACCOUNT_ERROR_TEXT, maskPhone, type AccountState } from '@brainscroll/core';
 import { useState } from 'react';
-import { track } from '@/analytics/track';
-import { Body, Button, Card, Eyebrow as Label, Field } from '@/components/ui';
+import { Body, Button, Card, Eyebrow as Label } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
 
-type Mode = { kind: 'idle' } | { kind: 'link-email' } | { kind: 'link-code'; email: string } | { kind: 'signin-email' } | { kind: 'signin-code'; email: string };
+const METHOD_NAME = { apple: 'Apple', google: 'Google', phone: 'your phone number', email: 'email' } as const;
 
-const message = (e: unknown) => (e instanceof AccountError ? e.message : ACCOUNT_ERROR_TEXT.UNKNOWN);
+/** What the learner signed in with, shown the way they'd recognise it. */
+export function accountLabel(a: Extract<AccountState, { status: 'signed_in' }>): string {
+  if (a.method === 'phone' && a.phone) return maskPhone(a.phone.startsWith('+') ? a.phone : `+${a.phone}`);
+  return a.email ?? a.phone ?? 'your account';
+}
 
 /**
- * Keeps progress safe: a guest adds an email (same account, nothing moves), or
- * signs in to an existing account on this device. Email one-time codes only,
- * so no deep links. See docs/accounts.md.
+ * Every learner has an account, so this only says which one and offers sign
+ * out. Progress stays with the account and comes back on the next sign-in,
+ * on this device or any other. See docs/accounts.md.
  */
 export function AccountCard() {
   const p = useProgress();
-  const [mode, setMode] = useState<Mode>({ kind: 'idle' });
-  const [email, setEmail] = useState('');
-  const [code, setCode] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [confirmReplace, setConfirmReplace] = useState(false);
   const a = p.account;
-  const levelsCleared = p.snapshot.completedLevels.length;
+  if (a?.status !== 'signed_in') return null;
 
-  const run = async (fn: () => Promise<void>) => {
+  const signOut = async () => {
     setBusy(true);
     setError(null);
     try {
-      await fn();
+      await p.signOut();
     } catch (e) {
-      setError(message(e));
-      if (e instanceof AccountError && e.code === 'EMAIL_IN_USE') setMode({ kind: 'signin-email' });
-    } finally {
+      setError(e instanceof AccountError ? e.message : ACCOUNT_ERROR_TEXT.UNKNOWN);
       setBusy(false);
     }
   };
-  const reset = () => {
-    setMode({ kind: 'idle' });
-    setCode('');
-    setError(null);
-    setConfirmReplace(false);
-  };
-
-  if (!a) return null;
-  if (a.status === 'device_only')
-    return (
-      <Card>
-        <Label>Account</Label>
-        <Body muted>Your progress is saved on this device.</Body>
-      </Card>
-    );
-
-  // A code is already on its way (e.g. the app was closed mid-link).
-  const pending = a.status === 'linking' && mode.kind === 'idle' ? a.pendingEmail : null;
 
   return (
-    <Card variant={a.status !== 'saved' ? 'accent' : 'plain'}>
-      <Label tone={a.status === 'saved' ? 'success' : 'brand'}>Account</Label>
-      {a.status === 'saved' && mode.kind === 'idle' && (
-        <>
-          <Body>Progress saved to {a.email}.</Body>
-          <Body muted>Sign in with this email on any device to pick up where you left off.</Body>
-          <Button variant="secondary" label="Sign out" disabled={busy} onPress={() => void run(() => p.signOut())} />
-        </>
-      )}
-
-      {a.status !== 'saved' && mode.kind === 'idle' && (
-        <>
-          <Body>You’re playing as a guest.</Body>
-          <Body muted>Add your email to keep your progress safe and continue on other devices. Nothing is lost: it’s the same account.</Body>
-          {pending ? (
-            <Button label={`Enter the code sent to ${pending}`} onPress={() => setMode({ kind: 'link-code', email: pending })} />
-          ) : (
-            <Button label="Save my progress" onPress={() => setMode({ kind: 'link-email' })} />
-          )}
-          <Button variant="secondary" label="I already have an account" onPress={() => setMode({ kind: 'signin-email' })} />
-        </>
-      )}
-
-      {mode.kind === 'link-email' && (
-        <>
-          <Field label="Email" value={email} onChangeText={setEmail} placeholder="you@example.com" keyboardType="email-address" autoComplete="email" textContentType="emailAddress" autoFocus />
-          <Button label="Send code" disabled={busy || !email} onPress={() => void run(async () => { await p.startEmailLink(email); track('account_link_started'); setMode({ kind: 'link-code', email }); })} />
-          <Button variant="secondary" label="Cancel" onPress={reset} />
-        </>
-      )}
-
-      {mode.kind === 'link-code' && (
-        <>
-          <Body muted>We sent a code to {mode.email}. Enter it to save your progress.</Body>
-          <Field label="Code" value={code} onChangeText={setCode} placeholder="123456" keyboardType="number-pad" textContentType="oneTimeCode" maxLength={10} autoFocus />
-          <Button label="Confirm" disabled={busy || !code} onPress={() => void run(async () => { await p.confirmEmailLink(mode.email, code); track('account_linked'); reset(); })} />
-          <Button variant="secondary" label="Send a new code" disabled={busy} onPress={() => void run(() => p.startEmailLink(mode.email))} />
-          <Button variant="secondary" label="Cancel" onPress={reset} />
-        </>
-      )}
-
-      {mode.kind === 'signin-email' && (
-        <>
-          <Body muted>Sign in to an account you already have. We’ll email you a code.</Body>
-          <Field label="Email" value={email} onChangeText={setEmail} placeholder="you@example.com" keyboardType="email-address" autoComplete="email" textContentType="emailAddress" />
-          <Button label="Send code" disabled={busy || !email} onPress={() => void run(async () => { await p.startSignIn(email); setMode({ kind: 'signin-code', email }); })} />
-          <Button variant="secondary" label="Cancel" onPress={reset} />
-        </>
-      )}
-
-      {mode.kind === 'signin-code' && (
-        <>
-          {a.status !== 'saved' && levelsCleared > 0 && !confirmReplace ? (
-            <>
-              <Body>
-                This device’s guest progress ({levelsCleared} {levelsCleared === 1 ? 'level' : 'levels'}) won’t be added to that account.
-              </Body>
-              <Body muted>Signing in switches this device to the account’s own progress.</Body>
-              <Button label="Continue to sign in" onPress={() => setConfirmReplace(true)} />
-              <Button variant="secondary" label="Cancel" onPress={reset} />
-            </>
-          ) : (
-            <>
-              <Body muted>Enter the code sent to {mode.email}.</Body>
-              <Field label="Code" value={code} onChangeText={setCode} placeholder="123456" keyboardType="number-pad" textContentType="oneTimeCode" maxLength={10} autoFocus />
-              <Button label="Sign in" disabled={busy || !code} onPress={() => void run(async () => { await p.confirmSignIn(mode.email, code); reset(); })} />
-              <Button variant="secondary" label="Cancel" onPress={reset} />
-            </>
-          )}
-        </>
-      )}
-
+    <Card>
+      <Label tone="success">Account</Label>
+      <Body>
+        Signed in with {METHOD_NAME[a.method]}
+        {a.method === 'apple' || a.method === 'google' ? ` as ${accountLabel(a)}` : `: ${accountLabel(a)}`}.
+      </Body>
+      <Body muted>Your progress is saved to this account. Sign in the same way on any device to pick up where you left off.</Body>
+      <Button variant="secondary" label="Sign out" disabled={busy} onPress={() => void signOut()} />
       {error && <Body muted>{error}</Body>}
     </Card>
   );

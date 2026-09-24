@@ -34,7 +34,7 @@ npm run content:build    # recompile content/ into the app's offline bundle afte
 npm run content:import   # publish content to Supabase (see docs/supabase-setup.md)
 npm run test:db          # apply migrations to a throwaway Postgres and run SQL tests
 npm run app              # start the Expo dev server (press i / a / w)
-npm run e2e              # play the app in a headless browser (offline mode)
+npm run e2e              # play the app in a headless browser (development harness: simulated accounts)
 npm run e2e:remote       # same, against the real migrations via a Supabase stand-in
 ```
 
@@ -50,7 +50,7 @@ We're following the [build order](docs/build-order.md). **The loop comes first a
 - [x] Stage 3: lesson player. All 10 levels play offline from data, with resume, exactly-once completion, XP, the character sheet and the daily cap
 - [x] Stage 5: review. Due concepts come back as recall sessions. A scheduled item right on the first try earns +10 XP (once per scheduled review); a miss must be corrected with its source card and earns nothing. Review never uses daily levels
 - [x] Onboarding: a first-run intro that gets to Level 1 in about a minute
-- [x] Supabase mode: anonymous sign-in, server-graded completion, live content revisions and review, e2e-tested against the real SQL
+- [x] Supabase mode: sign-in required before any progress (Apple, Google, phone, email; no guest mode), server-graded completion, live content revisions and review, e2e-tested against the real SQL
 - [ ] Staging Supabase project: needs creating. See [`docs/supabase-setup.md`](docs/supabase-setup.md)
 
 ## Read first

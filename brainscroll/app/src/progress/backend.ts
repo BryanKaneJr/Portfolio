@@ -1,8 +1,10 @@
-import type { AccountState, AnalyticsEvent, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, Level, ReviewItem, ReviewResult, StartReason } from '@brainscroll/core';
+import type { AccountState, AnalyticsEvent, OtpTarget, SignInMethod, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, Level, ReviewItem, ReviewResult, StartReason } from '@brainscroll/core';
 
 /**
- * Where progress lives. `local` runs the shared rules on-device (offline play);
- * `remote` calls the Supabase RPCs, which are authoritative. Screens only see
+ * Where progress lives. `remote` calls the Supabase RPCs, which are
+ * authoritative. `local` is the development harness: the shared rules run
+ * on-device and accounts are simulated, so the whole flow (sign in → onboard →
+ * learn) works without a Supabase project. Release builds use `remote`. Screens only see
  * this interface, so switching is configuration, not code.
  */
 export interface ProgressSnapshot {
@@ -37,26 +39,33 @@ export interface ProgressBackend {
    * once (+10 XP if right); a miss must be corrected, and corrections earn nothing.
    */
   submitReview(item: ReviewItem, optionId: string): Promise<ReviewResult>;
-  /** Dev only: start over as a brand-new player. */
+  /** Dev only: erase the signed-in learner's progress and keep the account. */
   reset(): Promise<void>;
 
-  // ── Account persistence (docs/accounts.md) ──
-  /** Where this player's progress is kept. Local play is always `device_only`. */
+  // ── Accounts (docs/accounts.md) ──
+  // An account is required before any progress exists. There is no guest or
+  // anonymous mode, nothing to migrate and nothing to merge. Every progress
+  // call above needs a signed-in account.
+  /** The current account, restored from the saved session on launch. */
   account(): Promise<AccountState>;
-  /** Guest → permanent: emails a one-time code to attach `email` to the current (same) user. */
-  startEmailLink(email: string): Promise<void>;
-  /** Confirms the code. The user id is unchanged, so every bit of progress stays put. */
-  confirmEmailLink(email: string, code: string): Promise<AccountState>;
-  /** Existing account on this device: emails a sign-in code (never creates an account). */
-  startSignIn(email: string): Promise<void>;
-  /** Switches this device to that account. The previous guest's progress is not merged. */
-  confirmSignIn(email: string, code: string): Promise<AccountState>;
-  /** Saved accounts only: sign out and continue as a fresh guest. Guests can't sign out (it would orphan their progress). */
+  /** The methods this build can offer right now, in display order (configured and supported here). */
+  signInMethods(): Promise<SignInMethod[]>;
+  /**
+   * Apple or Google. Native: the OS sheet returns an ID token for Supabase.
+   * Web: redirects to the provider and back (the promise may never settle,
+   * because the page navigates away; the session is restored on return).
+   */
+  signInWithProvider(provider: 'apple' | 'google'): Promise<AccountState>;
+  /** Sends a one-time code by SMS or email. The account is created on first use. */
+  sendCode(target: OtpTarget): Promise<void>;
+  /** Confirms the code and signs in (or up). */
+  verifyCode(target: OtpTarget, code: string): Promise<AccountState>;
+  /** Signs out. Progress stays with the account and comes back on the next sign-in, here or anywhere. */
   signOut(): Promise<AccountState>;
   /**
    * Permanently deletes this learner and every piece of their data, then
-   * continues as a fresh guest (remote) or with empty on-device progress (local).
-   * Store subscriptions are not cancelled by this; they're managed by Apple/Google.
+   * returns to signed out. Store subscriptions are not cancelled by this;
+   * they're managed by Apple/Google.
    */
   deleteAccount(): Promise<AccountState>;
 

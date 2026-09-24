@@ -22,3 +22,11 @@ export function newIdempotencyKey(): string {
   const c = globalThis.crypto as { randomUUID?: () => string } | undefined;
   return c?.randomUUID?.() ?? `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
 }
+
+export async function remove(key: string): Promise<void> {
+  try {
+    await AsyncStorage.removeItem(key);
+  } catch {
+    // Nothing to clean up.
+  }
+}

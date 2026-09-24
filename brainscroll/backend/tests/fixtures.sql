@@ -30,9 +30,10 @@ insert into public.answer_options (question_id, option_id, label, correct)
 select q.id, o.opt, 'Option ' || o.opt, o.opt = 'a'
 from public.questions q cross join (values ('a'), ('b')) o(opt);
 
-insert into auth.users (id, email) values
-  ('00000000-0000-0000-0000-00000000000a', 'alice@example.org'),
-  ('00000000-0000-0000-0000-00000000000b', 'bob@example.org');
+-- Every learner has a real account (no guests): Alice signed in with Apple, Bob with email.
+insert into auth.users (id, email, raw_app_meta_data) values
+  ('00000000-0000-0000-0000-00000000000a', 'alice@example.org', '{"provider": "apple"}'),
+  ('00000000-0000-0000-0000-00000000000b', 'bob@example.org', '{"provider": "email"}');
 -- Alice signed up long ago, so today is not her first day (no first-day bonus).
 update public.profiles set created_at = now() - interval '30 days' where id = '00000000-0000-0000-0000-00000000000a';
 

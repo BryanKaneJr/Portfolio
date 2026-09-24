@@ -15,7 +15,7 @@ Most signals are records the server already keeps for gameplay, so they're exact
 | Do people finish levels? | `user_level_progress`: started/completed, first-try share |
 | Are learners coming back? | days with any learning (`xp_events`, attempts). **Return days, not minutes.** |
 | How often is the daily cap reached? | `daily_allowances` |
-| Are players saving their progress? | `auth.users.is_anonymous` |
+| How do new learners sign in? | `auth.users.raw_app_meta_data->>'provider'` (`new_accounts_by_method` in `admin_learning_health`) |
 
 The client sends only what the server can't see, as a small allowlisted event set (`packages/core/src/analytics.ts`, mirrored by `public.analytics_event_names`; a test keeps them in sync):
 
@@ -25,7 +25,7 @@ The client sends only what the server can't see, as a small allowlisted event se
 | `onboarding_step` | `step` | Onboarding funnel |
 | `level_exit` | `level_id`, `card_index`, `card_count` | Which card loses people in an unfinished level |
 | `daily_complete_seen` | `used`, `cap` | How often learners reach the cap |
-| `account_link_started` / `account_linked` | none | Save-progress funnel |
+| `sign_in_started` / `sign_in_completed` | `method` (`apple`, `google`, `phone`, `email`) | Sign-in funnel: which methods learners pick and finish. Never the email or number itself |
 | `report_opened` | `object_type` | Report form usage |
 
 **Privacy rules, enforced twice.** The client (`sanitizeEvent`) keeps only declared, typed, flat props, caps strings, and drops anything that looks like an email. The server (`log_events`) rejects unknown names, nested props and oversized props, and caps a learner at 50 events per call and 500 per day. Learners can't read the events table. Events are tied to the auth user id only, never an email. Offline builds send nothing. `EXPO_PUBLIC_ANALYTICS=off` disables tracking in any build. The queue persists on-device, so a reload doesn't lose events.
@@ -72,7 +72,7 @@ The pull calls service-role-only functions (`admin_learning_health`, `admin_ques
 - `scripts/test/insights.test.ts`, `admin/test/insights.test.ts`, `admin/test/server.test.ts`: pull and flags.
 - `e2e/remote.mjs`:
   - a report from the level player lands in `content_reports`
-  - app_open, onboarding, level_exit and the account-link funnel are logged
+  - app_open, onboarding, level_exit and the sign-in funnel are logged
   - no email reaches analytics
 
 ## Not built (on purpose, or later)

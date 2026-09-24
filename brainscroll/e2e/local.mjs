@@ -1,10 +1,29 @@
-// Offline play: onboarding, a full chapter, resume, persistence, first-day cap, review.
-import { CHECKPOINT_CURVE, CURVE, REVIEW_XP, bodyText, button, check, completionFacts, home, launch, onboard, playLevel, playReview } from './helpers.mjs';
+// Development harness (no Supabase, simulated accounts): sign-in first, onboarding,
+// a full chapter, resume, persistence, first-day cap, review, and progress that
+// belongs to the account (sign out, a second account, deletion).
+import { CHECKPOINT_CURVE, CURVE, REVIEW_XP, bodyText, button, check, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn } from './helpers.mjs';
+
+const progressKeys = (page) => page.evaluate(() => Object.keys(localStorage).filter((k) => k.startsWith('brainscroll.progress.')));
 
 const { browser, page, errors } = await launch();
 try {
   await home(page);
-  check((await bodyText(page)).includes('Stop scrolling. Start leveling.'), 'first run shows onboarding');
+  const first = await bodyText(page);
+  check(first.includes('Stop scrolling. Start leveling.') && /Continue with email/i.test(first), 'first run opens on the sign-in screen');
+  check(['Apple', 'Google', 'phone number', 'email'].every((m) => new RegExp(`Continue with ${m}`, 'i').test(first)), 'Apple, Google, phone and email are offered');
+  check(/accounts are simulated/i.test(first), 'the development harness says its accounts are simulated');
+  check((await progressKeys(page)).length === 0, 'nothing is saved before signing in (no guest progress)');
+  await button(page, 'Continue with email').click();
+  await field(page, 'Email').fill('Learner@Example.com');
+  await exactButton(page, 'Send code').click();
+  await field(page, 'Code').fill('000000');
+  await exactButton(page, 'Continue').click();
+  await page.waitForTimeout(500);
+  check(/wrong or has expired/.test(await bodyText(page)), 'a wrong code is refused with a clear message');
+  await field(page, 'Code').fill('123456');
+  await exactButton(page, 'Continue').click();
+  await page.waitForTimeout(1200);
+  check(/Pick your first skill/i.test(await bodyText(page)), 'signing in goes straight to onboarding');
   await onboard(page, { start: true });
   check((await bodyText(page)).includes('Your Cosmic Address'), 'onboarding lands in Level 1');
 
@@ -48,7 +67,7 @@ try {
 
   // Time travel: every concept is due now.
   await page.evaluate(() => {
-    const k = 'brainscroll.progress.v1';
+    const k = Object.keys(localStorage).find((key) => key.startsWith('brainscroll.progress.v2:'));
     const s = JSON.parse(localStorage.getItem(k));
     for (const c of Object.values(s.concepts)) c.dueAt = new Date(Date.now() - 60e3).toISOString();
     localStorage.setItem(k, JSON.stringify(s));
@@ -71,7 +90,7 @@ try {
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
   const profileText = await bodyText(page);
-  check(profileText.includes('saved on this device') && !profileText.includes('Save my progress'), 'offline play shows device-only saving, with no account actions');
+  check(profileText.includes('Signed in with email: learner@example.com') && !/guest/i.test(profileText), 'Profile shows the account (normalised email), and there is no guest anywhere');
   // A second skill: choosing it on the Skills tab makes Home follow it.
   await page.getByRole('tab', { name: /Skills/ }).click();
   await page.waitForTimeout(600);
@@ -79,14 +98,43 @@ try {
   await page.waitForTimeout(800);
   await home(page);
   check((await bodyText(page)).includes('Ancient Rome · Lv. 0'), 'Home follows the skill the learner chose last (a second tree plays from data)');
-  await page.getByRole('tab', { name: /Profile/ }).click();
-  await page.waitForTimeout(800);
-  await button(page, 'Erase my progress').click();
-  await button(page, 'Erase permanently').click();
+  // Progress belongs to the account: sign out, and it comes back with the same sign-in.
+  const profile = async () => { await home(page); await page.getByRole('tab', { name: /Profile/ }).click(); await page.waitForTimeout(800); };
+  await profile();
+  await button(page, 'Sign out').click();
+  await page.waitForTimeout(1000);
+  check(/Continue with email/i.test(await bodyText(page)), 'signing out returns to the sign-in screen');
+  await home(page);
+  check(/Continue with email/i.test(await bodyText(page)), 'signed out, the app stays on the sign-in screen (no way around it)');
+  await signIn(page, { method: 'email', email: 'learner@example.com' });
+  check((await bodyText(page)).includes('Ancient Rome · Lv. 0'), 'signing back in restores that account\'s progress and skips onboarding');
+
+  // A second account on the same device starts fresh and never sees the first one's progress.
+  await profile();
+  await button(page, 'Sign out').click();
+  await page.waitForTimeout(1000);
+  await signIn(page, { method: 'phone', phone: '+1 555 555 0100' });
+  check(/Pick your first skill/i.test(await bodyText(page)), 'a new account on the same device gets its own onboarding');
+  await onboard(page, { start: false });
+  check((await bodyText(page)).includes('Astronomy · Lv. 0'), 'and none of the first account\'s progress');
+  await profile();
+  check((await bodyText(page)).includes('Signed in with your phone number: +15 •••• 0100'), 'Profile shows the phone account, masked');
+  await button(page, 'Sign out').click();
+  await page.waitForTimeout(1000);
+  await signIn(page, { method: 'email', email: 'learner@example.com' });
+
+  // Deleting the account removes it and its progress, and returns to sign-in.
+  const doomed = await progressKeys(page); // only this account has played, so these are all its keys
+  check(doomed.length === 1, 'progress is stored under the account, not the device');
+  await profile();
+  await button(page, 'Delete account').click();
+  check(/permanently deletes your account/.test(await bodyText(page)), 'deletion explains what will be lost before confirming');
+  await button(page, 'Delete permanently').click();
   await page.waitForTimeout(1200);
-  check((await bodyText(page)).includes('Stop scrolling. Start leveling.'), 'erasing on-device progress starts over at onboarding');
-  const cleared = await page.evaluate(() => Object.keys(JSON.parse(localStorage.getItem('brainscroll.progress.v1') ?? '{}').levels ?? {}).length);
-  check(cleared === 0, 'no completed levels remain on the device');
+  check(/Continue with email/i.test(await bodyText(page)), 'after deletion the app is back at the sign-in screen');
+  check(!(await progressKeys(page)).some((k) => doomed.includes(k)), 'the deleted account\'s progress is gone from the device');
+  await signIn(page, { method: 'email', email: 'learner@example.com' });
+  check(/Pick your first skill/i.test(await bodyText(page)), 'signing in with the deleted email starts a brand-new account');
   check(errors.length === 0, `no page errors ${errors.join('; ')}`);
 } finally {
   await browser.close();

@@ -510,7 +510,7 @@ function renderHealth() {
     active_learners: 'Active learners', learning_days: 'Learner-days with learning', levels_completed: 'Levels completed',
     first_try_rate_new_levels: 'First-try rate on new levels', review_first_try_rate: 'Delayed recall (review first try)', reviews_answered: 'Review items answered',
     days_at_daily_cap_share: 'Learning days that reached the daily cap', returned_next_day_share: 'Came back the next day', returned_within_7_days_share: 'Came back within 7 days',
-    saved_account_share: 'Players with a saved account', open_reports: 'Open content reports', concept_strength_distribution: 'Concept strength (0–5 → learners×concepts)', window_days: 'Window (days)',
+    new_accounts_by_method: 'New accounts by sign-in method', open_reports: 'Open content reports', concept_strength_distribution: 'Concept strength (0–5 → learners×concepts)', window_days: 'Window (days)',
   };
   const fmt = (k, v) => (/share|rate/.test(k) ? pct(v) : typeof v === 'object' ? JSON.stringify(v) : String(v ?? 'n/a'));
   const flagged = Object.entries(state.insights.levels).filter(([id]) => learnerCount(id) > 0).sort((a, b) => learnerCount(b[0]) - learnerCount(a[0]));

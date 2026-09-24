@@ -4,6 +4,42 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Accounts are required; guest mode removed.** Per the new product decision (CURRENT_PRODUCT_DECISIONS §14, product rule 12), learners sign in before any progress exists: open the app → choose a sign-in method → onboarding → Level 1. Signing in creates the account on first use.
+  - **Methods:** Sign in with Apple, Sign in with Google, phone number (SMS code) and email (code) as the fallback.
+    - Native Apple uses `expo-apple-authentication` with a hashed nonce. Native Google uses `@react-native-google-signin/google-signin`. Both pass an ID token to `signInWithIdToken`.
+    - Web uses OAuth redirects with PKCE.
+    - The app offers only the methods the project reports as enabled (`/auth/v1/settings`) and the device supports, so a missing credential hides a method rather than falling back to a guest.
+  - **Removed:**
+    - anonymous sessions (`signInAnonymously`);
+    - the guest, linking and device-only states, and email linking to an anonymous user;
+    - the "guest progress won't be added" warning, and the guest sign-out rule;
+    - the guest-merge and guest-cleanup open decisions;
+    - the `account_link_*` analytics and the `saved_account_share` metric.
+  - **Server:** migration `20261001000000_accounts_required.sql`.
+    - `handle_new_user()` refuses anonymous users, deletes any that exist, and swaps in `sign_in_started` / `sign_in_completed` events (props: `method` only).
+    - `admin_learning_health` reports `new_accounts_by_method` in place of `saved_account_share`.
+    - `config.toml` has anonymous sign-ins off and phone/SMS on, with Apple, Google and Twilio sections ready but off until credentials exist.
+    - `supabase:check` now fails if anonymous sign-ins are on or no method is enabled, and reports each method.
+  - **App:**
+    - a new sign-in screen (the premise moved there, so onboarding is now two steps: pick a skill, the deal);
+    - `AuthGate` redirects every signed-out route to sign-in;
+    - device-side sessions, onboarding and active skill are stored per account;
+    - Profile shows the account with Sign out;
+    - Delete account returns to sign-in and creates nothing in its place;
+    - analytics are only sent under a signed-in account, and the sanitizer now also drops anything that looks like a phone number;
+    - `app.config.ts` adds the Apple entitlement, and the Google plugin once `EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID` exists;
+    - store builds set `EXPO_PUBLIC_RELEASE=1` to refuse to run without Supabase.
+  - **Development without credentials:** the local backend is now a harness with simulated accounts (all four methods; every code is `123456`), labeled on screen. Progress belongs to the simulated account, never the device. Pre-accounts device progress is dropped on launch.
+  - **Tests:**
+    - the new `accounts.test.sql` (anonymous inserts refused; every method creates a profile; the funnel is logged);
+    - updated analytics, fixture and probe tests; core account tests rewritten;
+    - `fake-supabase.mjs` now handles phone/email codes, ID tokens, the web OAuth redirect with PKCE, and settings, and refuses anonymous sign-up.
+    - Both e2e suites sign in first. Remote covers a phone sign-in with a wrong code first, a reinstall that restores 195 XP and skips onboarding, a Google OAuth account with its own onboarding, and deletion. Local covers sign-out, a second account on the same device, and deletion.
+    - `check`, `test:db` (6 suites) and both e2e suites pass.
+  - **Not verified (needs credentials and a device build):**
+    - the native Apple and Google sheets (typechecked only);
+    - real SMS delivery;
+    - real Apple/Google OAuth.
 - **Ancient Rome complete to Level 100.** Chapter 10, "The Fall and the Legacy": Alaric's sack of 410, Attila, 476 and Odoacer, why the West fell (including Gibbon and the "transformation" view), the Eastern Empire to 1453. Integration Levels 96–99 cover Rome in modern law and government, Rome in words, calendars and cities, how historians know about Rome, and the arc from 753 BCE to 1453 CE. Level 100 is the 10-question Mastery Challenge, drawn from across the tree with every question pointing back to its source card.
   - **Tree totals:** 100 levels, 327 questions, 100 concepts and 498 claims, all unverified. Britannica is the working reference, plus one MIT News article on Roman concrete.
   - **Checks:** 0 validator errors. The right answer is conspicuously the longest option in 8% of questions (limit 25%). `check`, `test:db` and both e2e suites pass.

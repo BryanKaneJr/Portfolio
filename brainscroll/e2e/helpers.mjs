@@ -19,8 +19,32 @@ export async function home(page) {
   await page.waitForTimeout(1500);
 }
 
+/** The code every phone/email sign-in accepts in tests (fake-supabase FAKE_OTP, local DEV_CODE). */
+export const TEST_CODE = '123456';
+export const exactButton = (page, name) => page.getByRole('button', { name, exact: true });
+export const field = (page, label) => page.getByLabel(label, { exact: true });
+
+/**
+ * Signs in from the sign-in screen. Phone and email go through the code step
+ * (`code` defaults to the right one); Apple and Google press the button (on
+ * web that's an OAuth redirect, answered straight away by fake-supabase).
+ */
+export async function signIn(page, { method = 'email', email = 'learner@example.com', phone = '+1 555 555 0100', code = TEST_CODE } = {}) {
+  if (method === 'apple' || method === 'google') {
+    await button(page, `Continue with ${method === 'apple' ? 'Apple' : 'Google'}`).click();
+    await page.waitForTimeout(2500);
+    return;
+  }
+  await button(page, method === 'phone' ? 'Continue with phone number' : 'Continue with email').click();
+  await field(page, method === 'phone' ? 'Phone number' : 'Email').fill(method === 'phone' ? phone : email);
+  await exactButton(page, 'Send code').click();
+  await field(page, 'Code').fill(code);
+  await exactButton(page, 'Continue').click();
+  await page.waitForTimeout(1500);
+}
+
+/** Onboarding, right after signing in: pick a skill → the deal → Level 1 (or look around). */
 export async function onboard(page, { start, skill = 'Astronomy' }) {
-  await button(page, 'Continue').click();
   await page.getByRole('radio', { name: new RegExp(skill) }).click();
   await button(page, 'Continue').click();
   await button(page, start ? 'Start Your Cosmic Address' : 'Look around first').click();

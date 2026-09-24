@@ -22,6 +22,7 @@ A social-media-shaped learning app where users level up real knowledge like an R
 10. **Unlimited's only gameplay/progression advantage is removing the daily new-level cap.** Unlimited may also include non-progression cosmetic or personalization benefits (e.g. neutral themes, profile customization). It never provides exclusive knowledge or curriculum, stronger progression, better XP rates, exclusive achievement trophies, or anything that implies greater mastery. Every cosmetic that signifies accomplishment (mastery frames, quest rewards, rare trophy treatments, prestige effects) stays earned, never purchasable or subscription-gated, and paid cosmetics may never imitate one. Level 50 means the same thing for free and paid users. *Pay for freedom, not knowledge.*
 
 11. **No em dashes in BrainScroll-authored text**, in curriculum or product copy. Rewrite the sentence instead. Verbatim source quotations and source metadata are exempt. See [`content-guide.md`](content-guide.md#editorial-rules-all-brainscroll-authored-text); the validator and `lint:copy` enforce it.
+12. **An account comes first.** Learners sign in (Apple, Google, phone or email) before any progress exists. There is no guest or anonymous mode, and so no guest progress, migration, merge or cleanup. Progress belongs to the account and survives reinstalls and devices. See [`accounts.md`](accounts.md).
 
 ## Definitions
 
@@ -149,7 +150,7 @@ These are the guardrails. The design lives in [`social-expansion.md`](social-exp
 The post-MVP [Social + Rewards expansion](social-expansion.md) later adds friends-only weekly leaderboards, challenges and trophies, under its own guardrails. Everything below stays out of the core loop.
 
 
-Social feeds, followers, clans, messaging · leaderboards that reward time or speed · avatars, equipment, currencies, shops · live AI tutor as a core dependency · user-generated lessons · web/desktop learning clients · 201–300 prestige content · recommendation ML · custom billing · microservices · streak punishment or fake urgency.
+Guest or anonymous play · social feeds, followers, clans, messaging · leaderboards that reward time or speed · avatars, equipment, currencies, shops · live AI tutor as a core dependency · user-generated lessons · web/desktop learning clients · 201–300 prestige content · recommendation ML · custom billing · microservices · streak punishment or fake urgency.
 
 ## Metrics we optimize
 

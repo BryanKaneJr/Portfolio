@@ -287,7 +287,8 @@ A focused MVP can be treated as an approximately 8-10 week launch track if engin
 
 | **Priority** | **Screen**            | **Must do**                                                                   |
 |--------------|-----------------------|-------------------------------------------------------------------------------|
-| **P0**       | Onboarding            | Pick interests, explain levels, start first tree within ~60 seconds.          |
+| **P0**       | Sign-in               | Account required before any progress: Apple, Google, phone or email (fallback). One tap where possible. No guest mode. |
+| **P0**       | Onboarding            | Right after sign-in: pick interests, explain levels, start first tree within ~60 seconds. |
 | **P0**       | Home / Continue       | One obvious “continue leveling” action plus daily progress.                   |
 | **P0**       | Subject / Skill tree  | Show 1-100 progress, locked future levels, mastery star, current node.        |
 | **P0**       | Lesson feed           | Swipe/tap through cards, answer questions, finish level.                      |

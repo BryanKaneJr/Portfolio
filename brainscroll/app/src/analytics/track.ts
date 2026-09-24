@@ -6,7 +6,8 @@ import { load, save } from '@/progress/storage';
  * Tiny batching tracker. Events are sanitized against the core catalog (typed,
  * flat, no PII, no durations), queued on-device (so an app kill or page reload
  * doesn't lose them), and sent through the progress backend in batches:
- * remote builds call log_events, offline builds drop them.
+ * remote builds call log_events, the development harness drops them.
+ * Events are only sent under a signed-in account (ProgressProvider holds them while signed out).
  * EXPO_PUBLIC_ANALYTICS=off turns it off entirely. See docs/analytics.md.
  */
 type Sender = (events: AnalyticsEvent[]) => Promise<void>;
@@ -27,7 +28,7 @@ function setQueue(next: AnalyticsEvent[]) {
   void save(QUEUE_KEY, queue);
 }
 
-/** Forgets anything queued (e.g. after account deletion, so nothing is sent under the new guest). */
+/** Forgets anything queued (after account deletion, so nothing from that account is sent under the next one). */
 export function clearAnalytics() {
   setQueue([]);
 }

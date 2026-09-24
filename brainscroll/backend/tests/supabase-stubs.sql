@@ -10,9 +10,13 @@ create schema auth;
 create table auth.users (
   id uuid primary key default gen_random_uuid(),
   email text unique,
-  -- Mirrors Supabase: anonymous until an email is confirmed; email_change holds a pending new email.
-  is_anonymous boolean not null default true,
-  email_change text
+  phone text unique,
+  -- Mirrors Supabase's columns. BrainScroll never creates anonymous users; the
+  -- column exists so the migration can prove it refuses them.
+  is_anonymous boolean not null default false,
+  -- Supabase keeps the sign-in provider here: {"provider": "apple" | "google" | "phone" | "email"}.
+  raw_app_meta_data jsonb not null default '{}',
+  created_at timestamptz not null default now()
 );
 
 create function auth.uid() returns uuid language sql stable as $$

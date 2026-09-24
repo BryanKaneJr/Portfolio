@@ -18,7 +18,7 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | 1 | Data contracts | A level's JSON validates without the app; migrations rebuild from scratch; revision + source/licence fields exist; completion is an idempotent server contract | ✅ core schema + validator, migration, `complete_level`, SQL tests |
 | 2 | Golden 10 levels | One real skill (Astronomy), Levels 1–10 hand-polished and source-verified | 🟡 drafted and validated (Astronomy, and now Ancient Rome); claims recorded but not yet verified against sources; no image assets yet |
 | 3 | Lesson player | All 10 levels render from data with no level-specific UI; resume works; double tap can't duplicate XP; wrong answers teach | ✅ offline and server-backed; redesigned lesson shell (select → CHECK, Take another look) |
-| 4 | Progress & character sheet | Two users see distinct sheets; reinstall restores progress; revisions never move progress back | ✅ server-authoritative; email account linking restores progress on reinstall or a second device (e2e-tested) |
+| 4 | Progress & character sheet | Two users see distinct sheets; reinstall restores progress; revisions never move progress back | ✅ server-authoritative; progress belongs to the signed-in account, so signing in after a reinstall or on a second device restores it (e2e-tested) |
 | 5 | Review & mastery | Concept-level review queue; alternative questions per concept; review never uses allowance | ✅ `get_review_queue`/`submit_review` + local review sessions, tested |
 | 6 | Daily cap | 5/day enforced server-side; Daily Complete screen; review stays open | 🟡 enforced server-side and locally; Daily Complete live; paywall held with subscriptions |
 | 7 | Content tooling | Editor/importer/validator so Levels 11–100 can scale safely | ✅ validator (quality, claims, editorial rules) + importer + Content Admin v1 |
@@ -61,7 +61,7 @@ Dependency order, with where we are today:
 | # | Step | Status |
 | --- | --- | --- |
 | **Core** | | |
-| 1 | Auth / user accounts | 🟡 anonymous accounts, email linking and account deletion work; usernames are missing (post-MVP) |
+| 1 | Auth / user accounts | 🟡 accounts are required before any progress (Apple, Google, phone, email; no guest mode), account deletion works; Apple/Google/SMS credentials and usernames (post-MVP) are missing |
 | 2 | Canonical curriculum | 🟡 Astronomy 1–100 and Ancient Rome 1–100 drafted; sources unverified |
 | 3 | Regular 3-question learning levels | ✅ |
 | 4 | Level completion | ✅ exactly-once, server-authoritative |
@@ -94,7 +94,7 @@ Dependency order, with where we are today:
 ## Up next
 
 1. **Create the staging Supabase project** ([`supabase-setup.md`](supabase-setup.md)). This needs you. After that, a smoke test on a real phone.
-2. **Account linking:** let anonymous players attach email or Apple/Google sign-in, so a reinstall or a second device restores progress.
+2. **Sign-in credentials:** create the Apple Services ID and key, the Google OAuth clients and an SMS provider, then test the native Apple/Google sheets on a device build. The code, config and e2e flows are ready ([`accounts.md`](accounts.md)).
 3. **Verify the Golden 10:** an editor checks the facts against their sources, flips `verified: true`, and adds one licensed image asset.
 4. **Subscriptions (Stage 8):** RevenueCat `unlimited_learning`, offered only at Daily Complete.
 5. **Content admin v1:** a web editor, preview and publish flow on top of `validateContent` and `import_content`.

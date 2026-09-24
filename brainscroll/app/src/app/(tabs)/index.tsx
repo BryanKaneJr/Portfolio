@@ -25,6 +25,7 @@ export default function HomeScreen() {
     }, [ready, refresh]),
   );
   if (!p.ready) return <Screen>{null}</Screen>;
+  if (p.account?.status !== 'signed_in') return <Redirect href="/sign-in" />;
   if (!p.onboarded) return <Redirect href="/welcome" />;
 
   // The skill to continue: the active one, else one with a level in progress,

@@ -1,6 +1,13 @@
 import {
   AccountError,
   answerQuestion,
+  checkedOtpTarget,
+  isValidOtp,
+  SIGN_IN_METHODS,
+  SIGNED_OUT,
+  type AccountState,
+  type OtpTarget,
+  type SignInMethod,
   buildReviewQueue,
   checkStart,
   completeLevel,
@@ -16,28 +23,69 @@ import {
 import { allLevels, getLevel } from '@/content';
 import type { ProgressBackend, ProgressSnapshot } from './backend';
 import { deviceTimeZone } from './backend';
-import { load, save } from './storage';
+import { load, newIdempotencyKey, remove, save } from './storage';
 
-const PROGRESS_KEY = 'brainscroll.progress.v1';
+/** Per-account progress: `${PROGRESS_KEY}:${userId}`. */
+export const PROGRESS_KEY = 'brainscroll.progress.v2';
+/** Pre-accounts saves held progress for no one in particular. There is no guest progress: they're dropped. */
+const LEGACY_DEVICE_PROGRESS_KEY = 'brainscroll.progress.v1';
+const DEV_ACCOUNTS_KEY = 'brainscroll.dev.accounts.v1';
+const DEV_SESSION_KEY = 'brainscroll.dev.session.v1';
+/** Development builds accept this code for every phone and email sign-in (like fake-supabase's FAKE_OTP). */
+export const DEV_CODE = '123456';
 
-/** Offline play: bundled content + the shared rules from @brainscroll/core, persisted on-device. */
+type DevAccount = Extract<AccountState, { status: 'signed_in' }>;
+
+/**
+ * The development harness, used when no Supabase project is configured:
+ * bundled content, the shared rules from @brainscroll/core, and SIMULATED
+ * accounts, so the real flow (sign in → onboard → learn) runs without
+ * credentials. Nothing is playable before signing in, and progress belongs to
+ * an account, never to the device. Release builds must use Supabase.
+ */
 export function createLocalBackend(): ProgressBackend {
-  let state: ProgressState = emptyProgress(new Date(), deviceTimeZone());
+  let user: DevAccount | null = null;
+  let state: ProgressState | null = null;
 
-  const commit = (next: ProgressState) => {
-    if (next === state) return;
-    state = next;
-    void save(PROGRESS_KEY, next);
+  const current = (): ProgressState => {
+    if (!state) throw new AccountError('NOT_SIGNED_IN');
+    return state;
   };
+  const commit = (next: ProgressState) => {
+    if (next === state || !user) return;
+    state = next;
+    void save(`${PROGRESS_KEY}:${user.userId}`, next);
+  };
+
+  async function open(account: DevAccount) {
+    user = account;
+    const saved = await load<ProgressState>(`${PROGRESS_KEY}:${account.userId}`);
+    // Older saves predate attempt tracking.
+    state = saved?.version === 1 ? { ...saved, questionAttempts: saved.questionAttempts ?? {} } : emptyProgress(new Date(), deviceTimeZone());
+    await save(DEV_SESSION_KEY, account.userId);
+    return account;
+  }
+
+  /** Signing in is signing up: the same email or phone always finds the same account. */
+  async function signInAs(method: SignInMethod, identity: { email?: string; phone?: string }): Promise<AccountState> {
+    const accounts = (await load<Record<string, DevAccount>>(DEV_ACCOUNTS_KEY)) ?? {};
+    const key = identity.email ? `email:${identity.email}` : `phone:${identity.phone}`;
+    const account = accounts[key] ?? { status: 'signed_in', userId: newIdempotencyKey(), method, ...identity };
+    await save(DEV_ACCOUNTS_KEY, { ...accounts, [key]: account });
+    return open(account);
+  }
 
   return {
     kind: 'local',
     async init() {
-      const saved = await load<ProgressState>(PROGRESS_KEY);
-      // Older saves predate attempt tracking.
-      if (saved?.version === 1) state = { ...saved, questionAttempts: saved.questionAttempts ?? {} };
+      await remove(LEGACY_DEVICE_PROGRESS_KEY);
+      const sessionUserId = await load<string>(DEV_SESSION_KEY);
+      const accounts = Object.values((await load<Record<string, DevAccount>>(DEV_ACCOUNTS_KEY)) ?? {});
+      const account = accounts.find((a) => a.userId === sessionUserId);
+      if (account) await open(account);
     },
     async snapshot(): Promise<ProgressSnapshot> {
+      const state = current();
       const now = new Date();
       const daily = dailyStatus(state, now);
       return {
@@ -53,43 +101,62 @@ export function createLocalBackend(): ProgressBackend {
     async startLevel(levelId) {
       const level = getLevel(levelId);
       if (!level) return { reason: 'LEVEL_NOT_AVAILABLE' };
-      return { reason: checkStart(state, level, new Date()), level, revision: level.revision };
+      return { reason: checkStart(current(), level, new Date()), level, revision: level.revision };
     },
     async answerQuestion(level, questionId, optionId) {
-      const r = answerQuestion(state, { level, questionId, optionId });
+      const r = answerQuestion(current(), { level, questionId, optionId });
       commit(r.state);
       return r.result;
     },
     async completeLevel({ level, idempotencyKey }) {
-      const r = completeLevel(state, { level, idempotencyKey, now: new Date() });
+      const r = completeLevel(current(), { level, idempotencyKey, now: new Date() });
       commit(r.state);
       return r.summary;
     },
     async reviewQueue(limit) {
-      return buildReviewQueue(state, allLevels, new Date(), limit);
+      return buildReviewQueue(current(), allLevels, new Date(), limit);
     },
     async submitReview(item, optionId) {
-      const r = submitReview(state, { item, optionId, now: new Date() });
+      const r = submitReview(current(), { item, optionId, now: new Date() });
       commit(r.state);
       return r.result;
     },
     async reset() {
+      current();
       commit(emptyProgress(new Date(), deviceTimeZone()));
     },
-    // Offline play has no server account: progress is saved on this device only.
-    account: async () => ({ status: 'device_only' }),
-    startEmailLink: unavailable,
-    confirmEmailLink: unavailable,
-    startSignIn: unavailable,
-    confirmSignIn: unavailable,
-    signOut: unavailable,
+
+    // ── Simulated accounts: the real flow, without credentials ──
+    account: async () => user ?? SIGNED_OUT,
+    signInMethods: async () => [...SIGN_IN_METHODS],
+    signInWithProvider(provider) {
+      // Stands in for the Apple/Google sheet. Same identity every time, like a real provider account.
+      return signInAs(provider, { email: `${provider}.learner@example.com` });
+    },
+    async sendCode(target) {
+      checkedOtpTarget(target); // nothing is sent: the code is always DEV_CODE
+    },
+    async verifyCode(target, code) {
+      const t: OtpTarget = checkedOtpTarget(target);
+      if (!isValidOtp(code) || code.trim() !== DEV_CODE) throw new AccountError('INVALID_CODE');
+      return signInAs(t.channel, t.channel === 'email' ? { email: t.email } : { phone: t.phone });
+    },
+    async signOut() {
+      user = null;
+      state = null;
+      await remove(DEV_SESSION_KEY);
+      return SIGNED_OUT;
+    },
     async deleteAccount() {
-      // Offline builds keep progress only on this device: erasing it is the deletion.
-      commit(emptyProgress(new Date(), deviceTimeZone()));
+      const gone = user;
+      if (!gone) throw new AccountError('NOT_SIGNED_IN');
+      const accounts = (await load<Record<string, DevAccount>>(DEV_ACCOUNTS_KEY)) ?? {};
+      await save(DEV_ACCOUNTS_KEY, Object.fromEntries(Object.entries(accounts).filter(([, a]) => a.userId !== gone.userId)));
+      await remove(`${PROGRESS_KEY}:${gone.userId}`);
       await save(REPORTS_KEY, []);
-      return { status: 'device_only' };
+      return this.signOut();
     },
-    // Offline builds send nothing anywhere.
+    // The harness sends nothing anywhere.
     async logEvents() {},
     async reportContent(input) {
       // Kept on-device (there's no server to send them to); newest wins per object.
@@ -102,7 +169,3 @@ export function createLocalBackend(): ProgressBackend {
 }
 
 const REPORTS_KEY = 'brainscroll.reports.v1';
-
-async function unavailable(): Promise<never> {
-  throw new AccountError('ACCOUNTS_UNAVAILABLE');
-}

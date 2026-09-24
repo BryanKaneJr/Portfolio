@@ -8,7 +8,8 @@ const stub = (route: Route) => async (url: string, init?: { method?: string; hea
   return { status: r.status, text: async () => (r.body === undefined ? '' : JSON.stringify(r.body)) };
 };
 const healthy: Route = (path) => {
-  if (path === '/auth/v1/settings') return { status: 200, body: { external: { anonymous_users: true, email: true } } };
+  if (path === '/auth/v1/settings') return { status: 200, body: { external: { anonymous_users: false, apple: true, google: true, phone: true, email: true } } };
+  if (path.startsWith('/rest/v1/analytics_event_names')) return { status: 200, body: [{ name: 'sign_in_started' }] };
   if (path.startsWith('/rest/v1/levels')) return { status: 200, body: [{ id: 'level.science.astronomy.001' }] };
   if (path.startsWith('/rest/v1/rpc/')) return { status: 401, body: { code: '42501', message: 'not authenticated' } };
   if (path.startsWith('/rest/v1/')) return { status: 200, body: [] };
@@ -32,9 +33,10 @@ test('sends a legacy anon JWT as bearer too, but a publishable key only as apike
   assert.equal(seen[0]!.authorization, undefined);
 });
 
-test('flags disabled anonymous sign-ins, missing migrations, no content and missing functions', async () => {
+test('flags anonymous sign-ins left on, missing migrations, no content and missing functions', async () => {
   const broken: Route = (path) => {
-    if (path === '/auth/v1/settings') return { status: 200, body: { external: { anonymous_users: false, email: true } } };
+    if (path === '/auth/v1/settings') return { status: 200, body: { external: { anonymous_users: true, email: true } } };
+    if (path.startsWith('/rest/v1/analytics_event_names')) return { status: 200, body: [] };
     if (path.startsWith('/rest/v1/app_settings')) return { status: 200, body: [] };
     if (path.startsWith('/rest/v1/user_review_attempts')) return { status: 404, body: { code: 'PGRST205', message: 'not found' } };
     if (path.startsWith('/rest/v1/levels')) return { status: 200, body: [] };
@@ -43,9 +45,18 @@ test('flags disabled anonymous sign-ins, missing migrations, no content and miss
   };
   const s = statuses(await probeProject('https://x.supabase.co', 'sb_publishable_x', stub(broken)));
   assert.equal(s['anonymous sign-ins'], 'fail');
+  assert.equal(s['sign-in: email'], 'ok');
+  assert.equal(s['sign-in: Apple'], 'warn', 'a provider without credentials yet is a warning, not a failure');
   assert.equal(s['latest migration applied'], 'fail');
+  assert.equal(s['accounts-required migration'], 'fail');
   assert.equal(s['published content'], 'warn');
   assert.equal(s['server functions'], 'fail');
+});
+
+test('fails when no sign-in method is enabled at all', async () => {
+  const none: Route = (path) => (path === '/auth/v1/settings' ? { status: 200, body: { external: { anonymous_users: false } } } : healthy(path));
+  const s = statuses(await probeProject('https://x.supabase.co', 'sb_publishable_x', stub(none)));
+  assert.equal(s['sign-in methods'], 'fail');
 });
 
 test('stops early when the key is rejected or the host is unreachable', async () => {

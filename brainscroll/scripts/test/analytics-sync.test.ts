@@ -7,10 +7,19 @@ import { ANALYTICS_EVENTS, REPORT_CATEGORIES } from '@brainscroll/core';
 const migrations = join(import.meta.dirname, '..', '..', 'backend', 'supabase', 'migrations');
 const sql = readdirSync(migrations).sort().map((f) => readFileSync(join(migrations, f), 'utf8')).join('\n');
 
+/** Replays every migration's inserts into and deletes from the allowlist, in order. */
+function serverEventNames(): string[] {
+  const names = new Set<string>();
+  const statements = /insert into public\.analytics_event_names \(name, description\) values([\s\S]*?);|delete from public\.analytics_event_names where name in \(([^)]*)\);/g;
+  for (const m of sql.matchAll(statements)) {
+    if (m[1] !== undefined) for (const v of m[1].matchAll(/\('([a-z_]+)',/g)) names.add(v[1]!);
+    else for (const v of (m[2] ?? '').matchAll(/'([a-z_]+)'/g)) names.delete(v[1]!);
+  }
+  return [...names].sort();
+}
+
 test('the client event catalog matches the server allowlist', () => {
-  const block = /insert into public\.analytics_event_names \(name, description\) values([\s\S]*?);/.exec(sql)?.[1] ?? '';
-  const server = [...block.matchAll(/\('([a-z_]+)',/g)].map((m) => m[1]).sort();
-  assert.deepEqual(server, Object.keys(ANALYTICS_EVENTS).sort());
+  assert.deepEqual(serverEventNames(), Object.keys(ANALYTICS_EVENTS).sort());
 });
 
 test('report categories match the report_category enum', () => {

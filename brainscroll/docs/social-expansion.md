@@ -27,7 +27,7 @@ This expansion also carries **Weekly Knowledge Quests**, the recurring short-ter
 
 | Phase | Build | Exit gate | Where we are |
 | --- | --- | --- | --- |
-| 0 | Prerequisite audit | Core progress events are server-validated; account identity and analytics are stable | 🟡 server validation ✅; **account linking, usernames, subscriptions, analytics missing** |
+| 0 | Prerequisite audit | Core progress events are server-validated; account identity and analytics are stable | 🟡 server validation ✅; **accounts ✅ (required, Apple/Google/phone/email); usernames and subscriptions missing** |
 | 1 | Reward event ledger | Retries can't double-award XP; every reward event is auditable | 🟡 largely exists as `xp_events` (unique idempotency key per user, tested). Missing: `CONCEPT_RECALLED`, `SKILL_MASTERED`, `PRESTIGE_REACHED` and challenge event types |
 | 2 | Achievement engine | A trophy unlocks from real criteria, permanently; the rarity job is deterministic | ⬜ |
 | 3 | Profile v2 | Renders with 0, 1 or hundreds of trophies; rarest-three is deterministic | ⬜ (the Profile tab is a basic character sheet today) |
@@ -85,7 +85,7 @@ Per-requirement progress is **computed, not stored**: count `xp_events` of type 
 
 ## Gaps and decisions to make
 
-1. **Accounts come first.** Anonymous → email linking is built (same user id, no migration; see [`accounts.md`](accounts.md)). Friends still need a **unique username** table, and Apple/Google can be added later via `linkIdentity()`.
+1. **Accounts come first.** Every learner already has a permanent account (Apple, Google, phone or email; no guests, see [`accounts.md`](accounts.md)). Friends still need a **unique username** table.
 2. **Premium themes (settled 2026-09-24).** Unlimited's only gameplay/progression advantage is removing the daily cap; it may also include non-progression cosmetic or personalization perks such as themes or profile customization. Accomplishment cosmetics (mastery frames, quest rewards, rare trophy treatments, prestige effects) stay earned, never purchasable or subscription-gated. See [`product-rules.md`](product-rules.md) rule 10.
 3. **Challenge XP.** "Small verified XP bonus" needs a number and a cap (e.g. per-day or per-opponent) before Phase 7.
 4. **"Oddities" trophies** (*Night Owl*, *Rabbit Hole*) arguably fail the spec's own reward test ("what did you learn / how deeply / how consistently / what difficult combination"). *Wrong Turn* passes because it's about eventually mastering a concept. Decide per trophy.

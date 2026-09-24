@@ -1,7 +1,8 @@
 // Supabase mode against the real SQL functions (via fake-supabase.mjs):
-// anonymous sign-in, server-graded completion, exactly-once XP, live content
-// revisions, the server-side 5/day cap, and review.
-import { CURVE, REVIEW_XP, bodyText, button, check, checkButton, completionFacts, home, launch, onboard, playLevel, playReview, sql } from './helpers.mjs';
+// sign-in before anything (phone, email, Google OAuth), server-graded
+// completion, exactly-once XP, live content revisions, the server-side 5/day
+// cap, review, progress that survives a reinstall, and account deletion.
+import { CURVE, REVIEW_XP, bodyText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql } from './helpers.mjs';
 
 const { browser, page, errors } = await launch();
 // Every level bundle the app receives must be free of answer keys, and review
@@ -13,9 +14,30 @@ page.on('response', async (res) => {
 });
 try {
   await home(page);
-  await onboard(page, { start: true });
-  check(sql('select count(*) from auth.users') === '1', 'first launch signs in anonymously');
+  const first = await bodyText(page);
+  check(/Continue with phone number/i.test(first) && first.includes('Stop scrolling. Start leveling.'), 'first launch opens on the sign-in screen');
+  check(['Apple', 'Google', 'phone number', 'email'].every((m) => new RegExp(`Continue with ${m}`, 'i').test(first)), 'every method the project enables is offered');
+  check(sql('select count(*) from auth.users') === '0' && sql('select count(*) from public.profiles') === '0', 'nothing is created before signing in (no anonymous user)');
+  await button(page, 'Continue with phone number').click();
+  await field(page, 'Phone number').fill('555 555 0100');
+  await exactButton(page, 'Send code').click();
+  await page.waitForTimeout(400);
+  check(/country code/.test(await bodyText(page)), 'a number without a country code is caught before sending');
+  await field(page, 'Phone number').fill('+1 (555) 555-0100');
+  await exactButton(page, 'Send code').click();
+  await field(page, 'Code').fill('000000');
+  await exactButton(page, 'Continue').click();
+  await page.waitForTimeout(600);
+  check(/wrong or has expired/.test(await bodyText(page)), 'a wrong code is refused with a clear message');
+  await field(page, 'Code').fill('123456');
+  await exactButton(page, 'Continue').click();
+  await page.waitForTimeout(1500);
+  check(sql('select count(*) from auth.users') === '1' && sql(`select phone || ':' || (raw_app_meta_data->>'provider') || ':' || is_anonymous from auth.users`) === '15555550100:phone:false',
+    'the code creates one permanent phone account, stored in E.164');
   check(sql('select timezone from public.profiles') !== '', 'device time zone is saved to the profile');
+  const learnerId = sql('select id from auth.users');
+  check(/Pick your first skill/i.test(await bodyText(page)), 'a new account goes straight to onboarding');
+  await onboard(page, { start: true });
 
   const reinforced = await playLevel(page, { pick: () => 0, doubleTapComplete: true });
   check(/LEVEL 1 COMPLETE/i.test(await bodyText(page)), 'Level 1 completes on the server');
@@ -92,70 +114,62 @@ try {
   check(leaks.length === 0, `no answer keys reached the app ${leaks.join(', ')}`);
   check(sql(`select count(*) from public.xp_events where type = 'QUESTION_CORRECT'`) === '0', 'no per-question XP is awarded');
 
-  // Account persistence: guest → email on the SAME user, sign out, sign back in.
-  const guestId = sql('select id from auth.users');
+  // Accounts: progress belongs to the account, not the install.
   const xpBefore = sql('select sum(amount) from public.xp_events');
   const profile = async () => { await home(page); await page.getByRole('tab', { name: /Profile/ }).click(); await page.waitForTimeout(800); };
-  const field = (label) => page.getByLabel(label, { exact: true });
   await profile();
-  check((await bodyText(page)).includes('playing as a guest'), 'a new player is shown as a guest');
-  await button(page, 'Save my progress').click();
-  await field('Email').fill('Player@Example.com');
-  await button(page, 'Send code').click();
-  await field('Code').waitFor();
-  check(sql(`select email_change from auth.users`) === 'player@example.com', 'a code is requested for the normalised email');
-  await field('Code').fill('000000');
-  await button(page, 'Confirm').click();
-  await page.waitForTimeout(600);
-  check(/wrong or has expired/.test(await bodyText(page)), 'a wrong code is refused with a clear message');
-  await field('Code').fill('123456');
-  await button(page, 'Confirm').click();
-  await page.waitForTimeout(800);
-  check((await bodyText(page)).includes('Progress saved to player@example.com'), 'confirming the code saves the account');
-  check(sql('select count(*) from auth.users') === '1' && sql('select id from auth.users') === guestId && sql('select is_anonymous from auth.users') === 'f',
-    'linking kept the same user id (no migration) and made it permanent');
-  check(sql('select sum(amount) from public.xp_events') === xpBefore, 'all XP is still there after linking');
-
-  await profile();
-  check((await bodyText(page)).includes('Progress saved to player@example.com'), 'the saved account survives a reload');
+  const profileText = await bodyText(page);
+  check(profileText.includes('Signed in with your phone number: +15 •••• 0100') && !/guest/i.test(profileText), 'Profile shows the phone account, masked, and no guest anywhere');
   await button(page, 'Sign out').click();
   await page.waitForTimeout(1000);
-  check((await bodyText(page)).includes('playing as a guest') && sql('select count(*) from auth.users') === '2', 'signing out continues as a fresh guest');
+  check(/Continue with phone number/i.test(await bodyText(page)), 'signing out returns to the sign-in screen');
+  check(sql('select count(*) from auth.users') === '1', 'signing out creates nothing (no fresh guest)');
 
-  // The fresh guest tries to save to the same email: it's taken, so we offer sign-in instead.
-  await button(page, 'Save my progress').click();
-  await field('Email').fill('player@example.com');
-  await button(page, 'Send code').click();
-  await page.waitForTimeout(600);
-  check(/already has a BrainScroll account/.test(await bodyText(page)), 'an email already in use points to sign-in');
-  await field('Email').fill('player@example.com');
-  await button(page, 'Send code').click();
-  await field('Code').fill('123456');
-  await button(page, 'Sign in').click();
-  await page.waitForTimeout(1200);
-  check((await bodyText(page)).includes('Progress saved to player@example.com'), 'signing in with a code restores the saved account');
-  check((await bodyText(page)).includes(`${xpBefore} XP earned`), `the saved account's progress (${xpBefore} XP) is back on this device`);
+  // Reinstall: wipe everything on the device, then sign in the same way.
+  await page.evaluate(() => localStorage.clear());
+  await home(page);
+  check(/Continue with phone number/i.test(await bodyText(page)), 'a reinstalled app starts at sign-in');
+  await signIn(page, { method: 'phone', phone: '+15555550100' });
+  check(sql('select count(*) from auth.users') === '1' && sql('select id from auth.users') === learnerId, 'signing in again finds the same account');
+  check((await bodyText(page)).includes('Astronomy · Lv. 5'), 'after a reinstall, progress is back and onboarding is skipped');
+  await profile();
+  check((await bodyText(page)).includes(`${xpBefore} XP earned`), `all ${xpBefore} XP came back with the account`);
+
+  // Google on the web: an OAuth redirect (PKCE) that comes back signed in to a separate, new account.
+  await button(page, 'Sign out').click();
+  await page.waitForTimeout(1000);
+  await signIn(page, { method: 'google' });
+  check(sql(`select count(*) from auth.users where email = 'google.learner@example.com' and raw_app_meta_data->>'provider' = 'google'`) === '1', 'Google sign-in creates a Google account');
+  check(/Pick your first skill/i.test(await bodyText(page)), 'a new Google account gets its own onboarding');
+  await onboard(page, { start: false });
+  check((await bodyText(page)).includes('Astronomy · Lv. 0'), 'and none of the phone account\'s progress');
+  await profile();
+  check((await bodyText(page)).includes('Signed in with Google as google.learner@example.com'), 'Profile shows the Google account');
+  await button(page, 'Sign out').click();
+  await page.waitForTimeout(1000);
+  await signIn(page, { method: 'phone', phone: '+15555550100' });
 
   // Analytics: only allowlisted, PII-free events; no durations anywhere.
   await page.waitForTimeout(5500); // the tracker flushes in batches
   check(Number(sql(`select count(*) from public.analytics_events where name = 'app_open'`)) >= 1, 'app opens are logged (return days, not minutes)');
-  check(sql(`select count(*) from public.analytics_events where name = 'onboarding_step'`) === '2', 'both onboarding steps are logged');
+  check(sql(`select count(*) from public.analytics_events where name = 'onboarding_step' and user_id = '${learnerId}'`) === '1', 'the onboarding step is logged');
   check(sql(`select props->>'card_index' || '/' || (props->>'card_count') from public.analytics_events where name = 'level_exit' and props->>'level_id' = 'level.science.astronomy.002'`).startsWith('0/'),
     'leaving an unfinished level logs where the learner left');
-  check(sql(`select count(*) from public.analytics_events where name in ('account_link_started', 'account_linked')`) === '2', 'the account-link funnel is logged');
-  check(sql(`select count(*) from public.analytics_events where props::text ~ '@'`) === '0', 'no email addresses reach analytics');
-  // Account deletion (store requirement): everything goes, and the app starts over as a new guest.
-  const savedId = sql(`select id from auth.users where email = 'player@example.com'`);
+  check(Number(sql(`select count(*) from public.analytics_events where name = 'sign_in_completed' and props->>'method' = 'phone' and user_id = '${learnerId}'`)) >= 2,
+    'the sign-in funnel is logged with the method');
+  check(sql(`select count(*) from public.analytics_events where props::text ~ '@' or props::text ~ '[0-9]{7}'`) === '0', 'no email addresses or phone numbers reach analytics');
+
+  // Account deletion (store requirement): everything goes, and the app returns to sign-in.
   await profile();
   await button(page, 'Delete account').click();
   check(/permanently deletes your account/.test(await bodyText(page)), 'deletion explains what will be lost before confirming');
   await button(page, 'Delete permanently').click();
   await page.waitForTimeout(1500);
-  check((await bodyText(page)).includes('Stop scrolling. Start leveling.'), 'after deletion the app starts over at onboarding');
-  check(sql(`select count(*) from auth.users where id = '${savedId}'`) === '0', 'the deleted auth user is gone');
-  check(sql(`select (select count(*) from public.xp_events where user_id = '${savedId}') + (select count(*) from public.user_level_progress where user_id = '${savedId}') + (select count(*) from public.analytics_events where user_id = '${savedId}')`) === '0',
+  check(/Continue with phone number/i.test(await bodyText(page)), 'after deletion the app is back at the sign-in screen');
+  check(sql(`select count(*) from auth.users where id = '${learnerId}'`) === '0', 'the deleted auth user is gone');
+  check(sql(`select (select count(*) from public.xp_events where user_id = '${learnerId}') + (select count(*) from public.user_level_progress where user_id = '${learnerId}') + (select count(*) from public.analytics_events where user_id = '${learnerId}')`) === '0',
     'their XP, progress and analytics rows are gone');
-  check(sql(`select count(*) from auth.users where is_anonymous`) >= '1', 'a fresh guest session replaces it');
+  check(sql('select count(*) from auth.users') === '1' && sql('select count(*) from auth.users where is_anonymous') === '0', 'no replacement user is created (only the Google account remains)');
 
   check(errors.length === 0, `no page errors ${errors.join('; ')}`);
 } finally {

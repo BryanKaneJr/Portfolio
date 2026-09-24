@@ -16,6 +16,11 @@ describe('sanitizeEvent', () => {
     expect(sanitizeEvent('session_minutes', { n: 12 })).toBeNull();
     expect(sanitizeEvent('report_opened', { object_type: 'me@example.com' })?.props).toEqual({});
   });
+  it('drops anything that looks like a phone number, but keeps sign-in methods and level ids', () => {
+    expect(sanitizeEvent('sign_in_started', { method: '+1 (555) 123-4567' })?.props).toEqual({});
+    expect(sanitizeEvent('sign_in_completed', { method: 'phone' })?.props).toEqual({ method: 'phone' });
+    expect(sanitizeEvent('level_exit', { level_id: 'level.history.ancient_rome.100', card_index: 1, card_count: 9 })?.props).toMatchObject({ level_id: 'level.history.ancient_rome.100' });
+  });
   it('declares no time-spent events or duration props', () => {
     const names = Object.keys(ANALYTICS_EVENTS).join(' ');
     const props = Object.values(ANALYTICS_EVENTS).flatMap((p) => Object.keys(p)).join(' ');

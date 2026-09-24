@@ -7,7 +7,7 @@
  * Rules (docs/analytics.md):
  *   - Measure learning and product health, never time spent: no durations,
  *     session lengths, scroll depth or "engagement minutes".
- *   - No personal data: no emails, names or free text in props. Props are flat
+ *   - No personal data: no emails, phone numbers, names or free text in props. Props are flat
  *     and typed, and anything not declared here is dropped before sending.
  *   - This list mirrors public.analytics_event_names; the server rejects
  *     unknown names. scripts/test checks the two stay in sync.
@@ -19,8 +19,8 @@ export const ANALYTICS_EVENTS = {
   onboarding_step: { step: 'number' },
   level_exit: { level_id: 'string', card_index: 'number', card_count: 'number' },
   daily_complete_seen: { used: 'number', cap: 'number' },
-  account_link_started: {},
-  account_linked: {},
+  sign_in_started: { method: 'string' },
+  sign_in_completed: { method: 'string' },
   report_opened: { object_type: 'string' },
 } as const satisfies Record<string, Record<string, PropType>>;
 
@@ -35,10 +35,12 @@ export interface AnalyticsEvent {
 
 const MAX_STRING = 100;
 const LOOKS_LIKE_EMAIL = /[^\s@]+@[^\s@]+\.[^\s@]+/;
+/** Seven or more digits, allowing phone punctuation: a phone number, never a level id. */
+const LOOKS_LIKE_PHONE = /\+?\d(?:[\s().-]*\d){6,}/;
 
 /**
  * Keeps only declared props of the declared type. Strings are capped and
- * anything that looks like an email is dropped. Returns null for unknown events.
+ * anything that looks like an email or phone number is dropped. Returns null for unknown events.
  */
 export function sanitizeEvent(name: string, props: Record<string, unknown> = {}, at: Date = new Date()): AnalyticsEvent | null {
   const spec = (ANALYTICS_EVENTS as Record<string, Record<string, PropType>>)[name];
@@ -50,7 +52,7 @@ export function sanitizeEvent(name: string, props: Record<string, unknown> = {},
     if (type === 'number' && !Number.isFinite(v)) continue;
     if (type === 'string') {
       const s = (v as string).slice(0, MAX_STRING);
-      if (LOOKS_LIKE_EMAIL.test(s)) continue;
+      if (LOOKS_LIKE_EMAIL.test(s) || LOOKS_LIKE_PHONE.test(s)) continue;
       clean[key] = s;
     } else clean[key] = v as number | boolean;
   }
