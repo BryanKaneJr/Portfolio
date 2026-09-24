@@ -2,9 +2,9 @@ import { REPORT_CATEGORIES, REPORT_MESSAGE_MAX, type ContentReportInput, type Re
 import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { track } from '@/analytics/track';
-import { Body, Button, Card, Field, Label } from '@/components/ui';
+import { Body, Button, Card, Eyebrow, Field } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
-import { space } from '@/theme/tokens';
+import { color, space } from '@/theme/tokens';
 
 /**
  * "Report a problem" for the card or question on screen. Reports reach the
@@ -32,8 +32,8 @@ export function ReportSheet({ target, onClose }: { target: Omit<ContentReportInp
 
   return (
     <View style={styles.overlay}>
-      <Card>
-        <Label tone="brand">Report a problem</Label>
+      <Card variant="raised" style={{ width: '100%', maxWidth: 520, alignSelf: 'center', gap: space.md }}>
+        <Eyebrow tone="brand">Report a problem</Eyebrow>
         {state === 'sent' ? (
           <>
             <Body>Thanks. We’ll check it and fix it if it’s wrong.</Body>
@@ -43,7 +43,7 @@ export function ReportSheet({ target, onClose }: { target: Omit<ContentReportInp
           <>
             <Body muted>What’s wrong with this {target.objectType === 'question' ? 'question' : 'card'}?</Body>
             {REPORT_CATEGORIES.map((c) => (
-              <Button key={c.id} variant={category === c.id ? 'primary' : 'secondary'} label={c.label} onPress={() => setCategory(c.id)} />
+              <Button key={c.id} compact variant={category === c.id ? 'primary' : 'secondary'} label={c.label} onPress={() => setCategory(c.id)} />
             ))}
             <Field label="Details (optional)" value={message} onChangeText={setMessage} placeholder="What should it say?" maxLength={REPORT_MESSAGE_MAX} />
             {state === 'failed' && <Body muted>Couldn’t send that. Check your connection and try again.</Body>}
@@ -57,5 +57,5 @@ export function ReportSheet({ target, onClose }: { target: Omit<ContentReportInp
 }
 
 const styles = StyleSheet.create({
-  overlay: { ...StyleSheet.absoluteFill, backgroundColor: 'rgba(0,0,0,0.6)', justifyContent: 'center', padding: space.lg },
+  overlay: { ...StyleSheet.absoluteFill, backgroundColor: color.scrim, justifyContent: 'flex-end', padding: space.lg },
 });

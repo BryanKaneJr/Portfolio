@@ -47,7 +47,7 @@ export function Button({
         style,
       ]}>
       {icon}
-      <Text style={[type.button, compact && { fontSize: 14 }, { color: LABEL[v] }]}>{label}</Text>
+      <Text style={[type.button, { textAlign: 'center', flexShrink: 1 }, compact && { fontSize: 14 }, { color: LABEL[v] }]}>{label}</Text>
     </Pressable>
   );
 }

@@ -55,6 +55,10 @@ try {
   });
   await home(page);
   check(/worth refreshing/.test(await bodyText(page)), 'due concepts surface on Home');
+  await page.getByRole('tab', { name: /Review/ }).click();
+  await page.waitForTimeout(800);
+  check(/ready to refresh/.test(await bodyText(page)), 'the Review tab shows what is ready (and settles: no refresh loop)');
+  await home(page);
   await button(page, 'Start review').click();
   await page.waitForTimeout(500);
   const corrected = await playReview(page);

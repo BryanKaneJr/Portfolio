@@ -31,6 +31,11 @@ Read `docs/product-rules.md` before changing anything that touches progression, 
 - Analytics measure learning and product health, never time spent: no durations, session lengths or engagement minutes. Client events must be in `ANALYTICS_EVENTS` (core) **and** `analytics_event_names` (SQL); props are flat and PII-free. See `docs/analytics.md`.
 - Don't add ads, currencies, hearts/lives, energy, streak punishment, or paywalled subjects. Unlimited's only progression effect is removing the daily cap; it may carry cosmetic/personalization perks, but never XP, knowledge, trophies or accomplishment cosmetics (those stay earned). Leaderboards, friends and challenges are post-MVP only (friends-only, weekly reset, never time/speed-based); don't build them yet. See "Never build" in the product rules.
 
+## UI
+
+- Build screens from `app/src/components/ui` primitives and `theme/tokens.ts`; don't restyle raw views. **Learning mode is quiet and progression mode is loud:** no glow, gold, XP or stats on lesson screens, and gold only for mastery. See `docs/design-system.md`.
+- Questions are select → CHECK. Only a checked answer is an attempt, and the first checked answer is the first attempt. Keep e2e helpers (`e2e/helpers.mjs`) in step with the interaction.
+
 ## Layout
 
 `app/` (Expo Router, routes in `app/src/app/`), `packages/core/` (shared rules + zod schema), `backend/` (Supabase), `content/` (curriculum JSON), `scripts/` (validator), `admin/` (local content admin), `docs/`.

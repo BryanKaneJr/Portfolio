@@ -1,7 +1,7 @@
 import { AccountError, ACCOUNT_ERROR_TEXT } from '@brainscroll/core';
 import { useState } from 'react';
 import { track } from '@/analytics/track';
-import { Body, Button, Card, Field, Label } from '@/components/ui';
+import { Body, Button, Card, Eyebrow as Label, Field } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
 
 type Mode = { kind: 'idle' } | { kind: 'link-email' } | { kind: 'link-code'; email: string } | { kind: 'signin-email' } | { kind: 'signin-code'; email: string };
@@ -56,7 +56,7 @@ export function AccountCard() {
   const pending = a.status === 'linking' && mode.kind === 'idle' ? a.pendingEmail : null;
 
   return (
-    <Card accent={a.status !== 'saved'}>
+    <Card variant={a.status !== 'saved' ? 'accent' : 'plain'}>
       <Label tone={a.status === 'saved' ? 'success' : 'brand'}>Account</Label>
       {a.status === 'saved' && mode.kind === 'idle' && (
         <>

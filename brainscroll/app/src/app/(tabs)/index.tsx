@@ -1,11 +1,18 @@
+import { MASTERY_BAND_SIZE } from '@brainscroll/core';
 import { Redirect, router, useFocusEffect } from 'expo-router';
 import { useCallback } from 'react';
-import { Body, BigNumber, Button, Card, Label, ProgressBar, Row, Screen, Title } from '@/components/ui';
-import { getLevel } from '@/content';
+import { View } from 'react-native';
+import { Body, Button, Caption, Card, Chip, Emblem, Eyebrow, H1, Pips, ProgressBar, Row, Screen, Stars, Title } from '@/components/ui';
+import { getLevel, subjectName } from '@/content';
+import { ChapterRail } from '@/components/ChapterRail';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { useStartLevel } from '@/progress/useStartLevel';
+import { space } from '@/theme/tokens';
 
-/** Home / Continue: "loading a save file". One dominant Continue card owns the screen. */
+/**
+ * Home answers one question: what should I learn next? One dominant Continue
+ * card owns the screen; today's allowance and review are secondary.
+ */
 export default function HomeScreen() {
   const p = useProgress();
   const v = useProgressView();
@@ -25,56 +32,80 @@ export default function HomeScreen() {
   const next = nextId ? getLevel(nextId) : undefined;
   const resuming = nextId ? v.sessions[nextId] : undefined;
   const { today } = v;
+  const chapterStart = (skill.view.band - 1) * MASTERY_BAND_SIZE + (skill.view.chapter - 1) * 10 + 1;
 
   return (
     <Screen>
-      <Label tone="brand">BrainScroll</Label>
+      <Row style={{ justifyContent: 'space-between' }}>
+        <Eyebrow tone="brand">BrainScroll</Eyebrow>
+        <Chip tone="brand">
+          <Caption tone="text">Knowledge Lv. {v.knowledgeLevel}</Caption>
+        </Chip>
+      </Row>
+
       {p.error && (
-        <Card>
-          <Label tone="muted">Offline</Label>
+        <Card variant="quiet">
+          <Eyebrow>Offline</Eyebrow>
           <Body muted>Couldn’t reach BrainScroll’s servers. Check your connection and reopen the app.</Body>
         </Card>
       )}
-      <Row>
-        <Title>Knowledge Lv.</Title>
-        <BigNumber>{v.knowledgeLevel}</BigNumber>
-      </Row>
 
-      <Card accent>
-        <Label>Continue</Label>
-        <Title>
-          {skill.name} · Lv. {skill.view.level}
-        </Title>
-        {next ? (
-          <Body muted>
-            Level {next.number}: {next.title}
-          </Body>
-        ) : (
-          <Body muted>You’ve cleared every published level. More are on the way.</Body>
-        )}
-        <ProgressBar value={skill.view.bandProgress} />
+      <Card variant="accent" style={{ padding: space.xl, gap: space.lg }}>
+        <Row gap={space.md}>
+          <Emblem value={skill.view.level} size="sm" />
+          <View style={{ flex: 1, gap: space.xxs }}>
+            <Eyebrow>{subjectName(skill.subjectId)}</Eyebrow>
+            <Title>
+              {skill.name} · Lv. {skill.view.level}
+            </Title>
+          </View>
+          <Stars count={skill.view.stars} />
+        </Row>
+
+        <View style={{ gap: space.xs }}>
+          <Eyebrow tone="brand">{resuming ? 'Pick up where you left off' : 'Continue learning'}</Eyebrow>
+          {next ? (
+            <>
+              <H1>{next.title}</H1>
+              <Caption>Level {next.number} · {next.objective.replace(/^After this level you can /, 'You’ll ')}</Caption>
+            </>
+          ) : (
+            <Body muted>You’ve cleared every published level. More are on the way.</Body>
+          )}
+        </View>
+
+        <View style={{ gap: space.xs }}>
+          <ChapterRail start={chapterStart} level={skill.view.level} next={skill.view.nextLevel} />
+          <Caption>
+            Chapter {skill.view.chapter} · {skill.view.level % MASTERY_BAND_SIZE} / {MASTERY_BAND_SIZE} toward ★
+          </Caption>
+        </View>
+
         {next && today.dailyComplete ? (
-          <Button label="Daily knowledge complete" onPress={() => router.push('/daily-complete')} />
+          <Button variant="secondary" label="Daily knowledge complete" onPress={() => router.push('/daily-complete')} />
         ) : next ? (
           <Button label={resuming ? `Resume Level ${next.number}` : `Start Level ${next.number}`} onPress={() => startLevel(next.id)} />
         ) : null}
       </Card>
 
       <Card>
-        <Label>Today</Label>
-        <Body>
-          {today.used} / {today.cap ?? '∞'} new levels completed
-        </Body>
-        {today.cap !== null && <ProgressBar value={today.used / today.cap} tone="info" />}
+        <Row style={{ justifyContent: 'space-between' }}>
+          <Eyebrow>Today</Eyebrow>
+          <Caption>
+            {today.used} / {today.cap ?? '∞'} new levels
+          </Caption>
+        </Row>
+        {today.cap !== null ? <Pips filled={today.used} total={today.cap} /> : <ProgressBar value={1} tone="info" size="sm" />}
+        <Caption>{today.dailyComplete ? 'Done for today. Review stays open.' : 'Review never uses these.'}</Caption>
       </Card>
 
       {v.reviewsDue > 0 && (
         <Card>
-          <Label tone="success">Review</Label>
+          <Eyebrow tone="success">Review</Eyebrow>
           <Body>
             {v.reviewsDue} {v.reviewsDue === 1 ? 'thing' : 'things'} worth refreshing
           </Body>
-          <Button variant="secondary" label="Start review" onPress={() => router.push('/review-session')} />
+          <Button variant={today.dailyComplete ? 'primary' : 'secondary'} label="Start review" onPress={() => router.push('/review-session')} />
         </Card>
       )}
     </Screen>

@@ -1,38 +1,81 @@
+import { subjectRank } from '@brainscroll/core';
+import { View } from 'react-native';
 import { AccountCard } from '@/components/AccountCard';
-import { Body, BigNumber, Button, Card, Label, Row, Screen, Title } from '@/components/ui';
+import { Button, Caption, Card, Chip, Emblem, Eyebrow, H1, Row, Screen, Stars, StatTile, Title } from '@/components/ui';
 import { subjectName } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
+import { color, radius, space } from '@/theme/tokens';
 
-/** Character sheet: the shape of your knowledge, not just total XP. */
+/**
+ * The character sheet: "this is the character I've built by learning", not
+ * account statistics. Knowledge Level up front, subject ranks and named skills
+ * with exact levels and ★, and empty-but-honest slots where titles and trophies
+ * will live (earned from transparent requirements, never bought).
+ */
 export default function ProfileScreen() {
-  const { resetAll } = useProgress();
+  const { resetAll, account } = useProgress();
   const v = useProgressView();
+  const name = account?.status === 'saved' ? account.email.split('@')[0] : 'Guest learner';
+  const bySubject = [...new Set(v.skills.map((s) => s.subjectId))].map((subjectId) => {
+    const skills = v.skills.filter((s) => s.subjectId === subjectId);
+    return { subjectId, skills, rank: subjectRank(skills.map((s) => s.view.level)) };
+  });
+  const stars = v.skills.reduce((n, s) => n + s.view.stars, 0);
+
   return (
     <Screen>
-      <Label tone="brand">Profile</Label>
-      <Row>
-        <Title>Knowledge Level</Title>
-        <BigNumber>{v.knowledgeLevel}</BigNumber>
+      <Eyebrow tone="brand">Character sheet</Eyebrow>
+      <View style={{ alignItems: 'center', gap: space.md, paddingVertical: space.lg }}>
+        <Emblem value={v.knowledgeLevel} size="lg" glowing caption="Knowledge Level" />
+        <H1>{name}</H1>
+        <Chip>
+          <Caption>No title equipped yet</Caption>
+        </Chip>
+      </View>
+
+      <Row gap={space.sm}>
+        <StatTile label="Total XP" value={v.totalXp} tone="brand" />
+        <StatTile label="Skills" value={v.skills.filter((s) => s.view.level > 0).length} />
+        <StatTile label="Stars" value={stars} tone={stars > 0 ? 'mastery' : 'text'} />
       </Row>
-      <Body muted>{v.totalXp} XP earned</Body>
-      <AccountCard />
-      {v.skills.map((s) => (
-        <Card key={s.id}>
-          <Label>{subjectName(s.subjectId)}</Label>
-          <Row>
-            <Title>
-              {s.name} Lv. {s.view.level}
-            </Title>
-            {s.view.stars > 0 && <Label tone="mastery">{'★'.repeat(s.view.stars)}</Label>}
+      <Caption center>{v.totalXp} XP earned</Caption>
+
+      <View style={{ gap: space.sm }}>
+        <Eyebrow>Showcase</Eyebrow>
+        <Row gap={space.sm}>
+          {[0, 1, 2].map((i) => (
+            <View key={i} style={{ flex: 1, aspectRatio: 1, borderRadius: radius.lg, borderWidth: 1.5, borderStyle: 'dashed', borderColor: color.border, alignItems: 'center', justifyContent: 'center' }}>
+              <Caption tone="faint">Trophy slot</Caption>
+            </View>
+          ))}
+        </Row>
+        <Caption>Rare trophies you earn will show here. Earned from transparent requirements, never bought.</Caption>
+      </View>
+
+      {bySubject.map((g) => (
+        <Card key={g.subjectId} style={{ gap: space.md }}>
+          <Row style={{ justifyContent: 'space-between' }}>
+            <Eyebrow>{subjectName(g.subjectId)}</Eyebrow>
+            <Chip tone="brand">
+              <Caption tone="text">Rank {g.rank}</Caption>
+            </Chip>
           </Row>
-          <Body muted>{s.xp} XP</Body>
+          {g.skills.map((s) => (
+            <Row key={s.id} style={{ justifyContent: 'space-between' }}>
+              <Title>
+                {s.name} Lv. {s.view.level}
+              </Title>
+              <Row>
+                <Stars count={s.view.stars} />
+                <Caption>{s.xp} XP</Caption>
+              </Row>
+            </Row>
+          ))}
         </Card>
       ))}
-      <Card>
-        <Label>Titles</Label>
-        <Body muted>Earned from transparent requirements. None yet.</Body>
-      </Card>
-      {__DEV__ && <Button variant="secondary" label="Reset progress (dev)" onPress={() => void resetAll()} />}
+
+      <AccountCard />
+      {__DEV__ && <Button variant="ghost" label="Reset progress (dev)" onPress={() => void resetAll()} />}
     </Screen>
   );
 }

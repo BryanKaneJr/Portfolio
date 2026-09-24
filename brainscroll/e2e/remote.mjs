@@ -61,7 +61,7 @@ try {
     await page.waitForTimeout(500);
     await playLevel(page);
   }
-  check((await bodyText(page)).includes('Finish the day'), 'the fifth level ends the day');
+  check(/finish the day/i.test(await bodyText(page)), 'the fifth level ends the day');
   await button(page, 'Finish the day').click();
   await page.waitForTimeout(600);
   check((await bodyText(page)).includes('5 / 5'), 'Daily Knowledge Complete shows 5 / 5 from the server');

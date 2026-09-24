@@ -1,148 +1,162 @@
-import { LEARNING_STRUCTURE, MASTERY_BAND_SIZE } from '@brainscroll/core';
+import { LEARNING_STRUCTURE, MASTERY_BAND_SIZE, skillProgressView, type CompletionOutcome } from '@brainscroll/core';
 import { Redirect, router } from 'expo-router';
-import { useEffect, useState } from 'react';
-import { AccessibilityInfo, Animated } from 'react-native';
-import { Body, BigNumber, Button, Card, Label, Row, Screen, Title } from '@/components/ui';
+import { ScrollView, View } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import {
+  Button,
+  Caption,
+  Card,
+  Chip,
+  Display,
+  Emblem,
+  Eyebrow,
+  Halo,
+  Numeral,
+  Pop,
+  ProgressBar,
+  Reveal,
+  Row,
+  Stars,
+  Title,
+  useCountUp,
+} from '@/components/ui';
 import { getConcept, getLevel, getSkill, levelByNumber } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
-import { motion } from '@/theme/tokens';
+import { color, layout, space } from '@/theme/tokens';
 
 /**
- * Level Complete. It animates the facts returned by completion and invents
- * nothing. XP reflects first-attempt accuracy; every question was resolved to
- * get here, so this is always a completion, never a "fail". Encounter XP comes
- * from each level type's own pool (LEARNING_STRUCTURE); nothing is hard-coded here.
+ * Level Complete: the payoff, where the RPG layer comes forward. It animates
+ * only the facts returned by completion and invents nothing. XP reflects
+ * first-attempt accuracy; every question was resolved to get here, so this is
+ * always a completion, never a "fail". Gold appears only for a mastery star.
  *
- * The ★ at level 100, 200, … is earned by completing and resolving the band,
- * whatever the first-attempt score. The score shows the quality of recall.
+ * Order of emphasis: outcome → XP → "my skill just got stronger" (level up and
+ * progress toward the next ★) → one line of detail → the next step.
  */
 export default function LevelCompleteScreen() {
   const { lastSummary: s } = useProgress();
-  const xp = useCountUp(s?.xpAwarded ?? 0);
-  const perfect = !!s && !s.alreadyCompleted && s.outcome === 'perfect';
-  const pop = usePop(perfect);
+  const insets = useSafeAreaInsets();
+  const xp = useCountUp(s?.xpAwarded ?? 0, { delay: 250 });
+  const levelShown = useCountUp(s?.skillLevel ?? 0, { from: s?.skillLevelBefore ?? 0, delay: 900, duration: 400 });
 
   if (!s) return <Redirect href="/" />;
   const level = getLevel(s.levelId);
   if (!level) return <Redirect href="/" />;
   const skill = getSkill(s.skillId);
   const next = levelByNumber(s.skillId, level.number + 1);
-  const checkpoint = level.cards.find((c) => c.type === 'checkpoint');
   const label = LEARNING_STRUCTURE[level.type].label;
+  const mastery = s.masteryCleared;
+  const leveledUp = !s.alreadyCompleted && s.skillLevel > s.skillLevelBefore;
+  const view = skillProgressView(s.skillLevel);
+  const intoBand = s.skillLevel % MASTERY_BAND_SIZE === 0 && s.skillLevel > 0 ? MASTERY_BAND_SIZE : s.skillLevel % MASTERY_BAND_SIZE;
+  const nextStar = Math.floor(s.skillLevel / MASTERY_BAND_SIZE) + (intoBand === MASTERY_BAND_SIZE ? 0 : 1);
   const band = level.number / MASTERY_BAND_SIZE;
 
+  const headline = s.alreadyCompleted ? 'Replay complete' : mastery ? 'Mastery achieved' : OUTCOME[s.outcome];
+
   return (
-    <Screen>
-      <Label tone={s.masteryCleared ? 'mastery' : 'success'}>
-        {s.alreadyCompleted ? 'Replay complete' : s.masteryCleared ? '★ Mastery star earned' : `${label} ${level.number} complete`}
-      </Label>
-      <Animated.View style={{ transform: [{ scale: pop }] }}>
-        <BigNumber tone={s.masteryCleared ? 'mastery' : 'brand'}>+{xp} XP</BigNumber>
-      </Animated.View>
-      <Title>
-        {skill?.name} Lv. {s.alreadyCompleted ? s.skillLevel : `${s.skillLevelBefore} → ${s.skillLevel}`}
-      </Title>
-      <Body muted>
-        {s.alreadyCompleted ? 'Replays earn no XP' : `First try: ${s.firstAttemptCorrect} / ${s.total}`}
-      </Body>
+    <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep }} edges={['top']}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: layout.gutter, paddingVertical: space.xl, justifyContent: 'center' }}>
+        <View style={{ width: '100%', maxWidth: layout.readingWidth, alignSelf: 'center', gap: space.xl, alignItems: 'center' }}>
+          <Eyebrow tone={mastery ? 'mastery' : 'success'}>
+            {s.alreadyCompleted ? 'Replay complete' : mastery ? '★ Mastery star earned' : `${label} ${level.number} complete`}
+          </Eyebrow>
 
-      {s.masteryCleared && (
-        <Card accent>
-          <Label tone="mastery">★ Mastery {band}</Label>
-          <Body>
-            Levels {level.number - MASTERY_BAND_SIZE + 1}–{level.number} completed and resolved. Levels {level.number + 1}–
-            {level.number + MASTERY_BAND_SIZE} are open.
-          </Body>
-        </Card>
-      )}
+          <View style={{ alignItems: 'center', gap: space.sm }}>
+            {!s.alreadyCompleted && <Halo tone={mastery ? 'mastery' : 'brand'} />}
+            <Reveal>
+              <Display center tone={mastery ? 'mastery' : 'text'}>
+                {headline}
+              </Display>
+            </Reveal>
+            <Pop delay={150}>
+              <Numeral size="hero" tone={mastery ? 'mastery' : 'brand'}>
+                +{xp} XP
+              </Numeral>
+            </Pop>
+            <Caption center>
+              {s.alreadyCompleted ? 'Replays earn no XP' : `First try: ${s.firstAttemptCorrect} / ${s.total}`}
+            </Caption>
+          </View>
 
-      {perfect && (
-        <Card accent>
-          <Label tone="success">Perfect Recall</Label>
-          <Body>Every question right on the first try.</Body>
-        </Card>
-      )}
+          <Reveal delay={600}>
+            <Card variant={mastery ? 'mastery' : leveledUp ? 'reward' : 'plain'} style={{ width: '100%', minWidth: 300, padding: space.xl, gap: space.lg }}>
+              <Row gap={space.lg}>
+                <Emblem value={levelShown} tone={mastery ? 'mastery' : 'brand'} glowing={leveledUp} />
+                <View style={{ flex: 1, gap: space.xs }}>
+                  <Eyebrow tone={mastery ? 'mastery' : leveledUp ? 'brand' : 'muted'}>{leveledUp ? 'Level up' : 'Skill'}</Eyebrow>
+                  <Title>
+                    {skill?.name} Lv. {s.alreadyCompleted ? s.skillLevel : `${s.skillLevelBefore} → ${s.skillLevel}`}
+                  </Title>
+                  <Stars count={view.stars} />
+                </View>
+              </Row>
+              <View style={{ gap: space.xs }}>
+                <ProgressBar value={intoBand / MASTERY_BAND_SIZE} tone={mastery ? 'mastery' : 'brand'} />
+                <Caption>
+                  {mastery
+                    ? `Levels ${level.number - MASTERY_BAND_SIZE + 1}–${level.number} completed and resolved. Levels ${level.number + 1}–${level.number + MASTERY_BAND_SIZE} are open. ★ Mastery ${roman(band)}.`
+                    : `${intoBand} / ${MASTERY_BAND_SIZE} toward ★ Mastery ${roman(nextStar)}`}
+                </Caption>
+              </View>
+            </Card>
+          </Reveal>
 
-      {!s.alreadyCompleted && s.reinforcedConceptIds.length > 0 && (
-        <Card>
-          <Label>Reinforced</Label>
-          <Body muted>We’ll bring these back sooner in Review:</Body>
-          {s.reinforcedConceptIds.map((id) => (
-            <Body key={id}>• {getConcept(id)?.title ?? id}</Body>
-          ))}
-        </Card>
-      )}
+          <Reveal delay={900}>
+            <View style={{ alignItems: 'center', gap: space.sm }}>
+              <Row>
+                <Chip tone="brand">
+                  <Caption tone="text">Knowledge Lv. {s.knowledgeLevel}</Caption>
+                </Chip>
+                <Chip>
+                  <Caption>
+                    Today {s.daily.used} / {s.daily.cap ?? '∞'}
+                  </Caption>
+                </Chip>
+              </Row>
+              {!s.alreadyCompleted && s.reinforcedConceptIds.length > 0 && (
+                <Caption center>
+                  {s.reinforcedConceptIds.length <= 3
+                    ? `Reinforced: ${s.reinforcedConceptIds.map((id) => getConcept(id)?.title ?? id).join(', ')}. We’ll bring these back sooner in Review.`
+                    : `${s.reinforcedConceptIds.length} concepts reinforced. We’ll bring them back sooner in Review.`}
+                </Caption>
+              )}
+            </View>
+          </Reveal>
+        </View>
+      </ScrollView>
 
-      {checkpoint?.type === 'checkpoint' && (
-        <Card>
-          <Label>You learned</Label>
-          {checkpoint.learned.map((l) => (
-            <Body key={l}>✓ {l}</Body>
-          ))}
-        </Card>
-      )}
-
-      {s.daily.dailyComplete ? (
-        <Button label="Finish the day" onPress={() => router.replace('/daily-complete')} />
-      ) : next && !s.alreadyCompleted ? (
-        <Button
-          label={`Next: Level ${next.number} · ${next.title}`}
-          onPress={() => router.replace({ pathname: '/level/[id]', params: { id: next.id } })}
-        />
-      ) : null}
-      <Row>
-        <Body muted>
-          Today: {s.daily.used} / {s.daily.cap ?? '∞'} new levels
-        </Body>
-      </Row>
-      <Button variant="secondary" label="Home" onPress={() => router.dismissTo('/')} />
-    </Screen>
+      <View style={{ paddingHorizontal: layout.gutter, paddingBottom: Math.max(insets.bottom, space.lg), gap: space.sm, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' }}>
+        {next && !s.alreadyCompleted && !s.daily.dailyComplete && <Caption center>Up next: {next.title}</Caption>}
+        {s.daily.dailyComplete ? (
+          <Button label="Finish the day" onPress={() => router.replace('/daily-complete')} />
+        ) : next && !s.alreadyCompleted ? (
+          <Button
+            variant={mastery ? 'mastery' : 'primary'}
+            label={`Next: Level ${next.number}`}
+            onPress={() => router.replace({ pathname: '/level/[id]', params: { id: next.id } })}
+          />
+        ) : null}
+        <Button variant="ghost" label="Home" onPress={() => router.dismissTo('/')} />
+      </View>
+    </SafeAreaView>
   );
 }
 
-/** A small scale pop for Perfect Recall. Skipped when reduce-motion is on. */
-function usePop(active: boolean): Animated.Value {
-  const [scale] = useState(() => new Animated.Value(1));
-  useEffect(() => {
-    if (!active) return;
-    let cancelled = false;
-    AccessibilityInfo.isReduceMotionEnabled()
-      .catch(() => false)
-      .then((reduce) => {
-        if (cancelled || reduce) return;
-        scale.setValue(0.85);
-        Animated.spring(scale, { toValue: 1, friction: 4, tension: 140, useNativeDriver: true }).start();
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [active, scale]);
-  return scale;
-}
+const OUTCOME: Record<CompletionOutcome, string> = {
+  perfect: 'Perfect Recall',
+  strong: 'Strong recall',
+  reinforced: 'Knowledge reinforced',
+  heavily_reinforced: 'Level cleared',
+};
 
-/** XP counts up quickly. Skipped when reduce-motion is on. */
-function useCountUp(target: number): number {
-  const [value, setValue] = useState(0);
-  useEffect(() => {
-    let raf = 0;
-    let cancelled = false;
-    AccessibilityInfo.isReduceMotionEnabled()
-      .catch(() => false)
-      .then((reduce) => {
-        if (cancelled) return;
-        if (reduce || target === 0) return setValue(target);
-        const start = Date.now();
-        const tick = () => {
-          const t = Math.min((Date.now() - start) / (motion.celebrate * 0.7), 1);
-          setValue(Math.round(target * t));
-          if (t < 1) raf = requestAnimationFrame(tick);
-        };
-        raf = requestAnimationFrame(tick);
-      });
-    return () => {
-      cancelled = true;
-      cancelAnimationFrame(raf);
-    };
-  }, [target]);
-  return value;
+function roman(n: number): string {
+  const map: [number, string][] = [[10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
+  let out = '';
+  for (const [v, r] of map)
+    while (n >= v) {
+      out += r;
+      n -= v;
+    }
+  return out || 'I';
 }

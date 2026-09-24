@@ -1,5 +1,7 @@
 # Visual direction
 
+> **Learning should feel calm. Progress should feel powerful.** Lesson screens are quiet and content-first, with one action. Reward screens carry the glow, big numerals and motion, and gold appears only for mastery. The component system and its rules are in [`design-system.md`](design-system.md); screenshots are in [`ui/`](ui).
+
 This summarizes [`specs/VISUAL_DIRECTION.md`](specs/VISUAL_DIRECTION.md) (.docx snapshot in [`source/`](source/Visual_Theme_UI_Direction.docx)). The tokens are implemented in [`app/src/theme/tokens.ts`](../app/src/theme/tokens.ts).
 
 **North star:** make knowledge look like a video-game resource. Think Duolingo clarity, plus premium-app restraint, plus RPG progression feedback. It should feel smart first and game-like second.
@@ -32,6 +34,7 @@ Only one bright accent should dominate a screen. Glow is a reward effect, not de
 
 - **Home:** "loading a save file". One dominant Continue card, then today's progress (x / 5) and a few secondary subject stats.
 - **Level scroll:** learning first. Hook → 2–4 short learning cards → 3 light questions (recall, understanding, connection) → Level Complete. It's finite with a saved place and ends on a reward like "+100 XP · Perfect Recall · Level 19 unlocked", with the next level offered immediately.
+- **Questions:** large lettered answer cards. Tapping one selects it; **CHECK** grades it, so only checked answers count as attempts. Feedback appears in context, in the tinted footer, and is never a separate screen.
 - **A wrong answer:** a restrained coral note ("Not quite: That's Jupiter.") under the still-visible question, then **Take another look** with the question's source card inline, then the options again with the wrong pick crossed out. Choose until right, then "Reinforced · We'll bring this back later". There's no failure screen, no lives and no restart.
 - **Level Complete:** "+XP" counts up. "First try: 2 / 3" is shown plainly. Perfect Recall (3/3) gets a small scale pop and a callout card. Reinforced concepts are listed as "We'll bring these back sooner in Review." Reduce-motion skips the animation. Checkpoints (every 10th level), the Level 50 milestone and the Level 100 Mastery Challenge are the only longer checks, and the player's header labels them. Their XP comes from each type's own pool and is shown as returned, never computed on screen. Level 100 shows "★ Mastery star earned" in XP Gold with "Levels 1–100 completed and resolved. Levels 101–200 are open." whatever the first-try score.
 - **Review:** works like a level question. A miss shows "Take another look" with the source card beneath the question, and the choices stay open until the right one is chosen. Never reveal the answer and move on. The summary shows "x / n right first time" and +10 XP for each.

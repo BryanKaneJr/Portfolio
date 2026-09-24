@@ -4,6 +4,19 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24 — Autonomous build pass (no Supabase/phone testing yet)
 
+- **UI Foundation Pass** (`docs/design-system.md`; screenshots in `docs/ui/`). The principle: **learning is calm, progress is powerful.** No mechanics changed: question counts, first-attempt XP, source-card reinforcement, required resolution, review, the daily cap and progression all behave exactly as before, and both e2e suites pass.
+  - **Design system:**
+    - tokens: a type scale with an 18/28 reading size, reading width, touch sizes, soft state colours, elevation, **reward-only glow**, motion, haptics (`expo-haptics`) and reduce-motion
+    - `components/ui/` primitives: text, buttons (depress on press; primary/secondary/ghost/success/mastery), surfaces, progress (lesson bar, pips, chapter rail), answer cards, feedback panel, evidence block, lesson shell, and reward pieces (count-up, reveal, pop, halo, emblem, stars, stat tile)
+  - **Lessons:** a quiet lesson shell (✕ · thick progress · ⚑; content at reading width; one bottom-anchored action). Learning cards are typographic pages. **Questions are select → CHECK** with large lettered answer cards. In-context feedback appears in a tinted footer. A wrong answer crosses out the pick and shows **Take another look** under the prompt, then asks to choose again. Review sessions use the same shell.
+  - **Progression:** Level Complete is now the payoff: outcome headline, XP count-up with halo, the skill emblem counting up, progress toward the next ★, and one line of detail. It turns gold only for a mastery star. Daily Complete got the same treatment.
+  - **Tab screens:**
+    - Home has one dominant Continue card; Review becomes primary after the cap.
+    - Skills: emblem, rank, stars, chapter rail and road to ★, with coming-soon subjects.
+    - Review: one calm card, not an inbox.
+    - Profile is now a character sheet: Knowledge Level emblem, title slot, three honest empty trophy slots, subject ranks and skills.
+    - Onboarding, the tab bar, the report sheet and the account card were restyled too.
+  - **Bug fixed along the way:** the Review tab's focus effect looped forever (its `reviewQueue` dependency changed on every snapshot refresh). It predates this pass; a new e2e check visits the tab.
 - **Product decision recorded: Unlimited perks.** Unlimited's only gameplay/progression advantage is removing the daily new-level cap; it may also include non-progression cosmetic or personalization benefits (themes, profile customization). Accomplishment cosmetics (mastery frames, quest rewards, rare trophy treatments, prestige effects) stay earned. Updated product-rules rule 10, CURRENT_PRODUCT_DECISIONS §8, README, CLAUDE.md, social-expansion.md (open question closed) and code comments.
 - **Analytics and content reporting** (`docs/analytics.md`). It measures learning and product health, **never time spent**: no durations anywhere, and a test enforces it.
   - **Server** (migration `20260929`):

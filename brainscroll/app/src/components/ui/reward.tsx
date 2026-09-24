@@ -104,12 +104,12 @@ export function StatTile({ label, value, tone = 'text' }: { label: string; value
 
 /** A soft radial-ish halo behind a reward numeral. Purely decorative. */
 export function Halo({ tone = 'brand' }: { tone?: 'brand' | 'mastery' }) {
-  return <View pointerEvents="none" style={[styles.halo, { backgroundColor: tone === 'mastery' ? 'rgba(255,200,87,0.10)' : 'rgba(124,92,255,0.16)' }, tone === 'mastery' ? glow.mastery : glow.brand]} />;
+  return <View pointerEvents="none" style={[styles.halo, { backgroundColor: tone === 'mastery' ? 'rgba(255,200,87,0.07)' : 'rgba(124,92,255,0.09)' }, tone === 'mastery' ? glow.mastery : glow.brand]} />;
 }
 
 const styles = StyleSheet.create({
   emblem: { alignItems: 'center', justifyContent: 'center', borderWidth: 2 },
   emblemInner: { ...StyleSheet.absoluteFill, margin: 5, borderWidth: 1 },
   tile: { flex: 1, backgroundColor: color.surface, borderRadius: radius.md, borderWidth: 1, borderColor: color.border, paddingVertical: space.md, paddingHorizontal: space.md, gap: space.xs, alignItems: 'center' },
-  halo: { position: 'absolute', alignSelf: 'center', top: -20, width: 220, height: 220, borderRadius: 110 },
+  halo: { position: 'absolute', alignSelf: 'center', top: 10, width: 200, height: 200, borderRadius: 100 },
 });

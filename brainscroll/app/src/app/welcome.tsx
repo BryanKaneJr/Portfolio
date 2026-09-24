@@ -4,10 +4,10 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, Label, ProgressBar } from '@/components/ui';
+import { Body, Button, Caption, Display, Eyebrow, H1, ProgressBar } from '@/components/ui';
 import { levelByNumber, skills, subjects } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
-import { color, radius, space } from '@/theme/tokens';
+import { color, layout, radius, space, type } from '@/theme/tokens';
 
 /**
  * First run: premise → pick a skill → the rules → Level 1, in about a minute.
@@ -29,14 +29,14 @@ export default function WelcomeScreen() {
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.top}>
-        <ProgressBar value={(step + 1) / 3} />
+        <ProgressBar value={(step + 1) / 3} size="lesson" />
       </View>
 
       <View style={styles.body}>
         {step === 0 && (
           <>
-            <Label tone="brand">BrainScroll</Label>
-            <Text style={styles.display}>{VOICE.tagline}</Text>
+            <Eyebrow tone="brand">BrainScroll</Eyebrow>
+            <Display>{VOICE.tagline}</Display>
             <Body>
               Every level is a short, finished lesson in a real curriculum. Level up skills from 1 to 100 like an RPG
               character, except the stats are things you actually know.
@@ -46,8 +46,8 @@ export default function WelcomeScreen() {
 
         {step === 1 && (
           <>
-            <Label>Pick your first skill</Label>
-            <Text style={styles.headline}>What do you want to level first?</Text>
+            <Eyebrow>Pick your first skill</Eyebrow>
+            <H1>What do you want to level first?</H1>
             <View style={{ gap: space.sm }}>
               {subjects.map((subject) => {
                 const skill = playable.find((s) => s.subjectId === subject.id);
@@ -71,11 +71,11 @@ export default function WelcomeScreen() {
 
         {step === 2 && (
           <>
-            <Label>The deal</Label>
-            <Text style={styles.headline}>{DAILY_FREE_NEW_LEVELS} new levels a day. Free, forever.</Text>
+            <Eyebrow>The deal</Eyebrow>
+            <H1>{DAILY_FREE_NEW_LEVELS} new levels a day. Free, forever.</H1>
             <Body>After that, we’ll tell you you’re done. Seriously. Go outside.</Body>
             <Body>Review is unlimited, wrong answers never cost you anything, and progress never resets.</Body>
-            <Body muted>{VOICE.fairness}</Body>
+            <Caption>{VOICE.fairness}</Caption>
           </>
         )}
       </View>
@@ -103,13 +103,11 @@ export default function WelcomeScreen() {
 
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: color.bg },
-  top: { paddingHorizontal: space.lg, paddingTop: space.md },
-  body: { flex: 1, padding: space.lg, paddingTop: space.xxl, gap: space.lg },
-  display: { color: color.text, fontSize: 36, fontWeight: '800', lineHeight: 42 },
-  headline: { color: color.text, fontSize: 26, fontWeight: '800', lineHeight: 32 },
-  choice: { borderWidth: 2, borderColor: color.border, backgroundColor: color.surface, borderRadius: radius.md, padding: space.lg, gap: 2 },
-  choiceSelected: { borderColor: color.brand },
-  choiceTitle: { color: color.text, fontSize: 16, fontWeight: '700' },
-  choiceMeta: { color: color.textMuted, fontSize: 13 },
-  footer: { padding: space.lg, gap: space.sm },
+  top: { flexDirection: 'row', paddingHorizontal: layout.gutter, paddingTop: space.lg },
+  body: { flex: 1, paddingHorizontal: layout.gutter, paddingTop: space.xxxl, gap: space.lg, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' },
+  choice: { borderWidth: 2, borderBottomWidth: 4, borderColor: color.border, backgroundColor: color.surface, borderRadius: radius.md, padding: space.lg, gap: 2, minHeight: layout.answerMinHeight },
+  choiceSelected: { borderColor: color.brand, backgroundColor: color.brandSoft },
+  choiceTitle: { ...type.bodyStrong, fontSize: 17, color: color.text },
+  choiceMeta: { ...type.caption, color: color.textMuted },
+  footer: { paddingHorizontal: layout.gutter, paddingBottom: space.xl, gap: space.sm, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' },
 });
