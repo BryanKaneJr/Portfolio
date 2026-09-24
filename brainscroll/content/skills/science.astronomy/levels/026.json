@@ -1,0 +1,206 @@
+{
+  "id": "level.science.astronomy.026",
+  "skillId": "skill.science.astronomy",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Kepler’s Ellipses",
+  "objective": "After this level you can state Kepler’s laws in plain words and explain why planets speed up near the Sun.",
+  "summary": "Using Tycho Brahe’s data, Kepler found that orbits are ellipses, planets speed up near the Sun, and outer planets take longer.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.kepler_laws",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.heliocentric_model",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.seasons_not_distance",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.025"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Planets don’t move in circles. Proving it took the best data of the age."
+    },
+    {
+      "id": "card.astronomy.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ellipses, not circles",
+      "body": "Johannes Kepler studied the precise naked-eye observations of Tycho Brahe. Circles never quite fit Mars. Ellipses did. His first law: planets orbit the Sun in ellipses, with the Sun at one focus rather than the center.",
+      "callout": "Law 1: orbits are ellipses"
+    },
+    {
+      "id": "card.astronomy.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Faster when closer",
+      "body": "His second law says a line from the Sun to a planet sweeps out equal areas in equal times. In practice, a planet moves fastest when it’s closest to the Sun and slowest when farthest. His third law adds that the farther out a planet orbits, the longer its year.",
+      "callout": "Law 2: faster near the Sun · Law 3: farther = longer year"
+    },
+    {
+      "id": "card.astronomy.026.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.026.q1"
+    },
+    {
+      "id": "card.astronomy.026.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.026.q2"
+    },
+    {
+      "id": "card.astronomy.026.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.026.q3"
+    },
+    {
+      "id": "card.astronomy.026.c7",
+      "type": "checkpoint",
+      "headline": "Kepler’s laws: learned",
+      "learned": [
+        "Kepler used Tycho Brahe’s precise observations",
+        "Law 1: orbits are ellipses",
+        "Law 2: planets move fastest near the Sun",
+        "Law 3: farther planets take longer to orbit"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.kepler_laws"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.026.c2"
+      ],
+      "prompt": "What shape did Kepler find planetary orbits to be?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Perfect circles",
+          "correct": false,
+          "rationale": "That was Copernicus’s assumption."
+        },
+        {
+          "id": "b",
+          "label": "Ellipses",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Spirals",
+          "correct": false,
+          "rationale": "Orbits repeat; they don’t spiral."
+        },
+        {
+          "id": "d",
+          "label": "Squares with rounded corners",
+          "correct": false,
+          "rationale": "Orbits are smooth ellipses."
+        }
+      ],
+      "explanation": "Kepler’s first law: each planet orbits the Sun in an ellipse, with the Sun at one focus.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.kepler_laws"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.026.c3"
+      ],
+      "prompt": "According to Kepler’s second law, when does a planet move fastest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "When it is farthest from the Sun",
+          "correct": false,
+          "rationale": "It’s slowest there."
+        },
+        {
+          "id": "b",
+          "label": "When it is halfway around",
+          "correct": false,
+          "rationale": "Speed changes with distance, not with position in the year."
+        },
+        {
+          "id": "c",
+          "label": "It always moves at the same speed",
+          "correct": false,
+          "rationale": "Its speed changes along an elliptical orbit."
+        },
+        {
+          "id": "d",
+          "label": "When it is closest to the Sun",
+          "correct": true
+        }
+      ],
+      "explanation": "Sweeping equal areas in equal times means the planet must move faster when it’s near the Sun.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.kepler_laws",
+        "concept.astronomy.seasons_not_distance"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.026.c3",
+        "card.astronomy.005.c2"
+      ],
+      "prompt": "From Level 5: Earth is closest to the Sun in early January. By Kepler’s second law, what follows?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Earth moves fastest in its orbit around early January",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Northern winter is warmest",
+          "correct": false,
+          "rationale": "Distance isn’t what sets the seasons."
+        },
+        {
+          "id": "c",
+          "label": "Earth spins faster in January",
+          "correct": false,
+          "rationale": "Kepler’s law is about orbital speed, not spin."
+        },
+        {
+          "id": "d",
+          "label": "The Moon moves closer in January",
+          "correct": false,
+          "rationale": "The law applies to Earth orbiting the Sun."
+        }
+      ],
+      "explanation": "A planet moves fastest nearest the Sun. Earth is closest in early January, so that’s when it moves fastest along its orbit.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_kepler_laws",
+    "source.brit_tycho"
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "id": "level.science.astronomy.022",
+  "skillId": "skill.science.astronomy",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Eratosthenes Measures the Earth",
+  "objective": "After this level you can explain how a shadow and a well let someone estimate Earth’s size over 2,000 years ago.",
+  "summary": "Comparing the noon Sun in two cities, Eratosthenes estimated Earth’s circumference remarkably well around 240 BCE.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.eratosthenes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.round_earth_known",
+      "role": "teach",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.eclipse_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.021"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Around 240 BCE, someone measured the whole Earth without leaving Egypt."
+    },
+    {
+      "id": "card.astronomy.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two cities, one Sun",
+      "body": "Eratosthenes heard that at Syene, at noon on the summer solstice, the Sun shone straight down a deep well. At the same moment in Alexandria, farther north, a vertical pole cast a shadow about 7° from vertical, roughly one-fiftieth of a full circle.",
+      "callout": "7° ≈ 1/50 of a circle"
+    },
+    {
+      "id": "card.astronomy.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "From angle to planet",
+      "body": "If Earth is a sphere, the angle difference means the distance between the cities is one-fiftieth of the way around the globe. Multiply that distance by 50 and you get Earth’s circumference. His answer was remarkably close to the modern value of about 40,000 km."
+    },
+    {
+      "id": "card.astronomy.022.c4",
+      "type": "fact",
+      "fact": "Greek thinkers already knew Earth was round.",
+      "context": "During lunar eclipses, Earth’s shadow on the Moon is always curved, the shape only a sphere casts every time."
+    },
+    {
+      "id": "card.astronomy.022.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.022.q1"
+    },
+    {
+      "id": "card.astronomy.022.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.022.q2"
+    },
+    {
+      "id": "card.astronomy.022.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.022.q3"
+    },
+    {
+      "id": "card.astronomy.022.c8",
+      "type": "checkpoint",
+      "headline": "Earth: measured",
+      "learned": [
+        "Eratosthenes measured Earth around 240 BCE",
+        "He compared noon shadows in two cities",
+        "Angle × distance gave the circumference",
+        "Earth’s curved shadow showed it was round"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.eratosthenes"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.022.c2"
+      ],
+      "prompt": "What did Eratosthenes compare to estimate Earth’s size?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The length of a day in two cities",
+          "correct": false,
+          "rationale": "Day length wasn’t his method."
+        },
+        {
+          "id": "b",
+          "label": "The angle of the noon Sun in two cities",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The height of two mountains",
+          "correct": false,
+          "rationale": "He used the Sun’s angle, not mountains."
+        },
+        {
+          "id": "d",
+          "label": "The Moon’s shadow during an eclipse",
+          "correct": false,
+          "rationale": "He compared the noon Sun in two cities."
+        }
+      ],
+      "explanation": "At noon on the solstice, the Sun was straight overhead at Syene but about 7° off vertical at Alexandria. That difference revealed Earth’s curve.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.eratosthenes"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.022.c3"
+      ],
+      "prompt": "The shadow angle was about one-fiftieth of a circle. What did Eratosthenes do next?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Divided the distance between the cities by 50",
+          "correct": false,
+          "rationale": "That would give a tiny number."
+        },
+        {
+          "id": "b",
+          "label": "Measured the well’s depth",
+          "correct": false,
+          "rationale": "The well only showed the Sun was overhead."
+        },
+        {
+          "id": "c",
+          "label": "Multiplied the distance between the cities by 50",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Timed the Sun for 50 days",
+          "correct": false,
+          "rationale": "The measurement took one noon."
+        }
+      ],
+      "explanation": "If the cities are one-fiftieth of the way around Earth, then 50 times the distance between them gives the full circumference.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.round_earth_known",
+        "concept.astronomy.eclipse_types"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.022.c4",
+        "card.astronomy.007.c2"
+      ],
+      "prompt": "From Level 7: during a lunar eclipse, why does Earth’s curved shadow on the Moon show that Earth is round?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon is round, so every shadow on it looks curved",
+          "correct": false,
+          "rationale": "A flat disc seen edge-on would cast a straight shadow."
+        },
+        {
+          "id": "b",
+          "label": "The Sun is round",
+          "correct": false,
+          "rationale": "The shadow’s shape comes from Earth."
+        },
+        {
+          "id": "c",
+          "label": "Only full Moons have curved shadows",
+          "correct": false,
+          "rationale": "The shadow’s curve comes from Earth, not the phase."
+        },
+        {
+          "id": "d",
+          "label": "Only a sphere casts a curved shadow every time, from every angle",
+          "correct": true
+        }
+      ],
+      "explanation": "In a lunar eclipse, Earth’s shadow falls on the Moon. Its edge is always curved, which only a sphere produces from every direction.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_eratosthenes"
+  ]
+}

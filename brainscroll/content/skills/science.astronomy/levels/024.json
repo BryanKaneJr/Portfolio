@@ -1,0 +1,210 @@
+{
+  "id": "level.science.astronomy.024",
+  "skillId": "skill.science.astronomy",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Copernicus Moves the Sun",
+  "objective": "After this level you can explain the heliocentric model and why it explained retrograde motion more simply.",
+  "summary": "In 1543 Copernicus put the Sun at the center, making Earth just another planet and explaining retrograde loops naturally.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.heliocentric_model",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.geocentric_model",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.retrograde_motion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.023"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1543, one book quietly demoted Earth to “just another planet.”"
+    },
+    {
+      "id": "card.astronomy.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Sun in the middle",
+      "body": "Nicolaus Copernicus published a model with the Sun at the center and Earth as one of several planets orbiting it. Earth’s daily spin explained the turning sky; its yearly orbit explained the Sun’s path through the stars."
+    },
+    {
+      "id": "card.astronomy.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Loops without epicycles",
+      "body": "In this model, retrograde motion is simply Earth overtaking the outer planets. No extra circles are needed to cause it. Copernicus still assumed perfectly circular orbits, though, so his model needed some small circles of its own to match observations."
+    },
+    {
+      "id": "card.astronomy.024.c4",
+      "type": "fact",
+      "fact": "Copernicus wasn’t the first.",
+      "context": "Aristarchus of Samos proposed a Sun-centered arrangement around 1,800 years earlier, but the idea didn’t catch on."
+    },
+    {
+      "id": "card.astronomy.024.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.024.q1"
+    },
+    {
+      "id": "card.astronomy.024.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.024.q2"
+    },
+    {
+      "id": "card.astronomy.024.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.024.q3"
+    },
+    {
+      "id": "card.astronomy.024.c8",
+      "type": "checkpoint",
+      "headline": "Heliocentric model: understood",
+      "learned": [
+        "Copernicus published a Sun-centered model in 1543",
+        "Earth became one of the planets",
+        "Retrograde motion = Earth overtaking",
+        "His orbits were still perfect circles"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.heliocentric_model"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.024.c2"
+      ],
+      "prompt": "What did Copernicus put at the center of his model?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Earth",
+          "correct": false,
+          "rationale": "That was Ptolemy’s model."
+        },
+        {
+          "id": "b",
+          "label": "The Moon",
+          "correct": false,
+          "rationale": "The Moon orbits Earth in both models."
+        },
+        {
+          "id": "c",
+          "label": "The Sun",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Jupiter",
+          "correct": false,
+          "rationale": "Jupiter is one of the orbiting planets."
+        }
+      ],
+      "explanation": "Copernicus’s heliocentric model placed the Sun at the center, with Earth orbiting it like the other planets.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.astronomy.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.heliocentric_model"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.024.c3"
+      ],
+      "prompt": "How did the heliocentric model explain retrograde motion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As Earth overtaking the slower outer planets",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "As planets moving on epicycles",
+          "correct": false,
+          "rationale": "That was Ptolemy’s explanation."
+        },
+        {
+          "id": "c",
+          "label": "As the Sun pulling planets backwards",
+          "correct": false,
+          "rationale": "The Sun doesn’t reverse planets."
+        },
+        {
+          "id": "d",
+          "label": "As an error in observations",
+          "correct": false,
+          "rationale": "The loops are real, but only apparent."
+        }
+      ],
+      "explanation": "With the Sun at the center, retrograde loops follow naturally from Earth passing the outer planets.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.heliocentric_model",
+        "concept.astronomy.geocentric_model"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.024.c3",
+        "card.astronomy.023.c2"
+      ],
+      "prompt": "From Level 23: what was one weakness Copernicus’s model shared with Ptolemy’s?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It kept Earth at the center",
+          "correct": false,
+          "rationale": "Copernicus moved the Sun to the center."
+        },
+        {
+          "id": "b",
+          "label": "It still assumed perfectly circular orbits",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It ignored the Moon",
+          "correct": false,
+          "rationale": "Both models included the Moon."
+        },
+        {
+          "id": "d",
+          "label": "It couldn’t explain day and night",
+          "correct": false,
+          "rationale": "Earth’s spin explained day and night."
+        }
+      ],
+      "explanation": "Like Ptolemy, Copernicus used perfect circles, so he still needed some small extra circles. Ellipses came later, with Kepler.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_copernicus",
+    "source.brit_aristarchus"
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "id": "level.science.astronomy.025",
+  "skillId": "skill.science.astronomy",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Galileo’s Telescope",
+  "objective": "After this level you can describe what Galileo saw that challenged the Earth-centered view.",
+  "summary": "Galileo’s telescope revealed moons circling Jupiter, a full set of Venus phases, lunar mountains and a starry Milky Way.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.galileo_observations",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.heliocentric_model",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.milky_way_home",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.moon_phases",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.024"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1610, four tiny moons around Jupiter cracked the Earth-centered universe."
+    },
+    {
+      "id": "card.astronomy.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Borrowed idea, better instrument",
+      "body": "Galileo didn’t invent the telescope; it first appeared in the Netherlands in 1608. But he built better ones and, in 1609, pointed them at the sky. He found mountains and craters on the Moon and saw that the Milky Way is made of countless stars."
+    },
+    {
+      "id": "card.astronomy.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Moons that don’t orbit Earth",
+      "body": "Galileo found four moons circling Jupiter: Io, Europa, Ganymede and Callisto. Here was proof that not everything circles Earth.",
+      "callout": "Io · Europa · Ganymede · Callisto"
+    },
+    {
+      "id": "card.astronomy.025.c4",
+      "type": "fact",
+      "fact": "Venus has phases, just like the Moon.",
+      "context": "Galileo saw Venus go through a full set of phases, from crescent to nearly full. Ptolemy’s model couldn’t produce that; a Venus orbiting the Sun could."
+    },
+    {
+      "id": "card.astronomy.025.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.025.q1"
+    },
+    {
+      "id": "card.astronomy.025.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.025.q2"
+    },
+    {
+      "id": "card.astronomy.025.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.025.q3"
+    },
+    {
+      "id": "card.astronomy.025.c8",
+      "type": "checkpoint",
+      "headline": "Galileo: observed",
+      "learned": [
+        "Galileo turned improved telescopes on the sky in 1609",
+        "He found four moons circling Jupiter",
+        "Venus shows a full set of phases",
+        "The Milky Way is made of countless stars"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.galileo_observations"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.025.c3"
+      ],
+      "prompt": "What did Galileo discover orbiting Jupiter in 1610?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Four large moons",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A ring system",
+          "correct": false,
+          "rationale": "Jupiter’s faint rings were found much later."
+        },
+        {
+          "id": "c",
+          "label": "A second Sun",
+          "correct": false,
+          "rationale": "Jupiter orbits our only Sun."
+        },
+        {
+          "id": "d",
+          "label": "Comets",
+          "correct": false,
+          "rationale": "He found moons."
+        }
+      ],
+      "explanation": "Galileo found Io, Europa, Ganymede and Callisto, now called the Galilean moons.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.galileo_observations"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.025.c3"
+      ],
+      "prompt": "Why were Jupiter’s moons a problem for the Earth-centered model?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were too bright",
+          "correct": false,
+          "rationale": "Brightness wasn’t the issue."
+        },
+        {
+          "id": "b",
+          "label": "They proved Jupiter was a star",
+          "correct": false,
+          "rationale": "Jupiter is a planet."
+        },
+        {
+          "id": "c",
+          "label": "They showed the Moon was not round",
+          "correct": false,
+          "rationale": "They were about Jupiter, not our Moon."
+        },
+        {
+          "id": "d",
+          "label": "They showed something orbiting a body other than Earth",
+          "correct": true
+        }
+      ],
+      "explanation": "In the geocentric model everything circled Earth. Moons circling Jupiter showed that wasn’t true.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.galileo_observations",
+        "concept.astronomy.moon_phases"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.025.c4",
+        "card.astronomy.006.c2"
+      ],
+      "prompt": "From Level 6: our Moon shows phases because it orbits Earth and we see varying amounts of its lit half. What did Venus’s full set of phases suggest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Venus orbits Earth like the Moon",
+          "correct": false,
+          "rationale": "An Earth-orbiting Venus could not show a full set of phases."
+        },
+        {
+          "id": "b",
+          "label": "Venus orbits the Sun",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Venus makes its own light",
+          "correct": false,
+          "rationale": "Phases show Venus is lit by the Sun."
+        },
+        {
+          "id": "d",
+          "label": "Venus is tidally locked",
+          "correct": false,
+          "rationale": "Phases say nothing about its rotation."
+        }
+      ],
+      "explanation": "We see different amounts of Venus’s sunlit half as it orbits the Sun. A full set of phases fits a Sun-centered orbit, not Ptolemy’s model.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_jupiter_moons",
+    "source.brit_galileo"
+  ]
+}

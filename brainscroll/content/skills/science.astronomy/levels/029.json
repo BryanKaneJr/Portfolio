@@ -1,0 +1,210 @@
+{
+  "id": "level.science.astronomy.029",
+  "skillId": "skill.science.astronomy",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "New Planets: Uranus and Neptune",
+  "objective": "After this level you can explain how Uranus was found by telescope and Neptune was predicted by mathematics.",
+  "summary": "Herschel spotted Uranus in 1781. Tugs on Uranus’s orbit let Le Verrier predict Neptune, found in 1846 almost exactly where predicted.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.uranus_discovery",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.neptune_prediction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.newton_gravity",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.giant_planets",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.028"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.029.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One planet was found with a telescope. The next was found with a pencil."
+    },
+    {
+      "id": "card.astronomy.029.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A planet no one had seen",
+      "body": "In 1781, William Herschel spotted a slow-moving object that turned out to be a new planet: Uranus. It was the first planet discovered with a telescope. Every planet out to Saturn had been known since ancient times. Uranus is so faint that earlier astronomers had recorded it and mistaken it for a star."
+    },
+    {
+      "id": "card.astronomy.029.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Found by mathematics",
+      "body": "Uranus didn’t quite follow its predicted path, as if something unseen were tugging it. Using Newton’s gravity, Urbain Le Verrier calculated where that unseen planet should be. In 1846 Johann Galle looked there and found Neptune, within about a degree of the prediction.",
+      "callout": "Gravity math → new planet"
+    },
+    {
+      "id": "card.astronomy.029.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.029.q1"
+    },
+    {
+      "id": "card.astronomy.029.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.029.q2"
+    },
+    {
+      "id": "card.astronomy.029.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.029.q3"
+    },
+    {
+      "id": "card.astronomy.029.c7",
+      "type": "checkpoint",
+      "headline": "New planets: discovered",
+      "learned": [
+        "Herschel discovered Uranus in 1781",
+        "It was the first planet found by telescope",
+        "Neptune was predicted from Uranus’s wobbles",
+        "Galle found it in 1846, right where predicted"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.neptune_prediction"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.029.c3"
+      ],
+      "prompt": "How was Neptune discovered?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By chance, during a comet search",
+          "correct": false,
+          "rationale": "Its position was calculated first."
+        },
+        {
+          "id": "b",
+          "label": "By a space probe",
+          "correct": false,
+          "rationale": "That was in 1846, long before spacecraft."
+        },
+        {
+          "id": "c",
+          "label": "Its position was predicted mathematically, then it was observed there",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ancient astronomers saw it with the naked eye",
+          "correct": false,
+          "rationale": "Neptune is far too faint for that."
+        }
+      ],
+      "explanation": "Le Verrier used gravity to predict Neptune’s position from tugs on Uranus’s orbit; Galle found it there in 1846.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.uranus_discovery"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.029.c2"
+      ],
+      "prompt": "What was special about Herschel’s discovery of Uranus in 1781?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the first moon discovered",
+          "correct": false,
+          "rationale": "Galileo found moons in 1610."
+        },
+        {
+          "id": "b",
+          "label": "It was the first planet discovered with a telescope",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It was the closest planet to Earth",
+          "correct": false,
+          "rationale": "Uranus is very distant."
+        },
+        {
+          "id": "d",
+          "label": "It was predicted by mathematics first",
+          "correct": false,
+          "rationale": "That was Neptune."
+        }
+      ],
+      "explanation": "All planets out to Saturn were known since ancient times. Uranus was the first found with a telescope.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.neptune_prediction",
+        "concept.astronomy.newton_gravity"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.029.c3",
+        "card.astronomy.027.c2"
+      ],
+      "prompt": "From Level 27: which law did Le Verrier use to predict Neptune’s position?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Kepler’s first law alone",
+          "correct": false,
+          "rationale": "Ellipses describe orbits but don’t explain tugs between planets."
+        },
+        {
+          "id": "b",
+          "label": "The law of the tides",
+          "correct": false,
+          "rationale": "Tides are one effect of gravity, not a tool for finding planets."
+        },
+        {
+          "id": "c",
+          "label": "Eratosthenes’ shadow method",
+          "correct": false,
+          "rationale": "That measured Earth’s size."
+        },
+        {
+          "id": "d",
+          "label": "Newton’s law of universal gravitation",
+          "correct": true
+        }
+      ],
+      "explanation": "Newton’s gravity predicts how planets tug on each other. The unexplained tug on Uranus pointed to Neptune.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_uranus_facts",
+    "source.nasa_neptune_facts"
+  ]
+}

@@ -1,0 +1,349 @@
+{
+  "id": "level.science.astronomy.030",
+  "skillId": "skill.science.astronomy",
+  "number": 30,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: How We Know",
+  "objective": "After this level you can trace how observation and reasoning moved humanity from an Earth-centered sky to modern astronomy.",
+  "summary": "From Eratosthenes to Bessel, better observations kept testing ideas, until stellar parallax proved that Earth moves.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.stellar_parallax_proof",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.eratosthenes",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.geocentric_model",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.heliocentric_model",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.galileo_observations",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.kepler_laws",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.newton_gravity",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.geocentric_reasons",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.029"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.030.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 3 finale. The last ancient objection falls.",
+      "body": "For 2,000 years, no one could see the stars shift as Earth moved. Then someone did."
+    },
+    {
+      "id": "card.astronomy.030.c2",
+      "type": "timeline",
+      "headline": "How we figured it out",
+      "events": [
+        {
+          "when": "~240 BCE",
+          "label": "Eratosthenes measures Earth"
+        },
+        {
+          "when": "~150 CE",
+          "label": "Ptolemy’s Earth-centered model"
+        },
+        {
+          "when": "1543",
+          "label": "Copernicus puts the Sun at the center"
+        },
+        {
+          "when": "1610",
+          "label": "Galileo finds moons around Jupiter"
+        },
+        {
+          "when": "1687",
+          "label": "Newton’s law of gravity"
+        },
+        {
+          "when": "1838",
+          "label": "Bessel measures stellar parallax"
+        }
+      ]
+    },
+    {
+      "id": "card.astronomy.030.c3",
+      "type": "fact",
+      "fact": "In 1838 Friedrich Bessel finally measured a star shifting as Earth orbits.",
+      "context": "The star, 61 Cygni, moved by a tiny angle over the year: the first measured distance to a star, and direct proof that Earth goes around the Sun, as Copernicus had argued."
+    },
+    {
+      "id": "card.astronomy.030.c4",
+      "type": "recall",
+      "questionId": "question.astronomy.030.q1"
+    },
+    {
+      "id": "card.astronomy.030.c5",
+      "type": "recall",
+      "questionId": "question.astronomy.030.q2"
+    },
+    {
+      "id": "card.astronomy.030.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.030.q3"
+    },
+    {
+      "id": "card.astronomy.030.c7",
+      "type": "mcq",
+      "questionId": "question.astronomy.030.q4"
+    },
+    {
+      "id": "card.astronomy.030.c8",
+      "type": "recall",
+      "questionId": "question.astronomy.030.q5"
+    },
+    {
+      "id": "card.astronomy.030.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 3 complete",
+      "learned": [
+        "Eratosthenes measured Earth around 240 BCE",
+        "Copernicus and Galileo displaced the Earth-centered view",
+        "Kepler described orbits; Newton explained them",
+        "Bessel’s 1838 parallax proved Earth moves"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.030.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.eratosthenes"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.022.c2"
+      ],
+      "prompt": "Who first estimated Earth’s circumference from shadows?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ptolemy",
+          "correct": false,
+          "rationale": "Ptolemy described an Earth-centered model."
+        },
+        {
+          "id": "b",
+          "label": "Eratosthenes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Kepler",
+          "correct": false,
+          "rationale": "Kepler worked out planetary orbits."
+        },
+        {
+          "id": "d",
+          "label": "Galileo",
+          "correct": false,
+          "rationale": "Galileo made telescope discoveries."
+        }
+      ],
+      "explanation": "Around 240 BCE, Eratosthenes compared the noon Sun in two cities to estimate Earth’s size.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.030.q2",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.kepler_laws"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.026.c2"
+      ],
+      "prompt": "What did Kepler discover about the shape of orbits?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are perfect circles",
+          "correct": false,
+          "rationale": "That was the older assumption."
+        },
+        {
+          "id": "b",
+          "label": "They are epicycles",
+          "correct": false,
+          "rationale": "That was Ptolemy’s device."
+        },
+        {
+          "id": "c",
+          "label": "They are spirals",
+          "correct": false,
+          "rationale": "Orbits repeat."
+        },
+        {
+          "id": "d",
+          "label": "They are ellipses",
+          "correct": true
+        }
+      ],
+      "explanation": "Kepler’s first law: planets move in ellipses with the Sun at one focus.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.030.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.galileo_observations",
+        "concept.astronomy.geocentric_model"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.025.c4"
+      ],
+      "prompt": "Which observation did the Earth-centered model fail to explain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The full set of phases of Venus",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Sun rising in the east",
+          "correct": false,
+          "rationale": "Both models explained that."
+        },
+        {
+          "id": "c",
+          "label": "The Moon’s phases",
+          "correct": false,
+          "rationale": "Both models explained the Moon’s phases."
+        },
+        {
+          "id": "d",
+          "label": "Stars appearing fixed in patterns",
+          "correct": false,
+          "rationale": "That fit both models."
+        }
+      ],
+      "explanation": "Galileo saw Venus show a full set of phases, which only makes sense if Venus orbits the Sun.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.030.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.stellar_parallax_proof",
+        "concept.astronomy.geocentric_reasons"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.030.c3",
+        "card.astronomy.023.c3"
+      ],
+      "prompt": "Why was Bessel’s 1838 measurement of stellar parallax so important?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It found a new planet",
+          "correct": false,
+          "rationale": "It measured a star’s shift."
+        },
+        {
+          "id": "b",
+          "label": "It showed stars move faster than planets",
+          "correct": false,
+          "rationale": "It showed Earth moves."
+        },
+        {
+          "id": "c",
+          "label": "It directly showed Earth moving around the Sun, answering an ancient objection",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It proved the Moon orbits Earth",
+          "correct": false,
+          "rationale": "That was never in doubt."
+        }
+      ],
+      "explanation": "Parallax is the shift of a nearby star caused by Earth’s orbit. No one had seen it before; Bessel did.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.030.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.newton_gravity",
+        "concept.astronomy.kepler_laws"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.027.c3",
+        "card.astronomy.026.c2"
+      ],
+      "prompt": "Chapter 3 recap: what put the final piece in place for why the planets move as they do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ptolemy’s epicycles",
+          "correct": false,
+          "rationale": "Epicycles described motion inside the wrong model."
+        },
+        {
+          "id": "b",
+          "label": "Copernicus’s circles",
+          "correct": false,
+          "rationale": "Circles didn’t fit precisely."
+        },
+        {
+          "id": "c",
+          "label": "Eratosthenes’ well",
+          "correct": false,
+          "rationale": "That measured Earth."
+        },
+        {
+          "id": "d",
+          "label": "Newton’s law of gravity explaining Kepler’s laws",
+          "correct": true
+        }
+      ],
+      "explanation": "Kepler described how planets move; Newton’s universal gravitation explained why, uniting motion on Earth and in the heavens.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_eratosthenes",
+    "source.brit_ptolemy",
+    "source.brit_copernicus",
+    "source.nasa_jupiter_moons",
+    "source.brit_galileo",
+    "source.brit_newton",
+    "source.brit_bessel"
+  ]
+}

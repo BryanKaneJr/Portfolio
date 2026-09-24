@@ -1,0 +1,210 @@
+{
+  "id": "level.science.astronomy.028",
+  "skillId": "skill.science.astronomy",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Measuring the Solar System",
+  "objective": "After this level you can explain the astronomical unit and how astronomers measured the size of the solar system.",
+  "summary": "Kepler gave the solar system’s shape; transits of Venus and later radar gave its size: 1 AU ≈ 150 million km.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.astronomical_unit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.kepler_laws",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.sunlight_travel_time",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.027"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Knowing the shape of the solar system isn’t the same as knowing its size."
+    },
+    {
+      "id": "card.astronomy.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A map without a scale",
+      "body": "Kepler’s laws told astronomers the relative distances of the planets: Mars is about 1.5 times farther from the Sun than Earth, for example. But without one real distance in kilometers, the map had no scale. Every distance in the solar system depended on that one missing number."
+    },
+    {
+      "id": "card.astronomy.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chasing Venus",
+      "body": "In 1761 and 1769, astronomers spread around the world to time Venus crossing the face of the Sun. Comparing their views let them work out the Earth–Sun distance. Today radar and spacecraft pin it down very precisely."
+    },
+    {
+      "id": "card.astronomy.028.c4",
+      "type": "fact",
+      "fact": "1 astronomical unit (AU) is about 150 million km.",
+      "context": "It’s the average Earth–Sun distance, and the solar system’s standard yardstick."
+    },
+    {
+      "id": "card.astronomy.028.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.028.q1"
+    },
+    {
+      "id": "card.astronomy.028.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.028.q2"
+    },
+    {
+      "id": "card.astronomy.028.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.028.q3"
+    },
+    {
+      "id": "card.astronomy.028.c8",
+      "type": "checkpoint",
+      "headline": "Solar system: measured",
+      "learned": [
+        "Kepler gave relative distances, not a scale",
+        "Transits of Venus (1761, 1769) set the scale",
+        "Radar and spacecraft now measure it precisely",
+        "1 AU ≈ 150 million km"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.astronomical_unit"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.028.c4"
+      ],
+      "prompt": "What is an astronomical unit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The distance light travels in a year",
+          "correct": false,
+          "rationale": "That’s a light-year."
+        },
+        {
+          "id": "b",
+          "label": "The width of the solar system",
+          "correct": false,
+          "rationale": "It’s much smaller than that."
+        },
+        {
+          "id": "c",
+          "label": "The distance from Earth to the Moon",
+          "correct": false,
+          "rationale": "That’s about 384,400 km."
+        },
+        {
+          "id": "d",
+          "label": "The average distance between Earth and the Sun",
+          "correct": true
+        }
+      ],
+      "explanation": "One astronomical unit is the average Earth–Sun distance, about 150 million km.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.astronomical_unit"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.028.c2"
+      ],
+      "prompt": "Why did astronomers still need to measure one real distance after Kepler?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Kepler’s laws gave only relative distances, not a scale in kilometers",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Kepler’s laws were wrong",
+          "correct": false,
+          "rationale": "His laws were right; they lacked a scale."
+        },
+        {
+          "id": "c",
+          "label": "To find new planets",
+          "correct": false,
+          "rationale": "The goal was the size of the known system."
+        },
+        {
+          "id": "d",
+          "label": "To measure the speed of light",
+          "correct": false,
+          "rationale": "The goal was the Earth–Sun distance."
+        }
+      ],
+      "explanation": "Kepler’s laws fixed the proportions of the solar system. One measured distance, like the Earth–Sun distance, set the scale for all of it.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.astronomical_unit",
+        "concept.astronomy.sunlight_travel_time"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.028.c4",
+        "card.astronomy.001.c3"
+      ],
+      "prompt": "From Level 1: sunlight takes about 8 minutes to reach Earth. What distance does that light cover?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 384,400 km",
+          "correct": false,
+          "rationale": "That’s the Moon’s distance."
+        },
+        {
+          "id": "b",
+          "label": "About 1 light-year",
+          "correct": false,
+          "rationale": "Light takes a full year for that."
+        },
+        {
+          "id": "c",
+          "label": "About 1 astronomical unit, roughly 150 million km",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 9.46 trillion km",
+          "correct": false,
+          "rationale": "That’s one light-year."
+        }
+      ],
+      "explanation": "Sunlight crosses the Earth–Sun distance, 1 AU or about 150 million km, in about 8 minutes.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_au",
+    "source.nasa_transit_venus"
+  ]
+}

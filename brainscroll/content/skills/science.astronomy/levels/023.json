@@ -1,0 +1,206 @@
+{
+  "id": "level.science.astronomy.023",
+  "skillId": "skill.science.astronomy",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "An Earth-Centered Universe",
+  "objective": "After this level you can describe the geocentric model and why it lasted for more than a thousand years.",
+  "summary": "Ptolemy’s Earth-centered model used epicycles to match the planets and lasted about 1,400 years.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.geocentric_model",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.geocentric_reasons",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.retrograde_motion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.022"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For 1,400 years, scholars agreed: Earth sits still at the center.",
+      "body": "It wasn’t a foolish idea. It fit what people could actually see."
+    },
+    {
+      "id": "card.astronomy.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ptolemy’s universe",
+      "body": "Around 150 CE, Ptolemy described a model with Earth motionless at the center and the Sun, Moon, planets and stars circling it. To match the planets’ loops, each planet rode on a small circle, an epicycle, that itself moved around Earth. Complicated, yes, but it matched what people saw.",
+      "callout": "Circles on circles"
+    },
+    {
+      "id": "card.astronomy.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it made sense",
+      "body": "You can’t feel Earth moving. And if Earth orbited the Sun, nearby stars should shift slightly over a year. Nobody could detect such a shift, called parallax, which seemed to prove Earth stood still. The model also predicted planet positions well enough to be useful."
+    },
+    {
+      "id": "card.astronomy.023.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.023.q1"
+    },
+    {
+      "id": "card.astronomy.023.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.023.q2"
+    },
+    {
+      "id": "card.astronomy.023.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.023.q3"
+    },
+    {
+      "id": "card.astronomy.023.c7",
+      "type": "checkpoint",
+      "headline": "Geocentric model: understood",
+      "learned": [
+        "Ptolemy put a motionless Earth at the center",
+        "Epicycles explained the planets’ loops",
+        "No one could feel Earth move or see stellar parallax",
+        "The model lasted about 1,400 years"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.geocentric_model"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.023.c2"
+      ],
+      "prompt": "In Ptolemy’s model, what sat at the center of the universe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Earth",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Sun",
+          "correct": false,
+          "rationale": "That’s the later heliocentric model."
+        },
+        {
+          "id": "c",
+          "label": "The Moon",
+          "correct": false,
+          "rationale": "The Moon circled Earth in his model."
+        },
+        {
+          "id": "d",
+          "label": "The Milky Way",
+          "correct": false,
+          "rationale": "Ptolemy didn’t know our galaxy’s structure."
+        }
+      ],
+      "explanation": "Ptolemy’s geocentric model put a motionless Earth at the center, with everything else circling it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.geocentric_reasons"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.023.c3"
+      ],
+      "prompt": "Why did the lack of an observed stellar shift (parallax) seem to support an Earth-centered universe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stars were thought to be too dim to see",
+          "correct": false,
+          "rationale": "Stars were plainly visible; the issue was their positions."
+        },
+        {
+          "id": "b",
+          "label": "Parallax only happens at the equator",
+          "correct": false,
+          "rationale": "Parallax would show from anywhere on a moving Earth."
+        },
+        {
+          "id": "c",
+          "label": "A moving Earth should make nearby stars shift, and no shift was seen",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Epicycles cancelled out parallax",
+          "correct": false,
+          "rationale": "Epicycles were for planets, not star shifts."
+        }
+      ],
+      "explanation": "If Earth orbited the Sun, nearby stars should appear to shift during the year. Nobody could detect that, so a still Earth seemed more reasonable.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.geocentric_model",
+        "concept.astronomy.retrograde_motion"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.023.c2",
+        "card.astronomy.016.c3"
+      ],
+      "prompt": "From Level 16: how did Ptolemy’s model explain retrograde motion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Earth overtaking the outer planets",
+          "correct": false,
+          "rationale": "That’s the modern explanation; Ptolemy’s Earth didn’t move."
+        },
+        {
+          "id": "b",
+          "label": "Planets reversing their orbits",
+          "correct": false,
+          "rationale": "Planets in his model circled continuously."
+        },
+        {
+          "id": "c",
+          "label": "The Moon blocking the planets",
+          "correct": false,
+          "rationale": "The Moon played no part in it."
+        },
+        {
+          "id": "d",
+          "label": "Planets riding small circles (epicycles) as they circled Earth",
+          "correct": true
+        }
+      ],
+      "explanation": "With Earth fixed, Ptolemy had each planet loop on a small epicycle, producing apparent backwards motion. Today we know it’s Earth overtaking them.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ptolemy",
+    "source.brit_copernicus"
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "id": "level.science.astronomy.027",
+  "skillId": "skill.science.astronomy",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Newton’s Gravity",
+  "objective": "After this level you can explain how one law of gravity covers falling apples, orbiting moons and planets.",
+  "summary": "Newton’s universal gravitation (1687) showed one force governs falling objects, the Moon and the planets, explaining Kepler’s laws.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.newton_gravity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.kepler_laws",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.tides_moon_gravity",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.026"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The force that drops an apple also holds the Moon in the sky."
+    },
+    {
+      "id": "card.astronomy.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One law for everything",
+      "body": "In 1687 Isaac Newton published his law of universal gravitation. Every object pulls on every other. The pull grows with their masses and weakens with the square of the distance: twice as far, a quarter of the pull. On the Moon, surface gravity is only about one-sixth of Earth’s, so you would weigh about one-sixth as much there.",
+      "callout": "Twice as far → ¼ the pull"
+    },
+    {
+      "id": "card.astronomy.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Heaven and Earth, united",
+      "body": "Newton showed that the gravity making things fall on Earth also keeps the Moon in orbit and the planets circling the Sun. His law explained why Kepler’s laws work, turning a description into an explanation."
+    },
+    {
+      "id": "card.astronomy.027.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.027.q1"
+    },
+    {
+      "id": "card.astronomy.027.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.027.q2"
+    },
+    {
+      "id": "card.astronomy.027.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.027.q3"
+    },
+    {
+      "id": "card.astronomy.027.c7",
+      "type": "checkpoint",
+      "headline": "Gravity: understood",
+      "learned": [
+        "Newton published universal gravitation in 1687",
+        "Every object pulls on every other",
+        "Double the distance → a quarter of the pull",
+        "His law explained Kepler’s laws"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.newton_gravity"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.027.c3"
+      ],
+      "prompt": "What did Newton show about gravity?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It only works on Earth",
+          "correct": false,
+          "rationale": "His key insight was that it works everywhere."
+        },
+        {
+          "id": "b",
+          "label": "The same force makes objects fall and holds the Moon in orbit",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It pushes planets away from the Sun",
+          "correct": false,
+          "rationale": "Gravity pulls."
+        },
+        {
+          "id": "d",
+          "label": "It only affects heavy objects",
+          "correct": false,
+          "rationale": "Every object pulls on every other."
+        }
+      ],
+      "explanation": "Newton’s universal gravitation: one force explains falling objects on Earth and the motions of the Moon and planets.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.newton_gravity"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.027.c2"
+      ],
+      "prompt": "If you doubled the distance between two objects, what would happen to their gravitational pull?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It would double",
+          "correct": false,
+          "rationale": "Gravity weakens with distance."
+        },
+        {
+          "id": "b",
+          "label": "It would halve",
+          "correct": false,
+          "rationale": "It weakens faster than that."
+        },
+        {
+          "id": "c",
+          "label": "It would drop to a quarter",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It would stay the same",
+          "correct": false,
+          "rationale": "Distance matters a lot."
+        }
+      ],
+      "explanation": "Gravity weakens with the square of the distance: twice as far means 1/2 × 1/2 = 1/4 of the pull.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.newton_gravity",
+        "concept.astronomy.tides_moon_gravity"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.027.c3",
+        "card.astronomy.017.c2"
+      ],
+      "prompt": "From Level 17: what connects Newton’s law to the ocean tides?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon’s gravity pulls on Earth’s oceans, as Newton’s law predicts",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Tides come from Earth’s orbit around the Sun",
+          "correct": false,
+          "rationale": "Tides are mainly the Moon’s pull."
+        },
+        {
+          "id": "c",
+          "label": "Newton’s law says water isn’t affected by gravity",
+          "correct": false,
+          "rationale": "Gravity pulls on everything, including water."
+        },
+        {
+          "id": "d",
+          "label": "Tides happen only at the equator",
+          "correct": false,
+          "rationale": "Tides happen along coasts worldwide."
+        }
+      ],
+      "explanation": "Newton’s gravity acts between all masses. The Moon’s pull on the oceans creates the tidal bulges.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_newton",
+    "source.nasa_moon_facts",
+    "source.brit_kepler_laws"
+  ]
+}
