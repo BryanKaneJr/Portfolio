@@ -119,8 +119,8 @@ export function LevelPath({
         </Svg>
 
         {POCKETS.map((pocket) => {
-          // Dr. Scroll has the left pocket in the chapter you're in.
-          if (mascot && pocket.index === 2) return null;
+          // Dr. Scroll has the right pocket in the chapter you're in.
+          if (mascot && pocket.index === 6) return null;
           const n = numbers[pocket.index];
           const art = n !== undefined ? levelByNumber(skillId, n)?.art : undefined;
           const at = points[pocket.index];
@@ -135,7 +135,9 @@ export function LevelPath({
             />
           );
         })}
-        {mascot && <DrScroll spot="home.path" size="md" style={{ position: 'absolute', left: space.xs, top: top + 2 * ROW }} />}
+        {mascot && points[6] && (
+          <DrScroll spot="home.path" size="md" style={{ position: 'absolute', left: width * POCKETS[1].x - 48, top: points[6].y - 48 }} />
+        )}
 
         {numbers.map((n, i) => {
           const lv = levelByNumber(skillId, n);

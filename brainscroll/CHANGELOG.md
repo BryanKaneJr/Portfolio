@@ -4,6 +4,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Dr. Scroll moves to the right pocket** in your current chapter, so the pocket across from the 3rd waypoint always shows its level's illustration.
 - **Scenery on the map** (owner idea): the open pockets across from the road's bulges now float the illustration of the level beside them (for example the Moon beside Astronomy's eclipse level), drifting gently and dimmed while that level is still locked. In your current chapter Dr. Scroll keeps the left pocket.
 - **Subjects can be mastered** (owner decision). Clearing 100 levels in a subject puts a ★ after its name and turns its name and level gold, on the Profile and the Skills tab, and its level starts again from 1 toward the next ★. XP still counts toward the Knowledge Level as always. The rule lives in core as `subjectAttribute()`, with unit tests. History's colour moves from orange to terracotta so it can't be mistaken for mastery gold.
 - **Simpler attributes:** each subject's bar is a solid bar that grows one step per level, 1 to 100 (no notches), and the skill lines underneath ("Astronomy Lv. 6") are gone.
