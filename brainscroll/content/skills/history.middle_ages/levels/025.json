@@ -1,0 +1,224 @@
+{
+  "id": "level.history.middle_ages.025",
+  "skillId": "skill.history.middle_ages",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Siege Warfare",
+  "objective": "After this level you can explain how armies besieged castles, from ladders to trebuchets.",
+  "summary": "Attackers used ladders, towers, rams, mines and trebuchets, yet most sieges ended by treachery, starvation or disease, as at Rochester in 1215 after a pig-fat mine.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.siege_methods",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.siege_outcomes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.castle_stone_keep",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.024"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1215 King John sent for 40 pigs too fat to eat.",
+      "body": "He wasn’t planning a feast. He was besieging Rochester Castle, held against him by rebels. To see why he wanted pig fat, start with the attacker’s toolkit."
+    },
+    {
+      "id": "card.middle_ages.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Over, through or under",
+      "body": "Attackers could climb the walls with ladders, but this escalade rarely worked except by surprise or treachery. Wheeled wooden siege towers could roll up and drop a drawbridge onto the wall. Battering rams, sheltered by a wheeled shed, went for the gate. Or miners dug a tunnel under the wall, propped it with timber, packed it with fuel and set it alight, so the wall above collapsed."
+    },
+    {
+      "id": "card.middle_ages.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The pig-fat mine",
+      "body": "That was John’s plan. His siege engines bombarded Rochester’s keep with stones while miners attacked its south-east turret from below. They burned the fat of the 40 pigs to fire the timber props, and the south-east corner of the keep came down. Even then the rebels didn’t give up: they fell back into the northern half of the keep. The king had brought down the wall, but not the defenders.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Forty unappetising pigs, one collapsed corner. Medieval engineering could be very creative."
+      }
+    },
+    {
+      "id": "card.middle_ages.025.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The slowest weapon wins",
+      "body": "The trebuchet was a throwing engine powered by a falling counterweight. Counterweight engines appeared in the 12th century and could hurl stones weighing hundreds of kilograms. Yet medieval sieges were settled more often by treachery, starvation or disease than by broken walls. Rochester ended the same way: starvation soon forced the rebels to surrender. Sometimes the deadliest siege weapon was a calendar."
+    },
+    {
+      "id": "card.middle_ages.025.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.025.q1"
+    },
+    {
+      "id": "card.middle_ages.025.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.025.q2"
+    },
+    {
+      "id": "card.middle_ages.025.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.025.q3"
+    },
+    {
+      "id": "card.middle_ages.025.c8",
+      "type": "checkpoint",
+      "headline": "Siege warfare: understood",
+      "learned": [
+        "Ladders rarely worked; towers, rams and mines did better",
+        "Counterweight trebuchets appeared in the 12th century",
+        "At Rochester in 1215, pig fat fired a mine under the keep",
+        "Most sieges ended by treachery, starvation or disease"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.siege_outcomes",
+        "concept.middle_ages.siege_methods"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.025.c3"
+      ],
+      "prompt": "At the siege of Rochester in 1215, what was the pig fat for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Greasing the ladders to climb faster",
+          "correct": false,
+          "rationale": "The attack came from below."
+        },
+        {
+          "id": "b",
+          "label": "Feeding the hungry royal army",
+          "correct": false,
+          "rationale": "The pigs were too fat to eat."
+        },
+        {
+          "id": "c",
+          "label": "Firing the timber props of a mine",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Pouring down on attackers from above",
+          "correct": false,
+          "rationale": "Defenders did that; this was the attackers."
+        }
+      ],
+      "explanation": "Miners burned the fat to fire the timber props under the keep, bringing down its south-east corner.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.siege_outcomes"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.025.c4"
+      ],
+      "prompt": "How were most medieval sieges actually settled?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By trebuchets smashing through the walls",
+          "correct": false,
+          "rationale": "Walls fell less often than you might think."
+        },
+        {
+          "id": "b",
+          "label": "By a duel between two chosen champions",
+          "correct": false,
+          "rationale": "Not how sieges usually ended."
+        },
+        {
+          "id": "c",
+          "label": "By attackers climbing ladders at night",
+          "correct": false,
+          "rationale": "Escalade rarely worked."
+        },
+        {
+          "id": "d",
+          "label": "By treachery, starvation or disease",
+          "correct": true
+        }
+      ],
+      "explanation": "Medieval sieges were settled more often by treachery, starvation or disease than by breached walls.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.middle_ages.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.siege_outcomes",
+        "concept.middle_ages.castle_stone_keep"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.025.c3",
+        "card.middle_ages.025.c4",
+        "card.middle_ages.023.c4"
+      ],
+      "prompt": "Level 23 called the keep a castle’s strongest part. What happened at Rochester once a corner of the keep fell?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The rebels surrendered within the hour",
+          "correct": false,
+          "rationale": "They held on."
+        },
+        {
+          "id": "b",
+          "label": "The rebels held the rest until starvation forced surrender",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The king gave up and called off the siege",
+          "correct": false,
+          "rationale": "He won in the end."
+        },
+        {
+          "id": "d",
+          "label": "The whole keep burned to the ground",
+          "correct": false,
+          "rationale": "Only a corner fell."
+        }
+      ],
+      "explanation": "The rebels fell back into the northern half of the keep; starvation soon forced them to surrender.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.eh_rochester_history",
+    "source.eh_siege_warfare",
+    "source.brit_military_tech_castle",
+    "source.brit_trebuchet",
+    "source.eh_castles_through_time",
+    "source.brit_castle_architecture",
+    "source.eh_earthwork_castles"
+  ],
+  "art": "medieval.trebuchet"
+}

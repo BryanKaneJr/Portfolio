@@ -1,0 +1,230 @@
+{
+  "id": "level.history.middle_ages.078",
+  "skillId": "skill.history.middle_ages",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Robin Hood and King Arthur",
+  "objective": "After this level you can explain how medieval legends like Robin Hood and King Arthur grew.",
+  "summary": "Robin Hood and King Arthur are legends, not proven history. Robin first appears in rhymes around 1377; Arthur in the Historia Brittonum around 830. Each retelling added more.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.robin_hood_legend",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.arthur_legend",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.anglo_saxon_kingdoms",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.077"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two of the most famous medieval heroes may never have lived. Their stories did.",
+      "body": "Nobody has proved Robin Hood or King Arthur were real people. What we can trace is how their stories grew, one retelling at a time."
+    },
+    {
+      "id": "card.middle_ages.078.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Robin: from rhymes to ballads",
+      "body": "Robin first appears in writing around 1377, in the poem Piers Plowman: a lazy priest doesn’t know his prayers properly, but he does know “rhymes of Robin Hood”. So the tales were already popular. The oldest surviving ballad, Robin Hood and the Monk, dates from about 1450. Whether a real man stood behind them, no one has shown. He may only ever have been a legend."
+    },
+    {
+      "id": "card.middle_ages.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Added along the way",
+      "body": "Much of the Robin you know arrived later. Maid Marian isn’t in the medieval ballads; she came from a separate shepherd-and-shepherdess love story that merged with the legend in the 16th century. Plays by Anthony Munday in 1598–99 made Robin a dispossessed earl, loyal to King Richard. A legend works like a snowball: it picks up whatever it rolls through.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "No Marian in the oldest ballads! Legends collect characters like a snowball collects leaves."
+      }
+    },
+    {
+      "id": "card.middle_ages.078.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Arthur: from battles to a king",
+      "body": "Arthur’s trail starts in the Historia Brittonum, compiled in Wales around 800 to 830: the earliest known mention of him. It lists 12 battles he fought against the Saxons, Level 9’s newcomers. Then Geoffrey of Monmouth’s History of the Kings of Britain (1135–38) turned him into a glorious king who defeated a Roman army. Some of Geoffrey’s story was plain invention."
+    },
+    {
+      "id": "card.middle_ages.078.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Knights, a Grail and a round of retellings",
+      "body": "The French poet Chrétien de Troyes, in the late 12th century, introduced the Grail quest and the love of Lancelot and Guinevere. In the late 15th century Thomas Malory’s Le Morte Darthur passed the legend on to English readers. Every age gave Arthur what it wanted: a warrior, then a king, then a romance."
+    },
+    {
+      "id": "card.middle_ages.078.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.078.q1"
+    },
+    {
+      "id": "card.middle_ages.078.c7",
+      "type": "mcq",
+      "questionId": "question.middle_ages.078.q2"
+    },
+    {
+      "id": "card.middle_ages.078.c8",
+      "type": "recall",
+      "questionId": "question.middle_ages.078.q3"
+    },
+    {
+      "id": "card.middle_ages.078.c9",
+      "type": "checkpoint",
+      "headline": "Robin Hood and King Arthur: known",
+      "learned": [
+        "Neither is proven history",
+        "Robin first appears in rhymes around 1377",
+        "Marian and Robin’s noble rank came later",
+        "Arthur grew from 12 battles to a romance king"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.robin_hood_legend"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.078.c2"
+      ],
+      "prompt": "Where does Robin Hood first appear in writing, around 1377?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the Domesday Book",
+          "correct": false,
+          "rationale": "No Robin there."
+        },
+        {
+          "id": "b",
+          "label": "In the poem Piers Plowman",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In Magna Carta",
+          "correct": false,
+          "rationale": "The charter names no outlaws."
+        },
+        {
+          "id": "d",
+          "label": "In Geoffrey of Monmouth’s history",
+          "correct": false,
+          "rationale": "That’s where Arthur became a king."
+        }
+      ],
+      "explanation": "A lazy priest in Piers Plowman (about 1377) knows “rhymes of Robin Hood” better than his prayers.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.arthur_legend"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.078.c4"
+      ],
+      "prompt": "How did Geoffrey of Monmouth change the Arthur of the Historia Brittonum?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He made him a glorious king who beat a Roman army",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He proved that Arthur had never existed at all",
+          "correct": false,
+          "rationale": "He built the legend up."
+        },
+        {
+          "id": "c",
+          "label": "He moved Arthur’s story to Sherwood Forest",
+          "correct": false,
+          "rationale": "That’s Robin Hood’s territory."
+        },
+        {
+          "id": "d",
+          "label": "He removed all twelve of Arthur’s battles",
+          "correct": false,
+          "rationale": "He added a victory over Rome."
+        }
+      ],
+      "explanation": "From a winner of 12 battles against the Saxons, Arthur became a glorious king who defeated a Roman army.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.middle_ages.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.arthur_legend",
+        "concept.middle_ages.anglo_saxon_kingdoms"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.078.c4",
+        "card.middle_ages.009.c2"
+      ],
+      "prompt": "The Historia Brittonum’s Arthur fought the Saxons. Who were they, according to Level 9?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Vikings who sailed over from Norway",
+          "correct": false,
+          "rationale": "The Saxons came from Germanic lands earlier."
+        },
+        {
+          "id": "b",
+          "label": "Roman soldiers who stayed in Britain",
+          "correct": false,
+          "rationale": "Roman rule had ended about 410."
+        },
+        {
+          "id": "c",
+          "label": "Normans who crossed from northern France",
+          "correct": false,
+          "rationale": "They came later, with the Conquest."
+        },
+        {
+          "id": "d",
+          "label": "Germanic newcomers who built kingdoms in England",
+          "correct": true
+        }
+      ],
+      "explanation": "Angles, Saxons and Jutes were Germanic peoples who built kingdoms in what became England.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_robin_hood",
+    "source.rochester_robin_hood",
+    "source.rochester_maid_marian",
+    "source.brit_nennius",
+    "source.brit_historia_brittonum",
+    "source.brit_arthurian_legend",
+    "source.encyclopediacom_arthurian_legends",
+    "source.brit_anglo_saxon"
+  ],
+  "art": "medieval.longbow"
+}

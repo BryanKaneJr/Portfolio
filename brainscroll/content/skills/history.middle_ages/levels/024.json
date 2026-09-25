@@ -1,0 +1,222 @@
+{
+  "id": "level.history.middle_ages.024",
+  "skillId": "skill.history.middle_ages",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Castle Defenses",
+  "objective": "After this level you can explain how moats, walls, towers and gatehouses kept attackers out.",
+  "summary": "Moats, curtain walls and arrow loops held attackers off; gatehouses with portcullises and murder holes made the way in a trap; concentric castles like Beaumaris layered it all.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.castle_gatehouse",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.concentric_castle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.byzantine_survival",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.023"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Murder holes: the name tells you exactly what they were for.",
+      "body": "Castle builders turned the way in into the most dangerous place to stand. Let’s walk through a castle’s defences from the outside in."
+    },
+    {
+      "id": "card.middle_ages.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The outer ring",
+      "body": "Start with the moat, crossed by a drawbridge hinged at one end so it could be raised. Behind it rose the curtain wall, a fortified wall linking the towers together. Narrow vertical slits called arrow loops let archers shoot out while staying safe behind stone. Anyone attacking was out in the open. The defenders were not."
+    },
+    {
+      "id": "card.middle_ages.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The gate is a trap",
+      "body": "The gate was a castle’s most vulnerable point, so gatehouses often became mini-castles in themselves. A portcullis, a heavy wooden or iron grille, could drop to seal the passage. Overhead were murder holes, openings through which defenders dropped heavy stones, hot sand or boiling water on anyone below. Get past the front door, and you were standing in the worst room in the house.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Castle rule: the friendlier the doorway looks, the more you should worry."
+      }
+    },
+    {
+      "id": "card.middle_ages.024.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Walls within walls",
+      "body": "The most powerful design was the concentric castle: two rings of towered walls, one inside the other, each supporting the other. At Beaumaris in Wales, Edward I and his architect James of St George built four rings of defences, including a water-filled moat with its own dock. The outer walls alone had 300 arrow loops. Then the money ran out, and work petered out by the 1320s, unfinished. Remember Constantinople’s moat and layered walls in Level 4? Same idea: make attackers win again and again."
+    },
+    {
+      "id": "card.middle_ages.024.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.024.q1"
+    },
+    {
+      "id": "card.middle_ages.024.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.024.q2"
+    },
+    {
+      "id": "card.middle_ages.024.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.024.q3"
+    },
+    {
+      "id": "card.middle_ages.024.c8",
+      "type": "checkpoint",
+      "headline": "Castle defences: understood",
+      "learned": [
+        "Moats, curtain walls and arrow loops kept attackers off",
+        "Gatehouses were mini-castles at the weakest point",
+        "Portcullises sealed the gate; murder holes rained down",
+        "Concentric castles like Beaumaris layered the walls"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.castle_gatehouse"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.024.c3"
+      ],
+      "prompt": "In a castle gatehouse, what were the murder holes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cells where prisoners were kept",
+          "correct": false,
+          "rationale": "They were openings overhead."
+        },
+        {
+          "id": "b",
+          "label": "Tunnels dug under the castle walls",
+          "correct": false,
+          "rationale": "That’s mining, by attackers."
+        },
+        {
+          "id": "c",
+          "label": "Openings for dropping things on attackers below",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Slits for shooting arrows outward",
+          "correct": false,
+          "rationale": "Those are arrow loops."
+        }
+      ],
+      "explanation": "Defenders dropped heavy stones, hot sand or boiling water through murder holes onto attackers in the gate passage.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.concentric_castle"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.024.c4"
+      ],
+      "prompt": "How did a concentric castle make an attack harder?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two rings of towered walls supported each other",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its gate had no door that could be broken",
+          "correct": false,
+          "rationale": "It still had gates."
+        },
+        {
+          "id": "c",
+          "label": "It was built entirely of fresh timber",
+          "correct": false,
+          "rationale": "Concentric castles were stone."
+        },
+        {
+          "id": "d",
+          "label": "It stood on a single tall earth mound",
+          "correct": false,
+          "rationale": "That’s a motte."
+        }
+      ],
+      "explanation": "Attackers faced two rings of mutually supporting towered walls, one inside the other.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.middle_ages.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.concentric_castle",
+        "concept.middle_ages.byzantine_survival"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.024.c4",
+        "card.middle_ages.004.c3"
+      ],
+      "prompt": "Beaumaris and Level 4’s Constantinople shared which defensive idea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A single tall tower in the centre",
+          "correct": false,
+          "rationale": "Both relied on several lines, not one tower."
+        },
+        {
+          "id": "b",
+          "label": "Layers of walls that attackers had to break in turn",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Walls built only of earth and timber",
+          "correct": false,
+          "rationale": "Both were built of stone."
+        },
+        {
+          "id": "d",
+          "label": "No moat, so ships could reach the gate",
+          "correct": false,
+          "rationale": "Both had a moat."
+        }
+      ],
+      "explanation": "Constantinople had a moat, an outer wall and a main wall; Beaumaris had four rings of defences.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eh_goodrich_glossary",
+    "source.brit_castle_architecture",
+    "source.eh_castles_through_time",
+    "source.cadw_castle_break_in",
+    "source.eh_berry_pomeroy",
+    "source.cadw_beaumaris",
+    "source.columbia_constantinople_land_walls"
+  ],
+  "art": "medieval.castle"
+}

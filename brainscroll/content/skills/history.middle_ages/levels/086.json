@@ -1,0 +1,217 @@
+{
+  "id": "level.history.middle_ages.086",
+  "skillId": "skill.history.middle_ages",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Gunpowder Arrives",
+  "objective": "After this level you can explain how gunpowder weapons changed war.",
+  "summary": "Black powder, which came from China, fired European guns from the 14th century. Giant guns like Mons Meg followed, and by 1494 French cannon took castle after castle in Italy.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.gunpowder_reaches_europe",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.gunpowder_ends_castles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.byzantine_survival",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.085"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For centuries, stone walls beat armies. Then came a black powder.",
+      "body": "It had travelled a very long way, from China. By the end of the Middle Ages it had turned castles from fortresses into targets."
+    },
+    {
+      "id": "card.middle_ages.086.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From fireworks to firearms",
+      "body": "Black powder is a mix of saltpetre, sulfur and charcoal. It is thought to have originated in China, where by the 10th century it lit fireworks and signals. Europe put it to a harsher use: from the 14th century, it fired guns. Before gunpowder, a weapon was only as strong as the muscles behind it. Now the power came from chemistry."
+    },
+    {
+      "id": "card.middle_ages.086.c3",
+      "type": "fact",
+      "fact": "Mons Meg weighed six tonnes and fired 150 kg stones.",
+      "context": "She was made in the town of Mons and given to King James II of Scotland in 1457. Each gunstone weighed about as much as two grown men, and could fly up to 3.2 km. Try building a wall for that."
+    },
+    {
+      "id": "card.middle_ages.086.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The wall stops working",
+      "body": "Castles were built to beat muscle, not chemistry. When French troops marched through Italy in 1494, their guns reduced castle after castle with astonishing speed. Firearms were improving so fast in the 15th and 16th centuries that military architecture had to change completely. The age of the medieval castle was over.",
+      "mascot": {
+        "pose": "oops",
+        "line": "All that lovely stonework, and the new answer was simply: louder."
+      }
+    },
+    {
+      "id": "card.middle_ages.086.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.086.q1"
+    },
+    {
+      "id": "card.middle_ages.086.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.086.q2"
+    },
+    {
+      "id": "card.middle_ages.086.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.086.q3"
+    },
+    {
+      "id": "card.middle_ages.086.c8",
+      "type": "checkpoint",
+      "headline": "Gunpowder: understood",
+      "learned": [
+        "Black powder came from China",
+        "Europe used it in guns from the 14th century",
+        "Mons Meg fired 150 kg gunstones",
+        "Guns ended the age of the medieval castle"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.gunpowder_reaches_europe"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.086.c2"
+      ],
+      "prompt": "From which century did Europeans use black powder to fire guns?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The 10th century",
+          "correct": false,
+          "rationale": "That’s when China used it in fireworks."
+        },
+        {
+          "id": "b",
+          "label": "The 12th century",
+          "correct": false,
+          "rationale": "Europe’s guns came later."
+        },
+        {
+          "id": "c",
+          "label": "The 14th century",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The 17th century",
+          "correct": false,
+          "rationale": "Much earlier than that."
+        }
+      ],
+      "explanation": "Black powder was adopted for firearms in Europe from the 14th century.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.middle_ages.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.gunpowder_ends_castles"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.086.c4"
+      ],
+      "prompt": "What did the French march through Italy in 1494 show about castles?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their guns could take castle after castle quickly",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Castles could hold out against any cannon",
+          "correct": false,
+          "rationale": "Castle after castle fell."
+        },
+        {
+          "id": "c",
+          "label": "Italy had no castles left to attack",
+          "correct": false,
+          "rationale": "There were plenty, and they fell."
+        },
+        {
+          "id": "d",
+          "label": "Cannon were too heavy to cross the Alps",
+          "correct": false,
+          "rationale": "The French brought their guns."
+        }
+      ],
+      "explanation": "French guns reduced castle after castle with astonishing speed, and the age of the medieval castle ended.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.middle_ages.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.gunpowder_ends_castles",
+        "concept.middle_ages.byzantine_survival"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.086.c4",
+        "card.middle_ages.004.c3"
+      ],
+      "prompt": "Level 4’s Constantinople walls held for centuries. What finally beat walls like these?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Longer siege ladders",
+          "correct": false,
+          "rationale": "Ladders had been tried for centuries."
+        },
+        {
+          "id": "b",
+          "label": "Starving the city with a famine",
+          "correct": false,
+          "rationale": "The walls fell to force."
+        },
+        {
+          "id": "c",
+          "label": "Heavy gunpowder artillery",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Tunnels dug by miners",
+          "correct": false,
+          "rationale": "Cannon made the difference."
+        }
+      ],
+      "explanation": "Constantinople fell in 1453 to forces armed with heavy cannon, and in 1494 French guns took castle after castle.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_gunpowder",
+    "source.hes_mons_meg",
+    "source.brit_castle"
+  ],
+  "art": "medieval.cannon"
+}

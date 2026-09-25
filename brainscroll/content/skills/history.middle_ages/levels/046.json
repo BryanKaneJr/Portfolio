@@ -1,0 +1,219 @@
+{
+  "id": "level.history.middle_ages.046",
+  "skillId": "skill.history.middle_ages",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Knights Templar",
+  "objective": "After this level you can explain who the Templars were and how they fell.",
+  "summary": "Founded around 1120 to protect pilgrims, the Templars were fighting monks and bankers. Philip IV had them arrested in 1307 on baseless charges; the pope suppressed them in 1312.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.crusade_templars",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.crusade_saladin",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.045"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "They took vows like monks, fought like knights and lent money to kings.",
+      "body": "The Knights Templar were one of the strangest creations of the Crusades, and one of the richest. So how did they fall so hard?"
+    },
+    {
+      "id": "card.middle_ages.046.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Guards for the pilgrim road",
+      "body": "In late 1119 or early 1120, eight or nine French knights led by Hugh de Payns vowed to protect pilgrims traveling to the Holy Land. King Baldwin II of Jerusalem housed them in the area of the former Temple of Solomon, and that gave them their name: the Templars. Within about ten years, the Church formally approved the order at the Council of Troyes."
+    },
+    {
+      "id": "card.middle_ages.046.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Monks with swords",
+      "body": "Templars swore the vows of monks: poverty, chastity and obedience. But the knights fought, in a white surcoat marked with a red cross. The poverty was personal, not collective. Their military strength made them ideal bankers, to kings as well as to pilgrims. Picture a bank whose vault is guarded by the bankers themselves."
+    },
+    {
+      "id": "card.middle_ages.046.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The arrests of 1307",
+      "body": "When Acre fell in 1291, the Templars lost much of their reason for being, while their wealth, lands in Europe and power bred resentment. Philip IV of France was chronically short of money. On 13 October 1307 he had every Templar in France arrested. They were accused of heresy and idol worship, and many confessed under torture. The charges are now recognized as baseless.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Charges invented, confessions forced. Historians read these trial records very carefully."
+      }
+    },
+    {
+      "id": "card.middle_ages.046.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The end of the order",
+      "body": "Pope Clement V suppressed the Templars in 1312 and gave their property to another military order, the Hospitallers. In 1314 the last grand master, Jacques de Molay, was burned. The order that began by guarding pilgrims was destroyed by a Christian king who needed money."
+    },
+    {
+      "id": "card.middle_ages.046.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.046.q1"
+    },
+    {
+      "id": "card.middle_ages.046.c7",
+      "type": "mcq",
+      "questionId": "question.middle_ages.046.q2"
+    },
+    {
+      "id": "card.middle_ages.046.c8",
+      "type": "recall",
+      "questionId": "question.middle_ages.046.q3"
+    },
+    {
+      "id": "card.middle_ages.046.c9",
+      "type": "checkpoint",
+      "headline": "The Templars: known",
+      "learned": [
+        "Founded around 1120 to protect pilgrims",
+        "Named for the Temple of Solomon",
+        "Fighting monks and bankers to kings",
+        "Arrested in 1307, suppressed in 1312"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.crusade_templars"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.046.c2"
+      ],
+      "prompt": "Where did the Knights Templar get their name?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From their quarters in the area of the former Temple of Solomon",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "From Templum, the Latin name of their home town",
+          "correct": false,
+          "rationale": "The name comes from Jerusalem."
+        },
+        {
+          "id": "c",
+          "label": "From the temples they built across France",
+          "correct": false,
+          "rationale": "The name came from their first quarters."
+        },
+        {
+          "id": "d",
+          "label": "From their founder, a knight called Temple",
+          "correct": false,
+          "rationale": "Their founder was Hugh de Payns."
+        }
+      ],
+      "explanation": "King Baldwin II housed the knights in the area of the former Temple of Solomon in Jerusalem, which gave them their name.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.crusade_templars"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.046.c4"
+      ],
+      "prompt": "Why were the Templars an easy target by the early 1300s?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They had been defeated by the Hospitallers",
+          "correct": false,
+          "rationale": "The Hospitallers later received their property."
+        },
+        {
+          "id": "b",
+          "label": "The pope had already declared them heretics",
+          "correct": false,
+          "rationale": "The charges came from Philip’s arrests."
+        },
+        {
+          "id": "c",
+          "label": "They had given away all their wealth",
+          "correct": false,
+          "rationale": "Their wealth was part of the problem."
+        },
+        {
+          "id": "d",
+          "label": "Acre’s fall left them little purpose while their wealth bred resentment",
+          "correct": true
+        }
+      ],
+      "explanation": "After Acre fell in 1291 the Templars lost much of their reason for being, and their wealth, lands and power bred resentment.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.middle_ages.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.crusade_templars",
+        "concept.middle_ages.crusade_saladin"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.044.c3",
+        "card.middle_ages.046.c3"
+      ],
+      "prompt": "The Templars were fighting knights. What did Saladin order for captured Templars after Hattin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their release for a ransom",
+          "correct": false,
+          "rationale": "King Guy and most lords were spared, not them."
+        },
+        {
+          "id": "b",
+          "label": "The execution of almost all of them",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Service in his own army",
+          "correct": false,
+          "rationale": "No; he had them killed."
+        },
+        {
+          "id": "d",
+          "label": "Their return to Europe by ship",
+          "correct": false,
+          "rationale": "No; he had them killed."
+        }
+      ],
+      "explanation": "After Hattin, Saladin spared King Guy and most lords but ordered almost all captured Templars and Hospitallers executed.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_templars",
+    "source.brit_battle_hattin"
+  ],
+  "art": "medieval.shield"
+}

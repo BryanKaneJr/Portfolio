@@ -1,0 +1,235 @@
+{
+  "id": "level.history.middle_ages.083",
+  "skillId": "skill.history.middle_ages",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How the Plague Spread",
+  "objective": "After this level you can explain what caused the plague and how it spread.",
+  "summary": "Ancient DNA from London plague-pit teeth confirmed the bacterium Yersinia pestis caused the Black Death. How it spread is still debated: rat fleas, or human fleas and lice (Dean et al. 2018).",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.plague_yersinia",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.plague_transmission_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.black_death_arrival",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.082"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "What caused the Black Death? The answer was hiding in teeth.",
+      "body": "For centuries people could only guess. In 2011 scientists read the killer’s DNA. But one big question is still open: how did it get from person to person?"
+    },
+    {
+      "id": "card.middle_ages.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Case closed: Yersinia pestis",
+      "body": "Plague is caused by a bacterium, Yersinia pestis. To test whether it was behind the Black Death, scientists went to a 14th-century plague pit at East Smithfield in London and, in 2011, sequenced the bacterium’s genome from victims’ teeth. The verdict: Yersinia pestis. It’s the medical version of finding the culprit’s fingerprints at the scene. Today, plague can be cured with antibiotics if treated quickly."
+    },
+    {
+      "id": "card.middle_ages.083.c3",
+      "type": "comparison",
+      "headline": "Two forms, two routes",
+      "items": [
+        {
+          "label": "Bubonic plague",
+          "points": [
+            "Usually spread by bites from infected fleas",
+            "Causes swollen, painful lymph nodes called buboes"
+          ]
+        },
+        {
+          "label": "Pneumonic plague",
+          "points": [
+            "Infects the lungs",
+            "The only form that spreads person to person, through respiratory droplets"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.middle_ages.083.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rats on trial",
+      "body": "The textbook story blames rats: infected fleas jump from rodents to people, which is how plague spreads today. In 2018 a team led by Katharine Dean tested that story against death records from nine European outbreaks, from 1348 to 1813. In seven of the nine, a model where human fleas and body lice passed plague between people fit the records better than rats did. Other historians disagree, and the debate is still open. The rat isn’t acquitted. It just has company.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Science at work: a good story meets the evidence, and the evidence gets a vote."
+      }
+    },
+    {
+      "id": "card.middle_ages.083.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.083.q1"
+    },
+    {
+      "id": "card.middle_ages.083.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.083.q2"
+    },
+    {
+      "id": "card.middle_ages.083.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.083.q3"
+    },
+    {
+      "id": "card.middle_ages.083.c8",
+      "type": "checkpoint",
+      "headline": "The plague: explained",
+      "learned": [
+        "The bacterium Yersinia pestis causes plague",
+        "Ancient DNA from London teeth confirmed it in 2011",
+        "Pneumonic plague spreads person to person",
+        "Rats or human fleas and lice? Still debated"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.plague_yersinia"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.083.c2"
+      ],
+      "prompt": "How did scientists confirm that Yersinia pestis caused the Black Death?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They found it described in a medieval doctor’s notes",
+          "correct": false,
+          "rationale": "Medieval doctors couldn’t see bacteria."
+        },
+        {
+          "id": "b",
+          "label": "They sequenced its DNA from victims’ teeth in a London plague pit",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They infected rats with a medieval sample",
+          "correct": false,
+          "rationale": "The evidence came from ancient DNA."
+        },
+        {
+          "id": "d",
+          "label": "They counted buboes on old paintings",
+          "correct": false,
+          "rationale": "Paintings can’t identify a bacterium."
+        }
+      ],
+      "explanation": "In 2011 scientists sequenced the bacterium’s genome from teeth in a plague pit at East Smithfield, London.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.middle_ages.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.plague_transmission_debate"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.083.c4"
+      ],
+      "prompt": "What did Katharine Dean’s 2018 study suggest about how plague spread in Europe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It proved rats played no part at all",
+          "correct": false,
+          "rationale": "It fit the records better; the debate is still open."
+        },
+        {
+          "id": "b",
+          "label": "It showed plague spread through drinking water",
+          "correct": false,
+          "rationale": "The study compared fleas, lice and rats."
+        },
+        {
+          "id": "c",
+          "label": "Human fleas and lice may have passed it between people",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It showed plague never reached northern Europe",
+          "correct": false,
+          "rationale": "It studied outbreaks across Europe."
+        }
+      ],
+      "explanation": "In seven of nine outbreaks, a model with human fleas and body lice fit death records better than rats did.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.middle_ages.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.plague_yersinia",
+        "concept.middle_ages.black_death_arrival"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.083.c3",
+        "card.middle_ages.082.c2"
+      ],
+      "prompt": "The Black Death travelled by ship from Crimea. Which form of plague could pass directly from sailor to sailor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bubonic plague, through buboes touching",
+          "correct": false,
+          "rationale": "Bubonic plague usually needs flea bites."
+        },
+        {
+          "id": "b",
+          "label": "Neither form; plague always needs rats",
+          "correct": false,
+          "rationale": "One form spreads person to person."
+        },
+        {
+          "id": "c",
+          "label": "Both forms equally, through food",
+          "correct": false,
+          "rationale": "Neither spreads through food."
+        },
+        {
+          "id": "d",
+          "label": "Pneumonic plague, through respiratory droplets",
+          "correct": true
+        }
+      ],
+      "explanation": "Pneumonic plague infects the lungs and is the only form that spreads person to person.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.cdc_plague_about",
+    "source.nhgri_black_death_genome",
+    "source.plosone_dewitte_black_death",
+    "source.cdc_plague_symptoms",
+    "source.pnas_dean_ectoparasites",
+    "source.natgeo_rats_black_death"
+  ],
+  "art": "body.germ"
+}

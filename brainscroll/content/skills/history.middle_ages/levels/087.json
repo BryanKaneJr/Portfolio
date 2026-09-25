@@ -1,0 +1,226 @@
+{
+  "id": "level.history.middle_ages.087",
+  "skillId": "skill.history.middle_ages",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Fall of Constantinople",
+  "objective": "After this level you can explain how the Ottomans took Constantinople in 1453.",
+  "summary": "In 1453 the 21-year-old Sultan Mehmed II broke Constantinople's walls with Urban's cannon, hauled ships overland past the harbor chain, took the city on 29 May and made it his capital.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.constantinople_1453_siege",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.constantinople_1453_aftermath",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.byzantine_survival",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.middle_ages.hagia_sophia",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.086"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.087.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Level 4’s land walls had stood since 412. In 1453 a young sultan brought cannon.",
+      "body": "His name was Mehmed II, and he was 21. How did he take the city nobody could take?"
+    },
+    {
+      "id": "card.middle_ages.087.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A gunsmith named Urban",
+      "body": "Mehmed hired a Hungarian gunsmith, Urban, to build cannon powerful enough to bring the walls down. From 6 April 1453 the guns pounded away. Between 60,000 and 80,000 Ottoman soldiers, with 69 cannon, faced only 6,000 to 7,000 trained defenders. Remember Level 4’s moat, outer wall and main wall? Cannon didn’t have to climb them. It battered a breach straight through."
+    },
+    {
+      "id": "card.middle_ages.087.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ships over the hill",
+      "body": "The city’s harbor, the Golden Horn, was sealed by a great chain. Mehmed’s answer: go around it. His men built an oiled wooden ramp and hauled smaller ships overland, and by 22 April they were inside, past the chain. If the door is locked, carry the boat around the house.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Nobody guards the hillside against boats. That was rather the point."
+      }
+    },
+    {
+      "id": "card.middle_ages.087.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "29 May 1453",
+      "body": "The final assault came in the early hours of 29 May. The last emperor, Constantine XI, is reported to have been killed, either fighting near the breach or fleeing. Mehmed rode to Hagia Sophia, Level 5’s great church, and converted it into a mosque. He moved his capital from Edirne to Constantinople, and the Byzantine Empire came to an end."
+    },
+    {
+      "id": "card.middle_ages.087.c5",
+      "type": "recall",
+      "questionId": "question.middle_ages.087.q1"
+    },
+    {
+      "id": "card.middle_ages.087.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.087.q2"
+    },
+    {
+      "id": "card.middle_ages.087.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.087.q3"
+    },
+    {
+      "id": "card.middle_ages.087.c8",
+      "type": "checkpoint",
+      "headline": "Constantinople 1453: understood",
+      "learned": [
+        "Mehmed II was 21 when he took the city",
+        "Urban’s cannon pounded the land walls",
+        "Ships were hauled overland past the chain",
+        "Hagia Sophia became a mosque; Byzantium ended"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.constantinople_1453_siege",
+        "concept.middle_ages.byzantine_survival"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.087.c2",
+        "card.middle_ages.004.c3"
+      ],
+      "prompt": "Constantinople’s layered walls had held for centuries. What did Mehmed II hire the gunsmith Urban to build?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Siege towers taller than the walls",
+          "correct": false,
+          "rationale": "Urban made guns."
+        },
+        {
+          "id": "b",
+          "label": "A fleet of warships",
+          "correct": false,
+          "rationale": "Urban was a gunsmith."
+        },
+        {
+          "id": "c",
+          "label": "Tunnels under the moat",
+          "correct": false,
+          "rationale": "He built cannon."
+        },
+        {
+          "id": "d",
+          "label": "Cannon powerful enough to bring the walls down",
+          "correct": true
+        }
+      ],
+      "explanation": "Mehmed hired the Hungarian gunsmith Urban to build cannon that could bring down the walls.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.constantinople_1453_siege"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.087.c3"
+      ],
+      "prompt": "How did Mehmed’s ships get past the chain across the Golden Horn?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They broke the chain with cannon fire",
+          "correct": false,
+          "rationale": "They went around it."
+        },
+        {
+          "id": "b",
+          "label": "They were hauled overland on an oiled ramp",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Divers cut the chain at night",
+          "correct": false,
+          "rationale": "They went over land."
+        },
+        {
+          "id": "d",
+          "label": "The defenders lowered it by mistake",
+          "correct": false,
+          "rationale": "Mehmed went around it."
+        }
+      ],
+      "explanation": "Mehmed had smaller ships hauled overland on an oiled wooden ramp, and by 22 April they were past the chain.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.middle_ages.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.constantinople_1453_aftermath",
+        "concept.middle_ages.hagia_sophia"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.087.c4",
+        "card.middle_ages.005.c1"
+      ],
+      "prompt": "What happened to Justinian’s Hagia Sophia after Constantinople fell in 1453?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mehmed converted it into a mosque",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was pulled down to build a palace",
+          "correct": false,
+          "rationale": "It survived, with a new purpose."
+        },
+        {
+          "id": "c",
+          "label": "It became the sultan’s treasury",
+          "correct": false,
+          "rationale": "It became a mosque."
+        },
+        {
+          "id": "d",
+          "label": "It was left empty for centuries",
+          "correct": false,
+          "rationale": "Mehmed rode straight to it and converted it."
+        }
+      ],
+      "explanation": "Mehmed rode to Hagia Sophia and converted it into a mosque.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.columbia_constantinople_land_walls",
+    "source.brit_byzantine",
+    "source.brit_mehmed_ii",
+    "source.brit_fall_constantinople"
+  ],
+  "art": "medieval.cannon"
+}

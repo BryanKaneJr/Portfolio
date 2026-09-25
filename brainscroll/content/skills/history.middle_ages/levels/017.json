@@ -1,0 +1,214 @@
+{
+  "id": "level.history.middle_ages.017",
+  "skillId": "skill.history.middle_ages",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Normans",
+  "objective": "After this level you can explain who the Normans were and where they settled.",
+  "summary": "In 911 the Frankish king gave the Viking Rollo land around Rouen. His Northmen became French-speaking Christian Normans and later won lands as far as Sicily.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.normans_normandy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.vikings_who",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.016"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Normandy is named after Vikings: the Northmen who settled there.",
+      "body": "Yet their descendants spoke French and went to church. How did a band of raiders turn into a French duchy?"
+    },
+    {
+      "id": "card.middle_ages.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A deal on the Seine",
+      "body": "Viking raids battered the Frankish coasts in the 9th century, and by about 900 Vikings had a permanent base in the Seine valley. In 911 King Charles III, known as Charles the Simple, made a deal with their leader, Rollo: the Treaty of Saint-Clair-sur-Epte. Rollo got the land around Rouen and the mouth of the Seine. In return, he stopped raiding, became a Christian and swore loyalty to Charles. The raider became a landholder."
+    },
+    {
+      "id": "card.middle_ages.017.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Northmen into Normans",
+      "body": "Rollo’s Scandinavian countrymen followed in large numbers. Latin writers called them Nortmanni, “Northmen”, which gave us Norman and Normandy. The settlers adopted the French language, French customs and the Christian religion. The Vikings of the Seine became French-speaking Christians with a Norse family story."
+    },
+    {
+      "id": "card.middle_ages.017.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Far beyond Normandy",
+      "body": "The Normans didn’t stay put. Norman adventurers won lands in southern Italy and Sicily, where Roger II became king of Sicily in 1130. And one duke of Normandy had his eye on an even bigger prize. That’s the next level.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "From longships on the Seine to a crown in Sicily. Restless family."
+      }
+    },
+    {
+      "id": "card.middle_ages.017.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.017.q1"
+    },
+    {
+      "id": "card.middle_ages.017.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.017.q2"
+    },
+    {
+      "id": "card.middle_ages.017.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.017.q3"
+    },
+    {
+      "id": "card.middle_ages.017.c8",
+      "type": "checkpoint",
+      "headline": "The Normans: known",
+      "learned": [
+        "In 911 Rollo received the land around Rouen",
+        "He stopped raiding, became Christian and swore loyalty",
+        "Northmen became Normans and took up French ways",
+        "Normans also won lands in southern Italy and Sicily"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.normans_normandy"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.017.c3"
+      ],
+      "prompt": "Where do the names Norman and Normandy come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nortmanni, meaning “Northmen”",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A Roman governor of Gaul",
+          "correct": false,
+          "rationale": "The name came with the settlers."
+        },
+        {
+          "id": "c",
+          "label": "The Frankish word for “coast”",
+          "correct": false,
+          "rationale": "It means the men of the North."
+        },
+        {
+          "id": "d",
+          "label": "Rollo’s home town in Norway",
+          "correct": false,
+          "rationale": "It comes from what the settlers were called."
+        }
+      ],
+      "explanation": "Latin writers called the settlers Nortmanni, “Northmen”, which gave Norman and Normandy.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.normans_normandy"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.017.c2"
+      ],
+      "prompt": "Why would a Frankish king hand land to a Viking leader in 911?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rollo had bought it with silver",
+          "correct": false,
+          "rationale": "He got it by treaty."
+        },
+        {
+          "id": "b",
+          "label": "Charlemagne had promised it to Rollo",
+          "correct": false,
+          "rationale": "Charlemagne died long before."
+        },
+        {
+          "id": "c",
+          "label": "In return, Rollo stopped raiding and swore loyalty",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The land was empty and worthless",
+          "correct": false,
+          "rationale": "It was around Rouen and the Seine."
+        }
+      ],
+      "explanation": "In return for the land, Rollo stopped raiding, became a Christian and swore loyalty to Charles.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.middle_ages.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.normans_normandy",
+        "concept.middle_ages.vikings_who"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.017.c3",
+        "card.middle_ages.013.c3"
+      ],
+      "prompt": "Level 13 showed Vikings as settlers, not just raiders. How did Rollo’s Normans fit that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They raided Normandy, then sailed home",
+          "correct": false,
+          "rationale": "They stayed."
+        },
+        {
+          "id": "b",
+          "label": "They kept Norse gods and speech",
+          "correct": false,
+          "rationale": "They became Christian and spoke French."
+        },
+        {
+          "id": "c",
+          "label": "They moved on to settle Iceland",
+          "correct": false,
+          "rationale": "They settled in northern France."
+        },
+        {
+          "id": "d",
+          "label": "They settled and took up French ways",
+          "correct": true
+        }
+      ],
+      "explanation": "Rollo’s followers settled in large numbers and adopted the French language, customs and religion.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_normans",
+    "source.brit_normandy",
+    "source.brit_charles_iii_france",
+    "source.brit_rollo"
+  ],
+  "art": "medieval.shield"
+}

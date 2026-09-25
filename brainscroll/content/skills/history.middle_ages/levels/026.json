@@ -1,0 +1,219 @@
+{
+  "id": "level.history.middle_ages.026",
+  "skillId": "skill.history.middle_ages",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Becoming a Knight",
+  "objective": "After this level you can explain how a boy trained to become a knight.",
+  "summary": "A noble boy served as a page from about 7, joined his father's lord's household at about 12, and trained as a squire before being dubbed with the accolade, if he could afford the equipment.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.knight_training",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.knight_dubbing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.feudal_bond",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.025"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Becoming a knight could start at about the age of 7.",
+      "body": "Long before a sword touched his shoulder, a boy of noble birth spent years serving, learning and carrying other people’s gear. Here’s the road, step by step."
+    },
+    {
+      "id": "card.middle_ages.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step one: page",
+      "body": "A boy destined for knighthood might serve as a page from about the age of 7. At around 12 he joined the household of his father’s lord for further training. At this stage he might be called a damoiseau, literally “lordling”. Think of it as boarding school with horses, where the head teacher was your father’s lord."
+    },
+    {
+      "id": "card.middle_ages.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step two: squire",
+      "body": "Next he served as a squire: a young man of noble birth, apprenticed in the duties of chivalry, who looked after a knight’s armour and weapons. The training went well beyond fighting, taking in hunting, music and dancing. The goal was a worthy knight, a just master and a sensible manager of an estate. Swordplay, dance steps and estate accounts: a demanding timetable."
+    },
+    {
+      "id": "card.middle_ages.026.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step three: the accolade",
+      "body": "When he was skilled enough, and had the money, he was dubbed. The accolade was a touch on the shoulder with the flat of a sword blade. But he had to buy his own knightly equipment, and in France some squires waited for, or put off, the expensive dubbing. Many knights were vassals holding lands as fiefs from the lords they fought for. Remember Level 21’s land-for-service deal? These are the men who turned up.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Years of training, and the big moment is a tap on the shoulder. Knights did understatement well."
+      }
+    },
+    {
+      "id": "card.middle_ages.026.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.026.q1"
+    },
+    {
+      "id": "card.middle_ages.026.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.026.q2"
+    },
+    {
+      "id": "card.middle_ages.026.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.026.q3"
+    },
+    {
+      "id": "card.middle_ages.026.c8",
+      "type": "checkpoint",
+      "headline": "Becoming a knight: understood",
+      "learned": [
+        "A page could start at about 7",
+        "At about 12 he joined his father’s lord’s household",
+        "A squire looked after a knight’s armour and weapons",
+        "The accolade made him a knight, if he could pay"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.knight_training"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.026.c3"
+      ],
+      "prompt": "During a future knight’s training, what did a squire look after?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A knight’s armour and weapons",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The lord’s grain mill and fields",
+          "correct": false,
+          "rationale": "That’s the manor’s business."
+        },
+        {
+          "id": "c",
+          "label": "The castle’s store of siege food",
+          "correct": false,
+          "rationale": "Not the squire’s job."
+        },
+        {
+          "id": "d",
+          "label": "The books in the lord’s chapel",
+          "correct": false,
+          "rationale": "A squire trained in arms."
+        }
+      ],
+      "explanation": "A squire was a young noble apprenticed in chivalry who attended to a knight’s armour and weapons.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.knight_dubbing"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.026.c4"
+      ],
+      "prompt": "Why did some squires put off being dubbed a knight?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They preferred to stay pages for life",
+          "correct": false,
+          "rationale": "Pages came before squires."
+        },
+        {
+          "id": "b",
+          "label": "Dubbing only happened once a century",
+          "correct": false,
+          "rationale": "It happened whenever a squire was ready."
+        },
+        {
+          "id": "c",
+          "label": "Dubbing and a knight’s equipment were expensive",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Church had banned the accolade",
+          "correct": false,
+          "rationale": "It hadn’t."
+        }
+      ],
+      "explanation": "A new knight had to buy his own equipment, and dubbing was expensive, so some squires waited.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.middle_ages.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.knight_dubbing",
+        "concept.middle_ages.feudal_bond"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.026.c4",
+        "card.middle_ages.021.c2"
+      ],
+      "prompt": "Level 21 described land held in return for service. How did many knights fit that picture?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were serfs bound to a plot",
+          "correct": false,
+          "rationale": "Serfs weren’t knights."
+        },
+        {
+          "id": "b",
+          "label": "They were paid wages by the Church",
+          "correct": false,
+          "rationale": "They held land from lords."
+        },
+        {
+          "id": "c",
+          "label": "They were given castles by the pope",
+          "correct": false,
+          "rationale": "Their lords granted them land."
+        },
+        {
+          "id": "d",
+          "label": "They were vassals holding fiefs from lords",
+          "correct": true
+        }
+      ],
+      "explanation": "Many knights were vassals holding lands as fiefs from the lords in whose armies they served.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_knight",
+    "source.brit_squire",
+    "source.brit_feudalism",
+    "source.eh_medieval_warfare"
+  ],
+  "art": "medieval.helmet"
+}

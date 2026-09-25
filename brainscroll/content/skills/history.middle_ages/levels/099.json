@@ -1,0 +1,220 @@
+{
+  "id": "level.history.middle_ages.099",
+  "skillId": "skill.history.middle_ages",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What the Middle Ages Left Us",
+  "objective": "After this level you can name medieval inventions and institutions we still use.",
+  "summary": "Eyeglasses, mechanical clocks, roman type and civil law all come down to us from the Middle Ages.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.medieval_legacy_inventions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.justinian_code",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.middle_ages.humanist_manuscript_hunt",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.098"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "If you wear glasses, you’re wearing a medieval invention.",
+      "body": "The Middle Ages ended, but they never quite left. Some of what they made is on your face, on your wall and in the law."
+    },
+    {
+      "id": "card.middle_ages.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A friar remembers",
+      "body": "Eyeglasses were first made in Italy, most probably in Pisa, around 1290; the first ones helped farsighted people read. How do we know the date? In a sermon of 1306, the friar Giordano da Pisa said the art of making them was not yet twenty years old, and that he had talked to the man who discovered it. The inventor’s name is lost. The invention is not."
+    },
+    {
+      "id": "card.middle_ages.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Clocks that rang",
+      "body": "The first mechanical clocks we clearly know of were large, weight-driven machines in towers. They struck the hours rather than showing them, which is why the word clock comes from medieval Latin clocca, “bell”. England’s oldest surviving one, at Salisbury Cathedral, dates from 1386. Every alarm on your phone has a bell in its family tree."
+    },
+    {
+      "id": "card.middle_ages.099.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Law and letters",
+      "body": "Some legacies you can’t see. Justinian’s code (Level 5) became the foundation of civil law, used today across continental Europe and Latin America. And roman type, the upright letters of printed books, began as Poggio’s humanist handwriting (Level 92). You read and live by medieval inventions every day.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Glasses, clocks, letters, laws. Not bad for an age once called dark."
+      }
+    },
+    {
+      "id": "card.middle_ages.099.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.099.q1"
+    },
+    {
+      "id": "card.middle_ages.099.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.099.q2"
+    },
+    {
+      "id": "card.middle_ages.099.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.099.q3"
+    },
+    {
+      "id": "card.middle_ages.099.c8",
+      "type": "checkpoint",
+      "headline": "The medieval legacy: explained",
+      "learned": [
+        "Eyeglasses: Italy, around 1290",
+        "Clock comes from clocca, “bell”",
+        "Justinian’s code still underlies civil law",
+        "Roman type began as Poggio’s handwriting"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.medieval_legacy_inventions"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.099.c2"
+      ],
+      "prompt": "Where were eyeglasses first made, around 1290?",
+      "options": [
+        {
+          "id": "a",
+          "label": "China",
+          "correct": false,
+          "rationale": "A 1306 sermon places them in Italy."
+        },
+        {
+          "id": "b",
+          "label": "England",
+          "correct": false,
+          "rationale": "They were first made in Italy."
+        },
+        {
+          "id": "c",
+          "label": "Egypt",
+          "correct": false,
+          "rationale": "They were first made in Italy."
+        },
+        {
+          "id": "d",
+          "label": "Italy, probably Pisa",
+          "correct": true
+        }
+      ],
+      "explanation": "Eyeglasses were first made in Italy, most probably Pisa, around 1290.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.medieval_legacy_inventions"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.099.c3"
+      ],
+      "prompt": "Why does the word “clock” come from a medieval word for bell?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Clocks were invented by bell makers",
+          "correct": false,
+          "rationale": "It’s about what early clocks did."
+        },
+        {
+          "id": "b",
+          "label": "Early tower clocks struck the hours instead of showing them",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Clocks were shaped like upside-down bells",
+          "correct": false,
+          "rationale": "It’s about what early clocks did."
+        },
+        {
+          "id": "d",
+          "label": "Only churches were allowed to own clocks",
+          "correct": false,
+          "rationale": "It’s about what early clocks did."
+        }
+      ],
+      "explanation": "Early mechanical clocks struck the hours on bells, and clock comes from medieval Latin clocca, “bell”.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.middle_ages.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.justinian_code"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.099.c4",
+        "card.middle_ages.005.c3"
+      ],
+      "prompt": "Which medieval legacy still shapes the courts of continental Europe and Latin America?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Justinian’s code of Roman law",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Rule of St. Benedict",
+          "correct": false,
+          "rationale": "That governs monasteries."
+        },
+        {
+          "id": "c",
+          "label": "Poggio’s humanist handwriting",
+          "correct": false,
+          "rationale": "That shaped printed letters."
+        },
+        {
+          "id": "d",
+          "label": "The 42-line Bible",
+          "correct": false,
+          "rationale": "That was Gutenberg’s showpiece."
+        }
+      ],
+      "explanation": "Justinian’s code became the foundation of civil law, used across continental Europe and Latin America.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.oxford_cabinet_spectacles",
+    "source.britannica_eyeglasses",
+    "source.brit_clock",
+    "source.etymonline_clock",
+    "source.brit_code_of_justinian",
+    "source.brit_poggio_bracciolini"
+  ],
+  "art": "medieval.castle"
+}

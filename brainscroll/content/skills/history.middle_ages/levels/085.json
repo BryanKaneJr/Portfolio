@@ -1,0 +1,225 @@
+{
+  "id": "level.history.middle_ages.085",
+  "skillId": "skill.history.middle_ages",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Peasants' Revolt",
+  "objective": "After this level you can explain why English peasants rose up in 1381.",
+  "summary": "Angry at wage limits since 1351 and set off by the poll tax of 1380, rebels led by Wat Tyler reached London in 1381. Tyler was killed and the promises forgotten, but no poll tax came for 250 years.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.peasants_revolt_1381",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.peasants_revolt_outcome",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.plague_labour_wages",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.084"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In June 1381, rebels marched into London to talk to their king. He was 14.",
+      "body": "It was one of the largest popular uprisings in medieval Europe. What made ordinary people rise, and what did they win?"
+    },
+    {
+      "id": "card.middle_ages.085.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The last straw",
+      "body": "Remember Level 84’s law freezing wages at pre-plague levels? Workers who knew they were scarce had resented its limits for thirty years. Then came the unpopular poll tax of 1380, and in 1381 revolt broke out. Anger that builds for a generation rarely needs much of a spark."
+    },
+    {
+      "id": "card.middle_ages.085.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who was then a gentleman?",
+      "body": "The rebels had a preacher. John Ball, a priest excommunicated for preaching a classless society, asked: “When Adam dug and Eve spun, who was then a gentleman?” In other words: in the Garden of Eden, nobody was a lord. A very short sermon, with a very long reach."
+    },
+    {
+      "id": "card.middle_ages.085.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Promises at Mile End, a killing at Smithfield",
+      "body": "Led by Wat Tyler, the rebels entered London on 13 June. At Mile End, the young Richard II promised to abolish serfdom and forced labour. At a second meeting, at Smithfield, the mayor of London, William Walworth, cut Tyler down in front of the king. The revolt fell apart, and the promises were promptly forgotten."
+    },
+    {
+      "id": "card.middle_ages.085.c5",
+      "type": "fact",
+      "fact": "No poll tax was levied again for more than 250 years.",
+      "context": "The rebels lost the fight and their leader, and the king broke his word. But the tax that lit the fire did not come back for more than two and a half centuries.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Lost the battle, won a very long argument about taxes."
+      }
+    },
+    {
+      "id": "card.middle_ages.085.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.085.q1"
+    },
+    {
+      "id": "card.middle_ages.085.c7",
+      "type": "mcq",
+      "questionId": "question.middle_ages.085.q2"
+    },
+    {
+      "id": "card.middle_ages.085.c8",
+      "type": "recall",
+      "questionId": "question.middle_ages.085.q3"
+    },
+    {
+      "id": "card.middle_ages.085.c9",
+      "type": "checkpoint",
+      "headline": "The Peasants’ Revolt: explained",
+      "learned": [
+        "The poll tax of 1380 sparked it",
+        "Wage limits since 1351 fuelled it",
+        "John Ball preached a world without lords",
+        "Tyler was killed and the promises forgotten"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.peasants_revolt_outcome"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.085.c4"
+      ],
+      "prompt": "What became of Richard II’s promise at Mile End to abolish serfdom?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It became law the same year",
+          "correct": false,
+          "rationale": "It was never carried out."
+        },
+        {
+          "id": "b",
+          "label": "It was promptly forgotten",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Parliament voted it down in 1382",
+          "correct": false,
+          "rationale": "It was simply forgotten."
+        },
+        {
+          "id": "d",
+          "label": "Wat Tyler tore it up at Smithfield",
+          "correct": false,
+          "rationale": "Tyler was killed at Smithfield."
+        }
+      ],
+      "explanation": "Richard promised to abolish serfdom and forced labour, but the promises were promptly forgotten.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.middle_ages.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.peasants_revolt_1381"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.085.c3"
+      ],
+      "prompt": "What was John Ball arguing with “When Adam dug and Eve spun, who was then a gentleman?”",
+      "options": [
+        {
+          "id": "a",
+          "label": "That farming was sinful work",
+          "correct": false,
+          "rationale": "He praised Adam and Eve’s work."
+        },
+        {
+          "id": "b",
+          "label": "That only priests should own land",
+          "correct": false,
+          "rationale": "He preached a classless society."
+        },
+        {
+          "id": "c",
+          "label": "That lords and ranks weren’t there at the beginning",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "That the king should raise taxes",
+          "correct": false,
+          "rationale": "Taxes were what the rebels hated."
+        }
+      ],
+      "explanation": "Ball preached a classless society: in the Garden of Eden, nobody was a lord.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.middle_ages.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.peasants_revolt_1381",
+        "concept.middle_ages.plague_labour_wages"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.085.c2",
+        "card.middle_ages.084.c3"
+      ],
+      "prompt": "How did the Black Death help cause the Peasants’ Revolt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A law froze wages after the plague, and workers resented it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The plague killed the king’s army",
+          "correct": false,
+          "rationale": "The revolt was about pay and taxes."
+        },
+        {
+          "id": "c",
+          "label": "Plague doctors led the rebels",
+          "correct": false,
+          "rationale": "Wat Tyler led them."
+        },
+        {
+          "id": "d",
+          "label": "Rebels blamed the king for spreading the plague",
+          "correct": false,
+          "rationale": "The grievances were wages and the poll tax."
+        }
+      ],
+      "explanation": "After the plague, the Statute of Labourers (1351) tried to freeze wages; that grievance fed the revolt the poll tax set off.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_statute_labourers",
+    "source.people1381_project",
+    "source.brit_peasants_revolt",
+    "source.brit_john_ball"
+  ],
+  "art": "rome.broken-chains"
+}

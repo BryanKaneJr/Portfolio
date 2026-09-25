@@ -1,0 +1,224 @@
+{
+  "id": "level.history.middle_ages.013",
+  "skillId": "skill.history.middle_ages",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Who the Vikings Were",
+  "objective": "After this level you can describe the Vikings as raiders, traders and settlers.",
+  "summary": "Vikings were Scandinavians who raided, traded and settled from 793. Most were farmers, and they never wore horned helmets.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.vikings_who",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.viking_horned_helmet_myth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.monastic_copying",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.012"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Picture a Viking. Now take the horns off the helmet.",
+      "body": "They were never there. The real Vikings were raiders, yes, but also farmers, traders and settlers. Their story starts with a shock on an English island."
+    },
+    {
+      "id": "card.middle_ages.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "793: terror from the sea",
+      "body": "The Viking Age is usually dated from 8 June 793, when raiders struck the monastery on Lindisfarne, an island off north-east England. It was the first documented Viking attack. Monasteries made tempting targets: they held church silver and were less well defended than trading towns. Alcuin, Level 11’s scholar, was at Charlemagne’s court when the news arrived. He wrote that never before had such terror appeared in Britain."
+    },
+    {
+      "id": "card.middle_ages.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Farmers first",
+      "body": "So who were they? Vikings were Scandinavians, from what are now Denmark, Norway and Sweden, active from the late 8th century to the 11th. Most were farmers, living in villages of six or seven farms. Abroad they could be raiders, but also traders, explorers, settlers or soldiers for hire. Viking traders even brought home silver coins minted in Muslim Central Asia, carried along the rivers of Russia. The axe was one tool in a busy toolkit."
+    },
+    {
+      "id": "card.middle_ages.013.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The helmet problem",
+      "body": "Now, those horns. The best-preserved Viking Age helmet, from a warrior’s grave at Gjermundbu in Norway, has no horns at all. No writer of the Viking Age mentions horned helmets, and horns would have snagged in a fight or on a crowded ship. The horned look was popularized by 19th-century artists. It’s a costume, not a clue.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Horns on a crowded ship sound like a great way to annoy the rower behind you."
+      }
+    },
+    {
+      "id": "card.middle_ages.013.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.013.q1"
+    },
+    {
+      "id": "card.middle_ages.013.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.013.q2"
+    },
+    {
+      "id": "card.middle_ages.013.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.013.q3"
+    },
+    {
+      "id": "card.middle_ages.013.c8",
+      "type": "checkpoint",
+      "headline": "Who the Vikings Were: known",
+      "learned": [
+        "The Viking Age is dated from the Lindisfarne raid of 793",
+        "Vikings came from Denmark, Norway and Sweden",
+        "Most were farmers; many also traded and settled",
+        "Vikings didn’t wear horned helmets"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.vikings_who"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.013.c2"
+      ],
+      "prompt": "Which event usually marks the start of the Viking Age?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A raid on the monastery at Lindisfarne in 793",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Charlemagne’s crowning as emperor",
+          "correct": false,
+          "rationale": "That came seven years later, in 800."
+        },
+        {
+          "id": "c",
+          "label": "The ship burial at Sutton Hoo",
+          "correct": false,
+          "rationale": "That was an Anglo-Saxon king’s grave."
+        },
+        {
+          "id": "d",
+          "label": "Alcuin’s move to Aachen",
+          "correct": false,
+          "rationale": "That was in 781, a school matter."
+        }
+      ],
+      "explanation": "The Viking Age is usually dated from the raid on Lindisfarne on 8 June 793, the first documented Viking attack.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.middle_ages.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.viking_horned_helmet_myth"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.013.c4"
+      ],
+      "prompt": "What is the evidence that Vikings didn’t wear horned helmets?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Horns were banned by Viking law",
+          "correct": false,
+          "rationale": "The evidence comes from finds and writings."
+        },
+        {
+          "id": "b",
+          "label": "Only Viking kings wore horns",
+          "correct": false,
+          "rationale": "No evidence shows horns at all."
+        },
+        {
+          "id": "c",
+          "label": "Vikings never wore helmets",
+          "correct": false,
+          "rationale": "They did; one survives."
+        },
+        {
+          "id": "d",
+          "label": "The best-preserved helmet has none",
+          "correct": true
+        }
+      ],
+      "explanation": "The best-preserved Viking Age helmet has no horns, and no writer of the time mentions them.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.middle_ages.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.vikings_who",
+        "concept.middle_ages.monastic_copying"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.013.c2",
+        "card.middle_ages.007.c3"
+      ],
+      "prompt": "Level 7’s monasteries were storehouses of books. Why did Viking raiders target them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Raiders wanted to copy their books",
+          "correct": false,
+          "rationale": "They came for silver, not scripts."
+        },
+        {
+          "id": "b",
+          "label": "They held silver and were poorly defended",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Monks had attacked Scandinavia first",
+          "correct": false,
+          "rationale": "Nothing like that is recorded."
+        },
+        {
+          "id": "d",
+          "label": "Kings paid Vikings to punish monks",
+          "correct": false,
+          "rationale": "No such deal is recorded."
+        }
+      ],
+      "explanation": "Monasteries held church silver and were less well defended than trading towns.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonian_horned_helmets",
+    "source.natmus_viking_expeditions",
+    "source.brit_vikings",
+    "source.natmus_viking_homes",
+    "source.natmus_viking_church_raids",
+    "source.eh_lindisfarne_viking_raid",
+    "source.uwm_alcuin_lindisfarne",
+    "source.natmus_viking_silver_route",
+    "source.natmus_viking_helmets"
+  ],
+  "art": "medieval.viking-ship"
+}

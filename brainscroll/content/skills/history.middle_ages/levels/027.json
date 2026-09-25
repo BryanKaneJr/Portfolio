@@ -1,0 +1,217 @@
+{
+  "id": "level.history.middle_ages.027",
+  "skillId": "skill.history.middle_ages",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Armor",
+  "objective": "After this level you can explain how armor changed from chain mail to plate.",
+  "summary": "Mail of iron links gave way to plate from the late 13th century, fast after 1325. Field armour weighed about 20 to 25 kg, and the crane is a film myth.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.armour_mail_to_plate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.armour_weight_myths",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.knight_training",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.026"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Knights were never winched onto their horses by crane.",
+      "body": "That picture comes from films, such as the 1944 Henry V. Real armour had to let a man fight. So what was it made of, and how heavy was it?"
+    },
+    {
+      "id": "card.middle_ages.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A shirt of rings",
+      "body": "Before plate, the standard metal armour across Europe was mail: a flexible mesh of interlocking iron links, worn over a quilted garment. A mail shirt, or hauberk, contained thousands of links and was expensive and slow to make. It moved with the body and stopped sword cuts well, but it was less good against arrows and blows from maces. Think of a knitted jumper, made of iron."
+    },
+    {
+      "id": "card.middle_ages.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Enter the plates",
+      "body": "Plate armour emerged in the late 13th century. Between 1325 and 1340 came a revolution: mail was replaced or reinforced with plates of iron or steel. Through the 14th century, plates spread to the rest of the body, until the complete suit, the harness, was developed. Rigid plates deflected glancing blows; a weapon got through only if it struck directly and with great force."
+    },
+    {
+      "id": "card.middle_ages.027.c4",
+      "type": "fact",
+      "fact": "A field armour usually weighed about 20 to 25 kg.",
+      "context": "That weight was spread over the whole body. Even a suddenly unhorsed knight could get up quickly, ready to fight, and modern tests show a man in properly fitted armour can mount a horse, lie on the ground and stand up again. Heavy, yes. Helpless, no.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "No cranes, no winches, no being stuck on your back like a beetle. Just practice."
+      }
+    },
+    {
+      "id": "card.middle_ages.027.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.027.q1"
+    },
+    {
+      "id": "card.middle_ages.027.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.027.q2"
+    },
+    {
+      "id": "card.middle_ages.027.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.027.q3"
+    },
+    {
+      "id": "card.middle_ages.027.c8",
+      "type": "checkpoint",
+      "headline": "Armour: understood",
+      "learned": [
+        "Mail was a mesh of interlocking iron links",
+        "Plate emerged in the late 13th century",
+        "From 1325 to 1340 plate spread fast, then the full harness",
+        "Field armour weighed about 20 to 25 kg; no cranes needed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.armour_mail_to_plate"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.027.c2"
+      ],
+      "prompt": "What was medieval mail armour made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Steel plates riveted into a full suit",
+          "correct": false,
+          "rationale": "That’s plate armour."
+        },
+        {
+          "id": "b",
+          "label": "Hardened leather stretched over wood",
+          "correct": false,
+          "rationale": "Mail was iron."
+        },
+        {
+          "id": "c",
+          "label": "A flexible mesh of interlocking iron links",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Thick quilted cloth and nothing else",
+          "correct": false,
+          "rationale": "Quilting went underneath the mail."
+        }
+      ],
+      "explanation": "Mail was a flexible mesh of interlocking iron links, worn over quilted garments.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.armour_weight_myths"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.027.c4"
+      ],
+      "prompt": "Why could a knight in field armour still get up quickly after a fall?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Squires lifted him with a small crane",
+          "correct": false,
+          "rationale": "A myth, from films."
+        },
+        {
+          "id": "b",
+          "label": "Its weight was spread across his whole body",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "His armour was made of light wood",
+          "correct": false,
+          "rationale": "It was metal."
+        },
+        {
+          "id": "d",
+          "label": "He always took the armour off first",
+          "correct": false,
+          "rationale": "There was no time for that in battle."
+        }
+      ],
+      "explanation": "Field armour weighed about 20 to 25 kg, spread over the whole body, so an unhorsed knight could rise quickly.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.middle_ages.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.armour_mail_to_plate",
+        "concept.middle_ages.knight_training"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.027.c3",
+        "card.middle_ages.026.c3"
+      ],
+      "prompt": "Level 26’s squires looked after a knight’s armour. What changed in that armour between 1325 and 1340?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Knights gave up metal armour for cloth",
+          "correct": false,
+          "rationale": "Armour got more metal, not less."
+        },
+        {
+          "id": "b",
+          "label": "Mail replaced leather for the first time",
+          "correct": false,
+          "rationale": "Mail was already the standard."
+        },
+        {
+          "id": "c",
+          "label": "Mail was replaced or reinforced with plates",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Shields were banned from battle",
+          "correct": false,
+          "rationale": "The change was in the armour itself."
+        }
+      ],
+      "explanation": "Between 1325 and 1340, mail was replaced or reinforced with plates of iron or steel.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.royalarmouries_hyw_armour",
+    "source.met_arms_armor_misconceptions",
+    "source.brit_squire"
+  ],
+  "art": "medieval.helmet"
+}

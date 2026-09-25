@@ -1,0 +1,228 @@
+{
+  "id": "level.history.middle_ages.074",
+  "skillId": "skill.history.middle_ages",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Trial by Ordeal",
+  "objective": "After this level you can explain trial by ordeal and trial by combat.",
+  "summary": "Ordeals of hot iron and cold water, and trial by combat, asked God to reveal the truth. The Church's 1215 ban ended ordeals in England; trial by battle lasted until 1819.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.trial_by_ordeal",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.trial_by_combat",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.jury_origins",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.073"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.074.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Guilty or innocent? In medieval England, a pond might decide.",
+      "body": "Before juries weighed evidence, a court could hand the question to God. The tests were brutal, but they had their own strict logic."
+    },
+    {
+      "id": "card.middle_ages.074.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Let God decide",
+      "body": "An ordeal was a physical test, based on the belief that the result would show God’s judgment. Fire and water were the favourites. In the ordeal of hot iron, the accused held a red-hot iron. The hand was bandaged and checked three days later: a clean, healing wound meant innocent; an infected one meant guilty. Your verdict depended on your skin."
+    },
+    {
+      "id": "card.middle_ages.074.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sink to win",
+      "body": "The cold-water ordeal ran the other way from what you’d expect. The accused went into the water. Sinking meant innocent, because the water had accepted you. Floating meant guilty: the water had rejected you. So the good result was the one where somebody had to fish you out.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Winning by sinking. Medieval justice had some very unusual scoring rules."
+      }
+    },
+    {
+      "id": "card.middle_ages.074.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Trial by combat",
+      "body": "After the Norman Conquest, England had another option: trial by combat. The two sides, or champions fighting for them, battled it out on the belief that God would give victory to whoever was in the right. Women, children, clergy and the old or infirm could name a champion. It lingered for centuries: a defendant claimed it in 1818, and Parliament abolished it in 1819."
+    },
+    {
+      "id": "card.middle_ages.074.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The end of the ordeal",
+      "body": "An ordeal needed a priest to bless the iron or the water. In 1215 the Fourth Lateran Council forbade that blessing, and in England the ordeal soon came to an end. Remember Level 73? The jury stepped in to decide guilt. Without God’s test, people had to weigh the evidence themselves."
+    },
+    {
+      "id": "card.middle_ages.074.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.074.q1"
+    },
+    {
+      "id": "card.middle_ages.074.c7",
+      "type": "mcq",
+      "questionId": "question.middle_ages.074.q2"
+    },
+    {
+      "id": "card.middle_ages.074.c8",
+      "type": "recall",
+      "questionId": "question.middle_ages.074.q3"
+    },
+    {
+      "id": "card.middle_ages.074.c9",
+      "type": "checkpoint",
+      "headline": "Trial by ordeal: known",
+      "learned": [
+        "Ordeals asked God to reveal guilt",
+        "Hot iron: a clean, healing wound meant innocent",
+        "Cold water: sinking meant innocent",
+        "Trial by combat lasted in English law until 1819"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.trial_by_ordeal"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.074.c3"
+      ],
+      "prompt": "In the medieval ordeal of cold water, what did sinking mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The accused was guilty",
+          "correct": false,
+          "rationale": "Floating meant guilty."
+        },
+        {
+          "id": "b",
+          "label": "The test had to be repeated",
+          "correct": false,
+          "rationale": "Sinking gave a verdict."
+        },
+        {
+          "id": "c",
+          "label": "The accused was innocent",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The accused must fight a champion",
+          "correct": false,
+          "rationale": "That’s trial by combat, a different test."
+        }
+      ],
+      "explanation": "Sinking meant the water had accepted you, so you were innocent; floating meant guilt.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.trial_by_combat"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.074.c4"
+      ],
+      "prompt": "Why did medieval courts think trial by combat could reveal the truth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The stronger fighter was usually the more honest one",
+          "correct": false,
+          "rationale": "The idea was God’s judgment, not strength."
+        },
+        {
+          "id": "b",
+          "label": "They believed God would give victory to the side in the right",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A jury of neighbours watched and voted on the winner",
+          "correct": false,
+          "rationale": "No jury was involved."
+        },
+        {
+          "id": "d",
+          "label": "The loser always confessed his crime afterwards",
+          "correct": false,
+          "rationale": "The fight itself was the verdict."
+        }
+      ],
+      "explanation": "Trial by combat rested on the belief that God would give victory to whoever was in the right.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.middle_ages.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.trial_by_ordeal",
+        "concept.middle_ages.jury_origins"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.074.c5",
+        "card.middle_ages.073.c4"
+      ],
+      "prompt": "Once priests stopped blessing ordeals after 1215, how did English courts decide guilt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By trial by jury",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "By asking the Pope in Rome",
+          "correct": false,
+          "rationale": "Cases stayed in English courts."
+        },
+        {
+          "id": "c",
+          "label": "By letting the king decide every case",
+          "correct": false,
+          "rationale": "Juries took over."
+        },
+        {
+          "id": "d",
+          "label": "By holding more trials by combat instead",
+          "correct": false,
+          "rationale": "The jury replaced the ordeal."
+        }
+      ],
+      "explanation": "England turned to the jury, building on the juries Henry II had already set up.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ordeal",
+    "source.nationalarchives_trials_ordeal_combat",
+    "source.harvard_law_medieval_england",
+    "source.papalencyclicals_lateran_iv",
+    "source.brit_ordeal_by_combat",
+    "source.hansard_trial_by_battle_1819"
+  ],
+  "art": "money.scale"
+}

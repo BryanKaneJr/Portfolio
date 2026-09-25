@@ -1,0 +1,225 @@
+{
+  "id": "level.history.middle_ages.023",
+  "skillId": "skill.history.middle_ages",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Castles",
+  "objective": "After this level you can explain how castles were built and why.",
+  "summary": "A castle was a king's or lord's fortified home. Early motte-and-bailey castles were quick earth-and-timber works; by the 12th century lords built stone keeps.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.castle_purpose",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.motte_and_bailey",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.castle_stone_keep",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.feudal_bond",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.022"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some early castle towers arrived more or less flat-packed.",
+      "body": "Timber towers were often made off-site, then put up on top of a mound of earth. So what was a castle for, and how did wood turn into stone?"
+    },
+    {
+      "id": "card.middle_ages.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A home that could fight back",
+      "body": "A castle was a medieval stronghold, generally the home of the king or lord of the land around it. Castles developed rapidly in western Europe from the 9th century. In England they were something new after the Norman Conquest of 1066: they housed Norman nobles and their families, as well as knights and soldiers, and helped the Normans control the land they had conquered. Part house, part barracks, part statement: we’re staying."
+    },
+    {
+      "id": "card.middle_ages.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A mound and a yard",
+      "body": "The common early design was the motte and bailey. The motte was an artificial mound of earth and stone, shaped like an upside-down pudding bowl and topped by a timber tower. Beside it lay the bailey, a fenced yard with houses and animal pens. Unskilled forced labourers could build one quickly from basic materials, and the towers were often prefabricated off-site, then put up like enormous flat-pack furniture. Some assembly required.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "An upside-down pudding bowl with a tower on top. Not delicious, but very hard to attack."
+      }
+    },
+    {
+      "id": "card.middle_ages.023.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "From timber to stone",
+      "body": "Stone gave better defence and more prestige, so earth and timber gave way to stone. By the 12th century lords were building stone keeps, much easier to defend than wooden towers, some with walls six metres thick. The keep was the strongest part of the castle, with a well, private rooms and supplies for a siege. It sent a message: this lord is rich, and he isn’t going anywhere."
+    },
+    {
+      "id": "card.middle_ages.023.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.023.q1"
+    },
+    {
+      "id": "card.middle_ages.023.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.023.q2"
+    },
+    {
+      "id": "card.middle_ages.023.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.023.q3"
+    },
+    {
+      "id": "card.middle_ages.023.c8",
+      "type": "checkpoint",
+      "headline": "Castles: understood",
+      "learned": [
+        "A castle was a lord’s or king’s fortified home",
+        "Motte and bailey: earth mound, timber tower, fenced yard",
+        "They were quick to build with forced labour",
+        "Stone keeps followed, the strongest point of all"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.motte_and_bailey"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.023.c3"
+      ],
+      "prompt": "In a motte-and-bailey castle, what was the motte?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A fenced yard for houses and animals",
+          "correct": false,
+          "rationale": "That’s the bailey."
+        },
+        {
+          "id": "b",
+          "label": "An earth mound topped by a timber tower",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A stone tower with six-metre walls",
+          "correct": false,
+          "rationale": "That’s a later stone keep."
+        },
+        {
+          "id": "d",
+          "label": "A water-filled ditch around the walls",
+          "correct": false,
+          "rationale": "That’s a moat."
+        }
+      ],
+      "explanation": "The motte was an artificial mound of earth and stone, topped by a timber tower.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.motte_and_bailey"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.023.c3"
+      ],
+      "prompt": "Why could motte-and-bailey castles go up so quickly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stone arrived ready-cut from quarries in France",
+          "correct": false,
+          "rationale": "They used earth and timber."
+        },
+        {
+          "id": "b",
+          "label": "Only highly skilled masons were allowed to work",
+          "correct": false,
+          "rationale": "Unskilled labourers did the work."
+        },
+        {
+          "id": "c",
+          "label": "Forced labourers used basic materials and ready-made towers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Each one was planned over a whole century",
+          "correct": false,
+          "rationale": "They were quick to build."
+        }
+      ],
+      "explanation": "Unskilled forced labourers could raise them from basic materials, and towers were often prefabricated.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.middle_ages.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.castle_purpose",
+        "concept.middle_ages.feudal_bond"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.023.c2",
+        "card.middle_ages.021.c2"
+      ],
+      "prompt": "Level 21’s lords held land and owed service. Whose home was a medieval castle, generally?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Monks who copied books",
+          "correct": false,
+          "rationale": "They lived in monasteries."
+        },
+        {
+          "id": "b",
+          "label": "Peasants who farmed the fields",
+          "correct": false,
+          "rationale": "They worked the land; lords held castles."
+        },
+        {
+          "id": "c",
+          "label": "Merchants who traded goods",
+          "correct": false,
+          "rationale": "Castles were lords’ strongholds."
+        },
+        {
+          "id": "d",
+          "label": "The king or lord of the land around it",
+          "correct": true
+        }
+      ],
+      "explanation": "A castle was generally the residence of the king or lord of the territory it stood in.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_castle_architecture",
+    "source.eh_castles_through_time",
+    "source.eh_earthwork_castles",
+    "source.brit_feudalism",
+    "source.eh_medieval_warfare"
+  ],
+  "art": "medieval.castle"
+}

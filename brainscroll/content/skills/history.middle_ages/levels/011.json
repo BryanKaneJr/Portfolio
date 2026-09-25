@@ -1,0 +1,225 @@
+{
+  "id": "level.history.middle_ages.011",
+  "skillId": "skill.history.middle_ages",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Charlemagne",
+  "objective": "After this level you can explain how Charlemagne built an empire and revived learning.",
+  "summary": "Charlemagne, king of the Franks from 768 to 814, conquered much of western Europe and revived learning: Alcuin, schools, copied classics and a clear new script.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.charlemagne_empire",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.carolingian_renaissance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.clovis_franks",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.middle_ages.monastic_copying",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.010"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The small letters on this screen go back to Charlemagne’s scribes.",
+      "body": "Yet the king behind them never quite learned to write. Charlemagne conquered much of western Europe, then set out to fill it with schools and books."
+    },
+    {
+      "id": "card.middle_ages.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Charles the Great",
+      "body": "Charlemagne means Charles the Great, and he was king of the Franks from 768 until his death in 814. His family was new to the throne: in 751 his father, Pippin, had taken it from the last Merovingian king. (Remember Clovis’s dynasty from Level 6? This is where its run ended.) Charlemagne spent much of his reign at war. He became king of the Lombards, in Italy, in 774, and fought the Saxons for about 30 years until they submitted in 804. By the end, his realm covered much of western Europe."
+    },
+    {
+      "id": "card.middle_ages.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A school in the palace",
+      "body": "Conquest was only half the plan. In 781 Charlemagne invited Alcuin of York, an English scholar, to head the palace school at Aachen. Monasteries and other church institutions added schools of their own. Remember Level 7’s monks copying books by hand? Now scholars copied large numbers of classical Latin texts, many of which might otherwise have been lost. Historians call this revival the Carolingian Renaissance."
+    },
+    {
+      "id": "card.middle_ages.011.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The king who couldn’t write",
+      "body": "The copyists used a new handwriting, Carolingian minuscule, clear and easy to read. Centuries later, Renaissance scholars revived it, and it became the basis of the roman type you’re reading right now. The irony? His biographer Einhard wrote that Charlemagne kept writing tablets under his pillow to practise his letters, but he started too late in life and never mastered it. The man behind Europe’s handwriting struggled with his own.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Tablets under the pillow for late-night practice. Even emperors do homework in bed."
+      }
+    },
+    {
+      "id": "card.middle_ages.011.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.011.q1"
+    },
+    {
+      "id": "card.middle_ages.011.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.011.q2"
+    },
+    {
+      "id": "card.middle_ages.011.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.011.q3"
+    },
+    {
+      "id": "card.middle_ages.011.c8",
+      "type": "checkpoint",
+      "headline": "Charlemagne: known",
+      "learned": [
+        "Charlemagne (Charles the Great) ruled the Franks from 768 to 814",
+        "His wars won him much of western Europe",
+        "Alcuin headed his palace school at Aachen",
+        "His scribes’ script became the basis of our type"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.carolingian_renaissance"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.011.c3"
+      ],
+      "prompt": "Which English scholar did Charlemagne invite in 781 to head his palace school?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Einhard",
+          "correct": false,
+          "rationale": "He wrote Charlemagne’s biography."
+        },
+        {
+          "id": "b",
+          "label": "Alcuin of York",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Remigius",
+          "correct": false,
+          "rationale": "He baptized Clovis in Level 6."
+        },
+        {
+          "id": "d",
+          "label": "Cassiodorus",
+          "correct": false,
+          "rationale": "He founded Vivarium, back in Level 7."
+        }
+      ],
+      "explanation": "In 781 Charlemagne invited Alcuin of York to head the palace school at Aachen.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.carolingian_renaissance"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.011.c4"
+      ],
+      "prompt": "Why does Carolingian minuscule still matter to readers today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the first alphabet ever written down",
+          "correct": false,
+          "rationale": "Writing is far older than Charlemagne."
+        },
+        {
+          "id": "b",
+          "label": "It replaced Latin with French",
+          "correct": false,
+          "rationale": "It’s a script, not a language."
+        },
+        {
+          "id": "c",
+          "label": "It is the basis of our roman type",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It was a secret code for his generals",
+          "correct": false,
+          "rationale": "It was built to be easy to read."
+        }
+      ],
+      "explanation": "Renaissance scholars revived Carolingian minuscule, and it became the basis of today’s roman type.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.middle_ages.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.charlemagne_empire",
+        "concept.middle_ages.clovis_franks"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.011.c2",
+        "card.middle_ages.006.c4"
+      ],
+      "prompt": "Level 6’s Merovingian dynasty began with Clovis. How did its rule end?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Vikings killed the last Merovingian king",
+          "correct": false,
+          "rationale": "A new Frankish family took over."
+        },
+        {
+          "id": "b",
+          "label": "The pope gave the crown to Alcuin",
+          "correct": false,
+          "rationale": "Alcuin was a scholar, not a king."
+        },
+        {
+          "id": "c",
+          "label": "It split among four sons and died out",
+          "correct": false,
+          "rationale": "That split came in 511; the dynasty went on."
+        },
+        {
+          "id": "d",
+          "label": "Pippin, Charlemagne’s father, took the throne",
+          "correct": true
+        }
+      ],
+      "explanation": "In 751 Pippin, Charlemagne’s father, took the Frankish throne from the last Merovingian king.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_carolingian_minuscule",
+    "source.fordham_einhard_charlemagne",
+    "source.brit_charlemagne",
+    "source.brit_carolingian_renaissance",
+    "source.brit_publishing_medieval_book"
+  ],
+  "art": "medieval.crown"
+}

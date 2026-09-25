@@ -1,0 +1,222 @@
+{
+  "id": "level.history.middle_ages.028",
+  "skillId": "skill.history.middle_ages",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Chivalry",
+  "objective": "After this level you can explain the ideals of chivalry and how far knights lived up to them.",
+  "summary": "Chivalry first meant mounted knights, then an ideal of faith, loyalty and honour. In practice mercy was mostly for ransomable nobles.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.chivalry_ideal",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.chivalry_reality",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.serfdom",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.027"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "“Chivalry” first meant men on horses, not good manners.",
+      "body": "In the Middle Ages the word meant knights: fully armed, mounted fighting men. Only later did it come to mean courtesy. The gap between those two meanings is this level’s story."
+    },
+    {
+      "id": "card.middle_ages.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The ideal",
+      "body": "By the 12th and 13th centuries, chivalry meant the honourable, courteous conduct expected of a knight. A Christian ideal took hold: respect the Church, protect the poor and the weak, stay loyal to your superiors, and guard your personal honour. It’s the knight of the storybooks. And that’s the catch: it was an ideal."
+    },
+    {
+      "id": "card.middle_ages.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The reality",
+      "body": "Real knights fought pragmatically. A captured enemy knight might be spared if he was worth land, gold or booty, not out of kindness, and ransoms and plunder could bring great profits. That protection didn’t reach peasants, who were often slaughtered when they got in the way. Chivalry was built around the noble warrior on horseback, and peasants weren’t in the club."
+    },
+    {
+      "id": "card.middle_ages.028.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Part of the problem",
+      "body": "Some historians go further. In 1999 Richard Kaeuper argued that chivalry was part of the problem of violence in medieval Europe, not merely its solution. Chivalric writing prized prowess, skill at violent deeds, so highly that it became almost a one-word definition of chivalry, even as the Church tried to regulate knightly violence. The code was real. So was the gap.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "An ideal is worth knowing. Just check it against what people actually did."
+      }
+    },
+    {
+      "id": "card.middle_ages.028.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.028.q1"
+    },
+    {
+      "id": "card.middle_ages.028.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.028.q2"
+    },
+    {
+      "id": "card.middle_ages.028.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.028.q3"
+    },
+    {
+      "id": "card.middle_ages.028.c8",
+      "type": "checkpoint",
+      "headline": "Chivalry: understood",
+      "learned": [
+        "Chivalry first meant mounted knights",
+        "The ideal: faith, protecting the weak, loyalty, honour",
+        "In practice mercy was mostly for ransomable nobles",
+        "Kaeuper: chivalry was part of the problem of violence"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.chivalry_ideal"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.028.c2"
+      ],
+      "prompt": "Which values made up the Christian ideal of chivalry?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wealth, trade, travel and owning land",
+          "correct": false,
+          "rationale": "Those weren’t the chivalric ideal."
+        },
+        {
+          "id": "b",
+          "label": "Silence, fasting, prayer and copying books",
+          "correct": false,
+          "rationale": "That sounds more like a monastery."
+        },
+        {
+          "id": "c",
+          "label": "Respecting the Church, protecting the weak, loyalty, honour",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Speed, cunning, secrecy and revenge",
+          "correct": false,
+          "rationale": "Not the ideal, though sometimes the reality."
+        }
+      ],
+      "explanation": "The ideal involved respect for the Church, protecting the poor and weak, loyalty and personal honour.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.chivalry_reality"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.028.c3"
+      ],
+      "prompt": "Why was a knight’s mercy in battle often less noble than it looked?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Captured knights were spared for ransom; peasants weren’t",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Knights refused ever to take any prisoners",
+          "correct": false,
+          "rationale": "They took nobles prisoner, for ransom."
+        },
+        {
+          "id": "c",
+          "label": "Mercy was shown only to peasants",
+          "correct": false,
+          "rationale": "It was the other way round."
+        },
+        {
+          "id": "d",
+          "label": "The Church forbade sparing any enemy",
+          "correct": false,
+          "rationale": "The Church tried to limit violence."
+        }
+      ],
+      "explanation": "Enemy knights were spared when they were worth land, gold or booty, while peasants were often slaughtered.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.middle_ages.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.chivalry_reality",
+        "concept.middle_ages.serfdom"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.028.c3",
+        "card.middle_ages.022.c2"
+      ],
+      "prompt": "Chivalry’s protection mostly stopped at nobles. Which of Level 22’s people fell outside it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lords who held manors",
+          "correct": false,
+          "rationale": "Lords were nobles."
+        },
+        {
+          "id": "b",
+          "label": "Knights captured for ransom",
+          "correct": false,
+          "rationale": "They were the ones spared."
+        },
+        {
+          "id": "c",
+          "label": "Kings and their vassals",
+          "correct": false,
+          "rationale": "They were inside the circle."
+        },
+        {
+          "id": "d",
+          "label": "Serfs and other peasants",
+          "correct": true
+        }
+      ],
+      "explanation": "Chivalry centred on the noble warrior; peasants, including serfs, were often slaughtered when in the way.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_chivalry",
+    "source.brit_knight",
+    "source.osu_origins_knighthood",
+    "source.eh_medieval_warfare",
+    "source.oup_kaeuper_chivalry_violence",
+    "source.tmr_kaeuper_review",
+    "source.brit_serfdom"
+  ],
+  "art": "medieval.shield"
+}

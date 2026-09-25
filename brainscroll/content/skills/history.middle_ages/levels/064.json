@@ -1,0 +1,223 @@
+{
+  "id": "level.history.middle_ages.064",
+  "skillId": "skill.history.middle_ages",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Medicine in the Islamic World",
+  "objective": "After this level you can describe the work of Ibn Sina and the hospitals of Baghdad and Cairo.",
+  "summary": "Ibn Sina's Canon of Medicine, translated into Latin in the 12th century, was a European textbook until the mid-1600s. Bimaristans admitted all; Qalawun's hospital was free.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.ibn_sina_canon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.islamic_hospitals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.khwarizmi_algebra",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.063"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Europe’s doctors were still learning from a Persian’s textbook in the 1600s.",
+      "body": "It was written in Arabic, far from any European classroom. How did it get onto their reading lists? And what did hospitals look like where it was written?"
+    },
+    {
+      "id": "card.middle_ages.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The boy who found medicine easy",
+      "body": "Ibn Sina, known in Europe as Avicenna, was born near Bukhara in 980 and died in Hamadan in 1037. He turned to medicine at 16 and, by his own account, found it “easy”. (Most of us found algebra hard at 16.) His great work, the Canon of Medicine, runs to five books, from general principles and simple drugs to diseases and compound remedies."
+    },
+    {
+      "id": "card.middle_ages.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Europe’s textbook",
+      "body": "In the 12th century Gerard of Cremona translated the Canon into Latin. Between 1500 and 1674 some sixty editions were published in Europe, mostly for university medical training, and it served as a textbook there until the mid-17th century. Imagine a course reading list that stays the same for centuries.",
+      "callout": "Written in Arabic, taught in Latin"
+    },
+    {
+      "id": "card.middle_ages.064.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hospitals for everyone",
+      "body": "The Islamic world built hospitals called bimaristans, a Persian word meaning “location of disease”. Harun al-Rashid founded one in Baghdad, and al-Ma’mun founded more. Hospitals at Baghdad, Damascus and Córdoba admitted patients regardless of religion, race or social rank. In Cairo, Sultan Qalawun’s hospital of 1284–85 treated rich and poor free of charge, with separate wards for different illnesses. No insurance card required.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Free care, separate wards, open to all. Some ideas age very well."
+      }
+    },
+    {
+      "id": "card.middle_ages.064.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.064.q1"
+    },
+    {
+      "id": "card.middle_ages.064.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.064.q2"
+    },
+    {
+      "id": "card.middle_ages.064.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.064.q3"
+    },
+    {
+      "id": "card.middle_ages.064.c8",
+      "type": "checkpoint",
+      "headline": "Islamic medicine: understood",
+      "learned": [
+        "Ibn Sina (980–1037) wrote the Canon of Medicine",
+        "It was translated into Latin in the 12th century",
+        "Europe used it as a textbook until the mid-1600s",
+        "Bimaristans treated patients of every faith and rank"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.ibn_sina_canon"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.064.c3"
+      ],
+      "prompt": "Until roughly when did Ibn Sina’s Canon of Medicine serve as a textbook in Europe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The 11th century",
+          "correct": false,
+          "rationale": "He was still writing then."
+        },
+        {
+          "id": "b",
+          "label": "The 13th century",
+          "correct": false,
+          "rationale": "It lasted much longer."
+        },
+        {
+          "id": "c",
+          "label": "The mid-17th century",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The 20th century",
+          "correct": false,
+          "rationale": "Too late: it faded by the mid-1600s."
+        }
+      ],
+      "explanation": "The Canon served as a medical textbook in Europe until the mid-17th century.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.middle_ages.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.islamic_hospitals"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.064.c4"
+      ],
+      "prompt": "What set the hospitals of Baghdad, Damascus and Córdoba apart?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They treated only the caliph’s soldiers",
+          "correct": false,
+          "rationale": "They were open far more widely."
+        },
+        {
+          "id": "b",
+          "label": "They admitted patients regardless of religion or rank",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They were run by monks from Monte Cassino",
+          "correct": false,
+          "rationale": "They were Islamic bimaristans."
+        },
+        {
+          "id": "d",
+          "label": "They charged patients by their religion",
+          "correct": false,
+          "rationale": "Religion didn’t decide admission."
+        }
+      ],
+      "explanation": "These hospitals admitted patients regardless of religious belief, race or social order.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.middle_ages.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.ibn_sina_canon",
+        "concept.middle_ages.khwarizmi_algebra"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.064.c3",
+        "card.middle_ages.062.c2"
+      ],
+      "prompt": "Like al-Khwarizmi’s algebra book in Level 62, in which language did the Canon reach European readers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Greek",
+          "correct": false,
+          "rationale": "Greek works went the other way, into Arabic."
+        },
+        {
+          "id": "b",
+          "label": "Persian",
+          "correct": false,
+          "rationale": "Ibn Sina wrote in Arabic."
+        },
+        {
+          "id": "c",
+          "label": "Chinese",
+          "correct": false,
+          "rationale": "That was never the route."
+        },
+        {
+          "id": "d",
+          "label": "Latin",
+          "correct": true
+        }
+      ],
+      "explanation": "Both were translated into Latin in the 12th century, the language of Europe’s scholars.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_avicenna",
+    "source.nlm_canon_of_medicine",
+    "source.pmc_bimaristans",
+    "source.brit_hospital",
+    "source.brit_baghdad_history",
+    "source.brit_compendious_book_algebra",
+    "source.brit_al_khwarizmi"
+  ],
+  "art": "medieval.herbs"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "level.history.middle_ages.054",
+  "skillId": "skill.history.middle_ages",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Food and Feasts",
+  "objective": "After this level you can describe what rich and poor people ate.",
+  "summary": "Bread, meat and drink marked rank: white wheat for lords and coarse loaves for servants, meat rarely for peasants, fish on fast days. Spices were costly status symbols, not a cover for rotten meat.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.medieval_diet_by_class",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.medieval_spice_status",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.champagne_fairs",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.053"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A medieval dinner could tell you exactly who was sitting at the table.",
+      "body": "Not by name cards, but by the bread, the meat and the pepper. Let’s eat our way up the social ladder."
+    },
+    {
+      "id": "card.middle_ages.054.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your bread is your rank",
+      "body": "In a castle kitchen, the baker made fine white wheat rolls for the lady’s table and rough loaves of barley, oats or even peas and beans for the servants. At a feast, food was often served on a slice of bread that soaked up the juices, and you ate with your fingers: forks did not appear on medieval tables. Your plate could be dinner too."
+    },
+    {
+      "id": "card.middle_ages.054.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Meat means money",
+      "body": "Meat on the table was a sign of status. Peasants ate it only rarely, mostly before winter, when livestock was culled so that fewer animals had to be fed through the cold months. Religious fasting banned meat on Fridays and many other days, so fish took its place. At a feast, lower-ranking guests got coarser bread and second-quality ale; wine was expensive, because it had to be imported."
+    },
+    {
+      "id": "card.middle_ages.054.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pepper for show",
+      "body": "Spices were costly imports, and lords served strong-tasting sauces with expensive foreign spices to show off their wealth. You may have heard that spices hid the taste of rotten meat. Historians reject that: spices cost far more than fresh meat, and salting and smoking preserved food better. Spices weren’t a cover-up. They were a boast.",
+      "callout": "If you could afford the pepper, you could afford fresh meat",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Myth spotted: the rotten-meat story falls apart once you check the price of pepper."
+      }
+    },
+    {
+      "id": "card.middle_ages.054.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.054.q1"
+    },
+    {
+      "id": "card.middle_ages.054.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.054.q2"
+    },
+    {
+      "id": "card.middle_ages.054.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.054.q3"
+    },
+    {
+      "id": "card.middle_ages.054.c8",
+      "type": "checkpoint",
+      "headline": "Food and feasts: understood",
+      "learned": [
+        "Fine wheat bread for lords, coarse loaves for servants",
+        "Meat was a status symbol; peasants ate it rarely",
+        "Fish replaced meat on fast days",
+        "Spices showed off wealth; they did not hide rotten meat"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.medieval_diet_by_class"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.054.c2"
+      ],
+      "prompt": "In a medieval castle kitchen, who got the rough loaves made from barley, oats or even beans?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The lady of the castle",
+          "correct": false,
+          "rationale": "She got fine white wheat rolls."
+        },
+        {
+          "id": "b",
+          "label": "Visiting bishops",
+          "correct": false,
+          "rationale": "Honoured guests ate the best bread."
+        },
+        {
+          "id": "c",
+          "label": "The servants",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The knights at the high table",
+          "correct": false,
+          "rationale": "The high table got the finest bread."
+        }
+      ],
+      "explanation": "Fine white wheat rolls went to the lady’s table; rough loaves of barley, oats or even peas and beans went to the servants.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.medieval_spice_status"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.054.c4"
+      ],
+      "prompt": "Why do historians reject the idea that medieval cooks used spices to hide rotten meat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Medieval people had no sense of smell for spices",
+          "correct": false,
+          "rationale": "They prized spices for their taste and scent."
+        },
+        {
+          "id": "b",
+          "label": "Spices cost far more than fresh meat",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Church banned spices on meat",
+          "correct": false,
+          "rationale": "No such ban; spices flavoured lords’ sauces."
+        },
+        {
+          "id": "d",
+          "label": "Spices were only used in medicine",
+          "correct": false,
+          "rationale": "They were used in cooking too, to show wealth."
+        }
+      ],
+      "explanation": "Spices were costly imports, far pricier than fresh meat, and salting and smoking preserved food better.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.middle_ages.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.medieval_spice_status",
+        "concept.middle_ages.champagne_fairs"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.054.c4",
+        "card.middle_ages.052.c3"
+      ],
+      "prompt": "The pepper on a lord’s table was a costly import. At Level 52’s Champagne fairs, where did such spices come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mediterranean lands",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "English monastery gardens",
+          "correct": false,
+          "rationale": "Spices were foreign imports."
+        },
+        {
+          "id": "c",
+          "label": "The forests around Troyes",
+          "correct": false,
+          "rationale": "Troyes hosted the fair; spices came from farther away."
+        },
+        {
+          "id": "d",
+          "label": "Northern cloth towns",
+          "correct": false,
+          "rationale": "The north supplied cloth, not spices."
+        }
+      ],
+      "explanation": "At the Champagne fairs, northern cloth was exchanged for spices and dyes from Mediterranean lands.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eh_life_in_a_castle",
+    "source.eh_feasts_stokesay",
+    "source.uwm_medieval_feasting",
+    "source.yalepress_freedman_spices",
+    "source.brit_champagne_fair"
+  ],
+  "art": "rome.amphora"
+}

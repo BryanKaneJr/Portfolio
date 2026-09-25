@@ -1,0 +1,220 @@
+{
+  "id": "level.history.middle_ages.022",
+  "skillId": "skill.history.middle_ages",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Serfs and Peasants",
+  "objective": "After this level you can describe the life of a medieval peasant.",
+  "summary": "A serf was bound to a hereditary plot and to his lord's will. Villeins worked the lord's demesne every week and paid in produce and fees, from the lord's mill to merchet and heriot.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.serfdom",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.manor_obligations",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.feudal_bond",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.021"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A serf wasn’t a slave. He still couldn’t move house without permission.",
+      "body": "He was bound to a plot of land and to the will of his lord. So what exactly was a serf, and what did he owe?"
+    },
+    {
+      "id": "card.middle_ages.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tied to the land",
+      "body": "A serf held a hereditary plot of land, and he was bound to it and to his lord. That’s the difference from a slave: slaves were bought and sold without reference to land, while a serf went with his plot. He could not leave his holding or village for good, marry, or change his occupation without his lord’s permission. The ways out were few: being formally freed by the lord, or running away.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Not owned, but not free to leave either. Serfdom lived in that awkward middle."
+      }
+    },
+    {
+      "id": "card.middle_ages.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Working the lord’s land",
+      "body": "Every manor had a demesne, the part the lord kept for his own use, and serfs supplied the labour to work it. Week by week an unfree peasant, a villein, brought his own plough and oxen to plough the demesne, then harrowed, reaped, threshed and carried the crops. This duty was called week-work. His own holding, a cottage and some strips of land in the fields, had to fit around it. Picture paying your rent by doing your landlord’s gardening every single week."
+    },
+    {
+      "id": "card.middle_ages.022.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A bill for everything",
+      "body": "A villein paid for his holding in money, labour and produce. A substantial share of the grain a serf grew went to his lord, and he had to use his lord’s mill. Marrying off a daughter cost a fee called merchet. And when he died, his family owed the lord a heriot, usually the best beast. Even dying came with a bill."
+    },
+    {
+      "id": "card.middle_ages.022.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.022.q1"
+    },
+    {
+      "id": "card.middle_ages.022.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.022.q2"
+    },
+    {
+      "id": "card.middle_ages.022.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.022.q3"
+    },
+    {
+      "id": "card.middle_ages.022.c8",
+      "type": "checkpoint",
+      "headline": "Serfs and peasants: known",
+      "learned": [
+        "A serf was bound to a hereditary plot and his lord",
+        "He needed permission to leave, marry or change work",
+        "Week-work on the lord’s demesne came every week",
+        "Grain, the mill, merchet and heriot all cost him"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.serfdom"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.022.c2"
+      ],
+      "prompt": "What made a medieval serf different from a slave?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He was paid a wage by his lord",
+          "correct": false,
+          "rationale": "He paid the lord, not the other way round."
+        },
+        {
+          "id": "b",
+          "label": "He could leave whenever he liked",
+          "correct": false,
+          "rationale": "He needed his lord’s permission."
+        },
+        {
+          "id": "c",
+          "label": "He belonged to the Church, not a lord",
+          "correct": false,
+          "rationale": "He was bound to his lord."
+        },
+        {
+          "id": "d",
+          "label": "He was bound to his land, not sold apart from it",
+          "correct": true
+        }
+      ],
+      "explanation": "Slaves were bought and sold without reference to land; a serf was bound to his hereditary plot.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.manor_obligations"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.022.c3"
+      ],
+      "prompt": "What was week-work on a medieval manor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Regular labour on the lord’s demesne",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A week of rest after the harvest",
+          "correct": false,
+          "rationale": "It was work, not rest."
+        },
+        {
+          "id": "c",
+          "label": "Work on the villein’s own strips",
+          "correct": false,
+          "rationale": "It was done for the lord."
+        },
+        {
+          "id": "d",
+          "label": "A weekly market held in town",
+          "correct": false,
+          "rationale": "That’s trade, not labour."
+        }
+      ],
+      "explanation": "Week by week a villein ploughed, harrowed, reaped, threshed and carried on the lord’s demesne.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.middle_ages.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.manor_obligations",
+        "concept.middle_ages.feudal_bond"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.022.c4",
+        "card.middle_ages.021.c2"
+      ],
+      "prompt": "Level 21’s vassals held fiefs for military service. How did a villein pay for his holding?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By fighting as a knight for his lord",
+          "correct": false,
+          "rationale": "That was knight service."
+        },
+        {
+          "id": "b",
+          "label": "With money, labour and produce",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "With nothing; the land was a gift",
+          "correct": false,
+          "rationale": "It was never free."
+        },
+        {
+          "id": "d",
+          "label": "By swearing fealty to the pope",
+          "correct": false,
+          "rationale": "His dues went to his lord."
+        }
+      ],
+      "explanation": "Vassals served with arms; a villein paid in money, labour and produce, plus fees like merchet and heriot.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_serfdom",
+    "source.brit_manorialism",
+    "source.olemiss_manorial_language",
+    "source.brit_feudalism",
+    "source.eh_medieval_warfare"
+  ],
+  "art": "rome.farm"
+}
