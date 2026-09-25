@@ -1,0 +1,222 @@
+{
+  "id": "level.world_systems.everyday_technology.007",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Magnets and Motors",
+  "objective": "After this level you can explain how magnets and electricity together make a motor spin.",
+  "summary": "A current makes a magnetic field, as Ørsted saw in 1820. A motor puts a current-carrying coil between magnets and reverses its current every half turn so it keeps spinning.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.electromagnetism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_motor",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_current",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.006"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In April 1820, a compass needle swung during a lecture.",
+      "body": "Hans Christian Ørsted sent a current through a wire, and a nearby magnetic needle turned to line up across it. It was clear evidence that electricity and magnetism are linked. Every electric motor you own runs on that link."
+    },
+    {
+      "id": "card.everyday_technology.007.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Current makes a magnet",
+      "body": "Every magnet has a north and a south pole. Opposite poles attract and like poles push apart, much like Level 3's charges. Ørsted's needle moved because a current makes its own magnetic field. Wind wire into a coil around an iron core and you get an electromagnet: a magnet you can switch on and off, strengthen or flip, just by changing the current."
+    },
+    {
+      "id": "card.everyday_technology.007.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "How a motor keeps spinning",
+      "body": "Put a coil carrying current between the poles of a magnet, and magnetic pushes and pulls twist it: a turning force that spins a shaft. To keep it turning the same way, the motor reverses the current in the coil every half turn, using sliding contacts called brushes and a commutator. The push always points the same way round, so the shaft keeps going."
+    },
+    {
+      "id": "card.everyday_technology.007.c4",
+      "type": "fact",
+      "fact": "Michael Faraday built the first electric motor in 1821.",
+      "context": "He made a wire carrying current circle around a magnet, dipping into a bath of mercury to keep the circuit connected. Today's motors do the same basic job, turning electrical energy into motion, in fans, pumps, drills, hair dryers and electric toothbrushes. Count the ones in your home; the list gets long fast.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Try it: fridge, fan, blender, toothbrush... I stopped counting at the hair dryer."
+      }
+    },
+    {
+      "id": "card.everyday_technology.007.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.007.q1"
+    },
+    {
+      "id": "card.everyday_technology.007.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.007.q2"
+    },
+    {
+      "id": "card.everyday_technology.007.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.007.q3"
+    },
+    {
+      "id": "card.everyday_technology.007.c8",
+      "type": "checkpoint",
+      "headline": "Motors: spinning",
+      "learned": [
+        "Ørsted, 1820: a current moves a compass needle",
+        "Opposite poles attract; like poles repel",
+        "An electromagnet is a coil you can switch on and off",
+        "Motors reverse current each half turn to keep spinning"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.electromagnetism"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.007.c1"
+      ],
+      "prompt": "What did Ørsted see during his lecture in April 1820?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A frog's leg twitched near two metals",
+          "correct": false,
+          "rationale": "That was Galvani, in 1791."
+        },
+        {
+          "id": "b",
+          "label": "A wire glowed white-hot",
+          "correct": false,
+          "rationale": "That's the idea behind a light bulb."
+        },
+        {
+          "id": "c",
+          "label": "A compass needle moved near a current",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A moving magnet made a current",
+          "correct": false,
+          "rationale": "That was Faraday's later discovery."
+        }
+      ],
+      "explanation": "A current in a wire made a nearby compass needle swing: electricity and magnetism are linked.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.electric_motor"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.007.c3"
+      ],
+      "prompt": "Why does a motor reverse the current in its coil every half turn?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So the push keeps turning it the same way",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To stop the motor overheating",
+          "correct": false,
+          "rationale": "Reversing is about direction, not heat."
+        },
+        {
+          "id": "c",
+          "label": "To switch the magnet off",
+          "correct": false,
+          "rationale": "The magnet stays on."
+        },
+        {
+          "id": "d",
+          "label": "To save battery power",
+          "correct": false,
+          "rationale": "It's about keeping the spin going."
+        }
+      ],
+      "explanation": "Reversing the current each half turn, with brushes and a commutator, keeps the push pointing the same way round.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.electromagnetism",
+        "concept.everyday_technology.electric_current"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.007.c2",
+        "card.everyday_technology.003.c2"
+      ],
+      "prompt": "Magnetic poles behave much like Level 3's electric charges. In what way?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both get used up in a circuit",
+          "correct": false,
+          "rationale": "Neither is used up."
+        },
+        {
+          "id": "b",
+          "label": "Opposites attract and likes push apart",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both only exist inside metal wires",
+          "correct": false,
+          "rationale": "Magnets and charges exist in many materials."
+        },
+        {
+          "id": "d",
+          "label": "Both travel a meter or two an hour",
+          "correct": false,
+          "rationale": "That's electron drift speed."
+        }
+      ],
+      "explanation": "Opposite charges and opposite poles attract; like charges and like poles repel.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.eia_science_of_electricity",
+    "source.brit_oersted",
+    "source.brit_magnetism",
+    "source.brit_electromagnet",
+    "source.openstax_motors_generators",
+    "source.brit_electric_motor",
+    "source.rigb_faraday_motor",
+    "source.brit_faraday"
+  ],
+  "art": "technology.magnet"
+}

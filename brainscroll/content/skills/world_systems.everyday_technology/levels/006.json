@@ -1,0 +1,231 @@
+{
+  "id": "level.world_systems.everyday_technology.006",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Batteries",
+  "objective": "After this level you can explain how a battery stores energy in chemicals.",
+  "summary": "Volta's 1800 pile of metal discs and salty cloth was the first reliable battery. Every battery turns chemical energy into electrical energy, and dies when its reacting chemicals run out.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.voltaic_pile",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.battery_chemistry",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.circuit_closed_loop",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_current",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.voltage",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.005"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The battery began with an argument over a frog's leg.",
+      "body": "In 1791, Luigi Galvani saw frog leg muscles twitch when touched with two different metals. He called it \"animal electricity.\" Alessandro Volta disagreed: he argued the current came from the two metals, and the frog was only carrying it."
+    },
+    {
+      "id": "card.everyday_technology.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Volta's pile: no frog required",
+      "body": "In 1800, Volta built a stack of alternating zinc and silver (or copper) discs, separated by cloth or paper soaked in salt water. It gave a steady, continuous current: the first reliable battery, and his side of the argument won. The volt, Level 3's unit of push, was named in his honor in 1881."
+    },
+    {
+      "id": "card.everyday_technology.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What's inside every battery",
+      "body": "A battery turns chemical energy into electrical energy. It has two ends, the anode and the cathode, with an electrolyte between them. Electrons leave the anode, travel around the outside circuit and arrive at the cathode, while charged particles called ions move through the electrolyte inside to balance them. Remember Level 4: nothing flows until the loop is closed. A common cell gives about 1.5 volts."
+    },
+    {
+      "id": "card.everyday_technology.006.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "\"Dead\" doesn't mean empty",
+      "body": "A flat battery hasn't run out of electrons. Level 3 showed they were in the wires all along; the battery supplies the energy. It dies when its reacting chemicals are used up. Recharging pushes current through it in reverse, running the reaction backward and storing chemical energy again. A charger is really a re-energizer.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Next time your phone dies, you can tell it: you're not empty, you're just out of reactants."
+      }
+    },
+    {
+      "id": "card.everyday_technology.006.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.006.q1"
+    },
+    {
+      "id": "card.everyday_technology.006.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.006.q2"
+    },
+    {
+      "id": "card.everyday_technology.006.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.006.q3"
+    },
+    {
+      "id": "card.everyday_technology.006.c8",
+      "type": "checkpoint",
+      "headline": "Batteries: charged",
+      "learned": [
+        "Galvani's frog led to Volta's pile in 1800",
+        "A battery turns chemical energy into electrical energy",
+        "Electrons go from anode to cathode around the circuit",
+        "Batteries die when their reactants are used up"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.voltaic_pile"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.006.c2"
+      ],
+      "prompt": "What was Volta's 1800 battery made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A frog's leg wired to two metals",
+          "correct": false,
+          "rationale": "That was Galvani's experiment."
+        },
+        {
+          "id": "b",
+          "label": "Metal discs stacked with salty wet cloth",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A magnet spinning inside a coil",
+          "correct": false,
+          "rationale": "That makes a generator, not a battery."
+        },
+        {
+          "id": "d",
+          "label": "A glass bulb with a carbon thread",
+          "correct": false,
+          "rationale": "That's an early light bulb."
+        }
+      ],
+      "explanation": "The voltaic pile stacked zinc and silver (or copper) discs with cloth or paper soaked in salt water between them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.battery_chemistry"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.006.c4"
+      ],
+      "prompt": "Why does a battery eventually go flat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It runs out of electrons",
+          "correct": false,
+          "rationale": "The electrons were in the wires all along."
+        },
+        {
+          "id": "b",
+          "label": "Its voltage leaks away into the air",
+          "correct": false,
+          "rationale": "Voltage doesn't leak into the air."
+        },
+        {
+          "id": "c",
+          "label": "Its electrolyte turns into metal",
+          "correct": false,
+          "rationale": "The problem is used-up reactants."
+        },
+        {
+          "id": "d",
+          "label": "Its reacting chemicals get used up",
+          "correct": true
+        }
+      ],
+      "explanation": "A battery supplies energy from chemical reactions. When the reactants are used up, it can't push charge any more.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.battery_chemistry",
+        "concept.everyday_technology.circuit_closed_loop"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.006.c3",
+        "card.everyday_technology.004.c2"
+      ],
+      "prompt": "Level 4 said current needs a closed loop. Where do electrons go after leaving a battery's anode?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Around the outside circuit to the cathode",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Straight through the electrolyte to the cathode",
+          "correct": false,
+          "rationale": "Ions move inside; electrons go around the outside."
+        },
+        {
+          "id": "c",
+          "label": "Out into the air around the battery",
+          "correct": false,
+          "rationale": "They stay in the circuit."
+        },
+        {
+          "id": "d",
+          "label": "Nowhere: they stay inside the anode",
+          "correct": false,
+          "rationale": "Then no current would flow."
+        }
+      ],
+      "explanation": "Electrons travel from the anode through the outside circuit to the cathode, while ions move through the electrolyte to balance them.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.physicsclassroom_electric_current",
+    "source.physicsclassroom_circuit_misconceptions",
+    "source.brit_battery",
+    "source.physicsclassroom_circuit_requirements",
+    "source.brit_volta",
+    "source.doe_explains_batteries"
+  ],
+  "art": "technology.battery"
+}

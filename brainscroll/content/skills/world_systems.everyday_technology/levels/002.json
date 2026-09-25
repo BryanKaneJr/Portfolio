@@ -1,0 +1,221 @@
+{
+  "id": "level.world_systems.everyday_technology.002",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Energy Is",
+  "objective": "After this level you can explain energy as the ability to do work and name its main forms.",
+  "summary": "Energy is the ability to do work. It is stored (chemical, gravitational, elastic) or working (motion, heat, light, sound, electricity), and it only ever changes form.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.energy_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_conservation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.technology_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.001"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Nobody has ever made a single joule of energy.",
+      "body": "Not power stations, not batteries, not your breakfast. Energy can't be created. Everything that seems to make it is really changing it from one form into another. To see how, start with what energy actually is."
+    },
+    {
+      "id": "card.everyday_technology.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Energy is the ability to do work",
+      "body": "That's how scientists define it, and it comes in two big groups. Stored (potential) energy waits: chemical energy in food and batteries, gravitational energy in anything lifted high, the energy in a stretched rubber band. Working (kinetic) energy is busy: motion, heat, light, sound and electricity. A sandwich and a raised hammer have something in common. Both are jobs waiting to happen."
+    },
+    {
+      "id": "card.everyday_technology.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Energy never vanishes. It changes jobs.",
+      "body": "Energy can't be created or destroyed, only changed from one form into another. Your breakfast holds chemical energy, and your body turns it into motion when you walk or play. But even at its best, your body turns only about a quarter of that energy into motion, and most of the rest becomes heat. That's why exercise warms you up. Nothing was lost; it just changed form.",
+      "mascot": {
+        "pose": "idea",
+        "line": "So a warm-up really is a warm-up. Your muscles are just a bit messy with their energy."
+      }
+    },
+    {
+      "id": "card.everyday_technology.002.c4",
+      "type": "fact",
+      "fact": "One joule is about the energy it takes to lift a small apple one meter.",
+      "context": "The joule is the standard unit of energy: the work done by a push of one newton over one meter. Lift a small apple (about 100 grams) one meter straight up, and you've spent about one joule. It's a tiny amount. Keep the apple in mind; it comes back at the end of this chapter."
+    },
+    {
+      "id": "card.everyday_technology.002.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.002.q1"
+    },
+    {
+      "id": "card.everyday_technology.002.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.002.q2"
+    },
+    {
+      "id": "card.everyday_technology.002.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.002.q3"
+    },
+    {
+      "id": "card.everyday_technology.002.c8",
+      "type": "checkpoint",
+      "headline": "Energy: defined",
+      "learned": [
+        "Energy is the ability to do work",
+        "Stored (potential) and working (kinetic) forms",
+        "Energy is never created or destroyed, only changed",
+        "One joule is about lifting a small apple one meter"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.energy_basics"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.002.c2"
+      ],
+      "prompt": "Which of these is stored (potential) energy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The sound of a drum",
+          "correct": false,
+          "rationale": "Sound is working (kinetic) energy."
+        },
+        {
+          "id": "b",
+          "label": "Chemical energy in a sandwich",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Light from a lamp",
+          "correct": false,
+          "rationale": "Light is working (kinetic) energy."
+        },
+        {
+          "id": "d",
+          "label": "Heat from a stove",
+          "correct": false,
+          "rationale": "Heat is working (kinetic) energy."
+        }
+      ],
+      "explanation": "Chemical energy in food and batteries is stored energy, waiting to do a job.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.energy_conservation"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.002.c3"
+      ],
+      "prompt": "After a run, where did most of your breakfast's energy go?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was destroyed as you ran",
+          "correct": false,
+          "rationale": "Energy can't be destroyed; it changed form."
+        },
+        {
+          "id": "b",
+          "label": "Your body made new energy to replace it",
+          "correct": false,
+          "rationale": "Bodies can't create energy either."
+        },
+        {
+          "id": "c",
+          "label": "Most of it became heat",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It turned back into food",
+          "correct": false,
+          "rationale": "Energy moved on as motion and heat, not back into food."
+        }
+      ],
+      "explanation": "Your body turns at best about a quarter of food energy into motion; most of the rest becomes heat.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.energy_basics",
+        "concept.everyday_technology.technology_definition"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.002.c2",
+        "card.everyday_technology.001.c2"
+      ],
+      "prompt": "Level 1 said technology puts knowledge to work on practical jobs. What does every one of those jobs need?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Electricity from a wall socket",
+          "correct": false,
+          "rationale": "Stone tools managed without any."
+        },
+        {
+          "id": "b",
+          "label": "A factory to build the tool",
+          "correct": false,
+          "rationale": "A sharpened stone needs no factory."
+        },
+        {
+          "id": "c",
+          "label": "A computer to control it",
+          "correct": false,
+          "rationale": "Most of history's technology had no computer."
+        },
+        {
+          "id": "d",
+          "label": "Energy, the ability to do work",
+          "correct": true
+        }
+      ],
+      "explanation": "Energy is the ability to do work, so every job technology does, from cutting to lighting a room, needs it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eia_what_is_energy",
+    "source.brit_energy",
+    "source.eia_forms_of_energy",
+    "source.eia_laws_of_energy",
+    "source.bodyphysics_human_efficiency",
+    "source.nist_sp330_si",
+    "source.psu_energy_units"
+  ],
+  "art": "astronomy.sun"
+}

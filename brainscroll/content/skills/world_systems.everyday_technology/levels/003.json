@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.everyday_technology.003",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Electricity",
+  "objective": "After this level you can explain electric current as moving charges and what voltage means.",
+  "summary": "Current is moving charge: electrons already in the wire drift slowly, but the push travels almost at light speed. Voltage is the energy each coulomb gets: one joule per coulomb is one volt.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.electric_current",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.voltage",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_basics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.002"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Electrons in a wire crawl along at roughly a meter or two an hour.",
+      "body": "Yet flip a switch and the light comes on at once. Something about electricity is much faster than the electrons carrying it. This level untangles that puzzle: what electricity is, and what a volt actually measures."
+    },
+    {
+      "id": "card.everyday_technology.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Electricity is charge on the move",
+      "body": "Atoms hold positive protons and negative electrons. Opposite charges attract; like charges push apart. In a metal wire, when electrons all drift the same way, that's an electric current. And those electrons were in the wire all along, belonging to its own atoms. A wire isn't an empty pipe waiting to be filled. It comes already full."
+    },
+    {
+      "id": "card.everyday_technology.003.c3",
+      "type": "fact",
+      "fact": "Current counts how many electrons pass, not how fast they go.",
+      "context": "Current is measured in amperes. One ampere means about 6.2 billion billion electrons passing a point every second. Each one is slow, but there are so many that the flow adds up. And when you close a switch, the push reaches every electron in the circuit at nearly the speed of light, so they all start moving at once. The light doesn't wait."
+    },
+    {
+      "id": "card.everyday_technology.003.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Voltage is the push",
+      "body": "Voltage says how much energy each bit of charge gets. One volt means one joule for every coulomb, the charge one ampere carries in a second. An analogy helps, if you remember it's only a picture: a battery is like the pump that lifts water to the top of a water slide, so it can run back down. A 1.5-volt battery gives each coulomb 1.5 joules for the trip around."
+    },
+    {
+      "id": "card.everyday_technology.003.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.003.q1"
+    },
+    {
+      "id": "card.everyday_technology.003.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.003.q2"
+    },
+    {
+      "id": "card.everyday_technology.003.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.003.q3"
+    },
+    {
+      "id": "card.everyday_technology.003.c8",
+      "type": "checkpoint",
+      "headline": "Electricity: switched on",
+      "learned": [
+        "Current is moving charge, measured in amperes",
+        "The electrons are already in the wire, drifting slowly",
+        "The push travels at nearly the speed of light",
+        "One volt is one joule per coulomb"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.electric_current"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.003.c2"
+      ],
+      "prompt": "What is an electric current?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Charge moving through a wire",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Heat traveling along a wire",
+          "correct": false,
+          "rationale": "Wires can get warm, but current is moving charge."
+        },
+        {
+          "id": "c",
+          "label": "Electrons made fresh by the battery",
+          "correct": false,
+          "rationale": "The electrons were in the wire all along."
+        },
+        {
+          "id": "d",
+          "label": "Light trapped inside a cable",
+          "correct": false,
+          "rationale": "No light involved: it's charge on the move."
+        }
+      ],
+      "explanation": "A current is moving charge; in a metal wire, the wire's own electrons drift the same way.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.electric_current"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.003.c3",
+        "card.everyday_technology.003.c1"
+      ],
+      "prompt": "Electrons drift slowly, so why does a lamp light the instant you flip the switch?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The electrons race along at light speed",
+          "correct": false,
+          "rationale": "They only drift a meter or two an hour."
+        },
+        {
+          "id": "b",
+          "label": "The push reaches every electron almost at once",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The bulb stores electrons for later",
+          "correct": false,
+          "rationale": "Bulbs don't store electrons."
+        },
+        {
+          "id": "d",
+          "label": "The switch is always right next to the bulb",
+          "correct": false,
+          "rationale": "Distance isn't the reason."
+        }
+      ],
+      "explanation": "Closing the switch sends the push through the circuit at nearly the speed of light, so all the electrons start moving together.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.voltage",
+        "concept.everyday_technology.energy_basics"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.003.c4",
+        "card.everyday_technology.002.c4"
+      ],
+      "prompt": "Level 2 measured energy in joules. How much energy does a 1.5-volt battery give each coulomb of charge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "0.5 joules",
+          "correct": false,
+          "rationale": "That would be a 0.5-volt battery."
+        },
+        {
+          "id": "b",
+          "label": "1 joule",
+          "correct": false,
+          "rationale": "That would be a 1-volt battery."
+        },
+        {
+          "id": "c",
+          "label": "1.5 joules",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "15 joules",
+          "correct": false,
+          "rationale": "Ten times too much."
+        }
+      ],
+      "explanation": "One volt is one joule per coulomb, so 1.5 volts means 1.5 joules for each coulomb.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eia_science_of_electricity",
+    "source.brit_electric_current",
+    "source.eia_forms_of_energy",
+    "source.physicsclassroom_electric_current",
+    "source.physicsclassroom_circuit_misconceptions",
+    "source.openstax_college_physics_current",
+    "source.nist_sp330_si",
+    "source.physicsclassroom_potential_difference",
+    "source.brit_battery"
+  ],
+  "art": "nature.lightning"
+}

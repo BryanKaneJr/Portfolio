@@ -1,0 +1,224 @@
+{
+  "id": "level.world_systems.everyday_technology.008",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Generators",
+  "objective": "After this level you can explain how spinning magnets inside coils of wire generate electricity.",
+  "summary": "Faraday found in 1831 that a changing magnetic field in a coil makes a current. A generator is a motor run backwards: turbines spin a magnet inside coils to make most of the world's electricity.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.electromagnetic_induction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.generator",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_motor",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_conservation",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.007"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Run a motor backwards and it makes electricity.",
+      "body": "Level 7 turned current into motion. Now force the shaft to turn instead, so the coil spins between the magnets, and current comes out. The same machine can work either way, and spinning generators make most of the world's electricity."
+    },
+    {
+      "id": "card.everyday_technology.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Faraday's discovery: change makes current",
+      "body": "In 1831, Michael Faraday found that moving a magnet inside a coil of wire makes a current flow in the wire. The key word is moving. A magnet sitting still inside a coil does nothing. What counts is a changing magnetic field, and the faster it changes, the bigger the voltage. This is called electromagnetic induction."
+    },
+    {
+      "id": "card.everyday_technology.008.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Inside a power-station generator",
+      "body": "A big generator has fixed coils of wire, the stator, around a spinning electromagnet, the rotor. Turn the rotor and current flows in the coils. Something has to do the turning: steam, falling water, wind or burning gas drives a turbine, and the turbine spins the rotor. Solar panels are the big exception: they turn sunlight into electricity directly, with nothing spinning."
+    },
+    {
+      "id": "card.everyday_technology.008.c4",
+      "type": "fact",
+      "fact": "A motor and a generator are the same machine, facing opposite ways.",
+      "context": "A motor turns electrical energy into motion. A generator turns motion into electrical energy. Level 2's rule explains why a generator never gives something for nothing: energy can't be created, so every joule of electricity it makes started as the energy of whatever spun it."
+    },
+    {
+      "id": "card.everyday_technology.008.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.008.q1"
+    },
+    {
+      "id": "card.everyday_technology.008.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.008.q2"
+    },
+    {
+      "id": "card.everyday_technology.008.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.008.q3"
+    },
+    {
+      "id": "card.everyday_technology.008.c8",
+      "type": "checkpoint",
+      "headline": "Generators: running",
+      "learned": [
+        "Faraday, 1831: a moving magnet makes current in a coil",
+        "Only a changing magnetic field induces current",
+        "Turbines spin a rotor inside the stator's coils",
+        "A generator is a motor run backwards"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.generator"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.008.c3"
+      ],
+      "prompt": "In most power stations, what spins the generator's rotor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A turbine driven by steam, water, wind or gas",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The electricity the generator just made",
+          "correct": false,
+          "rationale": "That would be making energy from nothing."
+        },
+        {
+          "id": "c",
+          "label": "Sunlight falling on the coils",
+          "correct": false,
+          "rationale": "Solar panels skip spinning altogether."
+        },
+        {
+          "id": "d",
+          "label": "Magnets pushing each other forever",
+          "correct": false,
+          "rationale": "Something has to supply the energy."
+        }
+      ],
+      "explanation": "Steam, falling water, wind or burning gas turns a turbine, and the turbine spins the rotor inside the coils.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.electromagnetic_induction"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.008.c2"
+      ],
+      "prompt": "A strong magnet sits perfectly still inside a coil of wire. What happens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A large, steady current flows",
+          "correct": false,
+          "rationale": "A still magnet gives no changing field."
+        },
+        {
+          "id": "b",
+          "label": "The coil heats up and glows",
+          "correct": false,
+          "rationale": "Without a current, nothing heats up."
+        },
+        {
+          "id": "c",
+          "label": "The magnet slowly loses its strength",
+          "correct": false,
+          "rationale": "The magnet is unaffected."
+        },
+        {
+          "id": "d",
+          "label": "No current flows",
+          "correct": true
+        }
+      ],
+      "explanation": "Induction needs a changing magnetic field. A magnet sitting still induces no current.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.generator",
+        "concept.everyday_technology.electric_motor"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.008.c1",
+        "card.everyday_technology.008.c4",
+        "card.everyday_technology.007.c3"
+      ],
+      "prompt": "How is a generator related to Level 7's electric motor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's a motor with no magnets inside",
+          "correct": false,
+          "rationale": "Generators need magnets too."
+        },
+        {
+          "id": "b",
+          "label": "It stores current, like a battery",
+          "correct": false,
+          "rationale": "It makes current; it doesn't store it."
+        },
+        {
+          "id": "c",
+          "label": "It's a motor run backwards: motion in, current out",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It's a bigger motor that needs more current",
+          "correct": false,
+          "rationale": "It supplies current instead of using it."
+        }
+      ],
+      "explanation": "Force a motor's coil to turn in its magnetic field and it becomes a generator, turning motion into electricity.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eia_laws_of_energy",
+    "source.brit_energy",
+    "source.brit_electric_motor",
+    "source.eia_how_electricity_generated",
+    "source.brit_faraday",
+    "source.brit_electric_generator",
+    "source.openstax_motors_generators",
+    "source.bu_generators"
+  ],
+  "art": "technology.magnet"
+}

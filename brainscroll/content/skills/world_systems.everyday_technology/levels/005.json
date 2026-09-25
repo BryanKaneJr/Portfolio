@@ -1,0 +1,222 @@
+{
+  "id": "level.world_systems.everyday_technology.005",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Light Bulb",
+  "objective": "After this level you can explain how old filament bulbs and modern LEDs make light.",
+  "summary": "Incandescent bulbs heat a tungsten filament until it glows, wasting about 90% of their energy as heat. LEDs make light directly in a semiconductor and use at least 75% less energy.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.incandescent_bulb",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.led_light",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_conservation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.technology_milestones",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.004"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "An old-style light bulb was mostly a heater.",
+      "body": "Incandescent bulbs wasted about 90% of their energy as heat. Only about 10% came out as light. So how did they glow at all, and how do LEDs do the same job on far less energy?"
+    },
+    {
+      "id": "card.everyday_technology.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hot enough to glow",
+      "body": "Anything heated enough gives off light. An incandescent bulb uses that: current pushes through a thin filament that resists it, and the filament gets hot enough to glow. Modern filaments are tungsten, which has the highest melting point of the suitable materials. The glass holds a vacuum or an unreactive gas, because otherwise the hot filament would oxidize and burn away."
+    },
+    {
+      "id": "card.everyday_technology.005.c3",
+      "type": "fact",
+      "fact": "Edison didn't invent the light bulb from scratch.",
+      "context": "Scientists had worked on electric lamps for about 40 years, and in England Joseph Swan made a similar carbon-filament lamp in 1878. Edison's 1879 bulb, from Level 1's timeline, used a carbon filament too. Then his team kept testing materials, and a bamboo filament stretched lamp life to up to 1,200 hours. The race wasn't for the first glow. It was for a glow that lasted."
+    },
+    {
+      "id": "card.everyday_technology.005.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "LEDs: light without the hot wire",
+      "body": "An LED (light-emitting diode) has no filament. It's made of two semiconductor materials, and when current crosses the junction between them, electrons give up energy directly as light. The material sets the color. Level 2's rule still holds: energy isn't destroyed, so less wasted as heat means more light per joule. LEDs use at least 75% less energy than incandescent bulbs and last many times longer."
+    },
+    {
+      "id": "card.everyday_technology.005.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.005.q1"
+    },
+    {
+      "id": "card.everyday_technology.005.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.005.q2"
+    },
+    {
+      "id": "card.everyday_technology.005.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.005.q3"
+    },
+    {
+      "id": "card.everyday_technology.005.c8",
+      "type": "checkpoint",
+      "headline": "Light bulbs: lit",
+      "learned": [
+        "Incandescent bulbs heat a tungsten filament until it glows",
+        "About 90% of their energy became heat",
+        "Swan and Edison both made carbon-filament lamps",
+        "LEDs make light directly and use at least 75% less energy"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.incandescent_bulb"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.005.c2"
+      ],
+      "prompt": "How does an incandescent bulb make light?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gas inside the bulb burns brightly",
+          "correct": false,
+          "rationale": "The gas is there to stop burning."
+        },
+        {
+          "id": "b",
+          "label": "Electrons cross a semiconductor junction",
+          "correct": false,
+          "rationale": "That's how an LED works."
+        },
+        {
+          "id": "c",
+          "label": "Current heats a filament until it glows",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The glass stores light during the day",
+          "correct": false,
+          "rationale": "The glass just protects the filament."
+        }
+      ],
+      "explanation": "Current through the thin tungsten filament heats it until it glows.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.led_light"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.005.c4",
+        "card.everyday_technology.005.c1"
+      ],
+      "prompt": "Why does an LED need so much less energy than an old bulb for the same light?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It makes energy out of nothing",
+          "correct": false,
+          "rationale": "Energy can't be created (Level 2)."
+        },
+        {
+          "id": "b",
+          "label": "It glows at a higher temperature",
+          "correct": false,
+          "rationale": "It has no hot filament at all."
+        },
+        {
+          "id": "c",
+          "label": "It only works on batteries",
+          "correct": false,
+          "rationale": "LEDs run on home wiring too."
+        },
+        {
+          "id": "d",
+          "label": "It wastes far less of its energy as heat",
+          "correct": true
+        }
+      ],
+      "explanation": "An LED turns energy into light directly instead of heating a filament, so less is lost as heat and more becomes light.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.incandescent_bulb",
+        "concept.everyday_technology.energy_conservation"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.005.c1",
+        "card.everyday_technology.002.c3"
+      ],
+      "prompt": "Level 2 said energy is never destroyed. In an old bulb, where did about 90% of the energy go?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It became heat",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It vanished inside the filament",
+          "correct": false,
+          "rationale": "Energy can't vanish; it changed form."
+        },
+        {
+          "id": "c",
+          "label": "It flowed back into the wire unused",
+          "correct": false,
+          "rationale": "It was used, mostly as heat."
+        },
+        {
+          "id": "d",
+          "label": "It turned into sound",
+          "correct": false,
+          "rationale": "Bulbs are quiet: the loss was heat."
+        }
+      ],
+      "explanation": "Incandescent bulbs turned about 90% of their energy into heat and only about 10% into light.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_incandescent_lamp",
+    "source.doe_history_light_bulb",
+    "source.eia_laws_of_energy",
+    "source.brit_energy",
+    "source.doe_efficient_lighting_guide",
+    "source.brit_led"
+  ],
+  "art": "technology.lightbulb"
+}

@@ -1,0 +1,237 @@
+{
+  "id": "level.world_systems.everyday_technology.009",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Edison, Tesla and AC",
+  "objective": "After this level you can explain alternating current and why it won out over direct current.",
+  "summary": "Edison's 1882 station sent direct current a short way. Alternating current won because transformers can raise its voltage for long-distance lines and lower it again for homes.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.alternating_current",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.war_of_currents",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electromagnetic_induction",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.008"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1882, Edison's first power station served a quarter of a square mile.",
+      "body": "His Pearl Street station in New York began supplying customers on September 4, 1882, the forerunner of every central power station since. It ran on direct current. By the late 1880s, a rival kind of current had started a war with it. Here's why the rival won."
+    },
+    {
+      "id": "card.everyday_technology.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "DC flows one way. AC swings back and forth.",
+      "body": "Direct current (DC) flows steadily in one direction, like the current from a battery. Alternating current (AC) keeps reversing. On the US grid it goes through 60 complete back-and-forth cycles every second: 60 hertz. Level 8's generators make that swing naturally. A two-pole generator making 60-hertz power spins 3,600 times a minute: 60 turns a second, one cycle per turn."
+    },
+    {
+      "id": "card.everyday_technology.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why AC won: the transformer",
+      "body": "Sending power far works best at high voltage: it's more efficient and cheaper. But homes need lower, safer voltages. A transformer changes voltage using Level 8's trick, induction, so it needs a current that keeps changing: AC. DC couldn't easily be stepped up or down, which made sending it far a problem. Tesla's AC could travel far; Edison's DC struggled to."
+    },
+    {
+      "id": "card.everyday_technology.009.c4",
+      "type": "timeline",
+      "headline": "The War of the Currents",
+      "events": [
+        {
+          "when": "1882",
+          "label": "Edison's Pearl Street station opens, running on DC"
+        },
+        {
+          "when": "Late 1880s",
+          "label": "Edison claims AC is more dangerous, and electrocutes animals to prove it"
+        },
+        {
+          "when": "1893",
+          "label": "Westinghouse wins the bid to light Chicago's World's Fair with Tesla's AC"
+        },
+        {
+          "when": "1896",
+          "label": "AC from Niagara Falls lights up Buffalo"
+        },
+        {
+          "when": "Today",
+          "label": "The grid runs on AC; LEDs, computers and solar cells run on DC"
+        }
+      ]
+    },
+    {
+      "id": "card.everyday_technology.009.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.009.q1"
+    },
+    {
+      "id": "card.everyday_technology.009.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.009.q2"
+    },
+    {
+      "id": "card.everyday_technology.009.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.009.q3"
+    },
+    {
+      "id": "card.everyday_technology.009.c8",
+      "type": "checkpoint",
+      "headline": "AC: switched on",
+      "learned": [
+        "DC flows one way; AC keeps reversing",
+        "The US grid runs at 60 hertz",
+        "Transformers need AC, and high voltage travels far",
+        "AC won the War of the Currents in the 1890s"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.alternating_current"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.009.c2"
+      ],
+      "prompt": "What makes alternating current different from direct current?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It only comes from batteries",
+          "correct": false,
+          "rationale": "Batteries give DC."
+        },
+        {
+          "id": "b",
+          "label": "It keeps reversing direction",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It can't travel through copper",
+          "correct": false,
+          "rationale": "Both kinds flow through copper."
+        },
+        {
+          "id": "d",
+          "label": "Its electrons move at light speed",
+          "correct": false,
+          "rationale": "Electrons drift slowly in both."
+        }
+      ],
+      "explanation": "DC flows one way; AC keeps reversing, 60 full cycles a second on the US grid.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.war_of_currents"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.009.c3"
+      ],
+      "prompt": "Why did AC beat DC for sending power over long distances?",
+      "options": [
+        {
+          "id": "a",
+          "label": "DC couldn't light bulbs",
+          "correct": false,
+          "rationale": "Edison's DC lit bulbs just fine."
+        },
+        {
+          "id": "b",
+          "label": "AC has no voltage at all",
+          "correct": false,
+          "rationale": "AC has voltage; it just keeps reversing."
+        },
+        {
+          "id": "c",
+          "label": "Transformers can easily change its voltage",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Edison refused to use copper wires",
+          "correct": false,
+          "rationale": "The problem was changing DC's voltage."
+        }
+      ],
+      "explanation": "Transformers raise AC to high voltage for efficient long-distance lines and lower it again for homes. DC couldn't easily be converted.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.war_of_currents",
+        "concept.everyday_technology.electromagnetic_induction"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.009.c3",
+        "card.everyday_technology.008.c2"
+      ],
+      "prompt": "Transformers work by Level 8's induction. Why does that mean they need AC?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Induction only works with batteries",
+          "correct": false,
+          "rationale": "Batteries give steady DC, which induces nothing."
+        },
+        {
+          "id": "b",
+          "label": "AC carries more electrons than DC",
+          "correct": false,
+          "rationale": "The difference is change, not the number of electrons."
+        },
+        {
+          "id": "c",
+          "label": "DC melts the transformer's wires",
+          "correct": false,
+          "rationale": "The problem is that steady DC induces nothing."
+        },
+        {
+          "id": "d",
+          "label": "Induction needs a magnetic field that keeps changing",
+          "correct": true
+        }
+      ],
+      "explanation": "Only a changing magnetic field induces a voltage. AC keeps changing; steady DC doesn't.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.ethw_pearl_street",
+    "source.doe_war_of_currents",
+    "source.brit_electric_current",
+    "source.brit_electric_generator",
+    "source.openstax_motors_generators",
+    "source.eia_delivery_to_consumers"
+  ],
+  "art": "technology.power-pylon"
+}

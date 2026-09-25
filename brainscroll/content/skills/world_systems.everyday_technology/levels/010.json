@@ -1,0 +1,372 @@
+{
+  "id": "level.world_systems.everyday_technology.010",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 10,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Energy and Electricity",
+  "objective": "After this level you can explain how electricity is made, stored and used to do work.",
+  "summary": "Generators make electricity, batteries store it as chemicals, and bulbs and motors use it. Power is how fast energy flows: a watt is a joule per second, and a kilowatt-hour is 3.6 million joules.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.electric_power",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.generator",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.battery_chemistry",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.voltage",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.war_of_currents",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_basics",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_motor",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.incandescent_bulb",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_current",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.led_light",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.009"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.010.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 1 finale: what does your electricity bill actually charge for?",
+      "body": "Not electrons: Level 3 showed they were in your wires all along. You pay for energy, measured in kilowatt-hours. To see what that means, put the whole chapter together."
+    },
+    {
+      "id": "card.everyday_technology.010.c2",
+      "type": "comparison",
+      "headline": "Electricity: made, stored, used",
+      "items": [
+        {
+          "label": "Made",
+          "points": [
+            "Generators spin a magnet inside coils (Level 8)",
+            "Turbines turn most of them"
+          ]
+        },
+        {
+          "label": "Stored",
+          "points": [
+            "Batteries hold chemical energy (Level 6)",
+            "Recharging runs the reaction backward"
+          ]
+        },
+        {
+          "label": "Used",
+          "points": [
+            "Bulbs turn it into light and heat (Level 5)",
+            "Motors turn it into motion (Level 7)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.everyday_technology.010.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Watts: how fast energy flows",
+      "body": "A watt is one joule of energy every second. Remember Level 2's apple? Lifting one a meter every second takes about a watt. Watts also join Level 3's two ideas: volts times amps equals watts, because joules per coulomb times coulombs per second gives joules per second. A 60-watt bulb uses 60 joules every second it's on."
+    },
+    {
+      "id": "card.everyday_technology.010.c4",
+      "type": "fact",
+      "fact": "A kilowatt-hour is 3.6 million joules.",
+      "context": "That's 1,000 watts running for an hour (3,600 seconds), and it's the unit utilities measure and charge for. In apples, that's 3.6 million small apples, each lifted a meter. Swap an old bulb for an LED, which uses at least 75% less energy, and the same light takes a quarter or less of the kilowatt-hours.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Your bill is secretly a very long list of lifted apples. I find that oddly comforting."
+      }
+    },
+    {
+      "id": "card.everyday_technology.010.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.010.q1"
+    },
+    {
+      "id": "card.everyday_technology.010.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.010.q2"
+    },
+    {
+      "id": "card.everyday_technology.010.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.010.q3"
+    },
+    {
+      "id": "card.everyday_technology.010.c8",
+      "type": "recall",
+      "questionId": "question.everyday_technology.010.q4"
+    },
+    {
+      "id": "card.everyday_technology.010.c9",
+      "type": "recall",
+      "questionId": "question.everyday_technology.010.q5"
+    },
+    {
+      "id": "card.everyday_technology.010.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "Generators make electricity; batteries store energy as chemicals",
+        "Bulbs and motors turn electricity into light, heat and motion",
+        "A watt is a joule per second: volts times amps",
+        "A kilowatt-hour is 3.6 million joules"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.010.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.electric_power"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.010.c3"
+      ],
+      "prompt": "What is one watt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One coulomb of charge per second",
+          "correct": false,
+          "rationale": "That's an ampere (Level 3)."
+        },
+        {
+          "id": "b",
+          "label": "One joule of energy per second",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "One joule per coulomb of charge",
+          "correct": false,
+          "rationale": "That's a volt."
+        },
+        {
+          "id": "d",
+          "label": "One kilowatt-hour of energy",
+          "correct": false,
+          "rationale": "That's a unit of energy, not power."
+        }
+      ],
+      "explanation": "A watt is a rate: one joule of energy every second.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.010.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.electric_power"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.010.c3"
+      ],
+      "prompt": "A device runs on 10 volts and draws 2 amperes. What is its power?",
+      "options": [
+        {
+          "id": "a",
+          "label": "5 watts",
+          "correct": false,
+          "rationale": "That divides volts by amps; multiply instead."
+        },
+        {
+          "id": "b",
+          "label": "12 watts",
+          "correct": false,
+          "rationale": "That adds them; multiply instead."
+        },
+        {
+          "id": "c",
+          "label": "20 watts",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "200 watts",
+          "correct": false,
+          "rationale": "Ten times too much."
+        }
+      ],
+      "explanation": "Volts times amps equals watts: 10 x 2 = 20 watts, or 20 joules every second.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.everyday_technology.010.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.battery_chemistry",
+        "concept.everyday_technology.generator"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.010.c2",
+        "card.everyday_technology.006.c3",
+        "card.everyday_technology.008.c3"
+      ],
+      "prompt": "Chapter recap: what does a battery do that a power-station generator doesn't?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It spins a magnet inside coils",
+          "correct": false,
+          "rationale": "That's what the generator does."
+        },
+        {
+          "id": "b",
+          "label": "It creates brand-new energy",
+          "correct": false,
+          "rationale": "Nothing creates energy (Level 2)."
+        },
+        {
+          "id": "c",
+          "label": "It holds energy as chemicals for later",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It turns sunlight straight into current",
+          "correct": false,
+          "rationale": "That's a solar panel."
+        }
+      ],
+      "explanation": "A battery stores chemical energy and turns it into electrical energy when the circuit is closed; a generator turns motion into electricity as it spins.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.010.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.voltage"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.003.c4"
+      ],
+      "prompt": "From Level 3: what does voltage measure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How fast electrons drift along the wire",
+          "correct": false,
+          "rationale": "That's drift speed, a meter or two an hour."
+        },
+        {
+          "id": "b",
+          "label": "How many electrons pass each second",
+          "correct": false,
+          "rationale": "That's current, in amperes."
+        },
+        {
+          "id": "c",
+          "label": "How hot the wire gets",
+          "correct": false,
+          "rationale": "Heat is a result, not what voltage measures."
+        },
+        {
+          "id": "d",
+          "label": "The energy given to each coulomb of charge",
+          "correct": true
+        }
+      ],
+      "explanation": "One volt is one joule of energy for every coulomb of charge.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.010.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.war_of_currents"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.009.c3"
+      ],
+      "prompt": "From Level 9: why is power sent over long lines at high voltage?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It makes long-distance transmission more efficient",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Homes need very high voltage to run",
+          "correct": false,
+          "rationale": "Homes get lower, safer voltage."
+        },
+        {
+          "id": "c",
+          "label": "High voltage turns AC into DC",
+          "correct": false,
+          "rationale": "Transformers change voltage, not the type of current."
+        },
+        {
+          "id": "d",
+          "label": "It makes the electrons drift faster",
+          "correct": false,
+          "rationale": "The gain is efficiency, not electron speed."
+        }
+      ],
+      "explanation": "Higher voltage makes long-distance transmission more efficient and cheaper; transformers lower it again for homes.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.psu_energy_units",
+    "source.physicsclassroom_electric_current",
+    "source.physicsclassroom_circuit_misconceptions",
+    "source.doe_efficient_lighting_guide",
+    "source.doe_history_light_bulb",
+    "source.brit_battery",
+    "source.doe_explains_batteries",
+    "source.brit_electric_motor",
+    "source.eia_how_electricity_generated",
+    "source.brit_electric_generator",
+    "source.nist_sp330_si",
+    "source.nist_sp811_conversion",
+    "source.eia_measuring_electricity"
+  ],
+  "art": "technology.lightbulb"
+}

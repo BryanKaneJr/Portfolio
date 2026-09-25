@@ -1,0 +1,231 @@
+{
+  "id": "level.world_systems.everyday_technology.001",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Technology in One Level",
+  "objective": "After this level you can explain what technology is and how a few big inventions changed daily life.",
+  "summary": "Technology is knowledge put to work on everyday jobs. Stone tools are 3.3 million years old, older than our species; wheels, printing and electric light came much later.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.technology_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.technology_milestones",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.everyday_technology.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The oldest known tools are older than humans.",
+      "body": "About 3.3 million years ago, at a place now called Lomekwi in Kenya, someone knocked sharp flakes off stones. That was before any member of our genus, Homo, walked the Earth. Technology didn't wait for us. So what exactly is it, and how did a few inventions change an ordinary day?"
+    },
+    {
+      "id": "card.everyday_technology.001.c2",
+      "type": "fact",
+      "fact": "Technology is knowledge put to work on everyday jobs.",
+      "context": "Britannica puts it as applying scientific knowledge to the practical aims of human life. A sharpened stone counts. So does a light switch. Both take something people figured out and turn it into a job done: cutting meat, lighting a room. The knowledge keeps growing; the idea stays the same."
+    },
+    {
+      "id": "card.everyday_technology.001.c3",
+      "type": "timeline",
+      "headline": "A few inventions that changed the day",
+      "events": [
+        {
+          "when": "3.3 million years ago",
+          "label": "Stone tools: a sharp edge for cutting"
+        },
+        {
+          "when": "About 3500 BCE",
+          "label": "Wheels in Mesopotamia, on carts and potter's wheels"
+        },
+        {
+          "when": "About 1455",
+          "label": "Gutenberg's press makes books far cheaper"
+        },
+        {
+          "when": "1879",
+          "label": "Edison's carbon-filament light bulb"
+        }
+      ]
+    },
+    {
+      "id": "card.everyday_technology.001.c4",
+      "type": "fact",
+      "fact": "Squeeze tool history into one day, and electric light arrives under 4 seconds before midnight.",
+      "context": "Let the 3.3 million years since Lomekwi fill 24 hours. Our species, about 300,000 years old, turns up around 9:49 p.m. Wheels roll in about 2.5 minutes before midnight. Everything else in this chapter, starting with Volta's battery in 1800, happens in the last 6 seconds.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "We showed up at 9:49 p.m. Fashionably late, and then very, very busy."
+      }
+    },
+    {
+      "id": "card.everyday_technology.001.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.001.q1"
+    },
+    {
+      "id": "card.everyday_technology.001.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.001.q2"
+    },
+    {
+      "id": "card.everyday_technology.001.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.001.q3"
+    },
+    {
+      "id": "card.everyday_technology.001.c8",
+      "type": "checkpoint",
+      "headline": "Technology: mapped",
+      "learned": [
+        "Technology is knowledge put to work on practical jobs",
+        "Stone tools are about 3.3 million years old, older than our species",
+        "Wheels by 3500 BCE, cheap books from about 1455, electric light in 1879",
+        "Electric light is a last-seconds invention on the day clock"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.technology_definition"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.001.c1",
+        "card.everyday_technology.001.c3"
+      ],
+      "prompt": "How old are the oldest known stone tools?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 5,500 years",
+          "correct": false,
+          "rationale": "That's roughly when wheels appeared."
+        },
+        {
+          "id": "b",
+          "label": "About 30,000 years",
+          "correct": false,
+          "rationale": "Much older than that."
+        },
+        {
+          "id": "c",
+          "label": "About 300,000 years",
+          "correct": false,
+          "rationale": "That's the age of our species. The tools are older."
+        },
+        {
+          "id": "d",
+          "label": "About 3.3 million years",
+          "correct": true
+        }
+      ],
+      "explanation": "Tools from Lomekwi 3 in Kenya are about 3.3 million years old, older than the genus Homo.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.everyday_technology.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.technology_milestones"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.001.c4"
+      ],
+      "prompt": "On the one-day clock of tool history, electric light shows up under 4 seconds before midnight. What does that show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Electric light is very recent in tool history",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Electric light was invented by early humans",
+          "correct": false,
+          "rationale": "It arrives at the very end of the day, in 1879."
+        },
+        {
+          "id": "c",
+          "label": "The wheel came after the light bulb",
+          "correct": false,
+          "rationale": "Wheels arrive minutes earlier, around 3500 BCE."
+        },
+        {
+          "id": "d",
+          "label": "Tools only began with our species",
+          "correct": false,
+          "rationale": "Tools were there hours before our species arrived."
+        }
+      ],
+      "explanation": "Squeezing 3.3 million years into 24 hours, Edison's 1879 bulb lands under 4 seconds before midnight: almost all of tool history came before it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.technology_definition",
+        "concept.everyday_technology.technology_milestones"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.001.c2",
+        "card.everyday_technology.001.c3"
+      ],
+      "prompt": "A stone flake and Gutenberg's press are both technology. What do they have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both run on electricity",
+          "correct": false,
+          "rationale": "Neither needed electricity."
+        },
+        {
+          "id": "b",
+          "label": "Both were invented in Mesopotamia",
+          "correct": false,
+          "rationale": "The tools come from Kenya and the press from Europe."
+        },
+        {
+          "id": "c",
+          "label": "Both put knowledge to work on a practical job",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both were invented by Edison",
+          "correct": false,
+          "rationale": "Edison came much later, with the light bulb."
+        }
+      ],
+      "explanation": "Technology is knowledge applied to practical aims: cutting with a sharp edge, or printing books cheaply.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_technology",
+    "source.smithsonianmag_lomekwi_tools",
+    "source.si_homo_sapiens",
+    "source.brit_wheel",
+    "source.brit_gutenberg",
+    "source.brit_incandescent_lamp",
+    "source.doe_history_light_bulb",
+    "source.brit_volta"
+  ],
+  "art": "technology.gears"
+}

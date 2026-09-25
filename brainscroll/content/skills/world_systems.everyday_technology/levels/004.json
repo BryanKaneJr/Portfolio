@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.everyday_technology.004",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Circuits",
+  "objective": "After this level you can explain how a simple circuit works and what a switch does.",
+  "summary": "Current flows only around a closed loop of conductors. A switch opens or closes a gap in that loop, and homes are wired in parallel so each device has its own branch.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.circuit_closed_loop",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.circuit_series_parallel",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_current",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.003"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Wire a kitchen as one chain, and the fridge only runs while the toaster is on.",
+      "body": "That would make breakfast awkward. Real kitchens aren't wired that way, and the reason comes from the same idea that makes every light switch work: electricity only flows around a complete loop."
+    },
+    {
+      "id": "card.everyday_technology.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A circuit is a closed loop",
+      "body": "Every circuit has three parts: a source of energy such as a battery, something that uses the current such as a bulb, and wires joining them. The loop has to run unbroken from one end of the battery, through the bulb, back to the other end. In a single loop, a break anywhere stops the current everywhere. Remember Level 3: the electrons are already in the wire. The loop lets them all move."
+    },
+    {
+      "id": "card.everyday_technology.004.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A switch is a gap you control",
+      "body": "Metals such as copper are conductors: charge moves through them easily. Paper and plastic are insulators, and they stop the flow. A switch in the \"off\" position opens a gap in the loop, so no current can flow. \"On\" closes the gap and completes the loop. It sounds backwards, but in a circuit, closed means go.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Closed means go, open means stop. Traffic lights and circuits will never agree on this."
+      }
+    },
+    {
+      "id": "card.everyday_technology.004.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the fridge ignores the toaster",
+      "body": "In a series circuit everything sits on one path, so each device must work for any of them to work. Unscrew one bulb and the others go out. Homes are wired in parallel instead: each light and appliance gets its own branch, with the same voltage across it, and draws just the current it needs. Switch off the toaster and the fridge keeps humming."
+    },
+    {
+      "id": "card.everyday_technology.004.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.004.q1"
+    },
+    {
+      "id": "card.everyday_technology.004.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.004.q2"
+    },
+    {
+      "id": "card.everyday_technology.004.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.004.q3"
+    },
+    {
+      "id": "card.everyday_technology.004.c8",
+      "type": "checkpoint",
+      "headline": "Circuits: closed",
+      "learned": [
+        "Current needs a closed loop of conductors",
+        "A switch opens or closes a gap in the loop",
+        "Metals conduct; paper and plastic insulate",
+        "Homes are wired in parallel, not in series"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.circuit_closed_loop"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.004.c3"
+      ],
+      "prompt": "What does a light switch do when you turn it off?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It opens a gap in the loop",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It stores the current for later",
+          "correct": false,
+          "rationale": "Switches store nothing; they break or complete the loop."
+        },
+        {
+          "id": "c",
+          "label": "It uses up the electrons in the wire",
+          "correct": false,
+          "rationale": "Charge isn't used up; the loop is just broken."
+        },
+        {
+          "id": "d",
+          "label": "It turns the copper into plastic",
+          "correct": false,
+          "rationale": "The wire stays a conductor; the switch makes a gap."
+        }
+      ],
+      "explanation": "Off opens a gap, so there is no closed loop and no current. On closes the gap.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.circuit_series_parallel"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.004.c4"
+      ],
+      "prompt": "Why does switching off your toaster not switch off your fridge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The fridge has its own battery",
+          "correct": false,
+          "rationale": "It runs on the same home wiring."
+        },
+        {
+          "id": "b",
+          "label": "Kitchens use a different kind of current",
+          "correct": false,
+          "rationale": "Same current; different branches."
+        },
+        {
+          "id": "c",
+          "label": "Each appliance has its own parallel branch",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The toaster and fridge share one series path",
+          "correct": false,
+          "rationale": "In series, they would switch off together."
+        }
+      ],
+      "explanation": "Homes are wired in parallel, so each appliance has its own branch and works on its own.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.circuit_closed_loop",
+        "concept.everyday_technology.electric_current"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.004.c2",
+        "card.everyday_technology.003.c2"
+      ],
+      "prompt": "Level 3 said a wire is already full of electrons. So why won't a bulb light when there's a gap in the wire?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The gap lets the electrons leak out",
+          "correct": false,
+          "rationale": "Electrons don't pour out of the gap."
+        },
+        {
+          "id": "b",
+          "label": "Without a closed loop, the charge can't flow around",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The battery has run out of electrons",
+          "correct": false,
+          "rationale": "Batteries don't supply the electrons."
+        },
+        {
+          "id": "d",
+          "label": "The bulb needs a second battery to start",
+          "correct": false,
+          "rationale": "One battery is plenty with a closed loop."
+        }
+      ],
+      "explanation": "The electrons are already there, but they only flow when the loop is complete from one terminal back to the other.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.physicsclassroom_electric_current",
+    "source.physicsclassroom_circuit_misconceptions",
+    "source.brit_electric_circuit",
+    "source.physicsclassroom_circuit_requirements",
+    "source.physicsclassroom_series_parallel"
+  ],
+  "art": "technology.lightbulb"
+}
