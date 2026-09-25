@@ -306,6 +306,7 @@ function checkSyllabus(s: Syllabus, levels: Level[], skillIds: Set<string>, err:
     const p = planned.get(level.number);
     if (!p) warn(level.id, 'is not in the syllabus');
     else if (p.title !== level.title) warn(level.id, `title "${level.title}" differs from the syllabus ("${p.title}"); update one of them`);
+    if (p?.art && level.art && p.art !== level.art) warn(level.id, `art "${level.art}" differs from the syllabus ("${p.art}"); update one of them`);
   }
 }
 

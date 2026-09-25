@@ -11,3 +11,4 @@ export * from './shell';
 export * from './reward';
 export * from './mascot';
 export { mascotArt } from './mascotArt';
+export * from './art';

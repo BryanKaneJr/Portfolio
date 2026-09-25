@@ -1,6 +1,7 @@
 import { MASCOT_NAME, MASCOT_SPOTS, type MascotPose, type MascotSpot } from '@brainscroll/core';
 import { useEffect, useState } from 'react';
-import { Image, Pressable, StyleSheet, Text, View, type ViewStyle } from 'react-native';
+import { Animated, Image, Pressable, StyleSheet, Text, View, type ViewStyle } from 'react-native';
+import { useReduceMotion } from '@/theme/feedback';
 import { color, radius, space, type } from '@/theme/tokens';
 import { mascotArt } from './mascotArt';
 
@@ -16,13 +17,29 @@ const poseOf = (p: Placement): MascotPose => p.pose ?? MASCOT_SPOTS[p.spot!].pos
 /** testID "mascot:<spot>" (or "mascot:pose:<pose>") marks every placement for tests and inspection. */
 const labelOf = (p: Placement) => (p.spot ? `mascot:${p.spot}` : `mascot:pose:${p.pose}`);
 
-/** Dr. Scroll on his own. Decorative: whatever he says must also be in text. */
+/**
+ * Dr. Scroll on his own. Decorative: whatever he says must also be in text.
+ * He arrives with one small bounce (none with reduce motion), never more.
+ */
 export function DrScroll({ size = 'md', style, ...placement }: Placement & { size?: MascotSize; style?: ViewStyle }) {
   const px = SIZE[size];
+  const reduce = useReduceMotion();
+  const [arrive] = useState(() => new Animated.Value(0));
+  useEffect(() => {
+    if (reduce) return arrive.setValue(1);
+    Animated.spring(arrive, { toValue: 1, friction: 5, tension: 140, useNativeDriver: true }).start();
+  }, [reduce, arrive]);
+  const bounce = {
+    opacity: arrive.interpolate({ inputRange: [0, 0.4, 1], outputRange: [0, 1, 1] }),
+    transform: [
+      { translateY: arrive.interpolate({ inputRange: [0, 1], outputRange: [px * 0.08, 0] }) },
+      { scale: arrive.interpolate({ inputRange: [0, 1], outputRange: [0.92, 1] }) },
+    ],
+  };
   return (
-    <View testID={labelOf(placement)} style={[{ width: px, height: px }, style]} accessible={false} importantForAccessibility="no-hide-descendants">
+    <Animated.View testID={labelOf(placement)} style={[{ width: px, height: px }, bounce, style]} accessible={false} importantForAccessibility="no-hide-descendants">
       <Image source={mascotArt(poseOf(placement), placement.spot)} style={{ width: px, height: px }} resizeMode="contain" accessibilityIgnoresInvertColors />
-    </View>
+    </Animated.View>
   );
 }
 

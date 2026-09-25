@@ -229,6 +229,13 @@ export const Question = z.object({
 });
 export type Question = z.infer<typeof Question>;
 
+/**
+ * A level's illustration, by its ID in docs/image-manifest.md (e.g.
+ * "astronomy.mars"). Decorative; the app shows it only once the image file
+ * exists (npm run art:sync).
+ */
+export const ArtId = z.string().regex(/^[a-z]+\.[a-z0-9]+(?:-[a-z0-9]+)*$/, 'must be an image ID like astronomy.mars');
+
 export const LevelConcept = z.object({
   conceptId: id('concept'),
   role: z.enum(['teach', 'reinforce', 'recall']),
@@ -252,6 +259,7 @@ export const Level = z.object({
   cards: z.array(Card),
   questions: z.array(Question),
   sourceIds: z.array(id('source')).min(1),
+  art: ArtId.optional(),
 });
 export type Level = z.infer<typeof Level>;
 export type LevelInput = z.input<typeof Level>;
@@ -284,6 +292,6 @@ export const Syllabus = z.object({
   chapters: z
     .array(z.object({ number: z.number().int().positive(), title: text(60), levels: z.tuple([z.number().int().positive(), z.number().int().positive()]) }))
     .min(1),
-  levels: z.array(z.object({ number: z.number().int().positive(), title: text(60), objective: text(200) })).min(1),
+  levels: z.array(z.object({ number: z.number().int().positive(), title: text(60), objective: text(200), art: ArtId.optional() })).min(1),
 });
 export type Syllabus = z.infer<typeof Syllabus>;

@@ -2,7 +2,7 @@ import { MASTERY_BAND_SIZE } from '@brainscroll/core';
 import { Redirect, router, useFocusEffect } from 'expo-router';
 import { useCallback } from 'react';
 import { View } from 'react-native';
-import { Body, Button, Caption, Card, Chip, Emblem, Eyebrow, H1, Pips, ProgressBar, Row, Screen, Stars, Title } from '@/components/ui';
+import { Body, Button, Caption, Card, Chip, Emblem, Eyebrow, H1, LevelArt, Pips, ProgressBar, Row, Screen, Stars, Title } from '@/components/ui';
 import { getLevel, subjectName } from '@/content';
 import { ChapterRail } from '@/components/ChapterRail';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
@@ -73,10 +73,13 @@ export default function HomeScreen() {
         <View style={{ gap: space.xs }}>
           <Eyebrow tone="brand">{resuming ? 'Pick up where you left off' : 'Continue learning'}</Eyebrow>
           {next ? (
-            <>
-              <H1>{next.title}</H1>
-              <Caption>Level {next.number} · {next.objective.replace(/^After this level you can /, 'You’ll ')}</Caption>
-            </>
+            <Row gap={space.md} style={{ alignItems: 'flex-start' }}>
+              <View style={{ flex: 1, gap: space.xs }}>
+                <H1>{next.title}</H1>
+                <Caption>Level {next.number} · {next.objective.replace(/^After this level you can /, 'You’ll ')}</Caption>
+              </View>
+              <LevelArt art={next.art} size={72} />
+            </Row>
           ) : (
             <Body muted>You’ve cleared every published level. More are on the way.</Body>
           )}

@@ -650,6 +650,16 @@ Also uses, from earlier lists: `geo.river` (63); `astronomy.sun` (8); `geo.light
 
 And from the shared table: `chem.molecule`, `chem.crystal`.
 
+## Putting images in the app
+
+Every level already knows its image: the `art` field on each level and syllabus entry is the image ID from this list (all 1,600 levels are filled in).
+
+1. Save the finished image as `app/assets/images/art/<image ID>.png` (or `.webp`), e.g. `astronomy.mars.png`. Transparent background, 1024 × 1024.
+2. Run `npm run art:sync` from `brainscroll/`. It regenerates the app's image registry; `npm run check` fails if you forget.
+3. That's it: every level using that ID shows it at the top of the lesson and on Home's "Continue learning" card. Levels whose image isn't made yet simply show none.
+
+Dr. Scroll's images are wired separately; see [`mascot.md`](mascot.md), "Spots".
+
 ## Adding more later
 
-New levels should reuse an image from this list when the concept is close enough, and only add one when the subject is genuinely new (a new planet, a new landmark). Wiring images into the app (the `content/assets.json` records and the level cards that show them) is a separate step once the images exist.
+New levels should reuse an image from this list when the concept is close enough, and only add one when the subject is genuinely new (a new planet, a new landmark). 

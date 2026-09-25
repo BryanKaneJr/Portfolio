@@ -6,6 +6,7 @@ Read `docs/product-rules.md` before changing anything that touches progression, 
 
 - `npm run check`: typecheck all workspaces, lint the app (hook-order bugs are errors), lint copy for em dashes, run core, scripts and admin unit tests, and validate `content/`. Run it before every commit.
 - `npm run content:build`: after editing anything in `content/`, recompile `app/src/content/bundle.json`. `check` fails if the bundle is stale.
+- `npm run art:sync`: after adding level art to `app/assets/images/art/` (named by image ID), regenerate `app/src/content/art.ts`. `check` fails if it's stale. Each level's `art` field names its image (`docs/image-manifest.md`).
 - `npm run test:db`: apply `backend/supabase/migrations` to a temp Postgres, then run each `backend/tests/*.test.sql` in a fresh copy of the database. `content-import.test.sql` uses the real `content/`.
 - `npm run content:import`: validate and publish `content/` through the `import_content` RPC. Use `--sql <file>` to write SQL instead.
 - `npm run e2e` / `npm run e2e:remote`: build the web app and drive it with Playwright. Remote mode runs it against real migrations and content through `backend/tests/fake-supabase.mjs`. Run both after changing screens or progress code.

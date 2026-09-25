@@ -8,7 +8,7 @@ import { CardRenderer } from '@/components/cards/CardRenderer';
 import { DrScrollTip } from '@/components/DrScrollTip';
 import { feedbackTone, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { ReportSheet } from '@/components/ReportSheet';
-import { Body, Button, Caption, DrScroll, DrScrollLoading, H1, H2, IconButton, LessonShell, Row } from '@/components/ui';
+import { Body, Button, Caption, DrScroll, DrScrollLoading, H1, H2, IconButton, LessonShell, LevelArt, Row } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
 import { useProgress, type LevelSession } from '@/progress/ProgressProvider';
 import { haptic } from '@/theme/feedback';
@@ -178,6 +178,7 @@ export default function LevelScreen() {
         footerTone={questionId ? feedbackTone(attempts) : undefined}>
         {session.cardIndex === 0 && (
           <View style={{ gap: space.sm, marginBottom: space.lg }}>
+            <LevelArt art={level.art} size={128} style={{ marginBottom: space.sm }} />
             {level.type === 'checkpoint' ? (
               <Row gap={space.sm}>
                 <DrScroll spot="checkpoint.intro" size="xs" />

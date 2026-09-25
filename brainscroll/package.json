@@ -15,7 +15,7 @@
     "validate:content": "npm run validate -w @brainscroll/scripts",
     "test:db": "bash backend/tests/run.sh",
     "app": "npm run start -w @brainscroll/app",
-    "check": "npm run typecheck && npm run lint && npm run lint:copy && npm test && npm run validate:content && npm run content:build -- --check",
+    "check": "npm run typecheck && npm run lint && npm run lint:copy && npm test && npm run validate:content && npm run content:build -- --check && npm run art:sync -- --check",
     "content:build": "npm run build -w @brainscroll/scripts --",
     "content:import": "npm run import -w @brainscroll/scripts --",
     "e2e": "bash e2e/run.sh local",
@@ -28,7 +28,8 @@
     "admin": "npm run start -w @brainscroll/admin",
     "supabase:check": "npm run supabase:check -w @brainscroll/scripts --",
     "insights:pull": "npm run insights -w @brainscroll/scripts --",
-    "lint:copy": "npm run copy-lint -w @brainscroll/scripts"
+    "lint:copy": "npm run copy-lint -w @brainscroll/scripts",
+    "art:sync": "npm run art -w @brainscroll/scripts --"
   },
   "engines": {
     "node": ">=22"
