@@ -1,8 +1,9 @@
 import { MASTERY_BAND_SIZE, subjectRank } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { View } from 'react-native';
-import { Body, Caption, Card, Chip, Emblem, Eyebrow, Icon, LevelArt, ProgressBar, Row, Screen, ScreenHeader, Stars, Title, type IconName } from '@/components/ui';
+import { Body, Caption, Card, Chip, Emblem, Eyebrow, Icon, LevelArt, ProgressBar, Row, Screen, ScreenHeader, Stars, Title } from '@/components/ui';
 import { levelByNumber, levelsForSkill, subjectName, subjects } from '@/content';
+import { SUBJECT_ICON } from '@/components/CharacterSheet';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { ChapterRail } from '@/components/ChapterRail';
 import { color, radius, space } from '@/theme/tokens';
@@ -87,12 +88,3 @@ export default function SkillsScreen() {
   );
 }
 
-/** An icon per subject for the Coming soon list. */
-const SUBJECT_ICON: Record<string, IconName> = {
-  'subject.history': 'history',
-  'subject.science': 'science',
-  'subject.geography': 'geography',
-  'subject.money': 'money',
-  'subject.arts': 'arts',
-  'subject.world_systems': 'world',
-};

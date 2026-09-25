@@ -47,6 +47,19 @@ export const color = {
   scrim: 'rgba(5,8,16,0.72)',
 } as const;
 
+/**
+ * One colour per subject, for the character sheet's ring and attribute bars
+ * (like an RPG's stat colours). Never violet (actions) or gold (mastery).
+ */
+export const subjectColor: Record<string, string> = {
+  'subject.history': '#FF9F43',
+  'subject.science': '#4DA3FF',
+  'subject.geography': '#2DD4BF',
+  'subject.money': '#9BE15D',
+  'subject.arts': '#F472B6',
+  'subject.world_systems': '#C4B5FD',
+};
+
 export type ColorToken = keyof typeof color;
 
 /**

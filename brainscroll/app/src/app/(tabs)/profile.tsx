@@ -1,9 +1,9 @@
-import { subjectRank } from '@brainscroll/core';
 import { View } from 'react-native';
 import { AccountCard } from '@/components/AccountCard';
+import { AttributeRow, SubjectRing, type SubjectStat } from '@/components/CharacterSheet';
 import { DeleteAccount } from '@/components/DeleteAccount';
-import { Button, Caption, Card, Chip, Emblem, Eyebrow, H1, Icon, Row, Screen, Stars, StatTile, Title } from '@/components/ui';
-import { subjectName } from '@/content';
+import { Button, Caption, Card, Chip, Eyebrow, H1, Icon, Row, Screen, StatTile } from '@/components/ui';
+import { subjects } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { color, radius, space } from '@/theme/tokens';
 
@@ -17,17 +17,24 @@ export default function ProfileScreen() {
   const { resetAll, account } = useProgress();
   const v = useProgressView();
   const name = account?.status !== 'signed_in' ? 'Learner' : account.email && !account.email.endsWith('privaterelay.appleid.com') ? capitalize(account.email.split('@')[0]) : 'Learner';
-  const bySubject = [...new Set(v.skills.map((s) => s.subjectId))].map((subjectId) => {
-    const skills = v.skills.filter((s) => s.subjectId === subjectId);
-    return { subjectId, skills, rank: subjectRank(skills.map((s) => s.view.level)) };
+  // Every subject is an attribute, even before its first skill ships.
+  const stats: (SubjectStat & { detail?: string })[] = subjects.map((sub) => {
+    const skills = v.skills.filter((s) => s.subjectId === sub.id);
+    return {
+      subjectId: sub.id,
+      name: sub.name,
+      levels: skills.reduce((n, s) => n + s.view.level, 0),
+      soon: skills.length === 0,
+      detail: skills.length ? skills.map((s) => `${s.name} Lv. ${s.view.level}${s.view.stars ? ` ${'★'.repeat(s.view.stars)}` : ''} · ${s.xp} XP`).join('  ·  ') : undefined,
+    };
   });
   const stars = v.skills.reduce((n, s) => n + s.view.stars, 0);
 
   return (
     <Screen>
       <Eyebrow tone="brand">Character sheet</Eyebrow>
-      <View style={{ alignItems: 'center', gap: space.md, paddingVertical: space.lg }}>
-        <Emblem value={v.knowledgeLevel} size="lg" glowing caption="Knowledge Level" />
+      <View style={{ alignItems: 'center', gap: space.md, paddingBottom: space.lg }}>
+        <SubjectRing stats={stats} knowledge={v.knowledgeLevel} />
         <H1>{name}</H1>
         <Chip>
           <Caption>No title equipped yet</Caption>
@@ -53,27 +60,12 @@ export default function ProfileScreen() {
         <Caption>Rare trophies you earn will show here. Earned from transparent requirements, never bought.</Caption>
       </View>
 
-      {bySubject.map((g) => (
-        <Card key={g.subjectId} style={{ gap: space.md }}>
-          <Row style={{ justifyContent: 'space-between' }}>
-            <Eyebrow>{subjectName(g.subjectId)}</Eyebrow>
-            <Chip tone="brand">
-              <Caption tone="text">Rank {g.rank}</Caption>
-            </Chip>
-          </Row>
-          {g.skills.map((s) => (
-            <Row key={s.id} style={{ justifyContent: 'space-between' }}>
-              <Title>
-                {s.name} Lv. {s.view.level}
-              </Title>
-              <Row>
-                <Stars count={s.view.stars} />
-                <Caption>{s.xp} XP</Caption>
-              </Row>
-            </Row>
-          ))}
-        </Card>
-      ))}
+      <Card style={{ gap: space.xs }}>
+        <Eyebrow>Attributes</Eyebrow>
+        {stats.map((st) => (
+          <AttributeRow key={st.subjectId} stat={st} detail={st.detail} />
+        ))}
+      </Card>
 
       <AccountCard />
       <DeleteAccount />
