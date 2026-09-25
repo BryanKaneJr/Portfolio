@@ -45,7 +45,7 @@ Testing is proportional to the moment. The type comes from the level number (`le
 
 | Type | Which levels | Shape | Questions | XP pool (top) |
 | --- | --- | --- | --- | --- |
-| **Regular** | Almost all of them | Hook → 3–5 focused learning cards (~150–320 words) → questions → level complete | **3**: recall, understanding, connection | 100 |
+| **Regular** | Almost all of them | Hook → 2–5 focused learning cards (~150–320 words) → questions → level complete | **3**: recall, understanding, connection | 100 |
 | **Checkpoint** | Every 10th level | Still teaches, then a slightly longer check across the chapter | **5** | 150 |
 | **Milestone** | Level 50 (150, 250 …) | A bigger synthesis moment | **7** | 250 |
 | **Mastery Challenge** | Level 100 (200, 300 …) | The fullest test in a tree; resolving it earns ★ | **10** | 500 |
@@ -64,7 +64,7 @@ A ten-question assessment is a special milestone experience, never the normal le
 
 > **Learning is the product. Questions prove and reinforce understanding.** BrainScroll doesn't punish forgetting: it shows the evidence and teaches it again, right away. A level isn't complete until every question has been answered correctly. **First-attempt retention sets the reward; eventual correction sets progression.** Strong knowledge earns more XP. Mistakes earn more teaching.
 
-1. **Learn:** the hook and 3–5 learning cards.
+1. **Learn:** the hook and 2–5 learning cards.
 2. **First attempt:** each question's first answer is recorded **once, on the server, and never replaced**. Restarting the level can't improve it.
 3. **Reinforce:** after a wrong answer the question stays on screen. Beneath it comes **"Take another look"**, showing the question's source cards (`sourceCardIds`), the canonical content that teaches the answer, never generated at runtime. The options stay open (wrong picks are crossed out) until the right one is chosen. There's no failure screen, no restart, no lives and no waiting.
 4. **Resolve:** every question must end correctly answered. `complete_level` refuses otherwise (`UNRESOLVED_QUESTIONS`).

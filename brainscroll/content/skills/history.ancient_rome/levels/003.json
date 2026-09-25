@@ -18,6 +18,16 @@
       "conceptId": "concept.ancient_rome.rome_eras",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.city_life",
+      "role": "preview",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.ancient_rome.founding_legend",
+      "role": "reinforce",
+      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -28,27 +38,28 @@
       "id": "card.ancient_rome.003.c1",
       "type": "text",
       "role": "hook",
-      "headline": "Beneath the ruins on the Palatine Hill lie traces of Rome’s first huts."
+      "headline": "Forget the wolf for a moment. What does the ground say?",
+      "body": "Under the ruins on Rome’s Palatine Hill lie traces of the city’s first huts. They tell a quieter story than twins and a she-wolf."
     },
     {
       "id": "card.ancient_rome.003.c2",
       "type": "text",
       "role": "explain",
       "headline": "Huts on a hill",
-      "body": "The earliest Romans were Latins, farmers and herders from the region called Latium. Archaeologists have found traces of their huts on the Palatine Hill from around the 8th century BCE. That fits surprisingly well with the traditional founding date."
+      "body": "The first Romans were Latins, a people of the region of Latium in central Italy. On the Palatine Hill, archaeologists have found traces of their Iron Age huts from around the 8th century BCE. Now hold that next to the traditional founding date, 753 BCE. The huts sit close to the traditional founding: the shovel and the storytellers land in the same century. Not bad for a tale with a wolf in it."
     },
     {
       "id": "card.ancient_rome.003.c3",
       "type": "text",
       "role": "explain",
       "headline": "From villages to a town",
-      "body": "Early Rome was not one city but several hilltop villages. Over time they grew together. The marshy valley between them was drained and paved, and it became the Roman Forum, the heart of the city."
+      "body": "Early Rome wasn’t one city. It was a cluster of small hilltop villages that gradually merged into one community. Down between the hills lay a marshy valley. It was drained, and that soggy low ground became the Roman Forum, the center of Roman public life. Before it was famous, it was a bog."
     },
     {
       "id": "card.ancient_rome.003.c4",
       "type": "fact",
       "fact": "Rome’s great drain still works.",
-      "context": "The Cloaca Maxima, the city’s great early drain, helped dry out the Forum valley. Parts of it still carry water today."
+      "context": "The Cloaca Maxima, Rome’s great drain, helped dry out that marshy Forum valley. Parts of it still carry water today. Somewhere under the modern city, a very old drain is still doing its job."
     },
     {
       "id": "card.ancient_rome.003.c5",
@@ -131,7 +142,7 @@
       "options": [
         {
           "id": "a",
-          "label": "A marshy valley was drained and paved",
+          "label": "A marshy valley was drained and became Rome's public center",
           "correct": true
         },
         {
@@ -202,7 +213,8 @@
     "source.brit_palatine",
     "source.brit_ancient_rome",
     "source.brit_forum",
-    "source.brit_cloaca_maxima"
+    "source.brit_cloaca_maxima",
+    "source.brit_romulus_remus"
   ],
   "art": "rome.ruins"
 }

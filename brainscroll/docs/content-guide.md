@@ -24,11 +24,11 @@ Run `npm run validate:content`. **Errors** block import and publish. **Warnings*
 
 BrainScroll is a learning app first. A learner should finish a level thinking *"I just learned something interesting,"* not *"I just finished another test."*
 
-A **regular level** runs hook → 3–5 focused learning cards (roughly 150–320 words) → **3 questions** → level complete. See *Writing to interest* below: the goal is to make the concept memorable. Checkpoints (every 10th level), milestones (Level 50) and the Level 100 Mastery Challenge test more. Review sessions size themselves to what's due.
+A **regular level** runs hook → 2–5 focused learning cards (roughly 150–320 words) → **3 questions** → level complete. See *Writing to interest* below: the goal is to make the concept memorable. Checkpoints (every 10th level), milestones (Level 50) and the Level 100 Mastery Challenge test more. Review sessions size themselves to what's due.
 
 | `type` | Levels | Questions (standard) | Learning cards (norm) | Learning words (norm) |
 | --- | --- | --- | --- | --- |
-| `regular` | everything else | **3** | 3–5 | 150–320 |
+| `regular` | everything else | **3** | 2–5 | 150–320 |
 | `checkpoint` | 10, 20, 30 … | **5** | 2–4 | 120–320 |
 | `milestone` | 50, 150, 250 … | **7** | 1–4 | 80–320 |
 | `mastery` | 100, 200, 300 … | **10** | 0–3 | 0–250 |

@@ -23,6 +23,16 @@
       "conceptId": "concept.astronomy.sun_fusion",
       "role": "reinforce",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.red_giants",
+      "role": "preview",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.astronomy.sun_age",
+      "role": "reinforce",
+      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -33,32 +43,33 @@
       "id": "card.astronomy.009.c1",
       "type": "text",
       "role": "hook",
-      "headline": "Stars have a life story: birth, a long middle age, and a very dramatic ending."
+      "headline": "Stars have a life story: birth, a long middle age, and a very dramatic ending.",
+      "body": "Level 2 told you the Sun is middle-aged. So what comes next? Here's the Sun's whole story, plus a trick for reading any star's temperature just by its color."
     },
     {
       "id": "card.astronomy.009.c2",
       "type": "text",
       "role": "explain",
       "headline": "Color is temperature",
-      "body": "Look closely and stars have colors. Blue stars are the hottest; red stars are the coolest. The Sun sits in between: it shines white from space, and our air makes it look yellowish from the ground.",
+      "body": "Look closely and stars have colors, and each color is a thermometer reading. Blue stars are the hottest; red stars are the coolest. That's backwards from your kitchen tap, where red means hot. The Sun sits in the middle: it shines white from space, and our air scatters away some of its blue light, so it looks yellowish from the ground.",
       "callout": "Blue = hot · Red = cool"
     },
     {
       "id": "card.astronomy.009.c3",
       "type": "timeline",
-      "headline": "The Sun's life",
+      "headline": "The Sun's life, in four stops",
       "events": [
         {
           "when": "~4.6 billion years ago",
-          "label": "Forms from a collapsing cloud of gas and dust"
+          "label": "Born from a collapsing cloud of gas and dust"
         },
         {
           "when": "Now",
-          "label": "Fusing hydrogen into helium in its core"
+          "label": "Middle-aged, fusing hydrogen into helium in its core"
         },
         {
           "when": "~5 billion years from now",
-          "label": "Swells into a red giant"
+          "label": "Runs low on hydrogen in its core and swells into a red giant"
         },
         {
           "when": "After that",
@@ -71,7 +82,7 @@
       "type": "text",
       "role": "connect",
       "headline": "Bigger stars, bigger endings",
-      "body": "The Sun won't explode. But stars much more massive than the Sun can end their lives in a supernova: an explosion that can briefly outshine a whole galaxy."
+      "body": "Relax: the Sun won't explode. It isn't massive enough. Stars much more massive than the Sun get a far louder exit: a supernova, an explosion that can briefly outshine a whole galaxy. Picture one dying star, for a moment, brighter than every other star in its galaxy put together. The Sun's quiet ending sounds better already."
     },
     {
       "id": "card.astronomy.009.c5",
@@ -223,7 +234,8 @@
   ],
   "sourceIds": [
     "source.nasa_star_life_cycle",
-    "source.nasa_sun_facts"
+    "source.nasa_sun_facts",
+    "source.brit_red_giant"
   ],
   "art": "astronomy.star"
 }

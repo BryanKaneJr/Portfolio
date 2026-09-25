@@ -3524,6 +3524,11 @@
           "conceptId": "concept.ancient_rome.rome_extent",
           "role": "teach",
           "weight": 1
+        },
+        {
+          "conceptId": "concept.ancient_rome.republic_idea",
+          "role": "preview",
+          "weight": 0.3
         }
       ],
       "prerequisites": [],
@@ -3532,14 +3537,15 @@
           "id": "card.ancient_rome.001.c1",
           "type": "text",
           "role": "hook",
-          "headline": "One city, three kinds of government, and more than a thousand years of history."
+          "headline": "Rome tried kings, then a Republic, then emperors. Then it fell. Twice.",
+          "body": "That’s the whole plot. It took more than a thousand years to play out, and even the ending was in no hurry."
         },
         {
           "id": "card.ancient_rome.001.c2",
           "type": "text",
           "role": "explain",
           "headline": "Kingdom, Republic, Empire",
-          "body": "Romans dated their city’s founding to 753 BCE. Historians divide what followed into three eras. First came the Kingdom, ruled by kings. In 509 BCE the Romans threw out their last king and formed a Republic. In 27 BCE a single ruler, Augustus, took power, and the Empire began.",
+          "body": "Romans dated their city’s founding to 753 BCE, and at first it was ruled by kings: the Kingdom. In 509 BCE the Romans threw out their last king and ran things as a Republic instead. That lasted until 27 BCE, when Augustus took sole power and the Empire began. Same city, three very different answers to one question: who’s in charge here?",
           "callout": "Kingdom → Republic (509 BCE) → Empire (27 BCE)"
         },
         {
@@ -3547,13 +3553,13 @@
           "type": "text",
           "role": "explain",
           "headline": "An empire around a sea",
-          "body": "At its height, Rome ruled every coast of the Mediterranean, stretching from Britain to Egypt and from Spain to the Middle East. Romans simply called the Mediterranean Mare Nostrum: “our sea.”"
+          "body": "At its height, Rome held every coast of the Mediterranean, stretching from Britain to Egypt and from Spain to the Middle East. Picture it on a map: a giant ring of land with a sea in the middle. So Romans simply called the Mediterranean Mare Nostrum, “our sea.” Sail anywhere on it, and wherever you landed, you were still in Rome’s empire."
         },
         {
           "id": "card.ancient_rome.001.c4",
           "type": "fact",
           "fact": "Rome fell twice.",
-          "context": "The western half of the empire ended in 476 CE, when its last emperor was deposed. The eastern half, ruled from Constantinople, lasted until 1453."
+          "context": "The western half of the empire ended in 476 CE, when its last emperor, Romulus Augustulus, was deposed. The eastern half, ruled from Constantinople, kept going until 1453, almost a thousand years later. So if someone asks you when Rome fell, the honest answer is another question: which half?"
         },
         {
           "id": "card.ancient_rome.001.c5",
@@ -3705,7 +3711,8 @@
         "source.brit_ancient_rome",
         "source.brit_mediterranean",
         "source.brit_romulus_augustulus",
-        "source.brit_byzantine"
+        "source.brit_byzantine",
+        "source.brit_roman_republic"
       ],
       "art": "rome.arch"
     },
@@ -3729,6 +3736,11 @@
           "conceptId": "concept.ancient_rome.rome_eras",
           "role": "recall",
           "weight": 0.5
+        },
+        {
+          "conceptId": "concept.ancient_rome.early_rome_story",
+          "role": "preview",
+          "weight": 0.3
         }
       ],
       "prerequisites": [
@@ -3739,28 +3751,29 @@
           "id": "card.ancient_rome.002.c1",
           "type": "text",
           "role": "hook",
-          "headline": "Every Roman knew how their city began: with twins, a wolf and a killing."
+          "headline": "Rome’s origin story: twins, a wolf and a murder.",
+          "body": "Not exactly a bedtime story. Yet the wolf became a symbol of Rome itself."
         },
         {
           "id": "card.ancient_rome.002.c2",
           "type": "text",
           "role": "explain",
           "headline": "Raised by a wolf",
-          "body": "In the legend, the twins Romulus and Remus were sons of the war god Mars. Abandoned as babies beside the river Tiber, they were found and nursed by a she-wolf. The image of the wolf and the twins became one of Rome’s best-known symbols."
+          "body": "In the legend, the twins Romulus and Remus were sons of the god Mars. They were abandoned as babies, and a she-wolf found them and nursed them. Rome turned that moment into its emblem: the she-wolf feeding the twins became one of the city’s best-known symbols. Most cities don’t put a wild predator in the family photo. Rome made it the cover shot."
         },
         {
           "id": "card.ancient_rome.002.c3",
           "type": "text",
           "role": "explain",
           "headline": "A city named in blood",
-          "body": "When the grown twins founded their city, they quarreled over it, and Romulus killed Remus. The new city took Romulus’s name. Roman writers retold the story for centuries, uncomfortable parts included."
+          "body": "The twins grew up, and their new city came between them. They quarreled over it, and Romulus killed Remus. The winner got the naming rights: the city was named Rome, after Romulus. Imagine your hometown being named after whichever sibling won the argument. Romans didn’t have to imagine it."
         },
         {
           "id": "card.ancient_rome.002.c4",
           "type": "text",
           "role": "explain",
           "headline": "Legend, not history",
-          "body": "Romans also claimed descent from Aeneas, a Trojan prince who fled the fall of Troy to Italy. Historians treat both stories as legend, written down centuries after the events they describe. They still matter, because they show how Romans saw themselves."
+          "body": "Romans had a second origin story, too. They traced their ancestry to Aeneas, a Trojan prince who, in legend, fled the fall of Troy to Italy. Historians treat both stories as legend, because they were written down centuries after the events they describe. So why learn them? Because they show how Romans saw themselves. A legend won’t tell you what happened, but it tells you who a people wanted to be."
         },
         {
           "id": "card.ancient_rome.002.c5",
@@ -3912,7 +3925,8 @@
       ],
       "sourceIds": [
         "source.brit_romulus_remus",
-        "source.brit_aeneas"
+        "source.brit_aeneas",
+        "source.brit_ancient_rome"
       ],
       "art": "rome.she-wolf"
     },
@@ -3936,6 +3950,16 @@
           "conceptId": "concept.ancient_rome.rome_eras",
           "role": "recall",
           "weight": 0.5
+        },
+        {
+          "conceptId": "concept.ancient_rome.city_life",
+          "role": "preview",
+          "weight": 0.3
+        },
+        {
+          "conceptId": "concept.ancient_rome.founding_legend",
+          "role": "reinforce",
+          "weight": 0.3
         }
       ],
       "prerequisites": [
@@ -3946,27 +3970,28 @@
           "id": "card.ancient_rome.003.c1",
           "type": "text",
           "role": "hook",
-          "headline": "Beneath the ruins on the Palatine Hill lie traces of Rome’s first huts."
+          "headline": "Forget the wolf for a moment. What does the ground say?",
+          "body": "Under the ruins on Rome’s Palatine Hill lie traces of the city’s first huts. They tell a quieter story than twins and a she-wolf."
         },
         {
           "id": "card.ancient_rome.003.c2",
           "type": "text",
           "role": "explain",
           "headline": "Huts on a hill",
-          "body": "The earliest Romans were Latins, farmers and herders from the region called Latium. Archaeologists have found traces of their huts on the Palatine Hill from around the 8th century BCE. That fits surprisingly well with the traditional founding date."
+          "body": "The first Romans were Latins, a people of the region of Latium in central Italy. On the Palatine Hill, archaeologists have found traces of their Iron Age huts from around the 8th century BCE. Now hold that next to the traditional founding date, 753 BCE. The huts sit close to the traditional founding: the shovel and the storytellers land in the same century. Not bad for a tale with a wolf in it."
         },
         {
           "id": "card.ancient_rome.003.c3",
           "type": "text",
           "role": "explain",
           "headline": "From villages to a town",
-          "body": "Early Rome was not one city but several hilltop villages. Over time they grew together. The marshy valley between them was drained and paved, and it became the Roman Forum, the heart of the city."
+          "body": "Early Rome wasn’t one city. It was a cluster of small hilltop villages that gradually merged into one community. Down between the hills lay a marshy valley. It was drained, and that soggy low ground became the Roman Forum, the center of Roman public life. Before it was famous, it was a bog."
         },
         {
           "id": "card.ancient_rome.003.c4",
           "type": "fact",
           "fact": "Rome’s great drain still works.",
-          "context": "The Cloaca Maxima, the city’s great early drain, helped dry out the Forum valley. Parts of it still carry water today."
+          "context": "The Cloaca Maxima, Rome’s great drain, helped dry out that marshy Forum valley. Parts of it still carry water today. Somewhere under the modern city, a very old drain is still doing its job."
         },
         {
           "id": "card.ancient_rome.003.c5",
@@ -4049,7 +4074,7 @@
           "options": [
             {
               "id": "a",
-              "label": "A marshy valley was drained and paved",
+              "label": "A marshy valley was drained and became Rome's public center",
               "correct": true
             },
             {
@@ -4120,7 +4145,8 @@
         "source.brit_palatine",
         "source.brit_ancient_rome",
         "source.brit_forum",
-        "source.brit_cloaca_maxima"
+        "source.brit_cloaca_maxima",
+        "source.brit_romulus_remus"
       ],
       "art": "rome.ruins"
     },
@@ -4154,14 +4180,15 @@
           "id": "card.ancient_rome.004.c1",
           "type": "text",
           "role": "hook",
-          "headline": "Where you build a city decides a lot about its future."
+          "headline": "Why build a city right here? Follow the river and the salt.",
+          "body": "Rome sits where it does for reasons you can still see on a map: a river you can cross, a road for salt, and hills that keep your feet dry."
         },
         {
           "id": "card.ancient_rome.004.c2",
           "type": "text",
           "role": "explain",
           "headline": "A river crossing",
-          "body": "Rome grew where the Tiber River could be crossed, near an island in its stream, about 25 km from the sea. Anyone moving goods between the coast and inland Italy passed this way, including traders on an old salt route later called the Via Salaria.",
+          "body": "Rome grew where the Tiber River could be crossed, near an island in the river, about 25 km from the sea. An ancient salt route, later called the Via Salaria, passed right through, linking the coast with inland Italy. So anyone moving goods between the two came this way. Own the crossing, and trade has to walk past your front door.",
           "callout": "River crossing + trade route = a place worth holding"
         },
         {
@@ -4169,13 +4196,13 @@
           "type": "text",
           "role": "explain",
           "headline": "Seven hills",
-          "body": "The city spread across seven hills beside the river, among them the Palatine and the Capitoline. The hills were easier to defend, and they stayed dry when the Tiber flooded the low ground between them."
+          "body": "The city spread across seven hills beside the Tiber, among them the Capitoline and the Palatine, where those first huts stood. The hills made sense twice over. They were easier to defend, and they stayed dry when the Tiber flooded the low ground between them. Enemies and floods: the hills handled both."
         },
         {
           "id": "card.ancient_rome.004.c4",
           "type": "fact",
           "fact": "Rome had its own port.",
-          "context": "Ostia, at the mouth of the Tiber, grew into Rome’s harbor. Grain and other goods came through it and up the river to the city."
+          "context": "Rome sat about 25 km inland, so its harbor was downstream. Ostia, at the mouth of the Tiber, became Rome’s port. Grain and other goods came in there and traveled up the river to the city. The same river that gave Rome its crossing also delivered dinner."
         },
         {
           "id": "card.ancient_rome.004.c5",
@@ -4329,7 +4356,8 @@
         "source.brit_tiber",
         "source.brit_ancient_rome",
         "source.brit_seven_hills",
-        "source.brit_ostia"
+        "source.brit_ostia",
+        "source.brit_palatine"
       ],
       "art": "rome.hills-and-river"
     },
@@ -4353,6 +4381,11 @@
           "conceptId": "concept.ancient_rome.rome_geography",
           "role": "recall",
           "weight": 0.5
+        },
+        {
+          "conceptId": "concept.ancient_rome.early_rome_story",
+          "role": "preview",
+          "weight": 0.3
         }
       ],
       "prerequisites": [
@@ -4363,28 +4396,29 @@
           "id": "card.ancient_rome.005.c1",
           "type": "text",
           "role": "hook",
-          "headline": "Before Rome dominated Italy, it lived in the shadow of a richer neighbor."
+          "headline": "Before Rome was a great power, it lived next to one.",
+          "body": "The Etruscans were among the most powerful peoples of early Italy. Rome borrowed a lot from them, even, tradition says, some of its kings."
         },
         {
           "id": "card.ancient_rome.005.c2",
           "type": "text",
           "role": "explain",
           "headline": "Rome’s powerful neighbors",
-          "body": "North of Rome, mostly in what is now Tuscany, lived the Etruscans. They were organized in independent cities and were among the most powerful peoples of early Italy. Their language was unrelated to Latin, and it is still only partly understood."
+          "body": "North of Rome, in Etruria, mostly what is now Tuscany, lived the Etruscans. They weren’t one kingdom but a set of independent cities, and they were among the most powerful peoples of early Italy. Their language was unrelated to Latin, and it is still only partly understood. Rome’s big neighbors next door, and we still can’t fully read their mail."
         },
         {
           "id": "card.ancient_rome.005.c3",
           "type": "text",
           "role": "explain",
           "headline": "Etruscan kings",
-          "body": "According to Roman tradition, the last three kings of Rome were Etruscans. Whether or not every detail is true, Rome clearly grew up under strong Etruscan influence."
+          "body": "Here’s the twist. According to Roman tradition, the last three kings of Rome were Etruscans. Historians can’t vouch for every detail, but the bigger picture holds: young Rome grew up under strong Etruscan influence. For a while, the neighbors weren’t just next door. They were on the throne."
         },
         {
           "id": "card.ancient_rome.005.c4",
           "type": "text",
           "role": "explain",
           "headline": "What Rome borrowed",
-          "body": "Romans took over the fasces, a bundle of rods around an axe that attendants carried before officials as a sign of their power. They also learned haruspicy from the Etruscans: reading omens in the organs of sacrificed animals.",
+          "body": "Some of Rome’s most Roman-looking things were imports. Take the fasces, a bundle of rods around an axe. Attendants carried it in front of officials as a sign of their authority, and it came from the Etruscans. So did haruspicy: reading omens in the organs of sacrificed animals. A way to show power and a way to read the gods, both borrowed from next door.",
           "callout": "Fasces: rods and an axe, the symbol of authority"
         },
         {
@@ -4540,7 +4574,8 @@
         "source.brit_etruscan_language",
         "source.brit_tarquin",
         "source.brit_fasces",
-        "source.brit_haruspex"
+        "source.brit_haruspex",
+        "source.brit_ancient_rome"
       ],
       "art": "rome.pottery"
     },
@@ -4564,6 +4599,11 @@
           "conceptId": "concept.ancient_rome.etruscans",
           "role": "recall",
           "weight": 0.5
+        },
+        {
+          "conceptId": "concept.ancient_rome.senate_republic",
+          "role": "preview",
+          "weight": 0.3
         }
       ],
       "prerequisites": [
@@ -4574,27 +4614,28 @@
           "id": "card.ancient_rome.006.c1",
           "type": "text",
           "role": "hook",
-          "headline": "Before consuls and emperors, Rome had kings. Seven, if you trust the legends."
+          "headline": "Rome had seven kings, if you trust the legends. Not the kind you picture.",
+          "body": "No crown passed neatly from father to son. Most of the time, Rome had other ideas about who got the job."
         },
         {
           "id": "card.ancient_rome.006.c2",
           "type": "text",
           "role": "explain",
           "headline": "Seven kings",
-          "body": "Roman tradition counted seven kings, from Romulus in 753 BCE to Tarquin the Proud, driven out in 509 BCE. Kingship was not simply passed from father to son: most kings were said to be chosen with the approval of the Senate and the people."
+          "body": "Roman tradition counted seven kings, from Romulus in 753 BCE to Tarquin the Proud in 509 BCE, the last three of them Etruscans. But this wasn’t a family business. Kingship was not simply inherited: tradition says most kings were chosen with the approval of the Senate and the people. Being the old king’s son didn’t get you the job. Getting approved did."
         },
         {
           "id": "card.ancient_rome.006.c3",
           "type": "text",
           "role": "explain",
           "headline": "Remembered for different things",
-          "body": "Numa Pompilius, the second king, was remembered as the founder of Rome’s religion and calendar. Servius Tullius, the sixth, was credited with the first census, which sorted citizens by wealth. Legends like these explained where Roman institutions came from."
+          "body": "Each king came with a reputation, like a line on a résumé. Numa Pompilius, the second king, was remembered as the founder of Rome’s religious institutions and its calendar. Servius Tullius, the sixth, was credited with the first census, which sorted citizens by wealth. Ask a Roman who started a custom, and there was often a king ready to take the credit."
         },
         {
           "id": "card.ancient_rome.006.c4",
           "type": "fact",
           "fact": "The Senate started as the king’s advisers.",
-          "context": "It began as a council of elders who counseled the king. It would long outlast the kings themselves."
+          "context": "It began as a council of elders who advised the king. Keep an eye on it. The kings would go, but the Senate would stay, long after the last king was gone."
         },
         {
           "id": "card.ancient_rome.006.c5",
@@ -4748,7 +4789,9 @@
         "source.brit_ancient_rome",
         "source.brit_numa",
         "source.brit_servius",
-        "source.brit_senate"
+        "source.brit_senate",
+        "source.brit_etruscans",
+        "source.brit_tarquin"
       ],
       "art": "rome.fasces"
     },
@@ -4782,27 +4825,28 @@
           "id": "card.ancient_rome.007.c1",
           "type": "text",
           "role": "hook",
-          "headline": "Romans rarely asked whether the gods existed. They asked what the gods wanted."
+          "headline": "Romans rarely asked whether the gods existed. They asked what the gods wanted.",
+          "body": "Get the ritual right, and the gods stayed on your side. Get it wrong, and even a few birds could hold up the city’s business."
         },
         {
           "id": "card.ancient_rome.007.c2",
           "type": "text",
           "role": "explain",
           "headline": "Keeping peace with the gods",
-          "body": "Roman religion was less about personal belief than about getting rituals right. The goal was the pax deorum, peace with the gods. In every home, families honored the Lares and Penates, guardian spirits of the household and its food store, at a small shrine."
+          "body": "Roman religion was less about what you believed and more about doing the rituals correctly. The goal had a name: the pax deorum, peace with the gods. Think of it as a contract where the fine print really matters. It started at home. Every household honored the Lares and Penates, guardian spirits of the home and its food store, at a small shrine. Even the pantry had protection."
         },
         {
           "id": "card.ancient_rome.007.c3",
           "type": "text",
           "role": "explain",
           "headline": "Gods of the state",
-          "body": "On the Capitoline Hill stood Rome’s greatest temple, dedicated to Jupiter, king of the gods, together with Juno and Minerva. In the Forum, the Vestal Virgins kept the sacred fire of Vesta, goddess of the hearth, burning day and night."
+          "body": "The city had its own gods to keep happy. On the Capitoline Hill stood Rome’s greatest temple, dedicated to Jupiter, king of the gods, together with Juno and Minerva. Meanwhile, the Vestal Virgins tended the sacred fire of Vesta, goddess of the hearth, day and night. That fire was never allowed to go out. Every home had its little shrine. Rome had a fire nobody was allowed to let die."
         },
         {
           "id": "card.ancient_rome.007.c4",
           "type": "fact",
-          "fact": "Birds could stop a meeting.",
-          "context": "Before major public decisions, augurs read the will of the gods in the flight of birds. An unfavorable sign could delay public business."
+          "fact": "Birds could put Roman politics on hold.",
+          "context": "Before major public decisions, Romans consulted augurs, priests who read the will of the gods in the flight of birds. An unfavorable sign could delay public business. Imagine a big vote postponed because the wrong birds flew by."
         },
         {
           "id": "card.ancient_rome.007.c5",
@@ -4990,27 +5034,28 @@
           "id": "card.ancient_rome.008.c1",
           "type": "text",
           "role": "hook",
-          "headline": "In a Roman family, a grown man could still be under his father’s legal power."
+          "headline": "In Rome, a 40-year-old could still be under his father’s legal power.",
+          "body": "Growing up didn’t make you your own boss. Meet the paterfamilias."
         },
         {
           "id": "card.ancient_rome.008.c2",
           "type": "text",
           "role": "explain",
           "headline": "The father’s power",
-          "body": "Every Roman family had a paterfamilias: its oldest living male. He held legal power over his children and grandchildren, even when they were adults. In early Roman law this power, patria potestas, in theory reached as far as life and death."
+          "body": "Every Roman family had a paterfamilias: its oldest living male. He held legal power over his children and grandchildren, even when they were grown adults with children of their own. In early Roman law this power, patria potestas, in theory reached as far as life and death. So if your grandfather was alive, he wasn’t just your boss. He was your dad’s boss too."
         },
         {
           "id": "card.ancient_rome.008.c3",
           "type": "text",
           "role": "explain",
           "headline": "More than relatives",
-          "body": "The Roman familia meant the whole household, including the enslaved people who lived and worked in it. Noble families also honored their dead: they kept wax masks of their ancestors and carried them in funeral processions."
+          "body": "To a Roman, familia meant more than relatives. It meant the whole household, including the enslaved people who lived and worked in it. The family reached back in time, too. Noble families kept wax masks of their ancestors and carried them in funeral processions. At a noble Roman funeral, the ancestors came along."
         },
         {
           "id": "card.ancient_rome.008.c4",
           "type": "fact",
-          "fact": "Names came in three parts.",
-          "context": "A Roman man’s name, like Gaius Julius Caesar, joined a personal name, a clan name and a family branch name."
+          "fact": "Roman names came in three parts.",
+          "context": "Take Gaius Julius Caesar. Gaius was his personal name, Julius his clan name, and Caesar the name of his family’s branch of that clan. Say a Roman man’s full name, and you’ve recited a small family tree."
         },
         {
           "id": "card.ancient_rome.008.c5",
@@ -5197,28 +5242,29 @@
           "id": "card.ancient_rome.009.c1",
           "type": "text",
           "role": "hook",
-          "headline": "Rome’s kings ended with a crime, an uprising and an oath never to have another."
+          "headline": "Rome’s kings ended with a crime, an uprising and an oath never to have another.",
+          "body": "The seventh king pushed too far. What came next left Romans with a lasting horror of one word: king."
         },
         {
           "id": "card.ancient_rome.009.c2",
           "type": "text",
           "role": "explain",
           "headline": "A tyrant king",
-          "body": "The seventh king, Tarquin the Proud, was remembered as a tyrant who ruled by force and ignored the Senate. According to tradition, his son then assaulted a noblewoman named Lucretia. Her death turned anger into revolt."
+          "body": "The seventh king, Tarquin the Proud, was remembered as a tyrant who ruled by force and ignored the Senate, the very council that had begun as the king’s advisers. Then, according to tradition, the king’s son assaulted a noblewoman named Lucretia. That was the spark. The crime set off an uprising, and not just against one bad king, but against the monarchy itself."
         },
         {
           "id": "card.ancient_rome.009.c3",
           "type": "text",
           "role": "explain",
           "headline": "No more kings",
-          "body": "According to tradition, the Romans, led by Lucius Junius Brutus, drove the king out in 509 BCE. Brutus had them swear never again to let anyone be king in Rome.",
+          "body": "According to tradition, the Romans, led by Lucius Junius Brutus, drove out their king in 509 BCE and ended the monarchy. Then Brutus had them swear never again to let anyone be king in Rome. Not just “no more Tarquin.” No more kings, ever.",
           "callout": "The end of the monarchy: 509 BCE"
         },
         {
           "id": "card.ancient_rome.009.c4",
           "type": "fact",
           "fact": "Romans hated the word “king.”",
-          "context": "The title rex became so unpopular that, centuries later, even the most powerful Romans avoided it and found other names for their power."
+          "context": "After the tyrant kings, the title rex, king, became so hated that even Rome’s most powerful later leaders avoided it. They could hold enormous power. They just couldn’t call it that."
         },
         {
           "id": "card.ancient_rome.009.c5",
@@ -5372,7 +5418,8 @@
         "source.brit_lucretia",
         "source.brit_brutus_lucius",
         "source.brit_tarquin",
-        "source.brit_ancient_rome"
+        "source.brit_ancient_rome",
+        "source.brit_senate"
       ],
       "art": "rome.fasces"
     },
@@ -5436,8 +5483,8 @@
           "id": "card.ancient_rome.010.c1",
           "type": "text",
           "role": "hook",
-          "headline": "Chapter 1 finale. Put legend and evidence side by side.",
-          "body": "Here’s what Romans said about their beginnings, and what the ground says."
+          "headline": "Chapter 1 finale: what Romans said, and what the ground says.",
+          "body": "Romans had a great story about how their city began. Archaeologists have shovels. Let’s see where they meet."
         },
         {
           "id": "card.ancient_rome.010.c2",
@@ -5447,15 +5494,15 @@
             {
               "label": "What legend says",
               "points": [
-                "Founded by Romulus in 753 BCE",
+                "Romulus founded Rome in 753 BCE",
                 "Seven kings ruled until 509 BCE"
               ]
             },
             {
               "label": "What evidence shows",
               "points": [
-                "Huts on the Palatine by the 8th century BCE",
-                "Hilltop villages merged; the Forum was drained"
+                "Iron Age huts on the Palatine by the 8th century BCE, close to the traditional date",
+                "Hilltop villages merged, and a marshy valley was drained to become the Forum"
               ]
             }
           ]
@@ -5465,7 +5512,7 @@
           "type": "text",
           "role": "explain",
           "headline": "One story",
-          "body": "Early Rome rose from a strategic site on the Tiber, where Latin villages merged into a town. Strong Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Its founding legends explained who Romans believed they were. Then, in 509 BCE, the Romans expelled their seventh king and chose a new way to govern."
+          "body": "Put it together and early Rome makes sense. The site sat on a crossing of the Tiber, on the route between the coast and inland Italy: a place worth holding. Latin villages on its hills merged into a town. Powerful Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Founding legends told Romans who they were. Then, in 509 BCE, Rome drove out its seventh king and swore off kings for good. Which leaves a big question: what do you build instead?"
         },
         {
           "id": "card.ancient_rome.010.c4",
@@ -5715,7 +5762,9 @@
         "source.brit_cloaca_maxima",
         "source.brit_etruscans",
         "source.brit_tarquin",
-        "source.brit_brutus_lucius"
+        "source.brit_brutus_lucius",
+        "source.brit_romulus_remus",
+        "source.brit_tiber"
       ],
       "art": "rome.she-wolf"
     },
@@ -26846,6 +26895,11 @@
           "conceptId": "concept.astronomy.rocky_planets",
           "role": "reinforce",
           "weight": 0.3
+        },
+        {
+          "conceptId": "concept.astronomy.sun_mass_share",
+          "role": "reinforce",
+          "weight": 0.3
         }
       ],
       "prerequisites": [
@@ -26856,7 +26910,8 @@
           "id": "card.astronomy.004.c1",
           "type": "text",
           "role": "hook",
-          "headline": "Past Mars, the planets stop being rocky and start being enormous."
+          "headline": "Past Mars, the planets stop being rocky and start being enormous.",
+          "body": "Level 3's four worlds were small and rocky. Past Mars, the rules change. The next four planets are giants, and you couldn't land on a single one of them."
         },
         {
           "id": "card.astronomy.004.c2",
@@ -26868,7 +26923,7 @@
               "points": [
                 "Jupiter and Saturn",
                 "Mostly hydrogen and helium",
-                "No solid surface to stand on"
+                "No solid surface: nowhere to land, not even for a very brave spacecraft"
               ]
             },
             {
@@ -26876,7 +26931,7 @@
               "points": [
                 "Uranus and Neptune",
                 "Rich in water, ammonia and methane 'ices'",
-                "Smaller than the gas giants"
+                "Smaller than the gas giants, but still giants"
               ]
             }
           ]
@@ -26885,14 +26940,14 @@
           "id": "card.astronomy.004.c3",
           "type": "fact",
           "fact": "Jupiter has more than twice the mass of all the other planets combined.",
-          "context": "If the planets were a team, Jupiter would be carrying it."
+          "context": "Remember the crumbs from Level 2, the 0.2% of the solar system that isn't the Sun? Jupiter is the biggest crumb by far. Put it on one side of a giant scale and every other planet on the other side. Jupiter wins. Double the pile and Jupiter still wins. If the planets were a team, Jupiter would be carrying it."
         },
         {
           "id": "card.astronomy.004.c4",
           "type": "text",
           "role": "explain",
           "headline": "Saturn's rings are ice",
-          "body": "Those famous rings aren't solid. They're countless chunks of water ice, with some rock, ranging from dust-sized grains to pieces as big as houses. Each chunk orbits Saturn on its own path, like a tiny moon."
+          "body": "Those famous rings aren't a solid hoop you could walk around on. They're countless separate chunks of water ice, with a little rock mixed in. Some are as small as specks of dust. Others are as big as a house. So Saturn's rings are basically a giant field of hail. Some of the ice cubes are just the size of your home."
         },
         {
           "id": "card.astronomy.004.c5",
@@ -27045,7 +27100,8 @@
       "sourceIds": [
         "source.nasa_planets_overview",
         "source.nasa_jupiter_facts",
-        "source.nasa_saturn_facts"
+        "source.nasa_saturn_facts",
+        "source.nasa_sun_facts"
       ],
       "art": "astronomy.saturn"
     },
@@ -27084,20 +27140,21 @@
           "id": "card.astronomy.005.c1",
           "type": "text",
           "role": "hook",
-          "headline": "Most people get this one wrong: summer isn't when Earth is closest to the Sun."
+          "headline": "Most people get this one wrong: summer isn't when Earth is closest to the Sun.",
+          "body": "It's the obvious guess: summer is hot because Earth swings closer to the Sun. Nice guess. The calendar disagrees."
         },
         {
           "id": "card.astronomy.005.c2",
           "type": "fact",
           "fact": "Earth is closest to the Sun in early January.",
-          "context": "That's the middle of winter in the Northern Hemisphere. So distance can't be what makes summer."
+          "context": "That's the middle of winter in the Northern Hemisphere. If distance ran the seasons, New Year's Day would be beach weather in New York. Instead, northern summer arrives when Earth is farther from the Sun. So distance can't be what makes summer. Something else is in charge."
         },
         {
           "id": "card.astronomy.005.c3",
           "type": "text",
           "role": "explain",
           "headline": "It's the tilt",
-          "body": "Earth's axis is tilted about 23.5°. When your hemisphere leans toward the Sun, sunlight hits the ground more directly and days last longer, so more energy lands on each patch of ground. That's summer. Lean away, and the same sunlight arrives at a slant and spreads thin.",
+          "body": "Earth's axis is tilted about 23.5°. When your half of the planet leans toward the Sun, sunlight hits the ground more directly and days last longer, so more energy lands on each patch of ground. That's summer. Lean away, and the same sunlight arrives at a slant and spreads thin, like a flashlight beam tipped across a table. That's winter. Same Sun, different angle.",
           "callout": "Tilt → angle of sunlight → season"
         },
         {
@@ -27105,7 +27162,7 @@
           "type": "text",
           "role": "connect",
           "headline": "Opposite seasons",
-          "body": "Because the hemispheres lean opposite ways, December is winter in New York and summer in Sydney. Same planet, same distance, different lean."
+          "body": "Here's the proof it's the lean. The two hemispheres tilt opposite ways, so they take turns. In December, New York shivers while Sydney has summer. In July it flips: summer up north, winter in Australia. Same planet, same trip around the Sun, opposite seasons. Somewhere on Earth, someone is always wearing a scarf."
         },
         {
           "id": "card.astronomy.005.c5",
@@ -27296,21 +27353,22 @@
           "id": "card.astronomy.006.c1",
           "type": "text",
           "role": "hook",
-          "headline": "The Moon doesn't change shape. You're just seeing it from a different angle."
+          "headline": "The Moon doesn't change shape. You're just seeing it from a different angle.",
+          "body": "Tonight a thin crescent, next week a full circle. The Moon seems to grow and shrink, but it's the same Moon the whole time. What changes is how you're looking at it."
         },
         {
           "id": "card.astronomy.006.c2",
           "type": "text",
           "role": "explain",
           "headline": "Half lit, always",
-          "body": "The Sun always lights up half of the Moon. As the Moon orbits Earth, we see different amounts of that lit half: a thin crescent, a half, the full face, then back again. Nothing is covering the Moon; only our viewing angle changes.",
-          "callout": "A full cycle takes about 29.5 days"
+          "body": "The Sun always lights up half of the Moon. As the Moon orbits Earth, we see different amounts of that sunlit half: a thin crescent, a half, the full face, then back again. Nothing is covering the Moon; only our viewing angle changes. Try it with a lamp and a ball held at arm's length, turning slowly, and you'll get phases in your living room.",
+          "callout": "One full cycle of phases: about 29.5 days"
         },
         {
           "id": "card.astronomy.006.c3",
           "type": "fact",
           "fact": "We always see the same side of the Moon.",
-          "context": "The Moon, about 384,400 km away, is tidally locked: it turns exactly once per orbit. The far side isn't permanently dark. It gets as much sunlight as the near side; we just never see it from Earth. Its day and its month last the same time."
+          "context": "The Moon is tidally locked: it rotates exactly once per orbit, so the same face always points at us. Walk a circle around a chair while always facing it, and you'll have turned all the way around once too. And the 'dark side'? Not dark at all. The far side gets as much sunlight as the near side. We just never get to see it from Earth."
         },
         {
           "id": "card.astronomy.006.c4",
@@ -27462,8 +27520,7 @@
       ],
       "sourceIds": [
         "source.nasa_moon_phases",
-        "source.nasa_moon_facts",
-        "source.nasa_spaceplace_seasons"
+        "source.nasa_moon_facts"
       ],
       "art": "astronomy.moon"
     },
@@ -27502,19 +27559,20 @@
           "id": "card.astronomy.007.c1",
           "type": "text",
           "role": "hook",
-          "headline": "By pure luck, the Moon is exactly the right size to blot out the Sun."
+          "headline": "By pure luck, the Moon is exactly the right size to blot out the Sun.",
+          "body": "The Sun is enormous and the Moon is small, yet the Moon can cover the Sun completely. It isn't design. It's a coincidence of two numbers."
         },
         {
           "id": "card.astronomy.007.c2",
           "type": "comparison",
-          "headline": "Two kinds of eclipse",
+          "headline": "Two kinds of eclipse: who's blocking whom?",
           "items": [
             {
               "label": "Solar eclipse",
               "points": [
                 "The Moon passes between the Sun and Earth",
                 "The Moon's shadow falls on Earth",
-                "Only happens at new Moon"
+                "Only happens at new Moon, when the Moon sits on the Sun's side of us"
               ]
             },
             {
@@ -27522,7 +27580,7 @@
               "points": [
                 "Earth passes between the Sun and Moon",
                 "Earth's shadow falls on the Moon",
-                "Only happens at full Moon"
+                "Only happens at full Moon, when the Moon is on the far side of us"
               ]
             }
           ]
@@ -27531,7 +27589,7 @@
           "id": "card.astronomy.007.c3",
           "type": "fact",
           "fact": "The Sun is about 400 times wider than the Moon, and about 400 times farther away.",
-          "context": "Those two numbers cancel out, so the Sun and Moon look almost exactly the same size in our sky. That's why, during a total solar eclipse, the Moon can cover the Sun's bright disc and reveal its faint outer glow."
+          "context": "Those two numbers cancel out, so the Sun and Moon look almost exactly the same size in our sky. It's the same trick as hiding a faraway building behind your thumb. That's why, in a total solar eclipse, the Moon can cover the Sun's bright disc and reveal its faint outer glow, the corona. The Sun is 400 times bigger. It's also 400 times farther. Tie."
         },
         {
           "id": "card.astronomy.007.c4",
@@ -27720,14 +27778,15 @@
           "id": "card.astronomy.008.c1",
           "type": "text",
           "role": "hook",
-          "headline": "A light-year sounds like a unit of time. It isn't."
+          "headline": "A light-year sounds like a unit of time. It isn't.",
+          "body": "It has 'year' right there in the name, so it's a fair guess. But a light-year is a ruler, not a clock."
         },
         {
           "id": "card.astronomy.008.c2",
           "type": "text",
           "role": "explain",
           "headline": "Distance, measured in light",
-          "body": "A light-year is how far light travels in one year: about 9.46 trillion kilometers. Astronomers use it because kilometers stop being useful very quickly.",
+          "body": "A light-year is how far light travels in one year: about 9.46 trillion kilometers. So it's a distance, the way a mile is. Kilometers are great for a road trip. Out among the stars they pile up into numbers nobody can read, so astronomers switched to a bigger ruler.",
           "callout": "1 light-year ≈ 9.46 trillion km"
         },
         {
@@ -27735,13 +27794,13 @@
           "type": "text",
           "role": "explain",
           "headline": "Why measure space in light?",
-          "body": "Light is the fastest thing there is, about 300,000 km every second. It crosses from the Moon to Earth in just over a second. Yet even light needs years to reach the next star, so astronomers describe distance by how long light takes to cover it."
+          "body": "Light is the fastest thing there is, which makes it a handy measuring tape. It crosses from the Moon to Earth in just over a second. From the Sun, it takes about 8 minutes (Level 1's slightly late Sun). So the Moon is about one light-second away and the Sun about 8 light-minutes. Past the Sun, even light needs years, and the ruler grows to match."
         },
         {
           "id": "card.astronomy.008.c4",
           "type": "fact",
           "fact": "The closest star after the Sun is Proxima Centauri, about 4.2 light-years away.",
-          "context": "Its light left before you started reading about this app. Probably."
+          "context": "So its light takes about 4.2 years to reach us. Moon: a second. Sun: 8 minutes. Next star: more than four years. And that's the closest one; every other star is even farther. Proxima is our next-door neighbor. The street is just very, very long."
         },
         {
           "id": "card.astronomy.008.c5",
@@ -27922,6 +27981,16 @@
           "conceptId": "concept.astronomy.sun_fusion",
           "role": "reinforce",
           "weight": 0.5
+        },
+        {
+          "conceptId": "concept.astronomy.red_giants",
+          "role": "preview",
+          "weight": 0.3
+        },
+        {
+          "conceptId": "concept.astronomy.sun_age",
+          "role": "reinforce",
+          "weight": 0.3
         }
       ],
       "prerequisites": [
@@ -27932,32 +28001,33 @@
           "id": "card.astronomy.009.c1",
           "type": "text",
           "role": "hook",
-          "headline": "Stars have a life story: birth, a long middle age, and a very dramatic ending."
+          "headline": "Stars have a life story: birth, a long middle age, and a very dramatic ending.",
+          "body": "Level 2 told you the Sun is middle-aged. So what comes next? Here's the Sun's whole story, plus a trick for reading any star's temperature just by its color."
         },
         {
           "id": "card.astronomy.009.c2",
           "type": "text",
           "role": "explain",
           "headline": "Color is temperature",
-          "body": "Look closely and stars have colors. Blue stars are the hottest; red stars are the coolest. The Sun sits in between: it shines white from space, and our air makes it look yellowish from the ground.",
+          "body": "Look closely and stars have colors, and each color is a thermometer reading. Blue stars are the hottest; red stars are the coolest. That's backwards from your kitchen tap, where red means hot. The Sun sits in the middle: it shines white from space, and our air scatters away some of its blue light, so it looks yellowish from the ground.",
           "callout": "Blue = hot · Red = cool"
         },
         {
           "id": "card.astronomy.009.c3",
           "type": "timeline",
-          "headline": "The Sun's life",
+          "headline": "The Sun's life, in four stops",
           "events": [
             {
               "when": "~4.6 billion years ago",
-              "label": "Forms from a collapsing cloud of gas and dust"
+              "label": "Born from a collapsing cloud of gas and dust"
             },
             {
               "when": "Now",
-              "label": "Fusing hydrogen into helium in its core"
+              "label": "Middle-aged, fusing hydrogen into helium in its core"
             },
             {
               "when": "~5 billion years from now",
-              "label": "Swells into a red giant"
+              "label": "Runs low on hydrogen in its core and swells into a red giant"
             },
             {
               "when": "After that",
@@ -27970,7 +28040,7 @@
           "type": "text",
           "role": "connect",
           "headline": "Bigger stars, bigger endings",
-          "body": "The Sun won't explode. But stars much more massive than the Sun can end their lives in a supernova: an explosion that can briefly outshine a whole galaxy."
+          "body": "Relax: the Sun won't explode. It isn't massive enough. Stars much more massive than the Sun get a far louder exit: a supernova, an explosion that can briefly outshine a whole galaxy. Picture one dying star, for a moment, brighter than every other star in its galaxy put together. The Sun's quiet ending sounds better already."
         },
         {
           "id": "card.astronomy.009.c5",
@@ -28122,7 +28192,8 @@
       ],
       "sourceIds": [
         "source.nasa_star_life_cycle",
-        "source.nasa_sun_facts"
+        "source.nasa_sun_facts",
+        "source.brit_red_giant"
       ],
       "art": "astronomy.star"
     },
@@ -28166,6 +28237,16 @@
           "conceptId": "concept.astronomy.nearest_star",
           "role": "recall",
           "weight": 0.5
+        },
+        {
+          "conceptId": "concept.astronomy.earth_third_planet",
+          "role": "reinforce",
+          "weight": 0.3
+        },
+        {
+          "conceptId": "concept.astronomy.sun_age",
+          "role": "reinforce",
+          "weight": 0.3
         }
       ],
       "prerequisites": [
@@ -28177,27 +28258,27 @@
           "type": "text",
           "role": "hook",
           "headline": "Chapter 1 finale. Let's zoom all the way out.",
-          "body": "Everything from Levels 1–9 was your neighborhood. Now for the city, the country and the planet."
+          "body": "Remember the cosmic mailing address from Level 1? Earth, the solar system, the Milky Way. Time to find out how big that last line is, and what lies beyond it."
         },
         {
           "id": "card.astronomy.010.c2",
           "type": "text",
           "role": "explain",
           "headline": "Our galaxy",
-          "body": "The Milky Way is about 100,000 light-years across. Light from one edge would take 100,000 years to reach the other."
+          "body": "The Milky Way is about 100,000 light-years across. A light-year is a distance, so light leaving one edge would take about 100,000 years to reach the other. In Level 8, Proxima Centauri at 4.2 light-years felt far. Our galaxy is more than 20,000 times wider than that. The suburbs are big."
         },
         {
           "id": "card.astronomy.010.c3",
           "type": "fact",
           "fact": "Andromeda, the nearest large spiral galaxy, is about 2.5 million light-years away.",
-          "context": "On a dark night you can see it with the naked eye as a faint smudge. It's the most distant thing most people will ever see unaided."
+          "context": "You could line up 25 Milky Ways in that gap. Yet on a dark night you can see Andromeda with the naked eye, as a faint smudge. That smudge is a whole galaxy, and the light reaching your eye took about 2.5 million years to get here."
         },
         {
           "id": "card.astronomy.010.c4",
           "type": "text",
           "role": "explain",
           "headline": "And then everything else",
-          "body": "The observable universe holds billions of galaxies, many with billions of stars. The universe itself is about 13.8 billion years old."
+          "body": "Andromeda is just one galaxy. The observable universe holds billions of galaxies, many with billions of stars each. And the universe itself is about 13.8 billion years old, about three times the Sun's age. So here's the full address: one planet, around one star, in one galaxy among billions."
         },
         {
           "id": "card.astronomy.010.c5",
@@ -28442,7 +28523,9 @@
         "source.nasa_galaxies",
         "source.nasa_universe_age",
         "source.nasa_milky_way",
-        "source.nasa_light_year"
+        "source.nasa_light_year",
+        "source.nasa_solar_system",
+        "source.nasa_sun_facts"
       ],
       "art": "astronomy.earth"
     },
