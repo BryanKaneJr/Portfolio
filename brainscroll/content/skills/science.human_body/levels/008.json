@@ -1,0 +1,223 @@
+{
+  "id": "level.science.human_body.008",
+  "skillId": "skill.science.human_body",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Microbes on You",
+  "objective": "After this level you can explain the trillions of microbes that live on and in the body.",
+  "summary": "About 38 trillion bacteria, mostly in the colon, live alongside about 30 trillion human cells: roughly one to one. They weigh about 0.2 kg and help digest food.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.microbe_ratio",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.microbiome_residents",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.cell_count",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.gene_basics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.007"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Roughly half the cells in and on you aren't human.",
+      "body": "They're bacteria, and most of them live in your gut. For every one of your own cells there's about one of them. They aren't invaders, either: they're residents, and many earn their keep. Meet your microbiome."
+    },
+    {
+      "id": "card.human_body.008.c2",
+      "type": "fact",
+      "fact": "About 38 trillion bacteria share your body with about 30 trillion human cells.",
+      "context": "That's the 2016 estimate from the team behind Level 3's cell count: about 1.3 bacteria per human cell, roughly one to one. For decades, textbooks claimed bacteria vastly outnumbered our own cells, a figure traced to a rough 1970s estimate. Almost all of the bacteria live in the colon."
+    },
+    {
+      "id": "card.human_body.008.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A little more human after the bathroom",
+      "body": "Bacteria are small, so all 38 trillion together weigh only about 0.2 kg. And the ratio isn't fixed. Each bowel movement flushes out roughly a quarter to a third of the colon's bacteria, enough to tip the count toward human cells for a while. You are, briefly, a little more human afterwards.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Science has confirmed it: a trip to the bathroom changes who is in charge."
+      }
+    },
+    {
+      "id": "card.human_body.008.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tenants who pay rent",
+      "body": "Your gut microbes help break down proteins, fats and carbohydrates in food into nutrients you can absorb, and they make useful compounds, like vitamins, that your own genes can't. Between them, more than 10,000 species carry about 8 million genes, hundreds of times more than your 20,000. You provide the house; they bring the toolbox."
+    },
+    {
+      "id": "card.human_body.008.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.008.q1"
+    },
+    {
+      "id": "card.human_body.008.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.008.q2"
+    },
+    {
+      "id": "card.human_body.008.c7",
+      "type": "recall",
+      "questionId": "question.human_body.008.q3"
+    },
+    {
+      "id": "card.human_body.008.c8",
+      "type": "checkpoint",
+      "headline": "Microbes: met",
+      "learned": [
+        "About 38 trillion bacteria, roughly one per human cell",
+        "Most live in the colon and weigh about 0.2 kg",
+        "A bowel movement can tip the ratio",
+        "They help digest food and make vitamins"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.microbe_ratio"
+      ],
+      "sourceCardIds": [
+        "card.human_body.008.c2"
+      ],
+      "prompt": "What did the 2016 recount find about the bacteria in your body compared with your own cells?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bacteria vastly outnumber human cells",
+          "correct": false,
+          "rationale": "That was the old textbook claim the recount overturned."
+        },
+        {
+          "id": "b",
+          "label": "They are roughly one to one",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Human cells outnumber bacteria a thousand to one",
+          "correct": false,
+          "rationale": "The two numbers are close: about 38 and 30 trillion."
+        },
+        {
+          "id": "d",
+          "label": "A healthy body holds almost no bacteria",
+          "correct": false,
+          "rationale": "About 38 trillion live in the colon alone."
+        }
+      ],
+      "explanation": "About 38 trillion bacteria to about 30 trillion human cells: roughly one to one.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.microbe_ratio"
+      ],
+      "sourceCardIds": [
+        "card.human_body.008.c3"
+      ],
+      "prompt": "Why can a bowel movement briefly tip the balance toward human cells?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It makes new human cells",
+          "correct": false,
+          "rationale": "It removes bacteria; it doesn't add human cells."
+        },
+        {
+          "id": "b",
+          "label": "It kills every bacterium in the body",
+          "correct": false,
+          "rationale": "It removes only part of the colon's bacteria."
+        },
+        {
+          "id": "c",
+          "label": "It moves bacteria onto the skin",
+          "correct": false,
+          "rationale": "They leave the body."
+        },
+        {
+          "id": "d",
+          "label": "It flushes out a quarter to a third of the colon's bacteria",
+          "correct": true
+        }
+      ],
+      "explanation": "Each bowel movement removes roughly a quarter to a third of the colon's bacteria, and the counts are close enough for that to flip the ratio.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.microbiome_residents",
+        "concept.human_body.gene_basics"
+      ],
+      "sourceCardIds": [
+        "card.human_body.008.c4",
+        "card.human_body.006.c2"
+      ],
+      "prompt": "Level 6 counted about 20,000 human protein-coding genes. How does your microbiome's gene count compare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 200 genes, far fewer",
+          "correct": false,
+          "rationale": "Microbes carry far more genes than that."
+        },
+        {
+          "id": "b",
+          "label": "About 20,000, the same as yours",
+          "correct": false,
+          "rationale": "Their total is hundreds of times larger."
+        },
+        {
+          "id": "c",
+          "label": "About 8 million, hundreds of times more",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "None, since bacteria have no genes",
+          "correct": false,
+          "rationale": "Bacteria have genes; together they carry millions."
+        }
+      ],
+      "explanation": "The microbiome carries about 8 million unique protein-coding genes, hundreds of times more than the human genome.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.plosbio_sender_cell_counts",
+    "source.nhgri_hmp_2012",
+    "source.nhgri_gene",
+    "source.medlineplus_gene"
+  ],
+  "art": "science.microscope"
+}

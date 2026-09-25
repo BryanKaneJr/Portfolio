@@ -1,0 +1,234 @@
+{
+  "id": "level.science.human_body.001",
+  "skillId": "skill.science.human_body",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Your Body in One Level",
+  "objective": "After this level you can name the body's main systems and what each one does.",
+  "summary": "The body runs as 11 organ systems, each a team of organs with a big job: wrapping and moving, supplying and cleaning, controlling and defending. None works alone.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.organ_systems",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.systems_teamwork",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.human_body.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You're not one machine. You're a crew of 11.",
+      "body": "Anatomy textbooks split the body into 11 organ systems, each a group of organs sharing one big job. Here's the whole crew in one level, plus the rule they all live by: nobody works alone."
+    },
+    {
+      "id": "card.human_body.001.c2",
+      "type": "comparison",
+      "headline": "Eleven systems, three kinds of work",
+      "items": [
+        {
+          "label": "Wrap, hold up, move",
+          "points": [
+            "Integumentary (skin, hair, nails): wraps you",
+            "Skeletal: the frame that holds you up",
+            "Muscular: moves you and helps keep you warm"
+          ]
+        },
+        {
+          "label": "Supply and clean up",
+          "points": [
+            "Respiratory: oxygen in, carbon dioxide out",
+            "Digestive: processes food for the body to use",
+            "Cardiovascular (heart and vessels): delivers oxygen and nutrients",
+            "Urinary: filters waste from blood, balances water"
+          ]
+        },
+        {
+          "label": "Control, defend, continue",
+          "points": [
+            "Nervous: senses and responds",
+            "Endocrine: sends hormones that regulate the body",
+            "Lymphatic: returns fluid, defends against germs",
+            "Reproductive: makes sex cells"
+          ]
+        }
+      ],
+      "mascot": {
+        "pose": "thinking",
+        "line": "Eleven teams on one payroll, and you never have to schedule a single shift."
+      }
+    },
+    {
+      "id": "card.human_body.001.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One flight of stairs, five systems",
+      "body": "Climb some stairs and watch the crew. Your nervous system takes in where the steps are and sets off a response. Muscles pull on your skeleton to lift you. Meanwhile your respiratory system brings oxygen into your blood, and your cardiovascular system carries it to the muscles doing the work. One step, five systems, zero meetings."
+    },
+    {
+      "id": "card.human_body.001.c4",
+      "type": "fact",
+      "fact": "Staying warm is a team job too.",
+      "context": "Your muscles help keep your body warm, and your cardiovascular system spreads that warmth around, evening out the temperature across your body. Neither system has 'heating' as its main job, yet between them they keep you at a steady temperature. Two systems, one thermostat."
+    },
+    {
+      "id": "card.human_body.001.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.001.q1"
+    },
+    {
+      "id": "card.human_body.001.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.001.q2"
+    },
+    {
+      "id": "card.human_body.001.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.001.q3"
+    },
+    {
+      "id": "card.human_body.001.c8",
+      "type": "checkpoint",
+      "headline": "Your body: mapped",
+      "learned": [
+        "11 organ systems, each a team of organs",
+        "Wrap and move, supply and clean, control and defend",
+        "Systems work as a team: lungs and heart share oxygen delivery",
+        "Muscles and circulation share keeping you warm"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.organ_systems"
+      ],
+      "sourceCardIds": [
+        "card.human_body.001.c2"
+      ],
+      "prompt": "Which organ system delivers oxygen and nutrients to your tissues?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Urinary",
+          "correct": false,
+          "rationale": "It filters waste from the blood and balances water."
+        },
+        {
+          "id": "b",
+          "label": "Cardiovascular",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Endocrine",
+          "correct": false,
+          "rationale": "It sends hormones that regulate the body."
+        },
+        {
+          "id": "d",
+          "label": "Integumentary",
+          "correct": false,
+          "rationale": "That's skin, hair and nails, the body's wrapping."
+        }
+      ],
+      "explanation": "The cardiovascular system, the heart and blood vessels, delivers oxygen and nutrients to the tissues.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.systems_teamwork"
+      ],
+      "sourceCardIds": [
+        "card.human_body.001.c3"
+      ],
+      "prompt": "Your lungs bring oxygen into your blood. Why does your cardiovascular system matter for getting it to your leg muscles?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Leg muscles make their own oxygen",
+          "correct": false,
+          "rationale": "The oxygen comes in through the respiratory system."
+        },
+        {
+          "id": "b",
+          "label": "The skeleton stores oxygen for later",
+          "correct": false,
+          "rationale": "The skeleton supports the body; it doesn't store oxygen."
+        },
+        {
+          "id": "c",
+          "label": "The urinary system must filter it first",
+          "correct": false,
+          "rationale": "The urinary system cleans the blood of waste."
+        },
+        {
+          "id": "d",
+          "label": "It carries the oxygen from the blood to the muscles",
+          "correct": true
+        }
+      ],
+      "explanation": "The respiratory system gets oxygen into the blood, and the cardiovascular system carries it on to the tissues that need it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.organ_systems",
+        "concept.human_body.systems_teamwork"
+      ],
+      "sourceCardIds": [
+        "card.human_body.001.c4",
+        "card.human_body.001.c2"
+      ],
+      "prompt": "Which pair of organ systems shares the job of keeping your body at a steady temperature?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Skeletal and reproductive",
+          "correct": false,
+          "rationale": "Neither is described as a heat keeper."
+        },
+        {
+          "id": "b",
+          "label": "Urinary and digestive",
+          "correct": false,
+          "rationale": "They handle waste, water and food."
+        },
+        {
+          "id": "c",
+          "label": "Muscular and cardiovascular",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Lymphatic and skeletal",
+          "correct": false,
+          "rationale": "Those return fluid, fight germs and hold you up."
+        }
+      ],
+      "explanation": "Muscles help keep the body warm, and the cardiovascular system evens out temperature across the body.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_body_organization"
+  ],
+  "art": "body.figure"
+}

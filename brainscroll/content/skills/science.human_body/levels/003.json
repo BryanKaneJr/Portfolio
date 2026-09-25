@@ -1,0 +1,216 @@
+{
+  "id": "level.science.human_body.003",
+  "skillId": "skill.science.human_body",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Many Cells?",
+  "objective": "After this level you can estimate how many cells make up a body and how many kinds there are.",
+  "summary": "A 2016 estimate gives a reference adult about 30 trillion human cells, mostly red blood cells. Counts vary with body size, and the cells come in about 400 types.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.cell_count",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.cell_kinds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.cell_basics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.002"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Counting your cells at one per second would take about 950,000 years.",
+      "body": "No sleep, no snacks, no weekends off. Nobody has ever counted them one by one, of course. So how did scientists arrive at a number, and how many different kinds of cell are in the pile?"
+    },
+    {
+      "id": "card.human_body.003.c2",
+      "type": "fact",
+      "fact": "You're built from about 30 trillion human cells.",
+      "context": "That's the 2016 estimate by Ron Sender, Shai Fuchs and Ron Milo, for a 'reference man': a young adult weighing 70 kg. They didn't count cells one at a time. They combined estimates for each cell type, like red blood cells and platelets, and added them up. Red blood cells alone made up about 84 percent of the total."
+    },
+    {
+      "id": "card.human_body.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your number depends on your body",
+      "body": "A 2023 study by Ian Hatton and colleagues ran the count for different bodies: about 36 trillion cells in a reference man, 28 trillion in a reference woman and 17 trillion in a 10-year-old child. A smaller body is built from fewer cells. So 'about 30 trillion' is a fair round figure for a grown-up. Think of it as a ballpark, not a barcode."
+    },
+    {
+      "id": "card.human_body.003.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "About 400 kinds, from shrews to whales",
+      "body": "The same study sorted the body's cells into about 400 types, and their sizes are wildly different. From a tiny red blood cell to the biggest muscle fibers, cell mass spans about seven orders of magnitude, like going from a shrew to a blue whale. So red blood cells win the headcount, while muscle cells, few but huge, make up about half your cell mass.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Same body, same team, and some players are a shrew while others are a whale."
+      }
+    },
+    {
+      "id": "card.human_body.003.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.003.q1"
+    },
+    {
+      "id": "card.human_body.003.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.003.q2"
+    },
+    {
+      "id": "card.human_body.003.c7",
+      "type": "recall",
+      "questionId": "question.human_body.003.q3"
+    },
+    {
+      "id": "card.human_body.003.c8",
+      "type": "checkpoint",
+      "headline": "Cells: counted",
+      "learned": [
+        "About 30 trillion human cells (2016 estimate)",
+        "Red blood cells are about 84% of them",
+        "Counts vary with body size",
+        "About 400 cell types, from tiny red cells to huge muscle fibers"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.cell_count"
+      ],
+      "sourceCardIds": [
+        "card.human_body.003.c2"
+      ],
+      "prompt": "About how many human cells did the 2016 Sender, Fuchs and Milo estimate find in a reference adult?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 30 billion",
+          "correct": false,
+          "rationale": "Far too few: the estimate is a thousand times bigger."
+        },
+        {
+          "id": "b",
+          "label": "About 3 trillion",
+          "correct": false,
+          "rationale": "Ten times too few."
+        },
+        {
+          "id": "c",
+          "label": "About 30 trillion",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 3 quadrillion",
+          "correct": false,
+          "rationale": "A hundred times too many."
+        }
+      ],
+      "explanation": "Sender, Fuchs and Milo estimated about 30 trillion human cells in a 70 kg reference man.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.cell_kinds"
+      ],
+      "sourceCardIds": [
+        "card.human_body.003.c4"
+      ],
+      "prompt": "Red blood cells lead the cell count, yet muscle cells make up about half the body's cell mass. How can both be true?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Muscle cells are few but enormous",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Muscle cells are the most numerous",
+          "correct": false,
+          "rationale": "Red blood cells win the headcount."
+        },
+        {
+          "id": "c",
+          "label": "Each red blood cell outweighs a muscle cell",
+          "correct": false,
+          "rationale": "Red blood cells are the tiny end of the range."
+        },
+        {
+          "id": "d",
+          "label": "Muscle cells are not counted as cells",
+          "correct": false,
+          "rationale": "They are counted; there just are not many."
+        }
+      ],
+      "explanation": "Cell sizes span about seven orders of magnitude. Muscle fibers are few but huge, so they carry about half the cell mass.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.cell_count",
+        "concept.human_body.cell_basics"
+      ],
+      "sourceCardIds": [
+        "card.human_body.003.c3",
+        "card.human_body.002.c1"
+      ],
+      "prompt": "Level 2 called cells the body's building blocks. Why does a 10-year-old have about 17 trillion cells but a grown man about 36 trillion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Children have no red blood cells",
+          "correct": false,
+          "rationale": "Red blood cells are part of everyone's count."
+        },
+        {
+          "id": "b",
+          "label": "Cells only form after age 18",
+          "correct": false,
+          "rationale": "A child is already built from trillions of cells."
+        },
+        {
+          "id": "c",
+          "label": "The study counted only bones",
+          "correct": false,
+          "rationale": "It counted cells across the whole body."
+        },
+        {
+          "id": "d",
+          "label": "A smaller body is built from fewer cells",
+          "correct": true
+        }
+      ],
+      "explanation": "The 2023 study found cell counts differ with body size: a child's smaller body has fewer building blocks.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.plosbio_sender_cell_counts",
+    "source.pnas_hatton_cell_count"
+  ],
+  "art": "body.cell"
+}

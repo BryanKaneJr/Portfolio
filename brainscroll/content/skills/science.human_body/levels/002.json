@@ -1,0 +1,219 @@
+{
+  "id": "level.science.human_body.002",
+  "skillId": "skill.science.human_body",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Cells",
+  "objective": "After this level you can explain what a cell is and name its main parts.",
+  "summary": "A cell is the basic building block of life. Its membrane controls what gets in and out, cytoplasm fills it, the nucleus gives orders and mitochondria supply energy.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.cell_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.cell_parts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.organ_systems",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.001"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "An oak, a mushroom and you are built from the same kind of brick.",
+      "body": "It's the cell, the basic building block of every living thing. Your body is made of trillions of them. So what does one cell actually do, and what's inside it?"
+    },
+    {
+      "id": "card.human_body.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every cell runs its own small life",
+      "body": "Each of your cells takes in nutrients from food, turns them into energy and does a special job, from giving your body structure to work that only its kind of cell can do. Cells also carry your hereditary material and can make copies of themselves. Trillions of small lives, all running at once, add up to one big one: yours."
+    },
+    {
+      "id": "card.human_body.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A town with a wall",
+      "body": "Picture a cell as a tiny walled town. The plasma membrane is the wall: an outer lining that separates the cell from its surroundings and decides what gets in and out. Inside the wall is the cytoplasm, a jelly-like fluid packed with working parts. Everything the cell does happens inside that wall."
+    },
+    {
+      "id": "card.human_body.002.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A town hall and power stations",
+      "body": "In the middle sits the nucleus, the command center. It sends out directions telling the cell when to grow, mature, divide or die. Out in the cytoplasm, mitochondria are the power stations: they turn energy from food into a form the cell can use. Orders from the hall, power from the stations: that's a working town.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A walled town with its own power grid, and you have trillions of them. That is a lot of tiny mayors."
+      }
+    },
+    {
+      "id": "card.human_body.002.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.002.q1"
+    },
+    {
+      "id": "card.human_body.002.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.002.q2"
+    },
+    {
+      "id": "card.human_body.002.c7",
+      "type": "recall",
+      "questionId": "question.human_body.002.q3"
+    },
+    {
+      "id": "card.human_body.002.c8",
+      "type": "checkpoint",
+      "headline": "Cells: opened",
+      "learned": [
+        "Cells are the building blocks of all living things",
+        "The plasma membrane controls what gets in and out",
+        "The nucleus is the command center",
+        "Mitochondria turn food energy into usable energy"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.cell_parts"
+      ],
+      "sourceCardIds": [
+        "card.human_body.002.c4"
+      ],
+      "prompt": "Which part of a cell is its command center, telling it when to grow, divide or die?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Plasma membrane",
+          "correct": false,
+          "rationale": "That's the outer lining that controls what gets in and out."
+        },
+        {
+          "id": "b",
+          "label": "Nucleus",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Cytoplasm",
+          "correct": false,
+          "rationale": "That's the jelly-like fluid filling the cell."
+        },
+        {
+          "id": "d",
+          "label": "Mitochondria",
+          "correct": false,
+          "rationale": "They turn energy from food into usable energy."
+        }
+      ],
+      "explanation": "The nucleus is the command center, sending directions to grow, mature, divide or die.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.cell_basics"
+      ],
+      "sourceCardIds": [
+        "card.human_body.002.c1",
+        "card.human_body.002.c2"
+      ],
+      "prompt": "Biologists call cells the building blocks of life. What earns them that name?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are the largest parts of the body",
+          "correct": false,
+          "rationale": "Cells are tiny; organs are much bigger."
+        },
+        {
+          "id": "b",
+          "label": "Only humans are made of them",
+          "correct": false,
+          "rationale": "Oaks and mushrooms are made of cells too."
+        },
+        {
+          "id": "c",
+          "label": "Every living thing is made of cells",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They are made of bone",
+          "correct": false,
+          "rationale": "Bone is made of cells, not the other way round."
+        }
+      ],
+      "explanation": "Cells are the basic building blocks of all living things: every living thing is built from them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.cell_parts",
+        "concept.human_body.organ_systems"
+      ],
+      "sourceCardIds": [
+        "card.human_body.002.c4",
+        "card.human_body.001.c2"
+      ],
+      "prompt": "Level 1's digestive system processes food. Which cell part then turns the energy from that food into a form the cell can use?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mitochondria",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Plasma membrane",
+          "correct": false,
+          "rationale": "It controls what enters and leaves the cell."
+        },
+        {
+          "id": "c",
+          "label": "Nucleus",
+          "correct": false,
+          "rationale": "It gives the cell its orders."
+        },
+        {
+          "id": "d",
+          "label": "Cytoplasm",
+          "correct": false,
+          "rationale": "It's the jelly-like fluid the parts sit in."
+        }
+      ],
+      "explanation": "Mitochondria convert energy from food into a form the cell can use.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.medlineplus_cell",
+    "source.nhgri_cell",
+    "source.nhgri_mitochondria"
+  ],
+  "art": "body.cell"
+}

@@ -1,0 +1,235 @@
+{
+  "id": "level.science.human_body.006",
+  "skillId": "skill.science.human_body",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Genes",
+  "objective": "After this level you can explain what a gene does and how genes lead to proteins.",
+  "summary": "A gene is a stretch of DNA; about 20,000 of yours code for proteins. A cell copies a gene into messenger RNA, and a ribosome reads it to build a protein.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.gene_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.gene_to_protein",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.dna_basics",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.dna_location",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.005"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The recipes are kept in the nucleus. The kitchen is outside.",
+      "body": "Most of your DNA sits in the nucleus, but the machines that build proteins, called ribosomes, work out in the cytoplasm. So how does a recipe reach the kitchen? Follow one gene."
+    },
+    {
+      "id": "card.human_body.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A gene is one recipe",
+      "body": "A gene is a stretch of DNA, the basic unit of heredity. Many genes are instructions for making a protein; many others act like switches that control other genes. You have about 20,000 protein-coding genes, and together they fill less than 2 percent of your DNA. If your DNA is a cookbook, a gene is one recipe."
+    },
+    {
+      "id": "card.human_body.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Proteins do the work",
+      "body": "The dish is a protein, and proteins do most of the work in your cells. Some are enzymes that run chemical reactions, some carry messages between cells, and some give cells their structure. Each is a chain built from 20 kinds of amino acids, strung like pearls on a necklace. The order of the pearls sets the protein's shape, and the shape sets its job."
+    },
+    {
+      "id": "card.human_body.006.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "From recipe to dish in two steps",
+      "body": "First, transcription: the cell copies a gene into messenger RNA, a working copy that carries the message out of the nucleus. Then translation: a ribosome in the cytoplasm reads that copy three letters at a time. Each three-letter codon usually calls for one amino acid, and the ribosome links them in order. The original recipe stays safely on the shelf.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Photocopy the recipe, cook from the copy. Every good kitchen works that way."
+      }
+    },
+    {
+      "id": "card.human_body.006.c5",
+      "type": "fact",
+      "fact": "A gene makes a protein, not a person.",
+      "context": "Most traits don't come down to one gene. Height, for example, is shaped by hundreds of gene variants, each with a small effect, plus things like nutrition. Genes supply the recipes; a whole body is more like a banquet."
+    },
+    {
+      "id": "card.human_body.006.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.006.q1"
+    },
+    {
+      "id": "card.human_body.006.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.006.q2"
+    },
+    {
+      "id": "card.human_body.006.c8",
+      "type": "recall",
+      "questionId": "question.human_body.006.q3"
+    },
+    {
+      "id": "card.human_body.006.c9",
+      "type": "checkpoint",
+      "headline": "Genes: decoded",
+      "learned": [
+        "A gene is a stretch of DNA, often a protein recipe",
+        "About 20,000 protein-coding genes",
+        "Transcription into messenger RNA, translation by a ribosome",
+        "Most traits involve many genes plus environment"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.gene_basics"
+      ],
+      "sourceCardIds": [
+        "card.human_body.006.c2"
+      ],
+      "prompt": "About how many protein-coding genes do humans have?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 200",
+          "correct": false,
+          "rationale": "Far too few."
+        },
+        {
+          "id": "b",
+          "label": "About 2,000",
+          "correct": false,
+          "rationale": "Ten times too few."
+        },
+        {
+          "id": "c",
+          "label": "About 20,000",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 2 million",
+          "correct": false,
+          "rationale": "Far too many for the human genome."
+        }
+      ],
+      "explanation": "NHGRI puts the human count at about 20,000 protein-coding genes.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.gene_to_protein"
+      ],
+      "sourceCardIds": [
+        "card.human_body.006.c4",
+        "card.human_body.006.c1"
+      ],
+      "prompt": "Why does a cell copy a gene into messenger RNA before building a protein?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The RNA is the cell's fuel",
+          "correct": false,
+          "rationale": "Mitochondria handle energy."
+        },
+        {
+          "id": "b",
+          "label": "The copy carries the message out of the nucleus to a ribosome",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It turns the gene into a new chromosome",
+          "correct": false,
+          "rationale": "Chromosomes stay as they are; the copy is temporary."
+        },
+        {
+          "id": "d",
+          "label": "It destroys genes the cell no longer needs",
+          "correct": false,
+          "rationale": "The original gene stays in place."
+        }
+      ],
+      "explanation": "Messenger RNA carries the gene's message out of the nucleus to the ribosomes in the cytoplasm, which build the protein.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.gene_to_protein",
+        "concept.human_body.dna_basics"
+      ],
+      "sourceCardIds": [
+        "card.human_body.006.c4",
+        "card.human_body.005.c2"
+      ],
+      "prompt": "Level 5 said the order of DNA's letters carries meaning. How does a ribosome read a gene's message?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One letter at a time, each letter one protein",
+          "correct": false,
+          "rationale": "Proteins are built from many amino acids."
+        },
+        {
+          "id": "b",
+          "label": "Two letters at a time, each pair one gene",
+          "correct": false,
+          "rationale": "Genes are long stretches of DNA."
+        },
+        {
+          "id": "c",
+          "label": "All 3 billion letters at once",
+          "correct": false,
+          "rationale": "It reads one short messenger copy."
+        },
+        {
+          "id": "d",
+          "label": "Three letters at a time, each codon one amino acid",
+          "correct": true
+        }
+      ],
+      "explanation": "A ribosome reads messenger RNA in three-letter codons, and each codon usually calls for one amino acid.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.medlineplus_dna",
+    "source.medlineplus_making_protein",
+    "source.medlineplus_gene",
+    "source.nhgri_gene",
+    "source.medlineplus_protein",
+    "source.nhgri_amino_acids",
+    "source.medlineplus_height",
+    "source.nature_height_variants_2010"
+  ],
+  "art": "technology.dna"
+}

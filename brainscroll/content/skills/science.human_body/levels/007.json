@@ -1,0 +1,226 @@
+{
+  "id": "level.science.human_body.007",
+  "skillId": "skill.science.human_body",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Water and You",
+  "objective": "After this level you can explain how much of the body is water and why that matters.",
+  "summary": "Water is about 75% of a newborn and 50 to 60% of an adult, less with age or more body fat. Almost two-thirds of it sits inside cells, and it cools, cushions and cleans.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.body_water_share",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.body_water_jobs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.cell_parts",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.cell_basics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.006"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "How much of you is water? It depends on your birthday.",
+      "body": "A newborn is about three-quarters water. Most adults are closer to half, or a bit more. No single number fits everyone. So where is all that water, and what is it doing?"
+    },
+    {
+      "id": "card.human_body.007.c2",
+      "type": "fact",
+      "fact": "Water is about 75% of a newborn, 50 to 60% of an adult, and less in old age.",
+      "context": "The share changes because the body's mix of tissues changes over a lifetime. Fat tissue holds less water than lean tissue, so people with more body fat have a lower percentage of water. Any single 'you are this much water' figure is a rough average at best."
+    },
+    {
+      "id": "card.human_body.007.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Most of it is inside your cells",
+      "body": "Almost two-thirds of your body's water sits inside your cells, where it's the main ingredient of the jelly-like cytoplasm from Level 2. The rest is outside them, around your cells and in your blood. So don't picture a water tank. Picture trillions of tiny water-filled bags."
+    },
+    {
+      "id": "card.human_body.007.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Water's day jobs",
+      "body": "All that water is busy. It helps keep your temperature normal: when you sweat, the evaporating water cools your skin. It lubricates and cushions your joints, protects your spinal cord and other sensitive tissues, and carries waste out of your body. Less a statue, more a fountain.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Coolant, cushion and cleaning crew, all in one liquid. Water does not like to specialize."
+      }
+    },
+    {
+      "id": "card.human_body.007.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.007.q1"
+    },
+    {
+      "id": "card.human_body.007.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.007.q2"
+    },
+    {
+      "id": "card.human_body.007.c7",
+      "type": "recall",
+      "questionId": "question.human_body.007.q3"
+    },
+    {
+      "id": "card.human_body.007.c8",
+      "type": "checkpoint",
+      "headline": "Water: measured",
+      "learned": [
+        "About 75% of a newborn, 50 to 60% of an adult",
+        "More body fat means a lower share",
+        "Almost two-thirds of it is inside cells",
+        "It cools, cushions, protects and carries waste"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.body_water_share"
+      ],
+      "sourceCardIds": [
+        "card.human_body.007.c2"
+      ],
+      "prompt": "Which group has the highest share of water in their bodies?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Newborn babies",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Young adults",
+          "correct": false,
+          "rationale": "Adults are about 50 to 60 percent water."
+        },
+        {
+          "id": "c",
+          "label": "Older adults",
+          "correct": false,
+          "rationale": "The share falls in old age."
+        },
+        {
+          "id": "d",
+          "label": "All ages are the same",
+          "correct": false,
+          "rationale": "The share changes with age."
+        }
+      ],
+      "explanation": "Water is about 75 percent of a newborn, compared with 50 to 60 percent of an adult.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.body_water_jobs"
+      ],
+      "sourceCardIds": [
+        "card.human_body.007.c4"
+      ],
+      "prompt": "How does sweating help keep your body temperature normal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sweat adds heat to warm you up",
+          "correct": false,
+          "rationale": "Sweating sheds heat."
+        },
+        {
+          "id": "b",
+          "label": "Sweat cushions the joints",
+          "correct": false,
+          "rationale": "That's a different job of the body's water."
+        },
+        {
+          "id": "c",
+          "label": "Evaporating sweat cools the skin",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Sweat carries oxygen to the muscles",
+          "correct": false,
+          "rationale": "The cardiovascular system does that."
+        }
+      ],
+      "explanation": "When sweat evaporates it cools the skin, one of the body's main ways to shed heat.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.body_water_share",
+        "concept.human_body.cell_parts"
+      ],
+      "sourceCardIds": [
+        "card.human_body.007.c3",
+        "card.human_body.002.c3"
+      ],
+      "prompt": "Level 2 described the jelly-like cytoplasm. Where does almost two-thirds of your body's water sit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In your blood",
+          "correct": false,
+          "rationale": "Blood belongs to the other third, outside cells."
+        },
+        {
+          "id": "b",
+          "label": "In your bones",
+          "correct": false,
+          "rationale": "Most water is inside cells, not bones."
+        },
+        {
+          "id": "c",
+          "label": "In your stomach",
+          "correct": false,
+          "rationale": "Water is spread through the body, mostly inside cells."
+        },
+        {
+          "id": "d",
+          "label": "Inside your cells",
+          "correct": true
+        }
+      ],
+      "explanation": "Almost two-thirds of body water is inside cells, where it is the main component of the cytoplasm.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_body_fluids",
+    "source.pmc_popkin_water_health",
+    "source.usgs_water_you",
+    "source.msd_water_sodium_balance",
+    "source.medlineplus_cell",
+    "source.nhgri_cell",
+    "source.cdc_water_healthy_drinks"
+  ],
+  "art": "nature.water-drop"
+}

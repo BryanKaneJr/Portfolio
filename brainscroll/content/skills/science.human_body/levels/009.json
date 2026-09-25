@@ -1,0 +1,240 @@
+{
+  "id": "level.science.human_body.009",
+  "skillId": "skill.science.human_body",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How We Learned About the Body",
+  "objective": "After this level you can describe how dissection and microscopes revealed the body's inner workings.",
+  "summary": "Galen's anatomy came from animals. In 1543 Vesalius dissected humans himself. Microscopes let Hooke name cells (1665) and Leeuwenhoek see bacteria (1683).",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.vesalius_dissection",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.microscopes_cells",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.microbiome_residents",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.008"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For centuries, doctors learned human anatomy from apes and pigs.",
+      "body": "Europe's most trusted anatomy books came from Galen, a Greek physician in the Roman Empire, who couldn't dissect human bodies. His books were still the standard in the 1500s. Two new ways of looking changed that: opening up the human body, and magnifying it."
+    },
+    {
+      "id": "card.human_body.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Vesalius looked for himself",
+      "body": "In 1543, Andreas Vesalius published On the Structure of the Human Body, built on human dissections he did with his own hands. It was more accurate than any description before it, and it caught Galen's slips. Galen had said the human lower jaw is two bones. That's true for a dog. In people, it's one.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Galen wasn't careless. He just had the wrong patient on the table."
+      }
+    },
+    {
+      "id": "card.human_body.009.c3",
+      "type": "timeline",
+      "headline": "Looking closer, then smaller",
+      "events": [
+        {
+          "when": "1543",
+          "label": "Vesalius's book maps the body from human dissection"
+        },
+        {
+          "when": "1665",
+          "label": "Robert Hooke names 'cells' after the boxes he sees in cork"
+        },
+        {
+          "when": "1683",
+          "label": "Leeuwenhoek describes bacteria from his own teeth"
+        },
+        {
+          "when": "Late 1830s",
+          "label": "Schleiden and Schwann: all living things are made of cells"
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.009.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Microbiology began with a set of teeth",
+      "body": "Antonie van Leeuwenhoek ground his own single lenses, magnifying up to about 300 times. In 1683 he looked at the plaque from his own teeth and saw 'little animalcules' moving about: bacteria, seen for the first time. The microbes you met in Level 8 had been living on people all along. It took a homemade lens to notice them."
+    },
+    {
+      "id": "card.human_body.009.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.009.q1"
+    },
+    {
+      "id": "card.human_body.009.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.009.q2"
+    },
+    {
+      "id": "card.human_body.009.c7",
+      "type": "recall",
+      "questionId": "question.human_body.009.q3"
+    },
+    {
+      "id": "card.human_body.009.c8",
+      "type": "checkpoint",
+      "headline": "History: traced",
+      "learned": [
+        "Galen's anatomy came from animals",
+        "Vesalius dissected humans himself (1543)",
+        "Hooke named cells (1665); Leeuwenhoek saw bacteria (1683)",
+        "Cell theory: all living things are made of cells"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.vesalius_dissection"
+      ],
+      "sourceCardIds": [
+        "card.human_body.009.c2"
+      ],
+      "prompt": "What did Andreas Vesalius base his 1543 anatomy book on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Human dissections he did himself",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Galen's animal dissections",
+          "correct": false,
+          "rationale": "Vesalius used his own human dissections and corrected Galen."
+        },
+        {
+          "id": "c",
+          "label": "Views of cells through a microscope",
+          "correct": false,
+          "rationale": "Microscopes came later."
+        },
+        {
+          "id": "d",
+          "label": "Drawings copied from older books",
+          "correct": false,
+          "rationale": "He worked from bodies he dissected himself."
+        }
+      ],
+      "explanation": "Vesalius built On the Structure of the Human Body on human dissections he did with his own hands.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.vesalius_dissection"
+      ],
+      "sourceCardIds": [
+        "card.human_body.009.c2",
+        "card.human_body.009.c1"
+      ],
+      "prompt": "Why did Galen describe the human lower jaw as two bones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He miscounted a human skeleton",
+          "correct": false,
+          "rationale": "He never dissected a human body."
+        },
+        {
+          "id": "b",
+          "label": "Human jaws had two bones in his time",
+          "correct": false,
+          "rationale": "The human jaw is a single bone."
+        },
+        {
+          "id": "c",
+          "label": "He relied on animals such as dogs, not people",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Vesalius mistranslated his book",
+          "correct": false,
+          "rationale": "Vesalius checked human bodies and found one bone."
+        }
+      ],
+      "explanation": "Galen dissected animals because human dissection was taboo. A dog's lower jaw has two bones; a human's has one.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.microscopes_cells",
+        "concept.human_body.microbiome_residents"
+      ],
+      "sourceCardIds": [
+        "card.human_body.009.c4",
+        "card.human_body.008.c1"
+      ],
+      "prompt": "Level 8's resident bacteria went unseen for most of history. Who first saw bacteria, and where?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Robert Hooke, in a slice of cork",
+          "correct": false,
+          "rationale": "Hooke saw the box-like cells of cork."
+        },
+        {
+          "id": "b",
+          "label": "Leeuwenhoek, in plaque from his own teeth",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Vesalius, while dissecting a body",
+          "correct": false,
+          "rationale": "Vesalius worked without a microscope."
+        },
+        {
+          "id": "d",
+          "label": "Schwann, in a leaf",
+          "correct": false,
+          "rationale": "Schwann helped propose cell theory."
+        }
+      ],
+      "explanation": "In 1683 Antonie van Leeuwenhoek described bacteria in the plaque from his own teeth.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_galen",
+    "source.conversation_vesalius",
+    "source.brit_vesalius",
+    "source.openstax_bio_studying_cells",
+    "source.brit_cell_theory",
+    "source.brit_leeuwenhoek",
+    "source.pmc_leeuwenhoek_fleas",
+    "source.nhgri_hmp_2012"
+  ],
+  "art": "science.microscope"
+}

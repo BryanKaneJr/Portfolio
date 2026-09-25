@@ -1,0 +1,225 @@
+{
+  "id": "level.science.human_body.005",
+  "skillId": "skill.science.human_body",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "DNA, the Instruction Book",
+  "objective": "After this level you can explain what DNA is and where the body keeps it.",
+  "summary": "DNA is the hereditary instruction book, written in four letters (A, C, G, T). Nearly every cell keeps a copy, mostly in the nucleus, with a little in the mitochondria.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.dna_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.dna_location",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.cell_parts",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.cell_count",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.004"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A single cell of yours holds about 2 meters of instructions.",
+      "body": "Stretch out the DNA from just one of your cells and it would reach about six feet. Yet it's packed into a nucleus so small you'd need a specialized microscope to see it. What is this stuff, and where exactly does your body keep it?"
+    },
+    {
+      "id": "card.human_body.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A four-letter alphabet",
+      "body": "DNA is your hereditary material: the instructions for building and running you. It's written in four chemical letters, A, C, G and T, and as with words in a sentence, the order carries the meaning. Your full set runs to about 3 billion letters, and more than 99 percent of them are the same in everyone. You and a stranger differ by a sliver."
+    },
+    {
+      "id": "card.human_body.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Kept in the command center",
+      "body": "Nearly every cell in your body has the same DNA. Most of it sits in the nucleus, Level 2's command center, packaged into 46 chromosomes in 23 pairs. Its two strands twist into a double helix, a spiral ladder whose rungs are paired letters: A with T, C with G. A small amount of DNA also lives in the mitochondria, the cell's power stations."
+    },
+    {
+      "id": "card.human_body.005.c4",
+      "type": "fact",
+      "fact": "Your most common cell has no nucleus at all.",
+      "context": "Remember Level 3? Red blood cells make up about 84 percent of your cells. Mature ones have no nucleus, so they don't carry the nuclear instruction book. So when you read that 'nearly every cell' has your DNA, the 'nearly' is doing real work.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Your body's most common cell, and it travels without the manual. Bold."
+      }
+    },
+    {
+      "id": "card.human_body.005.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.005.q1"
+    },
+    {
+      "id": "card.human_body.005.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.005.q2"
+    },
+    {
+      "id": "card.human_body.005.c7",
+      "type": "recall",
+      "questionId": "question.human_body.005.q3"
+    },
+    {
+      "id": "card.human_body.005.c8",
+      "type": "checkpoint",
+      "headline": "DNA: located",
+      "learned": [
+        "DNA is the hereditary material",
+        "Four letters, about 3 billion of them, over 99% shared",
+        "Mostly in the nucleus, a little in mitochondria",
+        "Mature red blood cells have no nucleus"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.dna_basics"
+      ],
+      "sourceCardIds": [
+        "card.human_body.005.c2"
+      ],
+      "prompt": "DNA stores its information in a code of chemical bases. How many different bases make up that code?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two",
+          "correct": false,
+          "rationale": "There are four: A, C, G and T."
+        },
+        {
+          "id": "b",
+          "label": "Four",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Twenty",
+          "correct": false,
+          "rationale": "There are only four: A, C, G and T."
+        },
+        {
+          "id": "d",
+          "label": "Forty-six",
+          "correct": false,
+          "rationale": "That's the number of chromosomes."
+        }
+      ],
+      "explanation": "DNA is written in four chemical bases: adenine (A), cytosine (C), guanine (G) and thymine (T).",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.dna_basics"
+      ],
+      "sourceCardIds": [
+        "card.human_body.005.c2"
+      ],
+      "prompt": "More than 99 percent of the 3 billion DNA letters are the same in everyone. What does that tell you about two strangers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They share no DNA at all",
+          "correct": false,
+          "rationale": "They share almost all of it."
+        },
+        {
+          "id": "b",
+          "label": "Their DNA is completely identical",
+          "correct": false,
+          "rationale": "Under 1 percent of letters still differs."
+        },
+        {
+          "id": "c",
+          "label": "Their DNA differs in only a small share of letters",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They must be close relatives",
+          "correct": false,
+          "rationale": "This holds for all people, related or not."
+        }
+      ],
+      "explanation": "Over 99 percent of DNA letters match in all people, so strangers differ in only a small share of them.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.dna_location",
+        "concept.human_body.cell_count"
+      ],
+      "sourceCardIds": [
+        "card.human_body.005.c4",
+        "card.human_body.003.c2"
+      ],
+      "prompt": "Level 3 found red blood cells are about 84 percent of your cells. Why don't mature ones carry the nuclear DNA that other cells keep?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They have no nucleus",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They store it in their mitochondria",
+          "correct": false,
+          "rationale": "Mitochondria hold only a little DNA; mature red cells lack a nucleus entirely."
+        },
+        {
+          "id": "c",
+          "label": "Their DNA is too long to fit",
+          "correct": false,
+          "rationale": "Other cells pack about 2 meters of DNA into a nucleus."
+        },
+        {
+          "id": "d",
+          "label": "They swap it for bacterial DNA",
+          "correct": false,
+          "rationale": "Nothing like that happens; they simply lack a nucleus."
+        }
+      ],
+      "explanation": "Most DNA is kept in the nucleus, and mature red blood cells have no nucleus.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nhgri_intro_genomics",
+    "source.medlineplus_dna",
+    "source.medlineplus_cell",
+    "source.nhgri_mitochondria",
+    "source.brit_red_blood_cell",
+    "source.plosbio_sender_cell_counts"
+  ],
+  "art": "technology.dna"
+}
