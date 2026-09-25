@@ -1,6 +1,6 @@
 import { Redirect, router, useFocusEffect } from 'expo-router';
-import { useCallback } from 'react';
-import { View } from 'react-native';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { View, type ScrollView } from 'react-native';
 import { Body, Button, Caption, Card, Chip, Emblem, Eyebrow, Pips, ProgressBar, Row, Screen, Stars, Title } from '@/components/ui';
 import { getLevel, subjectName } from '@/content';
 import { LevelPath } from '@/components/LevelPath';
@@ -17,6 +17,14 @@ export default function HomeScreen() {
   const p = useProgress();
   const v = useProgressView();
   const startLevel = useStartLevel();
+  const scroll = useRef<ScrollView>(null);
+  const [pathY, setPathY] = useState<number | null>(null);
+  const [stopY, setStopY] = useState<number | null>(null);
+  // Bring the next level into view, about a third of the way down the screen.
+  useEffect(() => {
+    // Only when it would sit low on the screen; early on, the header stays in view.
+    if (pathY !== null && stopY !== null && pathY + stopY > 480) scroll.current?.scrollTo({ y: pathY + stopY - 260, animated: false });
+  }, [pathY, stopY]);
   const { ready, refresh } = p;
   // Reviews come due while the app sits open; re-check whenever Home is shown.
   useFocusEffect(
@@ -45,7 +53,7 @@ export default function HomeScreen() {
   const justCleared = last && last.skillId === skill.id && !last.alreadyCompleted ? getLevel(last.levelId)?.number : undefined;
 
   return (
-    <Screen>
+    <Screen scrollRef={scroll}>
       <Row style={{ justifyContent: 'space-between' }}>
         <Eyebrow tone="brand">BrainScroll</Eyebrow>
         <Chip tone="brand" icon="knowledge">
@@ -72,6 +80,7 @@ export default function HomeScreen() {
       </Row>
 
       {next ? (
+        <View onLayout={(e) => setPathY(e.nativeEvent.layout.y)}>
         <LevelPath
           skillId={skill.id}
           level={skill.view.level}
@@ -79,8 +88,10 @@ export default function HomeScreen() {
           resuming={!!resuming}
           dailyComplete={today.dailyComplete}
           justCleared={justCleared}
+          onCurrent={setStopY}
           onOpen={startLevel}
         />
+        </View>
       ) : (
         <Card>
           <Body muted>You’ve cleared every published level. More are on the way.</Body>

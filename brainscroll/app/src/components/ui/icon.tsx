@@ -19,6 +19,8 @@ const ICONS = {
   lock: { ios: 'lock.fill', android: 'lock', web: 'lock' },
   trophy: { ios: 'trophy.fill', android: 'emoji_events', web: 'emoji_events' },
   book: { ios: 'book.fill', android: 'menu_book', web: 'menu_book' },
+  map: { ios: 'map.fill', android: 'map', web: 'map' },
+  shield: { ios: 'shield.fill', android: 'shield', web: 'shield' },
   // Subjects
   geography: { ios: 'globe.americas.fill', android: 'public', web: 'public' },
   money: { ios: 'dollarsign.circle.fill', android: 'payments', web: 'payments' },

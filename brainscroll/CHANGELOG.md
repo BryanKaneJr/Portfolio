@@ -4,6 +4,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **The level path becomes an adventure map** (owner feedback: less of a Duolingo copy, more RPG). Waypoints are hexagons with their level number instead of circles with icons, joined by a drawn dotted road (violet where you've walked, faint ahead). Locked waypoints fade into a fog of war, cleared ones carry a mint check, and each chapter ends in a bigger shield-marked boss waypoint labeled Checkpoint. The chapter banner gets a map icon, the "Start" callout gets its own room so it never covers a waypoint, and Home scrolls the next level into view. Drawn with `react-native-svg`.
 - **Each skill has its own path page.** Tapping a skill on the Skills tab opens its whole tree as stacked chapter paths, scrolled to the chapter you're in (with Dr. Scroll beside it), and makes it the skill Home follows. Before, the card jumped straight into the next level.
 - **Checkpoint trophy:** clearing a chapter's 10th level pops a big trophy badge at the top of Level Complete (gold on a mastery level).
 - **Review, Profile and Skills get pictures.** When concepts are due, Review opens with Dr. Scroll ("A few old friends came back to visit. Say hello before they wander off again.", new spot `review.ready`) and lists them as rows with a book icon. Profile's empty trophy slots show a trophy outline instead of the words "Trophy slot". Each Coming soon subject on Skills has its own icon.

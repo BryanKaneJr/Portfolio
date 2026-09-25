@@ -1,24 +1,30 @@
 import { MASTERY_BAND_SIZE } from '@brainscroll/core';
 import { useEffect, useState } from 'react';
 import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
-import { DrScroll, Eyebrow, H2, Icon, usePop, type IconName } from '@/components/ui';
+import Svg, { Path, Polygon } from 'react-native-svg';
+import { DrScroll, Eyebrow, H2, Icon, usePop } from '@/components/ui';
 import { chapterFor, levelByNumber, type Chapter } from '@/content';
 import { haptic, useReduceMotion } from '@/theme/feedback';
-import { color, depth, space, type } from '@/theme/tokens';
+import { color, depth, fw, space, type } from '@/theme/tokens';
 
 type NodeState = 'done' | 'current' | 'locked';
 
-/** How far each node sits from the center line, so the trail winds. */
-const SWAY = [0, 48, 76, 48, 0, -48, -76, -48, 0, 48];
-const NODE = 72;
-const CURRENT = 84;
+/** How far each waypoint sits from the center line, so the road winds. */
+const SWAY = [0, 56, 84, 56, 0, -56, -84, -56, 0, 0];
+const ROW = 108; // vertical distance between waypoints
+const TOP = 84; // room above the first waypoint when the "Start" callout is there
+const TOP_PLAIN = space.md;
+const SIZE = { done: 72, locked: 72, current: 84, boss: 96 } as const;
+const EDGE = 7; // the darker underside that makes a waypoint stand up
+const CALLOUT = 72; // extra room above the next level (past the first) for its callout
 
 /**
- * Home's centerpiece: the current chapter as a winding trail of round, raised
- * level nodes. Cleared levels are solid violet with a check, the next level is
- * bigger with a "Start" bubble, later levels are locked. Every 10th level (the
- * checkpoint) is a trophy, gold on a mastery level. Dr. Scroll reads along
- * beside the trail.
+ * The chapter as an adventure map: hexagonal waypoints joined by a dotted road,
+ * walked in violet up to where you are and faint beyond, fading into fog the
+ * further ahead they lie. Each waypoint shows its level number. The next level
+ * is ringed with a bouncing "Start" callout; the chapter's 10th level is the
+ * boss: a bigger shield-marked checkpoint (gold on a mastery level). Dr. Scroll
+ * reads by the roadside.
  */
 export function LevelPath({
   skillId,
@@ -30,6 +36,7 @@ export function LevelPath({
   chapter: forced,
   mascot = true,
   teaser = true,
+  onCurrent,
   onOpen,
 }: {
   skillId: string;
@@ -39,16 +46,19 @@ export function LevelPath({
   nextNumber?: number;
   resuming: boolean;
   dailyComplete: boolean;
-  /** The level just cleared, whose node pops when Home comes back into view. */
+  /** The level just cleared, whose waypoint pops when Home comes back into view. */
   justCleared?: number;
   /** Draw this chapter instead of the one holding the next level (the skill page shows them all). */
   chapter?: Chapter;
-  /** Dr. Scroll beside the trail (only one chapter on a screen should have him). */
+  /** Dr. Scroll by the roadside (only one chapter on a screen should have him). */
   mascot?: boolean;
-  /** The "Next: Chapter N" line under the trail. */
+  /** The "Next: Chapter N" line under the map. */
   teaser?: boolean;
+  /** Where the next level's waypoint sits, from the top of this component, so a screen can scroll it into view. */
+  onCurrent?: (y: number) => void;
   onOpen: (levelId: string) => void;
 }) {
+  const [width, setWidth] = useState(340);
   const focus = nextNumber ?? Math.max(level, 1);
   const chapter = forced ?? chapterFor(skillId, focus);
   const first = chapter?.levels[0] ?? Math.floor((focus - 1) / 10) * 10 + 1;
@@ -56,49 +66,107 @@ export function LevelPath({
   const numbers = Array.from({ length: last - first + 1 }, (_, i) => first + i);
   const nextChapter = chapterFor(skillId, last + 1);
 
+  const stateOf = (n: number): NodeState => (n <= level ? 'done' : n === nextNumber ? 'current' : 'locked');
+  const current = numbers.findIndex((n) => stateOf(n) === 'current');
+  const room = (i: number) => (current > 0 && i >= current ? CALLOUT : 0);
+  const top = current === 0 ? TOP : TOP_PLAIN;
+  const points = numbers.map((_, i) => ({ x: width / 2 + SWAY[i % SWAY.length]!, y: top + i * ROW + ROW / 2 + room(i) }));
+  const height = top + numbers.length * ROW + space.xl + room(numbers.length - 1);
+  const [mapY, setMapY] = useState<number | null>(null);
+  const currentY = current >= 0 ? points[current]!.y : null;
+  useEffect(() => {
+    if (mapY !== null && currentY !== null) onCurrent?.(mapY + currentY);
+  }, [mapY, currentY, onCurrent]);
+  const road = (from: number, to: number) => {
+    let d = '';
+    for (let i = from; i < to; i++) {
+      const a = points[i]!;
+      const b = points[i + 1]!;
+      const gap = (b.y - a.y) / 2;
+      d += `${i === from ? `M ${a.x} ${a.y}` : ''} C ${a.x} ${a.y + gap} ${b.x} ${b.y - gap} ${b.x} ${b.y} `;
+    }
+    return d;
+  };
+  // The road is walked up to the next level (or the last one cleared).
+  const reached = numbers.filter((n) => stateOf(n) !== 'locked').length - 1;
+
   return (
-    <View style={{ gap: space.xl }}>
+    <View style={{ gap: space.lg }}>
       <View style={styles.banner}>
-        <Eyebrow style={{ color: 'rgba(255,255,255,0.8)' }}>
-          Chapter {chapter?.number ?? Math.ceil(first / 10)} · Levels {first}–{last}
-        </Eyebrow>
-        {chapter && <H2 style={{ color: '#FFFFFF' }}>{chapter.title}</H2>}
+        <View style={styles.bannerIcon}>
+          <Icon name="map" tint="#FFFFFF" size={24} />
+        </View>
+        <View style={{ flex: 1, gap: space.xxs }}>
+          <Eyebrow style={{ color: 'rgba(255,255,255,0.8)' }}>
+            Chapter {chapter?.number ?? Math.ceil(first / 10)} · Levels {first}–{last}
+          </Eyebrow>
+          {chapter && <H2 style={{ color: '#FFFFFF' }}>{chapter.title}</H2>}
+        </View>
       </View>
 
-      <View style={styles.trail}>
+      <View
+        style={{ height }}
+        onLayout={(e) => {
+          setWidth(e.nativeEvent.layout.width);
+          setMapY(e.nativeEvent.layout.y);
+        }}>
+        <Svg width={width} height={height} style={StyleSheet.absoluteFill} pointerEvents="none">
+          {reached < numbers.length - 1 && (
+            <Path d={road(Math.max(reached, 0), numbers.length - 1)} stroke={color.borderStrong} strokeWidth={6} strokeLinecap="round" strokeDasharray="0.1 16" fill="none" />
+          )}
+          {reached > 0 && <Path d={road(0, reached)} stroke={color.brandLine} strokeWidth={8} strokeLinecap="round" strokeDasharray="0.1 14" fill="none" />}
+        </Svg>
+
+        {mascot && <DrScroll spot="home.path" size="md" style={{ position: 'absolute', left: space.xs, top: top + 2 * ROW }} />}
+
         {numbers.map((n, i) => {
           const lv = levelByNumber(skillId, n);
-          const state: NodeState = n <= level ? 'done' : n === nextNumber ? 'current' : 'locked';
-          const x = SWAY[i % SWAY.length]!;
+          const state = stateOf(n);
+          const boss = n % 10 === 0;
+          const size = boss ? SIZE.boss : SIZE[state];
+          const { x, y } = points[i]!;
+          const ahead = nextNumber ? n - nextNumber : 0;
           return (
-            <View key={n} style={[styles.slot, { transform: [{ translateX: x }] }]}>
+            <View key={n}>
               {state === 'current' && lv && (
-                <StartBubble label={dailyComplete ? 'Done for today' : resuming ? 'Resume' : 'Start'} title={lv.title} />
+                <StartBubble
+                  label={dailyComplete ? 'Done for today' : resuming ? 'Resume' : 'Start'}
+                  title={lv.title}
+                  x={x}
+                  bottom={y - size / 2 - 14}
+                  width={width}
+                />
               )}
-              <PathNode
-                n={n}
-                state={state}
-                checkpoint={n % 10 === 0}
-                mastery={n % MASTERY_BAND_SIZE === 0}
-                celebrate={state === 'done' && n === justCleared}
-                title={lv?.title}
-                accessibilityLabel={
-                  state === 'current' ? (dailyComplete ? 'Daily knowledge complete' : `${resuming ? 'Resume' : 'Start'} Level ${n}`) : undefined
-                }
-                onPress={
-                  lv && state !== 'locked'
-                    ? () => {
-                        haptic.select();
-                        onOpen(lv.id);
-                      }
-                    : undefined
-                }
-              />
+              <View style={{ position: 'absolute', left: x - size / 2, top: y - size / 2 }}>
+                <Waypoint
+                  n={n}
+                  size={size}
+                  state={state}
+                  boss={boss}
+                  gold={n % MASTERY_BAND_SIZE === 0 && state === 'done'}
+                  fog={state === 'locked' ? Math.min(0.65, 0.12 * ahead) : 0}
+                  celebrate={state === 'done' && n === justCleared}
+                  label={
+                    state === 'current'
+                      ? dailyComplete
+                        ? 'Daily knowledge complete'
+                        : `${resuming ? 'Resume' : 'Start'} Level ${n}`
+                      : `Level ${n}${lv ? `: ${lv.title}` : ''}${state === 'done' ? ', cleared' : ', locked'}`
+                  }
+                  onPress={
+                    lv && state !== 'locked'
+                      ? () => {
+                          haptic.select();
+                          onOpen(lv.id);
+                        }
+                      : undefined
+                  }
+                />
+                {boss && <Text style={[type.label, styles.bossLabel]}>Checkpoint</Text>}
+              </View>
             </View>
           );
         })}
-        {/* He stands on the open side of the curve, beside levels 3–4. */}
-        {mascot && <DrScroll spot="home.path" size="md" style={styles.mascot} />}
       </View>
 
       {teaser && nextChapter && (
@@ -113,45 +181,72 @@ export function LevelPath({
   );
 }
 
-function PathNode({ n, state, checkpoint, mastery, celebrate, title, accessibilityLabel, onPress }: {
+/** Pointy-top hexagon corners inside a box of `w` × `h`, starting at the top. */
+function hex(w: number, h: number, dy = 0) {
+  const cx = w / 2;
+  const r = h / 2;
+  return [-90, -30, 30, 90, 150, 210]
+    .map((a) => {
+      const rad = (a * Math.PI) / 180;
+      return `${cx + r * Math.cos(rad) * 1.08},${r + dy + r * Math.sin(rad)}`;
+    })
+    .join(' ');
+}
+
+function Waypoint({ n, size, state, boss, gold, fog, celebrate, label, onPress }: {
   n: number;
-  celebrate?: boolean;
+  /** 0 to 1: how deep in the fog of war a locked waypoint sits. */
+  fog: number;
+  size: number;
   state: NodeState;
-  checkpoint: boolean;
-  mastery: boolean;
-  title?: string;
-  accessibilityLabel?: string;
+  boss: boolean;
+  gold: boolean;
+  celebrate?: boolean;
+  label: string;
   onPress?: () => void;
 }) {
-  const size = state === 'current' ? CURRENT : NODE;
-  const gold = mastery && state === 'done';
-  const fill = state === 'locked' ? color.surfaceRaised : gold ? color.mastery : color.brand;
-  const edge = state === 'locked' ? color.border : gold ? color.masteryEdge : color.brandEdge;
-  const iconName: IconName = checkpoint ? 'trophy' : state === 'done' ? 'check' : state === 'current' ? 'star' : 'lock';
-  const tint = state === 'locked' ? color.textFaint : gold ? '#1A1305' : '#FFFFFF';
+  const locked = state === 'locked';
+  const fill = locked ? color.surfaceRaised : gold ? color.mastery : color.brand;
+  const edge = locked ? color.border : gold ? color.masteryEdge : color.brandEdge;
+  const ink = locked ? color.textFaint : gold ? '#1A1305' : '#FFFFFF';
   const pop = usePop(celebrate, { from: 0.5, delay: 250 });
-  const label = accessibilityLabel ?? `Level ${n}${title ? `: ${title}` : ''}${state === 'done' ? ', cleared' : state === 'locked' ? ', locked' : ''}`;
+  const face = size - EDGE;
   return (
-    <Animated.View style={[state === 'current' ? styles.ring : undefined, pop]}>
-      <Pressable
-        accessibilityRole="button"
-        accessibilityLabel={label}
-        accessibilityState={{ disabled: !onPress }}
-        disabled={!onPress}
-        onPress={onPress}
-        style={({ pressed }) => [
-          styles.node,
-          { width: size, height: size - 6, borderRadius: size / 2, backgroundColor: fill, borderBottomColor: edge },
-          pressed ? { borderBottomWidth: 0, transform: [{ translateY: 6 }] } : { borderBottomWidth: 6 },
-        ]}>
-        <Icon name={iconName} tint={tint} size={state === 'current' ? 36 : 30} />
+    <Animated.View style={pop}>
+      <Pressable accessibilityRole="button" accessibilityLabel={label} accessibilityState={{ disabled: !onPress }} disabled={!onPress} onPress={onPress}>
+        {({ pressed }) => (
+          <View style={{ width: size, height: size }}>
+            <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
+              {state === 'current' && <Polygon points={hex(size, size - 2, 1)} fill="none" stroke={color.brandLine} strokeWidth={4} />}
+              <Polygon points={hex(size, face - (state === 'current' ? 16 : 0), EDGE + (state === 'current' ? 8 : 0))} fill={edge} />
+              <Polygon points={hex(size, face - (state === 'current' ? 16 : 0), (pressed ? EDGE : 0) + (state === 'current' ? 8 : 0))} fill={fill} />
+            </Svg>
+            <View style={[StyleSheet.absoluteFill, styles.center, { opacity: 1 - fog, paddingBottom: pressed ? 0 : EDGE, paddingTop: pressed ? EDGE : 0 }]}>
+              {boss ? (
+                <Icon name="shield" tint={ink} size={34} />
+              ) : (
+                <Text style={[styles.number, { color: ink, fontSize: state === 'current' ? 24 : 22 }]}>{n}</Text>
+              )}
+            </View>
+            {state === 'done' && !boss && (
+              <View style={[styles.badge, { backgroundColor: color.success }]}>
+                <Icon name="check" tint={color.bgDeep} size={14} />
+              </View>
+            )}
+            {locked && !boss && (
+              <View style={[styles.badge, { backgroundColor: color.surface, borderWidth: 2, borderColor: color.border }]}>
+                <Icon name="lock" tint={color.textFaint} size={12} />
+              </View>
+            )}
+          </View>
+        )}
       </Pressable>
     </Animated.View>
   );
 }
 
 /** The bouncing "Start" callout above the next level, with its title. */
-function StartBubble({ label, title }: { label: string; title: string }) {
+function StartBubble({ label, title, x, bottom, width }: { label: string; title: string; x: number; bottom: number; width: number }) {
   const reduce = useReduceMotion();
   const [bob] = useState(() => new Animated.Value(0));
   useEffect(() => {
@@ -165,49 +260,52 @@ function StartBubble({ label, title }: { label: string; title: string }) {
     loop.start();
     return () => loop.stop();
   }, [bob, reduce]);
+  const w = 210;
+  const left = Math.min(Math.max(x - w / 2, 0), width - w);
   return (
     <Animated.View
       importantForAccessibility="no-hide-descendants"
       accessibilityElementsHidden
-      style={[styles.bubble, { transform: [{ translateY: bob.interpolate({ inputRange: [0, 1], outputRange: [0, -6] }) }] }]}>
+      style={[styles.bubble, { width: w, left, bottom: undefined, top: bottom - 64, transform: [{ translateY: bob.interpolate({ inputRange: [0, 1], outputRange: [0, -6] }) }] }]}>
       <Text style={[type.label, { color: color.brand, textAlign: 'center' }]}>{label}</Text>
-      <Text numberOfLines={2} style={[type.bodyStrong, { color: color.text, textAlign: 'center' }]}>
+      <Text numberOfLines={1} style={[type.bodyStrong, { color: color.text, textAlign: 'center' }]}>
         {title}
       </Text>
-      <View style={styles.bubbleTail} />
+      <View style={[styles.bubbleTail, { left: x - left - 7 }]} />
     </Animated.View>
   );
 }
 
 const styles = StyleSheet.create({
   banner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.md,
     backgroundColor: color.brand,
     borderBottomWidth: depth.edge,
     borderBottomColor: color.brandEdge,
     borderRadius: 18,
-    paddingHorizontal: space.lg,
-    paddingVertical: space.lg,
-    gap: space.xs,
+    padding: space.lg,
   },
-  trail: { alignItems: 'center', gap: space.lg, paddingBottom: space.sm },
-  slot: { alignItems: 'center', gap: space.sm },
-  node: { alignItems: 'center', justifyContent: 'center' },
-  ring: { padding: 6, borderRadius: 999, borderWidth: 4, borderColor: color.brandLine },
+  bannerIcon: { width: 44, height: 44, borderRadius: 12, backgroundColor: 'rgba(255,255,255,0.16)', alignItems: 'center', justifyContent: 'center' },
+  center: { alignItems: 'center', justifyContent: 'center' },
+  number: { ...fw('900'), fontVariant: ['tabular-nums'] },
+  badge: { position: 'absolute', right: 2, bottom: 4, width: 24, height: 24, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
+  bossLabel: { color: color.textMuted, textAlign: 'center', marginTop: space.xs },
   bubble: {
+    position: 'absolute',
+    zIndex: 2,
     backgroundColor: color.surface,
     borderWidth: depth.border,
     borderColor: color.border,
     borderBottomWidth: depth.edge,
     borderRadius: 16,
-    paddingHorizontal: space.lg,
+    paddingHorizontal: space.md,
     paddingVertical: space.sm,
-    maxWidth: 220,
-    marginBottom: space.xs,
   },
   bubbleTail: {
     position: 'absolute',
     bottom: -9,
-    alignSelf: 'center',
     width: 14,
     height: 14,
     backgroundColor: color.surface,
@@ -216,7 +314,6 @@ const styles = StyleSheet.create({
     borderColor: color.border,
     transform: [{ rotate: '45deg' }],
   },
-  mascot: { position: 'absolute', top: 3 * (NODE + space.lg) - 10, left: '4%' },
   nextChapter: {
     flexDirection: 'row',
     alignItems: 'center',

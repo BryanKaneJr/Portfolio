@@ -8,10 +8,10 @@ import { ProgressBar } from './progress';
 import { Eyebrow, H1 } from './text';
 
 /** Tab screens: safe area, gutters, generous vertical rhythm, centered on wide screens. */
-export function Screen({ children, tone = 'default' }: { children: ReactNode; tone?: 'default' | 'reward' }) {
+export function Screen({ children, tone = 'default', scrollRef }: { children: ReactNode; tone?: 'default' | 'reward'; scrollRef?: Ref<ScrollView> }) {
   return (
     <SafeAreaView style={[styles.screen, tone === 'reward' && { backgroundColor: color.bgDeep }]} edges={['top']}>
-      <ScrollView contentContainerStyle={styles.scroll}>
+      <ScrollView ref={scrollRef} contentContainerStyle={styles.scroll}>
         <View style={styles.column}>{children}</View>
       </ScrollView>
     </SafeAreaView>
