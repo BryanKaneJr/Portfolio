@@ -1,0 +1,235 @@
+{
+  "id": "level.arts.art_history.094",
+  "skillId": "skill.arts.art_history",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Museums",
+  "objective": "After this level you can explain how museums began and what they do today.",
+  "summary": "Public museums grew from private collections: the Ark (1634), the Ashmolean (1683), the British Museum (1753), the Louvre (1793). Today they research, collect, conserve and exhibit.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.museum_history",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.museum_today",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.lascaux",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.093"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.094.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1793, revolutionaries opened a king's palace and let the public in.",
+      "body": "The Louvre in Paris began as a royal residence in 1546. In 1793, France's revolutionary government opened its Grande Galerie to the public as an art museum. Walking through a king's palace to look at his paintings: that was new. But the idea of a public museum was already more than a century old."
+    },
+    {
+      "id": "card.art_history.094.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "It started with a house full of wonders",
+      "body": "In 1634, two gardeners, John Tradescant and his son, also John, opened a museum in their home in Lambeth, south London. They called it the Ark. One visitor said you could see more curiosities there in a day than in a lifetime of travel. The collection even held a preserved dodo. Later the collection passed to Elias Ashmole, who gave it to Oxford University, where it became the heart of Britain's first public museum."
+    },
+    {
+      "id": "card.art_history.094.c3",
+      "type": "timeline",
+      "headline": "Museums open their doors",
+      "events": [
+        {
+          "when": "1634",
+          "label": "The Tradescants' Ark opens in their London home"
+        },
+        {
+          "when": "1683",
+          "label": "The Ashmolean, Oxford: Britain's first public museum"
+        },
+        {
+          "when": "1753",
+          "label": "British Museum founded, for \"all studious and curious persons\""
+        },
+        {
+          "when": "1759",
+          "label": "The British Museum opens, free"
+        },
+        {
+          "when": "1793",
+          "label": "The Louvre opens to the public"
+        }
+      ]
+    },
+    {
+      "id": "card.art_history.094.c4",
+      "type": "fact",
+      "fact": "Showing art is only one of a museum's five jobs.",
+      "context": "In 2022, the International Council of Museums agreed a definition: a museum is a not-for-profit, permanent institution in the service of society that researches, collects, conserves, interprets and exhibits heritage. Exhibiting is only the part you see. The next levels go behind the scenes."
+    },
+    {
+      "id": "card.art_history.094.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.094.q1"
+    },
+    {
+      "id": "card.art_history.094.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.094.q2"
+    },
+    {
+      "id": "card.art_history.094.c7",
+      "type": "recall",
+      "questionId": "question.art_history.094.q3"
+    },
+    {
+      "id": "card.art_history.094.c8",
+      "type": "checkpoint",
+      "headline": "Museums: opened",
+      "learned": [
+        "The Tradescants' Ark opened in 1634",
+        "The Ashmolean, 1683: Britain's first public museum",
+        "The Louvre opened to the public in 1793",
+        "Museums research, collect, conserve, interpret, exhibit"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.museum_history"
+      ],
+      "sourceCardIds": [
+        "card.art_history.094.c1"
+      ],
+      "prompt": "What did France's revolutionary government do with the Louvre in 1793?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Opened it to the public as an art museum",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Began building it as a royal palace",
+          "correct": false,
+          "rationale": "Work on the royal residence began in 1546."
+        },
+        {
+          "id": "c",
+          "label": "Closed it to protect the paintings",
+          "correct": false,
+          "rationale": "It did the opposite."
+        },
+        {
+          "id": "d",
+          "label": "Sold its paintings to pay for the war",
+          "correct": false,
+          "rationale": "The paintings went on public view."
+        }
+      ],
+      "explanation": "In 1793 the revolutionary government opened the Grande Galerie to the public as a museum.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.museum_today"
+      ],
+      "sourceCardIds": [
+        "card.art_history.094.c4"
+      ],
+      "prompt": "Under the 2022 ICOM definition, which list describes a museum's work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Buying, selling and auctioning art",
+          "correct": false,
+          "rationale": "A museum is not-for-profit."
+        },
+        {
+          "id": "b",
+          "label": "Exhibiting art, and nothing else",
+          "correct": false,
+          "rationale": "Exhibiting is only one of five jobs."
+        },
+        {
+          "id": "c",
+          "label": "Researching, collecting, conserving, interpreting, exhibiting",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Collecting treasures to keep private",
+          "correct": false,
+          "rationale": "A museum serves society."
+        }
+      ],
+      "explanation": "ICOM: a museum researches, collects, conserves, interprets and exhibits heritage, in the service of society.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.museum_history",
+        "concept.art_history.lascaux"
+      ],
+      "sourceCardIds": [
+        "card.art_history.094.c3",
+        "card.art_history.006.c3"
+      ],
+      "prompt": "Which of these opened to the public first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Louvre, as a museum",
+          "correct": false,
+          "rationale": "1793."
+        },
+        {
+          "id": "b",
+          "label": "The British Museum",
+          "correct": false,
+          "rationale": "Founded 1753, opened 1759."
+        },
+        {
+          "id": "c",
+          "label": "The Ashmolean in Oxford",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Lascaux II, from Level 6",
+          "correct": false,
+          "rationale": "The replica opened in 1983."
+        }
+      ],
+      "explanation": "The Ashmolean opened in 1683 as Britain's first public museum, long before the others.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_louvre",
+    "source.ashmolean_history",
+    "source.britishmuseum_history",
+    "source.icom_museum_definition",
+    "source.brit_lascaux"
+  ],
+  "art": "arts.frame"
+}

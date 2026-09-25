@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.art_history.098",
+  "skillId": "skill.arts.art_history",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Digital Art",
+  "objective": "After this level you can explain how computers and screens have changed the way art is made.",
+  "summary": "Computer art began with plotter drawings in 1965. Nees's Schotter turned randomness into art, Cohen's AARON drew by itself, and in 2021 an NFT sold for $69.3 million.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.digiart_plotter",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.digiart_aaron",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.digiart_nft",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.brancusi_trial",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.097"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In February 1965, a gallery in Stuttgart showed drawings made by a computer.",
+      "body": "Georg Nees, a mathematician working as a software engineer at Siemens, wrote programs, and a drawing machine turned them into ink on paper. It was one of the first shows of computer graphics anywhere. For the first time, an artist's main tool was a set of instructions."
+    },
+    {
+      "id": "card.art_history.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Order, then chaos",
+      "body": "Picture Nees's Schotter (\"gravel\"), printed between 1968 and 1970. At the top, neat rows of squares sit perfectly straight. Row by row they tilt and slip a little more, until the bottom looks like a spilled box of tiles. Nees built random variables into his program, so the orderly squares descend into chaos. He was exploring order and disorder in a picture."
+    },
+    {
+      "id": "card.art_history.098.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A program that draws by itself",
+      "body": "In 1973 the painter Harold Cohen started AARON, a program that made drawings on its own, following rules he wrote. Early on, a small robot \"turtle\" holding a marker crawled over the paper to draw them. For about 20 years Cohen colored the drawings by hand; AARON only learned to color them itself in 1995. So who's the artist: Cohen, AARON, or both?"
+    },
+    {
+      "id": "card.art_history.098.c4",
+      "type": "fact",
+      "fact": "In 2021, a digital file sold for $69.3 million.",
+      "context": "Mike Winkelmann, known as Beeple, made an image every day from 2007, then combined 5,000 of them into one collage. In March 2021 Christie's sold it as an NFT, a token on a blockchain that certifies ownership of a digital item, for $69.3 million: the first purely digital artwork sold that way by a major auction house. Remember Level 2's question: what counts as art? Screens reopened it.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Anyone can copy the picture. Only one person owns the token. Art has always been a little strange about ownership."
+      }
+    },
+    {
+      "id": "card.art_history.098.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.098.q1"
+    },
+    {
+      "id": "card.art_history.098.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.098.q2"
+    },
+    {
+      "id": "card.art_history.098.c7",
+      "type": "recall",
+      "questionId": "question.art_history.098.q3"
+    },
+    {
+      "id": "card.art_history.098.c8",
+      "type": "checkpoint",
+      "headline": "Digital art: rendered",
+      "learned": [
+        "The first computer drawings went on show in 1965",
+        "Nees's Schotter slides from order into chaos",
+        "Cohen's AARON drew by itself from 1973",
+        "An NFT certifies ownership of a digital work"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.digiart_plotter"
+      ],
+      "sourceCardIds": [
+        "card.art_history.098.c2"
+      ],
+      "prompt": "How did Georg Nees make the squares in Schotter drift into chaos?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He built random variables into his program",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He shook the paper while the machine drew",
+          "correct": false,
+          "rationale": "The disorder came from the program."
+        },
+        {
+          "id": "c",
+          "label": "He drew the lower rows by hand",
+          "correct": false,
+          "rationale": "A drawing machine made it from his program."
+        },
+        {
+          "id": "d",
+          "label": "He photographed spilled tiles",
+          "correct": false,
+          "rationale": "That's just the picture it resembles."
+        }
+      ],
+      "explanation": "Nees introduced random variables into the program, so the orderly squares descend into chaos.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.digiart_aaron"
+      ],
+      "sourceCardIds": [
+        "card.art_history.098.c3"
+      ],
+      "prompt": "What made Harold Cohen's AARON different from a drawing tool?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It made drawings on its own, following Cohen's rules",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It copied Cohen's paintings exactly",
+          "correct": false,
+          "rationale": "It made new drawings from rules."
+        },
+        {
+          "id": "c",
+          "label": "It was a paintbrush with a motor",
+          "correct": false,
+          "rationale": "It was a program."
+        },
+        {
+          "id": "d",
+          "label": "It could color from the very start",
+          "correct": false,
+          "rationale": "It only learned to color in 1995."
+        }
+      ],
+      "explanation": "AARON made drawings by itself, following rules Cohen wrote; a robot turtle first put them on paper.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.digiart_nft",
+        "concept.art_history.brancusi_trial"
+      ],
+      "sourceCardIds": [
+        "card.art_history.098.c4",
+        "card.art_history.002.c1"
+      ],
+      "prompt": "In 1926, customs said Bird in Space was just metal. What did the $69.3 million for Beeple's Everydays buy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The only copy of the image",
+          "correct": false,
+          "rationale": "Anyone can copy the image."
+        },
+        {
+          "id": "b",
+          "label": "A large painted canvas",
+          "correct": false,
+          "rationale": "It's a digital collage."
+        },
+        {
+          "id": "c",
+          "label": "A token certifying ownership of the file",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A bronze sculpture of the collage",
+          "correct": false,
+          "rationale": "Nothing physical was sold."
+        }
+      ],
+      "explanation": "It was sold as an NFT: a blockchain token that certifies ownership of a digital item.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.vam_schotter",
+    "source.dam_georg_nees",
+    "source.chm_harold_cohen_aaron",
+    "source.theartnewspaper_beeple",
+    "source.brit_nft",
+    "source.moma_brancusi_trial"
+  ],
+  "art": "technology.smartphone"
+}

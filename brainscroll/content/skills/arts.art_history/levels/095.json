@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.art_history.095",
+  "skillId": "skill.arts.art_history",
+  "number": 95,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Restoration",
+  "objective": "After this level you can explain how conservators clean and repair old art.",
+  "summary": "Conservators clean away discolored varnish and overpaint, and make every addition reversible. Borja's 2012 touch-up shows why; Ghent's Lamb shows what care can reveal.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.restoration_reversibility",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.restoration_varnish",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.restoration_ghent_lamb",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.094"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.095.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2012, a well-meant touch-up turned a painting of Christ into a meme.",
+      "body": "In Borja, Spain, Cecilia Giménez, an amateur painter in her eighties, set out to restore Ecce Homo, a fresco of Christ in her local church. The result, whose head people said looked like a hairy monkey, was nicknamed \"Monkey Christ\" and went viral. The church foundation said she acted with the best intentions. Good intentions, it turns out, aren't a technique."
+    },
+    {
+      "id": "card.art_history.095.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step one: lift the fog",
+      "body": "Much of a conservator's work starts with cleaning off dirt and old varnish. Over time varnish discolors, laying a yellowish, foggy film over everything, so the colors you see aren't quite the ones the artist chose. Taking it off reveals the originals underneath. At London's National Gallery, one conservator removed 75 years' worth of discolored varnish from Rubens's landscape Het Steen. Same painting, suddenly different weather."
+    },
+    {
+      "id": "card.art_history.095.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The golden rule: it must come undone",
+      "body": "Today's conservators follow a rule the Borja touch-up ignored: anything they add must be reversible. Where paint is lost, London's National Gallery fills and retouches the gaps, and it makes sure all its work is reversible or removable, should future generations need to take it off. Past restorers didn't always think that way. If a future expert knows better, the original is still there.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "A good rule for paintings and for haircuts: don't do anything you can't undo."
+      }
+    },
+    {
+      "id": "card.art_history.095.c4",
+      "type": "fact",
+      "fact": "Cleaning the Ghent Altarpiece gave a lamb a human face.",
+      "context": "Jan and Hubert van Eyck finished the altarpiece by 1432. Around 1550, other painters covered its Lamb of God with a calmer, more animal face. In 2019, conservators from Belgium's Royal Institute for Cultural Heritage removed that overpaint with solvents and scalpels. Out stared the original: forward-gazing eyes, a startlingly human look. The internet laughed. A 2020 study backed the conservators: that face is the van Eycks' own."
+    },
+    {
+      "id": "card.art_history.095.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.095.q1"
+    },
+    {
+      "id": "card.art_history.095.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.095.q2"
+    },
+    {
+      "id": "card.art_history.095.c7",
+      "type": "mcq",
+      "questionId": "question.art_history.095.q3"
+    },
+    {
+      "id": "card.art_history.095.c8",
+      "type": "checkpoint",
+      "headline": "Restoration: undone and redone",
+      "learned": [
+        "Old varnish discolors and fogs the colors",
+        "Conservators make every addition reversible",
+        "Borja's 2012 touch-up shows why training matters",
+        "Ghent's Lamb got its original face back in 2019"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.095.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.restoration_ghent_lamb"
+      ],
+      "sourceCardIds": [
+        "card.art_history.095.c4"
+      ],
+      "prompt": "What did removing 16th-century overpaint from the Ghent Altarpiece reveal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A hidden signature of Jan van Eyck",
+          "correct": false,
+          "rationale": "The surprise was a face."
+        },
+        {
+          "id": "b",
+          "label": "A lamb with a startlingly human face",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A second lamb painted underneath",
+          "correct": false,
+          "rationale": "It revealed the original lamb's face."
+        },
+        {
+          "id": "d",
+          "label": "A skull hidden by anamorphosis",
+          "correct": false,
+          "rationale": "That's Holbein's trick, from Level 93."
+        }
+      ],
+      "explanation": "Under the 1550 overpaint was the van Eycks' original Lamb, with forward-gazing, strikingly human eyes.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.095.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.restoration_varnish"
+      ],
+      "sourceCardIds": [
+        "card.art_history.095.c2"
+      ],
+      "prompt": "Why can removing old varnish change how a painting looks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Varnish is where the artist put the colors",
+          "correct": false,
+          "rationale": "The colors are in the paint below."
+        },
+        {
+          "id": "b",
+          "label": "Removing it adds a fresh coat of paint",
+          "correct": false,
+          "rationale": "Removing adds nothing."
+        },
+        {
+          "id": "c",
+          "label": "Aged varnish discolors, fogging the true colors",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Varnish makes paintings look smaller",
+          "correct": false,
+          "rationale": "It changes color, not size."
+        }
+      ],
+      "explanation": "Old varnish discolors over time. Taking it off reveals the colors the artist actually chose.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.095.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.restoration_reversibility"
+      ],
+      "sourceCardIds": [
+        "card.art_history.095.c3",
+        "card.art_history.095.c1"
+      ],
+      "prompt": "Which rule would have protected the Borja fresco from its 2012 touch-up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Paint over damage so no one sees it",
+          "correct": false,
+          "rationale": "That's closer to what went wrong."
+        },
+        {
+          "id": "b",
+          "label": "Only use colors the artist used",
+          "correct": false,
+          "rationale": "Even with the right colors, painting over is permanent."
+        },
+        {
+          "id": "c",
+          "label": "Always add a new layer of varnish",
+          "correct": false,
+          "rationale": "Varnish wasn't the problem."
+        },
+        {
+          "id": "d",
+          "label": "Anything added must be removable later",
+          "correct": true
+        }
+      ],
+      "explanation": "Conservators make every addition reversible, so the original survives any mistake.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.cbsnews_ecce_homo",
+    "source.theartnewspaper_ecce_homo",
+    "source.nationalgallery_hals_varnish",
+    "source.nationalgallery_oldest_painting",
+    "source.theartnewspaper_ghent_lamb",
+    "source.smithsonianmag_ghent_lamb"
+  ],
+  "art": "arts.brushes"
+}

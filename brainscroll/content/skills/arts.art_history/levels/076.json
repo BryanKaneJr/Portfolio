@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.art_history.076",
+  "skillId": "skill.arts.art_history",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Aboriginal Art",
+  "objective": "After this level you can describe Aboriginal rock art and dot painting and the stories they carry.",
+  "summary": "A Kimberley kangaroo about 17,300 years old was dated by wasp nests. Western Desert dot painting began at Papunya in 1971; dots can veil sacred designs.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.aboriginal_rock_art",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.papunya_dot_painting",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.dating_cave_art",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.075"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Australia's oldest known painting was dated with help from wasps.",
+      "body": "Well, from their nests. It's a kangaroo painted on a rock-shelter ceiling about 17,300 years ago, and it opens a story that runs right up to paintings made today."
+    },
+    {
+      "id": "card.art_history.076.c2",
+      "type": "fact",
+      "fact": "The kangaroo is about 17,300 years old, Australia's oldest known intact rock painting.",
+      "context": "About 2 meters long, it stretches across the ceiling of a rock shelter in the Kimberley, on Balanggarra Country. Remember Level 10's minimum ages? Here, mud wasps built nests both under and over the paint. Radiocarbon from nests beneath gives a maximum age; nests on top give a minimum. The painting is squeezed in between. The dating was done with the permission and involvement of Traditional Owners.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Finally, a use for wasps. Scientists: 1, picnics: 0."
+      }
+    },
+    {
+      "id": "card.art_history.076.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Painting the Jukurrpa",
+      "body": "Many desert paintings depict ancestral stories. In Warlpiri the word is Jukurrpa, often translated as the Dreaming: the creation era when ancestral beings shaped the land and laid down the law. In 1971 at Papunya, in the Northern Territory, men led by Kaapa Tjampitjinpa painted a Honey Ant Dreaming mural on the school wall, encouraged by teacher Geoffrey Bardon. Soon they were painting their stories on boards. In 1972 they formed their own company, Papunya Tula Artists."
+    },
+    {
+      "id": "card.art_history.076.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dots that veil",
+      "body": "As the paintings reached wider audiences, artists increasingly used dots to cover secret and sacred designs, so a story could be shared without showing what outsiders shouldn't see. The dots are a veil, not just decoration. And they belong to the Western Desert around Papunya. Many other Aboriginal nations have their own, different visual languages, and some artists object when dots stand in for everyone."
+    },
+    {
+      "id": "card.art_history.076.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.076.q1"
+    },
+    {
+      "id": "card.art_history.076.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.076.q2"
+    },
+    {
+      "id": "card.art_history.076.c7",
+      "type": "recall",
+      "questionId": "question.art_history.076.q3"
+    },
+    {
+      "id": "card.art_history.076.c8",
+      "type": "checkpoint",
+      "headline": "Aboriginal art: read",
+      "learned": [
+        "A Kimberley kangaroo, about 17,300 years old, is Australia's oldest known intact rock painting",
+        "Wasp nests under and over it bracket its age",
+        "Papunya, 1971: the Honey Ant Dreaming mural",
+        "Dots can veil sacred designs; they are a Western Desert style"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.papunya_dot_painting"
+      ],
+      "sourceCardIds": [
+        "card.art_history.076.c3"
+      ],
+      "prompt": "How did the Western Desert painting movement begin in 1971?",
+      "options": [
+        {
+          "id": "a",
+          "label": "With a rock painting in the Kimberley",
+          "correct": false,
+          "rationale": "That kangaroo is about 17,300 years old."
+        },
+        {
+          "id": "b",
+          "label": "With an exhibition in a Sydney gallery",
+          "correct": false,
+          "rationale": "It began in the desert, at Papunya."
+        },
+        {
+          "id": "c",
+          "label": "With a mural on the Papunya school wall",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "With a government art school in Alice Springs",
+          "correct": false,
+          "rationale": "Men at Papunya painted a mural on their school wall."
+        }
+      ],
+      "explanation": "Men led by Kaapa Tjampitjinpa painted a Honey Ant Dreaming mural on the Papunya school wall, then began painting on boards.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.papunya_dot_painting"
+      ],
+      "sourceCardIds": [
+        "card.art_history.076.c4"
+      ],
+      "prompt": "Why did Western Desert artists increasingly use dots as their paintings traveled?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To cover secret and sacred designs",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Because dots are used in all Aboriginal art",
+          "correct": false,
+          "rationale": "Dots belong to the Western Desert; other nations have other styles."
+        },
+        {
+          "id": "c",
+          "label": "Because buyers wanted brighter colors",
+          "correct": false,
+          "rationale": "The reason was to veil what outsiders should not see."
+        },
+        {
+          "id": "d",
+          "label": "Because dots dry faster on boards",
+          "correct": false,
+          "rationale": "The reason was what the dots hide."
+        }
+      ],
+      "explanation": "Dots let artists share a story while veiling sacred details outsiders should not see.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.aboriginal_rock_art",
+        "concept.art_history.dating_cave_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.076.c2",
+        "card.art_history.010.c4"
+      ],
+      "prompt": "Level 10's crusts over paint gave only minimum ages. Why can the Kimberley kangaroo be pinned down more tightly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its paint contains charcoal from the artist",
+          "correct": false,
+          "rationale": "The datable charcoal came from the wasp nests."
+        },
+        {
+          "id": "b",
+          "label": "Its artists painted a date beside it",
+          "correct": false,
+          "rationale": "No date was painted; the nests do the work."
+        },
+        {
+          "id": "c",
+          "label": "Crusts on it grew faster than usual",
+          "correct": false,
+          "rationale": "This date comes from wasp nests, not crusts."
+        },
+        {
+          "id": "d",
+          "label": "Wasp nests lie both under and over the paint",
+          "correct": true
+        }
+      ],
+      "explanation": "Nests beneath give a maximum age and nests on top give a minimum, so the painting is squeezed in between.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.conversation_kimberley_kangaroo",
+    "source.abc_kimberley_kangaroo",
+    "source.nma_jukurrpa",
+    "source.nma_papunya_tula",
+    "source.abc_dot_art_debate",
+    "source.sciencedaily_uranium_cave_art"
+  ],
+  "art": "arts.cave-hand"
+}

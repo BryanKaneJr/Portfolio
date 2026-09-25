@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.art_history.051",
+  "skillId": "skill.arts.art_history",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Romanticism",
+  "objective": "After this level you can explain how Romantic artists painted storms, feeling and the sublime.",
+  "summary": "Romantics put feeling before reason. Friedrich's Wanderer faces the sublime, Burke's mix of awe and terror; Géricault painted a real shipwreck on a canvas about 5 by 7 meters.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.romanticism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.romantic_sublime",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.art_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.050"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.051.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A man stands on a rocky peak, his back to you, staring into a sea of fog.",
+      "body": "Caspar David Friedrich finished him about 1817. You never see his face, so you end up looking where he looks: out over ridges and mountaintops poking up through the mist. Seeing a figure from behind like this invites you to share his view. Welcome to Romanticism."
+    },
+    {
+      "id": "card.art_history.051.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Feeling beats reason",
+      "body": "From the late 1700s to the mid-1800s, Romantic artists put emotion, imagination and the individual first. It was partly a reaction against the Enlightenment's trust in reason and order, and against calm Neoclassical art. Friedrich said a painter should paint not only what is in front of him but also what he sees inside himself. So the Wanderer isn't a postcard of one real view: Friedrich stitched it together from sketches of several places."
+    },
+    {
+      "id": "card.art_history.051.c3",
+      "type": "fact",
+      "fact": "Romantic painters wanted a view that scares you, a little.",
+      "context": "In 1757 the writer Edmund Burke split two feelings apart. The beautiful is small, smooth and delicate. The sublime is vast, rugged and powerful, and it stirs awe mixed with terror. A daisy is beautiful; a cliff edge in a gale is sublime. Friedrich's Wanderer is often read as an image of exactly that: the sublime power of nature.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Awe with a pinch of fear. It's the feeling of a thunderstorm you watch from indoors."
+      }
+    },
+    {
+      "id": "card.art_history.051.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A shipwreck the size of a wall",
+      "body": "In 1816 the French frigate Medusa ran aground off West Africa. About 150 people were set adrift on a raft; after 13 days, only 15 were alive. Théodore Géricault chose that recent, real disaster over an ancient hero. After meeting survivors and building a scale model of the raft, he painted it in 1818-19, about 5 by 7 meters. Bodies pile into a pyramid rising to a man waving a cloth at a tiny ship on the horizon. At the 1819 Salon, some critics were captivated and others repulsed."
+    },
+    {
+      "id": "card.art_history.051.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.051.q1"
+    },
+    {
+      "id": "card.art_history.051.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.051.q2"
+    },
+    {
+      "id": "card.art_history.051.c7",
+      "type": "recall",
+      "questionId": "question.art_history.051.q3"
+    },
+    {
+      "id": "card.art_history.051.c8",
+      "type": "checkpoint",
+      "headline": "Romanticism: felt",
+      "learned": [
+        "Romantics put emotion, imagination and the individual first",
+        "They reacted against Enlightenment reason and order",
+        "Burke's sublime: awe mixed with terror at vast, powerful things",
+        "Géricault painted a real 1816 shipwreck on a huge canvas"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.romanticism"
+      ],
+      "sourceCardIds": [
+        "card.art_history.051.c4"
+      ],
+      "prompt": "What did Géricault paint in The Raft of the Medusa?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A battle from ancient Rome",
+          "correct": false,
+          "rationale": "He chose a recent disaster, not an ancient one."
+        },
+        {
+          "id": "b",
+          "label": "Survivors of a real 1816 shipwreck",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A storm he watched from a ship's mast",
+          "correct": false,
+          "rationale": "That story belongs to a different painter."
+        },
+        {
+          "id": "d",
+          "label": "A calm harbor at sunrise",
+          "correct": false,
+          "rationale": "There is nothing calm about this raft."
+        }
+      ],
+      "explanation": "The Medusa ran aground in 1816; about 150 people drifted on a raft and only 15 survived. Géricault painted them in 1818-19.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.romantic_sublime"
+      ],
+      "sourceCardIds": [
+        "card.art_history.051.c3"
+      ],
+      "prompt": "A painter wants the sublime, in Burke's sense. What should the picture make you feel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Calm pleasure at something small and smooth",
+          "correct": false,
+          "rationale": "That is Burke's beautiful."
+        },
+        {
+          "id": "b",
+          "label": "Amusement at a clever joke",
+          "correct": false,
+          "rationale": "The sublime is not about wit."
+        },
+        {
+          "id": "c",
+          "label": "Awe mixed with a little terror",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nostalgia for ancient Greece",
+          "correct": false,
+          "rationale": "That points to Neoclassicism, not the sublime."
+        }
+      ],
+      "explanation": "Burke tied the sublime to things vast, rugged and powerful, which stir awe mixed with terror.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.romanticism",
+        "concept.art_history.art_eras"
+      ],
+      "sourceCardIds": [
+        "card.art_history.051.c2",
+        "card.art_history.001.c4"
+      ],
+      "prompt": "Level 1 said each era partly answers the one before. What were the Romantics answering?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Enlightenment's trust in reason and order",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The cave painters of the Stone Age",
+          "correct": false,
+          "rationale": "Far too far back."
+        },
+        {
+          "id": "c",
+          "label": "Impressionism's outdoor painting",
+          "correct": false,
+          "rationale": "Impressionism came later."
+        },
+        {
+          "id": "d",
+          "label": "The invention of photography",
+          "correct": false,
+          "rationale": "Photography arrived after Romanticism began."
+        }
+      ],
+      "explanation": "Romanticism put emotion and imagination first, partly as a reaction against Enlightenment reason and Neoclassical order.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_wanderer_fog",
+    "source.brit_romanticism",
+    "source.brit_burke_sublime",
+    "source.brit_raft_medusa",
+    "source.louvre_romanticism_trail",
+    "source.khan_raft_medusa"
+  ],
+  "art": "geo.wave"
+}

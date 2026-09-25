@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.art_history.086",
+  "skillId": "skill.arts.art_history",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Photography as Art",
+  "objective": "After this level you can describe how photographers like Ansel Adams made photography a fine art.",
+  "summary": "Early art photographers made photos look like paintings. Group f/64, with Ansel Adams, made sharpness the point instead, and in 1940 MoMA opened a photography department.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.photo_pictorialism_to_straight",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.photo_adams_moonrise",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.art_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.085"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1941, Ansel Adams got one chance at a moonrise over a New Mexico village.",
+      "body": "He couldn't find his light meter, so he worked out the exposure from the brightness of the moon. Before he could make a second negative, the light left the crosses in the village graveyard. That one negative became Moonrise, Hernandez: a white moon over a black sky. Yet for decades, people had argued whether a photo could be art at all."
+    },
+    {
+      "id": "card.art_history.086.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "First, look like a painting",
+      "body": "In the early 1900s, photographers who wanted respect imitated other arts. The Photo-Secession, founded in 1902 with Alfred Stieglitz, promoted Pictorialism: working on negatives and prints so they looked like drawings, etchings and oil paintings. Stieglitz argued that photography was a fine art, equal to painting. The catch: to count as art, a photo had to look like something else."
+    },
+    {
+      "id": "card.art_history.086.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then, look like a photograph",
+      "body": "In 1932 Adams, Edward Weston and others in San Francisco formed Group f/64. The name is a camera setting: a tiny lens opening that keeps everything sharp, with fine detail. They wanted \"straight\" photography, crisp and unashamed of being a photo. Where the Pictorialists borrowed painting's look, f/64 bet on what only a camera could do."
+    },
+    {
+      "id": "card.art_history.086.c4",
+      "type": "fact",
+      "fact": "One negative, many different prints.",
+      "context": "Adams printed Moonrise many times over the years, and they weren't identical: he kept raising the contrast, making the moon whiter and the sky darker. The picture was made in the darkroom as much as in the field. Museums noticed. In 1940, working closely with Adams, Beaumont Newhall founded a department of photography at New York's Museum of Modern Art.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Same negative, different mood each time. A photograph can be performed, not just taken."
+      }
+    },
+    {
+      "id": "card.art_history.086.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.086.q1"
+    },
+    {
+      "id": "card.art_history.086.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.086.q2"
+    },
+    {
+      "id": "card.art_history.086.c7",
+      "type": "recall",
+      "questionId": "question.art_history.086.q3"
+    },
+    {
+      "id": "card.art_history.086.c8",
+      "type": "checkpoint",
+      "headline": "Photography: framed as art",
+      "learned": [
+        "Pictorialists made photos look like paintings",
+        "Group f/64 (1932) championed sharp, straight photos",
+        "Adams reprinted Moonrise with rising contrast",
+        "MoMA founded a photography department in 1940"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.photo_pictorialism_to_straight"
+      ],
+      "sourceCardIds": [
+        "card.art_history.086.c2"
+      ],
+      "prompt": "How did Pictorialist photographers try to make photos count as art?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They made prints look like paintings and etchings",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They used the sharpest focus they could",
+          "correct": false,
+          "rationale": "That was Group f/64's answer, later."
+        },
+        {
+          "id": "c",
+          "label": "They photographed only famous paintings",
+          "correct": false,
+          "rationale": "They worked on their own prints and negatives."
+        },
+        {
+          "id": "d",
+          "label": "They refused to show photos in galleries",
+          "correct": false,
+          "rationale": "They wanted photos accepted as art."
+        }
+      ],
+      "explanation": "Pictorialists worked on negatives and prints so they looked like drawings, etchings and oil paintings.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.photo_pictorialism_to_straight"
+      ],
+      "sourceCardIds": [
+        "card.art_history.086.c3"
+      ],
+      "prompt": "What did the name Group f/64 announce about its photographs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Soft, painterly blur",
+          "correct": false,
+          "rationale": "That's the Pictorialist look they rejected."
+        },
+        {
+          "id": "b",
+          "label": "Color instead of black and white",
+          "correct": false,
+          "rationale": "The name is about focus, not color."
+        },
+        {
+          "id": "c",
+          "label": "Sharp focus and fine detail",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Exactly 64 prints per negative",
+          "correct": false,
+          "rationale": "f/64 is a lens setting, not a count."
+        }
+      ],
+      "explanation": "f/64 is a tiny lens opening that keeps everything sharp; the group championed straight photography.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.photo_adams_moonrise",
+        "concept.art_history.art_eras"
+      ],
+      "sourceCardIds": [
+        "card.art_history.086.c4",
+        "card.art_history.001.c4"
+      ],
+      "prompt": "Level 1: photography freed painting from recording the world exactly. How did New York's Museum of Modern Art treat photography in 1940?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It stopped collecting paintings",
+          "correct": false,
+          "rationale": "It added photography; it didn't drop painting."
+        },
+        {
+          "id": "b",
+          "label": "It banned darkroom changes to prints",
+          "correct": false,
+          "rationale": "Adams reworked his prints in the darkroom."
+        },
+        {
+          "id": "c",
+          "label": "It classed photos as science, not art",
+          "correct": false,
+          "rationale": "It treated them as art."
+        },
+        {
+          "id": "d",
+          "label": "It gave photography its own department",
+          "correct": true
+        }
+      ],
+      "explanation": "In 1940 Beaumont Newhall, working closely with Ansel Adams, founded MoMA's department of photography.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.anseladams_moonrise_story",
+    "source.moma_moonrise",
+    "source.brit_photo_secession",
+    "source.brit_stieglitz",
+    "source.met_group_f64",
+    "source.brit_beaumont_newhall"
+  ],
+  "art": "technology.camera"
+}

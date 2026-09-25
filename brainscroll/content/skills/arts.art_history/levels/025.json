@@ -1,0 +1,217 @@
+{
+  "id": "level.arts.art_history.025",
+  "skillId": "skill.arts.art_history",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Romanesque Churches",
+  "objective": "After this level you can describe thick-walled Romanesque churches and their round arches.",
+  "summary": "Romanesque (\"Roman-like\") churches used round arches and heavy stone vaults, so walls were thick and windows small. Conques carved the Last Judgment over its door.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.romanesque_style",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.romanesque_conques",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.art_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.024"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Romanesque churches look like fortresses. Blame the ceiling.",
+      "body": "Thick walls, small windows, dim insides: these churches can feel like castles for prayer. The reason isn't fear of attack. It's the heavy stone roof over your head, and what it does to the walls."
+    },
+    {
+      "id": "card.art_history.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Roman-ish",
+      "body": "Romanesque means \"Roman-like\". Scholars coined the name in the 19th century for European art and building of about 1000 to 1150, because it borrowed from ancient Rome, above all the round arch. Remember Level 1? In the Middle Ages, Western art was mostly art for the church. These churches are where much of it lived."
+    },
+    {
+      "id": "card.art_history.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the walls are so thick",
+      "body": "Romanesque builders roofed their churches with barrel vaults: stone ceilings shaped like half a tunnel. All that stone pushes outward as well as down, so the walls had to be massive to hold it in. Big windows would weaken them. The result: thick walls, few small windows and often a dark interior. A stone tunnel with a few peepholes."
+    },
+    {
+      "id": "card.art_history.025.c4",
+      "type": "fact",
+      "fact": "Over the door at Conques, a devil tries to cheat at the Last Judgment.",
+      "context": "Sainte-Foy at Conques, in France, was a stop for pilgrims walking to Santiago de Compostela in Spain, drawn by the relics of Saint Foy. Its tympanum, the half-moon panel over the door, was carved in the early 1100s with at least 124 figures. Christ sits in judgment. Below him, the archangel Michael weighs souls, while a devil presses on the scale.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Every pilgrim walked in under that scale. Quite a thing to think about on your way through the door."
+      }
+    },
+    {
+      "id": "card.art_history.025.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.025.q1"
+    },
+    {
+      "id": "card.art_history.025.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.025.q2"
+    },
+    {
+      "id": "card.art_history.025.c7",
+      "type": "recall",
+      "questionId": "question.art_history.025.q3"
+    },
+    {
+      "id": "card.art_history.025.c8",
+      "type": "checkpoint",
+      "headline": "Romanesque: explained",
+      "learned": [
+        "Romanesque means \"Roman-like\": round arches",
+        "Stone barrel vaults push outward",
+        "So walls were thick and windows small",
+        "Conques carved the Last Judgment over its door"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.romanesque_style"
+      ],
+      "sourceCardIds": [
+        "card.art_history.025.c2"
+      ],
+      "prompt": "Which kind of arch gave Romanesque its \"Roman-like\" name?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The round arch",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The pointed arch",
+          "correct": false,
+          "rationale": "Pointed arches are a Gothic hallmark."
+        },
+        {
+          "id": "c",
+          "label": "The horseshoe arch",
+          "correct": false,
+          "rationale": "That's the lower arch at Córdoba."
+        },
+        {
+          "id": "d",
+          "label": "The flat stone lintel",
+          "correct": false,
+          "rationale": "A lintel isn't an arch at all."
+        }
+      ],
+      "explanation": "Romanesque borrowed the round arch from ancient Rome, hence \"Roman-like\".",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.romanesque_style"
+      ],
+      "sourceCardIds": [
+        "card.art_history.025.c3"
+      ],
+      "prompt": "Why do Romanesque churches have thick walls and small windows?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Builders feared attacks on churches",
+          "correct": false,
+          "rationale": "The cause was structural, not military."
+        },
+        {
+          "id": "b",
+          "label": "Glass was forbidden in churches",
+          "correct": false,
+          "rationale": "Glass wasn't banned; big openings would weaken the walls."
+        },
+        {
+          "id": "c",
+          "label": "Heavy stone vaults pushed out on the walls",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Monks preferred praying in darkness",
+          "correct": false,
+          "rationale": "The dark interiors were a side effect, not the aim."
+        }
+      ],
+      "explanation": "Stone barrel vaults push outward, so walls had to be massive, with few small windows.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.romanesque_conques",
+        "concept.art_history.art_eras"
+      ],
+      "sourceCardIds": [
+        "card.art_history.025.c4",
+        "card.art_history.001.c3"
+      ],
+      "prompt": "Level 1 said medieval Western art was mostly art for the church. What scene is carved over the door at Conques?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Justinian and his court",
+          "correct": false,
+          "rationale": "That's a Byzantine mosaic in Ravenna."
+        },
+        {
+          "id": "b",
+          "label": "The Last Judgment",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Pilgrims on the road to Spain",
+          "correct": false,
+          "rationale": "Pilgrims walked under it; the carving shows the Last Judgment."
+        },
+        {
+          "id": "d",
+          "label": "Scenes of farming life",
+          "correct": false,
+          "rationale": "The tympanum shows a religious scene."
+        }
+      ],
+      "explanation": "The Conques tympanum shows the Last Judgment, with Christ as judge and Michael weighing souls.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_romanesque_architecture",
+    "source.brit_christianity_art",
+    "source.conques_tympanum"
+  ],
+  "art": "arts.cathedral"
+}

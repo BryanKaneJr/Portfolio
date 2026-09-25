@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.art_history.097",
+  "skillId": "skill.arts.art_history",
+  "number": 97,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Stolen Art",
+  "objective": "After this level you can describe famous art thefts, including the Mona Lisa in 1911.",
+  "summary": "In 1911 a former Louvre worker stole the Mona Lisa; the theft made it world-famous. The 1990 Gardner Museum theft is still unsolved, and its empty frames still hang.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.theft_mona_lisa",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.theft_gardner",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.oldest_known_art",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.096"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.097.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In August 1911, the Mona Lisa vanished from the Louvre.",
+      "body": "Leonardo da Vinci began her about 1503: a woman with a mysterious smile, set against a distant landscape. She hung in the Louvre in Paris. Then one morning she was gone. What happened next turned a respected painting into the most famous one on Earth."
+    },
+    {
+      "id": "card.art_history.097.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An inside job",
+      "body": "The thief was Vincenzo Peruggia, an Italian who had worked at the Louvre fitting glass over paintings. He hid in a closet overnight, took the portrait from the wall in the morning and walked off without suspicion. Paintings were often taken down for cleaning, so for over a day nobody noticed. Police went on to question suspects including Pablo Picasso, who was innocent."
+    },
+    {
+      "id": "card.art_history.097.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The theft that made her famous",
+      "body": "Newspapers turned it into a sensation, and people flocked to the Louvre just to look at the empty space on the wall. In 1913 Peruggia tried to sell the painting to an art dealer in Florence, who alerted the police. It was found in the false bottom of his trunk. The Mona Lisa went back to Paris world-famous: the best publicity she ever got was being missing.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Imagine queuing to see a blank wall. In 1911, people did."
+      }
+    },
+    {
+      "id": "card.art_history.097.c4",
+      "type": "fact",
+      "fact": "In Boston, empty frames have waited since 1990.",
+      "context": "In the early hours of March 18, 1990, two men dressed as police officers talked their way into the Isabella Stewart Gardner Museum, restrained the guards and took 13 works, including paintings by Rembrandt and Vermeer. The case is still unsolved, and the museum offers a $10 million reward. Empty frames still hang where the paintings were. Art this famous is nearly impossible to sell openly."
+    },
+    {
+      "id": "card.art_history.097.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.097.q1"
+    },
+    {
+      "id": "card.art_history.097.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.097.q2"
+    },
+    {
+      "id": "card.art_history.097.c7",
+      "type": "mcq",
+      "questionId": "question.art_history.097.q3"
+    },
+    {
+      "id": "card.art_history.097.c8",
+      "type": "checkpoint",
+      "headline": "Stolen art: tracked",
+      "learned": [
+        "A former Louvre worker stole the Mona Lisa in 1911",
+        "Crowds came to see the empty wall",
+        "Recovered in Florence in 1913, now world-famous",
+        "The 1990 Gardner theft is still unsolved"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.097.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.theft_mona_lisa"
+      ],
+      "sourceCardIds": [
+        "card.art_history.097.c2"
+      ],
+      "prompt": "Who stole the Mona Lisa in 1911?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pablo Picasso",
+          "correct": false,
+          "rationale": "He was questioned but innocent."
+        },
+        {
+          "id": "b",
+          "label": "A gang dressed as police officers",
+          "correct": false,
+          "rationale": "That was the Gardner theft in 1990."
+        },
+        {
+          "id": "c",
+          "label": "A man who had worked at the Louvre fitting glass",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "An art dealer from Florence",
+          "correct": false,
+          "rationale": "The Florence dealer alerted the police."
+        }
+      ],
+      "explanation": "Vincenzo Peruggia had worked at the Louvre fitting glass over paintings.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.097.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.theft_mona_lisa"
+      ],
+      "sourceCardIds": [
+        "card.art_history.097.c3"
+      ],
+      "prompt": "How did the 1911 theft change the Mona Lisa's place in the world?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It made the painting world-famous",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It damaged the painting beyond repair",
+          "correct": false,
+          "rationale": "It was found intact in a trunk."
+        },
+        {
+          "id": "c",
+          "label": "It moved the painting permanently to Florence",
+          "correct": false,
+          "rationale": "It went back to Paris."
+        },
+        {
+          "id": "d",
+          "label": "It made people forget the painting",
+          "correct": false,
+          "rationale": "Crowds came even to see the empty wall."
+        }
+      ],
+      "explanation": "The papers made the theft a sensation; the painting came back world-famous.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.097.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.theft_gardner",
+        "concept.art_history.theft_mona_lisa"
+      ],
+      "sourceCardIds": [
+        "card.art_history.097.c4",
+        "card.art_history.097.c3"
+      ],
+      "prompt": "Peruggia was caught when he tried to sell. Why are works like the Gardner's missing Vermeer so hard to sell?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stolen paintings lose their color",
+          "correct": false,
+          "rationale": "The problem is recognition."
+        },
+        {
+          "id": "b",
+          "label": "They're too famous to sell openly",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only museums may legally buy paintings",
+          "correct": false,
+          "rationale": "Private buyers exist; famous stolen works just can't be sold openly."
+        },
+        {
+          "id": "d",
+          "label": "Their frames were left behind",
+          "correct": false,
+          "rationale": "Frames don't matter to a buyer."
+        }
+      ],
+      "explanation": "Art that famous is nearly impossible to sell openly; Peruggia was caught the moment he tried.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_mona_lisa",
+    "source.history_mona_lisa_heist",
+    "source.loc_mona_lisa_theft",
+    "source.gardner_theft",
+    "source.pbs_gardner_heist"
+  ],
+  "art": "arts.frame"
+}

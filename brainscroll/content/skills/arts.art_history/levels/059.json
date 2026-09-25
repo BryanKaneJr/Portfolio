@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.art_history.059",
+  "skillId": "skill.arts.art_history",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Morisot and Cassatt",
+  "objective": "After this level you can describe the work of Berthe Morisot and Mary Cassatt and what they chose to paint.",
+  "summary": "Morisot, a founding Impressionist, and the American Cassatt, invited by Degas, painted women and children in private spaces, partly because social rules limited where women could go.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.morisot",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.cassatt",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.degas_modern_life",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.058"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.059.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "At an 1875 auction in Paris, a woman's paintings outsold Monet and Renoir.",
+      "body": "Her name was Berthe Morisot, and she was one of the founding Impressionists. She, and the American Mary Cassatt, painted modern life too, but a different part of it."
+    },
+    {
+      "id": "card.art_history.059.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Morisot: private moments",
+      "body": "Morisot showed in all but one of the eight Impressionist exhibitions, missing 1879, just after her daughter Julie was born. At the first, in 1874, she hung The Cradle (1872): her sister Edma watches her sleeping baby through the cradle's thin curtain. Morisot painted mainly women and children, indoors, in gardens and in parks near her home, with quick brushstrokes."
+    },
+    {
+      "id": "card.art_history.059.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cassatt: the American in Paris",
+      "body": "In 1877 the Salon rejected Mary Cassatt's entries. That same year Degas visited her studio and invited her to exhibit with the Impressionists, and she first did so in 1879, the only American officially in the group. Degas even worked on the background of her Little Girl in a Blue Armchair (1878), in which a child sprawls across a big armchair.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Rejected by the Salon, recruited by Degas. That's a good trade."
+      }
+    },
+    {
+      "id": "card.art_history.059.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why these rooms?",
+      "body": "Cassatt's The Child's Bath (1893) looks down from above at a woman washing a child's feet in a basin, their heads touching. Why so many mothers, children and drawing rooms? Social rules of the time limited where a respectable woman could go and whom she could paint. Cassatt and Morisot turned to family, friends and private spaces, and found their subjects there."
+    },
+    {
+      "id": "card.art_history.059.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.059.q1"
+    },
+    {
+      "id": "card.art_history.059.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.059.q2"
+    },
+    {
+      "id": "card.art_history.059.c7",
+      "type": "recall",
+      "questionId": "question.art_history.059.q3"
+    },
+    {
+      "id": "card.art_history.059.c8",
+      "type": "checkpoint",
+      "headline": "Morisot and Cassatt: met",
+      "learned": [
+        "Morisot was a founding Impressionist, in seven of eight shows",
+        "The Cradle: her sister watching a sleeping baby",
+        "Degas invited Cassatt, the group's only American",
+        "Social rules steered both toward private spaces"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.morisot"
+      ],
+      "sourceCardIds": [
+        "card.art_history.059.c2"
+      ],
+      "prompt": "Who watches the sleeping baby in Morisot's The Cradle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A hired nurse",
+          "correct": false,
+          "rationale": "It is family."
+        },
+        {
+          "id": "b",
+          "label": "The painter's sister, Edma",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Mary Cassatt",
+          "correct": false,
+          "rationale": "Cassatt is not in this painting."
+        },
+        {
+          "id": "d",
+          "label": "The baby's grandmother",
+          "correct": false,
+          "rationale": "It is the baby's mother, Morisot's sister."
+        }
+      ],
+      "explanation": "The Cradle (1872) shows Morisot's sister Edma watching her sleeping baby through the cradle's curtain.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.cassatt",
+        "concept.art_history.morisot"
+      ],
+      "sourceCardIds": [
+        "card.art_history.059.c4"
+      ],
+      "prompt": "Why did Cassatt and Morisot paint so many domestic scenes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Social rules limited where they could go and whom they could paint",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Salon only accepted pictures of mothers",
+          "correct": false,
+          "rationale": "They were showing with the Impressionists."
+        },
+        {
+          "id": "c",
+          "label": "Outdoor painting was banned for everyone",
+          "correct": false,
+          "rationale": "Their male colleagues painted outdoors freely."
+        },
+        {
+          "id": "d",
+          "label": "They had no interest in modern life",
+          "correct": false,
+          "rationale": "Private life was their modern subject."
+        }
+      ],
+      "explanation": "Social rules limited the places and models open to women artists, so they turned to family, friends and private spaces.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.cassatt",
+        "concept.art_history.degas_modern_life"
+      ],
+      "sourceCardIds": [
+        "card.art_history.059.c3",
+        "card.art_history.058.c3"
+      ],
+      "prompt": "Cassatt was invited to join the Impressionists by a painter who preferred to call himself a realist. Who?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Claude Monet",
+          "correct": false,
+          "rationale": "Monet embraced outdoor Impressionism."
+        },
+        {
+          "id": "b",
+          "label": "Gustave Courbet",
+          "correct": false,
+          "rationale": "Courbet was a Realist, but it was not him."
+        },
+        {
+          "id": "c",
+          "label": "Edgar Degas",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "J.M.W. Turner",
+          "correct": false,
+          "rationale": "Turner was English and died long before."
+        }
+      ],
+      "explanation": "Degas, who disliked the name Impressionist, visited Cassatt's studio in 1877 to invite her.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_morisot",
+    "source.ng_morisot",
+    "source.gac_morisot_cradle",
+    "source.met_cassatt_essay",
+    "source.slam_cassatt_degas",
+    "source.brit_childs_bath"
+  ],
+  "art": "arts.brushes"
+}

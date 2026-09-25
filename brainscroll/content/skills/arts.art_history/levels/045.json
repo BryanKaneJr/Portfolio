@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.art_history.045",
+  "skillId": "skill.arts.art_history",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Dutch Golden Age",
+  "objective": "After this level you can explain why Dutch painters sold everyday scenes and still lifes.",
+  "summary": "Dutch Calvinist churches banned images, so painters sold on an open market instead: over a million paintings, some cheaper than linen, and specialists like Heda painting still lifes.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.dutch_calvinist_churches",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.dutch_art_market",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.baroque_counter_reformation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.044"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1640, a visitor found paintings in the blacksmith's shop.",
+      "body": "The English traveller Peter Mundy wrote that in Amsterdam even blacksmiths and cobblers kept a picture by their forge or in their stall. Elsewhere in Europe, paintings mostly hung in churches and palaces. Why were Dutch paintings everywhere?"
+    },
+    {
+      "id": "card.art_history.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The church was closed for business",
+      "body": "In the Dutch Republic, Calvinist teaching banned images in churches, though not in homes or town halls. That removed the customer that Level 41's Rubens painted for. Elsewhere, artists could hope for big commissions from the church or the state. Dutch painters had a growing independent art market instead: they painted first and found a buyer after."
+    },
+    {
+      "id": "card.art_history.045.c3",
+      "type": "fact",
+      "fact": "An estimated 1.3 to 1.4 million paintings were made in 20 years.",
+      "context": "That's in the Netherlands from 1640 to 1659, for a population of about 2 million. Some oil paintings cost less than household linen or a piece of furniture, so ordinary families could hang them. Picture a country with more new paintings than half its people."
+    },
+    {
+      "id": "card.art_history.045.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pick a lane, own it",
+      "body": "With so many painters selling, many specialized in one subject, like landscape or still life, to build a reputation and a profitable niche. Willem Claesz. Heda of Haarlem was a still-life man. In 1634 he painted oysters, a lemon, a tall glass and a silver bowl on a table, full of gleaming reflections. Buyers knew exactly what a Heda was.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Oysters, lemon, shiny silver: Heda was basically the food photographer of 1634."
+      }
+    },
+    {
+      "id": "card.art_history.045.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.045.q1"
+    },
+    {
+      "id": "card.art_history.045.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.045.q2"
+    },
+    {
+      "id": "card.art_history.045.c7",
+      "type": "recall",
+      "questionId": "question.art_history.045.q3"
+    },
+    {
+      "id": "card.art_history.045.c8",
+      "type": "checkpoint",
+      "headline": "Dutch market: open",
+      "learned": [
+        "Calvinist churches banned images",
+        "Dutch painters sold on an open market instead",
+        "An estimated 1.3 to 1.4 million paintings in 20 years, some cheaper than linen",
+        "Painters specialized, like Heda in still life"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.dutch_calvinist_churches"
+      ],
+      "sourceCardIds": [
+        "card.art_history.045.c2"
+      ],
+      "prompt": "Why did Dutch painters get so few church commissions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dutch churches were too small for paintings",
+          "correct": false,
+          "rationale": "Size wasn't the issue; belief was."
+        },
+        {
+          "id": "b",
+          "label": "Calvinist teaching banned images in churches",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The king kept all painters for his palace",
+          "correct": false,
+          "rationale": "The Dutch Republic had no such royal monopoly."
+        },
+        {
+          "id": "d",
+          "label": "Painters refused to paint religious subjects",
+          "correct": false,
+          "rationale": "The ban came from the church, not the painters."
+        }
+      ],
+      "explanation": "Calvinism banned images in churches (though not in homes), so painters turned to the open market.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.dutch_art_market"
+      ],
+      "sourceCardIds": [
+        "card.art_history.045.c4"
+      ],
+      "prompt": "Why did many Dutch painters stick to a single subject, like still life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The law allowed each painter only one subject",
+          "correct": false,
+          "rationale": "No law; it was a market choice."
+        },
+        {
+          "id": "b",
+          "label": "Still lifes needed no paint",
+          "correct": false,
+          "rationale": "They needed plenty, including for those reflections."
+        },
+        {
+          "id": "c",
+          "label": "To build a reputation in a profitable niche",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Because churches ordered only still lifes",
+          "correct": false,
+          "rationale": "Churches ordered no pictures at all."
+        }
+      ],
+      "explanation": "In a crowded market, a specialty built a name, like Heda for still lifes.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.dutch_calvinist_churches",
+        "concept.art_history.baroque_counter_reformation"
+      ],
+      "sourceCardIds": [
+        "card.art_history.045.c2",
+        "card.art_history.041.c2",
+        "card.art_history.041.c3"
+      ],
+      "prompt": "Rubens painted an altarpiece for Antwerp's cathedral (Level 41). Dutch painters mostly sold to households. What explains the difference?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dutch painters were less skilled than Rubens",
+          "correct": false,
+          "rationale": "The difference is who was buying."
+        },
+        {
+          "id": "b",
+          "label": "Altarpieces had gone out of fashion everywhere",
+          "correct": false,
+          "rationale": "The Catholic Church still wanted them."
+        },
+        {
+          "id": "c",
+          "label": "Rubens never sold to private buyers",
+          "correct": false,
+          "rationale": "The key is the churches, not his clients."
+        },
+        {
+          "id": "d",
+          "label": "The Catholic Church wanted art to stir faith; Calvinist churches banned it",
+          "correct": true
+        }
+      ],
+      "explanation": "Catholic churches commissioned dramatic art to stir faith; Dutch Calvinist churches banned images, so painters sold on the market.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.essentialvermeer_golden_age",
+    "source.openlearn_dutch_golden_age",
+    "source.boijmans_heda_oysters",
+    "source.brit_baroque",
+    "source.brit_rubens"
+  ],
+  "art": "arts.still-life"
+}

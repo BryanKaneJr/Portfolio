@@ -1,0 +1,228 @@
+{
+  "id": "level.arts.art_history.021",
+  "skillId": "skill.arts.art_history",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Byzantine Art",
+  "objective": "After this level you can describe Byzantine icons and gold-backed mosaics.",
+  "summary": "Byzantine artists set holy and imperial figures against gold glass, read as a spiritual realm. Icons, holy images on wooden panels, were banned from about 726 until 843.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.byzantine_gold_mosaics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.byzantine_icons",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.art_definition_debate",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.020"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In Ravenna, an emperor has stood in a sky of solid gold since 547.",
+      "body": "The emperor is Justinian, in a mosaic in the church of San Vitale, Italy. His empress, Theodora, faces him across the apse. There is no landscape and no room behind them, only gold. Byzantine artists weren't showing you where these people stood. They were showing you something else."
+    },
+    {
+      "id": "card.art_history.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Gold made of glass",
+      "body": "Picture Justinian in a purple robe, with a halo round his head. He holds a golden paten, a dish for the church's bread. Across the apse, Theodora holds a chalice for the wine. And the gold behind them? It's glass: small cubes with a thin sheet of gold leaf sealed under clear glass. A whole wall of them glitters."
+    },
+    {
+      "id": "card.art_history.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not a place on any map",
+      "body": "Why gold instead of sky? Art historians read it as a way of saying this is no ordinary place: the figures stand in a spiritual, otherworldly realm. That's also why they look flat and still, with stylized bodies. The goal was never to copy the world exactly. It was to show what believers held to be more real than the world.",
+      "callout": "Flat and gold on purpose: the setting is heaven, not a room."
+    },
+    {
+      "id": "card.art_history.021.c4",
+      "type": "fact",
+      "fact": "The oldest known icon of Christ was painted in hot wax, in the 6th century.",
+      "context": "An icon is an image of a holy figure, usually painted on a wooden panel. This one, at Saint Catherine's Monastery in Sinai, was painted in encaustic, colored wax worked hot. Christ raises one hand in blessing and holds a jeweled Gospel book in the other."
+    },
+    {
+      "id": "card.art_history.021.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The century of smashed images",
+      "body": "Believers said they didn't worship wood and paint: honor shown to an icon passed to the holy person it showed. Not everyone agreed. From about 726, Byzantine emperors condemned icon veneration as idolatry, and countless images were destroyed. Icons were restored for good in 843, and the Orthodox Church still celebrates it. The Sinai Christ survived because its monastery lay outside imperial control.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Lucky geography. Sometimes a masterpiece survives because it was simply too far away to reach."
+      }
+    },
+    {
+      "id": "card.art_history.021.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.021.q1"
+    },
+    {
+      "id": "card.art_history.021.c7",
+      "type": "mcq",
+      "questionId": "question.art_history.021.q2"
+    },
+    {
+      "id": "card.art_history.021.c8",
+      "type": "recall",
+      "questionId": "question.art_history.021.q3"
+    },
+    {
+      "id": "card.art_history.021.c9",
+      "type": "checkpoint",
+      "headline": "Byzantine art: glimpsed",
+      "learned": [
+        "Justinian and Theodora shine in gold glass at Ravenna, about 547",
+        "Gold grounds are read as a spiritual realm",
+        "Icons are holy images, usually on wooden panels",
+        "Iconoclasm banned icons from about 726 until 843"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.byzantine_icons"
+      ],
+      "sourceCardIds": [
+        "card.art_history.021.c4"
+      ],
+      "prompt": "In art history, what is a Byzantine icon usually taken to mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A holy figure painted on a wooden panel",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A floor mosaic of an emperor",
+          "correct": false,
+          "rationale": "Justinian's mosaic is on a wall, and it isn't an icon in this sense."
+        },
+        {
+          "id": "c",
+          "label": "A stone carving over a church door",
+          "correct": false,
+          "rationale": "Icons are painted images, usually on wood."
+        },
+        {
+          "id": "d",
+          "label": "A glass window showing a saint",
+          "correct": false,
+          "rationale": "Glass windows come later in this chapter."
+        }
+      ],
+      "explanation": "An icon is an image of a holy figure (Christ, Mary or a saint), usually painted on a wooden panel.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.byzantine_gold_mosaics"
+      ],
+      "sourceCardIds": [
+        "card.art_history.021.c3"
+      ],
+      "prompt": "Why do Byzantine mosaics set holy figures against gold instead of a sky or a room?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gold was the cheapest material to hand",
+          "correct": false,
+          "rationale": "Gold leaf sealed in glass was a luxury, not a saving."
+        },
+        {
+          "id": "b",
+          "label": "Artists hadn't yet learned to paint skies",
+          "correct": false,
+          "rationale": "The flatness was a choice about meaning, not a missing skill."
+        },
+        {
+          "id": "c",
+          "label": "To set them in a spiritual realm, not a real place",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To show the church was built in a desert",
+          "correct": false,
+          "rationale": "The gold isn't a landscape at all."
+        }
+      ],
+      "explanation": "Art historians read the gold as a spiritual, otherworldly realm, which is why the figures look flat and still.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.byzantine_gold_mosaics",
+        "concept.art_history.art_definition_debate"
+      ],
+      "sourceCardIds": [
+        "card.art_history.021.c3",
+        "card.art_history.002.c4"
+      ],
+      "prompt": "Level 2's court ruled that art can express an idea instead of copying nature. How do Byzantine gold mosaics fit that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They copy the church's real walls exactly",
+          "correct": false,
+          "rationale": "There's no real setting behind the figures at all."
+        },
+        {
+          "id": "b",
+          "label": "They show a spiritual idea, not a real scene",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They were taxed as metal, like Bird in Space",
+          "correct": false,
+          "rationale": "No customs case here; the link is the idea behind the art."
+        },
+        {
+          "id": "d",
+          "label": "They are exact portraits made from life",
+          "correct": false,
+          "rationale": "The figures are flat and stylized on purpose."
+        }
+      ],
+      "explanation": "Like Bird in Space, Byzantine mosaics aim at an idea (here, a heavenly realm) rather than an exact copy of the world.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.khan_justinian_mosaic",
+    "source.met_glass_ornaments_late_antiquity",
+    "source.khan_byzantine_icons_intro",
+    "source.smarthistory_sinai_monastery",
+    "source.met_byzantine_iconoclasm",
+    "source.brit_iconoclastic_controversy"
+  ],
+  "art": "arts.mosaic"
+}

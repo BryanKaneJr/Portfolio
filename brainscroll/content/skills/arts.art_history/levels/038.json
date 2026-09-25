@@ -1,0 +1,231 @@
+{
+  "id": "level.arts.art_history.038",
+  "skillId": "skill.arts.art_history",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Oil Paint and the North",
+  "objective": "After this level you can explain how Flemish painters like van Eyck used oil paint for fine detail.",
+  "summary": "Egg tempera dries fast; oil dries slowly, so tones blend in thin glazes. Jan van Eyck perfected oil in Bruges, and his 1434 Arnolfini Portrait shows a whole room in a mirror.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.ren_oil_paint",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ren_van_eyck_arnolfini",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ren_leonardo_painting",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.037"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A painting from 1434 has writing on its wall: \"Jan van Eyck was here.\"",
+      "body": "It's in Latin, in curly script, right above a mirror in the Arnolfini Portrait: Johannes de Eyck fuit hic. 1434. To see why people marveled at this painter, you need to know what was in his paint."
+    },
+    {
+      "id": "card.art_history.038.c2",
+      "type": "comparison",
+      "headline": "Egg versus oil",
+      "items": [
+        {
+          "label": "Egg tempera",
+          "points": [
+            "Pigment bound with egg yolk",
+            "Dries fast, so tones can't blend",
+            "Shading built from fine crosshatching"
+          ]
+        },
+        {
+          "label": "Oil paint",
+          "points": [
+            "Pigment in a drying oil, like linseed",
+            "Dries slowly, so tones can blend",
+            "Laid on in thin, see-through glazes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.art_history.038.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A whole room in a mirror",
+      "body": "Van Eyck didn't invent oil painting, but he perfected it, building pictures from thin, transparent glazes. In the Arnolfini Portrait a richly dressed man and woman, probably the Italian merchant Giovanni Arnolfini and his wife, stand in a room in Bruges with a red bed and a brass chandelier. The round, convex mirror on the back wall shows the room again: the couple from behind, and two men coming in at the door. Is one of them the painter? Scholars still debate it."
+    },
+    {
+      "id": "card.art_history.038.c4",
+      "type": "fact",
+      "fact": "An Italian said his paintings looked made by nature, not by hands.",
+      "context": "That was in 1449, from an Italian humanist. Oil soon won over the south: in 16th-century Venice it became painters' basic material. And remember Leonardo's sfumato from Level 35? Those thin, melting layers were possible because oil paint was still fairly new in Italy."
+    },
+    {
+      "id": "card.art_history.038.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.038.q1"
+    },
+    {
+      "id": "card.art_history.038.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.038.q2"
+    },
+    {
+      "id": "card.art_history.038.c7",
+      "type": "recall",
+      "questionId": "question.art_history.038.q3"
+    },
+    {
+      "id": "card.art_history.038.c8",
+      "type": "checkpoint",
+      "headline": "Oil: mastered",
+      "learned": [
+        "Tempera dries fast; oil dries slowly and blends",
+        "Van Eyck perfected oil with thin glazes",
+        "The Arnolfini mirror reflects the whole room",
+        "Oil made Leonardo's sfumato possible"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.ren_van_eyck_arnolfini"
+      ],
+      "sourceCardIds": [
+        "card.art_history.038.c3"
+      ],
+      "prompt": "What does the convex mirror in the Arnolfini Portrait show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The couple from behind and two men",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A street scene through a window",
+          "correct": false,
+          "rationale": "It reflects the room itself."
+        },
+        {
+          "id": "c",
+          "label": "Van Eyck alone at his easel",
+          "correct": false,
+          "rationale": "It shows two men at the door; who they are is debated."
+        },
+        {
+          "id": "d",
+          "label": "Nothing; it's a blank disc",
+          "correct": false,
+          "rationale": "It reflects the whole room."
+        }
+      ],
+      "explanation": "The mirror reflects the room, the couple from behind and two men coming in at the door.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.ren_oil_paint"
+      ],
+      "sourceCardIds": [
+        "card.art_history.038.c2"
+      ],
+      "prompt": "Why could oil painters blend tones smoothly when tempera painters crosshatched?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tempera has no pigment in it",
+          "correct": false,
+          "rationale": "Both use pigment; the binder differs."
+        },
+        {
+          "id": "b",
+          "label": "Oil dries slowly, so tones can blend",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Oil paint dries in seconds",
+          "correct": false,
+          "rationale": "It's tempera that dries fast."
+        },
+        {
+          "id": "d",
+          "label": "Tempera is always painted on walls",
+          "correct": false,
+          "rationale": "The difference is drying speed."
+        }
+      ],
+      "explanation": "Egg tempera dries fast, so painters shaded with crosshatching. Oil dries slowly, so tones can be blended.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.ren_oil_paint",
+        "concept.art_history.ren_leonardo_painting"
+      ],
+      "sourceCardIds": [
+        "card.art_history.038.c4",
+        "card.art_history.035.c3"
+      ],
+      "prompt": "Leonardo's sfumato melts light into dark in thin layers. What made that possible?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Egg tempera",
+          "correct": false,
+          "rationale": "Tempera dries too fast to blend."
+        },
+        {
+          "id": "b",
+          "label": "Woodcut printing",
+          "correct": false,
+          "rationale": "Prints don't give you soft painted shading."
+        },
+        {
+          "id": "c",
+          "label": "Oil paint, then new in Italy",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Fresco on wet plaster",
+          "correct": false,
+          "rationale": "The Mona Lisa is on a panel, not a wall."
+        }
+      ],
+      "explanation": "Sfumato relied on thin, translucent layers of oil paint, still relatively new in Italy.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ng_arnolfini",
+    "source.brit_van_eyck",
+    "source.brit_tempera",
+    "source.brit_oil_painting",
+    "source.brit_mona_lisa"
+  ],
+  "art": "arts.brushes"
+}

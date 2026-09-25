@@ -1,0 +1,376 @@
+{
+  "id": "level.arts.art_history.020",
+  "skillId": "skill.arts.art_history",
+  "number": 20,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Ancient Worlds",
+  "objective": "After this level you can compare the art of Egypt, Greece, Rome and early Asia.",
+  "summary": "Ancient statues were painted (polychromy): colors found with infrared and ultraviolet light, mostly lost to weather and air, and flaking in minutes off the Terracotta Army.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.ancient_worlds_polychromy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.terracotta_army",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.egypt_tomb_models",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.art_history.greek_contrapposto",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.greek_kouros",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.ziggurat",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.parthenon",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.roman_pantheon_dome",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.alexander_mosaic",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.greek_black_figure",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.019"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.020.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 2 finale: the ancient world wasn't white.",
+      "body": "Picture a Greek statue and you probably see bare white marble. Its makers wouldn't recognize it: Greek and Roman statues were once painted in bright colors. First, the chapter in order. Then, where all that color went."
+    },
+    {
+      "id": "card.art_history.020.c2",
+      "type": "timeline",
+      "headline": "Ancient worlds, oldest first",
+      "events": [
+        {
+          "when": "About 2100 BCE",
+          "label": "Ur's ziggurat rises for the moon god"
+        },
+        {
+          "when": "540–530 BCE",
+          "label": "Exekias paints heroes at a dice game"
+        },
+        {
+          "when": "Just after 480 BCE",
+          "label": "The Kritios Boy shifts his weight"
+        },
+        {
+          "when": "447–432 BCE",
+          "label": "The Parthenon goes up for Athena"
+        },
+        {
+          "when": "About 100 BCE",
+          "label": "The Alexander Mosaic is laid in Pompeii"
+        },
+        {
+          "when": "118–128 CE",
+          "label": "Hadrian rebuilds the Pantheon"
+        }
+      ]
+    },
+    {
+      "id": "card.art_history.020.c3",
+      "type": "fact",
+      "fact": "Greek and Roman marble statues were once painted in bright colors.",
+      "context": "It's called polychromy, Greek for \"many colors\". Researchers find the faint traces with infrared and ultraviolet light. Weathering, cleaning, air and sunlight erased most of it, and what was left is the white stone we now call classical.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Those pale statues aren't pale by choice. Time just scrubbed off their paint."
+      }
+    },
+    {
+      "id": "card.art_history.020.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Color that vanishes in minutes",
+      "body": "The Terracotta Army was painted too. When archaeologists first dug the soldiers up, the lacquer under the paint could curl within 15 seconds of meeting the air and flake off in about four minutes. Egypt was luckier: Meketre's painted models still keep their original colors. The ancient world you picture in stone was, at the time, in full color."
+    },
+    {
+      "id": "card.art_history.020.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.020.q1"
+    },
+    {
+      "id": "card.art_history.020.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.020.q2"
+    },
+    {
+      "id": "card.art_history.020.c7",
+      "type": "mcq",
+      "questionId": "question.art_history.020.q3"
+    },
+    {
+      "id": "card.art_history.020.c8",
+      "type": "recall",
+      "questionId": "question.art_history.020.q4"
+    },
+    {
+      "id": "card.art_history.020.c9",
+      "type": "mcq",
+      "questionId": "question.art_history.020.q5"
+    },
+    {
+      "id": "card.art_history.020.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 2 complete",
+      "learned": [
+        "Greek and Roman statues were painted",
+        "Infrared and ultraviolet light find old paint",
+        "Terracotta paint flaked off in minutes",
+        "Ur's ziggurat predates the Parthenon by centuries"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.020.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.ancient_worlds_polychromy"
+      ],
+      "sourceCardIds": [
+        "card.art_history.020.c3"
+      ],
+      "prompt": "Why do so many ancient Greek statues look white today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Greek sculptors preferred bare marble",
+          "correct": false,
+          "rationale": "They painted their statues in bright colors."
+        },
+        {
+          "id": "b",
+          "label": "Their paint was lost to weather, cleaning, air and sunlight",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "White showed that a statue was a god",
+          "correct": false,
+          "rationale": "The white is what's left after the paint went."
+        },
+        {
+          "id": "d",
+          "label": "The marble was bleached to make copies",
+          "correct": false,
+          "rationale": "Time, not bleach, took the color."
+        }
+      ],
+      "explanation": "Greek and Roman statues were painted (polychromy); weathering, cleaning, air and sunlight erased most of the color.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.020.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.ancient_worlds_polychromy"
+      ],
+      "sourceCardIds": [
+        "card.art_history.020.c3"
+      ],
+      "prompt": "How do researchers find color the eye can no longer see on an ancient statue?",
+      "options": [
+        {
+          "id": "a",
+          "label": "With infrared and ultraviolet light",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "With radiocarbon dating of the marble",
+          "correct": false,
+          "rationale": "Radiocarbon dates once-living material (Level 10), and marble isn't."
+        },
+        {
+          "id": "c",
+          "label": "By rolling the surface onto wet clay",
+          "correct": false,
+          "rationale": "That's how a cylinder seal prints."
+        },
+        {
+          "id": "d",
+          "label": "By measuring it against an 18-square grid",
+          "correct": false,
+          "rationale": "That's Egypt's proportion system."
+        }
+      ],
+      "explanation": "Infrared and ultraviolet light reveal faint pigment traces that eyes miss.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.020.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.ancient_worlds_polychromy",
+        "concept.art_history.terracotta_army"
+      ],
+      "sourceCardIds": [
+        "card.art_history.020.c4"
+      ],
+      "prompt": "What happened to the Terracotta Army's paint when the soldiers were first dug up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It turned bright gold in the sunlight",
+          "correct": false,
+          "rationale": "The paint was lost, not changed."
+        },
+        {
+          "id": "b",
+          "label": "It was already gone before digging began",
+          "correct": false,
+          "rationale": "It was there, and then it flaked away."
+        },
+        {
+          "id": "c",
+          "label": "It survived perfectly, like Meketre's models",
+          "correct": false,
+          "rationale": "Meketre's models were the lucky ones."
+        },
+        {
+          "id": "d",
+          "label": "It curled and flaked off within minutes",
+          "correct": true
+        }
+      ],
+      "explanation": "The lacquer under the paint could curl within 15 seconds and flake off in about four minutes.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.020.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.greek_contrapposto",
+        "concept.art_history.greek_kouros"
+      ],
+      "sourceCardIds": [
+        "card.art_history.015.c2",
+        "card.art_history.015.c3"
+      ],
+      "prompt": "From Level 15: what did the Kritios Boy do that the stiff kouros did not?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He faced straight ahead",
+          "correct": false,
+          "rationale": "The kouros already did that."
+        },
+        {
+          "id": "b",
+          "label": "He stepped his left foot forward",
+          "correct": false,
+          "rationale": "Kouroi already had the left foot forward."
+        },
+        {
+          "id": "c",
+          "label": "He rested his weight on one leg",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He clenched both fists",
+          "correct": false,
+          "rationale": "That's the Archaic kouros."
+        }
+      ],
+      "explanation": "Just after 480 BCE, the Kritios Boy put his weight on his left leg with the right knee bent: contrapposto.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.020.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.ziggurat",
+        "concept.art_history.parthenon",
+        "concept.art_history.roman_pantheon_dome",
+        "concept.art_history.alexander_mosaic"
+      ],
+      "sourceCardIds": [
+        "card.art_history.020.c2"
+      ],
+      "prompt": "Put this chapter in order: which of these was built first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Parthenon",
+          "correct": false,
+          "rationale": "Begun in 447 BCE."
+        },
+        {
+          "id": "b",
+          "label": "The ziggurat at Ur",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Pantheon",
+          "correct": false,
+          "rationale": "Rebuilt by Hadrian in 118–128 CE."
+        },
+        {
+          "id": "d",
+          "label": "The Alexander Mosaic",
+          "correct": false,
+          "rationale": "About 100 BCE."
+        }
+      ],
+      "explanation": "Ur's ziggurat went up about 2100 BCE, more than 1,600 years before the Parthenon.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ziggurat_ur",
+    "source.vatican_exekias_amphora",
+    "source.acropolis_museum_kritios",
+    "source.brit_contrapposto",
+    "source.brit_parthenon",
+    "source.brit_pantheon",
+    "source.archaeologymag_alexander_mosaic",
+    "source.smithsonianmag_chroma",
+    "source.brit_terracotta_army",
+    "source.natgeo_terracotta_color",
+    "source.met_egypt_educators"
+  ],
+  "art": "geo.pyramids"
+}

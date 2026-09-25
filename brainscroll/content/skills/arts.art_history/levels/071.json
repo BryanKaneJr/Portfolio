@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.art_history.071",
+  "skillId": "skill.arts.art_history",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Japanese Woodblock Prints",
+  "objective": "After this level you can explain how ukiyo-e prints were made, including Hokusai's Great Wave.",
+  "summary": "Ukiyo-e, 'pictures of the floating world', were cheap Edo-period prints made by a team, one block per color. Hokusai's Great Wave (about 1830-32) hides Mount Fuji in its hollow.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.ukiyoe_printmaking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.hokusai_great_wave",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.negative_space",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.070"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The most famous wave in art was made by a team of four.",
+      "body": "Katsushika Hokusai designed it, but a publisher, a carver and a printer turned his drawing into a print. It's a Japanese woodblock print, and prints like it were made cheaply and in large numbers."
+    },
+    {
+      "id": "card.art_history.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pictures of the floating world",
+      "body": "Ukiyo-e means \"pictures of the floating world\". The floating world was the theater and pleasure districts of Japanese cities in the Edo period (1615–1868). The prints showed its celebrities: kabuki actors and courtesans, the style icons of their day. Later came landscapes, sold as travel souvenirs. Woodblocks made them cheap and plentiful, more like posters than treasures. (Today they're treasures.)"
+    },
+    {
+      "id": "card.art_history.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A print takes a team",
+      "body": "A publisher organized each print and sold it. An artist drew the design in ink. A carver pasted that drawing face down on a block of cherry wood and cut straight through it, usually destroying it. So the first thing the carver did to the design was cut it up. Every color then got its own carved block. Marks called kento kept the colors lined up, and a printer inked each block and rubbed the paper onto it with a flat pad called a baren."
+    },
+    {
+      "id": "card.art_history.071.c4",
+      "type": "fact",
+      "fact": "In the Great Wave, the famous mountain is one of the smallest things in the picture.",
+      "context": "Hokusai was about 70 when he made Under the Wave off Kanagawa, about 1830–32, for his series Thirty-six Views of Mount Fuji. A huge wave rears up, its foam breaking into claw-like fingers, over three boats of rowers. Far behind them, Mount Fuji, Japan's highest mountain, sits small in the hollow under the wave. The series is named for Fuji, and Hokusai makes you hunt for it.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "A whole series about a mountain, and in its most famous print the star is playing hide-and-seek."
+      }
+    },
+    {
+      "id": "card.art_history.071.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.071.q1"
+    },
+    {
+      "id": "card.art_history.071.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.071.q2"
+    },
+    {
+      "id": "card.art_history.071.c7",
+      "type": "recall",
+      "questionId": "question.art_history.071.q3"
+    },
+    {
+      "id": "card.art_history.071.c8",
+      "type": "checkpoint",
+      "headline": "Ukiyo-e: printed",
+      "learned": [
+        "Ukiyo-e: \"pictures of the floating world\"",
+        "Publisher, artist, carver and printer made each print",
+        "Every color had its own carved block",
+        "The Great Wave hides Fuji in its hollow, about 1830-32"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.ukiyoe_printmaking"
+      ],
+      "sourceCardIds": [
+        "card.art_history.071.c2"
+      ],
+      "prompt": "What does the Japanese word ukiyo-e mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carvings of the rising sun",
+          "correct": false,
+          "rationale": "The word is about a floating world, not the sun."
+        },
+        {
+          "id": "b",
+          "label": "Pictures of the floating world",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Paintings of sacred mountains",
+          "correct": false,
+          "rationale": "Mountains came later as a subject; the word means something else."
+        },
+        {
+          "id": "d",
+          "label": "Prints made from stone",
+          "correct": false,
+          "rationale": "Ukiyo-e were printed from wooden blocks."
+        }
+      ],
+      "explanation": "Ukiyo-e means \"pictures of the floating world\", the theater and pleasure districts of Edo-period cities.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.ukiyoe_printmaking"
+      ],
+      "sourceCardIds": [
+        "card.art_history.071.c3"
+      ],
+      "prompt": "Why do so few of the artists' final drawings for ukiyo-e prints survive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Printers washed them away with ink",
+          "correct": false,
+          "rationale": "Printers worked from the carved blocks, not the drawings."
+        },
+        {
+          "id": "b",
+          "label": "Artists burned them to guard their designs",
+          "correct": false,
+          "rationale": "Nothing so dramatic: carving itself destroyed them."
+        },
+        {
+          "id": "c",
+          "label": "Publishers sold them as cheap posters",
+          "correct": false,
+          "rationale": "The prints were sold cheaply, not the drawings."
+        },
+        {
+          "id": "d",
+          "label": "Carvers cut through them to make the blocks",
+          "correct": true
+        }
+      ],
+      "explanation": "The drawing was pasted face down on the cherry-wood block and carved through, which usually destroyed it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.hokusai_great_wave",
+        "concept.art_history.negative_space"
+      ],
+      "sourceCardIds": [
+        "card.art_history.071.c4",
+        "card.art_history.003.c4"
+      ],
+      "prompt": "In the Great Wave, Mount Fuji sits in the empty hollow under the wave. Which Level 3 idea is Hokusai using?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Negative space",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Implied texture",
+          "correct": false,
+          "rationale": "Texture is how a surface feels or seems to feel."
+        },
+        {
+          "id": "c",
+          "label": "Complementary colors",
+          "correct": false,
+          "rationale": "That's Level 4, about colors opposite on the wheel."
+        },
+        {
+          "id": "d",
+          "label": "Form",
+          "correct": false,
+          "rationale": "Form means 3D shapes like balls and boxes."
+        }
+      ],
+      "explanation": "The empty space under the curling wave has a shape of its own, and Hokusai tucks Fuji into it: negative space.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.vam_ukiyoe",
+    "source.loc_ukiyoe",
+    "source.asianart_ukiyoe_process",
+    "source.met_great_wave",
+    "source.giverny_japanese_prints",
+    "source.getty_elements_of_art"
+  ],
+  "art": "geo.wave"
+}

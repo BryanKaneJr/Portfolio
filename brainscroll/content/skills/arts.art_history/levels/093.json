@@ -1,0 +1,223 @@
+{
+  "id": "level.arts.art_history.093",
+  "skillId": "skill.arts.art_history",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Symbols in Art",
+  "objective": "After this level you can decode common symbols like skulls, lilies and dogs in older paintings.",
+  "summary": "Old paintings speak in symbols: a skull says remember you must die, lilies mean purity, a dog may mean faithfulness. Symbols are clues to interpret, not a fixed code.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.symbol_memento_mori",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.symbol_lilies_dogs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.look_feldman_method",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.092"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.093.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1533, Holbein hid a skull in plain sight.",
+      "body": "The Ambassadors shows two men posing side by side. Between their feet floats a long, smeared shape. From the front it's a puzzle. Look up at the painting from its bottom right corner, and the smear becomes a large skull. Holbein built the trick into the paint. Here's what the skull, and other symbols, were saying."
+    },
+    {
+      "id": "card.art_history.093.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Skulls: remember you must die",
+      "body": "A skull is a memento mori, Latin for \"remember you must die.\" Its partner is the vanitas still life: a table set with a skull, a snuffed-out candle, books, wine, a musical instrument. The message: life is short, and worldly pleasures are worthless in the end. These pictures became popular in the 1600s, in a religious age. So a still life with a skull isn't a menu. It's a warning.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Cheerful, those old still lifes. Delicious fruit, lovely wine, and a skull saying \"enjoy it while it lasts.\""
+      }
+    },
+    {
+      "id": "card.art_history.093.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lilies and dogs",
+      "body": "White lilies generally stand for purity, which ties them to the Virgin Mary. In paintings of the Annunciation, the angel Gabriel often holds one, or it stands in a vase. Dogs can stand for faithfulness. In Jan van Eyck's Arnolfini Portrait of 1434, a small dog, every hair painted, stands at the couple's feet: likely a sign of faithfulness in marriage."
+    },
+    {
+      "id": "card.art_history.093.c4",
+      "type": "fact",
+      "fact": "A symbol is a clue, not a code.",
+      "context": "Even London's National Gallery says the Arnolfini dog \"may be intended\" to stand for fidelity. Meanings also shift: lilies belong to saints such as Catherine of Siena too. So treat a symbol the way Level 91 taught: describe it first, then interpret it with evidence. Sometimes the best answer starts with \"probably.\""
+    },
+    {
+      "id": "card.art_history.093.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.093.q1"
+    },
+    {
+      "id": "card.art_history.093.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.093.q2"
+    },
+    {
+      "id": "card.art_history.093.c7",
+      "type": "recall",
+      "questionId": "question.art_history.093.q3"
+    },
+    {
+      "id": "card.art_history.093.c8",
+      "type": "checkpoint",
+      "headline": "Symbols: decoded",
+      "learned": [
+        "A skull is a memento mori: remember you must die",
+        "Vanitas still lifes warn that pleasures pass",
+        "Lilies mean purity; dogs can mean faithfulness",
+        "Symbols are clues to interpret, not a code"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.symbol_memento_mori"
+      ],
+      "sourceCardIds": [
+        "card.art_history.093.c2"
+      ],
+      "prompt": "What does the Latin phrase \"memento mori\" mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Remember you must die",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Remember the saints",
+          "correct": false,
+          "rationale": "It's about your own death."
+        },
+        {
+          "id": "c",
+          "label": "Life is beautiful",
+          "correct": false,
+          "rationale": "It's a reminder of mortality."
+        },
+        {
+          "id": "d",
+          "label": "Beware of pride",
+          "correct": false,
+          "rationale": "Close in spirit, but not the meaning."
+        }
+      ],
+      "explanation": "Memento mori means \"remember you must die\"; skulls are its classic symbol.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.symbol_memento_mori"
+      ],
+      "sourceCardIds": [
+        "card.art_history.093.c1"
+      ],
+      "prompt": "Why does the skull in Holbein's The Ambassadors look like a smear from the front?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was damaged and badly repaired",
+          "correct": false,
+          "rationale": "It's a deliberate trick."
+        },
+        {
+          "id": "b",
+          "label": "Holbein left it unfinished",
+          "correct": false,
+          "rationale": "It's finished; it's built to be seen from an angle."
+        },
+        {
+          "id": "c",
+          "label": "It only appears under ultraviolet light",
+          "correct": false,
+          "rationale": "You just need the right viewing angle."
+        },
+        {
+          "id": "d",
+          "label": "It's painted to be seen from the lower right",
+          "correct": true
+        }
+      ],
+      "explanation": "From the bottom right corner, looking up, the elongated shape becomes a large skull.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.symbol_lilies_dogs",
+        "concept.art_history.look_feldman_method"
+      ],
+      "sourceCardIds": [
+        "card.art_history.093.c3",
+        "card.art_history.093.c4",
+        "card.art_history.091.c3"
+      ],
+      "prompt": "An Annunciation shows a vase of white lilies. In Level 91's method, which step is reading them as purity?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Describe",
+          "correct": false,
+          "rationale": "Describing says only what you see: a vase of white lilies."
+        },
+        {
+          "id": "b",
+          "label": "Analyze",
+          "correct": false,
+          "rationale": "Analyzing looks at how the parts work together."
+        },
+        {
+          "id": "c",
+          "label": "Interpret",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Judge",
+          "correct": false,
+          "rationale": "Judging asks whether the work succeeds."
+        }
+      ],
+      "explanation": "Saying what a lily might mean is interpretation, built on the description of what's there.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nationalgallery_ambassadors",
+    "source.tate_memento_mori",
+    "source.tate_vanitas",
+    "source.nationalgallery_lilies_glossary",
+    "source.nationalgallery_dog_glossary",
+    "source.nationalgallery_arnolfini",
+    "source.ncma_feldman_method",
+    "source.humankinetics_feldman_model"
+  ],
+  "art": "arts.still-life"
+}

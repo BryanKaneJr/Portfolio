@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.art_history.088",
+  "skillId": "skill.arts.art_history",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Street Art",
+  "objective": "After this level you can explain how graffiti and street art moved from walls into galleries.",
+  "summary": "Haring drew in chalk in the subway and Basquiat wrote SAMO on walls before both became gallery stars. Banksy works in stencils, and one of his canvases shredded itself at auction.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.street_art_to_gallery",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.street_art_banksy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.hand_stencils",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.oldest_known_art",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.087"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2018, a Banksy sold at auction, then shredded itself.",
+      "body": "Just after the sale, Girl with Balloon slid partway down through a shredder hidden in its own frame. Instead of a disaster, it became a new artwork, Love Is in the Bin. So how did art from the street end up in an auction room?"
+    },
+    {
+      "id": "card.art_history.088.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chalk on the subway",
+      "body": "From 1980 to 1985, Keith Haring drew in New York's subway: white chalk on the black paper that covered unrented advertising panels. It was illegal, so he drew fast, and he was arrested many times. He made hundreds of these drawings, maybe thousands. Your commute, with an art show on the wall."
+    },
+    {
+      "id": "card.art_history.088.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "From SAMO to the gallery",
+      "body": "In the late 1970s, Jean-Michel Basquiat and his friend Al Diaz spray-painted cryptic sayings on walls in Lower Manhattan, signed SAMO. They were slogans and jokes, not just a name. Around 1980 Basquiat dropped SAMO to paint, and by the early 1980s his paintings were being shown around the world. The wall was his first gallery."
+    },
+    {
+      "id": "card.art_history.088.c4",
+      "type": "fact",
+      "fact": "Banksy works in stencils, for speed.",
+      "context": "Banksy, an anonymous British artist, has used stencils since 2000 to work faster, building a cast of images like rats and policemen. Remember Level 5? Blow pigment over a hand and its outline stays on the rock. A street stencil works the same way: spray over a cut-out shape and it stays on the wall. The payoff came indoors: in 2018 Girl with Balloon sold at Sotheby's for $1.4 million, just before it shredded.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Same trick as the cave artists, with a faster getaway."
+      }
+    },
+    {
+      "id": "card.art_history.088.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.088.q1"
+    },
+    {
+      "id": "card.art_history.088.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.088.q2"
+    },
+    {
+      "id": "card.art_history.088.c7",
+      "type": "recall",
+      "questionId": "question.art_history.088.q3"
+    },
+    {
+      "id": "card.art_history.088.c8",
+      "type": "checkpoint",
+      "headline": "Street art: moved indoors",
+      "learned": [
+        "Haring drew in chalk on empty subway ad panels",
+        "Basquiat went from SAMO graffiti to galleries",
+        "Banksy uses stencils for speed",
+        "Girl with Balloon shredded itself at auction in 2018"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.street_art_to_gallery"
+      ],
+      "sourceCardIds": [
+        "card.art_history.088.c2"
+      ],
+      "prompt": "Where did Keith Haring make his subway drawings?",
+      "options": [
+        {
+          "id": "a",
+          "label": "On the outsides of subway trains",
+          "correct": false,
+          "rationale": "He drew in stations, on paper panels."
+        },
+        {
+          "id": "b",
+          "label": "On black paper over empty ad panels",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "On canvases sold at station kiosks",
+          "correct": false,
+          "rationale": "They were illegal drawings, not stock for sale."
+        },
+        {
+          "id": "d",
+          "label": "Inside a gallery built like a station",
+          "correct": false,
+          "rationale": "They were in the real subway."
+        }
+      ],
+      "explanation": "Haring drew in white chalk on the black paper covering unrented advertising panels.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.street_art_banksy"
+      ],
+      "sourceCardIds": [
+        "card.art_history.088.c4"
+      ],
+      "prompt": "Why does Banksy work with stencils?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Galleries insisted on them",
+          "correct": false,
+          "rationale": "He chose them for the street."
+        },
+        {
+          "id": "b",
+          "label": "They make every image one of a kind",
+          "correct": false,
+          "rationale": "Stencils are for repeating."
+        },
+        {
+          "id": "c",
+          "label": "They let him work faster",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They let him avoid spray paint",
+          "correct": false,
+          "rationale": "Spray paint goes over the stencil."
+        }
+      ],
+      "explanation": "Britannica notes Banksy has used stencils since 2000 to enhance his speed.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.street_art_banksy",
+        "concept.art_history.hand_stencils"
+      ],
+      "sourceCardIds": [
+        "card.art_history.088.c4",
+        "card.art_history.005.c3"
+      ],
+      "prompt": "What does a Banksy stencil have in common with Level 5's cave hand stencils?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both are painted freehand with brushes",
+          "correct": false,
+          "rationale": "Neither is freehand."
+        },
+        {
+          "id": "b",
+          "label": "Both are carved into hard stone",
+          "correct": false,
+          "rationale": "Both are sprayed, not carved."
+        },
+        {
+          "id": "c",
+          "label": "Both are dated by crusts over the paint",
+          "correct": false,
+          "rationale": "That dating method is for ancient cave art."
+        },
+        {
+          "id": "d",
+          "label": "Spraying around a shape leaves its outline",
+          "correct": true
+        }
+      ],
+      "explanation": "Blow pigment over a hand, or spray over a cut-out, and the shape stays behind on the surface.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_banksy",
+    "source.npr_banksy_shredded",
+    "source.smarthistory_haring_subway",
+    "source.theartstory_basquiat",
+    "source.smithsonianmag_metanduno_stencil",
+    "source.brit_cave_art"
+  ],
+  "art": "arts.spray-can"
+}

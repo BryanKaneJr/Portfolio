@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.art_history.069",
+  "skillId": "skill.arts.art_history",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Surrealism",
+  "objective": "After this level you can explain how the Surrealists painted dreams, from Dalí to Magritte.",
+  "summary": "Breton's 1924 manifesto sent Surrealists into dreams and the unconscious: Dalí's melting watches and Magritte's pipe that is not a pipe.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.surreal_dali",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.surreal_magritte",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.surreal_dreams",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.dada_origins",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.068"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.069.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Salvador Dalí said his famous melting watches began with a soft Camembert.",
+      "body": "Take that with a pinch of salt, but take the idea seriously. The Surrealists went looking for art in dreams and the hidden parts of the mind, where watches can melt like cheese."
+    },
+    {
+      "id": "card.art_history.069.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A manifesto for dreams",
+      "body": "In 1924 the poet André Breton published the Manifesto of Surrealism. Drawing on Sigmund Freud, he saw the unconscious mind as the wellspring of imagination, and he wanted dream and fantasy joined to everyday reality. Surrealism grew mainly out of Dada (Level 68), but where Dada said no, Surrealism tried to build something. Some Surrealists drew automatically, letting images spill out without censoring them."
+    },
+    {
+      "id": "card.art_history.069.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dalí: The Persistence of Memory",
+      "body": "It's small: 24 by 33 cm, not much bigger than a sheet of printer paper. Painted in 1931, it shows the coast of Catalonia, Dalí's home. Pocket watches have gone soft, one sagging over a ledge, and a strange, distorted face lies in the middle. Everything is painted realistically, which makes the impossible look real. Dalí even declared that he didn't know what it meant."
+    },
+    {
+      "id": "card.art_history.069.c4",
+      "type": "fact",
+      "fact": "Magritte painted a pipe and wrote under it: \"This is not a pipe.\"",
+      "context": "The Treachery of Images (1929), by René Magritte, shows a plain pipe above the French words Ceci n'est pas une pipe. It sounds like a riddle, but he explained it simply: nobody could fill or smoke the pipe in his picture. It's a picture of a pipe. That's Surrealism's quieter trick: making you doubt the ordinary.",
+      "mascot": {
+        "pose": "idea",
+        "line": "By the same logic, I'm not a doctor. I'm a drawing of one. Still happy to help, though."
+      }
+    },
+    {
+      "id": "card.art_history.069.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.069.q1"
+    },
+    {
+      "id": "card.art_history.069.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.069.q2"
+    },
+    {
+      "id": "card.art_history.069.c7",
+      "type": "recall",
+      "questionId": "question.art_history.069.q3"
+    },
+    {
+      "id": "card.art_history.069.c8",
+      "type": "checkpoint",
+      "headline": "Surrealism: dreamed",
+      "learned": [
+        "Breton's 1924 manifesto launched Surrealism",
+        "It looked to the unconscious, drawing on Freud",
+        "Dalí's soft watches, painted realistically",
+        "Magritte: a picture of a pipe isn't a pipe"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.surreal_dali"
+      ],
+      "sourceCardIds": [
+        "card.art_history.069.c3"
+      ],
+      "prompt": "What's strange about the watches in The Persistence of Memory?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They all show different time zones",
+          "correct": false,
+          "rationale": "Time zones aren't the oddity here."
+        },
+        {
+          "id": "b",
+          "label": "They've gone soft, as if melting",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They're painted with no hands",
+          "correct": false,
+          "rationale": "It's their shape that's impossible."
+        },
+        {
+          "id": "d",
+          "label": "They're made of real glued-on metal",
+          "correct": false,
+          "rationale": "It's a painting; collage was a Cubist idea."
+        }
+      ],
+      "explanation": "Dalí's pocket watches sag and melt, one drooping over a ledge, painted realistically so the impossible looks real.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.surreal_magritte"
+      ],
+      "sourceCardIds": [
+        "card.art_history.069.c4"
+      ],
+      "prompt": "Why did Magritte write \"This is not a pipe\" under a painted pipe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The object was really a musical instrument",
+          "correct": false,
+          "rationale": "It is a pipe, or rather a picture of one."
+        },
+        {
+          "id": "b",
+          "label": "He wanted to trick art buyers",
+          "correct": false,
+          "rationale": "His point was about images, not sales."
+        },
+        {
+          "id": "c",
+          "label": "It's a picture of a pipe, not a real pipe",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He forgot the French word for pipe",
+          "correct": false,
+          "rationale": "\"Pipe\" is right there in the caption."
+        }
+      ],
+      "explanation": "Nobody could fill or smoke the pipe in his picture. A painting of a thing isn't the thing.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.art_history.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.surreal_dreams",
+        "concept.art_history.dada_origins"
+      ],
+      "sourceCardIds": [
+        "card.art_history.069.c2",
+        "card.art_history.068.c2"
+      ],
+      "prompt": "Surrealism grew mainly out of which earlier movement?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dada",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Art Nouveau",
+          "correct": false,
+          "rationale": "Art Nouveau was a design style that faded after 1910."
+        },
+        {
+          "id": "c",
+          "label": "Cubism",
+          "correct": false,
+          "rationale": "Cubism was about many viewpoints, not dreams."
+        },
+        {
+          "id": "d",
+          "label": "Expressionism",
+          "correct": false,
+          "rationale": "Expressionism came earlier but isn't Surrealism's main root."
+        }
+      ],
+      "explanation": "Surrealism grew mainly out of Dada. Where Dada rejected, Surrealism tried to build on the unconscious.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_surrealism",
+    "source.brit_persistence_memory",
+    "source.brit_treachery_images"
+  ],
+  "art": "arts.melting-clock"
+}

@@ -1,0 +1,240 @@
+{
+  "id": "level.arts.art_history.099",
+  "skillId": "skill.arts.art_history",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Art Lasts",
+  "objective": "After this level you can explain why some art stays meaningful for centuries.",
+  "summary": "Art lasts when it survives, when people keep caring for and looking at it, and when new viewers find new meanings, as poets did with the Icarus painting.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.lasting_new_readings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.look_icarus_painting",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.look_feldman_method",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.art_history.lascaux",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.restoration_reversibility",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.art_history.theft_mona_lisa",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.098"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Centuries after it was painted, the Icarus picture got a famous poem.",
+      "body": "In the winter of 1938, the poet W. H. Auden stood in the Brussels museum in front of Level 91's Landscape with the Fall of Icarus, and wrote a poem about it. Why do some paintings keep people talking for centuries while others vanish? Three reasons."
+    },
+    {
+      "id": "card.art_history.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reason 1: it survives",
+      "body": "First, the object has to make it. Lascaux's paintings lasted about 17,000 years in the dark, then about 15 years of visitors damaged them. Survival takes care, and careful care: that's why conservators now make every treatment reversible or removable, so no one's repair becomes the next generation's problem."
+    },
+    {
+      "id": "card.art_history.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reason 2: people keep looking",
+      "body": "Fame isn't fixed. Remember Level 97: the 1911 theft made the Mona Lisa world-famous, and people even flocked to the Louvre to see the empty wall where she had hung. One way to read that story: a work that is seen, talked about and argued over stays alive in a way a forgotten one doesn't."
+    },
+    {
+      "id": "card.art_history.099.c4",
+      "type": "fact",
+      "fact": "Every new viewer can find a new painting.",
+      "context": "Auden read the Icarus picture as a scene of suffering happening while everyone else goes on with ordinary life. In the early 1960s, the American poet William Carlos Williams wrote his own poem on it, ending on \"a splash quite unnoticed.\" Neither poet was wrong. Describe, analyze, interpret: every careful look adds a reading, and that's one way to see why art lasts.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Your reading counts too. Paintings don't mind company."
+      }
+    },
+    {
+      "id": "card.art_history.099.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.099.q1"
+    },
+    {
+      "id": "card.art_history.099.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.099.q2"
+    },
+    {
+      "id": "card.art_history.099.c7",
+      "type": "recall",
+      "questionId": "question.art_history.099.q3"
+    },
+    {
+      "id": "card.art_history.099.c8",
+      "type": "checkpoint",
+      "headline": "Why art lasts: explained",
+      "learned": [
+        "The object has to survive, with careful care",
+        "Attention keeps a work alive",
+        "New viewers bring new readings",
+        "Auden and Williams both wrote on Icarus"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.lasting_new_readings"
+      ],
+      "sourceCardIds": [
+        "card.art_history.099.c1",
+        "card.art_history.099.c4"
+      ],
+      "prompt": "Which poet wrote about the Icarus painting after seeing it in Brussels in 1938?",
+      "options": [
+        {
+          "id": "a",
+          "label": "William Carlos Williams",
+          "correct": false,
+          "rationale": "He wrote his poem in the early 1960s."
+        },
+        {
+          "id": "b",
+          "label": "Edmund Burke Feldman",
+          "correct": false,
+          "rationale": "He's the art educator behind the four steps."
+        },
+        {
+          "id": "c",
+          "label": "Pieter Bruegel",
+          "correct": false,
+          "rationale": "Bruegel is credited with the original painting."
+        },
+        {
+          "id": "d",
+          "label": "W. H. Auden",
+          "correct": true
+        }
+      ],
+      "explanation": "W. H. Auden saw it in the Brussels museum in the winter of 1938 and wrote a poem about it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.lasting_new_readings"
+      ],
+      "sourceCardIds": [
+        "card.art_history.099.c4"
+      ],
+      "prompt": "Auden and Williams read the same painting in different ways. What does that suggest about why art lasts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only the artist's meaning counts",
+          "correct": false,
+          "rationale": "Both poets' readings added something."
+        },
+        {
+          "id": "b",
+          "label": "New viewers keep finding new readings in it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Old paintings have one correct meaning",
+          "correct": false,
+          "rationale": "Neither poet was wrong."
+        },
+        {
+          "id": "d",
+          "label": "Poems last longer than paintings",
+          "correct": false,
+          "rationale": "The poems keep the painting talked about."
+        }
+      ],
+      "explanation": "Every careful look can add a reading; a work that keeps getting new readings stays alive.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.lascaux",
+        "concept.art_history.restoration_reversibility"
+      ],
+      "sourceCardIds": [
+        "card.art_history.099.c2",
+        "card.art_history.006.c3"
+      ],
+      "prompt": "Lascaux lasted about 17,000 years in the dark, then about 15 years of visitors harmed it. What's the lesson?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Art only lasts if it's made of stone",
+          "correct": false,
+          "rationale": "Lascaux's paint lasted fine until visitors came."
+        },
+        {
+          "id": "b",
+          "label": "Caves are the safest place for any art",
+          "correct": false,
+          "rationale": "The cave didn't protect it from people."
+        },
+        {
+          "id": "c",
+          "label": "Survival depends on care, not just tough materials",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Old paintings can't be harmed any more",
+          "correct": false,
+          "rationale": "Visitors damaged Lascaux in about 15 years."
+        }
+      ],
+      "explanation": "Durable paint lasted millennia, then people harmed it fast. That's why careful, reversible care matters.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ebsco_musee_beaux_arts",
+    "source.poets_williams_icarus",
+    "source.brit_icarus_bruegel",
+    "source.ncma_feldman_method",
+    "source.humankinetics_feldman_model",
+    "source.brit_lascaux",
+    "source.nationalgallery_oldest_painting",
+    "source.brit_mona_lisa",
+    "source.loc_mona_lisa_theft",
+    "source.history_mona_lisa_heist"
+  ],
+  "art": "object.palette"
+}

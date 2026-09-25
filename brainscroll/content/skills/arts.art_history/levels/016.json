@@ -1,0 +1,232 @@
+{
+  "id": "level.arts.art_history.016",
+  "skillId": "skill.arts.art_history",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Greek Temples",
+  "objective": "After this level you can name the three Greek column styles and describe the Parthenon.",
+  "summary": "Greek columns come in three orders: Doric, Ionic and Corinthian. The Parthenon, built from 447 BCE for Athena, is the peak of Doric, full of subtle curves still debated.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.greek_orders",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.parthenon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ziggurat",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.015"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Parthenon looks perfectly straight. It isn't.",
+      "body": "Its base bulges upward in the middle and its columns swell slightly. People have argued about why since Roman times. First, though, learn to read a Greek column from the top."
+    },
+    {
+      "id": "card.art_history.016.c2",
+      "type": "comparison",
+      "headline": "Three column styles, read from the top",
+      "items": [
+        {
+          "label": "Doric",
+          "points": [
+            "No base; a plain, cushion-like capital",
+            "The sturdiest look"
+          ]
+        },
+        {
+          "label": "Ionic",
+          "points": [
+            "Scrolls curl at the capital",
+            "Stands on a base; more slender"
+          ]
+        },
+        {
+          "label": "Corinthian",
+          "points": [
+            "Capital carved with acanthus leaves",
+            "The most decorative"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.art_history.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Parthenon",
+      "body": "Built of white marble from 447 BCE and finished by 438 BCE, the Parthenon honored the goddess Athena. Its architects, Ictinus and Callicrates, worked under the sculptor Phidias, and they made it the high point of the simplest order, Doric. Simple, here, doesn't mean plain: almost nothing about this building is as straight as it looks."
+    },
+    {
+      "id": "card.art_history.016.c4",
+      "type": "fact",
+      "fact": "The Parthenon's base rises about 5 cm in the middle.",
+      "context": "Its columns bulge slightly (entasis), and its corner columns are thicker. The classic explanation comes from the Roman architect Vitruvius: the curves correct optical illusions, so the temple looks straight. In 2026, the mathematician Alain Goriely argued there's no evidence the curves produce those illusions at all. The curves are measured fact; the reason is still an argument.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Measure first, explain second. The Parthenon keeps both jobs busy."
+      }
+    },
+    {
+      "id": "card.art_history.016.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.016.q1"
+    },
+    {
+      "id": "card.art_history.016.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.016.q2"
+    },
+    {
+      "id": "card.art_history.016.c7",
+      "type": "recall",
+      "questionId": "question.art_history.016.q3"
+    },
+    {
+      "id": "card.art_history.016.c8",
+      "type": "checkpoint",
+      "headline": "Greek temples: read",
+      "learned": [
+        "Doric: plain; Ionic: scrolls; Corinthian: leaves",
+        "The Parthenon honored Athena",
+        "Its base curves up in the middle",
+        "Why the curves exist is still debated"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.greek_orders"
+      ],
+      "sourceCardIds": [
+        "card.art_history.016.c2"
+      ],
+      "prompt": "You spot a column topped with carved acanthus leaves. Which order is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Doric",
+          "correct": false,
+          "rationale": "Doric capitals are plain and cushion-like."
+        },
+        {
+          "id": "b",
+          "label": "Ionic",
+          "correct": false,
+          "rationale": "Ionic capitals have scrolls, not leaves."
+        },
+        {
+          "id": "c",
+          "label": "Corinthian",
+          "correct": true
+        }
+      ],
+      "explanation": "Corinthian capitals are carved with rows of acanthus leaves, the most decorative of the three orders.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.parthenon"
+      ],
+      "sourceCardIds": [
+        "card.art_history.016.c4"
+      ],
+      "prompt": "What do scholars still disagree about in the Parthenon's curves?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whether the curves exist",
+          "correct": false,
+          "rationale": "They're measured: the base rises about 5 cm in the middle."
+        },
+        {
+          "id": "b",
+          "label": "Why the builders made them",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Which goddess the temple honored",
+          "correct": false,
+          "rationale": "It was Athena."
+        },
+        {
+          "id": "d",
+          "label": "Which order its columns follow",
+          "correct": false,
+          "rationale": "It is the high point of the Doric order."
+        }
+      ],
+      "explanation": "Vitruvius said the curves correct optical illusions; a 2026 study argues there's no evidence they do. The reason is debated.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.parthenon",
+        "concept.art_history.ziggurat"
+      ],
+      "sourceCardIds": [
+        "card.art_history.016.c3",
+        "card.art_history.011.c2"
+      ],
+      "prompt": "The Parthenon honored Athena. Which god did the ziggurat at Ur serve (Level 11)?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Apollo, god of the sun and light",
+          "correct": false,
+          "rationale": "Ur's tower was for a Mesopotamian god."
+        },
+        {
+          "id": "b",
+          "label": "Ur-Nammu",
+          "correct": false,
+          "rationale": "He was the king who built it."
+        },
+        {
+          "id": "c",
+          "label": "Athena as well",
+          "correct": false,
+          "rationale": "Athena was Greek; Ur's god was Mesopotamian."
+        },
+        {
+          "id": "d",
+          "label": "Nanna, the moon god",
+          "correct": true
+        }
+      ],
+      "explanation": "Both were homes for a god on high: the Parthenon for Athena, Ur's ziggurat and its summit temple for the moon god Nanna.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_architectural_orders",
+    "source.brit_parthenon",
+    "source.smithsonianmag_parthenon_curves"
+  ],
+  "art": "rome.temple"
+}

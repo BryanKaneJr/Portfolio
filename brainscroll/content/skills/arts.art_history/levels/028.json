@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.art_history.028",
+  "skillId": "skill.arts.art_history",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Giotto",
+  "objective": "After this level you can explain how Giotto made painted figures look solid and human.",
+  "summary": "About 1305 Giotto frescoed Padua's Arena Chapel with blue skies instead of gold and figures with weight and feeling, as in the Lamentation. Dante noted his fame.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.giotto_arena_chapel",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.giotto_solid_figures",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.byzantine_gold_mosaics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.027"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Dante put a painter in the Divine Comedy.",
+      "body": "Cimabue thought he held the field in painting, Dante wrote, but now the cry is for Giotto. Dante's real point was that fame fades fast. Still, it shows how quickly Giotto's name spread. What were people looking at?"
+    },
+    {
+      "id": "card.art_history.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A chapel painted wet",
+      "body": "About 1305, Giotto covered the walls of the Arena Chapel in Padua, paid for by the Scrovegni family, with scenes from the lives of the Virgin Mary and Christ. He painted in fresco: pigment brushed onto wet plaster, so the color dries into the wall itself. And behind his scenes he painted blue skies, not the traditional gold."
+    },
+    {
+      "id": "card.art_history.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "People with weight",
+      "body": "Remember Level 21's Byzantine figures, flat and stylized on their gold? Giotto broke with that. His figures have rounded, sculptural bodies with a clear sense of weight. They stand on the ground; you feel you could walk around them. And they show real feeling, which is where the next card comes in.",
+      "callout": "Byzantine: flat saints on gold. Giotto: solid people under a blue sky."
+    },
+    {
+      "id": "card.art_history.028.c4",
+      "type": "fact",
+      "fact": "In Giotto's Lamentation, two mourners sit with their backs to you.",
+      "context": "The scene, painted about 1305, shows Christ's followers gathered around his dead body. In front, two figures turn away from us, so we look past them like someone at the back of a crowd. A rocky ridge slopes down toward Christ's head, and in the blue sky above, angels twist in grief. You're not looking at a symbol of mourning. You're at the funeral.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Painting the back of someone's head to make you feel closer. Sneaky, and it works."
+      }
+    },
+    {
+      "id": "card.art_history.028.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.028.q1"
+    },
+    {
+      "id": "card.art_history.028.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.028.q2"
+    },
+    {
+      "id": "card.art_history.028.c7",
+      "type": "recall",
+      "questionId": "question.art_history.028.q3"
+    },
+    {
+      "id": "card.art_history.028.c8",
+      "type": "checkpoint",
+      "headline": "Giotto: seen",
+      "learned": [
+        "Giotto frescoed the Arena Chapel in Padua about 1305",
+        "Fresco means painting on wet plaster",
+        "Blue skies replaced gold",
+        "His figures have weight and feeling"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.giotto_arena_chapel"
+      ],
+      "sourceCardIds": [
+        "card.art_history.028.c2"
+      ],
+      "prompt": "How did Giotto paint the walls of the Arena Chapel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In encaustic, with hot colored wax",
+          "correct": false,
+          "rationale": "That's the Sinai icon's technique."
+        },
+        {
+          "id": "b",
+          "label": "In fresco, on wet plaster",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In mosaic, with glass cubes",
+          "correct": false,
+          "rationale": "That's Ravenna, not Padua."
+        },
+        {
+          "id": "d",
+          "label": "In oil paint on wooden panels",
+          "correct": false,
+          "rationale": "He painted straight onto the walls."
+        }
+      ],
+      "explanation": "Giotto painted in fresco: pigment on wet plaster, drying into the wall itself.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.giotto_solid_figures"
+      ],
+      "sourceCardIds": [
+        "card.art_history.028.c3"
+      ],
+      "prompt": "What was new about Giotto's figures?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They float on flat gold backgrounds",
+          "correct": false,
+          "rationale": "That's the Byzantine style he broke with."
+        },
+        {
+          "id": "b",
+          "label": "They are drawn only in outline",
+          "correct": false,
+          "rationale": "They're rounded and solid, not outlines."
+        },
+        {
+          "id": "c",
+          "label": "They are all shown from the front",
+          "correct": false,
+          "rationale": "Some even turn their backs to us."
+        },
+        {
+          "id": "d",
+          "label": "They look solid, with real weight",
+          "correct": true
+        }
+      ],
+      "explanation": "Giotto gave his figures rounded, sculptural bodies with a clear sense of weight and real feeling.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.giotto_arena_chapel",
+        "concept.art_history.byzantine_gold_mosaics"
+      ],
+      "sourceCardIds": [
+        "card.art_history.028.c2",
+        "card.art_history.021.c3"
+      ],
+      "prompt": "Level 21's mosaics set holy figures in a realm of gold. What did Giotto put behind his scenes instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Plain white plaster",
+          "correct": false,
+          "rationale": "He painted a sky, not bare plaster."
+        },
+        {
+          "id": "b",
+          "label": "Patterns of geometric stars",
+          "correct": false,
+          "rationale": "Those are Islamic ornament, not Giotto."
+        },
+        {
+          "id": "c",
+          "label": "Blue skies",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Gold leaf, polished to a shine",
+          "correct": false,
+          "rationale": "That's the traditional choice he moved away from."
+        }
+      ],
+      "explanation": "Giotto painted blue skies rather than the traditional gold, setting holy stories in a world like ours.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.dartmouth_purgatorio_11",
+    "source.brit_giotto",
+    "source.smarthistory_arena_chapel",
+    "source.khan_byzantine_icons_intro"
+  ],
+  "art": "arts.easel"
+}

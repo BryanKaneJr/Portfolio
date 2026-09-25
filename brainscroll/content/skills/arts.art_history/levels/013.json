@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.art_history.013",
+  "skillId": "skill.arts.art_history",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Art for the Afterlife",
+  "objective": "After this level you can explain why Egyptians filled their tombs with art.",
+  "summary": "Egyptians believed the ka, a life force, needed food forever, and that images could magically provide it. So tombs held painted food, models like Meketre's and shabti workers.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.egypt_ka_afterlife",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.egypt_tomb_models",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.hunting_magic",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.012"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1920, archaeologists opened a room nobody had entered in almost 4,000 years.",
+      "body": "It was in the tomb of Meketre, an Egyptian official. Robbers had stripped the tomb long ago, but they missed one small hidden chamber. Inside, packed tight, stood 24 painted wooden models. Why would anyone bury a miniature world?"
+    },
+    {
+      "id": "card.art_history.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Food for the ka",
+      "body": "Egyptians believed each person had a ka, a life force that still needed food and drink after death. Real offerings run out. Pictures don't. So tombs were filled with scenes and models of food and food-making, which could feed the ka forever without ever being used up. A painted loaf is the one snack that never goes stale.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Bread that never runs out and never goes stale. Egyptian tomb painters were very practical dreamers."
+      }
+    },
+    {
+      "id": "card.art_history.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Meketre's model estate",
+      "body": "Meketre's models show boats, people carrying offerings, and workshops where craftsmen work and cooks make bread and beer. They look like toys. They weren't. Egyptians believed images could magically give the dead safe passage to the afterlife and food once there. Every tiny baker had a job: keep Meketre fed."
+    },
+    {
+      "id": "card.art_history.013.c4",
+      "type": "fact",
+      "fact": "Some tomb figures were buried to do your chores.",
+      "context": "Shabtis were small figures of substitute workers, placed in tombs so they could do the dead person's labor in the afterlife. That fits the Egyptian dream: not a distant paradise, but daily life on Earth carried on, without the pain. Tomb art showed people as they wished to stay forever, which is why the tomb itself was called the ka house."
+    },
+    {
+      "id": "card.art_history.013.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.013.q1"
+    },
+    {
+      "id": "card.art_history.013.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.013.q2"
+    },
+    {
+      "id": "card.art_history.013.c7",
+      "type": "recall",
+      "questionId": "question.art_history.013.q3"
+    },
+    {
+      "id": "card.art_history.013.c8",
+      "type": "checkpoint",
+      "headline": "Afterlife art: unpacked",
+      "learned": [
+        "The ka needed food forever",
+        "Painted and model food never runs out",
+        "Meketre's 24 models, found in 1920",
+        "Shabtis did the chores in the afterlife"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.egypt_ka_afterlife"
+      ],
+      "sourceCardIds": [
+        "card.art_history.013.c2"
+      ],
+      "prompt": "In Egyptian belief, what was the ka?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The painted lid of a coffin",
+          "correct": false,
+          "rationale": "The ka was part of the person, not an object."
+        },
+        {
+          "id": "b",
+          "label": "A small figure that did chores in the afterlife",
+          "correct": false,
+          "rationale": "That's a shabti."
+        },
+        {
+          "id": "c",
+          "label": "A life force that still needed food after death",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A hidden chamber inside a tomb",
+          "correct": false,
+          "rationale": "The whole tomb was the ka house; the ka itself was a life force."
+        }
+      ],
+      "explanation": "The ka was a person's life force. It still needed food and drink after death, so tombs provided it in pictures and models.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.egypt_tomb_models"
+      ],
+      "sourceCardIds": [
+        "card.art_history.013.c3"
+      ],
+      "prompt": "Why were Meketre's models of bakers and boats buried in his tomb?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were toys from his childhood",
+          "correct": false,
+          "rationale": "They were made to provide for him after death."
+        },
+        {
+          "id": "b",
+          "label": "Images could magically provide for him in the afterlife",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They recorded his wealth for tax collectors",
+          "correct": false,
+          "rationale": "Their job was magical: to feed and carry the dead."
+        },
+        {
+          "id": "d",
+          "label": "They were meant to be sold by his family",
+          "correct": false,
+          "rationale": "They were sealed away, never meant to leave."
+        }
+      ],
+      "explanation": "Egyptians believed images could magically give the dead safe passage and eternal food, so the models kept working for Meketre.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.egypt_ka_afterlife",
+        "concept.art_history.hunting_magic"
+      ],
+      "sourceCardIds": [
+        "card.art_history.013.c2",
+        "card.art_history.009.c3"
+      ],
+      "prompt": "Level 9's hunting-magic idea treats cave paintings as spells. What does it share with Egyptian tomb food?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The belief that a picture can make something real happen",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The rule that only animals are worth painting",
+          "correct": false,
+          "rationale": "Egyptian tombs show people, boats and bread too."
+        },
+        {
+          "id": "c",
+          "label": "The habit of hiding paintings from the gods",
+          "correct": false,
+          "rationale": "Nothing here was hidden from gods."
+        },
+        {
+          "id": "d",
+          "label": "The use of red ochre stencils",
+          "correct": false,
+          "rationale": "That's a technique, not a belief."
+        }
+      ],
+      "explanation": "Hunting magic imagines a painted animal helping a hunt; Egyptian tomb food was painted to feed the ka for real.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.met_egypt_educators"
+  ],
+  "art": "geo.pyramids"
+}

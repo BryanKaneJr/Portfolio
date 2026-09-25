@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.art_history.036",
+  "skillId": "skill.arts.art_history",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Michelangelo",
+  "objective": "After this level you can describe the David and the Sistine Chapel ceiling.",
+  "summary": "Michelangelo carved the David (1501-04) from an abandoned block, showing David before the fight. A sculptor at heart, he then painted the Sistine ceiling standing up.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.ren_michelangelo_david",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ren_sistine_ceiling",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.negative_space",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.035"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Florence owned a giant block of marble that nobody could use.",
+      "body": "Two earlier sculptors had started on it and rejected it for its flaws, and it lay abandoned for about 25 years. In 1501 the job went to a 26-year-old named Michelangelo."
+    },
+    {
+      "id": "card.art_history.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "David, before the fight",
+      "body": "By 1504 the block had become a marble nude 5.17 metres tall: weight on one leg, a sling so slim you can barely see it, watchful eyes. Earlier Florentine artists showed David triumphant over Goliath. Michelangelo's is usually read as David before the battle, concentrating. A committee that included Leonardo set him up in Florence's main square as a symbol of the republic's liberty."
+    },
+    {
+      "id": "card.art_history.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A sculptor on a ceiling",
+      "body": "Pope Julius II then put him to work on the ceiling of the Sistine Chapel. Michelangelo thought of himself as a sculptor, and he'd never painted a fresco. He did it anyway, from 1508 to 1512, standing upright on scaffolding he designed himself. The famous picture of him lying on his back is a myth, probably from a 1965 film."
+    },
+    {
+      "id": "card.art_history.036.c4",
+      "type": "fact",
+      "fact": "In the Creation of Adam, two fingers almost touch.",
+      "context": "Nine scenes from Genesis run down the middle of the ceiling. In the Creation of Adam, Adam lounges on the ground and lifts a limp hand, while God, carried by angels in swirling drapery, reaches toward him. Their fingertips nearly meet, but not quite. All the drama lives in that sliver of empty space.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Mind the gap. It's doing more work than any finger in the room."
+      }
+    },
+    {
+      "id": "card.art_history.036.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.036.q1"
+    },
+    {
+      "id": "card.art_history.036.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.036.q2"
+    },
+    {
+      "id": "card.art_history.036.c7",
+      "type": "recall",
+      "questionId": "question.art_history.036.q3"
+    },
+    {
+      "id": "card.art_history.036.c8",
+      "type": "checkpoint",
+      "headline": "Michelangelo: carved and painted",
+      "learned": [
+        "The David (1501-04) came from an abandoned block",
+        "It's usually read as David before the battle",
+        "He painted the Sistine ceiling 1508-12, standing up",
+        "In the Creation of Adam, the fingers almost touch"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.ren_michelangelo_david"
+      ],
+      "sourceCardIds": [
+        "card.art_history.036.c2"
+      ],
+      "prompt": "Which moment is Michelangelo's David usually read as showing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "David standing over Goliath's head",
+          "correct": false,
+          "rationale": "That's how earlier Florentine artists showed him."
+        },
+        {
+          "id": "b",
+          "label": "David before the battle",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "David crowned as king",
+          "correct": false,
+          "rationale": "He holds a sling, not a crown."
+        },
+        {
+          "id": "d",
+          "label": "David resting after the fight",
+          "correct": false,
+          "rationale": "He's usually read as concentrating before it."
+        }
+      ],
+      "explanation": "Unlike earlier triumphant Davids, Michelangelo's is usually read as David before the battle, concentrating.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.ren_sistine_ceiling"
+      ],
+      "sourceCardIds": [
+        "card.art_history.036.c3"
+      ],
+      "prompt": "Why was the Sistine ceiling an unlikely job for Michelangelo?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He had never been to Rome",
+          "correct": false,
+          "rationale": "The card's reason is about his craft, not travel."
+        },
+        {
+          "id": "b",
+          "label": "He could only work lying down",
+          "correct": false,
+          "rationale": "He painted standing up, on scaffolding he designed."
+        },
+        {
+          "id": "c",
+          "label": "He saw himself as a sculptor",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He had already painted it once",
+          "correct": false,
+          "rationale": "He painted it from 1508 to 1512, just once."
+        }
+      ],
+      "explanation": "Michelangelo thought of himself as a sculptor and had never painted a fresco. He did it anyway.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.ren_sistine_ceiling",
+        "concept.art_history.negative_space"
+      ],
+      "sourceCardIds": [
+        "card.art_history.036.c4",
+        "card.art_history.003.c4"
+      ],
+      "prompt": "In the Creation of Adam, the fingers of God and Adam don't quite touch. In Level 3's terms, what is that gap?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A vanishing point",
+          "correct": false,
+          "rationale": "That's where parallel lines meet in perspective."
+        },
+        {
+          "id": "b",
+          "label": "Implied texture",
+          "correct": false,
+          "rationale": "Texture is how a surface seems to feel."
+        },
+        {
+          "id": "c",
+          "label": "A secondary color",
+          "correct": false,
+          "rationale": "Secondaries are mixes of two primaries."
+        },
+        {
+          "id": "d",
+          "label": "Negative space",
+          "correct": true
+        }
+      ],
+      "explanation": "The empty space between the fingers is negative space, and it has a shape of its own.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.accademia_david",
+    "source.brit_michelangelo",
+    "source.brit_sistine_chapel",
+    "source.history_sistine",
+    "source.vatican_sistine_ceiling",
+    "source.italianrenaissance_creation_adam",
+    "source.getty_elements_of_art"
+  ],
+  "art": "arts.marble-block"
+}

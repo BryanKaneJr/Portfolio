@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.art_history.056",
+  "skillId": "skill.arts.art_history",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Impressionism",
+  "objective": "After this level you can explain how the Impressionists painted light and passing moments outdoors.",
+  "summary": "Shut out of the Salon, painters held their own show in 1874; a critic mocking Impression, Sunrise named them. They painted outdoors in dabs of pure color, with colored shadows.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.impressionism_1874",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.impressionist_technique",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.complementary_colors",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.055"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Impressionism got its name from an insult.",
+      "body": "In April 1874, painters rejected by the official Salon held their own exhibition in Paris, in the photographer Nadar's former studio. A critic, Louis Leroy, picked on one picture's title to mock them all as \"impressionists\". The name stuck."
+    },
+    {
+      "id": "card.art_history.056.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The picture that named a movement",
+      "body": "It was Claude Monet's Impression, Sunrise (1872): the harbor at Le Havre in the early morning. Cranes, masts and smokestacks blur together; rowboats sit in the water; a small orange sun hangs above, its reflection streaked across the waves. Leroy wrote that wallpaper in its early stages was more finished. Monet wasn't after finish. He was after light at one moment."
+    },
+    {
+      "id": "card.art_history.056.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Out of the studio",
+      "body": "Painters had usually finished landscapes in the studio, from sketches. Impressionists such as Monet painted entirely outdoors, in front of the scene, trying to record colors as they appeared in natural light at a given moment. It's often said that paint tubes made this possible: in 1841 the American John Goffe Rand patented a squeezable tin tube, and before that, paint was stored in pig bladders. But painters had worked outdoors for decades, with portable easels and paint boxes too.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Pig bladders. Suddenly the tube looks like one of history's great inventions."
+      }
+    },
+    {
+      "id": "card.art_history.056.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dabs of color, colored shadows",
+      "body": "Get close to an Impressionist painting and it breaks into flecks and dabs of pure color, placed side by side. They also stopped using gray and black for shadows and painted them with complementary colors instead. Remember Chevreul in Level 4? Complements side by side make each other look more intense, and his ideas influenced the Impressionists.",
+      "callout": "Shadow of a sunlit orange wall? Try blue."
+    },
+    {
+      "id": "card.art_history.056.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.056.q1"
+    },
+    {
+      "id": "card.art_history.056.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.056.q2"
+    },
+    {
+      "id": "card.art_history.056.c7",
+      "type": "recall",
+      "questionId": "question.art_history.056.q3"
+    },
+    {
+      "id": "card.art_history.056.c8",
+      "type": "checkpoint",
+      "headline": "Impressionism: caught",
+      "learned": [
+        "Rejected by the Salon, they held their own show in 1874",
+        "A critic mocking Impression, Sunrise gave them their name",
+        "They painted outdoors to catch light at a given moment",
+        "Dabs of pure color, and complementary colors in shadows"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.impressionism_1874"
+      ],
+      "sourceCardIds": [
+        "card.art_history.056.c1"
+      ],
+      "prompt": "Where did the name \"Impressionism\" come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The painters chose it at their first meeting",
+          "correct": false,
+          "rationale": "They did not pick it; a critic did."
+        },
+        {
+          "id": "b",
+          "label": "A critic mocking one painting's title",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A government report on the Salon",
+          "correct": false,
+          "rationale": "It came from a newspaper review."
+        },
+        {
+          "id": "d",
+          "label": "A photographer who hosted them",
+          "correct": false,
+          "rationale": "Nadar lent the space, not the name."
+        }
+      ],
+      "explanation": "Louis Leroy mocked Monet's Impression, Sunrise in a satirical review in April 1874, and the name stuck.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.impressionist_technique"
+      ],
+      "sourceCardIds": [
+        "card.art_history.056.c3"
+      ],
+      "prompt": "Why did Impressionists paint outdoors, in front of the scene?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To record colors as they looked in that light, at that moment",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Because studios were banned in Paris",
+          "correct": false,
+          "rationale": "No such ban existed."
+        },
+        {
+          "id": "c",
+          "label": "To avoid buying expensive canvases",
+          "correct": false,
+          "rationale": "Outdoor work did not save canvas."
+        },
+        {
+          "id": "d",
+          "label": "Because the Salon required it",
+          "correct": false,
+          "rationale": "The Salon had rejected them."
+        }
+      ],
+      "explanation": "They wanted color and form as they actually appeared in natural light at a given time, not as reworked in the studio.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.impressionist_technique",
+        "concept.art_history.complementary_colors"
+      ],
+      "sourceCardIds": [
+        "card.art_history.056.c4",
+        "card.art_history.004.c4"
+      ],
+      "prompt": "Impressionists painted shadows in complementary colors. From Level 4, what do complements do side by side?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They blend into gray",
+          "correct": false,
+          "rationale": "That happens when you mix them, not place them."
+        },
+        {
+          "id": "b",
+          "label": "They make each other look more intense",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They look exactly like black",
+          "correct": false,
+          "rationale": "Impressionists used them to avoid black."
+        },
+        {
+          "id": "d",
+          "label": "They make each other look paler",
+          "correct": false,
+          "rationale": "The opposite happens."
+        }
+      ],
+      "explanation": "Chevreul found complements placed side by side intensify each other, and his ideas influenced the Impressionists.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nga_1874_birth_impressionism",
+    "source.brit_impressionism",
+    "source.marmottan_impression_sunrise",
+    "source.lindahall_rand_tube",
+    "source.brit_chevreul",
+    "source.getty_elements_of_art"
+  ],
+  "art": "arts.lily-pond"
+}

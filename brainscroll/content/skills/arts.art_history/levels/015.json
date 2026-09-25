@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.art_history.015",
+  "skillId": "skill.arts.art_history",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Greek Sculpture",
+  "objective": "After this level you can explain how Greek sculptors moved from stiff figures to lifelike bodies.",
+  "summary": "Archaic kouroi stood stiff and frontal, in a pose reflecting Egypt. Just after 480 BCE the Kritios Boy shifted his weight onto one leg: contrapposto. Polyclitus then wrote the rules.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.greek_kouros",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.greek_contrapposto",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.egypt_art_rules",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.014"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For generations, Greek statues stood at attention. Then one relaxed.",
+      "body": "Try it: stand with your weight on one leg, like you're waiting for a bus. Your hips tilt, your shoulders tilt the other way, and you look alive. Greek sculptors had to discover that."
+    },
+    {
+      "id": "card.art_history.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Archaic: the kouros",
+      "body": "From about 615–590 BCE, Greek sculptors carved kouroi: stone statues of standing young men, some used as grave markers. Picture one facing straight ahead, left foot slightly forward, arms close to his sides, fists clenched. If he reminds you of Egypt, that's no accident: the kouros reflects Egyptian traditions, especially their body proportions. Remember Level 12's grid?"
+    },
+    {
+      "id": "card.art_history.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Kritios Boy shifts his weight",
+      "body": "Just after 480 BCE, a marble youth from the Athenian Acropolis did something new. He rests his weight on his left leg, while his right leg relaxes, bent at the knee. That's contrapposto: one leg takes the load, so the hips, shoulders and head tilt. Weight on both legs looks like a statue. Weight on one looks like a person.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Next time you lean on one leg in a queue, congratulate yourself. You're doing classical sculpture."
+      }
+    },
+    {
+      "id": "card.art_history.015.c4",
+      "type": "fact",
+      "fact": "The Spear Bearer was a rulebook you could walk around.",
+      "context": "About 450–440 BCE, the sculptor Polyclitus made the Doryphoros, or Spear Bearer, to illustrate his book, the Canon, on the ideal proportions of the human body. His relaxed contrapposto helped free Greek sculpture from rigid, face-front poses. The stiff kouros had become a body at ease, measured to an ideal."
+    },
+    {
+      "id": "card.art_history.015.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.015.q1"
+    },
+    {
+      "id": "card.art_history.015.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.015.q2"
+    },
+    {
+      "id": "card.art_history.015.c7",
+      "type": "recall",
+      "questionId": "question.art_history.015.q3"
+    },
+    {
+      "id": "card.art_history.015.c8",
+      "type": "checkpoint",
+      "headline": "Greek sculpture: at ease",
+      "learned": [
+        "Kouroi: stiff, frontal, left foot forward",
+        "The kouros reflects Egyptian proportions",
+        "Kritios Boy: weight on one leg",
+        "Polyclitus wrote the Canon"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.greek_kouros"
+      ],
+      "sourceCardIds": [
+        "card.art_history.015.c2"
+      ],
+      "prompt": "Which pose marks an Archaic kouros?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Weight on one leg, the other knee bent",
+          "correct": false,
+          "rationale": "That's contrapposto, which came later."
+        },
+        {
+          "id": "b",
+          "label": "Twisting to throw, arms raised high",
+          "correct": false,
+          "rationale": "Kouroi keep their arms close to the body."
+        },
+        {
+          "id": "c",
+          "label": "Seated on a throne, holding a spear",
+          "correct": false,
+          "rationale": "Kouroi stand."
+        },
+        {
+          "id": "d",
+          "label": "Facing front, left foot forward, fists clenched",
+          "correct": true
+        }
+      ],
+      "explanation": "Early kouroi stand stiffly frontal, left foot slightly forward, arms at their sides and fists clenched.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.greek_contrapposto"
+      ],
+      "sourceCardIds": [
+        "card.art_history.015.c3"
+      ],
+      "prompt": "Why does contrapposto make a statue look more alive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Weight on one leg makes the hips and shoulders tilt",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Both feet carry exactly equal weight",
+          "correct": false,
+          "rationale": "That's the stiff pose contrapposto replaced."
+        },
+        {
+          "id": "c",
+          "label": "The figure faces straight ahead",
+          "correct": false,
+          "rationale": "Frontality was the old, stiff way."
+        },
+        {
+          "id": "d",
+          "label": "The arms are pinned to the sides",
+          "correct": false,
+          "rationale": "That's the Archaic kouros."
+        }
+      ],
+      "explanation": "With the weight on one leg, the hips, shoulders and head tilt, the way a real person stands at rest.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.greek_kouros",
+        "concept.art_history.egypt_art_rules"
+      ],
+      "sourceCardIds": [
+        "card.art_history.015.c2",
+        "card.art_history.012.c3"
+      ],
+      "prompt": "The kouros reflects Egyptian traditions. Which Level 12 idea was it especially indebted to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Making important people bigger",
+          "correct": false,
+          "rationale": "Kouroi weren't sized by rank."
+        },
+        {
+          "id": "b",
+          "label": "A system of body proportions",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Drawing heads in profile with frontal eyes",
+          "correct": false,
+          "rationale": "That's a rule for flat pictures, not statues."
+        },
+        {
+          "id": "d",
+          "label": "Writing words beside the figures",
+          "correct": false,
+          "rationale": "That's Exekias's vase, Level 14."
+        }
+      ],
+      "explanation": "Egyptian artists used an 18-unit grid for the body; the kouros reflects Egyptian proportion systems.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.met_egypt_educators",
+    "source.brit_egyptian_art",
+    "source.brit_kouros",
+    "source.brit_contrapposto",
+    "source.acropolis_museum_kritios",
+    "source.brit_polyclitus"
+  ],
+  "art": "arts.marble-block"
+}

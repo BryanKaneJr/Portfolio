@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.art_history.075",
+  "skillId": "skill.arts.art_history",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "African Art and Modernism",
+  "objective": "After this level you can explain how African sculpture influenced Picasso and other modern artists.",
+  "summary": "Matisse, Derain and Vlaminck collected African sculpture; in 1907 Picasso studied masks at the Trocadero. But the works' makers, like Olowe of Ise, were rarely named.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.africa_modernism_influence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.africa_named_makers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.benin_bronzes",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.benin_1897_returns",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.074"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.075.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1906, Matisse walked into a Paris shop and bought a small African figure.",
+      "body": "He showed it to Picasso. Within a year, Picasso was studying African masks in a Paris museum. But the famous story usually skips a question: who made these works?"
+    },
+    {
+      "id": "card.art_history.075.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Paris looks at Africa",
+      "body": "The figure Matisse bought was a small Vili carving from Central Africa. He, Derain and Vlaminck were early collectors of African sculpture. In 1907 Picasso spent time among the African masks and figures at the Trocadéro ethnographic museum in Paris. Afterwards he repainted faces in the big canvas he was working on, Les Demoiselles d'Avignon, so they looked like masks. The masks were in the painting now."
+    },
+    {
+      "id": "card.art_history.075.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What Paris didn't ask",
+      "body": "Many of the Trocadéro's African objects had flowed in from France's colonies, piling up like a giant curiosity cabinet. Remember Level 74: in 1897, British forces carried thousands of works out of Benin City. Collectors usually labeled African works by people or \"tribe\", not by artist, and the modernists responded mainly to their forms, not their meanings. Admiring a shape isn't the same as knowing a work."
+    },
+    {
+      "id": "card.art_history.075.c4",
+      "type": "fact",
+      "fact": "The \"anonymous\" African artists had names.",
+      "context": "Olowe of Ise (about 1873–1938), a Yoruba sculptor active in the early 1900s, was sought out by Yoruba kings to carve palace doors and veranda posts. In 1924 a door he carved for the palace at Ikere was shown at the British Empire Exhibition in London, and the British Museum later acquired it. A master with royal clients, working in the same years Paris was \"discovering\" African art.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Names matter. A name turns 'an African mask' into someone's life's work."
+      }
+    },
+    {
+      "id": "card.art_history.075.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.075.q1"
+    },
+    {
+      "id": "card.art_history.075.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.075.q2"
+    },
+    {
+      "id": "card.art_history.075.c7",
+      "type": "recall",
+      "questionId": "question.art_history.075.q3"
+    },
+    {
+      "id": "card.art_history.075.c8",
+      "type": "checkpoint",
+      "headline": "African art and modernism: reframed",
+      "learned": [
+        "Matisse, Derain and Vlaminck collected African sculpture",
+        "In 1907 Picasso studied masks at the Trocadéro",
+        "Makers' names and meanings were often lost",
+        "Olowe of Ise: a named Yoruba master"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.africa_modernism_influence"
+      ],
+      "sourceCardIds": [
+        "card.art_history.075.c2"
+      ],
+      "prompt": "Where did Picasso study African masks and figures in 1907?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In Benin City's royal palace",
+          "correct": false,
+          "rationale": "He never went to Benin; he studied in Paris."
+        },
+        {
+          "id": "b",
+          "label": "At the British Museum in London",
+          "correct": false,
+          "rationale": "His museum was in Paris."
+        },
+        {
+          "id": "c",
+          "label": "At the Trocadéro ethnographic museum in Paris",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "In Matisse's studio in Nice",
+          "correct": false,
+          "rationale": "Matisse showed him a figure in 1906, but his 1907 study was at a museum."
+        }
+      ],
+      "explanation": "In 1907 Picasso studied African masks and figures at the Trocadéro, then repainted faces in Les Demoiselles d'Avignon.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.africa_named_makers"
+      ],
+      "sourceCardIds": [
+        "card.art_history.075.c3"
+      ],
+      "prompt": "What was often lost as African works entered Western collections?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their carved shapes",
+          "correct": false,
+          "rationale": "The shapes were exactly what modernists admired."
+        },
+        {
+          "id": "b",
+          "label": "Their makers' names and meanings",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Their value to collectors",
+          "correct": false,
+          "rationale": "Collectors valued them; they just knew little about them."
+        },
+        {
+          "id": "d",
+          "label": "Their size and materials",
+          "correct": false,
+          "rationale": "Those came along with the objects."
+        }
+      ],
+      "explanation": "Works were labeled by people or \"tribe\" rather than artist, and modernists focused on forms, not meanings.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.africa_named_makers",
+        "concept.art_history.benin_bronzes"
+      ],
+      "sourceCardIds": [
+        "card.art_history.075.c4",
+        "card.art_history.074.c2"
+      ],
+      "prompt": "Olowe of Ise and Level 74's Igun Eronmwon casters had the same kind of patron. Who?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Kings: Yoruba kings and the oba of Benin",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "French art dealers in Paris",
+          "correct": false,
+          "rationale": "Their work was made for rulers at home."
+        },
+        {
+          "id": "c",
+          "label": "Colonial museums in Europe",
+          "correct": false,
+          "rationale": "Museums acquired works later; they weren’t the patrons."
+        },
+        {
+          "id": "d",
+          "label": "Christian missionaries",
+          "correct": false,
+          "rationale": "Both worked for royal courts."
+        }
+      ],
+      "explanation": "Yoruba kings sought out Olowe for palace doors and posts, and Benin's casters formed a royal guild serving the oba.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.met_african_influences_modern",
+    "source.moma_post_picasso_africa",
+    "source.moma_demoiselles",
+    "source.brit_benin_bronzes",
+    "source.met_igun_casters",
+    "source.si_olowe_of_ise"
+  ],
+  "art": "arts.mask"
+}

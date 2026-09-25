@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.art_history.055",
+  "skillId": "skill.arts.art_history",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Photography Arrives",
+  "objective": "After this level you can explain how photography changed what painters thought painting was for.",
+  "summary": "Niépce's first photo took hours or days; Daguerre's 1839 process took minutes. Cameras recorded the world exactly, and Muybridge proved painters had drawn galloping horses wrong.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.photo_daguerreotype",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.photo_muybridge_gallop",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.art_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.054"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Possibly the first photo of a person: a man getting his boots shined.",
+      "body": "About 1838, Louis Daguerre photographed a busy Paris street, the Boulevard du Temple. The exposure was so long that every moving carriage and walker vanished. Only a man standing still for a shoeshine stayed put long enough to appear."
+    },
+    {
+      "id": "card.art_history.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Minutes instead of days",
+      "body": "The oldest surviving camera photograph, made by Nicéphore Niépce in 1826 or 1827, needed hours of light, perhaps days. Daguerre, once Niépce's partner, found a much faster process. On January 9, 1839, it was announced at the Academy of Sciences in Paris: the daguerreotype. Each one was a one-of-a-kind image on a polished, silver-plated copper plate, with no negative to print copies from."
+    },
+    {
+      "id": "card.art_history.055.c3",
+      "type": "fact",
+      "fact": "\"From today, painting is dead.\"",
+      "context": "That's what the painter Paul Delaroche is reported to have said on seeing the daguerreotype. Painting survived, but Level 1 told you what really changed: photography freed painting from being the only way to show the world accurately. If a machine can copy a street, a painter has to ask what else painting is for.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Painting has been declared dead many times. It keeps turning up at the funeral with a sketchbook."
+      }
+    },
+    {
+      "id": "card.art_history.055.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The camera catches the horse",
+      "body": "Painters long showed a galloping horse in a \"flying gallop\", legs stretched out front and back, as in Géricault's Epsom Derby of 1821. In 1878 Eadweard Muybridge, hired by the railroad magnate Leland Stanford, photographed a galloping horse with a row of cameras. The horse does lift all four hooves off the ground, but with its legs tucked under its body, not stretched out. Some people refused to believe a horse could look like that."
+    },
+    {
+      "id": "card.art_history.055.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.055.q1"
+    },
+    {
+      "id": "card.art_history.055.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.055.q2"
+    },
+    {
+      "id": "card.art_history.055.c7",
+      "type": "recall",
+      "questionId": "question.art_history.055.q3"
+    },
+    {
+      "id": "card.art_history.055.c8",
+      "type": "checkpoint",
+      "headline": "Photography: developed",
+      "learned": [
+        "Niépce's first surviving photo needed hours, perhaps days",
+        "The daguerreotype was announced in 1839; each was one of a kind",
+        "Photography freed painting from exact copying",
+        "Muybridge showed a galloping horse tucks its legs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.photo_muybridge_gallop"
+      ],
+      "sourceCardIds": [
+        "card.art_history.055.c4"
+      ],
+      "prompt": "What did Muybridge's 1878 photos show about a galloping horse?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One hoof always stays on the ground",
+          "correct": false,
+          "rationale": "At one moment all four are off the ground."
+        },
+        {
+          "id": "b",
+          "label": "All four hooves leave the ground, legs tucked under",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its legs stretch out front and back in the air",
+          "correct": false,
+          "rationale": "That is the painters' \"flying gallop\", which proved wrong."
+        },
+        {
+          "id": "d",
+          "label": "It gallops too fast for any camera",
+          "correct": false,
+          "rationale": "His row of cameras caught it."
+        }
+      ],
+      "explanation": "The horse is airborne with its legs gathered under its body, not in the stretched \"flying gallop\" painters used.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.photo_daguerreotype"
+      ],
+      "sourceCardIds": [
+        "card.art_history.055.c1"
+      ],
+      "prompt": "Why does Daguerre's photo of the busy Boulevard du Temple look almost empty?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was taken at night",
+          "correct": false,
+          "rationale": "It is a daytime street scene."
+        },
+        {
+          "id": "b",
+          "label": "Police had closed the street",
+          "correct": false,
+          "rationale": "The street was busy as usual."
+        },
+        {
+          "id": "c",
+          "label": "The long exposure erased everything that moved",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Daguerre painted out the crowds",
+          "correct": false,
+          "rationale": "Nothing was painted out."
+        }
+      ],
+      "explanation": "Moving people and carriages left no trace during the long exposure; only a man standing still for a shoeshine appears.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.photo_daguerreotype",
+        "concept.art_history.art_eras"
+      ],
+      "sourceCardIds": [
+        "card.art_history.055.c3",
+        "card.art_history.001.c4"
+      ],
+      "prompt": "Delaroche feared the daguerreotype would kill painting. What did photography actually free painting from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Having to use oil paint",
+          "correct": false,
+          "rationale": "Painters kept using oils."
+        },
+        {
+          "id": "b",
+          "label": "Being the only way to show the world accurately",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The need for any training",
+          "correct": false,
+          "rationale": "Training still mattered."
+        },
+        {
+          "id": "d",
+          "label": "Selling pictures at the Salon",
+          "correct": false,
+          "rationale": "The Salon carried on for decades."
+        }
+      ],
+      "explanation": "Once a camera could record a scene exactly, painting no longer had to, which helped open the way to modern art.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.khan_daguerre_boulevard",
+    "source.brit_photography_daguerreotype",
+    "source.hrc_niepce_first_photo",
+    "source.brit_daguerre",
+    "source.brit_western_painting_modern",
+    "source.univorleans_epsom_derby",
+    "source.brit_muybridge"
+  ],
+  "art": "technology.camera"
+}

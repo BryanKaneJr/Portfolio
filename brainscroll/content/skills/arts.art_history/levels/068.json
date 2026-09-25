@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.art_history.068",
+  "skillId": "skill.arts.art_history",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Dada",
+  "objective": "After this level you can explain Dada's protest against art and Duchamp's ready-mades.",
+  "summary": "Dada began in wartime Zurich in 1916. Duchamp's Fountain, a urinal refused in 1917, made choosing an object into an artistic act: the readymade.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.dada_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.dada_fountain",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.art_definition_debate",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.067"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.068.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1917, an art show open to anyone who paid turned down a urinal.",
+      "body": "The Society of Independent Artists in New York took entries for a fee. Then a white porcelain urinal arrived, signed \"R. Mutt\". The artist was Marcel Duchamp, using a false name, and he was one of the society's founding members. It was refused anyway."
+    },
+    {
+      "id": "card.art_history.068.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dada: a nonsense name for a senseless time",
+      "body": "Duchamp's stunt belonged to Dada, which began in 1916 at Hugo Ball's Cabaret Voltaire in Zurich, in the middle of World War I. Its artists felt disgust for comfortable bourgeois values and despair over the war, and they distrusted the rational thinking they believed had led to it. The name, in the widely told account, came from a paper knife stuck at random into a dictionary: dada, French for \"hobby-horse\"."
+    },
+    {
+      "id": "card.art_history.068.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The readymade: art by choosing",
+      "body": "Duchamp coined the word readymade for artworks made from manufactured objects he chose. His first, Bicycle Wheel (1913), is a bicycle wheel mounted on a stool. The key act was the choice. A 1917 defense of Fountain put it in capitals: \"He CHOSE it.\" He took an ordinary object and placed it so its useful meaning disappeared under a new title.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Before you try this at home: choosing your fridge doesn't automatically make it art. Probably."
+      }
+    },
+    {
+      "id": "card.art_history.068.c4",
+      "type": "fact",
+      "fact": "In 2004, 500 art experts voted Fountain the most influential modern artwork.",
+      "context": "The original is lost. We know it from a 1917 photograph by Alfred Stieglitz, and museums show later replicas. Yet artists, curators, critics and dealers ranked it above Picasso's Les Demoiselles d'Avignon. A urinal that was refused in 1917 ended up winning the argument."
+    },
+    {
+      "id": "card.art_history.068.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.068.q1"
+    },
+    {
+      "id": "card.art_history.068.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.068.q2"
+    },
+    {
+      "id": "card.art_history.068.c7",
+      "type": "recall",
+      "questionId": "question.art_history.068.q3"
+    },
+    {
+      "id": "card.art_history.068.c8",
+      "type": "checkpoint",
+      "headline": "Dada: provoked",
+      "learned": [
+        "Dada began in Zurich in 1916, in wartime",
+        "Its name: dada, French for \"hobby-horse\"",
+        "A readymade is a chosen manufactured object",
+        "Fountain was refused in 1917, then celebrated"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.dada_origins"
+      ],
+      "sourceCardIds": [
+        "card.art_history.068.c2"
+      ],
+      "prompt": "Where and when did Dada begin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dresden, 1905, as Die Brücke",
+          "correct": false,
+          "rationale": "That's the Expressionist group from Level 65."
+        },
+        {
+          "id": "b",
+          "label": "London, 1910, at Fry's show",
+          "correct": false,
+          "rationale": "That show named Post-Impressionism."
+        },
+        {
+          "id": "c",
+          "label": "Paris, 1908, with Braque's cubes",
+          "correct": false,
+          "rationale": "That's how Cubism got its name."
+        },
+        {
+          "id": "d",
+          "label": "Zurich, 1916, during World War I",
+          "correct": true
+        }
+      ],
+      "explanation": "Dada began in 1916 at Hugo Ball's Cabaret Voltaire in Zurich, out of despair over World War I.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.dada_fountain"
+      ],
+      "sourceCardIds": [
+        "card.art_history.068.c3"
+      ],
+      "prompt": "According to its defenders, what made Fountain a work of art?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The artist chose it and gave it a new meaning",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Duchamp carved it by hand from porcelain",
+          "correct": false,
+          "rationale": "It was a manufactured object, not handmade."
+        },
+        {
+          "id": "c",
+          "label": "It was painted with great skill",
+          "correct": false,
+          "rationale": "Nothing was painted; the point was the choice."
+        },
+        {
+          "id": "d",
+          "label": "The society proudly put it on show",
+          "correct": false,
+          "rationale": "The society refused it."
+        }
+      ],
+      "explanation": "\"He CHOSE it\": Duchamp took an ordinary object and placed it so its useful meaning vanished under a new title.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.art_history.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.dada_fountain",
+        "concept.art_history.art_definition_debate"
+      ],
+      "sourceCardIds": [
+        "card.art_history.068.c3",
+        "card.art_history.002.c3"
+      ],
+      "prompt": "Level 2's Bird in Space and Duchamp's Fountain both forced the same argument. Which one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How much a sculpture should cost",
+          "correct": false,
+          "rationale": "Price wasn't the fight in either case."
+        },
+        {
+          "id": "b",
+          "label": "What counts as art in the first place",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Whether bronze is better than porcelain",
+          "correct": false,
+          "rationale": "Material wasn't the real question."
+        },
+        {
+          "id": "d",
+          "label": "Who should own famous artworks",
+          "correct": false,
+          "rationale": "Ownership wasn't the dispute."
+        }
+      ],
+      "explanation": "Customs said Bird in Space didn't look like a bird; Fountain was just a urinal. Both made people ask what counts as art.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_fountain",
+    "source.tate_readymade",
+    "source.brit_dada",
+    "source.brit_bicycle_wheel",
+    "source.salon_fountain_poll",
+    "source.moma_brancusi_trial"
+  ],
+  "art": "arts.frame"
+}

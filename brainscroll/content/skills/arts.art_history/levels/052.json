@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.art_history.052",
+  "skillId": "skill.arts.art_history",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Goya",
+  "objective": "After this level you can describe Goya's path from court painter to dark visions.",
+  "summary": "Goya became Spain's first court painter, went deaf in 1792, attacked abuses in Los Caprichos, painted The Third of May 1808 and covered his own walls with the Black Paintings.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.goya_dark_turn",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.goya_third_of_may",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.romanticism",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.051"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Spain's top court painter ended up painting nightmares on his own walls.",
+      "body": "Francisco Goya painted for the king of Spain. Near the end of his life, one of his pictures showed the god Saturn devouring one of his own children. How do you get from the palace to that?"
+    },
+    {
+      "id": "card.art_history.052.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The king's painter goes deaf",
+      "body": "Goya climbed fast: painter to the king in 1786, first court painter in 1799. But an illness in 1792 left him permanently deaf, and afterward his work turned darker and more critical. In 1799 he published Los Caprichos, 80 etchings attacking political, social and religious abuses. In one, The Sleep of Reason Produces Monsters, the artist sleeps at his desk while owls and bats swarm around him. The set was withdrawn from sale after a few days.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Owls and bats circling a sleeping man. Goya did not do cheerful titles."
+      }
+    },
+    {
+      "id": "card.art_history.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Third of May 1808",
+      "body": "In 1808, during Napoleon's occupation of Spain, French troops executed Spanish insurgents in Madrid. Goya painted it in 1814. A lantern lights one man in a white shirt, arms flung up in a Christlike pose, marks like stigmata on his palms. Facing him is the firing squad: a faceless, uniform row. The victims are individual people; the soldiers could be anyone."
+    },
+    {
+      "id": "card.art_history.052.c4",
+      "type": "fact",
+      "fact": "Goya's darkest paintings were painted on the walls of his own house.",
+      "context": "Between about 1819 and 1823, Goya painted 14 dark murals, now called the Black Paintings, straight onto the walls of his house outside Madrid, the Quinta del Sordo. In one, a wild-eyed Saturn devours one of his children. A new owner bought the house in 1873 and had the murals transferred to canvas. They hang in the Prado today."
+    },
+    {
+      "id": "card.art_history.052.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.052.q1"
+    },
+    {
+      "id": "card.art_history.052.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.052.q2"
+    },
+    {
+      "id": "card.art_history.052.c7",
+      "type": "recall",
+      "questionId": "question.art_history.052.q3"
+    },
+    {
+      "id": "card.art_history.052.c8",
+      "type": "checkpoint",
+      "headline": "Goya: seen",
+      "learned": [
+        "Goya rose to first court painter in 1799",
+        "Deafness in 1792; then Los Caprichos attacked abuses",
+        "The Third of May 1808: a lit victim, a faceless firing squad",
+        "The Black Paintings covered the walls of his own house"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.goya_third_of_may"
+      ],
+      "sourceCardIds": [
+        "card.art_history.052.c3"
+      ],
+      "prompt": "In The Third of May 1808, how does Goya show the French firing squad?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As heroes lit by the lantern",
+          "correct": false,
+          "rationale": "The lantern lights the victim, not the soldiers."
+        },
+        {
+          "id": "b",
+          "label": "As a faceless, uniform row",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "As portraits of named officers",
+          "correct": false,
+          "rationale": "Goya gives the soldiers no faces at all."
+        },
+        {
+          "id": "d",
+          "label": "As ghosts fading into the dark",
+          "correct": false,
+          "rationale": "They are solid, and very much aiming."
+        }
+      ],
+      "explanation": "The soldiers form a faceless, uniform row, while the victims, above all the man in the white shirt, are individuals.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.goya_dark_turn"
+      ],
+      "sourceCardIds": [
+        "card.art_history.052.c2",
+        "card.art_history.052.c4"
+      ],
+      "prompt": "How did Goya's art change after the 1792 illness that left him deaf?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He stopped painting and only wrote",
+          "correct": false,
+          "rationale": "He kept working for decades."
+        },
+        {
+          "id": "b",
+          "label": "He turned to cheerful court portraits only",
+          "correct": false,
+          "rationale": "The opposite: his work grew darker."
+        },
+        {
+          "id": "c",
+          "label": "He switched to painting landscapes outdoors",
+          "correct": false,
+          "rationale": "Not Goya's path at all."
+        },
+        {
+          "id": "d",
+          "label": "It grew darker and more critical",
+          "correct": true
+        }
+      ],
+      "explanation": "Afterward came Los Caprichos, attacking abuses, and at the end the Black Paintings on his own walls.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.goya_third_of_may",
+        "concept.art_history.romanticism"
+      ],
+      "sourceCardIds": [
+        "card.art_history.052.c3",
+        "card.art_history.051.c4"
+      ],
+      "prompt": "What do Goya's Third of May 1808 and Géricault's Raft of the Medusa (Level 51) have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both show a recent, real disaster",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Both show scenes from ancient myth",
+          "correct": false,
+          "rationale": "Both events happened only a few years before."
+        },
+        {
+          "id": "c",
+          "label": "Both were painted outdoors on the spot",
+          "correct": false,
+          "rationale": "Both were worked out in the studio."
+        },
+        {
+          "id": "d",
+          "label": "Both were painted on the walls of a house",
+          "correct": false,
+          "rationale": "That was the Black Paintings."
+        }
+      ],
+      "explanation": "Goya painted the 1808 executions in 1814; Géricault painted the 1816 wreck in 1818-19. Both chose recent horror over ancient heroes.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_goya",
+    "source.prado_saturn",
+    "source.met_sleep_of_reason",
+    "source.brit_third_of_may",
+    "source.prado_third_of_may"
+  ],
+  "art": "arts.candle"
+}

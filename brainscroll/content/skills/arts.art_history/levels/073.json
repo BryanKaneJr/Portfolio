@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.art_history.073",
+  "skillId": "skill.arts.art_history",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Chinese Calligraphy",
+  "objective": "After this level you can explain why calligraphy is a major art form in China.",
+  "summary": "Calligraphy (shufa) has been China's supreme visual art since the 3rd century CE: no touching up, thought to reveal character. Wang Xizhi's Orchid Pavilion Preface survives only in copies.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.calligraphy_status",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.orchid_pavilion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.elements_of_art",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.072"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In China, the greatest visual art was handwriting.",
+      "body": "For centuries, calligraphy has ranked above painting. To see why, you need a brush, some ink and no second chances."
+    },
+    {
+      "id": "card.art_history.073.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four treasures, one take",
+      "body": "Calligraphy, shufa in Chinese, has been considered supreme among China's visual arts since the 3rd century CE. It needs four tools, honored as the Four Treasures of the Study: brush, ink, paper and inkstone. And it has one hard rule: no touching up. Go back over a weak stroke and, once the ink dries, the correction shows darker than the rest. Every stroke is a live performance with no retakes."
+    },
+    {
+      "id": "card.art_history.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Writing that shows who you are",
+      "body": "Calligraphy is also regarded as uniquely revealing: it's thought to show the character and cultivation of the writer. Painters used the same brush and ink, and both arts were judged by similar standards, above all the life in the brushstroke itself. Your handwriting was, in a sense, your portrait.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Good thing nobody judges my character by my grocery lists."
+      }
+    },
+    {
+      "id": "card.art_history.073.c4",
+      "type": "fact",
+      "fact": "China's most famous calligraphy may be in an emperor's tomb.",
+      "context": "In 353, Wang Xizhi, traditionally called the Sage of Calligraphy, wrote the Preface to the Orchid Pavilion. The story goes that he wrote it tipsy, then tried a thousand times to rewrite it and never matched the original. Legend says the Tang emperor Taizong loved it so much that it was buried with him. Today it's known only through copies."
+    },
+    {
+      "id": "card.art_history.073.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.073.q1"
+    },
+    {
+      "id": "card.art_history.073.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.073.q2"
+    },
+    {
+      "id": "card.art_history.073.c7",
+      "type": "recall",
+      "questionId": "question.art_history.073.q3"
+    },
+    {
+      "id": "card.art_history.073.c8",
+      "type": "checkpoint",
+      "headline": "Calligraphy: brushed",
+      "learned": [
+        "Calligraphy has been China’s supreme visual art since the 3rd century CE",
+        "Four Treasures: brush, ink, paper, inkstone",
+        "Strokes can’t be touched up; they’re thought to reveal character",
+        "The Orchid Pavilion Preface survives only in copies"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.orchid_pavilion"
+      ],
+      "sourceCardIds": [
+        "card.art_history.073.c4"
+      ],
+      "prompt": "Why is Wang Xizhi's Preface to the Orchid Pavilion known today only through copies?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wang Xizhi burned it after a thousand rewrites",
+          "correct": false,
+          "rationale": "The story says he rewrote it, not that he burned it."
+        },
+        {
+          "id": "b",
+          "label": "Legend says the original was buried with an emperor",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It was carved on a stone that later broke",
+          "correct": false,
+          "rationale": "The legend is about a tomb, not a broken stone."
+        },
+        {
+          "id": "d",
+          "label": "The ink faded until nothing was left",
+          "correct": false,
+          "rationale": "Nothing faded away; the original was lost, legend says, to a tomb."
+        }
+      ],
+      "explanation": "Legend says the Tang emperor Taizong loved it so much it was buried with him, so only copies survive.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.calligraphy_status"
+      ],
+      "sourceCardIds": [
+        "card.art_history.073.c2"
+      ],
+      "prompt": "Why can't a calligrapher fix a weak stroke by going back over it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The brush is too soft to reuse",
+          "correct": false,
+          "rationale": "The brush is fine; the problem is the drying ink."
+        },
+        {
+          "id": "b",
+          "label": "Paper tears if it is touched twice",
+          "correct": false,
+          "rationale": "The paper survives; the correction just shows."
+        },
+        {
+          "id": "c",
+          "label": "The corrected part dries darker and shows",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Tradition bans using the same brush twice",
+          "correct": false,
+          "rationale": "No such rule; the ink itself gives the fix away."
+        }
+      ],
+      "explanation": "Once the ink dries, a touched-up area shows darker than the original stroke, so every stroke has to be right the first time.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.calligraphy_status",
+        "concept.art_history.elements_of_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.073.c3",
+        "card.art_history.003.c2"
+      ],
+      "prompt": "Calligraphy is judged above all by the brushstroke. Which Level 3 element is a single brushstroke?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Texture",
+          "correct": false,
+          "rationale": "Texture is how a surface feels."
+        },
+        {
+          "id": "b",
+          "label": "Negative space",
+          "correct": false,
+          "rationale": "That's the empty area around things."
+        },
+        {
+          "id": "c",
+          "label": "Form",
+          "correct": false,
+          "rationale": "Form means 3D shapes."
+        },
+        {
+          "id": "d",
+          "label": "Line",
+          "correct": true
+        }
+      ],
+      "explanation": "A brushstroke is a mark longer than it is wide: a line. Calligraphy is the art of line.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_chinese_calligraphy_role",
+    "source.sep_chinese_painting_calligraphy",
+    "source.oxford_four_treasures",
+    "source.columbia_chinese_calligraphy",
+    "source.npm_orchid_pavilion",
+    "source.getty_elements_of_art"
+  ],
+  "art": "arts.ink-brush"
+}

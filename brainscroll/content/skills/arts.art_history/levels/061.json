@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.art_history.061",
+  "skillId": "skill.arts.art_history",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Post-Impressionism",
+  "objective": "After this level you can explain how Cézanne, Gauguin and Seurat pushed past Impressionism.",
+  "summary": "In 1910 Roger Fry named the Post-Impressionists, painters who each took Impressionism a different way: Cézanne toward solid structure, Gauguin toward imagined color, Seurat toward color science.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.postimp_name",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.postimp_cezanne_structure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.postimp_gauguin_color",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.elements_of_art",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.060"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.061.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1910, a London critic needed one name for painters who agreed on nothing.",
+      "body": "Roger Fry was staging a show called Manet and the Post-Impressionists. His label is famously vague: \"post\" just means \"after\". It had to be. Cézanne, Gauguin, Seurat and Van Gogh had each taken Impressionism somewhere different. Here are three of those roads."
+    },
+    {
+      "id": "card.art_history.061.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cézanne: find the solid underneath",
+      "body": "The Impressionists painted the play of light. Paul Cézanne moved away from those effects and went after what lies underneath: the structure of natural forms. In a 1904 letter to the painter Émile Bernard, he gave his famous advice: treat nature by the cylinder, the sphere and the cone. A tree trunk is a cylinder, an apple a sphere, a mountain a cone. It sounds like a geometry lesson, and in a way it was."
+    },
+    {
+      "id": "card.art_history.061.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Gauguin: paint what they imagine",
+      "body": "Paul Gauguin's Vision of the Sermon (1888) is split by a tree. On one side, praying Breton women in crisp white bonnets. On the other, Jacob wrestles an angel on a field of flat red. No meadow looks like that, and it isn't meant to: Gauguin used pure, flat color and heavy outlines, and turned away from painting straight from nature. He wrote that the landscape and the fight exist only in the imagination of the people praying. The red is the vision.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Red grass is a strange choice for a meadow. For a miracle, it's just right."
+      }
+    },
+    {
+      "id": "card.art_history.061.c4",
+      "type": "fact",
+      "fact": "One label, three roads: structure, imagination and science.",
+      "context": "Georges Seurat took the third road. He tried to put Impressionism's light and color on a scientific basis, with tiny dots of color set side by side (Level 63 zooms in). So Post-Impressionism isn't one style. It's a family of very different painters, each answering Impressionism in their own way."
+    },
+    {
+      "id": "card.art_history.061.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.061.q1"
+    },
+    {
+      "id": "card.art_history.061.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.061.q2"
+    },
+    {
+      "id": "card.art_history.061.c7",
+      "type": "recall",
+      "questionId": "question.art_history.061.q3"
+    },
+    {
+      "id": "card.art_history.061.c8",
+      "type": "checkpoint",
+      "headline": "Post-Impressionism: sorted",
+      "learned": [
+        "Roger Fry coined Post-Impressionism in 1910",
+        "Cézanne: nature as cylinder, sphere and cone",
+        "Gauguin: flat, imagined color, like a red field",
+        "Seurat: color on a scientific basis"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.postimp_name"
+      ],
+      "sourceCardIds": [
+        "card.art_history.061.c1"
+      ],
+      "prompt": "Where does the name Post-Impressionism come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A manifesto the painters signed together",
+          "correct": false,
+          "rationale": "They never agreed on a program; a critic named them."
+        },
+        {
+          "id": "b",
+          "label": "Roger Fry's 1910 London exhibition",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A newspaper insult about their paint",
+          "correct": false,
+          "rationale": "This name came from the show's own organizer."
+        },
+        {
+          "id": "d",
+          "label": "The name of a Paris café they met in",
+          "correct": false,
+          "rationale": "No café: \"post\" just means \"after\" Impressionism."
+        }
+      ],
+      "explanation": "Roger Fry used the term for his 1910 show, Manet and the Post-Impressionists. \"Post\" simply means \"after\".",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.postimp_gauguin_color"
+      ],
+      "sourceCardIds": [
+        "card.art_history.061.c3"
+      ],
+      "prompt": "Why is the field red in Gauguin's Vision of the Sermon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Breton fields really were that color",
+          "correct": false,
+          "rationale": "No real meadow looks like that; the color was a choice."
+        },
+        {
+          "id": "b",
+          "label": "Red was the cheapest paint he could buy",
+          "correct": false,
+          "rationale": "Nothing suggests that; the red carries the meaning."
+        },
+        {
+          "id": "c",
+          "label": "It shows a vision the praying women imagine",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He copied a sunset exactly as he saw it",
+          "correct": false,
+          "rationale": "Gauguin turned away from painting straight from nature."
+        }
+      ],
+      "explanation": "Gauguin said the landscape and the fight exist only in the imagination of the people praying. The flat red marks it as a vision.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.art_history.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.postimp_cezanne_structure",
+        "concept.art_history.elements_of_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.061.c2",
+        "card.art_history.003.c4"
+      ],
+      "prompt": "Cézanne's cylinder, sphere and cone are 3D shapes. Which of Level 3's elements of art are they?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Negative space",
+          "correct": false,
+          "rationale": "Negative space is the empty area around things."
+        },
+        {
+          "id": "b",
+          "label": "Implied texture",
+          "correct": false,
+          "rationale": "Texture is how a surface feels or seems to feel."
+        },
+        {
+          "id": "c",
+          "label": "Line",
+          "correct": false,
+          "rationale": "A line is a mark longer than it is wide; these are solids."
+        },
+        {
+          "id": "d",
+          "label": "Form",
+          "correct": true
+        }
+      ],
+      "explanation": "Form means three-dimensional shapes, like balls, cylinders and boxes. Cézanne looked for those solids inside nature.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.tate_post_impressionism",
+    "source.brit_post_impressionism",
+    "source.courtauld_cezanne_letter",
+    "source.brit_vision_sermon",
+    "source.getty_elements_of_art"
+  ],
+  "art": "arts.still-life"
+}

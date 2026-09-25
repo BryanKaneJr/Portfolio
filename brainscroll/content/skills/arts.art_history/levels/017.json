@@ -1,0 +1,230 @@
+{
+  "id": "level.arts.art_history.017",
+  "skillId": "skill.arts.art_history",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Roman Art",
+  "objective": "After this level you can explain what Roman art borrowed from Greece and what it added.",
+  "summary": "Rome copied Greek statues and borrowed the Greek orders, then added its own: warts-and-all portraits from around 100 BCE and the Pantheon's huge concrete dome.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.roman_greek_copies",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.roman_verism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.roman_pantheon_dome",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.greek_orders",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.art_history.greek_contrapposto",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.016"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "We know Level 15's Spear Bearer only because Romans copied it.",
+      "body": "None of Polyclitus's original statues survive. The Doryphoros is known only through Roman copies. In the late Republic, admiring earlier Greek art became the fashion in Rome. So what did Rome add of its own?"
+    },
+    {
+      "id": "card.art_history.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What Rome borrowed",
+      "body": "Rome also borrowed Greece's architecture. The Romans adopted the Doric, Ionic and Corinthian orders you met in Level 16 and adapted them for their own buildings. So far, a very good student. But Rome also pushed in directions of its own."
+    },
+    {
+      "id": "card.art_history.017.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Warts and all",
+      "body": "Level 15's Greeks measured out an ideal body. Roman portrait sculptors, flowering around 100 BCE, recorded every line, crease, wrinkle and even blemish. The style is called verism. It wasn't a lack of tact: especially for men, the wrinkles of age signaled dignity and authority, the face of experience. Imagine a politician's poster that proudly adds ten years.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Earned the wrinkle? Rome carved the wrinkle. Every single one."
+      }
+    },
+    {
+      "id": "card.art_history.017.c4",
+      "type": "fact",
+      "fact": "The Pantheon's dome is about 43 m across, and it's concrete with no steel inside.",
+      "context": "The emperor Hadrian rebuilt the Pantheon between 118 and 128 CE. Its unreinforced concrete dome was unmatched in scale until modern times. The only light comes through an opening about 8 m wide at the top, the oculus, The columns came from Greece. The dome was pure Rome."
+    },
+    {
+      "id": "card.art_history.017.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.017.q1"
+    },
+    {
+      "id": "card.art_history.017.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.017.q2"
+    },
+    {
+      "id": "card.art_history.017.c7",
+      "type": "recall",
+      "questionId": "question.art_history.017.q3"
+    },
+    {
+      "id": "card.art_history.017.c8",
+      "type": "checkpoint",
+      "headline": "Roman art: added up",
+      "learned": [
+        "Some Greek statues survive only as Roman copies",
+        "Rome adopted the Greek orders",
+        "Verism kept every wrinkle",
+        "The Pantheon's dome: about 43 m of concrete"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.roman_verism"
+      ],
+      "sourceCardIds": [
+        "card.art_history.017.c3"
+      ],
+      "prompt": "What does verism mean in Roman portraits?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Smoothing faces to look young and ideal",
+          "correct": false,
+          "rationale": "That's closer to the Greek ideal; verism kept the wrinkles."
+        },
+        {
+          "id": "b",
+          "label": "Showing every wrinkle, line and blemish",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Painting portraits on vases",
+          "correct": false,
+          "rationale": "Verism is a style of portrait sculpture."
+        },
+        {
+          "id": "d",
+          "label": "Carving only gods, never real people",
+          "correct": false,
+          "rationale": "Verism portrayed real, aging people."
+        }
+      ],
+      "explanation": "Roman realistic portraits recorded every line, crease, wrinkle and blemish; wrinkles signaled dignity and authority.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.roman_pantheon_dome"
+      ],
+      "sourceCardIds": [
+        "card.art_history.017.c4"
+      ],
+      "prompt": "What makes the Pantheon's dome such a feat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is carved from a single block of marble",
+          "correct": false,
+          "rationale": "It is poured concrete."
+        },
+        {
+          "id": "b",
+          "label": "Steel beams hidden inside hold it up",
+          "correct": false,
+          "rationale": "It has no steel reinforcement at all."
+        },
+        {
+          "id": "c",
+          "label": "It spans about 43 m in unreinforced concrete",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It has no opening, so it stays dry",
+          "correct": false,
+          "rationale": "It has an opening about 8 m wide: the oculus."
+        }
+      ],
+      "explanation": "The dome spans about 43 m in concrete with no reinforcement, unmatched in scale until modern times.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.roman_greek_copies",
+        "concept.art_history.greek_contrapposto"
+      ],
+      "sourceCardIds": [
+        "card.art_history.017.c1",
+        "card.art_history.015.c4"
+      ],
+      "prompt": "How do we know what Polyclitus's Spear Bearer (Level 15) looked like?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The original survives on the Acropolis",
+          "correct": false,
+          "rationale": "None of Polyclitus's originals survive."
+        },
+        {
+          "id": "b",
+          "label": "Exekias painted it on a vase",
+          "correct": false,
+          "rationale": "Exekias painted Achilles and Ajax."
+        },
+        {
+          "id": "c",
+          "label": "Polyclitus left a painted portrait of it",
+          "correct": false,
+          "rationale": "His Canon was a book about proportions."
+        },
+        {
+          "id": "d",
+          "label": "From Roman copies of it",
+          "correct": true
+        }
+      ],
+      "explanation": "The Doryphoros, about 450–440 BCE, is known only through Roman copies.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_polyclitus",
+    "source.brit_architectural_orders",
+    "source.brit_republic_sculpture",
+    "source.brit_roman_sculpture",
+    "source.mam_roman_portrait",
+    "source.brit_pantheon"
+  ],
+  "art": "rome.arch"
+}

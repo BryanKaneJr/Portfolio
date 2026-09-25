@@ -1,0 +1,223 @@
+{
+  "id": "level.arts.art_history.026",
+  "skillId": "skill.arts.art_history",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Gothic Cathedrals",
+  "objective": "After this level you can explain pointed arches and flying buttresses and why Gothic churches soar.",
+  "summary": "From Saint-Denis in 1144, Gothic builders used pointed arches, ribbed vaults and flying buttresses to carry the roof's weight elsewhere, so walls could be thin, tall and full of glass.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.gothic_structure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.gothic_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.romanesque_style",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.025"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Gothic cathedrals are stone skeletons wearing glass.",
+      "body": "Level 25's churches needed thick walls to hold their roofs up. In 1144, near Paris, builders showed a way to send that weight somewhere else. Once the walls stopped carrying the roof, they could rise higher and open into windows."
+    },
+    {
+      "id": "card.art_history.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An abbot who wanted light",
+      "body": "The abbey church of Saint-Denis, near Paris, is traditionally called the first Gothic building. Its abbot, Suger, saw light as a reflection of the infinite light of God, and he wanted his new choir, dedicated in 1144, filled with it. His masons brought together tricks that had been used separately: the pointed arch, the ribbed vault and large windows."
+    },
+    {
+      "id": "card.art_history.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three tricks for going up",
+      "body": "A pointed arch sends more of its weight down and less outward than a round one, so it can climb higher. A ribbed vault is a ceiling of stone ribs filled with thin panels: lighter, and it lands its weight on a few points instead of whole walls. Flying buttresses, half arches outside the building, carry the remaining push across to outer piers. The walls are off duty. So they can be glass.",
+      "callout": "Pointed arch + ribbed vault + flying buttress = thin walls, huge windows."
+    },
+    {
+      "id": "card.art_history.026.c4",
+      "type": "fact",
+      "fact": "The tallest Gothic vault, at Beauvais, is about 48 meters high.",
+      "context": "Beauvais Cathedral in France pushed the system to its limit. In 1284 part of its choir vault collapsed. The builders rebuilt it at the same height, with extra supports. Gothic could soar, but it had to be braced."
+    },
+    {
+      "id": "card.art_history.026.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "A name meant as an insult",
+      "body": "The builders never called it Gothic. Italian Renaissance writers such as Giorgio Vasari used the word as an insult, after the Goths, whom they saw as the barbarians who helped destroy Rome. The name stuck. The scorn didn't."
+    },
+    {
+      "id": "card.art_history.026.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.026.q1"
+    },
+    {
+      "id": "card.art_history.026.c7",
+      "type": "mcq",
+      "questionId": "question.art_history.026.q2"
+    },
+    {
+      "id": "card.art_history.026.c8",
+      "type": "recall",
+      "questionId": "question.art_history.026.q3"
+    },
+    {
+      "id": "card.art_history.026.c9",
+      "type": "checkpoint",
+      "headline": "Gothic: raised",
+      "learned": [
+        "Saint-Denis, 1144, is called the first Gothic building",
+        "Pointed arches and ribbed vaults send weight down",
+        "Flying buttresses take the outward push",
+        "Thin walls could become huge windows"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.gothic_origins"
+      ],
+      "sourceCardIds": [
+        "card.art_history.026.c2"
+      ],
+      "prompt": "Which church is traditionally called the first Gothic building?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sainte-Foy at Conques",
+          "correct": false,
+          "rationale": "That's a Romanesque pilgrimage church."
+        },
+        {
+          "id": "b",
+          "label": "Hagia Sophia",
+          "correct": false,
+          "rationale": "That's a Byzantine church in Constantinople."
+        },
+        {
+          "id": "c",
+          "label": "San Vitale in Ravenna",
+          "correct": false,
+          "rationale": "That's the home of Justinian's mosaic."
+        },
+        {
+          "id": "d",
+          "label": "The abbey church of Saint-Denis",
+          "correct": true
+        }
+      ],
+      "explanation": "Saint-Denis, near Paris, whose new choir was dedicated in 1144, is traditionally called the first Gothic building.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.gothic_structure"
+      ],
+      "sourceCardIds": [
+        "card.art_history.026.c3"
+      ],
+      "prompt": "What did flying buttresses make possible?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Round arches on every doorway",
+          "correct": false,
+          "rationale": "Round arches belong to Romanesque."
+        },
+        {
+          "id": "b",
+          "label": "Thinner walls with large windows",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Domes covered in gold mosaic",
+          "correct": false,
+          "rationale": "Gold mosaic domes are Byzantine."
+        },
+        {
+          "id": "d",
+          "label": "Stronger foundations underground",
+          "correct": false,
+          "rationale": "Buttresses work above ground, outside the walls."
+        }
+      ],
+      "explanation": "Flying buttresses carried the vault's outward push to outer piers, so walls could be thin and full of windows.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.gothic_structure",
+        "concept.art_history.romanesque_style"
+      ],
+      "sourceCardIds": [
+        "card.art_history.026.c3",
+        "card.art_history.025.c3"
+      ],
+      "prompt": "Level 25's walls had to hold up heavy barrel vaults. Why could Gothic walls be thinner?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ribs and buttresses carried the roof's weight",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Gothic roofs were made of wood only",
+          "correct": false,
+          "rationale": "Gothic churches still had stone vaults."
+        },
+        {
+          "id": "c",
+          "label": "Gothic churches were much smaller",
+          "correct": false,
+          "rationale": "They were taller, not smaller."
+        },
+        {
+          "id": "d",
+          "label": "Glass is stronger than stone",
+          "correct": false,
+          "rationale": "Glass doesn't hold up roofs; the frame does."
+        }
+      ],
+      "explanation": "Ribbed vaults sent the weight to a few points and flying buttresses took the outward push, so walls no longer carried the roof.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_early_gothic_architecture",
+    "source.brit_romanesque_architecture",
+    "source.brit_pointed_arch",
+    "source.beauvais_cathedral_history",
+    "source.brit_gothic_architecture"
+  ],
+  "art": "arts.cathedral"
+}

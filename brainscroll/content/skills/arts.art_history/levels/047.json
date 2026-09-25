@@ -1,0 +1,217 @@
+{
+  "id": "level.arts.art_history.047",
+  "skillId": "skill.arts.art_history",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Velázquez",
+  "objective": "After this level you can explain why Las Meninas still puzzles viewers.",
+  "summary": "Las Meninas (1656) shows the young infanta, her maids of honor and Velázquez at a huge hidden canvas. A mirror reflects the king and queen, so what is he painting, and where are you standing?",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.las_meninas",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.las_meninas_mirror",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.rembrandt_self_portraits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.046"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Centuries later, nobody agrees what this painting is of.",
+      "body": "It's Las Meninas, painted in 1656 by Diego Velázquez, painter to the king of Spain. It looks like a simple scene at court. Then you notice the mirror."
+    },
+    {
+      "id": "card.art_history.047.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A princess and her court",
+      "body": "At the center stands the five-year-old Infanta Margarita Teresa, the king's daughter. Her maids of honor, the meninas, attend her. Nearby are two people with dwarfism and a big dog lying on the floor. It could be an ordinary afternoon in the palace. Almost."
+    },
+    {
+      "id": "card.art_history.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The painter is in the painting",
+      "body": "From 1623 Velázquez worked for King Philip IV, the only painter allowed to paint the king. In Las Meninas he put himself in the scene: at the left, brush in hand, in front of a huge canvas. We see only its back. Whatever he's painting, we're not allowed to look.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "The one canvas in the room we'd most like to see, and he turned it around. Classic."
+      }
+    },
+    {
+      "id": "card.art_history.047.c4",
+      "type": "fact",
+      "fact": "The mirror shows the king and queen.",
+      "context": "On the back wall, a small mirror reflects King Philip IV and Queen Mariana. So where are they? One reading says they stand where you stand, and everyone has just noticed them. Another says the mirror shows the hidden canvas. The painting leaves it open, which is why it's often called a painting about painting."
+    },
+    {
+      "id": "card.art_history.047.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.047.q1"
+    },
+    {
+      "id": "card.art_history.047.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.047.q2"
+    },
+    {
+      "id": "card.art_history.047.c7",
+      "type": "recall",
+      "questionId": "question.art_history.047.q3"
+    },
+    {
+      "id": "card.art_history.047.c8",
+      "type": "checkpoint",
+      "headline": "Las Meninas: puzzled",
+      "learned": [
+        "Las Meninas (1656) centers on the young infanta and her maids",
+        "Velázquez, the king's painter, painted himself at a hidden canvas",
+        "A mirror reflects King Philip IV and Queen Mariana",
+        "What he's painting, and where you stand, stay open questions"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.las_meninas"
+      ],
+      "sourceCardIds": [
+        "card.art_history.047.c2"
+      ],
+      "prompt": "Who stands at the center of Las Meninas?",
+      "options": [
+        {
+          "id": "a",
+          "label": "King Philip IV on his throne",
+          "correct": false,
+          "rationale": "He appears only in the mirror."
+        },
+        {
+          "id": "b",
+          "label": "Velázquez at his easel",
+          "correct": false,
+          "rationale": "He's at the left."
+        },
+        {
+          "id": "c",
+          "label": "Queen Mariana with her maids",
+          "correct": false,
+          "rationale": "She's in the mirror too."
+        },
+        {
+          "id": "d",
+          "label": "The young Infanta Margarita Teresa",
+          "correct": true
+        }
+      ],
+      "explanation": "The five-year-old infanta stands at the center, surrounded by her maids of honor.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.las_meninas_mirror"
+      ],
+      "sourceCardIds": [
+        "card.art_history.047.c4"
+      ],
+      "prompt": "Why does the mirror in Las Meninas make viewers wonder where they're standing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It reflects the king and queen, who might be standing where you are",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It reflects the viewer's own face",
+          "correct": false,
+          "rationale": "It shows the king and queen."
+        },
+        {
+          "id": "c",
+          "label": "It's empty, so nobody is watching",
+          "correct": false,
+          "rationale": "It clearly shows the royal couple."
+        },
+        {
+          "id": "d",
+          "label": "It shows the back of Velázquez's canvas",
+          "correct": false,
+          "rationale": "That's what we see directly, not in the mirror."
+        }
+      ],
+      "explanation": "If the mirror reflects the royal couple, one reading puts them exactly where you stand.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.art_history.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.las_meninas",
+        "concept.art_history.rembrandt_self_portraits"
+      ],
+      "sourceCardIds": [
+        "card.art_history.047.c3",
+        "card.art_history.044.c3"
+      ],
+      "prompt": "Like Rembrandt (Level 44), Velázquez painted himself. How does he appear in Las Meninas?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As an old man, in thick paint",
+          "correct": false,
+          "rationale": "That's Rembrandt at 63."
+        },
+        {
+          "id": "b",
+          "label": "At work, brush in hand, before a huge canvas",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "As a reflection in the back mirror",
+          "correct": false,
+          "rationale": "The mirror shows the king and queen."
+        },
+        {
+          "id": "d",
+          "label": "Half in shadow, as a young man at 22",
+          "correct": false,
+          "rationale": "That's Rembrandt's self-portrait of about 1628."
+        }
+      ],
+      "explanation": "Velázquez stands at the left, brush in hand, at a large canvas we see only from behind.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_las_meninas",
+    "source.brit_velazquez",
+    "source.nationalgallery_rembrandt_63"
+  ],
+  "art": "arts.frame"
+}

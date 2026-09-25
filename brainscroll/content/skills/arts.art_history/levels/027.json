@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.art_history.027",
+  "skillId": "skill.arts.art_history",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Stained Glass",
+  "objective": "After this level you can explain how stained glass windows were made and what they taught.",
+  "summary": "Glass was colored with metal oxides, cut, painted, fired and joined with lead. Pope Gregory the Great defended pictures as teaching those who cannot read.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.stained_glass_making",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.stained_glass_teaching",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.gothic_structure",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.026"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "At the Sainte-Chapelle in Paris, the walls are made of Bible stories.",
+      "body": "This royal chapel, consecrated in 1248, has 1,113 stained-glass scenes, so many that the walls seem to be made of glass. Level 26's flying buttresses freed walls to become windows. So how do you build a window from colored light, and why fill it with stories?"
+    },
+    {
+      "id": "card.art_history.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Color cooked into the glass",
+      "body": "Medieval glassmakers colored glass while it was molten, by adding metal oxides: cobalt, for instance, gives a deep blue. The glazier cut the colored sheets into pieces, painted faces and folds of cloth with a dark paint made partly of ground glass, and fired them in a kiln so the paint fused on. Strips of lead called cames held the pieces together, like a jigsaw with the joins left showing."
+    },
+    {
+      "id": "card.art_history.027.c3",
+      "type": "fact",
+      "fact": "One window at Chartres survived the fire of 1194.",
+      "context": "Fire destroyed most of Chartres Cathedral in 1194. The central panels of the Virgin and Child in the window called Notre-Dame de la Belle Verrière, made about 1180, survived and were set into the new building. For centuries, this image of Mary has been an object of special veneration."
+    },
+    {
+      "id": "card.art_history.027.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pictures for people who can't read",
+      "body": "Why fill windows with stories? In a letter of 600, Pope Gregory the Great defended religious pictures: what writing gives those who read, a picture gives to those who can't. His argument remained the standard defense of religious images in the Western church through the Middle Ages. A window was a page anyone could read, as long as the sun was out.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "A book you read by sunlight, from the floor. Cloudy days were short chapters."
+      }
+    },
+    {
+      "id": "card.art_history.027.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.027.q1"
+    },
+    {
+      "id": "card.art_history.027.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.027.q2"
+    },
+    {
+      "id": "card.art_history.027.c7",
+      "type": "recall",
+      "questionId": "question.art_history.027.q3"
+    },
+    {
+      "id": "card.art_history.027.c8",
+      "type": "checkpoint",
+      "headline": "Stained glass: made",
+      "learned": [
+        "Metal oxides color glass while it is molten",
+        "Painted details are fired on; lead cames join the pieces",
+        "Chartres' Belle Verrière survived the fire of 1194",
+        "Gregory the Great: pictures teach those who cannot read"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.stained_glass_making"
+      ],
+      "sourceCardIds": [
+        "card.art_history.027.c2"
+      ],
+      "prompt": "What held the pieces of a medieval stained-glass window together?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wooden frames carved for each piece",
+          "correct": false,
+          "rationale": "Wood didn't join the pieces; lead did."
+        },
+        {
+          "id": "b",
+          "label": "Paint fired in a kiln",
+          "correct": false,
+          "rationale": "The fired paint added details, not joins."
+        },
+        {
+          "id": "c",
+          "label": "Strips of lead called cames",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A layer of clear glass on top",
+          "correct": false,
+          "rationale": "That describes gold tesserae, not windows."
+        }
+      ],
+      "explanation": "Lead strips called cames held the cut pieces of glass together.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.stained_glass_teaching"
+      ],
+      "sourceCardIds": [
+        "card.art_history.027.c4"
+      ],
+      "prompt": "How did Pope Gregory the Great defend religious pictures?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They let people who couldn't read learn the stories",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They made churches warmer in winter",
+          "correct": false,
+          "rationale": "His argument was about teaching, not comfort."
+        },
+        {
+          "id": "c",
+          "label": "They were cheaper than books",
+          "correct": false,
+          "rationale": "Cost wasn't his point."
+        },
+        {
+          "id": "d",
+          "label": "They proved the church was wealthy",
+          "correct": false,
+          "rationale": "He argued pictures teach, not that they impress."
+        }
+      ],
+      "explanation": "Gregory wrote that a picture gives those who cannot read what writing gives those who can.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.stained_glass_making",
+        "concept.art_history.gothic_structure"
+      ],
+      "sourceCardIds": [
+        "card.art_history.027.c1",
+        "card.art_history.026.c3"
+      ],
+      "prompt": "Why did Level 26's flying buttresses matter so much for stained glass?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were decorated with glass panels",
+          "correct": false,
+          "rationale": "The buttresses are stone; the windows are between them."
+        },
+        {
+          "id": "b",
+          "label": "They reflected sunlight into the church",
+          "correct": false,
+          "rationale": "Their job was structural, not optical."
+        },
+        {
+          "id": "c",
+          "label": "They made colored glass cheaper to melt",
+          "correct": false,
+          "rationale": "Glassmaking didn't change; the walls did."
+        },
+        {
+          "id": "d",
+          "label": "They freed walls to become large windows",
+          "correct": true
+        }
+      ],
+      "explanation": "Flying buttresses took the vault's outward push, so walls could be thin and filled with glass.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sainte_chapelle_history",
+    "source.brit_early_gothic_architecture",
+    "source.brit_stained_glass",
+    "source.brit_chartres_cathedral",
+    "source.oxford_gregory_serenus"
+  ],
+  "art": "arts.stained-glass"
+}

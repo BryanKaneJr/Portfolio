@@ -1,0 +1,234 @@
+{
+  "id": "level.arts.art_history.077",
+  "skillId": "skill.arts.art_history",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Art of the Americas",
+  "objective": "After this level you can describe Maya, Aztec and Inca art and building.",
+  "summary": "Maya stelae carved rulers and dates in stone. The Mexica (Aztec) Sun Stone shows the current world era but can't tell the date. Inca walls fit without mortar; fine cloth beat gold.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.maya_stelae",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.mexica_sun_stone",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.inca_stone_and_cloth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.venus_figurines",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.076"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.077.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The most famous \"calendar\" in the Americas can't tell you the date.",
+      "body": "It's a giant carved stone disc made by the Mexica, the people often called the Aztecs. Before we decode it, meet the Maya, who carved their kings in stone. Afterwards, meet the Inca, who built walls without mortar."
+    },
+    {
+      "id": "card.art_history.077.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Maya: rulers in stone",
+      "body": "In Maya cities, rulers had themselves carved into history. Classic Maya stelae are free-standing stone slabs carved in relief, usually with a ruler's portrait beside hieroglyphic texts that name the ruler and record dates and deeds. Copán, in today's Honduras, is famous for massive, highly detailed ones. A stela was a monument and a press release in one."
+    },
+    {
+      "id": "card.art_history.077.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Sun Stone",
+      "body": "The Mexica Sun Stone is a basalt disc about 3.6 meters across, probably carved between 1502 and 1521. In December 1790 it was found buried face down in Mexico City's main plaza, built over the heart of the Mexica capital, Tenochtitlan. The face at its center is traditionally read as the sun god Tonatiuh; some scholars see the earth deity Tlaltecuhtli, or a blend of both. The design shows the current world era, 4 Movement, which the Mexica believed would end in earthquakes."
+    },
+    {
+      "id": "card.art_history.077.c4",
+      "type": "fact",
+      "fact": "Nicknamed the Calendar Stone, it cannot tell you the date.",
+      "context": "Soon after it was found, the scholar Antonio de León y Gama read it as a timekeeping device, and that view held for about a century. But its twenty day signs have no numbers attached, so it can't count days. Many scholars now think it served as an altar.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Imagine being famous for a job you never had. Poor stone."
+      }
+    },
+    {
+      "id": "card.art_history.077.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Inca: walls and cloth",
+      "body": "Inca builders fitted stones without mortar, so precisely that even a thin knife blade can't slip between them. When an earthquake struck Cusco in 1650, most Spanish colonial buildings crumbled, while Inca walls and foundations survived nearly intact. Yet the most prized Inca art wasn't stone. It was cloth: the finest, called qompi, was more precious to the Inca than gold or silver."
+    },
+    {
+      "id": "card.art_history.077.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.077.q1"
+    },
+    {
+      "id": "card.art_history.077.c7",
+      "type": "mcq",
+      "questionId": "question.art_history.077.q2"
+    },
+    {
+      "id": "card.art_history.077.c8",
+      "type": "recall",
+      "questionId": "question.art_history.077.q3"
+    },
+    {
+      "id": "card.art_history.077.c9",
+      "type": "checkpoint",
+      "headline": "The Americas: carved and woven",
+      "learned": [
+        "Maya stelae: rulers, hieroglyphs and dates in stone",
+        "The Mexica Sun Stone shows the era 4 Movement",
+        "It can't tell the date; many think it was an altar",
+        "Inca walls fit without mortar; qompi cloth beat gold"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.maya_stelae"
+      ],
+      "sourceCardIds": [
+        "card.art_history.077.c2"
+      ],
+      "prompt": "What does a Classic Maya stela usually show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A ruler with hieroglyphic texts",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A wheel of twenty day signs",
+          "correct": false,
+          "rationale": "That's the Mexica Sun Stone."
+        },
+        {
+          "id": "c",
+          "label": "A pattern woven into fine cloth",
+          "correct": false,
+          "rationale": "That describes Inca qompi, not carved slabs."
+        },
+        {
+          "id": "d",
+          "label": "A map of the city walls",
+          "correct": false,
+          "rationale": "Stelae show rulers, with texts naming them and recording deeds."
+        }
+      ],
+      "explanation": "A stela is a carved stone slab, usually showing a ruler's portrait beside hieroglyphic texts with dates and deeds.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.inca_stone_and_cloth"
+      ],
+      "sourceCardIds": [
+        "card.art_history.077.c5"
+      ],
+      "prompt": "What does the Inca love of qompi cloth show about Inca values?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They cared little for fine craft",
+          "correct": false,
+          "rationale": "Qompi was the finest cloth, highly prized."
+        },
+        {
+          "id": "b",
+          "label": "They valued the finest cloth above gold or silver",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They used cloth instead of stone for walls",
+          "correct": false,
+          "rationale": "Their walls were fitted stone."
+        },
+        {
+          "id": "d",
+          "label": "They traded cloth for Spanish gold",
+          "correct": false,
+          "rationale": "The point is what they prized most."
+        }
+      ],
+      "explanation": "The finest cloth, qompi, was more precious to the Inca than gold or silver.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.mexica_sun_stone",
+        "concept.art_history.venus_figurines"
+      ],
+      "sourceCardIds": [
+        "card.art_history.077.c4",
+        "card.art_history.007.c4"
+      ],
+      "prompt": "Level 7's \"Venus\" figures and the Mexica \"Calendar Stone\" both have misleading names. Why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both were named by their makers as jokes",
+          "correct": false,
+          "rationale": "Later people gave both names."
+        },
+        {
+          "id": "b",
+          "label": "Both are named after Roman gods",
+          "correct": false,
+          "rationale": "Only Venus is; the stone was named for its supposed use."
+        },
+        {
+          "id": "c",
+          "label": "Both were carved by the Maya",
+          "correct": false,
+          "rationale": "Neither: one is Ice Age, the other Mexica."
+        },
+        {
+          "id": "d",
+          "label": "Later people named them for uses or ideas they don’t fit",
+          "correct": true
+        }
+      ],
+      "explanation": "\"Venus\" came from a goddess of a much later world; \"Calendar\" came from a reading of a stone that cannot tell the date.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.smarthistory_maya_stelae",
+    "source.mexicolore_sun_stone",
+    "source.brit_calendar_stone",
+    "source.ebsco_cuzco_earthquake",
+    "source.brit_stela",
+    "source.brit_templo_mayor",
+    "source.worldhistory_inca_textiles",
+    "source.khan_venus_willendorf"
+  ],
+  "art": "arts.step-pyramid"
+}

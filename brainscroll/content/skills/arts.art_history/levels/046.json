@@ -1,0 +1,217 @@
+{
+  "id": "level.arts.art_history.046",
+  "skillId": "skill.arts.art_history",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Vermeer",
+  "objective": "After this level you can describe Vermeer's quiet interiors and how he painted light.",
+  "summary": "Only about 36 Vermeers survive. In The Milkmaid, window light falls on a still kitchen, built from hundreds of colored dots. Whether he used a camera obscura is still debated.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.vermeer_milkmaid",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.vermeer_camera_obscura",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.elements_of_art",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.045"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Only about 36 paintings by Vermeer survive.",
+      "body": "He worked in Delft, and outside his region he was little known until the 1800s, when the critic Théophile Thoré brought him international fame. So what makes so few quiet pictures so famous? Mostly one thing: the light."
+    },
+    {
+      "id": "card.art_history.046.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The loudest thing is the milk",
+      "body": "In The Milkmaid (about 1660), a maid stands at a table and pours milk from a jug into a bowl. Bread sits beside her. Daylight falls through a window on the left and fills the small kitchen. Except for the thin stream of milk, everything is still. No drama, no saints, no crowd. Just someone doing a chore, and doing it with total care."
+    },
+    {
+      "id": "card.art_history.046.c3",
+      "type": "fact",
+      "fact": "Vermeer built light out of dots.",
+      "context": "Look closely at The Milkmaid and the light on the bread and the jug breaks into hundreds of small colored dots of paint. Some are blurred little spots, like the sparkle in an out-of-focus photo. Step back and they turn into crust catching the sun."
+    },
+    {
+      "id": "card.art_history.046.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Did he use a camera?",
+      "body": "Those blurred light spots match what you see in a camera obscura, a device that projects an image through a lens. So some think Vermeer used one. But no document from his time shows he owned or used a camera obscura. It stays a debated idea, a good guess with no receipt.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Case open, evidence visual, paperwork missing. Art history loves a mystery like this."
+      }
+    },
+    {
+      "id": "card.art_history.046.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.046.q1"
+    },
+    {
+      "id": "card.art_history.046.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.046.q2"
+    },
+    {
+      "id": "card.art_history.046.c7",
+      "type": "recall",
+      "questionId": "question.art_history.046.q3"
+    },
+    {
+      "id": "card.art_history.046.c8",
+      "type": "checkpoint",
+      "headline": "Vermeer: quiet light",
+      "learned": [
+        "Only about 36 Vermeers survive",
+        "The Milkmaid: window light, stillness, a stream of milk",
+        "He built light from hundreds of colored dots",
+        "The camera obscura idea is debated: no document proves it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.vermeer_milkmaid"
+      ],
+      "sourceCardIds": [
+        "card.art_history.046.c2"
+      ],
+      "prompt": "In The Milkmaid, what is the only thing that moves?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The maid's hands wiping the table",
+          "correct": false,
+          "rationale": "She's pouring, and only the milk moves."
+        },
+        {
+          "id": "b",
+          "label": "A cat running across the floor",
+          "correct": false,
+          "rationale": "Everything is still except the milk."
+        },
+        {
+          "id": "c",
+          "label": "The stream of milk",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Curtains blowing at the window",
+          "correct": false,
+          "rationale": "The room is still; only the milk flows."
+        }
+      ],
+      "explanation": "Except for the thin stream of milk, everything in the kitchen is still.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.vermeer_camera_obscura"
+      ],
+      "sourceCardIds": [
+        "card.art_history.046.c4"
+      ],
+      "prompt": "Why is it still debated whether Vermeer used a camera obscura?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His paintings look lens-like, but no document proves he used one",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Camera obscuras were invented after he died",
+          "correct": false,
+          "rationale": "The debate is about proof, not invention dates."
+        },
+        {
+          "id": "c",
+          "label": "He wrote that he hated optical devices",
+          "correct": false,
+          "rationale": "No document mentions one either way."
+        },
+        {
+          "id": "d",
+          "label": "His paintings show no light effects at all",
+          "correct": false,
+          "rationale": "The light spots are exactly why people suspect it."
+        }
+      ],
+      "explanation": "The blurred light spots look like camera obscura effects, but nothing written shows he owned or used one.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.vermeer_milkmaid",
+        "concept.art_history.elements_of_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.046.c3",
+        "card.art_history.003.c3"
+      ],
+      "prompt": "Level 3 said color is light reflected off objects. How did Vermeer show light playing over the bread?",
+      "options": [
+        {
+          "id": "a",
+          "label": "With gold leaf glued onto the canvas",
+          "correct": false,
+          "rationale": "He used paint: small colored dots."
+        },
+        {
+          "id": "b",
+          "label": "With hundreds of small colored dots of paint",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "With a single white outline",
+          "correct": false,
+          "rationale": "The light is built from many dots."
+        },
+        {
+          "id": "d",
+          "label": "By leaving the canvas unpainted",
+          "correct": false,
+          "rationale": "The bread is covered in colored dots."
+        }
+      ],
+      "explanation": "Hundreds of small colored dots make the light on the bread and jug sparkle.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_vermeer",
+    "source.rijksmuseum_milkmaid",
+    "source.vermeerdelft_camera_obscura"
+  ],
+  "art": "arts.easel"
+}

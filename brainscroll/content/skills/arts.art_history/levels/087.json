@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.art_history.087",
+  "skillId": "skill.arts.art_history",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Land Art and Installations",
+  "objective": "After this level you can describe art made from landscapes and from whole rooms.",
+  "summary": "Land art is made in the landscape itself: Spiral Jetty is a rock coil that the Great Salt Lake hides and reveals. Installations fill rooms, like Kusama's mirror rooms.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.land_art_spiral_jetty",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.installation_kusama_mirrors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.conceptual_lewitt_instructions",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.art_history.negative_space",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.086"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.087.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You can't hang Spiral Jetty on a wall. For 30 years, you couldn't even see it.",
+      "body": "It's a coil of black rock 1,500 feet long, curling counterclockwise out from the shore of Utah's Great Salt Lake. Robert Smithson built it in 1970. In 1972 the lake rose over it, and it stayed under until 2002."
+    },
+    {
+      "id": "card.art_history.087.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Art made of the land",
+      "body": "Land art is made directly in the landscape, from earth or natural materials like rocks. It was part of the wider conceptual art movement of the 1960s and 1970s; remember LeWitt in Level 85, where the idea outranked the saleable object? Spiral Jetty is about 6,000 tons of black basalt rock and earth from the site itself. No gallery could hold it, and no collector could carry it home."
+    },
+    {
+      "id": "card.art_history.087.c3",
+      "type": "fact",
+      "fact": "The lake is part of the artwork.",
+      "context": "Smithson built the jetty while the water was low. In 1972 it disappeared beneath the lake. Droughts brought it back in 2002, and it has been visible since, made of mud, salt crystals, rocks and water. Its look depends on the weather and the water level. That's not a flaw in the work; it's the work being outdoors."
+    },
+    {
+      "id": "card.art_history.087.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Installation: art you walk into",
+      "body": "Installation art often fills a whole room that you walk through, so you're inside the work, not in front of it. Yayoi Kusama's first mirror room, Infinity Mirror Room: Phalli's Field (1965), filled a closed room with soft stuffed forms covered in red polka dots. Mirrored walls repeat them seemingly without end. A small room, and you can't see where it stops.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "A room that holds a crowd of polka dots and seems to go on forever. Try fitting that in a frame."
+      }
+    },
+    {
+      "id": "card.art_history.087.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.087.q1"
+    },
+    {
+      "id": "card.art_history.087.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.087.q2"
+    },
+    {
+      "id": "card.art_history.087.c7",
+      "type": "recall",
+      "questionId": "question.art_history.087.q3"
+    },
+    {
+      "id": "card.art_history.087.c8",
+      "type": "checkpoint",
+      "headline": "Land and rooms: entered",
+      "learned": [
+        "Land art is made in the landscape itself",
+        "Spiral Jetty: a 1,500-foot rock coil in Great Salt Lake",
+        "Submerged in 1972, visible again since 2002",
+        "Installations fill rooms; Kusama's mirrors seem endless"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.land_art_spiral_jetty"
+      ],
+      "sourceCardIds": [
+        "card.art_history.087.c2"
+      ],
+      "prompt": "What is Spiral Jetty made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Firebricks laid in two layers",
+          "correct": false,
+          "rationale": "That's Carl Andre's Equivalent VIII."
+        },
+        {
+          "id": "b",
+          "label": "Poured concrete shaped by molds",
+          "correct": false,
+          "rationale": "It's built from the site's own rock and earth."
+        },
+        {
+          "id": "c",
+          "label": "Black basalt rock and earth from the site",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Mirrors and polka-dot fabric",
+          "correct": false,
+          "rationale": "That's Kusama's mirror room."
+        }
+      ],
+      "explanation": "Smithson moved about 6,000 tons of black basalt rock and earth from the site to build the coil.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.land_art_spiral_jetty"
+      ],
+      "sourceCardIds": [
+        "card.art_history.087.c3"
+      ],
+      "prompt": "Why has Spiral Jetty looked so different over the years?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Smithson rebuilt it in a new shape each decade",
+          "correct": false,
+          "rationale": "The shape stayed; the water moved."
+        },
+        {
+          "id": "b",
+          "label": "The lake's water level rises and falls",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Visitors add rocks to it every summer",
+          "correct": false,
+          "rationale": "Nothing here says visitors change it."
+        },
+        {
+          "id": "d",
+          "label": "It was moved to a museum and back",
+          "correct": false,
+          "rationale": "It's far too big to move."
+        }
+      ],
+      "explanation": "It went under in 1972 and came back when droughts lowered the lake in 2002; its look depends on the water.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.installation_kusama_mirrors",
+        "concept.art_history.negative_space"
+      ],
+      "sourceCardIds": [
+        "card.art_history.087.c4",
+        "card.art_history.003.c4"
+      ],
+      "prompt": "Level 3 says space includes the feeling of depth. How does Kusama's mirror room play with it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Polka dots flatten the room like a poster",
+          "correct": false,
+          "rationale": "The reflections deepen it, not flatten it."
+        },
+        {
+          "id": "b",
+          "label": "It removes all empty space from the room",
+          "correct": false,
+          "rationale": "It multiplies space instead."
+        },
+        {
+          "id": "c",
+          "label": "Its walls are painted with perspective lines",
+          "correct": false,
+          "rationale": "Mirrors, not painted lines, do the work."
+        },
+        {
+          "id": "d",
+          "label": "Mirrors make a small room seem endless",
+          "correct": true
+        }
+      ],
+      "explanation": "Mirrored walls repeat the forms seemingly without end, so a closed room feels infinitely deep.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.dia_spiral_jetty",
+    "source.umfa_spiral_jetty",
+    "source.tate_land_art",
+    "source.tate_installation_art",
+    "source.hirshhorn_kusama_infinity_rooms"
+  ],
+  "art": "geo.rocks"
+}

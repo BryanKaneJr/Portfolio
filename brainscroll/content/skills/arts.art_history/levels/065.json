@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.art_history.065",
+  "skillId": "skill.arts.art_history",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Expressionism",
+  "objective": "After this level you can explain how Expressionists bent color and form to show feeling.",
+  "summary": "Munch's The Scream came from a sunset when he sensed an infinite scream through nature. Expressionism distorted color and form to show such feelings.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.expr_scream",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.expr_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.vangogh_color_feeling",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.064"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The person in The Scream may not be screaming at all.",
+      "body": "Look again at Edvard Munch's famous figure: its hands are over its ears. Munch left a written account of the moment behind the picture, and it suggests another reading. Maybe the scream is coming from somewhere else."
+    },
+    {
+      "id": "card.art_history.065.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What Munch felt at sunset",
+      "body": "Munch wrote that he was out walking as the sun set, when the sky suddenly turned blood red. He stood there trembling with anxiety, and sensed an infinite scream passing through nature. His 1893 painting shows a swirling blood-red sky over the Oslo fjord, and a figure with wide eyes, an oval mouth and hands clamped over its ears. On this reading, it's hearing the scream, not making it."
+    },
+    {
+      "id": "card.art_history.065.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Paint the feeling, not the view",
+      "body": "That's the heart of Expressionism: showing the emotions things stir up in a person, rather than how they objectively look. Its tools are distortion and exaggeration. Munch, Van Gogh and James Ensor paved the way, each breaking with a faithful copy of nature to show a state of mind.",
+      "callout": "Not \"what does it look like?\" but \"what does it feel like?\""
+    },
+    {
+      "id": "card.art_history.065.c4",
+      "type": "fact",
+      "fact": "In 1905, young artists in Dresden formed Die Brücke, \"The Bridge\".",
+      "context": "Led by Ernst Ludwig Kirchner, they pushed the idea hard. German Expressionists used jagged, distorted lines, rough and rapid brushwork and colors that clash. Pretty wasn't the point. The point was to make you feel what they felt, anxiety included.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "If a painting makes you uneasy, it may be working exactly as intended."
+      }
+    },
+    {
+      "id": "card.art_history.065.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.065.q1"
+    },
+    {
+      "id": "card.art_history.065.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.065.q2"
+    },
+    {
+      "id": "card.art_history.065.c7",
+      "type": "recall",
+      "questionId": "question.art_history.065.q3"
+    },
+    {
+      "id": "card.art_history.065.c8",
+      "type": "checkpoint",
+      "headline": "Expressionism: felt",
+      "learned": [
+        "Munch sensed \"an infinite scream\" at sunset",
+        "The Scream's figure covers its ears",
+        "Expressionism distorts to show feeling",
+        "Die Brücke formed in Dresden in 1905"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.expr_scream"
+      ],
+      "sourceCardIds": [
+        "card.art_history.065.c2"
+      ],
+      "prompt": "What did Munch write that he sensed at sunset?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A storm about to break over the fjord",
+          "correct": false,
+          "rationale": "He wrote of a scream, not a storm."
+        },
+        {
+          "id": "b",
+          "label": "An infinite scream passing through nature",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A friend calling his name from the city",
+          "correct": false,
+          "rationale": "The sound he described came from nature."
+        },
+        {
+          "id": "d",
+          "label": "Music drifting across the water",
+          "correct": false,
+          "rationale": "He described anxiety and a scream, not music."
+        }
+      ],
+      "explanation": "Munch wrote that the sky turned blood red and he sensed an infinite scream passing through nature.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.expr_definition"
+      ],
+      "sourceCardIds": [
+        "card.art_history.065.c3"
+      ],
+      "prompt": "What makes a painting Expressionist?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It records light exactly as the eye sees it",
+          "correct": false,
+          "rationale": "Expressionists cared about feelings, not accurate appearances."
+        },
+        {
+          "id": "b",
+          "label": "It uses only straight lines and pure colors",
+          "correct": false,
+          "rationale": "That's a strict, rule-bound look, not a feeling."
+        },
+        {
+          "id": "c",
+          "label": "It distorts what it shows to express a feeling",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It copies a photograph as closely as possible",
+          "correct": false,
+          "rationale": "Faithful copying is exactly what they broke with."
+        }
+      ],
+      "explanation": "Expressionism shows the emotions things arouse in a person, using distortion and exaggeration.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.art_history.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.expr_definition",
+        "concept.art_history.vangogh_color_feeling"
+      ],
+      "sourceCardIds": [
+        "card.art_history.065.c3",
+        "card.art_history.062.c4"
+      ],
+      "prompt": "Van Gogh helped pave the way for Expressionism. Which choice of his from Level 62 fits its goal best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Painting The Starry Night from memory",
+          "correct": false,
+          "rationale": "That's how he worked, not how he showed feeling."
+        },
+        {
+          "id": "b",
+          "label": "Making about 900 paintings in ten years",
+          "correct": false,
+          "rationale": "Output isn't expression."
+        },
+        {
+          "id": "c",
+          "label": "Selling little of his art in his lifetime",
+          "correct": false,
+          "rationale": "Sales have nothing to do with style."
+        },
+        {
+          "id": "d",
+          "label": "Red against green to express passions",
+          "correct": true
+        }
+      ],
+      "explanation": "In The Night Café he used red and green to express the terrible human passions: color for feeling, the Expressionist idea.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_munch",
+    "source.nasjonalmuseet_scream",
+    "source.brit_expressionism",
+    "source.brit_van_gogh"
+  ],
+  "art": "arts.brushes"
+}

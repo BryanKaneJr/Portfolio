@@ -1,0 +1,237 @@
+{
+  "id": "level.arts.art_history.072",
+  "skillId": "skill.arts.art_history",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Japan's Influence on the West",
+  "objective": "After this level you can explain how Japanese prints inspired the Impressionists.",
+  "summary": "After Japan reopened to trade in the 1850s, its prints reached Europe. Japonisme taught Monet, Degas and Van Gogh flat color, asymmetry and bold framing.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.japonisme",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.japonisme_artists",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ukiyoe_printmaking",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.071"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In the 1850s, Japanese pictures started arriving in Europe.",
+      "body": "Japan had been closed to the West since about 1600. When trade resumed, prints like Level 71's reached Europe. Artists there had never seen anything quite like them."
+    },
+    {
+      "id": "card.art_history.072.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A craze gets a name: Japonisme",
+      "body": "By the early 1870s the craze for Japanese art and design that swept France had a name, Japonisme, generally said to be coined by the critic Philippe Burty. What caught artists' eyes? Flat areas of bright color. Bold, stylized shapes. Everyday subjects. And compositions that ignored European habits: asymmetrical, off-center, framed in unexpected ways.",
+      "callout": "Flat color · bold shapes · everyday life · off-center framing"
+    },
+    {
+      "id": "card.art_history.072.c3",
+      "type": "fact",
+      "fact": "Monet lived surrounded by Japanese prints.",
+      "context": "At his house in Giverny he hung more than 200 of them, by Hokusai, Hiroshige, Utamaro and others. Outside, the bridge over his water garden recalls the Japanese bridges often shown in those prints. When you picture Monet's garden, you're partly picturing Japan.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Imagine eating breakfast every day under a wall of Hokusais. No wonder it rubbed off."
+      }
+    },
+    {
+      "id": "card.art_history.072.c4",
+      "type": "comparison",
+      "headline": "Two painters, two ways to borrow",
+      "items": [
+        {
+          "label": "Degas",
+          "points": [
+            "Collected Japanese prints",
+            "Borrowed their asymmetrical compositions",
+            "Framed scenes boldly, like a doorframe cutting in at the side"
+          ]
+        },
+        {
+          "label": "Van Gogh",
+          "points": [
+            "In 1887 copied a Hiroshige print as Bridge in the Rain",
+            "Made its colors more intense",
+            "Filled the border with Japanese characters copied from other prints"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.art_history.072.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.072.q1"
+    },
+    {
+      "id": "card.art_history.072.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.072.q2"
+    },
+    {
+      "id": "card.art_history.072.c7",
+      "type": "recall",
+      "questionId": "question.art_history.072.q3"
+    },
+    {
+      "id": "card.art_history.072.c8",
+      "type": "checkpoint",
+      "headline": "Japonisme: absorbed",
+      "learned": [
+        "Japan reopened to Western trade in the 1850s",
+        "Japonisme: the craze for Japanese art, named in the early 1870s",
+        "Flat color, bold shapes, off-center framing",
+        "Monet, Degas and Van Gogh all borrowed from prints"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.japonisme"
+      ],
+      "sourceCardIds": [
+        "card.art_history.072.c2"
+      ],
+      "prompt": "What was Japonisme?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A Japanese school of oil painting",
+          "correct": false,
+          "rationale": "It happened in the West, not in Japan."
+        },
+        {
+          "id": "b",
+          "label": "A treaty that opened Japan to trade",
+          "correct": false,
+          "rationale": "Trade reopened in the 1850s; Japonisme was what followed in art."
+        },
+        {
+          "id": "c",
+          "label": "The Western craze for Japanese art and design",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A style of Japanese garden bridge",
+          "correct": false,
+          "rationale": "Monet built such a bridge, but that's not what the word means."
+        }
+      ],
+      "explanation": "Japonisme was the craze for Japanese art and design that swept France and the West, named in the early 1870s.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.japonisme"
+      ],
+      "sourceCardIds": [
+        "card.art_history.072.c2"
+      ],
+      "prompt": "Which feature of Japanese prints did Western artists find so fresh?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Deep shadows modeled like sculpture",
+          "correct": false,
+          "rationale": "They admired the prints’ flatness."
+        },
+        {
+          "id": "b",
+          "label": "Flat areas of bright color",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Strict symmetry with the subject centered",
+          "correct": false,
+          "rationale": "The prints were admired for being asymmetrical."
+        },
+        {
+          "id": "d",
+          "label": "Scenes only of gods and ancient heroes",
+          "correct": false,
+          "rationale": "They showed everyday subjects."
+        }
+      ],
+      "explanation": "Artists admired the prints’ flat areas of bright color, bold stylization, everyday subjects and asymmetrical, unexpected framing.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.japonisme_artists",
+        "concept.art_history.ukiyoe_printmaking"
+      ],
+      "sourceCardIds": [
+        "card.art_history.072.c3",
+        "card.art_history.071.c3"
+      ],
+      "prompt": "Monet hung prints by Hokusai at Giverny. From Level 71, how was each color in such a print made?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Brushed by hand onto every copy",
+          "correct": false,
+          "rationale": "Color came from carved blocks, not hand painting."
+        },
+        {
+          "id": "b",
+          "label": "Sprayed through a paper stencil",
+          "correct": false,
+          "rationale": "That's closer to Level 5's hand stencils."
+        },
+        {
+          "id": "c",
+          "label": "Mixed into the paper before printing",
+          "correct": false,
+          "rationale": "The paper was printed one color at a time."
+        },
+        {
+          "id": "d",
+          "label": "Printed from its own carved woodblock",
+          "correct": true
+        }
+      ],
+      "explanation": "Every color got its own carved block, lined up with kento marks and printed one after another.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.tate_japonisme",
+    "source.slam_degas_japonisme",
+    "source.giverny_japanese_prints",
+    "source.vangoghmuseum_bridge_rain",
+    "source.asianart_ukiyoe_process",
+    "source.vam_ukiyoe"
+  ],
+  "art": "geo.wave"
+}

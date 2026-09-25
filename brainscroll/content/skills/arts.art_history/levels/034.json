@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.art_history.034",
+  "skillId": "skill.arts.art_history",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Patrons and the Medici",
+  "objective": "After this level you can explain how rich patrons like the Medici paid for Renaissance art.",
+  "summary": "Renaissance art began with a patron who paid and set the terms, down to the price of ultramarine blue. The Medici, rich from banking, even had themselves painted in.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.ren_patron_contracts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ren_medici_patrons",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ren_florence_origins",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.033"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1485, a painter signed a contract that set the price of his blue.",
+      "body": "Domenico Ghirlandaio agreed to paint an Adoration of the Magi for Florence's foundling hospital. Like most Renaissance art, it began with a patron: the person paying for the work, who often set the pay, materials, deadline and subject in a contract."
+    },
+    {
+      "id": "card.art_history.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four florins an ounce",
+      "body": "That blue was ultramarine, ground from lapis lazuli, a stone mined in north-eastern Afghanistan. It was the most expensive blue there was, so the contract named it: ultramarine at 4 florins an ounce. Ghirlandaio also had to paint the panel himself, follow an approved drawing and deliver within 30 months, for 115 florins. The patron wasn't just buying a picture. He was buying a guarantee."
+    },
+    {
+      "id": "card.art_history.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pay for it, ride in it",
+      "body": "Florence's biggest patrons were the Medici, a family grown rich on cloth and banking. From 1459, Benozzo Gozzoli, chosen by Cosimo de' Medici, covered three walls of the family's palace chapel with the Procession of the Magi: riders winding through a landscape of trees and flowering meadows. Look closely at the procession. Members of the Medici family are in it."
+    },
+    {
+      "id": "card.art_history.034.c4",
+      "type": "fact",
+      "fact": "Lorenzo de' Medici took a young Michelangelo into his home.",
+      "context": "Lorenzo, called the Magnificent, was a poet as well as a patron. Michelangelo had started out at 13 as an apprentice to Ghirlandaio, the painter with the blue contract. In Lorenzo's household he could study the family's collection of ancient Roman sculpture fragments. Sometimes a patron didn't just buy the art. He helped raise the artist.",
+      "mascot": {
+        "pose": "idea",
+        "line": "From the blue contract's workshop to the Medici house. Remember this young man; he comes back with a chisel."
+      }
+    },
+    {
+      "id": "card.art_history.034.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.034.q1"
+    },
+    {
+      "id": "card.art_history.034.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.034.q2"
+    },
+    {
+      "id": "card.art_history.034.c7",
+      "type": "recall",
+      "questionId": "question.art_history.034.q3"
+    },
+    {
+      "id": "card.art_history.034.c8",
+      "type": "checkpoint",
+      "headline": "Patrons: paid up",
+      "learned": [
+        "A patron pays for the work and sets the terms",
+        "Contracts could name the price of ultramarine",
+        "The Medici appear in Gozzoli's Procession of the Magi",
+        "Lorenzo de' Medici took in the young Michelangelo"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.ren_medici_patrons"
+      ],
+      "sourceCardIds": [
+        "card.art_history.034.c3"
+      ],
+      "prompt": "How do the Medici appear in Gozzoli's Procession of the Magi?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As a coat of arms in the sky",
+          "correct": false,
+          "rationale": "Look at the riders instead."
+        },
+        {
+          "id": "b",
+          "label": "As family members in the procession",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "As names in a written dedication",
+          "correct": false,
+          "rationale": "They appear as painted portraits."
+        },
+        {
+          "id": "d",
+          "label": "They paid, but they don't appear",
+          "correct": false,
+          "rationale": "Family portraits are in the procession."
+        }
+      ],
+      "explanation": "Gozzoli painted Medici family members among the riders in the procession.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.ren_patron_contracts"
+      ],
+      "sourceCardIds": [
+        "card.art_history.034.c2"
+      ],
+      "prompt": "Why did Ghirlandaio's contract set the price of the blue?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Blue was the painter's favorite color",
+          "correct": false,
+          "rationale": "The contract protected the patron, not the painter's taste."
+        },
+        {
+          "id": "b",
+          "label": "Painters mixed blue from red and yellow",
+          "correct": false,
+          "rationale": "Blue is a primary; it can't be mixed from those."
+        },
+        {
+          "id": "c",
+          "label": "Blue paint was free in Florence",
+          "correct": false,
+          "rationale": "Ultramarine was ground from stone mined in Afghanistan."
+        },
+        {
+          "id": "d",
+          "label": "Ultramarine was the priciest blue",
+          "correct": true
+        }
+      ],
+      "explanation": "Ultramarine was the most expensive blue, so the patron named the grade he was paying for: 4 florins an ounce.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.ren_patron_contracts",
+        "concept.art_history.ren_florence_origins"
+      ],
+      "sourceCardIds": [
+        "card.art_history.034.c1",
+        "card.art_history.031.c4"
+      ],
+      "prompt": "Level 31's bronze doors were paid for by the Calimala, a merchants' guild. In this level's terms, what was the guild?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The doors' patron",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Ghiberti's rival",
+          "correct": false,
+          "rationale": "Brunelleschi was the rival; the guild paid."
+        },
+        {
+          "id": "c",
+          "label": "Ghiberti's apprentice",
+          "correct": false,
+          "rationale": "The guild ordered and paid for the work."
+        },
+        {
+          "id": "d",
+          "label": "A group of humanists",
+          "correct": false,
+          "rationale": "Humanists studied old texts; this guild paid."
+        }
+      ],
+      "explanation": "A patron is whoever pays for the work. The Calimala guild commissioned Ghiberti's doors.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.lumen_patronage",
+    "source.wga_ghirlandaio_innocenti",
+    "source.ng_virgin_in_prayer",
+    "source.brit_medici",
+    "source.brit_gozzoli_procession",
+    "source.wga_gozzoli_magi",
+    "source.brit_michelangelo",
+    "source.brit_ghiberti"
+  ],
+  "art": "rome.coins"
+}

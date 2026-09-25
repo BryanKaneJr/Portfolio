@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.art_history.082",
+  "skillId": "skill.arts.art_history",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pop Art",
+  "objective": "After this level you can explain how Pop Art borrowed from ads, comics and celebrity.",
+  "summary": "Pop Art took its images from ads, packaging, films and comics, and dropped Abstract Expressionism's personal feelings. Lichtenstein painted comic panels, dots and all.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.pop_art_sources",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.pop_lichtenstein_comics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.abex_rothko_color_field",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.art_history.color_wheel_primaries",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.081"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1956, a collage showed a bodybuilder holding a giant lollipop labeled POP.",
+      "body": "Richard Hamilton made it in London, for an exhibition called This Is Tomorrow, from pictures cut out of American magazines. Around the bodybuilder, a crowded living room is stuffed with modern stuff. Tomorrow, it turned out, looked a lot like a magazine ad."
+    },
+    {
+      "id": "card.art_history.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Art from the supermarket",
+      "body": "Pop Art emerged in Britain and America in the 1950s and flourished in the 1960s. Its images came from places you didn't expect in a museum: advertising, product packaging, Hollywood movies, pop music and comic books. In 1957 Hamilton even wrote a list of what Pop should be, including popular, expendable, low cost, mass produced, witty and big business. That's a strange wish list for a work of art. It's a perfect one for a soda."
+    },
+    {
+      "id": "card.art_history.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why so impersonal?",
+      "body": "Remember Rothko from Level 81, painting tragedy and ecstasy? Pop turned the volume down. By choosing impersonal, everyday images, Pop artists moved away from the personal feelings that Abstract Expressionism was built on. A soup can has no inner torment. That was the point."
+    },
+    {
+      "id": "card.art_history.082.c4",
+      "type": "fact",
+      "fact": "Roy Lichtenstein turned one comic panel into a painting.",
+      "context": "His Whaam! (1963) comes from a panel in a 1962 war comic, All-American Men of War. On the left panel, a fighter jet fires; on the right, the enemy plane explodes under the word WHAAM!. He copied the look of cheap printing: thick black outlines around areas of primary color, and Benday dots, the dot patterns printers used. The twist: he made those dots by hand, with a scrub brush and a homemade metal screen.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Handmade dots pretending to be machine-made dots. Sneaky, and very Pop."
+      }
+    },
+    {
+      "id": "card.art_history.082.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.082.q1"
+    },
+    {
+      "id": "card.art_history.082.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.082.q2"
+    },
+    {
+      "id": "card.art_history.082.c7",
+      "type": "recall",
+      "questionId": "question.art_history.082.q3"
+    },
+    {
+      "id": "card.art_history.082.c8",
+      "type": "checkpoint",
+      "headline": "Pop Art: unwrapped",
+      "learned": [
+        "Hamilton's 1956 collage: a bodybuilder with a POP lollipop",
+        "Pop took images from ads, packaging, films and comics",
+        "It dropped Abstract Expressionism's personal feelings",
+        "Lichtenstein painted comic panels with hand-made Benday dots"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.pop_art_sources"
+      ],
+      "sourceCardIds": [
+        "card.art_history.082.c2"
+      ],
+      "prompt": "Where did Pop artists find most of their images?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ads, packaging, movies and comics",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Myths of ancient Greece and Rome",
+          "correct": false,
+          "rationale": "That was the Renaissance's source."
+        },
+        {
+          "id": "c",
+          "label": "Dreams and their own memories",
+          "correct": false,
+          "rationale": "Pop looked at shop shelves, not inner life."
+        },
+        {
+          "id": "d",
+          "label": "Landscapes painted outdoors",
+          "correct": false,
+          "rationale": "Pop's world was mass-produced, not natural."
+        }
+      ],
+      "explanation": "Pop Art took its imagery from advertising, product packaging, Hollywood movies, pop music and comic books.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.pop_art_sources",
+        "concept.art_history.abex_rothko_color_field"
+      ],
+      "sourceCardIds": [
+        "card.art_history.082.c3"
+      ],
+      "prompt": "Why did Pop artists choose impersonal images like soup cans?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Museums had stopped buying abstract art",
+          "correct": false,
+          "rationale": "Nothing here says museums changed their buying."
+        },
+        {
+          "id": "b",
+          "label": "To step away from Abstract Expressionist feeling",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Comic pages cost less than canvas and paint",
+          "correct": false,
+          "rationale": "Cost wasn't the reason given."
+        },
+        {
+          "id": "d",
+          "label": "To deepen Rothko's sense of tragedy",
+          "correct": false,
+          "rationale": "They moved away from that kind of feeling."
+        }
+      ],
+      "explanation": "Everyday, impersonal images let Pop artists move away from the personal feelings at the heart of Abstract Expressionism.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.pop_lichtenstein_comics",
+        "concept.art_history.color_wheel_primaries"
+      ],
+      "sourceCardIds": [
+        "card.art_history.082.c4",
+        "card.art_history.004.c2"
+      ],
+      "prompt": "Level 4 named the painter's primaries. How did Lichtenstein use primary colors in his comic paintings?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mixed together into soft browns",
+          "correct": false,
+          "rationale": "He kept each color in its own outlined area."
+        },
+        {
+          "id": "b",
+          "label": "Blended at the edges like Rothko",
+          "correct": false,
+          "rationale": "His edges are hard black outlines."
+        },
+        {
+          "id": "c",
+          "label": "In flat areas outlined in thick black",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only in the lettering, never the pictures",
+          "correct": false,
+          "rationale": "Primary color fills the pictures too."
+        }
+      ],
+      "explanation": "Lichtenstein imitated cheap printing: areas of red, yellow and blue outlined with thick black lines, plus Benday dots.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.theartstory_richard_hamilton",
+    "source.tate_pop_art",
+    "source.tate_etc_whaam",
+    "source.brit_lichtenstein"
+  ],
+  "art": "arts.soup-can"
+}

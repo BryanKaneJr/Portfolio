@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.art_history.096",
+  "skillId": "skill.arts.art_history",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Forgery",
+  "objective": "After this level you can explain how famous forgeries were made and caught.",
+  "summary": "Forgers fake the look, but chemistry catches the materials: Bakelite and cobalt blue unmasked van Meegeren's Vermeers, and titanium white exposed Beltracchi.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.forgery_van_meegeren",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.forgery_material_clues",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.dating_cave_art",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.095"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.096.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1945, a Dutch painter's best defense was confessing to forgery.",
+      "body": "After the Second World War, a painting sold as a work by the 1600s Dutch master Johannes Vermeer turned up in the collection of Nazi leader Hermann Göring. Han van Meegeren, who had sold it, was arrested for collaborating with the Nazis, a serious charge. His defense: it wasn't a Vermeer. He had painted it himself."
+    },
+    {
+      "id": "card.art_history.096.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A forger paints for the police",
+      "body": "Nobody believed him, so he proved it: watched by the authorities, he painted another \"Vermeer\" with the same materials and techniques. His tricks were clever. He took a real 1600s painting and scrubbed most of the picture off, careful to keep its old network of cracks. He mixed his paint with Bakelite, a synthetic resin, and baked the canvas so it set hard like old paint."
+    },
+    {
+      "id": "card.art_history.096.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Caught by chemistry",
+      "body": "Tests by Paul Coremans, head of Belgium's central museum laboratory, found phenol-formaldehyde resin, Bakelite, in the paint. Bakelite was invented in 1907. Two paintings also held cobalt blue, a pigment not made until the 1800s. No painter of the 1600s could have used either. In 1947 van Meegeren was convicted of forgery and sentenced to one year in prison. He died of a heart attack before he served it."
+    },
+    {
+      "id": "card.art_history.096.c4",
+      "type": "fact",
+      "fact": "A forger's worst enemy is a paint that didn't exist yet.",
+      "context": "Wolfgang Beltracchi didn't copy famous pictures; he invented new ones \"in the style of\" artists such as Max Ernst and Heinrich Campendonk. Then a lab tested a \"Campendonk\" supposedly from 1914 and found titanium white, a pigment not yet in use in 1914. That one white unraveled the whole scheme. In 2011 he was sentenced to six years.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A forger can copy a brushstroke. Copying the calendar is much harder."
+      }
+    },
+    {
+      "id": "card.art_history.096.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.096.q1"
+    },
+    {
+      "id": "card.art_history.096.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.096.q2"
+    },
+    {
+      "id": "card.art_history.096.c7",
+      "type": "recall",
+      "questionId": "question.art_history.096.q3"
+    },
+    {
+      "id": "card.art_history.096.c8",
+      "type": "checkpoint",
+      "headline": "Forgery: caught",
+      "learned": [
+        "Van Meegeren sold a fake Vermeer to Göring",
+        "He proved it by painting another under watch",
+        "Bakelite and cobalt blue gave him away",
+        "Titanium white exposed Beltracchi"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.forgery_van_meegeren"
+      ],
+      "sourceCardIds": [
+        "card.art_history.096.c2",
+        "card.art_history.096.c1"
+      ],
+      "prompt": "How did van Meegeren prove his \"Vermeer\" was a fake?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He showed receipts for the paint",
+          "correct": false,
+          "rationale": "He gave a live demonstration."
+        },
+        {
+          "id": "b",
+          "label": "He painted another one while authorities watched",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He pointed out his hidden signature",
+          "correct": false,
+          "rationale": "He proved it by painting."
+        },
+        {
+          "id": "d",
+          "label": "He had it X-rayed in court",
+          "correct": false,
+          "rationale": "He painted a new one under observation."
+        }
+      ],
+      "explanation": "Watched by the authorities, he painted another \"Vermeer\" with the same materials and techniques.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.forgery_material_clues"
+      ],
+      "sourceCardIds": [
+        "card.art_history.096.c4"
+      ],
+      "prompt": "Why did titanium white expose Beltracchi's \"Campendonk\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Campendonk never used white",
+          "correct": false,
+          "rationale": "The problem was when that white existed."
+        },
+        {
+          "id": "b",
+          "label": "It was too bright for a real painting",
+          "correct": false,
+          "rationale": "Brightness wasn't the clue."
+        },
+        {
+          "id": "c",
+          "label": "The paint tube had Beltracchi's name on it",
+          "correct": false,
+          "rationale": "It was the pigment, found by a lab."
+        },
+        {
+          "id": "d",
+          "label": "It wasn't yet in use in 1914, the painting's claimed date",
+          "correct": true
+        }
+      ],
+      "explanation": "Titanium white was not yet in use in 1914, so a 1914 painting couldn't contain it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.forgery_material_clues",
+        "concept.art_history.dating_cave_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.096.c3",
+        "card.art_history.010.c3"
+      ],
+      "prompt": "Level 10 dated Chauvet's drawings from their charcoal. What do forgery experts and cave-art daters both rely on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The artist's signature",
+          "correct": false,
+          "rationale": "Cave art has none, and forgers fake them."
+        },
+        {
+          "id": "b",
+          "label": "Lab tests of the materials themselves",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Written records of who owned it",
+          "correct": false,
+          "rationale": "Neither case depended on paperwork."
+        },
+        {
+          "id": "d",
+          "label": "Expert opinion about the style",
+          "correct": false,
+          "rationale": "Style fooled experts; chemistry didn't."
+        }
+      ],
+      "explanation": "Both ask the material: carbon-14 in charcoal dates a drawing, and a pigment or resin can prove a painting too young.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_van_meegeren",
+    "source.essentialvermeer_van_meegeren",
+    "source.bristol_van_meegeren_chemistry",
+    "source.sciencehistory_bakelite",
+    "source.brit_beltracchi",
+    "source.brit_carbon14_dating"
+  ],
+  "art": "object.magnifier"
+}

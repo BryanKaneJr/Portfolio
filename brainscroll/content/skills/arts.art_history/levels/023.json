@@ -1,0 +1,223 @@
+{
+  "id": "level.arts.art_history.023",
+  "skillId": "skill.arts.art_history",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Alhambra and Great Mosques",
+  "objective": "After this level you can describe the architecture of the Alhambra and the great mosques.",
+  "summary": "Córdoba's Great Mosque (begun about 785) is a forest of reused Roman columns under two tiers of striped arches. Granada's Alhambra, \"the red one\", is the Nasrid palace of the Court of the Lions.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.cordoba_great_mosque",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.alhambra",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.islamic_religious_figures",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.islamic_calligraphy",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.022"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In Córdoba, a mosque turned into a forest.",
+      "body": "Step into the prayer hall of the Great Mosque of Córdoba, in Spain, and columns run away from you in every direction, topped with arches striped red and white like candy canes. Then there's Granada's Alhambra, a palace built on a hill. Two buildings, two very different jobs."
+    },
+    {
+      "id": "card.art_history.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Arches on top of arches",
+      "body": "The mosque was begun about 785 under the ruler Abd al-Rahman I. Many of its columns were reused from ancient Roman buildings. On top of them sits a second tier of arches stacked above the lower horseshoe arches, which gave the prayer hall greater height. The stripes come from alternating red brick and white stone. Recycling, with style."
+    },
+    {
+      "id": "card.art_history.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The red one",
+      "body": "The Alhambra takes its name from Arabic al-Hamra, \"the red one\", after the reddish color of its walls. Its famous palaces were built in the 14th century by the Nasrids, the last Muslim dynasty to rule in Spain. At the heart is the Court of the Lions, built for the sultan Muhammad V from 1362. Its fountain basin rests on 12 carved marble lions."
+    },
+    {
+      "id": "card.art_history.023.c4",
+      "type": "fact",
+      "fact": "The Alhambra repeats one sentence over and over on its walls.",
+      "context": "It's the Nasrid motto: \"There is no victor but God.\" It's carved into the plaster again and again, woven among geometric stars and vines. Look up in the halls around the Court of the Lions and you'll find muqarnas, ceilings of many small niche-like cells, often compared to honeycomb. They're some of the most elaborate in the Islamic world.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "A ceiling like a honeycomb, walls like a book. The Alhambra rewards anyone who looks up."
+      }
+    },
+    {
+      "id": "card.art_history.023.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.023.q1"
+    },
+    {
+      "id": "card.art_history.023.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.023.q2"
+    },
+    {
+      "id": "card.art_history.023.c7",
+      "type": "recall",
+      "questionId": "question.art_history.023.q3"
+    },
+    {
+      "id": "card.art_history.023.c8",
+      "type": "checkpoint",
+      "headline": "Mosque and palace: toured",
+      "learned": [
+        "Córdoba's Great Mosque was begun about 785",
+        "Reused columns carry two tiers of red-and-white arches",
+        "Alhambra means \"the red one\"",
+        "The Court of the Lions rests its fountain on 12 lions"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.cordoba_great_mosque"
+      ],
+      "sourceCardIds": [
+        "card.art_history.023.c2"
+      ],
+      "prompt": "What gives the arches of Córdoba's Great Mosque their red and white stripes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Red and white paint over plaster",
+          "correct": false,
+          "rationale": "The stripes are built in, not painted on."
+        },
+        {
+          "id": "b",
+          "label": "Alternating red brick and white stone",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Colored glass set into the arches",
+          "correct": false,
+          "rationale": "That's a different craft; these are brick and stone."
+        },
+        {
+          "id": "d",
+          "label": "Red and white marble from Rome",
+          "correct": false,
+          "rationale": "Some columns were Roman, but the stripes are brick and stone."
+        }
+      ],
+      "explanation": "The arches alternate red brick and white stone.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.cordoba_great_mosque"
+      ],
+      "sourceCardIds": [
+        "card.art_history.023.c2"
+      ],
+      "prompt": "Why did Córdoba's builders stack a second tier of arches on the columns?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To hold up a gold mosaic dome",
+          "correct": false,
+          "rationale": "The point was height, not a dome."
+        },
+        {
+          "id": "b",
+          "label": "To make room for a second floor",
+          "correct": false,
+          "rationale": "There's no upper floor; the hall just rises higher."
+        },
+        {
+          "id": "c",
+          "label": "To hide the reused Roman columns",
+          "correct": false,
+          "rationale": "The columns stay in plain view."
+        },
+        {
+          "id": "d",
+          "label": "To give the prayer hall greater height",
+          "correct": true
+        }
+      ],
+      "explanation": "Stacking a second tier of arches above the horseshoe arches gave the prayer hall greater height.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.alhambra",
+        "concept.art_history.islamic_religious_figures"
+      ],
+      "sourceCardIds": [
+        "card.art_history.023.c3",
+        "card.art_history.022.c2"
+      ],
+      "prompt": "The Court of the Lions has 12 carved lions. Given Level 22, why isn't that surprising?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's a palace, and figures were common outside religious spaces",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The lions were added after the Nasrids left",
+          "correct": false,
+          "rationale": "The court and its fountain were built for Muhammad V."
+        },
+        {
+          "id": "c",
+          "label": "Islamic art had no rules about images",
+          "correct": false,
+          "rationale": "Mosques do avoid figures; the difference is the setting."
+        },
+        {
+          "id": "d",
+          "label": "Lions don't count as living forms",
+          "correct": false,
+          "rationale": "Lions are living forms; what matters is that this is a palace."
+        }
+      ],
+      "explanation": "Mosques avoid images of living beings, but palaces and other secular spaces often have figures.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.khan_cordoba_mosque",
+    "source.alhambradegranada_history",
+    "source.brit_nasrid_dynasty",
+    "source.brit_alhambra_court_lions"
+  ],
+  "art": "arts.pattern-tile"
+}

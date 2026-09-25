@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.art_history.032",
+  "skillId": "skill.arts.art_history",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Perspective",
+  "objective": "After this level you can explain how linear perspective makes a flat picture look deep.",
+  "summary": "Linear perspective makes parallel lines meet at one vanishing point. Brunelleschi proved it with a peephole panel about 1415; Alberti wrote it down in 1435.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.ren_linear_perspective",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ren_masaccio_trinity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.negative_space",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.031"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About 1415, Brunelleschi painted a picture with a hole in it.",
+      "body": "He stood just inside the doorway of Florence's unfinished cathedral and painted the Baptistery across the square on a small panel. Then he drilled a peephole through it, as small as a lentil on the painted side. The hole was part of a proof."
+    },
+    {
+      "id": "card.art_history.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lines that meet",
+      "body": "Stand between railway tracks and look along them. The rails never touch, yet they seem to squeeze together far away. Linear perspective turns that into a rule for pictures: all the parallel lines running away from you meet at a single vanishing point on the horizon line, and things get smaller as they near it. Follow the rule and a flat surface starts to look deep."
+    },
+    {
+      "id": "card.art_history.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The peephole proof",
+      "body": "Here's how the test worked. You peeked through the hole from the back of the panel at a mirror held in front of it. In the mirror you saw the painted Baptistery, and you could compare it straight away with the real one, and it matched. The panel is lost now, but the method survived: in 1435, Leon Battista Alberti wrote it down in his book On Painting, so any painter could learn it.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "A painting you check with a mirror and the real building. Hard to argue with that kind of evidence."
+      }
+    },
+    {
+      "id": "card.art_history.032.c4",
+      "type": "fact",
+      "fact": "A flat wall that opens into a chapel.",
+      "context": "Masaccio painted the Holy Trinity on a wall of Santa Maria Novella in Florence in 1425-27: Christ on the cross beneath a deep, coffered barrel vault. He drew the vault in linear perspective, so the wall seems to open into a real chapel. Level 3 called this space: the feeling of depth in a flat picture."
+    },
+    {
+      "id": "card.art_history.032.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.032.q1"
+    },
+    {
+      "id": "card.art_history.032.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.032.q2"
+    },
+    {
+      "id": "card.art_history.032.c7",
+      "type": "recall",
+      "questionId": "question.art_history.032.q3"
+    },
+    {
+      "id": "card.art_history.032.c8",
+      "type": "checkpoint",
+      "headline": "Perspective: in focus",
+      "learned": [
+        "Parallel lines meet at one vanishing point on the horizon",
+        "Brunelleschi proved it with a peephole and a mirror",
+        "Alberti wrote the method down in 1435",
+        "Masaccio's Holy Trinity opens a flat wall into a chapel"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.ren_linear_perspective"
+      ],
+      "sourceCardIds": [
+        "card.art_history.032.c2"
+      ],
+      "prompt": "In linear perspective, where do parallel lines running into the distance meet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "At the edges of the frame",
+          "correct": false,
+          "rationale": "They meet inside the picture, not at its edges."
+        },
+        {
+          "id": "b",
+          "label": "At a vanishing point on the horizon",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Nowhere; they stay parallel",
+          "correct": false,
+          "rationale": "In a perspective drawing they're drawn converging."
+        },
+        {
+          "id": "d",
+          "label": "At the bottom of the picture",
+          "correct": false,
+          "rationale": "They meet on the horizon line."
+        }
+      ],
+      "explanation": "Parallel lines receding into the picture converge at one vanishing point on the horizon line.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.ren_linear_perspective"
+      ],
+      "sourceCardIds": [
+        "card.art_history.032.c1",
+        "card.art_history.032.c3"
+      ],
+      "prompt": "Why did Brunelleschi have viewers peek through his panel at a mirror?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To make the painting look brighter",
+          "correct": false,
+          "rationale": "The mirror was for comparing, not lighting."
+        },
+        {
+          "id": "b",
+          "label": "To hide the painting from rivals",
+          "correct": false,
+          "rationale": "Showing people was the whole point."
+        },
+        {
+          "id": "c",
+          "label": "To compare it with the real Baptistery",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To see the painting upside down",
+          "correct": false,
+          "rationale": "The mirror let them check it against the building."
+        }
+      ],
+      "explanation": "In the mirror, the painted Baptistery could be compared directly with the real one, and it matched.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.ren_masaccio_trinity",
+        "concept.art_history.negative_space"
+      ],
+      "sourceCardIds": [
+        "card.art_history.032.c4",
+        "card.art_history.003.c4"
+      ],
+      "prompt": "Level 3 said space can mean a feeling of depth. How does Masaccio's Holy Trinity create it on a flat wall?",
+      "options": [
+        {
+          "id": "a",
+          "label": "With a real niche carved into the wall",
+          "correct": false,
+          "rationale": "The chapel is painted, not carved."
+        },
+        {
+          "id": "b",
+          "label": "With shiny gold leaf on the background",
+          "correct": false,
+          "rationale": "Gold leaf doesn't make a wall look deep."
+        },
+        {
+          "id": "c",
+          "label": "With a vault painted in linear perspective",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "With thick paint that sticks out",
+          "correct": false,
+          "rationale": "That's real texture, not depth."
+        }
+      ],
+      "explanation": "Masaccio drew the barrel vault in linear perspective, so the flat wall seems to open into a chapel.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_linear_perspective",
+    "source.webexhibits_brunelleschi_experiment",
+    "source.brit_brunelleschi",
+    "source.getty_elements_of_art"
+  ],
+  "art": "arts.perspective"
+}

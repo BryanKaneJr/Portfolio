@@ -1,0 +1,223 @@
+{
+  "id": "level.arts.art_history.012",
+  "skillId": "skill.arts.art_history",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Rules of Egyptian Art",
+  "objective": "After this level you can explain the rules that kept Egyptian art so consistent for 3,000 years.",
+  "summary": "Egyptian artists drew each body part from its most complete angle, used a shared 18-unit grid, and made important people bigger. The style held for about 3,000 years.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.egypt_composite_view",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.egypt_art_rules",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.lascaux",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.art_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.011"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Egyptian art kept one look for about 3,000 years.",
+      "body": "It did change, slowly, but it held its character so well that you can spot Egyptian art from across a museum. The secret is rules. Learn three and you can read almost any Egyptian painting."
+    },
+    {
+      "id": "card.art_history.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rule 1: every body part at its best angle",
+      "body": "Stand like a figure in an Egyptian painting and you'd need a very flexible neck. The head is in profile, but the eye looks straight at you. The shoulders face front, while the legs walk sideways. This wasn't clumsiness: artists combined viewpoints to show each part of the body in its most complete form. Level 6's aurochs did something similar, with bodies from the side and horns turned toward you."
+    },
+    {
+      "id": "card.art_history.012.c3",
+      "type": "fact",
+      "fact": "A standing figure measured 18 squares from the soles of the feet to the hairline.",
+      "context": "Artists laid a grid on the wall first, so a body came out with the same proportions whatever its size. Why stop at the hairline? Crowns and headdresses varied, so the top of the head didn't count. Every workshop sharing one grid is part of why the style stayed so steady.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Egyptian painters were using graph paper long before it was homework."
+      }
+    },
+    {
+      "id": "card.art_history.012.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rule 3: bigger means more important",
+      "body": "In a tomb painting, the king or the tomb owner towers over everyone. His family is smaller, his servants smaller still. It isn't distance; it's rank. Remember Level 1: Egyptian art served the king and the gods, and size told you at a glance exactly who mattered."
+    },
+    {
+      "id": "card.art_history.012.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.012.q1"
+    },
+    {
+      "id": "card.art_history.012.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.012.q2"
+    },
+    {
+      "id": "card.art_history.012.c7",
+      "type": "recall",
+      "questionId": "question.art_history.012.q3"
+    },
+    {
+      "id": "card.art_history.012.c8",
+      "type": "checkpoint",
+      "headline": "Egypt's rules: learned",
+      "learned": [
+        "Composite view: profile head, frontal eye and shoulders",
+        "An 18-square grid set the proportions",
+        "Bigger meant more important",
+        "The style held for about 3,000 years"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.egypt_composite_view"
+      ],
+      "sourceCardIds": [
+        "card.art_history.012.c2"
+      ],
+      "prompt": "How did Egyptian artists usually draw a standing person's head and eye?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Head facing front, eye in profile",
+          "correct": false,
+          "rationale": "It's the other way around."
+        },
+        {
+          "id": "b",
+          "label": "Head and eye both in profile",
+          "correct": false,
+          "rationale": "The eye was drawn as if seen from the front."
+        },
+        {
+          "id": "c",
+          "label": "Head in profile, eye seen from the front",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Head and eye both facing front",
+          "correct": false,
+          "rationale": "Only the eye and shoulders face front."
+        }
+      ],
+      "explanation": "The head is in profile, but the eye is drawn as if seen from the front: each part at its most complete angle.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.egypt_art_rules"
+      ],
+      "sourceCardIds": [
+        "card.art_history.012.c4"
+      ],
+      "prompt": "In an Egyptian tomb painting, one man is twice the size of everyone else. What does that tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He is the most important person there",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He is standing closest to you",
+          "correct": false,
+          "rationale": "Egyptian size showed rank, not distance."
+        },
+        {
+          "id": "c",
+          "label": "He was painted by a different artist",
+          "correct": false,
+          "rationale": "Workshops shared the same rules; size meant rank."
+        },
+        {
+          "id": "d",
+          "label": "He is a servant carrying food",
+          "correct": false,
+          "rationale": "Servants are drawn smaller, not bigger."
+        }
+      ],
+      "explanation": "Size showed importance: kings dwarf officials, and tomb owners dwarf their families and servants.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.egypt_composite_view",
+        "concept.art_history.lascaux"
+      ],
+      "sourceCardIds": [
+        "card.art_history.012.c2",
+        "card.art_history.006.c2"
+      ],
+      "prompt": "Lascaux's aurochs (Level 6) also mix two viewpoints in one figure. How?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Heads from above, legs from below",
+          "correct": false,
+          "rationale": "Their bodies are drawn from the side."
+        },
+        {
+          "id": "b",
+          "label": "Bodies from the side, horns turned toward you",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Every animal seen from straight ahead",
+          "correct": false,
+          "rationale": "The bodies are in profile."
+        },
+        {
+          "id": "d",
+          "label": "Two eyes drawn on a profile head",
+          "correct": false,
+          "rationale": "It's the horns that twist toward you."
+        }
+      ],
+      "explanation": "Lascaux's bulls have side-view bodies with horns twisted toward the viewer, like Egypt's profile heads with front-view eyes.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_egyptian_art",
+    "source.brit_lascaux",
+    "source.bradshaw_lascaux",
+    "source.met_egypt_educators"
+  ],
+  "art": "geo.pyramids"
+}

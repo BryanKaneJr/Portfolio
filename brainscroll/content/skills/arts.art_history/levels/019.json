@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.art_history.019",
+  "skillId": "skill.arts.art_history",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Early Art of China and India",
+  "objective": "After this level you can describe the Terracotta Army and early Buddhist sculpture.",
+  "summary": "About 8,000 clay soldiers, each with its own face, guard China's first emperor. In India, early art showed the Buddha only as symbols, until about the 1st century CE.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.terracotta_army",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.buddha_image",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.egypt_tomb_models",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.018"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1974, farmers digging a well in China found an army.",
+      "body": "Underground stood about 8,000 life-size soldiers made of clay, buried to guard the tomb of Qin Shi Huang, first emperor of a unified China, who died in 210 BCE. Meanwhile in India, sculptors faced the opposite puzzle: how do you show someone without showing him?"
+    },
+    {
+      "id": "card.art_history.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An army of individuals",
+      "body": "The soldiers weren't made in one piece. Each was assembled from separately fired sections, then given its own detailed face. Picture thousands of clay men, each with a face of his own. Their weapons, cast from an unusual metal alloy, are still shiny and sharp today. Their job: guard the emperor's tomb."
+    },
+    {
+      "id": "card.art_history.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Buddha as an empty seat",
+      "body": "At Sanchi, in India, stone gateways added to the Great Stupa in the 1st century BCE are crowded with carved stories of the Buddha's life. But look for the Buddha himself and you find only signs: a wheel, an empty throne, a pair of footprints. The story is all there; the star never appears. It's like a film where the hero is always just off screen."
+    },
+    {
+      "id": "card.art_history.019.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then the Buddha got a face",
+      "body": "Around the 1st century CE, sculptors in two places, Gandhara and Mathura, each began showing the Buddha in human form. Gandhara, in today's northwestern Pakistan and eastern Afghanistan, made a version you might recognize: a youthful, Apollo-like face and robes like those on Roman imperial statues. Greek and Roman ideas had traveled a very long way.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A Buddha dressed a bit like a Roman emperor. Art history loves a surprise guest."
+      }
+    },
+    {
+      "id": "card.art_history.019.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.019.q1"
+    },
+    {
+      "id": "card.art_history.019.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.019.q2"
+    },
+    {
+      "id": "card.art_history.019.c7",
+      "type": "recall",
+      "questionId": "question.art_history.019.q3"
+    },
+    {
+      "id": "card.art_history.019.c8",
+      "type": "checkpoint",
+      "headline": "China and India: met",
+      "learned": [
+        "About 8,000 clay soldiers guard the first emperor",
+        "Each soldier got his own face",
+        "Sanchi shows the Buddha only as signs",
+        "Human Buddhas appeared about the 1st century CE"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.terracotta_army"
+      ],
+      "sourceCardIds": [
+        "card.art_history.019.c2"
+      ],
+      "prompt": "How were the Terracotta Army soldiers' faces made?",
+      "options": [
+        {
+          "id": "a",
+          "label": "All pressed from one face mold",
+          "correct": false,
+          "rationale": "Each soldier was given an individually detailed face."
+        },
+        {
+          "id": "b",
+          "label": "Each was given its own detailed face",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Left blank for the emperor's spirit",
+          "correct": false,
+          "rationale": "The faces are detailed."
+        },
+        {
+          "id": "d",
+          "label": "Copied from Roman portrait busts",
+          "correct": false,
+          "rationale": "Roman verism is a different tradition, Level 17."
+        }
+      ],
+      "explanation": "The soldiers were assembled from separately fired sections, but each got an individually detailed face.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.buddha_image"
+      ],
+      "sourceCardIds": [
+        "card.art_history.019.c3"
+      ],
+      "prompt": "On the gateways at Sanchi, how is the Buddha shown?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As a giant, to show his importance",
+          "correct": false,
+          "rationale": "That's Egypt's rule of scale."
+        },
+        {
+          "id": "b",
+          "label": "As a youth in Roman-style robes",
+          "correct": false,
+          "rationale": "That's Gandhara, later."
+        },
+        {
+          "id": "c",
+          "label": "Only through signs like footprints and an empty throne",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He is left out of the stories entirely",
+          "correct": false,
+          "rationale": "He's there in every story, as a sign."
+        }
+      ],
+      "explanation": "At Sanchi, in the 1st century BCE, the Buddha appears only as a wheel, an empty throne or a pair of footprints.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.terracotta_army",
+        "concept.art_history.egypt_tomb_models"
+      ],
+      "sourceCardIds": [
+        "card.art_history.019.c1",
+        "card.art_history.013.c3",
+        "card.art_history.013.c4"
+      ],
+      "prompt": "The Terracotta Army and Meketre's models (Level 13) share a purpose. What?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Toys made for royal children",
+          "correct": false,
+          "rationale": "Both were made for the dead."
+        },
+        {
+          "id": "b",
+          "label": "Figures made to serve someone after death",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Statues for public squares",
+          "correct": false,
+          "rationale": "Both were buried in tombs."
+        },
+        {
+          "id": "d",
+          "label": "Practice pieces for young sculptors",
+          "correct": false,
+          "rationale": "Both had a job in the afterlife."
+        }
+      ],
+      "explanation": "The clay army guards the first emperor's tomb; Meketre's models were buried to provide for him in the afterlife.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_terracotta_army",
+    "source.brit_qin_shi_huang",
+    "source.brit_sanchi_sculpture",
+    "source.brit_gandhara_art"
+  ],
+  "art": "arts.clay-figure"
+}

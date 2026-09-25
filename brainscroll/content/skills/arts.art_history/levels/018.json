@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.art_history.018",
+  "skillId": "skill.arts.art_history",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mosaics",
+  "objective": "After this level you can explain how mosaics are made and where they flourished.",
+  "summary": "Mosaics are pictures of small closely set tesserae. Greeks invented cut tesserae; Romans laid mosaic floors across the empire, like Pompeii's Alexander Mosaic.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.mosaic_tesserae",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.alexander_mosaic",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.roman_greek_copies",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.017"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A Pompeii doorway still says \"Beware of the dog\".",
+      "body": "At the entrance of the House of the Tragic Poet, a black dog on a chain is set into the floor in tiny pieces of stone, above the words CAVE CANEM. Vesuvius buried Pompeii in 79 CE, and the warning survived. It's a mosaic: a picture you could walk on."
+    },
+    {
+      "id": "card.art_history.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pictures made of dice",
+      "body": "A mosaic is built from tesserae: small, closely set pieces of stone, glass, tile or shell. The name is Latin for \"cubes\" or \"dice\". The Greeks refined floor pictures made of pebbles, then invented cut tesserae, shaped to fit tightly together. Tighter pieces meant denser, more detailed pictures, the way more pixels make a sharper photo."
+    },
+    {
+      "id": "card.art_history.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Alexander Mosaic",
+      "body": "In the House of the Faun, another Pompeii house, lay a floor about 5.8 m wide, made around 100 BCE from more than a million tesserae. It shows Alexander the Great fighting the Persian king Darius III at the Battle of Issus. Scholars believe it's a Roman copy of a lost Greek painting. If so, a great Greek painting survives only as a Roman floor.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "More than a million pieces, each placed by hand. And you thought a thousand-piece jigsaw was a big weekend."
+      }
+    },
+    {
+      "id": "card.art_history.018.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Floors of an empire",
+      "body": "Roman mosaics spread throughout the empire as floor decoration. The same art covered a guard-dog warning at a front door and a great battle in the House of the Faun. Across the empire, Romans walked on pictures."
+    },
+    {
+      "id": "card.art_history.018.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.018.q1"
+    },
+    {
+      "id": "card.art_history.018.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.018.q2"
+    },
+    {
+      "id": "card.art_history.018.c7",
+      "type": "recall",
+      "questionId": "question.art_history.018.q3"
+    },
+    {
+      "id": "card.art_history.018.c8",
+      "type": "checkpoint",
+      "headline": "Mosaics: pieced together",
+      "learned": [
+        "Tesserae are small closely set pieces",
+        "Greeks invented cut tesserae",
+        "The Alexander Mosaic: more than a million pieces",
+        "Roman floors spread across the empire"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.mosaic_tesserae"
+      ],
+      "sourceCardIds": [
+        "card.art_history.018.c2"
+      ],
+      "prompt": "What are tesserae?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Small pieces set closely to make a mosaic",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Carved stone cylinders for sealing clay",
+          "correct": false,
+          "rationale": "That's a Mesopotamian cylinder seal."
+        },
+        {
+          "id": "c",
+          "label": "Column tops carved with scrolls",
+          "correct": false,
+          "rationale": "That's an Ionic capital."
+        },
+        {
+          "id": "d",
+          "label": "Figures of workers buried in tombs",
+          "correct": false,
+          "rationale": "Those are Egyptian shabtis."
+        }
+      ],
+      "explanation": "Tesserae (Latin for \"cubes\" or \"dice\") are the small pieces of stone, glass, tile or shell that make a mosaic.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.alexander_mosaic"
+      ],
+      "sourceCardIds": [
+        "card.art_history.018.c3"
+      ],
+      "prompt": "Why is the Alexander Mosaic precious for knowing Greek painting?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was signed by a famous Greek painter",
+          "correct": false,
+          "rationale": "No signature is mentioned; it is believed to be a copy."
+        },
+        {
+          "id": "b",
+          "label": "It is believed to copy a lost Greek painting",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It was painted with a brush on plaster",
+          "correct": false,
+          "rationale": "It is made of more than a million tesserae."
+        },
+        {
+          "id": "d",
+          "label": "It is the only mosaic found in Pompeii",
+          "correct": false,
+          "rationale": "Pompeii has others, like the dog at the door."
+        }
+      ],
+      "explanation": "Scholars believe it is a Roman copy of a lost Greek painting, so the painting survives only through it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.alexander_mosaic",
+        "concept.art_history.roman_greek_copies"
+      ],
+      "sourceCardIds": [
+        "card.art_history.018.c3",
+        "card.art_history.017.c1"
+      ],
+      "prompt": "What do the Alexander Mosaic and Level 17's Spear Bearer have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both are carved from marble",
+          "correct": false,
+          "rationale": "The mosaic is made of tesserae."
+        },
+        {
+          "id": "b",
+          "label": "Both show Alexander the Great",
+          "correct": false,
+          "rationale": "The Spear Bearer is an idealized young man."
+        },
+        {
+          "id": "c",
+          "label": "Greek originals reach us through Roman copies",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both were found on the Athenian Acropolis",
+          "correct": false,
+          "rationale": "The mosaic comes from Pompeii."
+        }
+      ],
+      "explanation": "The Spear Bearer is known only through Roman copies, and the Alexander Mosaic is believed to be a Roman copy of a lost Greek painting.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.history_cave_canem",
+    "source.brit_mosaic",
+    "source.archaeologymag_alexander_mosaic"
+  ],
+  "art": "arts.mosaic"
+}

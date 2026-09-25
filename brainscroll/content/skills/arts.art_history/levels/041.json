@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.art_history.041",
+  "skillId": "skill.arts.art_history",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Baroque Drama",
+  "objective": "After this level you can explain how Baroque art used movement and emotion to grab the viewer.",
+  "summary": "Baroque, named after a misshapen pearl, began in Italy around 1600. The Church wanted art that stirred faith, so artists used diagonals, motion and illusion, like Rubens's cross and Pozzo's fake dome.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.baroque_style",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.baroque_counter_reformation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.baroque_pozzo_dome",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.art_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.040"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Baroque started out as an insult. It probably means a lumpy pearl.",
+      "body": "The word likely comes from barroco, Portuguese for an irregularly shaped pearl, and for centuries critics used it to mean odd and overdone. The art it names began in Italy in the late 1500s and filled the 1600s. It aimed for drama, movement and emotion. It wanted to grab you."
+    },
+    {
+      "id": "card.art_history.041.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Church wanted art that moved you",
+      "body": "After the Council of Trent (1545 to 1563), the Catholic Church gave art a job: strengthen ordinary people's faith. The pictures had to be clear and lifelike, so anyone could read them without a scholar standing by. And they had to use dramatic effects that stirred real feeling. A calm, clever puzzle for experts would not do. The Church wanted art that hit you in the chest."
+    },
+    {
+      "id": "card.art_history.041.c3",
+      "type": "fact",
+      "fact": "Rubens caught the cross halfway up.",
+      "context": "In The Elevation of the Cross (about 1610), painted for Antwerp's cathedral, muscular men strain to heave the cross upright. It cuts across the picture on a steep diagonal, stuck between lying down and standing. You arrive mid-heave, while the effort is still going on. Stormy diagonals and full-blooded bodies like these are seen as the essence of Baroque painting."
+    },
+    {
+      "id": "card.art_history.041.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A dome that isn't there",
+      "body": "Walk into the church of Sant'Ignazio in Rome and look up: a dome rises over you. It's paint. In 1685 Andrea Pozzo painted it on a flat surface, because the Jesuits had apparently run out of money for a real one. A disc set in the floor marks the one spot where the illusion works. Step off it and the dome gives itself away.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "The cheapest dome in Rome, and possibly the most visited. Budget cuts have rarely looked this good."
+      }
+    },
+    {
+      "id": "card.art_history.041.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.041.q1"
+    },
+    {
+      "id": "card.art_history.041.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.041.q2"
+    },
+    {
+      "id": "card.art_history.041.c7",
+      "type": "recall",
+      "questionId": "question.art_history.041.q3"
+    },
+    {
+      "id": "card.art_history.041.c8",
+      "type": "checkpoint",
+      "headline": "Baroque drama: felt",
+      "learned": [
+        "Baroque began in Italy around 1600, named after a lumpy pearl",
+        "The Church wanted art that stirred ordinary people's faith",
+        "Rubens used a steep diagonal to catch motion",
+        "Pozzo painted a fake dome that works from one floor disc"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.baroque_pozzo_dome"
+      ],
+      "sourceCardIds": [
+        "card.art_history.041.c4"
+      ],
+      "prompt": "What marks the spot where Pozzo's painted dome in Sant'Ignazio looks real?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A disc set in the church floor",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A window cut into the ceiling",
+          "correct": false,
+          "rationale": "The dome is painted on a flat surface, no opening needed."
+        },
+        {
+          "id": "c",
+          "label": "A mirror hung beside the altar",
+          "correct": false,
+          "rationale": "The trick is where you stand, marked on the floor."
+        },
+        {
+          "id": "d",
+          "label": "A painted arrow on one column",
+          "correct": false,
+          "rationale": "A disc in the floor does the job."
+        }
+      ],
+      "explanation": "A disc in the floor marks the one viewpoint where Pozzo's flat painting looks like a real dome.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.baroque_style"
+      ],
+      "sourceCardIds": [
+        "card.art_history.041.c3"
+      ],
+      "prompt": "Why does Rubens show the cross on a steep diagonal, halfway up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To fit a very tall cross on a small panel",
+          "correct": false,
+          "rationale": "It's about action, not space."
+        },
+        {
+          "id": "b",
+          "label": "Because the Church required crosses to lean",
+          "correct": false,
+          "rationale": "No such rule; the diagonal is Rubens's drama."
+        },
+        {
+          "id": "c",
+          "label": "To catch the moment in motion, mid-effort",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To copy the calm balance of earlier altarpieces",
+          "correct": false,
+          "rationale": "Calm balance is exactly what the diagonal breaks."
+        }
+      ],
+      "explanation": "A cross stuck between lying and standing puts you in the middle of the struggle: movement and drama, the Baroque signature.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.baroque_counter_reformation",
+        "concept.art_history.art_eras"
+      ],
+      "sourceCardIds": [
+        "card.art_history.041.c2",
+        "card.art_history.001.c3"
+      ],
+      "prompt": "Level 1 tied the Baroque of the 1600s to drama, movement and emotion. Why did the Catholic Church want art like that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rich collectors wanted exciting pictures for their homes",
+          "correct": false,
+          "rationale": "Here the patron is the Church, and the goal is faith."
+        },
+        {
+          "id": "b",
+          "label": "Dramatic, clear images could stir ordinary people's faith",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Painters had run out of calm subjects to paint",
+          "correct": false,
+          "rationale": "The push came from the Church after the Council of Trent."
+        },
+        {
+          "id": "d",
+          "label": "Only experts were allowed to look at church art",
+          "correct": false,
+          "rationale": "The opposite: art had to be clear to anyone."
+        }
+      ],
+      "explanation": "After the Council of Trent, the Church wanted clear, lifelike, dramatic art to strengthen the public's faith.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_baroque",
+    "source.brit_rubens",
+    "source.santignazio_fake_dome"
+  ],
+  "art": "arts.candle"
+}

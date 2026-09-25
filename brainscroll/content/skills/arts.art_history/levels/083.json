@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.art_history.083",
+  "skillId": "skill.arts.art_history",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Warhol",
+  "objective": "After this level you can describe Warhol's repeated images and his studio, the Factory.",
+  "summary": "Warhol repeated soup cans and celebrities, printing photos with silkscreen. His silver studio was called the Factory, and he said he wanted to be a machine.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.warhol_repetition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.warhol_factory",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.pop_art_sources",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.082"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1962, a Los Angeles gallery lined up 32 soup cans. Painted ones.",
+      "body": "Andy Warhol's Campbell's Soup Cans: 32 canvases, one for each flavor Campbell's sold, set on narrow ledges along the wall like groceries on a shelf. You could walk the aisle. Warhol was just getting started on repeating himself."
+    },
+    {
+      "id": "card.art_history.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The art of the copy",
+      "body": "Warhol had spent about a decade as a commercial illustrator in New York, so he knew how ads work: show it again, and again. Soon he was using photographic silkscreen, a stencil printing process that can print the same image over and over. Instead of painting a face, he could print a photograph of it, as many times as he liked. The picture was the same every time. The point was that it was the same every time."
+    },
+    {
+      "id": "card.art_history.083.c3",
+      "type": "fact",
+      "fact": "Marilyn Diptych repeats one face 50 times.",
+      "context": "Warhol made it in the weeks after Marilyn Monroe died in August 1962, from a single publicity photo. On the left, 25 bright Marilyns in color. On the right, 25 in black and white, some smeared, some fading almost to nothing. Nobody has to tell you it's about more than a movie star."
+    },
+    {
+      "id": "card.art_history.083.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Factory",
+      "body": "Warhol's New York studio had a fitting name: the Factory. From 1964 it was covered in silver foil and silver paint by his collaborator Billy Name, and it filled with underground film stars, rock musicians and hangers-on. In a 1963 interview Warhol said he wanted to be a machine, and that somebody else should be able to do all his paintings for him. For an artist, a strange ambition. For a factory, the job description.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Most artists guard their brushstrokes. Warhol tried to hand his away."
+      }
+    },
+    {
+      "id": "card.art_history.083.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.083.q1"
+    },
+    {
+      "id": "card.art_history.083.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.083.q2"
+    },
+    {
+      "id": "card.art_history.083.c7",
+      "type": "recall",
+      "questionId": "question.art_history.083.q3"
+    },
+    {
+      "id": "card.art_history.083.c8",
+      "type": "checkpoint",
+      "headline": "Warhol: printed",
+      "learned": [
+        "32 Soup Cans: one canvas per flavor",
+        "Silkscreen printed one photo again and again",
+        "Marilyn Diptych: 50 faces, color and black and white",
+        "The silver Factory; \"I want to be a machine\""
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.warhol_repetition"
+      ],
+      "sourceCardIds": [
+        "card.art_history.083.c1"
+      ],
+      "prompt": "How many canvases make up Warhol's Campbell's Soup Cans?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One",
+          "correct": false,
+          "rationale": "It's a whole row of canvases."
+        },
+        {
+          "id": "b",
+          "label": "12",
+          "correct": false,
+          "rationale": "There was one for every flavor on sale."
+        },
+        {
+          "id": "c",
+          "label": "32",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "50",
+          "correct": false,
+          "rationale": "That's the number of faces in Marilyn Diptych."
+        }
+      ],
+      "explanation": "There are 32 canvases, one for each flavor Campbell's then sold.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.warhol_factory",
+        "concept.art_history.warhol_repetition"
+      ],
+      "sourceCardIds": [
+        "card.art_history.083.c2",
+        "card.art_history.083.c4"
+      ],
+      "prompt": "Warhol said he wanted to be a machine. Why did silkscreen suit that wish?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each print had to be touched up by his own hand",
+          "correct": false,
+          "rationale": "He wanted others to be able to do it."
+        },
+        {
+          "id": "b",
+          "label": "It could print the same photo again and again",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It turned every photograph into a unique original",
+          "correct": false,
+          "rationale": "It made copies, not one-offs."
+        },
+        {
+          "id": "d",
+          "label": "It needed no image to start from",
+          "correct": false,
+          "rationale": "It starts from a photograph."
+        }
+      ],
+      "explanation": "Photographic silkscreen repeats one image over and over, and Warhol said somebody else should be able to make his paintings.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.warhol_repetition",
+        "concept.art_history.pop_art_sources"
+      ],
+      "sourceCardIds": [
+        "card.art_history.083.c2",
+        "card.art_history.082.c2"
+      ],
+      "prompt": "Hamilton's 1957 list said Pop should be mass produced. Which of Warhol's methods took that literally?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pouring paint onto canvas on the floor",
+          "correct": false,
+          "rationale": "That's Pollock's action painting."
+        },
+        {
+          "id": "b",
+          "label": "Painting soft fields of glowing color",
+          "correct": false,
+          "rationale": "That's Rothko."
+        },
+        {
+          "id": "c",
+          "label": "Photographic silkscreen printing",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Carving images into a wood block",
+          "correct": false,
+          "rationale": "Warhol printed through a screen, not from carved wood."
+        }
+      ],
+      "explanation": "Silkscreen let Warhol mass-produce images, printing the same photo again and again.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.moma_campbells_soup_cans",
+    "source.brit_warhol",
+    "source.warhol_silkscreen_lesson",
+    "source.tate_marilyn_diptych",
+    "source.ago_warhol_factory",
+    "source.natgalleries_warhol_machine"
+  ],
+  "art": "arts.soup-can"
+}

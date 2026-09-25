@@ -1,0 +1,226 @@
+{
+  "id": "level.arts.art_history.092",
+  "skillId": "skill.arts.art_history",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Composition",
+  "objective": "After this level you can explain how artists guide your eye with balance, lines and a focal point.",
+  "summary": "Composition steers your eye. Balance spreads visual weight, emphasis makes a focal point, movement leads you along lines, and the rule of thirds dates from 1797.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.composition_balance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.composition_eye_path",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.composition_rule_of_thirds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.look_feldman_method",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.091"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Bruegel painted a winter walk that your eyes take without asking.",
+      "body": "In Hunters in the Snow, from 1565, hunters trudge home through the snow with tired dogs and a single fox to show for it. Below them, the land drops away to frozen ponds full of skaters. You don't decide where to look next. The painting decides for you. Remember Feldman's Analyze step? This is what it's looking for."
+    },
+    {
+      "id": "card.art_history.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Balance: a see-saw you can't see",
+      "body": "Getty's art educators call balance the spread of visual weight: objects, colors, textures and space. Picture a see-saw: when the weights balance, the design feels stable. In symmetrical balance, the two sides are alike, like a face. In asymmetrical balance, the sides are different but still look balanced. In radial balance, things are arranged around a central point, like spokes on a bike wheel."
+    },
+    {
+      "id": "card.art_history.092.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Emphasis, then movement",
+      "body": "Emphasis is the part that catches your attention first, the focal point. Artists usually make it stand out by contrast: a different size, color, texture or shape. Movement is the path your eye takes next, pulled along lines, edges and colors. In Hunters in the Snow, a diagonal line of bare trees carries your eye from the hunters down the hill and into the distant landscape. Nobody told you to go there. You just went.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Next time you're in a gallery, notice where your eyes land first. Then ask what put them there."
+      }
+    },
+    {
+      "id": "card.art_history.092.c4",
+      "type": "fact",
+      "fact": "The \"rule of thirds\" was first written down in 1797.",
+      "context": "John Thomas Smith named it in a book for landscape painters, Remarks on Rural Scenery. Today it usually means: divide a picture into nine equal parts with two horizontal and two vertical lines, then put the important things along those lines or where they cross, rather than dead center. Even Smith offered it as a rule of thumb, not a law."
+    },
+    {
+      "id": "card.art_history.092.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.092.q1"
+    },
+    {
+      "id": "card.art_history.092.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.092.q2"
+    },
+    {
+      "id": "card.art_history.092.c7",
+      "type": "recall",
+      "questionId": "question.art_history.092.q3"
+    },
+    {
+      "id": "card.art_history.092.c8",
+      "type": "checkpoint",
+      "headline": "Composition: steered",
+      "learned": [
+        "Balance: symmetrical, asymmetrical or radial",
+        "Emphasis makes a focal point by contrast",
+        "Movement is the path your eye takes",
+        "The rule of thirds was named in 1797"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.composition_balance"
+      ],
+      "sourceCardIds": [
+        "card.art_history.092.c2"
+      ],
+      "prompt": "The two halves of a painting are different, yet it still looks balanced. What kind of balance is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Radial balance",
+          "correct": false,
+          "rationale": "Radial means arranged around a central point."
+        },
+        {
+          "id": "b",
+          "label": "Symmetrical balance",
+          "correct": false,
+          "rationale": "Symmetrical means the two sides are alike."
+        },
+        {
+          "id": "c",
+          "label": "Asymmetrical balance",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "No balance at all",
+          "correct": false,
+          "rationale": "It still looks balanced, so it has balance."
+        }
+      ],
+      "explanation": "In asymmetrical balance the sides are different but still look balanced.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.composition_eye_path"
+      ],
+      "sourceCardIds": [
+        "card.art_history.092.c3",
+        "card.art_history.092.c1"
+      ],
+      "prompt": "What does the diagonal line of bare trees do in Hunters in the Snow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Splits the picture into two equal halves",
+          "correct": false,
+          "rationale": "It's a diagonal, not a dividing line."
+        },
+        {
+          "id": "b",
+          "label": "Carries your eye down into the distant landscape",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Hides the hunters from view",
+          "correct": false,
+          "rationale": "The hunters are in the foreground, in plain sight."
+        },
+        {
+          "id": "d",
+          "label": "Frames a focal point at the exact center",
+          "correct": false,
+          "rationale": "It leads you away and into the distance."
+        }
+      ],
+      "explanation": "Movement is the path your eye takes. The diagonal of trees leads it from the hunters down into the distance.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.composition_eye_path",
+        "concept.art_history.look_feldman_method"
+      ],
+      "sourceCardIds": [
+        "card.art_history.092.c3",
+        "card.art_history.091.c3"
+      ],
+      "prompt": "Level 91's Analyze step asks where your eye goes. Which design principle names the spot that grabs it first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Balance",
+          "correct": false,
+          "rationale": "Balance is how visual weight is spread."
+        },
+        {
+          "id": "b",
+          "label": "Pattern",
+          "correct": false,
+          "rationale": "Pattern is repetition across a work."
+        },
+        {
+          "id": "c",
+          "label": "Radial symmetry",
+          "correct": false,
+          "rationale": "That's a kind of balance."
+        },
+        {
+          "id": "d",
+          "label": "Emphasis, the focal point",
+          "correct": true
+        }
+      ],
+      "explanation": "Emphasis is the part that catches your attention first: the focal point, usually made by contrast.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.khm_hunters_snow",
+    "source.getty_principles_design",
+    "source.petapixel_rule_of_thirds",
+    "source.ixdf_rule_of_thirds",
+    "source.ncma_feldman_method",
+    "source.humankinetics_feldman_model"
+  ],
+  "art": "arts.perspective"
+}

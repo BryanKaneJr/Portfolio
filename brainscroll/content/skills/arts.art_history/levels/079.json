@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.art_history.079",
+  "skillId": "skill.arts.art_history",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Frida Kahlo",
+  "objective": "After this level you can describe Kahlo's self-portraits and the symbols in them.",
+  "summary": "Hurt in a 1925 bus accident, Kahlo learned to paint from a mirror over her bed and made 55 self-portraits. The Two Fridas and her thorn necklace self-portrait are built from symbols.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.kahlo_self_portraits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.kahlo_symbols",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.mexican_muralism",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.078"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.079.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Frida Kahlo's favorite subject was the one in the mirror.",
+      "body": "She painted 55 self-portraits. To see why, start with a bus ride in 1925."
+    },
+    {
+      "id": "card.art_history.079.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A mirror over the bed",
+      "body": "In 1925, at 18, Kahlo was badly injured in a bus accident: her spine and other bones were broken, and she spent months in plaster casts. Stuck in bed, she taught herself to paint, working from a mirror fixed to the canopy above her. She said she painted herself because she was so often alone and was the subject she knew best. Her brilliantly colored self-portraits deal with identity, the body and death."
+    },
+    {
+      "id": "card.art_history.079.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two Fridas, one artery",
+      "body": "In 1939, after separating from Diego Rivera, whom she had married in 1929, Kahlo painted The Two Fridas. Two Kahlos sit side by side. One wears a white European-style dress; the other wears traditional Tehuana dress, which Kahlo often wore. Their exposed hearts are joined by an artery. The European Frida has cut it with scissors, and blood stains her skirt. The Tehuana Frida holds a tiny portrait of Rivera.",
+      "callout": "The two dresses are often read as her European and Mexican heritage."
+    },
+    {
+      "id": "card.art_history.079.c4",
+      "type": "fact",
+      "fact": "Every object in her 1940 self-portrait is a clue, and scholars read the clues differently.",
+      "context": "In Self-Portrait with Thorn Necklace and Hummingbird, a necklace of thorns digs into her neck, a dead hummingbird hanging from it. A black cat and a monkey appear behind her shoulders. The thorns can recall Christ's crown of thorns; dead hummingbirds were Mexican folk charms for luck in love. Often called a Surrealist, Kahlo distanced herself from the label: she said she painted her own reality, not dreams.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Paintings like this reward slow looking. Start with the necklace, end with the cat."
+      }
+    },
+    {
+      "id": "card.art_history.079.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.079.q1"
+    },
+    {
+      "id": "card.art_history.079.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.079.q2"
+    },
+    {
+      "id": "card.art_history.079.c7",
+      "type": "recall",
+      "questionId": "question.art_history.079.q3"
+    },
+    {
+      "id": "card.art_history.079.c8",
+      "type": "checkpoint",
+      "headline": "Kahlo: in the mirror",
+      "learned": [
+        "A 1925 bus accident; she learned to paint in bed",
+        "55 self-portraits, painted from a mirror",
+        "The Two Fridas: two heritages, one artery",
+        "Thorns, hummingbird, cat, monkey: symbols read many ways"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.kahlo_self_portraits"
+      ],
+      "sourceCardIds": [
+        "card.art_history.079.c2"
+      ],
+      "prompt": "How did Kahlo paint herself while stuck in bed after her accident?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From photographs her father took",
+          "correct": false,
+          "rationale": "She worked from a mirror."
+        },
+        {
+          "id": "b",
+          "label": "From memory, with her eyes closed",
+          "correct": false,
+          "rationale": "She could see herself in a mirror."
+        },
+        {
+          "id": "c",
+          "label": "From a sculpture of her face",
+          "correct": false,
+          "rationale": "A mirror above the bed did the job."
+        },
+        {
+          "id": "d",
+          "label": "From a mirror fixed above her bed",
+          "correct": true
+        }
+      ],
+      "explanation": "She taught herself to paint in bed, working from a mirror attached to the canopy above her.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.kahlo_symbols"
+      ],
+      "sourceCardIds": [
+        "card.art_history.079.c3"
+      ],
+      "prompt": "In The Two Fridas, what are the two dresses often read as showing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Her European and Mexican heritage",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Summer and winter fashions",
+          "correct": false,
+          "rationale": "The contrast is European versus Tehuana dress."
+        },
+        {
+          "id": "c",
+          "label": "Her two sisters",
+          "correct": false,
+          "rationale": "Both figures are Kahlo herself."
+        },
+        {
+          "id": "d",
+          "label": "Rich and poor Mexicans",
+          "correct": false,
+          "rationale": "The contrast is between European and Tehuana dress."
+        }
+      ],
+      "explanation": "One Frida wears a white European-style dress, the other Tehuana dress; many read them as her two heritages.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.kahlo_self_portraits",
+        "concept.art_history.mexican_muralism"
+      ],
+      "sourceCardIds": [
+        "card.art_history.079.c2",
+        "card.art_history.078.c2"
+      ],
+      "prompt": "Level 78's murals taught history to the public. How were Kahlo's self-portraits different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were painted on government buildings",
+          "correct": false,
+          "rationale": "That describes the murals."
+        },
+        {
+          "id": "b",
+          "label": "They illustrated the history of Mexico",
+          "correct": false,
+          "rationale": "That's Rivera's staircase."
+        },
+        {
+          "id": "c",
+          "label": "They explored her own identity and body",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They were commissioned by Vasconcelos",
+          "correct": false,
+          "rationale": "He commissioned the public murals."
+        }
+      ],
+      "explanation": "The murals spoke to a whole nation from public walls; Kahlo painted herself, exploring identity, the body and death.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_kahlo_accident",
+    "source.brit_frida_kahlo",
+    "source.hrc_kahlo_thorn_necklace",
+    "source.dam_kahlo_quotes",
+    "source.mam_two_fridas",
+    "source.brit_diego_rivera",
+    "source.dailyart_kahlo_thorn_necklace"
+  ],
+  "art": "arts.easel"
+}

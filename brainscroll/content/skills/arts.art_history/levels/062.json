@@ -1,0 +1,223 @@
+{
+  "id": "level.arts.art_history.062",
+  "skillId": "skill.arts.art_history",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Van Gogh",
+  "objective": "After this level you can describe Van Gogh's brushwork, his colors and his life.",
+  "summary": "Van Gogh made some 900 paintings in about ten years and sold little. He painted The Starry Night from memory in 1889, in thick impasto, and used red and green to express feeling.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.vangogh_starry_night",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.vangogh_brushwork",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.vangogh_color_feeling",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.complementary_colors",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.061"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About ten years of painting. Some 900 paintings. He sold little of it.",
+      "body": "Vincent van Gogh painted from 1880 to 1890, and alongside those 900 paintings he made about 1,100 drawings. Yet he sold little of his art while he was alive. One of those paintings is a night sky you have almost certainly seen. Here's how he made it."
+    },
+    {
+      "id": "card.art_history.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Starry Night, painted from memory",
+      "body": "In 1889 Van Gogh was a patient at an asylum near Saint-Rémy, in southern France. He could watch the sky from his barred bedroom window, but he couldn't paint in that room, so he painted it from memory or drawings. Picture it: a sky churning with blue swirls, a yellow crescent moon, stars like glowing orbs. A dark cypress rises on the left like a flame, and below, a small village glows with yellow windows."
+    },
+    {
+      "id": "card.art_history.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Paint you could run a finger over",
+      "body": "For The Starry Night he squeezed paint straight from the tube onto the canvas. The result is impasto: paint laid on so thickly that it stands up in ridges, and every stroke keeps its shape. The swirls in that sky aren't just drawn; they're built, stroke by stroke, like frosting on a cake.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Museums frown on touching. Luckily your eyes can feel every ridge from a polite distance."
+      }
+    },
+    {
+      "id": "card.art_history.062.c4",
+      "type": "fact",
+      "fact": "Van Gogh used color to carry feelings, not just to copy what he saw.",
+      "context": "In 1888 he painted The Night Café and wrote to his brother Theo that he'd tried to express the terrible human passions with the red and the green. The room is blood-red; the billiard table is green. Everywhere, he wrote, it's a battle of greens and reds. He wasn't reporting the decor. He was making the room feel like a fight."
+    },
+    {
+      "id": "card.art_history.062.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.062.q1"
+    },
+    {
+      "id": "card.art_history.062.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.062.q2"
+    },
+    {
+      "id": "card.art_history.062.c7",
+      "type": "recall",
+      "questionId": "question.art_history.062.q3"
+    },
+    {
+      "id": "card.art_history.062.c8",
+      "type": "checkpoint",
+      "headline": "Van Gogh: seen",
+      "learned": [
+        "About ten years, some 900 paintings, few sales",
+        "The Starry Night was painted from memory in 1889",
+        "Impasto: paint so thick it stands up",
+        "Red against green to express passions"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.vangogh_starry_night"
+      ],
+      "sourceCardIds": [
+        "card.art_history.062.c2"
+      ],
+      "prompt": "Why did Van Gogh paint The Starry Night from memory?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He couldn't paint in his asylum bedroom",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He painted it years later, far from France",
+          "correct": false,
+          "rationale": "He painted it in 1889, at the asylum near Saint-Rémy."
+        },
+        {
+          "id": "c",
+          "label": "Clouds hid the sky every night that year",
+          "correct": false,
+          "rationale": "He could watch the sky from his barred window."
+        },
+        {
+          "id": "d",
+          "label": "He always worked from photographs",
+          "correct": false,
+          "rationale": "He worked from memory or his own drawings."
+        }
+      ],
+      "explanation": "He could see the night sky from his barred bedroom window but couldn't paint in that room, so he worked from memory or drawings.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.vangogh_brushwork"
+      ],
+      "sourceCardIds": [
+        "card.art_history.062.c3"
+      ],
+      "prompt": "What gives the swirls in The Starry Night their raised, ridged surface?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Thin washes of watercolor",
+          "correct": false,
+          "rationale": "Watercolor lies flat; these strokes stand up."
+        },
+        {
+          "id": "b",
+          "label": "Sand mixed into the varnish",
+          "correct": false,
+          "rationale": "Nothing suggests sand; it's the paint itself."
+        },
+        {
+          "id": "c",
+          "label": "Tiny dots set side by side",
+          "correct": false,
+          "rationale": "These are thick strokes, not dots."
+        },
+        {
+          "id": "d",
+          "label": "Thick impasto, squeezed from the tube",
+          "correct": true
+        }
+      ],
+      "explanation": "Impasto is paint laid on so thickly that it stands up and every stroke keeps its shape.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.art_history.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.vangogh_color_feeling",
+        "concept.art_history.complementary_colors"
+      ],
+      "sourceCardIds": [
+        "card.art_history.062.c4",
+        "card.art_history.004.c3",
+        "card.art_history.004.c4"
+      ],
+      "prompt": "In The Night Café, Van Gogh set blood-red walls against a green billiard table. What does Level 4 say that pairing does?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They mix into a calm, quiet brown",
+          "correct": false,
+          "rationale": "They sit side by side here; only mixed paint turns brown."
+        },
+        {
+          "id": "b",
+          "label": "They're neighbors, so they blend softly",
+          "correct": false,
+          "rationale": "Red and green sit opposite each other on the wheel."
+        },
+        {
+          "id": "c",
+          "label": "As complements, each makes the other more intense",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They're both primaries, so they balance",
+          "correct": false,
+          "rationale": "Green is a secondary: blue plus yellow."
+        }
+      ],
+      "explanation": "Red and green are complements. Side by side they make each other look more intense: a battle, as Van Gogh put it.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_van_gogh",
+    "source.brit_starry_night",
+    "source.vangoghletters_night_cafe"
+  ],
+  "art": "arts.sunflowers"
+}

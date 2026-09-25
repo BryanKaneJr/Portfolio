@@ -1,0 +1,366 @@
+{
+  "id": "level.arts.art_history.040",
+  "skillId": "skill.arts.art_history",
+  "number": 40,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: The Renaissance",
+  "objective": "After this level you can explain what changed in art during the Renaissance and who led the change.",
+  "summary": "Vasari called it a rinascita in 1550, but 'the Renaissance' as an era's name dates from 1855. The chapter's story, from the 1401 doors to the Sistine ceiling, in order.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.ren_renaissance_name",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ren_florence_origins",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.ren_linear_perspective",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.ren_dome_method",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.ren_van_eyck_arnolfini",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.ren_michelangelo_david",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.ren_sistine_ceiling",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.ren_patron_contracts",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.039"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.040.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 4 finale: did Leonardo know he lived in \"the Renaissance\"?",
+      "body": "Not by that name. First, the chapter's story in order. Then, who named the era, and when."
+    },
+    {
+      "id": "card.art_history.040.c2",
+      "type": "timeline",
+      "headline": "The Renaissance, in order",
+      "events": [
+        {
+          "when": "1401",
+          "label": "Florence's contest for bronze doors"
+        },
+        {
+          "when": "About 1415",
+          "label": "Brunelleschi's peephole proves perspective"
+        },
+        {
+          "when": "1420-1436",
+          "label": "The dome rises with no centering"
+        },
+        {
+          "when": "1434",
+          "label": "\"Jan van Eyck was here\""
+        },
+        {
+          "when": "1501-1504",
+          "label": "Michelangelo carves the David"
+        },
+        {
+          "when": "1508-1512",
+          "label": "The Sistine Chapel ceiling"
+        }
+      ]
+    },
+    {
+      "id": "card.art_history.040.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Vasari tells the story",
+      "body": "In 1550 Giorgio Vasari, a painter and architect who designed the Uffizi, published his Lives of the artists, revised in 1568. He told art's story in three acts: ancient greatness, medieval decline, then a rinascita, a rebirth, starting in 14th-century Tuscany and peaking with Michelangelo. It's seen as the first modern art history. Read it with care, though: he favored Tuscans and liked a good unverified anecdote.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "The first art historian had favorites. Most of us do. It's why we check his stories."
+      }
+    },
+    {
+      "id": "card.art_history.040.c4",
+      "type": "fact",
+      "fact": "\"The Renaissance\" as the name of an era dates only from 1855.",
+      "context": "Vasari's rinascita described a revival in art. Calling a whole period \"the Renaissance\" came three centuries later: the French historian Jules Michelet did it in 1855, and Jacob Burckhardt's influential book of 1860 spread it. The artists felt a rebirth. The capital R came afterwards."
+    },
+    {
+      "id": "card.art_history.040.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.040.q1"
+    },
+    {
+      "id": "card.art_history.040.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.040.q2"
+    },
+    {
+      "id": "card.art_history.040.c7",
+      "type": "mcq",
+      "questionId": "question.art_history.040.q3"
+    },
+    {
+      "id": "card.art_history.040.c8",
+      "type": "recall",
+      "questionId": "question.art_history.040.q4"
+    },
+    {
+      "id": "card.art_history.040.c9",
+      "type": "recall",
+      "questionId": "question.art_history.040.q5"
+    },
+    {
+      "id": "card.art_history.040.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 4 complete",
+      "learned": [
+        "Florence's doors contest, 1401, is often seen as the start",
+        "Perspective, the dome, oil and prints changed how art was made",
+        "Vasari called it a rinascita in 1550",
+        "\"The Renaissance\" as an era's name dates from 1855"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.040.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.ren_renaissance_name"
+      ],
+      "sourceCardIds": [
+        "card.art_history.040.c3"
+      ],
+      "prompt": "What word did Vasari use for the revival of art in his Lives?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sfumato",
+          "correct": false,
+          "rationale": "That's Leonardo's soft shading."
+        },
+        {
+          "id": "b",
+          "label": "Humanitas",
+          "correct": false,
+          "rationale": "That's the humanists' ideal, not Vasari's name for the revival."
+        },
+        {
+          "id": "c",
+          "label": "Rinascita",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Contrapposto",
+          "correct": false,
+          "rationale": "That's a pose with the weight on one leg."
+        }
+      ],
+      "explanation": "Vasari called it a rinascita, a rebirth, starting in 14th-century Tuscany.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.040.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.ren_renaissance_name"
+      ],
+      "sourceCardIds": [
+        "card.art_history.040.c3",
+        "card.art_history.040.c4"
+      ],
+      "prompt": "Why do historians read Vasari's Lives with care?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He favored Tuscans and told unverified tales",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was written in the 1800s",
+          "correct": false,
+          "rationale": "It came out in 1550, revised in 1568."
+        },
+        {
+          "id": "c",
+          "label": "It covers only Flemish painters",
+          "correct": false,
+          "rationale": "He favored Italians, especially Tuscans."
+        },
+        {
+          "id": "d",
+          "label": "He invented the word \"Renaissance\"",
+          "correct": false,
+          "rationale": "He wrote rinascita; the era's name came in 1855."
+        }
+      ],
+      "explanation": "Vasari's Lives is the first modern art history, but it favors Tuscan artists and includes unverified anecdotes.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.040.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.ren_florence_origins",
+        "concept.art_history.ren_dome_method",
+        "concept.art_history.ren_van_eyck_arnolfini",
+        "concept.art_history.ren_sistine_ceiling"
+      ],
+      "sourceCardIds": [
+        "card.art_history.040.c2"
+      ],
+      "prompt": "Renaissance recap: which of these came first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The contest for the Baptistery doors",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The start of Brunelleschi's dome",
+          "correct": false,
+          "rationale": "Begun in 1420."
+        },
+        {
+          "id": "c",
+          "label": "Van Eyck's Arnolfini Portrait",
+          "correct": false,
+          "rationale": "Dated 1434."
+        },
+        {
+          "id": "d",
+          "label": "The Sistine Chapel ceiling",
+          "correct": false,
+          "rationale": "Painted 1508-1512."
+        }
+      ],
+      "explanation": "The Baptistery doors contest was held in 1401, before all the others.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.040.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.ren_patron_contracts"
+      ],
+      "sourceCardIds": [
+        "card.art_history.034.c1"
+      ],
+      "prompt": "From Level 34: in Renaissance art, who was the patron?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The artist's teacher",
+          "correct": false,
+          "rationale": "That's a master; the patron pays."
+        },
+        {
+          "id": "b",
+          "label": "The person paying for the work",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The saint shown in the painting",
+          "correct": false,
+          "rationale": "Patron means the paying customer here."
+        },
+        {
+          "id": "d",
+          "label": "The guild that trained painters",
+          "correct": false,
+          "rationale": "A guild could be a patron only by paying."
+        }
+      ],
+      "explanation": "A patron is the person paying for the work, who often set its terms in a contract.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.040.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.ren_linear_perspective"
+      ],
+      "sourceCardIds": [
+        "card.art_history.032.c3"
+      ],
+      "prompt": "From Level 32: what did Leon Battista Alberti do for linear perspective in 1435?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Painted the first perspective fresco",
+          "correct": false,
+          "rationale": "That was Masaccio's Holy Trinity."
+        },
+        {
+          "id": "b",
+          "label": "Built the dome to test it",
+          "correct": false,
+          "rationale": "The dome was Brunelleschi's."
+        },
+        {
+          "id": "c",
+          "label": "Proved it with a peephole panel",
+          "correct": false,
+          "rationale": "That was Brunelleschi's demonstration."
+        },
+        {
+          "id": "d",
+          "label": "Wrote it down in On Painting",
+          "correct": true
+        }
+      ],
+      "explanation": "Alberti set the method out in his book On Painting, so any painter could learn it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_vasari",
+    "source.getty_renaissance_name",
+    "source.brit_ghiberti",
+    "source.brit_linear_perspective",
+    "source.webexhibits_brunelleschi_experiment",
+    "source.brit_florence_cathedral",
+    "source.natgeo_florence_dome",
+    "source.ng_arnolfini",
+    "source.brit_van_eyck",
+    "source.accademia_david",
+    "source.brit_michelangelo",
+    "source.brit_sistine_chapel",
+    "source.lumen_patronage"
+  ],
+  "art": "arts.easel"
+}

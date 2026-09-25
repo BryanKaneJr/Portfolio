@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.art_history.057",
+  "skillId": "skill.arts.art_history",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Monet",
+  "objective": "After this level you can describe Monet's series paintings and his water lilies.",
+  "summary": "Monet painted 25 grainstacks and about 30 views of Rouen Cathedral to catch changing light, then almost 300 water-lily paintings of his own pond at Giverny.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.monet_series",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.monet_water_lilies",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.impressionist_technique",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.056"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Claude Monet painted the same stacks of grain 25 times. On purpose.",
+      "body": "Between late summer 1890 and February 1891, in a field near his home at Giverny, Monet kept going back to the same few grainstacks. The stacks hardly change. Everything around them does."
+    },
+    {
+      "id": "card.art_history.057.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The real subject is the light",
+      "body": "Each canvas catches different light, weather and season: end of summer, snow, sunset. Monet worked on several at once, switching canvases as the light changed. In May 1891 he showed 15 of them at his dealer's gallery in Paris, to acclaim. They were his first series: pictures meant to be seen together, so you can watch the light change from one to the next."
+    },
+    {
+      "id": "card.art_history.057.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A cathedral, about 30 times",
+      "body": "Then he did it to a building. In 1892 and 1893 Monet painted the front of Rouen Cathedral about 30 times, from rooms across the square, switching canvases as the light moved through the day. The carved stone never moves. The light does all the work.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Same stones, thirty moods. Try it with your window at 8 a.m. and at 6 p.m."
+      }
+    },
+    {
+      "id": "card.art_history.057.c4",
+      "type": "fact",
+      "fact": "Monet's last series surrounds you.",
+      "context": "Monet moved to Giverny in 1883 and created a water-lily pond there. It became his final subject: the Water Lilies, almost 300 paintings, more than 40 of them very large. The day after the 1918 Armistice he offered panels to France. In 1927, months after his death, they were hung in two oval rooms at the Orangerie in Paris. He wanted \"the illusion of an endless whole, of a wave with no horizon and no shore.\""
+    },
+    {
+      "id": "card.art_history.057.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.057.q1"
+    },
+    {
+      "id": "card.art_history.057.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.057.q2"
+    },
+    {
+      "id": "card.art_history.057.c7",
+      "type": "recall",
+      "questionId": "question.art_history.057.q3"
+    },
+    {
+      "id": "card.art_history.057.c8",
+      "type": "checkpoint",
+      "headline": "Monet: in series",
+      "learned": [
+        "Monet painted 25 grainstacks in 1890-91, his first series",
+        "About 30 views of Rouen Cathedral followed",
+        "In a series, the real subject is changing light",
+        "Almost 300 water-lily paintings; the Orangerie opened in 1927"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.monet_series"
+      ],
+      "sourceCardIds": [
+        "card.art_history.057.c1"
+      ],
+      "prompt": "How many pictures of the same grainstacks did Monet paint in 1890-91?",
+      "options": [
+        {
+          "id": "a",
+          "label": "3",
+          "correct": false,
+          "rationale": "Far more than that."
+        },
+        {
+          "id": "b",
+          "label": "12",
+          "correct": false,
+          "rationale": "He kept going well past a dozen."
+        },
+        {
+          "id": "c",
+          "label": "25",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "300",
+          "correct": false,
+          "rationale": "That is closer to the water-lily count."
+        }
+      ],
+      "explanation": "He painted 25 grainstack pictures between late summer 1890 and February 1891.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.monet_water_lilies"
+      ],
+      "sourceCardIds": [
+        "card.art_history.057.c4"
+      ],
+      "prompt": "What effect did Monet want from his water lilies in the Orangerie's oval rooms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A single framed view, like a window",
+          "correct": false,
+          "rationale": "He wanted no edges at all."
+        },
+        {
+          "id": "b",
+          "label": "A realistic map of his garden",
+          "correct": false,
+          "rationale": "Mapping was not the aim."
+        },
+        {
+          "id": "c",
+          "label": "A history painting of the Armistice",
+          "correct": false,
+          "rationale": "He offered the panels then; they are not about it."
+        },
+        {
+          "id": "d",
+          "label": "An endless whole, with no horizon and no shore",
+          "correct": true
+        }
+      ],
+      "explanation": "Monet wanted \"the illusion of an endless whole, of a wave with no horizon and no shore.\"",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.monet_series",
+        "concept.art_history.impressionist_technique"
+      ],
+      "sourceCardIds": [
+        "card.art_history.057.c2",
+        "card.art_history.056.c3"
+      ],
+      "prompt": "Monet's series watch light change on one subject. Which Level 56 aim do they push furthest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Painting noble scenes from history",
+          "correct": false,
+          "rationale": "That was the Academy's top genre, not his aim."
+        },
+        {
+          "id": "b",
+          "label": "Recording color as it looks in the light of a given moment",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Making one perfect, finished view",
+          "correct": false,
+          "rationale": "A series says no single view is enough."
+        },
+        {
+          "id": "d",
+          "label": "Avoiding complementary colors",
+          "correct": false,
+          "rationale": "Impressionists used them."
+        }
+      ],
+      "explanation": "Impressionists tried to record colors as they appeared in natural light at a given time. A series does it again and again.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.ng_grainstack",
+    "source.brit_monet",
+    "source.visiterouen_cathedrals",
+    "source.orangerie_water_lilies"
+  ],
+  "art": "arts.lily-pond"
+}

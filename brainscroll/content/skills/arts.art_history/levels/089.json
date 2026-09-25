@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.art_history.089",
+  "skillId": "skill.arts.art_history",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Art and Money",
+  "objective": "After this level you can explain why a few artworks sell for hundreds of millions of dollars.",
+  "summary": "The Salvator Mundi went from a damaged auction find to $450.3 million in 2017, thanks to a disputed attribution to Leonardo and two determined bidders.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.art_market_attribution",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.art_market_auction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.warhol_repetition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.088"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2005, two dealers bought a battered painting of Christ at a small auction.",
+      "body": "It came from New Orleans, in bad shape and heavily overpainted. In 2017 the same painting, the Salvator Mundi, sold at Christie's in New York for $450.3 million, a record for any painting at auction. What changed?"
+    },
+    {
+      "id": "card.art_history.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The name on the label",
+      "body": "After cleaning and study, the painting was authenticated as a work by Leonardo da Vinci by 2011. Christie's called it one of fewer than 20 known paintings by him. Nobody can make more Leonardos, so each one is extraordinarily scarce. But not everyone agrees it is one: some specialists think Leonardo painted only parts of it, and others say the heavy restoration makes a firm verdict impossible."
+    },
+    {
+      "id": "card.art_history.089.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two bidders are enough",
+      "body": "An auction price isn't a label on a shelf; it's a contest. The Salvator Mundi bidding lasted about 19 minutes and came down to two bidders on the phone. The winning bid was $400 million, and fees brought the price to $450.3 million. At auction, a price keeps climbing only while someone else keeps bidding. It takes two to set a record."
+    },
+    {
+      "id": "card.art_history.089.c4",
+      "type": "fact",
+      "fact": "Fame sells too.",
+      "context": "Remember Warhol's repeated Marilyns from Level 83? Shot Sage Blue Marilyn, a 1964 silkscreen of her face, sold at Christie's New York in May 2022 for $195 million, at the time the highest auction price for any 20th-century artwork. A rare name, a famous image and two determined bidders: that's the recipe for a record.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Repeated on purpose, and still one of a kind at auction. Warhol might have enjoyed that."
+      }
+    },
+    {
+      "id": "card.art_history.089.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.089.q1"
+    },
+    {
+      "id": "card.art_history.089.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.089.q2"
+    },
+    {
+      "id": "card.art_history.089.c7",
+      "type": "recall",
+      "questionId": "question.art_history.089.q3"
+    },
+    {
+      "id": "card.art_history.089.c8",
+      "type": "checkpoint",
+      "headline": "Art and money: counted",
+      "learned": [
+        "Salvator Mundi: $450.3 million in 2017, a painting record",
+        "Its value rests on a disputed attribution to Leonardo",
+        "Auction prices climb only while rivals keep bidding",
+        "A Warhol Marilyn sold for $195 million in 2022"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.art_market_attribution"
+      ],
+      "sourceCardIds": [
+        "card.art_history.089.c2"
+      ],
+      "prompt": "What did experts conclude about the Salvator Mundi by 2011?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That it was by Leonardo da Vinci",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "That it was a 20th-century painting",
+          "correct": false,
+          "rationale": "It was authenticated as a Leonardo."
+        },
+        {
+          "id": "c",
+          "label": "That it came from Warhol's Factory",
+          "correct": false,
+          "rationale": "Wrong century by far."
+        },
+        {
+          "id": "d",
+          "label": "That it was by Rembrandt",
+          "correct": false,
+          "rationale": "The attribution was to Leonardo."
+        }
+      ],
+      "explanation": "After cleaning and study it was authenticated as a Leonardo by 2011, though some specialists still dispute it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.art_market_auction"
+      ],
+      "sourceCardIds": [
+        "card.art_history.089.c3"
+      ],
+      "prompt": "What does the Salvator Mundi sale show about auction prices?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Experts fix the price before the sale",
+          "correct": false,
+          "rationale": "The bidding set it."
+        },
+        {
+          "id": "b",
+          "label": "The price equals the cost of restoration",
+          "correct": false,
+          "rationale": "Restoration costs nothing like that."
+        },
+        {
+          "id": "c",
+          "label": "Only living artists can set records",
+          "correct": false,
+          "rationale": "Leonardo died about five centuries ago."
+        },
+        {
+          "id": "d",
+          "label": "They rise only while rivals keep bidding",
+          "correct": true
+        }
+      ],
+      "explanation": "The sale came down to two phone bidders over about 19 minutes; the price climbed as long as both kept going.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.art_market_auction",
+        "concept.art_history.warhol_repetition"
+      ],
+      "sourceCardIds": [
+        "card.art_history.089.c4",
+        "card.art_history.083.c2"
+      ],
+      "prompt": "Level 83's Warhol printed famous faces again and again. What did his Shot Sage Blue Marilyn sell for in 2022?",
+      "options": [
+        {
+          "id": "a",
+          "label": "$1.4 million",
+          "correct": false,
+          "rationale": "That was Banksy's Girl with Balloon in 2018."
+        },
+        {
+          "id": "b",
+          "label": "$32 million",
+          "correct": false,
+          "rationale": "Far more: it set a record."
+        },
+        {
+          "id": "c",
+          "label": "$195 million",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "$450.3 million",
+          "correct": false,
+          "rationale": "That was the Salvator Mundi in 2017."
+        }
+      ],
+      "explanation": "It sold at Christie's New York in May 2022 for $195 million, then a record for a 20th-century artwork.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_salvator_mundi_story",
+    "source.pbs_salvator_mundi_sale",
+    "source.smithsonianmag_salvator_attribution",
+    "source.npr_warhol_marilyn_2022"
+  ],
+  "art": "money.price-tag"
+}

@@ -1,0 +1,217 @@
+{
+  "id": "level.arts.art_history.042",
+  "skillId": "skill.arts.art_history",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Caravaggio and Light",
+  "objective": "After this level you can explain chiaroscuro and Caravaggio's dramatic lighting.",
+  "summary": "Chiaroscuro means light-dark. Caravaggio pushed it to tenebrism, letting a beam of light tell the story in The Calling of Saint Matthew, with saints modeled on ordinary people.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.chiaroscuro",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.caravaggio_naturalism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.elements_of_art",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.041"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In a dark chapel in Rome, a beam of light walks into a room full of tax men.",
+      "body": "Around 1600, Caravaggio painted Christ pointing at a man counting coins at a table. He barely needed a caption, because the light tells you where to look. To see how, you need one Italian word."
+    },
+    {
+      "id": "card.art_history.042.c2",
+      "type": "fact",
+      "fact": "Chiaroscuro means light-dark.",
+      "context": "It's Italian: chiaro, light, and scuro, dark. It means using light and shadow to make things look solid. Hold a flashlight beside your face in a dark room and you'll see it. Caravaggio pushed it to the edge. That harshest version is called tenebrism: a hard light picks figures out of deep darkness, and everything else disappears."
+    },
+    {
+      "id": "card.art_history.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The light does the pointing",
+      "body": "In The Calling of Saint Matthew, men in the clothes of Caravaggio's own day sit counting coins at a table. At the right, Christ steps in and points. A beam of light crosses the dark room to the faces at the table, pointing at Matthew just as Christ's hand does. One man points to himself, as if to ask: me? Your eye follows the light to the answer.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Try it: cover the beam of light with your thumb and see how much of the story goes missing."
+      }
+    },
+    {
+      "id": "card.art_history.042.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Saints with dirty feet",
+      "body": "Caravaggio painted holy figures from ordinary people off the street, in ragged clothes and with dirty feet. Some viewers pushed back, since they were used to elegant, graceful saints. But his hard light and real faces caught on. Among the painters he influenced are two you'll meet soon in this chapter: Rembrandt and Velázquez."
+    },
+    {
+      "id": "card.art_history.042.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.042.q1"
+    },
+    {
+      "id": "card.art_history.042.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.042.q2"
+    },
+    {
+      "id": "card.art_history.042.c7",
+      "type": "recall",
+      "questionId": "question.art_history.042.q3"
+    },
+    {
+      "id": "card.art_history.042.c8",
+      "type": "checkpoint",
+      "headline": "Caravaggio's light: seen",
+      "learned": [
+        "Chiaroscuro means light-dark: shadows that make form",
+        "Tenebrism is its harshest form, pioneered by Caravaggio",
+        "In The Calling of Saint Matthew, the light points the way",
+        "His saints looked like ordinary people, dirty feet and all"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.chiaroscuro"
+      ],
+      "sourceCardIds": [
+        "card.art_history.042.c2"
+      ],
+      "prompt": "What does the Italian word chiaroscuro literally mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bright color",
+          "correct": false,
+          "rationale": "It's about light and shadow, not color."
+        },
+        {
+          "id": "b",
+          "label": "Sharp outline",
+          "correct": false,
+          "rationale": "Outlines aren't the point; light and dark are."
+        },
+        {
+          "id": "c",
+          "label": "Deep space",
+          "correct": false,
+          "rationale": "Close, since shadows help, but the word means light-dark."
+        },
+        {
+          "id": "d",
+          "label": "Light-dark",
+          "correct": true
+        }
+      ],
+      "explanation": "Chiaro means light and scuro means dark: light and shadow used to make things look solid.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.art_history.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.caravaggio_naturalism"
+      ],
+      "sourceCardIds": [
+        "card.art_history.042.c3"
+      ],
+      "prompt": "In The Calling of Saint Matthew, what job does the beam of light do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It shows the time of day for the tax count",
+          "correct": false,
+          "rationale": "It's there to guide your eye, not tell the time."
+        },
+        {
+          "id": "b",
+          "label": "It points at Matthew, just as Christ's hand does",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It lights the whole room evenly",
+          "correct": false,
+          "rationale": "Most of the room stays in deep shadow."
+        },
+        {
+          "id": "d",
+          "label": "It hides Christ from the men at the table",
+          "correct": false,
+          "rationale": "It leads from Christ toward Matthew."
+        }
+      ],
+      "explanation": "The beam crosses the dark room toward the table, pointing at Matthew like Christ's hand.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.chiaroscuro",
+        "concept.art_history.elements_of_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.042.c2",
+        "card.art_history.003.c4"
+      ],
+      "prompt": "Level 3 said form means three-dimensional shapes. How does chiaroscuro show form on a flat canvas?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By using light and shadow so objects look solid",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "By gluing real objects onto the picture",
+          "correct": false,
+          "rationale": "It's done with paint, using light and shadow."
+        },
+        {
+          "id": "c",
+          "label": "By drawing a thick outline around each object",
+          "correct": false,
+          "rationale": "Chiaroscuro works with light and dark, not outlines."
+        },
+        {
+          "id": "d",
+          "label": "By painting everything in complementary colors",
+          "correct": false,
+          "rationale": "Level 4's complements affect intensity, not form."
+        }
+      ],
+      "explanation": "Light and shadow model a shape so it seems to have three dimensions: that's chiaroscuro.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_chiaroscuro",
+    "source.brit_caravaggio",
+    "source.lumen_calling_st_matthew"
+  ],
+  "art": "arts.candle"
+}

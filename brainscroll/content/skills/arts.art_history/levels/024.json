@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.art_history.024",
+  "skillId": "skill.arts.art_history",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Illuminated Manuscripts",
+  "objective": "After this level you can explain how medieval scribes made illuminated manuscripts.",
+  "summary": "Monks wrote books by hand on calfskin vellum, then laid on gold leaf and polished it to shine: that is illumination. The Book of Kells, about 800, is the most famous.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.manuscript_illumination",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.book_of_kells",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.islamic_calligraphy",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.023"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Illuminated manuscripts really do light up.",
+      "body": "Tilt a page from a medieval Gospel book and bits of it flash like a mirror. That's real gold. Every one of these books was written and decorated by hand, one page at a time. So how do you make a book that glows?"
+    },
+    {
+      "id": "card.art_history.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 1: a page made of skin",
+      "body": "The finest medieval books weren't written on paper but on vellum, a parchment made from calfskin. Most were made in monasteries. The scribe ruled faint lines across the page to keep the writing straight, then wrote with a sharpened quill or a reed pen. No delete key, so concentrate."
+    },
+    {
+      "id": "card.art_history.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 2: gold that shines",
+      "body": "Then came the gold. Thin sheets of gold or silver leaf were laid onto a sticky ground, then polished to a shine with a smooth stone, or even a dog's tooth. Strictly, only a book decorated with gold or silver counts as illuminated (from Latin illuminare). Today the word covers any decorated manuscript.",
+      "callout": "Illuminated, strictly: decorated with gold or silver that catches the light."
+    },
+    {
+      "id": "card.art_history.024.c4",
+      "type": "fact",
+      "fact": "The Book of Kells was made about 800, by monks, entirely by hand.",
+      "context": "Columban monks wrote the four Gospels in Latin on 340 vellum leaves. Work probably began on the island of Iona, off Scotland; after a Viking raid in 806, the monks moved to Kells in Ireland. Its famous Chi-Rho page is almost all one word: the Greek letters that begin \"Christ\", swelling into spirals and knots. Look closely and you'll find cats and mice in the decoration.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Cats and mice on the holiest page. Even monks, it seems, liked a small joke in the margins."
+      }
+    },
+    {
+      "id": "card.art_history.024.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.024.q1"
+    },
+    {
+      "id": "card.art_history.024.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.024.q2"
+    },
+    {
+      "id": "card.art_history.024.c7",
+      "type": "recall",
+      "questionId": "question.art_history.024.q3"
+    },
+    {
+      "id": "card.art_history.024.c8",
+      "type": "checkpoint",
+      "headline": "Manuscripts: illuminated",
+      "learned": [
+        "Fine books were written by hand on calfskin vellum",
+        "Illuminated strictly means decorated with gold or silver",
+        "Gold leaf was polished with a stone or a tooth",
+        "The Book of Kells, about 800, has a famous Chi-Rho page"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.manuscript_illumination"
+      ],
+      "sourceCardIds": [
+        "card.art_history.024.c2"
+      ],
+      "prompt": "What were the finest medieval manuscripts written on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Paper made from rags",
+          "correct": false,
+          "rationale": "The finest books used vellum."
+        },
+        {
+          "id": "b",
+          "label": "Thin sheets of beaten gold",
+          "correct": false,
+          "rationale": "Gold was added as decoration, not used as the page."
+        },
+        {
+          "id": "c",
+          "label": "Vellum made from calfskin",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Wooden panels like icons",
+          "correct": false,
+          "rationale": "Icons were painted on wood; books used vellum."
+        }
+      ],
+      "explanation": "The finest manuscripts were written on vellum, a parchment made from calfskin.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.manuscript_illumination"
+      ],
+      "sourceCardIds": [
+        "card.art_history.024.c3"
+      ],
+      "prompt": "Strictly speaking, what makes a manuscript \"illuminated\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was written by candlelight",
+          "correct": false,
+          "rationale": "The word refers to the decoration, not how it was written."
+        },
+        {
+          "id": "b",
+          "label": "It is decorated with gold or silver",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It contains the four Gospels",
+          "correct": false,
+          "rationale": "Plenty of illuminated books aren't Gospels."
+        },
+        {
+          "id": "d",
+          "label": "It was copied in a monastery",
+          "correct": false,
+          "rationale": "Many were, but that's not what the word means."
+        }
+      ],
+      "explanation": "In the strict sense, only manuscripts decorated with gold or silver, which catch the light, are illuminated.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.book_of_kells",
+        "concept.art_history.islamic_calligraphy"
+      ],
+      "sourceCardIds": [
+        "card.art_history.024.c4",
+        "card.art_history.022.c3"
+      ],
+      "prompt": "The Chi-Rho page turns one holy word into a whole picture. Which art from Level 22 shares that idea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Muqarnas ceilings",
+          "correct": false,
+          "rationale": "Those are carved cells, not words."
+        },
+        {
+          "id": "b",
+          "label": "Byzantine gold mosaics",
+          "correct": false,
+          "rationale": "Those show figures, not words."
+        },
+        {
+          "id": "c",
+          "label": "Geometric star patterns",
+          "correct": false,
+          "rationale": "Those are pure geometry, not words."
+        },
+        {
+          "id": "d",
+          "label": "Islamic calligraphy",
+          "correct": true
+        }
+      ],
+      "explanation": "Both traditions made the holy word itself into art: calligraphy for the Qur'an, the Chi-Rho page for the Gospels.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_illuminated_manuscript",
+    "source.artsmia_illuminated_manuscripts",
+    "source.tcd_book_of_kells",
+    "source.visittrinity_chi_rho"
+  ],
+  "art": "object.book"
+}

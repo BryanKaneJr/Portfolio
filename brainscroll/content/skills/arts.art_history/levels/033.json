@@ -1,0 +1,226 @@
+{
+  "id": "level.arts.art_history.033",
+  "skillId": "skill.arts.art_history",
+  "number": 33,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Brunelleschi's Dome",
+  "objective": "After this level you can explain how Brunelleschi built Florence's great dome.",
+  "summary": "Florence Cathedral waited over a century for a dome about 45 metres wide. Brunelleschi built it (1420-36) with no wooden frame, using two shells and herringbone brickwork.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.ren_dome_challenge",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ren_dome_method",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ren_florence_origins",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.ren_linear_perspective",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.032"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.033.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Florence began a giant cathedral in 1296. Its dome waited over a century.",
+      "body": "By 1418 the building needed an eight-sided dome about 45 metres wide, and how to vault it had beaten architects for decades. The city held a contest for ideas. In 1420 it chose a goldsmith with no serious architectural training: Brunelleschi."
+    },
+    {
+      "id": "card.art_history.033.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "No wooden frame",
+      "body": "Builders normally raised an arch or dome on centering: a temporary wooden frame that holds the bricks up until the mortar sets, then comes out. Brunelleschi skipped it. From 1420 to 1436 his dome rose with no centering underneath at all, its curves kept true by a system of measuring wires.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "No frame, no net. Just geometry and some very steady nerves."
+      }
+    },
+    {
+      "id": "card.art_history.033.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two domes and a zigzag",
+      "body": "Look up from inside and you see one dome, but there are two: an inner shell spanning the space and an outer shell that keeps off the weather. In the brickwork, some bricks are set at angles to the rest in a zigzag herringbone pattern. They lock each new ring of bricks to the ones below, so the dome held itself up as it grew. The wall was its own scaffolding."
+    },
+    {
+      "id": "card.art_history.033.c4",
+      "type": "fact",
+      "fact": "It's still the largest masonry dome in the world.",
+      "context": "Nearly six centuries on, nobody has built a bigger dome of brick and stone. Brunelleschi's design for the lantern, the small tower on top, was approved in 1436, but it was finished only after his death in 1446. Not bad for the runner-up in Level 31's door contest."
+    },
+    {
+      "id": "card.art_history.033.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.033.q1"
+    },
+    {
+      "id": "card.art_history.033.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.033.q2"
+    },
+    {
+      "id": "card.art_history.033.c7",
+      "type": "recall",
+      "questionId": "question.art_history.033.q3"
+    },
+    {
+      "id": "card.art_history.033.c8",
+      "type": "checkpoint",
+      "headline": "Dome: raised",
+      "learned": [
+        "Florence needed a dome about 45 metres wide",
+        "Brunelleschi built it 1420-36 with no centering",
+        "Two shells and herringbone bricks held it up",
+        "It's still the largest masonry dome in the world"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.033.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.ren_dome_method"
+      ],
+      "sourceCardIds": [
+        "card.art_history.033.c2"
+      ],
+      "prompt": "What did Brunelleschi build his dome without?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bricks and mortar",
+          "correct": false,
+          "rationale": "The dome is built of brick, set in mortar."
+        },
+        {
+          "id": "b",
+          "label": "A temporary wooden frame",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "An approved design",
+          "correct": false,
+          "rationale": "The city chose his design in 1420."
+        },
+        {
+          "id": "d",
+          "label": "Measuring wires",
+          "correct": false,
+          "rationale": "Wires are how he kept the curves true."
+        }
+      ],
+      "explanation": "He built it with no centering, the temporary wooden frame that normally held a dome up during building.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.ren_dome_method"
+      ],
+      "sourceCardIds": [
+        "card.art_history.033.c3"
+      ],
+      "prompt": "How did the herringbone brick pattern help the dome?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It made the dome lighter to lift",
+          "correct": false,
+          "rationale": "Its job was locking, not lightening."
+        },
+        {
+          "id": "b",
+          "label": "It decorated the dome's outside",
+          "correct": false,
+          "rationale": "It did a structural job inside the brickwork."
+        },
+        {
+          "id": "c",
+          "label": "It let rainwater drain away",
+          "correct": false,
+          "rationale": "Keeping off weather was the outer shell's job."
+        },
+        {
+          "id": "d",
+          "label": "It locked new bricks to those below",
+          "correct": true
+        }
+      ],
+      "explanation": "Bricks set at angles locked each new ring to the ones below, so the dome held itself up as it rose.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.033.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.ren_dome_challenge",
+        "concept.art_history.ren_linear_perspective"
+      ],
+      "sourceCardIds": [
+        "card.art_history.033.c1",
+        "card.art_history.032.c1",
+        "card.art_history.032.c2"
+      ],
+      "prompt": "Brunelleschi, the goldsmith, won the dome job in 1420. Which other breakthrough from this chapter is credited to him?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Linear perspective",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The bronze Baptistery doors",
+          "correct": false,
+          "rationale": "Ghiberti won that job."
+        },
+        {
+          "id": "c",
+          "label": "The Holy Trinity fresco",
+          "correct": false,
+          "rationale": "Masaccio painted it."
+        },
+        {
+          "id": "d",
+          "label": "On Painting, the book",
+          "correct": false,
+          "rationale": "Alberti wrote it."
+        }
+      ],
+      "explanation": "About 1415 Brunelleschi demonstrated linear perspective with his peephole panel of the Baptistery.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_florence_cathedral",
+    "source.brit_brunelleschi",
+    "source.natgeo_florence_dome",
+    "source.encyclopedia_centering",
+    "source.brit_linear_perspective",
+    "source.webexhibits_brunelleschi_experiment"
+  ],
+  "art": "rome.dome"
+}

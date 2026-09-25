@@ -1,0 +1,217 @@
+{
+  "id": "level.arts.art_history.064",
+  "skillId": "skill.arts.art_history",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Art Nouveau",
+  "objective": "After this level you can describe Art Nouveau's flowing lines and plant forms.",
+  "summary": "Art Nouveau (about 1890 to 1910) was a deliberate new style of plant-like, whiplash lines, seen in Guimard's Paris Métro entrances, glass, jewelry and posters.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.nouveau_style",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.nouveau_metro",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.elements_of_art",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.063"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In Paris, you can still go down into the subway through an iron garden.",
+      "body": "From 1900, Hector Guimard designed entrances for the new Paris Métro in cast iron and glass. Stems of green-painted iron curl up into lamps shaped like flower buds, under a sign reading Métropolitain. It was a new style for a new century, and it had a name that said so."
+    },
+    {
+      "id": "card.art_history.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The line that never goes straight",
+      "body": "Art Nouveau flourished from about 1890 to 1910, across Europe and the US. Its signature is an undulating, lopsided line, like a flower stalk, a curling vine tendril or the edge of an insect's wing. At its most energetic it snaps with a whiplike force. Once you know it, you'll spot it curling through old railings, windows and posters."
+    },
+    {
+      "id": "card.art_history.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Art moves out of the frame",
+      "body": "Painting wasn't the main event. Art Nouveau lived mostly in architecture, interiors, jewelry, glass, posters and illustration: the stuff of daily life. The American glassmaker Louis Comfort Tiffany worked in it, and so did the Czech designer Alphonse Mucha. The goal was deliberate: a brand-new style, instead of the copies of past styles that filled so much 19th-century art. Siegfried Bing's Paris gallery, called L'Art Nouveau (\"new art\"), helped give it its name."
+    },
+    {
+      "id": "card.art_history.064.c4",
+      "type": "fact",
+      "fact": "Of Guimard's 141 Métro entrances, only 86 survive.",
+      "context": "At first, Parisians scorned them and called the lettering un-French. After 1910, Art Nouveau looked old-fashioned and was generally abandoned, and many entrances were demolished before anyone thought to save them. Being new, it turns out, is the fastest way to become old. Now the survivors are treasured.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Today's \"so last decade\" is tomorrow's protected landmark. Keep that in mind before you redecorate."
+      }
+    },
+    {
+      "id": "card.art_history.064.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.064.q1"
+    },
+    {
+      "id": "card.art_history.064.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.064.q2"
+    },
+    {
+      "id": "card.art_history.064.c7",
+      "type": "recall",
+      "questionId": "question.art_history.064.q3"
+    },
+    {
+      "id": "card.art_history.064.c8",
+      "type": "checkpoint",
+      "headline": "Art Nouveau: traced",
+      "learned": [
+        "About 1890 to 1910, in Europe and the US",
+        "Signature: an undulating, plant-like line",
+        "Mostly design: buildings, glass, jewelry, posters",
+        "86 of Guimard's 141 Métro entrances survive"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.nouveau_style"
+      ],
+      "sourceCardIds": [
+        "card.art_history.064.c2"
+      ],
+      "prompt": "What kind of line is the signature of Art Nouveau?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Straight lines meeting at right angles",
+          "correct": false,
+          "rationale": "Art Nouveau lines almost never go straight."
+        },
+        {
+          "id": "b",
+          "label": "Jagged zigzags, sharp as broken glass",
+          "correct": false,
+          "rationale": "Its curves undulate; they don't break."
+        },
+        {
+          "id": "c",
+          "label": "Perfect circles drawn with a compass",
+          "correct": false,
+          "rationale": "Its curves are lopsided, not geometric."
+        },
+        {
+          "id": "d",
+          "label": "An undulating curve, like a plant stalk",
+          "correct": true
+        }
+      ],
+      "explanation": "Art Nouveau's line undulates asymmetrically, like flower stalks, vine tendrils and insect wings.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.nouveau_metro"
+      ],
+      "sourceCardIds": [
+        "card.art_history.064.c4"
+      ],
+      "prompt": "Why do only 86 of Guimard's 141 Métro entrances survive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The style went out of fashion, and many were torn down",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Cast iron rusted away within a few years",
+          "correct": false,
+          "rationale": "They were demolished, not worn out."
+        },
+        {
+          "id": "c",
+          "label": "Guimard built most of them in wood",
+          "correct": false,
+          "rationale": "They were cast iron and glass."
+        },
+        {
+          "id": "d",
+          "label": "They were moved to museums abroad",
+          "correct": false,
+          "rationale": "Most lost ones were demolished."
+        }
+      ],
+      "explanation": "After 1910 Art Nouveau looked old-fashioned, and many entrances were demolished before the style was appreciated again.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.art_history.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.nouveau_style",
+        "concept.art_history.elements_of_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.064.c2",
+        "card.art_history.003.c2"
+      ],
+      "prompt": "Level 3 sorted shapes into two families. Which family do Art Nouveau's stalks and tendrils belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Geometric, like squares and circles",
+          "correct": false,
+          "rationale": "Art Nouveau curves are lopsided and natural."
+        },
+        {
+          "id": "b",
+          "label": "Organic, free-form shapes from nature",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Negative space",
+          "correct": false,
+          "rationale": "Negative space is empty area, not a family of shapes."
+        },
+        {
+          "id": "d",
+          "label": "Implied texture",
+          "correct": false,
+          "rationale": "Texture is about surface, not outline."
+        }
+      ],
+      "explanation": "Organic shapes are the free-form shapes you find in nature: exactly what Art Nouveau's stalks, vines and wings borrow.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.archdaily_guimard_metro",
+    "source.brit_art_nouveau",
+    "source.getty_elements_of_art"
+  ],
+  "art": "arts.stained-glass"
+}

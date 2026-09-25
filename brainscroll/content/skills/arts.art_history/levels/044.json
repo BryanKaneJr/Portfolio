@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.art_history.044",
+  "skillId": "skill.arts.art_history",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rembrandt",
+  "objective": "After this level you can explain how Rembrandt used light and why he painted so many self-portraits.",
+  "summary": "The Night Watch (1642) isn't a night scene: varnish darkened it. Rembrandt lit a militia company like a stage. About 80 of his self-portraits survive, painted for practice, for light and for sale.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.rembrandt_night_watch",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.rembrandt_self_portraits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.chiaroscuro",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.043"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.044.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rembrandt's most famous painting, The Night Watch, isn't set at night.",
+      "body": "It's a 1642 portrait of an Amsterdam militia company under Captain Frans Banninck Cocq, set in daylight. The name, first recorded in 1797, came from thick varnish that had darkened it. The painting got dimmer, and a legend got a name."
+    },
+    {
+      "id": "card.art_history.044.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A group photo that won't stand still",
+      "body": "Group portraits usually lined people up in stiff rows, like a team photo. Rembrandt made the company move. The captain, in black with a red sash, strides forward beside his lieutenant in pale cream. Behind them glows a girl in yellow, the company's mascot. Strong chiaroscuro spotlights some figures and sinks others into shadow, like actors on a stage.",
+      "callout": "Level 42's light-dark, now on a crowd of 1640s Amsterdammers"
+    },
+    {
+      "id": "card.art_history.044.c3",
+      "type": "fact",
+      "fact": "About 80 Rembrandt self-portraits survive.",
+      "context": "They span a 40-year career in paintings, etchings and drawings, far more than any other painter of his time. At about 22, around 1628, he let light glance along one cheek and left the rest of his face in shadow. In 1669, the year he died, thick paint builds his sagging, blotchy skin at 63. Scroll through them and you watch a man age.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Eighty selfies, no filters. The later ones are the bravest."
+      }
+    },
+    {
+      "id": "card.art_history.044.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why so many? Several good guesses",
+      "body": "Nobody left a note explaining it, so historians offer reasons, not one answer. He may have used his own face to practice expressions, since he always had it handy. He experimented with light on it. And collectors bought them: a Rembrandt by Rembrandt, of Rembrandt. Most likely, it was several of these at once."
+    },
+    {
+      "id": "card.art_history.044.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.044.q1"
+    },
+    {
+      "id": "card.art_history.044.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.044.q2"
+    },
+    {
+      "id": "card.art_history.044.c7",
+      "type": "recall",
+      "questionId": "question.art_history.044.q3"
+    },
+    {
+      "id": "card.art_history.044.c8",
+      "type": "checkpoint",
+      "headline": "Rembrandt: lit up",
+      "learned": [
+        "The Night Watch (1642) is a daytime scene, darkened by varnish",
+        "Rembrandt set a militia company in dramatic motion and light",
+        "About 80 self-portraits survive from 40 years",
+        "Suggested reasons: practice, light experiments and sales"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.rembrandt_self_portraits"
+      ],
+      "sourceCardIds": [
+        "card.art_history.044.c3"
+      ],
+      "prompt": "About how many self-portraits by Rembrandt survive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 8",
+          "correct": false,
+          "rationale": "Far more than that."
+        },
+        {
+          "id": "b",
+          "label": "About 20",
+          "correct": false,
+          "rationale": "Still too few."
+        },
+        {
+          "id": "c",
+          "label": "About 80",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 800",
+          "correct": false,
+          "rationale": "Too many; about a tenth of that."
+        }
+      ],
+      "explanation": "About 80 survive, in paintings, etchings and drawings, across a 40-year career.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.rembrandt_night_watch"
+      ],
+      "sourceCardIds": [
+        "card.art_history.044.c2"
+      ],
+      "prompt": "What made The Night Watch different from an ordinary group portrait of its time?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every member was painted the same size, in a neat row",
+          "correct": false,
+          "rationale": "That's the stiff tradition he broke."
+        },
+        {
+          "id": "b",
+          "label": "It was painted at night by candlelight",
+          "correct": false,
+          "rationale": "It's a daytime scene; varnish made it look dark."
+        },
+        {
+          "id": "c",
+          "label": "It showed no real people, only imaginary soldiers",
+          "correct": false,
+          "rationale": "It portrays a real militia company."
+        },
+        {
+          "id": "d",
+          "label": "Its figures move, lit by strong light and shadow like a stage",
+          "correct": true
+        }
+      ],
+      "explanation": "Instead of stiff rows, Rembrandt set the company in motion and lit it dramatically.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.rembrandt_self_portraits",
+        "concept.art_history.chiaroscuro"
+      ],
+      "sourceCardIds": [
+        "card.art_history.044.c3",
+        "card.art_history.042.c2"
+      ],
+      "prompt": "In his self-portrait of about 1628, light glances along one cheek and the rest of his face is in shadow. Which Level 42 idea is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chiaroscuro",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Twisted perspective",
+          "correct": false,
+          "rationale": "That's Lascaux's horns from Level 6."
+        },
+        {
+          "id": "c",
+          "label": "Complementary colors",
+          "correct": false,
+          "rationale": "Those are color opposites, not light and shadow."
+        },
+        {
+          "id": "d",
+          "label": "Negative space",
+          "correct": false,
+          "rationale": "That's the empty area around a shape."
+        }
+      ],
+      "explanation": "Light against shadow to shape a face is chiaroscuro, the light-dark Caravaggio made famous.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_night_watch",
+    "source.nationalgallery_rembrandt_63",
+    "source.rijksmuseum_rembrandt_self_1628",
+    "source.brit_chiaroscuro"
+  ],
+  "art": "arts.candle"
+}

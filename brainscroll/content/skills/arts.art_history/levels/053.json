@@ -1,0 +1,226 @@
+{
+  "id": "level.arts.art_history.053",
+  "skillId": "skill.arts.art_history",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Landscape Painting",
+  "objective": "After this level you can explain how Turner and Constable made landscape a serious subject.",
+  "summary": "Academies ranked landscape near the bottom. Constable studied his home valley and its skies; Turner painted storms and speed. The Hay Wain won gold in Paris in 1824.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.landscape_genre_rank",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.constable_landscape",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.turner_landscape",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.romantic_sublime",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.052"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1824, a painting of a hay cart in a river won a gold medal in Paris.",
+      "body": "It was The Hay Wain by the Englishman John Constable, and it had failed to sell when shown in London. It won the medal at the Paris Salon, from King Charles X himself. Not bad for a picture with no heroes in it, in an age when landscape was supposed to be minor art."
+    },
+    {
+      "id": "card.art_history.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Painting's pecking order",
+      "body": "The French Royal Academy ranked what you could paint. History painting came first, then portraits, then everyday scenes, and only then landscape and still life. History ranked highest because it showed noble events of history and religion. Landscape sat near the bottom because it had no human subject: a view of a field, however lovely, was officially minor art."
+    },
+    {
+      "id": "card.art_history.053.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Constable reads the sky",
+      "body": "Constable, born in East Bergholt in Suffolk, painted the Stour valley where he grew up. The Hay Wain (1821) shows an empty hay wagon crossing the shallow millpond at Flatford. He painted it in his London studio, working from outdoor sketches made over several years. And he studied the sky: on Hampstead Heath in 1821 and 1822 he painted dozens of cloud studies, \"skying\", noting the date, time and wind on the back of each.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Date, time, wind direction. Constable filed clouds like a weather station with a paintbrush."
+      }
+    },
+    {
+      "id": "card.art_history.053.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Turner paints the weather itself",
+      "body": "J.M.W. Turner went further. In Snow Storm (about 1842), a steamboat is tossed in a swirling vortex where water and light merge. Turner claimed he had himself lashed to a ship's mast for four hours to watch the storm; historians doubt it. Some critics sneered \"soapsuds and whitewash\". In Rain, Steam and Speed (1844), a steam train rushes straight at you across a bridge through the rain."
+    },
+    {
+      "id": "card.art_history.053.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.053.q1"
+    },
+    {
+      "id": "card.art_history.053.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.053.q2"
+    },
+    {
+      "id": "card.art_history.053.c7",
+      "type": "recall",
+      "questionId": "question.art_history.053.q3"
+    },
+    {
+      "id": "card.art_history.053.c8",
+      "type": "checkpoint",
+      "headline": "Landscape: promoted",
+      "learned": [
+        "Academies ranked landscape low: no human subject",
+        "Constable painted his Stour valley and studied skies",
+        "The Hay Wain won a gold medal in Paris in 1824",
+        "Turner painted storms, steam and speed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.constable_landscape"
+      ],
+      "sourceCardIds": [
+        "card.art_history.053.c3"
+      ],
+      "prompt": "What did Constable note on the back of his Hampstead cloud studies?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The price he hoped to get",
+          "correct": false,
+          "rationale": "He was recording the weather, not sales."
+        },
+        {
+          "id": "b",
+          "label": "The date, time and wind",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A poem about each cloud",
+          "correct": false,
+          "rationale": "His notes were closer to a weather log."
+        },
+        {
+          "id": "d",
+          "label": "The name of the buyer",
+          "correct": false,
+          "rationale": "These were studies, not sales."
+        }
+      ],
+      "explanation": "In 1821 and 1822 Constable painted dozens of sky studies, \"skying\", and noted the date, time and wind on each.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.landscape_genre_rank"
+      ],
+      "sourceCardIds": [
+        "card.art_history.053.c2"
+      ],
+      "prompt": "Why did the academies rank landscape near the bottom?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Landscapes were too hard to sell",
+          "correct": false,
+          "rationale": "The ranking was about subject, not price."
+        },
+        {
+          "id": "b",
+          "label": "Paint for skies was too expensive",
+          "correct": false,
+          "rationale": "Materials had nothing to do with it."
+        },
+        {
+          "id": "c",
+          "label": "Landscapes had no human subject",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Landscapes were always very small",
+          "correct": false,
+          "rationale": "Size did not set the ranking."
+        }
+      ],
+      "explanation": "History painting ranked highest for its noble human events; landscape and still life, without human subjects, ranked lowest.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.turner_landscape",
+        "concept.art_history.romantic_sublime"
+      ],
+      "sourceCardIds": [
+        "card.art_history.053.c4",
+        "card.art_history.051.c3"
+      ],
+      "prompt": "Turner's Snow Storm shows a small steamboat in a swirling storm. Which Level 51 idea does it fit best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The beautiful: small, smooth and delicate",
+          "correct": false,
+          "rationale": "A storm at sea is the opposite of smooth."
+        },
+        {
+          "id": "b",
+          "label": "The rules of the Academy's ranking",
+          "correct": false,
+          "rationale": "Turner was pushing against those."
+        },
+        {
+          "id": "c",
+          "label": "The calm order of Neoclassicism",
+          "correct": false,
+          "rationale": "Nothing about this is calm."
+        },
+        {
+          "id": "d",
+          "label": "The sublime: awe mixed with terror",
+          "correct": true
+        }
+      ],
+      "explanation": "Vast, powerful nature dwarfing a boat is Burke's sublime: awe with a touch of terror.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ng_hay_wain",
+    "source.tate_genres",
+    "source.brit_constable",
+    "source.ngv_constable_clouds",
+    "source.brit_snow_storm",
+    "source.ng_rain_steam_speed"
+  ],
+  "art": "geo.mountains"
+}

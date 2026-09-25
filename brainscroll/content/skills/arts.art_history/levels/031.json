@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.art_history.031",
+  "skillId": "skill.arts.art_history",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Was the Renaissance?",
+  "objective": "After this level you can explain what the Renaissance's rebirth meant and why it began in Florence.",
+  "summary": "Florence, rich from cloth and banking, launched a rebirth of Greek and Roman learning. Its 1401 contest for bronze doors, won by Ghiberti, is often seen as the start.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.ren_florence_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ren_humanism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.art_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.030"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1401, Florence held a contest to find its best artist.",
+      "body": "The prize: making bronze doors for the city's Baptistery. Seven artists entered, and each cast the same scene in bronze, Abraham about to sacrifice his son Isaac, framed in a four-lobed quatrefoil. The contest is often seen as a starting point of the Renaissance. So why here, and why then?"
+    },
+    {
+      "id": "card.art_history.031.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A rebirth, on purpose",
+      "body": "Remember Level 1? Renaissance is French for \"rebirth\", and what was being reborn was the learning and art of ancient Greece and Rome. It began in 14th-century Italy. Scholars called humanists pored over old Greek and Latin writings and made human nature, with all its dignity, their subject. Art still mostly served the church. You could say the Renaissance looked back to ancient Rome in order to look harder at people."
+    },
+    {
+      "id": "card.art_history.031.c3",
+      "type": "fact",
+      "fact": "Florence ran on cloth and cash.",
+      "context": "The city grew rich making cloth and banking, and its gold coin, the florin, became a monetary standard far beyond its walls. Wealthy merchant families, the Medici above all, paid for palaces, churches and monasteries, and for the art that filled them. Art takes time and materials, and those take money. Florence had plenty."
+    },
+    {
+      "id": "card.art_history.031.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The winner, and the loser",
+      "body": "Lorenzo Ghiberti won. His doors kept him busy from 1403 until 1424, more than two decades, and they were paid for by the Calimala, a powerful merchants' guild. The runner-up, Filippo Brunelleschi, took the loss and turned toward architecture. Keep an eye on him. He'll be back.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Losing a contest has rarely worked out this well. Just wait."
+      }
+    },
+    {
+      "id": "card.art_history.031.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.031.q1"
+    },
+    {
+      "id": "card.art_history.031.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.031.q2"
+    },
+    {
+      "id": "card.art_history.031.c7",
+      "type": "recall",
+      "questionId": "question.art_history.031.q3"
+    },
+    {
+      "id": "card.art_history.031.c8",
+      "type": "checkpoint",
+      "headline": "Renaissance: launched",
+      "learned": [
+        "Renaissance means rebirth of Greek and Roman learning",
+        "Humanists studied classical texts and human dignity",
+        "Florence's cloth and banking wealth paid for art",
+        "Ghiberti won the 1401 doors contest; Brunelleschi lost"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.ren_florence_origins"
+      ],
+      "sourceCardIds": [
+        "card.art_history.031.c1",
+        "card.art_history.031.c4"
+      ],
+      "prompt": "What was the prize in Florence's 1401 art contest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Painting the cathedral's ceiling",
+          "correct": false,
+          "rationale": "The prize was cast in bronze, not painted."
+        },
+        {
+          "id": "b",
+          "label": "Designing the cathedral's dome",
+          "correct": false,
+          "rationale": "That problem came later, and it went to the contest's runner-up."
+        },
+        {
+          "id": "c",
+          "label": "Making bronze doors for the Baptistery",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Carving a marble statue for the square",
+          "correct": false,
+          "rationale": "Each entrant cast a bronze relief for a set of doors."
+        }
+      ],
+      "explanation": "Seven artists competed to make bronze doors for Florence's Baptistery. Ghiberti won.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.ren_florence_origins"
+      ],
+      "sourceCardIds": [
+        "card.art_history.031.c3"
+      ],
+      "prompt": "Why could Florence afford so much new art?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cloth-making and banking made it rich",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The pope paid for everything there",
+          "correct": false,
+          "rationale": "Florence's money came from its own trade and banks."
+        },
+        {
+          "id": "c",
+          "label": "Its artists all worked for free",
+          "correct": false,
+          "rationale": "Art takes time and materials, and merchant families paid."
+        },
+        {
+          "id": "d",
+          "label": "It had no churches to look after",
+          "correct": false,
+          "rationale": "Its patrons paid for churches, among other things."
+        }
+      ],
+      "explanation": "Cloth and banking made Florence rich, and merchant families like the Medici spent that wealth on buildings and art.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.ren_humanism",
+        "concept.art_history.art_eras"
+      ],
+      "sourceCardIds": [
+        "card.art_history.031.c2",
+        "card.art_history.001.c4"
+      ],
+      "prompt": "Humanists studied old Greek and Latin writings. How does that fit Level 1's meaning of \"Renaissance\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It means \"new art\", made from nothing",
+          "correct": false,
+          "rationale": "The word points back to something old."
+        },
+        {
+          "id": "b",
+          "label": "It means \"faith\", art for the church",
+          "correct": false,
+          "rationale": "Church art came before; the word means something else."
+        },
+        {
+          "id": "c",
+          "label": "It means \"Florence\" in old French",
+          "correct": false,
+          "rationale": "It's the French word for rebirth."
+        },
+        {
+          "id": "d",
+          "label": "It means \"rebirth\" of Greece and Rome",
+          "correct": true
+        }
+      ],
+      "explanation": "Renaissance is French for rebirth. Humanists were reviving the learning of ancient Greece and Rome.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ghiberti",
+    "source.brit_renaissance",
+    "source.brit_humanism",
+    "source.brit_christianity_art",
+    "source.brit_florence",
+    "source.brit_brunelleschi"
+  ],
+  "art": "rome.dome"
+}

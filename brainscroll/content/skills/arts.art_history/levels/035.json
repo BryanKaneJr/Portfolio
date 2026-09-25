@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.art_history.035",
+  "skillId": "skill.arts.art_history",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Leonardo da Vinci",
+  "objective": "After this level you can describe Leonardo's paintings and his notebooks.",
+  "summary": "Leonardo filled thousands of pages with mirror writing and drawings. His Mona Lisa melts light into shadow with sfumato; his experimental Last Supper began flaking in his lifetime.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.ren_leonardo_notebooks",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ren_leonardo_painting",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.oldest_known_art",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.034"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Leonardo da Vinci wrote backwards.",
+      "body": "Thousands of pages of his notes survive, and they run from right to left, in mirror writing. Hold a page up to a mirror and it reads normally. Leonardo was left-handed, which made writing this way easier."
+    },
+    {
+      "id": "card.art_history.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A notebook full of the world",
+      "body": "The notebooks roam across anatomy, machines and flight, and the drawings come first: the words are there to explain the pictures. Leonardo split his energy between art and science, and he finished surprisingly few paintings. You could say the notebooks were where he did his thinking, and the paintings were where he showed it."
+    },
+    {
+      "id": "card.art_history.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The smoke trick",
+      "body": "He began the Mona Lisa about 1503. A woman is shown half-length, turned three-quarters toward you, hands folded, with valleys and rivers winding far behind her. Now look for the edges of her smile. There aren't any. Leonardo used sfumato, from the Italian for evaporating like smoke: fine shading that lets light and dark melt into each other without lines or borders."
+    },
+    {
+      "id": "card.art_history.035.c4",
+      "type": "fact",
+      "fact": "His most famous wall painting started falling apart in his lifetime.",
+      "context": "The Last Supper (1495-98) covers a dining-hall wall of Santa Maria delle Grazie in Milan: Christ has just said that one of the apostles will betray him, and they react. Instead of true fresco on wet plaster, Leonardo painted in tempera on a dry wall. It was an experiment, and it was already deteriorating while he was alive.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Even geniuses have experiments that don't stick. His just happened to be on a wall."
+      }
+    },
+    {
+      "id": "card.art_history.035.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.035.q1"
+    },
+    {
+      "id": "card.art_history.035.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.035.q2"
+    },
+    {
+      "id": "card.art_history.035.c7",
+      "type": "recall",
+      "questionId": "question.art_history.035.q3"
+    },
+    {
+      "id": "card.art_history.035.c8",
+      "type": "checkpoint",
+      "headline": "Leonardo: decoded",
+      "learned": [
+        "His notebooks are in mirror writing, right to left",
+        "Drawings lead; the words explain them",
+        "Sfumato: shading that melts, with no outlines",
+        "The Last Supper was an experiment that began to flake"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.ren_leonardo_notebooks"
+      ],
+      "sourceCardIds": [
+        "card.art_history.035.c1"
+      ],
+      "prompt": "How is the writing in Leonardo's notebooks laid out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In a secret number code",
+          "correct": false,
+          "rationale": "It reads normally in a mirror; no code needed."
+        },
+        {
+          "id": "b",
+          "label": "Only as drawings, with no words",
+          "correct": false,
+          "rationale": "There are words; they explain the drawings."
+        },
+        {
+          "id": "c",
+          "label": "In mirror writing, right to left",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "In columns running top to bottom",
+          "correct": false,
+          "rationale": "It runs sideways, right to left."
+        }
+      ],
+      "explanation": "Leonardo, who was left-handed, wrote in mirror writing that runs from right to left.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.ren_leonardo_painting"
+      ],
+      "sourceCardIds": [
+        "card.art_history.035.c4"
+      ],
+      "prompt": "Why was The Last Supper already deteriorating in Leonardo's lifetime?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He tried tempera on a dry wall",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was painted on an outside wall",
+          "correct": false,
+          "rationale": "It's on the wall of a dining hall."
+        },
+        {
+          "id": "c",
+          "label": "He never finished painting it",
+          "correct": false,
+          "rationale": "The problem was his experimental technique."
+        },
+        {
+          "id": "d",
+          "label": "He used cheap paint to save money",
+          "correct": false,
+          "rationale": "It was his method, not his budget."
+        }
+      ],
+      "explanation": "Instead of true fresco on wet plaster, Leonardo experimented with tempera on a dry wall, and it began to deteriorate.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.ren_leonardo_painting",
+        "concept.art_history.oldest_known_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.035.c3",
+        "card.art_history.001.c2"
+      ],
+      "prompt": "On Level 1's one-day clock of art history, the Mona Lisa arrives just before midnight. What gives her face its soft look with no outlines?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Linear perspective",
+          "correct": false,
+          "rationale": "Perspective creates depth, not soft edges."
+        },
+        {
+          "id": "b",
+          "label": "Implied texture",
+          "correct": false,
+          "rationale": "Texture is about how a surface seems to feel."
+        },
+        {
+          "id": "c",
+          "label": "Complementary colors",
+          "correct": false,
+          "rationale": "Complements make each other vivid, not soft."
+        },
+        {
+          "id": "d",
+          "label": "Sfumato",
+          "correct": true
+        }
+      ],
+      "explanation": "Sfumato is fine shading that melts light into dark with no lines. Leonardo began the Mona Lisa about 1503.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_leonardo",
+    "source.ilab_codex_arundel",
+    "source.brit_mona_lisa",
+    "source.brit_sfumato"
+  ],
+  "art": "arts.easel"
+}

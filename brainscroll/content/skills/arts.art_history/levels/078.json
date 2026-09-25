@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.art_history.078",
+  "skillId": "skill.arts.art_history",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mexican Muralism",
+  "objective": "After this level you can explain how Diego Rivera and others painted history on public walls.",
+  "summary": "From 1921 Mexico commissioned murals on public buildings to teach history to all. Rivera's fresco History of Mexico climbs the National Palace; his Rockefeller mural was destroyed.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.mexican_muralism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.rivera_murals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.mexica_sun_stone",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.077"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1921, Mexico's government started handing its painters the walls.",
+      "body": "After the Mexican Revolution, the country wanted to teach its own history to everyone, including people who couldn't read. So it gave artists the walls of public buildings."
+    },
+    {
+      "id": "card.art_history.078.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "History for everyone",
+      "body": "The education minister, José Vasconcelos, commissioned murals on public buildings to teach Mexico's history to a largely illiterate population. Three painters led the movement, known as los tres grandes, the Three Great Ones: Diego Rivera, José Clemente Orozco and David Alfaro Siqueiros. Rivera had painted in a Cubist style in Europe beside friends like Picasso and Braque, then studied frescoes in Italy. Wall paintings won him over: anyone could see them, gallery or no gallery."
+    },
+    {
+      "id": "card.art_history.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A staircase through history",
+      "body": "In true fresco, pigment goes onto wet lime plaster and becomes part of the wall as it dries. Between 1929 and 1935 Rivera painted The History of Mexico across three walls of the National Palace stairwell in Mexico City. It opens in the ancient Valley of Mexico, with a pyramid and people grinding maize and making art, then runs through the Spanish conquest to an imagined future. As you climb the stairs, you climb through history."
+    },
+    {
+      "id": "card.art_history.078.c4",
+      "type": "fact",
+      "fact": "Rivera's New York mural was destroyed over one face: Lenin's.",
+      "context": "In 1933 Rivera painted a mural at Rockefeller Center in New York and included a portrait of Lenin. Nelson Rockefeller objected; Rivera refused to remove it. The unfinished mural was covered, then destroyed in 1934. Rivera painted the design again in Mexico City, at the Palace of Fine Arts. Public walls carry powerful messages, and start public fights.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "A mural is hard to hide in a drawer. That is the whole point, and sometimes the whole problem."
+      }
+    },
+    {
+      "id": "card.art_history.078.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.078.q1"
+    },
+    {
+      "id": "card.art_history.078.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.078.q2"
+    },
+    {
+      "id": "card.art_history.078.c7",
+      "type": "recall",
+      "questionId": "question.art_history.078.q3"
+    },
+    {
+      "id": "card.art_history.078.c8",
+      "type": "checkpoint",
+      "headline": "Muralism: on the walls",
+      "learned": [
+        "From 1921, murals on public buildings taught history to all",
+        "Los tres grandes: Rivera, Orozco, Siqueiros",
+        "Fresco: pigment on wet plaster",
+        "Rivera's Rockefeller mural was destroyed over Lenin"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.mexican_muralism"
+      ],
+      "sourceCardIds": [
+        "card.art_history.078.c2"
+      ],
+      "prompt": "Why did Mexico's government commission murals on public buildings from 1921?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To decorate homes of the wealthy",
+          "correct": false,
+          "rationale": "They went on public buildings, for everyone."
+        },
+        {
+          "id": "b",
+          "label": "To teach history to a largely illiterate public",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "To copy Italian churches exactly",
+          "correct": false,
+          "rationale": "Rivera studied Italian frescoes, but the goal was Mexican history."
+        },
+        {
+          "id": "d",
+          "label": "To advertise products to shoppers",
+          "correct": false,
+          "rationale": "The aim was education, not advertising."
+        }
+      ],
+      "explanation": "José Vasconcelos commissioned murals to teach Mexico's history to people who often couldn't read.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.rivera_murals"
+      ],
+      "sourceCardIds": [
+        "card.art_history.078.c4"
+      ],
+      "prompt": "Why was Rivera's Rockefeller Center mural destroyed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The plaster dried before he could finish",
+          "correct": false,
+          "rationale": "It was destroyed on purpose, in 1934."
+        },
+        {
+          "id": "b",
+          "label": "He refused to remove a portrait of Lenin",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The building was torn down",
+          "correct": false,
+          "rationale": "The building stayed; the mural went."
+        },
+        {
+          "id": "d",
+          "label": "He moved it to Mexico City himself",
+          "correct": false,
+          "rationale": "He repainted the design there; the original was destroyed."
+        }
+      ],
+      "explanation": "Nelson Rockefeller objected to the Lenin portrait; Rivera refused to remove it, and the mural was covered and destroyed.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.rivera_murals",
+        "concept.art_history.mexica_sun_stone"
+      ],
+      "sourceCardIds": [
+        "card.art_history.078.c3",
+        "card.art_history.077.c3"
+      ],
+      "prompt": "Rivera's History of Mexico opens in the ancient Valley of Mexico. Which Level 77 capital lies under today's Mexico City?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cusco",
+          "correct": false,
+          "rationale": "That's the Inca capital, in the Andes."
+        },
+        {
+          "id": "b",
+          "label": "Copán",
+          "correct": false,
+          "rationale": "A Maya city in Honduras."
+        },
+        {
+          "id": "c",
+          "label": "Tenochtitlan",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Machu Picchu",
+          "correct": false,
+          "rationale": "An Inca site in Peru."
+        }
+      ],
+      "explanation": "Mexico City's main plaza, where the Sun Stone was found, was built over the heart of the Mexica capital, Tenochtitlan.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_diego_rivera",
+    "source.mexicolore_sun_stone",
+    "source.brit_templo_mayor",
+    "source.brit_fresco",
+    "source.smarthistory_rivera_national_palace",
+    "source.brit_man_at_crossroads"
+  ],
+  "art": "arts.brushes"
+}

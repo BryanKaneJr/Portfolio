@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.art_history.014",
+  "skillId": "skill.arts.art_history",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Greek Vases",
+  "objective": "After this level you can explain black-figure and red-figure vase painting.",
+  "summary": "Black-figure (Corinth, about 700 BCE) painted black figures and scratched in details. Red-figure (Athens, about 530 BCE) flipped it and painted details with a brush.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.greek_black_figure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.greek_red_figure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.oldest_known_art",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.013"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A Greek jar from about 540 BCE reads like a comic strip.",
+      "body": "The Greek heroes Achilles and Ajax sit facing each other, playing a dice game. Words run from their mouths: Achilles calls \"four\", Ajax calls \"three\". The painter, Exekias, signed it as both potter and painter. His figures are black on orange-red clay, and that color scheme is the key to this level."
+    },
+    {
+      "id": "card.art_history.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Black-figure: paint the shape, scratch the detail",
+      "body": "Black-figure began in Corinth about 700 BCE, and Athens took it up by the end of the 7th century BCE. The painter filled in each figure in glossy black on the bare clay, then scratched fine details through the black with a sharp point. Think of scratch art, on a vase. Exekias's dice game is black-figure."
+    },
+    {
+      "id": "card.art_history.014.c3",
+      "type": "fact",
+      "fact": "The black on a Greek vase isn't paint. It's clay.",
+      "context": "Painters used slip, a fine liquid clay. The color change happened in the kiln, in a three-stage firing that switched between letting air in and shutting it out. The slip came out glossy black, and the bare clay returned to orange-red. The painter had to picture the finished colors before the fire made them."
+    },
+    {
+      "id": "card.art_history.014.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Red-figure: the big flip",
+      "body": "In Athens, about 530 BCE, painters reversed the whole system. Now the background was painted black, and the figures were left in bare red clay. Details went on with a brush instead of being scratched. That small switch mattered: a brush curves and flows, so painters had more freedom to show bodies, movement and facial expressions. Red-figure went on to dominate.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Same clay, same kiln, same black. Just swap which part gets painted, and a whole art form changes."
+      }
+    },
+    {
+      "id": "card.art_history.014.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.014.q1"
+    },
+    {
+      "id": "card.art_history.014.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.014.q2"
+    },
+    {
+      "id": "card.art_history.014.c7",
+      "type": "recall",
+      "questionId": "question.art_history.014.q3"
+    },
+    {
+      "id": "card.art_history.014.c8",
+      "type": "checkpoint",
+      "headline": "Greek vases: fired",
+      "learned": [
+        "Black-figure: black figures, scratched details",
+        "The black is slip that fires black",
+        "Red-figure flipped it about 530 BCE",
+        "Brushed details freed the figures"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.greek_black_figure"
+      ],
+      "sourceCardIds": [
+        "card.art_history.014.c2"
+      ],
+      "prompt": "In black-figure painting, how were fine details like cloak patterns added?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Painted in with a fine brush",
+          "correct": false,
+          "rationale": "Brushed details are red-figure's method."
+        },
+        {
+          "id": "b",
+          "label": "Pressed in with a rolling seal",
+          "correct": false,
+          "rationale": "That's Mesopotamia, Level 11."
+        },
+        {
+          "id": "c",
+          "label": "Scratched through the black",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Glued on in colored glass",
+          "correct": false,
+          "rationale": "That sounds more like a mosaic."
+        }
+      ],
+      "explanation": "Black-figure painters filled figures in black, then incised (scratched) details through it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.greek_red_figure"
+      ],
+      "sourceCardIds": [
+        "card.art_history.014.c4"
+      ],
+      "prompt": "Why did red-figure let painters show bodies and faces more freely?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The clay was a brighter red",
+          "correct": false,
+          "rationale": "The color swap wasn't the point; the brush was."
+        },
+        {
+          "id": "b",
+          "label": "Figures were carved in raised relief",
+          "correct": false,
+          "rationale": "They are painted on the surface."
+        },
+        {
+          "id": "c",
+          "label": "The vases were fired only once",
+          "correct": false,
+          "rationale": "The firing still had three stages."
+        },
+        {
+          "id": "d",
+          "label": "Details were painted with a brush, not scratched",
+          "correct": true
+        }
+      ],
+      "explanation": "Painting details with a brush gave more freedom for anatomy, movement and expression than incising them.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.greek_red_figure",
+        "concept.art_history.oldest_known_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.014.c4",
+        "card.art_history.005.c3"
+      ],
+      "prompt": "Red-figure leaves the figure bare and colors the space around it. Which Level 5 technique worked the same way?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The hand stencil",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Blombos crosshatch",
+          "correct": false,
+          "rationale": "Those lines were drawn on with an ochre crayon."
+        },
+        {
+          "id": "c",
+          "label": "Chauvet's smudged charcoal shading",
+          "correct": false,
+          "rationale": "Smudging colors the figure itself."
+        },
+        {
+          "id": "d",
+          "label": "The Lion-Man's ivory carving",
+          "correct": false,
+          "rationale": "That's a sculpture, not a painting."
+        }
+      ],
+      "explanation": "A stencil blows pigment around a hand, leaving its outline on bare rock; red-figure paints the background and leaves the figure bare.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.vatican_exekias_amphora",
+    "source.brit_black_figure",
+    "source.colorado_greek_pottery",
+    "source.ancientworld_greek_vases",
+    "source.brit_red_figure"
+  ],
+  "art": "rome.pottery"
+}

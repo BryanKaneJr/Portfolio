@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.art_history.022",
+  "skillId": "skill.arts.art_history",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Islamic Art and Pattern",
+  "objective": "After this level you can explain why Islamic art so often uses geometry, pattern and calligraphy.",
+  "summary": "Mosques leave out images of people: creating living forms was held to belong to God. Instead come calligraphy, esteemed because the Qur'an came in Arabic, and endless geometry.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.islamic_religious_figures",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.islamic_calligraphy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.islamic_geometric_pattern",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.elements_of_art",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.021"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Walk into a great mosque and look for a picture of a person. You won't find one.",
+      "body": "Instead, the walls are covered in writing, curling vines and stars that seem to go on forever. That isn't because Islamic art never shows people. It's a choice about what belongs in a place of prayer."
+    },
+    {
+      "id": "card.art_history.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the mosque has no faces",
+      "body": "The reason is a belief: creating living forms belongs to God alone. The Qur'an calls God musawwir, the \"maker of forms\", and sayings attributed to the Prophet Muhammad warn painters who try to \"breathe life\" into images. Outside religious spaces it's a different story: people and animals turn up often in palaces and illustrated books. Islamic art isn't picture-free. Its mosques are."
+    },
+    {
+      "id": "card.art_history.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Writing as the highest art",
+      "body": "If a place of prayer won't show holy people, what does it show? The holy word. Muslims believe the Qur'an is God's revelation to the Prophet Muhammad, and it was revealed in Arabic. So calligraphy, beautiful writing, became the most highly regarded Islamic art. It runs across mosque walls, bowls, metalwork and textiles. Here, the words are the picture.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Imagine your handwriting being the most admired art in town. No pressure."
+      }
+    },
+    {
+      "id": "card.art_history.022.c4",
+      "type": "fact",
+      "fact": "The most complex Islamic patterns need only a compass and a ruler.",
+      "context": "Start with a circle, divide it, join the points with straight lines, and a star appears. Repeat that one unit side by side and the pattern can keep going in every direction, with no natural edge. Many scholars read that endlessness as suggesting infinity, and for some, the unity of God. It's an interpretation, but you can see why it sticks."
+    },
+    {
+      "id": "card.art_history.022.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.022.q1"
+    },
+    {
+      "id": "card.art_history.022.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.022.q2"
+    },
+    {
+      "id": "card.art_history.022.c7",
+      "type": "recall",
+      "questionId": "question.art_history.022.q3"
+    },
+    {
+      "id": "card.art_history.022.c8",
+      "type": "checkpoint",
+      "headline": "Islamic pattern: decoded",
+      "learned": [
+        "Mosques leave out images of people and animals",
+        "Creating living forms was held to belong to God",
+        "Calligraphy is the most esteemed art: the Qur'an came in Arabic",
+        "Geometric patterns use compass and ruler and can repeat without end"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.islamic_calligraphy"
+      ],
+      "sourceCardIds": [
+        "card.art_history.022.c3"
+      ],
+      "prompt": "Why is calligraphy the most highly regarded art in the Islamic tradition?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Arabic paper was cheaper than paint",
+          "correct": false,
+          "rationale": "Cost has nothing to do with it; the reason is religious."
+        },
+        {
+          "id": "b",
+          "label": "Painting was invented later than writing",
+          "correct": false,
+          "rationale": "That's not the reason calligraphy is esteemed."
+        },
+        {
+          "id": "c",
+          "label": "Rulers could not read pictures",
+          "correct": false,
+          "rationale": "The reason is the holy text, not the rulers."
+        },
+        {
+          "id": "d",
+          "label": "The Qur'an was revealed in Arabic",
+          "correct": true
+        }
+      ],
+      "explanation": "Muslims believe the Qur'an is God's revelation to the Prophet Muhammad, revealed in Arabic, so writing it beautifully is the highest art.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.islamic_religious_figures"
+      ],
+      "sourceCardIds": [
+        "card.art_history.022.c2"
+      ],
+      "prompt": "Why do mosques leave out images of people and animals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Creating living forms was held to belong to God",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Islamic art never showed people anywhere",
+          "correct": false,
+          "rationale": "Figures are common in palaces and illustrated books."
+        },
+        {
+          "id": "c",
+          "label": "Painters were too rare to hire",
+          "correct": false,
+          "rationale": "It's a matter of belief, not a shortage of artists."
+        },
+        {
+          "id": "d",
+          "label": "Images faded too fast on mosque walls",
+          "correct": false,
+          "rationale": "Nothing to do with fading; it's about belief."
+        }
+      ],
+      "explanation": "Islamic resistance to images of living beings comes from the belief that creating living forms is unique to God. Secular art often shows figures.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.islamic_geometric_pattern",
+        "concept.art_history.elements_of_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.022.c4",
+        "card.art_history.003.c2"
+      ],
+      "prompt": "Level 3 called line and shape building blocks. Which Islamic ornament is built from just circles and straight lines?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Portraits of rulers",
+          "correct": false,
+          "rationale": "Portraits aren't built from compass and ruler, and mosques avoid them."
+        },
+        {
+          "id": "b",
+          "label": "Arabic calligraphy",
+          "correct": false,
+          "rationale": "Calligraphy is writing, drawn with a pen, not a compass."
+        },
+        {
+          "id": "c",
+          "label": "Geometric star patterns",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Painted landscapes",
+          "correct": false,
+          "rationale": "Landscapes aren't built from compass-drawn units."
+        }
+      ],
+      "explanation": "Geometric patterns start from a circle (a shape) and straight lines, drawn with compass and ruler, then repeat.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.met_islamic_figural",
+    "source.met_islamic_calligraphy",
+    "source.met_islamic_geometric"
+  ],
+  "art": "arts.pattern-tile"
+}

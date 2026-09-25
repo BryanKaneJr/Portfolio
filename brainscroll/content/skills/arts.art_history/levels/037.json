@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.art_history.037",
+  "skillId": "skill.arts.art_history",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Raphael and the High Renaissance",
+  "objective": "After this level you can explain what made High Renaissance painting feel balanced and calm.",
+  "summary": "Raphael's School of Athens puts Plato and Aristotle at its vanishing point. High Renaissance paintings like his Madonna in the Meadow build calm from balance and triangles.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.ren_school_of_athens",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ren_high_renaissance_balance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ren_linear_perspective",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.036"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In one room of the Vatican, the great thinkers of ancient Greece meet.",
+      "body": "Raphael painted them there on a single wall about 1509-11, while Michelangelo was painting the Sistine ceiling nearby. Two of the Renaissance's biggest names, working a short walk apart."
+    },
+    {
+      "id": "card.art_history.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who's who",
+      "body": "The School of Athens sets the philosophers in a vast hall of arches and barrel vaults, said to be based on Bramante's design for the new St. Peter's. At the center stand Plato, pointing up to the sky, and Aristotle, gesturing down toward the earth. Leaning on a block of marble in front is Heraclitus, a portrait of Michelangelo. And at the far right, in a black beret, is Raphael himself.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A fellow artist in the front, and the painter tucked in at the edge. Now that's a signature."
+      }
+    },
+    {
+      "id": "card.art_history.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every line leads to the middle",
+      "body": "Now follow the lines of the architecture inward. They meet at the painting's central vanishing point, and that's exactly where Plato and Aristotle stand. Level 32's rule is doing the pointing: wherever your eye starts, the building steers it to the two main characters."
+    },
+    {
+      "id": "card.art_history.037.c4",
+      "type": "fact",
+      "fact": "High Renaissance painting aims for perfect balance.",
+      "context": "The Renaissance hit its height between the 1490s and the 1520s, the High Renaissance. In Raphael's Madonna in the Meadow (1505/06), Mary sits on the ground with the baby Jesus and the young John the Baptist, and the three fit inside an equilateral triangle. Wide at the base, peaked at the top: nothing wobbles. Raphael died at 37, in 1520, yet for centuries he was seen as the supreme High Renaissance painter."
+    },
+    {
+      "id": "card.art_history.037.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.037.q1"
+    },
+    {
+      "id": "card.art_history.037.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.037.q2"
+    },
+    {
+      "id": "card.art_history.037.c7",
+      "type": "recall",
+      "questionId": "question.art_history.037.q3"
+    },
+    {
+      "id": "card.art_history.037.c8",
+      "type": "checkpoint",
+      "headline": "High Renaissance: balanced",
+      "learned": [
+        "The School of Athens gathers Greek philosophers",
+        "Plato and Aristotle stand at the vanishing point",
+        "Michelangelo appears as Heraclitus; Raphael is at the right",
+        "Madonna in the Meadow is built on a triangle"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.ren_school_of_athens"
+      ],
+      "sourceCardIds": [
+        "card.art_history.037.c2"
+      ],
+      "prompt": "Who stands at the center of The School of Athens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Raphael and Michelangelo",
+          "correct": false,
+          "rationale": "Raphael is at the far right; Michelangelo is Heraclitus, in front."
+        },
+        {
+          "id": "b",
+          "label": "Brunelleschi and Alberti",
+          "correct": false,
+          "rationale": "They belong to Level 32's story, not this painting."
+        },
+        {
+          "id": "c",
+          "label": "Plato and Aristotle",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Julius II and Bramante",
+          "correct": false,
+          "rationale": "Bramante's design inspired the hall, not the central figures."
+        }
+      ],
+      "explanation": "Plato, pointing up, and Aristotle, gesturing down, stand at the center.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.ren_high_renaissance_balance"
+      ],
+      "sourceCardIds": [
+        "card.art_history.037.c4"
+      ],
+      "prompt": "What makes Raphael's Madonna in the Meadow feel so steady and calm?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The figures form a triangle",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The figures crowd the edges",
+          "correct": false,
+          "rationale": "They're grouped together in the middle."
+        },
+        {
+          "id": "c",
+          "label": "The scene is full of movement",
+          "correct": false,
+          "rationale": "Balance and harmony were the goal."
+        },
+        {
+          "id": "d",
+          "label": "It has no people in it",
+          "correct": false,
+          "rationale": "Mary, Jesus and John are the whole point."
+        }
+      ],
+      "explanation": "Mary, Jesus and John fit inside an equilateral triangle: wide base, peak at the top, the High Renaissance ideal of balance.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.ren_school_of_athens",
+        "concept.art_history.ren_linear_perspective"
+      ],
+      "sourceCardIds": [
+        "card.art_history.037.c3",
+        "card.art_history.032.c2"
+      ],
+      "prompt": "Where does The School of Athens put its vanishing point, the spot from Level 32 where receding lines meet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the corner, near Raphael",
+          "correct": false,
+          "rationale": "Raphael is at the edge; the lines meet in the middle."
+        },
+        {
+          "id": "b",
+          "label": "On Heraclitus's marble block",
+          "correct": false,
+          "rationale": "Heraclitus is in front, not at the center."
+        },
+        {
+          "id": "c",
+          "label": "Off the wall, outside the frame",
+          "correct": false,
+          "rationale": "It's inside the picture, at the center."
+        },
+        {
+          "id": "d",
+          "label": "Where Plato and Aristotle stand",
+          "correct": true
+        }
+      ],
+      "explanation": "The architecture's central vanishing point falls on Plato and Aristotle, so every line steers your eye to them.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_school_of_athens",
+    "source.vatican_school_of_athens",
+    "source.columbia_school_of_athens",
+    "source.brit_renaissance",
+    "source.khm_madonna_meadow",
+    "source.ng_raphael"
+  ],
+  "art": "arts.easel"
+}

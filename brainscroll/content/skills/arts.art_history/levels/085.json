@@ -1,0 +1,213 @@
+{
+  "id": "level.arts.art_history.085",
+  "skillId": "skill.arts.art_history",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Conceptual Art",
+  "objective": "After this level you can explain art where the idea matters more than the object.",
+  "summary": "In conceptual art the idea matters most. LeWitt's wall drawings are instructions others carry out; Kosuth shows one chair as an object, a photo and a definition.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.conceptual_lewitt_instructions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.conceptual_kosuth_chairs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.brancusi_trial",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.084"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2008, a museum filled its walls with new drawings by the late Sol LeWitt.",
+      "body": "He had died the year before. A team of assistants, students and local artists drew them over nearly six months. Nobody was faking anything. For LeWitt, the drawing on the wall was never the real artwork."
+    },
+    {
+      "id": "card.art_history.085.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The idea is the machine",
+      "body": "Conceptual art is art in which the idea matters more than the finished object; it took off in the 1960s. In 1967 LeWitt wrote that the idea is the most important part of the work: \"the idea becomes a machine that makes the art.\" His wall drawings are instructions, often with a diagram. Assistants carry them out on the wall, so each version comes out slightly different, like two cooks following the same recipe."
+    },
+    {
+      "id": "card.art_history.085.c3",
+      "type": "fact",
+      "fact": "One chair, shown three ways.",
+      "context": "Joseph Kosuth's One and Three Chairs (1965) puts a real wooden folding chair next to a photograph of a chair and an enlarged dictionary definition of the word chair. Kosuth didn't make the chair, take the photo or write the definition; he chose and arranged them. Each is a different kind of chair: a thing you can sit on, a picture of one, and a set of words. So which one is the chair? The object, the picture or the idea? Where the art lives is the question.",
+      "mascot": {
+        "pose": "idea",
+        "line": "You can sit on only one of them. Philosophers are still arguing about the other two."
+      }
+    },
+    {
+      "id": "card.art_history.085.c4",
+      "type": "mcq",
+      "questionId": "question.art_history.085.q1"
+    },
+    {
+      "id": "card.art_history.085.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.085.q2"
+    },
+    {
+      "id": "card.art_history.085.c6",
+      "type": "recall",
+      "questionId": "question.art_history.085.q3"
+    },
+    {
+      "id": "card.art_history.085.c7",
+      "type": "checkpoint",
+      "headline": "Conceptual art: thought through",
+      "learned": [
+        "Conceptual art: the idea matters more than the object",
+        "LeWitt: \"the idea becomes a machine that makes the art\"",
+        "His wall drawings are instructions others carry out",
+        "Kosuth: a chair as object, photo and definition"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.conceptual_lewitt_instructions"
+      ],
+      "sourceCardIds": [
+        "card.art_history.085.c2"
+      ],
+      "prompt": "Who usually draws a Sol LeWitt wall drawing onto the wall?",
+      "options": [
+        {
+          "id": "a",
+          "label": "LeWitt himself, freehand and alone",
+          "correct": false,
+          "rationale": "His drawings are carried out by others."
+        },
+        {
+          "id": "b",
+          "label": "Assistants following his instructions",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A machine tracing a photograph",
+          "correct": false,
+          "rationale": "People follow written instructions."
+        },
+        {
+          "id": "d",
+          "label": "Visitors adding their own designs",
+          "correct": false,
+          "rationale": "The instructions set the design."
+        }
+      ],
+      "explanation": "LeWitt's wall drawings are instructions, often with a diagram, that assistants carry out on the wall.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.conceptual_lewitt_instructions"
+      ],
+      "sourceCardIds": [
+        "card.art_history.085.c2",
+        "card.art_history.085.c1"
+      ],
+      "prompt": "Why could new LeWitt drawings be made after he died?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He left thousands of finished drawings in storage",
+          "correct": false,
+          "rationale": "They were drawn fresh on the walls."
+        },
+        {
+          "id": "b",
+          "label": "The museum copied them from photographs",
+          "correct": false,
+          "rationale": "They followed instructions, not photos."
+        },
+        {
+          "id": "c",
+          "label": "Any artist may sign his name to a wall",
+          "correct": false,
+          "rationale": "They follow his instructions, not their own ideas."
+        },
+        {
+          "id": "d",
+          "label": "The idea, his instructions, is the artwork",
+          "correct": true
+        }
+      ],
+      "explanation": "For LeWitt the idea is the most important part: the idea becomes a machine that makes the art, so others can carry it out.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.conceptual_kosuth_chairs",
+        "concept.art_history.brancusi_trial"
+      ],
+      "sourceCardIds": [
+        "card.art_history.085.c3",
+        "card.art_history.002.c3"
+      ],
+      "prompt": "Level 2's customs officers judged sculpture by likeness to nature. Which part of One and Three Chairs looks least like a chair?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The dictionary definition",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The wooden folding chair",
+          "correct": false,
+          "rationale": "It's an actual chair."
+        },
+        {
+          "id": "c",
+          "label": "The photograph of the chair",
+          "correct": false,
+          "rationale": "A photo looks exactly like its subject."
+        },
+        {
+          "id": "d",
+          "label": "They all look equally like chairs",
+          "correct": false,
+          "rationale": "One of them is only words."
+        }
+      ],
+      "explanation": "The definition is just words: no likeness at all. Kosuth's point is that it's still a way of showing a chair.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.massmoca_lewitt_retrospective",
+    "source.guggenheim_lewitt",
+    "source.tate_conceptual_art",
+    "source.moma_one_and_three_chairs",
+    "source.khan_one_and_three_chairs"
+  ],
+  "art": "technology.lightbulb"
+}

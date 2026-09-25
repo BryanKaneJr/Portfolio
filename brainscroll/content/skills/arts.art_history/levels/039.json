@@ -1,0 +1,243 @@
+{
+  "id": "level.arts.art_history.039",
+  "skillId": "skill.arts.art_history",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Prints and the Printing Press",
+  "objective": "After this level you can explain how printing spread images through woodcuts and engravings.",
+  "summary": "Woodcuts print from raised wood; engravings from lines cut in metal. One block prints again and again, so Dürer's images, even his armored rhino, traveled all over Europe.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.ren_print_techniques",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ren_print_spread",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.ren_durer_rhinoceros",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.art_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.038"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1515, Europe's most famous rhino was drawn by a man who never saw one.",
+      "body": "An Indian rhinoceros had arrived in Lisbon. Albrecht Dürer, a German artist, worked from a letter describing it and a sketch by someone who had seen it. Then he made a picture that could be printed over and over."
+    },
+    {
+      "id": "card.art_history.039.c2",
+      "type": "comparison",
+      "headline": "Two ways to print a picture",
+      "items": [
+        {
+          "label": "Woodcut",
+          "points": [
+            "Cut away the wood you don't want to print",
+            "The design is left raised",
+            "Ink the raised design"
+          ]
+        },
+        {
+          "label": "Engraving",
+          "points": [
+            "Cut lines into a metal plate with a burin",
+            "Ink the plate, then wipe the surface clean",
+            "Only the ink in the grooves prints"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.art_history.039.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One design, many pictures",
+      "body": "Once a block or plate is ready, it can print the same picture over and over with little loss of detail. Words already traveled this way: Gutenberg's press, which printed his Bible around 1455, made books cheap to produce in large numbers. Pictures rode along. Dürer studied Italian engravings on a trip to Italy in 1494-95, and his Apocalypse woodcuts of 1498 made him famous, even back in Italy. A painting stays on its wall. A print travels."
+    },
+    {
+      "id": "card.art_history.039.c4",
+      "type": "fact",
+      "fact": "An armored rhino stayed Europe's standard picture for over two centuries.",
+      "context": "Dürer's woodcut shows a rhino covered in hard plates like a suit of armor, with an extra little horn on its back. It was wrong, but it was printed and copied into natural history books, and it stayed Europe's standard rhinoceros until a touring rhino called Clara became a sensation in the 1700s. That's the power of a print: a mistake can travel too.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Imagine meeting a real rhino after a lifetime of the armored one. Somebody must have been disappointed."
+      }
+    },
+    {
+      "id": "card.art_history.039.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.039.q1"
+    },
+    {
+      "id": "card.art_history.039.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.039.q2"
+    },
+    {
+      "id": "card.art_history.039.c7",
+      "type": "recall",
+      "questionId": "question.art_history.039.q3"
+    },
+    {
+      "id": "card.art_history.039.c8",
+      "type": "checkpoint",
+      "headline": "Prints: pressed",
+      "learned": [
+        "Woodcut: ink the raised design",
+        "Engraving: ink the lines cut into metal",
+        "One block or plate prints the same picture again and again",
+        "Dürer's armored rhino stayed the standard for centuries"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.ren_print_techniques"
+      ],
+      "sourceCardIds": [
+        "card.art_history.039.c2"
+      ],
+      "prompt": "In a woodcut, which part of the block takes the ink?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Grooves cut into the block",
+          "correct": false,
+          "rationale": "Ink in grooves is how engraving works."
+        },
+        {
+          "id": "b",
+          "label": "The raised design left standing",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The whole flat, uncut block",
+          "correct": false,
+          "rationale": "The parts that shouldn't print are cut away."
+        },
+        {
+          "id": "d",
+          "label": "Only the outer edges",
+          "correct": false,
+          "rationale": "The design itself takes the ink."
+        }
+      ],
+      "explanation": "A woodcut is a relief print: cut away what shouldn't print, and ink the raised design that's left.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.ren_durer_rhinoceros"
+      ],
+      "sourceCardIds": [
+        "card.art_history.039.c1",
+        "card.art_history.039.c4"
+      ],
+      "prompt": "Why did Dürer's rhinoceros end up with armor plates and an extra horn?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Woodcuts can't show soft skin",
+          "correct": false,
+          "rationale": "The problem was his information, not the medium."
+        },
+        {
+          "id": "b",
+          "label": "He copied an ancient Roman statue",
+          "correct": false,
+          "rationale": "He worked from a letter and a sketch."
+        },
+        {
+          "id": "c",
+          "label": "He worked from a letter and a sketch",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The pope asked for a war rhino",
+          "correct": false,
+          "rationale": "Nobody ordered the mistakes; he never saw the animal."
+        }
+      ],
+      "explanation": "Dürer never saw the animal. He worked from a letter's description and someone else's sketch.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.ren_print_spread",
+        "concept.art_history.art_eras"
+      ],
+      "sourceCardIds": [
+        "card.art_history.039.c3",
+        "card.art_history.001.c4"
+      ],
+      "prompt": "Level 1 says the Renaissance started in Italy. How did Dürer, a German artist, learn from it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He studied Italian engravings in Italy",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He trained in Leonardo's workshop",
+          "correct": false,
+          "rationale": "He studied Italian prints on his own trip south."
+        },
+        {
+          "id": "c",
+          "label": "He read Vasari's Lives of the artists",
+          "correct": false,
+          "rationale": "His Italian trip came decades before Vasari wrote."
+        },
+        {
+          "id": "d",
+          "label": "He saw the Sistine ceiling painted",
+          "correct": false,
+          "rationale": "His trip, in 1494-95, came well before that."
+        }
+      ],
+      "explanation": "On his first trip to Italy, in 1494-95, Dürer studied engravings by Italian masters.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nhm_durer_rhinoceros",
+    "source.brit_durer",
+    "source.brit_woodcut",
+    "source.met_engraving",
+    "source.brit_printmaking",
+    "source.brit_gutenberg",
+    "source.brit_renaissance"
+  ],
+  "art": "technology.printing-press"
+}

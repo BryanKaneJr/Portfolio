@@ -1,0 +1,226 @@
+{
+  "id": "level.arts.art_history.067",
+  "skillId": "skill.arts.art_history",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Abstract Art",
+  "objective": "After this level you can explain how Kandinsky and Mondrian left recognizable subjects behind.",
+  "summary": "Kandinsky decided objects harmed his paintings; Mondrian reduced art to straight lines and primary colors; Hilma af Klint painted abstractly by 1906.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.abstract_kandinsky",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.abstract_mondrian",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.abstract_af_klint",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.color_wheel_primaries",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.066"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "At dusk, Kandinsky saw a glowing painting he didn't recognize. It was his.",
+      "body": "In his memoir Reminiscences (1913), Wassily Kandinsky wrote that he came home at dusk and saw a beautiful picture of pure forms and colors, glowing. Then it clicked: it was one of his own paintings, standing on its side. With nothing recognizable in it, it glowed. From then on, he wrote, he knew for certain that \"the object harmed my paintings\"."
+    },
+    {
+      "id": "card.art_history.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Painting like music",
+      "body": "A tune can move you without showing you anything. Kandinsky wanted painting to do the same: colors, lines and shapes, freed from depicting objects, working as a visual language that could stir deep emotions. His claim to be first rests mainly on a watercolor dated 1910, a tangle of color patches and black lines. Experts now think it was actually made in 1913."
+    },
+    {
+      "id": "card.art_history.067.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Mondrian strips it to the bones",
+      "body": "Piet Mondrian took abstraction toward strict order. His mature paintings use only straight horizontal and vertical lines, the primary colors (Level 4's red, yellow and blue), and black, white and gray. Picture a white canvas crossed by black bars, with a few rectangles filled in red, yellow or blue. In 1917 he cofounded De Stijl, a movement built on the most basic elements."
+    },
+    {
+      "id": "card.art_history.067.c4",
+      "type": "fact",
+      "fact": "A Swedish painter was making abstract works by 1906, years before Kandinsky.",
+      "context": "Textbooks long dated the birth of abstraction to about 1910 to 1913 and credited Kandinsky. But Hilma af Klint was painting abstract works in her Stockholm studio as early as 1906. She asked that at least 20 years pass after her death before her work was shown, and she died in 1944. The story of who came first is still being rewritten.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Art history isn't finished. Sometimes the first chapter turns up last."
+      }
+    },
+    {
+      "id": "card.art_history.067.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.067.q1"
+    },
+    {
+      "id": "card.art_history.067.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.067.q2"
+    },
+    {
+      "id": "card.art_history.067.c7",
+      "type": "recall",
+      "questionId": "question.art_history.067.q3"
+    },
+    {
+      "id": "card.art_history.067.c8",
+      "type": "checkpoint",
+      "headline": "Abstraction: unpacked",
+      "learned": [
+        "Kandinsky: \"the object harmed my paintings\"",
+        "Color and line can move you, like music",
+        "Mondrian: straight lines and primary colors",
+        "Hilma af Klint painted abstractly by 1906"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.abstract_kandinsky"
+      ],
+      "sourceCardIds": [
+        "card.art_history.067.c1"
+      ],
+      "prompt": "What did Kandinsky conclude after seeing his own painting on its side at dusk?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Paintings look best by candlelight",
+          "correct": false,
+          "rationale": "He drew a conclusion about subjects, not lighting."
+        },
+        {
+          "id": "b",
+          "label": "He should paint only at night",
+          "correct": false,
+          "rationale": "The lesson was about objects in pictures."
+        },
+        {
+          "id": "c",
+          "label": "Recognizable objects harmed his paintings",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Canvases should always hang sideways",
+          "correct": false,
+          "rationale": "The sideways view only revealed the idea."
+        }
+      ],
+      "explanation": "With nothing recognizable in it, the painting glowed. He wrote that \"the object harmed my paintings\".",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.abstract_af_klint"
+      ],
+      "sourceCardIds": [
+        "card.art_history.067.c4"
+      ],
+      "prompt": "Why did textbooks long credit Kandinsky, not Hilma af Klint, with the first abstract art?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Her abstract works came after his",
+          "correct": false,
+          "rationale": "She was painting abstractly by 1906, before him."
+        },
+        {
+          "id": "b",
+          "label": "She painted only portraits and landscapes",
+          "correct": false,
+          "rationale": "Her abstract works date from as early as 1906."
+        },
+        {
+          "id": "c",
+          "label": "Her paintings were destroyed in a fire",
+          "correct": false,
+          "rationale": "They survived; they just weren't shown."
+        },
+        {
+          "id": "d",
+          "label": "She asked that her work stay unseen for decades",
+          "correct": true
+        }
+      ],
+      "explanation": "Af Klint asked that at least 20 years pass after her death, in 1944, before her work was shown, so history heard about Kandinsky first.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.art_history.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.abstract_mondrian",
+        "concept.art_history.color_wheel_primaries"
+      ],
+      "sourceCardIds": [
+        "card.art_history.067.c3",
+        "card.art_history.004.c2"
+      ],
+      "prompt": "Besides black, white and gray, which colors fill the rectangles in a mature Mondrian?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Level 4's primaries: red, yellow, blue",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The secondaries: orange, green, violet",
+          "correct": false,
+          "rationale": "Mondrian used only the primaries."
+        },
+        {
+          "id": "c",
+          "label": "Muted tans and browns",
+          "correct": false,
+          "rationale": "Those are Analytic Cubism's colors."
+        },
+        {
+          "id": "d",
+          "label": "Every color, blended smoothly",
+          "correct": false,
+          "rationale": "He allowed only a few pure colors."
+        }
+      ],
+      "explanation": "Mondrian limited himself to the primary colors, red, yellow and blue, plus black, white and gray.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.lapham_kandinsky_reminiscences",
+    "source.brit_kandinsky",
+    "source.googlearts_kandinsky_watercolor",
+    "source.brit_mondrian",
+    "source.tate_neoplasticism",
+    "source.pompidou_af_klint",
+    "source.getty_elements_of_art"
+  ],
+  "art": "arts.shapes"
+}

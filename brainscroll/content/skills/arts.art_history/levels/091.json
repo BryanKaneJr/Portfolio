@@ -1,0 +1,228 @@
+{
+  "id": "level.arts.art_history.091",
+  "skillId": "skill.arts.art_history",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How to Read a Painting",
+  "objective": "After this level you can use a simple method to look closely at any painting.",
+  "summary": "Museum visitors average about 27 seconds per artwork. Feldman's four steps (describe, analyze, interpret, judge) slow you down; the Icarus painting shows why.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.look_slow_looking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.look_icarus_painting",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.look_feldman_method",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.elements_of_art",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.090"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.091.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2001, visitors at the Met looked at each artwork for about 27 seconds.",
+      "body": "Researchers quietly timed people in front of the art at the Metropolitan Museum of Art in New York. The average glance lasted about 27 seconds. Plenty of time for a quick verdict, not much for noticing things. Here's a painting that punishes a quick look, and a method for a slow one."
+    },
+    {
+      "id": "card.art_history.091.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Find the boy who fell from the sky",
+      "body": "In Greek myth, Icarus flew on wings of feathers and wax, went too near the Sun, and fell into the sea. So Landscape with the Fall of Icarus, from about 1560, should be all about him. Instead you see a farmer ploughing a hillside, a daydreaming shepherd, a passing ship. Icarus? Just a pair of legs in the water near the ship, lower right. A casual glance misses him completely. (Many scholars think this Brussels canvas is an early copy of a lost Bruegel original.)"
+    },
+    {
+      "id": "card.art_history.091.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four steps, in order",
+      "body": "Art educator Edmund Burke Feldman gave teachers a four-step method. Describe: say only what you see, down to line, shape, color and texture. Analyze: how do those parts work together, and where does your eye go? Interpret: what might it mean? Judge: does it succeed, and why? Keep your opinion for the end. Careful description comes first because every other step is built on it.",
+      "callout": "Describe → Analyze → Interpret → Judge"
+    },
+    {
+      "id": "card.art_history.091.c4",
+      "type": "fact",
+      "fact": "One painting, more than one reading.",
+      "context": "Interpret the Icarus painting and you have choices. One common reading: ordinary life carries on, unmoved, while someone drowns, and the ploughman, shepherd and ship never notice. Britannica sees a moral too: pride and ambition come before a fall. Neither is written on the canvas. Both come from looking long enough to find those legs.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Twenty-seven seconds gets you the ploughman. Icarus takes a little longer."
+      }
+    },
+    {
+      "id": "card.art_history.091.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.091.q1"
+    },
+    {
+      "id": "card.art_history.091.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.091.q2"
+    },
+    {
+      "id": "card.art_history.091.c7",
+      "type": "recall",
+      "questionId": "question.art_history.091.q3"
+    },
+    {
+      "id": "card.art_history.091.c8",
+      "type": "checkpoint",
+      "headline": "Looking: slowed down",
+      "learned": [
+        "Visitors average about 27 seconds per artwork",
+        "Icarus is only a pair of legs in the sea",
+        "Feldman: describe, analyze, interpret, judge",
+        "Judgment waits until the end"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.look_icarus_painting",
+        "concept.art_history.look_slow_looking"
+      ],
+      "sourceCardIds": [
+        "card.art_history.091.c2",
+        "card.art_history.091.c1"
+      ],
+      "prompt": "Met visitors averaged about 27 seconds per artwork. What would a glance that quick most likely miss in the Icarus painting?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The farmer ploughing the hillside",
+          "correct": false,
+          "rationale": "He's big and in the foreground; you'd see him."
+        },
+        {
+          "id": "b",
+          "label": "The ship passing on the sea",
+          "correct": false,
+          "rationale": "The ship is easy to spot."
+        },
+        {
+          "id": "c",
+          "label": "Icarus himself, just two legs in the water",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The shepherd in the fields",
+          "correct": false,
+          "rationale": "The shepherd is in plain view."
+        }
+      ],
+      "explanation": "Icarus is only a pair of legs in the sea near the ship, lower right. A casual glance misses him.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.look_feldman_method"
+      ],
+      "sourceCardIds": [
+        "card.art_history.091.c3"
+      ],
+      "prompt": "In Feldman's method, why do you describe a painting before you judge it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Judging is the hardest step, so it goes last",
+          "correct": false,
+          "rationale": "The reason is what the other steps rest on."
+        },
+        {
+          "id": "b",
+          "label": "Every later step is built on careful description",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The artist's name should decide your judgment",
+          "correct": false,
+          "rationale": "Names aren't part of the method."
+        },
+        {
+          "id": "d",
+          "label": "Description is optional if you already like it",
+          "correct": false,
+          "rationale": "Description is the base of the method."
+        }
+      ],
+      "explanation": "Describe, analyze, interpret, judge: opinion waits until the end, because the other steps rest on what you actually saw.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.look_feldman_method",
+        "concept.art_history.elements_of_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.091.c3",
+        "card.art_history.003.c1"
+      ],
+      "prompt": "Level 3's elements of art are line, shape, color, texture and space. In Feldman's method, which step starts by naming them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Describe",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Interpret",
+          "correct": false,
+          "rationale": "Interpreting asks what the work might mean."
+        },
+        {
+          "id": "c",
+          "label": "Judge",
+          "correct": false,
+          "rationale": "Judging comes last."
+        },
+        {
+          "id": "d",
+          "label": "None; the method skips them",
+          "correct": false,
+          "rationale": "Describe names them."
+        }
+      ],
+      "explanation": "Describe comes first: say only what you see, down to line, shape, color and texture.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.montclair_time_viewing_art",
+    "source.brit_icarus_bruegel",
+    "source.brit_daedalus",
+    "source.ncma_feldman_method",
+    "source.humankinetics_feldman_model",
+    "source.getty_elements_of_art"
+  ],
+  "art": "object.magnifier"
+}

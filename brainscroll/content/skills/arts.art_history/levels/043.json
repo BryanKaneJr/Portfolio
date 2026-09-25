@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.art_history.043",
+  "skillId": "skill.arts.art_history",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Bernini",
+  "objective": "After this level you can describe Bernini's sculpture and his square at St. Peter's.",
+  "summary": "Bernini froze marble mid-action: David about to throw, with you in Goliath's place, and Daphne turning into a tree. His colonnades at St. Peter's wrap the square like arms.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.bernini_sculpture",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.st_peters_square",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.baroque_pozzo_dome",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.042"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.043.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Stand in front of Bernini's David, and you're Goliath.",
+      "body": "Bernini carved David in the instant before he hurls the stone, and he meant the viewer to stand where the giant would be. The sculpture isn't just in the room with you. It's aiming at you."
+    },
+    {
+      "id": "card.art_history.043.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A hero caught mid-throw",
+      "body": "Bernini's marble David (1623 to 1624) twists like a coiled spring, arms tense on the sling, the stone about to fly. You get the split second before the action, not a pose after it. There's a personal touch too: according to early sources, David's face is Bernini's own. Standing in Goliath's spot, you're looking at the sculptor's determination."
+    },
+    {
+      "id": "card.art_history.043.c3",
+      "type": "fact",
+      "fact": "Bernini made marble turn into a tree.",
+      "context": "In Apollo and Daphne (1622 to 1625), the god Apollo finally reaches the nymph he's chasing, and she's already changing into a laurel tree. Roots grow from her feet. Leaves sprout from her fingers. Where Apollo's hand lands, there's bark. It's one block of stone, caught in the middle of becoming something else.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Look at her fingertips: stone pretending to be skin, pretending to be leaves."
+      }
+    },
+    {
+      "id": "card.art_history.043.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A square that hugs you",
+      "body": "Bernini also designed the colonnades of St. Peter's Square in Rome (1656 to 1667): 284 columns in four rows, curving around the square. They symbolize the Church's arms embracing the faithful. And there's a trick. From either of two marble discs in the pavement, the four rows line up and look like one. Remember Pozzo's disc in Level 41? Baroque Rome loved a sweet spot."
+    },
+    {
+      "id": "card.art_history.043.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.043.q1"
+    },
+    {
+      "id": "card.art_history.043.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.043.q2"
+    },
+    {
+      "id": "card.art_history.043.c7",
+      "type": "recall",
+      "questionId": "question.art_history.043.q3"
+    },
+    {
+      "id": "card.art_history.043.c8",
+      "type": "checkpoint",
+      "headline": "Bernini: in motion",
+      "learned": [
+        "Bernini's David is caught just before the throw",
+        "The viewer stands in Goliath's place",
+        "In Apollo and Daphne, marble turns into a tree",
+        "St. Peter's colonnades embrace the square; from two discs, four rows look like one"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.bernini_sculpture"
+      ],
+      "sourceCardIds": [
+        "card.art_history.043.c1",
+        "card.art_history.043.c2"
+      ],
+      "prompt": "Where did Bernini mean the viewer of his David to stand?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Behind David, watching over his shoulder",
+          "correct": false,
+          "rationale": "You face him, as his target."
+        },
+        {
+          "id": "b",
+          "label": "Far above, looking down from a balcony",
+          "correct": false,
+          "rationale": "You're at ground level, in the fight."
+        },
+        {
+          "id": "c",
+          "label": "Where Goliath would be",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Beside David, as a fellow soldier",
+          "correct": false,
+          "rationale": "He's aiming at you, not with you."
+        }
+      ],
+      "explanation": "The viewer takes Goliath's place, so the throw is aimed right at you.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.bernini_sculpture"
+      ],
+      "sourceCardIds": [
+        "card.art_history.043.c2",
+        "card.art_history.043.c3"
+      ],
+      "prompt": "What do Bernini's David and his Apollo and Daphne have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both show a calm figure at rest",
+          "correct": false,
+          "rationale": "Both are full of motion."
+        },
+        {
+          "id": "b",
+          "label": "Both freeze a split second in the middle of the action",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both were carved in bronze",
+          "correct": false,
+          "rationale": "Both are marble."
+        },
+        {
+          "id": "d",
+          "label": "Both show a story after it has ended",
+          "correct": false,
+          "rationale": "He picks the instant during, not after."
+        }
+      ],
+      "explanation": "David is about to throw; Daphne is halfway into a tree. Bernini catches the story while it's happening.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.st_peters_square",
+        "concept.art_history.baroque_pozzo_dome"
+      ],
+      "sourceCardIds": [
+        "card.art_history.043.c4",
+        "card.art_history.041.c4"
+      ],
+      "prompt": "Pozzo's church (Level 41) and St. Peter's Square both have a special spot in the floor. What happens on the square's disc?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The four rows of columns line up and look like one",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A painted dome appears overhead",
+          "correct": false,
+          "rationale": "That's Pozzo's disc in Sant'Ignazio."
+        },
+        {
+          "id": "c",
+          "label": "The square's fountain goes silent",
+          "correct": false,
+          "rationale": "The trick is visual: the columns align."
+        },
+        {
+          "id": "d",
+          "label": "The colonnade seems to double in size",
+          "correct": false,
+          "rationale": "The rows merge into one."
+        }
+      ],
+      "explanation": "From either marble disc, Bernini's four rows of columns line up into what looks like a single row.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_bernini",
+    "source.borghese_david",
+    "source.borghese_apollo_daphne",
+    "source.turismoroma_st_peters_square",
+    "source.santignazio_fake_dome"
+  ],
+  "art": "arts.marble-block"
+}

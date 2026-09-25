@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.art_history.048",
+  "skillId": "skill.arts.art_history",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rococo",
+  "objective": "After this level you can describe the playful, pastel Rococo style.",
+  "summary": "Rococo began in early-1700s Paris as a lighter answer to Louis XIV's heavy Baroque: shell-like curves, pastels and flirtation. Fragonard's The Swing, with its flying slipper, is its signature.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.rococo_style",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.fragonard_swing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.baroque_style",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.047"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.048.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A pink dress, a swing, and a slipper flying through the air.",
+      "body": "In Fragonard's The Swing (about 1767 to 1768), a young woman flies up in pink silk. An older man pushes the swing. Down in the bushes, a young lover gazes up. One of her slippers has just kicked off into the air. Welcome to the Rococo."
+    },
+    {
+      "id": "card.art_history.048.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From grand to cozy",
+      "body": "Rococo began in Paris in the early 1700s as a reaction against the heavy Baroque of Louis XIV's reign. Think of a switch from a cathedral organ to a harpsichord. It flourished from about 1700 to 1770, filling paintings with myth and courtship instead of saints and struggle."
+    },
+    {
+      "id": "card.art_history.048.c3",
+      "type": "fact",
+      "fact": "Rococo is named after grotto seashells.",
+      "context": "The word comes from the French rocaille, the shell-covered rockwork used to decorate artificial grottoes. The style loved curling C and S shapes, light pastels, ivory white and gold, and lighthearted scenes of myth and courtship. If Baroque shouts, Rococo flirts.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Baroque was named after a lumpy pearl, Rococo after seashells. Art history has a thing for the beach."
+      }
+    },
+    {
+      "id": "card.art_history.048.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Swing's cheeky backstory",
+      "body": "According to an account from 1767, a gentleman of the court first asked the painter Doyen for a picture of his mistress on a swing pushed by a bishop, with himself admiring her legs. Doyen refused and passed the job to Fragonard. By then, critics were already attacking Rococo as frivolous, and a stricter style would soon replace it in France."
+    },
+    {
+      "id": "card.art_history.048.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.048.q1"
+    },
+    {
+      "id": "card.art_history.048.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.048.q2"
+    },
+    {
+      "id": "card.art_history.048.c7",
+      "type": "recall",
+      "questionId": "question.art_history.048.q3"
+    },
+    {
+      "id": "card.art_history.048.c8",
+      "type": "checkpoint",
+      "headline": "Rococo: playful",
+      "learned": [
+        "Rococo began in early-1700s Paris, lighter than Louis XIV's Baroque",
+        "Named after rocaille, grotto shellwork",
+        "Curves, pastels, gold and courtship scenes",
+        "Fragonard's The Swing is its signature; critics called it frivolous"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.rococo_style"
+      ],
+      "sourceCardIds": [
+        "card.art_history.048.c3"
+      ],
+      "prompt": "Where does the name Rococo come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A French word for shell-covered grotto rockwork",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The name of a Paris dance hall",
+          "correct": false,
+          "rationale": "It comes from rocaille, grotto shellwork."
+        },
+        {
+          "id": "c",
+          "label": "A Portuguese word for a lumpy pearl",
+          "correct": false,
+          "rationale": "That's Baroque, from Level 41."
+        },
+        {
+          "id": "d",
+          "label": "The painter who invented the style",
+          "correct": false,
+          "rationale": "It's named after a decoration, not a person."
+        }
+      ],
+      "explanation": "Rococo comes from rocaille, the shell-covered rockwork of artificial grottoes.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.fragonard_swing",
+        "concept.art_history.rococo_style"
+      ],
+      "sourceCardIds": [
+        "card.art_history.048.c1",
+        "card.art_history.048.c3"
+      ],
+      "prompt": "What makes The Swing a textbook Rococo painting?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A solemn religious scene in dark colors",
+          "correct": false,
+          "rationale": "It's the opposite: playful and pastel."
+        },
+        {
+          "id": "b",
+          "label": "A heroic battle full of diagonals",
+          "correct": false,
+          "rationale": "That's more Baroque drama."
+        },
+        {
+          "id": "c",
+          "label": "A lighthearted courtship scene in pink and pastels",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A plain still life of everyday objects",
+          "correct": false,
+          "rationale": "That's the Dutch market, Level 45."
+        }
+      ],
+      "explanation": "Flirtation, a pink silk dress and a flying slipper: lighthearted courtship in pastels, pure Rococo.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.rococo_style",
+        "concept.art_history.baroque_style"
+      ],
+      "sourceCardIds": [
+        "card.art_history.048.c2",
+        "card.art_history.041.c1"
+      ],
+      "prompt": "Level 41's Baroque aimed for drama, movement and emotion. What was Rococo reacting against?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cave art rediscovered in France",
+          "correct": false,
+          "rationale": "Lascaux wasn't found until 1940."
+        },
+        {
+          "id": "b",
+          "label": "The heavy Baroque of Louis XIV's reign",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Dutch still lifes on the open market",
+          "correct": false,
+          "rationale": "Rococo reacted against grand French Baroque."
+        },
+        {
+          "id": "d",
+          "label": "The calm Neoclassical style",
+          "correct": false,
+          "rationale": "Neoclassicism came after, and replaced Rococo."
+        }
+      ],
+      "explanation": "Rococo began in early-1700s Paris as a lighter reaction to the heavy Baroque of Louis XIV.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_rococo",
+    "source.wallace_swing",
+    "source.wallace_swing_commission",
+    "source.brit_baroque"
+  ],
+  "art": "arts.frame"
+}

@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.art_history.011",
+  "skillId": "skill.arts.art_history",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mesopotamia",
+  "objective": "After this level you can describe Mesopotamian art, from stepped temples to carved seals.",
+  "summary": "Mesopotamian cities raised stepped mud-brick ziggurats, like Ur's for the moon god Nanna, and carved tiny stone cylinder seals that printed pictures on clay.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.ziggurat",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.cylinder_seals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.oldest_known_art",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.010"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first cities built their temples out of mud.",
+      "body": "Mesopotamia is Greek for \"between rivers\": the land of the Tigris and Euphrates, where the world's earliest civilization grew up. Its builders worked in brick, and its artists often worked in something humbler still: clay. This level runs from a temple tower down to a picture about the size of your thumb."
+    },
+    {
+      "id": "card.art_history.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A staircase for a god",
+      "body": "A ziggurat is a stepped temple tower. Picture a stack of ever-smaller brick platforms, like a giant wedding cake. The core was mud brick, wrapped in a tougher skin of baked brick. The best known, at Ur, went up about 2100 BCE under King Ur-Nammu for the moon god Nanna. Three staircases led up, and on the flat top sat a temple. The tower's whole job was to lift that temple up."
+    },
+    {
+      "id": "card.art_history.011.c3",
+      "type": "fact",
+      "fact": "A cylinder seal prints a whole picture strip in one roll.",
+      "context": "Carve a design into a small stone cylinder, often no bigger than 5 cm tall, about the size of your thumb. Roll it across wet clay and the carving comes out raised, as one continuous band, the way a patterned paint roller works. Scholars count these tiny carvings among Mesopotamia's finest art.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Carving a picture backward, in stone, the size of a thumb. Suddenly neat handwriting seems easy."
+      }
+    },
+    {
+      "id": "card.art_history.011.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A signature you could roll",
+      "body": "Seals weren't just decoration. Rolled onto clay, a seal marked what you owned or made a document legally binding: rolled on a tablet, it showed you had authorized the text, like a signature. Remember Level 1's writing, about 5,200 years ago? It was Sumerian cuneiform, wedge-shaped marks pressed into soft clay with a stylus. In Mesopotamia, words and pictures shared the same wet clay."
+    },
+    {
+      "id": "card.art_history.011.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.011.q1"
+    },
+    {
+      "id": "card.art_history.011.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.011.q2"
+    },
+    {
+      "id": "card.art_history.011.c7",
+      "type": "recall",
+      "questionId": "question.art_history.011.q3"
+    },
+    {
+      "id": "card.art_history.011.c8",
+      "type": "checkpoint",
+      "headline": "Mesopotamia: unrolled",
+      "learned": [
+        "A ziggurat is a stepped mud-brick temple tower",
+        "Ur's, about 2100 BCE, served the moon god Nanna",
+        "Cylinder seals roll a raised picture onto wet clay",
+        "A seal worked like a signature"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.ziggurat"
+      ],
+      "sourceCardIds": [
+        "card.art_history.011.c2"
+      ],
+      "prompt": "What was a Mesopotamian ziggurat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A royal tomb sealed under a mound of sand",
+          "correct": false,
+          "rationale": "It was a temple tower, with a temple on top."
+        },
+        {
+          "id": "b",
+          "label": "A stepped temple tower with a temple on its top",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A city wall with three gates",
+          "correct": false,
+          "rationale": "The three were staircases, and they led up to a temple."
+        },
+        {
+          "id": "d",
+          "label": "A marketplace for clay tablets",
+          "correct": false,
+          "rationale": "It was religious: a tower for a god."
+        }
+      ],
+      "explanation": "A ziggurat was a stepped tower of mud brick and baked brick. Ur's, built about 2100 BCE for the moon god Nanna, had a temple on top.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.cylinder_seals"
+      ],
+      "sourceCardIds": [
+        "card.art_history.011.c3",
+        "card.art_history.011.c4"
+      ],
+      "prompt": "Why would a Mesopotamian roll a cylinder seal across a clay tablet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To smooth the clay before writing",
+          "correct": false,
+          "rationale": "The seal left a raised picture, not a flat surface."
+        },
+        {
+          "id": "b",
+          "label": "To count the days of the month",
+          "correct": false,
+          "rationale": "Seals marked property and agreements."
+        },
+        {
+          "id": "c",
+          "label": "To show they had authorized the document",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To glaze the tablet so it would last",
+          "correct": false,
+          "rationale": "The seal left a design; it didn't glaze anything."
+        }
+      ],
+      "explanation": "A seal's impression marked property or made a document legally binding, like a signature.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.cylinder_seals",
+        "concept.art_history.oldest_known_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.011.c4",
+        "card.art_history.001.c2"
+      ],
+      "prompt": "Level 1 dated writing to about 5,200 years ago. What material did Sumerian writers and seal owners both use?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Papyrus scrolls",
+          "correct": false,
+          "rationale": "Sumerian writing was pressed into clay tablets."
+        },
+        {
+          "id": "b",
+          "label": "Painted plaster walls",
+          "correct": false,
+          "rationale": "Seals and cuneiform both needed something soft to press into."
+        },
+        {
+          "id": "c",
+          "label": "Carved limestone pillars",
+          "correct": false,
+          "rationale": "That's Göbekli Tepe, from Level 8."
+        },
+        {
+          "id": "d",
+          "label": "Soft, wet clay",
+          "correct": true
+        }
+      ],
+      "explanation": "Cuneiform was pressed into soft clay with a stylus, and seals were rolled across wet clay, often on the same tablet.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_cuneiform",
+    "source.brit_mesopotamia",
+    "source.brit_ziggurat",
+    "source.brit_ziggurat_ur",
+    "source.brit_cylinder_seal",
+    "source.whe_cylinder_seals",
+    "source.conversation_cylinder_seals"
+  ],
+  "art": "arts.step-pyramid"
+}
