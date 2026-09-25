@@ -4,6 +4,7 @@
  *
  *   npm run validate:content
  *   npm run validate:content -- --json   # machine-readable issues (admin tool, CI)
+ *   npm run validate:content -- --dir <path>  # validate a copy of content/ (e.g. a draft in progress)
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -12,7 +13,8 @@ import { validateContent } from '@brainscroll/core';
 import { loadContent } from './lib/load-content';
 
 const repo = join(dirname(fileURLToPath(import.meta.url)), '..');
-const root = join(repo, 'content');
+const dirArg = process.argv.indexOf('--dir');
+const root = dirArg > 0 && process.argv[dirArg + 1] ? process.argv[dirArg + 1]! : join(repo, 'content');
 const asJson = process.argv.includes('--json');
 // The committed app bundle is the last built snapshot: published levels in it
 // must not change without a revision bump, and stable IDs must not vanish.

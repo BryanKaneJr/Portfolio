@@ -4,6 +4,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **`validate:content -- --dir <path>`** validates a copy of `content/`, so a chapter can be drafted and checked in isolation before it's merged.
 - **World Geography, Chapter 1 (Levels 1–10), the first lessons for a new tree.** Written in the approved voice, as drafts: the planet in one level, why every map is wrong (Mercator and the Greenland illusion), latitude and longitude, the Equator and tropics, time zones, compass directions, reading the land, continents and oceans by size, how GPS finds your phone, and a checkpoint on antipodes ("Dig straight down from the US. You won't reach China."). 70 facts from 39 sources (13 US government pages; the rest Britannica, National Geographic and specialist sites), each checked against a second page before use. None is human-verified yet. Geography is now playable, so its arc on the Profile ring can fill.
 - **Dr. Scroll moves to the right pocket** in your current chapter, so the pocket across from the 3rd waypoint always shows its level's illustration.
 - **Scenery on the map** (owner idea): the open pockets across from the road's bulges now float the illustration of the level beside them (for example the Moon beside Astronomy's eclipse level), drifting gently and dimmed while that level is still locked. In your current chapter Dr. Scroll keeps the left pocket.
