@@ -1,0 +1,229 @@
+{
+  "id": "level.geography.world_geography.011",
+  "skillId": "skill.geography.world_geography",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Inside the Earth",
+  "objective": "After this level you can describe Earth's crust, mantle and core.",
+  "summary": "Earth has a thin rocky crust, a thick mantle of solid rock that slowly flows, and a metal core: liquid outside, solid inside. Earthquake waves revealed it.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.earth_layers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.earth_core",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.magnetic_compass",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.010"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The deepest hole ever drilled never made it through Earth's crust.",
+      "body": "Soviet scientists spent about 20 years drilling in Russia and reached 12,262 m. That's less than 0.2% of the way to Earth's center. So how do we know what's down there?"
+    },
+    {
+      "id": "card.world_geography.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The crust: a thin shell",
+      "body": "You live on the crust, Earth's rocky outer layer. Under the oceans it's only about 5 to 10 km thick; under some continents it reaches 70 km. That sounds deep until you compare it with the trip to the center: about 6,371 km. Every beach, basement and mountaintop you'll ever visit sits in this thin skin. The planet's real bulk lies underneath."
+    },
+    {
+      "id": "card.world_geography.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The mantle: solid rock that flows",
+      "body": "Next comes the mantle, about 2,900 km thick and about 84% of Earth's volume. Forget the cartoon sea of lava. Grab a handful and it would be solid rock. Yet over long stretches of time it slowly flows, at about the rate your fingernails grow. Solid enough to hold, soft enough to creep.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Rock that flows but never melts. Geology loves a good contradiction."
+      }
+    },
+    {
+      "id": "card.world_geography.011.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The core: a ball of metal",
+      "body": "About 2,900 km down, rock gives way to metal: the core is almost entirely iron and nickel. The outer core is liquid, and its swirling creates Earth's magnetic field, the same field Level 6's compass needle lines up with. The inner core is about as hot as the surface of the Sun, yet it stays solid, squeezed by the immense pressure of the whole planet above it."
+    },
+    {
+      "id": "card.world_geography.011.c5",
+      "type": "fact",
+      "fact": "Nobody has ever seen the core. Earthquakes revealed it.",
+      "context": "Earthquakes send waves through the whole planet. One kind, S-waves, can't travel through liquid. Scientists noticed these waves vanish on the far side of Earth, as if something cast a shadow. That something was the liquid outer core, the only entirely liquid layer inside Earth. We found it by listening to the planet shake."
+    },
+    {
+      "id": "card.world_geography.011.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.011.q1"
+    },
+    {
+      "id": "card.world_geography.011.c7",
+      "type": "mcq",
+      "questionId": "question.world_geography.011.q2"
+    },
+    {
+      "id": "card.world_geography.011.c8",
+      "type": "recall",
+      "questionId": "question.world_geography.011.q3"
+    },
+    {
+      "id": "card.world_geography.011.c9",
+      "type": "checkpoint",
+      "headline": "Earth: sliced open",
+      "learned": [
+        "The crust is a thin rocky shell",
+        "The mantle is solid rock that slowly flows",
+        "The core is iron and nickel: liquid outside, solid inside",
+        "Earthquake S-waves revealed the liquid outer core"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.earth_layers"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.011.c3"
+      ],
+      "prompt": "What is most of Earth's mantle like?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A sea of liquid lava",
+          "correct": false,
+          "rationale": "Grab a handful and it's solid rock."
+        },
+        {
+          "id": "b",
+          "label": "Loose sand and gravel",
+          "correct": false,
+          "rationale": "It's solid rock, not loose sediment."
+        },
+        {
+          "id": "c",
+          "label": "Solid rock that flows very slowly",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Hollow caves filled with gas",
+          "correct": false,
+          "rationale": "The mantle is solid rock through and through."
+        }
+      ],
+      "explanation": "Mantle rock is solid, but over long periods it creeps, at about the rate fingernails grow.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.earth_core"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.011.c5"
+      ],
+      "prompt": "How did scientists work out that Earth's outer core is liquid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From rock samples drilled out of it",
+          "correct": false,
+          "rationale": "The deepest hole never got through the crust."
+        },
+        {
+          "id": "b",
+          "label": "Earthquake S-waves can't pass through it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Volcanoes erupt molten core metal",
+          "correct": false,
+          "rationale": "Nobody has sampled the core at all."
+        },
+        {
+          "id": "d",
+          "label": "Satellites photographed it",
+          "correct": false,
+          "rationale": "Nobody has ever seen the core."
+        }
+      ],
+      "explanation": "S-waves can't travel through liquid. The shadow where they vanish on Earth's far side gave the liquid outer core away.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.earth_core",
+        "concept.world_geography.magnetic_compass"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.011.c4",
+        "card.world_geography.006.c3"
+      ],
+      "prompt": "From Level 6: your compass needle lines up with Earth's magnetic field. Where is that field created?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In magnetic rocks in the crust",
+          "correct": false,
+          "rationale": "The field comes from far deeper."
+        },
+        {
+          "id": "b",
+          "label": "In the solid inner core",
+          "correct": false,
+          "rationale": "The field comes from swirling liquid metal."
+        },
+        {
+          "id": "c",
+          "label": "In sunlight hitting the poles",
+          "correct": false,
+          "rationale": "It's made inside Earth, not by sunlight."
+        },
+        {
+          "id": "d",
+          "label": "In the swirling liquid outer core",
+          "correct": true
+        }
+      ],
+      "explanation": "The liquid iron and nickel of the outer core swirls, and that motion creates the magnetic field your compass follows.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sciam_deepest_hole",
+    "source.nasa_earth_fact_sheet",
+    "source.natgeo_crust",
+    "source.natgeo_mantle",
+    "source.usgs_plates_on_magma",
+    "source.natgeo_core",
+    "source.noaa_sos_compass",
+    "source.brit_compass"
+  ],
+  "art": "geo.earth-layers"
+}

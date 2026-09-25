@@ -1,0 +1,231 @@
+{
+  "id": "level.geography.world_geography.049",
+  "skillId": "skill.geography.world_geography",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Wetlands",
+  "objective": "After this level you can explain what wetlands do for water and wildlife.",
+  "summary": "Wetlands are land where water covers or soaks the soil for at least part of the year. They soak up floods like sponges, clean water like kidneys and shelter a big share of wildlife.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.wetland_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.wetland_water_services",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.wetland_wildlife",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.reef_biodiversity",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.048"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.049.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The soggiest land around may be the hardest working.",
+      "body": "It soaks up floods, cleans dirty water and gives fish and birds a place to raise their young. It just doesn't look very impressive while doing it. Meet the wetland."
+    },
+    {
+      "id": "card.world_geography.049.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Land that's partly water",
+      "body": "A wetland is any place where water covers the soil, or sits at or near the surface, all year or for part of it. The plants tell you which kind you're standing in. Marshes are ruled by grasses and other soft, non-woody plants. Swamps are dominated by woody plants: shrubs or trees. Grass means marsh. Trees mean swamp. Wet socks mean either.",
+      "callout": "Marsh: grasses · Swamp: shrubs and trees"
+    },
+    {
+      "id": "card.world_geography.049.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A sponge for floods",
+      "body": "Wetlands act as natural sponges. They trap rain, snowmelt, groundwater and floodwater, then let it go slowly. Picture pouring a bucket of water onto a kitchen counter, and then onto a big sponge. The counter sends it all straight onto the floor. The sponge takes it in and gives it back a little at a time."
+    },
+    {
+      "id": "card.world_geography.049.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The kidneys of the watershed",
+      "body": "Wetlands clean water too. They hold it still long enough for sediment and other pollutants to settle out, and they filter out excess nutrients. That's why they've been called the kidneys of our watersheds. Water leaves cleaner than it arrived, and nobody even sends a bill."
+    },
+    {
+      "id": "card.world_geography.049.c5",
+      "type": "fact",
+      "fact": "More than a third of US threatened and endangered species live only in wetlands.",
+      "context": "Nearly half use wetlands at some point in their lives. Most commercial and game fish breed in coastal marshes and estuaries, and ducks, geese, hawks, wading birds and many songbirds nest in wetlands. Drain a swamp and you evict a crowd.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Sponge, filter and nursery in one. Not bad for a puddle with ambitions."
+      }
+    },
+    {
+      "id": "card.world_geography.049.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.049.q1"
+    },
+    {
+      "id": "card.world_geography.049.c7",
+      "type": "mcq",
+      "questionId": "question.world_geography.049.q2"
+    },
+    {
+      "id": "card.world_geography.049.c8",
+      "type": "recall",
+      "questionId": "question.world_geography.049.q3"
+    },
+    {
+      "id": "card.world_geography.049.c9",
+      "type": "checkpoint",
+      "headline": "Wetlands: waded",
+      "learned": [
+        "Wetlands are land covered or soaked by water",
+        "Marshes are grassy; swamps have shrubs or trees",
+        "They soak up floods like sponges and clean water like kidneys",
+        "Over a third of US endangered species live only in wetlands"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.wetland_definition"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.049.c2"
+      ],
+      "prompt": "What is the main difference between a marsh and a swamp?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Marshes are always salty",
+          "correct": false,
+          "rationale": "The difference is the plants, not the salt."
+        },
+        {
+          "id": "b",
+          "label": "Swamps are dry most of the year",
+          "correct": false,
+          "rationale": "Both are wetlands."
+        },
+        {
+          "id": "c",
+          "label": "Swamps are dominated by woody plants",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Marshes grow only in the tropics",
+          "correct": false,
+          "rationale": "The difference is the plants, not the location."
+        }
+      ],
+      "explanation": "Marshes are dominated by grasses and other non-woody plants; swamps by shrubs or trees.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.wetland_water_services"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.049.c3"
+      ],
+      "prompt": "How do wetlands help reduce flooding?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They pump water back into the sea",
+          "correct": false,
+          "rationale": "They store water; they have no pumps."
+        },
+        {
+          "id": "b",
+          "label": "They soak up water and release it slowly",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They freeze floodwater in winter",
+          "correct": false,
+          "rationale": "They work like a sponge, not a freezer."
+        },
+        {
+          "id": "d",
+          "label": "They make rain fall somewhere else",
+          "correct": false,
+          "rationale": "They don't move the rain; they hold it."
+        }
+      ],
+      "explanation": "Like a sponge, a wetland traps rain, snowmelt and floodwater and lets it go slowly.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.wetland_wildlife",
+        "concept.world_geography.reef_biodiversity"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.049.c5",
+        "card.world_geography.048.c3"
+      ],
+      "prompt": "Like the coral reefs of Level 48, why do wetlands matter far beyond their size?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They make most of Earth's rain",
+          "correct": false,
+          "rationale": "They store and clean water; they don't make most rain."
+        },
+        {
+          "id": "b",
+          "label": "They cover most of the planet",
+          "correct": false,
+          "rationale": "Both are small compared with their importance."
+        },
+        {
+          "id": "c",
+          "label": "They are Earth's largest biome",
+          "correct": false,
+          "rationale": "Neither is the largest biome."
+        },
+        {
+          "id": "d",
+          "label": "A big share of species depends on them",
+          "correct": true
+        }
+      ],
+      "explanation": "Reefs hold nearly a quarter of ocean species; more than a third of US threatened and endangered species live only in wetlands.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.epa_what_is_wetland",
+    "source.epa_wetlands_important",
+    "source.delaware_wetlands_purify",
+    "source.noaa_fisheries_coral_habitat"
+  ],
+  "art": "geo.river"
+}

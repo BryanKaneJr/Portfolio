@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.world_geography.052",
+  "skillId": "skill.geography.world_geography",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Sahara",
+  "objective": "After this level you can describe the Sahara and how it has changed over thousands of years.",
+  "summary": "A desert is defined by low precipitation, so Antarctica is the largest desert; the Sahara is the largest hot one and mostly rock. About 11,000 years ago it was green.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.sahara_desert",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.green_sahara",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.seven_continents",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.africa_across_equator",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.051"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "People once went fishing in the middle of the Sahara.",
+      "body": "Not at an oasis. On the shores of real lakes, in a place that's now some of the driest land on Earth. To see how, start with what a desert actually is."
+    },
+    {
+      "id": "card.world_geography.052.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Desert means dry, not hot",
+      "body": "A desert is land that gets no more than about 25 cm of precipitation a year. Heat and sand are optional. By that rule, the largest desert on Earth is Antarctica, the icy continent from Level 1. The Sahara, across northern Africa, is the largest hot desert, almost the size of the contiguous United States. Big enough to swallow a country, and still only the runner-up."
+    },
+    {
+      "id": "card.world_geography.052.c3",
+      "type": "fact",
+      "fact": "Most of the Sahara isn't sand.",
+      "context": "Sand dunes cover only a minority of it. The rest is rocky plateaus and gravel plains. The movie version, golden dunes rolling to the horizon, is real, but it's the exception. Much of the world's most famous sandy place is closer to an endless stony parking lot."
+    },
+    {
+      "id": "card.world_geography.052.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The green Sahara",
+      "body": "About 11,000 years ago, the Sahara was green, with lakes, rivers and grasslands. People painted what they saw on its rocks: elephants, giraffes, rhinos, hippos. The cause was a slow wobble of Earth's axis, which shifted summer sunlight, strengthened the African monsoon and pushed its rains north. Then the rains retreated, and the Sahara dried out between about 8,000 and 4,500 years ago.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Hippos in the Sahara. Somewhere, a very confused camel is reading this over your shoulder."
+      }
+    },
+    {
+      "id": "card.world_geography.052.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.052.q1"
+    },
+    {
+      "id": "card.world_geography.052.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.052.q2"
+    },
+    {
+      "id": "card.world_geography.052.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.052.q3"
+    },
+    {
+      "id": "card.world_geography.052.c8",
+      "type": "checkpoint",
+      "headline": "Sahara: surveyed",
+      "learned": [
+        "A desert gets little precipitation, hot or cold",
+        "Antarctica is the largest desert; the Sahara the largest hot one",
+        "Most of the Sahara is rock and gravel",
+        "About 11,000 years ago it was green, with lakes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.sahara_desert"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.052.c2"
+      ],
+      "prompt": "From Level 43: what makes a place a desert?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Very little precipitation each year",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Lots of sand dunes",
+          "correct": false,
+          "rationale": "Most of the Sahara isn't even sand."
+        },
+        {
+          "id": "c",
+          "label": "Very high temperatures",
+          "correct": false,
+          "rationale": "Antarctica is a desert, and it is freezing."
+        },
+        {
+          "id": "d",
+          "label": "No plants at all",
+          "correct": false,
+          "rationale": "Deserts can have plants; the test is rainfall."
+        }
+      ],
+      "explanation": "A desert gets no more than about 25 cm of precipitation a year. It can be hot or cold, sandy or rocky.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.green_sahara"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.052.c4"
+      ],
+      "prompt": "Why was the Sahara green about 11,000 years ago?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Melting glaciers filled its lakes",
+          "correct": false,
+          "rationale": "The water came from rain, not ice."
+        },
+        {
+          "id": "b",
+          "label": "Rivers from Europe flowed into it",
+          "correct": false,
+          "rationale": "The Mediterranean sits in the way."
+        },
+        {
+          "id": "c",
+          "label": "A wobble of Earth's axis pushed monsoon rains north",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Early farmers irrigated it",
+          "correct": false,
+          "rationale": "People lived there, but the rain came first."
+        }
+      ],
+      "explanation": "A slow wobble of Earth's axis shifted summer sunlight, strengthening the African monsoon and pushing its rains north into the Sahara.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.sahara_desert",
+        "concept.world_geography.seven_continents"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.052.c2",
+        "card.world_geography.001.c2"
+      ],
+      "prompt": "Which continent from Level 1 holds the largest desert on Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Africa",
+          "correct": false,
+          "rationale": "The Sahara is the largest hot desert, not the largest overall."
+        },
+        {
+          "id": "b",
+          "label": "Asia",
+          "correct": false,
+          "rationale": "Its deserts are smaller."
+        },
+        {
+          "id": "c",
+          "label": "Australia",
+          "correct": false,
+          "rationale": "Dry, but not the biggest desert."
+        },
+        {
+          "id": "d",
+          "label": "Antarctica",
+          "correct": true
+        }
+      ],
+      "explanation": "Deserts are defined by low precipitation, not heat. Icy Antarctica, the continent with no permanent residents, is the largest desert.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_sahara",
+    "source.natgeo_desert",
+    "source.smithsonian_green_sahara",
+    "source.conversation_green_sahara",
+    "source.openstax_africa_geography",
+    "source.natgeo_continent"
+  ],
+  "art": "geo.desert"
+}

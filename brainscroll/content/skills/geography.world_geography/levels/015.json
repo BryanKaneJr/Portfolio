@@ -1,0 +1,227 @@
+{
+  "id": "level.geography.world_geography.015",
+  "skillId": "skill.geography.world_geography",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Volcanoes and the Ring of Fire",
+  "objective": "After this level you can explain why volcanoes form where they do and locate the Ring of Fire.",
+  "summary": "Magma rises because it's lighter than solid rock. Most volcanoes sit near plate boundaries, especially the Ring of Fire around the Pacific; Hawaii's sit over a hotspot instead.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.volcano_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.ring_of_fire",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.hotspots",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.plate_boundaries",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.ocean_sizes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.014"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Trace the rim of the Pacific and you've found most of the world's volcanoes.",
+      "body": "About 75% of them sit in one long loop. Where volcanoes grow isn't random. It's a map of the plates."
+    },
+    {
+      "id": "card.world_geography.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why melted rock comes up",
+      "body": "Deep underground, some rock melts into magma. Magma is lighter than the solid rock around it, so it rises. Where it breaks through the surface, you get a volcano, and the magma gets a new name: lava. The vast majority of eruptions happen near Level 12's plate boundaries."
+    },
+    {
+      "id": "card.world_geography.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Ring of Fire",
+      "body": "Around much of the Pacific, plates meet and one dives beneath another. The sinking rock melts into magma that feeds volcanoes, strung along plate boundaries about 40,000 km long: the Ring of Fire. It holds about 75% of Earth's volcanoes, more than 450, and about 90% of its earthquakes. The Pacific, Level 8's biggest ocean, also has the busiest rim.",
+      "callout": "About 75% of volcanoes · about 90% of earthquakes"
+    },
+    {
+      "id": "card.world_geography.015.c4",
+      "type": "fact",
+      "fact": "Hawaii's volcanoes are nowhere near a plate boundary.",
+      "context": "They sit mid-plate, more than 3,200 km from the nearest edge, over a hotspot: a stationary source of heat deep in the mantle. The Pacific Plate slides over it like paper over a candle. Each island gets carried off the hotspot in turn and its volcanoes die out. That's why the Big Island, still over it, is the youngest."
+    },
+    {
+      "id": "card.world_geography.015.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.015.q1"
+    },
+    {
+      "id": "card.world_geography.015.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.015.q2"
+    },
+    {
+      "id": "card.world_geography.015.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.015.q3"
+    },
+    {
+      "id": "card.world_geography.015.c8",
+      "type": "checkpoint",
+      "headline": "Volcanoes: located",
+      "learned": [
+        "Magma rises because it's lighter than solid rock",
+        "Most eruptions happen near plate boundaries",
+        "The Ring of Fire holds about 75% of volcanoes",
+        "Hawaii grew over a hotspot, far from any boundary"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.ring_of_fire"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.015.c3"
+      ],
+      "prompt": "About what share of Earth's volcanoes lie along the Ring of Fire?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10%",
+          "correct": false,
+          "rationale": "Far too few: most volcanoes are there."
+        },
+        {
+          "id": "b",
+          "label": "About 25%",
+          "correct": false,
+          "rationale": "It's the majority, not a quarter."
+        },
+        {
+          "id": "c",
+          "label": "About 50%",
+          "correct": false,
+          "rationale": "Higher than that."
+        },
+        {
+          "id": "d",
+          "label": "About 75%",
+          "correct": true
+        }
+      ],
+      "explanation": "About 75% of Earth's volcanoes, more than 450, line the Ring of Fire, along with about 90% of its earthquakes.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.hotspots"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.015.c4"
+      ],
+      "prompt": "Why do the Hawaiian islands get older the farther they are from the Big Island?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The plate carries each island off a fixed hotspot",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The hotspot itself is drifting east",
+          "correct": false,
+          "rationale": "The hotspot stays put; the plate moves."
+        },
+        {
+          "id": "c",
+          "label": "Older islands sank and rose again",
+          "correct": false,
+          "rationale": "They were carried away, not sunk and raised."
+        },
+        {
+          "id": "d",
+          "label": "Erosion makes islands look older",
+          "correct": false,
+          "rationale": "They really are older: they formed earlier."
+        }
+      ],
+      "explanation": "The Pacific Plate slides over a stationary hotspot. Each island forms over it, then gets carried away and goes quiet.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.volcano_formation",
+        "concept.world_geography.plate_boundaries"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.015.c3",
+        "card.world_geography.015.c2",
+        "card.world_geography.012.c4"
+      ],
+      "prompt": "From Level 12: along the Ring of Fire, one plate dives beneath another. Why does that make volcanoes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The plates rub and heat the air above",
+          "correct": false,
+          "rationale": "The heat comes from rock melting underground."
+        },
+        {
+          "id": "b",
+          "label": "The sinking rock melts into magma that rises",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "New crust forms as the plates pull apart",
+          "correct": false,
+          "rationale": "Here the plates push together."
+        },
+        {
+          "id": "d",
+          "label": "Ocean water boils through the crust",
+          "correct": false,
+          "rationale": "The fuel is melted rock, not water."
+        }
+      ],
+      "explanation": "At a convergent boundary the sinking plate's rock melts. The magma is lighter than solid rock, so it rises and erupts.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_ring_of_fire",
+    "source.usgs_how_volcanoes_erupt",
+    "source.usgs_dynamic_hotspots",
+    "source.noaa_biggest_ocean",
+    "source.brit_pacific_ocean"
+  ],
+  "art": "nature.volcano"
+}

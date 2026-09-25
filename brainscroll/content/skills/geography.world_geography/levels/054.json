@@ -1,0 +1,219 @@
+{
+  "id": "level.geography.world_geography.054",
+  "skillId": "skill.geography.world_geography",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Great Rift Valley",
+  "objective": "After this level you can explain how the Great Rift Valley formed and why it matters to the story of human origins.",
+  "summary": "Africa is splitting along the East African Rift as the Somali plate pulls away; the Red Sea is a rift already flooded. Rift fossils like Lucy, dated by volcanic ash, tell the human story.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.great_rift_valley",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.rift_human_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.landforms",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.053"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Africa is splitting in two.",
+      "body": "Slowly: you won't feel it, and nobody alive will see the ending. But in East Africa the ground is being pulled apart, and the scar it leaves holds some of the oldest chapters of the human story."
+    },
+    {
+      "id": "card.world_geography.054.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A valley made by pulling",
+      "body": "The river valleys of Level 7 were carved by water and ice. The Great Rift Valley was made by pulling. In the East African Rift, the Somali plate, carrying the Horn of Africa, is moving away from the Nubian plate. As they separate, they stretch and thin the crust between them, and the rift opens. The system runs from the Middle East to Mozambique, dotted with volcanoes."
+    },
+    {
+      "id": "card.world_geography.054.c3",
+      "type": "fact",
+      "fact": "The Red Sea is a rift that the ocean already flooded.",
+      "context": "Arabia was once joined to Africa. Then the two rifted apart and the ocean poured into the valley between them. East Africa may be on the same path: someday the sea could flood the rift and make the Horn of Africa an island. Not for millions of years, so no need to cancel any trips."
+    },
+    {
+      "id": "card.world_geography.054.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the oldest bones turn up",
+      "body": "The rift is one of the best places on Earth to find early human relatives. Lucy, a 3.2-million-year-old skeleton of a species that walked upright, came from Ethiopia. Turkana Boy, 1.5 million years old, came from Kenya. The rift helps twice. Layers of volcanic ash can be dated, which dates the fossils between them. And at places like Olduvai Gorge in Tanzania, running water cuts through the layers and exposes the bones.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "A volcano that erupts on schedule would be nice. Settling for one whose ash keeps good time."
+      }
+    },
+    {
+      "id": "card.world_geography.054.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.054.q1"
+    },
+    {
+      "id": "card.world_geography.054.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.054.q2"
+    },
+    {
+      "id": "card.world_geography.054.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.054.q3"
+    },
+    {
+      "id": "card.world_geography.054.c8",
+      "type": "checkpoint",
+      "headline": "Rift: mapped",
+      "learned": [
+        "East Africa is splitting as the Somali plate pulls away",
+        "The Red Sea is a rift the ocean flooded",
+        "Lucy and Turkana Boy came from the rift",
+        "Volcanic ash layers let fossils be dated"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.great_rift_valley"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.054.c3"
+      ],
+      "prompt": "Which sea formed when Arabia rifted away from Africa and the ocean flooded in?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Mediterranean Sea",
+          "correct": false,
+          "rationale": "It lies north of Africa, not between Africa and Arabia."
+        },
+        {
+          "id": "b",
+          "label": "The Red Sea",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Dead Sea",
+          "correct": false,
+          "rationale": "A salt lake, not a flooded gap between plates."
+        },
+        {
+          "id": "d",
+          "label": "The Arabian Sea",
+          "correct": false,
+          "rationale": "It may one day flood the East African Rift."
+        }
+      ],
+      "explanation": "The Red Sea is a rift between Africa and Arabia that the ocean has already flooded.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.rift_human_origins"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.054.c4"
+      ],
+      "prompt": "Why can scientists date many of the fossils found in the Rift Valley?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rift fossils never wear away",
+          "correct": false,
+          "rationale": "Fossils erode; that is how some are exposed."
+        },
+        {
+          "id": "b",
+          "label": "The rift opened on a known date",
+          "correct": false,
+          "rationale": "The rift is still opening, slowly."
+        },
+        {
+          "id": "c",
+          "label": "They lie between volcanic ash layers that can be dated",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Every fossil is found beside stone tools",
+          "correct": false,
+          "rationale": "Tools help, but ash layers set the dates."
+        }
+      ],
+      "explanation": "Volcanic ash layers can be dated, so fossils sandwiched between them get dates too.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.great_rift_valley",
+        "concept.world_geography.landforms"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.054.c2",
+        "card.world_geography.007.c4"
+      ],
+      "prompt": "Level 7 said rivers carve V-shaped valleys. How did the Great Rift Valley form instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A glacier ground it into a U shape",
+          "correct": false,
+          "rationale": "Glaciers carve U-shaped valleys, not rifts."
+        },
+        {
+          "id": "b",
+          "label": "Sediment built it up at a river mouth",
+          "correct": false,
+          "rationale": "That's a delta."
+        },
+        {
+          "id": "c",
+          "label": "It was raised up as a flat plateau",
+          "correct": false,
+          "rationale": "A rift is a low valley, not raised land."
+        },
+        {
+          "id": "d",
+          "label": "Plates pulling apart stretched the crust",
+          "correct": true
+        }
+      ],
+      "explanation": "The Great Rift Valley opened as the Somali and Nubian plates pulled apart, stretching and thinning the crust.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_rift_valley",
+    "source.natgeo_rift_crack",
+    "source.smithsonian_afarensis",
+    "source.brit_olduvai_gorge",
+    "source.natgeo_valleys"
+  ],
+  "art": "geo.canyon"
+}

@@ -1,0 +1,223 @@
+{
+  "id": "level.geography.world_geography.044",
+  "skillId": "skill.geography.world_geography",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Grasslands and Savannas",
+  "objective": "After this level you can describe grasslands and savannas and the animals they support.",
+  "summary": "Grasslands grow where there is too little rain for forest but too much for desert. Savannas add scattered trees and a long dry season, and fire and grazing keep both open.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.grassland_biome",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.savanna_biome",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.climate_shapes_biomes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.043"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.044.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Mow it, graze it, burn it. Grass comes back.",
+      "body": "Your lawn after the mower is a tiny lesson in one of Earth's toughest biomes. A grass leaf grows from its base, at or below ground level, safely out of harm's way. Keep that trick in mind."
+    },
+    {
+      "id": "card.world_geography.044.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The land in between",
+      "body": "Grasslands fill the gap between forests and deserts. They get too little regular rain to grow a forest, but not so little that a desert forms. You'll find them on every continent except Antarctica, under different local names: prairie in North America, steppe across Asia and Eastern Europe, pampas in South America. Same biome, many passports.",
+      "callout": "Prairie · Steppe · Pampas · Savanna"
+    },
+    {
+      "id": "card.world_geography.044.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Savanna: grass with a few trees",
+      "body": "A savanna is a grassland dotted with scattered trees. It stays warm to hot all year, but the rain comes in only a few months, and the dry season is usually the longer one. The largest savannas are in Africa. That's where the African elephant roams, the largest animal on land, strolling through what is basically a very big, very sunny lawn."
+    },
+    {
+      "id": "card.world_geography.044.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the trees don't take over",
+      "body": "Give a grassland a run of wet, quiet years and woody plants start creeping in. Drought, fire and heavy grazing push back, and all three favor grass. On savannas, wildfires stop woody plants from spreading. Grass shrugs it off: when fire or grazers strip its leaves, it regrows from its base, using energy stored in its roots. Fire isn't the grassland's enemy. It's the gardener.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A plant that thrives on being eaten and burned. Grass has a very relaxed attitude to disaster."
+      }
+    },
+    {
+      "id": "card.world_geography.044.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.044.q1"
+    },
+    {
+      "id": "card.world_geography.044.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.044.q2"
+    },
+    {
+      "id": "card.world_geography.044.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.044.q3"
+    },
+    {
+      "id": "card.world_geography.044.c8",
+      "type": "checkpoint",
+      "headline": "Grasslands: grazed",
+      "learned": [
+        "Grasslands sit between forest and desert in rainfall",
+        "Prairie, steppe and pampas are regional names",
+        "Savannas: grass, scattered trees, a long dry season",
+        "Fire and grazing keep trees out; grass regrows from its base"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.savanna_biome"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.044.c3"
+      ],
+      "prompt": "What is a savanna?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A forest that floods every year",
+          "correct": false,
+          "rationale": "A savanna is grassland, not forest."
+        },
+        {
+          "id": "b",
+          "label": "A cold, treeless northern plain",
+          "correct": false,
+          "rationale": "Savannas are warm to hot all year."
+        },
+        {
+          "id": "c",
+          "label": "A desert with a short rainy season",
+          "correct": false,
+          "rationale": "It's a grassland with scattered trees."
+        },
+        {
+          "id": "d",
+          "label": "A grassland with scattered trees",
+          "correct": true
+        }
+      ],
+      "explanation": "A savanna is a warm, seasonally dry grassland dotted with scattered trees.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.grassland_biome"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.044.c4",
+        "card.world_geography.044.c1"
+      ],
+      "prompt": "Why does grass survive the fires and grazing that keep trees out of grasslands?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It regrows from its base and roots",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its leaves are fireproof",
+          "correct": false,
+          "rationale": "The leaves burn; the growing base survives."
+        },
+        {
+          "id": "c",
+          "label": "Grazing animals avoid eating it",
+          "correct": false,
+          "rationale": "Grazers eat grass all the time."
+        },
+        {
+          "id": "d",
+          "label": "It grows only in the wet season",
+          "correct": false,
+          "rationale": "Timing isn't the trick; its growing base is."
+        }
+      ],
+      "explanation": "A grass leaf grows from its base, at or below ground, and regrows from energy stored in its roots after fire or grazing.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.grassland_biome",
+        "concept.world_geography.climate_shapes_biomes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.044.c2",
+        "card.world_geography.041.c3"
+      ],
+      "prompt": "On Level 41's rain dial, where do grasslands sit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wetter than rainforest",
+          "correct": false,
+          "rationale": "Grasslands get too little rain for forest."
+        },
+        {
+          "id": "b",
+          "label": "Drier than desert",
+          "correct": false,
+          "rationale": "They get more rain than deserts do."
+        },
+        {
+          "id": "c",
+          "label": "Between forest and desert",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Rain has no effect on them",
+          "correct": false,
+          "rationale": "Rainfall is exactly what places them."
+        }
+      ],
+      "explanation": "Grasslands get too little regular rain for forest, but too much for desert to form.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_grasslands",
+    "source.brit_grassland",
+    "source.brit_savanna",
+    "source.seaworld_grasslands",
+    "source.asu_grassland_plants",
+    "source.serc_climate_biomes"
+  ],
+  "art": "geo.savanna"
+}

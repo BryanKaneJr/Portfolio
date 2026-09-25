@@ -1,0 +1,234 @@
+{
+  "id": "level.geography.world_geography.043",
+  "skillId": "skill.geography.world_geography",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Deserts",
+  "objective": "After this level you can explain why deserts form and why not all of them are hot.",
+  "summary": "A desert is defined by dryness, not heat. Belts of sinking dry air near 30° latitude and mountain rain shadows make deserts, and the largest of all is icy Antarctica.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.desert_dryness",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.desert_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.latitude",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.tropics",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.042"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.043.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The world's largest desert is covered in ice.",
+      "body": "Not the Sahara, which is the largest hot desert. The biggest desert of all is Antarctica. If that sounds like a trick question, it's because we picture deserts as hot and sandy. The real test has nothing to do with heat."
+    },
+    {
+      "id": "card.world_geography.043.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The only rule: dryness",
+      "body": "A desert is simply a place that gets very little precipitation. Some experts set the limit at about 250 mm a year, less than the length of a school ruler. Temperature doesn't come into it. A scorching dune field and a frozen plain can both qualify, as long as the sky stays stingy."
+    },
+    {
+      "id": "card.world_geography.043.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the sky is a lid",
+      "body": "Many big deserts sit in belts around 30° to 35° north and south of the Equator, just outside the tropics from Level 4. In those belts, dry air sinks from high up, bringing clear skies and very little rain. The Sahara, the largest hot desert on Earth, lies in one of them. Clouds rarely stand a chance."
+    },
+    {
+      "id": "card.world_geography.043.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Mountains that steal the rain",
+      "body": "Mountains make deserts too. As moist air climbs a range, it cools, and clouds drop rain and snow on the way up. By the time the air slides down the far side, it's warming and its clouds fade away. That dry side is a rain shadow. Death Valley, in California and Nevada, is so dry because it sits in the rain shadow of the Sierra Nevada.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "One side gets the rain, the other gets the shadow. Mountains are terrible at sharing."
+      }
+    },
+    {
+      "id": "card.world_geography.043.c5",
+      "type": "fact",
+      "fact": "Antarctica is the largest desert on Earth.",
+      "context": "Its interior gets only about 50 mm of precipitation a year, almost all of it snow. The air there is so cold that it holds very little water vapor, so there's hardly anything to fall. A continent buried in ice, and bone dry."
+    },
+    {
+      "id": "card.world_geography.043.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.043.q1"
+    },
+    {
+      "id": "card.world_geography.043.c7",
+      "type": "mcq",
+      "questionId": "question.world_geography.043.q2"
+    },
+    {
+      "id": "card.world_geography.043.c8",
+      "type": "recall",
+      "questionId": "question.world_geography.043.q3"
+    },
+    {
+      "id": "card.world_geography.043.c9",
+      "type": "checkpoint",
+      "headline": "Deserts: decoded",
+      "learned": [
+        "A desert is defined by dryness, not heat",
+        "Dry sinking air near 30° to 35° N and S makes deserts",
+        "Mountains leave dry rain shadows behind them",
+        "Antarctica is the largest desert; the Sahara the largest hot one"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.desert_dryness"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.043.c2"
+      ],
+      "prompt": "What makes a place a desert?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Very little precipitation",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Very high temperatures",
+          "correct": false,
+          "rationale": "Heat isn't required: icy Antarctica is a desert."
+        },
+        {
+          "id": "c",
+          "label": "Sand dunes across the ground",
+          "correct": false,
+          "rationale": "Sand is not the test; dryness is."
+        },
+        {
+          "id": "d",
+          "label": "No plants or animals at all",
+          "correct": false,
+          "rationale": "Deserts are defined by dryness, not by being lifeless."
+        }
+      ],
+      "explanation": "A desert is defined by how little precipitation it gets, not by heat or sand.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.desert_formation"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.043.c4"
+      ],
+      "prompt": "Why is the far side of a mountain range often dry?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The mountains block the sunlight",
+          "correct": false,
+          "rationale": "It's about moisture, not sunlight."
+        },
+        {
+          "id": "b",
+          "label": "Wind blows sand over the peaks",
+          "correct": false,
+          "rationale": "The air loses its water, not gains sand."
+        },
+        {
+          "id": "c",
+          "label": "The air drops its rain on the way up",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The far side is always higher",
+          "correct": false,
+          "rationale": "Height is not the reason; the air has already lost its water."
+        }
+      ],
+      "explanation": "Rising air cools and drops rain and snow on the near side. Coming down the far side, it warms and its clouds fade: a rain shadow.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.desert_formation",
+        "concept.world_geography.latitude"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.043.c3",
+        "card.world_geography.003.c2"
+      ],
+      "prompt": "Using Level 3's latitude, where do belts of dry sinking air create many deserts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Right on the Equator, at 0°",
+          "correct": false,
+          "rationale": "The Equator is rainforest country, not these dry belts."
+        },
+        {
+          "id": "b",
+          "label": "Around 30° to 35° north and south",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Exactly at the poles, at 90°",
+          "correct": false,
+          "rationale": "The dry belts lie much closer to the tropics."
+        },
+        {
+          "id": "d",
+          "label": "Along the prime meridian",
+          "correct": false,
+          "rationale": "That's longitude, not latitude."
+        }
+      ],
+      "explanation": "High-pressure belts of dry, sinking air sit around 30° to 35° N and S. The Sahara lies in one.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_deserts",
+    "source.brit_antarctica_desert",
+    "source.brit_horse_latitudes",
+    "source.natgeo_rain_shadow",
+    "source.natgeo_tropics",
+    "source.brit_tropic_of_cancer",
+    "source.brit_tropic_of_capricorn",
+    "source.noaa_latitude"
+  ],
+  "art": "geo.desert"
+}

@@ -1,0 +1,227 @@
+{
+  "id": "level.geography.world_geography.078",
+  "skillId": "skill.geography.world_geography",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "South America in One Level",
+  "objective": "After this level you can describe South America's regions and largest countries.",
+  "summary": "South America has 12 independent countries, and Brazil covers about half of it. The Andes run down the west, the Amazon basin fills the north, and the continent tapers south to Patagonia.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.south_america_countries",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.south_america_regions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.equator",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.continent_sizes",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.north_america_regions",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.077"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One South American country is named after a line on the map.",
+      "body": "Ecuador is Spanish for equator, and the Equator runs right through it. Level 4's imaginary line, the one that splits the Northern and Southern Hemispheres, got a whole country named after it."
+    },
+    {
+      "id": "card.world_geography.078.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Twelve countries and one giant",
+      "body": "South America has 12 independent countries, plus French Guiana, which is part of France. One of them dominates: Brazil covers about half the continent's land and borders every other South American country except Chile and Ecuador. Brazilians speak Portuguese, while Spanish is the main language in most of the rest. So Brazil is less a neighbor than the whole neighborhood."
+    },
+    {
+      "id": "card.world_geography.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A shape you can draw",
+      "body": "Sketch the continent and you'll draw a wide top that tapers to a point in the south. The Andes run down the entire western edge. The vast Amazon basin fills the north. Broad plains and lowlands spread through the east and center, and Patagonia stretches across the far south. Mountains in the west and flatter land to the east: sound familiar? Level 71's North America has tall western mountains and a flat middle, too."
+    },
+    {
+      "id": "card.world_geography.078.c4",
+      "type": "fact",
+      "fact": "South America is the fourth-largest continent.",
+      "context": "In Level 8's ranking, it comes right after North America. Most of it lies in the tropics, yet its narrow southern tail reaches all the way to subantarctic latitudes. Pack for both, again."
+    },
+    {
+      "id": "card.world_geography.078.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.078.q1"
+    },
+    {
+      "id": "card.world_geography.078.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.078.q2"
+    },
+    {
+      "id": "card.world_geography.078.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.078.q3"
+    },
+    {
+      "id": "card.world_geography.078.c8",
+      "type": "checkpoint",
+      "headline": "South America: mapped",
+      "learned": [
+        "12 independent countries, plus French Guiana",
+        "Brazil covers about half the continent",
+        "Andes in the west, Amazon basin in the north",
+        "Ecuador is named after the Equator"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.south_america_countries"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.078.c2"
+      ],
+      "prompt": "Which country covers about half of South America's land?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Argentina",
+          "correct": false,
+          "rationale": "Big, but Brazil alone covers about half the continent."
+        },
+        {
+          "id": "b",
+          "label": "Peru",
+          "correct": false,
+          "rationale": "Peru is much smaller than Brazil."
+        },
+        {
+          "id": "c",
+          "label": "Ecuador",
+          "correct": false,
+          "rationale": "Ecuador is the country named after the Equator."
+        },
+        {
+          "id": "d",
+          "label": "Brazil",
+          "correct": true
+        }
+      ],
+      "explanation": "Brazil covers about half of South America and borders every other country on the continent except Chile and Ecuador.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.south_america_regions"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.078.c3"
+      ],
+      "prompt": "You travel west from the Amazon basin toward the Pacific. What must you cross?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Andes",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Patagonia",
+          "correct": false,
+          "rationale": "Patagonia is in the far south."
+        },
+        {
+          "id": "c",
+          "label": "The Great Plains",
+          "correct": false,
+          "rationale": "Those are in North America."
+        },
+        {
+          "id": "d",
+          "label": "The Greater Antilles",
+          "correct": false,
+          "rationale": "Those are Caribbean islands."
+        }
+      ],
+      "explanation": "The Andes run down South America's whole western edge, between the Amazon basin and the Pacific.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.south_america_countries",
+        "concept.world_geography.equator"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.078.c1",
+        "card.world_geography.004.c2"
+      ],
+      "prompt": "From Level 4: Ecuador is named after the Equator. Which two halves of Earth does that line divide?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Eastern and Western Hemispheres",
+          "correct": false,
+          "rationale": "East and west are measured from the prime meridian."
+        },
+        {
+          "id": "b",
+          "label": "The Northern and Southern Hemispheres",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The tropics and the polar zones",
+          "correct": false,
+          "rationale": "The tropics straddle the Equator."
+        },
+        {
+          "id": "d",
+          "label": "The land half and the ocean half",
+          "correct": false,
+          "rationale": "No line splits Earth into a land half and an ocean half."
+        }
+      ],
+      "explanation": "The Equator, at 0° latitude, divides Earth into the Northern and Southern Hemispheres.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_south_america",
+    "source.brit_brazil",
+    "source.brit_ecuador",
+    "source.natgeo_equator",
+    "source.noaa_latitude",
+    "source.natgeo_continent",
+    "source.brit_north_america"
+  ],
+  "art": "geo.rainforest"
+}

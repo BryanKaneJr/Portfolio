@@ -1,0 +1,227 @@
+{
+  "id": "level.geography.world_geography.045",
+  "skillId": "skill.geography.world_geography",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Forests of the North",
+  "objective": "After this level you can describe temperate and northern forests and how they survive winter.",
+  "summary": "Winter makes water scarce. Deciduous trees drop their leaves, revealing yellows hidden all summer; conifers keep waxy needles instead, and rule the taiga, the largest land biome.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.deciduous_forest",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.boreal_forest",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.climate_shapes_biomes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.044"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every autumn, some trees throw away all their leaves. On purpose.",
+      "body": "Their evergreen neighbors keep theirs all winter. Two opposite strategies for the same enemy, and that enemy isn't only the cold."
+    },
+    {
+      "id": "card.world_geography.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Winter is a drought",
+      "body": "In winter, much of the water is locked up as ice, so it's in short supply, and a plant with no way to save water would dry out. Deciduous trees solve it bluntly. Before winter, a special layer of cells grows where each leaf's stem meets the tree and cuts the leaf loose. Bare branches aren't a sign of giving up. They're a tree battening down the hatches."
+    },
+    {
+      "id": "card.world_geography.045.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The yellow was there all summer",
+      "body": "As fall days shorten and cool, leaves stop making food and their green chlorophyll breaks down. Underneath, yellow and orange pigments were there all along, hidden by the green. Reds and purples are different: those come from anthocyanin pigments that form in the fall. So when a tree turns gold, it isn't putting on a new color. It's taking off its green coat.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "All summer long, the gold was hiding in plain sight. Trees are very good at secrets."
+      }
+    },
+    {
+      "id": "card.world_geography.045.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Needles: the evergreen answer",
+      "body": "Conifers like pine, spruce and fir take the other route and keep their leaves. Their needles are built to save water: a small surface for their size, sunken pores and a thick, waxy coating. Their shape helps as well, because snow slides off the peaks of cone-shaped trees instead of piling up. They're dressed for winter all year."
+    },
+    {
+      "id": "card.world_geography.045.c5",
+      "type": "fact",
+      "fact": "The taiga, or boreal forest, is the largest land biome on Earth.",
+      "context": "It's a belt of cone-bearing evergreens circling the far north, across Canada and Alaska and on through Russia. Winters there are long and very cold, and a lasting snowpack is the norm. Tundra lies to its north, and temperate forest to its south."
+    },
+    {
+      "id": "card.world_geography.045.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.045.q1"
+    },
+    {
+      "id": "card.world_geography.045.c7",
+      "type": "mcq",
+      "questionId": "question.world_geography.045.q2"
+    },
+    {
+      "id": "card.world_geography.045.c8",
+      "type": "recall",
+      "questionId": "question.world_geography.045.q3"
+    },
+    {
+      "id": "card.world_geography.045.c9",
+      "type": "checkpoint",
+      "headline": "Northern forests: wintered",
+      "learned": [
+        "Winter locks water up as ice, so trees must save water",
+        "Deciduous trees shed leaves; hidden yellows show in fall",
+        "Conifer needles are small and waxy, and snow slides off",
+        "The taiga is the largest land biome"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.deciduous_forest"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.045.c3"
+      ],
+      "prompt": "Where do a fall leaf's yellows and oranges come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Frost damaging the leaf",
+          "correct": false,
+          "rationale": "The yellow pigments were there all summer."
+        },
+        {
+          "id": "b",
+          "label": "Pigments hidden under the green all summer",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Minerals pulled up from the soil",
+          "correct": false,
+          "rationale": "They're pigments already in the leaf."
+        },
+        {
+          "id": "d",
+          "label": "New pigments made only in fall",
+          "correct": false,
+          "rationale": "That's where the reds come from, not the yellows."
+        }
+      ],
+      "explanation": "Yellow and orange pigments are in the leaf all summer. When the green chlorophyll breaks down in fall, they show through.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.deciduous_forest"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.045.c2"
+      ],
+      "prompt": "Why do deciduous trees drop their leaves before winter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To let snow reach their roots",
+          "correct": false,
+          "rationale": "It's about saving water, not catching snow."
+        },
+        {
+          "id": "b",
+          "label": "Because their leaves freeze solid first",
+          "correct": false,
+          "rationale": "The tree cuts the leaves loose before winter."
+        },
+        {
+          "id": "c",
+          "label": "To make room for next year's cones",
+          "correct": false,
+          "rationale": "Deciduous trees shed leaves, not make room for cones."
+        },
+        {
+          "id": "d",
+          "label": "To save water while it is locked up as ice",
+          "correct": true
+        }
+      ],
+      "explanation": "In winter, frozen water is in short supply. Dropping leaves helps a deciduous tree avoid drying out.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.boreal_forest",
+        "concept.world_geography.climate_shapes_biomes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.045.c5",
+        "card.world_geography.041.c3"
+      ],
+      "prompt": "Using Level 41, why do conifer forests in Canada and in Russia count as the same biome?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were once one single forest",
+          "correct": false,
+          "rationale": "A biome is set by climate and life, not shared history."
+        },
+        {
+          "id": "b",
+          "label": "They sit at the same longitude",
+          "correct": false,
+          "rationale": "They're far apart in longitude."
+        },
+        {
+          "id": "c",
+          "label": "They share a similar climate and plants",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "People planted the same trees in both",
+          "correct": false,
+          "rationale": "The taiga grew naturally across the far north."
+        }
+      ],
+      "explanation": "Wherever the same biome occurs, it has similar climate, plants and animal life. The taiga circles the whole far north.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openlearn_deciduous",
+    "source.esf_leaf_color",
+    "source.openlearn_evergreen",
+    "source.asu_taiga",
+    "source.brit_taiga",
+    "source.serc_climate_biomes"
+  ],
+  "art": "geo.pine-forest"
+}

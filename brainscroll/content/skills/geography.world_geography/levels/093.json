@@ -1,0 +1,223 @@
+{
+  "id": "level.geography.world_geography.093",
+  "skillId": "skill.geography.world_geography",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Countries and Borders",
+  "objective": "After this level you can explain how borders are drawn and why the count of countries varies.",
+  "summary": "The UN has 193 members and 2 observer states; lists differ over places like Kosovo and Taiwan. Borders follow mountains and rivers, straight lines, or lines drawn by distant powers.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.sovereign_states_count",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.border_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.latitude",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.092"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.093.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "How many countries are there? 193? 195? It depends who you ask.",
+      "body": "Nobody here is bad at counting. Whether a place is a country depends partly on who agrees that it is one. Borders are the same: someone had to decide where to draw them."
+    },
+    {
+      "id": "card.world_geography.093.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The UN's list",
+      "body": "The most common answer comes from the United Nations: 193 member states. Add its two observer states, the Holy See and the State of Palestine, and you get 195. The newest member is South Sudan, independent since 2011. Places like Kosovo, which declared independence in 2008, and Taiwan are not UN members, so some lists count them and others don't. Every count is also a point of view."
+    },
+    {
+      "id": "card.world_geography.093.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Borders drawn by nature",
+      "body": "Some borders let the land do the talking. The border between France and Spain follows the crest of the Pyrenees mountains. For part of its length, the US-Mexico border follows a river, the Rio Grande. Mountains and rivers make borders you can see from a plane window, no painted line required."
+    },
+    {
+      "id": "card.world_geography.093.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Borders drawn with a ruler",
+      "body": "Other borders ignore the landscape entirely. Across much of the West, the Canada-US border simply follows the 49th parallel, a line of latitude you met in Level 3. Britain and the United States agreed on it in stages, in 1818 and 1846. It's a straight line on the map that no river would ever choose."
+    },
+    {
+      "id": "card.world_geography.093.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lines that split people",
+      "body": "Borders drawn far away can cut straight through people's lives. In the 1800s and 1900s, European countries drew borders across Africa while ignoring the Indigenous communities already living there. Again and again, borders drawn without reference to the people on the ground have led to conflict and border disputes. A map line is thin; its consequences are not."
+    },
+    {
+      "id": "card.world_geography.093.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.093.q1"
+    },
+    {
+      "id": "card.world_geography.093.c7",
+      "type": "mcq",
+      "questionId": "question.world_geography.093.q2"
+    },
+    {
+      "id": "card.world_geography.093.c8",
+      "type": "recall",
+      "questionId": "question.world_geography.093.q3"
+    },
+    {
+      "id": "card.world_geography.093.c9",
+      "type": "checkpoint",
+      "headline": "Borders: drawn",
+      "learned": [
+        "The UN has 193 members plus 2 observer states",
+        "Lists differ over places like Kosovo and Taiwan",
+        "Some borders follow mountains and rivers",
+        "Others are straight lines, like the 49th parallel",
+        "Borders that ignore people often cause conflict"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.sovereign_states_count"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.093.c2"
+      ],
+      "prompt": "How many member states does the United Nations have?",
+      "options": [
+        {
+          "id": "a",
+          "label": "191",
+          "correct": false,
+          "rationale": "A little short."
+        },
+        {
+          "id": "b",
+          "label": "193",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "195",
+          "correct": false,
+          "rationale": "That adds the UN's two observer states."
+        },
+        {
+          "id": "d",
+          "label": "200",
+          "correct": false,
+          "rationale": "Too many."
+        }
+      ],
+      "explanation": "The UN has 193 member states, plus two observer states, the Holy See and the State of Palestine.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.sovereign_states_count"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.093.c2"
+      ],
+      "prompt": "Why do different lists give different numbers of countries?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Some countries appear twice under different names",
+          "correct": false,
+          "rationale": "Duplicates are not the issue."
+        },
+        {
+          "id": "b",
+          "label": "New countries are admitted to the UN every year",
+          "correct": false,
+          "rationale": "The newest member, South Sudan, joined in 2011."
+        },
+        {
+          "id": "c",
+          "label": "Places like Kosovo and Taiwan are not UN members, so lists disagree about them",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The UN counts oceans as territories",
+          "correct": false,
+          "rationale": "Oceans are not counted as countries."
+        }
+      ],
+      "explanation": "The UN lists 193 members, but some places, like Kosovo and Taiwan, are not members, so lists differ on whether to count them.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.border_types",
+        "concept.world_geography.latitude"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.093.c4",
+        "card.world_geography.003.c2"
+      ],
+      "prompt": "Much of the Canada-US border follows the 49th parallel. Using Level 3, what does that line mark?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A place 49° north of the Equator",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A place 49° east of Greenwich",
+          "correct": false,
+          "rationale": "That would be a meridian, measuring longitude."
+        },
+        {
+          "id": "c",
+          "label": "A mountain ridge 49 km long",
+          "correct": false,
+          "rationale": "It ignores the landscape completely."
+        },
+        {
+          "id": "d",
+          "label": "The 49th time zone",
+          "correct": false,
+          "rationale": "There are only 24 standard zones."
+        }
+      ],
+      "explanation": "Parallels measure latitude, distance north or south of the Equator. The 49th parallel sits 49° north, and the border simply follows it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.un_member_states",
+    "source.worldatlas_un_nonmembers",
+    "source.natgeo_border",
+    "source.canenc_49th_parallel"
+  ],
+  "art": "object.flag"
+}

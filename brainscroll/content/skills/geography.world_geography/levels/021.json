@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.world_geography.021",
+  "skillId": "skill.geography.world_geography",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Water Cycle",
+  "objective": "After this level you can describe how water moves between the ocean, the sky and the land.",
+  "summary": "The Sun lifts water into the sky and gravity brings it back down. Most vapor rises from the sea, spends about 10 days aloft, and the total never changes.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.water_cycle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.evaporation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.water_planet",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.020"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The rain on your window has made this trip before.",
+      "body": "Earth doesn't make fresh batches of water. It keeps moving the same supply around, from sea to sky to land and back again. That loop is the water cycle, and every glass you drink is borrowed from it."
+    },
+    {
+      "id": "card.world_geography.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Sun lifts, gravity drops",
+      "body": "The whole loop runs on two engines. Energy from the Sun warms water until it evaporates and rises as invisible vapor. Up high, the vapor condenses into clouds. Then gravity takes over: the water falls as rain or snow and makes its way back across and under the land. The Sun does the heavy lifting. Gravity handles the delivery, free of charge."
+    },
+    {
+      "id": "card.world_geography.021.c3",
+      "type": "fact",
+      "fact": "About 90% of the water vapor in the air rose from oceans, seas, lakes and rivers.",
+      "context": "That's no surprise after Level 1: about 71% of Earth's surface is water, so most evaporation starts at sea. Most of the rest comes from plants, which release vapor through tiny pores in their leaves. That's called transpiration. A tree on a hot afternoon is quietly sweating into the sky."
+    },
+    {
+      "id": "card.world_geography.021.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A short stay in the sky",
+      "body": "Once a water molecule evaporates, it spends about 10 days in the air on average, then falls back down. So the sky isn't a storage tank; it's a waiting room. And through all this moving, the total amount of water in the cycle stays essentially constant. Nothing new arrives and nothing is used up. The water just keeps changing places.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Ten days in the sky, then back to work. Water has a stricter schedule than I do."
+      }
+    },
+    {
+      "id": "card.world_geography.021.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.021.q1"
+    },
+    {
+      "id": "card.world_geography.021.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.021.q2"
+    },
+    {
+      "id": "card.world_geography.021.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.021.q3"
+    },
+    {
+      "id": "card.world_geography.021.c8",
+      "type": "checkpoint",
+      "headline": "The water cycle: traced",
+      "learned": [
+        "The Sun lifts water; gravity brings it back",
+        "Most vapor rises from oceans, seas, lakes and rivers",
+        "Plants add vapor by transpiration",
+        "A molecule spends about 10 days in the air",
+        "The total amount of water stays about the same"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.water_cycle"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.021.c2"
+      ],
+      "prompt": "What two things drive the water cycle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wind and the Moon",
+          "correct": false,
+          "rationale": "Wind moves clouds, but the Sun and gravity run the loop."
+        },
+        {
+          "id": "b",
+          "label": "Energy from the Sun and gravity",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Ocean currents and tides",
+          "correct": false,
+          "rationale": "Those move water within the sea, not up into the sky."
+        },
+        {
+          "id": "d",
+          "label": "Earth's magnetic field and heat",
+          "correct": false,
+          "rationale": "Magnetism plays no part in the water cycle."
+        }
+      ],
+      "explanation": "The Sun evaporates water and lifts it into the sky; gravity pulls it back down as rain or snow and downhill to the sea.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.evaporation",
+        "concept.world_geography.water_cycle"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.021.c4",
+        "card.world_geography.021.c2"
+      ],
+      "prompt": "A water molecule evaporates from the sea today. Where is it most likely to be in about two weeks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Still floating in the same cloud",
+          "correct": false,
+          "rationale": "Vapor only stays aloft about 10 days on average."
+        },
+        {
+          "id": "b",
+          "label": "Lost to space for good",
+          "correct": false,
+          "rationale": "The total amount of water in the cycle stays constant."
+        },
+        {
+          "id": "c",
+          "label": "Back on the ground or in the sea",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Turned into a brand-new substance",
+          "correct": false,
+          "rationale": "It stays water; it just changes places."
+        }
+      ],
+      "explanation": "A water molecule spends about 10 days in the air on average, then falls back as rain or snow.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.evaporation",
+        "concept.world_geography.water_planet"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.021.c3",
+        "card.world_geography.001.c1"
+      ],
+      "prompt": "From Level 1: why does most of the water vapor in the air rise from open water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Plants release almost no vapor",
+          "correct": false,
+          "rationale": "Plants release plenty; open water just outweighs them."
+        },
+        {
+          "id": "b",
+          "label": "Rain only falls on the ocean",
+          "correct": false,
+          "rationale": "Rain falls on land too."
+        },
+        {
+          "id": "c",
+          "label": "Land is always colder than the sea",
+          "correct": false,
+          "rationale": "Temperature is not the reason."
+        },
+        {
+          "id": "d",
+          "label": "About 71% of Earth's surface is water",
+          "correct": true
+        }
+      ],
+      "explanation": "With about 71% of the surface covered by water, most evaporation starts there: about 90% of the vapor in the air.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_water_cycle",
+    "source.usgs_water_cycle",
+    "source.usgs_evaporation",
+    "source.noaa_how_many_oceans",
+    "source.usgs_water_on_earth"
+  ],
+  "art": "nature.rain-cloud"
+}

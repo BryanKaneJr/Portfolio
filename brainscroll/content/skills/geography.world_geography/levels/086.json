@@ -1,0 +1,224 @@
+{
+  "id": "level.geography.world_geography.086",
+  "skillId": "skill.geography.world_geography",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Wayfinders of the Pacific",
+  "objective": "After this level you can explain how Polynesian navigators crossed the Pacific by reading stars, waves and birds.",
+  "summary": "Polynesian wayfinders crossed the Pacific without instruments, using where stars rise and set, ocean swells and homing seabirds. Hokulea's 1976 voyage to Tahiti proved it could be done.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.wayfinding",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.hokulea_voyage",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.magnetic_compass",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.085"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1976, a canoe sailed from Hawaii to Tahiti with no compass and no charts.",
+      "body": "Its navigator, Mau Piailug, used no instruments at all. The map was in his head, and the clues were all around him."
+    },
+    {
+      "id": "card.world_geography.086.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A triangle of ocean",
+      "body": "Draw a triangle with corners at Hawaii, New Zealand and Easter Island (Rapa Nui). That's Polynesia. People settled it in large sailing canoes, on long voyages that began roughly 3,000 to 4,000 years ago. So how do you find a speck of land in all that water, with nothing but your eyes?"
+    },
+    {
+      "id": "card.world_geography.086.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A compass made of stars",
+      "body": "Wayfinders memorize where each star rises and sets on the horizon. Watch a known star come up and you know your direction, no magnet required. Hawaiian navigators call this a star compass. And when the Sun climbs too high to steer by, they read the sea instead and steer by the ocean swells.",
+      "callout": "Stars for direction, swells for steering"
+    },
+    {
+      "id": "card.world_geography.086.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Follow the birds home",
+      "body": "Near land, the ocean starts dropping hints. Seabirds like terns fly out to sea in the morning to fish and head back to land in the late afternoon. Spot them flying home and you can simply follow them. Swells bending around an island and clouds piling up over it give land away, too, long before you can see it."
+    },
+    {
+      "id": "card.world_geography.086.c5",
+      "type": "fact",
+      "fact": "Hōkūleʻa's 1976 voyage showed the Pacific could be settled on purpose.",
+      "context": "Some people thought Polynesians had reached their islands by accidental drift. Mau Piailug, a navigator from Satawal in Micronesia, guided the canoe to Tahiti by the old methods, and more than 17,000 people turned out to welcome it. The old way worked."
+    },
+    {
+      "id": "card.world_geography.086.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.086.q1"
+    },
+    {
+      "id": "card.world_geography.086.c7",
+      "type": "mcq",
+      "questionId": "question.world_geography.086.q2"
+    },
+    {
+      "id": "card.world_geography.086.c8",
+      "type": "recall",
+      "questionId": "question.world_geography.086.q3"
+    },
+    {
+      "id": "card.world_geography.086.c9",
+      "type": "checkpoint",
+      "headline": "Wayfinding: learned",
+      "learned": [
+        "Polynesia is a triangle: Hawaii, New Zealand, Rapa Nui",
+        "Stars' rising and setting points give direction",
+        "Swells for steering; birds and clouds reveal land",
+        "Hōkūleʻa reached Tahiti in 1976 without instruments"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.wayfinding"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.086.c4"
+      ],
+      "prompt": "How can seabirds lead a wayfinder to land?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They fly back to land in the late afternoon",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They circle above schools of whales",
+          "correct": false,
+          "rationale": "Whales don't point to land."
+        },
+        {
+          "id": "c",
+          "label": "They always fly toward the sunset",
+          "correct": false,
+          "rationale": "They fly toward home, whatever the direction."
+        },
+        {
+          "id": "d",
+          "label": "They only fly over deep water",
+          "correct": false,
+          "rationale": "Terns fly out to fish and return to land."
+        }
+      ],
+      "explanation": "Terns fly out to sea in the morning to fish and return to land in the late afternoon, so a wayfinder can follow them in.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.hokulea_voyage"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.086.c5"
+      ],
+      "prompt": "Why did Hōkūleʻa's 1976 voyage matter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the first canoe ever to reach Tahiti",
+          "correct": false,
+          "rationale": "Polynesians had settled Tahiti long before."
+        },
+        {
+          "id": "b",
+          "label": "It proved Polynesians arrived by drifting",
+          "correct": false,
+          "rationale": "It showed the opposite."
+        },
+        {
+          "id": "c",
+          "label": "It tested a new satellite navigation system",
+          "correct": false,
+          "rationale": "It used no instruments at all."
+        },
+        {
+          "id": "d",
+          "label": "It showed deliberate voyaging without instruments could work",
+          "correct": true
+        }
+      ],
+      "explanation": "Guided only by traditional wayfinding, the canoe reached Tahiti, showing the Pacific could have been settled on purpose, not by drift.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.wayfinding",
+        "concept.world_geography.magnetic_compass"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.086.c3",
+        "card.world_geography.006.c3"
+      ],
+      "prompt": "Level 6's compass needle lines up with Earth's magnetic field. What does a Polynesian star compass use instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A magnetized needle floating in water",
+          "correct": false,
+          "rationale": "That's a magnetic compass, the thing wayfinders didn't use."
+        },
+        {
+          "id": "b",
+          "label": "The points where stars rise and set",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The position of the Moon at noon",
+          "correct": false,
+          "rationale": "The Moon isn't always up, and it isn't the method."
+        },
+        {
+          "id": "d",
+          "label": "The direction the wind blows",
+          "correct": false,
+          "rationale": "Wind helps, but the star compass is about stars."
+        }
+      ],
+      "explanation": "A magnetic compass follows Earth's magnetic field. A star compass relies on memorized points where stars rise and set.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_polynesia",
+    "source.pvs_on_wayfinding",
+    "source.pvs_locating_land",
+    "source.pvs_hokulea_history",
+    "source.noaa_sos_compass",
+    "source.brit_compass"
+  ],
+  "art": "geo.island"
+}

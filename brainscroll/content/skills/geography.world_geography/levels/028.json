@@ -1,0 +1,221 @@
+{
+  "id": "level.geography.world_geography.028",
+  "skillId": "skill.geography.world_geography",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Fresh Water Is Rare",
+  "objective": "After this level you can explain how little of Earth's water is fresh and easy to reach.",
+  "summary": "Only about 2.5% of Earth's water is fresh. Most of that is frozen or underground in aquifers, and just a sliver sits in lakes and rivers.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.fresh_water_share",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.groundwater",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.water_planet",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.ice_sheets",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.027"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A planet made of water, and you can barely drink any of it.",
+      "body": "Level 1 told you water covers about 71% of Earth's surface. So how can fresh water ever be scarce? Because only about 2.5% of Earth's water is fresh."
+    },
+    {
+      "id": "card.world_geography.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The 100-liter tub",
+      "body": "Imagine all of Earth's water poured into a 100-liter tub. About 96.5 liters is ocean, and it's salty. Only about 2.5 liters is fresh. Now take out the ice caps, the glaciers and the groundwater. What's left at the surface, including every lake and river on Earth, is about 30 mL. That's two tablespoons in a full tub."
+    },
+    {
+      "id": "card.world_geography.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Frozen or buried",
+      "body": "Where's the rest of the fresh water? Over 68% of it is locked in ice and glaciers, much of it in Level 27's two ice sheets. About 30% is underground. Only a little over 1.2% sits at the surface. Yet rivers are the source of most of the fresh surface water people use. We live on the leftovers of the leftovers."
+    },
+    {
+      "id": "card.world_geography.028.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not an underground river",
+      "body": "The underground share isn't flowing through secret rivers. Groundwater fills tiny pores and cracks in soil and rock, moving more like water in a sponge. It's found in usable amounts only in certain places, called aquifers, and people reach it by digging wells. Next time you see a well, picture a straw stuck into a giant wet sponge."
+    },
+    {
+      "id": "card.world_geography.028.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.028.q1"
+    },
+    {
+      "id": "card.world_geography.028.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.028.q2"
+    },
+    {
+      "id": "card.world_geography.028.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.028.q3"
+    },
+    {
+      "id": "card.world_geography.028.c8",
+      "type": "checkpoint",
+      "headline": "Fresh water: measured",
+      "learned": [
+        "About 96.5% of Earth's water is ocean",
+        "Only about 2.5% is fresh",
+        "Most fresh water is ice or underground",
+        "Groundwater works like a sponge, reached by wells",
+        "Lakes and rivers are a tiny sliver"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.fresh_water_share"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.028.c2"
+      ],
+      "prompt": "About how much of Earth's water is fresh?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 2.5%",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "About 25%",
+          "correct": false,
+          "rationale": "Far less: about 96.5% is salty ocean."
+        },
+        {
+          "id": "c",
+          "label": "About 50%",
+          "correct": false,
+          "rationale": "The ocean holds almost all of it."
+        },
+        {
+          "id": "d",
+          "label": "About 71%",
+          "correct": false,
+          "rationale": "That is how much of the surface is water."
+        }
+      ],
+      "explanation": "Only about 2.5% of Earth's water is fresh. In a 100-liter tub, that's about 2.5 liters.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.groundwater"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.028.c4"
+      ],
+      "prompt": "What is groundwater mostly like?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rivers flowing through caves",
+          "correct": false,
+          "rationale": "That is the common myth."
+        },
+        {
+          "id": "b",
+          "label": "Huge lakes sealed under the ground",
+          "correct": false,
+          "rationale": "Groundwater fills small spaces, not open caverns."
+        },
+        {
+          "id": "c",
+          "label": "Water filling pores and cracks, like a sponge",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ice frozen deep underground",
+          "correct": false,
+          "rationale": "Groundwater is liquid water."
+        }
+      ],
+      "explanation": "Groundwater fills tiny pores and cracks in soil and rock and moves more like water in a sponge than a river.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.fresh_water_share",
+        "concept.world_geography.ice_sheets"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.028.c3",
+        "card.world_geography.027.c4"
+      ],
+      "prompt": "From Level 27: where is most of Earth's fresh water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In lakes and rivers",
+          "correct": false,
+          "rationale": "They hold only a tiny share."
+        },
+        {
+          "id": "b",
+          "label": "Underground in aquifers",
+          "correct": false,
+          "rationale": "That is about 30%, not most."
+        },
+        {
+          "id": "c",
+          "label": "In the clouds",
+          "correct": false,
+          "rationale": "Only a sliver is in the air."
+        },
+        {
+          "id": "d",
+          "label": "Frozen in ice, largely the two ice sheets",
+          "correct": true
+        }
+      ],
+      "explanation": "Over 68% of Earth's fresh water is locked in ice and glaciers; the Greenland and Antarctic ice sheets alone hold over 68% of it all.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_how_many_oceans",
+    "source.usgs_water_on_earth",
+    "source.usgs_where_earths_water",
+    "source.usgs_groundwater"
+  ],
+  "art": "nature.water-drop"
+}

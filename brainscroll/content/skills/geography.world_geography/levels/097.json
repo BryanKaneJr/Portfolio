@@ -1,0 +1,232 @@
+{
+  "id": "level.geography.world_geography.097",
+  "skillId": "skill.geography.world_geography",
+  "number": 97,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Resources and Wealth",
+  "objective": "After this level you can explain how resources like oil, metals and water shape where wealth is found.",
+  "summary": "Venezuela has the most proven oil; Congo mines most cobalt. Yet resource wealth often means slower growth, unless reinvested, as in Botswana. Fresh water is scarce everywhere.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.resource_distribution",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.resource_curse",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.freshwater_scarcity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.water_planet",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.096"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.097.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The country with the most proven oil in the ground is not Saudi Arabia.",
+      "body": "It's Venezuela. And owning buried treasure, it turns out, is a very different thing from getting rich off it."
+    },
+    {
+      "id": "card.world_geography.097.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Treasure is unevenly spread",
+      "body": "Nature did not share out its resources fairly. Venezuela holds the world's largest proven crude oil reserves, ahead of Saudi Arabia. The Democratic Republic of the Congo mines about three-quarters of the world's cobalt. Rocks formed where they formed, long before anyone drew the borders of Level 93 around them."
+    },
+    {
+      "id": "card.world_geography.097.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The resource curse",
+      "body": "You'd expect a country sitting on oil or minerals to be rich. Often it isn't. Economists call this the resource curse: countries with abundant natural resources often grow more slowly than countries with fewer. One reason is conflict: when a treasure is worth fighting over, people fight over it."
+    },
+    {
+      "id": "card.world_geography.097.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Botswana's way out",
+      "body": "The curse is a pattern, not a law. Botswana relies heavily on diamond exports, yet it's widely seen as having dodged it. The trick: money from minerals is reinvested, in infrastructure, health and education. A mine empties eventually. A well-built road and an educated workforce keep paying out.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Turning diamonds into schools. That is what I call a sparkling investment."
+      }
+    },
+    {
+      "id": "card.world_geography.097.c5",
+      "type": "fact",
+      "fact": "Earth is covered in water, but very little of it is drinkable.",
+      "context": "Remember Level 1: about 71% of Earth's surface is water. Yet the oceans hold about 96.5% of all Earth's water, and it's salty. Of the fresh water, over 68% is locked in ice and glaciers. The one resource every person needs is the one the planet keeps mostly salted or frozen."
+    },
+    {
+      "id": "card.world_geography.097.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.097.q1"
+    },
+    {
+      "id": "card.world_geography.097.c7",
+      "type": "mcq",
+      "questionId": "question.world_geography.097.q2"
+    },
+    {
+      "id": "card.world_geography.097.c8",
+      "type": "recall",
+      "questionId": "question.world_geography.097.q3"
+    },
+    {
+      "id": "card.world_geography.097.c9",
+      "type": "checkpoint",
+      "headline": "Resources: weighed",
+      "learned": [
+        "Venezuela has the most proven oil; Congo mines most cobalt",
+        "The resource curse: resource-rich countries often grow slowly",
+        "Botswana reinvested diamond money to escape it",
+        "About 96.5% of water is ocean; most fresh water is ice"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.097.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.resource_distribution"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.097.c2"
+      ],
+      "prompt": "Which country has the world's largest proven crude oil reserves?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Saudi Arabia",
+          "correct": false,
+          "rationale": "A close second."
+        },
+        {
+          "id": "b",
+          "label": "Venezuela",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Russia",
+          "correct": false,
+          "rationale": "Not number one."
+        },
+        {
+          "id": "d",
+          "label": "The United States",
+          "correct": false,
+          "rationale": "Not number one in proven reserves."
+        }
+      ],
+      "explanation": "Venezuela has the largest proven crude oil reserves, ahead of Saudi Arabia.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.097.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.resource_curse"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.097.c3",
+        "card.world_geography.097.c4"
+      ],
+      "prompt": "Why is Botswana often called an exception to the resource curse?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has no natural resources to worry about",
+          "correct": false,
+          "rationale": "It relies heavily on diamond exports."
+        },
+        {
+          "id": "b",
+          "label": "It banned all mining",
+          "correct": false,
+          "rationale": "Mining is central to its economy."
+        },
+        {
+          "id": "c",
+          "label": "It reinvests mineral money in infrastructure, health and education",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It sells its diamonds only to its neighbors",
+          "correct": false,
+          "rationale": "Who buys them is not the point."
+        }
+      ],
+      "explanation": "Resource-rich countries often grow slowly, but Botswana reinvests its diamond revenue in infrastructure, health and education.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.world_geography.097.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.freshwater_scarcity",
+        "concept.world_geography.water_planet"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.097.c5",
+        "card.world_geography.001.c1"
+      ],
+      "prompt": "Level 1 said about 71% of Earth's surface is water. Why is fresh water still scarce?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most of it is salty ocean, and most fresh water is frozen",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Most of it evaporates every summer",
+          "correct": false,
+          "rationale": "The water stays on the planet; the problem is salt and ice."
+        },
+        {
+          "id": "c",
+          "label": "The 71% figure includes clouds",
+          "correct": false,
+          "rationale": "It measures the surface."
+        },
+        {
+          "id": "d",
+          "label": "Ocean water is drinkable, but too far away",
+          "correct": false,
+          "rationale": "Ocean water is salty, so it isn't drinkable."
+        }
+      ],
+      "explanation": "The oceans hold about 96.5% of Earth's water, and over 68% of the fresh water is locked in ice and glaciers.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.opec_asb_2025",
+    "source.usgs_cobalt",
+    "source.imf_botswana_resource_curse",
+    "source.noaa_how_many_oceans",
+    "source.usgs_water_on_earth"
+  ],
+  "art": "geo.oil-derrick"
+}

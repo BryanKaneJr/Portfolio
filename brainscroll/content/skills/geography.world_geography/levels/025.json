@@ -1,0 +1,236 @@
+{
+  "id": "level.geography.world_geography.025",
+  "skillId": "skill.geography.world_geography",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Great Rivers",
+  "objective": "After this level you can compare the Nile, the Amazon and other great rivers by length and flow.",
+  "summary": "The Nile is usually ranked longest; the Amazon carries the most water, about a fifth of Earth's runoff. Every river drains a watershed, and you're standing in one.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.river_length",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.watersheds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.water_cycle",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.024"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Which river is the longest? That depends where you think it starts.",
+      "body": "The Nile and the Amazon have traded blows over first place for years. The fight isn't about a better tape measure. Experts disagree about exactly where a river starts and ends."
+    },
+    {
+      "id": "card.world_geography.025.c2",
+      "type": "comparison",
+      "headline": "Two champions, two different trophies",
+      "items": [
+        {
+          "label": "Nile",
+          "points": [
+            "About 6,650 km long",
+            "Usually ranked the longest river",
+            "Flows north into the Mediterranean Sea"
+          ]
+        },
+        {
+          "label": "Amazon",
+          "points": [
+            "At least 6,400 km long",
+            "Carries about a fifth of the water running off Earth",
+            "Largest river system: biggest basin, biggest flow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.world_geography.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where does a river begin?",
+      "body": "Some researchers argue the Amazon is actually longer than the Nile. The trouble is the endpoints. Experts disagree about exactly where a river starts and ends, and a different choice changes the answer. So the Nile keeps the length crown, with an asterisk. The flow crown isn't close: the Amazon is the world's largest river system."
+    },
+    {
+      "id": "card.world_geography.025.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "You're standing in a watershed",
+      "body": "All of the Amazon's water comes from its watershed, or drainage basin: the area of land that drains all its streams and rainfall to one outlet. The Amazon's basin is the biggest on Earth. And you live in one too. Everyone standing on land is standing in a watershed. The rain on your street already knows which river it's headed for.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Look down. Congratulations, you are in a watershed. Everyone is. It is the least exclusive club on Earth."
+      }
+    },
+    {
+      "id": "card.world_geography.025.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.025.q1"
+    },
+    {
+      "id": "card.world_geography.025.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.025.q2"
+    },
+    {
+      "id": "card.world_geography.025.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.025.q3"
+    },
+    {
+      "id": "card.world_geography.025.c8",
+      "type": "checkpoint",
+      "headline": "Great rivers: compared",
+      "learned": [
+        "The Nile, about 6,650 km, is usually ranked longest",
+        "The Amazon is at least 6,400 km and carries the most water",
+        "River lengths depend on where you say they start",
+        "A watershed drains to one outlet",
+        "Everyone on land stands in a watershed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.river_length"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.025.c2"
+      ],
+      "prompt": "Which river is usually ranked the world's longest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Amazon",
+          "correct": false,
+          "rationale": "It carries the most water, but it is usually ranked second in length."
+        },
+        {
+          "id": "b",
+          "label": "The Nile",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Mississippi",
+          "correct": false,
+          "rationale": "Much shorter than the Nile and the Amazon."
+        },
+        {
+          "id": "d",
+          "label": "The Yellow River",
+          "correct": false,
+          "rationale": "It is long, but not the longest."
+        }
+      ],
+      "explanation": "The Nile, about 6,650 km long, is usually ranked longest, though some researchers argue for the Amazon.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.world_geography.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.river_length"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.025.c3"
+      ],
+      "prompt": "Why do experts still argue over whether the Nile or the Amazon is longer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both rivers change length every year",
+          "correct": false,
+          "rationale": "The rivers are not the issue; the endpoints are."
+        },
+        {
+          "id": "b",
+          "label": "Nobody has ever measured them",
+          "correct": false,
+          "rationale": "Both have been measured many times."
+        },
+        {
+          "id": "c",
+          "label": "They disagree about where each river starts and ends",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Amazon is too wide to measure",
+          "correct": false,
+          "rationale": "Width does not decide length."
+        }
+      ],
+      "explanation": "Choosing a river's start and end points is a judgment call, and different choices give different lengths.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.watersheds",
+        "concept.world_geography.water_cycle"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.025.c4",
+        "card.world_geography.021.c2"
+      ],
+      "prompt": "From Level 21: gravity pulls rain back across the land. What decides which river the rain on your street ends up in?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The nearest ocean current",
+          "correct": false,
+          "rationale": "Currents work at sea, not on your street."
+        },
+        {
+          "id": "b",
+          "label": "The watershed you are standing in",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How far you are from the Equator",
+          "correct": false,
+          "rationale": "Latitude does not decide where rain drains."
+        },
+        {
+          "id": "d",
+          "label": "The river's length",
+          "correct": false,
+          "rationale": "Length does not pull in rain."
+        }
+      ],
+      "explanation": "A watershed is the land that drains all its streams and rainfall to one outlet, and everyone on land stands in one.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_amazon_length",
+    "source.brit_nile_river",
+    "source.brit_amazon_river",
+    "source.usgs_watersheds"
+  ],
+  "art": "geo.river"
+}

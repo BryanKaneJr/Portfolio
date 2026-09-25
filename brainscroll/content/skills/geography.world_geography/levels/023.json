@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.world_geography.023",
+  "skillId": "skill.geography.world_geography",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ocean Currents",
+  "objective": "After this level you can explain how currents like the Gulf Stream carry heat around the planet.",
+  "summary": "Winds drive surface currents that carry warm water toward the poles; the Gulf Stream helps keep Norway mild. Deep down, dense water drives a loop that takes about 1,000 years.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.surface_currents",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.ocean_conveyor",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.seas_vs_oceans",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.022"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1992, thousands of bath toys went to sea by accident.",
+      "body": "A container ship in the North Pacific lost a box holding about 29,000 plastic bath toys. Nobody planned it, but you couldn't design a better experiment: a flotilla of floating markers, all launched from one spot."
+    },
+    {
+      "id": "card.world_geography.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pushed by the wind",
+      "body": "About ten months later, the first toys washed up in Alaska. Some eventually drifted all the way into the Atlantic. What carried them? Surface currents, and their engine is the wind: winds drive the currents at and near the ocean's surface. Every duck on a beach was a pin in the map showing where the water had gone."
+    },
+    {
+      "id": "card.world_geography.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The ocean's central heating",
+      "body": "Currents don't just move bath toys; they move heat. They carry warm water from the Equator toward the poles and bring cold water back. The Gulf Stream is the famous one: a warm current that flows north along Florida, then turns northeast across the Atlantic, forming the western edge of Level 22's Sargasso Sea. It helps give Bergen, Norway, milder winters than New York, much farther south.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Norway gets its winter heating piped in from Florida. The plumbing is just very, very long."
+      }
+    },
+    {
+      "id": "card.world_geography.023.c4",
+      "type": "fact",
+      "fact": "One lap of the deep ocean's 'conveyor belt' can take about 1,000 years.",
+      "context": "Deep down, the wind can't reach, so density does the pushing. Cold, salty water is dense and sinks, while warm water stays near the surface. That sinking keeps a slow loop turning through the deep ocean. Next to the Gulf Stream, it's a sloth on a treadmill."
+    },
+    {
+      "id": "card.world_geography.023.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.023.q1"
+    },
+    {
+      "id": "card.world_geography.023.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.023.q2"
+    },
+    {
+      "id": "card.world_geography.023.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.023.q3"
+    },
+    {
+      "id": "card.world_geography.023.c8",
+      "type": "checkpoint",
+      "headline": "Currents: followed",
+      "learned": [
+        "Winds drive surface currents",
+        "Currents carry warm water toward the poles",
+        "The Gulf Stream helps keep Norway mild",
+        "Cold, salty water sinks and drives deep currents",
+        "One deep lap can take about 1,000 years"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.surface_currents"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.023.c2"
+      ],
+      "prompt": "What mainly drives the currents at the ocean's surface?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wind",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Earth's magnetic field",
+          "correct": false,
+          "rationale": "Magnetism does not push the water."
+        },
+        {
+          "id": "c",
+          "label": "Rivers flowing into the sea",
+          "correct": false,
+          "rationale": "River water is far too small a push."
+        },
+        {
+          "id": "d",
+          "label": "Undersea volcanoes",
+          "correct": false,
+          "rationale": "They heat water locally but do not drive surface currents."
+        }
+      ],
+      "explanation": "Winds drive the currents at and near the ocean surface; that is what carried the bath toys to Alaska.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.ocean_conveyor"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.023.c4"
+      ],
+      "prompt": "Why does cold, salty water sink and drive the deep currents?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wind pushes it down",
+          "correct": false,
+          "rationale": "The wind cannot reach the deep ocean."
+        },
+        {
+          "id": "b",
+          "label": "It is denser than warm water",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It freezes and falls as ice",
+          "correct": false,
+          "rationale": "Ice floats; it does not sink."
+        },
+        {
+          "id": "d",
+          "label": "The seafloor pulls it down",
+          "correct": false,
+          "rationale": "Density, not the seafloor, makes it sink."
+        }
+      ],
+      "explanation": "Cold, salty water is dense and sinks, while warm water stays near the surface. That drives a slow loop that can take about 1,000 years.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.surface_currents",
+        "concept.world_geography.seas_vs_oceans"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.023.c3",
+        "card.world_geography.022.c2"
+      ],
+      "prompt": "From Level 22: the shoreless Sargasso Sea is walled in by currents. Which warm current also helps give Norway mild winters?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The global conveyor belt",
+          "correct": false,
+          "rationale": "That is the slow, deep loop."
+        },
+        {
+          "id": "b",
+          "label": "A longshore current",
+          "correct": false,
+          "rationale": "Those run along beaches."
+        },
+        {
+          "id": "c",
+          "label": "The Gulf Stream",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Nile",
+          "correct": false,
+          "rationale": "That is a river, not an ocean current."
+        }
+      ],
+      "explanation": "The warm Gulf Stream crosses the Atlantic and forms the western edge of the Sargasso Sea; it helps give Bergen, Norway, milder winters than New York.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_jetstream_ocean_circulations",
+    "source.noaa_what_is_current",
+    "source.noaa_ocean_climate",
+    "source.noaa_gulf_stream_speed",
+    "source.noaa_sargasso_sea",
+    "source.noaa_conveyor_tutorial",
+    "source.noaa_conveyor_belt"
+  ],
+  "art": "geo.wave"
+}

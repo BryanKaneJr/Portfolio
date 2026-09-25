@@ -1,0 +1,320 @@
+{
+  "id": "level.geography.world_geography.030",
+  "skillId": "skill.geography.world_geography",
+  "number": 30,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Water World",
+  "objective": "After this level you can trace water through the oceans, rivers, ice and the water cycle.",
+  "summary": "In the last ice age so much water was frozen on land that the sea fell about 120 m and Beringia linked Asia to Alaska. Ice and ocean trade the same water.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.ice_age_sea_level",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.water_cycle",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.evaporation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.ice_sheets",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.fresh_water_share",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.029"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.030.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You could once walk from Asia to Alaska. No boat needed.",
+      "body": "Where the Bering Strait's seafloor lies today, there used to be dry land linking Siberia with Alaska. So where did the sea go? Everything from this chapter points to the answer."
+    },
+    {
+      "id": "card.world_geography.030.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The water was parked on land",
+      "body": "Remember Level 21: the total amount of water in the cycle stays essentially constant. It only changes places. During the last ice age, so much water was frozen in glaciers that sea level fell by as much as about 120 m. Ice sheets covered the northern third of North America and much of northern Europe. The ocean hadn't lost that water. It was on land, as ice."
+    },
+    {
+      "id": "card.world_geography.030.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A bridge made of seafloor",
+      "body": "With the sea that low, the floor of today's Bering Strait became dry land, called Beringia. Plants and animals moved across it, and people followed that route in search of game. The bridge is still there. It's just under the water again."
+    },
+    {
+      "id": "card.world_geography.030.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The loop runs both ways",
+      "body": "Now run the tape forward. Level 27's ice sheets still hold over 68% of Earth's fresh water. If the whole Antarctic Ice Sheet melted, sea level would rise about 58 m. Ice and ocean share one account: freeze more water and the sea drops; melt it and the sea rises."
+    },
+    {
+      "id": "card.world_geography.030.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.030.q1"
+    },
+    {
+      "id": "card.world_geography.030.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.030.q2"
+    },
+    {
+      "id": "card.world_geography.030.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.030.q3"
+    },
+    {
+      "id": "card.world_geography.030.c8",
+      "type": "recall",
+      "questionId": "question.world_geography.030.q4"
+    },
+    {
+      "id": "card.world_geography.030.c9",
+      "type": "mcq",
+      "questionId": "question.world_geography.030.q5"
+    },
+    {
+      "id": "card.world_geography.030.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 3 complete",
+      "learned": [
+        "Total water stays constant; it only changes places",
+        "Ice-age glaciers lowered the sea about 120 m",
+        "Beringia linked Siberia and Alaska",
+        "Melting all Antarctic ice would raise the sea about 58 m"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.030.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.ice_age_sea_level"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.030.c3",
+        "card.world_geography.030.c1"
+      ],
+      "prompt": "During the last ice age, what connected Siberia with Alaska?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A chain of volcanic islands",
+          "correct": false,
+          "rationale": "It was a wide stretch of exposed seafloor."
+        },
+        {
+          "id": "b",
+          "label": "A frozen Pacific Ocean",
+          "correct": false,
+          "rationale": "The ocean was lower, not frozen solid."
+        },
+        {
+          "id": "c",
+          "label": "Beringia, dry land where the seafloor is now",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A bridge of floating sea ice",
+          "correct": false,
+          "rationale": "Beringia was solid ground."
+        }
+      ],
+      "explanation": "With sea level far lower, the floor of today's Bering Strait was dry land, Beringia, linking Siberia and Alaska.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.030.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.ice_age_sea_level",
+        "concept.world_geography.water_cycle"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.030.c2",
+        "card.world_geography.021.c4"
+      ],
+      "prompt": "Why did sea level fall during the last ice age?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Water evaporated into space",
+          "correct": false,
+          "rationale": "The total amount of water stays constant."
+        },
+        {
+          "id": "b",
+          "label": "So much water was frozen in ice on land",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The ocean floor sank",
+          "correct": false,
+          "rationale": "The water moved; the floor did not drop away."
+        },
+        {
+          "id": "d",
+          "label": "Rivers stopped flowing into the sea",
+          "correct": false,
+          "rationale": "The water was locked up as ice."
+        }
+      ],
+      "explanation": "The water cycle keeps the total constant, so water piled up as ice on land had to come out of the ocean.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.030.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.ice_age_sea_level",
+        "concept.world_geography.evaporation"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.030.c2",
+        "card.world_geography.021.c3"
+      ],
+      "prompt": "From Level 21: most water vapor rises from the sea. Where did the water in ice-age glaciers mostly start out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the ocean",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Deep underground",
+          "correct": false,
+          "rationale": "Groundwater did not build the ice sheets."
+        },
+        {
+          "id": "c",
+          "label": "In lakes like Baikal",
+          "correct": false,
+          "rationale": "Lakes supply only part of the vapor."
+        },
+        {
+          "id": "d",
+          "label": "In outer space",
+          "correct": false,
+          "rationale": "The water was already on Earth."
+        }
+      ],
+      "explanation": "About 90% of the vapor in the air rises from oceans, seas, lakes and rivers, mostly the sea. Snow built the glaciers, so the ocean paid for the ice.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.world_geography.030.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.ice_age_sea_level",
+        "concept.world_geography.fresh_water_share"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.030.c4",
+        "card.world_geography.028.c3"
+      ],
+      "prompt": "From Level 28: over 68% of Earth's fresh water is ice today. What would melting the whole Antarctic Ice Sheet do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lower sea level about 58 m",
+          "correct": false,
+          "rationale": "Melting adds water to the sea."
+        },
+        {
+          "id": "b",
+          "label": "Make the ocean fresh",
+          "correct": false,
+          "rationale": "The ocean would still be salty."
+        },
+        {
+          "id": "c",
+          "label": "Change nothing, since ice floats",
+          "correct": false,
+          "rationale": "This ice sits on land."
+        },
+        {
+          "id": "d",
+          "label": "Raise sea level about 58 m",
+          "correct": true
+        }
+      ],
+      "explanation": "The Antarctic Ice Sheet holds enough water to raise sea level about 58 m if it all melted.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.030.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.ice_age_sea_level",
+        "concept.world_geography.ice_sheets"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.030.c2",
+        "card.world_geography.030.c4"
+      ],
+      "prompt": "Ice and ocean share one account. Which change would make sea level rise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ice sheets growing across the continents",
+          "correct": false,
+          "rationale": "That locks water on land and lowers the sea."
+        },
+        {
+          "id": "b",
+          "label": "Ice sheets melting",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "More snow piling up into glaciers",
+          "correct": false,
+          "rationale": "That takes water out of the sea."
+        },
+        {
+          "id": "d",
+          "label": "A new ice age beginning",
+          "correct": false,
+          "rationale": "Ice ages lower sea level."
+        }
+      ],
+      "explanation": "Melting ice sheets return water from land to the ocean, raising sea level; growing ice does the opposite.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_beringia",
+    "source.brit_water_cycle",
+    "source.brit_last_glacial_maximum",
+    "source.nsidc_ice_sheet_quick_facts"
+  ],
+  "art": "geo.wave"
+}

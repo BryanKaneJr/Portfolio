@@ -1,0 +1,221 @@
+{
+  "id": "level.geography.world_geography.074",
+  "skillId": "skill.geography.world_geography",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Great Lakes",
+  "objective": "After this level you can describe the Great Lakes and how glaciers carved them.",
+  "summary": "Five lakes, Superior, Michigan, Huron, Erie and Ontario, hold about 21% of the world's surface fresh water. Glaciers scoured and deepened their basins, and their water drains east to the Atlantic.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.great_lakes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.glacial_lakes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.landforms",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.mississippi_river",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.073"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.074.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Five lakes hold about 21% of the world's surface fresh water.",
+      "body": "Split all the fresh water on the world's surface into five equal glasses, and the Great Lakes would fill one of them by themselves. That's a lot of water for one corner of one continent."
+    },
+    {
+      "id": "card.world_geography.074.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Meet HOMES",
+      "body": "The five Great Lakes are Superior, Michigan, Huron, Erie and Ontario. Shuffle their first letters and you get HOMES, the classic way to remember them. Four are shared by the US and Canada; Lake Michigan is the only one entirely inside the US. Together they hold 84% of North America's surface fresh water. Every other lake and river on the continent splits the leftovers.",
+      "callout": "Huron · Ontario · Michigan · Erie · Superior"
+    },
+    {
+      "id": "card.world_geography.074.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dug by ice",
+      "body": "Where did such giant holes come from? Starting about a million years ago, massive glaciers pushed through the middle of the continent. They scoured existing valleys, widening and deepening them into the basins the lakes now fill. It's Level 7's glacier trick on a giant scale: rivers cut V-shaped valleys, and ice grinds them wider. The glaciers were the diggers. The lakes are what they left behind."
+    },
+    {
+      "id": "card.world_geography.074.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A different door to the sea",
+      "body": "The lakes aren't a dead end. Their water flows east through the St. Lawrence River into the Atlantic Ocean. Compare that with Level 73's Mississippi, which carries the water south of them all the way to the Gulf of Mexico. Close neighbors on the map, but they leave for the ocean by different doors."
+    },
+    {
+      "id": "card.world_geography.074.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.074.q1"
+    },
+    {
+      "id": "card.world_geography.074.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.074.q2"
+    },
+    {
+      "id": "card.world_geography.074.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.074.q3"
+    },
+    {
+      "id": "card.world_geography.074.c8",
+      "type": "checkpoint",
+      "headline": "Great Lakes: charted",
+      "learned": [
+        "Five lakes: Huron, Ontario, Michigan, Erie, Superior",
+        "About 21% of the world's surface fresh water",
+        "Glaciers scoured and deepened their basins",
+        "They drain east through the St. Lawrence"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.great_lakes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.074.c2"
+      ],
+      "prompt": "Which Great Lake lies entirely inside the United States?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lake Superior",
+          "correct": false,
+          "rationale": "Superior is shared with Canada."
+        },
+        {
+          "id": "b",
+          "label": "Lake Erie",
+          "correct": false,
+          "rationale": "Erie is shared with Canada."
+        },
+        {
+          "id": "c",
+          "label": "Lake Michigan",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Lake Ontario",
+          "correct": false,
+          "rationale": "Ontario is shared with Canada."
+        }
+      ],
+      "explanation": "Four Great Lakes are shared with Canada. Lake Michigan is the only one entirely within the US.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.glacial_lakes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.074.c3"
+      ],
+      "prompt": "How did the Great Lakes basins form?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A giant meteorite impact",
+          "correct": false,
+          "rationale": "No impact: ice did the digging."
+        },
+        {
+          "id": "b",
+          "label": "Glaciers scoured and deepened old valleys",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Volcanoes collapsed into craters",
+          "correct": false,
+          "rationale": "These basins are ice-made, not volcanic."
+        },
+        {
+          "id": "d",
+          "label": "The Mississippi carved them",
+          "correct": false,
+          "rationale": "The Mississippi runs south; glaciers dug the lake basins."
+        }
+      ],
+      "explanation": "Massive glaciers widened and deepened existing valleys, leaving the basins the lakes now fill.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.great_lakes",
+        "concept.world_geography.mississippi_river"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.074.c4",
+        "card.world_geography.073.c2"
+      ],
+      "prompt": "From Level 73: the Mississippi reaches the Gulf of Mexico. Where does Great Lakes water reach the sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Pacific, over the Rockies",
+          "correct": false,
+          "rationale": "The Great Lakes drain east, nowhere near the Pacific."
+        },
+        {
+          "id": "b",
+          "label": "The Gulf of Mexico, via the Mississippi",
+          "correct": false,
+          "rationale": "That's the Mississippi's own route."
+        },
+        {
+          "id": "c",
+          "label": "It never leaves the lakes",
+          "correct": false,
+          "rationale": "The lakes drain out through a river."
+        },
+        {
+          "id": "d",
+          "label": "The Atlantic, via the St. Lawrence River",
+          "correct": true
+        }
+      ],
+      "explanation": "Great Lakes water flows east through the St. Lawrence River to the Atlantic, while the Mississippi heads south to the Gulf.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.epa_great_lakes_facts",
+    "source.brit_great_lakes",
+    "source.natgeo_valleys",
+    "source.brit_mississippi_river"
+  ],
+  "art": "geo.glacier"
+}

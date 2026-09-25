@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.world_geography.098",
+  "skillId": "skill.geography.world_geography",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "People on the Move",
+  "objective": "After this level you can explain why people migrate and where the biggest movements happen.",
+  "summary": "Push and pull factors move people. About 304 million were international migrants in 2024; the US hosts the most. Most of the 123.2 million forcibly displaced stayed in their own countries.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.migration_push_pull",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.international_migrants",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.forced_displacement",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.urbanization_drivers",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.097"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About 1 in 27 people lives in a country they moved to.",
+      "body": "That's a lot of suitcases: about 304 million people. It also means most people never move countries at all. So why do people go, and where?"
+    },
+    {
+      "id": "card.world_geography.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Push and pull",
+      "body": "Every move has two sides. Push factors drive people away: war, food shortages, floods. Pull factors draw them somewhere: jobs, a nicer climate, a better food supply. The move can be internal, within one country, or international, to a different country. Remember Level 92's city jobs luring people from the countryside? That was a pull factor all along."
+    },
+    {
+      "id": "card.world_geography.098.c3",
+      "type": "fact",
+      "fact": "About 304 million people are international migrants.",
+      "context": "That's about 3.7% of humanity as of 2024, roughly 1 in 27 people. The United States hosts more of them than any other country. It's a huge number and a small share at the same time: nearly everyone else still lives in the country they call home."
+    },
+    {
+      "id": "card.world_geography.098.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "When the push is violent",
+      "body": "At the end of 2024, 123.2 million people had been forced from home by persecution, conflict, violence or human rights violations. Most never crossed a border: 83.4 million were displaced inside their own countries. Refugees, the ones who flee to a new country, mostly stay close too: 67% are hosted by neighbouring countries. Most people running from danger run as short a distance as they can."
+    },
+    {
+      "id": "card.world_geography.098.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.098.q1"
+    },
+    {
+      "id": "card.world_geography.098.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.098.q2"
+    },
+    {
+      "id": "card.world_geography.098.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.098.q3"
+    },
+    {
+      "id": "card.world_geography.098.c8",
+      "type": "checkpoint",
+      "headline": "Migration: tracked",
+      "learned": [
+        "Push factors drive people away; pull factors draw them in",
+        "About 304 million international migrants, 1 in 27 people",
+        "The US hosts the most migrants",
+        "Most forcibly displaced people stay in their own countries"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.international_migrants"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.098.c3"
+      ],
+      "prompt": "About what share of the world's people were international migrants in 2024?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1%",
+          "correct": false,
+          "rationale": "Too low: it was about 1 in 27."
+        },
+        {
+          "id": "b",
+          "label": "About 3.7%",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 15%",
+          "correct": false,
+          "rationale": "Far too high."
+        },
+        {
+          "id": "d",
+          "label": "About 37%",
+          "correct": false,
+          "rationale": "Ten times too high."
+        }
+      ],
+      "explanation": "About 304 million people, 3.7% of the world or about 1 in 27, were international migrants in 2024.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.forced_displacement"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.098.c4"
+      ],
+      "prompt": "At the end of 2024, where were most of the world's forcibly displaced people?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In Europe",
+          "correct": false,
+          "rationale": "Most never left their own countries."
+        },
+        {
+          "id": "b",
+          "label": "In the United States",
+          "correct": false,
+          "rationale": "Most never crossed a border at all."
+        },
+        {
+          "id": "c",
+          "label": "Still inside their own countries",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "In camps on other continents",
+          "correct": false,
+          "rationale": "Even refugees mostly stay in neighbouring countries."
+        }
+      ],
+      "explanation": "Of 123.2 million forcibly displaced people, 83.4 million were displaced inside their own countries.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.migration_push_pull",
+        "concept.world_geography.urbanization_drivers"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.098.c2",
+        "card.world_geography.092.c2"
+      ],
+      "prompt": "In Level 92, city jobs drew people in from the countryside. What kind of migration factor is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A push factor",
+          "correct": false,
+          "rationale": "A push drives people away from a problem."
+        },
+        {
+          "id": "b",
+          "label": "Forced displacement",
+          "correct": false,
+          "rationale": "Nobody forced them; the jobs attracted them."
+        },
+        {
+          "id": "c",
+          "label": "A pull factor",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "International migration",
+          "correct": false,
+          "rationale": "Moving from countryside to city can happen within one country."
+        }
+      ],
+      "explanation": "Jobs that attract people to a new place are a pull factor. Push factors are problems, like war or floods, that drive people away.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.un_desa_migrant_stock_2024",
+    "source.natgeo_human_migration",
+    "source.unhcr_global_trends_2024"
+  ],
+  "art": "geo.people"
+}

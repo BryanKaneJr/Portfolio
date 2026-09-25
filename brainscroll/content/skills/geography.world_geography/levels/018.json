@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.world_geography.018",
+  "skillId": "skill.geography.world_geography",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Rock Cycle",
+  "objective": "After this level you can name the three kinds of rock and explain how one turns into another.",
+  "summary": "Igneous rock cools from molten rock, sedimentary rock is pressed from layers, and metamorphic rock is changed by heat and pressure. Any type can become any other.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.rock_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.rock_cycle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.volcano_formation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.everest_sea_floor",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.017"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A marble statue can start out as a pile of seashells.",
+      "body": "Rocks aren't forever. Given time, heat and pressure, one kind of rock turns into another. There are only three kinds to keep track of."
+    },
+    {
+      "id": "card.world_geography.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Igneous: cooled from molten rock",
+      "body": "Igneous rock forms when molten rock cools and hardens. That's Level 15's magma underground, or lava once it erupts. Cool it slowly underground and it grows large crystals, like granite. Let lava cool fast at the surface and you get fine-grained rock, like basalt. Same melt, different patience."
+    },
+    {
+      "id": "card.world_geography.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sedimentary: built in layers",
+      "body": "Weathering breaks rock into pieces and erosion carries them off. Those bits, plus the remains of living things, settle in layers, and the lowest get pressed into solid rock: sedimentary rock. Limestone is often built from the shells and skeletons of sea creatures. That's what Level 17's Everest summit is made of."
+    },
+    {
+      "id": "card.world_geography.018.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Metamorphic: changed, not melted",
+      "body": "Metamorphic rock is any rock changed by heat and pressure without melting. Bake and squeeze limestone and you get marble; do it to granite and you get gneiss. And it keeps going: any type of rock can become any other. The rock under your feet is just between jobs.",
+      "callout": "Igneous · Sedimentary · Metamorphic"
+    },
+    {
+      "id": "card.world_geography.018.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.018.q1"
+    },
+    {
+      "id": "card.world_geography.018.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.018.q2"
+    },
+    {
+      "id": "card.world_geography.018.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.018.q3"
+    },
+    {
+      "id": "card.world_geography.018.c8",
+      "type": "checkpoint",
+      "headline": "Rocks: sorted",
+      "learned": [
+        "Igneous rock cools from magma or lava",
+        "Sedimentary rock is pressed from layers",
+        "Metamorphic rock is changed by heat and pressure",
+        "Any rock type can become any other"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.rock_types"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.018.c2"
+      ],
+      "prompt": "Which kind of rock forms when magma or lava cools and hardens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sedimentary",
+          "correct": false,
+          "rationale": "That's built from layers of pieces."
+        },
+        {
+          "id": "b",
+          "label": "Metamorphic",
+          "correct": false,
+          "rationale": "That's changed by heat and pressure without melting."
+        },
+        {
+          "id": "c",
+          "label": "Igneous",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Limestone",
+          "correct": false,
+          "rationale": "Limestone is sedimentary."
+        }
+      ],
+      "explanation": "Igneous rock forms from cooled molten rock: granite underground, basalt from fast-cooling lava.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.rock_cycle"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.018.c4"
+      ],
+      "prompt": "Limestone is buried, heated and squeezed, but never melts. What does it become?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Marble",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Granite",
+          "correct": false,
+          "rationale": "Granite is igneous; it cools from melted rock."
+        },
+        {
+          "id": "c",
+          "label": "Basalt",
+          "correct": false,
+          "rationale": "Basalt comes from cooled lava."
+        },
+        {
+          "id": "d",
+          "label": "Sandstone",
+          "correct": false,
+          "rationale": "That's another sedimentary rock."
+        }
+      ],
+      "explanation": "Heat and pressure without melting make metamorphic rock. Limestone becomes marble.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.rock_types",
+        "concept.world_geography.everest_sea_floor"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.018.c3",
+        "card.world_geography.017.c4"
+      ],
+      "prompt": "From Level 17: what type of rock is the limestone at Everest's summit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Igneous",
+          "correct": false,
+          "rationale": "It didn't cool from melted rock."
+        },
+        {
+          "id": "b",
+          "label": "Sedimentary",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Metamorphic",
+          "correct": false,
+          "rationale": "It's limestone, not marble."
+        },
+        {
+          "id": "d",
+          "label": "Volcanic glass",
+          "correct": false,
+          "rationale": "No volcano was involved."
+        }
+      ],
+      "explanation": "Limestone is sedimentary rock, often built from sea creatures' shells, which is why Everest's summit holds marine fossils.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_limestone",
+    "source.natgeo_metamorphic_rocks",
+    "source.natgeo_rock_cycle",
+    "source.natgeo_magma_rock_cycle",
+    "source.usgs_how_volcanoes_erupt",
+    "source.iugs_everest_summit",
+    "source.brit_everest_fossils",
+    "source.usgs_metamorphic_rocks"
+  ],
+  "art": "geo.rocks"
+}

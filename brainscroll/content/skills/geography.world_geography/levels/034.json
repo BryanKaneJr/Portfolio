@@ -1,0 +1,210 @@
+{
+  "id": "level.geography.world_geography.034",
+  "skillId": "skill.geography.world_geography",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rain Shadows",
+  "objective": "After this level you can explain why one side of a mountain range can be wet and the other dry.",
+  "summary": "Mountains force moist air up, where it cools and rains on the windward side. The air sinks, warms and dries on the leeward side: a rain shadow.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.rain_shadow",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.trade_winds",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.033"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Hawaii's famous sunny beaches are on the dry side of the islands.",
+      "body": "Waikiki on Oahu and Wailea on Maui sit on the sheltered sides of their islands, where it's sunnier and drier. The other sides are lush and green. The mountains in between decide who gets the rain."
+    },
+    {
+      "id": "card.world_geography.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Up the mountain: rain",
+      "body": "Wind pushes moist air toward a mountain range. The air has nowhere to go but up, and as it rises it expands and cools. Cool air holds less moisture than warm air, so the water vapor condenses into clouds and falls as rain or snow. The slope facing the wind, the windward side, gets soaked. The mountain has basically wrung the air out like a sponge."
+    },
+    {
+      "id": "card.world_geography.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Down the other side: the shadow",
+      "body": "Once the air crosses the peaks and sinks down the far side, the leeward side, it warms up and its clouds clear. There's little rain left to give. That dry zone behind the mountains is a rain shadow. Death Valley sits in one, and it's the driest place in North America, averaging less than 5 cm of rain a year.",
+      "callout": "Windward: wet. Leeward: dry."
+    },
+    {
+      "id": "card.world_geography.034.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Back to Hawaii",
+      "body": "Now the beaches make sense. Level 33's trade winds pick up moisture as they blow across the ocean. When they hit an island's mountains, the air rises and drops its rain on the windward side, which stays lush and green. The leeward side sits in the rain shadow, sunnier and drier. The beach towels go where the rain doesn't."
+    },
+    {
+      "id": "card.world_geography.034.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.034.q1"
+    },
+    {
+      "id": "card.world_geography.034.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.034.q2"
+    },
+    {
+      "id": "card.world_geography.034.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.034.q3"
+    },
+    {
+      "id": "card.world_geography.034.c8",
+      "type": "checkpoint",
+      "headline": "Rain shadows: mapped",
+      "learned": [
+        "Rising air cools and drops rain on the windward side",
+        "Sinking air warms and dries on the leeward side",
+        "That dry side is a rain shadow, like Death Valley",
+        "Hawaii's trade winds make wet and dry sides"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.rain_shadow"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.034.c3"
+      ],
+      "prompt": "What is a rain shadow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A cloud that blocks the Sun before rain",
+          "correct": false,
+          "rationale": "It's not about shade; it's about missing rain."
+        },
+        {
+          "id": "b",
+          "label": "The wet slope facing the wind",
+          "correct": false,
+          "rationale": "That's the windward side, the rainy one."
+        },
+        {
+          "id": "c",
+          "label": "A dry area on the leeward side of mountains",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A storm that forms at night",
+          "correct": false,
+          "rationale": "Rain shadows last all year, day and night."
+        }
+      ],
+      "explanation": "A rain shadow is the dry land on the leeward side of mountains, where sinking air has already lost its moisture.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.rain_shadow"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.034.c2"
+      ],
+      "prompt": "Why does air rising over a mountain drop rain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mountains attract clouds with gravity",
+          "correct": false,
+          "rationale": "The air is pushed up by the wind, not pulled."
+        },
+        {
+          "id": "b",
+          "label": "Rising air warms and melts the snow",
+          "correct": false,
+          "rationale": "Rising air cools; it doesn't warm."
+        },
+        {
+          "id": "c",
+          "label": "The air speeds up and sheds water",
+          "correct": false,
+          "rationale": "Speed isn't what wrings the water out."
+        },
+        {
+          "id": "d",
+          "label": "It cools, and cool air holds less moisture",
+          "correct": true
+        }
+      ],
+      "explanation": "As air is forced upward it expands and cools. Cool air holds less moisture, so the vapor condenses into clouds and rain.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.rain_shadow",
+        "concept.world_geography.trade_winds"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.034.c4",
+        "card.world_geography.033.c4"
+      ],
+      "prompt": "Using Level 33: why is the windward side of a Hawaiian island so wet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Moist trade winds are forced up its mountains",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It faces away from the trade winds",
+          "correct": false,
+          "rationale": "That describes the dry leeward side."
+        },
+        {
+          "id": "c",
+          "label": "Its beaches are closer to the Equator",
+          "correct": false,
+          "rationale": "Both sides are equally close; the wind makes the difference."
+        },
+        {
+          "id": "d",
+          "label": "Monsoon rains arrive there every winter",
+          "correct": false,
+          "rationale": "The steady trade winds, not a monsoon, bring this rain."
+        }
+      ],
+      "explanation": "The trade winds carry ocean moisture into the mountains. Rising air cools and rains on the windward side, leaving the leeward side in a rain shadow.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_rain_shadow",
+    "source.nps_death_valley_weather",
+    "source.noaa_windward_leeward"
+  ],
+  "art": "nature.rain-cloud"
+}

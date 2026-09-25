@@ -1,0 +1,223 @@
+{
+  "id": "level.geography.world_geography.096",
+  "skillId": "skill.geography.world_geography",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Feeding the World",
+  "objective": "After this level you can explain where the world's food is grown and which crops feed the most people.",
+  "summary": "Rice, maize and wheat give about 60% of the world's food energy. Rice, mostly grown in Asia-Pacific, feeds almost half of humanity. Almost half of habitable land is farmed.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.staple_crops",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.farmland_use",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.water_planet",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.population_distribution",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.095"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.096.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Look at your plate. It probably started as rice, corn or wheat.",
+      "body": "Those three crops supply about 60% of the food energy people eat. The menu of humanity is surprisingly short, and it takes a startling amount of land."
+    },
+    {
+      "id": "card.world_geography.096.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A very short menu",
+      "body": "Just 15 crop plants provide 90% of the world's food energy. Three of them, rice, maize (corn) and wheat, supply two-thirds of that on their own: about 60% of all the energy humans eat. Bread, tortillas, noodles, porridge: the world's breakfast table is mostly variations on three plants."
+    },
+    {
+      "id": "card.world_geography.096.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The rice bowl",
+      "body": "Rice alone feeds almost half of humanity. More than 90% of the world's rice is grown and eaten in the Asia-Pacific region. Put that next to Level 91, where about 60% of people live in that same region, and it clicks: the rice fields sit right where the people are."
+    },
+    {
+      "id": "card.world_geography.096.c4",
+      "type": "fact",
+      "fact": "Almost half of the world's habitable land is farmed.",
+      "context": "And more than three-quarters of that farmland goes to livestock, for grazing and for growing animal feed. Yet meat, dairy and farmed fish supply less than a fifth of the world's calories. Most farmland, in other words, feeds animals first and people second.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Half the livable land on Earth, mostly for cows, sheep and their dinners. That is a lot of pasture."
+      }
+    },
+    {
+      "id": "card.world_geography.096.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.096.q1"
+    },
+    {
+      "id": "card.world_geography.096.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.096.q2"
+    },
+    {
+      "id": "card.world_geography.096.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.096.q3"
+    },
+    {
+      "id": "card.world_geography.096.c8",
+      "type": "checkpoint",
+      "headline": "Food: traced",
+      "learned": [
+        "15 crops give 90% of food energy",
+        "Rice, maize and wheat give about 60%",
+        "Rice feeds almost half of humanity, mostly in Asia-Pacific",
+        "Almost half of habitable land is farmed, mostly for livestock"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.staple_crops"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.096.c2"
+      ],
+      "prompt": "Which three crops supply about 60% of the world's food energy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Potatoes, soybeans and rice",
+          "correct": false,
+          "rationale": "Only rice belongs in the top three."
+        },
+        {
+          "id": "b",
+          "label": "Wheat, sugarcane and barley",
+          "correct": false,
+          "rationale": "Only wheat belongs in the top three."
+        },
+        {
+          "id": "c",
+          "label": "Maize, cassava and bananas",
+          "correct": false,
+          "rationale": "Only maize belongs in the top three."
+        },
+        {
+          "id": "d",
+          "label": "Rice, maize and wheat",
+          "correct": true
+        }
+      ],
+      "explanation": "Rice, maize and wheat supply two-thirds of the food energy from the 15 main crops, about 60% of the total.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.farmland_use"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.096.c4"
+      ],
+      "prompt": "More than three-quarters of farmland is used for livestock. Why does that stand out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Meat, dairy and farmed fish supply less than a fifth of calories",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Livestock farming uses no land at all",
+          "correct": false,
+          "rationale": "Grazing and feed crops take most of it."
+        },
+        {
+          "id": "c",
+          "label": "Animals only live on land nobody could farm",
+          "correct": false,
+          "rationale": "Much feed is grown on cropland."
+        },
+        {
+          "id": "d",
+          "label": "Livestock supply most of the world's calories",
+          "correct": false,
+          "rationale": "It's the opposite: less than a fifth."
+        }
+      ],
+      "explanation": "Livestock take more than three-quarters of farmland, yet meat, dairy and farmed fish supply less than a fifth of calories.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.world_geography.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.farmland_use",
+        "concept.world_geography.water_planet"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.096.c4",
+        "card.world_geography.001.c1"
+      ],
+      "prompt": "Farming uses almost half of habitable land. From Level 1, why is land in short supply to begin with?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mountains cover most continents",
+          "correct": false,
+          "rationale": "Mountains matter, but the bigger fact is water."
+        },
+        {
+          "id": "b",
+          "label": "About 71% of Earth's surface is water",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Antarctica is the largest continent",
+          "correct": false,
+          "rationale": "It isn't: Asia is."
+        },
+        {
+          "id": "d",
+          "label": "Cities cover most of the land",
+          "correct": false,
+          "rationale": "Farms, not cities, take the biggest share."
+        }
+      ],
+      "explanation": "About 71% of Earth's surface is water, leaving only about 29% as land. Farms take almost half of the part people can live on.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.fao_dimensions_of_need",
+    "source.unfpa_asia_pacific_population",
+    "source.fao_rice_asia_pacific",
+    "source.owid_land_for_agriculture"
+  ],
+  "art": "nature.wheat"
+}

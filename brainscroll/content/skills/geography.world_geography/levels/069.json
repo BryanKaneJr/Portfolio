@@ -1,0 +1,237 @@
+{
+  "id": "level.geography.world_geography.069",
+  "skillId": "skill.geography.world_geography",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Islands of Fire",
+  "objective": "After this level you can explain why Japan, Indonesia and the Philippines have so many volcanoes and earthquakes.",
+  "summary": "Japan, Indonesia and the Philippines lie on the Ring of Fire, a belt around the Pacific with about 75% of Earth's volcanoes. Subduction, one plate diving under another, makes the magma.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.ring_of_fire",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.subduction_volcanoes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.ocean_sizes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.068"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.069.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Japan has 111 active volcanoes. That's about a tenth of the world's.",
+      "body": "Indonesia and the Philippines rumble too. Three island countries, one reason: they sit on the same ring."
+    },
+    {
+      "id": "card.world_geography.069.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A ring around the Pacific",
+      "body": "The Ring of Fire is a horseshoe-shaped belt around the Pacific Ocean, about 40,000 km long, lined with volcanoes and frequent earthquakes. About 75% of Earth's volcanoes lie along it, and most earthquakes happen along it too. Trace it on a map and it runs right through Japan, the Philippines and Indonesia. They aren't unlucky. They're on the route."
+    },
+    {
+      "id": "card.world_geography.069.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where one plate dives under another",
+      "body": "Along much of the ring, plates meet at subduction zones, where one plate is pushed down beneath another. The sinking rock helps melt rock into magma, which can rise and erupt. Japan shows the recipe at full strength: it sits where four plates meet (the Pacific, Philippine Sea, Eurasian and North American), and its volcanoes formed largely along subduction zones. The planet recycles its floor, with fireworks."
+    },
+    {
+      "id": "card.world_geography.069.c4",
+      "type": "comparison",
+      "headline": "Three island countries on the ring",
+      "items": [
+        {
+          "label": "Japan",
+          "points": [
+            "Where four tectonic plates meet",
+            "111 active volcanoes"
+          ]
+        },
+        {
+          "label": "Indonesia",
+          "points": [
+            "Some 17,500 islands",
+            "One of the world's most active volcanic zones"
+          ]
+        },
+        {
+          "label": "Philippines",
+          "points": [
+            "More than 7,000 islands",
+            "About 50 volcanoes, more than 10 active"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.world_geography.069.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.069.q1"
+    },
+    {
+      "id": "card.world_geography.069.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.069.q2"
+    },
+    {
+      "id": "card.world_geography.069.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.069.q3"
+    },
+    {
+      "id": "card.world_geography.069.c8",
+      "type": "checkpoint",
+      "headline": "Islands of fire: explained",
+      "learned": [
+        "The Ring of Fire circles the Pacific for about 40,000 km",
+        "It holds about 75% of Earth's volcanoes",
+        "Subduction: one plate dives under another and makes magma",
+        "Japan, Indonesia and the Philippines all sit on the ring"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.ring_of_fire"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.069.c2"
+      ],
+      "prompt": "Japan, the Philippines and Indonesia all sit on which belt of volcanoes and earthquakes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Ring of Fire",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Mid-Atlantic Ridge",
+          "correct": false,
+          "rationale": "That ridge runs down the middle of the Atlantic, far from these islands."
+        },
+        {
+          "id": "c",
+          "label": "The Great Rift Valley",
+          "correct": false,
+          "rationale": "That rift runs through East Africa."
+        },
+        {
+          "id": "d",
+          "label": "The Tropic of Cancer",
+          "correct": false,
+          "rationale": "That is a line of latitude, not a volcanic belt."
+        }
+      ],
+      "explanation": "The Ring of Fire runs through Japan, the Philippines and Indonesia.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.subduction_volcanoes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.069.c3"
+      ],
+      "prompt": "Why do subduction zones produce volcanoes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ocean water boils up through cracks",
+          "correct": false,
+          "rationale": "The magma comes from melting rock."
+        },
+        {
+          "id": "b",
+          "label": "A sinking plate helps melt rock into magma",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Plates pulling apart leave holes in the crust",
+          "correct": false,
+          "rationale": "At subduction zones plates move together, not apart."
+        },
+        {
+          "id": "d",
+          "label": "Meteorites crack the crust open there",
+          "correct": false,
+          "rationale": "Nothing from space involved."
+        }
+      ],
+      "explanation": "At a subduction zone one plate is pushed down beneath another. The sinking rock helps melt rock into magma, which can rise and erupt.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.ocean_sizes",
+        "concept.world_geography.ring_of_fire"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.008.c3",
+        "card.world_geography.069.c2"
+      ],
+      "prompt": "The Ring of Fire wraps around which ocean, the largest from Level 8?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Atlantic",
+          "correct": false,
+          "rationale": "The second largest, and not ringed by it."
+        },
+        {
+          "id": "b",
+          "label": "The Indian",
+          "correct": false,
+          "rationale": "The third largest."
+        },
+        {
+          "id": "c",
+          "label": "The Arctic",
+          "correct": false,
+          "rationale": "The smallest ocean."
+        },
+        {
+          "id": "d",
+          "label": "The Pacific",
+          "correct": true
+        }
+      ],
+      "explanation": "The Ring of Fire circles the Pacific, the largest and deepest ocean.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.jnto_japan_volcanoes",
+    "source.brit_ring_of_fire",
+    "source.natgeo_ring_of_fire",
+    "source.brit_indonesia_land",
+    "source.brit_philippines_land"
+  ],
+  "art": "nature.volcano"
+}

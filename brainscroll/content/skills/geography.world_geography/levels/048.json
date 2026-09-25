@@ -1,0 +1,223 @@
+{
+  "id": "level.geography.world_geography.048",
+  "skillId": "skill.geography.world_geography",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Coral Reefs",
+  "objective": "After this level you can explain what coral reefs are and why they are so fragile.",
+  "summary": "Corals are animals that partner with food-making algae. Reefs cover less than 1% of the ocean yet hold nearly a quarter of its species, and water that is too warm makes them bleach.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.coral_animals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.reef_biodiversity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.reef_bleaching",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.rainforest_biodiversity",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.047"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.048.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Earth's biggest structures made by life are built by nickel-sized animals.",
+      "body": "A coral polyp is soft, and most are no thicker than a nickel. But each one builds a hard limestone skeleton, and together they build coral reefs, the largest structures made by living things."
+    },
+    {
+      "id": "card.world_geography.048.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Animal, not plant",
+      "body": "Corals stay put, fixed to the seafloor like plants, but they're animals: they can't make their own food the way plants do. So they take in lodgers. Tiny algae called zooxanthellae live inside the coral's tissue. The coral gives them a home, and the algae use sunlight to make food and share it. They're the coral's main food source. Rent, paid in lunch."
+    },
+    {
+      "id": "card.world_geography.048.c3",
+      "type": "fact",
+      "fact": "Coral reefs cover less than 1% of the ocean, yet nearly a quarter of all ocean species live there.",
+      "context": "Reef-building corals grow in clear, warm, moving water in tropical and subtropical seas, where sunlight can reach their algae. Sound familiar? Level 42's rainforests pull the same trick on land: a small slice of Earth holding more than half of its plant and animal species."
+    },
+    {
+      "id": "card.world_geography.048.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why a coral turns white",
+      "body": "When the water gets too warm, stressed corals expel the algae living in their tissues and turn completely white. That's coral bleaching. Those algae were the coral's main food and its color, so a bleached coral isn't dead yet, but it's starving. If the stress eases, it can recover. If the heat goes on, it eventually dies.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Kicking out the roommate who buys all the groceries. Bold move, coral."
+      }
+    },
+    {
+      "id": "card.world_geography.048.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.048.q1"
+    },
+    {
+      "id": "card.world_geography.048.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.048.q2"
+    },
+    {
+      "id": "card.world_geography.048.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.048.q3"
+    },
+    {
+      "id": "card.world_geography.048.c8",
+      "type": "checkpoint",
+      "headline": "Coral reefs: surveyed",
+      "learned": [
+        "Corals are animals that host food-making algae",
+        "Reefs are the largest structures made by life",
+        "Under 1% of the ocean, nearly a quarter of its species",
+        "Too-warm water makes corals expel their algae and bleach"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.coral_animals"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.048.c2"
+      ],
+      "prompt": "What are corals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Plants rooted on the seafloor",
+          "correct": false,
+          "rationale": "They're fixed in place like plants, but they're animals."
+        },
+        {
+          "id": "b",
+          "label": "Animals that host food-making algae",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Rocks shaped by ocean currents",
+          "correct": false,
+          "rationale": "The rock is a skeleton built by living animals."
+        },
+        {
+          "id": "d",
+          "label": "Algae that build limestone skeletons",
+          "correct": false,
+          "rationale": "The algae live inside; the coral animals build the skeletons."
+        }
+      ],
+      "explanation": "Corals are animals: they can't make their own food, so algae living in their tissue make it for them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.reef_bleaching"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.048.c4"
+      ],
+      "prompt": "Why does a bleached coral turn white?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its skeleton is dissolving away",
+          "correct": false,
+          "rationale": "Bleaching is about losing the algae."
+        },
+        {
+          "id": "b",
+          "label": "Sunlight has faded its own pigment",
+          "correct": false,
+          "rationale": "The color came from the algae it expelled."
+        },
+        {
+          "id": "c",
+          "label": "Salt crystals have coated its surface",
+          "correct": false,
+          "rationale": "Bleaching is about losing the algae."
+        },
+        {
+          "id": "d",
+          "label": "It has expelled the algae that colored it",
+          "correct": true
+        }
+      ],
+      "explanation": "Stressed by warm water, the coral expels its algae, which were its color and its main food.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.reef_biodiversity",
+        "concept.world_geography.rainforest_biodiversity"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.048.c3",
+        "card.world_geography.042.c4"
+      ],
+      "prompt": "From Level 42: what do coral reefs and tropical rainforests have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A small area holding a huge share of species",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Both need cold, dark conditions",
+          "correct": false,
+          "rationale": "Both thrive in warmth and light."
+        },
+        {
+          "id": "c",
+          "label": "Both are built by algae alone",
+          "correct": false,
+          "rationale": "Reefs are built by coral animals; rainforests by trees."
+        },
+        {
+          "id": "d",
+          "label": "Both grow mostly near the poles",
+          "correct": false,
+          "rationale": "Both are tropical."
+        }
+      ],
+      "explanation": "Reefs cover under 1% of the ocean but hold nearly a quarter of its species; rainforests hold over half of Earth's species on a small slice.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_coral_animals",
+    "source.noaa_coral_bleaching",
+    "source.noaa_fisheries_coral_habitat",
+    "source.natgeo_rain_forest"
+  ],
+  "art": "geo.coral"
+}

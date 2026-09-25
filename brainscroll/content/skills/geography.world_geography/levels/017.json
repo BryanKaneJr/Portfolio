@@ -1,0 +1,226 @@
+{
+  "id": "level.geography.world_geography.017",
+  "skillId": "skill.geography.world_geography",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Mountains Rise",
+  "objective": "After this level you can explain how colliding plates build mountain ranges like the Himalayas.",
+  "summary": "India drifted north and collided with Eurasia 40 to 50 million years ago. Neither plate could sink, so the crust crumpled upward into the Himalayas, lifting old sea floor to Everest's summit.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.collision_mountains",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.everest_sea_floor",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.elevation_contours",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.plate_boundaries",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.016"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "There are fossil sea creatures at the top of Mount Everest.",
+      "body": "The highest rock on the planet, about 8,849 m above sea level, formed at the bottom of a sea. Something lifted it higher than anything else on Earth."
+    },
+    {
+      "id": "card.world_geography.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "India on the move",
+      "body": "About 80 million years ago, India lay roughly 6,400 km south of Asia, riding its plate north at about 9 m a century. Then, 40 to 50 million years ago, it arrived. India collided with Eurasia, and the Himalayas began to form."
+    },
+    {
+      "id": "card.world_geography.017.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nowhere to go but up",
+      "body": "In Level 15, one plate dove beneath another. Not this time. India and Eurasia have rock of about the same density, so neither could sink under the other. With the plates still pushing together, the crust had nowhere to go but up: it crumpled and thrust skyward. Shove two rugs together across a floor and watch them ruck up. Same idea, much bigger rugs."
+    },
+    {
+      "id": "card.world_geography.017.c4",
+      "type": "fact",
+      "fact": "The Himalayas are still rising.",
+      "context": "India is still pushing into Asia, so the job isn't finished. That same push is how an old sea floor ended up on the roof of the world: the collision thrust fossil-packed limestone all the way to Everest's summit. Level 7 measured heights from sea level. Everest's top rock started out below it.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Seashells at the summit. That's one very long commute from the seabed."
+      }
+    },
+    {
+      "id": "card.world_geography.017.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.017.q1"
+    },
+    {
+      "id": "card.world_geography.017.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.017.q2"
+    },
+    {
+      "id": "card.world_geography.017.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.017.q3"
+    },
+    {
+      "id": "card.world_geography.017.c8",
+      "type": "checkpoint",
+      "headline": "Mountains: raised",
+      "learned": [
+        "India collided with Eurasia 40 to 50 million years ago",
+        "Same-density plates can't sink, so the crust thrusts up",
+        "The Himalayas are still rising",
+        "Everest's summit is limestone from an old sea floor"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.collision_mountains"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.017.c2"
+      ],
+      "prompt": "Which collision built the Himalayas?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Africa colliding with Europe",
+          "correct": false,
+          "rationale": "That's a different collision."
+        },
+        {
+          "id": "b",
+          "label": "India colliding with Eurasia",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Pacific Plate diving under Asia",
+          "correct": false,
+          "rationale": "No plate dove under here."
+        },
+        {
+          "id": "d",
+          "label": "South America splitting from Africa",
+          "correct": false,
+          "rationale": "That's Pangaea breaking up, not a collision."
+        }
+      ],
+      "explanation": "India drifted north and collided with Eurasia 40 to 50 million years ago, and the Himalayas began to form.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.everest_sea_floor"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.017.c4",
+        "card.world_geography.017.c1"
+      ],
+      "prompt": "Why are there fossils of sea creatures at the top of Mount Everest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Birds carried shells up from the coast",
+          "correct": false,
+          "rationale": "The fossils are inside the rock itself."
+        },
+        {
+          "id": "b",
+          "label": "The oceans once rose above Everest's peak",
+          "correct": false,
+          "rationale": "The rock rose, not the sea."
+        },
+        {
+          "id": "c",
+          "label": "Sea-floor limestone was thrust up by the collision",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Climbers left them as offerings",
+          "correct": false,
+          "rationale": "They're in limestone that formed on a sea floor."
+        }
+      ],
+      "explanation": "The summit rock is limestone that formed on an ancient sea floor. The India-Asia collision thrust it up to the top.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.collision_mountains",
+        "concept.world_geography.plate_boundaries"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.017.c3",
+        "card.world_geography.012.c4"
+      ],
+      "prompt": "From Level 12: what kind of plate boundary built the Himalayas?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Plates pulling apart",
+          "correct": false,
+          "rationale": "That makes new crust, like the Mid-Atlantic Ridge."
+        },
+        {
+          "id": "b",
+          "label": "Plates sliding past each other",
+          "correct": false,
+          "rationale": "That's the San Andreas kind."
+        },
+        {
+          "id": "c",
+          "label": "No boundary: a hotspot",
+          "correct": false,
+          "rationale": "That's Hawaii's story."
+        },
+        {
+          "id": "d",
+          "label": "Plates pushing together",
+          "correct": true
+        }
+      ],
+      "explanation": "It's a convergent boundary. Because neither plate could sink, the crust crumpled upward instead.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_mount_everest",
+    "source.iugs_everest_summit",
+    "source.brit_everest_fossils",
+    "source.usgs_dynamic_himalaya",
+    "source.usgs_dynamic_plate_motions",
+    "source.sco_wisc_topographic_maps"
+  ],
+  "art": "geo.mountains"
+}

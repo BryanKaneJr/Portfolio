@@ -1,0 +1,226 @@
+{
+  "id": "level.geography.world_geography.064",
+  "skillId": "skill.geography.world_geography",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Russia, the Biggest Country",
+  "objective": "After this level you can describe Russia's size, Siberia and its eleven time zones.",
+  "summary": "Russia is by far the largest country, but most Russians live in its European part. Siberia covers about three-quarters of Russia, and the country spans 11 time zones.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.russia_size",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.russia_time_zones",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.time_zones",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.europe_eurasia",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.063"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Board a train in Moscow and you'll reach Vladivostok about seven days later.",
+      "body": "It's the Trans-Siberian, the longest single rail system in the world, and the trip spans eight time zones. You never leave the country. Pack snacks. Lots of snacks."
+    },
+    {
+      "id": "card.world_geography.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The biggest country, by far",
+      "body": "Russia is by far the world's largest country. It stretches across all of northern Asia and the eastern third of Europe, split by the Ural Mountains that Level 61 used as the usual border between the two continents. Yet its people bunch up at one end: most Russians live in the European part, especially around Moscow. Huge house, and everyone's in the front room."
+    },
+    {
+      "id": "card.world_geography.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Siberia: most of the map",
+      "body": "East of the Urals lies Siberia, running all the way to the Pacific Ocean, and from the Arctic Ocean south to Kazakhstan, Mongolia and China. In its wider sense it covers about three-quarters of Russia. It's sparsely settled, and swampy forest called taiga covers most of it. The winters are serious: in the Sakha region, temperatures as low as −68 °C have been recorded. Your freezer is a tropical getaway by comparison."
+    },
+    {
+      "id": "card.world_geography.064.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Eleven clocks, one country",
+      "body": "All that width shows up on the clock. Russia spans 11 time zones, from Kaliningrad on the Baltic Sea to Kamchatka on the Pacific. Remember Level 5: Earth turns 15° of longitude every hour, so each zone covers a slice of about that width. Kaliningrad and Kamchatka are 10 hours apart. When it's 9:00 a.m. in Kaliningrad, it's 7:00 p.m. in Kamchatka. Breakfast at one end, dinner at the other.",
+      "callout": "11 time zones · 10 hours from end to end"
+    },
+    {
+      "id": "card.world_geography.064.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.064.q1"
+    },
+    {
+      "id": "card.world_geography.064.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.064.q2"
+    },
+    {
+      "id": "card.world_geography.064.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.064.q3"
+    },
+    {
+      "id": "card.world_geography.064.c8",
+      "type": "checkpoint",
+      "headline": "Russia: crossed",
+      "learned": [
+        "Russia is by far the largest country",
+        "Most Russians live in the European part, around Moscow",
+        "Siberia covers about three-quarters of Russia",
+        "11 time zones: 10 hours from end to end"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.russia_time_zones"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.064.c4"
+      ],
+      "prompt": "How many time zones does Russia span?",
+      "options": [
+        {
+          "id": "a",
+          "label": "4",
+          "correct": false,
+          "rationale": "Far more than that."
+        },
+        {
+          "id": "b",
+          "label": "8",
+          "correct": false,
+          "rationale": "That's how many the Trans-Siberian trip spans."
+        },
+        {
+          "id": "c",
+          "label": "11",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "24",
+          "correct": false,
+          "rationale": "That's the whole world's standard set."
+        }
+      ],
+      "explanation": "Russia spans 11 time zones, from Kaliningrad on the Baltic Sea to Kamchatka on the Pacific.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.russia_size"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.064.c2",
+        "card.world_geography.064.c3"
+      ],
+      "prompt": "Russia is enormous. Where do most Russians actually live?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the European part, around Moscow",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Spread evenly across the country",
+          "correct": false,
+          "rationale": "The people bunch up in the west."
+        },
+        {
+          "id": "c",
+          "label": "In Siberia, near the Pacific",
+          "correct": false,
+          "rationale": "Siberia is sparsely settled."
+        },
+        {
+          "id": "d",
+          "label": "Along the Arctic coast",
+          "correct": false,
+          "rationale": "Too cold for most people."
+        }
+      ],
+      "explanation": "Most Russians live in the European part of the country, especially around Moscow. Siberia, most of the land, is sparsely settled.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.time_zones",
+        "concept.world_geography.russia_time_zones"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.005.c2",
+        "card.world_geography.005.c3",
+        "card.world_geography.064.c4"
+      ],
+      "prompt": "Using Level 5's 15° per hour, what do Russia's 11 time zones tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Russia stretches far from north to south",
+          "correct": false,
+          "rationale": "Time zones measure east-west, not north-south."
+        },
+        {
+          "id": "b",
+          "label": "Russia spans a huge range of longitude",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Russia doesn't use standard time",
+          "correct": false,
+          "rationale": "It uses standard time zones like everyone else."
+        },
+        {
+          "id": "d",
+          "label": "Russia sits on the International Date Line",
+          "correct": false,
+          "rationale": "Extra zones come from width, not from the date line."
+        }
+      ],
+      "explanation": "Each time zone is a slice of roughly 15° of longitude. Eleven of them means Russia is enormously wide from west to east.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_trans_siberian",
+    "source.brit_russia",
+    "source.brit_europe",
+    "source.natgeo_europe_physical",
+    "source.brit_siberia",
+    "source.worldatlas_russia_time_zones",
+    "source.brit_standard_time"
+  ],
+  "art": "geo.pine-forest"
+}

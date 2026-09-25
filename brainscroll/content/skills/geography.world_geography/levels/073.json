@@ -1,0 +1,228 @@
+{
+  "id": "level.geography.world_geography.073",
+  "skillId": "skill.geography.world_geography",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Mississippi",
+  "objective": "After this level you can explain how the Mississippi river system drains the middle of North America.",
+  "summary": "The Mississippi starts as a wadeable stream at Lake Itasca, drains about 40% of the continental US, collects Rocky Mountain water via the Missouri and builds a delta on the Gulf.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.mississippi_watershed",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.mississippi_river",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.continental_divide",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.landforms",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.072"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You can wade across the Mississippi. Just once, right at the start.",
+      "body": "At Lake Itasca in Minnesota, the great river begins as a shallow, knee-deep stream, and visitors splash from one bank to the other. Try that farther downstream and you'll want a boat. A big one."
+    },
+    {
+      "id": "card.world_geography.073.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A funnel for 31 states",
+      "body": "From Itasca, the Mississippi flows about 3,766 km south to the Gulf of Mexico. Along the way it collects water from an enormous area: all or part of 31 US states and 2 Canadian provinces, about 40% of the continental US. Picture a kitchen funnel as wide as the middle of the continent. The Mississippi is the spout.",
+      "callout": "About 40% of the continental US drains into one river"
+    },
+    {
+      "id": "card.world_geography.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Water from the Rockies",
+      "body": "Big branches pour in from both sides: the Ohio from the east and the Missouri from the west. The Missouri, the Mississippi's longest tributary, begins in the Rocky Mountains of Montana. Remember Level 72's raindrop, the one that landed just east of the Continental Divide? It can ride the Missouri into the Mississippi and on to the Gulf of Mexico. Same drop, extremely long trip."
+    },
+    {
+      "id": "card.world_geography.073.c4",
+      "type": "fact",
+      "fact": "The Mississippi ends in a vast delta southeast of New Orleans.",
+      "context": "It's Level 7's landform on a giant scale. A delta is flat, low land built at a river's mouth from the sediment the slowing river drops. The Mississippi hauls mud from a huge share of the continent, and near the sea it finally sets its load down.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A river is a delivery service. The delta is where it finally drops off the packages."
+      }
+    },
+    {
+      "id": "card.world_geography.073.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.073.q1"
+    },
+    {
+      "id": "card.world_geography.073.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.073.q2"
+    },
+    {
+      "id": "card.world_geography.073.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.073.q3"
+    },
+    {
+      "id": "card.world_geography.073.c8",
+      "type": "checkpoint",
+      "headline": "The Mississippi: followed",
+      "learned": [
+        "It starts knee-deep at Lake Itasca",
+        "It drains about 40% of the continental US",
+        "The Missouri brings water from the Rockies",
+        "It builds a vast delta on the Gulf of Mexico"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.mississippi_watershed"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.073.c2"
+      ],
+      "prompt": "About how much of the continental US drains into the Mississippi?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10%",
+          "correct": false,
+          "rationale": "Far more: it's the funnel for the middle of the country."
+        },
+        {
+          "id": "b",
+          "label": "About 40%",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 71%",
+          "correct": false,
+          "rationale": "That's how much of Earth is water, from Level 1."
+        },
+        {
+          "id": "d",
+          "label": "About 90%",
+          "correct": false,
+          "rationale": "Too much: coasts and the far west drain elsewhere."
+        }
+      ],
+      "explanation": "The Mississippi drains all or part of 31 states and 2 Canadian provinces, about 40% of the continental US.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.mississippi_river",
+        "concept.world_geography.landforms"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.073.c4",
+        "card.world_geography.007.c4"
+      ],
+      "prompt": "Why does the Mississippi build a delta where it reaches the sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The river slows and sets down the mud it carries",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Ocean waves pile up sand from the seafloor",
+          "correct": false,
+          "rationale": "The delta is built from the river's own sediment."
+        },
+        {
+          "id": "c",
+          "label": "Levees force the water underground",
+          "correct": false,
+          "rationale": "Deltas are built from sediment, not underground water."
+        },
+        {
+          "id": "d",
+          "label": "The river freezes each winter",
+          "correct": false,
+          "rationale": "Ice doesn't build deltas; dropped sediment does."
+        }
+      ],
+      "explanation": "Near the sea the river slows and drops its sediment, building flat, low land at its mouth.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.mississippi_watershed",
+        "concept.world_geography.continental_divide"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.073.c3",
+        "card.world_geography.072.c3"
+      ],
+      "prompt": "From Level 72: rain falls in Montana, just east of the Continental Divide. How can it reach the Gulf of Mexico?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Over the Rockies and down to the Pacific",
+          "correct": false,
+          "rationale": "East-side water doesn't cross the divide."
+        },
+        {
+          "id": "b",
+          "label": "Down the Ohio River",
+          "correct": false,
+          "rationale": "The Ohio joins from the east, far from Montana."
+        },
+        {
+          "id": "c",
+          "label": "Down the Missouri into the Mississippi",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Through Lake Itasca",
+          "correct": false,
+          "rationale": "Itasca is the Mississippi's source in Minnesota."
+        }
+      ],
+      "explanation": "The Missouri begins in the Rockies of Montana and flows into the Mississippi, which carries the water to the Gulf.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nps_mississippi_facts",
+    "source.brit_mississippi_river",
+    "source.brit_missouri_river",
+    "source.mndnr_itasca_headwaters",
+    "source.natgeo_continental_divide",
+    "source.natgeo_delta"
+  ],
+  "art": "geo.river"
+}

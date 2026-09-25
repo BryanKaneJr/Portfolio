@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.world_geography.089",
+  "skillId": "skill.geography.world_geography",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Who Owns Antarctica?",
+  "objective": "After this level you can explain the Antarctic Treaty and what it protects.",
+  "summary": "Seven countries claim parts of Antarctica, some overlapping. The 1959 Antarctic Treaty freezes those claims and keeps the continent for peace and science; the Madrid Protocol bans mining.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.antarctic_claims",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.antarctic_treaty",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.seven_continents",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.088"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Seven countries claim slices of Antarctica. Three of the slices overlap.",
+      "body": "It looks like a pie cut by squabbling relatives. So who's actually in charge down there? A deal struck in 1959 has the answer."
+    },
+    {
+      "id": "card.world_geography.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seven slices of pie",
+      "body": "Argentina, Australia, Chile, France, New Zealand, Norway and the United Kingdom all claim parts of Antarctica. On the Antarctic Peninsula, the claims of Argentina, Chile and the United Kingdom overlap, so the same patch of ice is claimed three times over."
+    },
+    {
+      "id": "card.world_geography.089.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Freeze the argument",
+      "body": "On 1 December 1959, twelve countries active in Antarctica signed the Antarctic Treaty in Washington. It came into force in 1961. Its clever move was to not settle who owns what. Instead, it holds the old claims in place and forbids any new or bigger claim while the treaty lasts. The argument isn't won. It's put in the freezer, which in Antarctica is fitting."
+    },
+    {
+      "id": "card.world_geography.089.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Peace and science only",
+      "body": "The treaty says Antarctica shall be used for peaceful purposes only: no military bases, no maneuvers, no weapons tests. Nuclear explosions and dumping radioactive waste are banned. Scientists are free to investigate. Remember Level 1? Antarctica has no permanent residents, only researchers and support staff. This is the rulebook they work under."
+    },
+    {
+      "id": "card.world_geography.089.c5",
+      "type": "fact",
+      "fact": "Mining in Antarctica is banned.",
+      "context": "The Madrid Protocol of 1991 forbids all mineral resource activity except scientific research. It names Antarctica a natural reserve, devoted to peace and science. Whatever lies under the ice stays there."
+    },
+    {
+      "id": "card.world_geography.089.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.089.q1"
+    },
+    {
+      "id": "card.world_geography.089.c7",
+      "type": "mcq",
+      "questionId": "question.world_geography.089.q2"
+    },
+    {
+      "id": "card.world_geography.089.c8",
+      "type": "recall",
+      "questionId": "question.world_geography.089.q3"
+    },
+    {
+      "id": "card.world_geography.089.c9",
+      "type": "checkpoint",
+      "headline": "Antarctica: governed",
+      "learned": [
+        "Seven countries claim Antarctica; three claims overlap",
+        "The 1959 treaty freezes claims and bans new ones",
+        "Peaceful purposes only: no bases, weapons or nuclear tests",
+        "The Madrid Protocol bans mining"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.antarctic_claims"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.089.c2"
+      ],
+      "prompt": "How many countries claim parts of Antarctica?",
+      "options": [
+        {
+          "id": "a",
+          "label": "None",
+          "correct": false,
+          "rationale": "Seven do, though the treaty freezes the claims."
+        },
+        {
+          "id": "b",
+          "label": "Three",
+          "correct": false,
+          "rationale": "Three claims overlap, but more countries claim land."
+        },
+        {
+          "id": "c",
+          "label": "Seven",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Twelve",
+          "correct": false,
+          "rationale": "Twelve countries signed the original treaty."
+        }
+      ],
+      "explanation": "Argentina, Australia, Chile, France, New Zealand, Norway and the United Kingdom: seven claimants.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.antarctic_treaty"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.089.c3"
+      ],
+      "prompt": "How did the Antarctic Treaty deal with the rival territorial claims?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It split the continent into equal shares",
+          "correct": false,
+          "rationale": "It didn't divide anything."
+        },
+        {
+          "id": "b",
+          "label": "It handed Antarctica to a single country",
+          "correct": false,
+          "rationale": "No country was given control."
+        },
+        {
+          "id": "c",
+          "label": "It cancelled every claim for good",
+          "correct": false,
+          "rationale": "The old claims stay on the books."
+        },
+        {
+          "id": "d",
+          "label": "It froze them and banned new or bigger claims",
+          "correct": true
+        }
+      ],
+      "explanation": "The treaty holds existing claims in place and forbids new or enlarged claims while it is in force.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.antarctic_treaty",
+        "concept.world_geography.seven_continents"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.089.c4",
+        "card.world_geography.001.c2"
+      ],
+      "prompt": "From Level 1: Antarctica's only people are researchers and support staff. Which treaty rule protects their work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Free land for anyone who settles",
+          "correct": false,
+          "rationale": "There's no settling; nobody lives there permanently."
+        },
+        {
+          "id": "b",
+          "label": "Freedom of scientific investigation",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Military bases to guard each claim",
+          "correct": false,
+          "rationale": "Military bases are banned."
+        },
+        {
+          "id": "d",
+          "label": "The right to mine for fuel",
+          "correct": false,
+          "rationale": "Mining is banned by the Madrid Protocol."
+        }
+      ],
+      "explanation": "The treaty keeps Antarctica peaceful and guarantees freedom of scientific investigation, the work its researchers are there for.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ats_antarctic_treaty",
+    "source.aap_territorial_claims",
+    "source.ats_environmental_protocol",
+    "source.brit_antarctica",
+    "source.natgeo_continent"
+  ],
+  "art": "object.flag"
+}

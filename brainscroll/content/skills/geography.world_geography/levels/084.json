@@ -1,0 +1,219 @@
+{
+  "id": "level.geography.world_geography.084",
+  "skillId": "skill.geography.world_geography",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "New Zealand",
+  "objective": "After this level you can explain how moving plates shaped New Zealand's mountains and hot springs.",
+  "summary": "New Zealand straddles the Australian and Pacific plates. In the South Island they push up the Southern Alps; in the North Island the Pacific Plate slides under, feeding volcanoes and geysers.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.nz_plate_boundary",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.nz_geothermal",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.antipodes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.083"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "New Zealand's highest mountains and its geysers share one cause.",
+      "body": "Two of Earth's plates meet right under the country. On one island they shove mountains upward. On the other, they heat the groundwater until it erupts as geysers."
+    },
+    {
+      "id": "card.world_geography.084.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A country on a seam",
+      "body": "New Zealand sits across the boundary between two tectonic plates: the Australian Plate and the Pacific Plate. Off the North Island the boundary lies under the sea, but in the South Island it comes ashore. You can see it on land as the Alpine Fault, the line where the two plates meet. Here you can walk right up to a seam in the planet."
+    },
+    {
+      "id": "card.world_geography.084.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Mountains on an escalator",
+      "body": "Along the Alpine Fault, the Pacific Plate pushes upward and builds the Southern Alps. They rise about 7 mm a year, but erosion wears them down at a similar rate. It's like walking up a down escalator: lots of effort, not much gain. The highest peak, Aoraki/Mount Cook, stands at 3,724 m.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Up a little, worn down a little, every single year. Now that's commitment."
+      }
+    },
+    {
+      "id": "card.world_geography.084.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hot water in the north",
+      "body": "In the North Island the plates meet differently: the Pacific Plate slides under the Australian Plate, and deep down, rock melts. Some of that molten rock erupts from volcanoes such as Ruapehu. Some stays underground and heats the water in the rocks. That's what powers the geysers and hot springs around Rotorua and Taupō. Same two plates, a different move, and completely different scenery."
+    },
+    {
+      "id": "card.world_geography.084.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.084.q1"
+    },
+    {
+      "id": "card.world_geography.084.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.084.q2"
+    },
+    {
+      "id": "card.world_geography.084.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.084.q3"
+    },
+    {
+      "id": "card.world_geography.084.c8",
+      "type": "checkpoint",
+      "headline": "New Zealand: shaken and stirred",
+      "learned": [
+        "New Zealand straddles the Australian and Pacific Plates",
+        "The Alpine Fault brings the boundary ashore in the South Island",
+        "The Southern Alps rise about 7 mm a year as erosion wears them down",
+        "In the North Island, melting rock feeds volcanoes and geysers"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.nz_plate_boundary"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.084.c2"
+      ],
+      "prompt": "Which two tectonic plates meet under New Zealand?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Australian and Pacific Plates",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Pacific and South American Plates",
+          "correct": false,
+          "rationale": "South America is on the far side of the Pacific."
+        },
+        {
+          "id": "c",
+          "label": "The Eurasian and African Plates",
+          "correct": false,
+          "rationale": "Those meet around the Mediterranean, far away."
+        },
+        {
+          "id": "d",
+          "label": "The Antarctic and Nazca Plates",
+          "correct": false,
+          "rationale": "Neither of those forms New Zealand's boundary."
+        }
+      ],
+      "explanation": "New Zealand sits across the boundary between the Australian Plate and the Pacific Plate.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.nz_plate_boundary"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.084.c3"
+      ],
+      "prompt": "The Southern Alps are still being pushed up. Why aren't they getting much taller?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The plates have stopped moving",
+          "correct": false,
+          "rationale": "They're still rising about 7 mm a year."
+        },
+        {
+          "id": "b",
+          "label": "The mountains are sinking into the sea",
+          "correct": false,
+          "rationale": "They're rising, not sinking."
+        },
+        {
+          "id": "c",
+          "label": "Erosion wears them down about as fast as they rise",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Volcanoes keep blowing their tops off",
+          "correct": false,
+          "rationale": "The Southern Alps are pushed up by the plates, not built by volcanoes."
+        }
+      ],
+      "explanation": "The Alps rise about 7 mm a year, but erosion wears them down at a similar rate, like walking up a down escalator.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.nz_geothermal",
+        "concept.world_geography.antipodes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.084.c4",
+        "card.world_geography.010.c3"
+      ],
+      "prompt": "From Level 10: most of the island with New Zealand's geysers lies opposite which country?",
+      "options": [
+        {
+          "id": "a",
+          "label": "China",
+          "correct": false,
+          "rationale": "That's the old digging myth, and it's about the US."
+        },
+        {
+          "id": "b",
+          "label": "Spain",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Canada",
+          "correct": false,
+          "rationale": "Canada's opposite is mostly ocean."
+        },
+        {
+          "id": "d",
+          "label": "Argentina",
+          "correct": false,
+          "rationale": "Not a match for the North Island."
+        }
+      ],
+      "explanation": "The geysers are in the North Island, and most of the North Island is antipodal to Spain.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.teara_volcanoes_ring_of_fire",
+    "source.sciencelearn_alpine_fault",
+    "source.brit_aoraki",
+    "source.worldatlas_antipodes"
+  ],
+  "art": "geo.mountains"
+}

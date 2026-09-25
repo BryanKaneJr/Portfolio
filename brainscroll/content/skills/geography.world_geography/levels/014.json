@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.world_geography.014",
+  "skillId": "skill.geography.world_geography",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Earthquakes",
+  "objective": "After this level you can explain what causes earthquakes and how their size is measured.",
+  "summary": "Stuck plate edges build up force until rock suddenly slips along a fault. Each step up the magnitude scale means about 32 times more energy.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.earthquake_cause",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.earthquake_magnitude",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.plate_boundaries",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.earth_core",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.013"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Magnitude 6 sounds a bit worse than 5. It packs about 32 times the energy.",
+      "body": "Earthquake numbers climb in giant steps. But first: why would solid ground shake at all?"
+    },
+    {
+      "id": "card.world_geography.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stuck, then snap",
+      "body": "Remember Level 12's plates grinding past each other? Their edges are rough, so they get stuck while the rest of each plate keeps moving. Force builds and builds until it beats the friction. Then the rock suddenly slips along a fault, and that sudden slip is an earthquake. It's a heavy couch that won't budge, until it lurches all at once."
+    },
+    {
+      "id": "card.world_geography.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where it starts, where you feel it",
+      "body": "The spot underground where the slip begins is the hypocenter. The point on the surface directly above it is the epicenter, the one that makes the news. From there, the energy spreads out as seismic waves, like ripples on a pond, and instruments called seismographs record them. They're the same kind of waves that revealed Level 11's liquid core."
+    },
+    {
+      "id": "card.world_geography.014.c4",
+      "type": "fact",
+      "fact": "Each step up the magnitude scale means about 32 times more energy.",
+      "context": "Each whole number also means ten times bigger swings on a seismogram. So a magnitude 7 releases about 1,000 times the energy of a 5 (32 x 32). The biggest ever recorded struck southern Chile on May 22, 1960: magnitude 9.5. Keep that one in mind; its story isn't over."
+    },
+    {
+      "id": "card.world_geography.014.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.014.q1"
+    },
+    {
+      "id": "card.world_geography.014.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.014.q2"
+    },
+    {
+      "id": "card.world_geography.014.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.014.q3"
+    },
+    {
+      "id": "card.world_geography.014.c8",
+      "type": "checkpoint",
+      "headline": "Earthquakes: explained",
+      "learned": [
+        "Stuck plate edges suddenly slip along a fault",
+        "The hypocenter is underground; the epicenter is above it",
+        "Seismic waves spread out and seismographs record them",
+        "Each magnitude step is about 32 times the energy"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.earthquake_cause"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.014.c3"
+      ],
+      "prompt": "What is the epicenter of an earthquake?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The point underground where the slip begins",
+          "correct": false,
+          "rationale": "That's the hypocenter."
+        },
+        {
+          "id": "b",
+          "label": "The point on the surface directly above where it starts",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The place with the worst damage",
+          "correct": false,
+          "rationale": "Damage depends on more than location."
+        },
+        {
+          "id": "d",
+          "label": "The seismograph that records it first",
+          "correct": false,
+          "rationale": "Seismographs record it; they don't define it."
+        }
+      ],
+      "explanation": "The hypocenter is where the slip starts underground; the epicenter is the surface point right above it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.earthquake_magnitude"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.014.c4",
+        "card.world_geography.014.c1"
+      ],
+      "prompt": "About how much more energy does a magnitude 8 earthquake release than a magnitude 7?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 2 times",
+          "correct": false,
+          "rationale": "Each step is a much bigger jump."
+        },
+        {
+          "id": "b",
+          "label": "About 10 times",
+          "correct": false,
+          "rationale": "Ten times is the swing on a seismogram, not the energy."
+        },
+        {
+          "id": "c",
+          "label": "About 32 times",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 100 times",
+          "correct": false,
+          "rationale": "Too much for a single step."
+        }
+      ],
+      "explanation": "Each whole step in magnitude means about 32 times more energy, so 8 releases about 32 times what 7 does.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.earthquake_cause",
+        "concept.world_geography.plate_boundaries"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.014.c2",
+        "card.world_geography.012.c4"
+      ],
+      "prompt": "From Level 12: why do earthquakes strike along California's San Andreas Fault?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Plates sliding past each other get stuck, then slip",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A volcano sits underneath it",
+          "correct": false,
+          "rationale": "It's a sliding boundary, not a volcano."
+        },
+        {
+          "id": "c",
+          "label": "It's where the Atlantic is widening",
+          "correct": false,
+          "rationale": "That's the Mid-Atlantic Ridge."
+        },
+        {
+          "id": "d",
+          "label": "The crust there is thinner than anywhere else",
+          "correct": false,
+          "rationale": "The cause is plates grinding past each other."
+        }
+      ],
+      "explanation": "The San Andreas is a transform boundary. The plates' rough edges lock, force builds, and the sudden slip is an earthquake.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_magnitude_energy",
+    "source.usgs_science_of_earthquakes",
+    "source.usgs_dynamic_plate_motions",
+    "source.natgeo_core",
+    "source.natgeo_valdivia_earthquake",
+    "source.noaa_sos_chile_1960"
+  ],
+  "art": "geo.earth-layers"
+}

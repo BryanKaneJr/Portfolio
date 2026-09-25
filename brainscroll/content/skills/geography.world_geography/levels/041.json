@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.world_geography.041",
+  "skillId": "skill.geography.world_geography",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Is a Biome?",
+  "objective": "After this level you can explain what a biome is and how climate shapes it.",
+  "summary": "A biome is a large area defined by its plants, soil, climate and wildlife. Temperature and rain decide which biome grows where, so similar climates grow lookalike landscapes.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.biome_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.climate_shapes_biomes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.water_planet",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.040"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Five places, oceans apart, wearing the same outfit.",
+      "body": "California, Chile, South Africa, southern Australia and the lands around the Mediterranean are scattered across the globe. Yet all five share the same kind of climate, and the same kind of scrubby hillsides. Coincidence? Not even slightly."
+    },
+    {
+      "id": "card.world_geography.041.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What a biome is",
+      "body": "A biome is a big region defined by its plants, soil, climate and wildlife. Biomes are usually named after their main plants, like grassland or coniferous forest. They come in five major types: forest, grassland, desert, tundra and aquatic. That last one is the watery one, and its marine part, which includes the ocean and coral reefs, covers close to three-quarters of Earth's surface. Think of biomes as the planet's neighborhoods. This chapter visits them one by one.",
+      "callout": "Forest · Grassland · Desert · Tundra · Aquatic"
+    },
+    {
+      "id": "card.world_geography.041.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two dials: heat and rain",
+      "body": "So what decides which biome you get? Mostly climate. A simple way to sort biomes is by two dials: temperature and precipitation. Keep it hot and wet all year and you get rainforest. Turn the rain way down and you drift into desert. And wherever the same biome turns up on the planet, it comes with similar kinds of plants and animal life. Same settings, same neighborhood.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Two dials, a whole planet of landscapes. Not bad for a thermostat and a rain gauge."
+      }
+    },
+    {
+      "id": "card.world_geography.041.c4",
+      "type": "fact",
+      "fact": "Those five lookalike scrublands are full of plants that aren't closely related.",
+      "context": "What they share is a climate of mild, wet winters and long, dry summers. In each region, different ancestor plants developed similar features to cope with it, a process called convergent evolution. California calls its version chaparral; South Africa has fynbos. Same climate, same costume, different actors inside."
+    },
+    {
+      "id": "card.world_geography.041.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.041.q1"
+    },
+    {
+      "id": "card.world_geography.041.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.041.q2"
+    },
+    {
+      "id": "card.world_geography.041.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.041.q3"
+    },
+    {
+      "id": "card.world_geography.041.c8",
+      "type": "checkpoint",
+      "headline": "Biomes: defined",
+      "learned": [
+        "A biome is a big region defined by its plants, soil, climate and wildlife",
+        "Five major types: forest, grassland, desert, tundra, aquatic",
+        "Temperature and precipitation decide which biome grows",
+        "Similar climates grow lookalike biomes, even from unrelated plants"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.climate_shapes_biomes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.041.c3"
+      ],
+      "prompt": "Which two parts of climate make the simplest way to sort biomes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wind speed and day length",
+          "correct": false,
+          "rationale": "They matter a little; heat and rain are the big dials."
+        },
+        {
+          "id": "b",
+          "label": "Temperature and precipitation",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Latitude and longitude",
+          "correct": false,
+          "rationale": "Those locate a place; they don't describe its climate."
+        },
+        {
+          "id": "d",
+          "label": "Soil color and elevation",
+          "correct": false,
+          "rationale": "Soil counts, but the two main dials are heat and rain."
+        }
+      ],
+      "explanation": "Biomes are most simply sorted by temperature and precipitation: how hot and how wet a place is.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.climate_shapes_biomes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.041.c4",
+        "card.world_geography.041.c1"
+      ],
+      "prompt": "Why do the scrublands of California and Chile look so alike?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Seeds drifted across the Pacific between them",
+          "correct": false,
+          "rationale": "Many of the lookalikes aren't even closely related."
+        },
+        {
+          "id": "b",
+          "label": "They share exactly the same plant species",
+          "correct": false,
+          "rationale": "Many lookalike plants aren't closely related."
+        },
+        {
+          "id": "c",
+          "label": "Both lie right on the Equator",
+          "correct": false,
+          "rationale": "They share mild, wet winters and dry summers, far from the Equator."
+        },
+        {
+          "id": "d",
+          "label": "Similar climates shaped unrelated plants alike",
+          "correct": true
+        }
+      ],
+      "explanation": "Both have mild, wet winters and long, dry summers. Different ancestor plants evolved similar features to cope: convergent evolution.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.biome_definition",
+        "concept.world_geography.water_planet"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.041.c2",
+        "card.world_geography.001.c1"
+      ],
+      "prompt": "Thinking back to Level 1, which major biome type covers the most of Earth's surface?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Forest",
+          "correct": false,
+          "rationale": "Forests are big, but land is the smaller share of Earth."
+        },
+        {
+          "id": "b",
+          "label": "Desert",
+          "correct": false,
+          "rationale": "Deserts cover only part of the land."
+        },
+        {
+          "id": "c",
+          "label": "Aquatic",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Tundra",
+          "correct": false,
+          "rationale": "Tundra covers only cold northern and mountain land."
+        }
+      ],
+      "explanation": "About 71% of Earth is water, and the marine part of the aquatic biome alone covers close to three-quarters of the surface.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_five_biomes",
+    "source.brit_biome",
+    "source.serc_climate_biomes",
+    "source.brit_scrubland",
+    "source.noaa_how_many_oceans",
+    "source.usgs_water_on_earth"
+  ],
+  "art": "plant.tree"
+}

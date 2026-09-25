@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.world_geography.081",
+  "skillId": "skill.geography.world_geography",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Australia in One Level",
+  "objective": "After this level you can describe Australia's dry interior and explain where most Australians live.",
+  "summary": "Australia is the smallest continent but one of the largest countries. Most of it is arid Outback, so more than 8 in 10 Australians live near the coast, mostly in the east.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.australia_land",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.australia_coastal_living",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.continent_sizes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.080"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.081.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Australia is a whole continent. Most Australians live on its edges.",
+      "body": "More than 8 in 10 of them live within 50 km of the sea. A population map looks like a picture frame: a busy border around an almost empty middle. So what's wrong with the middle?"
+    },
+    {
+      "id": "card.world_geography.081.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Last among continents, near the top among countries",
+      "body": "Remember Level 8's ranking? Australia came last: the smallest continent, and the flattest, too. Now look at it as a country, and it's one of the largest on Earth. Same land, two league tables, and it lands at opposite ends of them."
+    },
+    {
+      "id": "card.world_geography.081.c3",
+      "type": "fact",
+      "fact": "Except for Antarctica, Australia is the driest continent.",
+      "context": "Around 70% of the land is arid or semi-arid. That dry heart has a name, the Outback: a vast, flat interior with very few people. It covers most of the map but holds very few people. The picture frame starts to make sense."
+    },
+    {
+      "id": "card.world_geography.081.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Life on the rim",
+      "body": "So Australians hug the coast, and most of them live along the east coast, where the coastal rim is more fertile. Behind those eastern cities runs the Great Dividing Range, a line of mountains along the Pacific coast that separates them from the Outback. For most Australians, the beach isn't a holiday destination. It's the neighborhood.",
+      "callout": "More than 8 in 10 Australians live within 50 km of the coast"
+    },
+    {
+      "id": "card.world_geography.081.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.081.q1"
+    },
+    {
+      "id": "card.world_geography.081.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.081.q2"
+    },
+    {
+      "id": "card.world_geography.081.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.081.q3"
+    },
+    {
+      "id": "card.world_geography.081.c8",
+      "type": "checkpoint",
+      "headline": "Australia: mapped",
+      "learned": [
+        "Smallest continent, one of the largest countries",
+        "Driest continent except Antarctica",
+        "Around 70% arid or semi-arid: the Outback",
+        "More than 8 in 10 live within 50 km of the coast"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.australia_coastal_living"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.081.c4"
+      ],
+      "prompt": "Where do most Australians live?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the dry interior",
+          "correct": false,
+          "rationale": "That's the Outback, which has very few people."
+        },
+        {
+          "id": "b",
+          "label": "Near the coast, especially in the east",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Spread evenly across the country",
+          "correct": false,
+          "rationale": "The middle is almost empty."
+        },
+        {
+          "id": "d",
+          "label": "Around the Great Dividing Range's peaks",
+          "correct": false,
+          "rationale": "The range is a backdrop to the eastern cities, not where most people live."
+        }
+      ],
+      "explanation": "More than 8 in 10 Australians live within 50 km of the coast, and most live along the more fertile east coast.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.australia_land"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.081.c3"
+      ],
+      "prompt": "Why does Australia's interior have so few people?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most of the land is arid or semi-arid",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is covered in thick rainforest",
+          "correct": false,
+          "rationale": "The interior is dry Outback, not rainforest."
+        },
+        {
+          "id": "c",
+          "label": "It is mostly high mountains",
+          "correct": false,
+          "rationale": "Australia is the flattest continent."
+        },
+        {
+          "id": "d",
+          "label": "It is under an ice sheet",
+          "correct": false,
+          "rationale": "That's Antarctica, not Australia."
+        }
+      ],
+      "explanation": "Around 70% of Australia is arid or semi-arid. That dry interior, the Outback, holds few people.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.australia_land",
+        "concept.world_geography.continent_sizes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.081.c2",
+        "card.world_geography.008.c2"
+      ],
+      "prompt": "From Level 8: Australia is the smallest continent. What else is true of it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's the wettest continent",
+          "correct": false,
+          "rationale": "Only Antarctica is drier."
+        },
+        {
+          "id": "b",
+          "label": "It's the most mountainous continent",
+          "correct": false,
+          "rationale": "It's the flattest."
+        },
+        {
+          "id": "c",
+          "label": "It's one of the largest countries on Earth",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It's split among many countries",
+          "correct": false,
+          "rationale": "One country covers the whole continent."
+        }
+      ],
+      "explanation": "Australia comes last among continents but is one of the largest countries on Earth.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_australia",
+    "source.abs_coastal_population",
+    "source.abs_australian_deserts",
+    "source.natgeo_continent"
+  ],
+  "art": "geo.desert"
+}

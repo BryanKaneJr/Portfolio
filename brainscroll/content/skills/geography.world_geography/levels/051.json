@@ -1,0 +1,226 @@
+{
+  "id": "level.geography.world_geography.051",
+  "skillId": "skill.geography.world_geography",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Africa in One Level",
+  "objective": "After this level you can describe Africa's size and how its landscapes change from north to south.",
+  "summary": "Africa is the second-largest continent. The Equator cuts it almost in half, so its climates are mirrored: rainforest in the middle, then savanna, desert and Mediterranean tips.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.africa_size",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.africa_across_equator",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.tropics",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.mercator_projection",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.050"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.051.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Three famous lines of latitude cross Africa. No other continent gets all three.",
+      "body": "The Equator, the Tropic of Cancer and the Tropic of Capricorn from Level 4 all run through it. That's a clue to how big Africa is, and to how its landscapes are laid out."
+    },
+    {
+      "id": "card.world_geography.051.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bigger than your map admits",
+      "body": "Africa is the second-largest continent, after Asia, and covers about one-fifth of Earth's land. Your wall map probably undersells it. Remember Level 2: Africa is about 14 times bigger than Greenland, yet on a Mercator map they look like rivals. Mercator inflates places far from the Equator, and the Equator cuts Africa almost exactly in half. Greenland gets the boost. Africa doesn't."
+    },
+    {
+      "id": "card.world_geography.051.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A continent folded in half",
+      "body": "With the Equator through its middle, Africa's climates copy themselves on each side, like a folded inkblot. Wet rainforest sits in the center. Move north or south and it opens into savanna, grassland with scattered trees. Farther out come the deserts: the Sahara in the north, the Kalahari and the Namib in the south. At the far tips, north and south, you'll find Mediterranean climates.",
+      "callout": "Rainforest › savanna › desert › Mediterranean, in both directions",
+      "mascot": {
+        "pose": "idea",
+        "line": "Fold Africa along the Equator and its climates nearly line up. Geography's neatest party trick."
+      }
+    },
+    {
+      "id": "card.world_geography.051.c4",
+      "type": "fact",
+      "fact": "Savanna covers almost half of Africa.",
+      "context": "So the safari picture of grass and scattered trees isn't a postcard cliché. It's the most typical Africa there is. The mirror isn't perfect, though: thanks to the bulge of western Africa, more of the continent lies north of the Equator than south of it."
+    },
+    {
+      "id": "card.world_geography.051.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.051.q1"
+    },
+    {
+      "id": "card.world_geography.051.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.051.q2"
+    },
+    {
+      "id": "card.world_geography.051.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.051.q3"
+    },
+    {
+      "id": "card.world_geography.051.c8",
+      "type": "checkpoint",
+      "headline": "Africa: sized up",
+      "learned": [
+        "Africa is the second-largest continent",
+        "Mercator maps make it look smaller than it is",
+        "The Equator cuts it almost in half",
+        "Its climates mirror north and south: rainforest, savanna, desert"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.africa_size"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.051.c2"
+      ],
+      "prompt": "Where does Africa rank among the continents by size?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Largest",
+          "correct": false,
+          "rationale": "That's Asia."
+        },
+        {
+          "id": "b",
+          "label": "Second-largest",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Fourth-largest",
+          "correct": false,
+          "rationale": "It beats both Americas."
+        },
+        {
+          "id": "d",
+          "label": "Smallest",
+          "correct": false,
+          "rationale": "That's Australia."
+        }
+      ],
+      "explanation": "Africa is the second-largest continent, after Asia, with about one-fifth of Earth's land.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.africa_across_equator"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.051.c3"
+      ],
+      "prompt": "Why do Africa's climate zones repeat in the same order north and south of its middle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Sahara spreads south every year",
+          "correct": false,
+          "rationale": "The Sahara stays in the north; the pattern comes from latitude."
+        },
+        {
+          "id": "b",
+          "label": "Mountains split it into two equal halves",
+          "correct": false,
+          "rationale": "No mountain wall does it; a line of latitude does."
+        },
+        {
+          "id": "c",
+          "label": "The Equator cuts it almost in half",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Every coast has the same ocean current",
+          "correct": false,
+          "rationale": "Currents differ; the Equator sets the pattern."
+        }
+      ],
+      "explanation": "The Equator runs through Africa's middle, so climates change in the same order heading north or south: rainforest, savanna, desert, Mediterranean.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.africa_across_equator",
+        "concept.world_geography.tropics"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.051.c1",
+        "card.world_geography.004.c3"
+      ],
+      "prompt": "From Level 4: which set of lines crosses Africa and no other continent?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Equator and both polar circles",
+          "correct": false,
+          "rationale": "The polar circles are nowhere near Africa."
+        },
+        {
+          "id": "b",
+          "label": "Only the Equator",
+          "correct": false,
+          "rationale": "Other continents cross the Equator too."
+        },
+        {
+          "id": "c",
+          "label": "The two tropics and the Arctic Circle",
+          "correct": false,
+          "rationale": "The Arctic Circle is far to the north."
+        },
+        {
+          "id": "d",
+          "label": "The Equator and both tropics",
+          "correct": true
+        }
+      ],
+      "explanation": "Africa is the only continent crossed by the Equator, the Tropic of Cancer and the Tropic of Capricorn.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_africa",
+    "source.natgeo_africa_physical",
+    "source.brit_africa_climate",
+    "source.openstax_africa_geography",
+    "source.natgeo_map_projection",
+    "source.brit_mercator_projection"
+  ],
+  "art": "geo.savanna"
+}

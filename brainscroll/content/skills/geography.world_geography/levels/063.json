@@ -1,0 +1,223 @@
+{
+  "id": "level.geography.world_geography.063",
+  "skillId": "skill.geography.world_geography",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Mediterranean",
+  "objective": "After this level you can explain the Mediterranean's climate and why the sea connected ancient peoples.",
+  "summary": "The Mediterranean lies between Europe, Africa and Asia. Its climate brings hot, dry summers and cool, wet winters, and ancient seafarers settled all around its shores.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.mediterranean_sea",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.mediterranean_climate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.latitude",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.062"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.063.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Socrates had a picture for his world: frogs around a pond.",
+      "body": "In Plato's Phaedo, he says the people living between the Pillars of Hercules and the river Phasis live around the sea like ants or frogs around a pond. The pond was the Mediterranean. The frogs were busy."
+    },
+    {
+      "id": "card.world_geography.063.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The sea in the middle of the land",
+      "body": "Mediterranean comes from Latin words meaning \"in the middle of the land\", and the name fits. Europe, Africa and Asia wrap around it. It meets the Atlantic Ocean through the Strait of Gibraltar, about 13 km wide at its narrowest. And those Pillars of Hercules? They're the two headlands at the strait's eastern end. The pond has a front gate."
+    },
+    {
+      "id": "card.world_geography.063.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hot, dry summers; cool, wet winters",
+      "body": "Around the pond, the weather follows a pattern famous enough to borrow the sea's name: the Mediterranean climate. Summers are hot and dry, and winters are cool and wet. The reason is a summer visitor. A subtropical high-pressure system spreads over the region, bringing sinking air, clear skies and heat. Find the same climate elsewhere between about 30° and 45° latitude, on the western sides of continents.",
+      "callout": "Summer: hot and dry · Winter: cool and wet"
+    },
+    {
+      "id": "card.world_geography.063.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A pond, not a wall",
+      "body": "For ancient peoples, this sea was a road. Greek seafarers founded colonies all along the coasts, from Spain and France to Italy, North Africa and the Black Sea. Trade usually came first, and many colonies became trading hubs. The Greeks didn't have the water to themselves, either: the Phoenicians and Etruscans founded colonies too. Hence the frogs. Plenty of neighbors, one shared pond.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Croak if you founded a colony. Very loud pond, the ancient Mediterranean."
+      }
+    },
+    {
+      "id": "card.world_geography.063.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.063.q1"
+    },
+    {
+      "id": "card.world_geography.063.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.063.q2"
+    },
+    {
+      "id": "card.world_geography.063.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.063.q3"
+    },
+    {
+      "id": "card.world_geography.063.c8",
+      "type": "checkpoint",
+      "headline": "Mediterranean: sailed",
+      "learned": [
+        "Mediterranean means 'in the middle of the land'",
+        "Europe, Africa and Asia surround the sea",
+        "Its climate: hot, dry summers and cool, wet winters",
+        "Greeks and Phoenicians settled all around its coasts"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.mediterranean_climate"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.063.c3"
+      ],
+      "prompt": "What are summers like in a Mediterranean climate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hot and dry",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Hot and rainy",
+          "correct": false,
+          "rationale": "The rain comes in winter instead."
+        },
+        {
+          "id": "c",
+          "label": "Cool and foggy",
+          "correct": false,
+          "rationale": "Summer brings clear skies and heat."
+        },
+        {
+          "id": "d",
+          "label": "Mild and snowy",
+          "correct": false,
+          "rationale": "Snow in summer? Not around this pond."
+        }
+      ],
+      "explanation": "A Mediterranean climate has hot, dry summers and cool, wet winters.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.mediterranean_sea"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.063.c1",
+        "card.world_geography.063.c4"
+      ],
+      "prompt": "What was Socrates describing with his frogs around a pond?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Farmers crowded along a single river",
+          "correct": false,
+          "rationale": "His pond was a sea, not a river."
+        },
+        {
+          "id": "b",
+          "label": "Peoples settled all around the shores of one sea",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sailors too afraid to leave the coast",
+          "correct": false,
+          "rationale": "They sailed the whole sea and founded colonies."
+        },
+        {
+          "id": "d",
+          "label": "Villages built beside inland lakes",
+          "correct": false,
+          "rationale": "The 'pond' was the Mediterranean itself."
+        }
+      ],
+      "explanation": "Greeks, Phoenicians and others settled all around the Mediterranean's coasts, like frogs around one shared pond.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.latitude",
+        "concept.world_geography.mediterranean_climate"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.003.c2",
+        "card.world_geography.063.c3"
+      ],
+      "prompt": "Using Level 3's latitude, where else would you look for a Mediterranean climate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Near 0°, on the Equator",
+          "correct": false,
+          "rationale": "The Equator is hot and wet all year."
+        },
+        {
+          "id": "b",
+          "label": "Around 10° to 20°, on east coasts",
+          "correct": false,
+          "rationale": "Too close to the Equator, and the wrong side of the continent."
+        },
+        {
+          "id": "c",
+          "label": "Around 30° to 45°, on west coasts",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Near 90°, at the poles",
+          "correct": false,
+          "rationale": "The poles are far too cold."
+        }
+      ],
+      "explanation": "Mediterranean climates lie between about 30° and 45° latitude, north or south of the Equator, on the western sides of continents.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.perseus_plato_phaedo",
+    "source.etymonline_mediterranean",
+    "source.brit_mediterranean_sea",
+    "source.brit_pillars_of_heracles",
+    "source.brit_mediterranean_climate",
+    "source.worldhistory_greek_colonization"
+  ],
+  "art": "geo.lighthouse"
+}

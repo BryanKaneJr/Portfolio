@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.world_geography.026",
+  "skillId": "skill.geography.world_geography",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Lakes and Inland Seas",
+  "objective": "After this level you can explain how lakes form and why some, like the Dead Sea, are salty.",
+  "summary": "Lakes fill basins dug by glaciers or by the crust pulling apart. A lake with no outlet loses water only by evaporation, so its salt builds up, as in the Dead Sea.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.lake_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.salt_lakes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.water_cycle",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.025"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Dead Sea is a lake. So why is it saltier than the sea?",
+      "body": "It's nearly ten times saltier than the ocean, and you can lie back and float like a pool toy. To see why, start with how any lake gets made."
+    },
+    {
+      "id": "card.world_geography.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "First, dig a bowl",
+      "body": "A lake is a large body of standing or slowly moving water that fills a basin inland, so something has to dig the basin. Glaciers have made more lake basins than anything else, especially in the Northern Hemisphere; a retreating ice sheet shaped North America's Great Lakes. Earth's crust digs some too. Siberia's Lake Baikal fills a rift where the crust is breaking apart. It's the deepest and oldest lake on Earth, and it holds about a fifth of the fresh water on the planet's surface."
+    },
+    {
+      "id": "card.world_geography.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the salt comes from",
+      "body": "Rain slowly dissolves minerals from rocks, and rivers carry them downstream. That's where the ocean's salt comes from. Now picture a lake with no outlet. It can lose water only by evaporation, and evaporation takes the water but leaves the salt. Year after year, the salt stays and the lake grows saltier. It's a bathtub that fills from the tap and never drains."
+    },
+    {
+      "id": "card.world_geography.026.c4",
+      "type": "fact",
+      "fact": "The Dead Sea is nearly ten times saltier than the ocean.",
+      "context": "The Jordan River supplies nearly all its water, and nothing flows out. Water leaves only by evaporation, so the salt piles up. The water is so dense that bathers float easily, and apart from bacteria, nothing lives in it. Not so dead after all, if you're a microbe."
+    },
+    {
+      "id": "card.world_geography.026.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.026.q1"
+    },
+    {
+      "id": "card.world_geography.026.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.026.q2"
+    },
+    {
+      "id": "card.world_geography.026.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.026.q3"
+    },
+    {
+      "id": "card.world_geography.026.c8",
+      "type": "checkpoint",
+      "headline": "Lakes: explained",
+      "learned": [
+        "A lake fills an inland basin",
+        "Glaciers dug most lake basins",
+        "Lake Baikal fills a rift: deepest and oldest",
+        "No outlet means evaporation leaves salt behind",
+        "The Dead Sea is nearly ten times saltier than the ocean"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.lake_formation"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.026.c2"
+      ],
+      "prompt": "What has formed more lake basins than anything else?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Volcanoes",
+          "correct": false,
+          "rationale": "Some lakes fill craters, but far fewer."
+        },
+        {
+          "id": "b",
+          "label": "Rivers changing course",
+          "correct": false,
+          "rationale": "A few lakes form that way, not most."
+        },
+        {
+          "id": "c",
+          "label": "Glaciers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Meteorite impacts",
+          "correct": false,
+          "rationale": "Impact lakes are rare."
+        }
+      ],
+      "explanation": "Glaciers have formed more lake basins than any other process, especially in the Northern Hemisphere, including the Great Lakes.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.salt_lakes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.026.c3",
+        "card.world_geography.026.c4"
+      ],
+      "prompt": "Why is the Dead Sea so much saltier than most lakes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Seawater leaks into it",
+          "correct": false,
+          "rationale": "It is fed by the Jordan River, not the sea."
+        },
+        {
+          "id": "b",
+          "label": "It has no outlet, so evaporation leaves the salt behind",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is the deepest lake on Earth",
+          "correct": false,
+          "rationale": "That is Lake Baikal, which is fresh."
+        },
+        {
+          "id": "d",
+          "label": "Its fish produce salt",
+          "correct": false,
+          "rationale": "Apart from bacteria, nothing lives in it."
+        }
+      ],
+      "explanation": "With no outlet, water leaves the Dead Sea only by evaporation. The salt stays, so the lake keeps getting saltier.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.salt_lakes",
+        "concept.world_geography.water_cycle"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.026.c3",
+        "card.world_geography.021.c2"
+      ],
+      "prompt": "From Level 21: the Sun's energy evaporates water from a lake with no outlet. What happens to the lake's salt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rises into the clouds",
+          "correct": false,
+          "rationale": "Only the water evaporates."
+        },
+        {
+          "id": "b",
+          "label": "It turns into fresh water",
+          "correct": false,
+          "rationale": "Salt does not turn into water."
+        },
+        {
+          "id": "c",
+          "label": "It flows out to the ocean",
+          "correct": false,
+          "rationale": "The lake has no outlet."
+        },
+        {
+          "id": "d",
+          "label": "It stays behind in the lake",
+          "correct": true
+        }
+      ],
+      "explanation": "Evaporation takes the water and leaves the salt, which is why lakes with no outlet grow salty.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_dead_sea_saltier",
+    "source.brit_dead_sea",
+    "source.brit_lake",
+    "source.brit_lake_baikal",
+    "source.usgs_why_ocean_salty",
+    "source.usgs_evaporation"
+  ],
+  "art": "geo.river"
+}

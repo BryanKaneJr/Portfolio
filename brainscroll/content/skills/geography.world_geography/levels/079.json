@@ -1,0 +1,228 @@
+{
+  "id": "level.geography.world_geography.079",
+  "skillId": "skill.geography.world_geography",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Amazon and the Andes",
+  "objective": "After this level you can explain how the Andes and the Amazon shape South America.",
+  "summary": "The Andes, the longest continental range, carry the Continental Divide down South America's west. The Amazon rises near the Pacific but flows east to the Atlantic with a fifth of Earth's runoff.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.andes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.amazon_river",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.continental_divide",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.mississippi_watershed",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.078"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.079.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Amazon starts about 160 km from the Pacific. It ends in the Atlantic.",
+      "body": "Imagine a river that begins a short drive from one ocean and then crosses a whole continent to reach the other one. The mountains decided the route, and Level 72 already told you how."
+    },
+    {
+      "id": "card.world_geography.079.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The longest mountain wall",
+      "body": "The Andes are the world's longest continental mountain range, running along South America's western edge through seven countries. Their highest peak, Aconcagua, on the border of Argentina and Chile, is the highest point in the Western Hemisphere. And Level 72's Continental Divide doesn't stop in the Rockies: it runs through Mexico and Central America and right down the Andes.",
+      "callout": "The Continental Divide: Alaska → Rockies → Mexico → Central America → Andes"
+    },
+    {
+      "id": "card.world_geography.079.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "So the water goes east",
+      "body": "The Amazon rises high in the Andes of Peru, on the side that drains away from the Pacific, then flows east across the whole continent to the Atlantic. Along the way it gathers so much water that it carries about one-fifth of all the water that runs off Earth's surface. One river, a fifth of the planet's runoff. That's a lot of rain finding the same exit.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Every fifth drop running off the land, anywhere on Earth, is riding the Amazon. Busy river."
+      }
+    },
+    {
+      "id": "card.world_geography.079.c4",
+      "type": "fact",
+      "fact": "The Amazon drains the largest river basin in the world.",
+      "context": "It's the biggest river system both by the area it drains and by the water it carries. Remember Level 73's Mississippi funnel, draining about 40% of the continental US? The Amazon's funnel is bigger still. Same idea, larger kitchen."
+    },
+    {
+      "id": "card.world_geography.079.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.079.q1"
+    },
+    {
+      "id": "card.world_geography.079.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.079.q2"
+    },
+    {
+      "id": "card.world_geography.079.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.079.q3"
+    },
+    {
+      "id": "card.world_geography.079.c8",
+      "type": "checkpoint",
+      "headline": "Amazon and Andes: explored",
+      "learned": [
+        "The Andes are the longest continental range",
+        "Aconcagua is the Western Hemisphere's highest point",
+        "The Continental Divide runs down the Andes",
+        "The Amazon carries about a fifth of Earth's runoff"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.andes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.079.c2"
+      ],
+      "prompt": "Where do the Andes run?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Along South America's eastern coast",
+          "correct": false,
+          "rationale": "The east is plains and lowlands."
+        },
+        {
+          "id": "b",
+          "label": "Across the middle of the Amazon basin",
+          "correct": false,
+          "rationale": "The basin lies east of the mountains."
+        },
+        {
+          "id": "c",
+          "label": "Along South America's western edge",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Across the Central American isthmus",
+          "correct": false,
+          "rationale": "The Andes are in South America."
+        }
+      ],
+      "explanation": "The Andes, the world's longest continental range, run along South America's western edge through seven countries.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.amazon_river",
+        "concept.world_geography.continental_divide"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.079.c3",
+        "card.world_geography.079.c2"
+      ],
+      "prompt": "The Amazon begins near the Pacific. Why does it end in the Atlantic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Atlantic tides pull the river east",
+          "correct": false,
+          "rationale": "Tides don't steer rivers across continents."
+        },
+        {
+          "id": "b",
+          "label": "It starts on the divide's Atlantic side",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Pacific coast is blocked by ice",
+          "correct": false,
+          "rationale": "South America's Pacific coast isn't iced over."
+        },
+        {
+          "id": "d",
+          "label": "It follows the Equator across the land",
+          "correct": false,
+          "rationale": "Rivers follow the land's slope, not latitude lines."
+        }
+      ],
+      "explanation": "The Continental Divide runs along the Andes, and the Amazon starts on the side that drains east, so it crosses the continent to the Atlantic.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.world_geography.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.amazon_river",
+        "concept.world_geography.mississippi_watershed"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.079.c4",
+        "card.world_geography.073.c2"
+      ],
+      "prompt": "From Level 73: how does the Amazon's basin compare with the Mississippi's?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Amazon's is larger",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Mississippi's is larger",
+          "correct": false,
+          "rationale": "The Amazon drains the largest basin in the world."
+        },
+        {
+          "id": "c",
+          "label": "They are about the same size",
+          "correct": false,
+          "rationale": "The Amazon's is the world's largest."
+        },
+        {
+          "id": "d",
+          "label": "The Amazon has no real basin",
+          "correct": false,
+          "rationale": "Every river drains a basin, and the Amazon's is the biggest."
+        }
+      ],
+      "explanation": "The Mississippi drains about 40% of the continental US, but the Amazon drains the largest river basin in the world.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.guinness_longest_continental_range",
+    "source.brit_andes",
+    "source.brit_amazon_river",
+    "source.natgeo_continental_divide",
+    "source.nps_mississippi_facts",
+    "source.brit_mississippi_river"
+  ],
+  "art": "geo.rainforest"
+}

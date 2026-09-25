@@ -1,0 +1,221 @@
+{
+  "id": "level.geography.world_geography.088",
+  "skillId": "skill.geography.world_geography",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Antarctica",
+  "objective": "After this level you can explain why Antarctica is the coldest, driest and windiest continent.",
+  "summary": "Antarctica's ice sheet holds about 90% of the world's ice and makes it the highest continent. Height helps make it the coldest; so little snow falls that it's a desert.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.antarctica_extremes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.antarctic_ice_sheet",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.elevation_contours",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.087"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Antarctica is buried in ice. It's also a desert.",
+      "body": "It's the highest, driest, windiest, coldest and iciest continent on Earth. One giant ice sheet explains a surprising amount of that list."
+    },
+    {
+      "id": "card.world_geography.088.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A continent wearing a mountain of ice",
+      "body": "Antarctica is a rocky continent capped by an ice sheet up to 4.8 km thick, holding about 90% of all the ice on Earth. All that ice lifts the surface so high that Antarctica is the highest continent, averaging about 2,200 m above sea level. In a sense, much of Antarctica's height is made of frozen water."
+    },
+    {
+      "id": "card.world_geography.088.c3",
+      "type": "fact",
+      "fact": "The coldest temperature ever measured on Earth: −89.2 °C.",
+      "context": "It was recorded at Vostok station in Antarctica on 21 July 1983. Height is part of the reason. Air gets colder the higher you go, and Antarctica sits higher on average than any other continent. Antarctica is cold partly for the same reason mountaintops are."
+    },
+    {
+      "id": "card.world_geography.088.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dry as a desert, windy as an open freezer",
+      "body": "A desert is defined by how little precipitation falls, usually less than about 250 to 500 mm a year, not by heat. Antarctica's snowfall adds up to only about 150 mm of rain a year, so it's a cold, dry desert. And the wind? Air over the ice cools, gets heavier and pours downhill toward the coast. These katabatic winds are like the cold air spilling out of an open freezer, only continent-sized.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "So the biggest pile of frozen water on Earth sits in a desert. Geography loves a plot twist."
+      }
+    },
+    {
+      "id": "card.world_geography.088.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.088.q1"
+    },
+    {
+      "id": "card.world_geography.088.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.088.q2"
+    },
+    {
+      "id": "card.world_geography.088.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.088.q3"
+    },
+    {
+      "id": "card.world_geography.088.c8",
+      "type": "checkpoint",
+      "headline": "Antarctica: survived",
+      "learned": [
+        "An ice sheet up to 4.8 km thick holds about 90% of Earth's ice",
+        "The ice makes Antarctica the highest continent",
+        "Record low: −89.2 °C at Vostok in 1983",
+        "Little snowfall makes it a desert; katabatic winds pour off the ice"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.antarctic_ice_sheet"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.088.c2"
+      ],
+      "prompt": "About how much of the world's ice is in Antarctica's ice sheet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10%",
+          "correct": false,
+          "rationale": "Far too little: it's the great majority."
+        },
+        {
+          "id": "b",
+          "label": "About 50%",
+          "correct": false,
+          "rationale": "More than that."
+        },
+        {
+          "id": "c",
+          "label": "About 90%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "All of it",
+          "correct": false,
+          "rationale": "Greenland and the world's glaciers hold some, too."
+        }
+      ],
+      "explanation": "Antarctica's ice sheet holds about 90% of all the ice on Earth.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.antarctica_extremes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.088.c4"
+      ],
+      "prompt": "How can an ice-covered continent be a desert?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its ice is mostly frozen sand",
+          "correct": false,
+          "rationale": "It's real ice, built up from snow."
+        },
+        {
+          "id": "b",
+          "label": "Very little snow falls there each year",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It gets very hot in summer",
+          "correct": false,
+          "rationale": "Deserts are defined by dryness, not heat."
+        },
+        {
+          "id": "d",
+          "label": "Deserts only need to be empty of people",
+          "correct": false,
+          "rationale": "The definition is about precipitation."
+        }
+      ],
+      "explanation": "Deserts are defined by low precipitation. Antarctica's snowfall equals only about 150 mm of rain a year.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.antarctic_ice_sheet",
+        "concept.world_geography.elevation_contours"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.088.c2",
+        "card.world_geography.007.c2"
+      ],
+      "prompt": "Antarctica is the highest continent on average. From Level 7: what is that height measured from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sea level",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The bottom of the ice sheet",
+          "correct": false,
+          "rationale": "Map heights start from sea level."
+        },
+        {
+          "id": "c",
+          "label": "The center of Earth",
+          "correct": false,
+          "rationale": "That's not how map heights work."
+        },
+        {
+          "id": "d",
+          "label": "The top of Mount Everest",
+          "correct": false,
+          "rationale": "Everest's height is itself measured above sea level."
+        }
+      ],
+      "explanation": "Map heights are measured above mean sea level. Antarctica averages about 2,200 m above it.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_antarctica",
+    "source.bas_antarctic_factsheet",
+    "source.wmo_lowest_temperature",
+    "source.whoi_polar_weather",
+    "source.ga_deserts",
+    "source.aap_katabatic_winds",
+    "source.sco_wisc_topographic_maps"
+  ],
+  "art": "geo.glacier"
+}

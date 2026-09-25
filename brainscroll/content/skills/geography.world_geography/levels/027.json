@@ -1,0 +1,219 @@
+{
+  "id": "level.geography.world_geography.027",
+  "skillId": "skill.geography.world_geography",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Glaciers and Ice Sheets",
+  "objective": "After this level you can explain how glaciers form and how much fresh water they hold.",
+  "summary": "Glaciers form where snow survives year after year and is squeezed into ice that flows downhill. Earth's two ice sheets hold over 68% of its fresh water.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.glaciers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.ice_sheets",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.landforms",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.026"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A glacier is snow that refused to melt.",
+      "body": "No freezer required. Just snow that lasted through summer, then got buried by next winter's snow, again and again, until it became a river of ice."
+    },
+    {
+      "id": "card.world_geography.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From snowflake to ice",
+      "body": "A glacier starts where snow lasts all year and piles up. Each new layer buries and squeezes the ones below. The buried snow recrystallizes into grains about the size and shape of sugar, then packs tighter until it's solid ice. And ice that heavy doesn't sit still: it slowly flows downhill under its own weight. A mountain glacier is a frozen river in extreme slow motion."
+    },
+    {
+      "id": "card.world_geography.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rivers of ice leave a U",
+      "body": "Remember Level 7's valleys? Rivers cut a V; glaciers grind a U. That's the flow at work: a glacier doesn't just sit on a mountain, it slowly moves down it and reshapes the valley as it goes. When the ice finally melts away, the U stays behind as proof it was there."
+    },
+    {
+      "id": "card.world_geography.027.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two giants",
+      "body": "Ice sheets are glaciers on a continental scale, and Earth has just two today: one covers most of Greenland, the other spans Antarctica. Together they hold over 68% of all the fresh water on Earth. If the whole Antarctic Ice Sheet melted, sea level would rise about 58 m. That's a lot of water parked on land.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Most of the planet's fresh water is sitting in two giant freezers. Please don't unplug them."
+      }
+    },
+    {
+      "id": "card.world_geography.027.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.027.q1"
+    },
+    {
+      "id": "card.world_geography.027.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.027.q2"
+    },
+    {
+      "id": "card.world_geography.027.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.027.q3"
+    },
+    {
+      "id": "card.world_geography.027.c8",
+      "type": "checkpoint",
+      "headline": "Ice: understood",
+      "learned": [
+        "Glaciers form from snow that lasts year after year",
+        "Buried snow is squeezed into ice",
+        "Glaciers flow downhill under their own weight",
+        "Earth has two ice sheets: Greenland and Antarctica",
+        "They hold over 68% of Earth's fresh water"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.ice_sheets"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.027.c4"
+      ],
+      "prompt": "Where are Earth's two ice sheets today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Greenland and Antarctica",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Alaska and Siberia",
+          "correct": false,
+          "rationale": "They have glaciers, but no ice sheets."
+        },
+        {
+          "id": "c",
+          "label": "The Arctic Ocean and Antarctica",
+          "correct": false,
+          "rationale": "Arctic sea ice floats; it is not an ice sheet on land."
+        },
+        {
+          "id": "d",
+          "label": "The Alps and the Himalayas",
+          "correct": false,
+          "rationale": "Those hold mountain glaciers."
+        }
+      ],
+      "explanation": "Earth has just two ice sheets: one covers most of Greenland and the other spans Antarctica.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.glaciers"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.027.c2"
+      ],
+      "prompt": "A glacier is solid ice. How can it still move downhill?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wind blows it along",
+          "correct": false,
+          "rationale": "Wind is far too weak to push a glacier."
+        },
+        {
+          "id": "b",
+          "label": "It melts and refreezes each night",
+          "correct": false,
+          "rationale": "It moves as ice, under its own weight."
+        },
+        {
+          "id": "c",
+          "label": "Earthquakes shake it loose",
+          "correct": false,
+          "rationale": "Glaciers move without earthquakes."
+        },
+        {
+          "id": "d",
+          "label": "It slowly flows under its own weight",
+          "correct": true
+        }
+      ],
+      "explanation": "Once snow has been squeezed into heavy ice, the glacier slowly flows downhill under its own weight.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.glaciers",
+        "concept.world_geography.landforms"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.027.c3",
+        "card.world_geography.007.c4"
+      ],
+      "prompt": "From Level 7: what shape of valley does a glacier leave behind?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A V shape",
+          "correct": false,
+          "rationale": "That is what rivers cut."
+        },
+        {
+          "id": "b",
+          "label": "A U shape",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A triangle, like a delta",
+          "correct": false,
+          "rationale": "Deltas are built at river mouths."
+        },
+        {
+          "id": "d",
+          "label": "A flat plateau",
+          "correct": false,
+          "rationale": "Plateaus are raised flat land."
+        }
+      ],
+      "explanation": "Rivers cut V-shaped valleys; flowing glaciers grind them into U shapes.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.nsidc_glacier_quick_facts",
+    "source.natgeo_valleys",
+    "source.nsidc_ice_sheet_quick_facts"
+  ],
+  "art": "geo.glacier"
+}

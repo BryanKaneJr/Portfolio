@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.world_geography.013",
+  "skillId": "skill.geography.world_geography",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pangaea",
+  "objective": "After this level you can explain the evidence that today's continents were once joined.",
+  "summary": "Wegener proposed in 1912 that the continents were once joined in Pangaea. Matching coasts, rocks and Mesosaurus fossils backed him; plate tectonics finally explained how.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.continental_drift",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.drift_evidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.tectonic_plates",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.seven_continents",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.012"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Africa and South America look like two halves of a torn page.",
+      "body": "Slide them together on a map and their coasts nearly click into place. It isn't a coincidence."
+    },
+    {
+      "id": "card.world_geography.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One land, one ocean",
+      "body": "In 1912, a German meteorologist named Alfred Wegener argued that the continents were once joined in one supercontinent. He called it Pangaea, from Greek for 'all the Earth', and a single global ocean, Panthalassa, surrounded it. About 200 million years ago Pangaea began to break apart, and its pieces became today's continents, the seven you met in Level 1."
+    },
+    {
+      "id": "card.world_geography.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The reptile that couldn't swim an ocean",
+      "body": "Coastlines were only the start. The rock layers of the two coasts match, too. Then there's Mesosaurus, a small freshwater reptile whose fossils turn up only in southern Africa and South America. It couldn't have swum the Atlantic. The simpler answer: it never had to, because the two continents were joined."
+    },
+    {
+      "id": "card.world_geography.013.c4",
+      "type": "fact",
+      "fact": "Almost nobody believed him.",
+      "context": "Wegener couldn't explain what force could move whole continents, so most scientists rejected the idea. The answer came in the 1960s, when seafloor spreading and plate tectonics supplied the missing mechanism: Level 12's moving plates. Wegener had the what. He just didn't have the how.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Right answer, missing homework. Science still checks your working."
+      }
+    },
+    {
+      "id": "card.world_geography.013.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.013.q1"
+    },
+    {
+      "id": "card.world_geography.013.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.013.q2"
+    },
+    {
+      "id": "card.world_geography.013.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.013.q3"
+    },
+    {
+      "id": "card.world_geography.013.c8",
+      "type": "checkpoint",
+      "headline": "Pangaea: reassembled",
+      "learned": [
+        "Wegener proposed Pangaea in 1912",
+        "It began breaking apart about 200 million years ago",
+        "Coasts, rocks and Mesosaurus fossils match across the Atlantic",
+        "Plate tectonics supplied the missing how"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.continental_drift"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.013.c2"
+      ],
+      "prompt": "What was Pangaea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The ocean that surrounded all the land",
+          "correct": false,
+          "rationale": "That was Panthalassa."
+        },
+        {
+          "id": "b",
+          "label": "The first map to show seven continents",
+          "correct": false,
+          "rationale": "It was land, not a map."
+        },
+        {
+          "id": "c",
+          "label": "A supercontinent that joined the continents",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A ridge where the Atlantic is widening",
+          "correct": false,
+          "rationale": "That's the Mid-Atlantic Ridge."
+        }
+      ],
+      "explanation": "Pangaea was one supercontinent. It began breaking apart about 200 million years ago.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.drift_evidence"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.013.c3"
+      ],
+      "prompt": "Why are Mesosaurus fossils strong evidence that Africa and South America were once joined?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It lived in the open ocean and spread everywhere",
+          "correct": false,
+          "rationale": "It was a freshwater reptile."
+        },
+        {
+          "id": "b",
+          "label": "A small freshwater reptile couldn't have swum the Atlantic",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its fossils are found on every continent",
+          "correct": false,
+          "rationale": "They turn up only in southern Africa and South America."
+        },
+        {
+          "id": "d",
+          "label": "Rivers carried its bones across the ocean",
+          "correct": false,
+          "rationale": "Its fossils sit where it lived."
+        }
+      ],
+      "explanation": "A small freshwater reptile couldn't cross an ocean, so the two continents must have been joined when it lived.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.continental_drift",
+        "concept.world_geography.tectonic_plates"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.013.c4",
+        "card.world_geography.012.c2"
+      ],
+      "prompt": "From Level 12: what finally convinced scientists that continents really move?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Better maps of the coastlines",
+          "correct": false,
+          "rationale": "Wegener already had those."
+        },
+        {
+          "id": "b",
+          "label": "More Mesosaurus fossils",
+          "correct": false,
+          "rationale": "The fossils weren't the missing piece."
+        },
+        {
+          "id": "c",
+          "label": "Photos of Pangaea from space",
+          "correct": false,
+          "rationale": "Pangaea broke up long before any cameras."
+        },
+        {
+          "id": "d",
+          "label": "Plate tectonics explained what moves them",
+          "correct": true
+        }
+      ],
+      "explanation": "Wegener lacked a mechanism. In the 1960s, seafloor spreading and plate tectonics showed that moving plates carry the continents.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_continental_drift",
+    "source.usgs_dynamic_historical",
+    "source.brit_pangea",
+    "source.natgeo_continent",
+    "source.usgs_dynamic_inside",
+    "source.natgeo_plate_tectonics"
+  ],
+  "art": "geo.earth-layers"
+}

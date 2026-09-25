@@ -1,0 +1,223 @@
+{
+  "id": "level.geography.world_geography.035",
+  "skillId": "skill.geography.world_geography",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Monsoons",
+  "objective": "After this level you can explain how seasonal winds bring monsoon rains to South Asia.",
+  "summary": "A monsoon is a seasonal wind reversal. In summer, hot land draws moist ocean air over South Asia, bringing most of India's rain; in winter the wind turns and dries.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.monsoon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.pressure_wind",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.rain_shadow",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.034"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A monsoon isn't a rainstorm. It's a wind that changes its mind.",
+      "body": "A monsoon is a seasonal change in the direction of a region's main winds. The word comes from the Arabic mawsim, meaning season. And the season it brings can make or break a year's harvest."
+    },
+    {
+      "id": "card.world_geography.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Land heats faster than water",
+      "body": "Picture a beach in summer: the sand burns your feet while the sea stays cool. Land heats up faster than water, and a whole continent does the same. In summer, low pressure forms over the hot land. You know Level 33's rule: air flows from high pressure to low. So moist air from the cooler ocean pours inland."
+    },
+    {
+      "id": "card.world_geography.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "South Asia's summer soaking",
+      "body": "In South Asia, the summer monsoon blows in off the Indian Ocean from the southwest, from about June to September, bringing heavy rain. About three-quarters of India's yearly rain falls in those months. Farther north, the Himalaya squeeze the air dry, leaving the Tibetan Plateau in a rain shadow. In winter the pattern reverses: winds blow from the northeast and the weather turns mostly dry.",
+      "callout": "Summer: from the southwest, wet. Winter: from the northeast, dry."
+    },
+    {
+      "id": "card.world_geography.035.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Too little, too much",
+      "body": "Farms across South Asia depend on the monsoon. When the rains come late or weak, harvests suffer. When they come too hard, floods follow. Same wind, very different years, and a huge part of the world watches the sky to see which one it's getting.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Imagine your whole year depending on which way the wind decides to blow. Suddenly my weather app feels trivial."
+      }
+    },
+    {
+      "id": "card.world_geography.035.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.035.q1"
+    },
+    {
+      "id": "card.world_geography.035.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.035.q2"
+    },
+    {
+      "id": "card.world_geography.035.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.035.q3"
+    },
+    {
+      "id": "card.world_geography.035.c8",
+      "type": "checkpoint",
+      "headline": "Monsoons: understood",
+      "learned": [
+        "A monsoon is a seasonal wind reversal",
+        "Land heats faster than sea, pulling in moist air",
+        "About three-quarters of India's rain comes in the summer monsoon",
+        "Winter monsoon winds come from the northeast, dry"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.monsoon"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.035.c1"
+      ],
+      "prompt": "What is a monsoon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Any very heavy rainstorm",
+          "correct": false,
+          "rationale": "The rain comes with it, but the monsoon is the wind."
+        },
+        {
+          "id": "b",
+          "label": "A seasonal change in the direction of a region's main winds",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A tropical storm that forms over the Indian Ocean",
+          "correct": false,
+          "rationale": "A tropical storm is a different kind of weather."
+        },
+        {
+          "id": "d",
+          "label": "A dry wind that blows off a desert",
+          "correct": false,
+          "rationale": "Monsoons switch direction with the seasons."
+        }
+      ],
+      "explanation": "A monsoon is a seasonal wind reversal; the name comes from the Arabic word for season.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.monsoon",
+        "concept.world_geography.pressure_wind"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.035.c2"
+      ],
+      "prompt": "Why does the summer monsoon blow from the ocean onto the land?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The ocean heats faster and pushes air away",
+          "correct": false,
+          "rationale": "It's the land that heats faster."
+        },
+        {
+          "id": "b",
+          "label": "The Himalaya pull the air north",
+          "correct": false,
+          "rationale": "Mountains block air; they don't pull it."
+        },
+        {
+          "id": "c",
+          "label": "The land heats faster, creating low pressure",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The trade winds reverse every summer",
+          "correct": false,
+          "rationale": "The trade winds are the steady ones."
+        }
+      ],
+      "explanation": "Land heats up faster than water. Low pressure forms over the hot land, and moist ocean air flows in toward it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.monsoon",
+        "concept.world_geography.rain_shadow"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.035.c3",
+        "card.world_geography.034.c3"
+      ],
+      "prompt": "Using Level 34: why is the Tibetan Plateau dry, even in monsoon season?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sits in the rain shadow of the Himalaya",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The monsoon only blows in winter there",
+          "correct": false,
+          "rationale": "The summer monsoon is the wet one."
+        },
+        {
+          "id": "c",
+          "label": "It is too close to the Equator",
+          "correct": false,
+          "rationale": "It's well north of the tropics; the mountains are the reason."
+        },
+        {
+          "id": "d",
+          "label": "The Indian Ocean is too cold to evaporate",
+          "correct": false,
+          "rationale": "The ocean supplies plenty of moisture."
+        }
+      ],
+      "explanation": "The Himalaya wring the rain out of the monsoon air on their windward side, leaving the plateau beyond in a rain shadow.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_monsoon",
+    "source.brit_monsoon",
+    "source.brit_indian_monsoon",
+    "source.natgeo_rain_shadow",
+    "source.nesdis_why_wind_blows",
+    "source.ucar_highs_lows"
+  ],
+  "art": "nature.rain-cloud"
+}

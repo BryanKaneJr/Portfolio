@@ -1,0 +1,217 @@
+{
+  "id": "level.geography.world_geography.077",
+  "skillId": "skill.geography.world_geography",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Caribbean",
+  "objective": "After this level you can describe the Caribbean islands and explain their hurricane season.",
+  "summary": "The Caribbean islands curve in a long crescent, led by Cuba. Hurricanes feed on warm water, so the season runs June to November and peaks in September, when the sea is warmest.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.caribbean_islands",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.hurricane_season",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.tropics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.076"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.077.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Hurricane season has a start date and an end date.",
+      "body": "In the Atlantic, it officially runs from June 1 to November 30. Storms can't read calendars, so why does the season keep to one? The answer is floating all around the Caribbean islands."
+    },
+    {
+      "id": "card.world_geography.077.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A crescent of islands",
+      "body": "The Caribbean islands, also called the West Indies, curve in a crescent more than 3,200 km long, fencing off the Caribbean Sea and the Gulf of Mexico from the open Atlantic. The big ones, Cuba, Hispaniola, Jamaica and Puerto Rico, form the Greater Antilles, and Cuba is the largest of all. Hispaniola is one island shared by two countries, Haiti and the Dominican Republic. The smaller Lesser Antilles curve away to the southeast like a trail of stepping stones."
+    },
+    {
+      "id": "card.world_geography.077.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hurricane fuel",
+      "body": "A hurricane is a rotating storm that forms over tropical or subtropical waters, and its fuel is warm ocean water: at least 26.5°C. Those warm seas are Level 4 territory: the tropics, the only places where the Sun ever stands directly overhead. Warm tropical water is the fuel tank, and a hurricane is the engine that burns it."
+    },
+    {
+      "id": "card.world_geography.077.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why not June?",
+      "body": "If the Sun is strongest in late June, why doesn't hurricane season peak then? Because oceans warm slowly. It takes several weeks after the Sun's peak for the sea to reach its warmest, just as a summer day is hottest in mid-afternoon, not at noon. So the season peaks around September 10, with most activity from mid-August to mid-October.",
+      "callout": "Season: June 1 to November 30 · Peak: around September 10"
+    },
+    {
+      "id": "card.world_geography.077.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.077.q1"
+    },
+    {
+      "id": "card.world_geography.077.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.077.q2"
+    },
+    {
+      "id": "card.world_geography.077.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.077.q3"
+    },
+    {
+      "id": "card.world_geography.077.c8",
+      "type": "checkpoint",
+      "headline": "Caribbean: charted",
+      "learned": [
+        "The islands curve in a crescent over 3,200 km long",
+        "Cuba is the largest; Hispaniola has two countries",
+        "Hurricanes need water of at least 26.5°C",
+        "The season peaks in September, when the sea is warmest"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.caribbean_islands"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.077.c2"
+      ],
+      "prompt": "Which is the largest Caribbean island?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Jamaica",
+          "correct": false,
+          "rationale": "Jamaica is one of the Greater Antilles, but Cuba is the largest."
+        },
+        {
+          "id": "b",
+          "label": "Cuba",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Puerto Rico",
+          "correct": false,
+          "rationale": "Puerto Rico is one of the smaller Greater Antilles."
+        },
+        {
+          "id": "d",
+          "label": "Hispaniola",
+          "correct": false,
+          "rationale": "Hispaniola is big and shared by two countries, but Cuba is larger."
+        }
+      ],
+      "explanation": "Cuba, one of the Greater Antilles, is the largest island in the Caribbean.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.hurricane_season"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.077.c4"
+      ],
+      "prompt": "Why does the Atlantic hurricane season peak around September, not June?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hurricanes need cold water to start",
+          "correct": false,
+          "rationale": "Warm water is their fuel."
+        },
+        {
+          "id": "b",
+          "label": "The Sun is strongest in September",
+          "correct": false,
+          "rationale": "The Sun peaks in late June."
+        },
+        {
+          "id": "c",
+          "label": "The ocean takes weeks to reach its warmest",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The official dates make storms wait",
+          "correct": false,
+          "rationale": "The dates describe the season; they don't cause it."
+        }
+      ],
+      "explanation": "Oceans warm slowly, reaching their warmest weeks after the Sun's late-June peak, and warm water is hurricane fuel.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.world_geography.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.hurricane_season",
+        "concept.world_geography.tropics"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.077.c3",
+        "card.world_geography.004.c3"
+      ],
+      "prompt": "Hurricanes form over tropical waters. From Level 4, what sets the tropics apart from everywhere else?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only there can the Sun stand directly overhead",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The tropics are closest to the poles",
+          "correct": false,
+          "rationale": "The tropics surround the Equator."
+        },
+        {
+          "id": "c",
+          "label": "The date line runs through them",
+          "correct": false,
+          "rationale": "The date line sets calendars, not temperatures."
+        },
+        {
+          "id": "d",
+          "label": "They get six months of daylight",
+          "correct": false,
+          "rationale": "That happens near the poles, not in the tropics."
+        }
+      ],
+      "explanation": "The tropics are the only places where the Sun is ever directly overhead, and hurricanes form over their warm waters.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_west_indies",
+    "source.noaa_how_hurricanes_form",
+    "source.nhc_hurricane_climatology",
+    "source.aoml_hurricane_season_why",
+    "source.bishop_museum_lahaina_noon"
+  ],
+  "art": "nature.hurricane"
+}

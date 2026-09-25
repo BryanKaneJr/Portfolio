@@ -1,0 +1,220 @@
+{
+  "id": "level.geography.world_geography.019",
+  "skillId": "skill.geography.world_geography",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Wind, Water and Ice",
+  "objective": "After this level you can explain how erosion carves canyons, valleys and coastlines.",
+  "summary": "Weathering breaks rock down; erosion carries it away. Water carved the Grand Canyon, glaciers grind U-shaped valleys, waves cut arches and stacks, and wind shapes dunes.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.weathering_erosion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.erosion_landforms",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.landforms",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.018"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Grand Canyon was dug by a river.",
+      "body": "No colliding plates, no volcano. The Colorado River started carving about 5 to 6 million years ago, and the canyon is now about 1.6 km deep."
+    },
+    {
+      "id": "card.world_geography.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Break it, then move it",
+      "body": "Two jobs shape the land. Weathering breaks down or dissolves rock where it sits. Erosion wears material away and carries it off, and liquid water is the biggest carrier on Earth. The Colorado River had help: in floods it hauls large rocks that act like chisels, chipping pieces off its own bed. Wind and glacial ice erode, too."
+    },
+    {
+      "id": "card.world_geography.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "V for river, U for ice",
+      "body": "Remember Level 7's valleys? Rivers cut them into a V. Glaciers grind them into a wide U. And the eroded bits have to land somewhere: where a river slows at its mouth, it drops its sediment and builds a delta. Erosion doesn't destroy land so much as move it."
+    },
+    {
+      "id": "card.world_geography.019.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Coasts and deserts",
+      "body": "At the coast, waves bore caves into cliffs. When a cave breaks through, it becomes an arch; keep the waves coming and you're left with rock columns called sea stacks. In deserts, wind does the carving, sculpting rock and piling sand into dunes. Same job, different tools.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Water, wind and ice: the slowest demolition crew on Earth, and the most thorough."
+      }
+    },
+    {
+      "id": "card.world_geography.019.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.019.q1"
+    },
+    {
+      "id": "card.world_geography.019.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.019.q2"
+    },
+    {
+      "id": "card.world_geography.019.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.019.q3"
+    },
+    {
+      "id": "card.world_geography.019.c8",
+      "type": "checkpoint",
+      "headline": "Erosion: at work",
+      "learned": [
+        "Weathering breaks rock; erosion carries it away",
+        "Water is the main agent: the Grand Canyon",
+        "Rivers cut V valleys, glaciers grind U valleys",
+        "Waves carve arches and stacks; wind builds dunes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.weathering_erosion"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.019.c2"
+      ],
+      "prompt": "What's the difference between weathering and erosion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Weathering happens only in deserts; erosion only in rivers",
+          "correct": false,
+          "rationale": "Both happen almost everywhere."
+        },
+        {
+          "id": "b",
+          "label": "They're two names for the same process",
+          "correct": false,
+          "rationale": "One breaks rock; the other moves it."
+        },
+        {
+          "id": "c",
+          "label": "Weathering carries rock away; erosion breaks it down",
+          "correct": false,
+          "rationale": "That's the wrong way around."
+        },
+        {
+          "id": "d",
+          "label": "Weathering breaks rock down; erosion carries it away",
+          "correct": true
+        }
+      ],
+      "explanation": "Weathering breaks down or dissolves rock where it sits. Erosion wears it away and carries it somewhere else.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.erosion_landforms"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.019.c4"
+      ],
+      "prompt": "Waves hollow a cave into a sea cliff until it breaks through. What have they made?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A delta",
+          "correct": false,
+          "rationale": "A delta is built from river sediment."
+        },
+        {
+          "id": "b",
+          "label": "A sea arch",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A U-shaped valley",
+          "correct": false,
+          "rationale": "Glaciers make those."
+        },
+        {
+          "id": "d",
+          "label": "A sand dune",
+          "correct": false,
+          "rationale": "Wind piles up dunes."
+        }
+      ],
+      "explanation": "When a wave-cut cave breaks through, it becomes an arch. More erosion leaves sea stacks.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.erosion_landforms",
+        "concept.world_geography.landforms"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.019.c3",
+        "card.world_geography.007.c4"
+      ],
+      "prompt": "From Level 7: a valley has a wide U shape. What most likely carved it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A glacier",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A river",
+          "correct": false,
+          "rationale": "Rivers cut V-shaped valleys."
+        },
+        {
+          "id": "c",
+          "label": "Wind",
+          "correct": false,
+          "rationale": "Wind shapes rock and dunes, not deep valleys."
+        },
+        {
+          "id": "d",
+          "label": "Ocean waves",
+          "correct": false,
+          "rationale": "Waves carve coasts: caves, arches and stacks."
+        }
+      ],
+      "explanation": "Rivers cut valleys into a V; glaciers grind them into a U.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nps_grand_canyon_geology",
+    "source.nps_grand_canyon_flythrough",
+    "source.natgeo_erosion",
+    "source.natgeo_valleys",
+    "source.natgeo_delta"
+  ],
+  "art": "geo.canyon"
+}

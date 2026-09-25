@@ -1,0 +1,228 @@
+{
+  "id": "level.geography.world_geography.094",
+  "skillId": "skill.geography.world_geography",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Languages of the World",
+  "objective": "After this level you can name the world's most spoken languages and explain language families.",
+  "summary": "Humans speak more than 7,000 languages, at least 40% endangered. English and Mandarin top a billion speakers each. English, Hindi and Persian share one ancestor: Proto-Indo-European.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.world_languages",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.language_families",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.seven_continents",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.093"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.094.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Count to three in German, Latin or Sanskrit, and English echoes back.",
+      "body": "Drei. Tres. Trayas. Three languages spoken far apart in place and time, with a family resemblance you can hear. That echo is a clue to one of the biggest family trees on Earth."
+    },
+    {
+      "id": "card.world_geography.094.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A planet of 7,000 voices",
+      "body": "Humans speak more than 7,000 languages. That variety is shrinking, though: at least 40% of the world's languages are endangered. When a language falls silent, it takes a piece of cultural and intellectual heritage with it: songs, jokes and ways of describing the world that no dictionary fully captures."
+    },
+    {
+      "id": "card.world_geography.094.c3",
+      "type": "fact",
+      "fact": "Only two languages have more than a billion speakers.",
+      "context": "They're English and Mandarin Chinese. Count everyone who speaks a language and English comes out on top, because most of its speakers learned it as a second language. Count only native speakers and Mandarin wins. So which is the most spoken? It depends on whether you count the learners."
+    },
+    {
+      "id": "card.world_geography.094.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Languages have family trees",
+      "body": "Languages have parents too. A language family is a group descended from one ancestor. English, Spanish, Russian, Hindi and Persian are all Indo-European cousins, spoken across most of Europe and much of South and Southwest Asia. Their shared parent, Proto-Indo-European, was probably spoken around 4000 BCE. Nobody has a recording; scholars reconstructed it."
+    },
+    {
+      "id": "card.world_geography.094.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "How we know",
+      "body": "How do you prove a family with no birth certificate? In the 19th century, scholars systematically compared languages' sounds, grammar and vocabulary. Words like three, drei, tres, treis and trayas line up too neatly to be chance. They all come from one Proto-Indo-European root. Same ancestor, different accents, after thousands of years of drifting apart.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Linguists: detectives whose best clue is how you say three."
+      }
+    },
+    {
+      "id": "card.world_geography.094.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.094.q1"
+    },
+    {
+      "id": "card.world_geography.094.c7",
+      "type": "mcq",
+      "questionId": "question.world_geography.094.q2"
+    },
+    {
+      "id": "card.world_geography.094.c8",
+      "type": "recall",
+      "questionId": "question.world_geography.094.q3"
+    },
+    {
+      "id": "card.world_geography.094.c9",
+      "type": "checkpoint",
+      "headline": "Languages: heard",
+      "learned": [
+        "More than 7,000 languages; at least 40% endangered",
+        "English and Mandarin each top a billion speakers",
+        "Most English speakers learned it as a second language",
+        "A language family shares one ancestor",
+        "Indo-European descends from Proto-Indo-European"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.world_languages"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.094.c2"
+      ],
+      "prompt": "About how many languages are spoken in the world today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 200",
+          "correct": false,
+          "rationale": "Far too few."
+        },
+        {
+          "id": "b",
+          "label": "About 1,000",
+          "correct": false,
+          "rationale": "Still far too few."
+        },
+        {
+          "id": "c",
+          "label": "More than 7,000",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 50,000",
+          "correct": false,
+          "rationale": "Far too many."
+        }
+      ],
+      "explanation": "Humans speak more than 7,000 languages, and at least 40% of them are endangered.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.language_families"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.094.c4",
+        "card.world_geography.094.c5"
+      ],
+      "prompt": "What makes English, Hindi and Persian members of the same language family?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They use the same alphabet",
+          "correct": false,
+          "rationale": "They are written in different scripts."
+        },
+        {
+          "id": "b",
+          "label": "They all descend from one ancestor language",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They are spoken in the same countries",
+          "correct": false,
+          "rationale": "They are spoken continents apart."
+        },
+        {
+          "id": "d",
+          "label": "They borrowed their words from English",
+          "correct": false,
+          "rationale": "The resemblance is inherited, not borrowed."
+        }
+      ],
+      "explanation": "A language family is a group descended from one ancestor. These languages all descend from Proto-Indo-European.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.language_families",
+        "concept.world_geography.seven_continents"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.094.c4",
+        "card.world_geography.001.c2"
+      ],
+      "prompt": "Indo-European languages are native to most of Europe and much of South and Southwest Asia. Which two of Level 1's continents is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Africa and Australia",
+          "correct": false,
+          "rationale": "Neither is where the family developed."
+        },
+        {
+          "id": "b",
+          "label": "North America and Europe",
+          "correct": false,
+          "rationale": "It came to the Americas much later, with settlers."
+        },
+        {
+          "id": "c",
+          "label": "South America and Asia",
+          "correct": false,
+          "rationale": "South America is not part of the homeland."
+        },
+        {
+          "id": "d",
+          "label": "Europe and Asia",
+          "correct": true
+        }
+      ],
+      "explanation": "Indo-European languages span most of Europe and much of South and Southwest Asia: the continents of Europe and Asia.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.etymonline_three",
+    "source.ethnologue_how_many_languages",
+    "source.unesco_indigenous_languages_decade",
+    "source.ethnologue_200",
+    "source.brit_indo_european"
+  ],
+  "art": "geo.speech-bubbles"
+}

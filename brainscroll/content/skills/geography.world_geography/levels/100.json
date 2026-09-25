@@ -1,0 +1,583 @@
+{
+  "id": "level.geography.world_geography.100",
+  "skillId": "skill.geography.world_geography",
+  "number": 100,
+  "type": "mastery",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mastery Challenge: World Geography",
+  "objective": "After this level you can demonstrate command of World Geography Levels 1–99 across the whole tree.",
+  "summary": "Questions from across the tree: maps, coordinates, time and GPS, then people, cities, borders, languages, food, resources and migration. Every question can be corrected.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.mercator_projection",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.equal_area_projection",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.time_zones",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.longitude",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.gps_positioning",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.elevation_contours",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.world_population_growth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.population_distribution",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.sovereign_states_count",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.language_families",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.staple_crops",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.resource_curse",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.forced_displacement",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.migration_push_pull",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.099"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.100.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The World Geography Mastery Challenge.",
+      "body": "Questions from across the whole tree, from reading a map to reading the planet's people. Level 1 started with a spinning globe; now see how much of it you can explain. Take your time: every question can be corrected."
+    },
+    {
+      "id": "card.world_geography.100.c2",
+      "type": "recall",
+      "questionId": "question.world_geography.100.q1"
+    },
+    {
+      "id": "card.world_geography.100.c3",
+      "type": "recall",
+      "questionId": "question.world_geography.100.q2"
+    },
+    {
+      "id": "card.world_geography.100.c4",
+      "type": "recall",
+      "questionId": "question.world_geography.100.q3"
+    },
+    {
+      "id": "card.world_geography.100.c5",
+      "type": "recall",
+      "questionId": "question.world_geography.100.q4"
+    },
+    {
+      "id": "card.world_geography.100.c6",
+      "type": "recall",
+      "questionId": "question.world_geography.100.q5"
+    },
+    {
+      "id": "card.world_geography.100.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.100.q6"
+    },
+    {
+      "id": "card.world_geography.100.c8",
+      "type": "recall",
+      "questionId": "question.world_geography.100.q7"
+    },
+    {
+      "id": "card.world_geography.100.c9",
+      "type": "recall",
+      "questionId": "question.world_geography.100.q8"
+    },
+    {
+      "id": "card.world_geography.100.c10",
+      "type": "recall",
+      "questionId": "question.world_geography.100.q9"
+    },
+    {
+      "id": "card.world_geography.100.c11",
+      "type": "recall",
+      "questionId": "question.world_geography.100.q10"
+    },
+    {
+      "id": "card.world_geography.100.c12",
+      "type": "checkpoint",
+      "headline": "World Geography: mastered",
+      "learned": [
+        "Maps, coordinates, time zones and GPS",
+        "Land, oceans and how to read them",
+        "Where people live, and the cities, borders and languages they share",
+        "Food, resources, migration and a changing planet"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.100.q1",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.mercator_projection",
+        "concept.world_geography.equal_area_projection"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.002.c3",
+        "card.world_geography.002.c4"
+      ],
+      "prompt": "Africa is about 14 times bigger than Greenland, yet a classroom poster shows them as rivals. What kind of map is it probably?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An equal-area map",
+          "correct": false,
+          "rationale": "An equal-area map would show Africa far larger."
+        },
+        {
+          "id": "b",
+          "label": "A Mercator map",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A topographic map",
+          "correct": false,
+          "rationale": "Contour maps show height, not world-scale sizes."
+        },
+        {
+          "id": "d",
+          "label": "A globe",
+          "correct": false,
+          "rationale": "A globe keeps sizes true."
+        }
+      ],
+      "explanation": "Mercator's map inflates places far from the Equator, so Greenland balloons. An equal-area map would show Africa's true size.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.world_geography.100.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.time_zones",
+        "concept.world_geography.longitude"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.005.c2",
+        "card.world_geography.005.c3"
+      ],
+      "prompt": "Two cities are 45° of longitude apart. In standard time, about how many hours apart are their clocks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 hour",
+          "correct": false,
+          "rationale": "That would be 15° apart."
+        },
+        {
+          "id": "b",
+          "label": "3 hours",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "6 hours",
+          "correct": false,
+          "rationale": "That would be 90° apart."
+        },
+        {
+          "id": "d",
+          "label": "45 hours",
+          "correct": false,
+          "rationale": "Each hour covers 15°, not 1°."
+        }
+      ],
+      "explanation": "Earth turns 15° of longitude every hour, so 45° apart is about 3 hours apart.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.world_geography.100.q3",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.gps_positioning"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.009.c4"
+      ],
+      "prompt": "Why does your phone need a fourth GPS satellite, not just three?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To correct its own less precise clock",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To send its location back to space",
+          "correct": false,
+          "rationale": "Phones only listen; they never transmit to GPS satellites."
+        },
+        {
+          "id": "c",
+          "label": "Because each satellite covers one quarter of Earth",
+          "correct": false,
+          "rationale": "Coverage is not the reason."
+        },
+        {
+          "id": "d",
+          "label": "To find the date line",
+          "correct": false,
+          "rationale": "GPS gives latitude, longitude and altitude."
+        }
+      ],
+      "explanation": "The satellites' clocks are superb and the phone's isn't; the fourth satellite lets the phone correct its own clock.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.world_geography.100.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.elevation_contours"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.007.c3"
+      ],
+      "prompt": "On a hiking map, the contour lines are packed tightly together. What should you expect there?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Flat, easy ground",
+          "correct": false,
+          "rationale": "That would be widely spaced lines."
+        },
+        {
+          "id": "b",
+          "label": "A lake",
+          "correct": false,
+          "rationale": "Lines show elevation, not water."
+        },
+        {
+          "id": "c",
+          "label": "A steep slope",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A time zone border",
+          "correct": false,
+          "rationale": "Contours join points of equal elevation."
+        }
+      ],
+      "explanation": "Contour lines join points of equal elevation. Close together, they mean the ground rises fast: a steep slope.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.100.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.world_population_growth"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.091.c2"
+      ],
+      "prompt": "By the UN's count, when did the world population pass 8 billion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1800",
+          "correct": false,
+          "rationale": "Around then it was about 1 billion."
+        },
+        {
+          "id": "b",
+          "label": "1950",
+          "correct": false,
+          "rationale": "Far too early."
+        },
+        {
+          "id": "c",
+          "label": "2000",
+          "correct": false,
+          "rationale": "Too early."
+        },
+        {
+          "id": "d",
+          "label": "2022",
+          "correct": true
+        }
+      ],
+      "explanation": "The UN marked 15 November 2022 as the day the world reached 8 billion people.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.100.q6",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.sovereign_states_count"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.093.c2"
+      ],
+      "prompt": "A friend insists there are exactly 193 countries. What is the fairest reply?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That's the UN's member count; other lists add places like Kosovo or Taiwan",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "That's wrong: there are exactly 195",
+          "correct": false,
+          "rationale": "Even 195 is only one way of counting."
+        },
+        {
+          "id": "c",
+          "label": "That was true before South Sudan joined in 2011",
+          "correct": false,
+          "rationale": "The count of 193 includes South Sudan."
+        },
+        {
+          "id": "d",
+          "label": "Nobody has ever counted countries",
+          "correct": false,
+          "rationale": "The UN keeps an official member list."
+        }
+      ],
+      "explanation": "The UN has 193 members (195 with its observer states), and places like Kosovo and Taiwan are counted on some lists but not others.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.world_geography.100.q7",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.language_families"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.094.c5"
+      ],
+      "prompt": "English three, German drei, Latin tres, Sanskrit trayas. What does this pattern show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "English borrowed the word from all of them",
+          "correct": false,
+          "rationale": "The words are inherited, not borrowed."
+        },
+        {
+          "id": "b",
+          "label": "The languages share one ancestor",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They are all spoken in the same country",
+          "correct": false,
+          "rationale": "They span Europe and South Asia."
+        },
+        {
+          "id": "d",
+          "label": "Counting was invented in Germany",
+          "correct": false,
+          "rationale": "The shared root is far older."
+        }
+      ],
+      "explanation": "Words like these all come from one Proto-Indo-European root: evidence that the languages share one ancestor.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.world_geography.100.q8",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.staple_crops",
+        "concept.world_geography.population_distribution"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.096.c3",
+        "card.world_geography.091.c4"
+      ],
+      "prompt": "Why does it matter so much that over 90% of rice is grown and eaten in Asia-Pacific?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Asia-Pacific has the fewest people",
+          "correct": false,
+          "rationale": "It has the most."
+        },
+        {
+          "id": "b",
+          "label": "Rice cannot grow anywhere else",
+          "correct": false,
+          "rationale": "The point is who eats it."
+        },
+        {
+          "id": "c",
+          "label": "The region holds about 60% of humanity",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Rice is mostly fed to livestock",
+          "correct": false,
+          "rationale": "Rice feeds almost half of humanity directly."
+        }
+      ],
+      "explanation": "Rice feeds almost half of humanity because it grows right where about 60% of people live: the Asia-Pacific region.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.world_geography.100.q9",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.resource_curse"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.097.c3",
+        "card.world_geography.097.c4"
+      ],
+      "prompt": "A poor country discovers huge oil reserves. What does the resource curse warn could happen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It will certainly become rich",
+          "correct": false,
+          "rationale": "Resources do not guarantee wealth."
+        },
+        {
+          "id": "b",
+          "label": "Its oil will run out within a year",
+          "correct": false,
+          "rationale": "The curse is about growth, not supply."
+        },
+        {
+          "id": "c",
+          "label": "It must give the oil to its neighbors",
+          "correct": false,
+          "rationale": "Nothing like that is required."
+        },
+        {
+          "id": "d",
+          "label": "It may grow more slowly, and the oil may spark conflict",
+          "correct": true
+        }
+      ],
+      "explanation": "Countries rich in natural resources often grow more slowly, partly through conflict, unless they reinvest the money wisely, as Botswana did.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.world_geography.100.q10",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.forced_displacement",
+        "concept.world_geography.migration_push_pull"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.098.c4",
+        "card.world_geography.098.c2"
+      ],
+      "prompt": "War is a push factor. Where do most people pushed from home by conflict end up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "On another continent",
+          "correct": false,
+          "rationale": "Most stay much closer."
+        },
+        {
+          "id": "b",
+          "label": "Inside their own country",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In the United States",
+          "correct": false,
+          "rationale": "It hosts the most migrants overall, but most displaced people never cross a border."
+        },
+        {
+          "id": "d",
+          "label": "In megacities abroad",
+          "correct": false,
+          "rationale": "Most never leave their own countries."
+        }
+      ],
+      "explanation": "Of 123.2 million forcibly displaced people at the end of 2024, 83.4 million were displaced inside their own countries.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_mercator_projection",
+    "source.natgeo_map_projection",
+    "source.brit_standard_time",
+    "source.brit_meridian_conference",
+    "source.sco_wisc_topographic_maps",
+    "source.mgs_topographic_maps",
+    "source.nasa_gps",
+    "source.noaa_gps_tutorial",
+    "source.gps_gov_overview",
+    "source.owid_population_growth",
+    "source.un_population",
+    "source.un_day_of_8_billion",
+    "source.unfpa_asia_pacific_population",
+    "source.un_desa_india_china",
+    "source.un_member_states",
+    "source.worldatlas_un_nonmembers",
+    "source.brit_indo_european",
+    "source.etymonline_three",
+    "source.fao_dimensions_of_need",
+    "source.fao_rice_asia_pacific",
+    "source.imf_botswana_resource_curse",
+    "source.natgeo_human_migration",
+    "source.unhcr_global_trends_2024"
+  ],
+  "art": "geo.mastery"
+}

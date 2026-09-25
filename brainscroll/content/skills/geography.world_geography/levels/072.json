@@ -1,0 +1,224 @@
+{
+  "id": "level.geography.world_geography.072",
+  "skillId": "skill.geography.world_geography",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Rockies and the Great Plains",
+  "objective": "After this level you can explain how the Rockies and the Great Plains divide the continent.",
+  "summary": "The Rockies run from Canada to New Mexico, and along their crests the Continental Divide splits Pacific water from Atlantic-side water. East of them, the Great Plains slope gently down.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.rocky_mountains",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.continental_divide",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.great_plains",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.north_america_regions",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.071"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In the Rockies, one ridge decides which ocean a raindrop reaches.",
+      "body": "Two raindrops land a step apart on a mountain crest. One heads for the Pacific. The other drains toward the Atlantic side. Same storm, different oceans."
+    },
+    {
+      "id": "card.world_geography.072.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The backbone of the West",
+      "body": "Remember Level 71's tall western mountains? The Rocky Mountains are the most famous of them. They stretch some 4,800 km, from northern Alberta and British Columbia in Canada all the way south to New Mexico. That's a very long wall to build a road over, and a very long wall for rain to land on."
+    },
+    {
+      "id": "card.world_geography.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The roof of a continent",
+      "body": "Along the Rockies runs the Continental Divide, a ridge that separates the continent's river systems. Rain that falls west of it drains toward the Pacific. Rain that falls east of it heads for the Atlantic and Arctic Oceans and the Gulf of Mexico. Think of the ridge of a roof: which side a drop lands on decides which gutter it ends up in.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A raindrop never gets to choose. It just picks a side of the roof and hopes for the best."
+      }
+    },
+    {
+      "id": "card.world_geography.072.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A tilted sea of grass",
+      "body": "East of the Rockies, the land flattens into the Great Plains, stretching from the Rio Grande all the way north to the Mackenzie River delta on the Arctic Ocean. Flat, but not level: at the foot of the mountains the plains sit about 1,500 to 1,800 m above sea level, then slope gently down to about 460 m in the east. Rain is scarce and wind is plentiful, so grass, not forest, covers the land. A ramp so gentle you'd never notice you were driving downhill."
+    },
+    {
+      "id": "card.world_geography.072.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.072.q1"
+    },
+    {
+      "id": "card.world_geography.072.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.072.q2"
+    },
+    {
+      "id": "card.world_geography.072.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.072.q3"
+    },
+    {
+      "id": "card.world_geography.072.c8",
+      "type": "checkpoint",
+      "headline": "Rockies and Plains: crossed",
+      "learned": [
+        "The Rockies run about 4,800 km, Canada to New Mexico",
+        "The Continental Divide follows their crests",
+        "West drains to the Pacific, east to the Atlantic side",
+        "The Great Plains slope down east, dry and grassy"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.rocky_mountains"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.072.c2"
+      ],
+      "prompt": "The Rocky Mountains stretch from Canada south to which US state?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Florida",
+          "correct": false,
+          "rationale": "Florida is far to the southeast, nowhere near the Rockies."
+        },
+        {
+          "id": "b",
+          "label": "New Mexico",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "North Carolina",
+          "correct": false,
+          "rationale": "North Carolina is in the east, far from the Rockies."
+        },
+        {
+          "id": "d",
+          "label": "Alaska",
+          "correct": false,
+          "rationale": "Alaska is north of Canada, not south."
+        }
+      ],
+      "explanation": "The Rockies run some 4,800 km, from northern Alberta and British Columbia down to New Mexico.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.continental_divide"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.072.c3"
+      ],
+      "prompt": "A raindrop lands just east of the Continental Divide. Where does its water drain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Toward the Pacific Ocean only",
+          "correct": false,
+          "rationale": "That's the west side of the divide."
+        },
+        {
+          "id": "b",
+          "label": "It stays trapped on the ridge",
+          "correct": false,
+          "rationale": "Water runs downhill off the ridge, one side or the other."
+        },
+        {
+          "id": "c",
+          "label": "Toward the Atlantic, Arctic or Gulf",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Into the soil of the Great Plains",
+          "correct": false,
+          "rationale": "The divide is about where rivers carry water, and east-side rivers head for the Atlantic side."
+        }
+      ],
+      "explanation": "East of the divide, water drains toward the Atlantic and Arctic Oceans and the Gulf of Mexico; west of it, toward the Pacific.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.great_plains",
+        "concept.world_geography.north_america_regions"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.072.c4",
+        "card.world_geography.071.c3"
+      ],
+      "prompt": "From Level 71: which part of North America's shape do the Great Plains belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The tall western mountains",
+          "correct": false,
+          "rationale": "The plains lie east of those mountains."
+        },
+        {
+          "id": "b",
+          "label": "The old eastern Appalachians",
+          "correct": false,
+          "rationale": "The plains are flat, not mountains."
+        },
+        {
+          "id": "c",
+          "label": "The Central American bridge",
+          "correct": false,
+          "rationale": "That's far to the south."
+        },
+        {
+          "id": "d",
+          "label": "The flat middle",
+          "correct": true
+        }
+      ],
+      "explanation": "The Great Plains are part of the flat middle that lies between the western and eastern mountains.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_rocky_mountains",
+    "source.natgeo_continental_divide",
+    "source.brit_great_plains",
+    "source.brit_north_america"
+  ],
+  "art": "geo.mountains"
+}

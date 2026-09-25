@@ -1,0 +1,219 @@
+{
+  "id": "level.geography.world_geography.099",
+  "skillId": "skill.geography.world_geography",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Humans Change the Planet",
+  "objective": "After this level you can explain how farming, cities and pollution reshape the land and the sea.",
+  "summary": "Diverting rivers for cotton shrank the Aral Sea, once the fourth-largest lake. Farm and city runoff creates a dead zone off the Mississippi every summer.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.aral_sea_shrinking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.dead_zones",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.farmland_use",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.098"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "People made one of the world's biggest lakes mostly disappear.",
+      "body": "The Aral Sea was once the fourth-largest lake on Earth. No drought emptied it. In the 1960s its rivers were redirected to grow crops, and the lake paid the price."
+    },
+    {
+      "id": "card.world_geography.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rivers into cotton",
+      "body": "In the 1960s, the Soviet Union diverted the region's two major rivers to irrigate the desert for cotton and other crops. The desert bloomed. The lake, starved of its inflow, began to shrink. In 2014, the eastern lobe of the South Aral Sea disappeared completely. Where fishing boats once floated, there is now dry, dusty ground."
+    },
+    {
+      "id": "card.world_geography.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The bill arrives",
+      "body": "A big lake softens the weather around it. Without it, local winters grew colder and summers hotter and drier. Wind picked up dust from the exposed lakebed, carrying farm chemicals that harmed crops and people's health. The fisheries collapsed. There is a hopeful footnote: a dam finished in 2005 helped the North Aral Sea's fisheries rebound.",
+      "mascot": {
+        "pose": "oops",
+        "line": "A lake turned into a desert to water a desert. Geography has a dark sense of humor."
+      }
+    },
+    {
+      "id": "card.world_geography.099.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dead zones at sea",
+      "body": "The sea can be changed from far upstream, too. Every summer, excess nutrients from farms and cities across the Mississippi River basin wash into the Gulf and feed huge blooms of algae. When the algae die and decompose, they use up the water's oxygen. The result is a dead zone: water with so little oxygen it can kill fish and other marine life."
+    },
+    {
+      "id": "card.world_geography.099.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.099.q1"
+    },
+    {
+      "id": "card.world_geography.099.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.099.q2"
+    },
+    {
+      "id": "card.world_geography.099.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.099.q3"
+    },
+    {
+      "id": "card.world_geography.099.c8",
+      "type": "checkpoint",
+      "headline": "Changes: noticed",
+      "learned": [
+        "Rivers diverted for cotton shrank the Aral Sea",
+        "Its loss brought harsher weather, toxic dust, lost fisheries",
+        "Farm and city runoff feeds algae that use up oxygen",
+        "That creates a dead zone off the Mississippi every summer"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.aral_sea_shrinking"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.099.c2"
+      ],
+      "prompt": "What mainly caused the Aral Sea to shrink?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A long drought",
+          "correct": false,
+          "rationale": "No drought did it; people did."
+        },
+        {
+          "id": "b",
+          "label": "Its rivers were diverted to irrigate farms",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A dam built in 2005",
+          "correct": false,
+          "rationale": "That dam actually helped the North Aral recover."
+        },
+        {
+          "id": "d",
+          "label": "An earthquake drained it",
+          "correct": false,
+          "rationale": "The cause was irrigation, not geology."
+        }
+      ],
+      "explanation": "In the 1960s the rivers feeding the Aral Sea were diverted to irrigate cotton and other crops, and the lake shrank.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.dead_zones"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.099.c4"
+      ],
+      "prompt": "How do fertilizers from inland farms create a dead zone out at sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They poison fish directly as soon as they arrive",
+          "correct": false,
+          "rationale": "The damage comes through algae and oxygen."
+        },
+        {
+          "id": "b",
+          "label": "They make the water too salty",
+          "correct": false,
+          "rationale": "Salt is not the problem."
+        },
+        {
+          "id": "c",
+          "label": "They warm the water until fish leave",
+          "correct": false,
+          "rationale": "Temperature is not the mechanism here."
+        },
+        {
+          "id": "d",
+          "label": "They feed algae that use up oxygen as they decompose",
+          "correct": true
+        }
+      ],
+      "explanation": "Excess nutrients feed algae; when the algae die and decompose, they use up the oxygen, leaving water that can kill marine life.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.aral_sea_shrinking",
+        "concept.world_geography.dead_zones",
+        "concept.world_geography.farmland_use"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.099.c2",
+        "card.world_geography.099.c4",
+        "card.world_geography.096.c4"
+      ],
+      "prompt": "Level 96 showed farming uses almost half of habitable land. What do the Aral Sea and the dead zone have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both trace back largely to farming",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Both were caused by city skyscrapers",
+          "correct": false,
+          "rationale": "Farms, not skyscrapers, are the common thread."
+        },
+        {
+          "id": "c",
+          "label": "Both are natural events",
+          "correct": false,
+          "rationale": "Both were caused by people."
+        },
+        {
+          "id": "d",
+          "label": "Both are in Africa",
+          "correct": false,
+          "rationale": "One is in Central Asia, the other off North America."
+        }
+      ],
+      "explanation": "Irrigation for crops drained the Aral Sea, and runoff from farms (and cities) feeds the dead zone. Farming reshapes land and sea alike.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_aral_sea",
+    "source.noaa_gulf_dead_zone_2025"
+  ],
+  "art": "plant.tree"
+}

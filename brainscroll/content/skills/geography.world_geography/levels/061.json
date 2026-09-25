@@ -1,0 +1,220 @@
+{
+  "id": "level.geography.world_geography.061",
+  "skillId": "skill.geography.world_geography",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Europe in One Level",
+  "objective": "After this level you can describe Europe's shape, seas and main regions.",
+  "summary": "Europe is the western peninsula of Eurasia, bordered by the Urals and three bodies of water. It's a peninsula of peninsulas, with four physical regions running north to south.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.europe_eurasia",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.europe_regions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.continent_sizes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.060"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.061.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Europe and Asia share one piece of land. So where does one end?",
+      "body": "No ocean splits them. Walk east from Paris and no sea blocks your way into Asia. The line between the two continents is one that people chose."
+    },
+    {
+      "id": "card.world_geography.061.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The western tip of Eurasia",
+      "body": "Europe and Asia share one great landmass, Eurasia, and Europe is its western peninsula. The border between them is usually drawn along Russia's Ural Mountains: a line on the map, not a gap in the ground. Level 8 ranked Europe second smallest of the seven continents, ahead of only Australia. Small, but wrapped in water on three sides: the Arctic Ocean to the north, the Atlantic to the west and the Mediterranean Sea to the south."
+    },
+    {
+      "id": "card.world_geography.061.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A peninsula of peninsulas",
+      "body": "Land with water on three sides is a peninsula, and Europe keeps repeating the trick. Geographers sometimes call it a peninsula of peninsulas. Look at a map and the big ones jump out: the Scandinavian in the north, then the Iberian, the Italian and the Balkan along the south. Europe is basically a coastline with a continent attached.",
+      "callout": "Scandinavian · Iberian · Italian · Balkan",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A peninsula made of peninsulas. It's peninsulas all the way down."
+      }
+    },
+    {
+      "id": "card.world_geography.061.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four stripes, north to south",
+      "body": "Inland, Europe falls into four bands. In the north and west are the Western Uplands: hard, ancient rock scraped by glaciers, which left lakes and fjords behind. Next comes the North European Plain, low land running from the southern UK to Russia and Europe's most densely populated region. Then the Central Uplands, heavily wooded, stretching across central Europe. Last, in the south, the Alpine Mountains: the Alps, Pyrenees, Apennines and Carpathians. Keep that southern stripe in mind. Next level, we climb it."
+    },
+    {
+      "id": "card.world_geography.061.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.061.q1"
+    },
+    {
+      "id": "card.world_geography.061.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.061.q2"
+    },
+    {
+      "id": "card.world_geography.061.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.061.q3"
+    },
+    {
+      "id": "card.world_geography.061.c8",
+      "type": "checkpoint",
+      "headline": "Europe: outlined",
+      "learned": [
+        "Europe is the western peninsula of Eurasia",
+        "The Urals usually mark the border with Asia",
+        "A peninsula of peninsulas: Scandinavian, Iberian, Italian, Balkan",
+        "Four regions, north to south: uplands, plain, uplands, Alps"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.europe_eurasia"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.061.c2"
+      ],
+      "prompt": "Where is Europe's eastern border with Asia usually drawn?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The English Channel",
+          "correct": false,
+          "rationale": "That separates Britain from mainland Europe."
+        },
+        {
+          "id": "b",
+          "label": "Along the Ural Mountains",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Along the Alps",
+          "correct": false,
+          "rationale": "The Alps are in southern Europe, far from Asia."
+        },
+        {
+          "id": "d",
+          "label": "Along the Danube",
+          "correct": false,
+          "rationale": "The Danube flows through the middle of Europe."
+        }
+      ],
+      "explanation": "The usual Europe-Asia border follows Russia's Ural Mountains. It's a line people chose, since both continents share one landmass.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.europe_eurasia"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.061.c2",
+        "card.world_geography.061.c3"
+      ],
+      "prompt": "Why is Europe sometimes called a peninsula of peninsulas?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's a peninsula of Eurasia with many peninsulas of its own",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It's mostly made of islands",
+          "correct": false,
+          "rationale": "Islands have water on all sides; peninsulas stay attached."
+        },
+        {
+          "id": "c",
+          "label": "Its rivers cut it into separate pieces",
+          "correct": false,
+          "rationale": "Rivers don't turn land into peninsulas."
+        },
+        {
+          "id": "d",
+          "label": "It lies across three continents",
+          "correct": false,
+          "rationale": "Europe is one continent, the western end of Eurasia."
+        }
+      ],
+      "explanation": "Europe is itself the western peninsula of Eurasia, and it's covered in smaller ones: Scandinavian, Iberian, Italian and Balkan.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.continent_sizes",
+        "concept.world_geography.europe_eurasia"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.008.c2",
+        "card.world_geography.061.c2"
+      ],
+      "prompt": "Level 8 ranked the continents by area. Where does Europe come?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Largest",
+          "correct": false,
+          "rationale": "That's Asia."
+        },
+        {
+          "id": "b",
+          "label": "Third largest",
+          "correct": false,
+          "rationale": "That's North America."
+        },
+        {
+          "id": "c",
+          "label": "Second smallest",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Smallest",
+          "correct": false,
+          "rationale": "That's Australia."
+        }
+      ],
+      "explanation": "Europe is the second-smallest continent, bigger than only Australia.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_europe_physical",
+    "source.brit_europe",
+    "source.natgeo_continent"
+  ],
+  "art": "object.globe"
+}

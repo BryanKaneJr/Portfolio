@@ -1,0 +1,220 @@
+{
+  "id": "level.geography.world_geography.082",
+  "skillId": "skill.geography.world_geography",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Uluru and the Outback",
+  "objective": "After this level you can describe the Outback and what Uluru means to Aboriginal Australians.",
+  "summary": "Uluru rises 348 m from the Outback plain, the tip of a much bigger buried slab, red with rusting iron. It is sacred to the Anangu, who own it; the climb closed in 2019.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.uluru_rock",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.uluru_anangu",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.australia_land",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.081"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A rock in the Outback is taller than the Eiffel Tower. That's just the tip.",
+      "body": "Most of it is hidden underground. And the part you can see has been sacred to the people who own it for tens of thousands of years."
+    },
+    {
+      "id": "card.world_geography.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A buried giant",
+      "body": "Level 81's dry, flat, nearly empty interior is the Outback. In the Outback of the Northern Territory, one rock rises 348 m above the surrounding plain: Uluru. That's taller than the Eiffel Tower. Yet Uluru and its neighbor Kata Tjuta are only the tips of huge rock slabs that carry on underground for up to 6 km. You're looking at the top of a buried giant."
+    },
+    {
+      "id": "card.world_geography.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A rock that rusts",
+      "body": "Uluru is made of arkose, a kind of sandstone with iron in it. Over time that iron rusts, just like an old bike left out in the rain, and the rust is Uluru's famous red. In grey patches you can see the rock's original color. So the most famous red rock in Australia is, underneath, a grey one wearing a coat of rust.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Next time your bike rusts, tell it that it's going for the Uluru look."
+      }
+    },
+    {
+      "id": "card.world_geography.082.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Whose rock?",
+      "body": "Uluru belongs to the Aṉangu, its Traditional Owners. It has been sacred to them for tens of thousands of years, and under Tjukurpa, Aṉangu law and culture, climbing it was generally not allowed. In 1985 the park was handed back to Aṉangu, who lease it to the Australian Government and run it jointly with Parks Australia. On 26 October 2019 the climb closed for good. Visitors now admire Uluru the way its owners always asked: from the ground."
+    },
+    {
+      "id": "card.world_geography.082.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.082.q1"
+    },
+    {
+      "id": "card.world_geography.082.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.082.q2"
+    },
+    {
+      "id": "card.world_geography.082.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.082.q3"
+    },
+    {
+      "id": "card.world_geography.082.c8",
+      "type": "checkpoint",
+      "headline": "Uluru: understood",
+      "learned": [
+        "Uluru rises 348 m, taller than the Eiffel Tower",
+        "It's the tip of a slab reaching up to 6 km down",
+        "Its red is rust; its original color is grey",
+        "Sacred to the Aṉangu, who own it; the climb closed in 2019"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.uluru_rock"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.082.c3"
+      ],
+      "prompt": "What gives Uluru its famous red color?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Red desert sand blown onto it",
+          "correct": false,
+          "rationale": "The red is in the rock itself, not dust on top."
+        },
+        {
+          "id": "b",
+          "label": "Paint from ancient rock art",
+          "correct": false,
+          "rationale": "The whole surface is red, far beyond any art."
+        },
+        {
+          "id": "c",
+          "label": "Light from the setting Sun",
+          "correct": false,
+          "rationale": "The rock stays red all day."
+        },
+        {
+          "id": "d",
+          "label": "Rusting iron in the rock",
+          "correct": true
+        }
+      ],
+      "explanation": "Uluru's arkose contains iron. The iron rusts, and the rust makes the red; the rock's original color is grey.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.uluru_anangu"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.082.c4"
+      ],
+      "prompt": "Why was the climb up Uluru closed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The rock was cracking apart",
+          "correct": false,
+          "rationale": "The reason was cultural, not geological."
+        },
+        {
+          "id": "b",
+          "label": "Climbing it goes against Aṉangu law, and Aṉangu own the park",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The government bought the land from Aṉangu",
+          "correct": false,
+          "rationale": "It's the reverse: the park was handed back to Aṉangu in 1985."
+        },
+        {
+          "id": "d",
+          "label": "Tourists stopped visiting the Outback",
+          "correct": false,
+          "rationale": "Visitors still come; they just don't climb."
+        }
+      ],
+      "explanation": "Uluru is sacred to its Aṉangu owners, and climbing it was not generally allowed under Tjukurpa. The climb closed in 2019.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.australia_land",
+        "concept.world_geography.uluru_rock"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.082.c2",
+        "card.world_geography.081.c3"
+      ],
+      "prompt": "From Level 81: Uluru rises out of the Outback. What is the Outback?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Australia's vast, dry, thinly populated interior",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The rainforest of Australia's east coast",
+          "correct": false,
+          "rationale": "The east coast is where most people live."
+        },
+        {
+          "id": "c",
+          "label": "The mountain range behind Australia's eastern cities",
+          "correct": false,
+          "rationale": "That's the Great Dividing Range."
+        },
+        {
+          "id": "d",
+          "label": "A chain of islands off the north coast",
+          "correct": false,
+          "rationale": "The Outback is inland."
+        }
+      ],
+      "explanation": "The Outback is Australia's vast, flat, arid interior, home to few people and to Uluru.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.parks_uluru_facts",
+    "source.parks_uluru_geology",
+    "source.parks_uluru_climb",
+    "source.brit_uluru",
+    "source.brit_australia"
+  ],
+  "art": "geo.rocks"
+}

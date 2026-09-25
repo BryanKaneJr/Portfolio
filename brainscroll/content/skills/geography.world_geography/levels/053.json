@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.world_geography.053",
+  "skillId": "skill.geography.world_geography",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Nile",
+  "objective": "After this level you can explain how the Nile made farming and cities possible in Egypt.",
+  "summary": "The Nile flows north to the Mediterranean. Its yearly flood, driven by the Blue Nile, left black silt that let Egypt farm a desert, until the Aswan High Dam in 1970.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.nile_river",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.nile_flood_farming",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.landforms",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.052"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About 95% of Egyptians live within a few miles of one river.",
+      "body": "Draw a thin line along the Nile and you've circled almost the whole country's population. For thousands of years, that river did something a desert shouldn't allow: it made farmland."
+    },
+    {
+      "id": "card.world_geography.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A river that runs up the map",
+      "body": "The Nile, usually ranked the world's longest river, flows north, into the Mediterranean Sea. It has two main branches. The longer White Nile starts at Lake Victoria; the Blue Nile starts near Lake Tana in Ethiopia. They meet at Khartoum, in Sudan. The Blue Nile is the shorter branch, but it's the one that matters most: it brings the annual flood and most of the water and silt."
+    },
+    {
+      "id": "card.world_geography.053.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Black land, red land",
+      "body": "Each year the flood spread fertile silt over the valley, and farming became possible in the middle of a desert. Egyptians named their country for it: Kemet, the 'black land.' The desert beyond was Deshret, the 'red land.' Where the river reaches the sea, all that silt built the rich Nile Delta, the triangle-shaped plain named for the Greek letter Δ back in Level 7."
+    },
+    {
+      "id": "card.world_geography.053.c4",
+      "type": "fact",
+      "fact": "Since 1970, the Nile hasn't flooded Egypt.",
+      "context": "That year the Aswan High Dam was completed, and the annual flood ended. The dam's steady flow lets farmers irrigate all year. The catch: the silt that once fed the fields now builds up behind the dam. Egypt traded a free yearly delivery of fertilizer for control."
+    },
+    {
+      "id": "card.world_geography.053.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.053.q1"
+    },
+    {
+      "id": "card.world_geography.053.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.053.q2"
+    },
+    {
+      "id": "card.world_geography.053.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.053.q3"
+    },
+    {
+      "id": "card.world_geography.053.c8",
+      "type": "checkpoint",
+      "headline": "Nile: navigated",
+      "learned": [
+        "The Nile flows north into the Mediterranean",
+        "The Blue Nile brings most of the water and silt",
+        "Flood silt made Kemet, the 'black land'",
+        "The Aswan High Dam ended the flood in 1970"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.nile_river"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.053.c2"
+      ],
+      "prompt": "Which way does the Nile flow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "South, into the Indian Ocean",
+          "correct": false,
+          "rationale": "It's the other way: it ends in the Mediterranean."
+        },
+        {
+          "id": "b",
+          "label": "North, into the Mediterranean Sea",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "West, into the Atlantic Ocean",
+          "correct": false,
+          "rationale": "That's closer to the Congo's route."
+        },
+        {
+          "id": "d",
+          "label": "East, into the Red Sea",
+          "correct": false,
+          "rationale": "It runs parallel to the Red Sea, not into it."
+        }
+      ],
+      "explanation": "The Nile flows north and empties into the Mediterranean Sea.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.nile_flood_farming"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.053.c3"
+      ],
+      "prompt": "Why did ancient Egyptians call their land Kemet, the 'black land'?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its desert sand was volcanic",
+          "correct": false,
+          "rationale": "Deshret, the desert, was the 'red land.'"
+        },
+        {
+          "id": "b",
+          "label": "The river water looked dark",
+          "correct": false,
+          "rationale": "The name was about the soil, not the water."
+        },
+        {
+          "id": "c",
+          "label": "Farmers burned the fields each year",
+          "correct": false,
+          "rationale": "No fire needed: the flood did the work."
+        },
+        {
+          "id": "d",
+          "label": "The Nile's flood left dark, fertile silt",
+          "correct": true
+        }
+      ],
+      "explanation": "The yearly flood spread fertile silt over the valley. Kemet, the black land, was the farmland; Deshret, the red land, was the desert.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.nile_flood_farming",
+        "concept.world_geography.landforms"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.053.c3",
+        "card.world_geography.007.c4"
+      ],
+      "prompt": "From Level 7: what built the rich Nile Delta at the river's mouth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sediment dropped by the slowing river",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Lava from nearby volcanoes",
+          "correct": false,
+          "rationale": "No volcanoes: the delta is river-built."
+        },
+        {
+          "id": "c",
+          "label": "A glacier grinding out a U shape",
+          "correct": false,
+          "rationale": "That's how glaciers carve valleys."
+        },
+        {
+          "id": "d",
+          "label": "Sand blown in from the Sahara",
+          "correct": false,
+          "rationale": "Wind-blown sand makes poor farmland."
+        }
+      ],
+      "explanation": "A delta forms where a slowing river drops its sediment. The Nile's silt made its delta rich.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_nile_river",
+    "source.natgeo_nile_river",
+    "source.carnegie_egypt_nile",
+    "source.natgeo_aswan_dam",
+    "source.natgeo_delta"
+  ],
+  "art": "geo.pyramids"
+}

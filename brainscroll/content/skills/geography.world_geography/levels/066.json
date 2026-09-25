@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.world_geography.066",
+  "skillId": "skill.geography.world_geography",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Himalayas",
+  "objective": "After this level you can describe the Himalayas, Mount Everest and the great rivers they feed.",
+  "summary": "India's collision with Asia crumpled the crust into the Himalayas, lifting old seafloor to Everest's summit. The range still rises, and its snow feeds great rivers.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.himalaya_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.himalaya_rivers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.elevation_contours",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.alps_mountains",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.065"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The top of Mount Everest used to be the bottom of a sea.",
+      "body": "The rocks near the summit are limestone laid down on the floor of an ancient sea, the Tethys, and they hold fossils of sea creatures. Today they sit about 8,849 m above sea level. Something lifted a seabed onto the world's highest mountain."
+    },
+    {
+      "id": "card.world_geography.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "India's slow-motion crash",
+      "body": "The lifter was India. It drifted north and collided with Asia about 40 to 50 million years ago. The two had about the same rock density, so neither plate could slide under the other. With nowhere else to go, the crust was thrust upward, seabed and all, into the Himalayas. They're fold mountains, like the Alps in Level 62, with the Indian plate as the pushy neighbor."
+    },
+    {
+      "id": "card.world_geography.066.c3",
+      "type": "fact",
+      "fact": "The Himalayas are still rising, by more than 1 cm a year.",
+      "context": "The crash isn't over. The Indian plate is still pushing north into the Eurasian plate, squeezing the range like a very slow press. Your fingernails grow faster, but the Himalayas have had millions of years of practice."
+    },
+    {
+      "id": "card.world_geography.066.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The abode of snow",
+      "body": "Himalaya comes from Sanskrit words meaning \"abode of snow\", and all that snow and ice feeds rivers. The Himalayas are drained by 19 major rivers, and the Indus and the Brahmaputra are the largest. The Ganges begins here too, as a stream flowing out of the Gangotri Glacier. Mountains built from an old seabed now send their water back toward the sea.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Seafloor to summit, then snow back to sea. Rocks have the longest commutes."
+      }
+    },
+    {
+      "id": "card.world_geography.066.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.066.q1"
+    },
+    {
+      "id": "card.world_geography.066.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.066.q2"
+    },
+    {
+      "id": "card.world_geography.066.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.066.q3"
+    },
+    {
+      "id": "card.world_geography.066.c8",
+      "type": "checkpoint",
+      "headline": "Himalayas: climbed",
+      "learned": [
+        "Everest's summit rock formed on an ancient seafloor",
+        "India hit Asia 40 to 50 million years ago",
+        "The Himalayas still rise more than 1 cm a year",
+        "Himalaya means 'abode of snow'; its snow feeds great rivers"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.himalaya_rivers"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.066.c4"
+      ],
+      "prompt": "What does the name Himalaya mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Roof of the world",
+          "correct": false,
+          "rationale": "Catchy, but not what the Sanskrit says."
+        },
+        {
+          "id": "b",
+          "label": "Abode of snow",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Mother of rivers",
+          "correct": false,
+          "rationale": "The rivers are real, but that's not the name."
+        },
+        {
+          "id": "d",
+          "label": "Land of high peaks",
+          "correct": false,
+          "rationale": "Close in spirit, but the name is about snow."
+        }
+      ],
+      "explanation": "Himalaya comes from Sanskrit words meaning 'abode of snow'.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.himalaya_formation"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.066.c1",
+        "card.world_geography.066.c2"
+      ],
+      "prompt": "How did seafloor rock end up near the top of Everest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sea levels were once far higher",
+          "correct": false,
+          "rationale": "The sea didn't rise; the rock did."
+        },
+        {
+          "id": "b",
+          "label": "Glaciers carried it up the slopes",
+          "correct": false,
+          "rationale": "Glaciers move rock downhill, not up."
+        },
+        {
+          "id": "c",
+          "label": "India's collision with Asia thrust the seabed up",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Volcanoes erupted it onto the peak",
+          "correct": false,
+          "rationale": "The Himalayas aren't volcanoes; they're fold mountains."
+        }
+      ],
+      "explanation": "When India collided with Asia, neither plate could slide under the other, so the crust, old seabed included, was thrust upward into the Himalayas.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.alps_mountains",
+        "concept.world_geography.himalaya_formation"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.062.c2",
+        "card.world_geography.066.c2"
+      ],
+      "prompt": "What do the Himalayas and Level 62's Alps have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both are chains of old volcanoes",
+          "correct": false,
+          "rationale": "Neither range is volcanic."
+        },
+        {
+          "id": "b",
+          "label": "Both were carved out by rivers",
+          "correct": false,
+          "rationale": "Rivers carve valleys, not whole ranges."
+        },
+        {
+          "id": "c",
+          "label": "Both rise from the middle of an ocean",
+          "correct": false,
+          "rationale": "Both sit on land, at the edge of Eurasia."
+        },
+        {
+          "id": "d",
+          "label": "Both are fold mountains pushed up against Eurasia",
+          "correct": true
+        }
+      ],
+      "explanation": "The Alps and the Himalayas are both fold mountains: a piece of Africa pushes into Eurasia under the Alps, and India pushes into it under the Himalayas.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_mount_everest",
+    "source.usgs_himalayas",
+    "source.natgeo_fold_mountain",
+    "source.brit_himalayas",
+    "source.brit_ganges"
+  ],
+  "art": "geo.mountains"
+}

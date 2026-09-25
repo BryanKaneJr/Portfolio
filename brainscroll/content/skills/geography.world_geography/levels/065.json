@@ -1,0 +1,224 @@
+{
+  "id": "level.geography.world_geography.065",
+  "skillId": "skill.geography.world_geography",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Asia in One Level",
+  "objective": "After this level you can describe Asia's regions and why most people on Earth live there.",
+  "summary": "Asia, the largest continent, holds about three-fifths of the world's people. They crowd into South Asia, eastern China and the Pacific coasts, while the interior stays nearly empty.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.asia_regions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.asia_population",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.continent_sizes",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.russia_size",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.064"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About three in every five people on Earth live in Asia.",
+      "body": "Yet huge stretches of Asia are almost empty. Both are true at once. The trick is where people choose to live."
+    },
+    {
+      "id": "card.world_geography.065.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One continent, many neighborhoods",
+      "body": "Asia is the giant from Level 8, holding almost a third of the world's land. That's too much to take in at once, so geographers divide it into regions: East Asia, South Asia, Southeast Asia, Central Asia, West Asia and North Asia. North Asia is Siberia, the frozen forest you crossed in Level 64. Same continent, very different neighborhoods."
+    },
+    {
+      "id": "card.world_geography.065.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Crowded here, empty there",
+      "body": "Asia's people aren't spread evenly. Vast areas of Central and North Asia have stayed sparsely populated because their climates are forbidding. Instead, people are concentrated in the Indian subcontinent, the eastern half of China, the Pacific borderlands and the islands. A population map of Asia looks like a party where everyone is standing by the windows."
+    },
+    {
+      "id": "card.world_geography.065.c4",
+      "type": "fact",
+      "fact": "About 90% of the world's rice is grown and eaten in Asia.",
+      "context": "Grown there and eaten there: the same continent does both. When about three in five people share one continent, it takes a lot of rice to fill the bowls. Next time you order fried rice, you're joining a very long dinner table.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Save me a seat at that table. Near the dumplings, ideally."
+      }
+    },
+    {
+      "id": "card.world_geography.065.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.065.q1"
+    },
+    {
+      "id": "card.world_geography.065.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.065.q2"
+    },
+    {
+      "id": "card.world_geography.065.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.065.q3"
+    },
+    {
+      "id": "card.world_geography.065.c8",
+      "type": "checkpoint",
+      "headline": "Asia: surveyed",
+      "learned": [
+        "Asia holds about three-fifths of the world's people",
+        "Regions: East, South, Southeast, Central, West and North",
+        "Forbidding climates keep Central and North Asia empty",
+        "About 90% of the world's rice is grown and eaten in Asia"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.asia_population"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.065.c1"
+      ],
+      "prompt": "About what share of the world's people live in Asia?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One-fifth",
+          "correct": false,
+          "rationale": "Much more than that."
+        },
+        {
+          "id": "b",
+          "label": "Two-fifths",
+          "correct": false,
+          "rationale": "Still too low."
+        },
+        {
+          "id": "c",
+          "label": "Three-fifths",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Four-fifths",
+          "correct": false,
+          "rationale": "Too high: the other continents hold about two-fifths."
+        }
+      ],
+      "explanation": "About three-fifths of the world's people live in Asia.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.asia_regions"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.065.c3"
+      ],
+      "prompt": "Why are vast areas of Central and North Asia so thinly populated?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Governments ban anyone from settling there",
+          "correct": false,
+          "rationale": "Nothing like that: it's about the climate."
+        },
+        {
+          "id": "b",
+          "label": "They're mostly covered by lakes",
+          "correct": false,
+          "rationale": "They're mostly land, just hard land to live on."
+        },
+        {
+          "id": "c",
+          "label": "Everyone moved away to Europe",
+          "correct": false,
+          "rationale": "People crowd into South and East Asia instead."
+        },
+        {
+          "id": "d",
+          "label": "Their climates are forbidding",
+          "correct": true
+        }
+      ],
+      "explanation": "Forbidding climates keep much of Central and North Asia sparsely populated, so people concentrate in South Asia, eastern China and the Pacific coasts.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.continent_sizes",
+        "concept.world_geography.asia_population"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.008.c2",
+        "card.world_geography.065.c1",
+        "card.world_geography.065.c2"
+      ],
+      "prompt": "Asia has almost a third of the world's land (Level 8) but about three-fifths of its people. What follows?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Asia is more crowded than the world average",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Asia is less crowded than the world average",
+          "correct": false,
+          "rationale": "It has a bigger share of people than of land."
+        },
+        {
+          "id": "c",
+          "label": "Asia's share of land and people is equal",
+          "correct": false,
+          "rationale": "A third isn't three-fifths."
+        },
+        {
+          "id": "d",
+          "label": "Asia's land is mostly water",
+          "correct": false,
+          "rationale": "Asia is the largest continent by land."
+        }
+      ],
+      "explanation": "A bigger share of people (three-fifths) than of land (almost a third) means Asia is, on average, more crowded than the rest of the world.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_asia",
+    "source.natgeo_continent",
+    "source.brit_siberia",
+    "source.fao_rice_asia_pacific"
+  ],
+  "art": "geo.pagoda"
+}

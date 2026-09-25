@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.world_geography.068",
+  "skillId": "skill.geography.world_geography",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "India and South Asia",
+  "objective": "After this level you can describe South Asia's landscapes, its monsoon and its huge population.",
+  "summary": "South Asia is a subcontinent walled off by the Himalayas. The summer monsoon brings about three-quarters of India's rain, and India is now the most populous country.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.south_asia_land",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.monsoon",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.landforms",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.himalaya_rivers",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.067"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.068.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In India, about three-quarters of a year's rain arrives in one season.",
+      "body": "When that season delivers, harvests boom. When it fails, crops can fail too. Meet the monsoon."
+    },
+    {
+      "id": "card.world_geography.068.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A subcontinent behind a wall",
+      "body": "India, Bangladesh and most of Pakistan form a subcontinent, set off from the rest of Asia by the Himalayas from Level 66. India's land falls into three big pieces: the Himalayas in the north, the Deccan plateau in the south, and the Indo-Gangetic Plain between them. The Ganges crosses that plain through one of the most fertile and densely populated regions in the world."
+    },
+    {
+      "id": "card.world_geography.068.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Winds that switch sides",
+      "body": "Monsoon comes from the Arabic mawsim, \"season\", and that's the whole idea: a major wind system that reverses direction with the seasons. Land heats and cools more than the ocean, so monsoon winds usually blow from sea to land in summer and from land to sea in winter. India's summer monsoon, from about mid-June to early October, carries moist air in from the Indian Ocean and brings about three-quarters of the year's rain.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Summer: the sea breathes in on the land. Winter: the land breathes back out."
+      }
+    },
+    {
+      "id": "card.world_geography.068.c4",
+      "type": "fact",
+      "fact": "In 2023, India overtook China as the world's most populous country.",
+      "context": "That's according to the United Nations. Feeding so many people leans on one season of rain. Good monsoon years bring bumper crops; poor rains can mean crop failure, especially where there's no irrigation. In South Asia, a weather forecast is also a harvest forecast."
+    },
+    {
+      "id": "card.world_geography.068.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.068.q1"
+    },
+    {
+      "id": "card.world_geography.068.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.068.q2"
+    },
+    {
+      "id": "card.world_geography.068.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.068.q3"
+    },
+    {
+      "id": "card.world_geography.068.c8",
+      "type": "checkpoint",
+      "headline": "South Asia: soaked",
+      "learned": [
+        "India, Bangladesh and most of Pakistan form a subcontinent",
+        "Three units: Himalayas, Indo-Gangetic Plain, Deccan plateau",
+        "A monsoon is a wind system that flips with the seasons",
+        "The summer monsoon brings about three-quarters of India's rain"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.monsoon"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.068.c3"
+      ],
+      "prompt": "From Level 35: what is a monsoon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A single giant storm over the ocean",
+          "correct": false,
+          "rationale": "It's a whole seasonal wind system, not one storm."
+        },
+        {
+          "id": "b",
+          "label": "A wind system that reverses with the seasons",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A river flood caused by melting snow",
+          "correct": false,
+          "rationale": "Snowmelt floods are a different thing."
+        },
+        {
+          "id": "d",
+          "label": "A dry wind that blows off a desert",
+          "correct": false,
+          "rationale": "The summer monsoon brings moist ocean air."
+        }
+      ],
+      "explanation": "A monsoon is a major wind system that reverses direction with the seasons. The word comes from the Arabic for 'season'.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.monsoon"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.068.c3",
+        "card.world_geography.068.c4"
+      ],
+      "prompt": "Why can a weak summer monsoon hurt India's harvest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It blows cold air down from the Himalayas",
+          "correct": false,
+          "rationale": "The summer monsoon brings warm, moist ocean air."
+        },
+        {
+          "id": "b",
+          "label": "It carries locusts in from the ocean",
+          "correct": false,
+          "rationale": "It carries moisture, not insects."
+        },
+        {
+          "id": "c",
+          "label": "It's the only time farmers are allowed to plant",
+          "correct": false,
+          "rationale": "No such rule: the problem is water."
+        },
+        {
+          "id": "d",
+          "label": "It brings most of the year's rain",
+          "correct": true
+        }
+      ],
+      "explanation": "The summer monsoon brings about three-quarters of India's yearly rain. Poor rains can mean crop failure, especially where there's no irrigation.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.landforms",
+        "concept.world_geography.south_asia_land"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.007.c4",
+        "card.world_geography.068.c2"
+      ],
+      "prompt": "Southern India's Deccan is a plateau. From Level 7, what is a plateau?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Low land carved out by a river",
+          "correct": false,
+          "rationale": "That's a valley."
+        },
+        {
+          "id": "b",
+          "label": "Flat land at a river's mouth",
+          "correct": false,
+          "rationale": "That's a delta."
+        },
+        {
+          "id": "c",
+          "label": "Flat, high land rising sharply on one side",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A ridge of folded mountains",
+          "correct": false,
+          "rationale": "Fold mountains are peaks, not flat tops."
+        }
+      ],
+      "explanation": "A plateau is flat land raised up high, rising sharply above its surroundings on at least one side. The Deccan fills much of southern India.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_indian_monsoon",
+    "source.brit_india_relief",
+    "source.brit_ganges",
+    "source.brit_monsoon",
+    "source.un_desa_india_population"
+  ],
+  "art": "geo.pagoda"
+}

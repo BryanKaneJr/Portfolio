@@ -1,0 +1,221 @@
+{
+  "id": "level.geography.world_geography.083",
+  "skillId": "skill.geography.world_geography",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Great Barrier Reef",
+  "objective": "After this level you can describe the Great Barrier Reef and the threats it faces.",
+  "summary": "The Great Barrier Reef, the world's largest coral reef system, was built by colonies of tiny polyps. Warm water makes corals bleach, and climate change is its greatest threat.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.great_barrier_reef",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.coral_bleaching",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.ocean_sizes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.082"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The biggest coral reef system on Earth was built by animals.",
+      "body": "Not by rocks or waves. By tiny creatures living in colonies, adding one skeleton at a time. And right now, those builders are in trouble."
+    },
+    {
+      "id": "card.world_geography.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Builders that become the building",
+      "body": "A coral isn't a plant or a rock. It's made of animals called polyps. Hard corals build skeletons of calcium carbonate, and a colony can hold hundreds to hundreds of thousands of polyps, all cemented together. Colony on colony, skeleton on skeleton, a reef grows. It's a city where the bricklayers are also the bricks."
+    },
+    {
+      "id": "card.world_geography.083.c3",
+      "type": "fact",
+      "fact": "The Great Barrier Reef stretches more than 2,000 km off northeastern Australia.",
+      "context": "It's the world's largest coral reef system, made of nearly 3,000 individual reefs. It grows in the Coral Sea, part of the Pacific, the biggest ocean from Level 8. The biggest ocean holds the biggest reef."
+    },
+    {
+      "id": "card.world_geography.083.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why corals turn white",
+      "body": "Corals share their bodies with tiny algae, which are their main food source and give them their color. When the water gets too warm, stressed corals expel the algae and turn white. That's bleaching. A bleached coral isn't dead yet: it can recover if the stress eases, but if it drags on, the coral dies. That's why the reef's managers name climate change as its greatest threat.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "White coral is a warning light, not a gravestone. The question is how long the warning lasts."
+      }
+    },
+    {
+      "id": "card.world_geography.083.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.083.q1"
+    },
+    {
+      "id": "card.world_geography.083.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.083.q2"
+    },
+    {
+      "id": "card.world_geography.083.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.083.q3"
+    },
+    {
+      "id": "card.world_geography.083.c8",
+      "type": "checkpoint",
+      "headline": "Reef: explored",
+      "learned": [
+        "Corals are colonies of tiny animals called polyps",
+        "The Great Barrier Reef: the largest reef system, over 2,000 km",
+        "Warm water makes corals expel their algae and bleach",
+        "Climate change is the reef's greatest threat"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.great_barrier_reef"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.083.c2"
+      ],
+      "prompt": "What builds a coral reef?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Layers of cooled lava",
+          "correct": false,
+          "rationale": "Reefs are built by living animals."
+        },
+        {
+          "id": "b",
+          "label": "Sand piled up by waves",
+          "correct": false,
+          "rationale": "Waves shape reefs; they don't build them."
+        },
+        {
+          "id": "c",
+          "label": "Colonies of tiny animals called polyps",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Seaweed that hardens over time",
+          "correct": false,
+          "rationale": "Corals are animals, not plants."
+        }
+      ],
+      "explanation": "Coral polyps build calcium carbonate skeletons, and their colonies cement together into reefs.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.coral_bleaching"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.083.c4"
+      ],
+      "prompt": "From Level 48: why does a bleached coral turn white?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has expelled the algae that give it color",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its skeleton has grown thicker",
+          "correct": false,
+          "rationale": "Bleaching is about losing algae, not growing."
+        },
+        {
+          "id": "c",
+          "label": "Salt crystals have coated it",
+          "correct": false,
+          "rationale": "Salt isn't the cause; warm water stress is."
+        },
+        {
+          "id": "d",
+          "label": "It has already died",
+          "correct": false,
+          "rationale": "Bleached corals can recover if the stress eases."
+        }
+      ],
+      "explanation": "Stressed by warm water, corals expel the algae that feed and color them, so they turn white.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.great_barrier_reef",
+        "concept.world_geography.ocean_sizes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.083.c3",
+        "card.world_geography.008.c3"
+      ],
+      "prompt": "The Great Barrier Reef grows in the Coral Sea. From Level 8: which ocean is that part of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Indian Ocean",
+          "correct": false,
+          "rationale": "The reef lies off northeastern Australia, on the Pacific side."
+        },
+        {
+          "id": "b",
+          "label": "The Southern Ocean",
+          "correct": false,
+          "rationale": "That ocean encircles Antarctica."
+        },
+        {
+          "id": "c",
+          "label": "The Atlantic Ocean",
+          "correct": false,
+          "rationale": "The Atlantic is on the other side of the world."
+        },
+        {
+          "id": "d",
+          "label": "The Pacific, the largest ocean",
+          "correct": true
+        }
+      ],
+      "explanation": "The Coral Sea is part of the Pacific, which Level 8 ranked the largest and deepest ocean.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_great_barrier_reef",
+    "source.noaa_gbr_largest",
+    "source.brit_coral_sea",
+    "source.noaa_coral_polyps",
+    "source.noaa_coral_bleaching",
+    "source.gbrmpa_climate_change",
+    "source.noaa_biggest_ocean"
+  ],
+  "art": "geo.coral"
+}

@@ -1,0 +1,213 @@
+{
+  "id": "level.geography.world_geography.032",
+  "skillId": "skill.geography.world_geography",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why the Equator Is Hot",
+  "objective": "After this level you can explain how the angle of sunlight makes the tropics warm and the poles cold.",
+  "summary": "Near the Equator sunlight lands almost straight down on a small area; toward the poles it slants and spreads out. Tilt, not distance, makes the seasons.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.sun_angle_heating",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.tropics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.031"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The word climate comes from the Greek for 'slope.'",
+      "body": "Not a hillside. The slope of the Sun's rays. Whoever named it was onto something: how warm a place gets is mostly about the angle."
+    },
+    {
+      "id": "card.world_geography.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same sunlight, different angle",
+      "body": "Near the Equator, the midday Sun shines almost straight down, so its energy lands on a small patch of ground. Toward the poles, the same sunlight arrives at a low slant and spreads over a much bigger area. Try it with a flashlight: point it straight at a table and you get a small, bright circle. Tilt it and the light smears into a wide, dim oval. Same flashlight, less heat per spot."
+    },
+    {
+      "id": "card.world_geography.032.c3",
+      "type": "fact",
+      "fact": "Earth is closest to the Sun in early January.",
+      "context": "That's the middle of winter in the Northern Hemisphere, so distance can't be what makes summer hot. Earth's tilt is. In June the Northern Hemisphere's sunlight hits most directly, and it gets summer. Remember Level 4's tropics? They're the only places where the Sun ever shines straight overhead.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Closest to the Sun, and people are scraping ice off their windshields. Angles beat distance every time."
+      }
+    },
+    {
+      "id": "card.world_geography.032.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The planet's heat delivery service",
+      "body": "Add it up and the tropics collect the most solar energy, while the Arctic and Antarctic get the least. That imbalance never settles, because the atmosphere and oceans keep carrying the extra heat toward the poles, through winds, currents and weather. The rest of this chapter is the story of that delivery service."
+    },
+    {
+      "id": "card.world_geography.032.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.032.q1"
+    },
+    {
+      "id": "card.world_geography.032.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.032.q2"
+    },
+    {
+      "id": "card.world_geography.032.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.032.q3"
+    },
+    {
+      "id": "card.world_geography.032.c8",
+      "type": "checkpoint",
+      "headline": "Angles: understood",
+      "learned": [
+        "'Climate' comes from the Greek for slope",
+        "Direct sunlight packs more energy per spot",
+        "Tilt, not distance, makes the seasons",
+        "Winds and oceans carry heat toward the poles"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.sun_angle_heating"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.032.c2"
+      ],
+      "prompt": "Why does sunlight heat the Equator more than the poles?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It arrives more directly, on a smaller area",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Equator is much closer to the Sun",
+          "correct": false,
+          "rationale": "It's the angle, not the distance, that matters."
+        },
+        {
+          "id": "c",
+          "label": "The Sun shines longer each day there",
+          "correct": false,
+          "rationale": "Polar summers have very long days; the slant is the problem."
+        },
+        {
+          "id": "d",
+          "label": "The poles block sunlight with clouds",
+          "correct": false,
+          "rationale": "Even clear polar skies get slanting, spread-out light."
+        }
+      ],
+      "explanation": "Near the Equator the light comes in almost straight down, concentrating its energy. Toward the poles it spreads over a larger area.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.sun_angle_heating"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.032.c3"
+      ],
+      "prompt": "Earth is closest to the Sun in early January. What does that tell you about the seasons?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Northern winters should be the warmest season",
+          "correct": false,
+          "rationale": "They aren't; the tilt wins."
+        },
+        {
+          "id": "b",
+          "label": "Distance from the Sun isn't what causes them",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The seasons are caused by distance after all",
+          "correct": false,
+          "rationale": "Then January would be summer everywhere in the north."
+        },
+        {
+          "id": "d",
+          "label": "The Southern Hemisphere has no seasons",
+          "correct": false,
+          "rationale": "Both hemispheres have seasons, at opposite times."
+        }
+      ],
+      "explanation": "Earth is closest in northern winter, so distance cannot be the cause. The tilt, which changes how directly sunlight hits, makes the seasons.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.sun_angle_heating",
+        "concept.world_geography.tropics"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.032.c4",
+        "card.world_geography.004.c3"
+      ],
+      "prompt": "Using Level 4's tropics: which town collects the most solar energy over a year?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A town at 45° N",
+          "correct": false,
+          "rationale": "Mid-latitudes get slanting light much of the year."
+        },
+        {
+          "id": "b",
+          "label": "A town at 60° S",
+          "correct": false,
+          "rationale": "Far from the tropics, the light spreads thin."
+        },
+        {
+          "id": "c",
+          "label": "A town on the Equator",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A town at 70° N",
+          "correct": false,
+          "rationale": "Long summer days, but the light arrives at a low slant."
+        }
+      ],
+      "explanation": "The Equator sits in the tropics, where the Sun can shine straight overhead. The tropics collect the most solar energy.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_climate",
+    "source.nasa_earth_energy_budget",
+    "source.nasa_spaceplace_seasons",
+    "source.bishop_museum_lahaina_noon"
+  ],
+  "art": "astronomy.sun"
+}

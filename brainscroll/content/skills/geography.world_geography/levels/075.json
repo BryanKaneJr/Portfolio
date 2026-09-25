@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.world_geography.075",
+  "skillId": "skill.geography.world_geography",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Grand Canyon",
+  "objective": "After this level you can explain how the Colorado River carved the Grand Canyon.",
+  "summary": "The land was lifted into the Colorado Plateau, then the Colorado River spent 5 to 6 million years cutting down through it, exposing rocks nearly 2 billion years old at the bottom.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.grand_canyon_carving",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.grand_canyon_rocks",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.landforms",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.074"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.075.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A river dug a hole more than a mile deep.",
+      "body": "The Grand Canyon in Arizona drops about 1,800 m below its rim and runs about 446 km long. No bulldozers were involved. Just one river and a lot of patience."
+    },
+    {
+      "id": "card.world_geography.075.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step one: lift the land",
+      "body": "Before a river can dig a deep canyon, it needs something tall to dig into. Between about 70 and 30 million years ago, the whole region was pushed upward into the Colorado Plateau, high and fairly flat. That's Level 7's plateau: flat land raised up high. The higher the land, the farther down a river can cut."
+    },
+    {
+      "id": "card.world_geography.075.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step two: saw it open",
+      "body": "Then the Colorado River got to work. Starting 5 to 6 million years ago, it began carving downward. Water alone isn't much of a cutter, but the river carries sand and rocks, and those do the grinding, like sandpaper dragged across the riverbed again and again. Grain by grain, the river sawed through the plateau. The water is the saw; the sand is its teeth.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Moving water plus gritty sand plus millions of years. Slow, but it never takes a day off."
+      }
+    },
+    {
+      "id": "card.world_geography.075.c4",
+      "type": "fact",
+      "fact": "The oldest rocks at the canyon bottom are nearly 2 billion years old.",
+      "context": "Rock layers stack up like a pile of newspapers: the oldest at the bottom, newer ones on top. The layer at the rim is about 270 million years old, a youngster by comparison. So a hike down into the Grand Canyon is a walk back in time, one layer per chapter."
+    },
+    {
+      "id": "card.world_geography.075.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.075.q1"
+    },
+    {
+      "id": "card.world_geography.075.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.075.q2"
+    },
+    {
+      "id": "card.world_geography.075.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.075.q3"
+    },
+    {
+      "id": "card.world_geography.075.c8",
+      "type": "checkpoint",
+      "headline": "Grand Canyon: explored",
+      "learned": [
+        "The land rose into the Colorado Plateau first",
+        "The Colorado River cut down for 5 to 6 million years",
+        "Sand and rocks in the river do the cutting",
+        "Oldest rocks at the bottom, nearly 2 billion years"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.grand_canyon_carving"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.075.c3"
+      ],
+      "prompt": "Which river carved the Grand Canyon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Mississippi",
+          "correct": false,
+          "rationale": "The Mississippi drains the middle of the continent."
+        },
+        {
+          "id": "b",
+          "label": "The Missouri",
+          "correct": false,
+          "rationale": "The Missouri runs from Montana to the Mississippi."
+        },
+        {
+          "id": "c",
+          "label": "The Colorado",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The St. Lawrence",
+          "correct": false,
+          "rationale": "The St. Lawrence drains the Great Lakes."
+        }
+      ],
+      "explanation": "Starting 5 to 6 million years ago, the Colorado River carved down through the plateau.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.grand_canyon_rocks"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.075.c4"
+      ],
+      "prompt": "Why are the Grand Canyon's oldest rocks at the bottom?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The river washed old rocks downhill",
+          "correct": false,
+          "rationale": "The rocks formed where they are; layers stacked over time."
+        },
+        {
+          "id": "b",
+          "label": "Layers stack, so older ones lie beneath",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Old rocks are heavier, so they sank down",
+          "correct": false,
+          "rationale": "It's about the order layers formed, not weight."
+        },
+        {
+          "id": "d",
+          "label": "Heat at the bottom ages rock faster",
+          "correct": false,
+          "rationale": "Age comes from when a layer formed, not heat."
+        }
+      ],
+      "explanation": "Layers stack like newspapers: the oldest at the bottom, newer ones on top, so digging down goes back in time.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.grand_canyon_carving",
+        "concept.world_geography.landforms"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.075.c2",
+        "card.world_geography.007.c4"
+      ],
+      "prompt": "From Level 7: before the river cut down, the region was lifted into what kind of landform?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A delta",
+          "correct": false,
+          "rationale": "A delta is low land at a river's mouth."
+        },
+        {
+          "id": "b",
+          "label": "A U-shaped valley",
+          "correct": false,
+          "rationale": "Glaciers grind those; this land was lifted."
+        },
+        {
+          "id": "c",
+          "label": "A plateau",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "An island",
+          "correct": false,
+          "rationale": "This is dry land in the middle of a continent."
+        }
+      ],
+      "explanation": "The region was uplifted into the Colorado Plateau: flat land raised high, which the river then cut into.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nps_grand_canyon_geology",
+    "source.nps_grand_canyon_rock_ages",
+    "source.brit_grand_canyon",
+    "source.natgeo_plateau"
+  ],
+  "art": "geo.canyon"
+}

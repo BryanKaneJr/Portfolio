@@ -1,0 +1,227 @@
+{
+  "id": "level.geography.world_geography.022",
+  "skillId": "skill.geography.world_geography",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "One World Ocean",
+  "objective": "After this level you can name the five oceans and explain why they are really one connected ocean.",
+  "summary": "Seas are smaller corners of the ocean, usually partly enclosed by land, and the five named oceans are regions of one ocean. At its deepest, it could swallow Everest.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.seas_vs_oceans",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.ocean_depth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.five_oceans",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.ocean_sizes",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.elevation_contours",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.021"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "There is a sea with no shore anywhere.",
+      "body": "Picture a sea and you probably see a beach around the edge. The Sargasso Sea, out in the Atlantic, has no coastline at all. Ocean currents alone draw its edges. So what makes a sea a sea, and where does one ocean end?"
+    },
+    {
+      "id": "card.world_geography.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seas are corners of the ocean",
+      "body": "A sea is smaller than an ocean. It usually lies where land and ocean meet, and it's typically partly enclosed by land. If the ocean is a big house, seas are its alcoves. The Sargasso is the odd one out: the only sea with no land boundary at all. It's a room whose walls are made of moving water."
+    },
+    {
+      "id": "card.world_geography.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five names, still one ocean",
+      "body": "Remember Level 1's oceans? From largest to smallest: the Pacific, Atlantic, Indian, Southern and Arctic. They're not five tanks. They're connected regions of one global ocean, divided by lines people drew. That's how a sea can float in the middle of the Atlantic with no shore. The borders were only ever on paper."
+    },
+    {
+      "id": "card.world_geography.022.c4",
+      "type": "fact",
+      "fact": "The ocean's deepest known point is about 11 km down.",
+      "context": "It's called Challenger Deep, in the Pacific's Mariana Trench. Level 7's Mount Everest stands about 8,849 m tall. Set it on the bottom of Challenger Deep and its peak would still be about 2 km underwater. Most of the ocean is shallower, with an average depth of about 3,700 m. That's still a long way to swim."
+    },
+    {
+      "id": "card.world_geography.022.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.022.q1"
+    },
+    {
+      "id": "card.world_geography.022.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.022.q2"
+    },
+    {
+      "id": "card.world_geography.022.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.022.q3"
+    },
+    {
+      "id": "card.world_geography.022.c8",
+      "type": "checkpoint",
+      "headline": "One ocean: explored",
+      "learned": [
+        "Seas are smaller, usually partly enclosed by land",
+        "The Sargasso Sea has no shore at all",
+        "Five named oceans, one connected ocean",
+        "Challenger Deep is about 11 km down",
+        "Average ocean depth: about 3,700 m"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.seas_vs_oceans"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.022.c2"
+      ],
+      "prompt": "What makes the Sargasso Sea different from every other sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is fresh water",
+          "correct": false,
+          "rationale": "It is part of the salty Atlantic."
+        },
+        {
+          "id": "b",
+          "label": "It has no land boundary",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is the deepest sea",
+          "correct": false,
+          "rationale": "Depth is not what sets it apart."
+        },
+        {
+          "id": "d",
+          "label": "It lies in the Pacific",
+          "correct": false,
+          "rationale": "It is in the Atlantic."
+        }
+      ],
+      "explanation": "Every other sea is bounded at least partly by land; the Sargasso is defined only by ocean currents.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.five_oceans"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.022.c3"
+      ],
+      "prompt": "A ship sails from the Atlantic into the Indian Ocean. What does it actually cross?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A line people drew on maps",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "An underwater wall between basins",
+          "correct": false,
+          "rationale": "No wall: the water is continuous."
+        },
+        {
+          "id": "c",
+          "label": "A strip of fresh water",
+          "correct": false,
+          "rationale": "The oceans share the same salty water."
+        },
+        {
+          "id": "d",
+          "label": "A change in sea level",
+          "correct": false,
+          "rationale": "The oceans are connected; there is no step."
+        }
+      ],
+      "explanation": "The named oceans are regions of one global ocean. The borders between them are lines people drew.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.ocean_depth",
+        "concept.world_geography.elevation_contours"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.022.c4",
+        "card.world_geography.007.c2"
+      ],
+      "prompt": "From Level 7: if Mount Everest stood on the floor of Challenger Deep, where would its peak be?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 2 km above the waves",
+          "correct": false,
+          "rationale": "Challenger Deep is deeper than Everest is tall."
+        },
+        {
+          "id": "b",
+          "label": "Just poking out of the water",
+          "correct": false,
+          "rationale": "There is about 2 km of water to spare."
+        },
+        {
+          "id": "c",
+          "label": "About 2 km underwater",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "At the average depth of the ocean",
+          "correct": false,
+          "rationale": "That is about 3,700 m down."
+        }
+      ],
+      "explanation": "Challenger Deep is about 11 km deep and Everest about 8,849 m tall, so the peak would sit about 2 km below the surface.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_sargasso_sea",
+    "source.noaa_ocean_or_sea",
+    "source.noaa_biggest_ocean",
+    "source.noaa_how_many_oceans",
+    "source.noaa_ocean_depth",
+    "source.brit_mount_everest"
+  ],
+  "art": "geo.wave"
+}

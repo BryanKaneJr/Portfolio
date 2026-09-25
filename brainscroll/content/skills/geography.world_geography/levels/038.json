@@ -1,0 +1,252 @@
+{
+  "id": "level.geography.world_geography.038",
+  "skillId": "skill.geography.world_geography",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Climate Zones",
+  "objective": "After this level you can name the main climate zones and say where on Earth each one occurs.",
+  "summary": "Köppen sorted climates by the plants they grow into five groups: tropical near the Equator, dry deserts about 15 to 30 degrees out, temperate, continental interiors and polar.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.koppen_zones",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.climate_zone_locations",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.tropics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.037"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The ancient Greeks sorted the world's climates with Level 4's lines.",
+      "body": "They split the world into five zones: a torrid zone between the tropics, two temperate zones, and two frigid zones beyond the polar circles. Not bad for a first draft."
+    },
+    {
+      "id": "card.world_geography.038.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Köppen's map, drawn by plants",
+      "body": "The system most used today came from Wladimir Köppen, a German climatologist, in 1900. His clever shortcut was plants. What grows in a place depends on its temperature and rainfall, so Köppen drew his climate borders to match the zones of vegetation. The plants had been mapping climate all along; he just read their map. He sorted the world into five main groups: tropical, dry, temperate, continental and polar. Here's where each one lives."
+    },
+    {
+      "id": "card.world_geography.038.c3",
+      "type": "comparison",
+      "headline": "The warmer three",
+      "items": [
+        {
+          "label": "Tropical",
+          "points": [
+            "Closest to the Equator",
+            "Hot, humid and rainy all year"
+          ]
+        },
+        {
+          "label": "Dry",
+          "points": [
+            "Very little rain, and moisture evaporates fast",
+            "Big hot deserts, like the Sahara, lie about 15 to 30 degrees from the Equator"
+          ]
+        },
+        {
+          "label": "Temperate",
+          "points": [
+            "Warm, humid summers, often with thunderstorms",
+            "Mild winters"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.world_geography.038.c4",
+      "type": "comparison",
+      "headline": "The colder two",
+      "items": [
+        {
+          "label": "Continental",
+          "points": [
+            "Warm summers, very cold winters",
+            "Inside large landmasses, far from the ocean's moderating influence"
+          ]
+        },
+        {
+          "label": "Polar",
+          "points": [
+            "Near the poles",
+            "Cold even in summer: the warmest month averages below about 10°C"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.world_geography.038.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.038.q1"
+    },
+    {
+      "id": "card.world_geography.038.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.038.q2"
+    },
+    {
+      "id": "card.world_geography.038.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.038.q3"
+    },
+    {
+      "id": "card.world_geography.038.c8",
+      "type": "checkpoint",
+      "headline": "Climate zones: located",
+      "learned": [
+        "The Greeks split Earth into five zones by latitude",
+        "Köppen (1900) drew climate borders from vegetation",
+        "Five groups: tropical, dry, temperate, continental, polar",
+        "Big hot deserts lie about 15 to 30 degrees from the Equator"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.koppen_zones"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.038.c2"
+      ],
+      "prompt": "What did Köppen use to draw the borders of his climate zones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lines of latitude only",
+          "correct": false,
+          "rationale": "Latitude was the Greek approach; Köppen used plants."
+        },
+        {
+          "id": "b",
+          "label": "Zones of vegetation",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Country borders",
+          "correct": false,
+          "rationale": "Climate ignores borders."
+        },
+        {
+          "id": "d",
+          "label": "Ocean currents",
+          "correct": false,
+          "rationale": "He matched his borders to plant life."
+        }
+      ],
+      "explanation": "Köppen drew his climate borders to match vegetation zones, because what grows depends on temperature and rainfall.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.climate_zone_locations"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.038.c4"
+      ],
+      "prompt": "Why do continental climates have such cold winters?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They sit right at the poles",
+          "correct": false,
+          "rationale": "That's where polar climates are."
+        },
+        {
+          "id": "b",
+          "label": "They get more rain than anywhere else",
+          "correct": false,
+          "rationale": "Rain isn't the reason."
+        },
+        {
+          "id": "c",
+          "label": "They're far from the ocean's moderating influence",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They lie in the rain shadow of the Himalaya",
+          "correct": false,
+          "rationale": "Only a few are; distance from the ocean is the rule."
+        }
+      ],
+      "explanation": "Continental climates lie inside big landmasses, far from the ocean that keeps coastal places milder.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.climate_zone_locations",
+        "concept.world_geography.tropics"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.038.c1",
+        "card.world_geography.004.c3"
+      ],
+      "prompt": "From Level 4: the Greeks' torrid zone lay between which two lines?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Arctic and Antarctic Circles",
+          "correct": false,
+          "rationale": "Those bordered the frigid zones."
+        },
+        {
+          "id": "b",
+          "label": "The Equator and the prime meridian",
+          "correct": false,
+          "rationale": "Those two lines cross; they don't make a band."
+        },
+        {
+          "id": "c",
+          "label": "The Tropic of Cancer and the Tropic of Capricorn",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Equator and the Tropic of Cancer",
+          "correct": false,
+          "rationale": "The torrid zone reached into both hemispheres."
+        }
+      ],
+      "explanation": "The torrid zone spanned the tropics, from the Tropic of Cancer (about 23.5° N) to the Tropic of Capricorn (about 23.5° S).",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_climate_classification",
+    "source.brit_koppen",
+    "source.natgeo_koppen",
+    "source.nesdis_climate_types",
+    "source.natgeo_desert",
+    "source.brit_continental_climate"
+  ],
+  "art": "object.globe"
+}

@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.world_geography.076",
+  "skillId": "skill.geography.world_geography",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mexico and Central America",
+  "objective": "After this level you can describe the volcanoes, highlands and coasts of Mexico and Central America.",
+  "summary": "Plates meet under Mexico and Central America, so volcanoes are everywhere. Mexico's heartland is a high plateau, and Central America is a narrow isthmus with a wet Caribbean coast.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.mexico_central_america_volcanoes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.mexican_plateau",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.central_america_isthmus",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.north_america_extent",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.075"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1943, a volcano was born in a farmer's cornfield.",
+      "body": "On February 20, the ground in Dionisio Pulido's field in Mexico cracked open and started throwing out ash. The new volcano, Parícutin, kept erupting for 9 years. Definitely not the crop he planted."
+    },
+    {
+      "id": "card.world_geography.076.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Volcano country",
+      "body": "Mexico is volcano country. An active volcanic belt crosses central Mexico, and its peaks include Citlaltépetl (also called Orizaba), a volcano that is Mexico's highest point. Farther south, some 40 volcanic cones line Central America's Pacific side. The cause is underground: several of Earth's plates meet here and press on each other, so the ground shakes and volcanoes grow."
+    },
+    {
+      "id": "card.world_geography.076.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Life on the high table",
+      "body": "Between two long ranges, the Sierra Madre Occidental in the west and the Sierra Madre Oriental in the east, lies the Mexican Plateau. It's Mexico's largest and most densely populated region. Near its southern end, around Mexico City, the land rises about 2,100 to 2,700 m above sea level. Mexico's heartland isn't a coastal plain; it's a high tabletop between mountains."
+    },
+    {
+      "id": "card.world_geography.076.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A bridge between continents",
+      "body": "South of Mexico, the land narrows into Central America, an isthmus that links North and South America. At its narrowest, in Panama, it's only about 50 km wide. Its two coasts don't get the same weather, either: the Caribbean side receives about twice as much rain as the Pacific side. Two oceans, one short drive apart.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "An isthmus is just a land bridge with a fancy name. Try saying it three times fast."
+      }
+    },
+    {
+      "id": "card.world_geography.076.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.076.q1"
+    },
+    {
+      "id": "card.world_geography.076.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.076.q2"
+    },
+    {
+      "id": "card.world_geography.076.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.076.q3"
+    },
+    {
+      "id": "card.world_geography.076.c8",
+      "type": "checkpoint",
+      "headline": "Mexico and Central America: toured",
+      "learned": [
+        "Parícutin rose from a cornfield in 1943",
+        "Plates meet here, so volcanoes and earthquakes are common",
+        "The Mexican Plateau is Mexico's high heartland",
+        "Central America is a narrow isthmus linking two continents"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.mexican_plateau"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.076.c3"
+      ],
+      "prompt": "Which region, between the two Sierra Madre ranges, is Mexico's largest and most densely populated?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Pacific coast",
+          "correct": false,
+          "rationale": "The coast lies outside the two ranges."
+        },
+        {
+          "id": "b",
+          "label": "The Caribbean coast",
+          "correct": false,
+          "rationale": "The heartland is high ground, not coast."
+        },
+        {
+          "id": "c",
+          "label": "The Mexican Plateau",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Central American isthmus",
+          "correct": false,
+          "rationale": "That's south of Mexico."
+        }
+      ],
+      "explanation": "The Mexican Plateau sits between the Sierra Madre Occidental and Oriental, and it's Mexico's largest and most densely populated region.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.mexico_central_america_volcanoes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.076.c2"
+      ],
+      "prompt": "Why do Mexico and Central America have so many volcanoes and earthquakes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Several plates meet and press together",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Their land is unusually narrow",
+          "correct": false,
+          "rationale": "Narrow land doesn't make volcanoes."
+        },
+        {
+          "id": "c",
+          "label": "They sit inside the warm tropics",
+          "correct": false,
+          "rationale": "Warm weather doesn't cause eruptions."
+        },
+        {
+          "id": "d",
+          "label": "The Caribbean coast gets heavy rain",
+          "correct": false,
+          "rationale": "Rain doesn't build volcanoes."
+        }
+      ],
+      "explanation": "Several plates meet under the region and press on each other, which brings frequent earthquakes and eruptions.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.central_america_isthmus",
+        "concept.world_geography.north_america_extent"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.076.c4",
+        "card.world_geography.071.c2"
+      ],
+      "prompt": "From Level 71: Central America is the narrow southern end of North America. What does this isthmus connect?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mexico and the Caribbean islands",
+          "correct": false,
+          "rationale": "The islands sit offshore; no land links them."
+        },
+        {
+          "id": "b",
+          "label": "Canada and Greenland",
+          "correct": false,
+          "rationale": "Those are at the continent's northern end."
+        },
+        {
+          "id": "c",
+          "label": "The Pacific and Atlantic seafloors",
+          "correct": false,
+          "rationale": "An isthmus links land, not seafloor."
+        },
+        {
+          "id": "d",
+          "label": "North America and South America",
+          "correct": true
+        }
+      ],
+      "explanation": "Central America is an isthmus linking North and South America, only about 50 km wide in Panama.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonianmag_paricutin",
+    "source.iugs_paricutin",
+    "source.brit_mexico_relief",
+    "source.brit_central_america",
+    "source.brit_north_america"
+  ],
+  "art": "nature.volcano"
+}

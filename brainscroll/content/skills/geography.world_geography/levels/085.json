@@ -1,0 +1,233 @@
+{
+  "id": "level.geography.world_geography.085",
+  "skillId": "skill.geography.world_geography",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Pacific Islands",
+  "objective": "After this level you can explain how volcanoes and coral built the islands of the Pacific.",
+  "summary": "Pacific islands are high volcanic islands or low coral islands. Volcanoes drift off hot spots and sink, and the coral around them keeps growing up into atolls.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.pacific_island_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.atoll_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.date_line",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.084"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some Pacific islands are volcanoes. Others are rings left by sunken ones.",
+      "body": "Two very different kinds of island. Give one of them enough time and it can turn into the other."
+    },
+    {
+      "id": "card.world_geography.085.c2",
+      "type": "comparison",
+      "headline": "High islands and low islands",
+      "items": [
+        {
+          "label": "High islands",
+          "points": [
+            "Built up by volcanic eruptions",
+            "Hawaii is a famous example"
+          ]
+        },
+        {
+          "label": "Low islands",
+          "points": [
+            "Made of coral, living and dead",
+            "Often an atoll: a ring of small islands around a lagoon",
+            "Kiribati, from Level 5, is 32 atolls and one lone island"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.world_geography.085.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A volcano on a conveyor belt",
+      "body": "Hawaii shows how an island ages. The Pacific Plate slides over a hot spot, and the hot spot keeps building volcanoes that break the surface as islands. The plate keeps moving and carries each island away, so the chain gets older toward the northwest. At the young end sits the island of Hawaii. At the old end sits Kure Atoll: no volcano in sight, just a ring of coral."
+    },
+    {
+      "id": "card.world_geography.085.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Darwin's sinking islands",
+      "body": "Charles Darwin worked out the missing step. Coral grows as a reef around a volcanic island. The island slowly sinks, but the reef keeps building upward. Finally the island vanishes under the sea, and only the ring of reef is left around a lagoon: an atoll. In the 1950s, scientists drilled into Enewetak Atoll, went through more than 1 km of coral and hit volcanic rock. The volcano had been down there all along.",
+      "callout": "Volcano, then reef, then a ring with a lagoon"
+    },
+    {
+      "id": "card.world_geography.085.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.085.q1"
+    },
+    {
+      "id": "card.world_geography.085.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.085.q2"
+    },
+    {
+      "id": "card.world_geography.085.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.085.q3"
+    },
+    {
+      "id": "card.world_geography.085.c8",
+      "type": "checkpoint",
+      "headline": "Islands: explained",
+      "learned": [
+        "High islands are volcanic; low islands are coral",
+        "Hawaii's islands get older toward the northwest",
+        "Atolls form as reefs outgrow sinking volcanoes",
+        "Drilling at Enewetak hit volcanic rock under the coral"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.pacific_island_types"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.085.c2"
+      ],
+      "prompt": "What is a Pacific low island made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cooled lava",
+          "correct": false,
+          "rationale": "That's a high, volcanic island."
+        },
+        {
+          "id": "b",
+          "label": "Windblown sand dunes",
+          "correct": false,
+          "rationale": "Low islands are built by living things."
+        },
+        {
+          "id": "c",
+          "label": "Floating pumice",
+          "correct": false,
+          "rationale": "Pumice floats away; it doesn't build islands."
+        },
+        {
+          "id": "d",
+          "label": "Coral",
+          "correct": true
+        }
+      ],
+      "explanation": "Low islands are coral islands, often shaped as atolls: rings of small islands around a lagoon.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.atoll_formation"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.085.c4"
+      ],
+      "prompt": "Why does an atoll have a lagoon in the middle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A meteorite made a crater there",
+          "correct": false,
+          "rationale": "No impact is needed: it's where a volcano used to be."
+        },
+        {
+          "id": "b",
+          "label": "The volcanic island it circled sank beneath the sea",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Waves scooped out the center",
+          "correct": false,
+          "rationale": "The center is where the sunken island lies."
+        },
+        {
+          "id": "d",
+          "label": "Coral can only grow in circles",
+          "correct": false,
+          "rationale": "Coral grows around whatever it's attached to."
+        }
+      ],
+      "explanation": "The reef grew around a volcanic island. The island sank out of sight, and the reef kept growing, leaving a ring around a lagoon.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.pacific_island_types",
+        "concept.world_geography.date_line"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.085.c2",
+        "card.world_geography.005.c4"
+      ],
+      "prompt": "Level 5's date line bends around Kiribati. What is Kiribati made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One large volcanic island",
+          "correct": false,
+          "rationale": "Kiribati is spread over many small islands."
+        },
+        {
+          "id": "b",
+          "label": "A chunk of Australia",
+          "correct": false,
+          "rationale": "Kiribati sits far out in the Pacific."
+        },
+        {
+          "id": "c",
+          "label": "Mostly coral atolls",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Floating sea ice",
+          "correct": false,
+          "rationale": "Kiribati is a tropical nation, nowhere near the poles."
+        }
+      ],
+      "explanation": "Kiribati is 32 atolls and one solitary island, which is why the date line has to bend around all of it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_oceania_physical",
+    "source.noaa_hawaii_formation",
+    "source.usgs_atoll_development",
+    "source.royalsociety_atoll_drilling",
+    "source.natgeo_date_line",
+    "source.brit_international_date_line"
+  ],
+  "art": "geo.island"
+}

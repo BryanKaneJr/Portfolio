@@ -1,0 +1,235 @@
+{
+  "id": "level.geography.world_geography.071",
+  "skillId": "skill.geography.world_geography",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "North America in One Level",
+  "objective": "After this level you can describe North America's regions from the Arctic to Central America.",
+  "summary": "North America runs from near the North Pole almost to the Equator: Canada, the US, Mexico, Central America and the Caribbean, with mountains on both edges and plains in between.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.north_america_extent",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.north_america_regions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.tropics",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.polar_circles",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.continent_sizes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.070"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One continent nearly touches the North Pole and nearly reaches the Equator.",
+      "body": "North America stretches to within about 800 km of both. Planning a trip from one end to the other? Pack a parka, pack sunscreen, and bring a very big suitcase."
+    },
+    {
+      "id": "card.world_geography.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three giants and a bridge",
+      "body": "Most of the land belongs to three big countries: Canada, the United States and Mexico. Canada alone is the second-largest country on Earth. South of Mexico, the continent narrows into Central America, seven countries in a row, and the Caribbean islands sit just offshore. Greenland counts as North American, too, and it's the largest island in the world.",
+      "callout": "Canada · United States · Mexico · Central America · the Caribbean"
+    },
+    {
+      "id": "card.world_geography.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Old in the middle, tall in the west",
+      "body": "Picture the continent as neighborhoods of different ages. At its core sits the Canadian Shield, a stable platform of very ancient rock. In the east rise the old Appalachian Mountains. In the west rise the younger, much taller Cordilleras, which cover nearly a third of the land. Between the two mountain belts lies a huge, mostly flat middle of plains. Mountains on both edges, flat in the center: keep that shape in mind. This whole chapter lives in it."
+    },
+    {
+      "id": "card.world_geography.071.c4",
+      "type": "fact",
+      "fact": "Most of North America lies between the Arctic Circle and the Tropic of Cancer.",
+      "context": "Two of Level 4's lines make neat bookends. And in Level 8's ranking, North America is the third-largest continent, behind only Asia and Africa. A bronze medal, but a very roomy one.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Arctic Circle at the top, Tropic of Cancer at the bottom. Old lines, new job."
+      }
+    },
+    {
+      "id": "card.world_geography.071.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.071.q1"
+    },
+    {
+      "id": "card.world_geography.071.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.071.q2"
+    },
+    {
+      "id": "card.world_geography.071.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.071.q3"
+    },
+    {
+      "id": "card.world_geography.071.c8",
+      "type": "checkpoint",
+      "headline": "North America: mapped",
+      "learned": [
+        "It runs from near the North Pole almost to the Equator",
+        "Canada, the US and Mexico, then Central America",
+        "Old mountains east, tall young ones west, plains between",
+        "It's the third-largest continent"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.north_america_extent"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.071.c2"
+      ],
+      "prompt": "What sits just south of Mexico, as North America narrows?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Central America",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Greenland, the largest island",
+          "correct": false,
+          "rationale": "Greenland is far to the northeast."
+        },
+        {
+          "id": "c",
+          "label": "The Canadian Shield",
+          "correct": false,
+          "rationale": "That's the continent's ancient rock core, far north."
+        },
+        {
+          "id": "d",
+          "label": "The Arctic islands",
+          "correct": false,
+          "rationale": "Those are at the continent's northern end."
+        }
+      ],
+      "explanation": "South of Mexico, North America narrows into Central America, a row of seven countries.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.north_america_regions"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.071.c3"
+      ],
+      "prompt": "What fills the space between North America's eastern and western mountains?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Another tall mountain range",
+          "correct": false,
+          "rationale": "The middle is the flat part."
+        },
+        {
+          "id": "b",
+          "label": "Mostly flat plains",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A wide inland sea",
+          "correct": false,
+          "rationale": "It's land: plains and lowlands."
+        },
+        {
+          "id": "d",
+          "label": "The Caribbean islands",
+          "correct": false,
+          "rationale": "Those sit offshore, to the south."
+        }
+      ],
+      "explanation": "Old Appalachians in the east, tall Cordilleras in the west, and a huge flat middle of plains between them.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.north_america_extent",
+        "concept.world_geography.tropics"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.071.c4",
+        "card.world_geography.004.c3",
+        "card.world_geography.004.c4"
+      ],
+      "prompt": "From Level 4: most of North America lies between which two lines?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Equator and the Arctic Circle",
+          "correct": false,
+          "rationale": "North America stops about 800 km short of the Equator."
+        },
+        {
+          "id": "b",
+          "label": "The Tropics of Cancer and Capricorn",
+          "correct": false,
+          "rationale": "That's the tropics; most of North America is north of them."
+        },
+        {
+          "id": "c",
+          "label": "The prime meridian and the date line",
+          "correct": false,
+          "rationale": "Those are meridians; these bookends are lines of latitude."
+        },
+        {
+          "id": "d",
+          "label": "The Arctic Circle and the Tropic of Cancer",
+          "correct": true
+        }
+      ],
+      "explanation": "Most of North America sits between the Arctic Circle, about 66.5° N, and the Tropic of Cancer, about 23.5° N.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_north_america",
+    "source.brit_largest_countries",
+    "source.brit_central_america",
+    "source.natgeo_continent",
+    "source.natgeo_tropics",
+    "source.brit_tropic_of_cancer",
+    "source.brit_tropic_of_capricorn",
+    "source.brit_arctic_circle",
+    "source.brit_antarctic_circle"
+  ],
+  "art": "geo.canyon"
+}

@@ -1,0 +1,224 @@
+{
+  "id": "level.geography.world_geography.055",
+  "skillId": "skill.geography.world_geography",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Kilimanjaro and Africa's Peaks",
+  "objective": "After this level you can describe Africa's highest mountains and their shrinking ice.",
+  "summary": "Kilimanjaro, a volcano about 3° south of the Equator, rises 5,895 m as Africa's highest point. Its ice, and Mount Kenya's, is shrinking; Kilimanjaro has lost more than 85% since 1912.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.kilimanjaro",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.shrinking_ice",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.elevation_contours",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.great_rift_valley",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.054"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1848, a man saw snow near the Equator. It wasn't believed for over a decade.",
+      "body": "Johannes Rebmann had seen a snow-capped mountain in East Africa. He was right. The mountain was Kilimanjaro, and today the story is how fast that snow and ice are going."
+    },
+    {
+      "id": "card.world_geography.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Africa's rooftop",
+      "body": "Kilimanjaro, in Tanzania, rises 5,895 m above sea level: the highest point in Africa. It's one of the volcanoes that dot the Great Rift Valley from Level 54. And it stands only about 3° south of the Equator, deep in the tropics, which is exactly why snow up there sounded so ridiculous in 1848."
+    },
+    {
+      "id": "card.world_geography.055.c3",
+      "type": "fact",
+      "fact": "Kilimanjaro's summit ice has lost more than 85% of its mass.",
+      "context": "That's between 1912 and 2011. Warming is only part of the story. The region's air has grown drier, which means less fresh snow to rebuild the ice and fewer clouds to shade it from the Sun. Scientists estimate the ice could vanish by 2060."
+    },
+    {
+      "id": "card.world_geography.055.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Equator's other ice",
+      "body": "Kilimanjaro isn't alone. Mount Kenya, Africa's second-highest mountain, sits just south of the Equator and still has small glaciers. They're retreating, too. So the snow near the Equator that Rebmann's readers doubted turned out to be real. It's just running out.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "First nobody believed the ice was there. Now it may not be there to believe in. Tough crowd, glaciers."
+      }
+    },
+    {
+      "id": "card.world_geography.055.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.055.q1"
+    },
+    {
+      "id": "card.world_geography.055.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.055.q2"
+    },
+    {
+      "id": "card.world_geography.055.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.055.q3"
+    },
+    {
+      "id": "card.world_geography.055.c8",
+      "type": "checkpoint",
+      "headline": "Peaks: climbed",
+      "learned": [
+        "Kilimanjaro, 5,895 m, is Africa's highest point",
+        "It sits about 3° south of the Equator",
+        "It has lost more than 85% of its ice since 1912",
+        "Drier air means less snow and fewer clouds"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.kilimanjaro"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.055.c2"
+      ],
+      "prompt": "What is the highest point in Africa?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mount Kenya",
+          "correct": false,
+          "rationale": "It's second, after Kilimanjaro."
+        },
+        {
+          "id": "b",
+          "label": "Mount Everest",
+          "correct": false,
+          "rationale": "That's the world's highest, in Asia."
+        },
+        {
+          "id": "c",
+          "label": "Kilimanjaro",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The rim of the Great Rift Valley",
+          "correct": false,
+          "rationale": "The rift is a valley, not a peak."
+        }
+      ],
+      "explanation": "Kilimanjaro, in Tanzania, rises 5,895 m above sea level, Africa's highest point.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.shrinking_ice"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.055.c3"
+      ],
+      "prompt": "Besides warming, why is Kilimanjaro's ice shrinking?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Drier air brings less snow and fewer clouds",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The volcano is heating up from below",
+          "correct": false,
+          "rationale": "The cause is the air around it, not the rock."
+        },
+        {
+          "id": "c",
+          "label": "The mountain is sinking into the rift",
+          "correct": false,
+          "rationale": "Its height is steady; its ice is not."
+        },
+        {
+          "id": "d",
+          "label": "Climbers wear the ice away",
+          "correct": false,
+          "rationale": "People are not the main cause the research names."
+        }
+      ],
+      "explanation": "A drier regional atmosphere brings less fresh snow to rebuild the ice and fewer clouds to shade it from the Sun.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.kilimanjaro",
+        "concept.world_geography.elevation_contours"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.055.c2",
+        "card.world_geography.007.c2"
+      ],
+      "prompt": "From Level 7: Kilimanjaro's height of 5,895 m is measured from what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Equator",
+          "correct": false,
+          "rationale": "That line measures latitude, not height."
+        },
+        {
+          "id": "b",
+          "label": "The foot of the mountain",
+          "correct": false,
+          "rationale": "Heights on maps share one zero, not each mountain's base."
+        },
+        {
+          "id": "c",
+          "label": "Earth's center",
+          "correct": false,
+          "rationale": "Far too deep to be a useful zero."
+        },
+        {
+          "id": "d",
+          "label": "Mean sea level",
+          "correct": true
+        }
+      ],
+      "explanation": "Map heights are usually measured above mean sea level, so Kilimanjaro stands 5,895 m above the sea.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_kilimanjaro",
+    "source.nasa_kilimanjaro_ice",
+    "source.brit_mount_kenya",
+    "source.natgeo_rift_valley",
+    "source.mgs_topographic_maps"
+  ],
+  "art": "geo.mountains"
+}

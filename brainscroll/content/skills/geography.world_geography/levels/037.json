@@ -1,0 +1,220 @@
+{
+  "id": "level.geography.world_geography.037",
+  "skillId": "skill.geography.world_geography",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Thunderstorms and Tornadoes",
+  "objective": "After this level you can explain how thunderstorms, lightning and tornadoes form.",
+  "summary": "Thunderstorms need moisture, unstable air and lift. Lightning heats air so fast it booms as thunder; tornadoes are rotating columns of air from a storm to the ground.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.thunderstorms_lightning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.tornadoes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.gps_positioning",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.036"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "See lightning, then count. About 3 seconds of silence means about 1 km away.",
+      "body": "It's the same trick from Level 9: time turned into distance. So what exactly are you counting toward?"
+    },
+    {
+      "id": "card.world_geography.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A storm's three ingredients",
+      "body": "A thunderstorm needs three things. Moisture, usually from the ocean. Unstable air: warm, moist air near the ground with cold, dry air above it. And lift, a nudge that gets the warm air rising, such as a mountain slope or colliding air. Once the air is rising, the cloud grows taller and taller, with strong updrafts and downdrafts inside. Moisture, instability, lift: bake at high altitude."
+    },
+    {
+      "id": "card.world_geography.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lightning and thunder",
+      "body": "Lightning is a huge electrical discharge between clouds, or from a cloud to the ground. It heats its narrow channel of air to as much as 30,000°C, about five times hotter than the surface of the Sun. Air that hot expands violently, and that blast is thunder. You see the flash almost instantly, but the sound takes about 3 seconds to travel 1 km. Hence the counting.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Five times hotter than the Sun, for a split second. Lightning does not do things halfway."
+      }
+    },
+    {
+      "id": "card.world_geography.037.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tornadoes: storms that touch down",
+      "body": "A tornado is a violently rotating column of air that reaches from a thunderstorm down to the ground. The strongest ones usually come from supercells, big thunderstorms whose winds are already rotating. The United States has more tornadoes than any other country, most of them on the central plains east of the Rocky Mountains. Great country for storm chasers. Less great for trampolines."
+    },
+    {
+      "id": "card.world_geography.037.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.037.q1"
+    },
+    {
+      "id": "card.world_geography.037.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.037.q2"
+    },
+    {
+      "id": "card.world_geography.037.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.037.q3"
+    },
+    {
+      "id": "card.world_geography.037.c8",
+      "type": "checkpoint",
+      "headline": "Storms: charged up",
+      "learned": [
+        "Thunderstorms need moisture, unstable air and lift",
+        "Lightning heats air to as much as 30,000°C",
+        "Thunder: the blast of that heated air; about 3 seconds per km",
+        "Tornadoes reach from a thunderstorm to the ground; the US has the most"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.tornadoes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.037.c4"
+      ],
+      "prompt": "What is a tornado?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A rotating column of air from a thunderstorm to the ground",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A tropical storm with winds over 119 km/h",
+          "correct": false,
+          "rationale": "That's a hurricane."
+        },
+        {
+          "id": "c",
+          "label": "A wind that reverses with the seasons",
+          "correct": false,
+          "rationale": "That's a monsoon."
+        },
+        {
+          "id": "d",
+          "label": "A flash of electricity inside a cloud",
+          "correct": false,
+          "rationale": "That's lightning."
+        }
+      ],
+      "explanation": "A tornado is a violently rotating column of air reaching from a thunderstorm to the ground.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.thunderstorms_lightning"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.037.c3"
+      ],
+      "prompt": "What causes the sound of thunder?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Clouds crashing into each other",
+          "correct": false,
+          "rationale": "Clouds are soft; the sound comes from heated air."
+        },
+        {
+          "id": "b",
+          "label": "Raindrops hitting the ground at once",
+          "correct": false,
+          "rationale": "Thunder comes from the lightning channel."
+        },
+        {
+          "id": "c",
+          "label": "Lightning heats the air so fast it expands violently",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Wind rushing into the storm",
+          "correct": false,
+          "rationale": "Wind can roar, but thunder is the lightning's blast."
+        }
+      ],
+      "explanation": "Lightning heats the air to as much as 30,000°C almost instantly. The air expands violently, and that is thunder.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.thunderstorms_lightning",
+        "concept.world_geography.gps_positioning"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.037.c3",
+        "card.world_geography.009.c3"
+      ],
+      "prompt": "Like GPS in Level 9, counting the seconds from a lightning flash to its thunder turns time into what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Temperature",
+          "correct": false,
+          "rationale": "The count doesn't measure heat."
+        },
+        {
+          "id": "b",
+          "label": "Wind speed",
+          "correct": false,
+          "rationale": "The count doesn't measure wind."
+        },
+        {
+          "id": "c",
+          "label": "Altitude",
+          "correct": false,
+          "rationale": "It measures how far away the flash was, not how high."
+        },
+        {
+          "id": "d",
+          "label": "Distance",
+          "correct": true
+        }
+      ],
+      "explanation": "Sound travels about 1 km every 3 seconds, so the delay tells you how far away the lightning struck, just as GPS signal delays tell your phone its distance to each satellite.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.nesdis_thunderstorm",
+    "source.metoffice_thunder_lightning",
+    "source.nws_thunder",
+    "source.natgeo_tornadoes",
+    "source.nws_tornado_faq"
+  ],
+  "art": "nature.lightning"
+}

@@ -1,0 +1,227 @@
+{
+  "id": "level.geography.world_geography.046",
+  "skillId": "skill.geography.world_geography",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tundra",
+  "objective": "After this level you can describe the tundra and the frozen ground beneath it.",
+  "summary": "The tundra is treeless land over permafrost, ground frozen for years. Only a thin top layer thaws in summer, so meltwater is trapped and the land turns soggy.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.tundra_biome",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.permafrost",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.polar_circles",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.045"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The tundra gets little rain. So why are your boots soaked?",
+      "body": "Walk across the Arctic tundra in summer and the ground squelches. The land is a patchwork of wet spots, even though very little falls from the sky. The answer is buried right under your feet."
+    },
+    {
+      "id": "card.world_geography.046.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The land without trees",
+      "body": "The word tundra comes from a Finnish word for a barren or treeless hill, and that's exactly the look: small shrubs, grasses, mosses, sedges and lichens, all hugging the ground. Arctic tundra lies on land above the Arctic Circle from Level 4, at about 66.5° N. Alpine tundra lies high on mountains, where nights drop below freezing."
+    },
+    {
+      "id": "card.world_geography.046.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Frozen for years",
+      "body": "Beneath the Arctic tundra lies permafrost: ground that stays frozen for at least two years. In summer, only a thin layer at the surface thaws. Everything below it stays frozen solid, like a freezer with the lid cracked open a little."
+    },
+    {
+      "id": "card.world_geography.046.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A frozen floor under a wet rug",
+      "body": "That frozen layer works like a waterproof floor under the thin soil. Meltwater can't soak down through it, so it stays trapped near the surface. That's why the tundra is dotted with wet ground even though it gets little precipitation. Mystery of the soggy boots: solved.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Water on top, ice underneath, nowhere to go. The tundra is one giant puddle with a frozen floor."
+      }
+    },
+    {
+      "id": "card.world_geography.046.c5",
+      "type": "fact",
+      "fact": "Only six to ten weeks a year are warm enough for tundra plants to grow.",
+      "context": "That's far too short a season for plants that grow wood. Strong winds dry out and batter whatever sticks up, and permafrost stops roots from reaching deep enough to hold a tree upright. So tundra plants stay small and low."
+    },
+    {
+      "id": "card.world_geography.046.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.046.q1"
+    },
+    {
+      "id": "card.world_geography.046.c7",
+      "type": "mcq",
+      "questionId": "question.world_geography.046.q2"
+    },
+    {
+      "id": "card.world_geography.046.c8",
+      "type": "recall",
+      "questionId": "question.world_geography.046.q3"
+    },
+    {
+      "id": "card.world_geography.046.c9",
+      "type": "checkpoint",
+      "headline": "Tundra: thawed",
+      "learned": [
+        "Tundra means treeless: low shrubs, mosses, lichens",
+        "Arctic tundra lies above the Arctic Circle; alpine tundra on mountains",
+        "Permafrost is ground frozen for at least two years",
+        "It traps meltwater, so the tundra is soggy in summer"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.permafrost"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.046.c3"
+      ],
+      "prompt": "What is permafrost?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Snow that never melts on mountaintops",
+          "correct": false,
+          "rationale": "It's frozen ground, not snow."
+        },
+        {
+          "id": "b",
+          "label": "Sea ice floating on the Arctic Ocean",
+          "correct": false,
+          "rationale": "Permafrost is ground, not floating ice."
+        },
+        {
+          "id": "c",
+          "label": "Ground frozen for at least two years",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Soil that thaws each spring",
+          "correct": false,
+          "rationale": "Only the thin top layer thaws; permafrost stays frozen."
+        }
+      ],
+      "explanation": "Permafrost is ground that stays frozen for at least two years. Only a thin top layer thaws in summer.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.permafrost"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.046.c4"
+      ],
+      "prompt": "Why is the Arctic tundra so soggy in summer, despite little precipitation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rivers flood it every summer",
+          "correct": false,
+          "rationale": "The water comes from above and can't drain down."
+        },
+        {
+          "id": "b",
+          "label": "Permafrost stops water draining away",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Fog soaks the ground each night",
+          "correct": false,
+          "rationale": "The key is the frozen layer below, not fog."
+        },
+        {
+          "id": "d",
+          "label": "Its soil is mostly loose sand",
+          "correct": false,
+          "rationale": "Sand would drain; the frozen layer is what traps water."
+        }
+      ],
+      "explanation": "Permafrost acts as a waterproof layer, so water from the thawed surface stays trapped near the top.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.tundra_biome",
+        "concept.world_geography.polar_circles"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.046.c2",
+        "card.world_geography.004.c4"
+      ],
+      "prompt": "From Level 4: Arctic tundra lies on land beyond which line?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Arctic Circle",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Tropic of Cancer",
+          "correct": false,
+          "rationale": "That marks the northern edge of the tropics."
+        },
+        {
+          "id": "c",
+          "label": "The Equator",
+          "correct": false,
+          "rationale": "The Equator is far too warm for tundra."
+        },
+        {
+          "id": "d",
+          "label": "The prime meridian",
+          "correct": false,
+          "rationale": "That's a line of longitude, and it runs pole to pole."
+        }
+      ],
+      "explanation": "Arctic tundra lies on land above the Arctic Circle, at about 66.5° N.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_tundra_biome",
+    "source.brit_tundra",
+    "source.nsidc_permafrost",
+    "source.adfg_tundra",
+    "source.brit_arctic_circle",
+    "source.brit_antarctic_circle"
+  ],
+  "art": "geo.glacier"
+}

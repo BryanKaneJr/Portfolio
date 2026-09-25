@@ -1,0 +1,230 @@
+{
+  "id": "level.geography.world_geography.058",
+  "skillId": "skill.geography.world_geography",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Middle East",
+  "objective": "After this level you can locate the Middle East and describe its deserts, rivers and seas.",
+  "summary": "The Middle East is a loosely defined region centered on Southwest Asia. Much of it is desert, but the Tigris and Euphrates water Mesopotamia, and the Dead Sea is Earth's lowest land.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.middle_east_region",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.mesopotamia_rivers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.dead_sea",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.elevation_contours",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.sahara_desert",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.057"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The lowest land on Earth is a shore where swimmers float with no effort.",
+      "body": "It's the edge of the Dead Sea, more than 400 m below sea level. Getting there means crossing a region full of deserts and rivers."
+    },
+    {
+      "id": "card.world_geography.058.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A region without a border",
+      "body": "The Middle East has no official border. It's a loosely defined region centered on Southwest Asia, often stretched to include Egypt. Large parts of it are desert. The Arabian Peninsula holds the Rub' al Khali, the Empty Quarter: the world's largest area of continuous sand. After Level 52's mostly rocky Sahara, here is the endless dune sea you pictured."
+    },
+    {
+      "id": "card.world_geography.058.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The land between the rivers",
+      "body": "Two rivers break the dry spell. The Tigris and Euphrates rise in the mountains of Turkey and flow southeast toward the Persian Gulf. The land between them is Mesopotamia, Greek for 'between rivers,' mostly in modern Iraq. Its soil is fertile but rain is scarce, so farming there depended on irrigation from the rivers. It's the Nile's bargain from Level 53, told with two rivers."
+    },
+    {
+      "id": "card.world_geography.058.c4",
+      "type": "fact",
+      "fact": "The Dead Sea's shores are the lowest land on Earth.",
+      "context": "The water lies more than 400 m below sea level, and it keeps dropping as the water that fed it is diverted. The Jordan River flows in and nothing flows out, and the water is so salty and dense that swimmers float easily. It sits in a down-dropped block of crust along a major plate boundary.",
+      "mascot": {
+        "pose": "oops",
+        "line": "I tried to swim a lap there once. I mostly floated in a slow, salty circle."
+      }
+    },
+    {
+      "id": "card.world_geography.058.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.058.q1"
+    },
+    {
+      "id": "card.world_geography.058.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.058.q2"
+    },
+    {
+      "id": "card.world_geography.058.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.058.q3"
+    },
+    {
+      "id": "card.world_geography.058.c8",
+      "type": "checkpoint",
+      "headline": "Middle East: located",
+      "learned": [
+        "The Middle East is a loosely defined region in Southwest Asia",
+        "The Rub' al Khali is the largest continuous sand",
+        "Mesopotamia lies between the Tigris and Euphrates",
+        "The Dead Sea, over 400 m below sea level, is the lowest land"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.middle_east_region"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.058.c2"
+      ],
+      "prompt": "What is the Rub' al Khali?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A river that feeds the Dead Sea",
+          "correct": false,
+          "rationale": "That's the Jordan River."
+        },
+        {
+          "id": "b",
+          "label": "The world's largest area of continuous sand",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The ancient name for Mesopotamia",
+          "correct": false,
+          "rationale": "Mesopotamia is Greek for 'between rivers.'"
+        },
+        {
+          "id": "d",
+          "label": "A rocky plateau in the Sahara",
+          "correct": false,
+          "rationale": "It's in the Arabian Peninsula, and it's sand."
+        }
+      ],
+      "explanation": "The Rub' al Khali, the Empty Quarter of the Arabian Peninsula, is the world's largest area of continuous sand.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.mesopotamia_rivers"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.058.c3"
+      ],
+      "prompt": "Why did farming in Mesopotamia depend on the Tigris and Euphrates?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The rivers carried gold for trade",
+          "correct": false,
+          "rationale": "Trade came later; water came first."
+        },
+        {
+          "id": "b",
+          "label": "The rivers kept invaders away",
+          "correct": false,
+          "rationale": "The question is about farming."
+        },
+        {
+          "id": "c",
+          "label": "Its soil was fertile but rain was scarce",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The rivers melted winter snow on the fields",
+          "correct": false,
+          "rationale": "The problem was too little rain, not snow."
+        }
+      ],
+      "explanation": "Southern Mesopotamia's soil was fertile but it got little rain, so crops needed irrigation from the rivers.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.dead_sea",
+        "concept.world_geography.elevation_contours"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.058.c4",
+        "card.world_geography.007.c2"
+      ],
+      "prompt": "Level 7 measures heights from mean sea level. What does that make the Dead Sea's elevation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Exactly zero",
+          "correct": false,
+          "rationale": "It is far lower than the ocean."
+        },
+        {
+          "id": "b",
+          "label": "About the same as the Red Sea",
+          "correct": false,
+          "rationale": "The Red Sea is at sea level."
+        },
+        {
+          "id": "c",
+          "label": "The highest in the Middle East",
+          "correct": false,
+          "rationale": "It's the lowest, not the highest."
+        },
+        {
+          "id": "d",
+          "label": "More than 400 m below zero",
+          "correct": true
+        }
+      ],
+      "explanation": "The Dead Sea lies more than 400 m below sea level, so its elevation is negative: the lowest land on Earth.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_middle_east",
+    "source.brit_rub_al_khali",
+    "source.brit_mesopotamia",
+    "source.brit_dead_sea",
+    "source.brit_sahara",
+    "source.mgs_topographic_maps"
+  ],
+  "art": "geo.desert"
+}

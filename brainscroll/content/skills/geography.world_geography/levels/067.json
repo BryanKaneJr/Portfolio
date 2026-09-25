@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.world_geography.067",
+  "skillId": "skill.geography.world_geography",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "China's Great Rivers",
+  "objective": "After this level you can explain how the Yangtze and the Yellow River shaped China.",
+  "summary": "The silt-laden Yellow River is the cradle of Chinese civilization and 'China's Sorrow'. The Yangtze is Asia's longest river, home to nearly a third of China's people.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.yellow_river",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.yangtze",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.landforms",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.asia_population",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.066"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "China has a river named after the color of its mud.",
+      "body": "The Yellow River, Huang He in Chinese, gets its name from the fine yellow silt called loess that it carries to the sea. That mud explains both of its nicknames."
+    },
+    {
+      "id": "card.world_geography.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cradle and sorrow",
+      "body": "The Yellow River is often called the cradle of Chinese civilization. It also earned a darker nickname, \"China's Sorrow\", for its destructive floods. Picture a relative who helped raise you but also, now and then, floods the kitchen. Both reputations come from the same place: the mud."
+    },
+    {
+      "id": "card.world_geography.067.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A river above the fields",
+      "body": "Remember Level 7's deltas, built from sediment a slowing river drops? The Yellow River does the same thing along its bed. Over time that sediment has built the bed up above the surrounding land in many places; even at low water it can sit about 5 m above the countryside. People built extensive levees to hold it in, yet the river has changed its course across the plain several times. A river on a raised shelf has a long way to fall."
+    },
+    {
+      "id": "card.world_geography.067.c4",
+      "type": "fact",
+      "fact": "The Yangtze is the longest river in Asia.",
+      "context": "At about 6,300 km, it's the third longest in the world, and its Chinese name, Chang Jiang, simply means \"Long River\". It rises in the Tanggula Mountains on the Tibetan Plateau and flows to the East China Sea. Its basin is China's great granary and home to nearly one-third of the country's people. Some names don't need a poet.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "The Long River. Named by someone who clearly walked the whole thing."
+      }
+    },
+    {
+      "id": "card.world_geography.067.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.067.q1"
+    },
+    {
+      "id": "card.world_geography.067.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.067.q2"
+    },
+    {
+      "id": "card.world_geography.067.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.067.q3"
+    },
+    {
+      "id": "card.world_geography.067.c8",
+      "type": "checkpoint",
+      "headline": "Rivers of China: traced",
+      "learned": [
+        "The Yellow River is named for its loess silt",
+        "Cradle of Chinese civilization, and 'China's Sorrow'",
+        "Silt has raised its bed above the land",
+        "The Yangtze is Asia's longest river, the 'Long River'"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.yangtze"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.067.c4"
+      ],
+      "prompt": "Which is the longest river in Asia?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Yangtze",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Yellow River",
+          "correct": false,
+          "rationale": "It's China's second-longest river."
+        },
+        {
+          "id": "c",
+          "label": "The Ganges",
+          "correct": false,
+          "rationale": "The Ganges is much shorter."
+        },
+        {
+          "id": "d",
+          "label": "The Danube",
+          "correct": false,
+          "rationale": "That's in Europe."
+        }
+      ],
+      "explanation": "The Yangtze, or Chang Jiang, is Asia's longest river and the third longest in the world.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.yellow_river"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.067.c3"
+      ],
+      "prompt": "Why does the Yellow River flow above the surrounding land in many places?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Engineers raised it for shipping",
+          "correct": false,
+          "rationale": "People built levees, but the raising came from the river itself."
+        },
+        {
+          "id": "b",
+          "label": "Earthquakes lifted its valley",
+          "correct": false,
+          "rationale": "The river built its own bed up."
+        },
+        {
+          "id": "c",
+          "label": "Its own sediment built up the riverbed",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Glaciers push its water uphill",
+          "correct": false,
+          "rationale": "No glacier can push a river uphill."
+        }
+      ],
+      "explanation": "The Yellow River carries huge amounts of loess. The sediment it drops builds up its bed until, in many places, the river sits above the land around it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.asia_population",
+        "concept.world_geography.yangtze"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.065.c3",
+        "card.world_geography.067.c4"
+      ],
+      "prompt": "Nearly a third of China's people live in the Yangtze basin. Which Level 65 pattern does that fit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most Asians live in the dry interior",
+          "correct": false,
+          "rationale": "The interior is sparsely populated."
+        },
+        {
+          "id": "b",
+          "label": "Asia's people crowd into eastern China",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "People spread evenly across Asia",
+          "correct": false,
+          "rationale": "They cluster in a few crowded areas."
+        },
+        {
+          "id": "d",
+          "label": "Most Asians live in the far north",
+          "correct": false,
+          "rationale": "North Asia is nearly empty."
+        }
+      ],
+      "explanation": "Level 65 showed Asia's people concentrated in the eastern half of China, among other areas. The Yangtze basin is part of that crowd.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_yellow_river",
+    "source.natgeo_delta",
+    "source.brit_yangtze"
+  ],
+  "art": "geo.river"
+}

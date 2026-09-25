@@ -1,0 +1,216 @@
+{
+  "id": "level.geography.world_geography.024",
+  "skillId": "skill.geography.world_geography",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Coasts and Beaches",
+  "objective": "After this level you can explain how waves build and wear away coastlines.",
+  "summary": "Wind makes waves that carry energy to the coast. They carve arches that collapse into sea stacks, and longshore drift moves beach sand along the shore.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.wave_erosion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.longshore_drift",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.surface_currents",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.023"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2005, a 50 m tower of rock off Australia fell into the sea.",
+      "body": "It was one of the Twelve Apostles, limestone pillars standing in the surf off Victoria. What knocks down a tower of rock? The same thing that builds a beach."
+    },
+    {
+      "id": "card.world_geography.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wind makes the waves",
+      "body": "Most ocean waves start with wind, from friction between moving air and the water's surface. Waves carry energy, not water, and they can travel across an entire ocean before they hit anything. Then all that energy slams into the coast. The wind blows on one side of an ocean, and a cliff takes the punch on the other."
+    },
+    {
+      "id": "card.world_geography.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Arch today, stack tomorrow",
+      "body": "Aim waves at rocky cliffs for long enough and they can carve a sea arch right through the rock. When the arch collapses, one leg is left standing alone in the water: a sea stack. That's what the Twelve Apostles are. And the waves don't stop. Further erosion wears a stack down until it disappears, which is how Australia lost an Apostle in 2005."
+    },
+    {
+      "id": "card.world_geography.024.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The beach is on the move",
+      "body": "Waves don't only take; they carry. They usually reach a beach at a slight angle, which sets up a longshore current running parallel to the shore. Beach sand rides along with it. That's longshore drift, and it can strip a beach badly. The beach you visit every summer isn't quite the same beach. Its sand has been quietly heading down the coast."
+    },
+    {
+      "id": "card.world_geography.024.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.024.q1"
+    },
+    {
+      "id": "card.world_geography.024.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.024.q2"
+    },
+    {
+      "id": "card.world_geography.024.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.024.q3"
+    },
+    {
+      "id": "card.world_geography.024.c8",
+      "type": "checkpoint",
+      "headline": "Coasts: shaped",
+      "learned": [
+        "Most waves are made by wind",
+        "Waves carry energy, not water",
+        "Arches collapse into sea stacks",
+        "Stacks erode away, like an Apostle in 2005",
+        "Longshore drift moves sand along the shore"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.wave_erosion"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.024.c3"
+      ],
+      "prompt": "What is left standing when a sea arch collapses?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A delta",
+          "correct": false,
+          "rationale": "Deltas are built by rivers dropping sediment."
+        },
+        {
+          "id": "b",
+          "label": "A plateau",
+          "correct": false,
+          "rationale": "Plateaus are raised flat land, not coastal pillars."
+        },
+        {
+          "id": "c",
+          "label": "A sandbar",
+          "correct": false,
+          "rationale": "Sandbars are built by deposition, not left by a collapse."
+        },
+        {
+          "id": "d",
+          "label": "A sea stack",
+          "correct": true
+        }
+      ],
+      "explanation": "When the arch roof collapses, a leg is left alone in the water: a sea stack, like the Twelve Apostles.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.longshore_drift"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.024.c4"
+      ],
+      "prompt": "Why does longshore drift move sand along the shore instead of just in and out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Waves usually arrive at a slight angle to the beach",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Tides only flow sideways",
+          "correct": false,
+          "rationale": "Tides are not what drives longshore drift."
+        },
+        {
+          "id": "c",
+          "label": "Sand is lighter than water",
+          "correct": false,
+          "rationale": "Sand sinks; the current carries it."
+        },
+        {
+          "id": "d",
+          "label": "Rivers push the sand sideways",
+          "correct": false,
+          "rationale": "It is the waves that set up the current."
+        }
+      ],
+      "explanation": "Waves reaching the beach at an angle set up a longshore current parallel to the shore, and it carries sand along.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.wave_erosion",
+        "concept.world_geography.surface_currents"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.024.c2",
+        "card.world_geography.023.c2"
+      ],
+      "prompt": "From Level 23: wind drives surface currents. What else does wind make that shapes the coast?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Deep conveyor currents",
+          "correct": false,
+          "rationale": "Those are driven by density."
+        },
+        {
+          "id": "b",
+          "label": "Most ocean waves",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Rivers",
+          "correct": false,
+          "rationale": "Rivers come from rain and snowmelt."
+        },
+        {
+          "id": "d",
+          "label": "Tides",
+          "correct": false,
+          "rationale": "Tides are not made by wind."
+        }
+      ],
+      "explanation": "Friction between wind and water builds most ocean waves, and waves carry that energy to the coast.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.abc_twelve_apostles_2005",
+    "source.noaa_waves",
+    "source.brit_sea_stack",
+    "source.noaa_longshore_currents"
+  ],
+  "art": "geo.lighthouse"
+}

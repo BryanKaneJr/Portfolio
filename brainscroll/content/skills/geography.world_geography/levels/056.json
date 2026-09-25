@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.world_geography.056",
+  "skillId": "skill.geography.world_geography",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Congo Basin",
+  "objective": "After this level you can describe the Congo rainforest and the river that drains it.",
+  "summary": "The Congo Basin holds the world's second-largest rainforest. The Congo River crosses the Equator twice, so part of its basin is always rainy and it flows steadily.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.congo_rainforest",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.congo_river",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.equator",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.africa_across_equator",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.055"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "There is an ape that lives on only one side of one river.",
+      "body": "Bonobos live only along the south bank of the Congo River. The river runs through a forest so big that only the Amazon's is bigger."
+    },
+    {
+      "id": "card.world_geography.056.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Africa's green heart",
+      "body": "Remember Level 51's folded map, with wet rainforest in the middle? The biggest block of it is the Congo Basin: the world's second-largest rainforest, after the Amazon. The Equator runs straight through it, and so does the river that drains it, the Congo."
+    },
+    {
+      "id": "card.world_geography.056.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The river that crosses the Equator twice",
+      "body": "The Congo River swings through the forest in a giant arc and crosses the Equator twice. That odd route is its secret. Its basin spans both sides of the Equator, so some part of it is always in its rainy season, and the river flows steadily all year. Only the Amazon carries more water.",
+      "callout": "Two crossings, two hemispheres, rain somewhere all year"
+    },
+    {
+      "id": "card.world_geography.056.c4",
+      "type": "fact",
+      "fact": "Bonobos live only on the Congo River's south bank.",
+      "context": "They're found in the lowland rainforest of the Democratic Republic of the Congo, and nowhere else in the wild. For you, the Congo is a line on a map. For a bonobo, it's the edge of the world."
+    },
+    {
+      "id": "card.world_geography.056.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.056.q1"
+    },
+    {
+      "id": "card.world_geography.056.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.056.q2"
+    },
+    {
+      "id": "card.world_geography.056.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.056.q3"
+    },
+    {
+      "id": "card.world_geography.056.c8",
+      "type": "checkpoint",
+      "headline": "Congo: explored",
+      "learned": [
+        "The Congo Basin is the world's second-largest rainforest",
+        "The Congo River crosses the Equator twice",
+        "Part of its basin is always rainy, so it flows steadily",
+        "Bonobos live only on its south bank"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.congo_rainforest"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.056.c2"
+      ],
+      "prompt": "How does the Congo Basin's rainforest rank in size?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The world's largest",
+          "correct": false,
+          "rationale": "That's the Amazon."
+        },
+        {
+          "id": "b",
+          "label": "The world's second-largest",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The world's third-largest",
+          "correct": false,
+          "rationale": "Only the Amazon beats it."
+        },
+        {
+          "id": "d",
+          "label": "Africa's second-largest",
+          "correct": false,
+          "rationale": "It's Africa's biggest by far."
+        }
+      ],
+      "explanation": "The Congo Basin holds the world's second-largest rainforest, after the Amazon.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.congo_river"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.056.c3"
+      ],
+      "prompt": "Why does the Congo River flow so steadily all year?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Glaciers on Kilimanjaro feed it",
+          "correct": false,
+          "rationale": "Kilimanjaro drains elsewhere, and its ice is small."
+        },
+        {
+          "id": "b",
+          "label": "A dam releases water evenly",
+          "correct": false,
+          "rationale": "The steadiness is natural."
+        },
+        {
+          "id": "c",
+          "label": "Its basin spans both sides of the Equator, so part is always rainy",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is fed by the Nile",
+          "correct": false,
+          "rationale": "The Nile flows north, away from it."
+        }
+      ],
+      "explanation": "The Congo crosses the Equator twice, so its basin always has some part in its rainy season.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.congo_river",
+        "concept.world_geography.equator"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.056.c3",
+        "card.world_geography.004.c2"
+      ],
+      "prompt": "From Level 4: each time the Congo crosses the Equator, it passes between what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The two tropics",
+          "correct": false,
+          "rationale": "The tropics are about 23.5° away."
+        },
+        {
+          "id": "b",
+          "label": "The Eastern and Western Hemispheres",
+          "correct": false,
+          "rationale": "The prime meridian divides those."
+        },
+        {
+          "id": "c",
+          "label": "Two time zones",
+          "correct": false,
+          "rationale": "Time zones are set by longitude."
+        },
+        {
+          "id": "d",
+          "label": "The Northern and Southern Hemispheres",
+          "correct": true
+        }
+      ],
+      "explanation": "The Equator divides Earth into the Northern and Southern Hemispheres, so the Congo flows through both.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_congo_river",
+    "source.ebsco_congo_river",
+    "source.brit_bonobo",
+    "source.brit_africa_climate",
+    "source.openstax_africa_geography",
+    "source.natgeo_equator"
+  ],
+  "art": "geo.rainforest"
+}

@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.world_geography.031",
+  "skillId": "skill.geography.world_geography",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Weather or Climate?",
+  "objective": "After this level you can tell weather from climate and explain why the difference matters.",
+  "summary": "Weather is the atmosphere's short-term mood; climate is a place's average weather over decades, usually 30-year averages. One cold day is weather, not climate.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.weather_vs_climate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.climate_normals",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.030"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You check the weather to get dressed. You check the climate to pack.",
+      "body": "Same sky, two very different questions. Mix them up and you'll bring a parka to a beach holiday."
+    },
+    {
+      "id": "card.world_geography.031.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Weather: right now",
+      "body": "Weather is what the atmosphere is doing at the moment: sunny, rainy, windy, freezing. It can change from minute to minute, hour to hour and day to day. That's why you check it every morning, and why the forecast for your picnic can flip by lunchtime. Weather is the sky's mood."
+    },
+    {
+      "id": "card.world_geography.031.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Climate: what's normal",
+      "body": "Climate is the average weather of a place over a long stretch of time. Those averages usually cover 30 years. NOAA's current US averages, called climate normals, cover 1991 to 2020, and they're refreshed every 10 years. Think of weather as one page of a diary. Climate is the whole diary, summed up.",
+      "callout": "Climate is what you expect. Weather is what you get."
+    },
+    {
+      "id": "card.world_geography.031.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the difference matters",
+      "body": "Weather tells you what to wear each day. Climate tells you what clothes to keep in your closet. The difference also stops you from reading too much into one day. Even as the planet warms, blizzards and freezing days still happen; over time they just happen less often. One cold morning is weather. A trend across decades is climate.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "My umbrella answers to the weather. My closet answers to the climate. My socks refuse to take sides."
+      }
+    },
+    {
+      "id": "card.world_geography.031.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.031.q1"
+    },
+    {
+      "id": "card.world_geography.031.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.031.q2"
+    },
+    {
+      "id": "card.world_geography.031.c7",
+      "type": "mcq",
+      "questionId": "question.world_geography.031.q3"
+    },
+    {
+      "id": "card.world_geography.031.c8",
+      "type": "checkpoint",
+      "headline": "Weather vs climate: sorted",
+      "learned": [
+        "Weather: the atmosphere's short-term conditions",
+        "Climate: average weather over a long time",
+        "Climate averages usually cover 30 years",
+        "A cold day in a warming world is still weather"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.weather_vs_climate"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.031.c3"
+      ],
+      "prompt": "What is climate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Today's temperature and rainfall",
+          "correct": false,
+          "rationale": "That's weather, the short-term picture."
+        },
+        {
+          "id": "b",
+          "label": "The average weather of a place over a long time",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The forecast for the coming week",
+          "correct": false,
+          "rationale": "Forecasts are about weather, days ahead."
+        },
+        {
+          "id": "d",
+          "label": "The air pressure at one moment",
+          "correct": false,
+          "rationale": "That's a snapshot of the weather."
+        }
+      ],
+      "explanation": "Climate is the long-term average weather of a place, usually over 30 years.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.world_geography.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.weather_vs_climate"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.031.c4"
+      ],
+      "prompt": "The planet is warming, yet your town has a freezing week. What does that week tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That global warming has stopped",
+          "correct": false,
+          "rationale": "Cold spells still happen as the planet warms, just less often."
+        },
+        {
+          "id": "b",
+          "label": "That your town's climate changed that week",
+          "correct": false,
+          "rationale": "Climate is measured over decades, not a week."
+        },
+        {
+          "id": "c",
+          "label": "It's weather; climate shows up in long-term trends",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "That the forecasts were wrong all along",
+          "correct": false,
+          "rationale": "A cold week says nothing about the forecasts."
+        }
+      ],
+      "explanation": "A single cold spell is weather. Climate, and climate change, show up in averages and trends over decades.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.climate_normals",
+        "concept.world_geography.weather_vs_climate"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.031.c3",
+        "card.world_geography.031.c4"
+      ],
+      "prompt": "You're packing for a July trip to a city you've never visited. What should you look up first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Today's weather in that city",
+          "correct": false,
+          "rationale": "Today tells you little about July."
+        },
+        {
+          "id": "b",
+          "label": "Last night's storm reports",
+          "correct": false,
+          "rationale": "One storm is weather, not what to expect."
+        },
+        {
+          "id": "c",
+          "label": "The hottest day ever recorded there",
+          "correct": false,
+          "rationale": "A single record day is one extreme, not the normal."
+        },
+        {
+          "id": "d",
+          "label": "The city's climate normals for July",
+          "correct": true
+        }
+      ],
+      "explanation": "Packing is a closet question: climate normals, the long-term averages, tell you what a July there is usually like.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_weather_vs_climate",
+    "source.ncei_weather_vs_climate",
+    "source.ncei_climate_normals",
+    "source.nasa_kids_cold_weather"
+  ],
+  "art": "nature.rain-cloud"
+}

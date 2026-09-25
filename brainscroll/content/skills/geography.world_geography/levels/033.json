@@ -1,0 +1,232 @@
+{
+  "id": "level.geography.world_geography.033",
+  "skillId": "skill.geography.world_geography",
+  "number": 33,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Wind and Pressure",
+  "objective": "After this level you can explain how differences in air pressure make wind, including the trade winds.",
+  "summary": "Wind is air flowing from high to low pressure. Uneven heating makes the highs and lows; Earth's spin bends the flow into the easterly trade winds.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.pressure_wind",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.coriolis_effect",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.trade_winds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.sun_angle_heating",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.cardinal_directions",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.032"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.033.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For centuries, sailing ships crossed the Atlantic on winds they could count on.",
+      "body": "They carried ships from Europe and Africa to the Americas, and sailors called them the trade winds. To see where they come from, start with a simpler question: why does air move at all?"
+    },
+    {
+      "id": "card.world_geography.033.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Air hates a crowd",
+      "body": "Air presses on everything, and in some places it presses harder than in others. Air flows from high pressure toward low pressure, the way passengers on a crowded bus spread into the empty seats. That flow is wind. The bigger the pressure difference, the faster the wind blows. A gentle breeze means a small difference. A gale means a big one.",
+      "callout": "Wind blows from high pressure to low pressure."
+    },
+    {
+      "id": "card.world_geography.033.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Sun sets the pressure",
+      "body": "So where do the highs and lows come from? From Level 32's uneven sunshine. Warm air rises, leaving low pressure below it. Cool air sinks and makes high pressure. Near the Equator, strong heating lifts warm, moist air like a hot-air balloon, and air from both sides flows in to replace it. The heat delivery service has an engine, and it runs on pressure."
+    },
+    {
+      "id": "card.world_geography.033.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Trade winds, with a twist",
+      "body": "That inflowing air never blows straight at the Equator, because Earth spins underneath it. The spin deflects moving air to the right in the Northern Hemisphere and to the left in the Southern. That's the Coriolis effect. It bends the flow into the trade winds: steady easterlies near the Equator, blowing from the east toward the west. Handy, if your ship is heading for the Americas.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "The air aims straight, and the planet turns the corner for it. Very polite of Earth, really."
+      }
+    },
+    {
+      "id": "card.world_geography.033.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.033.q1"
+    },
+    {
+      "id": "card.world_geography.033.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.033.q2"
+    },
+    {
+      "id": "card.world_geography.033.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.033.q3"
+    },
+    {
+      "id": "card.world_geography.033.c8",
+      "type": "checkpoint",
+      "headline": "Wind: explained",
+      "learned": [
+        "Wind blows from high pressure to low",
+        "Bigger pressure differences, faster winds",
+        "Warm air rises (low); cool air sinks (high)",
+        "The Coriolis effect bends winds into the easterly trades"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.033.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.pressure_wind"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.033.c2"
+      ],
+      "prompt": "Which way does wind blow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From low pressure toward high pressure",
+          "correct": false,
+          "rationale": "It's the other way around."
+        },
+        {
+          "id": "b",
+          "label": "Always from the poles toward the Equator",
+          "correct": false,
+          "rationale": "Wind can blow in any direction; pressure decides."
+        },
+        {
+          "id": "c",
+          "label": "Always from west to east",
+          "correct": false,
+          "rationale": "Direction depends on where the highs and lows are."
+        },
+        {
+          "id": "d",
+          "label": "From high pressure toward low pressure",
+          "correct": true
+        }
+      ],
+      "explanation": "Air flows from high pressure to low pressure, and the bigger the difference, the faster the wind.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.world_geography.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.pressure_wind",
+        "concept.world_geography.sun_angle_heating"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.033.c3",
+        "card.world_geography.032.c2"
+      ],
+      "prompt": "Why is air pressure often low near the Equator?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Strong heating makes the air rise",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The trade winds blow the air away",
+          "correct": false,
+          "rationale": "The trade winds actually blow in toward the Equator."
+        },
+        {
+          "id": "c",
+          "label": "The Equator is too far from the Sun",
+          "correct": false,
+          "rationale": "It's the most directly heated place on Earth."
+        },
+        {
+          "id": "d",
+          "label": "Cold air sinks there",
+          "correct": false,
+          "rationale": "Sinking cool air makes high pressure, not low."
+        }
+      ],
+      "explanation": "Direct sunlight heats the air near the Equator. Warm air rises and leaves low pressure below it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.033.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.trade_winds",
+        "concept.world_geography.cardinal_directions"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.033.c4",
+        "card.world_geography.006.c2"
+      ],
+      "prompt": "Using Level 6's directions: the trade winds are easterlies. Which way do they push a sailing ship?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Toward the north",
+          "correct": false,
+          "rationale": "Easterlies blow from the east, toward the west."
+        },
+        {
+          "id": "b",
+          "label": "Toward the west",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Toward the east",
+          "correct": false,
+          "rationale": "That's where they come from, not where they go."
+        },
+        {
+          "id": "d",
+          "label": "Toward the south",
+          "correct": false,
+          "rationale": "Easterlies blow from the east, toward the west."
+        }
+      ],
+      "explanation": "An easterly blows from the east toward the west, which is how the trade winds carried ships from Europe and Africa to the Americas.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nesdis_why_wind_blows",
+    "source.ucar_highs_lows",
+    "source.noaa_trade_winds",
+    "source.noaa_coriolis"
+  ],
+  "art": "object.globe"
+}

@@ -1,0 +1,220 @@
+{
+  "id": "level.geography.world_geography.042",
+  "skillId": "skill.geography.world_geography",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rainforests",
+  "objective": "After this level you can describe tropical rainforests and explain why they hold so many species.",
+  "summary": "Tropical rainforests grow in the tropics, warm and wet all year. Built in four layers, they cover a small slice of Earth yet hold more than half of its plant and animal species.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.tropical_rainforest",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.rainforest_biodiversity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.tropics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.041"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Noon in the rainforest. Bring a flashlight.",
+      "body": "The tropical Sun is blazing overhead, yet down on the forest floor it's dim. On average only about 2% of the sunlight makes it all the way down. Something up there is catching nearly all of it."
+    },
+    {
+      "id": "card.world_geography.042.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A forest with four floors",
+      "body": "Most rainforests are built in four layers. The tallest trees, the emergents, poke out on top. Below them spreads the canopy, then the dim understory, and at the bottom the forest floor. Between them, the upper layers soak up almost all the light, which makes the floor the darkest layer, a place where plants struggle to grow. It's less one forest than four stacked on top of each other."
+    },
+    {
+      "id": "card.world_geography.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Summer that never ends",
+      "body": "Tropical rainforests grow mainly in the tropics, between the Tropics of Cancer and Capricorn you met in Level 4. Temperatures stay high and rain is plentiful all year, with little change from season to season. No winter shutdown, no dry spell. Plenty of sunlight and moisture are the building blocks for a huge variety of plants and animals, and the rainforest never runs short of either."
+    },
+    {
+      "id": "card.world_geography.042.c4",
+      "type": "fact",
+      "fact": "Rainforests cover a small slice of Earth, yet hold more than half of its plant and animal species.",
+      "context": "Sources put that slice at only about 2 to 6% of Earth's surface. The biggest of them all is the Amazon, the world's largest tropical rainforest. If all of Earth's species threw one party, more than half the guests would be squeezed into a few small rooms.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Tiny footprint, packed guest list. Remember this trick: it turns up again under the sea."
+      }
+    },
+    {
+      "id": "card.world_geography.042.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.042.q1"
+    },
+    {
+      "id": "card.world_geography.042.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.042.q2"
+    },
+    {
+      "id": "card.world_geography.042.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.042.q3"
+    },
+    {
+      "id": "card.world_geography.042.c8",
+      "type": "checkpoint",
+      "headline": "Rainforests: explored",
+      "learned": [
+        "Rainforests grow in the tropics, hot and wet all year",
+        "Four layers: emergent, canopy, understory, forest floor",
+        "Only about 2% of sunlight reaches the floor",
+        "A small slice of Earth, over half of its species"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.tropical_rainforest"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.042.c2"
+      ],
+      "prompt": "Which layer of a rainforest is the darkest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The emergent layer",
+          "correct": false,
+          "rationale": "It pokes above everything else into full sun."
+        },
+        {
+          "id": "b",
+          "label": "The canopy",
+          "correct": false,
+          "rationale": "The canopy catches light; it gets darker below it."
+        },
+        {
+          "id": "c",
+          "label": "The understory",
+          "correct": false,
+          "rationale": "Dim, but the layer beneath it is darker still."
+        },
+        {
+          "id": "d",
+          "label": "The forest floor",
+          "correct": true
+        }
+      ],
+      "explanation": "The upper layers soak up nearly all the light: on average only about 2% of sunlight reaches the forest floor.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.rainforest_biodiversity"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.042.c3"
+      ],
+      "prompt": "Why can tropical rainforests support such a huge variety of life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cold winters thin out their predators",
+          "correct": false,
+          "rationale": "Rainforests have no winter at all."
+        },
+        {
+          "id": "b",
+          "label": "They cover most of Earth's land",
+          "correct": false,
+          "rationale": "They cover only a small slice of the surface."
+        },
+        {
+          "id": "c",
+          "label": "Warmth, sunlight and rain last all year",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They have Earth's richest soils",
+          "correct": false,
+          "rationale": "The key is the steady warmth, sunlight and moisture."
+        }
+      ],
+      "explanation": "Steady heat, sunlight and moisture with little seasonal change are the building blocks for rainforest diversity.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.tropical_rainforest",
+        "concept.world_geography.tropics"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.042.c3",
+        "card.world_geography.004.c3"
+      ],
+      "prompt": "From Level 4: between which two lines do tropical rainforests mainly grow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Arctic and Antarctic Circles",
+          "correct": false,
+          "rationale": "Those mark the polar regions."
+        },
+        {
+          "id": "b",
+          "label": "The Tropics of Cancer and Capricorn",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The prime meridian and the date line",
+          "correct": false,
+          "rationale": "Those are lines of longitude, not latitude."
+        },
+        {
+          "id": "d",
+          "label": "The Equator and the North Pole",
+          "correct": false,
+          "rationale": "That spans the whole Northern Hemisphere."
+        }
+      ],
+      "explanation": "Rainforests grow mainly in the tropics, between the Tropic of Cancer (about 23.5° N) and the Tropic of Capricorn (about 23.5° S).",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_rain_forest",
+    "source.brit_tropical_rainforest",
+    "source.rainforestconcern_facts",
+    "source.natgeo_tropics",
+    "source.brit_tropic_of_cancer",
+    "source.brit_tropic_of_capricorn"
+  ],
+  "art": "geo.rainforest"
+}

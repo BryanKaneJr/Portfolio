@@ -1,0 +1,217 @@
+{
+  "id": "level.geography.world_geography.095",
+  "skillId": "skill.geography.world_geography",
+  "number": 95,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Religions Around the World",
+  "objective": "After this level you can describe the world's major religions and where they are practiced.",
+  "summary": "Christians are about 29% of the world, Muslims 26%, the unaffiliated 24%. Most Muslims, Hindus and Buddhists live in Asia-Pacific; sub-Saharan Africa now has the most Christians.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.major_religions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.religion_geography",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.population_distribution",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.094"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.095.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The world's largest religion now has more followers in Africa than in Europe.",
+      "body": "If you picture Christianity centered on Europe, your map needs an update. Religion has a geography, and that geography moves."
+    },
+    {
+      "id": "card.world_geography.095.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The big picture",
+      "body": "No single religion claims a majority of humanity. Christians are the largest group: about 2.3 billion people, or about 29% of the world in 2020. Muslims follow at about 26%. Third place is a surprise: people with no religion at all, about 24%. Hindus make up about 15% and Buddhists about 4%. Roughly one in four people on Earth checks the 'none' box."
+    },
+    {
+      "id": "card.world_geography.095.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Faith follows people",
+      "body": "Level 91 put about 60% of humanity in the Asia-Pacific region. Religion tracks that crowd. About 59% of Muslims live in Asia-Pacific, so most Muslims live east of the Middle East, not in it. For Hindus the share is 99%, and for Buddhists 98%. Two of the world's big religions are almost entirely Asian.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Picture a 'typical' Muslim and you might picture the Middle East. The numbers point further east."
+      }
+    },
+    {
+      "id": "card.world_geography.095.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "On the move",
+      "body": "Religious maps change. By 2020, sub-Saharan Africa had overtaken Europe as the region with the most Christians, home to about 31% of them. Meanwhile, from 2010 to 2020, Muslims were the fastest-growing major group, and people with no religion also grew as a share of the world. A religious map, like a city ranking, needs a date on it."
+    },
+    {
+      "id": "card.world_geography.095.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.095.q1"
+    },
+    {
+      "id": "card.world_geography.095.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.095.q2"
+    },
+    {
+      "id": "card.world_geography.095.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.095.q3"
+    },
+    {
+      "id": "card.world_geography.095.c8",
+      "type": "checkpoint",
+      "headline": "Religions: placed",
+      "learned": [
+        "Christians about 29%, Muslims 26%, no religion 24%",
+        "Hindus about 15%, Buddhists about 4%",
+        "Most Muslims, Hindus and Buddhists live in Asia-Pacific",
+        "Sub-Saharan Africa now has the most Christians"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.095.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.religion_geography"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.095.c4"
+      ],
+      "prompt": "Which region is home to the largest number of Christians today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Europe",
+          "correct": false,
+          "rationale": "It held that title until sub-Saharan Africa overtook it."
+        },
+        {
+          "id": "b",
+          "label": "North America",
+          "correct": false,
+          "rationale": "Far fewer than the leading region."
+        },
+        {
+          "id": "c",
+          "label": "Sub-Saharan Africa",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Middle East",
+          "correct": false,
+          "rationale": "Christianity began there, but it's now a small share."
+        }
+      ],
+      "explanation": "By 2020, sub-Saharan Africa had overtaken Europe, with about 31% of the world's Christians.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.095.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.major_religions"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.095.c2"
+      ],
+      "prompt": "People with no religion are about 24% of the world. Where does that put them among the largest groups?",
+      "options": [
+        {
+          "id": "a",
+          "label": "First, ahead of Christians",
+          "correct": false,
+          "rationale": "Christians, at about 29%, are larger."
+        },
+        {
+          "id": "b",
+          "label": "Third, behind Christians and Muslims",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Fifth, behind Buddhists",
+          "correct": false,
+          "rationale": "Buddhists are only about 4%."
+        },
+        {
+          "id": "d",
+          "label": "Second, ahead of Muslims",
+          "correct": false,
+          "rationale": "Muslims, at about 26%, are slightly larger."
+        }
+      ],
+      "explanation": "Christians (about 29%) and Muslims (about 26%) are larger; the unaffiliated come third at about 24%, ahead of Hindus and Buddhists.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.world_geography.095.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.religion_geography",
+        "concept.world_geography.population_distribution"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.095.c3",
+        "card.world_geography.091.c4"
+      ],
+      "prompt": "Most Muslims, and nearly all Hindus and Buddhists, live in one region. Which Level 91 region is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sub-Saharan Africa",
+          "correct": false,
+          "rationale": "It has the most Christians, not most followers of these three."
+        },
+        {
+          "id": "b",
+          "label": "Europe",
+          "correct": false,
+          "rationale": "Only a small share of these groups live there."
+        },
+        {
+          "id": "c",
+          "label": "The Middle East",
+          "correct": false,
+          "rationale": "Most Muslims live east of it."
+        },
+        {
+          "id": "d",
+          "label": "Asia-Pacific",
+          "correct": true
+        }
+      ],
+      "explanation": "About 59% of Muslims, 99% of Hindus and 98% of Buddhists live in Asia-Pacific, home to about 60% of all people.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.pew_global_religion_2020",
+    "source.unfpa_asia_pacific_population"
+  ],
+  "art": "geo.people"
+}

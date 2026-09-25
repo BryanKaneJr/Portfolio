@@ -1,0 +1,224 @@
+{
+  "id": "level.geography.world_geography.039",
+  "skillId": "skill.geography.world_geography",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "A Changing Climate",
+  "objective": "After this level you can explain the greenhouse effect and how Earth's climate is changing today.",
+  "summary": "Greenhouse gases keep Earth livable by trapping heat. Burning fossil fuels has raised CO2 by more than 50%, and Earth has warmed about 1°C, mostly because of us.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.greenhouse_effect",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.global_warming",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.weather_vs_climate",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.038"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Without greenhouse gases, Earth would average about -18°C.",
+      "body": "Instead it averages about 15°C. So the greenhouse effect isn't the villain of this story. Too much of it is."
+    },
+    {
+      "id": "card.world_geography.039.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A blanket made of gas",
+      "body": "Sunlight warms Earth's surface, and the surface gives off heat. Gases such as carbon dioxide, methane and water vapor trap some of that heat near the surface, like a blanket on a cold night. That's the greenhouse effect, and it's what keeps the planet from freezing. The trouble starts when you keep adding blankets."
+    },
+    {
+      "id": "card.world_geography.039.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "We've thickened the blanket",
+      "body": "Since industrial times began in the 1700s, carbon dioxide in the air has risen by more than 50%, mainly from burning coal, oil and gas. Earth's average surface temperature has climbed about 1°C since the late 1800s. That sounds small, but it's the whole planet's average, and today's warming is roughly 10 times faster than the average warming after an ice age. Human activity is the main cause.",
+      "callout": "More greenhouse gas, more trapped heat."
+    },
+    {
+      "id": "card.world_geography.039.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Weather or climate? Level 31 again",
+      "body": "A cold snap in a warming world is still weather. Blizzards and freezing days keep happening; over time they happen less often. Climate change shows up in the long-term averages, and those are climbing. Global sea level, for one, rose about 20 cm in the last century, and it's rising faster now. One chilly week can't argue with a century of data.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Weather is one page. Climate is the whole diary. And the diary keeps getting warmer."
+      }
+    },
+    {
+      "id": "card.world_geography.039.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.039.q1"
+    },
+    {
+      "id": "card.world_geography.039.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.039.q2"
+    },
+    {
+      "id": "card.world_geography.039.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.039.q3"
+    },
+    {
+      "id": "card.world_geography.039.c8",
+      "type": "checkpoint",
+      "headline": "Climate change: explained",
+      "learned": [
+        "Greenhouse gases trap heat; without them Earth would average about -18°C",
+        "CO2 is up more than 50% since the 1700s",
+        "Earth has warmed about 1°C, mainly because of human activity",
+        "Climate change shows in long-term averages, not one cold week"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.greenhouse_effect"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.039.c2"
+      ],
+      "prompt": "What do greenhouse gases do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Block sunlight from reaching the ground",
+          "correct": false,
+          "rationale": "Sunlight gets through and warms the surface."
+        },
+        {
+          "id": "b",
+          "label": "Cool the planet by reflecting heat",
+          "correct": false,
+          "rationale": "They trap heat rather than send it away."
+        },
+        {
+          "id": "c",
+          "label": "Trap some of Earth's heat near the surface",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Make wind by changing air pressure",
+          "correct": false,
+          "rationale": "That was Level 33; these gases trap heat."
+        }
+      ],
+      "explanation": "Carbon dioxide, methane and water vapor trap some of the heat the surface gives off, like a blanket.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.greenhouse_effect"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.039.c1",
+        "card.world_geography.039.c2"
+      ],
+      "prompt": "Why is the natural greenhouse effect good for us?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It shields Earth from the Sun",
+          "correct": false,
+          "rationale": "It traps heat; it doesn't block sunlight."
+        },
+        {
+          "id": "b",
+          "label": "Without it, Earth would average about -18°C",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It makes the seasons milder",
+          "correct": false,
+          "rationale": "Seasons come from the tilt, as in Level 32."
+        },
+        {
+          "id": "d",
+          "label": "It stops hurricanes from forming",
+          "correct": false,
+          "rationale": "It doesn't stop storms."
+        }
+      ],
+      "explanation": "Without the natural greenhouse effect, Earth would average about -18°C instead of about 15°C.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.global_warming",
+        "concept.world_geography.weather_vs_climate"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.039.c4",
+        "card.world_geography.031.c3"
+      ],
+      "prompt": "Using Level 31's definitions: which is the best evidence of a changing climate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A record-cold week last winter",
+          "correct": false,
+          "rationale": "One week is weather."
+        },
+        {
+          "id": "b",
+          "label": "Tomorrow's heat-wave forecast",
+          "correct": false,
+          "rationale": "A forecast is weather, too."
+        },
+        {
+          "id": "c",
+          "label": "One unusually rainy summer",
+          "correct": false,
+          "rationale": "One season is still too short."
+        },
+        {
+          "id": "d",
+          "label": "Long-term averages rising over decades",
+          "correct": true
+        }
+      ],
+      "explanation": "Climate is average weather over a long time, so climate change shows up as long-term averages shifting, like temperature and sea level rising over decades.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_greenhouse_effect",
+    "source.nasa_global_warming",
+    "source.nasa_co2_indicator",
+    "source.nasa_climate_evidence",
+    "source.nasa_kids_cold_weather",
+    "source.noaa_weather_vs_climate",
+    "source.ncei_weather_vs_climate"
+  ],
+  "art": "nature.thermometer"
+}

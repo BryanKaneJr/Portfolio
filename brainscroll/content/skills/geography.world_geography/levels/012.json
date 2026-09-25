@@ -1,0 +1,247 @@
+{
+  "id": "level.geography.world_geography.012",
+  "skillId": "skill.geography.world_geography",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Plate Tectonics",
+  "objective": "After this level you can explain how moving plates reshape continents over millions of years.",
+  "summary": "Earth's outer shell is broken into plates that move a few centimeters a year. They pull apart, push together or slide past each other, and over millions of years that reshapes the map.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.tectonic_plates",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.plate_boundaries",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.earth_layers",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.011"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Atlantic Ocean is wider than it was last year.",
+      "body": "Only by about 2.5 cm. But it's been at it for a very long time, and the reason is right under your feet."
+    },
+    {
+      "id": "card.world_geography.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A cracked shell",
+      "body": "Earth's outer shell isn't one piece. The lithosphere, the crust plus the top of the mantle, is broken into huge rocky plates, and they carry the continents and oceans with them. Remember Level 11's mantle, solid rock that slowly flows? The plates ride on that slowly flowing layer, pushed along by convection, heat circulating through the rock. Think of a cracked eggshell that won't sit still."
+    },
+    {
+      "id": "card.world_geography.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Slow, but it adds up",
+      "body": "Plates move about 2 to 15 cm a year. Useless for a day trip, unstoppable over time. Along the Mid-Atlantic Ridge they spread about 2.5 cm a year, and over 100 to 200 million years that turned a narrow inlet into the whole Atlantic Ocean. Patience, at planetary scale."
+    },
+    {
+      "id": "card.world_geography.012.c4",
+      "type": "comparison",
+      "headline": "Three ways plates meet",
+      "items": [
+        {
+          "label": "Pulling apart (divergent)",
+          "points": [
+            "Plates spread and new crust forms",
+            "Example: the Mid-Atlantic Ridge"
+          ]
+        },
+        {
+          "label": "Pushing together (convergent)",
+          "points": [
+            "One plate dives under another",
+            "Crust is destroyed"
+          ]
+        },
+        {
+          "label": "Sliding past (transform)",
+          "points": [
+            "Plates grind sideways",
+            "Example: California's San Andreas Fault"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.world_geography.012.c5",
+      "type": "fact",
+      "fact": "Los Angeles and San Francisco are creeping toward each other.",
+      "context": "They sit on opposite sides of the San Andreas Fault. The Pacific Plate slides northwest past the North American Plate at about 46 mm a year, roughly the rate your fingernails grow. Keep that up long enough and the two cities will be neighbors. No need to reschedule anything.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Plan a very, very long road trip. The destination is coming to you."
+      }
+    },
+    {
+      "id": "card.world_geography.012.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.012.q1"
+    },
+    {
+      "id": "card.world_geography.012.c7",
+      "type": "mcq",
+      "questionId": "question.world_geography.012.q2"
+    },
+    {
+      "id": "card.world_geography.012.c8",
+      "type": "recall",
+      "questionId": "question.world_geography.012.q3"
+    },
+    {
+      "id": "card.world_geography.012.c9",
+      "type": "checkpoint",
+      "headline": "Plates: in motion",
+      "learned": [
+        "Earth's outer shell is broken into plates",
+        "Plates ride on the slowly flowing mantle",
+        "They move about 2 to 15 cm a year",
+        "Boundaries pull apart, push together or slide past"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.tectonic_plates"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.012.c2"
+      ],
+      "prompt": "What are tectonic plates?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rafts floating on a sea of magma",
+          "correct": false,
+          "rationale": "They move on solid mantle rock that slowly flows."
+        },
+        {
+          "id": "b",
+          "label": "Huge pieces of Earth's rocky outer shell",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Layers inside the inner core",
+          "correct": false,
+          "rationale": "They're at the surface, carrying continents and oceans."
+        },
+        {
+          "id": "d",
+          "label": "Slabs of ice under the oceans",
+          "correct": false,
+          "rationale": "They're rock, and they carry continents too."
+        }
+      ],
+      "explanation": "The lithosphere is broken into huge rocky plates that carry the continents and oceans.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.plate_boundaries"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.012.c4"
+      ],
+      "prompt": "At which kind of plate boundary is new crust made?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Where plates slide past each other",
+          "correct": false,
+          "rationale": "Crust is neither made nor destroyed there."
+        },
+        {
+          "id": "b",
+          "label": "Where one plate dives under another",
+          "correct": false,
+          "rationale": "That's where crust is destroyed."
+        },
+        {
+          "id": "c",
+          "label": "Where plates pull apart",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "In the middle of a plate, far from any edge",
+          "correct": false,
+          "rationale": "New crust forms at the gap between plates."
+        }
+      ],
+      "explanation": "At divergent boundaries, like the Mid-Atlantic Ridge, plates spread apart and new crust forms in the gap.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.tectonic_plates",
+        "concept.world_geography.earth_layers"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.012.c2",
+        "card.world_geography.011.c3"
+      ],
+      "prompt": "From Level 11: the plates ride on a slowly flowing layer. Which layer is it part of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The mantle",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The outer core",
+          "correct": false,
+          "rationale": "That's liquid metal, far deeper down."
+        },
+        {
+          "id": "c",
+          "label": "The inner core",
+          "correct": false,
+          "rationale": "That's a solid metal ball at the center."
+        },
+        {
+          "id": "d",
+          "label": "The ocean floor",
+          "correct": false,
+          "rationale": "The ocean floor is part of the plates themselves."
+        }
+      ],
+      "explanation": "The plates move on a slowly flowing part of the upper mantle, solid rock that creeps over long periods.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_dynamic_plate_motions",
+    "source.usgs_dynamic_inside",
+    "source.natgeo_plate_tectonics",
+    "source.usgs_plates_on_magma",
+    "source.usgs_california_ocean"
+  ],
+  "art": "geo.earth-layers"
+}

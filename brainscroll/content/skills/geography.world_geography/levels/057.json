@@ -1,0 +1,228 @@
+{
+  "id": "level.geography.world_geography.057",
+  "skillId": "skill.geography.world_geography",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Africa's Countries and Cities",
+  "objective": "After this level you can name Africa's most populous countries and largest cities.",
+  "summary": "Africa has 54 countries, more than any continent; Algeria is the largest and Nigeria the most populous. It is the youngest continent, and its big cities include Cairo, Lagos and Kinshasa.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.african_countries",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.africa_population",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.african_cities",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.congo_river",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.sahara_desert",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.056"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About 19% of the world's people live in Africa. Half are under about 19.",
+      "body": "Africa has the world's youngest population, with a median age of about 19. Picture a continent where the typical person is still choosing a college major."
+    },
+    {
+      "id": "card.world_geography.057.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fifty-four pieces",
+      "body": "Africa is split into 54 recognized countries, more than any other continent. The largest is Algeria, and the Sahara from Level 52 makes up more than four-fifths of it. Algeria only took the title in 2011, when South Sudan split off from Sudan, the old champion. The country with the most people is Nigeria."
+    },
+    {
+      "id": "card.world_geography.057.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cities on the water",
+      "body": "Cairo, Lagos and Kinshasa are among Africa's largest cities. Cairo stands on the Nile, at the gateway to Level 53's delta. Lagos is Nigeria's largest city, though not its capital: that moved to Abuja in 1991. And Kinshasa sits on the Congo River, with a surprising neighbor."
+    },
+    {
+      "id": "card.world_geography.057.c4",
+      "type": "fact",
+      "fact": "Two capital cities face each other across the Congo River.",
+      "context": "Kinshasa, capital of the Democratic Republic of the Congo, is on one bank. Brazzaville, capital of the Republic of the Congo, is on the other. No bridge links them, so boats carry people between two countries' capitals. Your commute has nothing on that."
+    },
+    {
+      "id": "card.world_geography.057.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.057.q1"
+    },
+    {
+      "id": "card.world_geography.057.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.057.q2"
+    },
+    {
+      "id": "card.world_geography.057.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.057.q3"
+    },
+    {
+      "id": "card.world_geography.057.c8",
+      "type": "checkpoint",
+      "headline": "Countries and cities: counted",
+      "learned": [
+        "Africa has 54 countries, more than any continent",
+        "Algeria is largest by area; Nigeria has the most people",
+        "Africa is the youngest continent, median age about 19",
+        "Kinshasa and Brazzaville face each other across the Congo"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.africa_population"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.057.c2"
+      ],
+      "prompt": "Which African country has the most people?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Egypt",
+          "correct": false,
+          "rationale": "Big, but Nigeria has more people."
+        },
+        {
+          "id": "b",
+          "label": "Algeria",
+          "correct": false,
+          "rationale": "It's the largest by area, not population."
+        },
+        {
+          "id": "c",
+          "label": "Nigeria",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Sudan",
+          "correct": false,
+          "rationale": "It was once the largest by area."
+        }
+      ],
+      "explanation": "Nigeria has more people than any other African country.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.african_countries"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.057.c2"
+      ],
+      "prompt": "Algeria became Africa's largest country in 2011 without gaining any land. How?",
+      "options": [
+        {
+          "id": "a",
+          "label": "South Sudan split off from Sudan, the old largest",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It merged with a neighbor",
+          "correct": false,
+          "rationale": "Its borders stayed the same."
+        },
+        {
+          "id": "c",
+          "label": "New maps measured it more accurately",
+          "correct": false,
+          "rationale": "The ranking changed, not the measurements."
+        },
+        {
+          "id": "d",
+          "label": "The Sahara spread and was counted as land",
+          "correct": false,
+          "rationale": "Desert was always counted as land."
+        }
+      ],
+      "explanation": "Sudan was the largest until South Sudan became independent in 2011, which left Algeria on top.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.african_cities",
+        "concept.world_geography.congo_river"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.057.c4",
+        "card.world_geography.056.c3"
+      ],
+      "prompt": "Which river from Level 56 flows between the capitals Kinshasa and Brazzaville?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Nile",
+          "correct": false,
+          "rationale": "It runs through Cairo, far to the northeast."
+        },
+        {
+          "id": "b",
+          "label": "The Tigris",
+          "correct": false,
+          "rationale": "That's in the Middle East."
+        },
+        {
+          "id": "c",
+          "label": "The Blue Nile",
+          "correct": false,
+          "rationale": "It starts in Ethiopia."
+        },
+        {
+          "id": "d",
+          "label": "The Congo",
+          "correct": true
+        }
+      ],
+      "explanation": "Kinshasa and Brazzaville face each other across the Congo River, which has no bridge between them.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_africa",
+    "source.brit_algeria",
+    "source.brit_sudan",
+    "source.pew_africa_population",
+    "source.un_ohrlls_africa_youth",
+    "source.brit_cairo",
+    "source.brit_lagos",
+    "source.nasa_kinshasa_brazzaville"
+  ],
+  "art": "geo.skyline"
+}

@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.world_geography.092",
+  "skillId": "skill.geography.world_geography",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Cities",
+  "objective": "After this level you can explain why cities grow and name the largest urban areas.",
+  "summary": "Cities pull people in with jobs and opportunity, and boomed with industry. Megacities (10 million+) grew from 8 to 33; by the UN's 2025 count Jakarta, Dhaka and Tokyo are the largest.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.urbanization_drivers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.megacities",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.population_distribution",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.091"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Tokyo was long the world's biggest city. Then the UN measured again.",
+      "body": "In 2025 a UN report crowned Jakarta instead, using a new method. Nobody packed a single moving box that day. So how do cities grow, and how do you even measure one?"
+    },
+    {
+      "id": "card.world_geography.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why cities pull people in",
+      "body": "Cities work like magnets. People leave the countryside for jobs in factories and offices, and for better chances at school and a livelier life. Cities really began to boom in the 18th century, when large-scale industry arrived. Factories needed workers, and the workers came. That's how a market town becomes a skyline."
+    },
+    {
+      "id": "card.world_geography.092.c3",
+      "type": "fact",
+      "fact": "In 1975 the world had 8 megacities. By 2025 it had 33.",
+      "context": "A megacity is an urban area with 10 million people or more. Of today's 33, 19 are in Asia, which fits Level 91: the Asia-Pacific region is home to about 60% of humanity. Picture an entire country's worth of people sharing one subway map."
+    },
+    {
+      "id": "card.world_geography.092.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where does a city end?",
+      "body": "Measuring a city sounds easy until you try to find its edge. Countries used to draw that line in different ways, so the UN's 2025 figures switched to one shared method. By that count, Jakarta leads with nearly 42 million people, Dhaka has almost 40 million and Tokyo 33 million. Dhaka is projected to take first place by 2050. City rankings, like milk, come with a date on them.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Same problem as Level 3's meridians: nobody can compare anything until everyone agrees where to measure from."
+      }
+    },
+    {
+      "id": "card.world_geography.092.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.092.q1"
+    },
+    {
+      "id": "card.world_geography.092.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.092.q2"
+    },
+    {
+      "id": "card.world_geography.092.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.092.q3"
+    },
+    {
+      "id": "card.world_geography.092.c8",
+      "type": "checkpoint",
+      "headline": "Cities: mapped",
+      "learned": [
+        "Jobs and opportunity pull people into cities",
+        "Cities boomed with 18th-century industry",
+        "Megacities have 10 million+ people: 8 in 1975, 33 in 2025",
+        "By the UN's 2025 count: Jakarta, Dhaka, Tokyo"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.megacities"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.092.c3"
+      ],
+      "prompt": "What makes an urban area a megacity?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Being a national capital",
+          "correct": false,
+          "rationale": "Plenty of capitals are small."
+        },
+        {
+          "id": "b",
+          "label": "Having more than 100 skyscrapers",
+          "correct": false,
+          "rationale": "Buildings do not define it; people do."
+        },
+        {
+          "id": "c",
+          "label": "Having 10 million or more people",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Spreading across two countries",
+          "correct": false,
+          "rationale": "Borders have nothing to do with it."
+        }
+      ],
+      "explanation": "A megacity is an urban area with 10 million or more inhabitants. There were 33 in 2025.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.urbanization_drivers"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.092.c2"
+      ],
+      "prompt": "What mainly pulls people from the countryside into cities?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Jobs, plus better chances for education",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Cheaper housing than in villages",
+          "correct": false,
+          "rationale": "City housing is rarely the draw."
+        },
+        {
+          "id": "c",
+          "label": "Cooler weather",
+          "correct": false,
+          "rationale": "Climate is not what drives urban growth."
+        },
+        {
+          "id": "d",
+          "label": "Laws that require it",
+          "correct": false,
+          "rationale": "People move by choice, for opportunity."
+        }
+      ],
+      "explanation": "Cities draw people with jobs in manufacturing and the professions and with chances for education and entertainment.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.megacities",
+        "concept.world_geography.population_distribution"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.092.c3",
+        "card.world_geography.091.c4"
+      ],
+      "prompt": "Most of the 33 megacities are in Asia. Which fact from Level 91 helps explain that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most people live south of the Equator",
+          "correct": false,
+          "rationale": "It's the other way around: about 87% live north of it."
+        },
+        {
+          "id": "b",
+          "label": "The Asia-Pacific region holds about 60% of humanity",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Asia's cities were all founded first",
+          "correct": false,
+          "rationale": "Age does not decide size today."
+        },
+        {
+          "id": "d",
+          "label": "Asia is the only continent with factories",
+          "correct": false,
+          "rationale": "Industry is found on every inhabited continent."
+        }
+      ],
+      "explanation": "With about 60% of the world's people in the Asia-Pacific region, it is no surprise that 19 of the 33 megacities are in Asia.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.aljazeera_jakarta_largest",
+    "source.un_wup_2025",
+    "source.natgeo_urbanization",
+    "source.unfpa_asia_pacific_population"
+  ],
+  "art": "geo.skyline"
+}

@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.world_geography.087",
+  "skillId": "skill.geography.world_geography",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Arctic",
+  "objective": "After this level you can describe the Arctic Ocean and its shrinking sea ice.",
+  "summary": "The Arctic is an ocean ringed by continents, capped with sea ice that peaks in March and bottoms out in September. The September ice is shrinking about 12% per decade.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.arctic_ocean",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.arctic_sea_ice",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.ocean_sizes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.086"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.087.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Stand at the North Pole and there's no land under your boots.",
+      "body": "Just frozen ocean. And since satellites started watching in 1979, the late-summer ice has been shrinking by about 12% every decade."
+    },
+    {
+      "id": "card.world_geography.087.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An ocean with a lid",
+      "body": "The Arctic is an ocean surrounded by continents. It's the smallest of the five oceans, and right over the North Pole it wears a lid of floating sea ice. So the North Pole isn't a spot on land at all. It's a point on a frozen sea. Planting a flag there is more like planting it on a raft."
+    },
+    {
+      "id": "card.world_geography.087.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ice that breathes",
+      "body": "Sea ice is simply frozen ocean water: it forms, grows and melts in the sea. Through the winter the Arctic's ice spreads out, usually reaching its biggest extent in March. Through the summer it shrinks, usually hitting its smallest in September. Watch a year of satellite maps and the Arctic seems to breathe in and out."
+    },
+    {
+      "id": "card.world_geography.087.c4",
+      "type": "fact",
+      "fact": "September's Arctic sea ice is shrinking about 12% per decade.",
+      "context": "The loss feeds itself. Sea ice reflects 50 to 70% of the sunlight that hits it, but darker open ocean reflects only 6% and soaks up the rest. So less ice means more heat in the water, which means even less ice. It's the difference between wearing a white T-shirt and a black one on a sunny day.",
+      "mascot": {
+        "pose": "idea",
+        "line": "White shirt in summer, every time. The Arctic has been telling us this for years."
+      }
+    },
+    {
+      "id": "card.world_geography.087.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.087.q1"
+    },
+    {
+      "id": "card.world_geography.087.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.087.q2"
+    },
+    {
+      "id": "card.world_geography.087.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.087.q3"
+    },
+    {
+      "id": "card.world_geography.087.c8",
+      "type": "checkpoint",
+      "headline": "Arctic: charted",
+      "learned": [
+        "The Arctic is an ocean surrounded by continents",
+        "At the North Pole, sea ice floats on the ocean",
+        "Sea ice peaks in March and bottoms out in September",
+        "The September ice is shrinking about 12% per decade"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.arctic_ocean"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.087.c2"
+      ],
+      "prompt": "What is under the ice at the North Pole?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Solid rock, like any continent",
+          "correct": false,
+          "rationale": "There's no land at the North Pole."
+        },
+        {
+          "id": "b",
+          "label": "A frozen freshwater lake",
+          "correct": false,
+          "rationale": "It's the Arctic Ocean, which is seawater."
+        },
+        {
+          "id": "c",
+          "label": "Ocean",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A buried mountain range",
+          "correct": false,
+          "rationale": "The ice floats on the Arctic Ocean."
+        }
+      ],
+      "explanation": "The Arctic is an ocean surrounded by continents. At the North Pole, sea ice floats on that ocean.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.arctic_sea_ice"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.087.c4"
+      ],
+      "prompt": "Why does losing sea ice speed up Arctic warming?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Open ocean absorbs much more sunlight than ice",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Melting ice releases heat stored inside it",
+          "correct": false,
+          "rationale": "Melting takes in heat; it doesn't release it."
+        },
+        {
+          "id": "c",
+          "label": "Ice blocks warm winds from the south",
+          "correct": false,
+          "rationale": "The card's reason is sunlight, not wind."
+        },
+        {
+          "id": "d",
+          "label": "Less ice makes the Arctic days longer",
+          "correct": false,
+          "rationale": "Ice doesn't change day length."
+        }
+      ],
+      "explanation": "Sea ice reflects 50 to 70% of sunlight; open ocean reflects only 6% and absorbs the rest. Less ice means more heat, and more melting.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.arctic_ocean",
+        "concept.world_geography.ocean_sizes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.087.c2",
+        "card.world_geography.008.c3"
+      ],
+      "prompt": "From Level 8: how does the Arctic rank among the five oceans by size?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The largest",
+          "correct": false,
+          "rationale": "That's the Pacific."
+        },
+        {
+          "id": "b",
+          "label": "The second largest",
+          "correct": false,
+          "rationale": "That's the Atlantic."
+        },
+        {
+          "id": "c",
+          "label": "The fourth largest",
+          "correct": false,
+          "rationale": "That's the Southern Ocean."
+        },
+        {
+          "id": "d",
+          "label": "The smallest",
+          "correct": true
+        }
+      ],
+      "explanation": "From largest to smallest: Pacific, Atlantic, Indian, Southern, Arctic.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.climate_gov_polar_opposites",
+    "source.nsidc_sea_ice_quick_facts",
+    "source.nasa_arctic_sea_ice_minimum",
+    "source.noaa_biggest_ocean"
+  ],
+  "art": "geo.glacier"
+}

@@ -1,0 +1,219 @@
+{
+  "id": "level.geography.world_geography.062",
+  "skillId": "skill.geography.world_geography",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Alps and Europe's Rivers",
+  "objective": "After this level you can explain how the Alps and rivers like the Rhine and Danube shaped Europe.",
+  "summary": "The Alps are fold mountains pushed up by a fragment of the African plate. Their water feeds rivers flowing to four seas, including the Rhine, and the Danube crosses 10 countries.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.alps_mountains",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.europe_rivers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.europe_regions",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.061"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Snow melting in the Alps can end up in four different seas.",
+      "body": "The North Sea, the Mediterranean, the Adriatic or the Black Sea. One mountain range, four destinations. Europe's great rivers start up here."
+    },
+    {
+      "id": "card.world_geography.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Europe's crumpled edge",
+      "body": "The Alps are the centerpiece of Level 61's southern stripe, arcing from the Mediterranean coast near Nice, France, to Vienna, Austria. They're fold mountains: they form where tectonic plates are pushed together and rock crumples upward, like a rug shoved against a wall. Here the pusher is the Adriatic microplate, a fragment of the African plate, driving into Eurasia. The top of the crumple is Mont Blanc, the highest peak in the Alps."
+    },
+    {
+      "id": "card.world_geography.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Europe's water tower",
+      "body": "All that height collects snow, and the meltwater has to go somewhere. The Alps are the source of the Rhône, the Rhine and the Po, plus many of the Danube's tributaries. The Rhine rises in the Swiss Alps and runs north and west to the North Sea, draining through the Netherlands. Along the way it has become one of the world's most important routes for industrial transport: less a river, more a conveyor belt with a view."
+    },
+    {
+      "id": "card.world_geography.062.c4",
+      "type": "fact",
+      "fact": "The Danube passes through 10 countries.",
+      "context": "It rises in Germany's Black Forest and rolls east to the Black Sea, Europe's second-longest river after the Volga. The capitals Vienna, Bratislava, Budapest and Belgrade all stand on its banks. Since 1992, the Main-Danube Canal has linked it to the Main, a Rhine tributary, so boats can travel between the North Sea and the Black Sea. The Alps send Europe's water in four directions. Engineers joined two of them back up.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Mountains split the water; a canal gets it back together. I love a reunion story."
+      }
+    },
+    {
+      "id": "card.world_geography.062.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.062.q1"
+    },
+    {
+      "id": "card.world_geography.062.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.062.q2"
+    },
+    {
+      "id": "card.world_geography.062.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.062.q3"
+    },
+    {
+      "id": "card.world_geography.062.c8",
+      "type": "checkpoint",
+      "headline": "Alps and rivers: mapped",
+      "learned": [
+        "The Alps are fold mountains, pushed up by a piece of Africa",
+        "Alpine water flows to four different seas",
+        "The Rhine runs from the Swiss Alps to the North Sea",
+        "The Danube crosses 10 countries to the Black Sea"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.europe_rivers"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.062.c4"
+      ],
+      "prompt": "How many countries does the Danube pass through?",
+      "options": [
+        {
+          "id": "a",
+          "label": "4",
+          "correct": false,
+          "rationale": "Four is the number of capitals on its banks."
+        },
+        {
+          "id": "b",
+          "label": "7",
+          "correct": false,
+          "rationale": "It crosses more than that."
+        },
+        {
+          "id": "c",
+          "label": "10",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "14",
+          "correct": false,
+          "rationale": "Fewer than that."
+        }
+      ],
+      "explanation": "The Danube passes through 10 countries on its way from Germany's Black Forest to the Black Sea.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.alps_mountains"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.062.c2"
+      ],
+      "prompt": "What pushed the Alps up so high?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Old volcanoes piling up lava",
+          "correct": false,
+          "rationale": "The Alps are fold mountains, not volcanoes."
+        },
+        {
+          "id": "b",
+          "label": "A piece of the African plate pushing into Eurasia",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Glaciers shoving rock into ridges",
+          "correct": false,
+          "rationale": "Glaciers carve mountains; they don't lift them."
+        },
+        {
+          "id": "d",
+          "label": "Rivers wearing the lowlands away",
+          "correct": false,
+          "rationale": "Rivers cut valleys but can't raise peaks."
+        }
+      ],
+      "explanation": "The Adriatic microplate, a fragment of the African plate, is colliding with the Eurasian plate. The rock crumples upward into fold mountains.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.europe_regions",
+        "concept.world_geography.alps_mountains"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.061.c4",
+        "card.world_geography.062.c2"
+      ],
+      "prompt": "Level 61 split Europe into four stripes. Which one do the Alps belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Western Uplands",
+          "correct": false,
+          "rationale": "Those are ancient, glacier-scraped rocks in the north and west."
+        },
+        {
+          "id": "b",
+          "label": "North European Plain",
+          "correct": false,
+          "rationale": "That's the low, crowded land from the UK to Russia."
+        },
+        {
+          "id": "c",
+          "label": "Central Uplands",
+          "correct": false,
+          "rationale": "Those are the wooded hills of central Europe."
+        },
+        {
+          "id": "d",
+          "label": "Alpine Mountains",
+          "correct": true
+        }
+      ],
+      "explanation": "The Alps give their name to Europe's southern stripe, the Alpine Mountains, along with the Pyrenees, Apennines and Carpathians.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_alps",
+    "source.natgeo_fold_mountain",
+    "source.brit_rhine",
+    "source.brit_danube",
+    "source.brit_main_danube_canal"
+  ],
+  "art": "geo.mountains"
+}

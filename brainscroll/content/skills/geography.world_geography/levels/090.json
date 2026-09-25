@@ -1,0 +1,342 @@
+{
+  "id": "level.geography.world_geography.090",
+  "skillId": "skill.geography.world_geography",
+  "number": 90,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Oceania and the Poles",
+  "objective": "After this level you can describe Australia, the Pacific islands, the Arctic and Antarctica.",
+  "summary": "The poles are opposites: the Arctic is ocean ringed by land, Antarctica land ringed by ocean. The high South Pole is far colder, and the poles take turns with six months of Sun.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.polar_opposites",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.antarctica_extremes",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.arctic_ocean",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.antipodes",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.world_geography.latitude",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.world_geography.tropics",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.world_geography.australia_land",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.atoll_formation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.arctic_sea_ice",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.089"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.090.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The North and South Poles are exact opposites. And not just on the map.",
+      "body": "Level 10 showed why: switch 90° N to the other hemisphere and you get 90° S, straight through Earth's center. After this chapter, you can see how deep the opposites go."
+    },
+    {
+      "id": "card.world_geography.090.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ocean up top, land down below",
+      "body": "The Arctic is an ocean surrounded by continents. Antarctica is the reverse: a continent surrounded by ocean. So at the North Pole you'd stand on sea ice floating on the Arctic Ocean. At the South Pole you'd stand on the polar plateau, about 2,800 m above sea level. Same job title, completely different building."
+    },
+    {
+      "id": "card.world_geography.090.c3",
+      "type": "fact",
+      "fact": "In winter, the South Pole is far colder than the North Pole.",
+      "context": "Winter averages about −60 °C at the South Pole and about −40 °C at the North Pole. Two reasons, both from this chapter. Antarctica is high, and air gets colder with altitude. And the Arctic's ice floats on an ocean that's usually warmer than the air above it, while Antarctica gets little heat from the sea."
+    },
+    {
+      "id": "card.world_geography.090.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Taking turns with the Sun",
+      "body": "Because Earth's axis is tilted, the two poles share the daylight by taking turns. For six months of the year the Sun never rises over one pole and never sets over the other. Then they swap. Level 4's tilt, pushed to its extreme: one pole's endless summer day is the other pole's endless winter night.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Six months of daylight, then six of dark. The poles invented the world's longest shift change."
+      }
+    },
+    {
+      "id": "card.world_geography.090.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.090.q1"
+    },
+    {
+      "id": "card.world_geography.090.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.090.q2"
+    },
+    {
+      "id": "card.world_geography.090.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.090.q3"
+    },
+    {
+      "id": "card.world_geography.090.c8",
+      "type": "recall",
+      "questionId": "question.world_geography.090.q4"
+    },
+    {
+      "id": "card.world_geography.090.c9",
+      "type": "recall",
+      "questionId": "question.world_geography.090.q5"
+    },
+    {
+      "id": "card.world_geography.090.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 9 complete",
+      "learned": [
+        "The Arctic is ocean ringed by land; Antarctica is land ringed by ocean",
+        "The high South Pole is far colder than the North Pole",
+        "For six months, the Sun never rises over one pole and never sets over the other",
+        "Australia, the Pacific islands and both poles: mapped"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.090.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.polar_opposites"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.090.c2"
+      ],
+      "prompt": "What is the key geographic difference between the Arctic and the Antarctic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Arctic is land; Antarctica is floating sea ice",
+          "correct": false,
+          "rationale": "It's the other way around."
+        },
+        {
+          "id": "b",
+          "label": "The Arctic is ocean ringed by land; Antarctica is land ringed by ocean",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both are continents covered in ice sheets",
+          "correct": false,
+          "rationale": "The Arctic is an ocean."
+        },
+        {
+          "id": "d",
+          "label": "Both are oceans covered in sea ice",
+          "correct": false,
+          "rationale": "Antarctica is a continent."
+        }
+      ],
+      "explanation": "The Arctic is an ocean surrounded by continents, and Antarctica is a continent surrounded by ocean.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.090.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.polar_opposites",
+        "concept.world_geography.antarctica_extremes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.090.c3",
+        "card.world_geography.090.c2"
+      ],
+      "prompt": "Why is the South Pole so much colder than the North Pole?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's farther from the Sun",
+          "correct": false,
+          "rationale": "Both poles are about the same distance from the Sun."
+        },
+        {
+          "id": "b",
+          "label": "It has more months of darkness",
+          "correct": false,
+          "rationale": "Both poles take equal turns with the Sun."
+        },
+        {
+          "id": "c",
+          "label": "Its ice is saltier",
+          "correct": false,
+          "rationale": "Salt isn't the reason."
+        },
+        {
+          "id": "d",
+          "label": "It's high up, with no ocean below to give off heat",
+          "correct": true
+        }
+      ],
+      "explanation": "The South Pole sits high on the polar plateau, and air gets colder with altitude. The North Pole's ice floats on an ocean warmer than the air.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.world_geography.090.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.australia_land",
+        "concept.world_geography.antarctica_extremes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.081.c3",
+        "card.world_geography.088.c4"
+      ],
+      "prompt": "Level 81 called Australia the driest continent except one. Which one is drier?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Antarctica, where snowfall equals very little rain",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Africa, home of the Sahara",
+          "correct": false,
+          "rationale": "Level 81 said only Antarctica beats Australia for dryness."
+        },
+        {
+          "id": "c",
+          "label": "Asia, home of the Gobi",
+          "correct": false,
+          "rationale": "Continents are ranked as a whole, and only Antarctica is drier."
+        },
+        {
+          "id": "d",
+          "label": "Europe, in a dry year",
+          "correct": false,
+          "rationale": "Europe is much wetter than Australia."
+        }
+      ],
+      "explanation": "Antarctica's snowfall adds up to only about 150 mm of rain a year, making it drier than Australia.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.090.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.atoll_formation"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.085.c4"
+      ],
+      "prompt": "From Level 85: an atoll began as what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A sandbar thrown up by a storm",
+          "correct": false,
+          "rationale": "Atolls have a volcano underneath."
+        },
+        {
+          "id": "b",
+          "label": "A chunk of a continent that broke away",
+          "correct": false,
+          "rationale": "They grew in the open ocean."
+        },
+        {
+          "id": "c",
+          "label": "A reef around a volcanic island that sank",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A lake that filled a meteor crater",
+          "correct": false,
+          "rationale": "The lagoon marks a sunken volcano, not a crater."
+        }
+      ],
+      "explanation": "A reef around a volcanic island keeps growing upward as the island sinks, until only a ring around a lagoon remains.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.090.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.arctic_sea_ice"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.087.c3"
+      ],
+      "prompt": "From Level 87: in which month does Arctic sea ice usually reach its smallest extent?",
+      "options": [
+        {
+          "id": "a",
+          "label": "March",
+          "correct": false,
+          "rationale": "That's usually the biggest, after the winter freeze."
+        },
+        {
+          "id": "b",
+          "label": "June",
+          "correct": false,
+          "rationale": "The melting is still going then."
+        },
+        {
+          "id": "c",
+          "label": "September",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "December",
+          "correct": false,
+          "rationale": "By then the ice is growing again."
+        }
+      ],
+      "explanation": "Arctic sea ice usually peaks in March and hits its smallest extent in September, at the end of the summer melt.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.climate_gov_polar_opposites",
+    "source.bas_antarctic_factsheet",
+    "source.whoi_polar_weather",
+    "source.nasa_eo_south_pole_sunrise",
+    "source.worldatlas_antipodes",
+    "source.noaa_latitude",
+    "source.brit_tropic_of_cancer",
+    "source.brit_arctic_circle"
+  ],
+  "art": "geo.island"
+}

@@ -1,0 +1,219 @@
+{
+  "id": "level.geography.world_geography.016",
+  "skillId": "skill.geography.world_geography",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tsunamis",
+  "objective": "After this level you can explain how undersea earthquakes cause tsunamis and why they are so destructive.",
+  "summary": "An undersea earthquake shoves the whole water column. The tsunami races across deep ocean as a low wave, then slows and piles up in shallow water; the sea may pull back first.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.tsunami_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.tsunami_behavior",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.earthquake_magnitude",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.015"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1960, an earthquake in Chile killed 61 people in Hawaii.",
+      "body": "Almost 15 hours after the shaking, something that had crossed the entire Pacific hit the town of Hilo. It wasn't the ground. It was the sea."
+    },
+    {
+      "id": "card.world_geography.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A shove from the seafloor",
+      "body": "A tsunami is a series of waves, usually set off by an undersea earthquake or eruption. When the seafloor suddenly lifts or drops, it pushes the entire column of water above it up or down, from the bottom to the surface. The name is Japanese for 'harbor wave'. The old name, 'tidal wave', is out: tides have little to do with it."
+    },
+    {
+      "id": "card.world_geography.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fast and flat, then slow and tall",
+      "body": "Over deep ocean, a tsunami can travel as fast as a jet plane, yet it's at most a few meters high, spread over tens to hundreds of kilometers. Then it reaches shallow water near shore. It slows down, and all that moving water builds up higher and higher. The danger isn't out at sea. It's where the ocean runs out of room."
+    },
+    {
+      "id": "card.world_geography.016.c4",
+      "type": "fact",
+      "fact": "Sometimes the sea runs away first.",
+      "context": "Often the first part of a tsunami to reach shore is the trough, so the sea pulls back far from the beach. It looks like a curiosity. It's a natural warning sign: the rest of the wave is on its way.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "If the sea suddenly backs away, take the hint and back away too."
+      }
+    },
+    {
+      "id": "card.world_geography.016.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.016.q1"
+    },
+    {
+      "id": "card.world_geography.016.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.016.q2"
+    },
+    {
+      "id": "card.world_geography.016.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.016.q3"
+    },
+    {
+      "id": "card.world_geography.016.c8",
+      "type": "checkpoint",
+      "headline": "Tsunamis: understood",
+      "learned": [
+        "Undersea quakes shove the whole water column",
+        "Over deep water, as fast as a jet but low",
+        "Near shore they slow and pile up high",
+        "A retreating sea is a natural warning sign"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.tsunami_formation"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.016.c2"
+      ],
+      "prompt": "What usually sets off a tsunami?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Unusually high tides at a full moon",
+          "correct": false,
+          "rationale": "Tides have little to do with tsunamis."
+        },
+        {
+          "id": "b",
+          "label": "Strong winds over deep water",
+          "correct": false,
+          "rationale": "A tsunami moves the whole water column from below."
+        },
+        {
+          "id": "c",
+          "label": "An undersea earthquake that lifts or drops the seafloor",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Warm currents meeting cold ones",
+          "correct": false,
+          "rationale": "Currents don't shove the seafloor."
+        }
+      ],
+      "explanation": "When the seafloor suddenly lifts or drops, it pushes the whole column of water above it, launching a series of waves.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.tsunami_behavior"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.016.c3"
+      ],
+      "prompt": "Why does a tsunami grow taller as it nears the coast?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It picks up extra water from rivers",
+          "correct": false,
+          "rationale": "The water was already moving; it just piles up."
+        },
+        {
+          "id": "b",
+          "label": "It slows in shallow water, so the water piles up higher",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The wind pushes it higher near land",
+          "correct": false,
+          "rationale": "Wind isn't what builds a tsunami."
+        },
+        {
+          "id": "d",
+          "label": "It speeds up as the water gets shallower",
+          "correct": false,
+          "rationale": "It slows down near shore."
+        }
+      ],
+      "explanation": "Out at sea it's fast and low. In shallow water it slows, and the moving water builds up higher and higher.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.tsunami_formation",
+        "concept.world_geography.earthquake_magnitude"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.016.c1",
+        "card.world_geography.014.c4"
+      ],
+      "prompt": "From Level 14: the 1960 tsunami that struck Hawaii was set off by what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A volcanic eruption in Hawaii",
+          "correct": false,
+          "rationale": "It came from the other side of the Pacific."
+        },
+        {
+          "id": "b",
+          "label": "A storm off the coast of Japan",
+          "correct": false,
+          "rationale": "Storms don't shove the seafloor."
+        },
+        {
+          "id": "c",
+          "label": "A small earthquake near Hilo",
+          "correct": false,
+          "rationale": "It came from far away, and it was enormous."
+        },
+        {
+          "id": "d",
+          "label": "The largest earthquake ever recorded, in Chile",
+          "correct": true
+        }
+      ],
+      "explanation": "The magnitude 9.5 Chile earthquake of 1960 launched a tsunami that crossed the Pacific and reached Hawaii almost 15 hours later.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_sos_chile_1960",
+    "source.natgeo_valdivia_earthquake",
+    "source.noaa_tsunami_facts",
+    "source.usgs_life_of_tsunami",
+    "source.noaa_tsunami_story"
+  ],
+  "art": "geo.wave"
+}
