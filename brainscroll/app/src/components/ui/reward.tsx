@@ -72,7 +72,6 @@ export function Emblem({ value, caption, tone = 'brand', size = 'md', glowing }:
           { width: dim, height: dim, borderRadius: dim * 0.32, borderColor: border, backgroundColor: tone === 'mastery' ? color.masterySoft : tone === 'brand' ? color.brandSoft : color.surface },
           glowing && (tone === 'mastery' ? glow.mastery : glow.brand),
         ]}>
-        <View style={[styles.emblemInner, { borderRadius: dim * 0.26, borderColor: tone === 'quiet' ? color.border : `${border}55` }]} />
         <Text style={[type.number, { fontSize, color: tone === 'quiet' ? color.textMuted : color.text }]}>{value}</Text>
       </View>
       {caption && <Text style={[type.label, { color: color.textMuted }]}>{caption}</Text>}
@@ -109,7 +108,6 @@ export function Halo({ tone = 'brand' }: { tone?: 'brand' | 'mastery' }) {
 
 const styles = StyleSheet.create({
   emblem: { alignItems: 'center', justifyContent: 'center', borderWidth: 2 },
-  emblemInner: { ...StyleSheet.absoluteFill, margin: 5, borderWidth: 1 },
   tile: { flex: 1, backgroundColor: color.surface, borderRadius: radius.md, borderWidth: 1, borderColor: color.border, paddingVertical: space.md, paddingHorizontal: space.md, gap: space.xs, alignItems: 'center' },
   halo: { position: 'absolute', alignSelf: 'center', top: 10, width: 200, height: 200, borderRadius: 100 },
 });

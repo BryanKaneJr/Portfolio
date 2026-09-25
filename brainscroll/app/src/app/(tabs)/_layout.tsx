@@ -2,7 +2,7 @@ import { Tabs } from 'expo-router';
 import type { ColorValue } from 'react-native';
 import { SymbolView, type SymbolViewProps } from 'expo-symbols';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { color, space } from '@/theme/tokens';
+import { color, space, fw } from '@/theme/tokens';
 
 type IconName = SymbolViewProps['name'];
 
@@ -25,7 +25,7 @@ export default function TabLayout() {
         tabBarActiveTintColor: color.brand,
         tabBarInactiveTintColor: color.textMuted,
         tabBarStyle: { backgroundColor: color.bg, borderTopColor: color.border, height: 64 + insets.bottom, paddingTop: space.sm },
-        tabBarLabelStyle: { fontSize: 11, fontWeight: '700', letterSpacing: 0.4 },
+        tabBarLabelStyle: { fontSize: 11, ...fw('700'), letterSpacing: 0.4 },
       }}>
       <Tabs.Screen name="index" options={{ title: 'Home', tabBarIcon: icon({ ios: 'house.fill', android: 'home', web: 'home' }) }} />
       <Tabs.Screen name="skills" options={{ title: 'Skills', tabBarIcon: icon({ ios: 'square.stack.3d.up.fill', android: 'layers', web: 'layers' }) }} />

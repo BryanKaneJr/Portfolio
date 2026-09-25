@@ -16,7 +16,7 @@ import { color, radius, space } from '@/theme/tokens';
 export default function ProfileScreen() {
   const { resetAll, account } = useProgress();
   const v = useProgressView();
-  const name = account?.status !== 'signed_in' ? 'Learner' : account.email && !account.email.endsWith('privaterelay.appleid.com') ? account.email.split('@')[0] : 'Learner';
+  const name = account?.status !== 'signed_in' ? 'Learner' : account.email && !account.email.endsWith('privaterelay.appleid.com') ? capitalize(account.email.split('@')[0]) : 'Learner';
   const bySubject = [...new Set(v.skills.map((s) => s.subjectId))].map((subjectId) => {
     const skills = v.skills.filter((s) => s.subjectId === subjectId);
     return { subjectId, skills, rank: subjectRank(skills.map((s) => s.view.level)) };
@@ -39,7 +39,6 @@ export default function ProfileScreen() {
         <StatTile label="Skills" value={v.skills.filter((s) => s.view.level > 0).length} />
         <StatTile label="Stars" value={stars} tone={stars > 0 ? 'mastery' : 'text'} />
       </Row>
-      <Caption center>{v.totalXp} XP earned</Caption>
 
       <View style={{ gap: space.sm }}>
         <Eyebrow>Showcase</Eyebrow>
@@ -81,3 +80,5 @@ export default function ProfileScreen() {
     </Screen>
   );
 }
+
+const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);

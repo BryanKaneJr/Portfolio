@@ -1,4 +1,4 @@
-import type { ReactNode, Ref } from 'react';
+import { useState, type ReactNode, type Ref } from 'react';
 import { ScrollView, StyleSheet, TextInput, View, type TextInputProps, type ViewStyle } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { color, layout, radius, space, type } from '@/theme/tokens';
@@ -69,7 +69,7 @@ export function LessonShell({
   return (
     <SafeAreaView style={styles.screen} edges={['top']}>
       <View style={styles.topBar}>
-        <IconButton label={closeLabel} glyph="✕" onPress={onClose} />
+        <IconButton label={closeLabel} icon="close" onPress={onClose} />
         <ProgressBar value={progress} size="lesson" />
         {right ?? <View style={{ width: layout.minTouch }} />}
       </View>
@@ -87,15 +87,18 @@ export function LessonShell({
 }
 
 export function Field({ label, ...props }: { label: string; style?: ViewStyle } & Pick<TextInputProps, 'value' | 'onChangeText' | 'placeholder' | 'keyboardType' | 'autoComplete' | 'textContentType' | 'maxLength' | 'autoFocus'>) {
+  const [focused, setFocused] = useState(false);
   return (
     <View style={{ gap: space.xs }}>
       <Eyebrow>{label}</Eyebrow>
       <TextInput
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
         accessibilityLabel={label}
         autoCapitalize="none"
         autoCorrect={false}
         placeholderTextColor={color.textFaint}
-        style={styles.field}
+        style={[styles.field, focused && styles.fieldFocused]}
         {...props}
       />
     </View>
@@ -119,5 +122,8 @@ const styles = StyleSheet.create({
     color: color.text,
     paddingHorizontal: space.md,
     ...type.body,
+    // The focus border replaces the browser's default outline on web.
+    outlineWidth: 0,
   },
+  fieldFocused: { borderColor: color.brand, borderWidth: 2, paddingHorizontal: space.md - 1 },
 });

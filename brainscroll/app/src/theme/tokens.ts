@@ -65,25 +65,38 @@ export const layout = {
 export const iconSize = { sm: 16, md: 22, lg: 28, xl: 40 } as const;
 
 /**
- * Type scale. Sora/Manrope direction; the system font is used until the font
- * files ship (deferred: see docs/design-system.md). Numerals use tabular figures.
+ * Nunito everywhere: rounded and friendly like Dr. Scroll, and very legible at
+ * reading sizes. Custom fonts pick their weight by family, not fontWeight, so
+ * every style takes its weight from `fw()`. Loaded in app/_layout.tsx.
+ */
+export const fontFamily = {
+  '400': 'Nunito_400Regular',
+  '600': 'Nunito_600SemiBold',
+  '700': 'Nunito_700Bold',
+  '800': 'Nunito_800ExtraBold',
+  '900': 'Nunito_900Black',
+} as const;
+export const fw = (weight: keyof typeof fontFamily): TextStyle => ({ fontFamily: fontFamily[weight] });
+
+/**
+ * Type scale, in Nunito. Numerals use tabular figures.
  */
 export const type = {
   // Progression / reward
-  hero: { fontSize: 56, fontWeight: '800', letterSpacing: -1, lineHeight: 60, fontVariant: ['tabular-nums'] },
-  display: { fontSize: 40, fontWeight: '800', letterSpacing: -0.5, lineHeight: 46 },
+  hero: { fontSize: 56, ...fw('800'), letterSpacing: -1, lineHeight: 60, fontVariant: ['tabular-nums'] },
+  display: { fontSize: 40, ...fw('800'), letterSpacing: -0.5, lineHeight: 46 },
   // Structure
-  h1: { fontSize: 30, fontWeight: '800', letterSpacing: -0.3, lineHeight: 36 },
-  h2: { fontSize: 24, fontWeight: '700', letterSpacing: -0.2, lineHeight: 30 },
-  title: { fontSize: 20, fontWeight: '700', lineHeight: 26 },
+  h1: { fontSize: 30, ...fw('800'), letterSpacing: -0.3, lineHeight: 36 },
+  h2: { fontSize: 24, ...fw('700'), letterSpacing: -0.2, lineHeight: 30 },
+  title: { fontSize: 20, ...fw('700'), lineHeight: 26 },
   // Reading: the lesson's hero. Generous line height for paragraphs.
-  reading: { fontSize: 18, fontWeight: '400', lineHeight: 28 },
-  body: { fontSize: 16, fontWeight: '400', lineHeight: 23 },
-  bodyStrong: { fontSize: 16, fontWeight: '600', lineHeight: 23 },
-  caption: { fontSize: 14, fontWeight: '400', lineHeight: 20 },
-  label: { fontSize: 12, fontWeight: '700', letterSpacing: 1.2, textTransform: 'uppercase' },
-  button: { fontSize: 16, fontWeight: '800', letterSpacing: 0.8, textTransform: 'uppercase' },
-  number: { fontSize: 28, fontWeight: '800', fontVariant: ['tabular-nums'] },
+  reading: { fontSize: 18, ...fw('400'), lineHeight: 28 },
+  body: { fontSize: 16, ...fw('400'), lineHeight: 23 },
+  bodyStrong: { fontSize: 16, ...fw('600'), lineHeight: 23 },
+  caption: { fontSize: 14, ...fw('400'), lineHeight: 20 },
+  label: { fontSize: 12, ...fw('700'), letterSpacing: 1.2, textTransform: 'uppercase' },
+  button: { fontSize: 16, ...fw('800'), letterSpacing: 0.8, textTransform: 'uppercase' },
+  number: { fontSize: 28, ...fw('800'), fontVariant: ['tabular-nums'] },
 } satisfies Record<string, TextStyle>;
 
 /** Elevation: subtle, for layering only (dark UIs read depth from borders more than shadows). */

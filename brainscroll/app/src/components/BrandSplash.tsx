@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { color } from '@/theme/tokens';
+import { color, fw } from '@/theme/tokens';
 
 /**
  * The launch screen: Dr. Scroll's minimalist mark (bald crown, white hair
@@ -58,5 +58,5 @@ export function BrandSplash({ done }: { done: boolean }) {
 const styles = StyleSheet.create({
   screen: { position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, backgroundColor: color.plumDeep, alignItems: 'center', justifyContent: 'center', zIndex: 10 },
   mark: { width: 220, height: 220 },
-  wordmark: { position: 'absolute', bottom: 64, color: '#FFFFFF', fontSize: 34, fontWeight: '800', letterSpacing: -0.5 },
+  wordmark: { position: 'absolute', bottom: 64, color: '#FFFFFF', fontSize: 34, ...fw('800'), letterSpacing: -0.5 },
 });

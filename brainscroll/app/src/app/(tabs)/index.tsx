@@ -70,16 +70,14 @@ export default function HomeScreen() {
           <Stars count={skill.view.stars} />
         </Row>
 
+        {next && <LevelArt art={next.art} size={128} style={{ alignSelf: 'center' }} />}
         <View style={{ gap: space.xs }}>
           <Eyebrow tone="brand">{resuming ? 'Pick up where you left off' : 'Continue learning'}</Eyebrow>
           {next ? (
-            <Row gap={space.md} style={{ alignItems: 'flex-start' }}>
-              <View style={{ flex: 1, gap: space.xs }}>
-                <H1>{next.title}</H1>
-                <Caption>Level {next.number} · {next.objective.replace(/^After this level you can /, 'You’ll ')}</Caption>
-              </View>
-              <LevelArt art={next.art} size={72} />
-            </Row>
+            <>
+              <H1>{next.title}</H1>
+              <Caption>Level {next.number} · {next.objective.replace(/^After this level you can /, 'You’ll ')}</Caption>
+            </>
           ) : (
             <Body muted>You’ve cleared every published level. More are on the way.</Body>
           )}

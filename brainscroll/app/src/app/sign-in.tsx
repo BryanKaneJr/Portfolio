@@ -55,14 +55,14 @@ export default function SignInScreen() {
         <ScrollView contentContainerStyle={styles.body} keyboardShouldPersistTaps="handled">
           {step.kind === 'choose' && (
             <>
-              <DrScroll spot="sign-in" size="md" />
-              <Eyebrow tone="brand">BrainScroll</Eyebrow>
-              <Display>{VOICE.tagline}</Display>
-              <Body>
-                Every level is a short, finished lesson in a real curriculum. Level up skills from 1 to 100 like an RPG character, except the stats are things you
-                actually know.
-              </Body>
-              <Body muted>Sign in to start. Your progress is saved to your account, so it follows you to any device.</Body>
+              <View style={styles.hero}>
+                <DrScroll spot="sign-in" size="lg" />
+                <Eyebrow tone="brand">BrainScroll</Eyebrow>
+                <Display center>{VOICE.tagline}</Display>
+                <Body muted center>
+                  Short, finished lessons in real subjects. Level up skills from 1 to 100 like an RPG character, except the stats are things you actually know.
+                </Body>
+              </View>
               <View style={styles.methods}>
                 {methods.includes('apple') && <AppleSignInButton disabled={busy} onPress={() => void run(() => p.signInWithProvider('apple'))} />}
                 {methods.includes('google') && (
@@ -72,7 +72,7 @@ export default function SignInScreen() {
                   <Button variant="secondary" label={SIGN_IN_METHOD_LABEL.phone} disabled={busy} onPress={() => setStep({ kind: 'enter', channel: 'phone' })} />
                 )}
                 {methods.includes('email') && (
-                  <Button variant="ghost" label={SIGN_IN_METHOD_LABEL.email} disabled={busy} onPress={() => setStep({ kind: 'enter', channel: 'email' })} />
+                  <Button variant="secondary" label={SIGN_IN_METHOD_LABEL.email} disabled={busy} onPress={() => setStep({ kind: 'enter', channel: 'email' })} />
                 )}
                 {p.ready && methods.length === 0 && <Body tone="danger">No sign-in method is set up for this build yet.</Body>}
               </View>
@@ -126,10 +126,16 @@ export default function SignInScreen() {
           )}
 
           {(error ?? p.error) && <Body tone="danger">{error ?? p.error}</Body>}
-          {p.backend === 'local' && (
-            <Caption tone="faint">Development build: accounts are simulated on this device. Every code is {DEV_CODE}.</Caption>
-          )}
-          <Caption tone="faint">We use your sign-in only to save your progress. We never post anything or share it.</Caption>
+          <View style={styles.fine}>
+            <Caption tone="faint" center>
+              Your progress is saved to your account, so it follows you to any device. We never post anything or share it.
+            </Caption>
+            {p.backend === 'local' && (
+              <Caption tone="faint" center>
+                Development build: accounts are simulated on this device. Every code is {DEV_CODE}.
+              </Caption>
+            )}
+          </View>
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -148,5 +154,7 @@ const styles = StyleSheet.create({
     maxWidth: layout.readingWidth + 2 * layout.gutter,
     alignSelf: 'center',
   },
-  methods: { gap: space.sm, marginTop: space.md },
+  hero: { alignItems: 'center', gap: space.md, marginBottom: space.lg },
+  methods: { gap: space.md },
+  fine: { gap: space.xs, marginTop: space.md },
 });

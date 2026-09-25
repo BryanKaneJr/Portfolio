@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, Caption, Card, Display, DrScrollSays, Eyebrow, Halo, Numeral, Pips, Pop, Reveal } from '@/components/ui';
+import { Body, Button, Caption, Card, Display, DrScrollSays, Eyebrow, Numeral, Pips, Pop, Reveal } from '@/components/ui';
 import { useProgressView } from '@/progress/ProgressProvider';
 import { color, layout, space } from '@/theme/tokens';
 
@@ -25,7 +25,6 @@ export default function DailyCompleteScreen() {
         <View style={{ width: '100%', maxWidth: layout.readingWidth, alignSelf: 'center', gap: space.xl, alignItems: 'center' }}>
           <Eyebrow tone="success">Daily knowledge complete</Eyebrow>
           <View style={{ alignItems: 'center', gap: space.sm }}>
-            <Halo />
             <Pop>
               <Numeral size="hero">
                 {today.used} / {today.cap ?? today.used}

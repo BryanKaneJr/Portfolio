@@ -1,3 +1,4 @@
+import { SymbolView, type SymbolViewProps } from 'expo-symbols';
 import type { ReactNode } from 'react';
 import { Pressable, StyleSheet, Text, type ViewStyle } from 'react-native';
 import { haptic } from '@/theme/feedback';
@@ -84,7 +85,13 @@ const styles = StyleSheet.create({
 });
 
 /** A quiet icon-sized control for top bars (close, report). */
-export function IconButton({ label, glyph, onPress }: { label: string; glyph: string; onPress: () => void }) {
+const ICONS = {
+  close: { ios: 'xmark', android: 'close', web: 'close' },
+  flag: { ios: 'flag', android: 'flag', web: 'flag' },
+} as const satisfies Record<string, SymbolViewProps['name']>;
+
+/** A quiet icon-only button (close, report). Always has a spoken label. */
+export function IconButton({ label, icon, onPress }: { label: string; icon: keyof typeof ICONS; onPress: () => void }) {
   return (
     <Pressable
       accessibilityRole="button"
@@ -92,11 +99,10 @@ export function IconButton({ label, glyph, onPress }: { label: string; glyph: st
       onPress={onPress}
       hitSlop={12}
       style={({ pressed }) => [iconStyles.hit, pressed && { opacity: 0.5 }]}>
-      <Text style={iconStyles.glyph}>{glyph}</Text>
+      <SymbolView name={ICONS[icon]} tintColor={color.textMuted} size={24} />
     </Pressable>
   );
 }
 const iconStyles = StyleSheet.create({
   hit: { width: layout.minTouch, height: layout.minTouch, alignItems: 'center', justifyContent: 'center' },
-  glyph: { color: color.textMuted, fontSize: 22, fontWeight: '600' },
 });

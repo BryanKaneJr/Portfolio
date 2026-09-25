@@ -1,7 +1,7 @@
 import type { Card } from '@brainscroll/core';
 import { StyleSheet, Text, View } from 'react-native';
 import { Eyebrow, H2, Reading, Title } from '@/components/ui';
-import { color, radius, space, type } from '@/theme/tokens';
+import { color, radius, space, type, fw } from '@/theme/tokens';
 
 /**
  * Renders any non-question card as a calm, readable page: a strong heading,
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   fact: { ...type.h2, color: color.text },
   factCompact: { ...type.title, color: color.text },
   keyFigure: { backgroundColor: color.brandSoft, borderRadius: radius.md, paddingVertical: space.md, paddingHorizontal: space.lg, borderLeftWidth: 3, borderLeftColor: color.brand },
-  keyFigureText: { color: color.text, fontSize: 18, fontWeight: '700', lineHeight: 25 },
+  keyFigureText: { color: color.text, fontSize: 18, ...fw('700'), lineHeight: 25 },
   timeline: { marginTop: space.xs },
   timelineRow: { flexDirection: 'row', gap: space.md },
   rail: { width: 14, alignItems: 'center' },
@@ -125,11 +125,11 @@ const styles = StyleSheet.create({
   line: { flex: 1, width: 2, backgroundColor: color.border, marginTop: space.xs },
   when: { ...type.label, color: color.brand },
   compareItem: { backgroundColor: color.surface, borderRadius: radius.md, borderWidth: 1, borderColor: color.border, padding: space.lg, gap: space.xs },
-  compareLabel: { color: color.text, fontSize: 18, fontWeight: '700', marginBottom: space.xxs },
+  compareLabel: { color: color.text, fontSize: 18, ...fw('700'), marginBottom: space.xxs },
   comparePoint: { ...type.body, color: color.textReading },
   image: { aspectRatio: 16 / 9, borderRadius: radius.lg, backgroundColor: color.surface, borderWidth: 1, borderColor: color.border },
   caption: { ...type.caption, color: color.textMuted },
   learnedRow: { flexDirection: 'row', gap: space.md, alignItems: 'flex-start' },
   check: { width: 24, height: 24, borderRadius: radius.pill, backgroundColor: color.successSoft, borderWidth: 1, borderColor: color.successLine, alignItems: 'center', justifyContent: 'center', marginTop: 2 },
-  checkGlyph: { color: color.success, fontSize: 13, fontWeight: '900' },
+  checkGlyph: { color: color.success, fontSize: 13, ...fw('900') },
 });

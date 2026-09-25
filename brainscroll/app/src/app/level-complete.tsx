@@ -11,7 +11,6 @@ import {
   DrScrollSays,
   Emblem,
   Eyebrow,
-  Halo,
   Numeral,
   Pop,
   ProgressBar,
@@ -64,7 +63,6 @@ export default function LevelCompleteScreen() {
           </Eyebrow>
 
           <View style={{ alignItems: 'center', gap: space.sm }}>
-            {!s.alreadyCompleted && <Halo tone={mastery ? 'mastery' : 'brand'} />}
             <Reveal>
               <Display center tone={mastery ? 'mastery' : 'text'}>
                 {headline}
@@ -108,6 +106,7 @@ export default function LevelCompleteScreen() {
               <DrScrollSays
                 spot={mastery ? 'level-complete.mastery' : leveledUp ? 'level-complete.level-up' : 'level-complete.cleared'}
                 lines={[s.alreadyCompleted ? DR_SCROLL_LINES.levelReplay : mastery ? DR_SCROLL_LINES.levelMastery : DR_SCROLL_OUTCOME[s.outcome]]}
+                size="md"
                 style={{ width: '100%', minWidth: 300 }}
               />
               <Row>

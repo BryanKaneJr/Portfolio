@@ -1,3 +1,4 @@
+import { Nunito_400Regular, Nunito_600SemiBold, Nunito_700Bold, Nunito_800ExtraBold, Nunito_900Black, useFonts } from '@expo-google-fonts/nunito';
 import { DarkTheme, router, Stack, ThemeProvider, useSegments } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
@@ -33,13 +34,15 @@ function AuthGate() {
   return null;
 }
 
-/** The plum launch screen, until the app knows who's signed in. */
-function LaunchSplash() {
+/** The plum launch screen, until the app knows who's signed in and the font has loaded. */
+function LaunchSplash({ fontsReady }: { fontsReady: boolean }) {
   const { ready, account } = useProgress();
-  return <BrandSplash done={ready && !!account} />;
+  return <BrandSplash done={ready && !!account && fontsReady} />;
 }
 
 export default function RootLayout() {
+  // A font that fails to load falls back to the system font rather than blocking the app.
+  const [fontsLoaded, fontError] = useFonts({ Nunito_400Regular, Nunito_600SemiBold, Nunito_700Bold, Nunito_800ExtraBold, Nunito_900Black });
   return (
     <ThemeProvider value={theme}>
       <ProgressProvider>
@@ -54,7 +57,7 @@ export default function RootLayout() {
           <Stack.Screen name="welcome" options={{ gestureEnabled: false }} />
           <Stack.Screen name="sign-in" options={{ gestureEnabled: false, animation: 'fade' }} />
         </Stack>
-        <LaunchSplash />
+        <LaunchSplash fontsReady={fontsLoaded || !!fontError} />
       </ProgressProvider>
     </ThemeProvider>
   );

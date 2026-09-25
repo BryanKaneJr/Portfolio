@@ -171,14 +171,14 @@ export default function LevelScreen() {
         progress={(session.cardIndex + (unresolved ? 0 : 1)) / level.cards.length}
         onClose={() => router.back()}
         closeLabel="Leave level"
-        right={<IconButton label="Report a problem" glyph="⚑" onPress={() => setReporting(true)} />}
+        right={<IconButton label="Report a problem" icon="flag" onPress={() => setReporting(true)} />}
         scrollRef={scrollRef}
         contentKey={card.id}
         footer={footer}
         footerTone={questionId ? feedbackTone(attempts) : undefined}>
         {session.cardIndex === 0 && (
           <View style={{ gap: space.sm, marginBottom: space.lg }}>
-            <LevelArt art={level.art} size={128} style={{ marginBottom: space.sm }} />
+            <LevelArt art={level.art} size={168} style={{ alignSelf: 'center', marginBottom: space.sm }} />
             {level.type === 'checkpoint' ? (
               <Row gap={space.sm}>
                 <DrScroll spot="checkpoint.intro" size="xs" />

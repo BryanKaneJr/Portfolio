@@ -1,7 +1,7 @@
 import type { MascotSpot } from '@brainscroll/core';
 import type { ReactNode } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { color, layout, radius, space, type } from '@/theme/tokens';
+import { color, layout, radius, space, type, fw } from '@/theme/tokens';
 import { DrScroll } from './mascot';
 import { Eyebrow } from './text';
 
@@ -103,11 +103,11 @@ const styles = StyleSheet.create({
   letter: { width: 30, height: 30, borderRadius: radius.sm, borderWidth: 1.5, borderColor: color.borderStrong, alignItems: 'center', justifyContent: 'center' },
   letterSelected: { borderColor: color.brand, backgroundColor: color.brand },
   letterCorrect: { borderColor: color.success, backgroundColor: color.success },
-  letterText: { color: color.textMuted, fontSize: 13, fontWeight: '800' },
+  letterText: { color: color.textMuted, fontSize: 13, ...fw('800') },
   label: { ...type.bodyStrong, fontSize: 17, lineHeight: 24, color: color.text, flexShrink: 1 },
   feedback: { gap: space.sm },
   badge: { width: 30, height: 30, borderRadius: radius.pill, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
-  badgeGlyph: { fontSize: 16, fontWeight: '900' },
+  badgeGlyph: { fontSize: 16, ...fw('900') },
   evidence: {
     gap: space.md,
     padding: space.lg,
