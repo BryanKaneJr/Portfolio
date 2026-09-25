@@ -1,0 +1,222 @@
+{
+  "id": "level.science.animals.099",
+  "skillId": "skill.science.animals",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ideas From Animals",
+  "objective": "After this level you can name inventions inspired by animals, like Velcro.",
+  "summary": "Biomimicry copies nature's designs: Velcro from burdock burrs, a Shinkansen nose from a kingfisher's beak, and NASA grippers from gecko toe hairs.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.biomimicry_def",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.biomimicry_examples",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.body_heat_source",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.098"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Velcro began as burrs stuck in a dog's fur.",
+      "body": "Burrs come from burdock, a plant, not an animal. But the idea behind Velcro, copying designs that living things already use, has a name: biomimicry. And animals have handed engineers some brilliant designs."
+    },
+    {
+      "id": "card.animals.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hooks meet loops",
+      "body": "Near Lausanne, Switzerland, George de Mestral came home from a walk with burdock burrs stuck to his clothes and his dog's fur. Under a microscope, each burr was covered in tiny hooks. He paired hooks with fabric loops and patented the fastener in 1955. The name blends two French words: velours, velvet, and crochet, hook. Nature drew the plans; he did the sewing."
+    },
+    {
+      "id": "card.animals.099.c3",
+      "type": "fact",
+      "fact": "A bird's beak quieted a bullet train.",
+      "context": "Early Shinkansen trains made a loud 'tunnel boom' as they left tunnels, disturbing people nearby. Engineers turned to the kingfisher, whose long, pointed beak lets it dive into water with barely a splash. JR West's 500 Series, in service from 1997, got a nose shaped like that beak. The booms stopped, and the train ran faster on less electricity.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Diving into water, entering a tunnel: same problem, same solution."
+      }
+    },
+    {
+      "id": "card.animals.099.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sticky without glue",
+      "body": "Geckos are small reptiles that climb smooth walls on toe pads covered in tiny hairs, the smallest hundreds of times thinner than a human hair. They stick by van der Waals forces: weak, temporary attractions between atoms. NASA's Jet Propulsion Laboratory copied the trick with synthetic hairs that grip when pressed and let go when the force is removed. They even work in a vacuum, handy for grabbing things in space."
+    },
+    {
+      "id": "card.animals.099.c5",
+      "type": "mcq",
+      "questionId": "question.animals.099.q1"
+    },
+    {
+      "id": "card.animals.099.c6",
+      "type": "mcq",
+      "questionId": "question.animals.099.q2"
+    },
+    {
+      "id": "card.animals.099.c7",
+      "type": "recall",
+      "questionId": "question.animals.099.q3"
+    },
+    {
+      "id": "card.animals.099.c8",
+      "type": "checkpoint",
+      "headline": "Borrowed from nature",
+      "learned": [
+        "Biomimicry: copying nature's designs",
+        "Velcro: burdock burrs, patented 1955",
+        "Shinkansen nose: kingfisher beak, no tunnel boom",
+        "Gecko hairs stick by van der Waals forces",
+        "NASA gecko grippers work in a vacuum"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.biomimicry_def"
+      ],
+      "sourceCardIds": [
+        "card.animals.099.c2",
+        "card.animals.099.c1"
+      ],
+      "prompt": "What gave George de Mestral the idea for Velcro?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Burdock burrs covered in tiny hooks",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A gecko's sticky toes",
+          "correct": false,
+          "rationale": "Geckos inspired NASA's grippers."
+        },
+        {
+          "id": "c",
+          "label": "A kingfisher's beak",
+          "correct": false,
+          "rationale": "The kingfisher inspired a train's nose."
+        },
+        {
+          "id": "d",
+          "label": "Spider silk",
+          "correct": false,
+          "rationale": "The inspiration was burrs caught in his dog's fur."
+        }
+      ],
+      "explanation": "Burdock burrs stuck to his clothes and dog were covered in tiny hooks, the model for hook-and-loop fasteners.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.biomimicry_examples"
+      ],
+      "sourceCardIds": [
+        "card.animals.099.c3"
+      ],
+      "prompt": "Why did engineers copy a kingfisher's beak for the 500 Series Shinkansen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its bright colors make trains easier to see",
+          "correct": false,
+          "rationale": "Color had nothing to do with it."
+        },
+        {
+          "id": "b",
+          "label": "It sheds rain quickly",
+          "correct": false,
+          "rationale": "The problem was noise in tunnels, not rain."
+        },
+        {
+          "id": "c",
+          "label": "Its shape enters water with barely a splash",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is lighter than steel",
+          "correct": false,
+          "rationale": "They copied the shape, not the material."
+        }
+      ],
+      "explanation": "The beak's shape slips from air into water smoothly; the same shape let the train enter tunnels without a boom.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.biomimicry_examples",
+        "concept.animals.body_heat_source"
+      ],
+      "sourceCardIds": [
+        "card.animals.099.c4",
+        "card.animals.005.c2"
+      ],
+      "prompt": "Geckos are reptiles. Using Level 5, where does a gecko get most of its body heat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From inside, holding about 37 °C",
+          "correct": false,
+          "rationale": "That's a mammal, an endotherm."
+        },
+        {
+          "id": "b",
+          "label": "From its surroundings, as an ectotherm",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "From friction in its toe hairs",
+          "correct": false,
+          "rationale": "Toe hairs grip; they don't heat."
+        },
+        {
+          "id": "d",
+          "label": "From sunlight, by photosynthesis",
+          "correct": false,
+          "rationale": "Only producers photosynthesize."
+        }
+      ],
+      "explanation": "Reptiles are ectotherms: they absorb most of their heat from their surroundings.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.mw_biomimicry",
+    "source.invent_velcro",
+    "source.asknature_kingfisher_train",
+    "source.brit_gecko",
+    "source.jpl_gecko_grippers",
+    "source.brit_cold_bloodedness"
+  ],
+  "art": "technology.lightbulb"
+}

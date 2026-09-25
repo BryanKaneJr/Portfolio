@@ -1,0 +1,227 @@
+{
+  "id": "level.science.animals.031",
+  "skillId": "skill.science.animals",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Makes a Reptile",
+  "objective": "After this level you can explain scales, eggs and cold blood in reptiles.",
+  "summary": "Reptiles wear keratin scales that hold water in and lay amniotic eggs that carry their own water, so they breed on dry land. Four living groups, mostly ectotherms.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.reptile_scaly_skin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.reptile_amniotic_egg",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.reptile_groups",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.body_heat_source",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.030"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A reptile egg carries its own pond.",
+      "body": "Most amphibians have to lay soft, jelly-covered eggs in water. Reptiles broke that rule, and it freed them to breed on dry land. Two inventions did it: a skin that keeps water in, and an egg that does the same."
+    },
+    {
+      "id": "card.animals.031.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A raincoat that keeps the water in",
+      "body": "Run a finger along a lizard and you'll feel scales, a continuous coat of them over most reptiles. Their main ingredient is keratin, the same tough family of protein that builds your fingernails and hair. Scaly skin with keratin and waxy fats cuts water loss, and it was one of the key adaptations that let reptiles live on land. A reptile keeps its moisture sealed in."
+    },
+    {
+      "id": "card.animals.031.c3",
+      "type": "fact",
+      "fact": "A reptile egg is a private pond with a lid.",
+      "context": "Inside, the embryo floats in the amnion, a fluid-filled sac that gives it its own watery world. Around it, a leathery or hard, calcium-based shell holds in water and nutrients. That egg freed reptiles from needing water to breed, so they can lay on dry land, while most amphibians still lay soft, jelly-like eggs in water. Some reptiles skip laying and give birth to live young instead.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Why lug your eggs to a pond when you can pack the pond inside the egg?"
+      }
+    },
+    {
+      "id": "card.animals.031.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four families, one thermostat",
+      "body": "Today's reptiles come in four groups: turtles, the tuatara, lizards and snakes, and crocodilians. Together they number more than 12,500 species. Remember Level 5? Most reptiles are ectotherms, taking their heat from outside: they bask in the sun or lie on warm surfaces to heat up, then slip into shade to cool down. Scales, shelled eggs and borrowed heat: that's the reptile kit."
+    },
+    {
+      "id": "card.animals.031.c5",
+      "type": "mcq",
+      "questionId": "question.animals.031.q1"
+    },
+    {
+      "id": "card.animals.031.c6",
+      "type": "mcq",
+      "questionId": "question.animals.031.q2"
+    },
+    {
+      "id": "card.animals.031.c7",
+      "type": "recall",
+      "questionId": "question.animals.031.q3"
+    },
+    {
+      "id": "card.animals.031.c8",
+      "type": "checkpoint",
+      "headline": "Reptiles: unpacked",
+      "learned": [
+        "Scales made mostly of keratin keep water in",
+        "The amnion and shell pack the pond inside the egg",
+        "So reptiles can breed on dry land",
+        "Turtles, tuatara, lizards and snakes, crocodilians",
+        "Most are ectotherms that bask for heat"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.reptile_scaly_skin"
+      ],
+      "sourceCardIds": [
+        "card.animals.031.c2"
+      ],
+      "prompt": "What is the main ingredient of a reptile's scales?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Calcium",
+          "correct": false,
+          "rationale": "Calcium hardens some egg shells, not scales."
+        },
+        {
+          "id": "b",
+          "label": "Keratin",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Cellulose",
+          "correct": false,
+          "rationale": "That's what plant cell walls use."
+        },
+        {
+          "id": "d",
+          "label": "Enamel",
+          "correct": false,
+          "rationale": "Enamel coats teeth, not skin."
+        }
+      ],
+      "explanation": "Keratin is the main component of reptile scales; the same family of protein builds your nails and hair.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.reptile_amniotic_egg"
+      ],
+      "sourceCardIds": [
+        "card.animals.031.c3"
+      ],
+      "prompt": "What let the first reptiles breed on dry land, when most amphibians need water for their eggs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their eggs hatched within a day",
+          "correct": false,
+          "rationale": "Speed wasn't the trick; the shell and amnion were."
+        },
+        {
+          "id": "b",
+          "label": "Their young could breathe underwater",
+          "correct": false,
+          "rationale": "The embryo needs no pond at all."
+        },
+        {
+          "id": "c",
+          "label": "Their eggs carried water inside a shell",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Their eggs needed no warmth at all",
+          "correct": false,
+          "rationale": "Warmth isn't the point; water is."
+        }
+      ],
+      "explanation": "The amnion and a leathery or hard shell keep the embryo in its own water, so the egg can be laid on dry land.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.reptile_groups",
+        "concept.animals.body_heat_source"
+      ],
+      "sourceCardIds": [
+        "card.animals.031.c4",
+        "card.animals.005.c3"
+      ],
+      "prompt": "A crocodile lies in the sun on a riverbank all morning. Using Level 5's terms, what is it doing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Soaking up outside heat, like an ectotherm",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Making heat inside its body, like an endotherm",
+          "correct": false,
+          "rationale": "That's mammals and birds; crocodilians are reptiles."
+        },
+        {
+          "id": "c",
+          "label": "Cooling down before a swim",
+          "correct": false,
+          "rationale": "Basking gains heat; shade is how reptiles cool."
+        },
+        {
+          "id": "d",
+          "label": "Drying out its scales",
+          "correct": false,
+          "rationale": "Scales already keep water in; basking is about heat."
+        }
+      ],
+      "explanation": "Crocodilians are reptiles, and most reptiles are ectotherms that bask to absorb heat from their surroundings.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_bio_reptiles",
+    "source.cmnh_amniotic_egg",
+    "source.brit_reptile",
+    "source.brit_keratin",
+    "source.adw_reptilia",
+    "source.brit_cold_bloodedness",
+    "source.brit_why_reptiles_cold_blooded"
+  ],
+  "art": "animals.turtle"
+}

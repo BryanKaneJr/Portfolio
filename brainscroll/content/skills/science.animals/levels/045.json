@@ -1,0 +1,223 @@
+{
+  "id": "level.science.animals.045",
+  "skillId": "skill.science.animals",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Jellyfish",
+  "objective": "After this level you can describe jellyfish and how they sting.",
+  "summary": "A jellyfish is about 95 percent water, with no brain, heart or blood: a nerve net and one opening do the job. It stings with nematocysts, harpoons that fire in about 700 nanoseconds.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.jellyfish_simple_body",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.jellyfish_stinging_cells",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.animal_traits",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.animal_groups_map",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.044"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A jellyfish is about 95 percent water.",
+      "body": "No brain. No heart. Not even blood. It's close to a bag of seawater with a plan. So how does something that simple catch its dinner?"
+    },
+    {
+      "id": "card.animals.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Simple, not sloppy",
+      "body": "A jellyfish senses its world with a nerve net, a simple web of nerves instead of a brain. Its gut is just as minimal: one cavity works as both stomach and intestine, and a single opening serves as both mouth and anus. Everything goes in and out the same door. Economical, if not elegant."
+    },
+    {
+      "id": "card.animals.045.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Harpoons on a hair trigger",
+      "body": "The hunting happens in stinging capsules called nematocysts. Each holds a tiny harpoon, coiled up and waiting. Trigger them and hundreds fire at once. Each jab lasts about 700 nanoseconds and hits hard enough to pierce a crustacean's shell. That's how an animal without a brain gets through armor."
+    },
+    {
+      "id": "card.animals.045.c4",
+      "type": "fact",
+      "fact": "No brain, no heart, still an animal.",
+      "context": "Run a jellyfish through Level 1's checklist. Many cells, no cell walls: check. Eats other living things: check, caught with harpoons. Level 1 put jellyfish on the animal map for exactly these reasons. The checklist never asked for a brain, a heart or blood.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Proof that a very short to-do list can still get the job done."
+      }
+    },
+    {
+      "id": "card.animals.045.c5",
+      "type": "mcq",
+      "questionId": "question.animals.045.q1"
+    },
+    {
+      "id": "card.animals.045.c6",
+      "type": "mcq",
+      "questionId": "question.animals.045.q2"
+    },
+    {
+      "id": "card.animals.045.c7",
+      "type": "recall",
+      "questionId": "question.animals.045.q3"
+    },
+    {
+      "id": "card.animals.045.c8",
+      "type": "checkpoint",
+      "headline": "Jellyfish: explained",
+      "learned": [
+        "About 95 percent water",
+        "No brain, heart or blood; a nerve net instead",
+        "One opening for mouth and anus",
+        "Nematocysts fire harpoons in about 700 nanoseconds"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.jellyfish_simple_body"
+      ],
+      "sourceCardIds": [
+        "card.animals.045.c2"
+      ],
+      "prompt": "What does a jellyfish use instead of a brain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A nerve net",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A large heart",
+          "correct": false,
+          "rationale": "Jellyfish have no heart either."
+        },
+        {
+          "id": "c",
+          "label": "Its blood vessels",
+          "correct": false,
+          "rationale": "Jellyfish have no blood."
+        },
+        {
+          "id": "d",
+          "label": "Its stomach",
+          "correct": false,
+          "rationale": "The gut digests; the nerve net senses."
+        }
+      ],
+      "explanation": "Jellyfish sense and respond to their surroundings with a simple nerve net.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.jellyfish_stinging_cells"
+      ],
+      "sourceCardIds": [
+        "card.animals.045.c3"
+      ],
+      "prompt": "How can an animal with no brain catch prey inside a hard shell?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It crushes shells with strong jaws",
+          "correct": false,
+          "rationale": "Jellyfish have no jaws."
+        },
+        {
+          "id": "b",
+          "label": "It waits for the prey to die first",
+          "correct": false,
+          "rationale": "It hunts actively with stingers."
+        },
+        {
+          "id": "c",
+          "label": "It dissolves shells with seawater",
+          "correct": false,
+          "rationale": "Its stingers pierce the shell."
+        },
+        {
+          "id": "d",
+          "label": "Its nematocysts fire harpoons through them",
+          "correct": true
+        }
+      ],
+      "explanation": "Nematocysts fire harpoons in about 700 nanoseconds, hard enough to pierce a crustacean's shell.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.animal_traits",
+        "concept.animals.jellyfish_simple_body"
+      ],
+      "sourceCardIds": [
+        "card.animals.045.c4",
+        "card.animals.001.c2"
+      ],
+      "prompt": "A jellyfish has no brain, heart or blood. By Level 1's checklist, why is it still an animal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It swims, and only animals swim",
+          "correct": false,
+          "rationale": "Moving is common, but not the whole test."
+        },
+        {
+          "id": "b",
+          "label": "It is mostly water, like every animal",
+          "correct": false,
+          "rationale": "Water content isn't on the checklist."
+        },
+        {
+          "id": "c",
+          "label": "Its cells lack walls, and it eats others",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It has a backbone like a fish",
+          "correct": false,
+          "rationale": "Jellyfish are invertebrates."
+        }
+      ],
+      "explanation": "Many cells without walls, and it eats other living things: a jellyfish passes Level 1's checklist.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_jellyfish_made_of",
+    "source.natgeo_jellyfish_no_brain",
+    "source.openstax_bio_animal_features",
+    "source.brit_invertebrate"
+  ],
+  "art": "animals.jellyfish"
+}

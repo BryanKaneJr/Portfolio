@@ -1,0 +1,228 @@
+{
+  "id": "level.science.animals.037",
+  "skillId": "skill.science.animals",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Amphibians",
+  "objective": "After this level you can explain how frogs and other amphibians live in water and on land.",
+  "summary": "Amphibians live a 'dual life' and lay shell-less eggs in water. Their moist skin drinks and breathes, which let in the chytrid fungus; IUCN (2023) found 41% of species threatened.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.amphibian_double_life",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.amphibian_skin_breathing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.amphibian_chytrid",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.reptile_amniotic_egg",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.036"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A frog drinks through its skin.",
+      "body": "An amphibian takes in most of its water through its skin rather than by drinking, and it breathes through that skin too. That open, living skin is the group's great trick. It also turned out to be their weak spot."
+    },
+    {
+      "id": "card.animals.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A double life",
+      "body": "Amphibian loosely means 'dual life' in Greek, a nod to the metamorphosis many frogs and salamanders go through, starting life in one shape and ending in another. Most amphibians lay soft, jelly-covered eggs with no shell, in water or damp places: none of Level 31's packed pond. The class has three branches: frogs, salamanders and the legless caecilians."
+    },
+    {
+      "id": "card.animals.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Skin that drinks and breathes",
+      "body": "An amphibian's skin stays moist and permeable, kept wet by mucus glands. Water soaks in across it, and it's one of the animal's three breathing surfaces. Where a lizard wears a raincoat, a frog wears something closer to a wet lung. That works beautifully in damp places, and it leaves the skin wide open to whatever lands on it."
+    },
+    {
+      "id": "card.animals.037.c4",
+      "type": "fact",
+      "fact": "In 2023, IUCN found 41 percent of amphibian species threatened with extinction.",
+      "context": "That makes amphibians the most threatened class of vertebrates. From 1980 to 2004 the leading cause of worsening risk was disease from the chytrid fungus, which infects the skin and upsets the salts it moves into the body until the heart stops. A 2019 study linked chytrid to declines in at least 501 amphibian species, including 90 presumed extinctions. Since 2004, climate change has taken the lead.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "The very skin that lets a frog drink and breathe was the door the fungus walked through."
+      }
+    },
+    {
+      "id": "card.animals.037.c5",
+      "type": "mcq",
+      "questionId": "question.animals.037.q1"
+    },
+    {
+      "id": "card.animals.037.c6",
+      "type": "mcq",
+      "questionId": "question.animals.037.q2"
+    },
+    {
+      "id": "card.animals.037.c7",
+      "type": "recall",
+      "questionId": "question.animals.037.q3"
+    },
+    {
+      "id": "card.animals.037.c8",
+      "type": "checkpoint",
+      "headline": "Amphibians: explained",
+      "learned": [
+        "'Amphibian' loosely means dual life",
+        "Frogs, salamanders and legless caecilians",
+        "Soft, shell-less eggs in water or damp places",
+        "Moist skin takes in water and helps them breathe",
+        "IUCN 2023: 41% threatened; chytrid attacks the skin"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.amphibian_skin_breathing"
+      ],
+      "sourceCardIds": [
+        "card.animals.037.c3",
+        "card.animals.037.c1"
+      ],
+      "prompt": "How does an amphibian take in most of its water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By drinking from ponds",
+          "correct": false,
+          "rationale": "Most water soaks in through the skin rather than by drinking."
+        },
+        {
+          "id": "b",
+          "label": "From its food only",
+          "correct": false,
+          "rationale": "The skin, not food, supplies most of it."
+        },
+        {
+          "id": "c",
+          "label": "Through its moist skin",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Through its lungs",
+          "correct": false,
+          "rationale": "Lungs are for air; water comes in through the skin."
+        }
+      ],
+      "explanation": "Amphibian skin is moist and permeable, and most of their water is taken in across it rather than by drinking.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.amphibian_chytrid"
+      ],
+      "sourceCardIds": [
+        "card.animals.037.c4",
+        "card.animals.037.c3"
+      ],
+      "prompt": "Why has the chytrid fungus been so deadly to amphibians?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It infects their skin and upsets their body salts",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It poisons the insects that they eat",
+          "correct": false,
+          "rationale": "The fungus attacks the amphibians themselves, through the skin."
+        },
+        {
+          "id": "c",
+          "label": "It dries up the ponds where they breed",
+          "correct": false,
+          "rationale": "It's an infection, not a drought."
+        },
+        {
+          "id": "d",
+          "label": "It cracks the shells around their eggs",
+          "correct": false,
+          "rationale": "Amphibian eggs have no shells."
+        }
+      ],
+      "explanation": "Chytrid infects the skin that amphibians use to take in water and breathe, disrupting their body salts until the heart stops.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.amphibian_double_life",
+        "concept.animals.reptile_amniotic_egg"
+      ],
+      "sourceCardIds": [
+        "card.animals.037.c2",
+        "card.animals.031.c3"
+      ],
+      "prompt": "Compared with Level 31's reptile eggs, what do most amphibian eggs lack?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An embryo growing inside",
+          "correct": false,
+          "rationale": "Every egg holds an embryo."
+        },
+        {
+          "id": "b",
+          "label": "A yolk for the embryo to feed on",
+          "correct": false,
+          "rationale": "The difference is the shell, not the food supply."
+        },
+        {
+          "id": "c",
+          "label": "A soft coating of jelly",
+          "correct": false,
+          "rationale": "Amphibian eggs are the jelly-covered ones."
+        },
+        {
+          "id": "d",
+          "label": "A shell to hold water in",
+          "correct": true
+        }
+      ],
+      "explanation": "Reptile eggs have a shell and amnion that hold water in; most amphibian eggs are soft and jelly-covered, so they need water or damp places.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_bio_amphibians",
+    "source.cmnh_amniotic_egg",
+    "source.iucn_amphibian_gaa2",
+    "source.science_voyles_chytrid_2009",
+    "source.anu_chytrid_2019",
+    "source.science_scheele_chytrid_2019"
+  ],
+  "art": "geo.rainforest"
+}

@@ -1,0 +1,215 @@
+{
+  "id": "level.science.animals.062",
+  "skillId": "skill.science.animals",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Camouflage",
+  "objective": "After this level you can explain how animals hide in plain sight.",
+  "summary": "Camouflage hides animals: background matching copies color, shape or movement; countershading (dark back, pale belly) flattens a body; Arctic foxes change coats by season.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.camouflage_hiding",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.adaptation_fox_climates",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.061"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some leaves go for a walk.",
+      "body": "A leaf insect doesn't just look like a leaf. When it moves, it rocks back and forth, like a leaf blown by the wind. Hiding, it turns out, is about more than color."
+    },
+    {
+      "id": "card.animals.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Match the background",
+      "body": "The simplest disguise is background matching: an animal hides by resembling its surroundings in color, shape or movement. Earth-toned deer and squirrels do it among trees, a flounder does it on the seabed, and walking sticks and walking leaves copy the plants they sit on. A predator scanning for dinner sees only more scenery."
+    },
+    {
+      "id": "card.animals.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Paint out the shadow",
+      "body": "Countershading is sneakier. The animal's back is darker than its underside, which evens out light and shadow so the body looks flat and harder to spot. Sharks use it in open water, where there's nothing to hide behind. Seen from above, a shark's dark back blends with the deep water. Seen from below, its pale belly blends with the bright surface. No background? Bring your own."
+    },
+    {
+      "id": "card.animals.062.c4",
+      "type": "fact",
+      "fact": "The Arctic fox changes its disguise with the seasons.",
+      "context": "Remember Level 61's small-eared Arctic fox? Many are white in winter and grayish brown in summer, so the coat matches whichever season it's in. The white coat that hides a fox in the snow would stand out on summer ground, so it doesn't keep it.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A new outfit every season, and it's still just trying not to be noticed."
+      }
+    },
+    {
+      "id": "card.animals.062.c5",
+      "type": "mcq",
+      "questionId": "question.animals.062.q1"
+    },
+    {
+      "id": "card.animals.062.c6",
+      "type": "mcq",
+      "questionId": "question.animals.062.q2"
+    },
+    {
+      "id": "card.animals.062.c7",
+      "type": "recall",
+      "questionId": "question.animals.062.q3"
+    },
+    {
+      "id": "card.animals.062.c8",
+      "type": "checkpoint",
+      "headline": "Camouflage: explained",
+      "learned": [
+        "Background matching copies color, shape or movement",
+        "Leaf insects sway like leaves in the wind",
+        "Countershading: dark back, pale belly",
+        "Sharks blend with the depths and the surface",
+        "Arctic foxes change coats with the seasons"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.camouflage_hiding"
+      ],
+      "sourceCardIds": [
+        "card.animals.062.c3"
+      ],
+      "prompt": "What does countershading look like on a shark?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A dark back and a pale belly",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A pale back and a dark belly",
+          "correct": false,
+          "rationale": "Reversed: the dark side faces up."
+        },
+        {
+          "id": "c",
+          "label": "Stripes that break up its outline",
+          "correct": false,
+          "rationale": "That's not countershading."
+        },
+        {
+          "id": "d",
+          "label": "Colors that change with the seasons",
+          "correct": false,
+          "rationale": "That's the Arctic fox's trick."
+        }
+      ],
+      "explanation": "A dark back blends with deep water seen from above; a pale belly blends with the bright surface seen from below.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.camouflage_hiding"
+      ],
+      "sourceCardIds": [
+        "card.animals.062.c1",
+        "card.animals.062.c2"
+      ],
+      "prompt": "Why does a leaf insect rock back and forth as it walks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To shake parasites off its back legs",
+          "correct": false,
+          "rationale": "Not in this level; it's about hiding."
+        },
+        {
+          "id": "b",
+          "label": "To warm up its flight muscles first",
+          "correct": false,
+          "rationale": "It's a disguise, not a warm-up."
+        },
+        {
+          "id": "c",
+          "label": "To look bigger to hungry predators",
+          "correct": false,
+          "rationale": "It's trying not to be seen at all."
+        },
+        {
+          "id": "d",
+          "label": "Its movement copies a leaf in the wind",
+          "correct": true
+        }
+      ],
+      "explanation": "Background matching can copy movement as well as color: the insect sways like a leaf in the breeze.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.camouflage_hiding",
+        "concept.animals.adaptation_fox_climates"
+      ],
+      "sourceCardIds": [
+        "card.animals.062.c4",
+        "card.animals.061.c2"
+      ],
+      "prompt": "Level 61's Arctic fox keeps heat in with small ears. What else changes to help it hide?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its ear size, from season to season",
+          "correct": false,
+          "rationale": "Its ears stay small; its coat changes."
+        },
+        {
+          "id": "b",
+          "label": "Its coat color, with the seasons",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its body temperature, to match the snow",
+          "correct": false,
+          "rationale": "It's a mammal: it keeps its own warmth."
+        },
+        {
+          "id": "d",
+          "label": "Its shape, to look like a rock",
+          "correct": false,
+          "rationale": "Its trick is color, not shape."
+        }
+      ],
+      "explanation": "Many Arctic foxes are white in winter and grayish brown in summer, matching the season.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_camouflage",
+    "source.brit_countershading",
+    "source.brit_arctic_fox",
+    "source.natgeokids_arctic_fox"
+  ],
+  "art": "animals.chameleon"
+}

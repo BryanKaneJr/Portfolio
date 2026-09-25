@@ -1,0 +1,224 @@
+{
+  "id": "level.science.animals.021",
+  "skillId": "skill.science.animals",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Makes a Bird",
+  "objective": "After this level you can explain feathers, beaks and hollow bones.",
+  "summary": "Feathers set birds apart from every other animal. Birds also have toothless beaks, lay hard-shelled eggs and make their own heat, and big fliers carry bones partly filled with air.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.bird_defining_traits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.bird_light_skeleton",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.body_heat_source",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.animal_groups_map",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.020"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A frigatebird's skeleton weighs less than its feathers.",
+      "body": "That's a bird with a seven-foot wingspan, and its bones are outweighed by its coat. It sounds like a trick. It's actually a clue to what a bird is, and to how so many of them manage to be so light."
+    },
+    {
+      "id": "card.animals.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Feathers are the password",
+      "body": "Not every bird can fly, so flight can't be the test. The real password is feathers. Britannica calls them the major characteristic that sets birds apart from all other animals. A turtle has a beak, but no turtle has a single feather. If it grows feathers, it's a bird. Full stop."
+    },
+    {
+      "id": "card.animals.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The rest of the kit",
+      "body": "Every bird is a vertebrate, one of the five backbone groups from Level 3. Its beak is its upper and lower jaws wrapped in a horny sheath, and no bird has teeth. Every bird lays hard-shelled eggs. And like you, birds make their own heat (Level 5), holding steady at about 40 °C. Feathers, beak, eggs, inner furnace: that's the kit."
+    },
+    {
+      "id": "card.animals.021.c4",
+      "type": "fact",
+      "fact": "In big fliers, the bones are partly air.",
+      "context": "In the largest flying birds, part of the bone is replaced by air spaces. A hollow tube can buckle, though, so the big wing bones carry struts inside, like the cross-braces in a bridge. That's how a frigatebird with a seven-foot wingspan ends up with a skeleton lighter than its feathers.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Light bones, heavy coat. It's the exact opposite of how I pack for a trip."
+      }
+    },
+    {
+      "id": "card.animals.021.c5",
+      "type": "mcq",
+      "questionId": "question.animals.021.q1"
+    },
+    {
+      "id": "card.animals.021.c6",
+      "type": "mcq",
+      "questionId": "question.animals.021.q2"
+    },
+    {
+      "id": "card.animals.021.c7",
+      "type": "recall",
+      "questionId": "question.animals.021.q3"
+    },
+    {
+      "id": "card.animals.021.c8",
+      "type": "checkpoint",
+      "headline": "Birds: defined",
+      "learned": [
+        "Feathers: the one trait only birds have",
+        "Toothless beaks: jaws in a horny sheath",
+        "Hard-shelled eggs and an inner furnace near 40 °C",
+        "Big fliers have air-filled, strut-braced bones"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.bird_defining_traits"
+      ],
+      "sourceCardIds": [
+        "card.animals.021.c2"
+      ],
+      "prompt": "Which feature does Britannica single out as what separates birds from all other animals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wings",
+          "correct": false,
+          "rationale": "Not every bird flies, so wings can't be the test."
+        },
+        {
+          "id": "b",
+          "label": "A beak",
+          "correct": false,
+          "rationale": "Turtles have beaks too."
+        },
+        {
+          "id": "c",
+          "label": "Feathers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Hollow bones",
+          "correct": false,
+          "rationale": "Only some bird bones are partly air; feathers are the password."
+        }
+      ],
+      "explanation": "Feathers are the major characteristic that distinguishes birds from all other animals.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.bird_light_skeleton"
+      ],
+      "sourceCardIds": [
+        "card.animals.021.c4"
+      ],
+      "prompt": "Why do the big wing bones of large flying birds have struts inside them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To keep the hollow bones from buckling",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To store fat for long flights",
+          "correct": false,
+          "rationale": "The spaces hold air; the struts add strength."
+        },
+        {
+          "id": "c",
+          "label": "To make the bones heavy for diving",
+          "correct": false,
+          "rationale": "That would work against flying."
+        },
+        {
+          "id": "d",
+          "label": "To anchor the bird's feathers",
+          "correct": false,
+          "rationale": "The struts are about strength, not feathers."
+        }
+      ],
+      "explanation": "Partly hollow bones save weight, and internal struts keep their walls from buckling.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.body_heat_source",
+        "concept.animals.bird_defining_traits"
+      ],
+      "sourceCardIds": [
+        "card.animals.021.c3",
+        "card.animals.005.c2"
+      ],
+      "prompt": "Level 5 sorted animals by where their heat comes from. Where do birds fit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ectotherms, like reptiles",
+          "correct": false,
+          "rationale": "Birds make their own heat."
+        },
+        {
+          "id": "b",
+          "label": "Endotherms, holding about 40 °C",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Ectotherms that bask to reach 40 °C",
+          "correct": false,
+          "rationale": "Basking is how ectotherms warm up; birds heat themselves."
+        },
+        {
+          "id": "d",
+          "label": "Endotherms, but only while flying",
+          "correct": false,
+          "rationale": "They hold a steady temperature whatever the weather."
+        }
+      ],
+      "explanation": "Birds are endotherms: like mammals they make their own heat, holding about 40 °C.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_bird",
+    "source.brit_beak",
+    "source.stanford_birds_flight_adaptations",
+    "source.brit_vertebrate",
+    "source.brit_warm_bloodedness"
+  ],
+  "art": "animals.eagle"
+}

@@ -1,0 +1,244 @@
+{
+  "id": "level.science.animals.047",
+  "skillId": "skill.science.animals",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Salmon Runs",
+  "objective": "After this level you can explain how salmon return to the rivers where they hatched.",
+  "summary": "Sockeye hatch in fresh water, grow at sea, then swim upstream to spawn where they were born, guided by the remembered smell of home. They die within weeks, and their bodies feed the river.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.salmon_life_cycle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.salmon_homing_smell",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.diet_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.food_chain_levels",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.046"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A sockeye salmon swims many miles upstream to spawn where it was born.",
+      "body": "It hatched in fresh water, spent years at sea, and now it's heading home, usually to the very stream or lake where its life began. It has no map and no one to follow. How does it find the way?"
+    },
+    {
+      "id": "card.animals.047.c2",
+      "type": "timeline",
+      "headline": "A sockeye's round trip",
+      "events": [
+        {
+          "when": "Start",
+          "label": "Hatches in a freshwater stream, river or lake"
+        },
+        {
+          "when": "First years",
+          "label": "Grows up in fresh water"
+        },
+        {
+          "when": "Then",
+          "label": "Heads out to the ocean to feed and grow"
+        },
+        {
+          "when": "Years later",
+          "label": "Swims back upstream, turning bright red"
+        },
+        {
+          "when": "Weeks after spawning",
+          "label": "Dies, as every sockeye does"
+        }
+      ]
+    },
+    {
+      "id": "card.animals.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Following its nose home",
+      "body": "Before a young salmon leaves for the sea, it learns the particular smell of its home stream. Scientists call this imprinting. Years later, the grown fish uses those odor memories to steer home. Salmon also imprint on Earth's magnetic field at the spot where they first reach the sea, a second clue for the long trip back. Home, for a salmon, is a smell it never forgets.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Imagine finding your childhood home by smell alone. Salmon never need to ask for directions."
+      }
+    },
+    {
+      "id": "card.animals.047.c4",
+      "type": "fact",
+      "fact": "A salmon's last trip feeds the next generation.",
+      "context": "All sockeye die within a few weeks of spawning. Bears and eagles feast on them along the way; Level 6's bears are omnivores, eating berries and salmon. What's left of the dead fish gives energy and nutrients to the river, helping newly hatched salmon grow and survive. Bear, salmon, river, young salmon: one strand of Level 7's food web."
+    },
+    {
+      "id": "card.animals.047.c5",
+      "type": "mcq",
+      "questionId": "question.animals.047.q1"
+    },
+    {
+      "id": "card.animals.047.c6",
+      "type": "mcq",
+      "questionId": "question.animals.047.q2"
+    },
+    {
+      "id": "card.animals.047.c7",
+      "type": "recall",
+      "questionId": "question.animals.047.q3"
+    },
+    {
+      "id": "card.animals.047.c8",
+      "type": "checkpoint",
+      "headline": "Salmon runs: explained",
+      "learned": [
+        "Hatch in fresh water, grow at sea",
+        "Return to spawn where they were born",
+        "Guided by the remembered smell of home",
+        "All sockeye die after spawning; their bodies feed the river"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.salmon_homing_smell"
+      ],
+      "sourceCardIds": [
+        "card.animals.047.c3"
+      ],
+      "prompt": "Which sense guides a salmon back to its home stream?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Smell",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Sight",
+          "correct": false,
+          "rationale": "It follows the smell it memorized when young."
+        },
+        {
+          "id": "c",
+          "label": "Hearing",
+          "correct": false,
+          "rationale": "The stream's odor is the guide."
+        },
+        {
+          "id": "d",
+          "label": "Touch",
+          "correct": false,
+          "rationale": "Salmon use odor memories to find home."
+        }
+      ],
+      "explanation": "Young salmon imprint on their home stream's smell and follow those odor memories back as adults.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.salmon_life_cycle"
+      ],
+      "sourceCardIds": [
+        "card.animals.047.c4"
+      ],
+      "prompt": "Why do dead sockeye matter to the river where they spawned?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They block the river for other fish",
+          "correct": false,
+          "rationale": "Their bodies feed the river instead."
+        },
+        {
+          "id": "b",
+          "label": "They scare predators away from eggs",
+          "correct": false,
+          "rationale": "Predators and scavengers eat them."
+        },
+        {
+          "id": "c",
+          "label": "Their bodies help young salmon grow",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They turn back into salmon eggs",
+          "correct": false,
+          "rationale": "Their nutrients feed the stream."
+        }
+      ],
+      "explanation": "Salmon carcasses supply energy and nutrients to the river, improving the growth and survival of newly hatched salmon.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.salmon_life_cycle",
+        "concept.animals.food_chain_levels"
+      ],
+      "sourceCardIds": [
+        "card.animals.047.c4",
+        "card.animals.007.c4"
+      ],
+      "prompt": "A bear eats a spawning salmon, and the dead salmon later feed young salmon. In Level 7's terms, what does this show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Salmon are producers",
+          "correct": false,
+          "rationale": "Salmon eat; producers make food."
+        },
+        {
+          "id": "b",
+          "label": "Bears are decomposers",
+          "correct": false,
+          "rationale": "Bears are consumers."
+        },
+        {
+          "id": "c",
+          "label": "Energy never leaves the river",
+          "correct": false,
+          "rationale": "Energy is lost at every step."
+        },
+        {
+          "id": "d",
+          "label": "Food chains overlap into a web",
+          "correct": true
+        }
+      ],
+      "explanation": "Salmon link bears, rivers and young salmon: overlapping chains form a food web.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_sockeye_salmon",
+    "source.noaa_salmon_olfaction_homing",
+    "source.adfg_how_salmon_find_way",
+    "source.natgeo_omnivore",
+    "source.natgeo_food_chain"
+  ],
+  "art": "geo.river"
+}

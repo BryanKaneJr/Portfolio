@@ -1,0 +1,221 @@
+{
+  "id": "level.science.animals.056",
+  "skillId": "skill.science.animals",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Snails and Slugs",
+  "objective": "After this level you can describe snails, slugs and their relatives.",
+  "summary": "Snails and slugs are gastropods, the largest mollusk group. They glide on one muscular foot over mucus and eat with a radula of tiny teeth. Slugs lost their shells.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.snail_gastropod_body",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.snail_radula",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.invertebrate_majority",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.055"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A slug is a snail that lost its shell.",
+      "body": "Not in an accident: over the course of evolution. In slugs, the shell has shrunk to a small leftover inside the body, or vanished completely. Snails and slugs are the same kind of animal, a gastropod, and they share some very strange equipment."
+    },
+    {
+      "id": "card.animals.056.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Meet the mollusks",
+      "body": "Snails and slugs are mollusks: soft-bodied invertebrates, usually wrapped wholly or partly in a shell made by a layer of tissue called the mantle. Gastropods, the snails and slugs, are the largest group of mollusks. Their relatives include clams, mussels and oysters, and also squids and octopuses. A garden snail and a squid are family, which shows how much you can do with “soft-bodied.”"
+    },
+    {
+      "id": "card.animals.056.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Life on one foot",
+      "body": "A snail travels on its foot, a single muscular organ that ripples with waves of contraction. Land snails and slugs glide along on a track of mucus. That shiny trail across your garden path is the road a snail builds for itself as it goes."
+    },
+    {
+      "id": "card.animals.056.c4",
+      "type": "fact",
+      "fact": "A snail eats with a ribbon of teeth.",
+      "context": "Snails and slugs eat with a jaw and a radula, a flexible band of thousands of microscopic teeth. The jaw cuts off a piece of leaf, and the radula rasps it down; covered in rows of tiny teeth, it’s coarse like sandpaper. So when a snail eats your lettuce, it isn’t biting it. It’s sanding it.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Thousands of teeth and not one toothbrush. Snails really commit to the salad."
+      }
+    },
+    {
+      "id": "card.animals.056.c5",
+      "type": "mcq",
+      "questionId": "question.animals.056.q1"
+    },
+    {
+      "id": "card.animals.056.c6",
+      "type": "mcq",
+      "questionId": "question.animals.056.q2"
+    },
+    {
+      "id": "card.animals.056.c7",
+      "type": "recall",
+      "questionId": "question.animals.056.q3"
+    },
+    {
+      "id": "card.animals.056.c8",
+      "type": "checkpoint",
+      "headline": "Snails and slugs: sorted",
+      "learned": [
+        "Snails and slugs are gastropods, a kind of mollusk",
+        "Mollusks: soft bodies, shells made by the mantle",
+        "Relatives: clams, mussels, squids, octopuses",
+        "One muscular foot, gliding on mucus",
+        "A radula: thousands of tiny teeth"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.snail_radula"
+      ],
+      "sourceCardIds": [
+        "card.animals.056.c4"
+      ],
+      "prompt": "What does a snail use to rasp its food?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its mantle",
+          "correct": false,
+          "rationale": "The mantle makes the shell."
+        },
+        {
+          "id": "b",
+          "label": "Its muscular foot",
+          "correct": false,
+          "rationale": "The foot is for moving."
+        },
+        {
+          "id": "c",
+          "label": "A radula, a band of tiny teeth",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Two pairs of antennae",
+          "correct": false,
+          "rationale": "Those are crustacean feelers, not a snail’s eating tool."
+        }
+      ],
+      "explanation": "Snails and slugs eat with a jaw and a radula, a flexible band of thousands of microscopic teeth.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.snail_gastropod_body"
+      ],
+      "sourceCardIds": [
+        "card.animals.056.c1",
+        "card.animals.056.c2"
+      ],
+      "prompt": "How is a slug related to a snail?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It’s a snail that crawled out of its shell",
+          "correct": false,
+          "rationale": "A snail can’t leave its shell; slugs lost theirs over evolution."
+        },
+        {
+          "id": "b",
+          "label": "It’s a gastropod whose shell shrank or vanished",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It’s a worm that lives like a snail",
+          "correct": false,
+          "rationale": "Slugs are mollusks, not worms."
+        },
+        {
+          "id": "d",
+          "label": "It’s a young snail before its shell grows",
+          "correct": false,
+          "rationale": "Slugs are adults of their own kinds."
+        }
+      ],
+      "explanation": "Slugs are gastropods whose shells were reduced to an internal fragment or lost over evolution.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.invertebrate_majority",
+        "concept.animals.snail_gastropod_body"
+      ],
+      "sourceCardIds": [
+        "card.animals.056.c2",
+        "card.animals.003.c3"
+      ],
+      "prompt": "Level 3 said most mollusks wear a hard outer skeleton. Where does a snail’s shell come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It’s borrowed from another animal",
+          "correct": false,
+          "rationale": "Snails make their own shells."
+        },
+        {
+          "id": "b",
+          "label": "It’s hardened mucus from its trail",
+          "correct": false,
+          "rationale": "Mucus is for gliding, not building."
+        },
+        {
+          "id": "c",
+          "label": "It forms from swallowed sand",
+          "correct": false,
+          "rationale": "The shell is made by the body itself."
+        },
+        {
+          "id": "d",
+          "label": "The mantle, a layer of tissue, makes it",
+          "correct": true
+        }
+      ],
+      "explanation": "A mollusk’s shell is secreted by the mantle, a layer of tissue covering the body.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_gastropod",
+    "source.brit_mollusk",
+    "source.nhmla_snail_jaws",
+    "source.carnegie_mollusk_diet",
+    "source.brit_invertebrate"
+  ],
+  "art": "animals.snail"
+}

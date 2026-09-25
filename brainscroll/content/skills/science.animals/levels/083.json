@@ -1,0 +1,226 @@
+{
+  "id": "level.science.animals.083",
+  "skillId": "skill.science.animals",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Fossils",
+  "objective": "After this level you can explain how fossils form and what they show.",
+  "summary": "Fossils are rare; quick burial lets minerals turn bone to stone, so around 99% are sea animals. Lower rock layers are older, and dated ash layers give ages.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.fossil_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.fossil_rock_layers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.darwin_beagle_voyage",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.vertebrate_backbone",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.082"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most living things vanish without a trace when they die.",
+      "body": "They rot away completely. Yet Darwin could still pull a giant sloth out of the ground. So what does it take for a body to turn to stone, and how can a stack of rock tell you when it lived?"
+    },
+    {
+      "id": "card.animals.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "How bone becomes stone",
+      "body": "The usual route is petrification. An animal dies and its soft parts rot, often leaving only bones and teeth, like the vertebrae of Level 3's backbone. Mud, sand or silt buries them before they vanish. More layers pile on and press down until they become sedimentary rock, while water seeping through leaves minerals in the bones, turning them to stone. It takes thousands or even millions of years. Slow cooking, extreme edition."
+    },
+    {
+      "id": "card.animals.083.c3",
+      "type": "fact",
+      "fact": "Around 99% of the fossils we find are from sea animals.",
+      "context": "Shellfish and sharks lived where sand or mud could bury them quickly, and quick burial is the whole trick. Not every fossil is a body part, either. Bones, teeth and shells are body fossils. Footprints, skin impressions and fossil dung are trace fossils. Yes, fossil dung has a name: coprolites.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Somewhere in a museum drawer, very old poo is being handled with great respect."
+      }
+    },
+    {
+      "id": "card.animals.083.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reading the layers",
+      "body": "Rock builds up like laundry in a hamper: the newest lands on top. So in undisturbed layers, lower fossils are older than higher ones, a rule called superposition. For real dates, geologists measure radioactive elements, which decay at known rates, in volcanic ash above and below a fossil. That's how one set of trilobites was pinned between 520 and 545 million years old. Compare layers worldwide and you get the geologic timescale."
+    },
+    {
+      "id": "card.animals.083.c5",
+      "type": "mcq",
+      "questionId": "question.animals.083.q1"
+    },
+    {
+      "id": "card.animals.083.c6",
+      "type": "mcq",
+      "questionId": "question.animals.083.q2"
+    },
+    {
+      "id": "card.animals.083.c7",
+      "type": "recall",
+      "questionId": "question.animals.083.q3"
+    },
+    {
+      "id": "card.animals.083.c8",
+      "type": "checkpoint",
+      "headline": "Fossils: formed",
+      "learned": [
+        "Most things rot; fossils are rare",
+        "Quick burial, then minerals turn bone to stone",
+        "Around 99% of fossils are sea animals",
+        "Body fossils and trace fossils",
+        "Lower layers are older; ash layers give dates"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.fossil_rock_layers"
+      ],
+      "sourceCardIds": [
+        "card.animals.083.c4"
+      ],
+      "prompt": "In undisturbed layers of rock, which fossils are the oldest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Those in the top layer",
+          "correct": false,
+          "rationale": "The top layer was laid down last."
+        },
+        {
+          "id": "b",
+          "label": "Those in the middle layers",
+          "correct": false,
+          "rationale": "Lower layers are older still."
+        },
+        {
+          "id": "c",
+          "label": "Those in the lowest layers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "All are the same age",
+          "correct": false,
+          "rationale": "Each layer records a different time."
+        }
+      ],
+      "explanation": "By superposition, lower layers were deposited first, so their fossils are older.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.fossil_formation"
+      ],
+      "sourceCardIds": [
+        "card.animals.083.c3",
+        "card.animals.083.c2"
+      ],
+      "prompt": "Why are around 99% of the fossils we find from sea animals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sea animals had harder bones than land animals",
+          "correct": false,
+          "rationale": "The key is burial, not bone strength."
+        },
+        {
+          "id": "b",
+          "label": "Sand or mud could bury them quickly",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Salt water turns bone to stone on its own",
+          "correct": false,
+          "rationale": "Minerals do that after burial."
+        },
+        {
+          "id": "d",
+          "label": "Land animals never leave fossils",
+          "correct": false,
+          "rationale": "They do, just far less often."
+        }
+      ],
+      "explanation": "Quick burial in sediment stops remains rotting away, and it happens most readily in the sea.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.fossil_formation",
+        "concept.animals.vertebrate_backbone"
+      ],
+      "sourceCardIds": [
+        "card.animals.083.c2",
+        "card.animals.003.c2"
+      ],
+      "prompt": "A fish dies and sinks into mud. Which part of it is most likely to become a fossil?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its muscles",
+          "correct": false,
+          "rationale": "Soft parts usually rot first."
+        },
+        {
+          "id": "b",
+          "label": "Its skin",
+          "correct": false,
+          "rationale": "Skin rots unless conditions are rare."
+        },
+        {
+          "id": "c",
+          "label": "Its eyes",
+          "correct": false,
+          "rationale": "Soft tissue rarely survives."
+        },
+        {
+          "id": "d",
+          "label": "Its backbone and other bones",
+          "correct": true
+        }
+      ],
+      "explanation": "Soft parts rot, often leaving only bones and teeth, like the vertebrae of a fish's backbone, to be buried and petrified.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.nhm_how_fossils_form",
+    "source.ue_fossil_chronology",
+    "source.brit_vertebrate",
+    "source.brit_darwin_beagle_voyage",
+    "source.nhm_megatherium"
+  ],
+  "art": "animals.dinosaur"
+}

@@ -1,0 +1,212 @@
+{
+  "id": "level.science.animals.065",
+  "skillId": "skill.science.animals",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Desert Survivors",
+  "objective": "After this level you can explain how camels and other animals survive with little water.",
+  "summary": "A camel's hump is fat, not water; it drinks up to about 30 gallons at once and can go nearly a week without. A kangaroo rat gets water from dry seeds and wastes almost none.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.desert_water_survival",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.adaptation_fox_climates",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.064"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A camel's hump holds no water at all.",
+      "body": "It's fat. So how does a desert animal get enough water, and hang on to it? The desert has two famous answers, one very large and one very small."
+    },
+    {
+      "id": "card.animals.065.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The camel: fill up, then go",
+      "body": "The hump is a food store: fat to live on when food is scarce. Packing the fat into one hump also means the rest of the body isn't wrapped in insulation in the heat. Water is a separate trick. A camel can drink up to about 30 gallons (about 114 liters) in one sitting, then go nearly a week without drinking. It doesn't carry a tank. It just refills like a bathtub."
+    },
+    {
+      "id": "card.animals.065.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The kangaroo rat: barely drink at all",
+      "body": "A kangaroo rat eats mostly dry seeds, yet it has almost no need to drink. Digesting a gram of seeds gives it about half a gram of water, roughly one drop for every two seeds. Its breakfast is also its water bottle."
+    },
+    {
+      "id": "card.animals.065.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Spend almost nothing",
+      "body": "Making water only works if you don't waste it. A kangaroo rat neither sweats nor pants, and its kidneys concentrate its urine to an almost crystal-like consistency. It also spends the hot day in its burrow and comes out at night. The camel refills big; the kangaroo rat hardly spends any."
+    },
+    {
+      "id": "card.animals.065.c5",
+      "type": "mcq",
+      "questionId": "question.animals.065.q1"
+    },
+    {
+      "id": "card.animals.065.c6",
+      "type": "mcq",
+      "questionId": "question.animals.065.q2"
+    },
+    {
+      "id": "card.animals.065.c7",
+      "type": "recall",
+      "questionId": "question.animals.065.q3"
+    },
+    {
+      "id": "card.animals.065.c8",
+      "type": "checkpoint",
+      "headline": "Desert survivors: explained",
+      "learned": [
+        "A camel's hump is fat, not water",
+        "Camels drink up to about 30 gallons at once",
+        "Kangaroo rats get water from dry seeds",
+        "No sweating, no panting, very concentrated urine",
+        "Burrow by day, out at night"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.desert_water_survival"
+      ],
+      "sourceCardIds": [
+        "card.animals.065.c2"
+      ],
+      "prompt": "What does a camel's hump actually store?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Water",
+          "correct": false,
+          "rationale": "The famous myth; the hump holds fat."
+        },
+        {
+          "id": "b",
+          "label": "Salt",
+          "correct": false,
+          "rationale": "Not in this level."
+        },
+        {
+          "id": "c",
+          "label": "Fat",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Extra blood",
+          "correct": false,
+          "rationale": "The hump is a food store."
+        }
+      ],
+      "explanation": "The hump is fat, a food reserve for when food is scarce.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.desert_water_survival"
+      ],
+      "sourceCardIds": [
+        "card.animals.065.c3",
+        "card.animals.065.c4"
+      ],
+      "prompt": "How does a kangaroo rat survive with almost no drinking?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It stores extra water in its long tail",
+          "correct": false,
+          "rationale": "It makes water from food instead."
+        },
+        {
+          "id": "b",
+          "label": "Seeds supply water, and it wastes little",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It licks dew off cactus spines every night",
+          "correct": false,
+          "rationale": "Its water comes from its seeds."
+        },
+        {
+          "id": "d",
+          "label": "It drinks a lot once a week, like a camel",
+          "correct": false,
+          "rationale": "It has almost no need to drink at all."
+        }
+      ],
+      "explanation": "Seeds yield about half their weight in water, and no sweating, no panting and concentrated urine save the rest.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.desert_water_survival",
+        "concept.animals.adaptation_fox_climates"
+      ],
+      "sourceCardIds": [
+        "card.animals.065.c4",
+        "card.animals.061.c3"
+      ],
+      "prompt": "Level 61's fennec fox and the kangaroo rat share one daily habit that dodges desert heat. What is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Resting in burrows by day, active at night",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Storing fat in a hump",
+          "correct": false,
+          "rationale": "That's the camel."
+        },
+        {
+          "id": "c",
+          "label": "Changing coat color with the seasons",
+          "correct": false,
+          "rationale": "That's the Arctic fox."
+        },
+        {
+          "id": "d",
+          "label": "Drinking huge amounts at once",
+          "correct": false,
+          "rationale": "That's the camel again."
+        }
+      ],
+      "explanation": "Both spend the hot day in burrows and come out at night.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_camel_humps",
+    "source.nps_orpi_kangaroo_rat",
+    "source.adw_merriams_kangaroo_rat",
+    "source.smithsonian_zoo_fennec_fox"
+  ],
+  "art": "medieval.camel"
+}

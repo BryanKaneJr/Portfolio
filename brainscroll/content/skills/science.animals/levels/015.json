@@ -1,0 +1,225 @@
+{
+  "id": "level.science.animals.015",
+  "skillId": "skill.science.animals",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Bats",
+  "objective": "After this level you can explain how bats fly and find food with echolocation.",
+  "summary": "More than 1,300 bat species make up about one-fifth of mammal species. Bats are the only true flying mammals, on hand-shaped wings, and many hunt by echolocation.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.bat_diversity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.bat_flight",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.bat_echolocation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.mammal_species_count",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.014"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About 1 in 5 mammal species is a bat.",
+      "body": "The U.S. Geological Survey counts more than 1,300 bat species. Pick five mammal species at random and, on average, one of them is a bat. Two tricks set bats apart: they fly, and many of them see with sound."
+    },
+    {
+      "id": "card.animals.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A wing made from a hand",
+      "body": "Bats are the only mammals capable of true flight. The wing is a modified hand: a thin, flexible skin stretched between long finger bones. Spread your fingers and imagine the skin between them larger, thinner and stretched wide. That's a bat wing, and the order's name, Chiroptera, means 'hand wing.'"
+    },
+    {
+      "id": "card.animals.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seeing with sound",
+      "body": "In echolocation, a bat sends out calls that bounce off objects and come back to its ears. The echoes tell the bat what's out there. Most of those calls are ultrasound, too high-pitched for you to hear. After dark, the air above you may be full of bat shouts you'll never notice.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Loudest party in town, and you're not on the frequency list."
+      }
+    },
+    {
+      "id": "card.animals.015.c4",
+      "type": "fact",
+      "fact": "Closing in, a bat speeds up its calls.",
+      "context": "When a bat detects an insect it wants to eat, it fires off a rapid series of calls to pinpoint exactly where the prey is. More calls mean fresher echoes, the way you'd glance more often at something you were about to catch."
+    },
+    {
+      "id": "card.animals.015.c5",
+      "type": "mcq",
+      "questionId": "question.animals.015.q1"
+    },
+    {
+      "id": "card.animals.015.c6",
+      "type": "mcq",
+      "questionId": "question.animals.015.q2"
+    },
+    {
+      "id": "card.animals.015.c7",
+      "type": "recall",
+      "questionId": "question.animals.015.q3"
+    },
+    {
+      "id": "card.animals.015.c8",
+      "type": "checkpoint",
+      "headline": "Bats: met",
+      "learned": [
+        "About 1 in 5 mammal species is a bat",
+        "The only mammals capable of true flight",
+        "The wing is a modified hand",
+        "Echolocation: calls out, echoes back",
+        "Faster calls to pinpoint prey"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.bat_flight"
+      ],
+      "sourceCardIds": [
+        "card.animals.015.c2"
+      ],
+      "prompt": "What is a bat's wing built from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Feathers along the arm",
+          "correct": false,
+          "rationale": "Bats have no feathers; the wing is skin."
+        },
+        {
+          "id": "b",
+          "label": "A modified hand with skin stretched between long fingers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A stiff flap of skin along the ribs only",
+          "correct": false,
+          "rationale": "The skin stretches between finger bones."
+        },
+        {
+          "id": "d",
+          "label": "Hardened scales",
+          "correct": false,
+          "rationale": "Bat wings are thin, flexible skin."
+        }
+      ],
+      "explanation": "A bat's wing is a modified hand: flexible skin stretched between long finger bones.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.bat_echolocation"
+      ],
+      "sourceCardIds": [
+        "card.animals.015.c3",
+        "card.animals.015.c4"
+      ],
+      "prompt": "How does echolocation tell a bat where things are?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sees heat given off by prey",
+          "correct": false,
+          "rationale": "Echolocation uses sound, not heat."
+        },
+        {
+          "id": "b",
+          "label": "It smells the air currents",
+          "correct": false,
+          "rationale": "It's about sound and echoes."
+        },
+        {
+          "id": "c",
+          "label": "It feels vibrations through its feet",
+          "correct": false,
+          "rationale": "The bat is listening, not feeling."
+        },
+        {
+          "id": "d",
+          "label": "Its calls bounce back as echoes",
+          "correct": true
+        }
+      ],
+      "explanation": "Bats send out calls, mostly ultrasound, and listen to the echoes that return from objects and prey.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.bat_diversity",
+        "concept.animals.mammal_species_count"
+      ],
+      "sourceCardIds": [
+        "card.animals.015.c1",
+        "card.animals.011.c4"
+      ],
+      "prompt": "Level 11 counted about 6,800 living mammal species. How many of them are bats?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 130",
+          "correct": false,
+          "rationale": "Ten times too few."
+        },
+        {
+          "id": "b",
+          "label": "More than 1,300",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 3,400",
+          "correct": false,
+          "rationale": "That would be half of all mammals."
+        },
+        {
+          "id": "d",
+          "label": "All 6,800",
+          "correct": false,
+          "rationale": "Bats are about one-fifth."
+        }
+      ],
+      "explanation": "USGS counts more than 1,300 bat species, about one-fifth of the roughly 6,800 mammal species.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_bats",
+    "source.nps_how_bats_fly",
+    "source.nps_bat_echolocation",
+    "source.mdd_home"
+  ],
+  "art": "animals.bat"
+}

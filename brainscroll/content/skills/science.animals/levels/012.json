@@ -1,0 +1,245 @@
+{
+  "id": "level.science.animals.012",
+  "skillId": "skill.science.animals",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Big Cats",
+  "objective": "After this level you can describe lions, tigers and the other big cats.",
+  "summary": "Panthera cats (lions, tigers, leopards, jaguars) often roar; small cats' hardened hyoid prevents it. Lions live in prides where lionesses hunt; tigers, the largest cats, live alone.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.bigcat_roar",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.bigcat_lion_tiger_lives",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.taxonomy_ranks",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.diet_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.011"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your house cat will never roar. It isn't shy.",
+      "body": "A lion's roar can be heard up to five miles away. A house cat can't make that sound at all, however big its attitude. The difference comes down to one small bone."
+    },
+    {
+      "id": "card.animals.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The roaring club",
+      "body": "Level 4 put lions, tigers, leopards and jaguars in one genus, Panthera. These are the big cats, and they often roar. Smaller cats have a fully hardened hyoid, a small bone in the neck, and that stiff bone prevents them from roaring. Same family, different hardware.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "All that attitude, and the house cat is stuck with a meow. Life isn't fair."
+      }
+    },
+    {
+      "id": "card.animals.012.c3",
+      "type": "comparison",
+      "headline": "Two ways to be a big cat",
+      "items": [
+        {
+          "label": "Lion",
+          "points": [
+            "The most social cat",
+            "Prides of related females, cubs and resident males",
+            "Lionesses do most of the hunting"
+          ]
+        },
+        {
+          "label": "Tiger",
+          "points": [
+            "The largest member of the cat family",
+            "Lives alone",
+            "Except when mating or raising young"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.012.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A roar is a property line",
+      "body": "A pride can hold as many as 40 lions, and it has ground to defend. Both males and females roar to mark their territory, and the sound carries up to five miles. The lionesses bring home the dinner; the roar tells every other lion whose ground this is. Think of it as a fence you can hear from the next town."
+    },
+    {
+      "id": "card.animals.012.c5",
+      "type": "mcq",
+      "questionId": "question.animals.012.q1"
+    },
+    {
+      "id": "card.animals.012.c6",
+      "type": "mcq",
+      "questionId": "question.animals.012.q2"
+    },
+    {
+      "id": "card.animals.012.c7",
+      "type": "recall",
+      "questionId": "question.animals.012.q3"
+    },
+    {
+      "id": "card.animals.012.c8",
+      "type": "checkpoint",
+      "headline": "Big cats: met",
+      "learned": [
+        "Lions, tigers, leopards and jaguars: genus Panthera",
+        "Big cats roar; small cats' hardened hyoid prevents it",
+        "A lion's roar carries up to five miles",
+        "Lions live in prides; lionesses hunt",
+        "Tigers: the largest cats, and loners"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.bigcat_roar",
+        "concept.animals.taxonomy_ranks"
+      ],
+      "sourceCardIds": [
+        "card.animals.012.c2",
+        "card.animals.004.c4"
+      ],
+      "prompt": "Lions, tigers, leopards and jaguars share Level 4's genus Panthera. What stops smaller cats from roaring?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their lungs are too small",
+          "correct": false,
+          "rationale": "The cause is a bone, not the lungs."
+        },
+        {
+          "id": "b",
+          "label": "A fully hardened hyoid bone",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They have no vocal cords",
+          "correct": false,
+          "rationale": "Small cats meow, so they have vocal cords."
+        },
+        {
+          "id": "d",
+          "label": "They never learn how",
+          "correct": false,
+          "rationale": "It's anatomy, not training."
+        }
+      ],
+      "explanation": "Smaller cats have a fully hardened (ossified) hyoid bone that prevents roaring.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.bigcat_lion_tiger_lives"
+      ],
+      "sourceCardIds": [
+        "card.animals.012.c3"
+      ],
+      "prompt": "Lions and tigers are both big cats. What is the biggest difference in how they live?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lions live in prides; tigers live alone",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Tigers live in prides; lions live alone",
+          "correct": false,
+          "rationale": "It's the other way around."
+        },
+        {
+          "id": "c",
+          "label": "Only tigers hunt",
+          "correct": false,
+          "rationale": "Lionesses are skilled hunters too."
+        },
+        {
+          "id": "d",
+          "label": "Only lions are carnivores",
+          "correct": false,
+          "rationale": "Every cat must eat meat."
+        }
+      ],
+      "explanation": "Lions are the most social cats, living in prides; tigers are solitary except when mating or raising young.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.bigcat_lion_tiger_lives",
+        "concept.animals.diet_types"
+      ],
+      "sourceCardIds": [
+        "card.animals.012.c3",
+        "card.animals.006.c2"
+      ],
+      "prompt": "Level 6 said every cat must eat meat. In a lion pride, who does most of the hunting?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The resident males",
+          "correct": false,
+          "rationale": "Males sometimes join, but the females lead."
+        },
+        {
+          "id": "b",
+          "label": "The youngest cubs",
+          "correct": false,
+          "rationale": "Cubs are raised, not hunting."
+        },
+        {
+          "id": "c",
+          "label": "The lionesses",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nobody: lions scavenge only",
+          "correct": false,
+          "rationale": "Lions hunt, as carnivores must."
+        }
+      ],
+      "explanation": "Lions are carnivores like every cat, and in a pride the females are the primary hunters.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_panthera",
+    "source.smithsonian_zoo_lion",
+    "source.brit_tiger",
+    "source.smithsonian_zoo_tiger",
+    "source.brit_linnaeus",
+    "source.natgeo_carnivore"
+  ],
+  "art": "animals.lion"
+}

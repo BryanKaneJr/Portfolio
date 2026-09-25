@@ -1,0 +1,230 @@
+{
+  "id": "level.science.animals.049",
+  "skillId": "skill.science.animals",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ocean Food Webs",
+  "objective": "After this level you can explain how tiny plankton support life in the ocean.",
+  "summary": "Plankton are drifters: phytoplankton make food from sunlight near the surface, and zooplankton such as krill eat them and rise each night to feed. The ocean makes roughly half of Earth's oxygen.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.plankton_drifters",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.phytoplankton_oxygen",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.food_chain_levels",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.energy_ten_percent",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.largest_animal",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.048"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.049.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every night, the biggest migration on Earth happens, and you've never seen it.",
+      "body": "Tiny drifting animals rise from deeper water to the ocean's surface to feed, then sink back down by day. Who are these drifters, and why does the whole ocean depend on them?"
+    },
+    {
+      "id": "card.animals.049.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The ocean's drifters",
+      "body": "Plankton are living things carried by tides and currents, too weak to swim against them. The name comes from the Greek for \"drifter.\" Phytoplankton are the plant drifters. Zooplankton are the animal ones: krill, young fish, and weak swimmers like Level 45's jellyfish. Most plankton are microscopic, but size doesn't decide it. Swimming does."
+    },
+    {
+      "id": "card.animals.049.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Level 7's chain, zoomed in",
+      "body": "Remember Level 7's ocean chain? Phytoplankton feed krill, and krill feed the blue whale. Phytoplankton make food from sunlight, so they stay near the surface. Most zooplankton graze on them, rising at night to eat. With only about 10 percent of the energy climbing each step, the base has to be enormous. The largest animal known to have lived depends on life too small to see."
+    },
+    {
+      "id": "card.animals.049.c4",
+      "type": "fact",
+      "fact": "About half of Earth's oxygen comes from the ocean.",
+      "context": "Scientists estimate that roughly half of the planet's oxygen production happens in the sea, mostly by photosynthesizing plankton. Like plants, phytoplankton take in carbon dioxide and give off oxygen. Marine life uses about as much as the ocean makes, but half of the world's oxygen factory is floating out there, too small to see.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Next time you see the sea, say thanks. Quietly. The plankton are working."
+      }
+    },
+    {
+      "id": "card.animals.049.c5",
+      "type": "mcq",
+      "questionId": "question.animals.049.q1"
+    },
+    {
+      "id": "card.animals.049.c6",
+      "type": "mcq",
+      "questionId": "question.animals.049.q2"
+    },
+    {
+      "id": "card.animals.049.c7",
+      "type": "recall",
+      "questionId": "question.animals.049.q3"
+    },
+    {
+      "id": "card.animals.049.c8",
+      "type": "checkpoint",
+      "headline": "Ocean food webs: explained",
+      "learned": [
+        "Plankton drift with tides and currents",
+        "Phytoplankton make food from sunlight near the surface",
+        "Zooplankton, like krill, eat them and rise at night",
+        "The ocean makes roughly half of Earth's oxygen"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.plankton_drifters"
+      ],
+      "sourceCardIds": [
+        "card.animals.049.c2"
+      ],
+      "prompt": "What makes a living thing count as plankton?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It drifts with currents it can't swim against",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is smaller than a grain of sand",
+          "correct": false,
+          "rationale": "Size doesn't decide; some jellyfish count."
+        },
+        {
+          "id": "c",
+          "label": "It makes its own food from sunlight",
+          "correct": false,
+          "rationale": "Only phytoplankton do that."
+        },
+        {
+          "id": "d",
+          "label": "It lives buried in the sea floor",
+          "correct": false,
+          "rationale": "Plankton drift in the water."
+        }
+      ],
+      "explanation": "Plankton are carried by tides and currents because they can't swim against them.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.phytoplankton_oxygen"
+      ],
+      "sourceCardIds": [
+        "card.animals.049.c3",
+        "card.animals.049.c4"
+      ],
+      "prompt": "Why do phytoplankton live near the ocean's surface?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The water there is saltier",
+          "correct": false,
+          "rationale": "Salt isn't the reason; sunlight is."
+        },
+        {
+          "id": "b",
+          "label": "Predators never swim that high",
+          "correct": false,
+          "rationale": "Zooplankton come up to eat them."
+        },
+        {
+          "id": "c",
+          "label": "They breathe air through the surface",
+          "correct": false,
+          "rationale": "They photosynthesize, like plants."
+        },
+        {
+          "id": "d",
+          "label": "They need sunlight to make food",
+          "correct": true
+        }
+      ],
+      "explanation": "Like plants, phytoplankton photosynthesize, so they live where sunlight reaches.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.plankton_drifters",
+        "concept.animals.food_chain_levels"
+      ],
+      "sourceCardIds": [
+        "card.animals.049.c2",
+        "card.animals.007.c1"
+      ],
+      "prompt": "Level 7's ocean chain runs phytoplankton, krill, blue whale. Where do krill fit among the plankton?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are phytoplankton",
+          "correct": false,
+          "rationale": "Krill are animals that eat phytoplankton."
+        },
+        {
+          "id": "b",
+          "label": "They are zooplankton, animal drifters",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They are producers",
+          "correct": false,
+          "rationale": "Krill eat; producers make food."
+        },
+        {
+          "id": "d",
+          "label": "They are not plankton at all",
+          "correct": false,
+          "rationale": "Krill are among the zooplankton."
+        }
+      ],
+      "explanation": "Krill are zooplankton: animal drifters that eat phytoplankton and feed the blue whale.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_plankton",
+    "source.noaa_ocean_oxygen",
+    "source.natgeo_food_chain",
+    "source.natgeo_ten_percent_rule",
+    "source.noaa_blue_whale"
+  ],
+  "art": "geo.wave"
+}

@@ -1,0 +1,227 @@
+{
+  "id": "level.science.animals.028",
+  "skillId": "skill.science.animals",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Parrots and Crows",
+  "objective": "After this level you can explain why parrots and crows are so clever.",
+  "summary": "Wild New Caledonian crows make hook tools, and Betty bent a wire into one in 2002. Alex the parrot named objects, colors and numbers. Their small brains are packed with neurons.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.crow_tool_making",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.parrot_alex_labels",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.bird_brain_neurons",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.bird_light_skeleton",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.027"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2002, a crow named Betty bent a wire into a hook.",
+      "body": "She was in an Oxford lab, facing a small bucket of food at the bottom of a tube. Another crow, Abel, had taken the hooked wire, leaving her a straight one. It was only the crows' fifth time handling wire. So Betty bent her own hook and lifted the bucket out."
+    },
+    {
+      "id": "card.animals.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Toolmakers in the wild",
+      "body": "Betty's species already had a reputation. In 1996, biologist Gavin Hunt reported in Nature that wild New Caledonian crows make hook tools: hooked twigs, and stepped-cut tools snipped from the barbed edges of pandanus leaves. They use them to fish invertebrates out of dead wood. Hunt noted the tools were standardized, in distinct types. Not random sticks: a toolkit."
+    },
+    {
+      "id": "card.animals.028.c3",
+      "type": "fact",
+      "fact": "A parrot named Alex could name 7 colors.",
+      "context": "Scientist Irene Pepperberg worked with Alex, an African grey parrot, for about 30 years. Using English words, he learned to identify 50 objects, 7 colors, 5 shapes and quantities up to 6, plus a zero-like idea. He died in 2007, at 31. Not bad for a 'birdbrain.'"
+    },
+    {
+      "id": "card.animals.028.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Small brains, packed tight",
+      "body": "How do they do it with such small heads? A 2016 study counted brain cells in 28 bird species. Parrot and songbird brains held, on average, about twice as many neurons as primate brains of the same mass. Large-brained parrots and corvids (the crow family) matched or beat primates with much bigger brains in forebrain neurons. Calling someone a birdbrain may be a compliment.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Small package, dense wiring. The bird brain was underrated all along."
+      }
+    },
+    {
+      "id": "card.animals.028.c5",
+      "type": "mcq",
+      "questionId": "question.animals.028.q1"
+    },
+    {
+      "id": "card.animals.028.c6",
+      "type": "mcq",
+      "questionId": "question.animals.028.q2"
+    },
+    {
+      "id": "card.animals.028.c7",
+      "type": "recall",
+      "questionId": "question.animals.028.q3"
+    },
+    {
+      "id": "card.animals.028.c8",
+      "type": "checkpoint",
+      "headline": "Clever birds: explained",
+      "learned": [
+        "Wild New Caledonian crows make standardized hook tools",
+        "Betty bent a straight wire into a hook (2002)",
+        "Alex the parrot named objects, colors and numbers",
+        "Bird brains pack neurons densely"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.parrot_alex_labels"
+      ],
+      "sourceCardIds": [
+        "card.animals.028.c3"
+      ],
+      "prompt": "How many colors did Alex the African grey parrot learn to identify?",
+      "options": [
+        {
+          "id": "a",
+          "label": "5",
+          "correct": false,
+          "rationale": "That was his count of shapes."
+        },
+        {
+          "id": "b",
+          "label": "7",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "50",
+          "correct": false,
+          "rationale": "That was his count of objects."
+        },
+        {
+          "id": "d",
+          "label": "100",
+          "correct": false,
+          "rationale": "Far more than he was taught."
+        }
+      ],
+      "explanation": "Alex learned to identify 7 colors, along with 50 objects, 5 shapes and quantities up to 6.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.crow_tool_making"
+      ],
+      "sourceCardIds": [
+        "card.animals.028.c1",
+        "card.animals.028.c2"
+      ],
+      "prompt": "What made Betty's hook in the Oxford lab so impressive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "She copied a hook another crow had made",
+          "correct": false,
+          "rationale": "Abel took the hook; she made her own."
+        },
+        {
+          "id": "b",
+          "label": "Wild crows had never been seen using tools",
+          "correct": false,
+          "rationale": "Wild New Caledonian crows make hook tools."
+        },
+        {
+          "id": "c",
+          "label": "She shaped a hook from material she barely knew",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "She was trained for years to bend wire",
+          "correct": false,
+          "rationale": "It was only the crows' fifth time with wire."
+        }
+      ],
+      "explanation": "With only a straight wire and little experience of wire, Betty bent a hook and used it to lift the food.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.bird_brain_neurons",
+        "concept.animals.bird_light_skeleton"
+      ],
+      "sourceCardIds": [
+        "card.animals.028.c4",
+        "card.animals.021.c4"
+      ],
+      "prompt": "Level 21 showed birds are built light for flight. How do clever parrots and crows fit big thinking into small heads?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their brains pack neurons densely",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Their skulls are hollow to hold more brain",
+          "correct": false,
+          "rationale": "Hollow bones save weight; the card is about neuron density."
+        },
+        {
+          "id": "c",
+          "label": "Their brains are larger than primates'",
+          "correct": false,
+          "rationale": "Their brains are smaller; they're packed tighter."
+        },
+        {
+          "id": "d",
+          "label": "They store memories in their feathers",
+          "correct": false,
+          "rationale": "Memory lives in the brain."
+        }
+      ],
+      "explanation": "Parrot and songbird brains hold about twice as many neurons as primate brains of the same mass.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.oxford_betty_hook_2002",
+    "source.nature_hunt_crow_hooks_1996",
+    "source.oxford_crow_natural_history",
+    "source.sciencedaily_alex_parrot_2007",
+    "source.pnas_olkowicz_bird_neurons_2016",
+    "source.brit_bird",
+    "source.stanford_birds_flight_adaptations"
+  ],
+  "art": "animals.parrot"
+}

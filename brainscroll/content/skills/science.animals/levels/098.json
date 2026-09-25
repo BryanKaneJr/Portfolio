@@ -1,0 +1,236 @@
+{
+  "id": "level.science.animals.098",
+  "skillId": "skill.science.animals",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Animals in Space",
+  "objective": "After this level you can describe the animals that flew in space before humans.",
+  "summary": "Fruit flies went first (1947). Laika was the first creature in orbit (1957) and died within hours. Belka and Strelka came home in 1960; Ham flew in 1961, before Gagarin.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.space_animals_why",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.space_animals_firsts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.animal_groups_map",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.097"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first animals in space were fruit flies.",
+      "body": "In 1947 they rode a rocket up and came back alive. Why send animals into space before people, and what did it cost them?"
+    },
+    {
+      "id": "card.animals.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Could a body survive up there?",
+      "body": "Nobody knew what spaceflight would do to a living body. One big worry was that people might not survive long periods of weightlessness. Radiation was another unknown. So on 20 February 1947, fruit flies went up on a V-2 rocket; they were small, light and easy to store. Back on the ground, scientists found no radiation-caused changes to their genetics. The tiniest passengers cleared the way."
+    },
+    {
+      "id": "card.animals.098.c3",
+      "type": "fact",
+      "fact": "Laika was the first living creature to orbit Earth.",
+      "context": "She was a stray from the streets of Moscow, launched on Sputnik 2 on November 3, 1957. The spacecraft had no way to bring her home, and she died from overheating about five to seven hours into the flight. For years, Soviet officials said she had lived for days; the truth came out in 2002. Today a statue honors her in Moscow."
+    },
+    {
+      "id": "card.animals.098.c4",
+      "type": "timeline",
+      "headline": "Clearing the way for people",
+      "events": [
+        {
+          "when": "Feb 1947",
+          "label": "Fruit flies reach space and return alive"
+        },
+        {
+          "when": "Nov 1957",
+          "label": "Laika becomes the first creature in orbit"
+        },
+        {
+          "when": "Aug 1960",
+          "label": "Belka and Strelka orbit Earth and come home alive"
+        },
+        {
+          "when": "Jan 1961",
+          "label": "Ham the chimpanzee tests doing tasks in space"
+        },
+        {
+          "when": "Apr 1961",
+          "label": "Yuri Gagarin becomes the first human in space"
+        }
+      ]
+    },
+    {
+      "id": "card.animals.098.c5",
+      "type": "mcq",
+      "questionId": "question.animals.098.q1"
+    },
+    {
+      "id": "card.animals.098.c6",
+      "type": "mcq",
+      "questionId": "question.animals.098.q2"
+    },
+    {
+      "id": "card.animals.098.c7",
+      "type": "recall",
+      "questionId": "question.animals.098.q3"
+    },
+    {
+      "id": "card.animals.098.c8",
+      "type": "checkpoint",
+      "headline": "Animals in space: remembered",
+      "learned": [
+        "Fruit flies first, 1947, back alive",
+        "Weightlessness and radiation were unknowns",
+        "Laika: first in orbit, 1957; died within hours",
+        "Belka and Strelka came home in 1960",
+        "Ham flew in January 1961, before Gagarin"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.space_animals_firsts"
+      ],
+      "sourceCardIds": [
+        "card.animals.098.c3",
+        "card.animals.098.c4"
+      ],
+      "prompt": "Which animal became the first living creature to orbit Earth, in 1957?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ham the chimpanzee",
+          "correct": false,
+          "rationale": "Ham flew in 1961, on a suborbital flight."
+        },
+        {
+          "id": "b",
+          "label": "Belka the dog",
+          "correct": false,
+          "rationale": "Belka orbited in 1960, three years later."
+        },
+        {
+          "id": "c",
+          "label": "Laika the dog",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A fruit fly",
+          "correct": false,
+          "rationale": "The flies went up and down in 1947, without orbiting."
+        }
+      ],
+      "explanation": "Laika orbited Earth aboard Sputnik 2 on November 3, 1957.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.space_animals_why"
+      ],
+      "sourceCardIds": [
+        "card.animals.098.c2"
+      ],
+      "prompt": "Why did scientists send fruit flies into space before people?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Flies were thought to be immune to radiation",
+          "correct": false,
+          "rationale": "Radiation's effects were exactly what they wanted to test."
+        },
+        {
+          "id": "b",
+          "label": "To test whether living things could survive spaceflight",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Rockets were too small for dogs",
+          "correct": false,
+          "rationale": "Size helped, but the goal was the test."
+        },
+        {
+          "id": "d",
+          "label": "To study how insects fly without air",
+          "correct": false,
+          "rationale": "The question was survival, not flight."
+        }
+      ],
+      "explanation": "Weightlessness and radiation were unknowns, so small animals went first to test whether living bodies could cope.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.space_animals_firsts",
+        "concept.animals.animal_groups_map"
+      ],
+      "sourceCardIds": [
+        "card.animals.098.c2",
+        "card.animals.003.c3"
+      ],
+      "prompt": "Fruit flies were the first space travelers. Using Level 3, which group do insects belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mammals",
+          "correct": false,
+          "rationale": "Mammals, like Ham, have backbones."
+        },
+        {
+          "id": "b",
+          "label": "Reptiles",
+          "correct": false,
+          "rationale": "Reptiles have backbones."
+        },
+        {
+          "id": "c",
+          "label": "Vertebrates",
+          "correct": false,
+          "rationale": "Insects have no backbone."
+        },
+        {
+          "id": "d",
+          "label": "Invertebrates",
+          "correct": true
+        }
+      ],
+      "explanation": "Insects have no backbone, so they are invertebrates, like most animal species.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.rmg_first_animal_space",
+    "source.nasa_animals_in_space",
+    "source.brit_laika",
+    "source.brit_gagarin"
+  ],
+  "art": "astronomy.rocket"
+}

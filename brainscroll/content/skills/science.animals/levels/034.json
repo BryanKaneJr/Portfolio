@@ -1,0 +1,224 @@
+{
+  "id": "level.science.animals.034",
+  "skillId": "skill.science.animals",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Turtles and Tortoises",
+  "objective": "After this level you can describe turtles and tortoises and their shells.",
+  "summary": "A turtle's shell is its own backbone and ribs, so it can't leave it. Tortoises are the land-only turtles. In sea turtles, nest temperature sets the hatchlings' sex.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.turtle_shell_skeleton",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.tortoise_is_turtle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.turtle_temperature_sex",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.reptile_amniotic_egg",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.033"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You can't take a turtle out of its shell. The shell is part of the turtle.",
+      "body": "Cartoons show turtles slipping out of their shells like sleeping bags. Real turtles can't, and the reason is inside: the shell is built from the turtle's own skeleton."
+    },
+    {
+      "id": "card.animals.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A box made of ribs",
+      "body": "The shell has two halves: the domed carapace on top and the plastron underneath, joined along each side into a rigid box. The carapace is built from the turtle's backbone and ribs, fused to bony plates that form in the skin. So a turtle can never leave its shell, and it doesn't shed it the way some reptiles shed their skin. It isn't a house the turtle lives in. It's a ribcage worn on the outside."
+    },
+    {
+      "id": "card.animals.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every tortoise is a turtle",
+      "body": "All tortoises are turtles, but not all turtles are tortoises. A tortoise is simply a turtle that lives only on land; other turtles live in fresh water or the sea. Together they make more than 350 species, found on every continent except Antarctica. Think of 'turtle' as the family name and 'tortoise' as the branch that never goes swimming."
+    },
+    {
+      "id": "card.animals.034.c4",
+      "type": "fact",
+      "fact": "In sea turtles, the sand chooses boy or girl.",
+      "context": "Sea turtle eggs that incubate below 27.7 °C hatch as males; above 31 °C, as females; in between, a mix. That makes warming beaches a problem. A NOAA-led study published in 2018 found that 99.1 percent of young green turtles from the warmer northern Great Barrier Reef beaches were female. Hot sand, missing brothers.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "The nest's thermostat is doing a job most animals leave to genes."
+      }
+    },
+    {
+      "id": "card.animals.034.c5",
+      "type": "mcq",
+      "questionId": "question.animals.034.q1"
+    },
+    {
+      "id": "card.animals.034.c6",
+      "type": "mcq",
+      "questionId": "question.animals.034.q2"
+    },
+    {
+      "id": "card.animals.034.c7",
+      "type": "recall",
+      "questionId": "question.animals.034.q3"
+    },
+    {
+      "id": "card.animals.034.c8",
+      "type": "checkpoint",
+      "headline": "Turtles: explained",
+      "learned": [
+        "The carapace is backbone and ribs fused to bony plates",
+        "A turtle can't leave or shed its shell",
+        "Tortoises are the land-only turtles",
+        "Warm sand hatches female sea turtles; cool sand, males",
+        "Northern Great Barrier Reef young green turtles: 99.1% female"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.turtle_shell_skeleton"
+      ],
+      "sourceCardIds": [
+        "card.animals.034.c2"
+      ],
+      "prompt": "What is a turtle's carapace built from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its backbone and ribs, fused to bony plates",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Hardened skin that it sheds every year",
+          "correct": false,
+          "rationale": "The shell is never shed; it's part of the skeleton."
+        },
+        {
+          "id": "c",
+          "label": "Mud and minerals it gathers from riverbeds",
+          "correct": false,
+          "rationale": "The turtle grows its shell from its own bones."
+        },
+        {
+          "id": "d",
+          "label": "Keratin alone, with no bone inside at all",
+          "correct": false,
+          "rationale": "The carapace contains the backbone and ribs."
+        }
+      ],
+      "explanation": "The carapace is the turtle's backbone and ribs fused to bony plates, which is why a turtle can't leave its shell.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.tortoise_is_turtle"
+      ],
+      "sourceCardIds": [
+        "card.animals.034.c3"
+      ],
+      "prompt": "Why is every tortoise a turtle, but not every turtle a tortoise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tortoises are a kind of lizard with a shell",
+          "correct": false,
+          "rationale": "Tortoises are turtles, with the same shell of ribs."
+        },
+        {
+          "id": "b",
+          "label": "Turtles are just young tortoises that swim",
+          "correct": false,
+          "rationale": "They're not life stages; they're different species."
+        },
+        {
+          "id": "c",
+          "label": "Tortoises are the turtles that live only on land",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Tortoises have no true shell, only thick skin",
+          "correct": false,
+          "rationale": "Tortoises have shells like every turtle."
+        }
+      ],
+      "explanation": "'Turtle' covers the whole group; tortoises are the turtles that live only on land.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.turtle_temperature_sex",
+        "concept.animals.reptile_amniotic_egg"
+      ],
+      "sourceCardIds": [
+        "card.animals.034.c4",
+        "card.animals.031.c3"
+      ],
+      "prompt": "Level 31's shelled egg lets reptiles nest on dry land. For sea turtles, what does the warmth of that nest decide?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How big the shell will grow",
+          "correct": false,
+          "rationale": "Temperature sets sex, not shell size."
+        },
+        {
+          "id": "b",
+          "label": "Whether the eggs hatch in water",
+          "correct": false,
+          "rationale": "Sea turtle eggs incubate in sand on land."
+        },
+        {
+          "id": "c",
+          "label": "How many eggs are laid",
+          "correct": false,
+          "rationale": "The count is set before the eggs meet the sand."
+        },
+        {
+          "id": "d",
+          "label": "Whether hatchlings are male or female",
+          "correct": true
+        }
+      ],
+      "explanation": "Below 27.7 °C sea turtle eggs hatch male and above 31 °C female, so warm sand makes more females.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_turtle",
+    "source.brit_turtle_form",
+    "source.noaa_turtle_temperature_sex",
+    "source.noaa_fisheries_turtles_female"
+  ],
+  "art": "animals.turtle"
+}

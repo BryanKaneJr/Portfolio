@@ -1,0 +1,218 @@
+{
+  "id": "level.science.animals.075",
+  "skillId": "skill.science.animals",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Courtship",
+  "objective": "After this level you can explain how animals attract mates, from bright feathers to birdsong.",
+  "summary": "Often one sex chooses and the other competes, so showy traits spread. Courtship runs on signals: song, step-by-step displays and the bowerbird's blue bower.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.behavior_mate_choice",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_courtship_signals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_signal_channels",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.074"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.075.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A bird in Australia collects blue bottle tops to impress a date.",
+      "body": "The male satin bowerbird gathers blue things: bottle tops, drinking straws, clothes pegs, parrot feathers, flowers. He arranges them around a structure of sticks he built on the ground. Why would a bird go to all that trouble?"
+    },
+    {
+      "id": "card.animals.075.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The chooser decides",
+      "body": "In many species, one sex chooses and the other competes to be chosen. Peahens are the classic choosers: they tend to mate with the peacock showing the brightest, most elaborate plumage. A trait like that can make survival harder, but if it wins mates, it gets passed on anyway. A peacock's tail is a love letter he has to drag everywhere."
+    },
+    {
+      "id": "card.animals.075.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Songs and steps",
+      "body": "Courtship uses the signal channels from Level 72. Birdsong tells listeners which species is singing and helps attract a mate. Visual courtship displays often run as a series of steps: one partner displays, the other responds. If a step goes wrong or the response never comes, the courtship is abandoned. It's a duet where one missed cue ends the date."
+    },
+    {
+      "id": "card.animals.075.c4",
+      "type": "fact",
+      "fact": "A bower is a stage, not a nest.",
+      "context": "The satin bowerbird's bower is two parallel walls of sticks, which he even paints with chewed plant matter mixed with saliva. When a female arrives, he struts and bows with quivering wings, buzzing and rattling, often holding a decoration in his bill. If she mates with him, she leaves to build a nest and raise the young on her own.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "He builds the stage, then she builds the actual home. Classic."
+      }
+    },
+    {
+      "id": "card.animals.075.c5",
+      "type": "mcq",
+      "questionId": "question.animals.075.q1"
+    },
+    {
+      "id": "card.animals.075.c6",
+      "type": "mcq",
+      "questionId": "question.animals.075.q2"
+    },
+    {
+      "id": "card.animals.075.c7",
+      "type": "recall",
+      "questionId": "question.animals.075.q3"
+    },
+    {
+      "id": "card.animals.075.c8",
+      "type": "checkpoint",
+      "headline": "Courtship: explained",
+      "learned": [
+        "Often one sex chooses, the other competes",
+        "Peahens favor the showiest peacocks",
+        "Song names the species and draws mates",
+        "Displays run step by step; a miss ends them",
+        "Satin bowerbirds court on a blue-decorated stage"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.behavior_courtship_signals"
+      ],
+      "sourceCardIds": [
+        "card.animals.075.c1",
+        "card.animals.075.c4"
+      ],
+      "prompt": "What does a male satin bowerbird use to decorate his bower?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Red berries and leaves",
+          "correct": false,
+          "rationale": "He favors blue."
+        },
+        {
+          "id": "b",
+          "label": "His own shed feathers",
+          "correct": false,
+          "rationale": "He collects objects, many of them stolen."
+        },
+        {
+          "id": "c",
+          "label": "Blue objects, from feathers to bottle tops",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nothing: the sticks are enough",
+          "correct": false,
+          "rationale": "Decorating is central to his display."
+        }
+      ],
+      "explanation": "He collects blue objects such as bottle tops, straws, clothes pegs, parrot feathers and flowers.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.behavior_mate_choice"
+      ],
+      "sourceCardIds": [
+        "card.animals.075.c2"
+      ],
+      "prompt": "How can a trait that makes survival harder still spread through a species?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It helps its owner win mates",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It keeps predators away",
+          "correct": false,
+          "rationale": "Showy traits can make survival harder, not easier."
+        },
+        {
+          "id": "c",
+          "label": "It makes the animal faster",
+          "correct": false,
+          "rationale": "The benefit is in attracting mates."
+        },
+        {
+          "id": "d",
+          "label": "It only appears in old animals",
+          "correct": false,
+          "rationale": "What matters is that choosers favor it."
+        }
+      ],
+      "explanation": "If choosers prefer the trait, its owners have more young, so it gets passed on anyway.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.behavior_courtship_signals",
+        "concept.animals.behavior_signal_channels"
+      ],
+      "sourceCardIds": [
+        "card.animals.075.c3",
+        "card.animals.072.c2"
+      ],
+      "prompt": "Birdsong in courtship travels through which of Level 72's signal channels?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Smell",
+          "correct": false,
+          "rationale": "Chemical signals are pheromones."
+        },
+        {
+          "id": "b",
+          "label": "Sight",
+          "correct": false,
+          "rationale": "Displays are visual; song is heard."
+        },
+        {
+          "id": "c",
+          "label": "Touch",
+          "correct": false,
+          "rationale": "Grooming is touch; song is sound."
+        },
+        {
+          "id": "d",
+          "label": "Sound",
+          "correct": true
+        }
+      ],
+      "explanation": "Song is a sound signal that identifies the species and helps attract a mate.",
+      "difficulty": 0.15
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_bio_behavior",
+    "source.australian_museum_satin_bowerbird"
+  ],
+  "art": "animals.parrot"
+}

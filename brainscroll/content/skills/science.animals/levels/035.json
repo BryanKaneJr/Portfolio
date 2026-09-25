@@ -1,0 +1,241 @@
+{
+  "id": "level.science.animals.035",
+  "skillId": "skill.science.animals",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Crocodiles",
+  "objective": "After this level you can describe crocodiles and alligators and how to tell them apart.",
+  "summary": "Crocodilians lurk with eyes, ears and nostrils on top. Crocodiles: V-shaped snout, lower teeth showing. Alligators: U-shaped snout. Tongue salt glands let crocodiles go to sea.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.crocodilian_ambush",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.croc_vs_alligator",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.croc_salt_glands",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.reptile_groups",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.034"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Alligator or crocodile? Wait for it to close its mouth.",
+      "body": "Alligators, crocodiles, caimans and gharials are all crocodilians, and at a glance they blur together. But a closed mouth gives the game away. So does a trip into seawater."
+    },
+    {
+      "id": "card.animals.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Built to lurk",
+      "body": "Every crocodilian is shaped for ambush. Its eyes, ears and nostrils sit on top of its head, so they stay above the surface while the rest of the body hides underwater. It can watch, listen and breathe without showing much more than a bump. From the bank, a waiting crocodile looks like a log with eyebrows."
+    },
+    {
+      "id": "card.animals.035.c3",
+      "type": "comparison",
+      "headline": "Read the face",
+      "items": [
+        {
+          "label": "Alligator",
+          "points": [
+            "Broad, U-shaped snout",
+            "Lower teeth fit inside the upper ones",
+            "Big fourth lower tooth hidden in a socket"
+          ]
+        },
+        {
+          "label": "Crocodile",
+          "points": [
+            "Narrow, V-shaped snout",
+            "Some lower teeth show with the mouth closed",
+            "That fourth tooth sticks out: a toothy grin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.035.c4",
+      "type": "fact",
+      "fact": "A crocodile's tongue works as a salt pump.",
+      "context": "Alligators live mostly in fresh water and can handle salt water only briefly, because they have no salt glands. Crocodiles have salt glands in their tongues that get rid of the extra salt. That's how the saltwater crocodile, the largest living crocodilian at up to 23 feet (about 7 meters), can turn up far out at sea.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Snout shape, teeth and a salty tongue. Three clues, one confident identification."
+      }
+    },
+    {
+      "id": "card.animals.035.c5",
+      "type": "mcq",
+      "questionId": "question.animals.035.q1"
+    },
+    {
+      "id": "card.animals.035.c6",
+      "type": "mcq",
+      "questionId": "question.animals.035.q2"
+    },
+    {
+      "id": "card.animals.035.c7",
+      "type": "recall",
+      "questionId": "question.animals.035.q3"
+    },
+    {
+      "id": "card.animals.035.c8",
+      "type": "checkpoint",
+      "headline": "Crocodilians: explained",
+      "learned": [
+        "Alligators, crocodiles, caimans and gharials",
+        "Eyes, ears and nostrils on top of the head for ambush",
+        "Alligator: U-shaped snout, lower teeth hidden",
+        "Crocodile: V-shaped snout, lower teeth showing",
+        "Crocodiles' tongue salt glands let them go to sea"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.croc_vs_alligator"
+      ],
+      "sourceCardIds": [
+        "card.animals.035.c3"
+      ],
+      "prompt": "Which one shows some lower teeth when its mouth is closed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The alligator",
+          "correct": false,
+          "rationale": "An alligator's lower teeth fit inside the upper jaw."
+        },
+        {
+          "id": "b",
+          "label": "The crocodile",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both, equally",
+          "correct": false,
+          "rationale": "This is exactly the difference between them."
+        },
+        {
+          "id": "d",
+          "label": "Neither",
+          "correct": false,
+          "rationale": "The crocodile's lower teeth show."
+        }
+      ],
+      "explanation": "Crocodiles show some lower teeth with the mouth shut; an alligator's lower teeth, including the big fourth one, are hidden.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.croc_salt_glands"
+      ],
+      "sourceCardIds": [
+        "card.animals.035.c4"
+      ],
+      "prompt": "Why do alligators stay mostly in fresh water while some crocodiles swim far out to sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Alligators are too heavy to swim in waves",
+          "correct": false,
+          "rationale": "Alligators swim well; salt is their problem."
+        },
+        {
+          "id": "b",
+          "label": "Crocodiles drink only rainwater at sea",
+          "correct": false,
+          "rationale": "The difference is getting rid of salt, not what they drink."
+        },
+        {
+          "id": "c",
+          "label": "Alligators need much warmer water to hunt",
+          "correct": false,
+          "rationale": "Salt, not temperature, keeps alligators in fresh water."
+        },
+        {
+          "id": "d",
+          "label": "Only crocodiles have tongue salt glands",
+          "correct": true
+        }
+      ],
+      "explanation": "Tongue salt glands let crocodiles get rid of extra salt; alligators lack salt glands and tolerate salt water only briefly.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.crocodilian_ambush",
+        "concept.animals.reptile_groups"
+      ],
+      "sourceCardIds": [
+        "card.animals.035.c1",
+        "card.animals.031.c4"
+      ],
+      "prompt": "Level 31 named four groups of living reptiles. Which group do caimans and gharials belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Turtles",
+          "correct": false,
+          "rationale": "Turtles carry shells built from their ribs."
+        },
+        {
+          "id": "b",
+          "label": "Lizards and snakes",
+          "correct": false,
+          "rationale": "Caimans and gharials are close kin of alligators and crocodiles."
+        },
+        {
+          "id": "c",
+          "label": "Crocodilians",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The tuatara",
+          "correct": false,
+          "rationale": "The tuatara is its own small group."
+        }
+      ],
+      "explanation": "Alligators, crocodiles, caimans and gharials together form the crocodilians, one of the four living reptile groups.",
+      "difficulty": 0.15
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_bio_reptiles",
+    "source.brit_crocodile",
+    "source.smithsonian_zoo_american_alligator",
+    "source.science_croc_tongue_salt_glands",
+    "source.natgeo_saltwater_crocodile"
+  ],
+  "art": "animals.crocodile"
+}

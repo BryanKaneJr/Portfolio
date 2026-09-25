@@ -1,0 +1,438 @@
+{
+  "id": "level.science.animals.050",
+  "skillId": "skill.science.animals",
+  "number": 50,
+  "type": "milestone",
+  "revision": 1,
+  "status": "draft",
+  "title": "Milestone: Animals With Backbones",
+  "objective": "After this level you can connect mammals, birds, reptiles, amphibians and fish into one family tree.",
+  "summary": "Five vertebrate groups share one backbone; mammals and birds make their own heat, the rest mostly take it from outside. Fish are the biggest branch: about 37,000 of about 76,000 described species.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.fish_vertebrate_share",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.vertebrate_backbone",
+      "role": "recall",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.animal_groups_map",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.body_heat_source",
+      "role": "recall",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.fish_opah_warm_blood",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.fish_gills",
+      "role": "recall",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.shark_cartilage_age",
+      "role": "recall",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.salmon_homing_smell",
+      "role": "recall",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.049"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.050.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Milestone: halfway to Mastery. Five groups, one backbone.",
+      "body": "Back in Level 3 you ran a finger down your spine: your membership card. Mammals, birds, reptiles, amphibians and fish all carry one, a column of vertebrae around the spinal cord. This chapter spent its time with the biggest branch of that family. Time to see the whole backbone family at once."
+    },
+    {
+      "id": "card.animals.050.c2",
+      "type": "comparison",
+      "headline": "One backbone family, sorted by heat",
+      "items": [
+        {
+          "label": "Make their own heat",
+          "points": [
+            "Mammals, about 37 °C",
+            "Birds, about 40 °C"
+          ]
+        },
+        {
+          "label": "Take heat from outside",
+          "points": [
+            "Fish (the opah is the exception)",
+            "Amphibians and reptiles"
+          ]
+        },
+        {
+          "label": "No backbone at all",
+          "points": [
+            "This chapter's jellyfish and sea stars"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.050.c3",
+      "type": "fact",
+      "fact": "Nearly half of all vertebrate species are fish.",
+      "context": "IUCN's 2025 table counts about 76,000 described vertebrate species, and about 37,000 of them are fish. Put every mammal, bird, reptile and amphibian species together and they only just outnumber the fish. From Level 41's gills to Level 47's salmon, this chapter covered the backbone family's biggest branch.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Everyone photographs the lions, and meanwhile the fish quietly win the headcount."
+      }
+    },
+    {
+      "id": "card.animals.050.c4",
+      "type": "recall",
+      "questionId": "question.animals.050.q1"
+    },
+    {
+      "id": "card.animals.050.c5",
+      "type": "recall",
+      "questionId": "question.animals.050.q2"
+    },
+    {
+      "id": "card.animals.050.c6",
+      "type": "recall",
+      "questionId": "question.animals.050.q3"
+    },
+    {
+      "id": "card.animals.050.c7",
+      "type": "mcq",
+      "questionId": "question.animals.050.q4"
+    },
+    {
+      "id": "card.animals.050.c8",
+      "type": "recall",
+      "questionId": "question.animals.050.q5"
+    },
+    {
+      "id": "card.animals.050.c9",
+      "type": "recall",
+      "questionId": "question.animals.050.q6"
+    },
+    {
+      "id": "card.animals.050.c10",
+      "type": "recall",
+      "questionId": "question.animals.050.q7"
+    },
+    {
+      "id": "card.animals.050.c11",
+      "type": "checkpoint",
+      "headline": "Milestone: backbones connected",
+      "learned": [
+        "Five groups share a backbone around the spinal cord",
+        "Mammals and birds make their own heat",
+        "Fish, amphibians and reptiles mostly take it from outside",
+        "Fish: about 37,000 of about 76,000 vertebrate species"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.050.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.vertebrate_backbone"
+      ],
+      "sourceCardIds": [
+        "card.animals.003.c2"
+      ],
+      "prompt": "Animals With Backbones milestone: what does a vertebrate's backbone partly enclose?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The central nervous system",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The heart and lungs",
+          "correct": false,
+          "rationale": "The backbone encloses the spinal cord, not those."
+        },
+        {
+          "id": "c",
+          "label": "The stomach",
+          "correct": false,
+          "rationale": "The backbone encloses the spinal cord."
+        },
+        {
+          "id": "d",
+          "label": "The gills",
+          "correct": false,
+          "rationale": "Gills are for breathing; the backbone holds the spinal cord."
+        }
+      ],
+      "explanation": "Vertebrae form a column that partly encloses the central nervous system, including the spinal cord.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.050.q2",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.fish_gills"
+      ],
+      "sourceCardIds": [
+        "card.animals.041.c2"
+      ],
+      "prompt": "Animals With Backbones milestone, from Level 41: how does a fish take in oxygen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Through lungs at the surface",
+          "correct": false,
+          "rationale": "Fish breathe with gills."
+        },
+        {
+          "id": "b",
+          "label": "Through its scales",
+          "correct": false,
+          "rationale": "Scales are armor."
+        },
+        {
+          "id": "c",
+          "label": "Through its fins",
+          "correct": false,
+          "rationale": "Fins steer and balance."
+        },
+        {
+          "id": "d",
+          "label": "Through gills bathed in water",
+          "correct": true
+        }
+      ],
+      "explanation": "Water flows over the gill filaments, and dissolved oxygen passes into the blood.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.050.q3",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.shark_cartilage_age"
+      ],
+      "sourceCardIds": [
+        "card.animals.042.c2"
+      ],
+      "prompt": "Animals With Backbones milestone, from Level 42: what makes a shark's skeleton unusual for a vertebrate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is made of shell, like a crab's",
+          "correct": false,
+          "rationale": "Sharks have cartilage, not a shell."
+        },
+        {
+          "id": "b",
+          "label": "It is cartilage, not bone",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is outside the body",
+          "correct": false,
+          "rationale": "Sharks have an inside skeleton of cartilage."
+        },
+        {
+          "id": "d",
+          "label": "It has no backbone",
+          "correct": false,
+          "rationale": "Sharks are fish, and fish are vertebrates."
+        }
+      ],
+      "explanation": "Sharks have no bones: their skeleton is cartilage.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.050.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.fish_vertebrate_share"
+      ],
+      "sourceCardIds": [
+        "card.animals.050.c3"
+      ],
+      "prompt": "Animals With Backbones milestone: about what share of described vertebrate species are fish?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About a tenth",
+          "correct": false,
+          "rationale": "Far too low."
+        },
+        {
+          "id": "b",
+          "label": "About a quarter",
+          "correct": false,
+          "rationale": "Still too low."
+        },
+        {
+          "id": "c",
+          "label": "Nearly half",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 90 percent",
+          "correct": false,
+          "rationale": "Too high; the other four groups add up to a bit more."
+        }
+      ],
+      "explanation": "About 37,000 of about 76,000 described vertebrate species are fish: nearly half.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.050.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.body_heat_source"
+      ],
+      "sourceCardIds": [
+        "card.animals.050.c2",
+        "card.animals.005.c2"
+      ],
+      "prompt": "Animals With Backbones milestone: which pair of vertebrate groups makes its own body heat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mammals and birds",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Fish and amphibians",
+          "correct": false,
+          "rationale": "They take heat from outside."
+        },
+        {
+          "id": "c",
+          "label": "Reptiles and birds",
+          "correct": false,
+          "rationale": "Reptiles take heat from outside."
+        },
+        {
+          "id": "d",
+          "label": "Amphibians and mammals",
+          "correct": false,
+          "rationale": "Amphibians take heat from outside."
+        }
+      ],
+      "explanation": "Mammals and birds are endotherms; fish, amphibians and reptiles mostly take heat from their surroundings.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.050.q6",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.salmon_homing_smell"
+      ],
+      "sourceCardIds": [
+        "card.animals.047.c3"
+      ],
+      "prompt": "Animals With Backbones milestone, from Level 47: what guides an adult salmon back to its home stream?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Following older salmon",
+          "correct": false,
+          "rationale": "It navigates by its own memory."
+        },
+        {
+          "id": "b",
+          "label": "The stars at night",
+          "correct": false,
+          "rationale": "It follows smell, plus a magnetic clue."
+        },
+        {
+          "id": "c",
+          "label": "The warmest water it can find",
+          "correct": false,
+          "rationale": "It follows the smell of home."
+        },
+        {
+          "id": "d",
+          "label": "Its memory of the stream's smell",
+          "correct": true
+        }
+      ],
+      "explanation": "Young salmon imprint on their stream's odor and use that memory to home as adults.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.050.q7",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.vertebrate_backbone",
+        "concept.animals.shark_cartilage_age",
+        "concept.animals.animal_groups_map"
+      ],
+      "sourceCardIds": [
+        "card.animals.042.c2",
+        "card.animals.003.c2",
+        "card.animals.003.c3",
+        "card.animals.050.c2"
+      ],
+      "prompt": "Animals With Backbones milestone: which of these ocean animals is a vertebrate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A jellyfish",
+          "correct": false,
+          "rationale": "Jellyfish have no backbone."
+        },
+        {
+          "id": "b",
+          "label": "A sea star",
+          "correct": false,
+          "rationale": "Sea stars are invertebrates."
+        },
+        {
+          "id": "c",
+          "label": "A shark",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A crab",
+          "correct": false,
+          "rationale": "Crabs are invertebrates."
+        }
+      ],
+      "explanation": "A shark is a fish, and fish are one of the five vertebrate groups, even with a skeleton of cartilage.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_vertebrate",
+    "source.iucn_redlist_table1a_2025",
+    "source.brit_warm_bloodedness",
+    "source.brit_cold_bloodedness",
+    "source.brit_fish",
+    "source.brit_invertebrate"
+  ],
+  "art": "animals.paw"
+}

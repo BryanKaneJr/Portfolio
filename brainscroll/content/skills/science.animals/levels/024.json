@@ -1,0 +1,238 @@
+{
+  "id": "level.science.animals.024",
+  "skillId": "skill.science.animals",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Birds of Prey",
+  "objective": "After this level you can describe eagles, hawks and falcons.",
+  "summary": "Birds of prey share hooked beaks and talons. Eagles and hawks kill with their feet; falcons bite, using a notch on the beak. A trained peregrine was clocked at 242 mph in a 1999 dive.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.raptor_hunting_tools",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.peregrine_dive",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.bird_defining_traits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.023"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1999, a falcon was clocked at 242 mph.",
+      "body": "Her name was Frightful, a trained peregrine, diving from nearly three miles up. She belongs to a group of birds built for one job: catching other animals. What turns a bird into a hunter?"
+    },
+    {
+      "id": "card.animals.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hooks and talons",
+      "body": "All birds of prey have hook-tipped beaks and sharp, curved claws called talons. The daytime hunters (hawks, eagles, vultures and falcons) are also called raptors. The night shift belongs to the owls, and they get the next level. Spot the hooked beak and the talons, and you've found a bird of prey."
+    },
+    {
+      "id": "card.animals.024.c3",
+      "type": "comparison",
+      "headline": "Two ways to finish the job",
+      "items": [
+        {
+          "label": "Eagles and hawks",
+          "points": [
+            "Kill mainly with their feet",
+            "Squeeze prey, like a python's coils",
+            "Two extra-massive talons for grip"
+          ]
+        },
+        {
+          "label": "Falcons",
+          "points": [
+            "Catch prey with their feet",
+            "Often kill with a bite to the neck",
+            "Use a notch on the beak: the 'tomial tooth'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.024.c4",
+      "type": "fact",
+      "fact": "Frightful's speed was measured by a chip on her tail.",
+      "context": "Falconer Ken Franklin skydived alongside her, and a small chip on her tail feathers recorded the dives. Some falcon experts called the setup artificial, since wild peregrines don't usually start that high. Audubon's field guide is more careful: in a power dive, a peregrine may possibly reach 200 mph. Even the cautious number is astonishing for a bird.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Good science: a big claim, a measuring device, and a few experts asking hard questions."
+      }
+    },
+    {
+      "id": "card.animals.024.c5",
+      "type": "mcq",
+      "questionId": "question.animals.024.q1"
+    },
+    {
+      "id": "card.animals.024.c6",
+      "type": "mcq",
+      "questionId": "question.animals.024.q2"
+    },
+    {
+      "id": "card.animals.024.c7",
+      "type": "recall",
+      "questionId": "question.animals.024.q3"
+    },
+    {
+      "id": "card.animals.024.c8",
+      "type": "checkpoint",
+      "headline": "Birds of prey: explained",
+      "learned": [
+        "All share hook-tipped beaks and talons",
+        "Eagles and hawks kill by squeezing with their feet",
+        "Falcons bite, using the notched 'tomial tooth'",
+        "Frightful the peregrine: 242 mph in 1999"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.peregrine_dive"
+      ],
+      "sourceCardIds": [
+        "card.animals.024.c1",
+        "card.animals.024.c4"
+      ],
+      "prompt": "How fast was the trained peregrine Frightful clocked in her 1999 dives?",
+      "options": [
+        {
+          "id": "a",
+          "label": "62 mph",
+          "correct": false,
+          "rationale": "Far too slow; she was clocked at 242 mph."
+        },
+        {
+          "id": "b",
+          "label": "124 mph",
+          "correct": false,
+          "rationale": "About half of her measured speed."
+        },
+        {
+          "id": "c",
+          "label": "242 mph",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "424 mph",
+          "correct": false,
+          "rationale": "Faster than any bird has been measured."
+        }
+      ],
+      "explanation": "Frightful was clocked at 242 mph (about 389 km/h) diving from nearly three miles up.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.raptor_hunting_tools"
+      ],
+      "sourceCardIds": [
+        "card.animals.024.c3"
+      ],
+      "prompt": "How does a falcon usually kill differently from an eagle or a hawk?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It bites the neck with a notched beak",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It squeezes prey hard with its feet",
+          "correct": false,
+          "rationale": "That's how eagles and hawks do it."
+        },
+        {
+          "id": "c",
+          "label": "It drops prey from a great height",
+          "correct": false,
+          "rationale": "The card says falcons bite."
+        },
+        {
+          "id": "d",
+          "label": "It hunts only at night",
+          "correct": false,
+          "rationale": "Falcons are daytime raptors."
+        }
+      ],
+      "explanation": "Eagles and hawks constrict prey with their feet; falcons often finish with a bite, using the tomial tooth.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.raptor_hunting_tools",
+        "concept.animals.bird_defining_traits"
+      ],
+      "sourceCardIds": [
+        "card.animals.024.c3",
+        "card.animals.021.c3"
+      ],
+      "prompt": "Level 21 said no bird has teeth. So what is a falcon's 'tomial tooth'?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A real tooth that only falcons keep",
+          "correct": false,
+          "rationale": "No bird has true teeth."
+        },
+        {
+          "id": "b",
+          "label": "A hatching tooth it never loses",
+          "correct": false,
+          "rationale": "That's a different structure, and chicks lose it."
+        },
+        {
+          "id": "c",
+          "label": "An extra-large talon on each foot",
+          "correct": false,
+          "rationale": "Talons are claws on the feet."
+        },
+        {
+          "id": "d",
+          "label": "A notched ridge on the upper beak",
+          "correct": true
+        }
+      ],
+      "explanation": "The tomial tooth is a sharp notched ridge on the beak, not a tooth; birds have none.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_bird_of_prey",
+    "source.natgeo_raptor_killing_2009",
+    "source.peregrinefund_curved_beaks",
+    "source.smithsonianmag_falling_with_falcon_2005",
+    "source.guinness_fastest_bird_diving",
+    "source.audubon_peregrine_falcon",
+    "source.brit_beak"
+  ],
+  "art": "animals.eagle"
+}

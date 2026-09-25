@@ -1,0 +1,220 @@
+{
+  "id": "level.science.animals.073",
+  "skillId": "skill.science.animals",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Bee Dance",
+  "objective": "After this level you can explain how honeybees tell each other where food is.",
+  "summary": "Bees do a round dance for nearby food and a waggle dance for far food: angle from up gives direction from the sun, duration gives distance. Von Frisch: Nobel 1973.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.behavior_waggle_dance_code",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_bee_dance_discovery",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_instinct",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.072"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A bee finds flowers, flies home, and gives directions.",
+      "body": "Inside the hive, her sisters can't see the flowers, and there's no map on the wall. Yet after she dances on the comb, other bees know where to fly. Karl von Frisch worked out how she does it. So how do you give directions with your hips?"
+    },
+    {
+      "id": "card.animals.073.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two dances, two messages",
+      "body": "A forager with news of food dances on the comb while nestmates crowd around her. If the food is near the hive, she does a round dance, which sends them searching nearby. If it's farther away, she switches to the waggle dance: she runs straight ahead, waggling her abdomen, loops back to the start and repeats. The round dance says \"somewhere close.\" The waggle dance gives an address."
+    },
+    {
+      "id": "card.animals.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The sun on the ceiling",
+      "body": "The straight waggle run is the map. On the vertical comb, straight up stands for the sun's direction. A run pointing straight up means \"fly toward the sun\"; a run tilted to the right of up means fly that far to the right of the sun. Distance is in the timing: the longer the waggle run lasts, the farther away the food. Clouds don't stop it, because bees can find the hidden sun using polarized light."
+    },
+    {
+      "id": "card.animals.073.c4",
+      "type": "fact",
+      "fact": "The dance won a Nobel Prize in 1973.",
+      "context": "Karl von Frisch shared the 1973 Nobel Prize in Physiology or Medicine with Konrad Lorenz, of Level 71's ducklings, and Nikolaas Tinbergen. The 1973 announcement called the dance genetically programmed and not learned. A 2023 study added a twist: bees that never got to follow experienced dancers made messier dances and got distances wrong. Practice helped, but they never got distance right. The steps are inborn; the polish is learned.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Even bees do better with a good dance teacher."
+      }
+    },
+    {
+      "id": "card.animals.073.c5",
+      "type": "mcq",
+      "questionId": "question.animals.073.q1"
+    },
+    {
+      "id": "card.animals.073.c6",
+      "type": "mcq",
+      "questionId": "question.animals.073.q2"
+    },
+    {
+      "id": "card.animals.073.c7",
+      "type": "recall",
+      "questionId": "question.animals.073.q3"
+    },
+    {
+      "id": "card.animals.073.c8",
+      "type": "checkpoint",
+      "headline": "The bee dance: decoded",
+      "learned": [
+        "Round dance: food nearby",
+        "Waggle dance: food farther away",
+        "Straight up on the comb means toward the sun",
+        "Longer waggle run, farther food",
+        "Von Frisch shared the 1973 Nobel Prize; young bees also learn the dance"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.behavior_waggle_dance_code"
+      ],
+      "sourceCardIds": [
+        "card.animals.073.c3"
+      ],
+      "prompt": "In the waggle dance, what does a straight run pointing straight up the comb tell other bees?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fly toward the sun",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Fly straight up into the sky",
+          "correct": false,
+          "rationale": "Up on the comb stands for the sun's direction."
+        },
+        {
+          "id": "c",
+          "label": "The food is right next to the hive",
+          "correct": false,
+          "rationale": "Nearby food gets a round dance."
+        },
+        {
+          "id": "d",
+          "label": "Stay inside the hive",
+          "correct": false,
+          "rationale": "A waggle dance sends bees out to the food."
+        }
+      ],
+      "explanation": "On the vertical comb, straight up stands for the direction of the sun.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.behavior_waggle_dance_code"
+      ],
+      "sourceCardIds": [
+        "card.animals.073.c3",
+        "card.animals.073.c2"
+      ],
+      "prompt": "A forager's waggle runs last longer than they did yesterday. What are her nestmates learning?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The food is sweeter",
+          "correct": false,
+          "rationale": "The run's duration encodes distance."
+        },
+        {
+          "id": "b",
+          "label": "The sun has moved behind clouds",
+          "correct": false,
+          "rationale": "Bees use polarized light for that; duration is distance."
+        },
+        {
+          "id": "c",
+          "label": "The food is farther away",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The food is right beside the hive",
+          "correct": false,
+          "rationale": "That would call for a round dance."
+        }
+      ],
+      "explanation": "The longer the waggle run lasts, the farther away the food is.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.behavior_bee_dance_discovery",
+        "concept.animals.behavior_instinct"
+      ],
+      "sourceCardIds": [
+        "card.animals.073.c4",
+        "card.animals.071.c4"
+      ],
+      "prompt": "Bees that never followed experienced dancers danced messier and misjudged distance. Which Level 71 idea does that support?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Behavior is either innate or learned, never both",
+          "correct": false,
+          "rationale": "Level 71 says the opposite."
+        },
+        {
+          "id": "b",
+          "label": "Instincts can't be changed by anything",
+          "correct": false,
+          "rationale": "Experience changed how well these bees danced."
+        },
+        {
+          "id": "c",
+          "label": "Only mammals can learn",
+          "correct": false,
+          "rationale": "Bees are insects, and they learned."
+        },
+        {
+          "id": "d",
+          "label": "Behavior mixes inborn parts and learning",
+          "correct": true
+        }
+      ],
+      "explanation": "The dance is largely inborn, but learning from older bees polishes it, just as no behavior is purely innate or purely learned.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nobel_medicine_1973_press",
+    "source.brit_karl_von_frisch",
+    "source.ucsd_waggle_audience_2026",
+    "source.ucsd_waggle_learning_2023"
+  ],
+  "art": "animals.bee"
+}

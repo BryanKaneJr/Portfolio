@@ -1,0 +1,225 @@
+{
+  "id": "level.science.animals.042",
+  "skillId": "skill.science.animals",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Sharks",
+  "objective": "After this level you can describe sharks and their senses.",
+  "summary": "Sharks are boneless, cartilage-framed fish older than trees. NOAA counts eight senses, from a sharp nose to a lateral line that feels pressure changes. Bites are rare: 65 unprovoked worldwide in 2025.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.shark_cartilage_age",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.shark_senses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.shark_bites_rare",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.fish_fins_scales",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.041"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Sharks are older than trees.",
+      "body": "Sharks have been around for about 400 million years. The earliest trees showed up around 350 million years ago. So sharks were cruising the seas before the first forest cast a shadow. What is an animal that old built from, and how does it find its food?"
+    },
+    {
+      "id": "card.animals.042.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A skeleton you could bend",
+      "body": "Sharks are fish, but they have no bones at all. Remember Level 41's bony fish, with scales of bone? Sharks are the other kind: cartilaginous fishes. Their whole skeleton is cartilage, the lightweight, flexible stuff that shapes your ear. Fold your ear over and let go. That's shark skeleton material."
+    },
+    {
+      "id": "card.animals.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Eight senses",
+      "body": "NOAA counts eight shark senses. Five are ones you have too: sight, hearing, smell, touch and taste. A shark's nose is famously sharp; it can smell blood in the water from a long way off. Then there's the lateral line, a row of tiny pores running from snout to tail. As water flows through them, sensory cells pick up changes in pressure. A shark feels the water around it move."
+    },
+    {
+      "id": "card.animals.042.c4",
+      "type": "fact",
+      "fact": "Shark bites are rare: 65 unprovoked bites worldwide in 2025.",
+      "context": "That count comes from the International Shark Attack File, which tracks bites around the world. The 2025 total was in line with the average of 61 a year from 2020 to 2024, and the File calls the number extremely low. Eight senses tuned for finding food, 400 million years of practice, and people are still very rarely on the menu.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Older than trees and still not very interested in people. Honestly, fair."
+      }
+    },
+    {
+      "id": "card.animals.042.c5",
+      "type": "mcq",
+      "questionId": "question.animals.042.q1"
+    },
+    {
+      "id": "card.animals.042.c6",
+      "type": "mcq",
+      "questionId": "question.animals.042.q2"
+    },
+    {
+      "id": "card.animals.042.c7",
+      "type": "recall",
+      "questionId": "question.animals.042.q3"
+    },
+    {
+      "id": "card.animals.042.c8",
+      "type": "checkpoint",
+      "headline": "Sharks: explained",
+      "learned": [
+        "No bones: a cartilage skeleton",
+        "About 400 million years old, older than trees",
+        "Eight senses, including a lateral line",
+        "65 unprovoked bites worldwide in 2025"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.shark_bites_rare"
+      ],
+      "sourceCardIds": [
+        "card.animals.042.c4"
+      ],
+      "prompt": "How many unprovoked shark bites did the International Shark Attack File confirm worldwide in 2025?",
+      "options": [
+        {
+          "id": "a",
+          "label": "65",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "650",
+          "correct": false,
+          "rationale": "Ten times too many."
+        },
+        {
+          "id": "c",
+          "label": "6,500",
+          "correct": false,
+          "rationale": "A hundred times the real count."
+        },
+        {
+          "id": "d",
+          "label": "65,000",
+          "correct": false,
+          "rationale": "A thousand times the real count."
+        }
+      ],
+      "explanation": "The File confirmed 65 unprovoked bites worldwide in 2025, in line with recent years.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.shark_senses"
+      ],
+      "sourceCardIds": [
+        "card.animals.042.c3"
+      ],
+      "prompt": "How does a shark's lateral line help it sense its surroundings?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It smells blood from far away",
+          "correct": false,
+          "rationale": "That's the shark's nose."
+        },
+        {
+          "id": "b",
+          "label": "It lets the shark see in color",
+          "correct": false,
+          "rationale": "Seeing is the eyes' job."
+        },
+        {
+          "id": "c",
+          "label": "It tastes chemicals in the water",
+          "correct": false,
+          "rationale": "Taste and smell handle chemicals."
+        },
+        {
+          "id": "d",
+          "label": "Its pores let cells detect pressure changes",
+          "correct": true
+        }
+      ],
+      "explanation": "Water flowing through the lateral line's pores lets sensory cells pick up pressure changes.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.shark_cartilage_age",
+        "concept.animals.fish_fins_scales"
+      ],
+      "sourceCardIds": [
+        "card.animals.042.c2",
+        "card.animals.041.c3"
+      ],
+      "prompt": "Level 41's bony fish wear scales made of bone. What sets a shark apart?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is not a fish at all",
+          "correct": false,
+          "rationale": "Sharks are fish, just cartilaginous ones."
+        },
+        {
+          "id": "b",
+          "label": "It has no bones, only cartilage",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It has a skeleton of solid stone",
+          "correct": false,
+          "rationale": "Its skeleton is light, flexible cartilage."
+        },
+        {
+          "id": "d",
+          "label": "It has bones but no fins",
+          "correct": false,
+          "rationale": "It has fins but no bones."
+        }
+      ],
+      "explanation": "Sharks are cartilaginous fishes: their skeleton is cartilage, with no bone.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonianmag_sharks_older_than_trees",
+    "source.noaa_fisheries_shark_facts",
+    "source.australian_museum_shark_senses",
+    "source.brit_shark",
+    "source.floridamuseum_isaf_2025",
+    "source.brit_fish"
+  ],
+  "art": "animals.shark"
+}

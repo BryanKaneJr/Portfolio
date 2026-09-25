@@ -1,0 +1,217 @@
+{
+  "id": "level.science.animals.044",
+  "skillId": "skill.science.animals",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Octopuses",
+  "objective": "After this level you can explain why octopuses are so intelligent.",
+  "summary": "The common octopus has about 500 million neurons, two thirds of them in its arms, and it solves puzzles and remembers the answers. It also has three hearts and blue, copper-based blood.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.octopus_arm_neurons",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.octopus_hearts_blood",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.fish_gills",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.043"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.044.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most of an octopus's neurons aren't in its head.",
+      "body": "About two thirds of them are in its arms. Imagine your hands holding most of your thinking. How does an animal built like that end up so clever?"
+    },
+    {
+      "id": "card.animals.044.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Brains in the arms",
+      "body": "The common octopus has about 500 million neurons, roughly as many as a dog. About two thirds of them sit in its arms, not its head. That lets an arm work on a problem while the central brain handles other tasks. Every arm gets its own assistant, and the boss gets some peace and quiet."
+    },
+    {
+      "id": "card.animals.044.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What a clever octopus can do",
+      "body": "Scientists have watched octopuses figure out how to open a clamshell that was wired shut. They find their way through mazes, solve problems, and remember the solutions afterward. Once an octopus has cracked a puzzle, it keeps the answer. That memory is the difference between lucky and smart."
+    },
+    {
+      "id": "card.animals.044.c4",
+      "type": "fact",
+      "fact": "Three hearts, and blood that runs blue.",
+      "context": "Two of an octopus's hearts pump blood past its gills. Remember Level 41? That's where blood picks up oxygen from the water, just as it does in a fish. The third heart sends the oxygen-rich blood to the organs and muscles, and it stops beating when the octopus swims. The blood is blue because its oxygen carrier, hemocyanin, uses copper instead of the iron in your hemoglobin.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Three hearts and blue blood. The octopus is basically royalty with a backup plan."
+      }
+    },
+    {
+      "id": "card.animals.044.c5",
+      "type": "mcq",
+      "questionId": "question.animals.044.q1"
+    },
+    {
+      "id": "card.animals.044.c6",
+      "type": "mcq",
+      "questionId": "question.animals.044.q2"
+    },
+    {
+      "id": "card.animals.044.c7",
+      "type": "recall",
+      "questionId": "question.animals.044.q3"
+    },
+    {
+      "id": "card.animals.044.c8",
+      "type": "checkpoint",
+      "headline": "Octopuses: explained",
+      "learned": [
+        "About 500 million neurons, two thirds in the arms",
+        "Opens wired-shut clams, runs mazes, remembers",
+        "Two hearts for the gills, one for the body",
+        "Blue blood: copper-based hemocyanin"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.octopus_arm_neurons"
+      ],
+      "sourceCardIds": [
+        "card.animals.044.c2"
+      ],
+      "prompt": "Where are about two thirds of a common octopus's neurons?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In its head",
+          "correct": false,
+          "rationale": "Only about a third are there."
+        },
+        {
+          "id": "b",
+          "label": "In its arms",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In its three hearts",
+          "correct": false,
+          "rationale": "Hearts pump blood; the neurons are in the arms."
+        },
+        {
+          "id": "d",
+          "label": "In its gills",
+          "correct": false,
+          "rationale": "Gills take in oxygen; the neurons are in the arms."
+        }
+      ],
+      "explanation": "About two thirds of the common octopus's roughly 500 million neurons are in its arms.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.octopus_hearts_blood"
+      ],
+      "sourceCardIds": [
+        "card.animals.044.c4"
+      ],
+      "prompt": "Why is an octopus's blood blue?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its oxygen carrier uses copper, not iron",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It carries no oxygen at all",
+          "correct": false,
+          "rationale": "It carries oxygen, using hemocyanin."
+        },
+        {
+          "id": "c",
+          "label": "It is mixed with seawater",
+          "correct": false,
+          "rationale": "The color comes from copper in hemocyanin."
+        },
+        {
+          "id": "d",
+          "label": "It is too cold to turn red",
+          "correct": false,
+          "rationale": "Temperature isn't it; copper is."
+        }
+      ],
+      "explanation": "Octopus blood carries oxygen with hemocyanin, which contains copper rather than iron.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.octopus_hearts_blood",
+        "concept.animals.fish_gills"
+      ],
+      "sourceCardIds": [
+        "card.animals.044.c4",
+        "card.animals.041.c2"
+      ],
+      "prompt": "Two of an octopus's three hearts work for the same organ a fish breathes with. What does that organ do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It digests food",
+          "correct": false,
+          "rationale": "That's the stomach's job."
+        },
+        {
+          "id": "b",
+          "label": "It senses pressure changes",
+          "correct": false,
+          "rationale": "That's a shark's lateral line."
+        },
+        {
+          "id": "c",
+          "label": "It makes the blood blue",
+          "correct": false,
+          "rationale": "Copper in hemocyanin does that."
+        },
+        {
+          "id": "d",
+          "label": "It takes oxygen from the water",
+          "correct": true
+        }
+      ],
+      "explanation": "Two hearts pump blood past the gills, where, as in a fish, blood picks up oxygen from the water.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nhm_octopus_surprises",
+    "source.smithsonianmag_octopus_facts",
+    "source.brit_how_fish_breathe"
+  ],
+  "art": "animals.octopus"
+}

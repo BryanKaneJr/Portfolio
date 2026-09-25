@@ -1,0 +1,219 @@
+{
+  "id": "level.science.animals.036",
+  "skillId": "skill.science.animals",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Lizards and Chameleons",
+  "objective": "After this level you can explain how chameleons change color.",
+  "summary": "Chameleons are lizards that shift colour by tuning nanocrystals in skin cells (Geneva, 2015). Their big changes are social signals and help with heat, not background matching.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.chameleon_color_crystals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.chameleon_color_purpose",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.body_heat_source",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.035"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A chameleon's colour show isn't mainly about hiding.",
+      "body": "The idea that chameleons change colour to match their background is a popular misconception. Their fastest, brightest changes are meant to be seen. And in 2015, scientists worked out how the colours are made. The answer isn't paint."
+    },
+    {
+      "id": "card.animals.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Colour from crystals",
+      "body": "Chameleons are lizards, and like many animals they can move pigment around inside skin cells. But in 2015 a University of Geneva team showed their brightest shifts come from something stranger. Panther chameleons' skin cells, called iridophores, hold a lattice of tiny guanine crystals. Calm, the crystals sit close together and reflect blue. Excited, the chameleon loosens the lattice, and the skin reflects yellows and reds. The colour is tuned, not painted on."
+    },
+    {
+      "id": "card.animals.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Talking in colour",
+      "body": "So who is the show for? Panther chameleons make their fastest, most complex changes in social moments: a male facing a rival, or courting a female, often within a minute or two. Their colours also shift with light, temperature and mood, like fright, victory or defeat. What they don't do is repaint themselves to match whatever branch they're on. The fireworks are a message, not a disguise."
+    },
+    {
+      "id": "card.animals.036.c4",
+      "type": "fact",
+      "fact": "A chameleon also dresses for the weather.",
+      "context": "Remember Level 5? Chameleons are ectotherms, so they rely on outside heat. Darker colours absorb more light, so a chilly chameleon can darken to warm up faster while it basks. Deeper in the skin, a second layer of larger crystals reflects much of the sun's infrared, which may help keep it from overheating. Its skin is a billboard and a thermostat at once.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Blue for calm, bright for a rival, dark for a cold morning. A whole wardrobe in one skin."
+      }
+    },
+    {
+      "id": "card.animals.036.c5",
+      "type": "mcq",
+      "questionId": "question.animals.036.q1"
+    },
+    {
+      "id": "card.animals.036.c6",
+      "type": "mcq",
+      "questionId": "question.animals.036.q2"
+    },
+    {
+      "id": "card.animals.036.c7",
+      "type": "recall",
+      "questionId": "question.animals.036.q3"
+    },
+    {
+      "id": "card.animals.036.c8",
+      "type": "checkpoint",
+      "headline": "Chameleons: explained",
+      "learned": [
+        "Chameleons are lizards",
+        "Bright shifts come from tuning guanine nanocrystals",
+        "Calm reflects blue; excited reflects yellows and reds",
+        "Big changes are signals to rivals and mates, not disguise",
+        "Darkening helps an ectotherm warm up"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.chameleon_color_crystals"
+      ],
+      "sourceCardIds": [
+        "card.animals.036.c2"
+      ],
+      "prompt": "What did the 2015 Geneva study find panther chameleons tune to change colour?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The amount of blood near the skin",
+          "correct": false,
+          "rationale": "The key was crystals in iridophores, not blood."
+        },
+        {
+          "id": "b",
+          "label": "Dyes from the insects they eat",
+          "correct": false,
+          "rationale": "The colour isn't eaten; it's made by crystal spacing."
+        },
+        {
+          "id": "c",
+          "label": "The thickness of their scales",
+          "correct": false,
+          "rationale": "Scale thickness doesn't change; crystal spacing does."
+        },
+        {
+          "id": "d",
+          "label": "A lattice of tiny crystals in skin cells",
+          "correct": true
+        }
+      ],
+      "explanation": "Panther chameleons tune the spacing of guanine nanocrystals in iridophores: close together reflects blue, loosened reflects yellows and reds.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.chameleon_color_purpose"
+      ],
+      "sourceCardIds": [
+        "card.animals.036.c3"
+      ],
+      "prompt": "What are a male panther chameleon's fastest, brightest colour changes mainly for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Signalling to rivals and mates",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Matching the leaves behind him",
+          "correct": false,
+          "rationale": "Matching the background is the popular misconception."
+        },
+        {
+          "id": "c",
+          "label": "Attracting insects to eat",
+          "correct": false,
+          "rationale": "The displays are aimed at other chameleons."
+        },
+        {
+          "id": "d",
+          "label": "Keeping his skin from drying",
+          "correct": false,
+          "rationale": "The bright changes are signals, not moisture control."
+        }
+      ],
+      "explanation": "The most dramatic changes happen during male contests and courtship: they're social signals, not a disguise.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.chameleon_color_purpose",
+        "concept.animals.body_heat_source"
+      ],
+      "sourceCardIds": [
+        "card.animals.036.c4",
+        "card.animals.005.c2"
+      ],
+      "prompt": "Using Level 5, why might a chilly chameleon turn darker?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To make heat inside its body, like a mammal",
+          "correct": false,
+          "rationale": "Chameleons are ectotherms; they borrow heat from outside."
+        },
+        {
+          "id": "b",
+          "label": "To hide from the cold air",
+          "correct": false,
+          "rationale": "Colour can't hide an animal from temperature."
+        },
+        {
+          "id": "c",
+          "label": "Darker skin absorbs more light, warming an ectotherm",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Darker skin holds more water",
+          "correct": false,
+          "rationale": "The darkening is about absorbing light, not water."
+        }
+      ],
+      "explanation": "As ectotherms, chameleons take heat from outside, and darker skin absorbs more light, so darkening helps them warm up.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.unige_chameleon_nanocrystals",
+    "source.natcomms_chameleon_photonic_2015",
+    "source.brit_chameleon",
+    "source.natgeo_chameleon_color"
+  ],
+  "art": "animals.chameleon"
+}

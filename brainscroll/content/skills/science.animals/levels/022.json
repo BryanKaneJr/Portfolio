@@ -1,0 +1,221 @@
+{
+  "id": "level.science.animals.022",
+  "skillId": "skill.science.animals",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Birds Fly",
+  "objective": "After this level you can explain how wings create lift.",
+  "summary": "A wing makes lift by turning the air flowing past it, which pushes back the opposite way. A bird's wing is also its propeller, and big breast muscles anchored to a keel drive it.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.bird_wing_lift",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.bird_flight_muscles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.bird_light_skeleton",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.021"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A bird's wing is a wing and a propeller at once.",
+      "body": "That's how Britannica puts it. One limb holds the bird up and drives it forward at the same time. So how does a feathered arm do two jobs, and where does the power come from?"
+    },
+    {
+      "id": "card.animals.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lift: turn the air down, go up",
+      "body": "Lift happens when a wing turns the air flowing past it. Bend that flow downward, and the air pushes the wing the opposite way: up. That's Newton's third law, action and reaction. Both the top and the bottom of the wing help turn the flow. Hold your flat hand out of a car window, tip it up a little, and you'll feel it."
+    },
+    {
+      "id": "card.animals.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Inner wing lifts, wing tip pulls",
+      "body": "A bird splits the two jobs along the length of the wing. The inner part, near the body, supplies most of the lifting surface. The wing tip supplies most of the propelling force, pulling the bird forward on every beat. Shoulder end: wing. Far end: propeller."
+    },
+    {
+      "id": "card.animals.022.c4",
+      "type": "fact",
+      "fact": "The power comes from the breast.",
+      "context": "Flying birds have a keel, a ridge on the breastbone that anchors the flight muscles. The big pectoralis pulls the wings down on the power stroke. A smaller muscle, the supracoracoideus, about one-fifth its size, raises them again. Feathers shape the wing; the breast makes it beat.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Flapping your arms won't work. You'd need a keel first. And, admittedly, feathers."
+      }
+    },
+    {
+      "id": "card.animals.022.c5",
+      "type": "mcq",
+      "questionId": "question.animals.022.q1"
+    },
+    {
+      "id": "card.animals.022.c6",
+      "type": "mcq",
+      "questionId": "question.animals.022.q2"
+    },
+    {
+      "id": "card.animals.022.c7",
+      "type": "recall",
+      "questionId": "question.animals.022.q3"
+    },
+    {
+      "id": "card.animals.022.c8",
+      "type": "checkpoint",
+      "headline": "Flight: explained",
+      "learned": [
+        "Lift: the wing turns air down, the air pushes it up",
+        "Inner wing mostly lifts; wing tip mostly pulls",
+        "Flight muscles anchor on the keel of the breastbone",
+        "Pectoralis pulls down; supracoracoideus lifts"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.bird_wing_lift"
+      ],
+      "sourceCardIds": [
+        "card.animals.022.c2"
+      ],
+      "prompt": "According to the lift card, how does a wing produce lift?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By filling its hollow bones with air",
+          "correct": false,
+          "rationale": "Air in bones saves weight; lift comes from turning the flow."
+        },
+        {
+          "id": "b",
+          "label": "By flapping faster than the air moves",
+          "correct": false,
+          "rationale": "Lift comes from turning the flow, not outrunning it."
+        },
+        {
+          "id": "c",
+          "label": "By using only the wing's flat underside",
+          "correct": false,
+          "rationale": "Both the top and bottom help turn the flow."
+        },
+        {
+          "id": "d",
+          "label": "By turning the airflow, which pushes back up",
+          "correct": true
+        }
+      ],
+      "explanation": "A wing turns the air flowing past it, and the air pushes back the opposite way (Newton's third law).",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.bird_wing_lift"
+      ],
+      "sourceCardIds": [
+        "card.animals.022.c3",
+        "card.animals.022.c1"
+      ],
+      "prompt": "Why can a bird's wing be called both a wing and a propeller?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It spins like a propeller blade",
+          "correct": false,
+          "rationale": "It flaps; it doesn't spin."
+        },
+        {
+          "id": "b",
+          "label": "Its feathers push while its bones lift",
+          "correct": false,
+          "rationale": "The split is along the wing, inner part and tip."
+        },
+        {
+          "id": "c",
+          "label": "Its inner part mostly lifts; its tip mostly pulls",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It lifts in the air and pulls in water",
+          "correct": false,
+          "rationale": "Both jobs happen in the air, on every beat."
+        }
+      ],
+      "explanation": "The inner wing supplies most of the lifting surface and the wing tip most of the propelling force.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.bird_flight_muscles",
+        "concept.animals.bird_light_skeleton"
+      ],
+      "sourceCardIds": [
+        "card.animals.022.c4",
+        "card.animals.021.c4"
+      ],
+      "prompt": "Level 21 showed how big fliers keep their bones light. What powers the wingbeat itself?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Big breast muscles anchored to a keel",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Air stored in the hollow wing bones",
+          "correct": false,
+          "rationale": "That air saves weight; it doesn't power anything."
+        },
+        {
+          "id": "c",
+          "label": "Strong leg muscles that kick off",
+          "correct": false,
+          "rationale": "The wingbeat comes from the breast muscles."
+        },
+        {
+          "id": "d",
+          "label": "Struts inside the wing bones",
+          "correct": false,
+          "rationale": "Struts add strength, not power."
+        }
+      ],
+      "explanation": "The pectoralis pulls the wing down and the smaller supracoracoideus lifts it; both anchor on the keel.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_bird_flight",
+    "source.nasa_glenn_what_is_lift",
+    "source.brit_keel_bird",
+    "source.royalsoc_biewener_flight_muscles_2011",
+    "source.stanford_birds_flight_adaptations",
+    "source.brit_bird"
+  ],
+  "art": "animals.eagle"
+}

@@ -1,0 +1,220 @@
+{
+  "id": "level.science.animals.013",
+  "skillId": "skill.science.animals",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Elephants",
+  "objective": "After this level you can describe elephants' trunks, memory and family life.",
+  "summary": "Elephants are the largest land animals. The trunk is a boneless nose and upper lip. African families follow a matriarch, and older matriarchs are better at spotting strangers.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.elephant_trunk",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.elephant_matriarch_memory",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.diet_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.012"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Scientists played elephants recordings of other elephants.",
+      "body": "In Kenya's Amboseli National Park, researchers played recorded elephant calls to family after family, some from friends and some from strangers. How a family reacted depended on one elephant. To meet her, start with the most famous nose in the world."
+    },
+    {
+      "id": "card.animals.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A nose that works like a hand",
+      "body": "Elephants are the largest living land animals, in three species: African savanna, African forest and Asian. The trunk is a nose and upper lip fused into one, with no bones inside and about 150,000 muscle bundles. With it an elephant smells, breathes, trumpets, drinks and grabs things. Imagine your nose and top lip merging, then learning to pick things up."
+    },
+    {
+      "id": "card.animals.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Grandmother is in charge",
+      "body": "African elephants live in female-led herds. The matriarch, usually the biggest and oldest female, leads her related females and their young. Adult males tend to roam alone or in loose all-male groups. In an elephant family, the family tree and the chain of command are the same drawing."
+    },
+    {
+      "id": "card.animals.013.c4",
+      "type": "fact",
+      "fact": "Older matriarchs know a stranger when they hear one.",
+      "context": "In the 2001 Amboseli study, families led by matriarchs aged 55 or more were far better at telling strangers' calls from familiar ones. Those families also produced more calves. The saying goes that elephants never forget. The science adds: it pays to have a grandmother who remembers.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Respect your elders. Especially the ones who weigh several tons."
+      }
+    },
+    {
+      "id": "card.animals.013.c5",
+      "type": "mcq",
+      "questionId": "question.animals.013.q1"
+    },
+    {
+      "id": "card.animals.013.c6",
+      "type": "mcq",
+      "questionId": "question.animals.013.q2"
+    },
+    {
+      "id": "card.animals.013.c7",
+      "type": "recall",
+      "questionId": "question.animals.013.q3"
+    },
+    {
+      "id": "card.animals.013.c8",
+      "type": "checkpoint",
+      "headline": "Elephants: met",
+      "learned": [
+        "Three species; the largest land animals",
+        "Trunk: nose plus upper lip, no bones, about 150,000 muscle bundles",
+        "African herds follow a matriarch",
+        "Older matriarchs spot strangers better"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.elephant_trunk"
+      ],
+      "sourceCardIds": [
+        "card.animals.013.c2"
+      ],
+      "prompt": "Which two body parts are fused together in an elephant's trunk?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nose and upper lip",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Tongue and lower lip",
+          "correct": false,
+          "rationale": "The trunk is nose and upper lip."
+        },
+        {
+          "id": "c",
+          "label": "Nose and tusk",
+          "correct": false,
+          "rationale": "Tusks are teeth, separate from the trunk."
+        },
+        {
+          "id": "d",
+          "label": "Upper and lower jaw",
+          "correct": false,
+          "rationale": "The trunk has no bones at all."
+        }
+      ],
+      "explanation": "The trunk is a boneless fusion of the nose and upper lip.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.elephant_matriarch_memory"
+      ],
+      "sourceCardIds": [
+        "card.animals.013.c4",
+        "card.animals.013.c3"
+      ],
+      "prompt": "In the Amboseli playback study, which elephant families best told strangers' calls from familiar ones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Those with the most calves",
+          "correct": false,
+          "rationale": "More calves was a result, not the cause."
+        },
+        {
+          "id": "b",
+          "label": "Those led by the youngest females",
+          "correct": false,
+          "rationale": "The oldest leaders did best."
+        },
+        {
+          "id": "c",
+          "label": "Those led by matriarchs aged 55 or more",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Those led by adult males",
+          "correct": false,
+          "rationale": "Adult males roam apart from the herd."
+        }
+      ],
+      "explanation": "Families led by older matriarchs discriminated strangers' calls far better, and they raised more calves.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.elephant_trunk",
+        "concept.animals.diet_types"
+      ],
+      "sourceCardIds": [
+        "card.animals.013.c2",
+        "card.animals.006.c2"
+      ],
+      "prompt": "Level 6's herbivores run 'from aphids to elephants.' So what does an elephant's trunk mostly grab to eat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Meat from other animals",
+          "correct": false,
+          "rationale": "That's a carnivore's diet."
+        },
+        {
+          "id": "b",
+          "label": "Plants",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Insects only",
+          "correct": false,
+          "rationale": "Elephants are herbivores, not insect eaters."
+        },
+        {
+          "id": "d",
+          "label": "Plankton filtered from water",
+          "correct": false,
+          "rationale": "That's how baleen whales feed."
+        }
+      ],
+      "explanation": "Elephants are herbivores, and the trunk is the tool that grabs their plant food.",
+      "difficulty": 0.15
+    }
+  ],
+  "sourceIds": [
+    "source.brit_elephant",
+    "source.natgeo_african_elephant",
+    "source.smithsonian_zoo_asian_elephant",
+    "source.sciencenews_elephant_matriarchs",
+    "source.natgeo_herbivore"
+  ],
+  "art": "animals.elephant"
+}

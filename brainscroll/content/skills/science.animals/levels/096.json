@@ -1,0 +1,221 @@
+{
+  "id": "level.science.animals.096",
+  "skillId": "skill.science.animals",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Invasive Species",
+  "objective": "After this level you can explain how animals brought to new places can harm them.",
+  "summary": "An invasive species harms a place where it isn't native. Cane toads missed Queensland's beetles and spread; brown treesnakes helped wipe out 9 of Guam's 11 forest birds.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.invasive_def",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.invasive_examples",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.extinct_dodo_pigeon",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.095"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.096.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1935, Australia imported toads to eat beetles. The beetles barely noticed.",
+      "body": "Queensland's sugarcane farmers had a beetle problem, so cane toads were released to eat them. The toads thrived; the beetles carried on. Today cane toads number in the millions. So when does a newcomer become a problem?"
+    },
+    {
+      "id": "card.animals.096.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "In the wrong place, doing harm",
+      "body": "An invasive species is one that causes ecological or economic harm in a place where it isn't native. Most get there with people's help, on purpose or by accident. Once there, they can compete with native animals for food and space, change habitats and even drive native species extinct. Being new isn't the problem. Doing damage is."
+    },
+    {
+      "id": "card.animals.096.c3",
+      "type": "fact",
+      "fact": "Cane toads now number in the millions in Australia.",
+      "context": "In 1935, 2,400 were released on Queensland sugarcane farms to control beetles. They had little or no effect on the beetles, but they spread across northeastern Australia, and they're still moving west about 40 to 60 km a year. Their poison kills many native predators that try to eat them. The pest control became the pest.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Hired to fix one problem, became a much bigger one. We've all had a week like that."
+      }
+    },
+    {
+      "id": "card.animals.096.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A stowaway on Guam",
+      "body": "The brown treesnake is native to places such as New Guinea and Australia. During or soon after World War II, it reached Guam hidden in cargo. There it helped wipe out 9 of the island's 11 native forest bird species. It even climbs power lines and causes expensive outages. Guam's forests lost most of their native birds to one hitchhiker."
+    },
+    {
+      "id": "card.animals.096.c5",
+      "type": "mcq",
+      "questionId": "question.animals.096.q1"
+    },
+    {
+      "id": "card.animals.096.c6",
+      "type": "mcq",
+      "questionId": "question.animals.096.q2"
+    },
+    {
+      "id": "card.animals.096.c7",
+      "type": "recall",
+      "questionId": "question.animals.096.q3"
+    },
+    {
+      "id": "card.animals.096.c8",
+      "type": "checkpoint",
+      "headline": "Invaders: explained",
+      "learned": [
+        "Invasive: harmful where it isn't native",
+        "Usually moved by people",
+        "Cane toads, 1935: missed the beetles, spread in millions",
+        "Their poison kills native predators",
+        "Brown treesnake: 9 of Guam's 11 forest birds lost"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.invasive_examples"
+      ],
+      "sourceCardIds": [
+        "card.animals.096.c3",
+        "card.animals.096.c1"
+      ],
+      "prompt": "Why were cane toads released in Queensland in 1935?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To control beetles attacking sugarcane",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To eat invasive rabbits",
+          "correct": false,
+          "rationale": "They were brought for the cane beetles."
+        },
+        {
+          "id": "c",
+          "label": "As pets for farm families",
+          "correct": false,
+          "rationale": "They were released as pest control."
+        },
+        {
+          "id": "d",
+          "label": "To pollinate the crops",
+          "correct": false,
+          "rationale": "Toads don't pollinate; they were meant to eat beetles."
+        }
+      ],
+      "explanation": "They were meant to control beetles on sugarcane farms, and barely affected them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.invasive_def"
+      ],
+      "sourceCardIds": [
+        "card.animals.096.c2"
+      ],
+      "prompt": "What makes a species invasive, not just new to a place?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It arrived by ship",
+          "correct": false,
+          "rationale": "How it arrived doesn't decide it."
+        },
+        {
+          "id": "b",
+          "label": "It is poisonous",
+          "correct": false,
+          "rationale": "Some are, but harm is what counts."
+        },
+        {
+          "id": "c",
+          "label": "It causes harm where it isn't native",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is larger than local species",
+          "correct": false,
+          "rationale": "Size isn't the test; harm is."
+        }
+      ],
+      "explanation": "NOAA defines an invasive species as one that causes ecological or economic harm where it is not native.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.invasive_def",
+        "concept.animals.extinct_dodo_pigeon"
+      ],
+      "sourceCardIds": [
+        "card.animals.094.c2",
+        "card.animals.096.c2"
+      ],
+      "prompt": "Which part of Level 94's dodo story fits the pattern of invasive species?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mauritius is in the Indian Ocean",
+          "correct": false,
+          "rationale": "Location alone isn't harm."
+        },
+        {
+          "id": "b",
+          "label": "The dodo was related to pigeons",
+          "correct": false,
+          "rationale": "That's its family, not a cause."
+        },
+        {
+          "id": "c",
+          "label": "The dodo couldn't fly",
+          "correct": false,
+          "rationale": "That made it vulnerable, but the invaders were the newcomers."
+        },
+        {
+          "id": "d",
+          "label": "Pigs, dogs, cats and rats brought by sailors preyed on it",
+          "correct": true
+        }
+      ],
+      "explanation": "Animals introduced by people harmed a native species: the invasive-species pattern.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_invasive_species",
+    "source.brit_cane_toad",
+    "source.ausgeo_cane_toads",
+    "source.usgs_brown_treesnake_faq",
+    "source.usgs_brown_treesnake_refuge"
+  ],
+  "art": "animals.paw"
+}

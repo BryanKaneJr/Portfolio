@@ -1,0 +1,221 @@
+{
+  "id": "level.science.animals.074",
+  "skillId": "skill.science.animals",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Packs and Herds",
+  "objective": "After this level you can explain why many animals live in groups.",
+  "summary": "Groups dilute risk and help hunters, at a cost. Wild wolf packs are families; the 'alpha' came from captive, unrelated wolves, as Mech showed in 1999.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.behavior_group_living",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_wolf_pack_family",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.073"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.074.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The snarling \"alpha wolf\" came from wolves that had never met.",
+      "body": "The picture of a pack ruled by a top wolf that fought its way up came mostly from studies of captive wolves, such as Schenkel's in 1947: unrelated animals thrown together in an enclosure. Wild packs turned out to be something far more ordinary. First, though: why live in a group at all?"
+    },
+    {
+      "id": "card.animals.074.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Safety in numbers",
+      "body": "If a predator takes one animal per attack, your odds of being the one shrink as the group grows. Alone, it's you. In a group of 100, it's 1 in 100. Animals in the middle of a group, like a fish school, are safer still, and a group that scatters unpredictably can confuse a predator. A crowd is the cheapest bodyguard around."
+    },
+    {
+      "id": "card.animals.074.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Teamwork, and the bill",
+      "body": "Groups help hunters too. Lions, hyenas and wolves that cooperate can corner and bring down prey more easily than one animal could. But group life has costs. Everyone competes for the same food, and if a group attracts too many predators, a single animal may be better off alone. Every herd is a deal that has to pay for itself."
+    },
+    {
+      "id": "card.animals.074.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A pack is a family",
+      "body": "In 1999, L. David Mech of the U.S. Geological Survey described wild packs as families: a breeding pair and their offspring from the previous 1 to 3 years. The alpha picture came from captive, unrelated wolves, who did form a pecking order. Mech had once used words like alpha himself. Now he says calling a wolf an alpha is like calling a human father one."
+    },
+    {
+      "id": "card.animals.074.c5",
+      "type": "fact",
+      "fact": "In 13 summers, Mech saw no fights for the top spot.",
+      "context": "Watching a wild pack on Ellesmere Island, Canada, he found the parents simply lead. The mother mainly cares for and defends the pups; the father mainly leads hunting and brings food. Dominance displays showed up mostly over food, when parents steered it to the youngest pups. The \"alpha\" was just Mom or Dad.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Top wolf turns out to mean \"parent.\" Every family dinner makes more sense now."
+      }
+    },
+    {
+      "id": "card.animals.074.c6",
+      "type": "mcq",
+      "questionId": "question.animals.074.q1"
+    },
+    {
+      "id": "card.animals.074.c7",
+      "type": "mcq",
+      "questionId": "question.animals.074.q2"
+    },
+    {
+      "id": "card.animals.074.c8",
+      "type": "mcq",
+      "questionId": "question.animals.074.q3"
+    },
+    {
+      "id": "card.animals.074.c9",
+      "type": "checkpoint",
+      "headline": "Packs and herds: explained",
+      "learned": [
+        "In a group of 100, the risk is 1 in 100",
+        "Cooperating hunters corner prey more easily",
+        "Costs: competition, and crowds can draw predators",
+        "Wild wolf packs are families",
+        "The \"alpha\" came from captive, unrelated wolves"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.behavior_wolf_pack_family"
+      ],
+      "sourceCardIds": [
+        "card.animals.074.c4"
+      ],
+      "prompt": "According to Mech's 1999 study, what is a typical wild wolf pack?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Unrelated adults ranked by fights",
+          "correct": false,
+          "rationale": "That describes captive packs."
+        },
+        {
+          "id": "b",
+          "label": "A breeding pair and their offspring",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Several males led by the strongest",
+          "correct": false,
+          "rationale": "Packs are families led by the parents."
+        },
+        {
+          "id": "d",
+          "label": "A seasonal gathering of lone wolves",
+          "correct": false,
+          "rationale": "Packs are lasting family groups."
+        }
+      ],
+      "explanation": "Mech found a wild pack is usually a breeding pair and their young from the past 1 to 3 years.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.behavior_wolf_pack_family"
+      ],
+      "sourceCardIds": [
+        "card.animals.074.c4",
+        "card.animals.074.c1"
+      ],
+      "prompt": "Why did early captive-wolf studies give a misleading picture of pack life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Captive wolves were fed too little",
+          "correct": false,
+          "rationale": "Food wasn't the key difference."
+        },
+        {
+          "id": "b",
+          "label": "Zoo wolves were a different species",
+          "correct": false,
+          "rationale": "They were wolves; the grouping was unnatural."
+        },
+        {
+          "id": "c",
+          "label": "The captive wolves were unrelated strangers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The studies were too short to see fights",
+          "correct": false,
+          "rationale": "They saw plenty of fighting, among strangers."
+        }
+      ],
+      "explanation": "Strangers thrown together formed a pecking order; wild packs are families.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.behavior_group_living",
+        "concept.animals.behavior_wolf_pack_family"
+      ],
+      "sourceCardIds": [
+        "card.animals.074.c2",
+        "card.animals.074.c3"
+      ],
+      "prompt": "A fish in the middle of a school and a wolf in a pack both gain from their group. What does each gain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The fish, safety; the wolf, easier hunting",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Both mainly gain warmth",
+          "correct": false,
+          "rationale": "Neither card is about warmth."
+        },
+        {
+          "id": "c",
+          "label": "The fish, easier hunting; the wolf, camouflage",
+          "correct": false,
+          "rationale": "Swap them: the fish is safer, the wolf hunts better."
+        },
+        {
+          "id": "d",
+          "label": "Neither gains; groups only cost",
+          "correct": false,
+          "rationale": "Groups have costs, but these two benefits are real."
+        }
+      ],
+      "explanation": "The school dilutes and hides each fish's risk; cooperating wolves corner prey more easily.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_social_behaviour_aggregation",
+    "source.usgs_mech_alpha_1999",
+    "source.sciam_alpha_wolf_myth"
+  ],
+  "art": "animals.wolf"
+}

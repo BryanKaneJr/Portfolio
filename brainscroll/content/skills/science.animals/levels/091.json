@@ -1,0 +1,221 @@
+{
+  "id": "level.science.animals.091",
+  "skillId": "skill.science.animals",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Domestication",
+  "objective": "After this level you can explain how people tamed dogs, cattle and horses.",
+  "summary": "Taming changes one animal; domestication changes a line over generations. All cattle trace to about 80 aurochs; modern horses to the Volga-Don steppe around 2200 BCE.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.domestication_def",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.domestication_cattle_horses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.vertebrate_backbone",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.090"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.091.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every farmed cow on Earth descends from about 80 wild animals.",
+      "body": "They were aurochs, wild oxen, and they were no pushovers: just keeping them captive was hard work. So how does a wild animal become a farm animal, and what did people change along the way?"
+    },
+    {
+      "id": "card.animals.091.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tame is not the same as domesticated",
+      "body": "A tamed animal is one individual that has learned to put up with people. Its heredity hasn't changed. Domestication goes deeper: over many generations, people choose which animals breed, and choosing calm, docile animals has been central to it. The changes pass from parent to young. Dogs came first, domesticated by hunter-gatherers before anyone farmed. Taming takes one lifetime. Domestication takes many."
+    },
+    {
+      "id": "card.animals.091.c3",
+      "type": "fact",
+      "fact": "All domestic cattle trace back to a small herd of aurochs.",
+      "context": "DNA from ancient cattle bones dug up in Iran points to about 80 aurochs, domesticated in the Near East about 10,500 years ago. Their wild relatives didn't last. The aurochs survived in central Poland until 1627, then vanished. The wild ox is gone; its farmyard descendants are the line that stayed.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Eighty ancestors for every cow alive. That's one very crowded family tree."
+      }
+    },
+    {
+      "id": "card.animals.091.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Horses: bred for calm and a strong back",
+      "body": "Ancient DNA from 273 horses shows where today's domestic horses began: the western Eurasian steppes, especially the lower Volga-Don region, around 2200 BCE. From there they spread across Eurasia and replaced other horses. Two genetic changes stand out in them: one linked to more docile behavior, one pointing to a stronger backbone. People weren't just catching horses. They were breeding better ones to ride."
+    },
+    {
+      "id": "card.animals.091.c5",
+      "type": "mcq",
+      "questionId": "question.animals.091.q1"
+    },
+    {
+      "id": "card.animals.091.c6",
+      "type": "mcq",
+      "questionId": "question.animals.091.q2"
+    },
+    {
+      "id": "card.animals.091.c7",
+      "type": "mcq",
+      "questionId": "question.animals.091.q3"
+    },
+    {
+      "id": "card.animals.091.c8",
+      "type": "checkpoint",
+      "headline": "Domestication: explained",
+      "learned": [
+        "Taming changes one animal; domestication changes a line",
+        "Dogs came first, before farming",
+        "All cattle trace to about 80 aurochs",
+        "Modern horses: Volga-Don steppe, around 2200 BCE",
+        "Bred for calmer behavior and stronger backbones"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.domestication_cattle_horses"
+      ],
+      "sourceCardIds": [
+        "card.animals.091.c3",
+        "card.animals.091.c1"
+      ],
+      "prompt": "According to ancient DNA, all domestic cattle descend from about how many wild aurochs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 8",
+          "correct": false,
+          "rationale": "Ten times too few."
+        },
+        {
+          "id": "b",
+          "label": "About 80",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 8,000",
+          "correct": false,
+          "rationale": "Far too many; the herd was small."
+        },
+        {
+          "id": "d",
+          "label": "About 800,000",
+          "correct": false,
+          "rationale": "The founding herd was only about 80."
+        }
+      ],
+      "explanation": "DNA from ancient bones in Iran points to about 80 aurochs, domesticated about 10,500 years ago.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.domestication_def"
+      ],
+      "sourceCardIds": [
+        "card.animals.091.c2"
+      ],
+      "prompt": "What makes an animal domesticated rather than merely tamed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was raised by people from birth",
+          "correct": false,
+          "rationale": "That can tame one animal without changing its heredity."
+        },
+        {
+          "id": "b",
+          "label": "It lives on a farm",
+          "correct": false,
+          "rationale": "Where it lives doesn't change its heredity."
+        },
+        {
+          "id": "c",
+          "label": "Its line was changed by breeding over generations",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It obeys simple commands",
+          "correct": false,
+          "rationale": "That's learned behavior in one animal."
+        }
+      ],
+      "explanation": "Taming changes one animal's behavior. Domestication changes a whole line through generations of breeding.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.domestication_cattle_horses",
+        "concept.animals.vertebrate_backbone"
+      ],
+      "sourceCardIds": [
+        "card.animals.091.c4",
+        "card.animals.003.c2"
+      ],
+      "prompt": "Domestic horses carry a change pointing to a stronger backbone. From Level 3, what is a backbone made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A hard outer skeleton",
+          "correct": false,
+          "rationale": "That's the outer skeleton of many invertebrates."
+        },
+        {
+          "id": "b",
+          "label": "One long, solid bone",
+          "correct": false,
+          "rationale": "It's a column of many bones."
+        },
+        {
+          "id": "c",
+          "label": "Plates of armor in the skin",
+          "correct": false,
+          "rationale": "Backbones run inside the body."
+        },
+        {
+          "id": "d",
+          "label": "A column of bones called vertebrae",
+          "correct": true
+        }
+      ],
+      "explanation": "A backbone is a column of vertebrae that partly encloses the spinal cord; horses were bred for a stronger one.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_domestication",
+    "source.unimainz_cattle_aurochs",
+    "source.brit_aurochs",
+    "source.nature_horse_origins_2021",
+    "source.sciencedaily_horse_origins_2021"
+  ],
+  "art": "medieval.horse"
+}

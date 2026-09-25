@@ -1,0 +1,241 @@
+{
+  "id": "level.science.animals.014",
+  "skillId": "skill.science.animals",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Whales and Dolphins",
+  "objective": "After this level you can explain how whales and dolphins are mammals that live in the sea.",
+  "summary": "Whales and dolphins breathe air through blowholes, have some hair and nurse their young. Dolphins sleep half a brain at a time. Toothed whales include dolphins; baleen whales strain food.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.cetacean_mammal_life",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.cetacean_baleen_toothed",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.largest_animal",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.mammal_traits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.013"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Dolphins sleep with half a brain at a time.",
+      "body": "Scientists think it lets them keep coming up to breathe, even while they snooze. A dolphin spends its whole life in the sea and still has to breathe air. That's your first clue that it's a mammal."
+    },
+    {
+      "id": "card.animals.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The checklist, passed underwater",
+      "body": "Whales, dolphins and porpoises meet Level 11's mammal checklist, with no discount for living at sea. They breathe air, are warm-blooded, have hair at some point in life and feed their young milk. They breathe through blowholes, nostrils on top of the head. Every breath means a trip to the surface, and the nose is already on top: a snorkel they never have to pack."
+    },
+    {
+      "id": "card.animals.014.c3",
+      "type": "fact",
+      "fact": "A dolphin calf drinks milk for about 20 months.",
+      "context": "A bottlenose dolphin mother is pregnant for about 12 months. Her calf nurses for about 20 months and stays with her for 3 to 6 years. That's a long childhood on milk, and about as mammal as it gets.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Twenty months of milk. Try telling this one it's a fish."
+      }
+    },
+    {
+      "id": "card.animals.014.c4",
+      "type": "comparison",
+      "headline": "Two kinds of whale",
+      "items": [
+        {
+          "label": "Toothed whales",
+          "points": [
+            "Teeth, and one blowhole",
+            "Includes dolphins and porpoises"
+          ]
+        },
+        {
+          "label": "Baleen whales",
+          "points": [
+            "No teeth: plates of keratin, like your nails",
+            "Two blowholes; they strain small prey",
+            "Level 9's blue whale is one: krill"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.014.c5",
+      "type": "mcq",
+      "questionId": "question.animals.014.q1"
+    },
+    {
+      "id": "card.animals.014.c6",
+      "type": "mcq",
+      "questionId": "question.animals.014.q2"
+    },
+    {
+      "id": "card.animals.014.c7",
+      "type": "recall",
+      "questionId": "question.animals.014.q3"
+    },
+    {
+      "id": "card.animals.014.c8",
+      "type": "checkpoint",
+      "headline": "Whales and dolphins: met",
+      "learned": [
+        "They breathe air through blowholes",
+        "Warm-blooded, some hair, milk for the young",
+        "Dolphins sleep half a brain at a time",
+        "Bottlenose calves nurse about 20 months",
+        "Toothed whales vs baleen whales"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.cetacean_mammal_life"
+      ],
+      "sourceCardIds": [
+        "card.animals.014.c2"
+      ],
+      "prompt": "How do whales and dolphins breathe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Through gills behind the head",
+          "correct": false,
+          "rationale": "Gills belong to fish; whales have lungs."
+        },
+        {
+          "id": "b",
+          "label": "Through their skin",
+          "correct": false,
+          "rationale": "They breathe air with lungs."
+        },
+        {
+          "id": "c",
+          "label": "Air through blowholes on top of the head",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They take oxygen from the water",
+          "correct": false,
+          "rationale": "They must surface for air."
+        }
+      ],
+      "explanation": "Cetaceans breathe air through blowholes, nostrils on top of the head.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.cetacean_mammal_life"
+      ],
+      "sourceCardIds": [
+        "card.animals.014.c1"
+      ],
+      "prompt": "Why do scientists think dolphins sleep with only half the brain at a time?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To dream in two ways",
+          "correct": false,
+          "rationale": "The idea is about breathing, not dreams."
+        },
+        {
+          "id": "b",
+          "label": "So they can keep coming up to breathe",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Because their brains are too small",
+          "correct": false,
+          "rationale": "Size isn't the explanation."
+        },
+        {
+          "id": "d",
+          "label": "To save heat in cold water",
+          "correct": false,
+          "rationale": "It's linked to breathing air."
+        }
+      ],
+      "explanation": "Half-brain sleep is thought to let dolphins keep surfacing to breathe even while asleep.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.cetacean_baleen_toothed",
+        "concept.animals.largest_animal"
+      ],
+      "sourceCardIds": [
+        "card.animals.014.c4",
+        "card.animals.009.c2"
+      ],
+      "prompt": "Level 9's blue whale lives almost entirely on krill. Which group of whales does it belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Toothed whales, like dolphins",
+          "correct": false,
+          "rationale": "Toothed whales have teeth; blue whales don't."
+        },
+        {
+          "id": "b",
+          "label": "Baleen whales",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It isn't a whale but a fish",
+          "correct": false,
+          "rationale": "Blue whales are mammals."
+        },
+        {
+          "id": "d",
+          "label": "Porpoises",
+          "correct": false,
+          "rationale": "Porpoises are toothed whales."
+        }
+      ],
+      "explanation": "Blue whales are baleen whales: keratin plates strain krill from the water.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_marine_mammals",
+    "source.brit_cetacean",
+    "source.mmc_cetaceans",
+    "source.smithsonianmag_dolphin_sleep",
+    "source.noaa_bottlenose_dolphin",
+    "source.noaa_blue_whale"
+  ],
+  "art": "animals.whale"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "level.science.animals.053",
+  "skillId": "skill.science.animals",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Bees",
+  "objective": "After this level you can explain how bees make honey and pollinate plants.",
+  "summary": "Honeybee workers turn nectar into honey with enzymes and wing-fanning, and build comb from their own wax. Pollen caught in a bee’s hairs rubs off on the next flower.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.bee_honey_making",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.bee_pollination",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.ant_colony_roles",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.052"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Honey is flower nectar that bees have dried out.",
+      "body": "A bee doesn’t find honey. She makes it, from nectar, using her own chemistry, her wings and wax from her own body. And while she’s out shopping for nectar, she does the flowers a favor they can’t do for themselves."
+    },
+    {
+      "id": "card.animals.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The honey recipe",
+      "body": "Back at the hive, enzymes break the complex sugars in nectar into simpler ones. Then the bees beat their wings to help the extra water evaporate, and when it’s ready, they seal each cell with wax. Finished honey is only about 18 percent water. It’s the world’s smallest drying room, powered by wings."
+    },
+    {
+      "id": "card.animals.053.c3",
+      "type": "fact",
+      "fact": "Beeswax comes out of the bee.",
+      "context": "The wax workers make comes from four pairs of wax glands on the underside of the body. With it, they build comb: two layers of six-sided cells, where the colony keeps its honey. And the builders are all daughters again. Like Level 52’s ants, honeybee workers are females that never reproduce."
+    },
+    {
+      "id": "card.animals.053.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pollen hitchhikes on fuzz",
+      "body": "Flowers can’t walk, so they need a courier to move pollen from a flower’s anther to a stigma. That’s pollination. A bee is a fuzzy courier: her dense coat of branched hairs catches pollen as she feeds, and some rubs off on the stigma of the next flower. Honeybee workers also pack pollen into baskets on their hind legs to take home. She gets food; the flower gets its pollen delivered.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Paid in nectar, delivers pollen, never asks for a tip. Best courier in the garden."
+      }
+    },
+    {
+      "id": "card.animals.053.c5",
+      "type": "mcq",
+      "questionId": "question.animals.053.q1"
+    },
+    {
+      "id": "card.animals.053.c6",
+      "type": "mcq",
+      "questionId": "question.animals.053.q2"
+    },
+    {
+      "id": "card.animals.053.c7",
+      "type": "recall",
+      "questionId": "question.animals.053.q3"
+    },
+    {
+      "id": "card.animals.053.c8",
+      "type": "checkpoint",
+      "headline": "Bees: buzzing",
+      "learned": [
+        "Enzymes turn nectar into honey",
+        "Wing-fanning dries it to about 18% water",
+        "Workers make wax from their own glands",
+        "Pollination moves pollen from anther to stigma",
+        "Pollen rides on branched hairs and leg baskets"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.bee_honey_making"
+      ],
+      "sourceCardIds": [
+        "card.animals.053.c2"
+      ],
+      "prompt": "How do honeybees help the extra water leave nectar as it becomes honey?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They heat it in the sun outside the hive",
+          "correct": false,
+          "rationale": "The drying happens inside the hive, by wing power."
+        },
+        {
+          "id": "b",
+          "label": "They squeeze it through the wax walls",
+          "correct": false,
+          "rationale": "Wax seals the cells; it doesn’t filter them."
+        },
+        {
+          "id": "c",
+          "label": "They mix it with dry pollen",
+          "correct": false,
+          "rationale": "Pollen isn’t used to dry honey."
+        },
+        {
+          "id": "d",
+          "label": "They beat their wings to help it evaporate",
+          "correct": true
+        }
+      ],
+      "explanation": "Honeybees beat their wings to promote evaporation, then seal the thickened honey in wax cells.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.bee_pollination"
+      ],
+      "sourceCardIds": [
+        "card.animals.053.c4"
+      ],
+      "prompt": "A bee visits a flower only to feed. How does she still pollinate it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "She plants seeds as she walks",
+          "correct": false,
+          "rationale": "Bees move pollen, not seeds."
+        },
+        {
+          "id": "b",
+          "label": "Pollen caught in her hairs rubs off on the next stigma",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Her wings blow pollen across the garden",
+          "correct": false,
+          "rationale": "Wind is a different courier; bees carry pollen on their bodies."
+        },
+        {
+          "id": "d",
+          "label": "She eats the pollen and the flower regrows it",
+          "correct": false,
+          "rationale": "Eaten pollen can’t reach another flower."
+        }
+      ],
+      "explanation": "Pollen clings to a bee’s branched hairs while she feeds and rubs off on the stigma of the next flower she visits.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.ant_colony_roles",
+        "concept.animals.bee_honey_making"
+      ],
+      "sourceCardIds": [
+        "card.animals.053.c3",
+        "card.animals.052.c2"
+      ],
+      "prompt": "Level 52’s worker ants were sterile females. What about honeybee workers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They’re males that help the queen",
+          "correct": false,
+          "rationale": "Male honeybees are the drones, not the workers."
+        },
+        {
+          "id": "b",
+          "label": "They’re young queens in training",
+          "correct": false,
+          "rationale": "Workers don’t become queens as they age."
+        },
+        {
+          "id": "c",
+          "label": "They’re females that never reproduce",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They’re a mix of males and females",
+          "correct": false,
+          "rationale": "The workers are all female."
+        }
+      ],
+      "explanation": "As in an ant colony, honeybee workers are females that do not reproduce.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_honeybee",
+    "source.brit_honey",
+    "source.umaine_native_bees",
+    "source.usfs_what_is_pollination",
+    "source.usfs_birds_bees",
+    "source.ufifas_ants"
+  ],
+  "art": "animals.bee"
+}

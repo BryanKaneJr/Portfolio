@@ -1,0 +1,217 @@
+{
+  "id": "level.science.animals.079",
+  "skillId": "skill.science.animals",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Play",
+  "objective": "After this level you can explain why young animals play.",
+  "summary": "Play costs energy yet young animals do it. Canids bow to invite play and keep it fair. Play-deprived rats grow up anxious, so play seems to train social judgment.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.behavior_play_signals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_play_purpose",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_courtship_signals",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.078"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.079.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Play looks like a waste of energy. Young animals do it anyway.",
+      "body": "Play has no obvious immediate purpose. It burns energy, and it's noisy and conspicuous: two play-fighting rats could easily catch a hungry hawk's eye. So why does it exist?"
+    },
+    {
+      "id": "card.animals.079.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "\"This is just a game\"",
+      "body": "Play fighting uses bites and body slams that could be mistaken for the real thing, so players signal first. Dogs, wolves and coyotes bow: front legs down, back end up. The bow is used almost only in play and always looks the same. After a bow, even growls and bites draw submission or avoidance only about 15 percent of the time. The bow is a promise."
+    },
+    {
+      "id": "card.animals.079.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Playing fair",
+      "body": "Players also hold back. A stronger coyote may not bite as hard as it can, and a dominant animal may roll onto its back to let a weaker partner win for a while. Young rats with the upper hand often give it up the same way. A game where one side always wins stops being a game."
+    },
+    {
+      "id": "card.animals.079.c4",
+      "type": "fact",
+      "fact": "Rats that never play grow up anxious.",
+      "context": "The old idea was that play is practice for fighting. But play fighting often skips the real moves: young elk lock horns in play, yet never butt heads, which is saved for serious fights. Young rats kept from play fighting grow up anxious, overreact to other rats, and later handle courtship poorly. Researchers think play trains the brain to adjust behavior to the situation.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "So recess is brain training. I always suspected."
+      }
+    },
+    {
+      "id": "card.animals.079.c5",
+      "type": "mcq",
+      "questionId": "question.animals.079.q1"
+    },
+    {
+      "id": "card.animals.079.c6",
+      "type": "mcq",
+      "questionId": "question.animals.079.q2"
+    },
+    {
+      "id": "card.animals.079.c7",
+      "type": "recall",
+      "questionId": "question.animals.079.q3"
+    },
+    {
+      "id": "card.animals.079.c8",
+      "type": "checkpoint",
+      "headline": "Play: explained",
+      "learned": [
+        "Play costs energy and draws attention",
+        "Canids bow to say \"this is play\"",
+        "Players hold back and take turns winning",
+        "Play often skips real fighting moves",
+        "Play-deprived rats grow up anxious"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.behavior_play_signals"
+      ],
+      "sourceCardIds": [
+        "card.animals.079.c2"
+      ],
+      "prompt": "How do dogs, wolves and coyotes invite each other to play?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They bare their teeth",
+          "correct": false,
+          "rationale": "That's a threat display."
+        },
+        {
+          "id": "b",
+          "label": "They bow, front legs down and back end up",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They roll in the grass",
+          "correct": false,
+          "rationale": "The play invitation is the bow."
+        },
+        {
+          "id": "d",
+          "label": "They howl twice",
+          "correct": false,
+          "rationale": "The signal is a posture."
+        }
+      ],
+      "explanation": "Canids bow, crouching on their forelimbs with the hind end up, a signal used almost only in play.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.behavior_play_purpose"
+      ],
+      "sourceCardIds": [
+        "card.animals.079.c4"
+      ],
+      "prompt": "Why do some researchers doubt that play is simply practice for fighting?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only adults play",
+          "correct": false,
+          "rationale": "Young animals play the most."
+        },
+        {
+          "id": "b",
+          "label": "Play never involves contact",
+          "correct": false,
+          "rationale": "Play fighting involves plenty of contact."
+        },
+        {
+          "id": "c",
+          "label": "Play often skips real fighting moves",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Animals that play never fight",
+          "correct": false,
+          "rationale": "They fight; the moves differ."
+        }
+      ],
+      "explanation": "Young elk lock horns in play but never butt heads, the move saved for real fights.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.animals.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.behavior_play_purpose",
+        "concept.animals.behavior_courtship_signals"
+      ],
+      "sourceCardIds": [
+        "card.animals.079.c4",
+        "card.animals.075.c3"
+      ],
+      "prompt": "Rats deprived of play handle courtship poorly. Using Level 75, why would that hurt them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Courtship needs louder calls",
+          "correct": false,
+          "rationale": "Volume isn't the issue."
+        },
+        {
+          "id": "b",
+          "label": "Courtship depends on bright colors",
+          "correct": false,
+          "rationale": "Rats aren't courting with plumage."
+        },
+        {
+          "id": "c",
+          "label": "Courtship requires a bower",
+          "correct": false,
+          "rationale": "That's bowerbirds."
+        },
+        {
+          "id": "d",
+          "label": "Courtship fails if a cue is missed or misread",
+          "correct": true
+        }
+      ],
+      "explanation": "Courtship runs step by step and is abandoned when a response goes wrong, and play-deprived rats misjudge social cues.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_rough_play_2025",
+    "source.sciam_bekoff_fair_play"
+  ],
+  "art": "animals.wolf"
+}

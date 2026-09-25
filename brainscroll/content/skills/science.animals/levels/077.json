@@ -1,0 +1,220 @@
+{
+  "id": "level.science.animals.077",
+  "skillId": "skill.science.animals",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tool Use",
+  "objective": "After this level you can describe animals that use tools, from chimpanzees to crows.",
+  "summary": "In 1960 Goodall saw chimps make and use termite-fishing tools. Sea otters crack prey with rocks; veined octopuses carry coconut shells for later shelter.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.behavior_tool_use_def",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_tool_users",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_parental_care_tradeoff",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.076"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.077.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1960, a chimpanzee got humans to rethink what makes them human.",
+      "body": "Making and using tools was thought to set people apart from every other animal. Then, at Gombe in Tanzania, Jane Goodall watched a chimp she had named David Greybeard sitting at a termite mound."
+    },
+    {
+      "id": "card.animals.077.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fishing for termites",
+      "body": "David Greybeard poked a stem of grass into the termite mound, then raised it to his mouth. Soon after, Goodall saw chimps pick leafy twigs and strip off the leaves before fishing with them. That was tool making, never seen before. When she told her mentor, Louis Leakey, he replied that we must now redefine man or accept chimpanzees as human."
+    },
+    {
+      "id": "card.animals.077.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Otters with hammers",
+      "body": "A 2024 study followed 196 radio-tagged southern sea otters in California. They use rocks, shells and even trash to crack open prey. Tool users, mostly females, could eat harder and larger prey and had less tooth damage, which matters: badly worn teeth can mean starvation. Researchers think females make up for smaller bodies and weaker bites this way, since raising pups takes a lot of energy. A rock is cheaper than a dentist."
+    },
+    {
+      "id": "card.animals.077.c4",
+      "type": "fact",
+      "fact": "An octopus that carries its house.",
+      "context": "Veined octopuses in Indonesia dig up coconut shell halves, carry them under their bodies while walking awkwardly on stiffened arms, and later join them into a shelter. A hermit crab's shell doesn't count as a tool, because it's useful all the time. The coconut only pays off later, once the octopus needs a hiding place. Reported in 2009, it was the first known tool use by an invertebrate.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Packing your house for later. That's planning, with eight arms."
+      }
+    },
+    {
+      "id": "card.animals.077.c5",
+      "type": "mcq",
+      "questionId": "question.animals.077.q1"
+    },
+    {
+      "id": "card.animals.077.c6",
+      "type": "mcq",
+      "questionId": "question.animals.077.q2"
+    },
+    {
+      "id": "card.animals.077.c7",
+      "type": "recall",
+      "questionId": "question.animals.077.q3"
+    },
+    {
+      "id": "card.animals.077.c8",
+      "type": "checkpoint",
+      "headline": "Tool use: surveyed",
+      "learned": [
+        "1960: chimps fish for termites and strip twigs",
+        "Tool making was thought uniquely human",
+        "Sea otters crack prey with rocks, sparing their teeth",
+        "Veined octopuses carry coconut shells for later",
+        "A tool pays off only when used for a job"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.behavior_tool_use_def"
+      ],
+      "sourceCardIds": [
+        "card.animals.077.c2"
+      ],
+      "prompt": "What did Jane Goodall see David Greybeard do in 1960?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Crack nuts with a stone",
+          "correct": false,
+          "rationale": "That wasn't Goodall's 1960 observation."
+        },
+        {
+          "id": "b",
+          "label": "Fish for termites with a grass stem",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Build a nest of leaves",
+          "correct": false,
+          "rationale": "Her discovery was about tools."
+        },
+        {
+          "id": "d",
+          "label": "Throw rocks at a rival",
+          "correct": false,
+          "rationale": "He was feeding at a termite mound."
+        }
+      ],
+      "explanation": "He poked grass into a termite mound and raised it to his mouth; later chimps stripped twigs to make tools.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.behavior_tool_use_def",
+        "concept.animals.behavior_tool_users"
+      ],
+      "sourceCardIds": [
+        "card.animals.077.c4"
+      ],
+      "prompt": "Why does an octopus's coconut shell count as a tool when a hermit crab's shell doesn't?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The coconut is bigger",
+          "correct": false,
+          "rationale": "Size isn't the test."
+        },
+        {
+          "id": "b",
+          "label": "Octopuses are smarter than crabs",
+          "correct": false,
+          "rationale": "The test is how the object is used."
+        },
+        {
+          "id": "c",
+          "label": "It pays off only later, when shelter is needed",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The crab grows its own shell",
+          "correct": false,
+          "rationale": "Hermit crabs borrow shells too."
+        }
+      ],
+      "explanation": "A tool gives a delayed benefit for a specific job; the crab's shell is useful all the time.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.animals.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.behavior_tool_users",
+        "concept.animals.behavior_parental_care_tradeoff"
+      ],
+      "sourceCardIds": [
+        "card.animals.077.c3",
+        "card.animals.076.c2"
+      ],
+      "prompt": "Female sea otters use tools more than males. How does that tie to Level 76's cost of parenting?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tools help mothers meet the energy cost of raising pups",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Mothers use rocks to guard their pups",
+          "correct": false,
+          "rationale": "The rocks are for cracking prey."
+        },
+        {
+          "id": "c",
+          "label": "Pups carry the tools for their mothers",
+          "correct": false,
+          "rationale": "The females do the tool work."
+        },
+        {
+          "id": "d",
+          "label": "Tool use lets females skip raising pups",
+          "correct": false,
+          "rationale": "They still raise pups; tools help them afford it."
+        }
+      ],
+      "explanation": "Raising pups takes a lot of energy, and tools let smaller, weaker-biting females eat harder prey.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_ed_goodall_tools",
+    "source.brit_jane_goodall",
+    "source.utexas_sea_otter_tools_2024",
+    "source.natgeo_coconut_octopus_2009"
+  ],
+  "art": "animals.chimp"
+}

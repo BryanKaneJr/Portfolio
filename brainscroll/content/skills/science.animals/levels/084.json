@@ -1,0 +1,231 @@
+{
+  "id": "level.science.animals.084",
+  "skillId": "skill.science.animals",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Age of Dinosaurs",
+  "objective": "After this level you can describe when dinosaurs lived and how varied they were.",
+  "summary": "Non-bird dinosaurs lived about 245 to 66 million years ago, through the Triassic, Jurassic and Cretaceous. As Pangaea split, they evolved apart and diversified.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.mesozoic_timeline",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.dinosaur_diversity_continents",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.largest_animal",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.083"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Tyrannosaurus lived closer in time to you than to Stegosaurus.",
+      "body": "Posters love to put them side by side. They never met. Stegosaurus had been extinct for about 80 million years before Tyrannosaurus appeared. The Age of Dinosaurs wasn't one scene. It was a story long enough to need chapters."
+    },
+    {
+      "id": "card.animals.084.c2",
+      "type": "timeline",
+      "headline": "The Mesozoic in three acts",
+      "events": [
+        {
+          "when": "252–201 million years ago",
+          "label": "Triassic: the first dinosaurs, around 245 million years ago"
+        },
+        {
+          "when": "201–145 million years ago",
+          "label": "Jurassic: giant sauropods and Stegosaurus"
+        },
+        {
+          "when": "145–66 million years ago",
+          "label": "Cretaceous: titanosaurs, then Tyrannosaurus"
+        }
+      ]
+    },
+    {
+      "id": "card.animals.084.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One supercontinent, then many",
+      "body": "When dinosaurs first appeared, all the land was one supercontinent, Pangaea, so animals in different places were much alike. After a mass extinction at the end of the Triassic, the dinosaurs survived and spread into new forms. Then Pangaea broke apart. Dinosaurs ended up on separate continents and evolved independently, like cousins raised in different countries. The result: more and more kinds of dinosaur."
+    },
+    {
+      "id": "card.animals.084.c4",
+      "type": "fact",
+      "fact": "Some sauropods were among the largest animals ever to walk the Earth.",
+      "context": "Plentiful Jurassic plants fed plant-eaters like Diplodocus and Brachiosaurus, and in the Cretaceous the titanosaurs grew bigger still. Yet Level 9's title holder keeps its crown: the blue whale is the largest animal known to have lived. The giants of the land walked. The biggest of all swims today.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Dinosaurs own the walking record. The whale owns the whole trophy cabinet."
+      }
+    },
+    {
+      "id": "card.animals.084.c5",
+      "type": "mcq",
+      "questionId": "question.animals.084.q1"
+    },
+    {
+      "id": "card.animals.084.c6",
+      "type": "mcq",
+      "questionId": "question.animals.084.q2"
+    },
+    {
+      "id": "card.animals.084.c7",
+      "type": "recall",
+      "questionId": "question.animals.084.q3"
+    },
+    {
+      "id": "card.animals.084.c8",
+      "type": "checkpoint",
+      "headline": "Dinosaurs: dated",
+      "learned": [
+        "Non-bird dinosaurs: about 245 to 66 million years ago",
+        "Triassic, Jurassic, Cretaceous",
+        "Stegosaurus was gone about 80 million years before T. rex",
+        "Pangaea split; dinosaurs diversified",
+        "Sauropods: giants of the land"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.mesozoic_timeline"
+      ],
+      "sourceCardIds": [
+        "card.animals.084.c2"
+      ],
+      "prompt": "Which three periods make up the Mesozoic Era, the Age of Dinosaurs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Triassic, Jurassic, Cretaceous",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Jurassic, Cretaceous, Ice Age",
+          "correct": false,
+          "rationale": "The Ice Age came long after."
+        },
+        {
+          "id": "c",
+          "label": "Cambrian, Triassic, Jurassic",
+          "correct": false,
+          "rationale": "The Cambrian is far older."
+        },
+        {
+          "id": "d",
+          "label": "Devonian, Permian, Triassic",
+          "correct": false,
+          "rationale": "Only the Triassic is Mesozoic."
+        }
+      ],
+      "explanation": "The Mesozoic runs Triassic (252 to 201), Jurassic (201 to 145), Cretaceous (145 to 66 million years ago).",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.dinosaur_diversity_continents"
+      ],
+      "sourceCardIds": [
+        "card.animals.084.c3"
+      ],
+      "prompt": "Why did dinosaurs become more varied as the Mesozoic went on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "All the land joined into one piece",
+          "correct": false,
+          "rationale": "That was the start, Pangaea."
+        },
+        {
+          "id": "b",
+          "label": "Continents split, so groups evolved apart",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They stopped competing with each other",
+          "correct": false,
+          "rationale": "Not the reason given."
+        },
+        {
+          "id": "d",
+          "label": "They all moved into the sea",
+          "correct": false,
+          "rationale": "They stayed land animals."
+        }
+      ],
+      "explanation": "As Pangaea broke up, dinosaurs on separate continents evolved independently and diversified.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.dinosaur_diversity_continents",
+        "concept.animals.largest_animal"
+      ],
+      "sourceCardIds": [
+        "card.animals.084.c4",
+        "card.animals.009.c1"
+      ],
+      "prompt": "Titanosaurs were giant sauropods. Which animal does Level 9 name the largest known to have lived?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A titanosaur",
+          "correct": false,
+          "rationale": "Among the largest walkers, not the largest ever."
+        },
+        {
+          "id": "b",
+          "label": "Tyrannosaurus",
+          "correct": false,
+          "rationale": "A big predator, far from the record."
+        },
+        {
+          "id": "c",
+          "label": "The blue whale",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Brachiosaurus",
+          "correct": false,
+          "rationale": "Huge, but not the record holder."
+        }
+      ],
+      "explanation": "NOAA calls the blue whale, alive today, the largest animal known to have lived.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.nhm_when_dinosaurs_lived",
+    "source.usgs_dinosaurs_together",
+    "source.smithsonianmag_dinosaur_time",
+    "source.noaa_blue_whale"
+  ],
+  "art": "animals.dinosaur"
+}

@@ -1,0 +1,224 @@
+{
+  "id": "level.science.animals.069",
+  "skillId": "skill.science.animals",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Senses We Lack",
+  "objective": "After this level you can describe animal senses we lack, like sensing electricity.",
+  "summary": "Animals sense what we can't: sharks and rays feel prey's electric fields, pit vipers sense infrared heat, sea turtles navigate by Earth's magnetic field, and reindeer see ultraviolet light.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.senses_beyond_human",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.body_heat_source",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.068"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.069.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A shark can find a fish hiding under the sand.",
+      "body": "It doesn't need to see it or smell it. It senses the fish's electric field. Your senses show you only part of the world, and plenty of animals perceive more."
+    },
+    {
+      "id": "card.animals.069.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Electricity",
+      "body": "Sharks and rays have ampullae of Lorenzini, sense organs that detect the weak electric fields around prey, even prey buried in sand. You have no electroreceptors at all. A fish can hold perfectly still and hide from your eyes. It can't hide from a shark's."
+    },
+    {
+      "id": "card.animals.069.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Heat",
+      "body": "Pit vipers, such as rattlesnakes, have a heat-sensitive pit between each eye and nostril. It senses the infrared given off by warm-blooded prey and helps the snake aim its strike, even in darkness. To a pit viper, a mouse on a cold night practically glows."
+    },
+    {
+      "id": "card.animals.069.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Magnetism",
+      "body": "Sea turtles use Earth's magnetic field to navigate their long migrations. In experiments, loggerhead hatchlings swam in different directions when exposed to the magnetic fields of different places along their route. They carry a built-in sense of where they are, no phone required."
+    },
+    {
+      "id": "card.animals.069.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ultraviolet",
+      "body": "Reindeer can see ultraviolet light, which human lenses block. Against the snow, things that absorb UV look dark to them: lichen, their winter food, urine, and wolf fur. A wolf that blends into the snow for you stands out for a reindeer.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Camouflage only works if the viewer's eyes play along. Reindeer don't."
+      }
+    },
+    {
+      "id": "card.animals.069.c6",
+      "type": "mcq",
+      "questionId": "question.animals.069.q1"
+    },
+    {
+      "id": "card.animals.069.c7",
+      "type": "mcq",
+      "questionId": "question.animals.069.q2"
+    },
+    {
+      "id": "card.animals.069.c8",
+      "type": "recall",
+      "questionId": "question.animals.069.q3"
+    },
+    {
+      "id": "card.animals.069.c9",
+      "type": "checkpoint",
+      "headline": "Senses we lack: explained",
+      "learned": [
+        "Sharks and rays sense electric fields",
+        "Pit vipers sense infrared heat",
+        "Sea turtles navigate by Earth's magnetic field",
+        "Reindeer see ultraviolet light",
+        "Humans have none of these senses"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.senses_beyond_human"
+      ],
+      "sourceCardIds": [
+        "card.animals.069.c2"
+      ],
+      "prompt": "What do a shark's ampullae of Lorenzini detect?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ultraviolet light reflected by snow",
+          "correct": false,
+          "rationale": "That's the reindeer."
+        },
+        {
+          "id": "b",
+          "label": "Earth's magnetic field lines",
+          "correct": false,
+          "rationale": "That's the sea turtle's navigation sense."
+        },
+        {
+          "id": "c",
+          "label": "Infrared heat from warm bodies",
+          "correct": false,
+          "rationale": "That's the pit viper's pits."
+        },
+        {
+          "id": "d",
+          "label": "Weak electric fields around prey",
+          "correct": true
+        }
+      ],
+      "explanation": "The ampullae of Lorenzini sense the weak electric fields of prey, even under sand.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.senses_beyond_human"
+      ],
+      "sourceCardIds": [
+        "card.animals.069.c5"
+      ],
+      "prompt": "Why is a wolf easy for a reindeer to spot on snow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wolves smell strongly of urine",
+          "correct": false,
+          "rationale": "It's about sight, not smell."
+        },
+        {
+          "id": "b",
+          "label": "Its fur absorbs UV and looks dark against the snow",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Reindeer sense the wolf's electric field",
+          "correct": false,
+          "rationale": "That's the shark's sense."
+        },
+        {
+          "id": "d",
+          "label": "Wolves give off infrared the reindeer can see",
+          "correct": false,
+          "rationale": "Reindeer see ultraviolet, not infrared."
+        }
+      ],
+      "explanation": "Reindeer see UV; wolf fur absorbs it, so it looks dark on the snow.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.animals.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.senses_beyond_human",
+        "concept.animals.body_heat_source"
+      ],
+      "sourceCardIds": [
+        "card.animals.069.c3",
+        "card.animals.005.c2"
+      ],
+      "prompt": "Level 5 sorted animals by where their heat comes from. Which prey would a pit viper's heat pits pick up best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A frog resting in cool, damp mud",
+          "correct": false,
+          "rationale": "An ectotherm stays close to its surroundings."
+        },
+        {
+          "id": "b",
+          "label": "A beetle sitting on a shaded rock",
+          "correct": false,
+          "rationale": "Invertebrates take heat from outside."
+        },
+        {
+          "id": "c",
+          "label": "A mammal or bird, making its own heat",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A fish swimming in a cold stream",
+          "correct": false,
+          "rationale": "Fish are ectotherms too."
+        }
+      ],
+      "explanation": "Pit organs sense infrared from warm-blooded prey: endotherms like mammals and birds.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_electroreception",
+    "source.brit_pit_viper",
+    "source.unc_lohmann_magnetoreception",
+    "source.ucl_reindeer_uv",
+    "source.brit_warm_bloodedness",
+    "source.brit_cold_bloodedness"
+  ],
+  "art": "animals.shark"
+}

@@ -1,0 +1,219 @@
+{
+  "id": "level.science.animals.072",
+  "skillId": "skill.science.animals",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Animal Communication",
+  "objective": "After this level you can explain how animals send signals to each other.",
+  "summary": "Animals signal by smell (pheromones), sound, sight and touch. Vervet monkeys give different alarm calls for leopards, eagles and snakes, and displays like bared teeth can replace a fight.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.behavior_signal_channels",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_vervet_alarm_calls",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_instinct",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.071"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One monkey shouts, and the whole troop looks at the sky.",
+      "body": "Vervet monkeys don't have just one alarm call. They have different calls for leopards, eagles and snakes, and the troop reacts to each one differently. Is that a scream of fear, or something closer to a word?"
+    },
+    {
+      "id": "card.animals.072.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four ways to send a message",
+      "body": "A signal is information one animal gives off that another can use to decide what to do. Signals travel by smell, sound, sight and touch. A pheromone is a chemical signal released to get a response from another member of the same species, to attract mates, sound an alarm or mark a food trail. Primates groom each other; a signal can be instinctive, learned or both. If someone reacts, it counts as a message."
+    },
+    {
+      "id": "card.animals.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Leopard, eagle, snake",
+      "body": "In a 1980 study in Amboseli, Kenya, Robert Seyfarth, Dorothy Cheney and Peter Marler recorded vervet alarm calls, then played them back with no predator anywhere. The monkeys still did the right thing: they ran into trees at a leopard alarm, looked up at an eagle alarm and looked down at a snake alarm. Each call pointed to a kind of danger. The call alone was enough.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Up for eagles, down for snakes, trees for leopards. Not bad for a vocabulary of three."
+      }
+    },
+    {
+      "id": "card.animals.072.c4",
+      "type": "fact",
+      "fact": "Some signals exist to prevent a fight.",
+      "context": "A dog bares its teeth to make another dog back down. Displays like this let rivals judge each other's fighting ability, so a weaker animal can back off before anyone gets hurt, and real fights happen less often. Some displays even overstate an animal's strength: a bluff. A snarl is cheaper than a scar."
+    },
+    {
+      "id": "card.animals.072.c5",
+      "type": "mcq",
+      "questionId": "question.animals.072.q1"
+    },
+    {
+      "id": "card.animals.072.c6",
+      "type": "mcq",
+      "questionId": "question.animals.072.q2"
+    },
+    {
+      "id": "card.animals.072.c7",
+      "type": "recall",
+      "questionId": "question.animals.072.q3"
+    },
+    {
+      "id": "card.animals.072.c8",
+      "type": "checkpoint",
+      "headline": "Communication: decoded",
+      "learned": [
+        "A signal is information another animal can act on",
+        "Channels: smell, sound, sight, touch",
+        "Pheromones: chemical signals within a species",
+        "Vervets: separate alarms for leopard, eagle, snake",
+        "Threat displays can prevent real fights"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.behavior_signal_channels"
+      ],
+      "sourceCardIds": [
+        "card.animals.072.c2"
+      ],
+      "prompt": "What do biologists call a chemical signal released to get a response from another animal of the same species?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A display",
+          "correct": false,
+          "rationale": "Displays are visual signals."
+        },
+        {
+          "id": "b",
+          "label": "A pheromone",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "An alarm call",
+          "correct": false,
+          "rationale": "That's a sound signal."
+        },
+        {
+          "id": "d",
+          "label": "A hormone",
+          "correct": false,
+          "rationale": "Hormones act inside the body; pheromones pass between animals."
+        }
+      ],
+      "explanation": "A pheromone is a chemical signal aimed at another member of the same species.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.behavior_vervet_alarm_calls"
+      ],
+      "sourceCardIds": [
+        "card.animals.072.c3"
+      ],
+      "prompt": "Why did it matter that the vervet alarm calls were played back with no predator present?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It showed the calls themselves carried the meaning",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It proved the monkeys were deaf to real predators",
+          "correct": false,
+          "rationale": "They responded to the recorded calls, so they weren't deaf."
+        },
+        {
+          "id": "c",
+          "label": "It showed all three calls meant the same thing",
+          "correct": false,
+          "rationale": "Each call drew a different response."
+        },
+        {
+          "id": "d",
+          "label": "It tested whether predators could hear the calls",
+          "correct": false,
+          "rationale": "The listeners in the test were the monkeys."
+        }
+      ],
+      "explanation": "With no predator to see, the right escape could only come from the call itself.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.behavior_signal_channels",
+        "concept.animals.behavior_instinct"
+      ],
+      "sourceCardIds": [
+        "card.animals.072.c2",
+        "card.animals.071.c2",
+        "card.animals.071.c3"
+      ],
+      "prompt": "Level 71 split behavior into instinct and learning. Where do animal signals fall?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Always instinctive",
+          "correct": false,
+          "rationale": "Some signals are learned."
+        },
+        {
+          "id": "b",
+          "label": "Always learned",
+          "correct": false,
+          "rationale": "Many signals are innate."
+        },
+        {
+          "id": "c",
+          "label": "They can be instinctive, learned or both",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Neither: signals are not behavior",
+          "correct": false,
+          "rationale": "Sending a signal is behavior."
+        }
+      ],
+      "explanation": "Signals, like behavior in general, can be instinctive, learned or a mix of both.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_animal_communication",
+    "source.openstax_bio_behavior",
+    "source.science_vervet_alarm_calls_1980"
+  ],
+  "art": "geo.speech-bubbles"
+}

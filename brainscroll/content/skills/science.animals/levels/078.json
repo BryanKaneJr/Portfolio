@@ -1,0 +1,219 @@
+{
+  "id": "level.science.animals.078",
+  "skillId": "skill.science.animals",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Smart Are Animals?",
+  "objective": "After this level you can explain how scientists test animal intelligence.",
+  "summary": "Gallup's 1970 mirror test marks an animal where only a mirror shows it. Few species pass, often not every individual, and it is a sight test that dogs fail.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.behavior_mirror_test",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_mirror_test_limits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_tool_use_def",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.077"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A chimp reaches for a red mark on its face that it can see only in a mirror.",
+      "body": "In 1970, psychologist Gordon Gallup Jr. marked chimpanzees with red dye, then gave them a mirror. The chimps used it to examine the marks on their own bodies. So does that mean they know who's in the mirror? And what about animals that fail?"
+    },
+    {
+      "id": "card.animals.078.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "How the mark test works",
+      "body": "The test runs in stages. First, the animal gets used to the mirror; many attack their reflection, as if it's a rival. Next, they often make odd movements, as if checking who controls the image. Finally, a colored mark goes where the animal can only see it in the mirror. If it pokes at the mark while watching its reflection, it passes."
+    },
+    {
+      "id": "card.animals.078.c3",
+      "type": "fact",
+      "fact": "Few species pass, and not every individual.",
+      "context": "Great apes, dolphins, elephants and magpies are on the short list. In 2006, researchers at the Bronx Zoo tested three Asian elephants. Only Happy clearly passed, repeatedly touching a white X painted on one side of her head. An invisible mark on the other side checked that she wasn't just reacting to feel or smell. One elephant out of three is a result, not a verdict on every elephant."
+    },
+    {
+      "id": "card.animals.078.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A test built for eyes",
+      "body": "Passing is impressive; failing proves less. Dogs usually fail, but dogs live by smell more than sight. In a 2017 smell version of the test, dogs sniffed their own urine longer when an extra odor had been added to it. And when cleaner wrasse fish scraped at marks in 2019, Gallup himself doubted it: they might just be reacting to what looked like a parasite. The mirror asks one question, in one sense.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Good science: even the test's inventor stays skeptical of a surprising pass."
+      }
+    },
+    {
+      "id": "card.animals.078.c5",
+      "type": "mcq",
+      "questionId": "question.animals.078.q1"
+    },
+    {
+      "id": "card.animals.078.c6",
+      "type": "mcq",
+      "questionId": "question.animals.078.q2"
+    },
+    {
+      "id": "card.animals.078.c7",
+      "type": "recall",
+      "questionId": "question.animals.078.q3"
+    },
+    {
+      "id": "card.animals.078.c8",
+      "type": "checkpoint",
+      "headline": "Animal minds: tested",
+      "learned": [
+        "Gallup's mirror test, 1970",
+        "Pass: touch a mark seen only in the mirror",
+        "Great apes, dolphins, elephants, magpies have passed",
+        "Only 1 of 3 elephants passed in 2006",
+        "A sight test: dogs, who live by smell, fail it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.behavior_mirror_test"
+      ],
+      "sourceCardIds": [
+        "card.animals.078.c2"
+      ],
+      "prompt": "In the mirror mark test, what counts as passing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Attacking the reflection",
+          "correct": false,
+          "rationale": "That's a common first reaction, not a pass."
+        },
+        {
+          "id": "b",
+          "label": "Staring at the mirror for a long time",
+          "correct": false,
+          "rationale": "Looking isn't enough."
+        },
+        {
+          "id": "c",
+          "label": "Poking at the mark while watching the reflection",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ignoring the mirror entirely",
+          "correct": false,
+          "rationale": "That shows no recognition at all."
+        }
+      ],
+      "explanation": "An animal passes if it pokes at a mark it can see only in the mirror while watching its reflection.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.behavior_mirror_test_limits"
+      ],
+      "sourceCardIds": [
+        "card.animals.078.c4"
+      ],
+      "prompt": "Why might a dog fail the mirror test even if it can recognize itself?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It relies more on smell than sight",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Dogs can't see reflections",
+          "correct": false,
+          "rationale": "They can see them; sight just isn't their main sense."
+        },
+        {
+          "id": "c",
+          "label": "Dogs are too young when tested",
+          "correct": false,
+          "rationale": "Age isn't the issue."
+        },
+        {
+          "id": "d",
+          "label": "The mark is too small",
+          "correct": false,
+          "rationale": "The problem is the sense the test uses."
+        }
+      ],
+      "explanation": "The mirror is a sight test, and in a smell version dogs reacted to changes in their own scent.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.behavior_mirror_test",
+        "concept.animals.behavior_tool_use_def"
+      ],
+      "sourceCardIds": [
+        "card.animals.078.c1",
+        "card.animals.077.c2"
+      ],
+      "prompt": "Chimpanzees surprised scientists with tool making in Level 77. What did Gallup's 1970 chimps do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Used sticks to wipe off the marks",
+          "correct": false,
+          "rationale": "The key was the mirror, not a tool."
+        },
+        {
+          "id": "b",
+          "label": "Ignored the mirror entirely",
+          "correct": false,
+          "rationale": "They used it."
+        },
+        {
+          "id": "c",
+          "label": "Attacked the mirror until it broke",
+          "correct": false,
+          "rationale": "They examined their own marks."
+        },
+        {
+          "id": "d",
+          "label": "Used a mirror to examine marks on their bodies",
+          "correct": true
+        }
+      ],
+      "explanation": "Marked with red dye, the chimps used the mirror to examine marks on their own bodies.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonianmag_fish_mirror_2019",
+    "source.natgeo_wrasse_mirror",
+    "source.smithsonianmag_happy_elephant",
+    "source.sciam_dog_self_recognition_2017"
+  ],
+  "art": "animals.octopus"
+}

@@ -1,0 +1,236 @@
+{
+  "id": "level.science.animals.088",
+  "skillId": "skill.science.animals",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Whales Once Walked",
+  "objective": "After this level you can explain how whales evolved from land mammals.",
+  "summary": "Whales' ancestors walked on land about 50 million years ago. Pakicetus had a whale-like ear, Ambulocetus paddled, Dorudon kept tiny hind legs; hippos are cousins.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.whale_land_ancestors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.whale_evolution_evidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.largest_animal",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.087"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The blue whale's ancestors walked on four legs.",
+      "body": "About 50 million years ago, the family that would one day produce the largest animal known to have lived was on land. How did a land mammal end up in the open ocean, and what gives the secret away?"
+    },
+    {
+      "id": "card.animals.088.c2",
+      "type": "timeline",
+      "headline": "From shore to sea",
+      "events": [
+        {
+          "when": "About 50 million years ago",
+          "label": "Pakicetus: four legs, lives on land at the water's edge"
+        },
+        {
+          "when": "50 to 48 million years ago",
+          "label": "Ambulocetus: paddle-like feet, swims with its tail"
+        },
+        {
+          "when": "40 to 33 million years ago",
+          "label": "Dorudon: flippers, tiny hind legs, fully aquatic"
+        },
+        {
+          "when": "About 34 million years ago",
+          "label": "Baleen whales appear: the blue whale's branch"
+        }
+      ]
+    },
+    {
+      "id": "card.animals.088.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The giveaway is in the ear",
+      "body": "From the outside, Pakicetus looked like a typical land mammal: long skull, large meat-eating teeth, four legs. But the inner ear region of its skull, wrapped in a bony wall, strongly resembles living whales' and no other mammal's. Ambulocetus adds a chemical clue: oxygen isotopes in its bones show it drank both salt water and fresh, just right for an estuary. Small details, big family secret."
+    },
+    {
+      "id": "card.animals.088.c4",
+      "type": "fact",
+      "fact": "A whale's tail beats up and down, like a running dog's back.",
+      "context": "Fish swim by swinging their tails side to side. Whales move theirs up and down, because they evolved from walking land mammals whose backbones bend that way. And their closest living relatives? Hippos, but as cousins, not ancestors. The ancestors of both lived on land.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Next time a whale waves its tail, picture a dog mid-gallop. Same backbone move."
+      }
+    },
+    {
+      "id": "card.animals.088.c5",
+      "type": "mcq",
+      "questionId": "question.animals.088.q1"
+    },
+    {
+      "id": "card.animals.088.c6",
+      "type": "mcq",
+      "questionId": "question.animals.088.q2"
+    },
+    {
+      "id": "card.animals.088.c7",
+      "type": "recall",
+      "questionId": "question.animals.088.q3"
+    },
+    {
+      "id": "card.animals.088.c8",
+      "type": "checkpoint",
+      "headline": "Whales: walked",
+      "learned": [
+        "Whale ancestors walked on land about 50 million years ago",
+        "Pakicetus: land mammal with a whale-like ear",
+        "Ambulocetus: paddle feet; Dorudon: tiny hind legs",
+        "Tails beat up and down, like a land mammal's back",
+        "Hippos are cousins, not ancestors"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.whale_land_ancestors"
+      ],
+      "sourceCardIds": [
+        "card.animals.088.c2",
+        "card.animals.088.c1"
+      ],
+      "prompt": "About how long ago did whales' four-legged ancestors like Pakicetus live on land?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 5 million years ago",
+          "correct": false,
+          "rationale": "Far too recent."
+        },
+        {
+          "id": "b",
+          "label": "About 50 million years ago",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 150 million years ago",
+          "correct": false,
+          "rationale": "That's Archaeopteryx's time."
+        },
+        {
+          "id": "d",
+          "label": "About 375 million years ago",
+          "correct": false,
+          "rationale": "That's Tiktaalik's time."
+        }
+      ],
+      "explanation": "Whales' land-dwelling ancestors, such as Pakicetus, lived about 50 million years ago.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.whale_evolution_evidence"
+      ],
+      "sourceCardIds": [
+        "card.animals.088.c4"
+      ],
+      "prompt": "Why do whales swim by beating their tails up and down, not side to side?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their land-mammal ancestors' backbones bent that way",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They copied the way fish swim",
+          "correct": false,
+          "rationale": "Fish swing their tails side to side."
+        },
+        {
+          "id": "c",
+          "label": "Their tails contain no bones at all",
+          "correct": false,
+          "rationale": "The reason is their ancestors' backbones."
+        },
+        {
+          "id": "d",
+          "label": "Up and down works only in salt water",
+          "correct": false,
+          "rationale": "The reason is ancestry, not the water."
+        }
+      ],
+      "explanation": "Whales evolved from walking land mammals whose backbones bend up and down, as a running dog's does.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.whale_land_ancestors",
+        "concept.animals.largest_animal"
+      ],
+      "sourceCardIds": [
+        "card.animals.088.c2",
+        "card.animals.088.c1",
+        "card.animals.009.c1"
+      ],
+      "prompt": "Level 9's blue whale is a baleen whale. Where does its family history begin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "With hippos",
+          "correct": false,
+          "rationale": "Hippos are cousins, not ancestors."
+        },
+        {
+          "id": "b",
+          "label": "With sharks",
+          "correct": false,
+          "rationale": "Sharks are fish; whales are mammals."
+        },
+        {
+          "id": "c",
+          "label": "With sea turtles",
+          "correct": false,
+          "rationale": "Not related this way."
+        },
+        {
+          "id": "d",
+          "label": "With four-legged land mammals",
+          "correct": true
+        }
+      ],
+      "explanation": "Baleen whales, including blue whales, descend from land mammals like Pakicetus that lived about 50 million years ago.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nhm_whales_walked",
+    "source.ue_whale_evolution",
+    "source.noaa_blue_whale"
+  ],
+  "art": "animals.whale"
+}

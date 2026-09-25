@@ -1,0 +1,225 @@
+{
+  "id": "level.science.animals.018",
+  "skillId": "skill.science.animals",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Primates",
+  "objective": "After this level you can describe apes and monkeys and what we share with them.",
+  "summary": "Primates have forward-facing eyes, flat nails and big brains. Apes, unlike most monkeys, have no tail. Chimps and bonobos, our closest relatives, differ from us by about 1.2% of DNA.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.primate_traits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.ape_vs_monkey",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.primate_dna_kinship",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.binomial_names",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.017"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Monkey or ape? Check for a tail.",
+      "body": "A chimpanzee has no tail, so it isn't a monkey. Neither are you. Primates come in famous kinds, and you belong to one of them. But first: what makes any of them a primate?"
+    },
+    {
+      "id": "card.animals.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The primate toolkit",
+      "body": "Primates' eyes face forward, so the two fields of view overlap. They have flat nails where other mammals have claws or hooves. And for their body weight, primates have bigger brains than other land mammals. Look at your fingertips: nails, not claws. That's your primate badge."
+    },
+    {
+      "id": "card.animals.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Apes: the tailless branch",
+      "body": "Apes are tailless primates, while most monkeys have tails. The great apes are gorillas, chimpanzees, bonobos and orangutans, and humans belong to the same family, Hominidae. So when someone calls you a monkey, you can correct them: ape, please.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Next family reunion: bring the bonobos."
+      }
+    },
+    {
+      "id": "card.animals.018.c4",
+      "type": "fact",
+      "fact": "Your DNA differs from a chimp's by about 1.2 percent.",
+      "context": "Chimpanzees and bonobos are our closest living relatives, both about 1.2 percent different in DNA. Gorillas differ by about 1.6 percent, and rhesus monkeys by about 7. But you didn't evolve from any primate alive today: humans and chimps share an ancestor species that lived millions of years ago. Cousins, not grandparents."
+    },
+    {
+      "id": "card.animals.018.c5",
+      "type": "mcq",
+      "questionId": "question.animals.018.q1"
+    },
+    {
+      "id": "card.animals.018.c6",
+      "type": "mcq",
+      "questionId": "question.animals.018.q2"
+    },
+    {
+      "id": "card.animals.018.c7",
+      "type": "recall",
+      "questionId": "question.animals.018.q3"
+    },
+    {
+      "id": "card.animals.018.c8",
+      "type": "checkpoint",
+      "headline": "Primates: met",
+      "learned": [
+        "Forward-facing eyes, flat nails, big brains",
+        "Apes have no tail; most monkeys do",
+        "Great apes: gorillas, chimps, bonobos, orangutans",
+        "Chimps and bonobos: about 1.2% DNA difference",
+        "Cousins, not ancestors"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.primate_traits"
+      ],
+      "sourceCardIds": [
+        "card.animals.018.c2"
+      ],
+      "prompt": "Which of these is part of the primate toolkit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Flat nails where other mammals have claws",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Eyes on the sides of the head",
+          "correct": false,
+          "rationale": "Primate eyes face forward."
+        },
+        {
+          "id": "c",
+          "label": "A pouch for the young",
+          "correct": false,
+          "rationale": "That's a marsupial feature."
+        },
+        {
+          "id": "d",
+          "label": "Small brains for their size",
+          "correct": false,
+          "rationale": "Primate brains are large for body weight."
+        }
+      ],
+      "explanation": "Primates have flat nails where other mammals have claws or hooves, forward-facing eyes and big brains for their size.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.ape_vs_monkey"
+      ],
+      "sourceCardIds": [
+        "card.animals.018.c3",
+        "card.animals.018.c1"
+      ],
+      "prompt": "A primate at the zoo has no tail. Which group does that point to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Monkeys",
+          "correct": false,
+          "rationale": "Most monkeys have tails."
+        },
+        {
+          "id": "b",
+          "label": "Lemurs",
+          "correct": false,
+          "rationale": "The tailless clue points to apes."
+        },
+        {
+          "id": "c",
+          "label": "Apes",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Marsupials",
+          "correct": false,
+          "rationale": "Those aren't primates at all."
+        }
+      ],
+      "explanation": "Apes are tailless primates; most monkeys have tails.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.primate_dna_kinship",
+        "concept.animals.binomial_names"
+      ],
+      "sourceCardIds": [
+        "card.animals.018.c4",
+        "card.animals.004.c2"
+      ],
+      "prompt": "Linnaeus named us Homo sapiens in Level 4. Which living animals are our closest relatives?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gorillas and orangutans",
+          "correct": false,
+          "rationale": "Close, but chimps and bonobos are closer."
+        },
+        {
+          "id": "b",
+          "label": "Rhesus monkeys",
+          "correct": false,
+          "rationale": "About 7 percent different: far more distant."
+        },
+        {
+          "id": "c",
+          "label": "Chimpanzees and bonobos",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Lemurs",
+          "correct": false,
+          "rationale": "Much more distant primates."
+        }
+      ],
+      "explanation": "Chimpanzees and bonobos differ from us by about 1.2 percent of DNA, less than any other living species.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_primate",
+    "source.brit_ape",
+    "source.smithsonian_human_origins_genetics",
+    "source.brit_linnaeus"
+  ],
+  "art": "animals.chimp"
+}

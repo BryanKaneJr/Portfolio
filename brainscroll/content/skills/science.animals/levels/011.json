@@ -1,0 +1,233 @@
+{
+  "id": "level.science.animals.011",
+  "skillId": "skill.science.animals",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Makes a Mammal",
+  "objective": "After this level you can explain the features all mammals share.",
+  "summary": "Mammals breathe air, make their own heat, have hair at some point and feed young milk, the feature Linnaeus named them for in 1758. About 6,800 living species (MDD, 2026).",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.mammal_traits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.mammal_species_count",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.body_heat_source",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.binomial_names",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.species_described_count",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.010"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Linnaeus named your whole class after milk.",
+      "body": "In 1758, in the same book that started Level 4's official animal register, Carl Linnaeus grouped you with cats, whales and bats. He called the group Mammalia, from the Latin mamma, the milk-producing breast. So what does it take to join the club?"
+    },
+    {
+      "id": "card.animals.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The mammal checklist",
+      "body": "Every mammal breathes air with lungs, has hair at some point in its life and feeds its young on milk. It also makes its own heat: Level 5's endotherms, with mammals at about 37 °C. One more badge hides inside your head, where a chain of three tiny bones carries sound across the middle ear. Milk is the one that made the name."
+    },
+    {
+      "id": "card.animals.011.c3",
+      "type": "fact",
+      "fact": "Many whales have hair only before they're born.",
+      "context": "Hair is a typical mammal feature, but in many whales it has disappeared except in the fetal stage. That still counts: the checklist says hair at some point in life, and a whale ticks that box before it's even born.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A whale's baby pictures are its only hairy ones."
+      }
+    },
+    {
+      "id": "card.animals.011.c4",
+      "type": "fact",
+      "fact": "About 6,800 living mammal species",
+      "context": "The American Society of Mammalogists' Mammal Diversity Database lists 6,791 living species in its July 2026 version. Next to Level 2's roughly 1.5 million described animal species, that's less than half of one percent. It's a small club, and you're a member."
+    },
+    {
+      "id": "card.animals.011.c5",
+      "type": "mcq",
+      "questionId": "question.animals.011.q1"
+    },
+    {
+      "id": "card.animals.011.c6",
+      "type": "mcq",
+      "questionId": "question.animals.011.q2"
+    },
+    {
+      "id": "card.animals.011.c7",
+      "type": "recall",
+      "questionId": "question.animals.011.q3"
+    },
+    {
+      "id": "card.animals.011.c8",
+      "type": "checkpoint",
+      "headline": "Mammals: defined",
+      "learned": [
+        "Breathe air, make their own heat",
+        "Hair at some point in life",
+        "Milk for the young, the feature in the name",
+        "Three tiny middle ear bones",
+        "About 6,800 living species (MDD, 2026)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.mammal_traits"
+      ],
+      "sourceCardIds": [
+        "card.animals.011.c1",
+        "card.animals.011.c2"
+      ],
+      "prompt": "Linnaeus named the class Mammalia after which mammal feature?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fur",
+          "correct": false,
+          "rationale": "Hair is on the checklist, but the name comes from milk."
+        },
+        {
+          "id": "b",
+          "label": "Mammary glands, which make milk",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Three middle ear bones",
+          "correct": false,
+          "rationale": "A mammal badge, but not the one in the name."
+        },
+        {
+          "id": "d",
+          "label": "Warm blood",
+          "correct": false,
+          "rationale": "Birds are warm-blooded too; the name means breast."
+        }
+      ],
+      "explanation": "Mammalia comes from the Latin mamma, the milk-producing breast.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.mammal_traits"
+      ],
+      "sourceCardIds": [
+        "card.animals.011.c3",
+        "card.animals.011.c2"
+      ],
+      "prompt": "Many whales have hair only before birth. Why do they still pass the mammal checklist?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whales don't need to pass it",
+          "correct": false,
+          "rationale": "Whales are mammals, so they meet the checklist."
+        },
+        {
+          "id": "b",
+          "label": "Their blubber counts as hair",
+          "correct": false,
+          "rationale": "Blubber is fat, not hair."
+        },
+        {
+          "id": "c",
+          "label": "Their teeth replace the hair rule",
+          "correct": false,
+          "rationale": "Teeth aren't on this checklist."
+        },
+        {
+          "id": "d",
+          "label": "The rule is hair at some point in life",
+          "correct": true
+        }
+      ],
+      "explanation": "The checklist asks for hair at some point in life, and many whales have it in the fetal stage.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.body_heat_source",
+        "concept.animals.mammal_traits"
+      ],
+      "sourceCardIds": [
+        "card.animals.011.c2",
+        "card.animals.005.c2"
+      ],
+      "prompt": "Level 5 sorted animals by where their body heat comes from. Which label fits every mammal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ectotherm, heated from outside",
+          "correct": false,
+          "rationale": "That's fish, amphibians and reptiles."
+        },
+        {
+          "id": "b",
+          "label": "Endotherm, heated from inside",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It depends on the fur",
+          "correct": false,
+          "rationale": "Endothermy doesn't depend on fur."
+        },
+        {
+          "id": "d",
+          "label": "Neither: mammals have no steady temperature",
+          "correct": false,
+          "rationale": "Mammals hold about 37 °C."
+        }
+      ],
+      "explanation": "Mammals are endotherms: they make their own heat and hold about 37 °C.",
+      "difficulty": 0.15
+    }
+  ],
+  "sourceIds": [
+    "source.jstor_daily_mammal_name",
+    "source.brit_linnaeus",
+    "source.noaa_marine_mammals",
+    "source.brit_mammal",
+    "source.brit_warm_bloodedness",
+    "source.mdd_home",
+    "source.iucn_redlist_table1a_2025"
+  ],
+  "art": "animals.paw"
+}

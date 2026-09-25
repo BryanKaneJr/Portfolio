@@ -1,0 +1,220 @@
+{
+  "id": "level.science.animals.023",
+  "skillId": "skill.science.animals",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Eggs and Nests",
+  "objective": "After this level you can explain how birds build nests and hatch their eggs.",
+  "summary": "Nests range from nothing at all to woven weaver homes. The warmth comes from the parent's bare brood patch, near 38 °C, and the chick breaks out with an egg tooth it soon loses.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.bird_nest_variety",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.bird_incubation_hatching",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.bird_defining_traits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.022"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some bird nests weigh more than a ton. Some birds build none.",
+      "body": "Falcons, owls and many seabirds and shorebirds make no real nest at all. Weavers weave grass into elaborate flask-shaped homes. Every bird lays hard-shelled eggs, though. So what does an egg actually need from its parents?"
+    },
+    {
+      "id": "card.animals.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A nest is a cradle, not a heater",
+      "body": "Birds build with whatever works: twigs, leaves, mud, feathers, even spiderwebs. Some swifts glue theirs together with saliva. Nests run from about 2 cm across for small hummingbirds to more than 2 m for large eagles. But a nest only holds the eggs. The warmth has to come from somewhere else."
+    },
+    {
+      "id": "card.animals.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The bare patch",
+      "body": "Near the end of egg-laying, a sitting bird loses the feathers from a patch of its belly. This brood patch grows extra blood vessels that bring hot blood right to the skin, pressed against the eggs. Most birds incubate at around 38 °C, raising or lowering their body to adjust, and they turn the eggs as they develop. If both parents sit, both may grow a patch."
+    },
+    {
+      "id": "card.animals.023.c4",
+      "type": "fact",
+      "fact": "A chick breaks out with a 'tooth' it soon loses.",
+      "context": "The egg tooth is a hard tip on the chick's bill; ornithologist William Yarrell discovered its role in 1826. The chick uses it to punch the first hole in the shell. In most birds it falls off a few days after hatching, and in perching birds like finches and sparrows it's absorbed into the bill. Remember, no bird has teeth. This one is a loaner.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A tooth you only need once, for the world's hardest front door. Very efficient."
+      }
+    },
+    {
+      "id": "card.animals.023.c5",
+      "type": "mcq",
+      "questionId": "question.animals.023.q1"
+    },
+    {
+      "id": "card.animals.023.c6",
+      "type": "mcq",
+      "questionId": "question.animals.023.q2"
+    },
+    {
+      "id": "card.animals.023.c7",
+      "type": "recall",
+      "questionId": "question.animals.023.q3"
+    },
+    {
+      "id": "card.animals.023.c8",
+      "type": "checkpoint",
+      "headline": "Nests and eggs: explained",
+      "learned": [
+        "Nests: from none at all to woven weaver homes",
+        "About 2 cm to more than 2 m across",
+        "Bare brood patch warms eggs near 38 °C",
+        "Chicks pip out with an egg tooth, then lose it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.bird_incubation_hatching"
+      ],
+      "sourceCardIds": [
+        "card.animals.023.c4"
+      ],
+      "prompt": "What does a hatching chick use to break the first hole in its shell?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its sharp claws",
+          "correct": false,
+          "rationale": "The job falls to the tip of the bill."
+        },
+        {
+          "id": "b",
+          "label": "Its egg tooth, a hard tip on the bill",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A parent's beak, tapping from outside",
+          "correct": false,
+          "rationale": "The chick opens the shell itself."
+        },
+        {
+          "id": "d",
+          "label": "The parent's brood patch",
+          "correct": false,
+          "rationale": "That warms the eggs; it doesn't open them."
+        }
+      ],
+      "explanation": "The egg tooth, a hard tip on the bill, punches the first hole; most chicks lose it within days.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.bird_incubation_hatching"
+      ],
+      "sourceCardIds": [
+        "card.animals.023.c3"
+      ],
+      "prompt": "Why does a sitting bird lose the feathers from a patch of its belly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To stay cool while sitting still",
+          "correct": false,
+          "rationale": "The patch passes heat to the eggs, not away from the bird."
+        },
+        {
+          "id": "b",
+          "label": "Because it is molting before migration",
+          "correct": false,
+          "rationale": "The patch forms at the end of egg-laying, for incubation."
+        },
+        {
+          "id": "c",
+          "label": "To let the eggs cool to air temperature",
+          "correct": false,
+          "rationale": "Most eggs need about 38 °C."
+        },
+        {
+          "id": "d",
+          "label": "So blood-warmed skin can touch the eggs",
+          "correct": true
+        }
+      ],
+      "explanation": "The bare brood patch, rich in blood vessels, brings body heat straight to the eggs.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.bird_nest_variety",
+        "concept.animals.bird_defining_traits"
+      ],
+      "sourceCardIds": [
+        "card.animals.023.c1",
+        "card.animals.021.c3"
+      ],
+      "prompt": "Every bird lays hard-shelled eggs (Level 21). Which is true of the nests birds lay them in?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every bird builds a cup of twigs",
+          "correct": false,
+          "rationale": "Falcons and owls make no real nest at all."
+        },
+        {
+          "id": "b",
+          "label": "Only seabirds skip nest building",
+          "correct": false,
+          "rationale": "Falcons and owls skip it too."
+        },
+        {
+          "id": "c",
+          "label": "They range from nothing at all to woven homes",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "All nests are about the same size",
+          "correct": false,
+          "rationale": "They run from about 2 cm to more than 2 m."
+        }
+      ],
+      "explanation": "Eggs are universal; nests aren't. They range from no real structure to woven weaver nests.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_nest",
+    "source.stanford_birds_brood_patches",
+    "source.bto_incubation",
+    "source.audubon_hatching_egg_2016",
+    "source.brit_bird",
+    "source.brit_beak"
+  ],
+  "art": "animals.egg"
+}

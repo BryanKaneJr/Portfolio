@@ -1,0 +1,218 @@
+{
+  "id": "level.science.animals.027",
+  "skillId": "skill.science.animals",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hummingbirds",
+  "objective": "After this level you can describe hummingbirds' speed and energy needs.",
+  "summary": "A flying ruby-throated hummingbird's heart tops 1,200 beats a minute, and hummingbirds are the only vertebrates that can hover for long. Tiny and poorly insulated, they save energy at night in torpor.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.hummingbird_flight_engine",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.hummingbird_torpor",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.body_heat_cost",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.026"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A hummingbird's heart can beat more than 1,200 times a minute.",
+      "body": "That's a ruby-throated hummingbird in flight, according to the Smithsonian's National Zoo. At rest it drops to about 225. A human athlete working hard reaches only about 150. What kind of life needs an engine like that?"
+    },
+    {
+      "id": "card.animals.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The only true hoverers",
+      "body": "Hummingbirds are the only vertebrates that can hover for a sustained time, parked in midair in front of a flower. They can fly backward, and even upside down. A ruby-throated hummingbird beats its wings about 70 times a second in ordinary flight, and more than 200 times a second in a dive. That's a lot of flapping just to stand still."
+    },
+    {
+      "id": "card.animals.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A tiny furnace with a thin coat",
+      "body": "Hummingbirds weigh just 2 to 20 grams, their feathers are poor insulation, and their metabolic demands are enormous. Remember Level 5: making your own heat costs food, which is why a lizard can eat so much less than a warm-blooded animal its size. A hummingbird is the extreme case, a tiny bird with a thin coat and a racing engine."
+    },
+    {
+      "id": "card.animals.027.c4",
+      "type": "fact",
+      "fact": "At night, a hummingbird can nearly switch itself off.",
+      "context": "When a night is cold or food is short, a hummingbird can drop into torpor: a deep, sleep-like state with its metabolism slowed to a minimum and its body temperature very low. In a study published in 2020, a black metaltail hummingbird in the Peruvian Andes cooled to 3.3 °C, the lowest body temperature recorded for any bird or non-hibernating mammal.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Full throttle all day, power-saving mode all night. Honestly, relatable."
+      }
+    },
+    {
+      "id": "card.animals.027.c5",
+      "type": "mcq",
+      "questionId": "question.animals.027.q1"
+    },
+    {
+      "id": "card.animals.027.c6",
+      "type": "mcq",
+      "questionId": "question.animals.027.q2"
+    },
+    {
+      "id": "card.animals.027.c7",
+      "type": "recall",
+      "questionId": "question.animals.027.q3"
+    },
+    {
+      "id": "card.animals.027.c8",
+      "type": "checkpoint",
+      "headline": "Hummingbirds: explained",
+      "learned": [
+        "Heart: about 225 at rest, over 1,200 in flight",
+        "The only vertebrates that hover for long",
+        "Tiny, poorly insulated, huge energy needs",
+        "Torpor saves energy; one cooled to 3.3 °C"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.hummingbird_flight_engine"
+      ],
+      "sourceCardIds": [
+        "card.animals.027.c1"
+      ],
+      "prompt": "About how fast can a flying ruby-throated hummingbird's heart beat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 60 beats a minute",
+          "correct": false,
+          "rationale": "Closer to a resting human."
+        },
+        {
+          "id": "b",
+          "label": "About 150 beats a minute",
+          "correct": false,
+          "rationale": "That's a human athlete working hard."
+        },
+        {
+          "id": "c",
+          "label": "About 225 beats a minute",
+          "correct": false,
+          "rationale": "That's its resting rate."
+        },
+        {
+          "id": "d",
+          "label": "More than 1,200 beats a minute",
+          "correct": true
+        }
+      ],
+      "explanation": "A ruby-throated hummingbird's heart runs from about 225 at rest to more than 1,200 beats a minute in flight.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.hummingbird_torpor"
+      ],
+      "sourceCardIds": [
+        "card.animals.027.c4"
+      ],
+      "prompt": "Why does a hummingbird drop into torpor on a cold night?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To slow its body down and save energy",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To digest a big meal of nectar",
+          "correct": false,
+          "rationale": "Torpor slows everything down, digestion included."
+        },
+        {
+          "id": "c",
+          "label": "To grow new flight feathers",
+          "correct": false,
+          "rationale": "Torpor is about saving energy."
+        },
+        {
+          "id": "d",
+          "label": "To hide from owls by staying still",
+          "correct": false,
+          "rationale": "The card is about energy, not hiding."
+        }
+      ],
+      "explanation": "In torpor a hummingbird slows its metabolism to a minimum and lets its body temperature fall, saving energy.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.hummingbird_torpor",
+        "concept.animals.body_heat_cost"
+      ],
+      "sourceCardIds": [
+        "card.animals.027.c3",
+        "card.animals.005.c4"
+      ],
+      "prompt": "Level 5 said making your own heat costs food. Why does that bill hit hummingbirds so hard?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are ectotherms that must bask",
+          "correct": false,
+          "rationale": "They are birds, which make their own heat."
+        },
+        {
+          "id": "b",
+          "label": "They eat only once a day",
+          "correct": false,
+          "rationale": "The card doesn't say so; the issue is their tiny, costly bodies."
+        },
+        {
+          "id": "c",
+          "label": "They're tiny, poorly insulated, and burn energy fast",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They fly only in the tropics",
+          "correct": false,
+          "rationale": "The issue is their bodies, not where they live."
+        }
+      ],
+      "explanation": "At 2 to 20 grams, with poor insulation and huge metabolic demands, hummingbirds pay the heat bill hardest.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonian_zoo_hummingbirds",
+    "source.audubon_birdnote_hummingbird_hearts_2021",
+    "source.biolett_wolf_andean_torpor_2020",
+    "source.brit_why_reptiles_cold_blooded"
+  ],
+  "art": "animals.hummingbird"
+}

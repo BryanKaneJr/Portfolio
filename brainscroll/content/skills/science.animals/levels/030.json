@@ -1,0 +1,359 @@
+{
+  "id": "level.science.animals.030",
+  "skillId": "skill.science.animals",
+  "number": 30,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Birds",
+  "objective": "After this level you can explain how birds' bodies are built for flight and survival.",
+  "summary": "A bird's body is a flying machine. The ostrich dropped the flying: no keel, no flight, but fast two-toed feet, the largest living bird and the largest egg of any living bird.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.bird_flightless_ostrich",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.bird_flight_muscles",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.peregrine_dive",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.penguin_swimming",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.hummingbird_flight_engine",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.migration_record_flights",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.owl_sound_hunting",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.029"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.030.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 3 finale: a bird that traded flying for running.",
+      "body": "This chapter built a flying machine: feathers, air-filled bones, lift from turned air, and a keel for the flight muscles. Now meet a bird that dropped the flying and kept the rest."
+    },
+    {
+      "id": "card.animals.030.c2",
+      "type": "fact",
+      "fact": "The ostrich is the largest living bird.",
+      "context": "An adult male may stand 2.75 m tall and weigh more than 150 kg. It lives in open country in Africa, and it cannot fly. Instead, a frightened ostrich can run at about 70 km/h, on the only two-toed feet of any bird, the main toe built almost like a hoof. Its escape plan is its legs.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Two toes, one very fast plan: leave."
+      }
+    },
+    {
+      "id": "card.animals.030.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "No keel, no flight",
+      "body": "Remember Level 22's keel, the breastbone ridge that anchors the flight muscles? Ostriches, emus and their relatives, the ratites, have a smooth, raftlike breastbone with no keel at all. With nowhere to anchor big flight muscles, they can't fly. Size still counts, though: the ostrich lays the largest egg of any living bird, about 15 cm long."
+    },
+    {
+      "id": "card.animals.030.c4",
+      "type": "comparison",
+      "headline": "Three birds, three bodies",
+      "items": [
+        {
+          "label": "Peregrine falcon",
+          "points": [
+            "Built for the dive",
+            "Frightful: 242 mph (1999)"
+          ]
+        },
+        {
+          "label": "Ruby-throated hummingbird",
+          "points": [
+            "Built for hovering",
+            "Heart over 1,200 beats a minute"
+          ]
+        },
+        {
+          "label": "Emperor penguin",
+          "points": [
+            "Built for deep water",
+            "Dense bones; dives about 550 m"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.030.c5",
+      "type": "mcq",
+      "questionId": "question.animals.030.q1"
+    },
+    {
+      "id": "card.animals.030.c6",
+      "type": "mcq",
+      "questionId": "question.animals.030.q2"
+    },
+    {
+      "id": "card.animals.030.c7",
+      "type": "mcq",
+      "questionId": "question.animals.030.q3"
+    },
+    {
+      "id": "card.animals.030.c8",
+      "type": "recall",
+      "questionId": "question.animals.030.q4"
+    },
+    {
+      "id": "card.animals.030.c9",
+      "type": "recall",
+      "questionId": "question.animals.030.q5"
+    },
+    {
+      "id": "card.animals.030.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 3 complete",
+      "learned": [
+        "Feathers make a bird; big fliers have air-filled bones",
+        "Wings lift by turning air; a keel anchors flight muscles",
+        "Raptors, owls, penguins, hummingbirds: bodies built for jobs",
+        "Record migrants run on fat and steer by sun, stars, magnetism",
+        "The ostrich: no keel, no flight, the largest living bird"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.030.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.bird_flightless_ostrich"
+      ],
+      "sourceCardIds": [
+        "card.animals.030.c2"
+      ],
+      "prompt": "Birds recap: which bird is the largest one alive today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The ostrich",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The emperor penguin",
+          "correct": false,
+          "rationale": "Penguins are big, but the ostrich is larger."
+        },
+        {
+          "id": "c",
+          "label": "The frigatebird",
+          "correct": false,
+          "rationale": "Long wings, light skeleton, far smaller body."
+        },
+        {
+          "id": "d",
+          "label": "The bald eagle",
+          "correct": false,
+          "rationale": "Eagles build huge nests, but the ostrich is the largest bird."
+        }
+      ],
+      "explanation": "The ostrich is the largest living bird; a male may stand 2.75 m tall and weigh more than 150 kg.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.030.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.bird_flightless_ostrich",
+        "concept.animals.bird_flight_muscles"
+      ],
+      "sourceCardIds": [
+        "card.animals.030.c3",
+        "card.animals.022.c4"
+      ],
+      "prompt": "Birds recap: why can't an ostrich fly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its feathers are too heavy",
+          "correct": false,
+          "rationale": "The card points to the breastbone."
+        },
+        {
+          "id": "b",
+          "label": "Its wings were lost entirely",
+          "correct": false,
+          "rationale": "It still has wings; it lacks the keel."
+        },
+        {
+          "id": "c",
+          "label": "Its breastbone has no keel for flight muscles",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its bones are too hollow",
+          "correct": false,
+          "rationale": "The missing piece is the keel."
+        }
+      ],
+      "explanation": "Ratites like the ostrich have a smooth, keel-less breastbone, so there's nowhere to anchor big flight muscles.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.030.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.bird_flightless_ostrich",
+        "concept.animals.penguin_swimming"
+      ],
+      "sourceCardIds": [
+        "card.animals.030.c4",
+        "card.animals.026.c1",
+        "card.animals.030.c2"
+      ],
+      "prompt": "Birds recap: penguins and ostriches both gave up flying through air. What did each do instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both became fast runners",
+          "correct": false,
+          "rationale": "Penguins swim; ostriches run."
+        },
+        {
+          "id": "b",
+          "label": "Penguins run; ostriches swim",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "c",
+          "label": "Both glide from cliffs",
+          "correct": false,
+          "rationale": "Neither glides; one swims, one runs."
+        },
+        {
+          "id": "d",
+          "label": "Penguins swim with flippers; ostriches run",
+          "correct": true
+        }
+      ],
+      "explanation": "Penguins turned their wings into flippers for swimming; ostriches run on two-toed feet.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.030.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.migration_record_flights"
+      ],
+      "sourceCardIds": [
+        "card.animals.029.c3"
+      ],
+      "prompt": "Birds recap, from Level 29: in the 2010 tracking study, about how far did Arctic terns fly each year?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 7,090 km",
+          "correct": false,
+          "rationale": "Ten times too short."
+        },
+        {
+          "id": "b",
+          "label": "About 13,560 km",
+          "correct": false,
+          "rationale": "That's the godwit's nonstop flight."
+        },
+        {
+          "id": "c",
+          "label": "About 70,900 km",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 2.4 million km",
+          "correct": false,
+          "rationale": "That's the estimate for a whole lifetime."
+        }
+      ],
+      "explanation": "The 11 tracked terns averaged 70,900 km a year on migration.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.030.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.owl_sound_hunting"
+      ],
+      "sourceCardIds": [
+        "card.animals.025.c2",
+        "card.animals.025.c1"
+      ],
+      "prompt": "Birds recap, from Level 25: what let a barn owl strike its target in total darkness?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Eyes that see in complete darkness",
+          "correct": false,
+          "rationale": "The test ruled out sight."
+        },
+        {
+          "id": "b",
+          "label": "Lopsided ears that pinpoint sound",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A keen sense of smell",
+          "correct": false,
+          "rationale": "The owl struck paper, which ruled out smell."
+        },
+        {
+          "id": "d",
+          "label": "Whiskers that sense air currents",
+          "correct": false,
+          "rationale": "The card credits its ears."
+        }
+      ],
+      "explanation": "Uneven ears let a barn owl locate sounds in three dimensions, so it can strike by sound alone.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ostrich",
+    "source.brit_ratite",
+    "source.brit_keel_bird",
+    "source.smithsonianmag_falling_with_falcon_2005",
+    "source.guinness_fastest_bird_diving",
+    "source.smithsonian_zoo_hummingbirds",
+    "source.joa_ksepka_penguin_bone_2015",
+    "source.brit_penguin",
+    "source.pnas_egevang_arctic_tern_2010",
+    "source.jeb_konishi_owl_2010",
+    "source.audubon_barn_owl_facts_2025"
+  ],
+  "art": "animals.eagle"
+}

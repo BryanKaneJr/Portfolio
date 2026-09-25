@@ -1,0 +1,218 @@
+{
+  "id": "level.science.animals.043",
+  "skillId": "skill.science.animals",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Deep Sea",
+  "objective": "After this level you can describe animals that live in the dark deep ocean.",
+  "summary": "Below about 1,000 meters no sunlight reaches, and food is scarce so far from the sunlit plankton. Most deep animals make their own light; female anglerfish fish with a lure lit by bacteria.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.deep_sea_darkness",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.deep_sea_bioluminescence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.food_chain_levels",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.042"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.043.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Below 1,000 meters, the sun never shows up.",
+      "body": "No dawn, no dusk, just dark water all the way down. Yet the deep sea isn't pitch black. Something down there is making its own light. Who lives in a place like that, and what do they eat?"
+    },
+    {
+      "id": "card.animals.043.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A long way from lunch",
+      "body": "Remember Level 7? Every food chain starts with producers, and producers need sunlight. In the ocean, that means plankton near the bright surface. Down in the midnight zone, it's dark, cold and crushed by pressure, and it's a very long way from the bottom of the food chain. That distance limits how much life the deep can hold. Down here, nobody can afford to miss a meal."
+    },
+    {
+      "id": "card.animals.043.c3",
+      "type": "fact",
+      "fact": "In one deep-sea survey, three quarters of the animals could glow.",
+      "context": "In 2017, MBARI scientists Severine Martini and Steve Haddock tallied the animals in Monterey Bay, from the surface down to 4,000 meters. Three quarters of them can make their own light, a trick called bioluminescence. In water the sun never reaches past 1,000 meters, the animals bring their own lamps."
+    },
+    {
+      "id": "card.animals.043.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A fishing rod with a night-light",
+      "body": "Meet the anglerfish. Adult females of most species carry a lure, the esca, dangling from a \"fishing rod\" above the mouth. The glow comes from bioluminescent bacteria living inside it. Prey drift toward the light and find a big mouth of sharp, backward-pointing teeth waiting. It's fishing, with the bait built in.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Bring your own light and your own bait. The anglerfish packs for every occasion."
+      }
+    },
+    {
+      "id": "card.animals.043.c5",
+      "type": "mcq",
+      "questionId": "question.animals.043.q1"
+    },
+    {
+      "id": "card.animals.043.c6",
+      "type": "mcq",
+      "questionId": "question.animals.043.q2"
+    },
+    {
+      "id": "card.animals.043.c7",
+      "type": "recall",
+      "questionId": "question.animals.043.q3"
+    },
+    {
+      "id": "card.animals.043.c8",
+      "type": "checkpoint",
+      "headline": "The deep sea: explored",
+      "learned": [
+        "No sunlight below about 1,000 meters",
+        "Far from the plankton, food is scarce",
+        "Three quarters of animals surveyed can glow",
+        "Female anglerfish fish with a bacteria-lit lure"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.deep_sea_darkness"
+      ],
+      "sourceCardIds": [
+        "card.animals.043.c1"
+      ],
+      "prompt": "Below about what depth does sunlight stop reaching the ocean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "10 meters",
+          "correct": false,
+          "rationale": "Plenty of sunlight still reaches there."
+        },
+        {
+          "id": "b",
+          "label": "100 meters",
+          "correct": false,
+          "rationale": "Some light still gets through."
+        },
+        {
+          "id": "c",
+          "label": "1,000 meters",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "10,000 meters",
+          "correct": false,
+          "rationale": "The dark begins ten times shallower."
+        }
+      ],
+      "explanation": "Light can be detected to about 1,000 meters; below that, sunlight doesn't reach.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.deep_sea_bioluminescence"
+      ],
+      "sourceCardIds": [
+        "card.animals.043.c4"
+      ],
+      "prompt": "What makes a female anglerfish's lure glow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bacteria living inside it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Sunlight reflected from above",
+          "correct": false,
+          "rationale": "Sunlight never reaches that deep."
+        },
+        {
+          "id": "c",
+          "label": "Heat from its warm blood",
+          "correct": false,
+          "rationale": "The light comes from bacteria."
+        },
+        {
+          "id": "d",
+          "label": "Tiny sparks of electricity",
+          "correct": false,
+          "rationale": "The glow is bacterial bioluminescence."
+        }
+      ],
+      "explanation": "The esca glows because bioluminescent bacteria live inside it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.deep_sea_darkness",
+        "concept.animals.food_chain_levels"
+      ],
+      "sourceCardIds": [
+        "card.animals.043.c2",
+        "card.animals.007.c2"
+      ],
+      "prompt": "Level 7 said food chains begin with producers. Why does that leave the midnight zone short of food?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Decomposers eat everything first",
+          "correct": false,
+          "rationale": "Decomposers recycle; they don't cause the shortage."
+        },
+        {
+          "id": "b",
+          "label": "Deep-sea animals are all producers",
+          "correct": false,
+          "rationale": "Animals must eat; they can't make food."
+        },
+        {
+          "id": "c",
+          "label": "Predators ate all the deep plankton",
+          "correct": false,
+          "rationale": "Plankton need sunlight, so they live near the top."
+        },
+        {
+          "id": "d",
+          "label": "Producers need sunlight, which can't reach it",
+          "correct": true
+        }
+      ],
+      "explanation": "Producers need sunlight, so the base of the food chain sits near the surface, far above the midnight zone.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_light_in_ocean",
+    "source.noaa_oe_midnight_zone_fishes",
+    "source.mbari_bioluminescence_2017",
+    "source.natgeo_food_chain"
+  ],
+  "art": "animals.anglerfish"
+}

@@ -1,0 +1,224 @@
+{
+  "id": "level.science.animals.033",
+  "skillId": "skill.science.animals",
+  "number": 33,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Venom",
+  "objective": "After this level you can explain how venom works and how antivenom is made.",
+  "summary": "Venom is injected; poison harms when eaten or touched. Venom's toxins attack nerves or blood. Antivenom comes from antibodies horses make against small doses of venom.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.venom_vs_poison",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.venom_toxins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.antivenom_making",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.snake_swallowing",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.032"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.033.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Calling a cobra 'poisonous' is technically wrong.",
+      "body": "Poison and venom are both toxins, and people swap the words all the time. The difference is how the toxin gets into you, and it's the key to how this level's cure works."
+    },
+    {
+      "id": "card.animals.033.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who bites whom",
+      "body": "Venom has to be injected: a fang, stinger or spine wounds you and delivers it. Poison works the other way round. It harms when it's eaten or absorbed through the skin, so a poisonous animal, like a pufferfish, just waits to be touched or tasted. The rule of thumb: if it bites you and you get sick, it's venomous. If you bite it and you get sick, it's poisonous."
+    },
+    {
+      "id": "card.animals.033.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What's in the cocktail",
+      "body": "Venom is made in special glands, and it's a mixture of toxic enzymes and other proteins. Some are neurotoxins, which attack the nervous system; in a snakebite that can mean paralysis that stops a person breathing. Others are hemotoxins, which attack the blood and blood vessels, causing bleeding or wrecking the blood's ability to clot. A venom isn't one weapon. It's a toolkit."
+    },
+    {
+      "id": "card.animals.033.c4",
+      "type": "fact",
+      "fact": "Antivenom is still made with the help of horses.",
+      "context": "In the 1890s the French scientist Albert Calmette made the first snake antivenom, against cobra venom, and in 1895 began producing it with horses. The method has barely changed: a horse, or sometimes a sheep, gets small doses of venom, its immune system makes antibodies, and those are collected from its blood. WHO estimates about 81,000 to 138,000 people die from snakebites each year and calls antivenom the most effective treatment. If anyone is bitten, get medical help.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "The horse does the hard part. Its immune system learns the venom so ours don't have to."
+      }
+    },
+    {
+      "id": "card.animals.033.c5",
+      "type": "mcq",
+      "questionId": "question.animals.033.q1"
+    },
+    {
+      "id": "card.animals.033.c6",
+      "type": "mcq",
+      "questionId": "question.animals.033.q2"
+    },
+    {
+      "id": "card.animals.033.c7",
+      "type": "recall",
+      "questionId": "question.animals.033.q3"
+    },
+    {
+      "id": "card.animals.033.c8",
+      "type": "checkpoint",
+      "headline": "Venom: explained",
+      "learned": [
+        "Venom is injected; poison is eaten or touched",
+        "Venom mixes toxic enzymes and proteins",
+        "Neurotoxins hit nerves; hemotoxins hit blood",
+        "Antivenom: horse antibodies, a method from the 1890s",
+        "Snakebite needs medical help"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.033.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.venom_vs_poison"
+      ],
+      "sourceCardIds": [
+        "card.animals.033.c2"
+      ],
+      "prompt": "What makes an animal venomous rather than poisonous?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It injects its toxin through a wound",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its toxin is always stronger",
+          "correct": false,
+          "rationale": "Strength isn't the difference; delivery is."
+        },
+        {
+          "id": "c",
+          "label": "It is brightly coloured",
+          "correct": false,
+          "rationale": "Colour isn't the test; how the toxin gets in is."
+        },
+        {
+          "id": "d",
+          "label": "Its toxin works only if eaten",
+          "correct": false,
+          "rationale": "That describes poison."
+        }
+      ],
+      "explanation": "Venom is injected by a fang, stinger or spine; poison harms when it is eaten or absorbed through the skin.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.antivenom_making"
+      ],
+      "sourceCardIds": [
+        "card.animals.033.c4"
+      ],
+      "prompt": "Why do antivenom makers give a horse small doses of snake venom?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Horses are naturally immune to every venom",
+          "correct": false,
+          "rationale": "The horse builds its defence from small doses; it isn't born immune."
+        },
+        {
+          "id": "b",
+          "label": "The horse's immune system makes antibodies that can be collected",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Horse blood dilutes venom into a harmless liquid",
+          "correct": false,
+          "rationale": "The useful part is the antibodies, not dilution."
+        },
+        {
+          "id": "d",
+          "label": "The venom turns into medicine inside the horse's stomach",
+          "correct": false,
+          "rationale": "The venom is injected, and the antibodies come from blood."
+        }
+      ],
+      "explanation": "Small doses of venom prompt the horse's immune system to make antibodies, which are harvested from its blood to make antivenom.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.033.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.venom_toxins",
+        "concept.animals.snake_swallowing"
+      ],
+      "sourceCardIds": [
+        "card.animals.033.c3",
+        "card.animals.032.c4"
+      ],
+      "prompt": "A cobra's bite leaves a frog unable to move. Which kind of toxin did that, and how does the cobra eat it (Level 32)?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A hemotoxin; it chews the frog into pieces",
+          "correct": false,
+          "rationale": "Paralysis is a nerve effect, and snakes swallow whole."
+        },
+        {
+          "id": "b",
+          "label": "A neurotoxin; it swallows the frog whole",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A poison; it swallows the frog whole",
+          "correct": false,
+          "rationale": "It was injected, so it's venom, not poison."
+        },
+        {
+          "id": "d",
+          "label": "A neurotoxin; it tears the frog apart with its claws",
+          "correct": false,
+          "rationale": "Snakes have no limbs, let alone claws."
+        }
+      ],
+      "explanation": "Paralysis comes from neurotoxins attacking the nervous system; then the unjoined jaw halves walk the whole frog down.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_venom",
+    "source.natgeo_venomous_poisonous",
+    "source.who_snakebite",
+    "source.nih_fogarty_antivenom"
+  ],
+  "art": "animals.snake"
+}

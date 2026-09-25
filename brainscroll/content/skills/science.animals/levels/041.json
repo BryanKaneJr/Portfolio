@@ -1,0 +1,223 @@
+{
+  "id": "level.science.animals.041",
+  "skillId": "skill.science.animals",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Makes a Fish",
+  "objective": "After this level you can explain gills, fins and scales.",
+  "summary": "Fish breathe oxygen dissolved in water through blood-rich gills, steer with paired fins and wear bony scales that grow all their lives. Most are cold-blooded; the opah is the warm exception.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.fish_gills",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.fish_fins_scales",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.fish_opah_warm_blood",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.body_heat_source",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.040"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A fish needs oxygen as much as you do. It just never comes up for air.",
+      "body": "Chapter 5 heads underwater, and the first animal to explain is the obvious one. A fish spends its whole life submerged, yet it breathes oxygen all day long. The trick is its gills. So what else, besides gills, makes a fish a fish?"
+    },
+    {
+      "id": "card.animals.041.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Breathing water, sort of",
+      "body": "Water carries a little oxygen dissolved in it, the way soda carries its fizz. A fish takes water in through its mouth and sends it over its gills: fleshy filaments packed with blood vessels. As the water flows past, oxygen slips into the blood and carbon dioxide slips out. A fish doesn't drink its air. It sieves it."
+    },
+    {
+      "id": "card.animals.041.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Steering fins and bony armor",
+      "body": "Fins do the driving. The pectoral fins, the pair on a fish's sides, are crucial for steadying and steering, working with the fins on its back and tail to keep it balanced. Scales are the armor. On a bony fish, each scale is a thin plate of bone overlapping the next like roof shingles, and it keeps growing for the fish's whole life. The armor gets upgraded as the owner grows."
+    },
+    {
+      "id": "card.animals.041.c4",
+      "type": "fact",
+      "fact": "Most fish are cold-blooded. The opah breaks the rule.",
+      "context": "Remember Level 5? Fish sit with the ectotherms, taking their heat from the water around them, like reptiles and amphibians. Most fish species do. The opah doesn't: it is warm-blooded, and a heat-exchange system in its gills helps keep it warm. So even \"fish are cold-blooded\" is a rule with a footnote.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A warm-blooded fish. Somewhere, a biology textbook just sighed."
+      }
+    },
+    {
+      "id": "card.animals.041.c5",
+      "type": "mcq",
+      "questionId": "question.animals.041.q1"
+    },
+    {
+      "id": "card.animals.041.c6",
+      "type": "mcq",
+      "questionId": "question.animals.041.q2"
+    },
+    {
+      "id": "card.animals.041.c7",
+      "type": "recall",
+      "questionId": "question.animals.041.q3"
+    },
+    {
+      "id": "card.animals.041.c8",
+      "type": "checkpoint",
+      "headline": "Fish: explained",
+      "learned": [
+        "Gills pull dissolved oxygen from water",
+        "Paired fins steady and steer",
+        "Bony-fish scales grow all life long",
+        "Most fish are cold-blooded; the opah is warm"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.fish_gills"
+      ],
+      "sourceCardIds": [
+        "card.animals.041.c2"
+      ],
+      "prompt": "Where does a fish get the oxygen it breathes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gulps of air at the surface",
+          "correct": false,
+          "rationale": "Its gills take oxygen from water, not air."
+        },
+        {
+          "id": "b",
+          "label": "The food it eats",
+          "correct": false,
+          "rationale": "Food gives energy; oxygen comes through the gills."
+        },
+        {
+          "id": "c",
+          "label": "Tiny pores in its scales",
+          "correct": false,
+          "rationale": "Scales are armor; the gills do the breathing."
+        },
+        {
+          "id": "d",
+          "label": "Oxygen dissolved in the water",
+          "correct": true
+        }
+      ],
+      "explanation": "Water flowing over the gills gives up its dissolved oxygen to the blood.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.fish_fins_scales"
+      ],
+      "sourceCardIds": [
+        "card.animals.041.c3"
+      ],
+      "prompt": "Why doesn't a bony fish outgrow its scales?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each bony scale keeps growing all its life",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It sheds its scales every spring",
+          "correct": false,
+          "rationale": "Its scales stay on and grow."
+        },
+        {
+          "id": "c",
+          "label": "Its scales are stretchy skin, not bone",
+          "correct": false,
+          "rationale": "Bony-fish scales are thin plates of bone."
+        },
+        {
+          "id": "d",
+          "label": "It stops growing once it has scales",
+          "correct": false,
+          "rationale": "The fish keeps growing, and so do its scales."
+        }
+      ],
+      "explanation": "The scales of bony fishes are thin overlapping plates of bone that grow throughout the fish's life.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.fish_opah_warm_blood",
+        "concept.animals.body_heat_source"
+      ],
+      "sourceCardIds": [
+        "card.animals.041.c4",
+        "card.animals.005.c2"
+      ],
+      "prompt": "Level 5 sorted fish with the ectotherms. What makes the opah an exception?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It basks in the sun like a lizard",
+          "correct": false,
+          "rationale": "Basking is how ectotherms warm up."
+        },
+        {
+          "id": "b",
+          "label": "It breathes air instead of water",
+          "correct": false,
+          "rationale": "It breathes with gills, like other fish."
+        },
+        {
+          "id": "c",
+          "label": "It has no backbone",
+          "correct": false,
+          "rationale": "Fish are vertebrates, with backbones."
+        },
+        {
+          "id": "d",
+          "label": "It is warm-blooded",
+          "correct": true
+        }
+      ],
+      "explanation": "Most fish take their heat from the water, but the opah is warm-blooded, helped by a heat exchanger in its gills.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_how_fish_breathe",
+    "source.brit_pectoral_fin",
+    "source.brit_fish",
+    "source.brit_cold_bloodedness"
+  ],
+  "art": "geo.coral"
+}

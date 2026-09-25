@@ -1,0 +1,217 @@
+{
+  "id": "level.science.animals.071",
+  "skillId": "skill.science.animals",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Instinct and Learning",
+  "objective": "After this level you can tell instinct from learned behavior.",
+  "summary": "Instincts are innate, like a gull chick pecking its parent's red bill spot; learning changes with experience. Imprinting mixes both, as Tex the crane showed.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.behavior_instinct",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_imprinting",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.070"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A whooping crane named Tex thought she was a person.",
+      "body": "Tex hatched at the San Antonio Zoo and grew up around people. As an adult, she wouldn't pair with another whooping crane. So in spring 1976, biologist George Archibald started dancing with her, because dancing is how whooping cranes begin mating. In 1982 she finally hatched a chick, Gee Whiz. How does a bird get so confused about who she is?"
+    },
+    {
+      "id": "card.animals.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Born knowing",
+      "body": "Some behavior comes preinstalled. A newly hatched herring gull chick pecks at the red spot on its parent's bill, and the parent brings up food for it. Nobody teaches it that. Biologists call this instinct: innate behavior with a strong genetic component, no practice needed. Its big advantage is that there's no risk of learning it wrong. The chick doesn't need a lesson. It needs a red spot."
+    },
+    {
+      "id": "card.animals.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Learned on the job",
+      "body": "Learned behavior is shaped by experience, so it can change when the world does. Prairie dogs give alarm calls when danger comes near. But they learn to ignore human footsteps that never bring harm, while still calling at predators. Learning is flexible, and that flexibility is its whole point. A prairie dog that screamed at every hiker would never get lunch."
+    },
+    {
+      "id": "card.animals.071.c4",
+      "type": "fact",
+      "fact": "Imprinting: learning that has a deadline.",
+      "context": "In an early critical period, a newly hatched duckling learns to follow the first moving object it sees, whether its mother, a person or even a cardboard box. In 1935, Konrad Lorenz quacked like a mother duck at newly hatched ducklings, and they treated him as their mother. Tex had imprinted on people. Today keepers raise crane chicks in crane costumes, so the chicks imprint on cranes. No behavior is purely innate or purely learned; imprinting is both at once.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Somewhere a duckling is following a cardboard box with total confidence. Respect."
+      }
+    },
+    {
+      "id": "card.animals.071.c5",
+      "type": "mcq",
+      "questionId": "question.animals.071.q1"
+    },
+    {
+      "id": "card.animals.071.c6",
+      "type": "mcq",
+      "questionId": "question.animals.071.q2"
+    },
+    {
+      "id": "card.animals.071.c7",
+      "type": "mcq",
+      "questionId": "question.animals.071.q3"
+    },
+    {
+      "id": "card.animals.071.c8",
+      "type": "checkpoint",
+      "headline": "Instinct and learning: sorted",
+      "learned": [
+        "Instinct: innate, no lesson needed",
+        "Gull chicks peck the red spot for food",
+        "Learning: shaped by experience, flexible",
+        "Imprinting: learning in an early critical period",
+        "Crane chicks are raised in crane costumes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.behavior_instinct"
+      ],
+      "sourceCardIds": [
+        "card.animals.071.c2"
+      ],
+      "prompt": "Which of these is an instinct, as Level 71 describes it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Prairie dogs ignoring hikers' footsteps",
+          "correct": false,
+          "rationale": "That's learned: they tune out a harmless sound."
+        },
+        {
+          "id": "b",
+          "label": "Ducklings following Lorenz",
+          "correct": false,
+          "rationale": "That's imprinting, which is learned."
+        },
+        {
+          "id": "c",
+          "label": "A gull chick pecking the red spot on a parent's bill",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Tex refusing to pair with a crane",
+          "correct": false,
+          "rationale": "That came from imprinting on people."
+        }
+      ],
+      "explanation": "A newly hatched herring gull chick pecks at the red spot with no lesson at all: innate behavior.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.behavior_imprinting"
+      ],
+      "sourceCardIds": [
+        "card.animals.071.c4",
+        "card.animals.071.c1"
+      ],
+      "prompt": "Why do keepers raising whooping crane chicks wear crane costumes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So the chicks imprint on cranes, not people",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To keep the chicks warm at night",
+          "correct": false,
+          "rationale": "The costume is about what the chicks learn to follow."
+        },
+        {
+          "id": "c",
+          "label": "To scare away predators",
+          "correct": false,
+          "rationale": "It's aimed at the chicks, not at predators."
+        },
+        {
+          "id": "d",
+          "label": "To teach the chicks to dance",
+          "correct": false,
+          "rationale": "Its purpose is who the chicks imprint on."
+        }
+      ],
+      "explanation": "Chicks imprint on what they see early on; Tex imprinted on people and wouldn't pair with a crane.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.behavior_instinct",
+        "concept.animals.behavior_imprinting"
+      ],
+      "sourceCardIds": [
+        "card.animals.071.c2",
+        "card.animals.071.c4"
+      ],
+      "prompt": "How does a gull chick's peck differ from Tex's attachment to people?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The peck was learned; the attachment is innate",
+          "correct": false,
+          "rationale": "It's the other way around."
+        },
+        {
+          "id": "b",
+          "label": "Both are pure instinct",
+          "correct": false,
+          "rationale": "Tex's attachment came from early experience."
+        },
+        {
+          "id": "c",
+          "label": "Both were taught by the parents",
+          "correct": false,
+          "rationale": "The chick needs no lesson, and Tex was raised by people."
+        },
+        {
+          "id": "d",
+          "label": "The peck is innate; the attachment was learned",
+          "correct": true
+        }
+      ],
+      "explanation": "The chick's peck needs no teaching, while Tex learned whom to follow during her critical period.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_instinct",
+    "source.openstax_bio_behavior",
+    "source.nobel_medicine_1973_press",
+    "source.brit_konrad_lorenz",
+    "source.audubon_archibald_tex",
+    "source.icf_raising_cranes"
+  ],
+  "art": "animals.paw"
+}

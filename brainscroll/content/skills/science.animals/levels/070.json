@@ -1,0 +1,385 @@
+{
+  "id": "level.science.animals.070",
+  "skillId": "skill.science.animals",
+  "number": 70,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: How Animals Survive",
+  "objective": "After this level you can explain how animals adapt to heat, cold, predators and darkness.",
+  "summary": "Heat, cold and predators each set a test that adaptations answer. Wood frogs survive about 65 percent frozen, with glucose keeping the inside of their cells unfrozen.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.wood_frog_freezing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.adaptation_fox_climates",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.desert_water_survival",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.polar_cold_insulation",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.camouflage_hiding",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.warning_coloration",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.defense_armor_spines_spray",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.hibernation_torpor",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.mimicry_batesian_mullerian",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.senses_beyond_human",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.069"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.070.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 7 finale: every home sets a test.",
+      "body": "Too hot, too cold, too many hunters, too dark. This chapter showed how animals pass each one. Here's the toolkit so far, then the strangest winter trick of all."
+    },
+    {
+      "id": "card.animals.070.c2",
+      "type": "comparison",
+      "headline": "Three tests, three toolkits",
+      "items": [
+        {
+          "label": "Too hot and dry",
+          "points": [
+            "Fennec fox: heat-shedding ears",
+            "Kangaroo rat: water from seeds",
+            "Both: burrow by day, out at night"
+          ]
+        },
+        {
+          "label": "Too cold",
+          "points": [
+            "Polar bear: fur, fat, furry soles",
+            "Penguin: legs that swap heat",
+            "Ground squirrel: cools below 0 °C"
+          ]
+        },
+        {
+          "label": "Too many predators",
+          "points": [
+            "Hide: countershading",
+            "Warn: bold colors",
+            "Resist: armor, quills, spray"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.070.c3",
+      "type": "fact",
+      "fact": "A wood frog spends winter partly frozen.",
+      "context": "Wood frogs winter in leaf litter and can survive with about 65 percent of their bodies frozen. First the liver fills their cells with glucose, a sugar that keeps the inside of each cell from freezing while the water outside turns to ice. Then the heart stops and the organs shut down. When it warms, the frog thaws from the inside out, starting with the heart.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Frozen stiff all winter, then off to the pond in spring. I get grumpy when my toes are cold."
+      }
+    },
+    {
+      "id": "card.animals.070.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Two opposite answers to the same freezer",
+      "body": "Compare Level 64's Arctic ground squirrel. It cools below 0 °C, but its body never freezes. The wood frog does freeze, just not inside its cells. One avoids ice completely; the other lets ice in and keeps it out of the places that matter."
+    },
+    {
+      "id": "card.animals.070.c5",
+      "type": "mcq",
+      "questionId": "question.animals.070.q1"
+    },
+    {
+      "id": "card.animals.070.c6",
+      "type": "mcq",
+      "questionId": "question.animals.070.q2"
+    },
+    {
+      "id": "card.animals.070.c7",
+      "type": "mcq",
+      "questionId": "question.animals.070.q3"
+    },
+    {
+      "id": "card.animals.070.c8",
+      "type": "recall",
+      "questionId": "question.animals.070.q4"
+    },
+    {
+      "id": "card.animals.070.c9",
+      "type": "recall",
+      "questionId": "question.animals.070.q5"
+    },
+    {
+      "id": "card.animals.070.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 7 complete",
+      "learned": [
+        "Adaptations fit animals to heat, cold and danger",
+        "Desert: shed heat, make water, hide by day",
+        "Cold: fur, fat, feathers, heat-swapping legs, hibernation",
+        "Predators: hide, warn, mimic or resist",
+        "Wood frogs survive partly frozen"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.070.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.wood_frog_freezing"
+      ],
+      "sourceCardIds": [
+        "card.animals.070.c3"
+      ],
+      "prompt": "How Animals Survive recap: about how much of a wood frog's body can freeze in winter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 5 percent",
+          "correct": false,
+          "rationale": "Far more than that."
+        },
+        {
+          "id": "b",
+          "label": "About 25 percent",
+          "correct": false,
+          "rationale": "More still."
+        },
+        {
+          "id": "c",
+          "label": "About 65 percent",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "All of it, cells included",
+          "correct": false,
+          "rationale": "The inside of its cells stays unfrozen."
+        }
+      ],
+      "explanation": "Wood frogs can survive with about 65 percent of their bodies frozen.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.070.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.wood_frog_freezing"
+      ],
+      "sourceCardIds": [
+        "card.animals.070.c3"
+      ],
+      "prompt": "How Animals Survive recap: what does the glucose in a freezing wood frog's cells do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Keeps the inside of the cells from freezing",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Feeds the frog while it hunts in winter",
+          "correct": false,
+          "rationale": "The frog is frozen and still."
+        },
+        {
+          "id": "c",
+          "label": "Keeps the heart beating all winter",
+          "correct": false,
+          "rationale": "The heart stops."
+        },
+        {
+          "id": "d",
+          "label": "Melts the ice outside the cells",
+          "correct": false,
+          "rationale": "Ice outside the cells stays until spring."
+        }
+      ],
+      "explanation": "Glucose fills the cells, keeping their insides unfrozen while the water outside turns to ice.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.animals.070.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.wood_frog_freezing",
+        "concept.animals.hibernation_torpor"
+      ],
+      "sourceCardIds": [
+        "card.animals.070.c4",
+        "card.animals.064.c1"
+      ],
+      "prompt": "How Animals Survive recap: how does the wood frog's winter differ from the Arctic ground squirrel's?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The frog stays awake; the squirrel sleeps",
+          "correct": false,
+          "rationale": "Both shut down for winter."
+        },
+        {
+          "id": "b",
+          "label": "The frog migrates south; the squirrel stays",
+          "correct": false,
+          "rationale": "Both stay put."
+        },
+        {
+          "id": "c",
+          "label": "The squirrel freezes; the frog stays warm",
+          "correct": false,
+          "rationale": "Reversed."
+        },
+        {
+          "id": "d",
+          "label": "Ice forms in the frog; the squirrel never freezes",
+          "correct": true
+        }
+      ],
+      "explanation": "The squirrel supercools and never freezes; the frog freezes outside its cells.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.animals.070.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.mimicry_batesian_mullerian"
+      ],
+      "sourceCardIds": [
+        "card.animals.063.c4",
+        "card.animals.063.c3"
+      ],
+      "prompt": "How Animals Survive recap, from Level 63: why is the viceroy now called a Müllerian mimic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is harmless and fools birds",
+          "correct": false,
+          "rationale": "That would make it Batesian."
+        },
+        {
+          "id": "b",
+          "label": "Birds find it distasteful too",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It hides against leaves",
+          "correct": false,
+          "rationale": "That's camouflage, not mimicry."
+        },
+        {
+          "id": "d",
+          "label": "It changes color when tasted",
+          "correct": false,
+          "rationale": "Its pattern doesn't change."
+        }
+      ],
+      "explanation": "Birds find viceroys about as distasteful as monarchs, so both share one honest warning.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.animals.070.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.senses_beyond_human"
+      ],
+      "sourceCardIds": [
+        "card.animals.069.c3",
+        "card.animals.069.c5"
+      ],
+      "prompt": "How Animals Survive recap, from Level 69: pit vipers and reindeer each sense something invisible to you. Which pair is right?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Electric fields and magnetism",
+          "correct": false,
+          "rationale": "Those belong to sharks and sea turtles."
+        },
+        {
+          "id": "b",
+          "label": "Sound and smell",
+          "correct": false,
+          "rationale": "You have those senses too."
+        },
+        {
+          "id": "c",
+          "label": "Infrared heat and ultraviolet light",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ultraviolet light and electric fields",
+          "correct": false,
+          "rationale": "Pit vipers sense heat, not UV."
+        }
+      ],
+      "explanation": "Pit vipers sense infrared from warm prey; reindeer see ultraviolet light.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.fws_magical_adaptations",
+    "source.smithsonian_zoo_fennec_fox",
+    "source.nps_orpi_kangaroo_rat",
+    "source.adw_merriams_kangaroo_rat",
+    "source.adw_polar_bear",
+    "source.brit_polar_bear",
+    "source.brit_penguin_warmth",
+    "source.brit_penguin_form",
+    "source.science_barnes_ground_squirrel_1989",
+    "source.uaf_arctic_ground_squirrel",
+    "source.brit_countershading",
+    "source.natgeo_camouflage",
+    "source.natgeo_photoark_three_banded_armadillo",
+    "source.smithsonian_zoo_porcupine",
+    "source.smithsonian_zoo_striped_skunk_news",
+    "source.nature_ritland_brower_viceroy_1991",
+    "source.ufl_viceroy",
+    "source.brit_mimicry",
+    "source.brit_mullerian_mimicry",
+    "source.brit_pit_viper",
+    "source.ucl_reindeer_uv"
+  ],
+  "art": "animals.chameleon"
+}

@@ -1,0 +1,244 @@
+{
+  "id": "level.science.animals.094",
+  "skillId": "skill.science.animals",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Gone in Our Time",
+  "objective": "After this level you can describe animals lost in recent centuries, like the dodo.",
+  "summary": "The dodo was gone by the late 1600s; passenger pigeons fell from billions to Martha (1914); the thylacine was protected in July 1936, two months before the last one died.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.extinct_dodo_pigeon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.extinct_thylacine",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.diet_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.093"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.094.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The last passenger pigeon had a name: Martha.",
+      "body": "She died at the Cincinnati Zoo on September 1, 1914, and her species died with her. She wasn't the first animal lost in modern times, or the last. Here are three, and in every one, people played the leading part."
+    },
+    {
+      "id": "card.animals.094.c2",
+      "type": "fact",
+      "fact": "The dodo was a flightless relative of pigeons.",
+      "context": "It lived only on Mauritius, an island in the Indian Ocean. When sailors arrived, they hunted it, and the animals they brought ashore, pigs, dogs, cats and rats, preyed on it too. A bird that couldn't fly, on an island it couldn't leave, had nowhere to go. It was gone by the late 1600s."
+    },
+    {
+      "id": "card.animals.094.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "From billions to one",
+      "body": "When Europeans arrived in North America, there were an estimated 3 to 5 billion passenger pigeons, and migrating flocks darkened the sky for days. People slaughtered them by the millions each year and shipped them by the railway carload to city markets. Martha outlived them all. When she died in 1914, her body was frozen in a block of ice and sent to the Smithsonian.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A huge number is not the same as a safe number."
+      }
+    },
+    {
+      "id": "card.animals.094.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A 'tiger' that was really a marsupial",
+      "body": "The thylacine, or Tasmanian tiger, wasn't a cat. It was the largest meat-eating marsupial of recent times, with dark stripes across its back, and in historic times it lived only in Tasmania. Settlers there hunted it as a threat to their sheep."
+    },
+    {
+      "id": "card.animals.094.c5",
+      "type": "timeline",
+      "headline": "Protection came two months too late",
+      "events": [
+        {
+          "when": "1888",
+          "label": "Tasmania begins paying a bounty on thylacines"
+        },
+        {
+          "when": "1909",
+          "label": "The bounty ends"
+        },
+        {
+          "when": "July 1936",
+          "label": "Thylacines are given full protection"
+        },
+        {
+          "when": "7 Sept 1936",
+          "label": "The last known thylacine dies at Hobart Zoo"
+        }
+      ]
+    },
+    {
+      "id": "card.animals.094.c6",
+      "type": "mcq",
+      "questionId": "question.animals.094.q1"
+    },
+    {
+      "id": "card.animals.094.c7",
+      "type": "mcq",
+      "questionId": "question.animals.094.q2"
+    },
+    {
+      "id": "card.animals.094.c8",
+      "type": "recall",
+      "questionId": "question.animals.094.q3"
+    },
+    {
+      "id": "card.animals.094.c9",
+      "type": "checkpoint",
+      "headline": "Lost in our time",
+      "learned": [
+        "Dodo: flightless pigeon relative of Mauritius",
+        "Hunted, and preyed on by animals sailors brought",
+        "Passenger pigeons: 3 to 5 billion down to Martha, 1914",
+        "Thylacine: bounty from 1888 to 1909",
+        "Protected July 1936; the last died that September"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.extinct_dodo_pigeon"
+      ],
+      "sourceCardIds": [
+        "card.animals.094.c1",
+        "card.animals.094.c3"
+      ],
+      "prompt": "Who was Martha, who died at the Cincinnati Zoo in 1914?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The last known dodo",
+          "correct": false,
+          "rationale": "The dodo was gone by the late 1600s."
+        },
+        {
+          "id": "b",
+          "label": "The last known passenger pigeon",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The last known thylacine",
+          "correct": false,
+          "rationale": "The last thylacine died at Hobart Zoo in 1936."
+        },
+        {
+          "id": "d",
+          "label": "The zoo's founder",
+          "correct": false,
+          "rationale": "Martha was a bird: the last of her species."
+        }
+      ],
+      "explanation": "Martha was the last known passenger pigeon; she died on September 1, 1914.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.extinct_dodo_pigeon"
+      ],
+      "sourceCardIds": [
+        "card.animals.094.c2"
+      ],
+      "prompt": "Why was the dodo so exposed once sailors reached Mauritius?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It migrated into sailors' nets",
+          "correct": false,
+          "rationale": "It never left Mauritius."
+        },
+        {
+          "id": "b",
+          "label": "It lived on many islands at once",
+          "correct": false,
+          "rationale": "It lived only on Mauritius."
+        },
+        {
+          "id": "c",
+          "label": "It couldn't fly, and hunters and introduced animals found it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its eggs were too large to hatch",
+          "correct": false,
+          "rationale": "The threat was hunting and introduced predators."
+        }
+      ],
+      "explanation": "A flightless bird on one island had no escape from hunters and from the pigs, dogs, cats and rats sailors brought.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.extinct_thylacine",
+        "concept.animals.diet_types"
+      ],
+      "sourceCardIds": [
+        "card.animals.094.c4",
+        "card.animals.006.c2"
+      ],
+      "prompt": "Tasmanian settlers hunted the thylacine as a threat to their sheep. Using Level 6, which diet group did it belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carnivore",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Herbivore",
+          "correct": false,
+          "rationale": "A plant eater wouldn't threaten sheep."
+        },
+        {
+          "id": "c",
+          "label": "Omnivore",
+          "correct": false,
+          "rationale": "It was a meat-eating marsupial."
+        },
+        {
+          "id": "d",
+          "label": "Producer",
+          "correct": false,
+          "rationale": "Producers make their own food; animals can't."
+        }
+      ],
+      "explanation": "The thylacine was the largest meat-eating marsupial of recent times: a carnivore.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_dodo",
+    "source.brit_passenger_pigeon",
+    "source.natgeo_edu_martha",
+    "source.brit_thylacine",
+    "source.ausgeo_thylacine_last"
+  ],
+  "art": "object.hourglass"
+}

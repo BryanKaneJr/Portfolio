@@ -1,0 +1,231 @@
+{
+  "id": "level.science.animals.087",
+  "skillId": "skill.science.animals",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "From Water to Land",
+  "objective": "After this level you can explain how fish-like animals first came onto land.",
+  "summary": "Tiktaalik, a 375-million-year-old fish, had gills and scales plus a neck and wrist-like fin bones. It was found in rocks of the age its finders predicted.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.tiktaalik_transition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.tiktaalik_prediction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.animal_groups_map",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.086"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.087.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every time you bend your wrist, thank a fish.",
+      "body": "So says Neil Shubin, and he means a real fish that lived in streams 375 million years ago. He helped find it, and his team knew roughly where to look before they started digging."
+    },
+    {
+      "id": "card.animals.087.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "They predicted where to dig",
+      "body": "Earlier research suggested the move onto land happened about 375 million years ago, in rivers. So the team hunted in 375-million-year-old rocks that had preserved a river delta. In 2004, on Ellesmere Island in Arctic Canada, a team led by Neil Shubin, Edward Daeschler and Farish Jenkins found it: Tiktaalik. The National Academy of Sciences cites it as a prediction of evolutionary theory confirmed. Not dig and hope. Dig where the theory points."
+    },
+    {
+      "id": "card.animals.087.c3",
+      "type": "comparison",
+      "headline": "Half fish, half something new",
+      "items": [
+        {
+          "label": "Like a fish",
+          "points": [
+            "Scales and gills",
+            "Fins with thin ray bones"
+          ]
+        },
+        {
+          "label": "Like a four-legged animal",
+          "points": [
+            "A neck and shoulders",
+            "Thick ribs",
+            "Sturdy wrist bones"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.087.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A fish that did push-ups",
+      "body": "Tiktaalik was still a fish. But its sturdy fin bones let it prop itself up in shallow water, and its neck let it turn its head while its body rested on the bottom. Its shoulder, elbow and wrist use the same bones as your upper arm, forearm and wrist. It sits on the path to the four-legged vertebrates: amphibians, dinosaurs, birds and mammals, you included."
+    },
+    {
+      "id": "card.animals.087.c5",
+      "type": "mcq",
+      "questionId": "question.animals.087.q1"
+    },
+    {
+      "id": "card.animals.087.c6",
+      "type": "mcq",
+      "questionId": "question.animals.087.q2"
+    },
+    {
+      "id": "card.animals.087.c7",
+      "type": "recall",
+      "questionId": "question.animals.087.q3"
+    },
+    {
+      "id": "card.animals.087.c8",
+      "type": "checkpoint",
+      "headline": "Land: reached",
+      "learned": [
+        "Tiktaalik: 375 million years old, Arctic Canada, 2004",
+        "Scales and gills, plus a neck and wrist bones",
+        "It could prop itself up in shallow water",
+        "Found where evolutionary theory predicted",
+        "Its arm bones match yours"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.tiktaalik_transition"
+      ],
+      "sourceCardIds": [
+        "card.animals.087.c3"
+      ],
+      "prompt": "Which of Tiktaalik's features were still like a fish's?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A neck and shoulders",
+          "correct": false,
+          "rationale": "Those are four-legged-animal features."
+        },
+        {
+          "id": "b",
+          "label": "Sturdy wrist bones",
+          "correct": false,
+          "rationale": "Those are like ours."
+        },
+        {
+          "id": "c",
+          "label": "Scales, gills and fin rays",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Thick ribs",
+          "correct": false,
+          "rationale": "Those are four-legged-animal features."
+        }
+      ],
+      "explanation": "Tiktaalik kept scales, gills and ray-boned fins, alongside a neck, shoulders, thick ribs and wrist bones.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.tiktaalik_prediction"
+      ],
+      "sourceCardIds": [
+        "card.animals.087.c2"
+      ],
+      "prompt": "Why did Tiktaalik's discoverers search rocks about 375 million years old?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Those rocks were the easiest to reach",
+          "correct": false,
+          "rationale": "The age was chosen from evidence."
+        },
+        {
+          "id": "b",
+          "label": "Evidence put the move to land around then",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Older rocks never hold any fossils",
+          "correct": false,
+          "rationale": "Older rocks hold plenty of fossils."
+        },
+        {
+          "id": "d",
+          "label": "The Arctic has Earth's oldest rocks",
+          "correct": false,
+          "rationale": "The choice was about age, not region."
+        }
+      ],
+      "explanation": "Earlier research dated the move onto land to about 375 million years ago, so they searched rocks of that age from a river delta.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.tiktaalik_transition",
+        "concept.animals.animal_groups_map"
+      ],
+      "sourceCardIds": [
+        "card.animals.087.c4",
+        "card.animals.003.c2"
+      ],
+      "prompt": "Level 3 named five vertebrate groups. Which of them belong to the four-legged vertebrates Tiktaalik points toward?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fish only",
+          "correct": false,
+          "rationale": "Tiktaalik points away from fish."
+        },
+        {
+          "id": "b",
+          "label": "Amphibians, birds and mammals",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only amphibians",
+          "correct": false,
+          "rationale": "Birds and mammals are four-limbed vertebrates too."
+        },
+        {
+          "id": "d",
+          "label": "None of the vertebrate groups",
+          "correct": false,
+          "rationale": "Four-legged vertebrates include several groups."
+        }
+      ],
+      "explanation": "The four-legged vertebrates include amphibians, dinosaurs, birds and mammals.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ue_tiktaalik",
+    "source.uchicago_missing_links",
+    "source.nas_evolution_resources",
+    "source.brit_vertebrate"
+  ],
+  "art": "geo.river"
+}

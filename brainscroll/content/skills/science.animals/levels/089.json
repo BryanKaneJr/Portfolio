@@ -1,0 +1,219 @@
+{
+  "id": "level.science.animals.089",
+  "skillId": "skill.science.animals",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Peppered Moths",
+  "objective": "After this level you can explain the peppered moth as evolution people could watch.",
+  "summary": "Dark peppered moths spread as soot hid them from birds, then declined as the air cleaned. Majerus's experiment, published in 2012, confirmed bird predation.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.peppered_moth_melanism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.peppered_moth_majerus",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.natural_selection_mechanism",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.088"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1848, a black peppered moth turned up in Manchester.",
+      "body": "Peppered moths were normally light-colored. By 1898, dark moths there outnumbered light ones 99 to 1. That's evolution fast enough to watch from a city window. What happened?"
+    },
+    {
+      "id": "card.animals.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Soot changes the hiding game",
+      "body": "Peppered moths rest on tree bark by day, and birds hunt them there. Then the Industrial Revolution coated trees in coal soot and killed the pale lichens. A light moth on black bark stood out; a dark one blended in. Birds ate more light moths and fewer dark ones, and the dark form took over. It's Level 82's beetles again, with wings."
+    },
+    {
+      "id": "card.animals.089.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then the air cleaned up",
+      "body": "Once the soot eased, the story ran in reverse: since about 1970, dark peppered moths in Britain have rapidly become rarer. But some scientists attacked the classic experiments and doubted that birds were really the cause. Someone had to test it properly."
+    },
+    {
+      "id": "card.animals.089.c4",
+      "type": "fact",
+      "fact": "Michael Majerus released 4,864 moths to settle the question.",
+      "context": "Over six years near Cambridge, the largest experiment of its kind, he let moths settle naturally at low density and watched the birds. Birds took dark moths more often than pale ones, enough to explain their decline. Majerus died in 2009 before publishing, so colleagues analysed his data and published it in 2012: the most direct evidence yet for camouflage and bird predation.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Six years of moth-watching, finished by friends. Science can be a team sport."
+      }
+    },
+    {
+      "id": "card.animals.089.c5",
+      "type": "mcq",
+      "questionId": "question.animals.089.q1"
+    },
+    {
+      "id": "card.animals.089.c6",
+      "type": "mcq",
+      "questionId": "question.animals.089.q2"
+    },
+    {
+      "id": "card.animals.089.c7",
+      "type": "recall",
+      "questionId": "question.animals.089.q3"
+    },
+    {
+      "id": "card.animals.089.c8",
+      "type": "checkpoint",
+      "headline": "Moths: watched",
+      "learned": [
+        "Dark peppered moth first noticed in Manchester, 1848",
+        "Soot and dead lichens hid dark moths from birds",
+        "Dark moths declined after the air cleaned up",
+        "Majerus: 4,864 moths, six years",
+        "Published 2012: birds did the selecting"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.peppered_moth_melanism"
+      ],
+      "sourceCardIds": [
+        "card.animals.089.c2"
+      ],
+      "prompt": "What gave dark peppered moths the advantage in industrial Britain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Soot darkened bark and killed pale lichens",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Dark moths could fly much faster",
+          "correct": false,
+          "rationale": "Speed wasn't the reason."
+        },
+        {
+          "id": "c",
+          "label": "Factories dyed the moths' wings",
+          "correct": false,
+          "rationale": "The color was inherited, not dyed."
+        },
+        {
+          "id": "d",
+          "label": "Winters became much colder",
+          "correct": false,
+          "rationale": "The change was soot on the trees."
+        }
+      ],
+      "explanation": "Soot blackened trees and killed pale lichens, so dark moths were harder for birds to spot.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.peppered_moth_majerus"
+      ],
+      "sourceCardIds": [
+        "card.animals.089.c4",
+        "card.animals.089.c3"
+      ],
+      "prompt": "What did Majerus's experiment, published in 2012, show about peppered moths?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Birds ignore moths resting on bark",
+          "correct": false,
+          "rationale": "Birds took many moths."
+        },
+        {
+          "id": "b",
+          "label": "Birds ate dark moths more often",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Pollution itself killed the dark moths",
+          "correct": false,
+          "rationale": "The pressure came from birds."
+        },
+        {
+          "id": "d",
+          "label": "Moths change color to match bark",
+          "correct": false,
+          "rationale": "The forms are fixed; birds select them."
+        }
+      ],
+      "explanation": "Birds preyed on dark moths more than pale ones, enough to explain the dark form's decline.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.peppered_moth_melanism",
+        "concept.animals.natural_selection_mechanism"
+      ],
+      "sourceCardIds": [
+        "card.animals.089.c2",
+        "card.animals.082.c2"
+      ],
+      "prompt": "In Level 82's recipe, which part of the soot-era moth story is differential reproduction?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Some moths are dark and some pale",
+          "correct": false,
+          "rationale": "That's variation."
+        },
+        {
+          "id": "b",
+          "label": "Young moths inherit their parents' color",
+          "correct": false,
+          "rationale": "That's heredity."
+        },
+        {
+          "id": "c",
+          "label": "Soot falling on the trees",
+          "correct": false,
+          "rationale": "That changed the setting, not the moths."
+        },
+        {
+          "id": "d",
+          "label": "Birds ate more light moths than dark",
+          "correct": true
+        }
+      ],
+      "explanation": "Differential reproduction means some individuals leave more young: birds ate more light moths, so dark ones left more.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_peppered_moth",
+    "source.rsbl_majerus_2012",
+    "source.ue_natural_selection"
+  ],
+  "art": "animals.butterfly"
+}

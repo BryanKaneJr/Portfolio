@@ -1,0 +1,347 @@
+{
+  "id": "level.science.animals.080",
+  "skillId": "skill.science.animals",
+  "number": 80,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Animal Behavior",
+  "objective": "After this level you can explain how instinct, learning and groups shape animal behavior.",
+  "summary": "The 1973 Nobel honored von Frisch (bee dances), Lorenz (imprinting) and Tinbergen, whose dummy bills showed exaggerated features make supernormal stimuli.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.behavior_supernormal_stimulus",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_bee_dance_discovery",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.behavior_waggle_dance_code",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.behavior_imprinting",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.behavior_instinct",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.behavior_wolf_pack_family",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.behavior_mirror_test_limits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.079"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.080.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Animal Behavior finale: one prize, three scientists, three animals.",
+      "body": "In 1973, the Nobel Prize in Physiology or Medicine went to three people who studied animal behavior: Karl von Frisch, Konrad Lorenz and Nikolaas Tinbergen. You've met two of them already. Let's line them up, then see Tinbergen's trick with fake beaks."
+    },
+    {
+      "id": "card.animals.080.c2",
+      "type": "comparison",
+      "headline": "Three founders of ethology",
+      "items": [
+        {
+          "label": "Karl von Frisch",
+          "points": [
+            "Studied honeybees",
+            "Decoded the round and waggle dances",
+            "Level 73"
+          ]
+        },
+        {
+          "label": "Konrad Lorenz",
+          "points": [
+            "Studied ducklings",
+            "Imprinting: ducklings followed him",
+            "Level 71"
+          ]
+        },
+        {
+          "label": "Nikolaas Tinbergen",
+          "points": [
+            "Studied gull chicks",
+            "Tested instincts with dummies",
+            "Level 71's red spot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.080.c3",
+      "type": "fact",
+      "fact": "A fake can beat the real thing.",
+      "context": "Lorenz found that many instinctive acts are set off only by specific key stimuli. Tinbergen tested which features of a gull's bill trigger a chick's begging pecks, using dummies and varying shape, colors and contrasts. Exaggerate the right features and you get a supernormal stimulus: a fake that draws a stronger response than the real parent. That's why Level 71's chick aims at the red spot: the spot is the key, not the whole parent. The chick isn't recognizing Mom. It's answering a few key signals.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A cardboard bill outscoring a real parent. Instinct is a fast shortcut, not a careful judge."
+      }
+    },
+    {
+      "id": "card.animals.080.c4",
+      "type": "mcq",
+      "questionId": "question.animals.080.q1"
+    },
+    {
+      "id": "card.animals.080.c5",
+      "type": "recall",
+      "questionId": "question.animals.080.q2"
+    },
+    {
+      "id": "card.animals.080.c6",
+      "type": "recall",
+      "questionId": "question.animals.080.q3"
+    },
+    {
+      "id": "card.animals.080.c7",
+      "type": "recall",
+      "questionId": "question.animals.080.q4"
+    },
+    {
+      "id": "card.animals.080.c8",
+      "type": "recall",
+      "questionId": "question.animals.080.q5"
+    },
+    {
+      "id": "card.animals.080.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 8 complete",
+      "learned": [
+        "Instinct, learning, and imprinting between them",
+        "Signals: alarm calls, dances, displays, bows",
+        "Groups: safety and teamwork; wolf packs are families",
+        "Parents trade numbers for care",
+        "Tools, mirrors and play: minds tested with care"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.080.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.behavior_supernormal_stimulus"
+      ],
+      "sourceCardIds": [
+        "card.animals.080.c3"
+      ],
+      "prompt": "Animal Behavior recap: what is a supernormal stimulus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A natural signal that fails to trigger instinct",
+          "correct": false,
+          "rationale": "It triggers a stronger response, not a weaker one."
+        },
+        {
+          "id": "b",
+          "label": "An exaggerated fake that triggers a stronger response",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A learned signal that replaces an instinct",
+          "correct": false,
+          "rationale": "It works on instinct, not learning."
+        },
+        {
+          "id": "d",
+          "label": "A signal only adults can detect",
+          "correct": false,
+          "rationale": "Tinbergen tested it on chicks."
+        }
+      ],
+      "explanation": "Tinbergen exaggerated key features on dummies and got stronger responses than to the real thing.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.080.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.behavior_supernormal_stimulus",
+        "concept.animals.behavior_instinct"
+      ],
+      "sourceCardIds": [
+        "card.animals.080.c3",
+        "card.animals.071.c2"
+      ],
+      "prompt": "Animal Behavior recap: why can a dummy bill fool a gull chick?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The chick has learned to love dummies",
+          "correct": false,
+          "rationale": "It needs no learning; the peck is innate."
+        },
+        {
+          "id": "b",
+          "label": "The chick can't see at all",
+          "correct": false,
+          "rationale": "It sees the key features well enough."
+        },
+        {
+          "id": "c",
+          "label": "The dummy smells like a parent",
+          "correct": false,
+          "rationale": "The test varied shape, colors and contrasts."
+        },
+        {
+          "id": "d",
+          "label": "The chick responds to a few key features",
+          "correct": true
+        }
+      ],
+      "explanation": "An instinct is set off by key stimuli, so a dummy with the right features works, and exaggerated ones work even better.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.animals.080.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.behavior_bee_dance_discovery",
+        "concept.animals.behavior_imprinting"
+      ],
+      "sourceCardIds": [
+        "card.animals.080.c2",
+        "card.animals.073.c4",
+        "card.animals.071.c4"
+      ],
+      "prompt": "Animal Behavior recap: which pairing of 1973 Nobel laureate and discovery is right?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lorenz: imprinting",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Von Frisch: imprinting",
+          "correct": false,
+          "rationale": "Von Frisch decoded the bee dance."
+        },
+        {
+          "id": "c",
+          "label": "Tinbergen: the waggle dance",
+          "correct": false,
+          "rationale": "That was von Frisch."
+        },
+        {
+          "id": "d",
+          "label": "Lorenz: the waggle dance",
+          "correct": false,
+          "rationale": "Lorenz studied imprinting in young birds."
+        }
+      ],
+      "explanation": "Lorenz studied imprinting, von Frisch the bee dance, Tinbergen key stimuli with dummies.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.080.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.behavior_wolf_pack_family"
+      ],
+      "sourceCardIds": [
+        "card.animals.074.c4"
+      ],
+      "prompt": "Animal Behavior recap, from Level 74: where did the idea of the \"alpha wolf\" mostly come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wild packs on Ellesmere Island",
+          "correct": false,
+          "rationale": "Mech saw no fights for the top spot there."
+        },
+        {
+          "id": "b",
+          "label": "Ancient legends about wolves",
+          "correct": false,
+          "rationale": "It came from scientific studies, of the wrong wolves."
+        },
+        {
+          "id": "c",
+          "label": "Studies of unrelated captive wolves",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Observations of pet dogs",
+          "correct": false,
+          "rationale": "It came from captive wolves."
+        }
+      ],
+      "explanation": "Captive packs of unrelated wolves formed pecking orders; wild packs are families.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.080.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.behavior_mirror_test_limits"
+      ],
+      "sourceCardIds": [
+        "card.animals.078.c4"
+      ],
+      "prompt": "Animal Behavior recap, from Level 78: dogs fail the mirror test but react to their own changed scent. What does that suggest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dogs recognize nothing about themselves",
+          "correct": false,
+          "rationale": "The smell test suggests otherwise."
+        },
+        {
+          "id": "b",
+          "label": "A test depends on the sense it uses",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Mirrors confuse every animal",
+          "correct": false,
+          "rationale": "Great apes, dolphins and others pass."
+        },
+        {
+          "id": "d",
+          "label": "Smell tests are always easier",
+          "correct": false,
+          "rationale": "The point is matching the test to the animal."
+        }
+      ],
+      "explanation": "The mirror test is a sight test; dogs live by smell, so a smell test asks them a fairer question.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nobel_medicine_1973_press",
+    "source.brit_konrad_lorenz",
+    "source.brit_karl_von_frisch",
+    "source.brit_instinct"
+  ],
+  "art": "animals.wolf"
+}

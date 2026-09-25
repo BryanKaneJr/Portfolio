@@ -1,0 +1,234 @@
+{
+  "id": "level.science.animals.055",
+  "skillId": "skill.science.animals",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Spiders",
+  "objective": "After this level you can explain how spiders make silk and spin webs.",
+  "summary": "Spiders are arachnids: two body parts, eight legs, no antennae. Silk is a liquid protein that hardens as it leaves the spinnerets; many orb weavers eat and rebuild their webs.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.spider_body_plan",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.spider_silk",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.insect_body_plan",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.054"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A spider is not an insect. Count its legs.",
+      "body": "Eight, not six. Level 51’s insect test fails on the legs, and it fails on the body parts too. Spiders are arachnids, a different group altogether. And every one of them carries a silk factory in its abdomen."
+    },
+    {
+      "id": "card.animals.055.c2",
+      "type": "comparison",
+      "headline": "Insect or spider?",
+      "items": [
+        {
+          "label": "Insect",
+          "points": [
+            "Three body parts",
+            "Six legs",
+            "One pair of antennae"
+          ]
+        },
+        {
+          "label": "Spider",
+          "points": [
+            "Two body parts: cephalothorax and abdomen",
+            "Eight legs",
+            "No antennae"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.055.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Liquid in, thread out",
+      "body": "Spider silk starts as a liquid protein made in glands in the abdomen. It leaves through the spinnerets, small silk-making organs usually on the underside of the abdomen, and hardens as it’s drawn out. Not every spider builds a web; some go hunting instead. But nearly all spiders are predators, feeding mostly on insects. Silk is their fishing line."
+    },
+    {
+      "id": "card.animals.055.c4",
+      "type": "fact",
+      "fact": "Many orb weavers eat their own webs.",
+      "context": "Many orb weavers that hunt at night take down their web toward dawn, eat it, and build a fresh one each night. Eating the old silk sends its protein back to the silk glands to make new silk. An orb web takes about 30 to 45 minutes to build. It’s a fishing net you swallow every morning and knit again every evening.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Eat the leftovers, then rebuild the kitchen. Honestly, admirable housekeeping."
+      }
+    },
+    {
+      "id": "card.animals.055.c5",
+      "type": "mcq",
+      "questionId": "question.animals.055.q1"
+    },
+    {
+      "id": "card.animals.055.c6",
+      "type": "mcq",
+      "questionId": "question.animals.055.q2"
+    },
+    {
+      "id": "card.animals.055.c7",
+      "type": "recall",
+      "questionId": "question.animals.055.q3"
+    },
+    {
+      "id": "card.animals.055.c8",
+      "type": "checkpoint",
+      "headline": "Spiders: spun",
+      "learned": [
+        "Arachnids, not insects",
+        "Two body parts, eight legs, no antennae",
+        "Silk: liquid protein that hardens from spinnerets",
+        "Nearly all spiders are predators",
+        "Many orb weavers eat and rebuild their webs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.spider_silk"
+      ],
+      "sourceCardIds": [
+        "card.animals.055.c3"
+      ],
+      "prompt": "Through which organs does a spider’s silk leave its body?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its antennae",
+          "correct": false,
+          "rationale": "Spiders have no antennae."
+        },
+        {
+          "id": "b",
+          "label": "Its spinnerets",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its fangs",
+          "correct": false,
+          "rationale": "Fangs deliver venom, not silk."
+        },
+        {
+          "id": "d",
+          "label": "Its leg joints",
+          "correct": false,
+          "rationale": "Silk comes from the abdomen, not the legs."
+        }
+      ],
+      "explanation": "Silk made in glands in the abdomen leaves through the spinnerets and hardens as it’s drawn out.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.spider_silk"
+      ],
+      "sourceCardIds": [
+        "card.animals.055.c4"
+      ],
+      "prompt": "Why does an orb weaver eat its old web?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To hide the web from birds by day",
+          "correct": false,
+          "rationale": "The payoff is recycling, not hiding."
+        },
+        {
+          "id": "b",
+          "label": "Because silk is its main food",
+          "correct": false,
+          "rationale": "It feeds mostly on insects; the web is reused."
+        },
+        {
+          "id": "c",
+          "label": "To recycle the silk protein into new silk",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To clean off the sticky glue",
+          "correct": false,
+          "rationale": "It eats the whole web, protein and all."
+        }
+      ],
+      "explanation": "Eating the web returns the silk protein to the silk glands to make new silk for the next web.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.spider_body_plan",
+        "concept.animals.insect_body_plan"
+      ],
+      "sourceCardIds": [
+        "card.animals.055.c2",
+        "card.animals.051.c2"
+      ],
+      "prompt": "Using Level 51’s insect body plan, what rules a spider out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Eight legs on a two-part body",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its wings are on the wrong part",
+          "correct": false,
+          "rationale": "Spiders have no wings at all."
+        },
+        {
+          "id": "c",
+          "label": "It has two pairs of antennae",
+          "correct": false,
+          "rationale": "Spiders have no antennae."
+        },
+        {
+          "id": "d",
+          "label": "It has no exoskeleton",
+          "correct": false,
+          "rationale": "That isn’t the test that sorts them."
+        }
+      ],
+      "explanation": "Insects have three body parts and six legs; a spider has two body parts and eight legs.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_spider",
+    "source.australian_museum_spider_webs",
+    "source.brit_insect"
+  ],
+  "art": "animals.spider"
+}

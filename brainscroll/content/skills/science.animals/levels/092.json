@@ -1,0 +1,247 @@
+{
+  "id": "level.science.animals.092",
+  "skillId": "skill.science.animals",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Farm Animals",
+  "objective": "After this level you can describe the animals that help feed the world.",
+  "summary": "Livestock are about 60% of Earth's mammals by mass, and poultry outweighs wild birds. Chickens come from the red junglefowl; cattle are ruminants that chew cud.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.farm_livestock_biomass",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.farm_animal_origins_uses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.diet_vs_classification",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.energy_ten_percent",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.091"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Weigh every mammal on Earth, and most of the scale is farm animals.",
+      "body": "A 2018 census of life measured living things by their carbon mass. Wild mammals barely register. So which animals fill the farms, and what do they do for us?"
+    },
+    {
+      "id": "card.animals.092.c2",
+      "type": "comparison",
+      "headline": "Earth's mammals, by mass",
+      "items": [
+        {
+          "label": "Livestock",
+          "points": [
+            "About 60 percent",
+            "Mostly cattle and pigs"
+          ]
+        },
+        {
+          "label": "People",
+          "points": [
+            "About 36 percent"
+          ]
+        },
+        {
+          "label": "Wild mammals",
+          "points": [
+            "About 4 percent",
+            "Every wild species combined"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.092.c3",
+      "type": "fact",
+      "fact": "Chickens outweigh all the world's wild birds, almost three times over.",
+      "context": "The same 2018 census found domestic poultry, mostly chickens, has almost three times the mass of every wild bird combined. And chickens may not have started out as food. They descend from the red junglefowl, a wild bird of Asia, and the first ones may have been kept for religious reasons or as fighting birds. Dinner came later.",
+      "mascot": {
+        "pose": "idea",
+        "line": "The most successful bird on the planet may have started its career as a fighter."
+      }
+    },
+    {
+      "id": "card.animals.092.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A cow chews its lunch twice",
+      "body": "Cattle give us meat, milk, hides and pulling power. Early domestic cows made only enough milk for their calves; big dairy yields came much later, through selective breeding. Their fuel is grass, which is tough stuff. Like Level 6's panda, a cow can't digest cellulose on its own. Cattle, sheep and goats are ruminants: they bring swallowed food back up as cud and chew it again."
+    },
+    {
+      "id": "card.animals.092.c5",
+      "type": "mcq",
+      "questionId": "question.animals.092.q1"
+    },
+    {
+      "id": "card.animals.092.c6",
+      "type": "mcq",
+      "questionId": "question.animals.092.q2"
+    },
+    {
+      "id": "card.animals.092.c7",
+      "type": "mcq",
+      "questionId": "question.animals.092.q3"
+    },
+    {
+      "id": "card.animals.092.c8",
+      "type": "checkpoint",
+      "headline": "Farm animals: weighed",
+      "learned": [
+        "Livestock: about 60% of mammals by mass",
+        "Wild mammals: about 4%",
+        "Poultry outweighs wild birds almost three to one",
+        "Chickens come from the red junglefowl",
+        "Cattle are ruminants that chew cud"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.farm_livestock_biomass"
+      ],
+      "sourceCardIds": [
+        "card.animals.092.c2"
+      ],
+      "prompt": "In the 2018 census of Earth's mammals by mass, about what share was livestock?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 4 percent",
+          "correct": false,
+          "rationale": "That's every wild mammal combined."
+        },
+        {
+          "id": "b",
+          "label": "About 36 percent",
+          "correct": false,
+          "rationale": "That's people."
+        },
+        {
+          "id": "c",
+          "label": "About 60 percent",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 96 percent",
+          "correct": false,
+          "rationale": "That's livestock and people together."
+        }
+      ],
+      "explanation": "Livestock, mostly cattle and pigs, make up about 60 percent of mammals by mass; people about 36 and wild mammals about 4.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.farm_animal_origins_uses"
+      ],
+      "sourceCardIds": [
+        "card.animals.092.c4"
+      ],
+      "prompt": "Why do cattle bring swallowed food back up to chew it again?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They can't digest the cellulose in grass directly",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It helps them cool down",
+          "correct": false,
+          "rationale": "Chewing cud is about digestion, not heat."
+        },
+        {
+          "id": "c",
+          "label": "It saves food for their calves",
+          "correct": false,
+          "rationale": "Calves drink milk, not cud."
+        },
+        {
+          "id": "d",
+          "label": "They have no grinding teeth",
+          "correct": false,
+          "rationale": "They chew plenty: twice, in fact."
+        }
+      ],
+      "explanation": "Ruminants can't digest cellulose directly, so they chew their food a second time as cud.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.energy_ten_percent",
+        "concept.animals.farm_animal_origins_uses"
+      ],
+      "sourceCardIds": [
+        "card.animals.007.c3",
+        "card.animals.092.c4"
+      ],
+      "prompt": "A cow eats grass holding 1,000 units of energy. Using Level 7's 10 percent rule, about how much reaches a person who eats the beef?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1 unit",
+          "correct": false,
+          "rationale": "That would be another step further up."
+        },
+        {
+          "id": "b",
+          "label": "About 10 units",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 100 units",
+          "correct": false,
+          "rationale": "That's roughly what reaches the cow itself."
+        },
+        {
+          "id": "d",
+          "label": "About 500 units",
+          "correct": false,
+          "rationale": "Far too much; each step passes on about 10 percent."
+        }
+      ],
+      "explanation": "About 100 units reach the grass-eating cow, and about 10 reach the animal that eats the cow.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.pnas_biomass_distribution_2018",
+    "source.brit_chicken",
+    "source.brit_cattle",
+    "source.brit_domestication",
+    "source.brit_ruminant",
+    "source.smithsonian_zoo_giant_panda",
+    "source.brit_giant_panda"
+  ],
+  "art": "rome.farm"
+}

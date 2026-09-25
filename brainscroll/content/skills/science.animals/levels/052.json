@@ -1,0 +1,219 @@
+{
+  "id": "level.science.animals.052",
+  "skillId": "skill.science.animals",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ants",
+  "objective": "After this level you can explain how ant colonies work.",
+  "summary": "An ant queen lays the eggs; sterile female workers do the rest; males only mate. Scent trails lead workers to food, and leafcutter ants farm a fungus on cut leaves.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.ant_colony_roles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.ant_fungus_farming",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.food_chain_levels",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.051"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every worker ant you’ve ever seen was female.",
+      "body": "The ant hauling a crumb across your kitchen floor? She’s a sister, not a brother, and so is every worker in her nest. An ant colony runs less like a crowd and more like a family business. So who does what?"
+    },
+    {
+      "id": "card.animals.052.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One mother, a nest full of daughters",
+      "body": "The queen’s main job is reproduction: she lays the eggs, and she may live for many years. Her daughters, the workers, are sterile, so they put all their effort into everyone else. They build, repair and defend the nest and feed the young, the other adults and the queen. Males turn up only to mate, and after mating, a male dies. It’s less a kingdom than a very busy nursery."
+    },
+    {
+      "id": "card.animals.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Follow the smell",
+      "body": "How does a whole line of ants find the same crumb? Some ants leave scent trails made of chemicals called pheromones, and their nestmates follow the trail to the food. That’s why ants so often march in single file: each one is following the path the ants before her marked. A trail of ants is basically a smell you can see."
+    },
+    {
+      "id": "card.animals.052.c4",
+      "type": "fact",
+      "fact": "Leafcutter ants are farmers.",
+      "context": "They carry cut leaves home, but they don’t eat them. The leaves feed a fungus the ants grow in their nest, and the fungus feeds the colony. Their crop is found only with the ants, never in the wild. And they got there first: ants were farming fungus tens of millions of years before people began farming, about 12,000 years ago.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Leaves in, lunch out. Tiny farmers with no tractors and a very long head start."
+      }
+    },
+    {
+      "id": "card.animals.052.c5",
+      "type": "mcq",
+      "questionId": "question.animals.052.q1"
+    },
+    {
+      "id": "card.animals.052.c6",
+      "type": "mcq",
+      "questionId": "question.animals.052.q2"
+    },
+    {
+      "id": "card.animals.052.c7",
+      "type": "recall",
+      "questionId": "question.animals.052.q3"
+    },
+    {
+      "id": "card.animals.052.c8",
+      "type": "checkpoint",
+      "headline": "Ants: organized",
+      "learned": [
+        "The queen lays the eggs",
+        "Workers are sterile females who do the rest",
+        "Males only mate, then die",
+        "Pheromone trails lead to food",
+        "Leafcutters farm fungus on cut leaves"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.ant_colony_roles"
+      ],
+      "sourceCardIds": [
+        "card.animals.052.c2",
+        "card.animals.052.c1"
+      ],
+      "prompt": "In an ant colony, who are the workers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Young males waiting to mate",
+          "correct": false,
+          "rationale": "Males only mate and then die."
+        },
+        {
+          "id": "b",
+          "label": "Sterile females",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Queens that have stopped laying",
+          "correct": false,
+          "rationale": "The queen keeps laying; workers are her daughters."
+        },
+        {
+          "id": "d",
+          "label": "Males and females in equal numbers",
+          "correct": false,
+          "rationale": "The workers are all female."
+        }
+      ],
+      "explanation": "Worker ants are sterile females who build, defend and feed the colony.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.ant_colony_roles"
+      ],
+      "sourceCardIds": [
+        "card.animals.052.c3"
+      ],
+      "prompt": "Why do ants heading to a crumb often walk in a line?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They follow the queen’s footsteps",
+          "correct": false,
+          "rationale": "The queen stays home laying eggs."
+        },
+        {
+          "id": "b",
+          "label": "They can see the crumb from far away",
+          "correct": false,
+          "rationale": "The line forms around a chemical trail."
+        },
+        {
+          "id": "c",
+          "label": "They follow a scent trail of pheromones",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They hold on to the ant in front",
+          "correct": false,
+          "rationale": "Each ant follows a smell, not a neighbor."
+        }
+      ],
+      "explanation": "Some ants lay pheromone trails, and their nestmates follow the scent to the food.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.ant_fungus_farming",
+        "concept.animals.food_chain_levels"
+      ],
+      "sourceCardIds": [
+        "card.animals.052.c4",
+        "card.animals.007.c2"
+      ],
+      "prompt": "Level 7 named fungi among the decomposers of dead plants. How do leafcutter ants put a fungus to work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They feed it cut leaves, and it feeds the colony",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They eat the leaves and throw the fungus away",
+          "correct": false,
+          "rationale": "They don’t eat the leaves; the fungus does."
+        },
+        {
+          "id": "c",
+          "label": "They use the fungus to glue their nest together",
+          "correct": false,
+          "rationale": "The fungus is their crop, not building material."
+        },
+        {
+          "id": "d",
+          "label": "They collect wild fungus to store for winter",
+          "correct": false,
+          "rationale": "Their fungus is never found in the wild."
+        }
+      ],
+      "explanation": "Leafcutters grow a fungus on the leaves they cut, and that fungus is the colony’s food.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ufifas_ants",
+    "source.smithsonianmag_ant_fungus_farmers",
+    "source.natgeo_food_chain"
+  ],
+  "art": "animals.ant"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "level.science.animals.081",
+  "skillId": "skill.science.animals",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Darwin's Voyage",
+  "objective": "After this level you can describe what Darwin saw on the voyage of the Beagle.",
+  "summary": "Darwin sailed on HMS Beagle from 1831 to 1836. He dug up giant sloths related to living ones and saw Galápagos mockingbirds differ by island. The Origin followed in 1859.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.darwin_beagle_voyage",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.darwin_galapagos_clues",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.binomial_names",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.080"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.081.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1831, a 22-year-old boarded HMS Beagle for a five-year trip.",
+      "body": "Charles Darwin sailed as a companion to the ship's captain, Robert FitzRoy. He came back in 1836 with plants, animals, fossils and notebooks full of field notes. Hidden in that luggage were the clues to one of the biggest ideas in biology. What did he see?"
+    },
+    {
+      "id": "card.animals.081.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Giant sloths in the ground",
+      "body": "In Argentina, Darwin dug fossil skulls, thighbones and armor plates out of the ground. Among them were giant ground sloths such as Megatherium, which weighed up to four tonnes. Yet this extinct giant was related to the sloths alive today. Why would the dead giants of a place be family of its living animals?"
+    },
+    {
+      "id": "card.animals.081.c3",
+      "type": "fact",
+      "fact": "Darwin labeled his mockingbirds by island. His finches, not so much.",
+      "context": "The Beagle reached the Galápagos Islands in September 1835. Darwin noticed the mockingbirds differed on four islands, so he tagged each one with its island. His other birds, which he took for wrens, finches and 'gross-beaks', went home without island labels. Neighboring islands, different mockingbirds: that detail would matter.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Every scientist has a box of unlabeled samples. Darwin's just became the most famous one."
+      }
+    },
+    {
+      "id": "card.animals.081.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The verdict from London",
+      "body": "Back in England, the bird expert John Gould sorted the specimens. In 1837 he reported that the mockingbirds were three species, each unique to different islands, and that Darwin's mixed bag of wrens, finches and 'gross-beaks' were all ground finches. Neighbors, but not the same species. Darwin began asking how they had diverged from ancestors that arrived from the mainland. His answer came out in 1859: On the Origin of Species."
+    },
+    {
+      "id": "card.animals.081.c5",
+      "type": "mcq",
+      "questionId": "question.animals.081.q1"
+    },
+    {
+      "id": "card.animals.081.c6",
+      "type": "mcq",
+      "questionId": "question.animals.081.q2"
+    },
+    {
+      "id": "card.animals.081.c7",
+      "type": "recall",
+      "questionId": "question.animals.081.q3"
+    },
+    {
+      "id": "card.animals.081.c8",
+      "type": "checkpoint",
+      "headline": "Darwin: voyaged",
+      "learned": [
+        "HMS Beagle, 1831 to 1836; Darwin was 22",
+        "Fossil giant sloths, related to living sloths",
+        "Galápagos mockingbirds differed island to island",
+        "Gould, 1837: three mockingbird species, a group of finches",
+        "On the Origin of Species, 1859"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.darwin_galapagos_clues"
+      ],
+      "sourceCardIds": [
+        "card.animals.081.c3"
+      ],
+      "prompt": "On the Galápagos in 1835, which birds did Darwin carefully label by island?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Finches",
+          "correct": false,
+          "rationale": "He mixed them up; the finches went unlabeled."
+        },
+        {
+          "id": "b",
+          "label": "Mockingbirds",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Penguins",
+          "correct": false,
+          "rationale": "Not part of his island labeling."
+        },
+        {
+          "id": "d",
+          "label": "Wrens",
+          "correct": false,
+          "rationale": "He thought some finches were wrens, and didn't label them."
+        }
+      ],
+      "explanation": "Darwin saw the mockingbirds differed on four islands and tagged them by island; his finches went unlabeled.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.darwin_beagle_voyage"
+      ],
+      "sourceCardIds": [
+        "card.animals.081.c2"
+      ],
+      "prompt": "Why were Darwin's Megatherium fossils from Argentina a clue about how life changes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were the first fossils ever found",
+          "correct": false,
+          "rationale": "Fossils were known long before Darwin."
+        },
+        {
+          "id": "b",
+          "label": "They showed sloths once lived in the sea",
+          "correct": false,
+          "rationale": "Megatherium was a ground sloth."
+        },
+        {
+          "id": "c",
+          "label": "An extinct giant was related to living sloths",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They proved the Beagle had sailed off course",
+          "correct": false,
+          "rationale": "They were found where he was digging."
+        }
+      ],
+      "explanation": "Megatherium weighed up to four tonnes yet was related to modern sloths: extinct giants and living animals of the same land were family.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.darwin_galapagos_clues",
+        "concept.animals.binomial_names"
+      ],
+      "sourceCardIds": [
+        "card.animals.081.c4",
+        "card.animals.004.c3"
+      ],
+      "prompt": "Level 4 starts official animal names in 1758. Which Darwin milestone came about a century after that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Darwin's birth",
+          "correct": false,
+          "rationale": "That was 1809, about 50 years after."
+        },
+        {
+          "id": "b",
+          "label": "The Beagle setting sail",
+          "correct": false,
+          "rationale": "That was 1831, about 70 years after."
+        },
+        {
+          "id": "c",
+          "label": "Gould's report on the birds",
+          "correct": false,
+          "rationale": "That was 1837."
+        },
+        {
+          "id": "d",
+          "label": "On the Origin of Species",
+          "correct": true
+        }
+      ],
+      "explanation": "Origin was published in 1859, about a century after Linnaeus's 1758 Systema Naturae.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_charles_darwin",
+    "source.nhm_charles_darwin",
+    "source.brit_darwin_beagle_voyage",
+    "source.nhm_megatherium",
+    "source.brit_darwin_london_years",
+    "source.brit_linnaeus"
+  ],
+  "art": "medieval.caravel"
+}

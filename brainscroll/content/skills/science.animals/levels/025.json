@@ -1,0 +1,218 @@
+{
+  "id": "level.science.animals.025",
+  "skillId": "skill.science.animals",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Owls",
+  "objective": "After this level you can explain how owls hunt in the dark.",
+  "summary": "Barn owls can strike prey in total darkness by sound alone. Lopsided ears find a sound's height, a dish-shaped face funnels sound in, and muffled feathers keep the hunt quiet.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.owl_sound_hunting",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.owl_silent_flight",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.raptor_hunting_tools",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.024"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1958, an owl caught a paper wad in total darkness.",
+      "body": "Owls are the night shift of the birds of prey. Researchers Payne and Drury let a mouse tow a crumpled wad of paper through a pitch-dark room. The barn owl struck the paper. It couldn't see it, and paper doesn't smell like dinner. So how did it know where to strike?"
+    },
+    {
+      "id": "card.animals.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ears that aren't level",
+      "body": "It heard it. A barn owl's ears are lopsided, one slightly higher than the other. A sound from below comes in louder on one side, a sound from above on the other, so the owl can tell a sound's height as well as its direction. That pins prey down in three dimensions. Audubon says barn owls are better at finding prey by ear than any other animal tested."
+    },
+    {
+      "id": "card.animals.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A face shaped like a dish",
+      "body": "All owls have a facial disc, a ring of short feathers around the face. The barn owl's heart-shaped disc is especially prominent, and it works like a satellite dish, funneling sound toward the ears. That face you find so cute is mostly hearing equipment."
+    },
+    {
+      "id": "card.animals.025.c4",
+      "type": "fact",
+      "fact": "Owl wings are built to hush.",
+      "context": "Owl flight feathers have comb-like serrations along the front edge that break up the air, a velvety surface, and a soft fringe on the trailing edge. Together they damp the swoosh of flight. That may help twice: the prey can't hear the owl coming, and the owl can keep listening to the prey.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Shh. The best hunter in the room is the one you can't hear."
+      }
+    },
+    {
+      "id": "card.animals.025.c5",
+      "type": "mcq",
+      "questionId": "question.animals.025.q1"
+    },
+    {
+      "id": "card.animals.025.c6",
+      "type": "mcq",
+      "questionId": "question.animals.025.q2"
+    },
+    {
+      "id": "card.animals.025.c7",
+      "type": "recall",
+      "questionId": "question.animals.025.q3"
+    },
+    {
+      "id": "card.animals.025.c8",
+      "type": "checkpoint",
+      "headline": "Owls: explained",
+      "learned": [
+        "Barn owls can strike prey in total darkness by sound",
+        "Lopsided ears find a sound's height and direction",
+        "The facial disc funnels sound like a satellite dish",
+        "Serrated, velvety feathers muffle their flight"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.owl_sound_hunting"
+      ],
+      "sourceCardIds": [
+        "card.animals.025.c1"
+      ],
+      "prompt": "In Payne and Drury's 1958 dark-room test, what did the barn owl strike?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The mouse, guided by its smell",
+          "correct": false,
+          "rationale": "Smell was ruled out; it struck what made the noise."
+        },
+        {
+          "id": "b",
+          "label": "The rustling wad of paper",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A dim light in the corner",
+          "correct": false,
+          "rationale": "The room was pitch dark."
+        },
+        {
+          "id": "d",
+          "label": "Nothing; owls won't hunt in total darkness",
+          "correct": false,
+          "rationale": "It struck its target without any light."
+        }
+      ],
+      "explanation": "The owl struck the paper the mouse was towing, ruling out sight and smell: it hunted by sound.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.owl_sound_hunting"
+      ],
+      "sourceCardIds": [
+        "card.animals.025.c2"
+      ],
+      "prompt": "How does having one ear higher than the other help a barn owl hunt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It lets the owl hear much higher pitches",
+          "correct": false,
+          "rationale": "The card is about where a sound is, not its pitch."
+        },
+        {
+          "id": "b",
+          "label": "It keeps wind noise out while flying",
+          "correct": false,
+          "rationale": "Quiet flight comes from the feathers."
+        },
+        {
+          "id": "c",
+          "label": "It tells the owl how high a sound is",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It lets the owl turn its head farther",
+          "correct": false,
+          "rationale": "The lopsided ears are about locating sound."
+        }
+      ],
+      "explanation": "Uneven ears hear sounds from above and below differently, so the owl finds a sound's height as well as direction.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.owl_silent_flight",
+        "concept.animals.raptor_hunting_tools"
+      ],
+      "sourceCardIds": [
+        "card.animals.025.c4",
+        "card.animals.024.c2"
+      ],
+      "prompt": "Owls are Level 24's night-shift birds of prey. What helps an owl reach its prey unheard?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Extra-large talons that grip silently",
+          "correct": false,
+          "rationale": "Talons grab; the silence comes from the feathers."
+        },
+        {
+          "id": "b",
+          "label": "A notched beak for a quick bite",
+          "correct": false,
+          "rationale": "That's the falcon's tomial tooth."
+        },
+        {
+          "id": "c",
+          "label": "Hollow bones that absorb sound",
+          "correct": false,
+          "rationale": "The muffling is in the feathers."
+        },
+        {
+          "id": "d",
+          "label": "Serrated, velvety wing feathers",
+          "correct": true
+        }
+      ],
+      "explanation": "Serrated front edges, a velvety surface and soft trailing fringes damp the sound of an owl's flight.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.jeb_konishi_owl_2010",
+    "source.audubon_barn_owl_facts_2025",
+    "source.audubon_silent_flight_owls_2017",
+    "source.brit_bird_of_prey"
+  ],
+  "art": "animals.owl"
+}

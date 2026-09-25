@@ -1,0 +1,222 @@
+{
+  "id": "level.science.animals.068",
+  "skillId": "skill.science.animals",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Animals of the Night",
+  "objective": "After this level you can explain how nocturnal animals find their way in the dark.",
+  "summary": "Nocturnal animals hunt, mate or dodge heat and predators after dark. Many have big eyes and a tapetum lucidum, a mirror that makes eyeshine; tarsiers lack one and have huge eyes.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.nocturnal_night_vision",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.desert_water_survival",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.adaptation_fox_climates",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.067"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.068.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A tarsier's eye weighs nearly as much as its brain.",
+      "body": "And it has two of them. Why would a small primate build such enormous eyes? Because it works the night shift."
+    },
+    {
+      "id": "card.animals.068.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why work at night?",
+      "body": "Nocturnal animals are active after dark. Some hunt then, some find mates, and many are avoiding the heat and the predators of the day. You've met two already: Level 61's fennec fox and Level 65's kangaroo rat both spend the hot day in burrows and come out at night."
+    },
+    {
+      "id": "card.animals.068.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bigger windows",
+      "body": "Night is short on light, so night eyes are built to collect more of it. Many nocturnal animals have enlarged eyes with wide pupils. The tarsier, a nocturnal primate, takes this to the extreme: each eye weighs nearly as much as its brain. Big windows let in more light."
+    },
+    {
+      "id": "card.animals.068.c4",
+      "type": "fact",
+      "fact": "Eyeshine is a mirror inside the eye.",
+      "context": "Many nocturnal animals, cats and crocodiles among them, have a tapetum lucidum: a layer behind the retina that reflects light back for a second chance at being seen. That reflection is the glow you catch in headlights. Tarsiers have no such mirror, which is why their eyes had to be so big.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Next time a cat's eyes glow at you, it isn't spooky. It's recycling."
+      }
+    },
+    {
+      "id": "card.animals.068.c5",
+      "type": "mcq",
+      "questionId": "question.animals.068.q1"
+    },
+    {
+      "id": "card.animals.068.c6",
+      "type": "mcq",
+      "questionId": "question.animals.068.q2"
+    },
+    {
+      "id": "card.animals.068.c7",
+      "type": "recall",
+      "questionId": "question.animals.068.q3"
+    },
+    {
+      "id": "card.animals.068.c8",
+      "type": "checkpoint",
+      "headline": "Animals of the night: explained",
+      "learned": [
+        "Nocturnal: active after dark",
+        "Reasons: hunt, mate, avoid heat and predators",
+        "Enlarged eyes collect more light",
+        "Tapetum lucidum: a mirror that causes eyeshine",
+        "Tarsiers have no mirror, so their eyes are huge"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.nocturnal_night_vision"
+      ],
+      "sourceCardIds": [
+        "card.animals.068.c4"
+      ],
+      "prompt": "What does the tapetum lucidum do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Makes the pupil wider in the dark",
+          "correct": false,
+          "rationale": "Wide pupils are a separate trick."
+        },
+        {
+          "id": "b",
+          "label": "Produces a glow of light all its own",
+          "correct": false,
+          "rationale": "It reflects light; it doesn't make any."
+        },
+        {
+          "id": "c",
+          "label": "Reflects light back for a second chance",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Lets the animal see the heat of prey",
+          "correct": false,
+          "rationale": "That's the pit viper's sense."
+        }
+      ],
+      "explanation": "The mirror-like layer behind the retina bounces light back, which also causes eyeshine.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.nocturnal_night_vision"
+      ],
+      "sourceCardIds": [
+        "card.animals.068.c4",
+        "card.animals.068.c3"
+      ],
+      "prompt": "Tarsiers have no tapetum lucidum. How do their eyes make up for it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sheer size: they gather more light",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They glow brightly in the dark",
+          "correct": false,
+          "rationale": "Without a tapetum they don't even shine."
+        },
+        {
+          "id": "c",
+          "label": "They work only in bright daylight",
+          "correct": false,
+          "rationale": "Tarsiers are nocturnal."
+        },
+        {
+          "id": "d",
+          "label": "They rely on ultraviolet light",
+          "correct": false,
+          "rationale": "Not in this level."
+        }
+      ],
+      "explanation": "Each tarsier eye weighs nearly as much as its brain: size does the job the mirror would.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.animals.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.nocturnal_night_vision",
+        "concept.animals.desert_water_survival"
+      ],
+      "sourceCardIds": [
+        "card.animals.068.c2",
+        "card.animals.065.c4"
+      ],
+      "prompt": "Level 65's kangaroo rat stays underground by day and comes out at night. Which reason for being nocturnal fits it best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Finding mates by moonlight",
+          "correct": false,
+          "rationale": "Its daytime burrow points to heat."
+        },
+        {
+          "id": "b",
+          "label": "Avoiding the heat of the day",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Seeing ultraviolet light",
+          "correct": false,
+          "rationale": "That's reindeer, and it isn't about night."
+        },
+        {
+          "id": "d",
+          "label": "Following its predators",
+          "correct": false,
+          "rationale": "Animals avoid predators, not follow them."
+        }
+      ],
+      "explanation": "Spending the hot day in a burrow and foraging at night dodges desert heat and saves water.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_nocturnal_animals",
+    "source.brit_tapetum_lucidum",
+    "source.brit_tarsier",
+    "source.adw_tarsiidae",
+    "source.smithsonian_zoo_fennec_fox",
+    "source.adw_merriams_kangaroo_rat"
+  ],
+  "art": "animals.owl"
+}

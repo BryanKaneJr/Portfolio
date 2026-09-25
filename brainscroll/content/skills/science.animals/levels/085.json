@@ -1,0 +1,227 @@
+{
+  "id": "level.science.animals.085",
+  "skillId": "skill.science.animals",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Birds Are Dinosaurs",
+  "objective": "After this level you can explain the evidence that birds descend from dinosaurs.",
+  "summary": "Birds evolved from small theropod dinosaurs. Archaeopteryx mixed feathers with teeth and a bony tail; Sinosauropteryx had feathers. Birds outlived the other dinosaurs.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.archaeopteryx_transitional",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.birds_theropod_descent",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.darwin_galapagos_clues",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.animal_groups_map",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.084"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The pigeon on your windowsill is a dinosaur.",
+      "body": "Not dinosaur-ish. A dinosaur, from the same group of meat-eaters as Tyrannosaurus rex. It sounds like a joke until you see the fossils. So what's the evidence?"
+    },
+    {
+      "id": "card.animals.085.c2",
+      "type": "fact",
+      "fact": "Archaeopteryx had feathers, teeth and a long bony tail.",
+      "context": "Its fossils, about 150 million years old, turned up in the Solnhofen Limestone of Germany starting in 1861, two years after Darwin's Origin. It had feathered wings like a bird, but also well-developed teeth, three clawed fingers and a long bony tail like smaller dinosaurs. Its skeleton shares many features with a group of theropods. Part bird, part dinosaur, right on the line."
+    },
+    {
+      "id": "card.animals.085.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Feathers came first",
+      "body": "In 1996, a fossil hunter in China found Sinosauropteryx, a small meat-eating theropod covered in thin, hair-like feathers. It wasn't directly related to birds. It was the first feathered dinosaur discovered outside the bird line. So feathers weren't a bird invention at all. They were already on dinosaurs.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Picture a fluffy little dinosaur. Now you've pictured it correctly."
+      }
+    },
+    {
+      "id": "card.animals.085.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The dinosaurs that made it",
+      "body": "Birds evolved from small theropods, the meat-eating group that includes T. rex. The oldest bird-like fossils, over 150 million years old, still had sharp teeth; beaks came later. When the end-Cretaceous extinction struck 66 million years ago, every other dinosaur died out. Birds didn't. So the birds on Level 1's list of five vertebrate groups are living dinosaurs too. You've probably heard one this morning."
+    },
+    {
+      "id": "card.animals.085.c5",
+      "type": "mcq",
+      "questionId": "question.animals.085.q1"
+    },
+    {
+      "id": "card.animals.085.c6",
+      "type": "mcq",
+      "questionId": "question.animals.085.q2"
+    },
+    {
+      "id": "card.animals.085.c7",
+      "type": "recall",
+      "questionId": "question.animals.085.q3"
+    },
+    {
+      "id": "card.animals.085.c8",
+      "type": "checkpoint",
+      "headline": "Birds: traced",
+      "learned": [
+        "Archaeopteryx: feathers, teeth, claws, bony tail",
+        "Found in Germany from 1861",
+        "Sinosauropteryx: a feathered non-bird dinosaur",
+        "Birds evolved from small theropods",
+        "Birds are the dinosaurs that survived"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.archaeopteryx_transitional"
+      ],
+      "sourceCardIds": [
+        "card.animals.085.c2"
+      ],
+      "prompt": "Which feature did Archaeopteryx have that living birds lack?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Feathers",
+          "correct": false,
+          "rationale": "Living birds have feathers too."
+        },
+        {
+          "id": "b",
+          "label": "Wings",
+          "correct": false,
+          "rationale": "Living birds have wings too."
+        },
+        {
+          "id": "c",
+          "label": "Two legs",
+          "correct": false,
+          "rationale": "Living birds walk on two legs too."
+        },
+        {
+          "id": "d",
+          "label": "Well-developed teeth",
+          "correct": true
+        }
+      ],
+      "explanation": "Archaeopteryx had feathers and wings, but also well-developed teeth, clawed fingers and a long bony tail.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.birds_theropod_descent"
+      ],
+      "sourceCardIds": [
+        "card.animals.085.c3"
+      ],
+      "prompt": "Why was Sinosauropteryx important to the birds-are-dinosaurs story?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was a feathered dinosaur outside the bird line",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was the first bird that could fly",
+          "correct": false,
+          "rationale": "It wasn't a bird."
+        },
+        {
+          "id": "c",
+          "label": "It had a beak and no teeth at all",
+          "correct": false,
+          "rationale": "It was a small meat-eating theropod."
+        },
+        {
+          "id": "d",
+          "label": "It lived after the end-Cretaceous asteroid",
+          "correct": false,
+          "rationale": "It lived long before."
+        }
+      ],
+      "explanation": "A dinosaur not directly related to birds had feathers, so feathers existed among dinosaurs before birds.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.birds_theropod_descent",
+        "concept.animals.animal_groups_map"
+      ],
+      "sourceCardIds": [
+        "card.animals.085.c4",
+        "card.animals.001.c4"
+      ],
+      "prompt": "Level 1 listed birds among the five familiar vertebrate groups. What does the dinosaur evidence add?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Birds are really a kind of mammal",
+          "correct": false,
+          "rationale": "They are a separate vertebrate group."
+        },
+        {
+          "id": "b",
+          "label": "Birds descend from Stegosaurus",
+          "correct": false,
+          "rationale": "They come from small meat-eating theropods."
+        },
+        {
+          "id": "c",
+          "label": "Birds are living theropod dinosaurs",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Birds appeared after all dinosaurs died",
+          "correct": false,
+          "rationale": "Bird-like fossils are over 150 million years old."
+        }
+      ],
+      "explanation": "Birds evolved from small theropods and survived the end-Cretaceous extinction: they are living dinosaurs.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_archaeopteryx",
+    "source.nhm_sinosauropteryx",
+    "source.nhm_birds_surviving_dinosaurs",
+    "source.nhm_asteroid_dinosaurs",
+    "source.nhm_charles_darwin",
+    "source.brit_charles_darwin",
+    "source.brit_vertebrate"
+  ],
+  "art": "animals.dinosaur"
+}

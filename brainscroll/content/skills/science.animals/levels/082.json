@@ -1,0 +1,221 @@
+{
+  "id": "level.science.animals.082",
+  "skillId": "skill.science.animals",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Natural Selection",
+  "objective": "After this level you can explain how natural selection works.",
+  "summary": "Natural selection needs variation, differential reproduction and heredity. The Grants saw a 1977 drought favor big-beaked finches, whose young inherited bigger beaks.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.natural_selection_mechanism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.grant_finch_drought",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.diet_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.081"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two biologists planned a two-year finch study. It ran for 40.",
+      "body": "In 1973, Peter and Rosemary Grant began catching and measuring Darwin's finches on Daphne Major in the Galápagos. They expected a short project. Instead, a drought gave them a front-row seat to the idea Darwin's voyage started. First, the idea."
+    },
+    {
+      "id": "card.animals.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three ingredients, no chef",
+      "body": "The National Academies define natural selection as organisms with helpful variations leaving more offspring than others. It needs three ingredients. Variation: some beetles are green, some brown. Differential reproduction: birds eat more green beetles, so brown ones leave more young. Heredity: the young inherit their parents' color. Repeat for generations and brown takes over. Nobody plans it. The birds just keep eating."
+    },
+    {
+      "id": "card.animals.082.c3",
+      "type": "fact",
+      "fact": "In 1977, only 24 millimeters of rain fell on Daphne Major.",
+      "context": "The small seeds ran out. Medium ground finches, whose short beaks suit small seeds, faced a menu of big, hard ones, and most of the island's finches died. The survivors were the medium ground finches with larger beaks, strong enough to crack the larger seeds. Variation and unequal survival, in one dry year.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Same island, same birds, different menu. The beak that fits the food wins."
+      }
+    },
+    {
+      "id": "card.animals.082.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The next generation",
+      "body": "Now the third ingredient. Beak size is inherited, so the survivors' young had measurably larger beaks. The population had changed in about two years. Then the heavy rains of 1982-83 brought plentiful small seeds, smaller-beaked finches fed better, and the average beak slid back down. Selection doesn't aim for bigger. It follows the food."
+    },
+    {
+      "id": "card.animals.082.c5",
+      "type": "mcq",
+      "questionId": "question.animals.082.q1"
+    },
+    {
+      "id": "card.animals.082.c6",
+      "type": "mcq",
+      "questionId": "question.animals.082.q2"
+    },
+    {
+      "id": "card.animals.082.c7",
+      "type": "recall",
+      "questionId": "question.animals.082.q3"
+    },
+    {
+      "id": "card.animals.082.c8",
+      "type": "checkpoint",
+      "headline": "Selection: explained",
+      "learned": [
+        "Variation, differential reproduction, heredity",
+        "Grants on Daphne Major, from 1973",
+        "1977 drought: larger-beaked finches survived",
+        "Their young inherited larger beaks",
+        "Wet years pushed beaks back down"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.natural_selection_mechanism"
+      ],
+      "sourceCardIds": [
+        "card.animals.082.c2"
+      ],
+      "prompt": "Which three ingredients does evolution by natural selection need?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Variation, differential reproduction, heredity",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Mutation, migration and a changing climate",
+          "correct": false,
+          "rationale": "Not the three this level names."
+        },
+        {
+          "id": "c",
+          "label": "Size, speed and strength in every animal",
+          "correct": false,
+          "rationale": "Those are traits, not the ingredients."
+        },
+        {
+          "id": "d",
+          "label": "Fossils, long ages and isolated islands",
+          "correct": false,
+          "rationale": "Helpful for studying it, not what it needs."
+        }
+      ],
+      "explanation": "Given variation, differential reproduction and heredity, natural selection follows.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.grant_finch_drought",
+        "concept.animals.natural_selection_mechanism"
+      ],
+      "sourceCardIds": [
+        "card.animals.082.c3",
+        "card.animals.082.c4"
+      ],
+      "prompt": "Why were Daphne Major's medium ground finches born with bigger beaks after the 1977 drought?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Parents stretched their beaks cracking seeds",
+          "correct": false,
+          "rationale": "Beaks weren't stretched; big-beaked birds survived."
+        },
+        {
+          "id": "b",
+          "label": "New finches arrived with bigger beaks",
+          "correct": false,
+          "rationale": "The change came from the island's survivors."
+        },
+        {
+          "id": "c",
+          "label": "Rain made the seeds softer that year",
+          "correct": false,
+          "rationale": "The drought left only big, hard seeds."
+        },
+        {
+          "id": "d",
+          "label": "Larger-beaked birds survived and passed it on",
+          "correct": true
+        }
+      ],
+      "explanation": "Larger-beaked birds could crack the remaining big seeds, survived, and passed their inherited beak size to their young.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.grant_finch_drought",
+        "concept.animals.diet_types"
+      ],
+      "sourceCardIds": [
+        "card.animals.082.c3",
+        "card.animals.006.c2"
+      ],
+      "prompt": "Before the drought, medium ground finches ate small seeds. In Level 6's terms, what kind of eater is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A carnivore",
+          "correct": false,
+          "rationale": "Seeds are plant food, not meat."
+        },
+        {
+          "id": "b",
+          "label": "A herbivore",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "An omnivore",
+          "correct": false,
+          "rationale": "Here the diet is all plant food."
+        },
+        {
+          "id": "d",
+          "label": "A producer",
+          "correct": false,
+          "rationale": "Producers make food; finches eat it."
+        }
+      ],
+      "explanation": "Seeds are plant food, and an animal that eats mainly plants is a herbivore.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ue_natural_selection",
+    "source.nas_evolution_resources",
+    "source.princeton_paw_grants_finches",
+    "source.natgeo_herbivore"
+  ],
+  "art": "animals.finch"
+}

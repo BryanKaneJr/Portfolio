@@ -1,0 +1,356 @@
+{
+  "id": "level.science.animals.020",
+  "skillId": "skill.science.animals",
+  "number": 20,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Mammals",
+  "objective": "After this level you can compare the main groups of mammals and how they live.",
+  "summary": "Mammals start life three ways: monotremes lay eggs, marsupials finish in a pouch, placentals grow in the womb fed by a placenta. Elephants carry young up to about 22 months.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.mammal_birth_three_ways",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.monotreme_nursing",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.marsupial_birth_pouch",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.bat_echolocation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.elephant_matriarch_memory",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.monotreme_egg_layers",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.mammal_traits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.019"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.020.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 2 finale: three ways to start a mammal's life.",
+      "body": "Every mammal in this chapter feeds its young milk. But they don't all begin the same way. Line up an echidna, a kangaroo and an elephant, and you're looking at an egg, a pouch and the longest pregnancy of any mammal."
+    },
+    {
+      "id": "card.animals.020.c2",
+      "type": "comparison",
+      "headline": "Egg, pouch, womb",
+      "items": [
+        {
+          "label": "Monotreme: echidna",
+          "points": [
+            "Lays one egg",
+            "Hatches after about 10 days",
+            "Suckles in the pouch until prickly"
+          ]
+        },
+        {
+          "label": "Marsupial: red kangaroo",
+          "points": [
+            "Born after about 33 days",
+            "Jellybean-sized newborn",
+            "Finishes growing in the pouch"
+          ]
+        },
+        {
+          "label": "Placental: elephant",
+          "points": [
+            "Grows inside the womb",
+            "Pregnancy up to about 22 months",
+            "Born at an advanced stage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.020.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The placenta's trick",
+      "body": "In placental mammals, an organ called the placenta passes nutrients and wastes between the mother's blood and her unborn baby's. So the young can grow for a long time and be born well developed: an elephant carries her calf up to about 22 months, longer than any other mammal. Placentals are every living mammal except marsupials and monotremes: the lion, whale, bat, chimp and dog in this chapter, and you.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Egg, pouch or placenta: three routes, one destination. Milk."
+      }
+    },
+    {
+      "id": "card.animals.020.c4",
+      "type": "mcq",
+      "questionId": "question.animals.020.q1"
+    },
+    {
+      "id": "card.animals.020.c5",
+      "type": "mcq",
+      "questionId": "question.animals.020.q2"
+    },
+    {
+      "id": "card.animals.020.c6",
+      "type": "mcq",
+      "questionId": "question.animals.020.q3"
+    },
+    {
+      "id": "card.animals.020.c7",
+      "type": "recall",
+      "questionId": "question.animals.020.q4"
+    },
+    {
+      "id": "card.animals.020.c8",
+      "type": "recall",
+      "questionId": "question.animals.020.q5"
+    },
+    {
+      "id": "card.animals.020.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 2 complete",
+      "learned": [
+        "Mammals: hair, milk, own heat; about 6,800 species",
+        "Big cats, elephants, whales, bats and primates",
+        "Monotremes lay eggs; marsupials use pouches",
+        "Placentals grow in the womb, fed by a placenta",
+        "Dogs came from ancient wolves"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.020.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.mammal_birth_three_ways"
+      ],
+      "sourceCardIds": [
+        "card.animals.020.c3"
+      ],
+      "prompt": "Mammals recap: what does a placenta do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stores milk for after birth",
+          "correct": false,
+          "rationale": "Milk comes from mammary glands."
+        },
+        {
+          "id": "b",
+          "label": "Passes nutrients and wastes between mother and baby",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Keeps an egg warm",
+          "correct": false,
+          "rationale": "That's a monotreme job, and no placenta is involved."
+        },
+        {
+          "id": "d",
+          "label": "Forms the pouch",
+          "correct": false,
+          "rationale": "Pouches belong to marsupials."
+        }
+      ],
+      "explanation": "The placenta passes nutrients and wastes between the mother's blood and her unborn baby's.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.020.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.mammal_birth_three_ways",
+        "concept.animals.marsupial_birth_pouch"
+      ],
+      "sourceCardIds": [
+        "card.animals.020.c2",
+        "card.animals.020.c3"
+      ],
+      "prompt": "Mammals recap: a newborn elephant is far more developed than a newborn kangaroo. Why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Elephants lay bigger eggs",
+          "correct": false,
+          "rationale": "Elephants don't lay eggs."
+        },
+        {
+          "id": "b",
+          "label": "It grows in the womb up to about 22 months, fed by a placenta",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Kangaroos skip the milk stage",
+          "correct": false,
+          "rationale": "Joeys suckle for about a year."
+        },
+        {
+          "id": "d",
+          "label": "Elephant calves hatch in a pouch",
+          "correct": false,
+          "rationale": "Elephants are placental."
+        }
+      ],
+      "explanation": "A placenta lets the elephant calf grow in the womb for up to about 22 months; a kangaroo is born after about 33 days.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.020.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.mammal_birth_three_ways",
+        "concept.animals.monotreme_egg_layers"
+      ],
+      "sourceCardIds": [
+        "card.animals.020.c3",
+        "card.animals.017.c2"
+      ],
+      "prompt": "Mammals recap: which of this chapter's animals is NOT a placental mammal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A tiger",
+          "correct": false,
+          "rationale": "Tigers are placental."
+        },
+        {
+          "id": "b",
+          "label": "A bottlenose dolphin",
+          "correct": false,
+          "rationale": "Dolphins are placental."
+        },
+        {
+          "id": "c",
+          "label": "A bat",
+          "correct": false,
+          "rationale": "Bats are placental."
+        },
+        {
+          "id": "d",
+          "label": "An echidna",
+          "correct": true
+        }
+      ],
+      "explanation": "Echidnas are monotremes; placentals are every living mammal except marsupials and monotremes.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.020.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.bat_echolocation"
+      ],
+      "sourceCardIds": [
+        "card.animals.015.c3"
+      ],
+      "prompt": "Mammals recap, from Level 15: how does a bat use echolocation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It listens for echoes of its own calls",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It follows the smell of insects",
+          "correct": false,
+          "rationale": "Echolocation is about sound."
+        },
+        {
+          "id": "c",
+          "label": "It sees heat in the dark",
+          "correct": false,
+          "rationale": "It hears echoes, not heat."
+        },
+        {
+          "id": "d",
+          "label": "It copies other bats' flight paths",
+          "correct": false,
+          "rationale": "Each bat reads its own echoes."
+        }
+      ],
+      "explanation": "A bat sends out calls, mostly ultrasound, and the echoes that return tell it what's around.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.020.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.elephant_matriarch_memory"
+      ],
+      "sourceCardIds": [
+        "card.animals.013.c4",
+        "card.animals.013.c3"
+      ],
+      "prompt": "Mammals recap, from Level 13: in the Amboseli study, what made some elephant families better at spotting strangers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A larger herd",
+          "correct": false,
+          "rationale": "The key was the leader's age."
+        },
+        {
+          "id": "b",
+          "label": "A strong adult male",
+          "correct": false,
+          "rationale": "Adult males roam apart from the herd."
+        },
+        {
+          "id": "c",
+          "label": "An older matriarch",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A longer trunk",
+          "correct": false,
+          "rationale": "The difference was in the leader."
+        }
+      ],
+      "explanation": "Families led by matriarchs aged 55 or more told strangers' calls from familiar ones far better.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_placental_mammal",
+    "source.brit_mammal",
+    "source.natgeo_african_elephant",
+    "source.brit_elephant",
+    "source.ausmuseum_short_beaked_echidna",
+    "source.ausmuseum_red_kangaroo",
+    "source.brit_marsupial",
+    "source.noaa_marine_mammals",
+    "source.nhm_platypus_puzzle",
+    "source.ausmuseum_platypus",
+    "source.nps_bat_echolocation",
+    "source.sciencenews_elephant_matriarchs"
+  ],
+  "art": "animals.elephant"
+}

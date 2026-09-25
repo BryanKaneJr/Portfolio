@@ -1,0 +1,219 @@
+{
+  "id": "level.science.animals.026",
+  "skillId": "skill.science.animals",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Penguins",
+  "objective": "After this level you can explain how penguins survive the cold and swim.",
+  "summary": "Penguin wings became flippers, and dense, nearly airless bones cut buoyancy for diving. Waterproof feathers, fat and heat-saving feet keep them warm; emperor males fast on fat.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.penguin_swimming",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.penguin_cold",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.bird_light_skeleton",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.025"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Penguins fly. Just not through the air.",
+      "body": "Penguins live only in the Southern Hemisphere, and their wings evolved into flippers that drive them through the water. So what does it take to rebuild a bird for swimming, and to stay warm doing it?"
+    },
+    {
+      "id": "card.animals.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Heavy bones on purpose",
+      "body": "Remember Level 21's air-filled bones? Penguins went the other way. Their limb bones are denser than nearly any other bird's, with almost no air inside. Scientists usually read that as ballast: less buoyancy means diving costs less energy. Emperor penguins, the deepest-diving birds on Earth, reach about 550 m. A floaty skeleton would fight them all the way down."
+    },
+    {
+      "id": "card.animals.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Coat, blanket, heat-saving feet",
+      "body": "A penguin wears a dense coat of short, stiff, waterproof feathers that trap air. Under that sits a thick layer of fat. And its legs and feet carry a countercurrent heat-exchange system that keeps the heat it loses to ice and cold water to a minimum. Three layers of defense, and the feet are one of them."
+    },
+    {
+      "id": "card.animals.026.c4",
+      "type": "fact",
+      "fact": "An emperor penguin dad fasts for 9 weeks in winter.",
+      "context": "Emperor penguins breed in the coldest, darkest months of the Antarctic winter. The male incubates the egg for 9 weeks without eating, living off a thick fat reserve. Penguins also huddle in large groups to share body heat and shelter from the weather. His fat is both his blanket and his pantry.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Nine weeks, no snacks, Antarctic winter. Parenting, but on hard mode."
+      }
+    },
+    {
+      "id": "card.animals.026.c5",
+      "type": "mcq",
+      "questionId": "question.animals.026.q1"
+    },
+    {
+      "id": "card.animals.026.c6",
+      "type": "mcq",
+      "questionId": "question.animals.026.q2"
+    },
+    {
+      "id": "card.animals.026.c7",
+      "type": "recall",
+      "questionId": "question.animals.026.q3"
+    },
+    {
+      "id": "card.animals.026.c8",
+      "type": "checkpoint",
+      "headline": "Penguins: explained",
+      "learned": [
+        "Wings became flippers for swimming",
+        "Dense, nearly airless bones cut buoyancy",
+        "Emperors dive to about 550 m, deepest of any bird",
+        "Feathers, fat and heat-saving feet beat the cold"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.penguin_swimming"
+      ],
+      "sourceCardIds": [
+        "card.animals.026.c2"
+      ],
+      "prompt": "How do penguin limb bones differ from most birds' bones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They're dense, with almost no air inside",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They're hollow, with extra struts",
+          "correct": false,
+          "rationale": "That's the flying-bird design from Level 21."
+        },
+        {
+          "id": "c",
+          "label": "They're made of cartilage, not bone",
+          "correct": false,
+          "rationale": "They're bone, just unusually dense."
+        },
+        {
+          "id": "d",
+          "label": "They're missing from the wings",
+          "correct": false,
+          "rationale": "The wings became flippers, bones and all."
+        }
+      ],
+      "explanation": "Penguin limb bones are denser than nearly all other birds' and almost entirely lack air spaces.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.penguin_cold"
+      ],
+      "sourceCardIds": [
+        "card.animals.026.c4"
+      ],
+      "prompt": "How does a male emperor penguin get through 9 weeks of incubating without eating?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He catches fish at night",
+          "correct": false,
+          "rationale": "The card says he goes 9 weeks without eating."
+        },
+        {
+          "id": "b",
+          "label": "He lives off a thick fat reserve",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He slows into torpor like a hummingbird",
+          "correct": false,
+          "rationale": "He stays on duty, running on fat."
+        },
+        {
+          "id": "d",
+          "label": "The female feeds him every few days",
+          "correct": false,
+          "rationale": "He fasts for the whole 9 weeks."
+        }
+      ],
+      "explanation": "He incubates for 9 weeks without eating, relying on a thick fat reserve.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.penguin_swimming",
+        "concept.animals.bird_light_skeleton"
+      ],
+      "sourceCardIds": [
+        "card.animals.026.c2",
+        "card.animals.021.c4"
+      ],
+      "prompt": "Why would Level 21's air-filled bones be a poor fit for a diving penguin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They would snap under water pressure",
+          "correct": false,
+          "rationale": "The card's point is buoyancy."
+        },
+        {
+          "id": "b",
+          "label": "They would make the penguin too cold",
+          "correct": false,
+          "rationale": "Warmth comes from feathers, fat and the feet."
+        },
+        {
+          "id": "c",
+          "label": "They would slow its heartbeat",
+          "correct": false,
+          "rationale": "Bones don't set the heart rate."
+        },
+        {
+          "id": "d",
+          "label": "They would add buoyancy, making dives costlier",
+          "correct": true
+        }
+      ],
+      "explanation": "Air makes a body float; penguins' dense bones cut buoyancy so diving costs less energy.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_penguin",
+    "source.joa_ksepka_penguin_bone_2015",
+    "source.bas_emperor_penguin",
+    "source.brit_bird",
+    "source.stanford_birds_flight_adaptations"
+  ],
+  "art": "animals.penguin"
+}

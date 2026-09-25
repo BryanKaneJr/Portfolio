@@ -1,0 +1,232 @@
+{
+  "id": "level.science.animals.048",
+  "skillId": "skill.science.animals",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tide Pools",
+  "objective": "After this level you can describe tide pool animals like starfish and crabs.",
+  "summary": "Tide pools sit in the intertidal zone, flooded and drained twice a day. Residents seal up or move to stay wet; hermit crabs reuse shells. Sea stars walk on tube feet and eat with an outside stomach.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.tidepool_intertidal_life",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.tidepool_sea_star_feeding",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.ecosystem_def",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.keystone_species",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.fish_gills",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.047"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.048.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Twice a day, the sea leaves. Some animals stay behind.",
+      "body": "On a rocky shore, the tide floods the middle of the beach and then drains away, twice every day. The animals that live there have to survive two worlds: underwater, then out in the air. How do they do it?"
+    },
+    {
+      "id": "card.animals.048.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Life between the tides",
+      "body": "The intertidal zone is the strip where ocean meets land, between high tide and low. Level 8 called a tide pool a complete tiny ecosystem, and its residents each have a low-tide plan. Some close up inside their shells to stay moist and keep predators out. Others move down to water that stays put. Hermit crabs reuse empty shells as homes. Nobody here wastes a good shell."
+    },
+    {
+      "id": "card.animals.048.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The star that isn't a fish",
+      "body": "Sea stars live in the middle zone, beside the anemones. Despite the nickname \"starfish,\" they aren't fish: no gills, no scales, no fins. (Check them against Level 41.) They glide on tiny tube feet on their undersides, which also grip their prey. And if a sea star loses an arm, it can grow a new one."
+    },
+    {
+      "id": "card.animals.048.c4",
+      "type": "fact",
+      "fact": "A sea star eats with its stomach outside its body.",
+      "context": "Remember Paine's ochre sea stars in Level 8, eating mussels? Here's how. A sea star grips a closed mussel with its suction feet and pulls on the shell until it opens. Then it slips its own stomach inside and digests the mussel right there. Dinner is served in the shell.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Bringing your own stomach to the restaurant. Bold, efficient and a little rude."
+      }
+    },
+    {
+      "id": "card.animals.048.c5",
+      "type": "mcq",
+      "questionId": "question.animals.048.q1"
+    },
+    {
+      "id": "card.animals.048.c6",
+      "type": "recall",
+      "questionId": "question.animals.048.q2"
+    },
+    {
+      "id": "card.animals.048.c7",
+      "type": "recall",
+      "questionId": "question.animals.048.q3"
+    },
+    {
+      "id": "card.animals.048.c8",
+      "type": "checkpoint",
+      "headline": "Tide pools: explored",
+      "learned": [
+        "The middle intertidal zone floods and drains twice a day",
+        "Residents seal up or move to stay wet",
+        "Hermit crabs reuse empty shells",
+        "Sea stars: tube feet, regrown arms, an outside stomach"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.tidepool_intertidal_life"
+      ],
+      "sourceCardIds": [
+        "card.animals.048.c1"
+      ],
+      "prompt": "How often do the tides flood and drain the middle intertidal zone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Once a day",
+          "correct": false,
+          "rationale": "It happens more often than that."
+        },
+        {
+          "id": "b",
+          "label": "Twice a day",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Three times a day",
+          "correct": false,
+          "rationale": "The tides there ebb and flow twice a day."
+        },
+        {
+          "id": "d",
+          "label": "Six times a day",
+          "correct": false,
+          "rationale": "Far too often; it's twice a day."
+        }
+      ],
+      "explanation": "In the middle intertidal zone, the tides ebb and flow twice a day.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.tidepool_sea_star_feeding",
+        "concept.animals.keystone_species"
+      ],
+      "sourceCardIds": [
+        "card.animals.048.c4",
+        "card.animals.008.c3"
+      ],
+      "prompt": "Paine's ochre sea stars in Level 8 kept mussels in check. How does a sea star get into a closed mussel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It pulls the shell open, then slips its stomach in",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It crushes the shell with hard teeth",
+          "correct": false,
+          "rationale": "It pulls with its suction feet."
+        },
+        {
+          "id": "c",
+          "label": "It stings the mussel with nematocysts",
+          "correct": false,
+          "rationale": "That's jellyfish and coral."
+        },
+        {
+          "id": "d",
+          "label": "It drills a hole with the tip of an arm",
+          "correct": false,
+          "rationale": "It pulls the shell open instead."
+        }
+      ],
+      "explanation": "The sea star pulls the shell open with its suction feet, then inserts its stomach and digests the mussel inside.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.tidepool_sea_star_feeding",
+        "concept.animals.fish_gills"
+      ],
+      "sourceCardIds": [
+        "card.animals.048.c3",
+        "card.animals.041.c2"
+      ],
+      "prompt": "Sea stars aren't fish. Which features from Level 41 do they lack?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tube feet and arms",
+          "correct": false,
+          "rationale": "Sea stars have both."
+        },
+        {
+          "id": "b",
+          "label": "A mouth and a stomach",
+          "correct": false,
+          "rationale": "A sea star even pushes its stomach out."
+        },
+        {
+          "id": "c",
+          "label": "The ability to regrow arms",
+          "correct": false,
+          "rationale": "Sea stars can regrow lost arms."
+        },
+        {
+          "id": "d",
+          "label": "Gills, scales and fins",
+          "correct": true
+        }
+      ],
+      "explanation": "NOAA notes sea stars have no gills, scales or fins, so they are not fish.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_intertidal_zone",
+    "source.noaa_starfish",
+    "source.brit_sea_star",
+    "source.natgeo_ecosystem",
+    "source.nas_paine_memoir",
+    "source.natgeo_keystone_species"
+  ],
+  "art": "animals.crab"
+}

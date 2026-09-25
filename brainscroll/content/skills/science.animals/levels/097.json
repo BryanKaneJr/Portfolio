@@ -1,0 +1,235 @@
+{
+  "id": "level.science.animals.097",
+  "skillId": "skill.science.animals",
+  "number": 97,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Zoos and Wildlife Parks",
+  "objective": "After this level you can explain what modern zoos try to do.",
+  "summary": "The Arabian oryx returned from zoo and royal herds to reach Vulnerable in 2011. AZA sees zoos as conservation centers; Born Free argues such successes are rare.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.zoo_conservation_role",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.zoo_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.redlist_categories",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.096"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.097.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Arabian oryx vanished from the wild in 1972. Zoo herds brought it back.",
+      "body": "The last wild one is believed to have been shot in Oman. Ten years later, oryx were running free there again. It's one of the strongest cases for zoos, and it's also where the argument about zoos begins."
+    },
+    {
+      "id": "card.animals.097.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nine oryx in Phoenix",
+      "body": "As the oryx disappeared, some of the last ones were captured to start a 'World Herd'. It began at the Phoenix Zoo with nine animals. With royal herds in Arabia, it supplied oryx for reintroduction: first in Oman in 1982, then in other countries. By 2011 about 1,000 lived wild, and IUCN moved the species to Vulnerable. No species once Extinct in the Wild had climbed three full categories before."
+    },
+    {
+      "id": "card.animals.097.c3",
+      "type": "comparison",
+      "headline": "Two views of the modern zoo",
+      "items": [
+        {
+          "label": "AZA, the zoo association",
+          "points": [
+            "Conservation is key to accredited zoos' mission",
+            "Species Survival Plans since 1981",
+            "Breeding, habitat protection, education, research"
+          ]
+        },
+        {
+          "label": "Born Free, an animal-welfare charity",
+          "points": [
+            "Most zoo species aren't threatened in the wild",
+            "Very few zoo animals return to the wild",
+            "Zoo space remains restrictive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.097.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "One success, read two ways",
+      "body": "The Association of Zoos and Aquariums counts conservation breeding, like the oryx herds, among zoos' core jobs. The Born Free Foundation argues that pointing to a handful of reintroductions risks suggesting there are many more, and that such cases can't justify keeping large numbers of animals that aren't threatened. One side sees a model; the other sees an exception."
+    },
+    {
+      "id": "card.animals.097.c5",
+      "type": "mcq",
+      "questionId": "question.animals.097.q1"
+    },
+    {
+      "id": "card.animals.097.c6",
+      "type": "mcq",
+      "questionId": "question.animals.097.q2"
+    },
+    {
+      "id": "card.animals.097.c7",
+      "type": "recall",
+      "questionId": "question.animals.097.q3"
+    },
+    {
+      "id": "card.animals.097.c8",
+      "type": "checkpoint",
+      "headline": "Zoos: two views",
+      "learned": [
+        "Arabian oryx: Extinct in the Wild by 1972",
+        "World Herd began at the Phoenix Zoo with nine",
+        "Back in Oman from 1982; Vulnerable in 2011",
+        "AZA: conservation is central to accredited zoos",
+        "Born Free: successes are rare; most zoo species aren't threatened"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.097.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.zoo_conservation_role"
+      ],
+      "sourceCardIds": [
+        "card.animals.097.c2"
+      ],
+      "prompt": "Where did the Arabian oryx's 'World Herd' begin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In Oman, with the last wild herd",
+          "correct": false,
+          "rationale": "The last wild oryx was shot in Oman in 1972."
+        },
+        {
+          "id": "b",
+          "label": "At the Phoenix Zoo, with nine animals",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In Jordan, at the first release site",
+          "correct": false,
+          "rationale": "The first release was in Oman, in 1982."
+        },
+        {
+          "id": "d",
+          "label": "At a zoo in Tasmania",
+          "correct": false,
+          "rationale": "The herd started at the Phoenix Zoo."
+        }
+      ],
+      "explanation": "Nine oryx at the Phoenix Zoo formed the core of the World Herd that helped return the species to the wild.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.097.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.zoo_debate"
+      ],
+      "sourceCardIds": [
+        "card.animals.097.c4",
+        "card.animals.097.c3"
+      ],
+      "prompt": "Why does the Born Free Foundation say the oryx comeback can't justify zoos in general?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It says the oryx never really returned",
+          "correct": false,
+          "rationale": "Born Free's argument is about how typical such cases are."
+        },
+        {
+          "id": "b",
+          "label": "It says zoos have never bred oryx",
+          "correct": false,
+          "rationale": "The World Herd did breed oryx."
+        },
+        {
+          "id": "c",
+          "label": "It says such successes are few and most zoo species aren't threatened",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It says oryx should live only in zoos",
+          "correct": false,
+          "rationale": "That's not Born Free's position."
+        }
+      ],
+      "explanation": "Born Free argues reintroduction successes are a handful, and most zoo species aren't threatened in the wild.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.animals.097.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.zoo_conservation_role",
+        "concept.animals.redlist_categories"
+      ],
+      "sourceCardIds": [
+        "card.animals.093.c2",
+        "card.animals.097.c2"
+      ],
+      "prompt": "The oryx went from Extinct in the Wild to Vulnerable. On Level 93's ladder, which categories lie between those two?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Critically Endangered and Endangered",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Near Threatened and Least Concern",
+          "correct": false,
+          "rationale": "Those are above Vulnerable, on the safer side."
+        },
+        {
+          "id": "c",
+          "label": "Extinct and Data Deficient",
+          "correct": false,
+          "rationale": "Extinct is beyond Extinct in the Wild; Data Deficient is off the ladder."
+        },
+        {
+          "id": "d",
+          "label": "Only Near Threatened",
+          "correct": false,
+          "rationale": "Near Threatened is safer than Vulnerable."
+        }
+      ],
+      "explanation": "Extinct in the Wild, Critically Endangered, Endangered, Vulnerable: the oryx climbed three full categories.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iucn_arabian_oryx_2011",
+    "source.phoenixzoo_arabian_oryx",
+    "source.usfws_aza_partner",
+    "source.aza_species_survival_plans",
+    "source.bornfree_zoos",
+    "source.bornfree_iucn_response"
+  ],
+  "art": "animals.panda"
+}

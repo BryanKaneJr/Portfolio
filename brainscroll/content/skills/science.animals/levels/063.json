@@ -1,0 +1,236 @@
+{
+  "id": "level.science.animals.063",
+  "skillId": "skill.science.animals",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Warning Colors and Mimics",
+  "objective": "After this level you can explain bright warning colors and why some animals copy them.",
+  "summary": "Warning colors advertise poison. Batesian mimics are harmless copies of dangerous species; Müllerian mimics are all harmful and share a pattern. The viceroy proved Müllerian (1991).",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.mimicry_batesian_mullerian",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.warning_coloration",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.camouflage_hiding",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.062"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.063.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The viceroy butterfly was long called a harmless fake.",
+      "body": "It looks like a smaller monarch, and for a long time biologists thought that was a bluff: a tasty butterfly borrowing a poisonous one's look. Then someone asked the birds."
+    },
+    {
+      "id": "card.animals.063.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bright means back off",
+      "body": "A monarch caterpillar feeds on milkweed, a poisonous plant, and the butterfly keeps the poisons in its body. Its bold pattern is warning coloration: a signal to predators that this animal is toxic or dangerous. A bird that has a bad experience learns to avoid the pattern, and then avoids other species that look similar too. Camouflage says \"nothing here.\" Warning colors say \"you'll regret this.\""
+    },
+    {
+      "id": "card.animals.063.c3",
+      "type": "comparison",
+      "headline": "Two kinds of copycat",
+      "items": [
+        {
+          "label": "Batesian mimicry",
+          "points": [
+            "A harmless species copies a dangerous one",
+            "The scarlet king snake copies the coral snake",
+            "Described by Henry Bates, 1862"
+          ]
+        },
+        {
+          "label": "Müllerian mimicry",
+          "points": [
+            "Harmful species share one pattern",
+            "Predators learn to avoid it, for all of them",
+            "Proposed by Fritz Müller, 1878"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.063.c4",
+      "type": "fact",
+      "fact": "The viceroy wasn't bluffing.",
+      "context": "In 1991, Ritland and Brower offered red-winged blackbirds butterfly bodies with the wings removed, so taste alone decided. The birds found viceroys about as distasteful as monarchs. So the viceroy isn't a Batesian fake but a Müllerian partner: two bad-tasting butterflies sharing one warning.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Sometimes science is just asking a bird, \"So, how did that taste?\""
+      }
+    },
+    {
+      "id": "card.animals.063.c5",
+      "type": "mcq",
+      "questionId": "question.animals.063.q1"
+    },
+    {
+      "id": "card.animals.063.c6",
+      "type": "mcq",
+      "questionId": "question.animals.063.q2"
+    },
+    {
+      "id": "card.animals.063.c7",
+      "type": "recall",
+      "questionId": "question.animals.063.q3"
+    },
+    {
+      "id": "card.animals.063.c8",
+      "type": "checkpoint",
+      "headline": "Warning colors and mimics: explained",
+      "learned": [
+        "Bold warning colors advertise poison or danger",
+        "Monarchs keep milkweed poisons in their bodies",
+        "Batesian: a harmless species copies a dangerous one",
+        "Müllerian: harmful species share one pattern",
+        "The viceroy tastes bad too, so it's Müllerian"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.mimicry_batesian_mullerian"
+      ],
+      "sourceCardIds": [
+        "card.animals.063.c4"
+      ],
+      "prompt": "What did Ritland and Brower's 1991 bird taste test reveal about viceroy butterflies?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They taste about as bad as monarchs",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They are tasty, so they are pure bluffers",
+          "correct": false,
+          "rationale": "That was the old idea the test overturned."
+        },
+        {
+          "id": "c",
+          "label": "They are poisonous to people",
+          "correct": false,
+          "rationale": "The test was about birds and taste."
+        },
+        {
+          "id": "d",
+          "label": "They change color after being tasted",
+          "correct": false,
+          "rationale": "No; the wings were removed for the test."
+        }
+      ],
+      "explanation": "Birds judged viceroys about as distasteful as monarchs, making the viceroy a Müllerian mimic.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.mimicry_batesian_mullerian"
+      ],
+      "sourceCardIds": [
+        "card.animals.063.c3"
+      ],
+      "prompt": "The scarlet king snake is harmless but wears a coral snake's warning colors. Which kind of mimicry is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Müllerian mimicry",
+          "correct": false,
+          "rationale": "That needs both species to be harmful."
+        },
+        {
+          "id": "b",
+          "label": "Countershading",
+          "correct": false,
+          "rationale": "That's a way of hiding, not copying."
+        },
+        {
+          "id": "c",
+          "label": "Batesian mimicry",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Background matching",
+          "correct": false,
+          "rationale": "It copies another animal, not the scenery."
+        }
+      ],
+      "explanation": "A harmless species copying a dangerous one is Batesian mimicry.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.animals.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.warning_coloration",
+        "concept.animals.camouflage_hiding"
+      ],
+      "sourceCardIds": [
+        "card.animals.063.c2",
+        "card.animals.062.c2"
+      ],
+      "prompt": "Level 62's animals survive by not being seen. How does a monarch's strategy differ?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It hides among milkweed leaves",
+          "correct": false,
+          "rationale": "Its bold pattern is meant to be seen."
+        },
+        {
+          "id": "b",
+          "label": "It changes color with the seasons",
+          "correct": false,
+          "rationale": "That's the Arctic fox."
+        },
+        {
+          "id": "c",
+          "label": "It flies only at night",
+          "correct": false,
+          "rationale": "Its defense is its poison and its warning."
+        },
+        {
+          "id": "d",
+          "label": "It stands out to advertise its poison",
+          "correct": true
+        }
+      ],
+      "explanation": "Warning coloration is the opposite of camouflage: bold colors tell predators the monarch is toxic.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_mullerian_mimicry",
+    "source.natgeo_camouflage",
+    "source.brit_mimicry",
+    "source.nature_ritland_brower_viceroy_1991",
+    "source.ufl_viceroy"
+  ],
+  "art": "animals.butterfly"
+}

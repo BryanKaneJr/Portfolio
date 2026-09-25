@@ -1,0 +1,245 @@
+{
+  "id": "level.science.animals.086",
+  "skillId": "skill.science.animals",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mass Extinctions",
+  "objective": "After this level you can explain the five mass extinctions, including the asteroid that ended the dinosaurs.",
+  "summary": "Five mass extinctions stand out; the end-Permian was worst. The end-Cretaceous one, 66 million years ago, is best explained by the Chicxulub asteroid.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.big_five_extinctions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.chicxulub_asteroid",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.dinosaur_diversity_continents",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.food_chain_levels",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.085"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Nearly every species that has ever lived is extinct.",
+      "body": "Species come and go all the time. But five times, the fossil record shows the dying on a planetary scale. The most famous ended 66 million years ago, with a rock from space. How do we know that one really happened?"
+    },
+    {
+      "id": "card.animals.086.c2",
+      "type": "timeline",
+      "headline": "The Big Five",
+      "events": [
+        {
+          "when": "About 444 million years ago",
+          "label": "Ordovician-Silurian"
+        },
+        {
+          "when": "About 372 million years ago",
+          "label": "Late Devonian"
+        },
+        {
+          "when": "About 252 million years ago",
+          "label": "End-Permian: the worst, about 90 percent of species"
+        },
+        {
+          "when": "About 201 million years ago",
+          "label": "End-Triassic: the dinosaurs come through"
+        },
+        {
+          "when": "About 66 million years ago",
+          "label": "End-Cretaceous: the non-bird dinosaurs go"
+        }
+      ]
+    },
+    {
+      "id": "card.animals.086.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The clue in the clay",
+      "body": "In 1980, physicist Luis Alvarez and his geologist son Walter studied a thin layer of clay found around the world at the end of the Cretaceous. It was rich in iridium, a metal rare on Earth but more abundant in meteorites. Their idea: a huge asteroid impact. It was controversial at first. Then there's the crater, Chicxulub, centred on Mexico's Yucatán Peninsula and the same age as the extinction. Today it's the most widely accepted explanation."
+    },
+    {
+      "id": "card.animals.086.c4",
+      "type": "fact",
+      "fact": "The asteroid was about 10 to 15 km wide.",
+      "context": "It hit so hard it vaporised, throwing debris and soot into the sky. Less sunlight meant less plant growth, and the damage climbed Level 7's food chain: fewer plants, then starving herbivores, then hungry carnivores. Volcanic eruptions in India were already stressing life, but the asteroid was the final blow.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "One bad afternoon for the dinosaurs, a very long one for the food chain."
+      }
+    },
+    {
+      "id": "card.animals.086.c5",
+      "type": "mcq",
+      "questionId": "question.animals.086.q1"
+    },
+    {
+      "id": "card.animals.086.c6",
+      "type": "mcq",
+      "questionId": "question.animals.086.q2"
+    },
+    {
+      "id": "card.animals.086.c7",
+      "type": "recall",
+      "questionId": "question.animals.086.q3"
+    },
+    {
+      "id": "card.animals.086.c8",
+      "type": "checkpoint",
+      "headline": "Extinctions: counted",
+      "learned": [
+        "Most species that ever lived are extinct",
+        "The Big Five; end-Permian was worst",
+        "1980: the Alvarezes' iridium clue",
+        "Chicxulub crater, Yucatán, 66 million years ago",
+        "Plants failed first, then the food chain"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.big_five_extinctions"
+      ],
+      "sourceCardIds": [
+        "card.animals.086.c2"
+      ],
+      "prompt": "Which of the Big Five mass extinctions was the most severe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "End-Cretaceous",
+          "correct": false,
+          "rationale": "Famous, but not the worst."
+        },
+        {
+          "id": "b",
+          "label": "End-Permian",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Ordovician-Silurian",
+          "correct": false,
+          "rationale": "Severe, but not the worst."
+        },
+        {
+          "id": "d",
+          "label": "End-Triassic",
+          "correct": false,
+          "rationale": "The dinosaurs came through this one."
+        }
+      ],
+      "explanation": "The end-Permian extinction, about 252 million years ago, took about 90 percent of species.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.chicxulub_asteroid"
+      ],
+      "sourceCardIds": [
+        "card.animals.086.c3"
+      ],
+      "prompt": "What first pointed Luis and Walter Alvarez toward an asteroid impact?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Burn marks on dinosaur bones",
+          "correct": false,
+          "rationale": "Not their clue."
+        },
+        {
+          "id": "b",
+          "label": "A sudden fall in sea level",
+          "correct": false,
+          "rationale": "Not their clue."
+        },
+        {
+          "id": "c",
+          "label": "A worldwide clay layer rich in iridium",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A meteorite found inside a skeleton",
+          "correct": false,
+          "rationale": "Not their clue."
+        }
+      ],
+      "explanation": "Iridium is rare on Earth but more abundant in meteorites, so a worldwide iridium-rich layer suggested an impact.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.chicxulub_asteroid",
+        "concept.animals.food_chain_levels"
+      ],
+      "sourceCardIds": [
+        "card.animals.086.c4",
+        "card.animals.007.c2"
+      ],
+      "prompt": "Using Level 7's food chain, why did the asteroid's soot doom meat-eaters far from the crater?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Soot poisoned meat but not plants",
+          "correct": false,
+          "rationale": "The harm ran through the plants."
+        },
+        {
+          "id": "b",
+          "label": "Carnivores cannot hunt in the dark",
+          "correct": false,
+          "rationale": "The problem was food, not hunting light."
+        },
+        {
+          "id": "c",
+          "label": "The blast reached every continent",
+          "correct": false,
+          "rationale": "Distant effects came through the food chain."
+        },
+        {
+          "id": "d",
+          "label": "Fewer plants meant fewer herbivores to eat",
+          "correct": true
+        }
+      ],
+      "explanation": "Less sunlight cut plant growth; herbivores that eat producers starved, and so did the carnivores that eat them.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_extinction_biology",
+    "source.brit_major_mass_extinctions",
+    "source.nhm_asteroid_dinosaurs",
+    "source.nhm_when_dinosaurs_lived",
+    "source.natgeo_food_chain"
+  ],
+  "art": "astronomy.asteroid"
+}

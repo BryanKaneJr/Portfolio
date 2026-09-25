@@ -1,0 +1,225 @@
+{
+  "id": "level.science.animals.032",
+  "skillId": "skill.science.animals",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Snakes",
+  "objective": "After this level you can explain how snakes move, hunt and swallow their prey.",
+  "summary": "Limbless snakes move in four main ways, smell in stereo with a forked tongue and the Jacobson's organ, and swallow big prey whole because the halves of their lower jaw aren't joined at the chin.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.snake_locomotion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.snake_tongue_smell",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.snake_swallowing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.reptile_scaly_skin",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.031"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A python can swallow a whole deer, with no hands to help.",
+      "body": "Snakes have no legs, no movable eyelids and no external ears. Yet in Everglades National Park, a wild Burmese python was found with an adult white-tailed deer inside it. Getting there, finding the meal and getting it down each take a different trick."
+    },
+    {
+      "id": "card.animals.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four ways to go without legs",
+      "body": "Snakes have four main ways of moving. The classic is serpentine: the body bends into S-shaped loops, and each loop shoves against whatever it can find, like rocks, twigs or pebbles. Heavy snakes like boas often creep in a straight line instead, lifting, anchoring and pushing with their belly scales, caterpillar-style. Concertina and sidewinding, the one for sand, complete the set. Every pebble in the path is a foothold."
+    },
+    {
+      "id": "card.animals.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Smelling in stereo",
+      "body": "To find a meal, a snake flicks its tongue. Each flick grabs scent particles from the air or ground and delivers them to the Jacobson's organ in the roof of its mouth, which detects smells. The fork matters: each tip samples a different spot, so the snake can tell which side a smell is stronger on. It works like your two ears telling you where a sound came from. That flickering tongue is really half of a nose."
+    },
+    {
+      "id": "card.animals.032.c4",
+      "type": "fact",
+      "fact": "A snake's chin comes apart.",
+      "context": "Unlike your lower jawbone, the two halves of a snake's lower jaw aren't joined at the chin, so they can spread wide and move independently. The snake walks its mouth over the prey, one side and then the other, while stretchy skin widens the gape. That's how most snakes swallow prey whole, even prey much larger than their heads. It's how that Everglades python fit a deer.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "No knife, no fork, no chewing. Just very patient jaws."
+      }
+    },
+    {
+      "id": "card.animals.032.c5",
+      "type": "mcq",
+      "questionId": "question.animals.032.q1"
+    },
+    {
+      "id": "card.animals.032.c6",
+      "type": "mcq",
+      "questionId": "question.animals.032.q2"
+    },
+    {
+      "id": "card.animals.032.c7",
+      "type": "recall",
+      "questionId": "question.animals.032.q3"
+    },
+    {
+      "id": "card.animals.032.c8",
+      "type": "checkpoint",
+      "headline": "Snakes: explained",
+      "learned": [
+        "Four main moves: serpentine, rectilinear, concertina, sidewinding",
+        "Serpentine loops push against rocks and twigs",
+        "The forked tongue brings scents to the Jacobson's organ",
+        "Two tongue tips give stereo smell",
+        "Unjoined jaw halves let snakes swallow big prey whole"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.snake_tongue_smell"
+      ],
+      "sourceCardIds": [
+        "card.animals.032.c3"
+      ],
+      "prompt": "Where does a snake's flicking tongue deliver the scent particles it collects?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To the Jacobson's organ in its mouth's roof",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To taste buds along the tips of its tongue",
+          "correct": false,
+          "rationale": "The tongue is the courier; the detector is in the roof of the mouth."
+        },
+        {
+          "id": "c",
+          "label": "To its nostrils, where the air goes in and out",
+          "correct": false,
+          "rationale": "The tongue carries scent to the mouth's roof, not the nose."
+        },
+        {
+          "id": "d",
+          "label": "To its stomach, along with its next meal",
+          "correct": false,
+          "rationale": "The particles go to a smell organ, not the gut."
+        }
+      ],
+      "explanation": "Each flick carries scent particles to the Jacobson's organ in the roof of the mouth, which detects smells.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.snake_swallowing"
+      ],
+      "sourceCardIds": [
+        "card.animals.032.c4"
+      ],
+      "prompt": "Why can a snake swallow prey much wider than its own head?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It breaks its skull bones and regrows them",
+          "correct": false,
+          "rationale": "Nothing breaks; the jaw halves simply spread apart."
+        },
+        {
+          "id": "b",
+          "label": "It crushes the prey flat before swallowing",
+          "correct": false,
+          "rationale": "Most snakes swallow prey whole."
+        },
+        {
+          "id": "c",
+          "label": "It chews the prey into many smaller pieces",
+          "correct": false,
+          "rationale": "Snakes swallow whole rather than chewing."
+        },
+        {
+          "id": "d",
+          "label": "Its lower jaw halves aren't joined at the chin",
+          "correct": true
+        }
+      ],
+      "explanation": "The two lower jaw halves are free at the chin, so they spread wide and move independently, and stretchy skin widens the gape.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.snake_locomotion",
+        "concept.animals.reptile_scaly_skin"
+      ],
+      "sourceCardIds": [
+        "card.animals.032.c2",
+        "card.animals.031.c2"
+      ],
+      "prompt": "Level 31 said reptiles wear scales. How does a heavy boa use its scales to get around?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sheds them to leave a slippery trail behind",
+          "correct": false,
+          "rationale": "Scales grip; they aren't shed to slide."
+        },
+        {
+          "id": "b",
+          "label": "It grips and pushes with its belly scales",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It flaps them like tiny fins to row along",
+          "correct": false,
+          "rationale": "Scales don't flap; the belly scales anchor and push."
+        },
+        {
+          "id": "d",
+          "label": "It rattles them to flush prey out of hiding",
+          "correct": false,
+          "rationale": "The boa's trick is gripping, not rattling."
+        }
+      ],
+      "explanation": "In rectilinear movement a heavy snake lifts, anchors and pushes with its belly scales, creeping in a straight line.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_snake",
+    "source.uc_python_gape",
+    "source.brit_snake_locomotion",
+    "source.brit_snake_tongue",
+    "source.montana_state_snakes"
+  ],
+  "art": "animals.snake"
+}

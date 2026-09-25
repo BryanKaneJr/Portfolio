@@ -1,0 +1,219 @@
+{
+  "id": "level.science.animals.019",
+  "skillId": "skill.science.animals",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Wolves and Dogs",
+  "objective": "After this level you can explain how wolves became dogs.",
+  "summary": "Dogs came from an ancient wolf population, at least 15,000 years ago; where and how often is debated. A puppy buried at Oberkassel about 14,000 years ago is the earliest known pet.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.dog_wolf_ancestry",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.dog_oldest_pet",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.primate_dna_kinship",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.018"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About 14,000 years ago, someone nursed a very sick puppy.",
+      "body": "It caught canine distemper at about 19 weeks old and was gravely ill. It lived to about 28 weeks, likely only because people cared for it. How did an animal descended from wolves end up in human arms?"
+    },
+    {
+      "id": "card.animals.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not today's wolves",
+      "body": "Dogs came from the gray wolf. But a 2014 genome study found dogs and today's wolves share a common ancestor that lived 9,000 to 34,000 years ago. Dogs came from an ancient wolf population that isn't well represented by any wolves alive now. Your dog and a modern wolf are cousins, not parent and child."
+    },
+    {
+      "id": "card.animals.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "When and where? Still argued",
+      "body": "A 2022 study of 72 ancient wolf genomes put the change in the Ice Age, at least 15,000 years ago. Dogs matched ancient wolves from eastern Eurasia best: an eastern source fed all dogs, and a more westerly one fed some. Where it happened, and whether once or more, is still unknown. Humanity's oldest friendship has no birth certificate.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "A mystery with fur, four legs and 72 ancient genomes. Detectives, fetch!"
+      }
+    },
+    {
+      "id": "card.animals.019.c4",
+      "type": "fact",
+      "fact": "The oldest known pet was a puppy.",
+      "context": "The Oberkassel puppy was buried in Germany with a man and a woman about 14,000 years ago. Researchers call it the earliest known evidence of dogs being treated as pets. Someone sat up with a sick puppy long before anyone wrote a word. Some things haven't changed."
+    },
+    {
+      "id": "card.animals.019.c5",
+      "type": "mcq",
+      "questionId": "question.animals.019.q1"
+    },
+    {
+      "id": "card.animals.019.c6",
+      "type": "mcq",
+      "questionId": "question.animals.019.q2"
+    },
+    {
+      "id": "card.animals.019.c7",
+      "type": "recall",
+      "questionId": "question.animals.019.q3"
+    },
+    {
+      "id": "card.animals.019.c8",
+      "type": "checkpoint",
+      "headline": "Wolves and dogs: explained",
+      "learned": [
+        "Dogs came from ancient gray wolves, not today's",
+        "At least 15,000 years ago, in the Ice Age",
+        "Where, and how often, is still debated",
+        "Oberkassel puppy: earliest known pet, about 14,000 years ago"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.dog_wolf_ancestry"
+      ],
+      "sourceCardIds": [
+        "card.animals.019.c3"
+      ],
+      "prompt": "According to the 2022 study of ancient wolf genomes, dogs came from wolves at least how long ago?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1,500 years ago",
+          "correct": false,
+          "rationale": "Far too recent."
+        },
+        {
+          "id": "b",
+          "label": "15,000 years ago",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "150,000 years ago",
+          "correct": false,
+          "rationale": "Ten times too early."
+        },
+        {
+          "id": "d",
+          "label": "1.5 million years ago",
+          "correct": false,
+          "rationale": "Long before any dogs."
+        }
+      ],
+      "explanation": "Dogs originated from the gray wolf during the Ice Age, at least 15,000 years ago.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.dog_oldest_pet"
+      ],
+      "sourceCardIds": [
+        "card.animals.019.c4",
+        "card.animals.019.c1"
+      ],
+      "prompt": "Why do researchers see the Oberkassel puppy as early evidence of a pet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was buried with hunting tools",
+          "correct": false,
+          "rationale": "The clue is the care it got."
+        },
+        {
+          "id": "b",
+          "label": "It survived a long illness only with human care",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It was the largest dog ever found",
+          "correct": false,
+          "rationale": "Its size isn't the point."
+        },
+        {
+          "id": "d",
+          "label": "It was a wolf in a dog collar",
+          "correct": false,
+          "rationale": "No collar; the clue is its care."
+        }
+      ],
+      "explanation": "The puppy had distemper and likely survived for weeks only through intensive human care.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.dog_wolf_ancestry",
+        "concept.animals.primate_dna_kinship"
+      ],
+      "sourceCardIds": [
+        "card.animals.019.c2",
+        "card.animals.018.c4"
+      ],
+      "prompt": "Level 18 said humans didn't evolve from living chimps. What's the matching twist for dogs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dogs came from modern gray wolves",
+          "correct": false,
+          "rationale": "Dogs came from an ancient population."
+        },
+        {
+          "id": "b",
+          "label": "Dogs came from foxes",
+          "correct": false,
+          "rationale": "Dogs came from gray wolves."
+        },
+        {
+          "id": "c",
+          "label": "They came from ancient wolves, not today's",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Dogs and wolves aren't related",
+          "correct": false,
+          "rationale": "They share a common ancestor."
+        }
+      ],
+      "explanation": "Like humans and chimps, dogs and today's wolves are cousins: dogs came from an ancient wolf population.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.crick_dog_wolf_2022",
+    "source.uchicago_dog_wolf_2014",
+    "source.natgeo_oberkassel_puppy",
+    "source.smithsonian_human_origins_genetics"
+  ],
+  "art": "animals.wolf"
+}

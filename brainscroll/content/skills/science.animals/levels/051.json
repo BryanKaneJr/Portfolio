@@ -1,0 +1,224 @@
+{
+  "id": "level.science.animals.051",
+  "skillId": "skill.science.animals",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Insects",
+  "objective": "After this level you can explain what makes an insect an insect.",
+  "summary": "Insects have three body parts (head, thorax, abdomen), six legs on the thorax and an outer skeleton. About 1 million species are named; about 10 quintillion are alive at once.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.insect_body_plan",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.insect_abundance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.invertebrate_majority",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.species_described_count",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.050"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.051.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Right now, about 10 quintillion insects are alive.",
+      "body": "That’s the Smithsonian’s estimate: a 1 followed by 19 zeros. Beetles, flies, ants, moths: they look wildly different, yet every one of them is built on the same simple plan. Learn the plan, and you can spot an insect anywhere."
+    },
+    {
+      "id": "card.animals.051.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Count to three, then count to six",
+      "body": "Every adult insect’s body comes in three parts. The head carries the eyes, the mouthparts and one pair of antennae. The middle part, the thorax, carries three pairs of legs and, in most adults, one or two pairs of wings. The abdomen holds the digestive and reproductive organs. So count to three, then count to six. Anything that fails either count isn’t an insect, however buggy it looks."
+    },
+    {
+      "id": "card.animals.051.c3",
+      "type": "fact",
+      "fact": "An insect wears its skeleton on the outside.",
+      "context": "Remember Level 3’s beetle, the knight that never takes off its armor? Every insect has an outer skeleton like that. It protects the soft body inside and gives the muscles something to pull on. Your skeleton holds you up from the inside; an insect’s holds it together from the outside. Armor this good has one catch, and Level 58 will show you what it is."
+    },
+    {
+      "id": "card.animals.051.c4",
+      "type": "fact",
+      "fact": "About 1 million insect species have names.",
+      "context": "Level 2 counted about 1.5 million described animal species, and about 1 million of them are insects. Then there are the individuals: the Smithsonian’s 10 quintillion. Treat both numbers as estimates, since nobody can census every ant in every forest. But whichever way you count, kinds or bodies, insects fill the animal kingdom.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Somewhere near you, an ant is reading this over your shoulder. Statistically, several."
+      }
+    },
+    {
+      "id": "card.animals.051.c5",
+      "type": "mcq",
+      "questionId": "question.animals.051.q1"
+    },
+    {
+      "id": "card.animals.051.c6",
+      "type": "mcq",
+      "questionId": "question.animals.051.q2"
+    },
+    {
+      "id": "card.animals.051.c7",
+      "type": "recall",
+      "questionId": "question.animals.051.q3"
+    },
+    {
+      "id": "card.animals.051.c8",
+      "type": "checkpoint",
+      "headline": "Insects: counted",
+      "learned": [
+        "Three parts: head, thorax, abdomen",
+        "Six legs and usually wings on the thorax",
+        "A skeleton worn on the outside",
+        "About 1 million named species",
+        "About 10 quintillion alive at once (estimate)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.insect_abundance"
+      ],
+      "sourceCardIds": [
+        "card.animals.051.c1",
+        "card.animals.051.c4"
+      ],
+      "prompt": "About how many individual insects does the Smithsonian estimate are alive at any one time?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10 thousand",
+          "correct": false,
+          "rationale": "Far, far too few."
+        },
+        {
+          "id": "b",
+          "label": "About 10 billion",
+          "correct": false,
+          "rationale": "Still far too few."
+        },
+        {
+          "id": "c",
+          "label": "About 10 trillion",
+          "correct": false,
+          "rationale": "Still a million times too few."
+        },
+        {
+          "id": "d",
+          "label": "About 10 quintillion",
+          "correct": true
+        }
+      ],
+      "explanation": "The Smithsonian estimates about 10 quintillion insects alive at once: a 1 followed by 19 zeros.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.insect_body_plan"
+      ],
+      "sourceCardIds": [
+        "card.animals.051.c2"
+      ],
+      "prompt": "A garden creature has two body parts and eight legs. What does the insect body plan say about it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It’s an insect with two extra legs",
+          "correct": false,
+          "rationale": "Insects have exactly six legs as adults."
+        },
+        {
+          "id": "b",
+          "label": "It’s not an insect: insects have three parts and six legs",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It’s a young insect that hasn’t finished growing",
+          "correct": false,
+          "rationale": "Adult insects have six legs, but this plan fails both counts."
+        },
+        {
+          "id": "d",
+          "label": "It’s an insect whose wings fell off",
+          "correct": false,
+          "rationale": "Wings don’t change the count of legs or body parts."
+        }
+      ],
+      "explanation": "An insect has three body parts (head, thorax, abdomen) and six legs on the thorax. Two parts and eight legs fails both counts.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.invertebrate_majority",
+        "concept.animals.insect_body_plan"
+      ],
+      "sourceCardIds": [
+        "card.animals.051.c3",
+        "card.animals.003.c3"
+      ],
+      "prompt": "Level 3 said many invertebrates keep their skeleton on the outside. What does an insect’s outer skeleton do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It protects the body and anchors the muscles",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It stores fat for the winter",
+          "correct": false,
+          "rationale": "Its job is protection and support."
+        },
+        {
+          "id": "c",
+          "label": "It lets the insect breathe underwater",
+          "correct": false,
+          "rationale": "That isn’t what an outer skeleton does."
+        },
+        {
+          "id": "d",
+          "label": "It turns into a backbone as the insect grows",
+          "correct": false,
+          "rationale": "Insects never grow a backbone; they’re invertebrates."
+        }
+      ],
+      "explanation": "An insect’s hard outer skeleton protects its body and gives its muscles something to pull on.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonian_insect_numbers",
+    "source.brit_insect",
+    "source.brit_invertebrate",
+    "source.iucn_redlist_table1a_2025"
+  ],
+  "art": "animals.bee"
+}

@@ -1,0 +1,361 @@
+{
+  "id": "level.science.animals.040",
+  "skillId": "skill.science.animals",
+  "number": 40,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Reptiles and Amphibians",
+  "objective": "After this level you can compare reptiles and amphibians.",
+  "summary": "Reptiles: dry scales, shelled eggs on land. Amphibians: moist skin, jelly eggs, often metamorphosis. Both ectotherms. A salamander looks like a lizard: no scales, no claws.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.salamander_lizard_lookalike",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.reptile_scaly_skin",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.reptile_amniotic_egg",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.amphibian_skin_breathing",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.amphibian_double_life",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.frog_metamorphosis_stages",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.body_heat_source",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.venom_vs_poison",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.turtle_temperature_sex",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.039"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.040.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 4 finale: it looks like a lizard, but it's a salamander.",
+      "body": "Long body, four legs, a tail. Is it a reptile or an amphibian? This chapter gave you everything you need to tell. Let's line the two classes up, then meet a mountain range full of lookalikes."
+    },
+    {
+      "id": "card.animals.040.c2",
+      "type": "comparison",
+      "headline": "Reptile or amphibian?",
+      "items": [
+        {
+          "label": "Reptile",
+          "points": [
+            "Dry skin with keratin scales",
+            "Shelled eggs, laid on dry land",
+            "Heat from outside: an ectotherm"
+          ]
+        },
+        {
+          "label": "Amphibian",
+          "points": [
+            "Moist skin that takes in water and breathes",
+            "Jelly eggs in water or damp places",
+            "Heat from outside: an ectotherm",
+            "Many change shape: hind legs first"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.040.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Check the toes",
+      "body": "A salamander and a lizard can share a silhouette, so look closer. The lizard has dry, scaly skin, claws on its toes and ear openings, and lays eggs in a leathery shell. The salamander has smooth, moist skin, no claws and no ear openings, and its eggs are wrapped in clear jelly. Same outline, different class."
+    },
+    {
+      "id": "card.animals.040.c4",
+      "type": "fact",
+      "fact": "Many salamanders have no lungs at all.",
+      "context": "Great Smoky Mountains National Park has more salamander species than anywhere else on Earth, more than 30, and most of them are lungless. They breathe through tiny blood vessels in their skin and the linings of their mouths and throats. Level 37's skin that breathes, taken all the way.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "No lungs, no scales, no claws. Just one very hard-working skin."
+      }
+    },
+    {
+      "id": "card.animals.040.c5",
+      "type": "mcq",
+      "questionId": "question.animals.040.q1"
+    },
+    {
+      "id": "card.animals.040.c6",
+      "type": "mcq",
+      "questionId": "question.animals.040.q2"
+    },
+    {
+      "id": "card.animals.040.c7",
+      "type": "recall",
+      "questionId": "question.animals.040.q3"
+    },
+    {
+      "id": "card.animals.040.c8",
+      "type": "recall",
+      "questionId": "question.animals.040.q4"
+    },
+    {
+      "id": "card.animals.040.c9",
+      "type": "recall",
+      "questionId": "question.animals.040.q5"
+    },
+    {
+      "id": "card.animals.040.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 4 complete",
+      "learned": [
+        "Reptiles: keratin scales and shelled eggs on land",
+        "Amphibians: moist skin, jelly eggs, often metamorphosis",
+        "Venom is injected; poison is eaten or touched",
+        "Sand temperature sets a sea turtle's sex",
+        "Salamander, not lizard: moist skin, no claws, maybe no lungs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.040.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.salamander_lizard_lookalike"
+      ],
+      "sourceCardIds": [
+        "card.animals.040.c3"
+      ],
+      "prompt": "Reptiles and Amphibians recap: which clue shows a lizard-shaped animal is really a salamander?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dry skin covered in scales",
+          "correct": false,
+          "rationale": "Dry scales mean lizard."
+        },
+        {
+          "id": "b",
+          "label": "Smooth, moist skin and no claws",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Eggs laid in a leathery shell",
+          "correct": false,
+          "rationale": "Leathery-shelled eggs are the lizard's."
+        },
+        {
+          "id": "d",
+          "label": "Ear openings on its head",
+          "correct": false,
+          "rationale": "Lizards have ear openings; salamanders don't."
+        }
+      ],
+      "explanation": "Salamanders have smooth, moist skin and no claws; lizards have dry scales, claws and leathery-shelled eggs.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.040.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.salamander_lizard_lookalike",
+        "concept.animals.amphibian_skin_breathing"
+      ],
+      "sourceCardIds": [
+        "card.animals.040.c4",
+        "card.animals.037.c3"
+      ],
+      "prompt": "Reptiles and Amphibians recap: how do the Smokies' lungless salamanders get their oxygen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Through gills they keep all their lives",
+          "correct": false,
+          "rationale": "They breathe through skin, not gills."
+        },
+        {
+          "id": "b",
+          "label": "By storing extra air inside their tails",
+          "correct": false,
+          "rationale": "There's no air store; the skin does the work."
+        },
+        {
+          "id": "c",
+          "label": "Through scales that trap tiny air bubbles",
+          "correct": false,
+          "rationale": "Salamanders have no scales."
+        },
+        {
+          "id": "d",
+          "label": "Through their skin and mouth and throat linings",
+          "correct": true
+        }
+      ],
+      "explanation": "Lungless salamanders exchange gases through tiny blood vessels in their moist skin and in the linings of their mouths and throats.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.040.q3",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.venom_vs_poison"
+      ],
+      "sourceCardIds": [
+        "card.animals.033.c2"
+      ],
+      "prompt": "Reptiles and Amphibians recap, from Level 33: what is a toxin called if it harms you only when you eat or touch its owner?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Venom",
+          "correct": false,
+          "rationale": "Venom has to be injected through a wound."
+        },
+        {
+          "id": "b",
+          "label": "Antivenom",
+          "correct": false,
+          "rationale": "Antivenom is the cure, made from antibodies."
+        },
+        {
+          "id": "c",
+          "label": "Poison",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Hemotoxin",
+          "correct": false,
+          "rationale": "A hemotoxin is a kind of venom that attacks blood."
+        }
+      ],
+      "explanation": "Poison harms when eaten or absorbed through the skin; venom has to be injected.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.040.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.turtle_temperature_sex"
+      ],
+      "sourceCardIds": [
+        "card.animals.034.c4"
+      ],
+      "prompt": "Reptiles and Amphibians recap, from Level 34: what decides whether a sea turtle hatchling is male or female?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The size of the mother that laid them",
+          "correct": false,
+          "rationale": "The nest's warmth decides, not the mother's size."
+        },
+        {
+          "id": "b",
+          "label": "The depth of the sea near the beach",
+          "correct": false,
+          "rationale": "The eggs sit on the beach; the sand's warmth matters."
+        },
+        {
+          "id": "c",
+          "label": "The number of eggs in the nest",
+          "correct": false,
+          "rationale": "Clutch size doesn't set sex; temperature does."
+        },
+        {
+          "id": "d",
+          "label": "The temperature of the sand",
+          "correct": true
+        }
+      ],
+      "explanation": "Below 27.7 °C sea turtle eggs hatch male; above 31 °C, female.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.040.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.frog_metamorphosis_stages",
+        "concept.animals.amphibian_double_life"
+      ],
+      "sourceCardIds": [
+        "card.animals.038.c3",
+        "card.animals.040.c2"
+      ],
+      "prompt": "Reptiles and Amphibians recap: which life story belongs to an amphibian, not a reptile?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Laying shelled eggs in a sand nest",
+          "correct": false,
+          "rationale": "Shelled eggs on land are the reptile plan, as in sea turtles."
+        },
+        {
+          "id": "b",
+          "label": "Growing a shell from its own ribs",
+          "correct": false,
+          "rationale": "That's a turtle, a reptile."
+        },
+        {
+          "id": "c",
+          "label": "Hatching with gills and a tail, then growing hind legs first",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Standing on legs held under the body like pillars",
+          "correct": false,
+          "rationale": "That's the dinosaur stance, and dinosaurs were reptiles."
+        }
+      ],
+      "explanation": "Many amphibians live a dual life: a gilled, tailed tadpole grows hind legs first, then lungs and front legs, while its tail is absorbed.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_cold_bloodedness",
+    "source.brit_reptile",
+    "source.openstax_bio_reptiles",
+    "source.adw_reptilia",
+    "source.cmnh_amniotic_egg",
+    "source.openstax_bio_amphibians",
+    "source.exploratorium_tadpole",
+    "source.nps_smokies_amphibians",
+    "source.aqua_lizards_salamanders"
+  ],
+  "art": "animals.turtle"
+}

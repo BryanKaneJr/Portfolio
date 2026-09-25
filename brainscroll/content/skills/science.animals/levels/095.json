@@ -1,0 +1,220 @@
+{
+  "id": "level.science.animals.095",
+  "skillId": "skill.science.animals",
+  "number": 95,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Saving Species",
+  "objective": "After this level you can describe conservation successes, like the bald eagle.",
+  "summary": "DDT left 417 bald eagle pairs in 1963; after the 1972 ban they recovered. Condors bred in captivity now number over 500. Humpbacks rebounded after whaling stopped.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.bald_eagle_recovery",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.condor_humpback_recovery",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.food_chain_levels",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.094"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.095.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "By 1987, every wild California condor had been caught on purpose.",
+      "body": "North America's largest land bird, with a 9.5-foot wingspan, was down so far that all the remaining wild ones went into a captive breeding program. A last resort. Did it work? And what saved the bald eagle and the humpback whale?"
+    },
+    {
+      "id": "card.animals.095.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The eagle and the eggshell",
+      "body": "The pesticide DDT washed into rivers and lakes, where water plants and fish absorbed it. Bald eagles ate the fish and took in the poison too. It made their eggshells so thin that eggs often broke during incubation. By 1963, only 417 nesting pairs were known in the lower 48 states. The poison didn't have to kill the adults. It just had to stop the next generation."
+    },
+    {
+      "id": "card.animals.095.c3",
+      "type": "fact",
+      "fact": "Bald eagles: from 417 nesting pairs to about 316,700 birds.",
+      "context": "The US banned DDT in 1972, and the eagles rebuilt. In 2007, the bald eagle came off the list of threatened and endangered species. A USFWS estimate from 2018 and 2019 surveys counts about 316,700 bald eagles in the lower 48 states, including 71,467 breeding pairs. Remove the poison, and the eagles did the rest.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "From 417 pairs to more than 71,000. That's a comeback worth saluting."
+      }
+    },
+    {
+      "id": "card.animals.095.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Condors and humpbacks",
+      "body": "Captive-bred condors have been going back to the wild since 1992, and the total population is now more than 500. Their top known killer is lead, from ammunition fragments scavenging condors swallow. Humpback whales needed something simpler: people had to stop hunting them. Whaling had cut most populations by more than 95 percent before a final moratorium in 1985. In 2016, NOAA found 9 of 14 humpback populations no longer needed listing."
+    },
+    {
+      "id": "card.animals.095.c5",
+      "type": "mcq",
+      "questionId": "question.animals.095.q1"
+    },
+    {
+      "id": "card.animals.095.c6",
+      "type": "mcq",
+      "questionId": "question.animals.095.q2"
+    },
+    {
+      "id": "card.animals.095.c7",
+      "type": "recall",
+      "questionId": "question.animals.095.q3"
+    },
+    {
+      "id": "card.animals.095.c8",
+      "type": "checkpoint",
+      "headline": "Species: saved",
+      "learned": [
+        "DDT thinned bald eagle eggshells",
+        "417 nesting pairs in 1963; DDT banned 1972",
+        "Eagles delisted 2007; about 316,700 today",
+        "Condors: captive breeding from 1987, over 500 now",
+        "Humpbacks: 9 of 14 populations recovered"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.095.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.condor_humpback_recovery"
+      ],
+      "sourceCardIds": [
+        "card.animals.095.c1",
+        "card.animals.095.c4"
+      ],
+      "prompt": "What happened to the last wild California condors by 1987?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were fitted with radio collars and left wild",
+          "correct": false,
+          "rationale": "Every wild one was brought in."
+        },
+        {
+          "id": "b",
+          "label": "They were moved to islands",
+          "correct": false,
+          "rationale": "They went into captive breeding, not onto islands."
+        },
+        {
+          "id": "c",
+          "label": "They were declared extinct",
+          "correct": false,
+          "rationale": "They survived in captivity; releases began in 1992."
+        },
+        {
+          "id": "d",
+          "label": "All were taken into a captive breeding program",
+          "correct": true
+        }
+      ],
+      "explanation": "By 1987 all remaining wild condors had been taken into captive breeding; releases began in 1992.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.095.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.bald_eagle_recovery"
+      ],
+      "sourceCardIds": [
+        "card.animals.095.c2"
+      ],
+      "prompt": "How did DDT push bald eagles toward extinction?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It killed the fish they ate",
+          "correct": false,
+          "rationale": "The fish carried the DDT to the eagles."
+        },
+        {
+          "id": "b",
+          "label": "It thinned their eggshells, so eggs broke",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It destroyed their nesting trees",
+          "correct": false,
+          "rationale": "The harm was chemical, to their eggs."
+        },
+        {
+          "id": "d",
+          "label": "It left them unable to fly",
+          "correct": false,
+          "rationale": "The adults could fly; their eggs failed."
+        }
+      ],
+      "explanation": "DDT made eggshells so thin that they often broke during incubation, so few chicks hatched.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.095.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.bald_eagle_recovery",
+        "concept.animals.food_chain_levels"
+      ],
+      "sourceCardIds": [
+        "card.animals.095.c2",
+        "card.animals.007.c2"
+      ],
+      "prompt": "DDT got into water plants and fish before it reached eagles. Using Level 7, why did the eagles end up exposed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They make their own food from sunlight",
+          "correct": false,
+          "rationale": "That's what producers do."
+        },
+        {
+          "id": "b",
+          "label": "They are decomposers of dead fish",
+          "correct": false,
+          "rationale": "Decomposers are fungi and bacteria."
+        },
+        {
+          "id": "c",
+          "label": "They eat the fish, higher up the same food chain",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They drank from sprayed fields",
+          "correct": false,
+          "rationale": "The poison reached them through the fish they ate."
+        }
+      ],
+      "explanation": "Eagles are consumers that eat fish, so poison in the fish moved up the chain into them.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.usfws_bald_eagle",
+    "source.usfws_california_condor",
+    "source.noaa_humpback_whale",
+    "source.natgeo_food_chain"
+  ],
+  "art": "animals.eagle"
+}

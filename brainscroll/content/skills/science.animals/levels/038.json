@@ -1,0 +1,236 @@
+{
+  "id": "level.science.animals.038",
+  "skillId": "skill.science.animals",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "From Tadpole to Frog",
+  "objective": "After this level you can explain how a tadpole turns into a frog.",
+  "summary": "A tadpole has gills, a finned tail and no legs. Hind legs come first, then lungs and front legs; the tail is absorbed. Gudernatsch (1912) showed thyroid hormone drives it.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.frog_metamorphosis_stages",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.frog_metamorphosis_thyroid",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.diet_life_stage",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.037"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A tadpole never drops its tail. Its body absorbs it.",
+      "body": "Somewhere between two months and three years, a swimming larva with gills rebuilds itself into a frog with lungs and legs. Here's the order of the work, and the chemical that gives the orders."
+    },
+    {
+      "id": "card.animals.038.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Barely a frog at all",
+      "body": "A young tadpole looks nothing like its parents. It usually has gills, a long, finned tail and no limbs at all, and it's often a plant-eater. Everything about it is built for life underwater: it breathes with gills where its parents will use lungs. To become a frog, almost every part has to be rebuilt."
+    },
+    {
+      "id": "card.animals.038.c3",
+      "type": "timeline",
+      "headline": "Rebuilding a frog",
+      "events": [
+        {
+          "when": "First",
+          "label": "Hind legs sprout"
+        },
+        {
+          "when": "Next",
+          "label": "Lungs develop and the front legs appear"
+        },
+        {
+          "when": "Meanwhile",
+          "label": "The tail shrinks as the body absorbs it, and the mouth turns froglike"
+        },
+        {
+          "when": "Last",
+          "label": "The gills disappear, just before it becomes a frog"
+        }
+      ]
+    },
+    {
+      "id": "card.animals.038.c4",
+      "type": "fact",
+      "fact": "In 1912, tadpoles fed horse thyroid changed early.",
+      "context": "Friedrich Gudernatsch fed tadpoles bits of several horse organs. Only the thyroid gland sped up their metamorphosis. Later, removing a tadpole's own thyroid stopped the change entirely: without thyroid hormone, the rebuild never happens. Level 10's gray tree frog, algae-eater as a tadpole and insect-hunter as an adult, goes through this same hormone-driven makeover.",
+      "mascot": {
+        "pose": "idea",
+        "line": "One gland, one hormone, a whole new body. The thyroid is the site foreman."
+      }
+    },
+    {
+      "id": "card.animals.038.c5",
+      "type": "mcq",
+      "questionId": "question.animals.038.q1"
+    },
+    {
+      "id": "card.animals.038.c6",
+      "type": "mcq",
+      "questionId": "question.animals.038.q2"
+    },
+    {
+      "id": "card.animals.038.c7",
+      "type": "recall",
+      "questionId": "question.animals.038.q3"
+    },
+    {
+      "id": "card.animals.038.c8",
+      "type": "checkpoint",
+      "headline": "Metamorphosis: explained",
+      "learned": [
+        "Tadpoles: gills, finned tail, no legs, often plant-eaters",
+        "Hind legs first, then lungs and front legs",
+        "The tail is absorbed; the gills vanish last",
+        "Gudernatsch, 1912: thyroid speeds the change",
+        "Without thyroid hormone, there's no frog"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.frog_metamorphosis_stages"
+      ],
+      "sourceCardIds": [
+        "card.animals.038.c3"
+      ],
+      "prompt": "In a growing tadpole, which legs appear first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The front legs",
+          "correct": false,
+          "rationale": "The front legs come later, with the lungs."
+        },
+        {
+          "id": "b",
+          "label": "All four at once",
+          "correct": false,
+          "rationale": "The hind legs lead the way."
+        },
+        {
+          "id": "c",
+          "label": "None until it leaves the water",
+          "correct": false,
+          "rationale": "The legs grow while it's still a tadpole."
+        },
+        {
+          "id": "d",
+          "label": "The hind legs",
+          "correct": true
+        }
+      ],
+      "explanation": "Metamorphosis begins as the hind legs sprout; the front legs appear later, around when the lungs develop.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.frog_metamorphosis_thyroid"
+      ],
+      "sourceCardIds": [
+        "card.animals.038.c4"
+      ],
+      "prompt": "What did Gudernatsch's 1912 feeding experiment reveal about metamorphosis?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tadpoles need meat to grow legs",
+          "correct": false,
+          "rationale": "He tested organs, and only the thyroid mattered."
+        },
+        {
+          "id": "b",
+          "label": "Something from the thyroid gland triggers it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Any horse organ speeds it up",
+          "correct": false,
+          "rationale": "Only the thyroid sped it up."
+        },
+        {
+          "id": "d",
+          "label": "It depends only on water temperature",
+          "correct": false,
+          "rationale": "The experiment pointed to the thyroid, a hormone gland."
+        }
+      ],
+      "explanation": "Only thyroid tissue sped up metamorphosis, and removing a tadpole's thyroid stops it: thyroid hormone drives the change.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.frog_metamorphosis_stages",
+        "concept.animals.diet_life_stage"
+      ],
+      "sourceCardIds": [
+        "card.animals.038.c2",
+        "card.animals.010.c3"
+      ],
+      "prompt": "Level 10's gray tree frog eats algae as a tadpole and insects as an adult. How does metamorphosis explain the switch?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Adult frogs forget how to digest plants",
+          "correct": false,
+          "rationale": "It's a full rebuild of the body, not forgetting."
+        },
+        {
+          "id": "b",
+          "label": "The tadpole's body is rebuilt for hunting",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Algae stop growing once the tadpole is older",
+          "correct": false,
+          "rationale": "The change is in the frog, not the algae."
+        },
+        {
+          "id": "d",
+          "label": "Insects live only on land, far from ponds",
+          "correct": false,
+          "rationale": "The diet change comes from the new body, not from where insects live."
+        }
+      ],
+      "explanation": "Metamorphosis rebuilds a gilled, often plant-eating tadpole into a frog with a froglike mouth, and the gray tree frog's diet shifts to insects with it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_frog",
+    "source.openstax_bio_amphibians",
+    "source.exploratorium_tadpole",
+    "source.smithsonian_zoo_gray_tree_frog",
+    "source.pmc_thyroid_metamorphosis"
+  ],
+  "art": "geo.rainforest"
+}

@@ -1,0 +1,220 @@
+{
+  "id": "level.science.animals.057",
+  "skillId": "skill.science.animals",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Earthworms",
+  "objective": "After this level you can explain how earthworms help the soil.",
+  "summary": "Earthworms breathe through moist skin, open burrows for air, water and roots, and leave rich casts. Darwin estimated they move over ten tons of earth per acre a year.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.earthworm_skin_breathing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.earthworm_soil_work",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.food_chain_levels",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.056"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1881, Charles Darwin wrote a book about worms. It was a hit.",
+      "body": "It sold 6,000 copies within a year, and at first it sold far faster than On the Origin of Species had. Why would anyone rush to buy a book about earthworms? Because Darwin showed what they do to the ground under your feet."
+    },
+    {
+      "id": "card.animals.057.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Breathing through skin",
+      "body": "An earthworm has no lungs. It breathes through its skin, and that only works while the skin stays moist, so worms need damp soil. Its body is a chain of ringlike segments, as many as 150 in one common species. Most of the time you never see them. They’re noticed mainly after heavy rain, when they come up to the surface."
+    },
+    {
+      "id": "card.animals.057.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Plowing without a plow",
+      "body": "Earthworms eat decaying plants and swallow plenty of soil along the way. Their burrows open passages for air, water and roots, and they drag plant material down into the ground. What comes out the other end, the worm’s casts, is richer than the surrounding soil, with nutrients in forms plants can use more easily. Every worm is a tiny tiller and a fertilizer factory in one."
+    },
+    {
+      "id": "card.animals.057.c4",
+      "type": "fact",
+      "fact": "More than ten tons of earth per acre, every year.",
+      "context": "That was Darwin’s estimate for many parts of England: more than ten tons of dry earth passing through worms’ bodies and brought up to the surface on each acre of land, every year. His conclusion was a lovely one. Long before people existed, the land was already being plowed, by earthworms.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "No lungs, no plow, and still the hardest-working farmhands around."
+      }
+    },
+    {
+      "id": "card.animals.057.c5",
+      "type": "mcq",
+      "questionId": "question.animals.057.q1"
+    },
+    {
+      "id": "card.animals.057.c6",
+      "type": "mcq",
+      "questionId": "question.animals.057.q2"
+    },
+    {
+      "id": "card.animals.057.c7",
+      "type": "recall",
+      "questionId": "question.animals.057.q3"
+    },
+    {
+      "id": "card.animals.057.c8",
+      "type": "checkpoint",
+      "headline": "Earthworms: dug in",
+      "learned": [
+        "No lungs: they breathe through moist skin",
+        "A body of ringlike segments",
+        "Burrows let in air, water and roots",
+        "Casts are richer than the soil around them",
+        "Darwin: over ten tons of earth per acre a year"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.earthworm_skin_breathing"
+      ],
+      "sourceCardIds": [
+        "card.animals.057.c2"
+      ],
+      "prompt": "How does an earthworm breathe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Through its moist skin",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "With a pair of small lungs",
+          "correct": false,
+          "rationale": "Earthworms have no lungs."
+        },
+        {
+          "id": "c",
+          "label": "Through gills near its head",
+          "correct": false,
+          "rationale": "Earthworms have no gills."
+        },
+        {
+          "id": "d",
+          "label": "Through its mouth, like a fish",
+          "correct": false,
+          "rationale": "Breathing happens across the skin."
+        }
+      ],
+      "explanation": "Earthworms lack lungs and breathe through their skin, which must stay moist.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.earthworm_soil_work"
+      ],
+      "sourceCardIds": [
+        "card.animals.057.c3"
+      ],
+      "prompt": "How do earthworm burrows help the plants growing above them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They trap insects that eat roots",
+          "correct": false,
+          "rationale": "Burrows help by opening the soil, not trapping pests."
+        },
+        {
+          "id": "b",
+          "label": "They keep the soil dry and firm",
+          "correct": false,
+          "rationale": "They help air and water get in."
+        },
+        {
+          "id": "c",
+          "label": "They open passages for air, water and roots",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They store water for the worms to drink",
+          "correct": false,
+          "rationale": "The burrows help the soil, and the plants in it."
+        }
+      ],
+      "explanation": "Earthworm burrows create passages for air, water and roots.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.food_chain_levels",
+        "concept.animals.earthworm_soil_work"
+      ],
+      "sourceCardIds": [
+        "card.animals.057.c3",
+        "card.animals.007.c2"
+      ],
+      "prompt": "Level 7’s decomposers turn dead plants into nutrient-rich soil. Which earthworm habit does a similar job?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Coming to the surface after heavy rain",
+          "correct": false,
+          "rationale": "That’s when you see them, not what they do for soil."
+        },
+        {
+          "id": "b",
+          "label": "Eating decaying plants and leaving rich casts",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Breathing through its skin",
+          "correct": false,
+          "rationale": "That’s how they breathe, not how they feed the soil."
+        },
+        {
+          "id": "d",
+          "label": "Growing up to 150 segments",
+          "correct": false,
+          "rationale": "Segments are body plan, not soil work."
+        }
+      ],
+      "explanation": "Earthworms eat decaying plants and leave casts richer than the surrounding soil, much like the decomposers of Level 7.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_earthworm",
+    "source.csu_earthworms",
+    "source.darwin_online_worms_intro",
+    "source.gutenberg_darwin_worms",
+    "source.natgeo_food_chain"
+  ],
+  "art": "rome.farm"
+}

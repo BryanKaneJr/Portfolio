@@ -1,0 +1,218 @@
+{
+  "id": "level.science.animals.076",
+  "skillId": "skill.science.animals",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Animal Parents",
+  "objective": "After this level you can explain how animals care for their young.",
+  "summary": "Care costs future young, so animals trade numbers for care. Orangutans raise only 4 or 5 young in a lifetime; seahorse fathers carry the eggs.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.behavior_parental_care_tradeoff",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_seahorse_fathers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.behavior_instinct",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.075"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "An orangutan mother may raise only 4 or 5 babies in her whole life.",
+      "body": "She has a baby only about every 7 to 9 years, and each one gets years of her attention. A seahorse father, meanwhile, gives birth to a brood and gives them no further care. Two very different bets on the same goal. Why?"
+    },
+    {
+      "id": "card.animals.076.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Care has a price",
+      "body": "Every hour spent guarding one batch of eggs is an hour not spent producing the next. So parents face a trade-off: more young with little care, or fewer young with lots of it. Mammal mothers are locked onto the care side: they feed their young milk, and most carry them through pregnancy first. Parenting is paid for in babies not made."
+    },
+    {
+      "id": "card.animals.076.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The longest childhood",
+      "body": "Orangutans sit at the far end. Infants cling to their mothers from birth and can nurse until they're 6 or 7 years old. A mother has a baby only about every 7 to 9 years, so she raises just 4 or 5 in her lifetime. Daughters may stay close into their teens, watching their mother raise younger siblings. That's how they pick up the job themselves."
+    },
+    {
+      "id": "card.animals.076.c4",
+      "type": "fact",
+      "fact": "In seahorses, the father gets pregnant.",
+      "context": "The female places her eggs in a brood pouch at the base of the male's tail. He carries them for between 10 days and six weeks, depending on the species, then pushes the young out through an opening in the pouch. Care by the father alone is rare, but seahorse and pipefish males carry the eggs. Once born, the babies are on their own.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Dad does the pregnancy, then everyone swims off. Short parenting, very dramatic."
+      }
+    },
+    {
+      "id": "card.animals.076.c5",
+      "type": "mcq",
+      "questionId": "question.animals.076.q1"
+    },
+    {
+      "id": "card.animals.076.c6",
+      "type": "mcq",
+      "questionId": "question.animals.076.q2"
+    },
+    {
+      "id": "card.animals.076.c7",
+      "type": "recall",
+      "questionId": "question.animals.076.q3"
+    },
+    {
+      "id": "card.animals.076.c8",
+      "type": "checkpoint",
+      "headline": "Animal parents: compared",
+      "learned": [
+        "Care now costs young later",
+        "Mammal mothers carry and nurse their young",
+        "Orangutans: nursing to 6 or 7, only 4 or 5 babies",
+        "Daughters learn mothering by watching",
+        "Seahorse fathers carry the eggs and give birth"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.behavior_seahorse_fathers"
+      ],
+      "sourceCardIds": [
+        "card.animals.076.c4"
+      ],
+      "prompt": "Where does a female seahorse put her eggs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In a nest of seagrass",
+          "correct": false,
+          "rationale": "Seahorse eggs don't go in a nest."
+        },
+        {
+          "id": "b",
+          "label": "Loose in open water",
+          "correct": false,
+          "rationale": "They go somewhere protected."
+        },
+        {
+          "id": "c",
+          "label": "In her own belly until birth",
+          "correct": false,
+          "rationale": "The male carries them."
+        },
+        {
+          "id": "d",
+          "label": "In a brood pouch on the male",
+          "correct": true
+        }
+      ],
+      "explanation": "She places them in the male's brood pouch, and he carries them until birth.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.behavior_parental_care_tradeoff"
+      ],
+      "sourceCardIds": [
+        "card.animals.076.c2"
+      ],
+      "prompt": "Why can't a parent both have huge numbers of young and give each one lots of care?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Care is instinctive and can't be changed",
+          "correct": false,
+          "rationale": "That doesn't explain the limit."
+        },
+        {
+          "id": "b",
+          "label": "Care uses time and energy that could make more young",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Young animals refuse care",
+          "correct": false,
+          "rationale": "Young animals benefit from care."
+        },
+        {
+          "id": "d",
+          "label": "Only mammals can care for young",
+          "correct": false,
+          "rationale": "Seahorse fathers care too."
+        }
+      ],
+      "explanation": "Guarding one clutch comes at the expense of laying another, so care and numbers trade off.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.behavior_parental_care_tradeoff",
+        "concept.animals.behavior_instinct"
+      ],
+      "sourceCardIds": [
+        "card.animals.076.c3",
+        "card.animals.071.c3"
+      ],
+      "prompt": "Young female orangutans watch their mothers raise younger siblings. In Level 71's terms, what are they doing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Learning mothering by experience",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Imprinting on their siblings",
+          "correct": false,
+          "rationale": "Imprinting happens right after birth, not in the teens."
+        },
+        {
+          "id": "c",
+          "label": "Following a pure instinct",
+          "correct": false,
+          "rationale": "Watching and picking up skills is learning."
+        },
+        {
+          "id": "d",
+          "label": "Habituating to their mother",
+          "correct": false,
+          "rationale": "They're gaining skills, not tuning out a signal."
+        }
+      ],
+      "explanation": "Watching a mother raise siblings lets young females learn mothering skills from experience.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_parental_care",
+    "source.smithsonian_zoo_orangutan",
+    "source.brit_seahorse"
+  ],
+  "art": "animals.kangaroo"
+}

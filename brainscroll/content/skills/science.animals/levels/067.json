@@ -1,0 +1,211 @@
+{
+  "id": "level.science.animals.067",
+  "skillId": "skill.science.animals",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Shells, Spines and Stings",
+  "objective": "After this level you can describe the ways animals defend themselves.",
+  "summary": "Animals defend themselves with armor (the three-banded armadillo rolls into a ball), spines (porcupine quills detach in an attacker) and chemicals (a skunk warns, then sprays about 10 feet).",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.defense_armor_spines_spray",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.warning_coloration",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.066"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A porcupine can't throw its quills.",
+      "body": "It's a popular idea, but the quills are never thrown or shot. So how do they end up stuck in an attacker? This level's defenders don't hide or run. They make themselves very hard to eat."
+    },
+    {
+      "id": "card.animals.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Armor: become a ball",
+      "body": "The southern three-banded armadillo is covered in plates of leathery armor, and it can roll completely into a ball, shielding its soft belly inside. Only one other armadillo can do the same: the Brazilian three-banded armadillo. A predator that finds one is left holding a sealed box."
+    },
+    {
+      "id": "card.animals.067.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Spines: let the attacker take them",
+      "body": "A North American porcupine carries about 30,000 quills, attached so lightly that they come off easily in anything that grabs it. Cornered, it raises its quills, turns its back and lashes its tail. Once in a predator's skin, a quill keeps working its way deeper, about 1 mm an hour. The lesson lasts."
+    },
+    {
+      "id": "card.animals.067.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Spray: warn first, then fire",
+      "body": "A striped skunk gives notice: it stomps its feet and raises its tail. Ignore that, and it can spray about 10 feet (3 meters) with startling accuracy. The warning makes sense, because refilling takes about a week. Its white stripes are warning coloration, the same \"back off\" signal as Level 63's monarch."
+    },
+    {
+      "id": "card.animals.067.c5",
+      "type": "mcq",
+      "questionId": "question.animals.067.q1"
+    },
+    {
+      "id": "card.animals.067.c6",
+      "type": "mcq",
+      "questionId": "question.animals.067.q2"
+    },
+    {
+      "id": "card.animals.067.c7",
+      "type": "recall",
+      "questionId": "question.animals.067.q3"
+    },
+    {
+      "id": "card.animals.067.c8",
+      "type": "checkpoint",
+      "headline": "Defenses: explained",
+      "learned": [
+        "Armor: the three-banded armadillo rolls into a ball",
+        "Spines: about 30,000 quills that detach on contact",
+        "Quills are never thrown",
+        "Spray: a skunk warns, then fires about 10 feet",
+        "White stripes are warning colors"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.defense_armor_spines_spray"
+      ],
+      "sourceCardIds": [
+        "card.animals.067.c3"
+      ],
+      "prompt": "How do a porcupine's quills end up in an attacker?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The porcupine shoots them",
+          "correct": false,
+          "rationale": "A popular myth: quills are never thrown."
+        },
+        {
+          "id": "b",
+          "label": "They come off easily on contact",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The porcupine bites them in",
+          "correct": false,
+          "rationale": "It uses its back and tail, not its teeth."
+        },
+        {
+          "id": "d",
+          "label": "They grow toward nearby animals",
+          "correct": false,
+          "rationale": "They're lightly attached and detach on contact."
+        }
+      ],
+      "explanation": "Quills are so lightly attached that they come off in whatever grabs the porcupine.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.defense_armor_spines_spray"
+      ],
+      "sourceCardIds": [
+        "card.animals.067.c4"
+      ],
+      "prompt": "Why does a striped skunk stomp and raise its tail before it sprays?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To aim its spray at the attacker's feet",
+          "correct": false,
+          "rationale": "It's a warning, not aiming."
+        },
+        {
+          "id": "b",
+          "label": "To show off to other skunks in the area",
+          "correct": false,
+          "rationale": "It's aimed at the predator."
+        },
+        {
+          "id": "c",
+          "label": "Because it can only spray while standing still",
+          "correct": false,
+          "rationale": "Not what this level says."
+        },
+        {
+          "id": "d",
+          "label": "Refilling takes a week, so warning saves spray",
+          "correct": true
+        }
+      ],
+      "explanation": "A warning can win without spending spray that takes about a week to replace.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.animals.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.defense_armor_spines_spray",
+        "concept.animals.warning_coloration"
+      ],
+      "sourceCardIds": [
+        "card.animals.067.c4",
+        "card.animals.063.c2"
+      ],
+      "prompt": "Level 63's monarch warned predators with bold colors. What plays that role on a striped skunk?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its white stripes",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its long quills",
+          "correct": false,
+          "rationale": "That's the porcupine."
+        },
+        {
+          "id": "c",
+          "label": "Its armor plates",
+          "correct": false,
+          "rationale": "That's the armadillo."
+        },
+        {
+          "id": "d",
+          "label": "Its pale belly",
+          "correct": false,
+          "rationale": "A pale belly is countershading, for hiding."
+        }
+      ],
+      "explanation": "The skunk's bold white stripes are warning coloration, like the monarch's pattern.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_photoark_three_banded_armadillo",
+    "source.smithsonian_zoo_porcupine",
+    "source.smithsonian_zoo_striped_skunk_news",
+    "source.natgeo_camouflage"
+  ],
+  "art": "animals.turtle"
+}

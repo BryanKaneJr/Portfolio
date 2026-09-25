@@ -1,0 +1,235 @@
+{
+  "id": "level.science.animals.054",
+  "skillId": "skill.science.animals",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Butterflies",
+  "objective": "After this level you can explain how a caterpillar becomes a butterfly.",
+  "summary": "Butterflies pass through egg, larva, pupa and adult. In the chrysalis most caterpillar tissue dissolves, and imaginal discs build the wings, legs and eyes.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.butterfly_life_stages",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.butterfly_pupa_rebuild",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.insect_body_plan",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.053"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Inside a chrysalis, a caterpillar digests itself.",
+      "body": "It releases enzymes that dissolve most of its own body into what scientists call caterpillar soup. Out of that soup comes an animal with wings, new legs and new eyes. So how do you build a butterfly from soup?"
+    },
+    {
+      "id": "card.animals.054.c2",
+      "type": "timeline",
+      "headline": "One insect, four stages",
+      "events": [
+        {
+          "when": "Stage 1",
+          "label": "Egg: a monarch egg hatches about four days after it’s laid"
+        },
+        {
+          "when": "Stage 2",
+          "label": "Larva, the caterpillar: grows from under 1 cm to about 5 cm"
+        },
+        {
+          "when": "Stage 3",
+          "label": "Pupa, the chrysalis: the body is rebuilt inside"
+        },
+        {
+          "when": "Stage 4",
+          "label": "Adult: the winged butterfly climbs out"
+        }
+      ]
+    },
+    {
+      "id": "card.animals.054.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Soup with a blueprint",
+      "body": "The meltdown isn’t chaos. While the caterpillar was still inside its egg, it grew small groups of cells called imaginal discs, one for each adult part it would need: eyes, wings, legs and more. In the chrysalis, the discs survive, feed on the soup around them and divide fast. In a fruit fly, a wing disc can grow from about 50 cells to more than 50,000. The caterpillar carried the plans for its future the whole time."
+    },
+    {
+      "id": "card.animals.054.c4",
+      "type": "fact",
+      "fact": "Four stages add up to complete metamorphosis.",
+      "context": "Going through all four, egg, larva, pupa and adult, is what biologists call complete metamorphosis. The caterpillar and the butterfly look like two different animals, but they’re one insect at two ends of the same process. The wings you admire were packed away as tiny discs inside the caterpillar.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Imagine carrying your grown-up self around as a tiny folded plan. Caterpillars just do it."
+      }
+    },
+    {
+      "id": "card.animals.054.c5",
+      "type": "mcq",
+      "questionId": "question.animals.054.q1"
+    },
+    {
+      "id": "card.animals.054.c6",
+      "type": "mcq",
+      "questionId": "question.animals.054.q2"
+    },
+    {
+      "id": "card.animals.054.c7",
+      "type": "recall",
+      "questionId": "question.animals.054.q3"
+    },
+    {
+      "id": "card.animals.054.c8",
+      "type": "checkpoint",
+      "headline": "Butterflies: transformed",
+      "learned": [
+        "Four stages: egg, larva, pupa, adult",
+        "Caterpillar = larva; chrysalis = pupa",
+        "Most caterpillar tissue dissolves into soup",
+        "Imaginal discs build wings, legs and eyes",
+        "This is complete metamorphosis"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.butterfly_life_stages"
+      ],
+      "sourceCardIds": [
+        "card.animals.054.c2"
+      ],
+      "prompt": "What is the pupa stage of a butterfly also called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The larva",
+          "correct": false,
+          "rationale": "The larva is the caterpillar, the stage before."
+        },
+        {
+          "id": "b",
+          "label": "The instar",
+          "correct": false,
+          "rationale": "An instar is a stage between a caterpillar’s molts."
+        },
+        {
+          "id": "c",
+          "label": "The chrysalis",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The nymph",
+          "correct": false,
+          "rationale": "Butterflies don’t have a nymph stage."
+        }
+      ],
+      "explanation": "A butterfly’s pupa is the chrysalis, the stage between caterpillar and adult.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.butterfly_pupa_rebuild"
+      ],
+      "sourceCardIds": [
+        "card.animals.054.c3",
+        "card.animals.054.c1"
+      ],
+      "prompt": "If a caterpillar dissolves inside its chrysalis, how does the butterfly get built?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Imaginal discs survive and grow into adult parts",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The caterpillar’s legs stretch into wings",
+          "correct": false,
+          "rationale": "Wings come from their own discs, not from legs."
+        },
+        {
+          "id": "c",
+          "label": "The chrysalis shell turns into the butterfly",
+          "correct": false,
+          "rationale": "The chrysalis is a casing the adult leaves behind."
+        },
+        {
+          "id": "d",
+          "label": "The soup hardens into a new body at random",
+          "correct": false,
+          "rationale": "The rebuild follows the discs’ plan."
+        }
+      ],
+      "explanation": "Groups of cells called imaginal discs, grown before the caterpillar hatched, survive and use the soup to build the adult.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.insect_body_plan",
+        "concept.animals.butterfly_pupa_rebuild"
+      ],
+      "sourceCardIds": [
+        "card.animals.054.c3",
+        "card.animals.051.c2"
+      ],
+      "prompt": "Level 51 said an adult insect’s wings sit on its thorax. Where do a butterfly’s wings come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are folded inside the egg from the start",
+          "correct": false,
+          "rationale": "The egg holds a caterpillar, not wings."
+        },
+        {
+          "id": "b",
+          "label": "They grow out of the caterpillar’s back each molt",
+          "correct": false,
+          "rationale": "Caterpillars have no wings at all."
+        },
+        {
+          "id": "c",
+          "label": "The adult grows them after leaving the chrysalis",
+          "correct": false,
+          "rationale": "They are already built when the adult climbs out."
+        },
+        {
+          "id": "d",
+          "label": "Wing discs grow into wings inside the chrysalis",
+          "correct": true
+        }
+      ],
+      "explanation": "Imaginal discs for the wings survive in the chrysalis and grow into the adult’s wings.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.usfs_monarch_biology",
+    "source.sciam_caterpillar_metamorphosis",
+    "source.brit_insect"
+  ],
+  "art": "animals.butterfly"
+}

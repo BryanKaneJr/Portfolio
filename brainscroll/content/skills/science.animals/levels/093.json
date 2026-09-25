@@ -1,0 +1,220 @@
+{
+  "id": "level.science.animals.093",
+  "skillId": "skill.science.animals",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Endangered Species",
+  "objective": "After this level you can explain why species become endangered.",
+  "summary": "The IUCN Red List ranks species from Least Concern to Extinct; three rungs count as threatened. In 2025, 47,187 of 169,420 evaluated species were. Habitat loss leads.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.redlist_categories",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.endangered_causes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.species_described_count",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.092"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.093.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "47,187 species are officially threatened with extinction.",
+      "body": "That's the count in the IUCN Red List, version 2025-1, from March 2025: the world's main scorecard for species at risk. What do its labels mean, and why do species end up on it?"
+    },
+    {
+      "id": "card.animals.093.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A ladder from safe to gone",
+      "body": "The Red List puts each assessed species on one rung of a ladder: Least Concern, Near Threatened, Vulnerable, Endangered, Critically Endangered, Extinct in the Wild, Extinct. Three middle rungs, Vulnerable, Endangered and Critically Endangered, together count as threatened. Two extra labels sit off the ladder: Data Deficient (not enough is known) and Not Evaluated. Threatened isn't one label. It's three rungs of the same ladder."
+    },
+    {
+      "id": "card.animals.093.c3",
+      "type": "fact",
+      "fact": "About 41 percent of amphibian species are threatened.",
+      "context": "That's IUCN's best estimate in version 2025-1, against about 27 percent of mammals. Across all 169,420 species evaluated, 47,187 are threatened. Remember Level 2's 1.5 million named animals, a million of them insects? Only about 1 percent of described insect species have been evaluated at all. The list is a partial census, not a full one."
+    },
+    {
+      "id": "card.animals.093.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why species slide down the ladder",
+      "body": "The most pervasive threat is habitat loss: land cleared for farms, logging and building. Introduced species, climate change, pollution, overhunting and disease pile on. Level 6's giant panda shows both sides. Logging and clearing broke its forest into patches, isolating small groups, and as few as 1,864 live wild. Yet in 2016 IUCN moved it from Endangered to Vulnerable. One rung up, still on the ladder.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "One rung up is real progress. It's also a reminder of how many rungs are left."
+      }
+    },
+    {
+      "id": "card.animals.093.c5",
+      "type": "mcq",
+      "questionId": "question.animals.093.q1"
+    },
+    {
+      "id": "card.animals.093.c6",
+      "type": "mcq",
+      "questionId": "question.animals.093.q2"
+    },
+    {
+      "id": "card.animals.093.c7",
+      "type": "mcq",
+      "questionId": "question.animals.093.q3"
+    },
+    {
+      "id": "card.animals.093.c8",
+      "type": "checkpoint",
+      "headline": "Endangered: defined",
+      "learned": [
+        "Red List ladder: Least Concern to Extinct",
+        "Threatened = Vulnerable, Endangered, Critically Endangered",
+        "2025-1: 47,187 of 169,420 evaluated species threatened",
+        "About 41% of amphibians threatened",
+        "Habitat loss is the biggest threat"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.redlist_categories"
+      ],
+      "sourceCardIds": [
+        "card.animals.093.c2"
+      ],
+      "prompt": "Which three IUCN Red List categories together count as 'threatened'?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Near Threatened, Vulnerable, Endangered",
+          "correct": false,
+          "rationale": "Near Threatened sits just outside the threatened group."
+        },
+        {
+          "id": "b",
+          "label": "Endangered, Critically Endangered, Extinct in the Wild",
+          "correct": false,
+          "rationale": "Extinct in the Wild is past threatened."
+        },
+        {
+          "id": "c",
+          "label": "Data Deficient, Near Threatened, Least Concern",
+          "correct": false,
+          "rationale": "These are all outside the threatened group."
+        },
+        {
+          "id": "d",
+          "label": "Vulnerable, Endangered, Critically Endangered",
+          "correct": true
+        }
+      ],
+      "explanation": "Vulnerable, Endangered and Critically Endangered are the three threatened categories.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.endangered_causes"
+      ],
+      "sourceCardIds": [
+        "card.animals.093.c4"
+      ],
+      "prompt": "Why can logging endanger giant pandas even when no panda is harmed directly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It breaks their forest into patches and isolates small groups",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It makes bamboo poisonous",
+          "correct": false,
+          "rationale": "The harm is to their habitat, not the bamboo's chemistry."
+        },
+        {
+          "id": "c",
+          "label": "It forces them to switch to meat",
+          "correct": false,
+          "rationale": "The level says nothing about a diet switch."
+        },
+        {
+          "id": "d",
+          "label": "It moves them into zoos",
+          "correct": false,
+          "rationale": "The threat is habitat destruction in the wild."
+        }
+      ],
+      "explanation": "Habitat loss is the most pervasive threat: logging fragmented the panda's forest and left small groups cut off.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.animals.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.redlist_categories",
+        "concept.animals.species_described_count"
+      ],
+      "sourceCardIds": [
+        "card.animals.093.c3",
+        "card.animals.002.c2"
+      ],
+      "prompt": "Level 2 counted about 1 million named insect species. Why do insects barely show up on the Red List?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Insects can't go extinct",
+          "correct": false,
+          "rationale": "Insects can be threatened; most just haven't been assessed."
+        },
+        {
+          "id": "b",
+          "label": "Insects are counted as plants",
+          "correct": false,
+          "rationale": "Insects are animals."
+        },
+        {
+          "id": "c",
+          "label": "Only about 1 percent of them have been evaluated",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "IUCN lists only vertebrates",
+          "correct": false,
+          "rationale": "The list includes invertebrates too, just very few insects so far."
+        }
+      ],
+      "explanation": "By version 2025-1 only about 1 percent of described insect species had been evaluated.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iucn_redlist_table1a_2025",
+    "source.brit_iucn_red_list",
+    "source.brit_endangered_species",
+    "source.smithsonian_zoo_giant_panda",
+    "source.sdzwa_panda_vulnerable_2016"
+  ],
+  "art": "animals.panda"
+}

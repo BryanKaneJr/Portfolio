@@ -1,0 +1,227 @@
+{
+  "id": "level.science.animals.058",
+  "skillId": "skill.science.animals",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Crabs and Lobsters",
+  "objective": "After this level you can describe crustaceans and their armor.",
+  "summary": "Crustaceans have two pairs of antennae and shells stiffened with calcium carbonate. Armor can’t grow, so they molt and hide while the soft new shell hardens.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.crustacean_armor",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.crustacean_molting",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.invertebrate_majority",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.insect_body_plan",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.057"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A lobster often eats its own old shell.",
+      "body": "Right after climbing out of it. It sounds like a strange snack, but it’s a smart move for an animal whose armor can’t grow. So how does a crab or a lobster get bigger inside a suit of armor?"
+    },
+    {
+      "id": "card.animals.058.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Armor with minerals added",
+      "body": "Crabs, lobsters, shrimps and even wood lice, the pill bugs of the garden, are crustaceans. Like insects, they wear their skeleton on the outside, but a crustacean’s is stiffened with calcium carbonate for extra rigidity. Look at the head, too: crustaceans carry two pairs of antennae in front of the mouth, where an insect has just one pair. A pill bug is a land-going cousin of the lobster on your plate."
+    },
+    {
+      "id": "card.animals.058.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Growing means getting undressed",
+      "body": "A rigid outer skeleton can’t grow, so crabs and lobsters shed it now and then. That’s molting. The animal climbs out wearing a new skeleton that’s soft and flexible, stretches it by taking in water or air, and then it hardens. An American lobster molts about 20 to 25 times in its first 5 to 8 years, before it’s old enough to breed. Growing up, for a lobster, is mostly changing clothes."
+    },
+    {
+      "id": "card.animals.058.c4",
+      "type": "fact",
+      "fact": "A fresh soft-shell crab has to hide.",
+      "context": "Just after molting, a crab is extremely vulnerable to damage and predators, so it stays hidden or buried for a few days while its new shell expands and starts to harden. The shell keeps hardening for two to three months. A lobster speeds up the job by eating its old shell, which replaces lost calcium and helps harden the new one. Armor is great, until the day you change it.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Waste not, want not: the old shell becomes the building material for the new one."
+      }
+    },
+    {
+      "id": "card.animals.058.c5",
+      "type": "mcq",
+      "questionId": "question.animals.058.q1"
+    },
+    {
+      "id": "card.animals.058.c6",
+      "type": "mcq",
+      "questionId": "question.animals.058.q2"
+    },
+    {
+      "id": "card.animals.058.c7",
+      "type": "recall",
+      "questionId": "question.animals.058.q3"
+    },
+    {
+      "id": "card.animals.058.c8",
+      "type": "checkpoint",
+      "headline": "Crustaceans: armored",
+      "learned": [
+        "Crabs, lobsters, shrimps and wood lice are crustaceans",
+        "Two pairs of antennae",
+        "Outer skeleton stiffened with calcium carbonate",
+        "Molting: shed, stretch, harden",
+        "Soft-shell crabs hide; lobsters eat the old shell"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.crustacean_armor"
+      ],
+      "sourceCardIds": [
+        "card.animals.058.c2"
+      ],
+      "prompt": "What makes a crustacean’s outer skeleton extra rigid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A layer of bone under the shell",
+          "correct": false,
+          "rationale": "Crustaceans have no bones."
+        },
+        {
+          "id": "b",
+          "label": "Calcium carbonate in the shell",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Hardened mucus from glands",
+          "correct": false,
+          "rationale": "Mucus is a snail’s trick, not a crab’s."
+        },
+        {
+          "id": "d",
+          "label": "Wax made on the underside",
+          "correct": false,
+          "rationale": "Wax is what honeybees make."
+        }
+      ],
+      "explanation": "A crustacean’s exoskeleton is stiffened with calcium carbonate.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.crustacean_molting"
+      ],
+      "sourceCardIds": [
+        "card.animals.058.c3"
+      ],
+      "prompt": "Why must a crab molt to get bigger?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its rigid outer skeleton can’t grow",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its old shell falls apart each winter",
+          "correct": false,
+          "rationale": "Molting is about growth, not the season."
+        },
+        {
+          "id": "c",
+          "label": "It needs to change color for the season",
+          "correct": false,
+          "rationale": "The point of molting is growth."
+        },
+        {
+          "id": "d",
+          "label": "Molting is how it lays eggs",
+          "correct": false,
+          "rationale": "Molting is for growth, not reproduction."
+        }
+      ],
+      "explanation": "A rigid exoskeleton limits growth, so the crab sheds it and grows a new, larger one.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.crustacean_molting",
+        "concept.animals.invertebrate_majority"
+      ],
+      "sourceCardIds": [
+        "card.animals.058.c4",
+        "card.animals.003.c3"
+      ],
+      "prompt": "Level 3 put crabs among invertebrates with a hard outer skeleton. When is that armor at its weakest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "When the crab is fully grown",
+          "correct": false,
+          "rationale": "A grown crab still molts, but the danger is the soft stage."
+        },
+        {
+          "id": "b",
+          "label": "When the crab is out of the water",
+          "correct": false,
+          "rationale": "The risky moment is right after molting."
+        },
+        {
+          "id": "c",
+          "label": "Just after molting, while the new shell is soft",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "When the crab eats too much calcium",
+          "correct": false,
+          "rationale": "Calcium helps harden the shell."
+        }
+      ],
+      "explanation": "Right after molting, the new shell is soft, so the crab is extremely vulnerable and hides until it hardens.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_crustacean",
+    "source.brit_arthropod_form",
+    "source.brit_ecdysis",
+    "source.noaa_american_lobster",
+    "source.wdfw_crab",
+    "source.brit_invertebrate",
+    "source.brit_insect"
+  ],
+  "art": "animals.crab"
+}

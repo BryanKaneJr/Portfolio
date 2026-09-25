@@ -1,0 +1,220 @@
+{
+  "id": "level.science.animals.017",
+  "skillId": "skill.science.animals",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mammals That Lay Eggs",
+  "objective": "After this level you can describe the platypus and the echidna.",
+  "summary": "The platypus and four echidna species are monotremes, the only mammals that lay eggs. They feed milk from fur-covered patches, not nipples. Young echidnas leave the pouch when spines grow.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.monotreme_egg_layers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.monotreme_nursing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.mammal_traits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.016"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first platypus skin in Europe looked like a prank.",
+      "body": "Some naturalists suspected a hoax: a duck's bill attached to the body of a mole. George Shaw described the animal properly in 1799. The bill was real, and the platypus had a bigger surprise to come."
+    },
+    {
+      "id": "card.animals.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Mammals that lay eggs",
+      "body": "The platypus and the four living species of echidna are monotremes, the only mammals that lay eggs. The platypus lives only in Australia; the short-beaked echidna lives in Australia, and the long-beaked echidna comes from New Guinea. Every other mammal in this chapter is born alive."
+    },
+    {
+      "id": "card.animals.017.c3",
+      "type": "fact",
+      "fact": "Milk, but no nipples",
+      "context": "A platypus mother usually lays one or two eggs and keeps them warm between her body and her tail; they hatch in about ten days. Monotremes have no nipples, so her milk seeps from two fur-covered patches on her belly, and the young suckle it there. Still milk, so still a mammal.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Duck bill, eggs, and milk. The platypus refuses to pick a lane."
+      }
+    },
+    {
+      "id": "card.animals.017.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Moved out for being prickly",
+      "body": "A short-beaked echidna lays one egg at a time. It hatches after about 10 days, and the young suckles inside the mother's pouch for two or three months. Then its spines grow in and it becomes too prickly, so she moves it out to a burrow. Every parent has a limit. Hers is spines."
+    },
+    {
+      "id": "card.animals.017.c5",
+      "type": "mcq",
+      "questionId": "question.animals.017.q1"
+    },
+    {
+      "id": "card.animals.017.c6",
+      "type": "mcq",
+      "questionId": "question.animals.017.q2"
+    },
+    {
+      "id": "card.animals.017.c7",
+      "type": "recall",
+      "questionId": "question.animals.017.q3"
+    },
+    {
+      "id": "card.animals.017.c8",
+      "type": "checkpoint",
+      "headline": "Egg-laying mammals: met",
+      "learned": [
+        "Monotremes: the platypus and four echidnas",
+        "The only mammals that lay eggs",
+        "Milk from fur-covered patches, no nipples",
+        "Echidna young leave the pouch when spines grow",
+        "The first platypus was suspected to be a hoax"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.monotreme_egg_layers"
+      ],
+      "sourceCardIds": [
+        "card.animals.017.c2"
+      ],
+      "prompt": "What sets monotremes like the platypus apart from all other mammals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They have no hair",
+          "correct": false,
+          "rationale": "Platypuses are furry."
+        },
+        {
+          "id": "b",
+          "label": "They lay eggs",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They live only in water",
+          "correct": false,
+          "rationale": "Echidnas live on land."
+        },
+        {
+          "id": "d",
+          "label": "They make no milk",
+          "correct": false,
+          "rationale": "They do make milk, just without nipples."
+        }
+      ],
+      "explanation": "Monotremes, the platypus and echidnas, are the only mammals that lay eggs.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.monotreme_nursing"
+      ],
+      "sourceCardIds": [
+        "card.animals.017.c3"
+      ],
+      "prompt": "A platypus mother has no nipples. How do her young get milk?",
+      "options": [
+        {
+          "id": "a",
+          "label": "She feeds them chewed food instead",
+          "correct": false,
+          "rationale": "Platypus young do get milk."
+        },
+        {
+          "id": "b",
+          "label": "They drink it from the egg",
+          "correct": false,
+          "rationale": "The milk comes after hatching."
+        },
+        {
+          "id": "c",
+          "label": "They suckle it from fur-covered patches on her belly",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The father produces it",
+          "correct": false,
+          "rationale": "The mother makes the milk."
+        }
+      ],
+      "explanation": "Monotremes have no nipples: milk seeps from two fur-covered milk patches, and the young suckle it there.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.monotreme_nursing",
+        "concept.animals.mammal_traits"
+      ],
+      "sourceCardIds": [
+        "card.animals.017.c3",
+        "card.animals.011.c2"
+      ],
+      "prompt": "By Level 11's checklist, why does the egg-laying platypus still count as a mammal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It lives in Australia",
+          "correct": false,
+          "rationale": "Where it lives doesn't decide its class."
+        },
+        {
+          "id": "b",
+          "label": "It has a bill",
+          "correct": false,
+          "rationale": "A bill is a bird-like feature, not a mammal one."
+        },
+        {
+          "id": "c",
+          "label": "It lays eggs in a burrow",
+          "correct": false,
+          "rationale": "Eggs are what make it unusual."
+        },
+        {
+          "id": "d",
+          "label": "It feeds its young milk",
+          "correct": true
+        }
+      ],
+      "explanation": "Milk for the young is on every mammal's checklist, and platypus mothers make it.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.nhm_platypus_puzzle",
+    "source.ausmuseum_platypus",
+    "source.natgeo_platypus",
+    "source.ausmuseum_short_beaked_echidna",
+    "source.noaa_marine_mammals"
+  ],
+  "art": "animals.egg"
+}

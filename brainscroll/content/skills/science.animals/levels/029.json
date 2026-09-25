@@ -1,0 +1,213 @@
+{
+  "id": "level.science.animals.029",
+  "skillId": "skill.science.animals",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Migration",
+  "objective": "After this level you can explain how birds migrate thousands of miles.",
+  "summary": "In 2022 a young godwit flew about 13,560 km nonstop on stored fat. Tracked Arctic terns fly about 70,900 km a year. Migrants steer by the sun, the stars and magnetism.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.migration_record_flights",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.migration_fuel_navigation",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.028"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.029.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A young bird flew for 11 days without landing once.",
+      "body": "In October 2022, a juvenile bar-tailed godwit tagged B6 left Alaska and flew nonstop across the Pacific to Tasmania, Australia. No stops for food, water or rest. How does any bird pull that off?"
+    },
+    {
+      "id": "card.animals.029.c2",
+      "type": "fact",
+      "fact": "About 13,560 km in one go: the longest nonstop flight on record.",
+      "context": "That's 8,425 miles, tracked by a 5-gram solar-powered satellite tag. The U.S. Geological Survey calls it the longest documented nonstop flight by any animal. The fuel was fat: B6 fattened up on Alaska's Kuskokwim Delta before leaving, and some migrating birds double their body weight before a journey. The fuel tank is the bird.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "No snacks, no naps, no landing for 11 days. I get restless on a two-hour train ride."
+      }
+    },
+    {
+      "id": "card.animals.029.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The tern that follows summer",
+      "body": "The Arctic tern goes farther, just not in one hop. In a 2010 study, scientists fitted 11 terns from Greenland and Iceland with 1.4-gram geolocators. On average, each flew 70,900 km a year between the Arctic and the Southern Ocean, with a stopover in the North Atlantic: the longest round-trip migration ever recorded electronically. In 2016, Newcastle University reported a Farne Islands tern with an estimated 96,000 km round trip."
+    },
+    {
+      "id": "card.animals.029.c4",
+      "type": "fact",
+      "fact": "A tern's lifetime of flying could take it to the Moon and back three times.",
+      "context": "Arctic terns can live more than 30 years, so the 2010 study estimated a lifetime of migrations may top 2.4 million km. And they don't get lost: migrating birds can tell which direction they're flying from the sun, the stars and Earth's magnetic field. Sun, stars and magnetism: three compasses in one small head."
+    },
+    {
+      "id": "card.animals.029.c5",
+      "type": "mcq",
+      "questionId": "question.animals.029.q1"
+    },
+    {
+      "id": "card.animals.029.c6",
+      "type": "mcq",
+      "questionId": "question.animals.029.q2"
+    },
+    {
+      "id": "card.animals.029.c7",
+      "type": "mcq",
+      "questionId": "question.animals.029.q3"
+    },
+    {
+      "id": "card.animals.029.c8",
+      "type": "checkpoint",
+      "headline": "Migration: explained",
+      "learned": [
+        "Godwit B6: about 13,560 km nonstop in 11 days (2022)",
+        "Fuel is fat; some migrants double their weight",
+        "Arctic terns: about 70,900 km a year (2010 study)",
+        "Birds steer by the sun, the stars and magnetism"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.migration_record_flights"
+      ],
+      "sourceCardIds": [
+        "card.animals.029.c2"
+      ],
+      "prompt": "About how far did the bar-tailed godwit B6 fly nonstop in 2022?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1,356 km",
+          "correct": false,
+          "rationale": "Ten times too short."
+        },
+        {
+          "id": "b",
+          "label": "About 5,000 km",
+          "correct": false,
+          "rationale": "Well under its record flight."
+        },
+        {
+          "id": "c",
+          "label": "About 13,560 km",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 70,900 km",
+          "correct": false,
+          "rationale": "That's an Arctic tern's average yearly total."
+        }
+      ],
+      "explanation": "B6 flew about 13,560 km (8,425 miles) from Alaska to Tasmania in 11 days without landing.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.migration_fuel_navigation"
+      ],
+      "sourceCardIds": [
+        "card.animals.029.c2"
+      ],
+      "prompt": "How could B6 fly for 11 days without stopping to eat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It caught insects in the air",
+          "correct": false,
+          "rationale": "It made no stops for food at all."
+        },
+        {
+          "id": "b",
+          "label": "It slept on the waves each night",
+          "correct": false,
+          "rationale": "It never landed."
+        },
+        {
+          "id": "c",
+          "label": "It slowed into torpor to save fuel",
+          "correct": false,
+          "rationale": "It flew the whole way."
+        },
+        {
+          "id": "d",
+          "label": "It burned fat stored before takeoff",
+          "correct": true
+        }
+      ],
+      "explanation": "B6 fattened up on Alaska's Kuskokwim Delta, then ran on that stored fat the whole way.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.migration_record_flights",
+        "concept.animals.migration_fuel_navigation"
+      ],
+      "sourceCardIds": [
+        "card.animals.029.c3",
+        "card.animals.029.c2"
+      ],
+      "prompt": "An Arctic tern flies farther each year than B6's record flight. Why does the godwit still hold the nonstop record?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The tern's route is shorter than it looks",
+          "correct": false,
+          "rationale": "Tracked terns averaged 70,900 km a year."
+        },
+        {
+          "id": "b",
+          "label": "The tern's migration includes stopovers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The godwit flew higher than the tern",
+          "correct": false,
+          "rationale": "The record is about distance without stopping."
+        },
+        {
+          "id": "d",
+          "label": "The tern migrates only every other year",
+          "correct": false,
+          "rationale": "The 70,900 km is a yearly figure."
+        }
+      ],
+      "explanation": "The tern's huge yearly trip includes stopovers; B6 covered its 13,560 km without landing once.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_godwit_b6_2022",
+    "source.guinness_godwit_nonstop",
+    "source.audubon_migration_feats_2022",
+    "source.pnas_egevang_arctic_tern_2010",
+    "source.ncl_arctic_tern_farne_2016"
+  ],
+  "art": "object.globe"
+}

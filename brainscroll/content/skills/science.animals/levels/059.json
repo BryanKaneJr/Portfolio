@@ -1,0 +1,228 @@
+{
+  "id": "level.science.animals.059",
+  "skillId": "skill.science.animals",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mosquitoes",
+  "objective": "After this level you can explain why mosquitoes kill more people than any other animal.",
+  "summary": "Only female mosquitoes bite, for egg-making blood. Bites carry germs such as malaria parasites; WHO estimated 610,000 malaria deaths in 2024.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.mosquito_biting_females",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.mosquito_disease_carrier",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.butterfly_life_stages",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.058"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.059.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The CDC calls the mosquito the world’s deadliest animal.",
+      "body": "Not a shark, not a snake: a small insect. Mosquitoes spread malaria, dengue, West Nile, Zika and more. The bite itself isn’t what kills. What rides along with it is."
+    },
+    {
+      "id": "card.animals.059.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Only the mothers bite",
+      "body": "Only female mosquitoes bite people and animals. They need a blood meal to produce eggs. The rest of the time, females and males alike sip flower nectar and fruit juices. So every mosquito that has ever bitten you was a female getting ready to lay eggs. The males were off somewhere, drinking juice."
+    },
+    {
+      "id": "card.animals.059.c3",
+      "type": "fact",
+      "fact": "A mosquito starts life in water.",
+      "context": "Female Anopheles mosquitoes, the kind that spread malaria, lay their eggs right on water. The larvae that hatch live in the water, and so do the pupae, which don’t eat at all. Only then does the adult emerge, and only the adult female bites. From egg to adult takes about 10 to 14 days."
+    },
+    {
+      "id": "card.animals.059.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The needle is shared",
+      "body": "Mosquitoes pick up germs, such as viruses and parasites, when they bite infected people or animals, and spread them with later bites. Malaria works this way. It’s caused by Plasmodium parasites, which reach people mainly through the bites of infected female Anopheles mosquitoes. The mosquito is the delivery van; the parasite is the cargo."
+    },
+    {
+      "id": "card.animals.059.c5",
+      "type": "fact",
+      "fact": "Malaria killed an estimated 610,000 people in 2024.",
+      "context": "That’s the World Health Organization’s estimate, from about 282 million cases. About 95 percent of the deaths were in WHO’s African Region, and there, children under 5 were about three-quarters of them. That toll is why a tiny insect heads the CDC’s list.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Small animal, big consequences. This one is worth taking seriously."
+      }
+    },
+    {
+      "id": "card.animals.059.c6",
+      "type": "mcq",
+      "questionId": "question.animals.059.q1"
+    },
+    {
+      "id": "card.animals.059.c7",
+      "type": "mcq",
+      "questionId": "question.animals.059.q2"
+    },
+    {
+      "id": "card.animals.059.c8",
+      "type": "recall",
+      "questionId": "question.animals.059.q3"
+    },
+    {
+      "id": "card.animals.059.c9",
+      "type": "checkpoint",
+      "headline": "Mosquitoes: understood",
+      "learned": [
+        "Only females bite: blood for their eggs",
+        "Both sexes drink nectar and fruit juices",
+        "Larvae and pupae live in water",
+        "Bites carry germs like malaria parasites",
+        "WHO: about 610,000 malaria deaths in 2024"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.mosquito_biting_females"
+      ],
+      "sourceCardIds": [
+        "card.animals.059.c2"
+      ],
+      "prompt": "Why do female mosquitoes bite?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To defend their territory",
+          "correct": false,
+          "rationale": "Biting is about eggs, not territory."
+        },
+        {
+          "id": "b",
+          "label": "They need a blood meal to produce eggs",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Blood is their only food all life long",
+          "correct": false,
+          "rationale": "Both sexes drink nectar and fruit juices."
+        },
+        {
+          "id": "d",
+          "label": "To cool down on warm skin",
+          "correct": false,
+          "rationale": "They bite for blood, not for cooling."
+        }
+      ],
+      "explanation": "Only females bite, because they need a blood meal to produce eggs.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.mosquito_disease_carrier"
+      ],
+      "sourceCardIds": [
+        "card.animals.059.c4",
+        "card.animals.059.c1"
+      ],
+      "prompt": "A mosquito bite is tiny. Why does the CDC still call the mosquito the deadliest animal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its venom is stronger than a snake’s",
+          "correct": false,
+          "rationale": "Mosquitoes don’t kill with venom."
+        },
+        {
+          "id": "b",
+          "label": "It drinks enough blood to weaken people",
+          "correct": false,
+          "rationale": "The blood it takes is not the danger."
+        },
+        {
+          "id": "c",
+          "label": "It carries germs, like malaria parasites, between people",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It attacks in swarms of thousands",
+          "correct": false,
+          "rationale": "The danger is the germs a single bite can pass on."
+        }
+      ],
+      "explanation": "Mosquitoes pick up germs from infected people and pass them on with later bites; malaria parasites spread this way.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.butterfly_life_stages",
+        "concept.animals.mosquito_biting_females"
+      ],
+      "sourceCardIds": [
+        "card.animals.059.c3",
+        "card.animals.054.c2"
+      ],
+      "prompt": "Like Level 54’s monarch, an Anopheles mosquito goes from egg to larva to pupa to adult. At which stage can one bite you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Larva, while it swims",
+          "correct": false,
+          "rationale": "Larvae live in water and don’t bite people."
+        },
+        {
+          "id": "b",
+          "label": "Pupa, before it hatches",
+          "correct": false,
+          "rationale": "Pupae don’t even eat."
+        },
+        {
+          "id": "c",
+          "label": "Egg, if you touch the water",
+          "correct": false,
+          "rationale": "Eggs can’t bite."
+        },
+        {
+          "id": "d",
+          "label": "Adult, and only if female",
+          "correct": true
+        }
+      ],
+      "explanation": "Only the adult female bites; larvae and pupae live in the water.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.cdc_deadliest_animal",
+    "source.brit_mosquito",
+    "source.cdc_mosquitoes_about",
+    "source.cdc_anopheles_life_cycle",
+    "source.who_malaria_factsheet",
+    "source.usfs_monarch_biology"
+  ],
+  "art": "body.germ"
+}

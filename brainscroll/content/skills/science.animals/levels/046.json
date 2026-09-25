@@ -1,0 +1,219 @@
+{
+  "id": "level.science.animals.046",
+  "skillId": "skill.science.animals",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Coral Is an Animal",
+  "objective": "After this level you can explain that corals are colonies of tiny animals.",
+  "summary": "A coral is a colony of tiny polyps that build limestone skeletons and catch food with stinging cells, so they are animals. Their algae are food and color; stressed corals expel them and bleach.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.coral_polyp_colony",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.coral_bleaching",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.animal_traits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.045"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A coral is not a plant. It's a crowd of tiny animals.",
+      "body": "Corals stay fixed to the ocean floor, so plenty of people take them for plants. Remember Level 1's sponges, long mistaken for plants too? Corals pull the same trick. Here's who really lives inside."
+    },
+    {
+      "id": "card.animals.046.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A colony the size of nickels",
+      "body": "Most of what we call a coral is hundreds to thousands of tiny animals called polyps. Each is soft-bodied, most no thicker than a nickel, and each builds a hard outer skeleton of limestone. Polyps catch food with tentacles armed with nematocysts, the same stingers you met on Level 45's jellyfish, their relatives. They catch their food instead of making it. That's what makes them animals."
+    },
+    {
+      "id": "card.animals.046.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Roommates that pay rent in food",
+      "body": "Most corals share their tissues with microscopic algae called zooxanthellae. The coral gives them shelter. The algae photosynthesize and hand over food, so much that they are the coral's main food source. They also give the coral its color. Those famous reef colors come mostly from the tenants."
+    },
+    {
+      "id": "card.animals.046.c4",
+      "type": "fact",
+      "fact": "Stressed corals throw out their algae and turn completely white.",
+      "context": "That's coral bleaching. Changes in temperature, light or nutrients can cause it, and NOAA names rising ocean temperature from climate change as the leading cause. Without its algae, a coral loses its main food and its color. A bleached coral isn't dead yet: if the stress eases, it can recover. If the stress drags on, the coral eventually dies.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "White doesn't mean dead, but it does mean trouble. Think of a coral running on empty."
+      }
+    },
+    {
+      "id": "card.animals.046.c5",
+      "type": "mcq",
+      "questionId": "question.animals.046.q1"
+    },
+    {
+      "id": "card.animals.046.c6",
+      "type": "mcq",
+      "questionId": "question.animals.046.q2"
+    },
+    {
+      "id": "card.animals.046.c7",
+      "type": "recall",
+      "questionId": "question.animals.046.q3"
+    },
+    {
+      "id": "card.animals.046.c8",
+      "type": "checkpoint",
+      "headline": "Coral: explained",
+      "learned": [
+        "A coral is a colony of tiny polyps",
+        "Polyps build limestone skeletons",
+        "They catch food with stingers, so they are animals",
+        "Algae feed and color them; stress makes them bleach"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.coral_polyp_colony"
+      ],
+      "sourceCardIds": [
+        "card.animals.046.c2"
+      ],
+      "prompt": "What are the tiny animals that make up a coral called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Polyps",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Zooxanthellae",
+          "correct": false,
+          "rationale": "Those are the algae living inside."
+        },
+        {
+          "id": "c",
+          "label": "Nematocysts",
+          "correct": false,
+          "rationale": "Those are the stinging capsules."
+        },
+        {
+          "id": "d",
+          "label": "Plankton",
+          "correct": false,
+          "rationale": "Plankton drift; polyps stay put."
+        }
+      ],
+      "explanation": "A coral is made of hundreds to thousands of tiny animals called polyps.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.coral_bleaching"
+      ],
+      "sourceCardIds": [
+        "card.animals.046.c3",
+        "card.animals.046.c4"
+      ],
+      "prompt": "Why does a bleached coral turn white?",
+      "options": [
+        {
+          "id": "a",
+          "label": "All of its polyps have died",
+          "correct": false,
+          "rationale": "A bleached coral isn't necessarily dead."
+        },
+        {
+          "id": "b",
+          "label": "Sunlight has faded its skeleton",
+          "correct": false,
+          "rationale": "The white shows once the algae leave."
+        },
+        {
+          "id": "c",
+          "label": "It has stopped eating plankton",
+          "correct": false,
+          "rationale": "The color change comes from losing algae."
+        },
+        {
+          "id": "d",
+          "label": "It has expelled the algae that color it",
+          "correct": true
+        }
+      ],
+      "explanation": "Stressed corals expel their zooxanthellae, the algae that give them color, and turn white.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.coral_polyp_colony",
+        "concept.animals.animal_traits"
+      ],
+      "sourceCardIds": [
+        "card.animals.046.c2",
+        "card.animals.001.c2"
+      ],
+      "prompt": "Corals never leave their spot, like Level 1's adult sponges. By the animal checklist, why are they animals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They have backbones",
+          "correct": false,
+          "rationale": "Corals are invertebrates."
+        },
+        {
+          "id": "b",
+          "label": "They catch food instead of making it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They turn sunlight into food",
+          "correct": false,
+          "rationale": "That's what their algae do."
+        },
+        {
+          "id": "d",
+          "label": "They grow limestone like rocks",
+          "correct": false,
+          "rationale": "Skeletons don't decide it; eating does."
+        }
+      ],
+      "explanation": "Animals can't make their own food. Coral polyps catch theirs with stinging tentacles.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_coral_animals",
+    "source.noaa_coral_polyps",
+    "source.noaa_coral_bleaching",
+    "source.brit_animal"
+  ],
+  "art": "geo.coral"
+}

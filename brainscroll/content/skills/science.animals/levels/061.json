@@ -1,0 +1,222 @@
+{
+  "id": "level.science.animals.061",
+  "skillId": "skill.science.animals",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Adaptation",
+  "objective": "After this level you can explain how animals are adapted to where they live.",
+  "summary": "An adaptation fits living things to their home. The desert fennec fox's huge ears shed heat; the Arctic fox's small ears keep it in. Populations adapt over generations; individuals don't.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.adaptation_fox_climates",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.adaptation_meaning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.body_heat_source",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.060"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.061.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two foxes, two very different pairs of ears.",
+      "body": "The fennec, a desert fox, has the biggest ears for its size of anyone in the dog family. The Arctic fox has short, rounded ones. Same family, opposite ears. That's no accident, and the reason is where each fox lives."
+    },
+    {
+      "id": "card.animals.061.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Radiators and lids",
+      "body": "Like every mammal, a fox makes its own heat and keeps about 37 °C inside. In the desert, the danger is too much of it: the fennec's huge ears help release body heat and keep it cool. In the Arctic, the danger runs the other way: the Arctic fox's small ears reduce heat loss, because less of it is exposed to the cold. One fox wears radiators on its head. The other keeps the lid on."
+    },
+    {
+      "id": "card.animals.061.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What an adaptation is",
+      "body": "Biologists call this fit an adaptation: an adjustment to the environment that improves an animal's chances of surviving there. It can be a body feature or a behavior, and the fennec has both. Thick fur on its paws protects its feet from hot sand, and it spends the heat of the day in a burrow, hunting at night. Ears, paws and timetable, all tuned to the same desert."
+    },
+    {
+      "id": "card.animals.061.c4",
+      "type": "fact",
+      "fact": "No fox ever grew its own ears bigger.",
+      "context": "Individual animals can't adapt. Adaptation happens in populations, over several generations, as the result of natural selection acting on inherited differences. That process gets its own chapter later. For now, the result is what counts: animals that fit their homes.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Wishing really hard for bigger ears has never worked. Believe me, I've checked."
+      }
+    },
+    {
+      "id": "card.animals.061.c5",
+      "type": "mcq",
+      "questionId": "question.animals.061.q1"
+    },
+    {
+      "id": "card.animals.061.c6",
+      "type": "mcq",
+      "questionId": "question.animals.061.q2"
+    },
+    {
+      "id": "card.animals.061.c7",
+      "type": "recall",
+      "questionId": "question.animals.061.q3"
+    },
+    {
+      "id": "card.animals.061.c8",
+      "type": "checkpoint",
+      "headline": "Adaptation: explained",
+      "learned": [
+        "An adaptation fits an animal to its home",
+        "Fennec fox: huge ears release heat",
+        "Arctic fox: small ears reduce heat loss",
+        "Adaptations can be body parts or behaviors",
+        "Populations adapt over generations; individuals don't"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.adaptation_fox_climates"
+      ],
+      "sourceCardIds": [
+        "card.animals.061.c2"
+      ],
+      "prompt": "In Level 61's fox comparison, what do the fennec fox's huge ears help it do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Store fat for lean times",
+          "correct": false,
+          "rationale": "Ears aren't a food store; they shed heat."
+        },
+        {
+          "id": "b",
+          "label": "Release body heat to stay cool",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Soak up warmth from the sun",
+          "correct": false,
+          "rationale": "The opposite: they help it lose heat."
+        },
+        {
+          "id": "d",
+          "label": "Keep sand out of its eyes",
+          "correct": false,
+          "rationale": "Their job in this level is shedding heat."
+        }
+      ],
+      "explanation": "The fennec's ears, the largest for its size in the dog family, help release body heat in the desert.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.adaptation_meaning"
+      ],
+      "sourceCardIds": [
+        "card.animals.061.c4"
+      ],
+      "prompt": "Why can't a single fox adapt its ears to a new climate during its own lifetime?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ear size is fixed from the day it's born",
+          "correct": false,
+          "rationale": "That isn't the reason given; it's about who adapts."
+        },
+        {
+          "id": "b",
+          "label": "Only plants can adapt to a new climate",
+          "correct": false,
+          "rationale": "Animals adapt too, as populations."
+        },
+        {
+          "id": "c",
+          "label": "Populations adapt, over many generations",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Foxes don't live long enough to try it",
+          "correct": false,
+          "rationale": "No individual can adapt, however long it lives."
+        }
+      ],
+      "explanation": "Individuals can't adapt; adaptation happens in populations over several generations through natural selection.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.animals.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.adaptation_fox_climates",
+        "concept.animals.body_heat_source"
+      ],
+      "sourceCardIds": [
+        "card.animals.061.c2",
+        "card.animals.005.c2"
+      ],
+      "prompt": "Level 5 said mammals make their own heat. What does the Arctic fox's small ear size do with that heat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sends more of it out to the snow",
+          "correct": false,
+          "rationale": "That's the fennec's desert trick."
+        },
+        {
+          "id": "b",
+          "label": "Turns it into fat for winter",
+          "correct": false,
+          "rationale": "Ears don't store energy."
+        },
+        {
+          "id": "c",
+          "label": "Lets the fox switch to outside heat",
+          "correct": false,
+          "rationale": "Mammals are endotherms; the heat is made inside."
+        },
+        {
+          "id": "d",
+          "label": "Keeps more of it from escaping",
+          "correct": true
+        }
+      ],
+      "explanation": "Less ear exposed to the cold means less of the fox's own heat escapes.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonian_zoo_fennec_fox",
+    "source.natgeokids_arctic_fox",
+    "source.brit_arctic_fox",
+    "source.natgeo_adaptation",
+    "source.brit_adaptation",
+    "source.brit_warm_bloodedness",
+    "source.brit_dinosaur_body_temperature"
+  ],
+  "art": "animals.chameleon"
+}
