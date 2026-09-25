@@ -45,7 +45,7 @@ Testing is proportional to the moment. The type comes from the level number (`le
 
 | Type | Which levels | Shape | Questions | XP pool (top) |
 | --- | --- | --- | --- | --- |
-| **Regular** | Almost all of them | Hook → 3–5 focused learning cards (~180–320 words) → questions → level complete | **3**: recall, understanding, connection | 100 |
+| **Regular** | Almost all of them | Hook → 3–5 focused learning cards (~150–320 words) → questions → level complete | **3**: recall, understanding, connection | 100 |
 | **Checkpoint** | Every 10th level | Still teaches, then a slightly longer check across the chapter | **5** | 150 |
 | **Milestone** | Level 50 (150, 250 …) | A bigger synthesis moment | **7** | 250 |
 | **Mastery Challenge** | Level 100 (200, 300 …) | The fullest test in a tree; resolving it earns ★ | **10** | 500 |

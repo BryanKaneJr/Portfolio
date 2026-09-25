@@ -152,13 +152,13 @@ export interface LearningStructure {
 export const LEVEL_TYPES = ['regular', 'checkpoint', 'milestone', 'mastery'] as const satisfies readonly LevelType[];
 
 export const LEARNING_STRUCTURE: Record<SessionType, LearningStructure> = {
-  /** The standard loop: hook, 3–5 focused learning cards (180–320 words that make the concept memorable), 3 light questions. */
+  /** The standard loop: hook, 3–5 focused learning cards (150–320 words that make the concept memorable), 3 light questions. */
   regular: {
     firstAttemptXp: STANDARD_FIRST_ATTEMPT_XP,
     label: 'Level',
     questions: { standard: 3, min: 2, max: 4 },
     learningCards: { min: 3, max: 5 },
-    learningWords: { min: 180, max: 320 },
+    learningWords: { min: 150, max: 320 },
     coverPurposes: true,
   },
   /** Every 10th level: still teaches, then a 5-question check across the chapter. */

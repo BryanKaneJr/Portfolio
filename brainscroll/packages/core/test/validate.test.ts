@@ -234,6 +234,7 @@ describe('level structure by type', () => {
   it('warns when learning content is too thin', () => {
     const l = makeLevel(1);
     (l.cards as Record<string, unknown>[])[1]!.body = 'Too short.';
+    (l.cards as Record<string, unknown>[])[3]!.body = 'Also short.';
     expect(issues(bundle([l]), 'warning').some((m) => m.includes('words of learning content'))).toBe(true);
   });
 });

@@ -13,7 +13,7 @@ BrainScroll is a learning app, not a quiz app. A normal level should feel like a
 Typical normal level:
 
 - 3–5 focused learning/reading cards, each one short paragraph (about 50–90 words).
-- Roughly 180–320 words total, depending on topic.
+- Roughly 150–320 words total, depending on topic.
 - Optional image, map, timeline, diagram, comparison, or connection card.
 - 3 questions.
 - Roughly 3–6 minutes total.

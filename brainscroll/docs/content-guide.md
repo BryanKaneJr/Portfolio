@@ -24,11 +24,11 @@ Run `npm run validate:content`. **Errors** block import and publish. **Warnings*
 
 BrainScroll is a learning app first. A learner should finish a level thinking *"I just learned something interesting,"* not *"I just finished another test."*
 
-A **regular level** runs hook → 3–5 focused learning cards (roughly 180–320 words) → **3 questions** → level complete. See *Writing to interest* below: the goal is to make the concept memorable. Checkpoints (every 10th level), milestones (Level 50) and the Level 100 Mastery Challenge test more. Review sessions size themselves to what's due.
+A **regular level** runs hook → 3–5 focused learning cards (roughly 150–320 words) → **3 questions** → level complete. See *Writing to interest* below: the goal is to make the concept memorable. Checkpoints (every 10th level), milestones (Level 50) and the Level 100 Mastery Challenge test more. Review sessions size themselves to what's due.
 
 | `type` | Levels | Questions (standard) | Learning cards (norm) | Learning words (norm) |
 | --- | --- | --- | --- | --- |
-| `regular` | everything else | **3** | 3–5 | 180–320 |
+| `regular` | everything else | **3** | 3–5 | 150–320 |
 | `checkpoint` | 10, 20, 30 … | **5** | 2–4 | 120–320 |
 | `milestone` | 50, 150, 250 … | **7** | 1–4 | 80–320 |
 | `mastery` | 100, 200, 300 … | **10** | 0–3 | 0–250 |
@@ -81,7 +81,15 @@ The goal is to make **the concept being taught memorable**. Priority order: **le
 - **Stay on the concept.** Every sentence must help the learner understand or remember *this level's* idea. A fascinating neighbor (Pluto in a level about Earth's address) is a tangent: cut it and let it have its own level.
 - **Keep it tight.** One idea per card, one short paragraph (about 50–90 words). If a sentence could be deleted without the concept getting less clear or less memorable, delete it.
 
-To make the concept itself interesting, ask what would make a curious friend lean in:
+What turns information into something interesting (owner-approved, 2026-09-25):
+
+- **One idea per card, with a payoff.** Build each card to one surprising line a learner would repeat to a friend: "If the Sun vanished right now, you'd keep seeing it for about 8 more minutes."
+- **Tell one story across the level.** Cards should feel like steps in one story (the address gets written line by line), not separate mini-lectures.
+- **Numbers only when they're the point.** Keep the number that is the fact (8 minutes); cut the supporting figures (300,000 km per second, 150 million km) unless the card is about them. Stacked numbers read as an info dump.
+- **Everyday pictures.** Postcards, suburbs, front doors, rust on an old bike. Talk to the learner as "you".
+- **A sense of humor.** A light joke or a wry aside is welcome ("We're the crumbs." "You could stand on any of them. You wouldn't enjoy most of them."). One per card is plenty, and it never replaces the learning.
+
+And to make the concept itself interesting, ask what would make a curious friend lean in:
 
 - **Open with a hook, not a definition.** A question, a surprise, a scene, a problem people once had. "In 1543, a dying man published a book that moved the Sun" beats "Copernicus proposed heliocentrism."
 - **Tell how we know.** Who noticed, what they measured, what they got wrong first. Discovery is the most interesting part of most facts.
