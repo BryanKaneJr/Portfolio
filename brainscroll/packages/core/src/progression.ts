@@ -62,6 +62,21 @@ export function knowledgeLevel(totalClearedLevels: number): number {
   return 1 + Math.floor(Math.sqrt(totalClearedLevels * 4));
 }
 
+/**
+ * A subject's attribute (Profile, Skills tab): the levels cleared across its
+ * skills, shown in bands of 100 like a skill. Clearing 100 masters it (★, shown
+ * gold), and the shown level starts again from 1 toward the next ★; the
+ * mastering level itself still reads 100. Display only: XP keeps feeding the
+ * Knowledge Level as usual.
+ */
+export function subjectAttribute(levelsCleared: number): { level: number; stars: number; share: number } {
+  if (levelsCleared < 0) throw new Error('negative');
+  if (levelsCleared === 0) return { level: 0, stars: 0, share: 0 };
+  const stars = Math.floor(levelsCleared / MASTERY_BAND_SIZE);
+  const level = ((levelsCleared - 1) % MASTERY_BAND_SIZE) + 1;
+  return { level, stars, share: level / MASTERY_BAND_SIZE };
+}
+
 /** Subject rank rolls up the skill levels inside a subject on the same curve. */
 export function subjectRank(skillLevelsInSubject: number[]): number {
   return knowledgeLevel(skillLevelsInSubject.reduce((a, b) => a + b, 0));

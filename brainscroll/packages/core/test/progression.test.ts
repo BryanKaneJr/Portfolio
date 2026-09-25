@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { LEARNING_STRUCTURE, dailyAllowance, knowledgeLevel, levelCompletionXp, localDate, nextDue, nextStrength, skillProgressView } from '../src';
+import { LEARNING_STRUCTURE, dailyAllowance, knowledgeLevel, subjectAttribute, levelCompletionXp, localDate, nextDue, nextStrength, skillProgressView } from '../src';
 
 describe('skill progression', () => {
   it('starts at level 0 with level 1 next', () => {
@@ -27,6 +27,20 @@ describe('skill progression', () => {
       prev = k;
     }
     expect(knowledgeLevel(1000)).toBeLessThan(100);
+  });
+});
+
+describe('subject attribute', () => {
+  it('counts levels cleared, 1 to 100', () => {
+    expect(subjectAttribute(0)).toEqual({ level: 0, stars: 0, share: 0 });
+    expect(subjectAttribute(6)).toEqual({ level: 6, stars: 0, share: 0.06 });
+    expect(subjectAttribute(99)).toEqual({ level: 99, stars: 0, share: 0.99 });
+  });
+  it('masters at 100 (★, a full bar), then starts again from 1', () => {
+    expect(subjectAttribute(100)).toEqual({ level: 100, stars: 1, share: 1 });
+    expect(subjectAttribute(101)).toEqual({ level: 1, stars: 1, share: 0.01 });
+    expect(subjectAttribute(200)).toEqual({ level: 100, stars: 2, share: 1 });
+    expect(subjectAttribute(250)).toEqual({ level: 50, stars: 2, share: 0.5 });
   });
 });
 

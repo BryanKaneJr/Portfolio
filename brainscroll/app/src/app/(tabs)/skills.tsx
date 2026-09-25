@@ -1,4 +1,4 @@
-import { MASTERY_BAND_SIZE } from '@brainscroll/core';
+import { MASTERY_BAND_SIZE, subjectAttribute } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { View } from 'react-native';
 import { Body, Caption, Card, Chip, Emblem, Eyebrow, Icon, LevelArt, ProgressBar, Row, Screen, ScreenHeader, Stars, Title } from '@/components/ui';
@@ -24,7 +24,7 @@ export default function SkillsScreen() {
       {skills.map((s) => {
         const chapterStart = (s.view.band - 1) * MASTERY_BAND_SIZE + (s.view.chapter - 1) * 10 + 1;
         const published = levelsForSkill(s.id).length;
-        const subjectLevel = skills.filter((k) => k.subjectId === s.subjectId).reduce((n, k) => n + k.view.level, 0);
+        const subject = subjectAttribute(skills.filter((k) => k.subjectId === s.subjectId).reduce((n, k) => n + k.view.level, 0));
         const toStar = MASTERY_BAND_SIZE - (s.view.level % MASTERY_BAND_SIZE);
         return (
           <Card
@@ -39,8 +39,9 @@ export default function SkillsScreen() {
             <Row gap={space.lg}>
               <Emblem value={s.view.level} tone={s.view.stars > 0 ? 'mastery' : 'brand'} />
               <View style={{ flex: 1, gap: space.xxs }}>
-                <Eyebrow>
-                  {subjectName(s.subjectId)} · Lv. {subjectLevel}
+                <Eyebrow tone={subject.stars ? 'mastery' : 'muted'}>
+                  {subjectName(s.subjectId)}
+                  {subject.stars ? ` ${'★'.repeat(Math.min(subject.stars, 5))}` : ''} · Lv. {subject.level}
                 </Eyebrow>
                 <Title>{s.name}</Title>
                 <Caption>

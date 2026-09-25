@@ -280,3 +280,5 @@ See `docs/accounts.md`.
 
 Owner decision, 2026-09-25. A subject's attribute (History, Science, …) on the Profile and the Skills tab is simply the number of levels cleared across that subject's skills: Science with Astronomy at Level 6 is "Lv. 6". It is not a curve and it is not XP. XP only feeds the overall Knowledge Level.
 
+A subject masters like a skill band: clearing 100 levels in it earns a ★ after its name, and its name and level turn gold. The shown level then starts again from 1 toward the next ★ (the mastering level itself reads 100). This is display only; every level's XP still counts toward the Knowledge Level. `subjectAttribute()` in core computes it.
+

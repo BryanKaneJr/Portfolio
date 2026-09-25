@@ -52,7 +52,7 @@ export const color = {
  * (like an RPG's stat colours). Never violet (actions) or gold (mastery).
  */
 export const subjectColor: Record<string, string> = {
-  'subject.history': '#FF9F43',
+  'subject.history': '#E8745A', // terracotta: kept well clear of mastery gold
   'subject.science': '#4DA3FF',
   'subject.geography': '#2DD4BF',
   'subject.money': '#9BE15D',

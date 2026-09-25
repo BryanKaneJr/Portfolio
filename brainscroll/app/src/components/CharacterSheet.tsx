@@ -1,3 +1,4 @@
+import { subjectAttribute } from '@brainscroll/core';
 import { StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle, Path } from 'react-native-svg';
 import { Emblem, Icon, type IconName } from '@/components/ui';
@@ -24,8 +25,6 @@ export const SUBJECT_ICON: Record<string, IconName> = {
 
 const tint = (subjectId: string) => subjectColor[subjectId] ?? color.textMuted;
 
-/** Share of the current 100 levels: each level cleared adds 1%, and 100 is a full bar. */
-const barShare = (levels: number) => (levels === 0 ? 0 : (((levels - 1) % 100) + 1) / 100);
 
 const polar = (cx: number, cy: number, r: number, deg: number) => {
   const a = ((deg - 90) * Math.PI) / 180;
@@ -39,7 +38,7 @@ const arc = (cx: number, cy: number, r: number, from: number, to: number) => {
 
 /**
  * The character ring: the Knowledge Level at the center, circled by one arc per
- * subject that fills toward its first 100 levels (one skill mastered), each marked with
+ * subject that fills toward its next 100 levels (a ★), each marked with
  * its icon. Decorative; the attribute rows carry the numbers for screen readers.
  */
 export function SubjectRing({ stats, knowledge }: { stats: SubjectStat[]; knowledge: number }) {
@@ -64,7 +63,7 @@ export function SubjectRing({ stats, knowledge }: { stats: SubjectStat[]; knowle
         {stats.map((s, i) => {
           const start = i * span - span / 2 + gap / 2;
           const end = start + span - gap;
-          const fill = s.soon ? 0 : Math.min(1, s.levels / 100);
+          const fill = s.soon ? 0 : subjectAttribute(s.levels).share;
           if (fill <= 0) return null;
           return <Path key={`f${s.subjectId}`} d={arc(c, c, r, start, start + (end - start) * Math.max(fill, 0.04))} stroke={tint(s.subjectId)} strokeWidth={16} strokeLinecap="round" fill="none" />;
         })}
@@ -76,7 +75,7 @@ export function SubjectRing({ stats, knowledge }: { stats: SubjectStat[]; knowle
             <Icon name={SUBJECT_ICON[s.subjectId] ?? 'book'} tint={s.soon ? color.textFaint : tint(s.subjectId)} size={18} />
             {!s.soon && (
               <View style={[styles.rankPip, { backgroundColor: tint(s.subjectId) }]}>
-                <Text style={styles.rankPipText}>{s.levels}</Text>
+                <Text style={styles.rankPipText}>{subjectAttribute(s.levels).level}</Text>
               </View>
             )}
           </View>
@@ -92,9 +91,13 @@ export function SubjectRing({ stats, knowledge }: { stats: SubjectStat[]; knowle
 /**
  * An attribute row, like an RPG stat: the subject's icon and name, its level
  * (the levels cleared across its skills; XP only feeds the Knowledge Level),
- * and a bar in its colour that grows one step per level, 1 to 100.
+ * and a bar in its colour that grows one step per level, 1 to 100. Clearing
+ * 100 masters the subject: its name and level turn gold with a ★ after the
+ * name, and the level starts again from 1 (`subjectAttribute`).
  */
 export function AttributeRow({ stat }: { stat: SubjectStat }) {
+  const a = subjectAttribute(stat.levels);
+  const gold = a.stars > 0;
   const c = tint(stat.subjectId);
   if (stat.soon) {
     return (
@@ -111,17 +114,20 @@ export function AttributeRow({ stat }: { stat: SubjectStat }) {
     <View
       style={styles.row}
       accessible
-      accessibilityLabel={`${stat.name}: level ${stat.levels}`}>
+      accessibilityLabel={`${stat.name}: level ${a.level}${a.stars ? `, mastered ${a.stars === 1 ? 'once' : `${a.stars} times`}` : ''}`}>
       <View style={[styles.rowIcon, { backgroundColor: `${c}26` }]}>
         <Icon name={SUBJECT_ICON[stat.subjectId] ?? 'book'} tint={c} size={20} />
       </View>
       <View style={{ flex: 1, gap: space.xs }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline' }}>
-          <Text style={[type.bodyStrong, { color: color.text }]}>{stat.name}</Text>
-          <Text style={[styles.rank, { color: c }]}>Lv. {stat.levels}</Text>
+          <Text style={[type.bodyStrong, { color: gold ? color.mastery : color.text }]}>
+            {stat.name}
+            {gold ? ` ${'★'.repeat(Math.min(a.stars, 5))}` : ''}
+          </Text>
+          <Text style={[styles.rank, { color: gold ? color.mastery : c }]}>Lv. {a.level}</Text>
         </View>
         <View style={styles.track}>
-          <View style={[styles.fill, { width: `${barShare(stat.levels) * 100}%`, backgroundColor: c }]} />
+          <View style={[styles.fill, { width: `${a.share * 100}%`, backgroundColor: c }]} />
         </View>
       </View>
     </View>
