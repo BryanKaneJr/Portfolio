@@ -92,17 +92,7 @@ export function LevelPath({
 
   return (
     <View style={{ gap: space.lg }}>
-      <View style={styles.banner}>
-        <View style={styles.bannerIcon}>
-          <Icon name="map" tint="#FFFFFF" size={24} />
-        </View>
-        <View style={{ flex: 1, gap: space.xxs }}>
-          <Eyebrow style={{ color: 'rgba(255,255,255,0.8)' }}>
-            Chapter {chapter?.number ?? Math.ceil(first / 10)} · Levels {first}–{last}
-          </Eyebrow>
-          {chapter && <H2 style={{ color: '#FFFFFF' }}>{chapter.title}</H2>}
-        </View>
-      </View>
+      <ChapterBanner chapter={chapter} first={first} last={last} />
 
       <View
         style={{ height }}
@@ -177,6 +167,25 @@ export function LevelPath({
           </Text>
         </View>
       )}
+    </View>
+  );
+}
+
+/** The chapter's banner: which chapter, which levels, its title. */
+function ChapterBanner({ chapter, first, last }: { chapter?: Chapter; first?: number; last?: number }) {
+  const lo = first ?? chapter?.levels[0] ?? 1;
+  const hi = last ?? chapter?.levels[1] ?? lo + 9;
+  return (
+    <View style={styles.banner}>
+      <View style={styles.bannerIcon}>
+        <Icon name="map" tint="#FFFFFF" size={24} />
+      </View>
+      <View style={{ flex: 1, gap: space.xxs }}>
+        <Eyebrow style={{ color: 'rgba(255,255,255,0.8)' }}>
+          Chapter {chapter?.number ?? Math.ceil(lo / 10)} · Levels {lo}–{hi}
+        </Eyebrow>
+        {chapter && <H2 style={{ color: '#FFFFFF' }}>{chapter.title}</H2>}
+      </View>
     </View>
   );
 }

@@ -3,7 +3,7 @@ import { router } from 'expo-router';
 import { View } from 'react-native';
 import { Body, Caption, Card, Chip, Emblem, Eyebrow, Icon, LevelArt, ProgressBar, Row, Screen, ScreenHeader, Stars, Title, type IconName } from '@/components/ui';
 import { levelByNumber, levelsForSkill, subjectName, subjects } from '@/content';
-import { useProgressView } from '@/progress/ProgressProvider';
+import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { ChapterRail } from '@/components/ChapterRail';
 import { color, radius, space } from '@/theme/tokens';
 
@@ -13,6 +13,7 @@ import { color, radius, space } from '@/theme/tokens';
  * road to the next ★. Never 100 equal dots.
  */
 export default function SkillsScreen() {
+  const { setActiveSkill } = useProgress();
   const { skills } = useProgressView();
   const upcoming = subjects.filter((s) => !skills.some((k) => k.subjectId === s.id));
 
@@ -29,7 +30,10 @@ export default function SkillsScreen() {
             key={s.id}
             variant="plain"
             accessibilityLabel={`Open ${s.name}`}
-            onPress={() => router.push({ pathname: '/skill/[id]', params: { id: s.id } })}
+            onPress={() => {
+              setActiveSkill(s.id);
+              router.navigate('/');
+            }}
             style={{ padding: space.xl, gap: space.lg }}>
             <Row gap={space.lg}>
               <Emblem value={s.view.level} tone={s.view.stars > 0 ? 'mastery' : 'brand'} />

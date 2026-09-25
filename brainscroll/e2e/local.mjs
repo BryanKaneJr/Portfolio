@@ -106,10 +106,10 @@ try {
   // A second skill: choosing it on the Skills tab makes Home follow it.
   await page.getByRole('tab', { name: /Skills/ }).click();
   await page.waitForTimeout(600);
-  // Opening a skill shows its whole level path and makes it the one Home follows.
+  // Choosing a skill makes it the one Home follows, and Home shows its map.
   await button(page, 'Open Ancient Rome').click();
   await page.waitForTimeout(800);
-  check((await bodyText(page)).includes('Founding and the Kings'), 'the skill page shows its chapters as level paths');
+  check((await bodyText(page)).includes('Founding and the Kings'), 'Home shows the chosen skill as a map of chapters');
   await home(page);
   check((await bodyText(page)).includes('Ancient Rome · Lv. 0'), 'Home follows the skill the learner chose last (a second tree plays from data)');
   // Progress belongs to the account: sign out, and it comes back with the same sign-in.

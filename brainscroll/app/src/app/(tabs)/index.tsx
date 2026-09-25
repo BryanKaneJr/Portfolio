@@ -1,12 +1,12 @@
 import { Redirect, router, useFocusEffect } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { View, type ScrollView } from 'react-native';
-import { Body, Button, Caption, Card, Chip, Emblem, Eyebrow, Pips, ProgressBar, Row, Screen, Stars, Title } from '@/components/ui';
-import { getLevel, subjectName } from '@/content';
+import { StyleSheet, View, type ScrollView } from 'react-native';
+import { Body, Button, Card, Emblem, Eyebrow, Icon, IconButton, Row, Screen, Stars, Title } from '@/components/ui';
+import { chaptersFor, getLevel, subjectName } from '@/content';
 import { LevelPath } from '@/components/LevelPath';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { useStartLevel } from '@/progress/useStartLevel';
-import { space } from '@/theme/tokens';
+import { color, radius, space } from '@/theme/tokens';
 
 /**
  * Home answers one question: what should I learn next? The current chapter's
@@ -22,8 +22,8 @@ export default function HomeScreen() {
   const [stopY, setStopY] = useState<number | null>(null);
   // Bring the next level into view, about a third of the way down the screen.
   useEffect(() => {
-    // Only when it would sit low on the screen; early on, the header stays in view.
-    if (pathY !== null && stopY !== null && pathY + stopY > 480) scroll.current?.scrollTo({ y: pathY + stopY - 260, animated: false });
+    // Only when it would sit low on the screen; a new learner sees their first chapter from the top.
+    if (pathY !== null && stopY !== null && pathY + stopY > 360) scroll.current?.scrollTo({ y: pathY + stopY - 220, animated: false });
   }, [pathY, stopY]);
   const { ready, refresh } = p;
   // Reviews come due while the app sits open; re-check whenever Home is shown.
@@ -52,15 +52,38 @@ export default function HomeScreen() {
   const last = p.lastSummary;
   const justCleared = last && last.skillId === skill.id && !last.alreadyCompleted ? getLevel(last.levelId)?.number : undefined;
 
-  return (
-    <Screen scrollRef={scroll}>
-      <Row style={{ justifyContent: 'space-between' }}>
-        <Eyebrow tone="brand">BrainScroll</Eyebrow>
-        <Chip tone="brand" icon="knowledge">
-          <Caption tone="text">Knowledge Lv. {v.knowledgeLevel}</Caption>
-        </Chip>
-      </Row>
+  const focus = next?.number ?? Math.max(skill.view.level, 1);
+  const chapters = chaptersFor(skill.id);
 
+  return (
+    <Screen
+      scrollRef={scroll}
+      header={
+        <>
+          <Row gap={space.sm}>
+            <IconButton label="All skills" icon="back" onPress={() => router.navigate('/skills')} />
+            <Emblem value={skill.view.level} size="sm" />
+            <View style={{ flex: 1, gap: space.xxs }}>
+              <Eyebrow>
+                {subjectName(skill.subjectId)} · Today {today.used} / {today.cap ?? '∞'}
+              </Eyebrow>
+              <Title>
+                {skill.name} · Lv. {skill.view.level}
+              </Title>
+            </View>
+            <Stars count={skill.view.stars} />
+          </Row>
+          {v.reviewsDue > 0 && (
+            <Row gap={space.md} style={styles.review}>
+              <Icon name="book" tint={color.success} size={20} />
+              <Body style={{ flex: 1 }}>
+                {v.reviewsDue} {v.reviewsDue === 1 ? 'thing' : 'things'} worth refreshing
+              </Body>
+              <Button compact variant={today.dailyComplete ? 'primary' : 'secondary'} label="Start review" onPress={() => router.push('/review-session')} />
+            </Row>
+          )}
+        </>
+      }>
       {p.error && (
         <Card variant="quiet">
           <Eyebrow>Offline</Eyebrow>
@@ -68,56 +91,37 @@ export default function HomeScreen() {
         </Card>
       )}
 
-      <Row gap={space.md}>
-        <Emblem value={skill.view.level} size="sm" />
-        <View style={{ flex: 1, gap: space.xxs }}>
-          <Eyebrow>{subjectName(skill.subjectId)}</Eyebrow>
-          <Title>
-            {skill.name} · Lv. {skill.view.level}
-          </Title>
-        </View>
-        <Stars count={skill.view.stars} />
-      </Row>
-
-      {next ? (
-        <View onLayout={(e) => setPathY(e.nativeEvent.layout.y)}>
-        <LevelPath
-          skillId={skill.id}
-          level={skill.view.level}
-          nextNumber={next.number}
-          resuming={!!resuming}
-          dailyComplete={today.dailyComplete}
-          justCleared={justCleared}
-          onCurrent={setStopY}
-          onOpen={startLevel}
-        />
-        </View>
-      ) : (
+      {!next && (
         <Card>
           <Body muted>You’ve cleared every published level. More are on the way.</Body>
         </Card>
       )}
 
-      <Card>
-        <Row style={{ justifyContent: 'space-between' }}>
-          <Eyebrow>Today</Eyebrow>
-          <Caption>
-            {today.used} / {today.cap ?? '∞'} new levels
-          </Caption>
-        </Row>
-        {today.cap !== null ? <Pips filled={today.used} total={today.cap} /> : <ProgressBar value={1} tone="info" size="sm" />}
-        <Caption>{today.dailyComplete ? 'Done for today. Review stays open.' : 'Review never uses these.'}</Caption>
-      </Card>
-
-      {v.reviewsDue > 0 && (
-        <Card>
-          <Eyebrow tone="success">Review</Eyebrow>
-          <Body>
-            {v.reviewsDue} {v.reviewsDue === 1 ? 'thing' : 'things'} worth refreshing
-          </Body>
-          <Button variant={today.dailyComplete ? 'primary' : 'secondary'} label="Start review" onPress={() => router.push('/review-session')} />
-        </Card>
-      )}
+      {/* The whole skill as one map: each chapter's banner sits where that chapter begins. */}
+      {chapters.map((c) => {
+        const here = focus >= c.levels[0] && focus <= c.levels[1];
+        return (
+          <View key={c.number} onLayout={here ? (e) => setPathY(e.nativeEvent.layout.y) : undefined}>
+            <LevelPath
+              skillId={skill.id}
+              chapter={c}
+              level={skill.view.level}
+              nextNumber={next?.number}
+              resuming={!!resuming}
+              dailyComplete={today.dailyComplete}
+              justCleared={justCleared}
+              mascot={here}
+              teaser={false}
+              onCurrent={here ? setStopY : undefined}
+              onOpen={startLevel}
+            />
+          </View>
+        );
+      })}
     </Screen>
   );
 }
+
+const styles = StyleSheet.create({
+  review: { backgroundColor: color.successSoft, borderRadius: radius.md, borderWidth: 2, borderColor: color.successLine, paddingLeft: space.md, paddingRight: space.xs, paddingVertical: space.xs },
+});

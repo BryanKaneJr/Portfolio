@@ -8,9 +8,20 @@ import { ProgressBar } from './progress';
 import { Eyebrow, H1 } from './text';
 
 /** Tab screens: safe area, gutters, generous vertical rhythm, centered on wide screens. */
-export function Screen({ children, tone = 'default', scrollRef }: { children: ReactNode; tone?: 'default' | 'reward'; scrollRef?: Ref<ScrollView> }) {
+export function Screen({ children, tone = 'default', scrollRef, header }: {
+  children: ReactNode;
+  tone?: 'default' | 'reward';
+  scrollRef?: Ref<ScrollView>;
+  /** Pinned above the scrolling content, so it's always in view. */
+  header?: ReactNode;
+}) {
   return (
     <SafeAreaView style={[styles.screen, tone === 'reward' && { backgroundColor: color.bgDeep }]} edges={['top']}>
+      {header && (
+        <View style={styles.pinned}>
+          <View style={[styles.column, { gap: space.md }]}>{header}</View>
+        </View>
+      )}
       <ScrollView ref={scrollRef} contentContainerStyle={styles.scroll}>
         <View style={styles.column}>{children}</View>
       </ScrollView>
@@ -115,6 +126,7 @@ const styles = StyleSheet.create({
   header: { flexDirection: 'row', alignItems: 'flex-end', gap: space.md, marginBottom: space.xs },
   topBar: { flexDirection: 'row', alignItems: 'center', gap: space.sm, paddingHorizontal: space.sm, height: layout.topBarHeight },
   lessonScroll: { paddingHorizontal: layout.gutter, paddingTop: space.xl, paddingBottom: space.xxl },
+  pinned: { paddingHorizontal: layout.gutter, paddingTop: space.lg, paddingBottom: space.md, backgroundColor: color.bg, zIndex: 1 },
   footer: { paddingHorizontal: layout.gutter, paddingTop: space.lg, borderTopWidth: 1, borderTopColor: color.border, backgroundColor: color.bg },
   field: {
     minHeight: layout.minTouch,
