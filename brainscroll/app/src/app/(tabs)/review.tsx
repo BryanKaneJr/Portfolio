@@ -1,11 +1,11 @@
 import { DR_SCROLL_LINES, REVIEW_SESSION_MAX_QUESTIONS, type ReviewItem } from '@brainscroll/core';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
-import { View } from 'react-native';
-import { Body, Button, Caption, Card, DrScrollLoading, DrScrollSays, Eyebrow, H2, Numeral, Row, Screen, ScreenHeader } from '@/components/ui';
+import { StyleSheet, View } from 'react-native';
+import { Body, Button, Caption, Card, DrScrollLoading, DrScrollSays, Eyebrow, H2, Icon, Numeral, Row, Screen, ScreenHeader } from '@/components/ui';
 import { getConcept } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
-import { space } from '@/theme/tokens';
+import { color, radius, space } from '@/theme/tokens';
 
 /**
  * Review belongs to the learning system, not an inbox to empty. One calm card:
@@ -42,6 +42,7 @@ export default function ReviewScreen() {
         <DrScrollLoading label="Checking what’s due…" />
       ) : n > 0 ? (
         <Card variant="accent" style={{ padding: space.xl, gap: space.lg }}>
+          <DrScrollSays spot="review.ready" size="md" lines={[DR_SCROLL_LINES.reviewReady]} />
           <Row gap={space.md} style={{ alignItems: 'flex-end' }}>
             <Numeral size="display" tone="success">
               {n}
@@ -50,7 +51,10 @@ export default function ReviewScreen() {
           </Row>
           <View style={{ gap: space.sm }}>
             {preview.map((item) => (
-              <Caption key={item.conceptId}>· {getConcept(item.conceptId)?.title ?? item.conceptId}</Caption>
+              <Row key={item.conceptId} gap={space.md} style={styles.concept}>
+                <Icon name="book" tint={color.success} size={18} />
+                <Body style={{ flexShrink: 1 }}>{getConcept(item.conceptId)?.title ?? item.conceptId}</Body>
+              </Row>
             ))}
             {n > preview.length && <Caption>and {n - preview.length} more</Caption>}
           </View>
@@ -68,3 +72,7 @@ export default function ReviewScreen() {
     </Screen>
   );
 }
+
+const styles = StyleSheet.create({
+  concept: { backgroundColor: color.surfaceRaised, borderRadius: radius.md, paddingHorizontal: space.md, paddingVertical: space.sm },
+});

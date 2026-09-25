@@ -18,6 +18,13 @@ const ICONS = {
   lock: { ios: 'lock.fill', android: 'lock', web: 'lock' },
   trophy: { ios: 'trophy.fill', android: 'emoji_events', web: 'emoji_events' },
   book: { ios: 'book.fill', android: 'menu_book', web: 'menu_book' },
+  // Subjects
+  geography: { ios: 'globe.americas.fill', android: 'public', web: 'public' },
+  money: { ios: 'dollarsign.circle.fill', android: 'payments', web: 'payments' },
+  arts: { ios: 'paintpalette.fill', android: 'palette', web: 'palette' },
+  world: { ios: 'gearshape.2.fill', android: 'settings', web: 'settings' },
+  history: { ios: 'building.columns.fill', android: 'account_balance', web: 'account_balance' },
+  science: { ios: 'atom', android: 'science', web: 'science' },
 } as const satisfies Record<string, SymbolViewProps['name']>;
 export type IconName = keyof typeof ICONS;
 

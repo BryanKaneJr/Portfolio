@@ -2,7 +2,7 @@ import { subjectRank } from '@brainscroll/core';
 import { View } from 'react-native';
 import { AccountCard } from '@/components/AccountCard';
 import { DeleteAccount } from '@/components/DeleteAccount';
-import { Button, Caption, Card, Chip, Emblem, Eyebrow, H1, Row, Screen, Stars, StatTile, Title } from '@/components/ui';
+import { Button, Caption, Card, Chip, Emblem, Eyebrow, H1, Icon, Row, Screen, Stars, StatTile, Title } from '@/components/ui';
 import { subjectName } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { color, radius, space } from '@/theme/tokens';
@@ -44,8 +44,9 @@ export default function ProfileScreen() {
         <Eyebrow>Showcase</Eyebrow>
         <Row gap={space.sm}>
           {[0, 1, 2].map((i) => (
-            <View key={i} style={{ flex: 1, aspectRatio: 1, borderRadius: radius.lg, borderWidth: 1.5, borderStyle: 'dashed', borderColor: color.border, alignItems: 'center', justifyContent: 'center' }}>
-              <Caption tone="faint">Trophy slot</Caption>
+            <View key={i} style={{ flex: 1, aspectRatio: 1, gap: space.xs, borderRadius: radius.lg, borderWidth: 2, borderStyle: 'dashed', borderColor: color.border, alignItems: 'center', justifyContent: 'center' }}>
+              <Icon name="trophy" tint={color.borderStrong} size={34} />
+              <Caption tone="faint">Empty</Caption>
             </View>
           ))}
         </Row>

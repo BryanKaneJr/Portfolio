@@ -180,6 +180,7 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `error.load` | `tangled` | A level or screen that could not load (never about account or payment data) |
 | `level.locked` | `thinking` | Opening a level that is not unlocked yet |
 | `home.path` | `reading` | Home: beside the level path, reading along |
+| `review.ready` | `review` | Review tab when concepts are due |
 | `not-found` | `tangled` | A link to something that does not exist |
 
 Writer-placed card asides (`mascot` on a learning card) aren't spots; their pose comes from the content, and they're labeled `mascot:pose:<pose>`.

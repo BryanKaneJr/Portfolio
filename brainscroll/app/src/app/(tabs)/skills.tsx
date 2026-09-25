@@ -1,11 +1,11 @@
 import { MASTERY_BAND_SIZE, subjectRank } from '@brainscroll/core';
 import { View } from 'react-native';
-import { Caption, Card, Chip, Emblem, Eyebrow, LevelArt, ProgressBar, Row, Screen, ScreenHeader, Stars, Title } from '@/components/ui';
+import { Body, Caption, Card, Chip, Emblem, Eyebrow, Icon, LevelArt, ProgressBar, Row, Screen, ScreenHeader, Stars, Title, type IconName } from '@/components/ui';
 import { levelByNumber, levelsForSkill, subjectName, subjects } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { useStartLevel } from '@/progress/useStartLevel';
 import { ChapterRail } from '@/components/ChapterRail';
-import { space } from '@/theme/tokens';
+import { color, radius, space } from '@/theme/tokens';
 
 /**
  * Skills you are leveling, not a course catalog. Each skill shows its level
@@ -68,8 +68,13 @@ export default function SkillsScreen() {
         <View style={{ gap: space.sm }}>
           <Eyebrow>Coming soon</Eyebrow>
           {upcoming.map((s) => (
-            <Row key={s.id} style={{ justifyContent: 'space-between', paddingVertical: space.sm }}>
-              <Caption>{s.name}</Caption>
+            <Row key={s.id} gap={space.md} style={{ paddingVertical: space.sm }}>
+              <View style={{ width: 40, height: 40, borderRadius: radius.md, backgroundColor: color.surfaceRaised, alignItems: 'center', justifyContent: 'center' }}>
+                <Icon name={SUBJECT_ICON[s.id] ?? 'book'} tint={color.textMuted} size={22} />
+              </View>
+              <Body muted style={{ flex: 1 }}>
+                {s.name}
+              </Body>
               <Chip>
                 <Caption>Soon</Caption>
               </Chip>
@@ -80,3 +85,13 @@ export default function SkillsScreen() {
     </Screen>
   );
 }
+
+/** An icon per subject for the Coming soon list. */
+const SUBJECT_ICON: Record<string, IconName> = {
+  'subject.history': 'history',
+  'subject.science': 'science',
+  'subject.geography': 'geography',
+  'subject.money': 'money',
+  'subject.arts': 'arts',
+  'subject.world_systems': 'world',
+};

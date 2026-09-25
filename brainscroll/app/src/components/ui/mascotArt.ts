@@ -74,6 +74,7 @@ export const SPOT_ART: Partial<Record<MascotSpot, ImageSourcePropType>> = {
   // 'error.load': require('../../../assets/images/mascot/spots/error.load.webp'),
   // 'level.locked': require('../../../assets/images/mascot/spots/level.locked.webp'),
   // 'home.path': require('../../../assets/images/mascot/spots/home.path.webp'),
+  // 'review.ready': require('../../../assets/images/mascot/spots/review.ready.webp'),
   // 'not-found': require('../../../assets/images/mascot/spots/not-found.webp'),
 };
 
