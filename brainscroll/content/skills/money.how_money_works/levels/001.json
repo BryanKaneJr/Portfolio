@@ -1,0 +1,214 @@
+{
+  "id": "level.money.how_money_works.001",
+  "skillId": "skill.money.how_money_works",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Money in One Level",
+  "objective": "After this level you can explain the three jobs money does: a way to pay, a measure of value and a way to save.",
+  "summary": "Money is anything that does three jobs: a medium of exchange, a unit of account and a store of value. In a WWII prison camp, cigarettes did all three.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.money_three_jobs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.pow_cigarette_money",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.how_money_works.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In a WWII prison camp, cigarettes became money. Even non-smokers wanted them.",
+      "body": "Economist R. A. Radford was a prisoner there, and in 1945 he explained why. Cigarettes were doing the three jobs that make something money. Learn those three jobs and you know what money is."
+    },
+    {
+      "id": "card.how_money_works.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Job 1: a way to pay",
+      "body": "Trade in the camp began as barter: my jam for your biscuits, if we each wanted what the other had. Then cigarettes took over. Everyone, non-smokers included, would sell for cigarettes, because they could spend them later on something else. That's a medium of exchange: something you accept not to use, but to pass on."
+    },
+    {
+      "id": "card.how_money_works.001.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Job 2: a measure of value",
+      "body": "Soon every price in camp was quoted in cigarettes. Prisoners called out offers like \"cheese for seven\", and laundry cost two cigarettes a garment. Nobody had to work out what cheese was worth in jam. One common unit let anyone compare anything. That's a unit of account, the ruler you measure value with. Yours is probably dollars, euros or pounds.",
+      "callout": "Cheese: 7 cigarettes · Laundry: 2 a garment"
+    },
+    {
+      "id": "card.how_money_works.001.c4",
+      "type": "fact",
+      "fact": "Money you can smoke is a risky way to save.",
+      "context": "Job 3 is store of value: money should keep until you're ready to spend it. Prisoners did save cigarettes in reserve. The flaw? People also smoked them. When deliveries stopped, stocks ran out and prices fell. The camp's savings had literally gone up in smoke.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A savings account you can accidentally smoke. Not ideal, financially speaking."
+      }
+    },
+    {
+      "id": "card.how_money_works.001.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.001.q1"
+    },
+    {
+      "id": "card.how_money_works.001.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.001.q2"
+    },
+    {
+      "id": "card.how_money_works.001.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.001.q3"
+    },
+    {
+      "id": "card.how_money_works.001.c8",
+      "type": "checkpoint",
+      "headline": "Money: defined",
+      "learned": [
+        "Money does three jobs",
+        "Medium of exchange: accepted so you can spend it again",
+        "Unit of account: the ruler for prices",
+        "Store of value: it keeps until you spend it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.money_three_jobs"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.001.c2",
+        "card.how_money_works.001.c3",
+        "card.how_money_works.001.c4"
+      ],
+      "prompt": "Which list names the three jobs money does?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A way to earn, a way to spend, a way to give",
+          "correct": false,
+          "rationale": "Earning and giving use money, but the three jobs are paying, measuring and saving."
+        },
+        {
+          "id": "b",
+          "label": "A way to pay, a measure of value, a way to save",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Coins, banknotes and bank balances",
+          "correct": false,
+          "rationale": "Those are forms money takes, not the jobs it does."
+        },
+        {
+          "id": "d",
+          "label": "A way to borrow, a way to tax, a way to lend",
+          "correct": false,
+          "rationale": "Those all use money, but they aren't its three jobs."
+        }
+      ],
+      "explanation": "Money is a medium of exchange (a way to pay), a unit of account (a measure of value) and a store of value (a way to save).",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.pow_cigarette_money",
+        "concept.how_money_works.money_three_jobs"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.001.c2"
+      ],
+      "prompt": "Why would a non-smoker in Radford's camp sell food for cigarettes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Guards ordered everyone to trade in cigarettes",
+          "correct": false,
+          "rationale": "Nobody ordered it: cigarettes took over through trading."
+        },
+        {
+          "id": "b",
+          "label": "Non-smokers planned to take up smoking",
+          "correct": false,
+          "rationale": "They wanted cigarettes to spend, not to smoke."
+        },
+        {
+          "id": "c",
+          "label": "They could spend the cigarettes later on something else",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Red Cross parcels held nothing but cigarettes",
+          "correct": false,
+          "rationale": "Parcels also held food like jam, biscuits and chocolate."
+        }
+      ],
+      "explanation": "Cigarettes had become a medium of exchange: people took them because others would take them in turn.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.money_three_jobs",
+        "concept.how_money_works.pow_cigarette_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.001.c3"
+      ],
+      "prompt": "A café menu lists every item in dollars. Which camp habit did the same job?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Saving cigarettes in reserve",
+          "correct": false,
+          "rationale": "That's storing value, the third job."
+        },
+        {
+          "id": "b",
+          "label": "Smoking the cigarettes",
+          "correct": false,
+          "rationale": "That uses cigarettes up; it doesn't measure anything."
+        },
+        {
+          "id": "c",
+          "label": "Swapping jam directly for biscuits",
+          "correct": false,
+          "rationale": "That's barter, with no common unit."
+        },
+        {
+          "id": "d",
+          "label": "Quoting every price in cigarettes",
+          "correct": true
+        }
+      ],
+      "explanation": "Dollars on a menu and cigarettes in the camp both give every price one common unit: they're units of account.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.economica_radford_pow_camp",
+    "source.imf_what_is_money",
+    "source.openstax_money_functions",
+    "source.stlouisfed_what_is_money"
+  ],
+  "art": "rome.coins"
+}

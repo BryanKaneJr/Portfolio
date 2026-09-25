@@ -1,0 +1,232 @@
+{
+  "id": "level.money.how_money_works.006",
+  "skillId": "skill.money.how_money_works",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Money Has Value",
+  "objective": "After this level you can explain why money is valuable because people trust it and accept it.",
+  "summary": "Today's money is fiat money: legal tender backed by no commodity. A $100 bill costs about 11 cents to print; its value comes from trust that others will accept it.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.fiat_money",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.money_trust",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.yap_stone_money",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.pow_cigarette_money",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.europe_banknotes",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.005"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A $100 bill costs about 11 cents to print. So why is it worth $100?",
+      "body": "Paper, ink and labor came to about 11 cents a note in the Federal Reserve's 2025 figures. Everything else comes from something you can't see or touch."
+    },
+    {
+      "id": "card.how_money_works.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fiat money",
+      "body": "Look at a US bill. It says: \"This note is legal tender for all debts, public and private.\" Nothing about gold, or anything else behind it. That's fiat money: it has no value of its own, and a government declares it legal tender. Today's dollars are fiat money. Their only backing, as one economics textbook puts it, is shared faith and trust that they have value."
+    },
+    {
+      "id": "card.how_money_works.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A chain of confidence",
+      "body": "Picture the chain. A baker takes your bill because her flour supplier will take it from her, and he takes it because his landlord will. Everyone accepts it because everyone else does. It's the logic of Level 1's camp, where non-smokers took cigarettes because others would take them later. Money works because people believe it will."
+    },
+    {
+      "id": "card.how_money_works.006.c4",
+      "type": "fact",
+      "fact": "A stone on the seabed can be money. It all comes down to belief.",
+      "context": "Remember Level 3's sunken stone on Yap? In 1991, economist Milton Friedman used it to show how much money rests on unquestioned belief, and he meant our money too. The flip side follows. When belief goes, paper is just paper, as Level 5's Swedish bank found out when the public lost confidence.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Money is a story we all agree to believe. Luckily, it's a very useful story."
+      }
+    },
+    {
+      "id": "card.how_money_works.006.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.006.q1"
+    },
+    {
+      "id": "card.how_money_works.006.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.006.q2"
+    },
+    {
+      "id": "card.how_money_works.006.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.006.q3"
+    },
+    {
+      "id": "card.how_money_works.006.c8",
+      "type": "checkpoint",
+      "headline": "Value: explained",
+      "learned": [
+        "A $100 bill costs about 11 cents to print",
+        "Fiat money: legal tender backed by no commodity",
+        "It works because people trust others will accept it",
+        "When trust goes, value goes with it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.fiat_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.006.c2"
+      ],
+      "prompt": "What is fiat money?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Money you can swap for gold on demand",
+          "correct": false,
+          "rationale": "That's commodity-backed money, like the gold standard's."
+        },
+        {
+          "id": "b",
+          "label": "Coins made of precious metal",
+          "correct": false,
+          "rationale": "Fiat money's value doesn't come from its material."
+        },
+        {
+          "id": "c",
+          "label": "Money that exists only online",
+          "correct": false,
+          "rationale": "Fiat money includes paper bills and coins."
+        },
+        {
+          "id": "d",
+          "label": "Legal tender that no commodity backs",
+          "correct": true
+        }
+      ],
+      "explanation": "Fiat money has no value of its own and no gold behind it. A government declares it legal tender.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.money_trust"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.006.c1",
+        "card.how_money_works.006.c3"
+      ],
+      "prompt": "Why does a $100 bill buy far more than it costs to print?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its ink contains real gold",
+          "correct": false,
+          "rationale": "Printing costs about 11 cents, gold or no gold."
+        },
+        {
+          "id": "b",
+          "label": "People trust that others will accept it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Shops are paid extra to take it",
+          "correct": false,
+          "rationale": "Nobody pays shops; they accept it because others will."
+        },
+        {
+          "id": "d",
+          "label": "Its special paper is very rare",
+          "correct": false,
+          "rationale": "The paper is cheap. The trust is what's valuable."
+        }
+      ],
+      "explanation": "Its value comes from confidence: everyone accepts it because everyone else does.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.money_trust",
+        "concept.how_money_works.yap_stone_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.006.c4",
+        "card.how_money_works.003.c4"
+      ],
+      "prompt": "From Level 3: why did Yap's sunken stone keep its value?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Divers brought it back up",
+          "correct": false,
+          "rationale": "It stayed at the bottom of the sea."
+        },
+        {
+          "id": "b",
+          "label": "It was the biggest stone on the island",
+          "correct": false,
+          "rationale": "Its size wasn't the point; the agreement was."
+        },
+        {
+          "id": "c",
+          "label": "Everyone agreed it still counted",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A king declared it legal tender",
+          "correct": false,
+          "rationale": "No decree: the islanders simply agreed."
+        }
+      ],
+      "explanation": "The islanders agreed the stone still belonged to its owners. Its value rested entirely on shared belief, like fiat money's.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.fed_currency_costs",
+    "source.openstax_money_functions",
+    "source.imf_what_is_money",
+    "source.economica_radford_pow_camp",
+    "source.hoover_friedman_stone_money",
+    "source.npr_island_of_stone_money",
+    "source.riksbank_first_banknotes"
+  ],
+  "art": "money.banknote"
+}

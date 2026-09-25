@@ -1,0 +1,229 @@
+{
+  "id": "level.money.how_money_works.002",
+  "skillId": "skill.money.how_money_works",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Before Money: Barter",
+  "objective": "After this level you can explain how barter works and why it gets awkward.",
+  "summary": "Barter means swapping goods directly. It needs a double coincidence of wants, has no common measure of value and makes saving hard. No pure barter economy has ever been described.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.barter_double_coincidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.barter_no_common_measure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.barter_history",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.money_three_jobs",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.pow_cigarette_money",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.001"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You fix cars. You want lunch. You need a farmer with a broken car.",
+      "body": "No money allowed. Before you can eat, you have to find someone who has food and also needs a mechanic today. Welcome to barter."
+    },
+    {
+      "id": "card.how_money_works.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The lucky match barter needs",
+      "body": "Barter means trading one good or service directly for another, no money involved: your repair for their vegetables. It only works when each of you wants what the other has. Economists call that a double coincidence of wants, and it's rarer than it sounds. The farmer with the broken car does exist. Finding him before lunch is another matter."
+    },
+    {
+      "id": "card.how_money_works.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "No ruler, no savings",
+      "body": "Remember Level 1's three jobs? Barter struggles with them. There's no common ruler: without an agreed measure, every swap sets its own terms, and each deal stands on its own. Saving is hard too. Picture a farmer hoping to buy a tractor in six months with strawberries picked today. By then, they're jam at best."
+    },
+    {
+      "id": "card.how_money_works.002.c4",
+      "type": "fact",
+      "fact": "Nobody has ever described a society that ran on barter alone.",
+      "context": "The textbook story, going back to Adam Smith, says people bartered first and switched to money once they saw it worked better. In 1985, anthropologist Caroline Humphrey concluded that no pure barter economy has ever been described. Barter is real, though. It tends to happen between people who know each other, or when money runs short: in Level 1's camp, whenever cigarette deliveries stopped, trade slid back toward barter.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "So barter isn't money's grandparent. It's more like the backup plan when money goes missing."
+      }
+    },
+    {
+      "id": "card.how_money_works.002.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.002.q1"
+    },
+    {
+      "id": "card.how_money_works.002.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.002.q2"
+    },
+    {
+      "id": "card.how_money_works.002.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.002.q3"
+    },
+    {
+      "id": "card.how_money_works.002.c8",
+      "type": "checkpoint",
+      "headline": "Barter: tried and tested",
+      "learned": [
+        "Barter is swapping goods or services directly",
+        "It needs a double coincidence of wants",
+        "It has no common ruler and makes saving hard",
+        "No pure barter economy has ever been described"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.barter_double_coincidence"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.002.c2"
+      ],
+      "prompt": "What is a double coincidence of wants?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two people wanting the same item",
+          "correct": false,
+          "rationale": "Then they'd be competing. Each must want what the other has."
+        },
+        {
+          "id": "b",
+          "label": "Each person wants what the other can offer",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Paying twice for the same thing",
+          "correct": false,
+          "rationale": "It's about matching wants, not paying twice."
+        },
+        {
+          "id": "d",
+          "label": "A trade in which both sides use money",
+          "correct": false,
+          "rationale": "It's the match that barter needs when there's no money."
+        }
+      ],
+      "explanation": "Barter only works when each person has something the other wants. That lucky match is a double coincidence of wants.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.barter_no_common_measure"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.002.c3"
+      ],
+      "prompt": "Why is it hard to compare values in a barter economy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Governments ban traders from posting price lists",
+          "correct": false,
+          "rationale": "No ban needed: barter simply has no shared unit."
+        },
+        {
+          "id": "b",
+          "label": "Every good is worth the same as every other",
+          "correct": false,
+          "rationale": "Goods differ in value; barter just can't measure them in one unit."
+        },
+        {
+          "id": "c",
+          "label": "No common measure: each swap sets its own terms",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Everyone already prices things in gold coins",
+          "correct": false,
+          "rationale": "Coins would be money, which barter doesn't use."
+        }
+      ],
+      "explanation": "Without money as a common ruler, each barter deal stands on its own, so there's no single price to compare.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.barter_history",
+        "concept.how_money_works.pow_cigarette_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.002.c4",
+        "card.how_money_works.001.c4"
+      ],
+      "prompt": "From Level 1: what happened to trade in Radford's camp when cigarette deliveries stopped?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Prices soared",
+          "correct": false,
+          "rationale": "Prices fell as cigarettes ran short."
+        },
+        {
+          "id": "b",
+          "label": "Nothing changed",
+          "correct": false,
+          "rationale": "With cigarette money running short, trade changed."
+        },
+        {
+          "id": "c",
+          "label": "Prisoners switched to gold coins",
+          "correct": false,
+          "rationale": "Trade fell back on direct swaps instead."
+        },
+        {
+          "id": "d",
+          "label": "Trade slid back toward barter",
+          "correct": true
+        }
+      ],
+      "explanation": "When the money ran short, prisoners went back to swapping goods directly: barter as a backup plan.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.imf_what_is_money",
+    "source.openstax_money_functions",
+    "source.man_humphrey_barter",
+    "source.stlouisfed_what_is_money",
+    "source.economica_radford_pow_camp"
+  ],
+  "art": "money.handshake"
+}

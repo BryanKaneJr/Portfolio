@@ -1,0 +1,362 @@
+{
+  "id": "level.money.how_money_works.010",
+  "skillId": "skill.money.how_money_works",
+  "number": 10,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: What Money Is",
+  "objective": "After this level you can trace money from barter and coins to digital money, and explain what gives it value.",
+  "summary": "Useful money is durable, portable, divisible, uniform, limited in supply and acceptable. From shells to bitcoin, every money has rested on trust.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.money_six_traits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.money_three_jobs",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.yap_stone_money",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.lydia_first_coins",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.china_paper_money",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.gold_standard_end",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.crypto_definition",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.money_trust",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.cowrie_money",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.009"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.010.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Shells, stones, coins, paper, records, code. Which makes the best money?",
+      "body": "Chapter 1 has walked you through money in all its costumes. Economists have a scorecard for judging them. Time to use it."
+    },
+    {
+      "id": "card.how_money_works.010.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The six-trait test",
+      "body": "Useful money is durable (it lasts), portable (easy to carry), divisible (splits into small amounts), uniform (each unit is as good as another), limited in supply (hard to make more of) and acceptable (people take it). That last one is Level 6's whole story: acceptance rests on trust."
+    },
+    {
+      "id": "card.how_money_works.010.c3",
+      "type": "comparison",
+      "headline": "Chapter 1 on the scorecard",
+      "items": [
+        {
+          "label": "Yap stones",
+          "points": [
+            "Durable, scarce and accepted",
+            "Not portable: the biggest are over 3.5 m wide",
+            "Not uniform: every stone differs"
+          ]
+        },
+        {
+          "label": "Cowrie shells",
+          "points": [
+            "Small, light and durable",
+            "Hard to fake"
+          ]
+        },
+        {
+          "label": "A US $20 bill",
+          "points": [
+            "Scores well on all six traits"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.how_money_works.010.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "One thread from shells to code",
+      "body": "Money kept changing shape: shells and salt, Lydia's stamped coins, China's paper, gold-backed notes, bank records, bitcoin's blockchain. What stayed the same were Level 1's three jobs, and the thing under them all: people accept money because they trust others will too. Money works because people believe it will."
+    },
+    {
+      "id": "card.how_money_works.010.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.010.q1"
+    },
+    {
+      "id": "card.how_money_works.010.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.010.q2"
+    },
+    {
+      "id": "card.how_money_works.010.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.010.q3"
+    },
+    {
+      "id": "card.how_money_works.010.c8",
+      "type": "recall",
+      "questionId": "question.how_money_works.010.q4"
+    },
+    {
+      "id": "card.how_money_works.010.c9",
+      "type": "mcq",
+      "questionId": "question.how_money_works.010.q5"
+    },
+    {
+      "id": "card.how_money_works.010.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "Money does three jobs: pay, measure, save",
+        "Useful money has six traits",
+        "From shells and coins to paper, records and code",
+        "Its value rests on trust and acceptance"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.010.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.money_six_traits"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.010.c2"
+      ],
+      "prompt": "Which of these is NOT one of the six traits of useful money?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Durable enough to last",
+          "correct": false,
+          "rationale": "Durability is on the list: money has to last."
+        },
+        {
+          "id": "b",
+          "label": "Made of precious metal",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Easy to carry around",
+          "correct": false,
+          "rationale": "Portability is on the list: money has to be easy to carry."
+        },
+        {
+          "id": "d",
+          "label": "Splits into small amounts",
+          "correct": false,
+          "rationale": "Divisibility is on the list: money has to split into small amounts."
+        }
+      ],
+      "explanation": "The six traits are durability, portability, divisibility, uniformity, limited supply and acceptability. Material isn't one of them.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.010.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.money_six_traits"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.010.c2",
+        "card.how_money_works.010.c3"
+      ],
+      "prompt": "A country's only banknote is worth a whole year's pay. Which trait does it fail?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Durability",
+          "correct": false,
+          "rationale": "A banknote can last fine. The problem is splitting it."
+        },
+        {
+          "id": "b",
+          "label": "Acceptability",
+          "correct": false,
+          "rationale": "People might accept it; they just can't use it for small things."
+        },
+        {
+          "id": "c",
+          "label": "Divisibility",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Limited supply",
+          "correct": false,
+          "rationale": "Scarcity isn't the issue here."
+        }
+      ],
+      "explanation": "Money has to split into small amounts for everyday buying. One giant note fails divisibility.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.010.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.money_three_jobs"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.001.c4",
+        "card.how_money_works.010.c4"
+      ],
+      "prompt": "From Level 1: you put $20 in a drawer to spend next month. Which job is that money doing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Medium of exchange",
+          "correct": false,
+          "rationale": "That's the job it does when you spend it."
+        },
+        {
+          "id": "b",
+          "label": "Unit of account",
+          "correct": false,
+          "rationale": "That's the job it does when prices are quoted in it."
+        },
+        {
+          "id": "c",
+          "label": "Double coincidence of wants",
+          "correct": false,
+          "rationale": "That's barter's matching problem, not a job of money."
+        },
+        {
+          "id": "d",
+          "label": "Store of value",
+          "correct": true
+        }
+      ],
+      "explanation": "Keeping money to spend later is its job as a store of value.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.010.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.lydia_first_coins",
+        "concept.how_money_works.china_paper_money",
+        "concept.how_money_works.gold_standard_end",
+        "concept.how_money_works.crypto_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.004.c1",
+        "card.how_money_works.005.c3",
+        "card.how_money_works.007.c4",
+        "card.how_money_works.009.c2"
+      ],
+      "prompt": "Which list is in the right order, oldest first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Song paper notes → Lydian coins → Bitcoin → Nixon's gold decision",
+          "correct": false,
+          "rationale": "Lydia's coins came about 1,700 years before Song paper notes."
+        },
+        {
+          "id": "b",
+          "label": "Lydian coins → Nixon's gold decision → Song paper notes → Bitcoin",
+          "correct": false,
+          "rationale": "Song paper notes (around 1023) came long before 1971."
+        },
+        {
+          "id": "c",
+          "label": "Lydian coins → Song paper notes → Nixon's gold decision → Bitcoin",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Bitcoin → Lydian coins → Song paper notes → Nixon's gold decision",
+          "correct": false,
+          "rationale": "Bitcoin is the newest of all: 2009."
+        }
+      ],
+      "explanation": "Lydia around 650 BCE, Song notes around 1023, Nixon in 1971, bitcoin in 2009.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.how_money_works.010.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.money_trust"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.006.c2",
+        "card.how_money_works.010.c4"
+      ],
+      "prompt": "Across Chapter 1, what finally gives money its value?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The precious metal it's made of",
+          "correct": false,
+          "rationale": "Today's money is paper and records, backed by no metal."
+        },
+        {
+          "id": "b",
+          "label": "How hard it is to print or mint",
+          "correct": false,
+          "rationale": "A $100 bill costs about 11 cents to print."
+        },
+        {
+          "id": "c",
+          "label": "Trust that others will accept it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A fixed link to gold in a vault",
+          "correct": false,
+          "rationale": "That link ended in 1971."
+        }
+      ],
+      "explanation": "From Yap's stones to fiat dollars, money works because people trust that others will accept it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.stlouisfed_what_is_money",
+    "source.openstax_money_functions",
+    "source.imf_what_is_money",
+    "source.smithsonian_yap_okeefe",
+    "source.carlos_cash_cowries"
+  ],
+  "art": "rome.coins"
+}

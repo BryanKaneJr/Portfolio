@@ -1,0 +1,217 @@
+{
+  "id": "level.money.how_money_works.008",
+  "skillId": "skill.money.how_money_works",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Money as Numbers",
+  "objective": "After this level you can explain why most money today exists only as numbers in bank records.",
+  "summary": "Most money today is bank deposits, records of what banks owe you. In the UK, 97% of money is deposits. Paying by card just changes two balances.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.bank_deposit_money",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.card_payment_records",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.yap_stone_money",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.007"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most of your money has never been printed.",
+      "body": "In the UK, 97% of the money people hold isn't notes or coins at all. It's numbers in banks' records. (That's the Bank of England's figure from 2014.)"
+    },
+    {
+      "id": "card.how_money_works.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your balance is a promise",
+      "body": "A bank deposit isn't a pile of your cash in a vault. It's a record of what the bank owes you, a kind of IOU. Money today is a special IOU, one that everyone in the economy trusts. That's why most people get paid in deposits, and many never swap them back into cash."
+    },
+    {
+      "id": "card.how_money_works.008.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Paying without anything moving",
+      "body": "Pay for a coffee by debit card and no cash travels anywhere. The banks just edit two numbers: your balance goes down and the café's goes up. The payment is the change to the record. You used your deposit as money without ever touching a coin.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Somewhere, a computer changed two numbers so you could have coffee. Romantic, really."
+      }
+    },
+    {
+      "id": "card.how_money_works.008.c4",
+      "type": "fact",
+      "fact": "Yap's islanders would find your bank account oddly familiar.",
+      "context": "On Level 3's Yap, a stone could change owners without moving. In the early 1930s, the New York Fed did much the same with gold: rather than ship it across the ocean to the Bank of France, it moved bars into drawers in its own vault labeled as French. Milton Friedman, who told both stories, pointed out that most of our wealth, bank balances included, is something we never actually see."
+    },
+    {
+      "id": "card.how_money_works.008.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.008.q1"
+    },
+    {
+      "id": "card.how_money_works.008.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.008.q2"
+    },
+    {
+      "id": "card.how_money_works.008.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.008.q3"
+    },
+    {
+      "id": "card.how_money_works.008.c8",
+      "type": "checkpoint",
+      "headline": "Digital money: logged",
+      "learned": [
+        "In the UK, 97% of money is bank deposits",
+        "A deposit is the bank's IOU to you",
+        "A card payment just updates two balances",
+        "Like Yap, ownership changes in the record"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.bank_deposit_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.008.c1"
+      ],
+      "prompt": "In the UK, about what share of the money people hold is bank deposits?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 3%",
+          "correct": false,
+          "rationale": "That's the share held as notes and coins."
+        },
+        {
+          "id": "b",
+          "label": "About 25%",
+          "correct": false,
+          "rationale": "Far more: deposits dominate."
+        },
+        {
+          "id": "c",
+          "label": "About 50%",
+          "correct": false,
+          "rationale": "Far more than half."
+        },
+        {
+          "id": "d",
+          "label": "About 97%",
+          "correct": true
+        }
+      ],
+      "explanation": "According to the Bank of England, 97% of UK money held by the public is bank deposits; only about 3% is notes and coins.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.card_payment_records"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.008.c3"
+      ],
+      "prompt": "You pay a café by debit card. What actually happens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cash is carried from your bank to the café",
+          "correct": false,
+          "rationale": "No cash moves; only records change."
+        },
+        {
+          "id": "b",
+          "label": "The banks lower your balance and raise the café's",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Your card stores coins that move to the café",
+          "correct": false,
+          "rationale": "Cards don't hold coins. Banks update balances."
+        },
+        {
+          "id": "d",
+          "label": "The café writes you an IOU",
+          "correct": false,
+          "rationale": "The bank's records do the work."
+        }
+      ],
+      "explanation": "A card payment changes two records: your deposit goes down and the café's goes up.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.card_payment_records",
+        "concept.how_money_works.yap_stone_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.008.c4",
+        "card.how_money_works.003.c4"
+      ],
+      "prompt": "How is a bank balance like Level 3's Yap stones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ownership changes in a record; nothing moves",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Both are backed by gold kept in a vault",
+          "correct": false,
+          "rationale": "Neither is: both rest on trust."
+        },
+        {
+          "id": "c",
+          "label": "Both were designed by a king or government",
+          "correct": false,
+          "rationale": "Neither came from a royal decree."
+        },
+        {
+          "id": "d",
+          "label": "Both can be carried in your pocket",
+          "correct": false,
+          "rationale": "Yap's big stones rarely moved at all."
+        }
+      ],
+      "explanation": "On Yap, the community remembered who owned each stone. A bank keeps a ledger. Either way, money changes hands in the record.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.boe_money_modern_economy",
+    "source.npr_island_of_stone_money",
+    "source.hoover_friedman_stone_money"
+  ],
+  "art": "money.credit-card"
+}

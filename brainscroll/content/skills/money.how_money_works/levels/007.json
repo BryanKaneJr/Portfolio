@@ -1,0 +1,218 @@
+{
+  "id": "level.money.how_money_works.007",
+  "skillId": "skill.money.how_money_works",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Gold Standard",
+  "objective": "After this level you can explain what the gold standard was and why countries left it.",
+  "summary": "Under a gold standard, money is tied to a fixed amount of gold. Gold's supply couldn't keep pace with growing economies, and the dollar's last gold link ended in 1971.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.gold_standard",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.gold_standard_end",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.fiat_money",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.006"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For generations, a paper note was a ticket you could cash in for gold.",
+      "body": "Hand over your notes, walk away with metal. Then, country by country, the deal ended. The last big link snapped on August 15, 1971."
+    },
+    {
+      "id": "card.how_money_works.007.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Money tied to metal",
+      "body": "Under a gold standard, a country's unit of money is a fixed amount of gold. Britain adopted one in 1821, and by the 1870s other big economies, including Germany and France, had followed. In the US, the Federal Reserve had to swap dollars for gold at a fixed price. The appeal was simple: paper you could trust, because gold stood behind it."
+    },
+    {
+      "id": "card.how_money_works.007.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The golden handcuffs",
+      "body": "The catch: the supply of newly mined gold has nothing to do with how much money a growing economy needs. In hard times, that tied governments' hands. World War I pushed countries off gold, the Great Depression finished the job, and by 1937 no country kept a full gold standard. In 1933, the US stopped swapping money for gold coins and bars at home.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Imagine your allowance growing only as fast as miners can dig. That's the problem in one picture."
+      }
+    },
+    {
+      "id": "card.how_money_works.007.c4",
+      "type": "fact",
+      "fact": "In 1971, Nixon \"temporarily\" cut the dollar's last link to gold.",
+      "context": "After World War II, the Bretton Woods system fixed other currencies to the dollar, and dollars to gold at $35 an ounce. Foreign governments could still cash their dollars in. On August 15, 1971, President Nixon said he had told the Treasury to \"suspend temporarily\" that swap. The system soon ended, and the world's money became fiat money: Level 6's kind, backed by trust."
+    },
+    {
+      "id": "card.how_money_works.007.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.007.q1"
+    },
+    {
+      "id": "card.how_money_works.007.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.007.q2"
+    },
+    {
+      "id": "card.how_money_works.007.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.007.q3"
+    },
+    {
+      "id": "card.how_money_works.007.c8",
+      "type": "checkpoint",
+      "headline": "Gold standard: retired",
+      "learned": [
+        "A gold standard fixes money to an amount of gold",
+        "Britain adopted one in 1821",
+        "Gold's supply couldn't keep pace with growing economies",
+        "Nixon cut the dollar's last gold link in 1971"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.gold_standard"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.007.c2"
+      ],
+      "prompt": "Under a gold standard, what is a country's money tied to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The price of bread",
+          "correct": false,
+          "rationale": "Prices could change; the gold link was fixed."
+        },
+        {
+          "id": "b",
+          "label": "A fixed amount of gold",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The number of banks in the country",
+          "correct": false,
+          "rationale": "Banks didn't set the link; gold did."
+        },
+        {
+          "id": "d",
+          "label": "The ruler's personal fortune",
+          "correct": false,
+          "rationale": "The link was to a set amount of gold, not a ruler's wealth."
+        }
+      ],
+      "explanation": "A gold standard fixes a currency's unit to a set quantity of gold.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.gold_standard_end"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.007.c3"
+      ],
+      "prompt": "What was the gold standard's biggest weakness?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gold slowly rusts away in bank vaults",
+          "correct": false,
+          "rationale": "Gold doesn't rust. The problem was its supply."
+        },
+        {
+          "id": "b",
+          "label": "Gold was too easy to counterfeit",
+          "correct": false,
+          "rationale": "Faking wasn't the issue; supply was."
+        },
+        {
+          "id": "c",
+          "label": "Gold supply didn't keep pace with the economy",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only gold coins could be spent",
+          "correct": false,
+          "rationale": "Paper notes circulated too; they could be swapped for gold."
+        }
+      ],
+      "explanation": "New gold arrives at the pace of mining, not the pace of the economy, so a gold standard ties governments' hands.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.gold_standard_end",
+        "concept.how_money_works.fiat_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.007.c4",
+        "card.how_money_works.006.c2"
+      ],
+      "prompt": "After 1971, what kind of money from Level 6 did the dollar become?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fiat money, backed by trust",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Commodity money, like salt",
+          "correct": false,
+          "rationale": "Dollars aren't a useful commodity; they're fiat money."
+        },
+        {
+          "id": "c",
+          "label": "Money backed by silver",
+          "correct": false,
+          "rationale": "No metal backs the dollar today."
+        },
+        {
+          "id": "d",
+          "label": "A cryptocurrency",
+          "correct": false,
+          "rationale": "The dollar is issued by a government, not a computer network."
+        }
+      ],
+      "explanation": "With the gold link gone, the dollar became fiat money: legal tender backed by trust alone.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_gold_standard",
+    "source.fedhistory_gold_convertibility_ends",
+    "source.ucsb_nixon_1971_address",
+    "source.fedhistory_roosevelt_gold"
+  ],
+  "art": "architecture.bank"
+}

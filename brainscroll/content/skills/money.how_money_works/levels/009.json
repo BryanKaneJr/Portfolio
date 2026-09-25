@@ -1,0 +1,232 @@
+{
+  "id": "level.money.how_money_works.009",
+  "skillId": "skill.money.how_money_works",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Cryptocurrency",
+  "objective": "After this level you can explain what cryptocurrencies are and how they differ from money in a bank.",
+  "summary": "Cryptocurrencies like bitcoin are digital tokens recorded on a blockchain, a shared ledger kept by a network. With a nearly fixed supply, bitcoin's price swings sharply.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.crypto_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.blockchain_ledger",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.crypto_price_swings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.bank_deposit_money",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.yap_stone_money",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.gold_standard_end",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.008"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Bitcoin has no bank, no boss and no building. So who keeps the books?",
+      "body": "Level 8's money lives in a bank's records. Bitcoin's records are kept by a whole network of computers at once, with no bank, company or government in charge."
+    },
+    {
+      "id": "card.how_money_works.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Money without a middleman",
+      "body": "In October 2008, someone calling themselves Satoshi Nakamoto proposed bitcoin: a digital currency that wouldn't rely on banks or governments. It launched in 2009, and nobody knows for sure who Nakamoto is. Bitcoin is a cryptocurrency, named for its heavy use of cryptography, the mathematics of codes. There are no bitcoin coins or notes. It exists only as entries in its own records."
+    },
+    {
+      "id": "card.how_money_works.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A ledger everyone holds",
+      "body": "Those records form a blockchain: a ledger of transactions shared across the network. Transactions are bundled into blocks, and each block carries a cryptographic fingerprint of the one before. Change an old entry and every later link breaks, so tampering is easy to spot. To spend, you sign with a secret private key. Lose it and the coins are gone for good. Researchers have compared all this to Level 3's Yap, whose islanders kept a shared record of who owned each stone."
+    },
+    {
+      "id": "card.how_money_works.009.c4",
+      "type": "fact",
+      "fact": "Bitcoin's price can skyrocket or tumble within days.",
+      "context": "Its price is set by supply and demand, and the supply is capped at just under 21 million coins. With supply more or less fixed, every swing in demand lands on the price: a cousin of Level 7's gold problem. Supporters see that fixed supply as a hedge against inflation. Critics, including the European Central Bank, say the swings make it too unstable to be Level 1's store of value."
+    },
+    {
+      "id": "card.how_money_works.009.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.009.q1"
+    },
+    {
+      "id": "card.how_money_works.009.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.009.q2"
+    },
+    {
+      "id": "card.how_money_works.009.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.009.q3"
+    },
+    {
+      "id": "card.how_money_works.009.c8",
+      "type": "checkpoint",
+      "headline": "Crypto: decoded",
+      "learned": [
+        "Bitcoin was proposed in 2008 by the pseudonymous Nakamoto",
+        "A blockchain is a shared, tamper-evident ledger",
+        "Lose your private key and the coins are gone",
+        "A fixed supply plus shifting demand means big price swings"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.blockchain_ledger"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.009.c3"
+      ],
+      "prompt": "What is a blockchain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A chain of bank branches that share one vault",
+          "correct": false,
+          "rationale": "No banks involved: the network keeps the ledger."
+        },
+        {
+          "id": "b",
+          "label": "A ledger of transactions shared across a network",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A type of metal coin used by computers",
+          "correct": false,
+          "rationale": "Bitcoin has no coins or notes."
+        },
+        {
+          "id": "d",
+          "label": "The secret code you sign payments with",
+          "correct": false,
+          "rationale": "That's a private key."
+        }
+      ],
+      "explanation": "A blockchain is a ledger of transactions shared across a network, with each block linked to the one before.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.crypto_price_swings"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.009.c4"
+      ],
+      "prompt": "Why does bitcoin's price swing so much?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A central bank resets the price every morning",
+          "correct": false,
+          "rationale": "No central bank issues or manages bitcoin."
+        },
+        {
+          "id": "b",
+          "label": "It's pegged to the price of gold, which moves",
+          "correct": false,
+          "rationale": "Bitcoin isn't tied to gold or anything else."
+        },
+        {
+          "id": "c",
+          "label": "Nakamoto announces a new price each year",
+          "correct": false,
+          "rationale": "Nobody sets it. Supply and demand do."
+        },
+        {
+          "id": "d",
+          "label": "Nearly fixed supply, so demand swings hit the price",
+          "correct": true
+        }
+      ],
+      "explanation": "Bitcoin's supply can't adjust to demand, so changes in demand show up directly in its price.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.crypto_definition",
+        "concept.how_money_works.bank_deposit_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.009.c1",
+        "card.how_money_works.009.c2",
+        "card.how_money_works.008.c2"
+      ],
+      "prompt": "How does bitcoin differ from Level 8's bank balance?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A network keeps its records, not a single bank",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Bitcoin is printed on special paper",
+          "correct": false,
+          "rationale": "Bitcoin has no physical form at all."
+        },
+        {
+          "id": "c",
+          "label": "A bank balance has no written record",
+          "correct": false,
+          "rationale": "A bank balance is a record: the bank's IOU to you."
+        },
+        {
+          "id": "d",
+          "label": "Bitcoin is backed by gold",
+          "correct": false,
+          "rationale": "Nothing backs bitcoin; its price is set by supply and demand."
+        }
+      ],
+      "explanation": "A bank deposit is a record kept by your bank. Bitcoin's record is a blockchain kept by a whole network, with no central issuer.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ecb_what_is_bitcoin",
+    "source.brit_bitcoin",
+    "source.cfr_crypto_question",
+    "source.nist_blockchain_overview",
+    "source.uoregon_stone_money_bitcoin",
+    "source.fred_fixed_money_supply"
+  ],
+  "art": "technology.chip"
+}

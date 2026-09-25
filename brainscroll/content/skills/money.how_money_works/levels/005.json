@@ -1,0 +1,221 @@
+{
+  "id": "level.money.how_money_works.005",
+  "skillId": "skill.money.how_money_works",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Paper Money",
+  "objective": "After this level you can explain how paper money began in China and spread around the world.",
+  "summary": "Paper money began in China: Tang merchants' flying money, then Song-era notes in Sichuan, where iron coins were heavy. Europe's first banknotes came from Sweden in 1661.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.china_paper_money",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.europe_banknotes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.metal_money_qualities",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.004"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Paper money was invented because coins were too heavy. Literally.",
+      "body": "In 11th-century China, and again in 17th-century Sweden, people's coins were so heavy that a paper promise was simply easier to carry."
+    },
+    {
+      "id": "card.how_money_works.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Flying money",
+      "body": "It started with merchants in Tang dynasty China (618–907). Rather than haul heavy coins on long journeys, they used paper drafts nicknamed \"flying money\". Was that the first paper money? The British Museum says yes; other historians call it a draft for moving funds, more like a money order than cash. Either way, paper had started standing in for metal."
+    },
+    {
+      "id": "card.how_money_works.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sichuan's iron problem",
+      "body": "In 11th-century Sichuan, people used iron coins, which were heavy. So they left their coins on deposit and carried paper certificates instead, which could be spent in their place. Around 1023, the Song government took over issuing them. These notes, called jiaozi, are widely described as the world's first paper currency.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Imagine paying for lunch in iron. Suddenly paper looks like genius."
+      }
+    },
+    {
+      "id": "card.how_money_works.005.c4",
+      "type": "fact",
+      "fact": "Europe's first real banknotes came from Sweden in 1661.",
+      "context": "Marco Polo had described China's paper money back in the 13th century. Then Stockholms Banco issued notes, and they caught on for a familiar reason: Sweden's copper coins were heavy and cumbersome. But paper is only a promise. When the public lost confidence in the bank, it failed. Why people trust paper at all is Level 6's question."
+    },
+    {
+      "id": "card.how_money_works.005.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.005.q1"
+    },
+    {
+      "id": "card.how_money_works.005.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.005.q2"
+    },
+    {
+      "id": "card.how_money_works.005.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.005.q3"
+    },
+    {
+      "id": "card.how_money_works.005.c8",
+      "type": "checkpoint",
+      "headline": "Paper money: printed",
+      "learned": [
+        "Tang merchants used paper \"flying money\"",
+        "Heavy iron coins pushed Sichuan to paper",
+        "Song government notes began around 1023",
+        "Europe's first banknotes: Sweden, 1661"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.china_paper_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.005.c3"
+      ],
+      "prompt": "Why did people in 11th-century Sichuan switch to paper certificates?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their iron coins were heavy",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Iron was needed for weapons",
+          "correct": false,
+          "rationale": "The problem was carrying the coins, not a shortage of iron."
+        },
+        {
+          "id": "c",
+          "label": "The emperor banned all coins",
+          "correct": false,
+          "rationale": "Coins stayed on deposit; the paper stood in for them."
+        },
+        {
+          "id": "d",
+          "label": "Paper was worth more than iron",
+          "correct": false,
+          "rationale": "The paper's value came from the coins it stood for."
+        }
+      ],
+      "explanation": "Iron coins were heavy, so people deposited them and spent paper certificates instead.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.china_paper_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.005.c2"
+      ],
+      "prompt": "Why do some historians hesitate to call Tang-era \"flying money\" true paper money?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was written on silk, not paper",
+          "correct": false,
+          "rationale": "It was paper; the debate is about how it was used."
+        },
+        {
+          "id": "b",
+          "label": "It worked more like a money transfer",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only the emperor could use it",
+          "correct": false,
+          "rationale": "Merchants used it to move funds."
+        },
+        {
+          "id": "d",
+          "label": "It was printed in Sweden, not China",
+          "correct": false,
+          "rationale": "It was Chinese, centuries before Sweden's notes."
+        }
+      ],
+      "explanation": "Flying money let merchants send funds without carrying coins, which some historians see as a draft rather than circulating cash.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.europe_banknotes",
+        "concept.how_money_works.china_paper_money",
+        "concept.how_money_works.metal_money_qualities"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.005.c1",
+        "card.how_money_works.005.c4",
+        "card.how_money_works.004.c2"
+      ],
+      "prompt": "Level 4 praised metal as money. What drawback of metal coins did paper fix, in both Sichuan and Sweden?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Metal coins rotted over time",
+          "correct": false,
+          "rationale": "Metal doesn't perish; that's one reason it made good money."
+        },
+        {
+          "id": "b",
+          "label": "Metal coins were too easy to fake",
+          "correct": false,
+          "rationale": "Metal is hard to fake."
+        },
+        {
+          "id": "c",
+          "label": "Heavy coins were a pain to carry",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Metal coins had no stamp",
+          "correct": false,
+          "rationale": "Coins had stamps from the very start in Lydia."
+        }
+      ],
+      "explanation": "Iron in Sichuan and copper in Sweden were heavy and cumbersome. Paper carried the same value in your pocket.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.worldhistory_paper_china",
+    "source.brit_feiqian",
+    "source.riksbank_first_banknotes",
+    "source.britishmuseum_money_gallery",
+    "source.chinadaily_jiaozi_museum"
+  ],
+  "art": "money.banknote"
+}

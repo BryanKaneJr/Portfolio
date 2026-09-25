@@ -1,0 +1,237 @@
+{
+  "id": "level.money.how_money_works.003",
+  "skillId": "skill.money.how_money_works",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Shells, Salt and Stones",
+  "objective": "After this level you can describe early forms of money like cowrie shells and explain why they worked.",
+  "summary": "Cowrie shells, salt bars and Yap's giant stones all worked as money. Shells were small, durable and hard to fake; Yap's stones changed owners without moving.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.cowrie_money",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.salt_money",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.yap_stone_money",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.money_three_jobs",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.pow_cigarette_money",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.002"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Money has been shells, salt and stone wheels wider than a car.",
+      "body": "None of it was silly. Each one did Level 1's jobs well enough that people trusted it. Here's what made three very different moneys work."
+    },
+    {
+      "id": "card.how_money_works.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cowries: money from the sea",
+      "body": "Cowrie shells were small, light, durable and hard to fake: most of a money wish list. They served as money in parts of Africa, in places until the late 1800s. In China, strings of cowries were used as payments from around 1000 BCE, and the link stuck. Many Chinese characters about money, like those for buy, loan and tax, still contain the ancient symbol for a shell.",
+      "callout": "貝 (bei): shell · 買 buy · 貸 loan · 賦 tax"
+    },
+    {
+      "id": "card.how_money_works.003.c3",
+      "type": "fact",
+      "fact": "In Ethiopia, bars of salt were money for centuries.",
+      "context": "They stayed in use right up to the 1930s. Salt had a big advantage: nearly everyone needs it, so nearly everyone would take it. Like Level 1's cigarettes, it was worth something even to people who weren't planning to spend it."
+    },
+    {
+      "id": "card.how_money_works.003.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Yap: money too big to move",
+      "body": "On the Pacific island of Yap, money came as stone discs quarried on Palau, hundreds of kilometers away across the sea. The biggest are more than 3.5 meters across, so they rarely went anywhere. When one changed hands, it stayed put, and everyone simply knew who the new owner was. In one story, a stone sank in a storm on the way home. The islanders agreed it still counted.",
+      "mascot": {
+        "pose": "idea",
+        "line": "The safest fortune in history: no pickpocket can lift it. Then again, neither can its owner."
+      }
+    },
+    {
+      "id": "card.how_money_works.003.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.003.q1"
+    },
+    {
+      "id": "card.how_money_works.003.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.003.q2"
+    },
+    {
+      "id": "card.how_money_works.003.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.003.q3"
+    },
+    {
+      "id": "card.how_money_works.003.c8",
+      "type": "checkpoint",
+      "headline": "Early money: sorted",
+      "learned": [
+        "Cowries: small, durable and hard to fake",
+        "Chinese money words still contain the shell symbol",
+        "Ethiopia used salt bars into the 1930s",
+        "Yap's stones changed owners without moving"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.cowrie_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.003.c2"
+      ],
+      "prompt": "What made cowrie shells good money?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were small, durable and hard to fake",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They were found only in China",
+          "correct": false,
+          "rationale": "They were used as money in Africa as well as Asia."
+        },
+        {
+          "id": "c",
+          "label": "Each shell was stamped with a king's mark",
+          "correct": false,
+          "rationale": "No stamps: the shells themselves were hard to fake."
+        },
+        {
+          "id": "d",
+          "label": "People could eat them in hard times",
+          "correct": false,
+          "rationale": "Shells aren't food. That's closer to salt's advantage."
+        }
+      ],
+      "explanation": "Cowries were small, light, durable and hard to counterfeit, which is most of what money needs.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.yap_stone_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.003.c4"
+      ],
+      "prompt": "How did a big stone on Yap change owners?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was rolled on logs to the buyer's house",
+          "correct": false,
+          "rationale": "The big stones rarely moved at all."
+        },
+        {
+          "id": "b",
+          "label": "The buyer carved his family's name into it",
+          "correct": false,
+          "rationale": "No mark was needed: everyone simply knew."
+        },
+        {
+          "id": "c",
+          "label": "It stayed put; everyone just knew the new owner",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It was broken into pieces and shared out",
+          "correct": false,
+          "rationale": "The stones stayed whole and stayed where they were."
+        }
+      ],
+      "explanation": "Ownership lived in the islanders' shared knowledge, so a stone could change hands without moving. Even a sunken one still counted.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.salt_money",
+        "concept.how_money_works.pow_cigarette_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.003.c3",
+        "card.how_money_works.001.c4"
+      ],
+      "prompt": "Ethiopia's salt bars were like Level 1's camp cigarettes in what way?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both were issued by a government mint",
+          "correct": false,
+          "rationale": "Neither was issued by a government; people simply accepted them."
+        },
+        {
+          "id": "b",
+          "label": "Both were valued for more than being money",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both carried a royal stamp to prove them",
+          "correct": false,
+          "rationale": "Neither needed a stamp to be accepted."
+        },
+        {
+          "id": "d",
+          "label": "Both were too heavy to carry around",
+          "correct": false,
+          "rationale": "That's Yap's stones, not salt bars or cigarettes."
+        }
+      ],
+      "explanation": "Salt is something nearly everyone needs, and cigarettes were smoked. Both had value beyond being money.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonian_yap_okeefe",
+    "source.stlouisfed_what_is_money",
+    "source.imf_what_is_money",
+    "source.openstax_money_functions",
+    "source.carlos_cash_cowries",
+    "source.brit_cowrie",
+    "source.britishmuseum_money_gallery",
+    "source.persee_pankhurst_primitive_money",
+    "source.moneymuseum_amole_salt",
+    "source.economica_radford_pow_camp",
+    "source.npr_island_of_stone_money",
+    "source.hoover_friedman_stone_money"
+  ],
+  "art": "money.shells"
+}

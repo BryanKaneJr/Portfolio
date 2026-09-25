@@ -1,0 +1,223 @@
+{
+  "id": "level.money.how_money_works.004",
+  "skillId": "skill.money.how_money_works",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The First Coins",
+  "objective": "After this level you can explain where the first coins came from and why metal made good money.",
+  "summary": "The first coins were probably made in Lydia, in modern Turkey, around 650 BCE: electrum lumps of standard weight, stamped so no one had to weigh them.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.lydia_first_coins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.coin_stamp_guarantee",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.metal_money_qualities",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.cowrie_money",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.003"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first coins probably came from a kingdom you've never heard of.",
+      "body": "Lydia, in what's now Turkey, around 650 BCE. And the big idea wasn't the metal. People had paid with metal for ages. It was the little picture pressed into it."
+    },
+    {
+      "id": "card.how_money_works.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The trouble with lumps",
+      "body": "Before coins, traders paid with rings and bars of gold and silver. Metal made fine money: it's portable, it doesn't rot like Level 2's strawberries, and it's hard to fake. The catch? Every deal meant weighing the metal and checking it. Imagine a set of scales at every checkout."
+    },
+    {
+      "id": "card.how_money_works.004.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A stamp you could trust",
+      "body": "Lydia's coins were lumps of electrum, a natural mix of gold and silver, made to strict standard weights. Many carried a lion's head, which seems to have been a royal symbol. The stamp marked the coin as official money that the state would accept as payment. No scales, no testing: you just counted. That's the whole trick of a coin."
+    },
+    {
+      "id": "card.how_money_works.004.c4",
+      "type": "fact",
+      "fact": "As rich as Croesus? He's often credited with the first pure gold and silver coins.",
+      "context": "Electrum mixed metals, so its worth was hard to pin down. Lydia fixed that by minting separate gold and silver coins, often credited to the legendarily wealthy King Croesus, though some were probably made before and after his reign. The idea spread fast around the Mediterranean. Meanwhile, China had its own coins, probably invented independently: bronze, cast in the shapes of spades and knives.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Spade-shaped money: finally, a currency you could really dig into."
+      }
+    },
+    {
+      "id": "card.how_money_works.004.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.004.q1"
+    },
+    {
+      "id": "card.how_money_works.004.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.004.q2"
+    },
+    {
+      "id": "card.how_money_works.004.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.004.q3"
+    },
+    {
+      "id": "card.how_money_works.004.c8",
+      "type": "checkpoint",
+      "headline": "Coins: minted",
+      "learned": [
+        "The first coins: Lydia, around 650 BCE",
+        "Electrum, made to standard weights",
+        "A stamp meant no weighing, just counting",
+        "China cast tool-shaped bronze coins of its own"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.lydia_first_coins"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.004.c1",
+        "card.how_money_works.004.c3"
+      ],
+      "prompt": "Where were the first coins probably made?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rome, in what's now Italy",
+          "correct": false,
+          "rationale": "Rome's coins came much later."
+        },
+        {
+          "id": "b",
+          "label": "Stockholm, Sweden",
+          "correct": false,
+          "rationale": "Sweden comes into money's story much later."
+        },
+        {
+          "id": "c",
+          "label": "Lydia, in what's now Turkey",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Yap, in the western Pacific",
+          "correct": false,
+          "rationale": "Yap used giant stones, not coins."
+        }
+      ],
+      "explanation": "The first coins were probably made in Lydia, in modern Turkey, around 650 BCE.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.coin_stamp_guarantee"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.004.c2",
+        "card.how_money_works.004.c3"
+      ],
+      "prompt": "Why was a stamped coin easier to use than a lump of metal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stamping made the metal lighter to carry",
+          "correct": false,
+          "rationale": "The stamp didn't change the weight; it vouched for it."
+        },
+        {
+          "id": "b",
+          "label": "Its weight was standard, so no weighing",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The stamp turned it into pure gold",
+          "correct": false,
+          "rationale": "The first coins were electrum, a mix of gold and silver."
+        },
+        {
+          "id": "d",
+          "label": "Only kings were allowed to spend it",
+          "correct": false,
+          "rationale": "The stamp said the state would accept it from anyone."
+        }
+      ],
+      "explanation": "A coin was made to a standard weight and stamped as official money, so people could count coins instead of weighing metal.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.metal_money_qualities",
+        "concept.how_money_works.cowrie_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.004.c2",
+        "card.how_money_works.003.c2"
+      ],
+      "prompt": "Level 3's cowries and metal coins shared which money-friendly quality?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both carried a royal stamp",
+          "correct": false,
+          "rationale": "Cowries had no stamps at all."
+        },
+        {
+          "id": "b",
+          "label": "Both came from the sea",
+          "correct": false,
+          "rationale": "Only the shells did."
+        },
+        {
+          "id": "c",
+          "label": "Both were made to a set weight by a mint",
+          "correct": false,
+          "rationale": "Cowries came from nature, not a mint."
+        },
+        {
+          "id": "d",
+          "label": "Both were hard to fake",
+          "correct": true
+        }
+      ],
+      "explanation": "Cowries were difficult to counterfeit, and so is metal. Money that's easy to fake soon stops being trusted.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britishmuseum_money_gallery",
+    "source.worldhistory_lydian_stater"
+  ],
+  "art": "rome.coins"
+}
