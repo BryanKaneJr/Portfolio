@@ -1,0 +1,223 @@
+{
+  "id": "level.world_systems.everyday_technology.028",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hydraulics",
+  "objective": "After this level you can explain how liquid under pressure lets a small push lift a heavy load.",
+  "summary": "Pascal's principle: pressure on a trapped liquid rises equally everywhere. A piston with 10 times the area pushes 10 times as hard but moves a tenth as far. Brakes use it.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.motion_pascal_principle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_hydraulic_multiplier",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_mechanical_advantage",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_friction_brakes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.027"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A small push on a trapped liquid can lift a car.",
+      "body": "No giant muscles required: just a liquid in a closed system, passing your push along and multiplying it. That's hydraulics, and your car relies on it every time you stop."
+    },
+    {
+      "id": "card.everyday_technology.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pascal's principle",
+      "body": "The French scientist Blaise Pascal described a rule for liquids at rest in a closed container: press on one part, and the pressure rises by the same amount everywhere in the liquid, right out to the walls. It works because liquids can hardly be squeezed into a smaller space. Push the liquid here, and it pushes just as hard over there."
+    },
+    {
+      "id": "card.everyday_technology.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Small piston, big piston",
+      "body": "Pressure is force spread over an area. Connect a small piston to one with 10 times the area: the pressure on both is the same, so the big piston pushes with 10 times the force. The catch is Level 21's rule. To raise the big piston 1 centimeter, the small one must travel 10. Force up, distance up, energy the same.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Ten times the force for ten times the distance. Physics always takes its cut, and it never forgets."
+      }
+    },
+    {
+      "id": "card.everyday_technology.028.c4",
+      "type": "fact",
+      "fact": "Your car's brakes are hydraulic.",
+      "context": "Press the brake pedal and your foot pushes on brake fluid. The pressure travels through the fluid to pistons at the wheels, which squeeze the brake pads from Level 26 with a much larger force. Because one fluid carries the same pressure to every brake, all four wheels brake evenly."
+    },
+    {
+      "id": "card.everyday_technology.028.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.028.q1"
+    },
+    {
+      "id": "card.everyday_technology.028.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.028.q2"
+    },
+    {
+      "id": "card.everyday_technology.028.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.028.q3"
+    },
+    {
+      "id": "card.everyday_technology.028.c8",
+      "type": "checkpoint",
+      "headline": "Hydraulics: pressed",
+      "learned": [
+        "Pascal's principle: pressure spreads equally",
+        "Liquids barely compress",
+        "Bigger piston area, bigger force, shorter travel",
+        "Car brakes are hydraulic"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.motion_pascal_principle"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.028.c2"
+      ],
+      "prompt": "What does Pascal's principle say about a liquid in a closed container?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Liquids shrink a lot when you press them",
+          "correct": false,
+          "rationale": "Liquids are nearly impossible to squeeze."
+        },
+        {
+          "id": "b",
+          "label": "Pressure only acts on the bottom",
+          "correct": false,
+          "rationale": "Pressure acts everywhere, walls included."
+        },
+        {
+          "id": "c",
+          "label": "Pressure added anywhere rises equally everywhere in it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The liquid always flows toward the bigger piston",
+          "correct": false,
+          "rationale": "The pressure spreads; the liquid does not rush one way."
+        }
+      ],
+      "explanation": "A pressure change in a liquid at rest in a closed container is passed on undiminished to every part of it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.motion_hydraulic_multiplier"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.028.c3"
+      ],
+      "prompt": "A small piston pushes liquid against a big piston with 10 times its area. What does the big piston do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pushes 10 times as hard, moving a tenth as far",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Pushes 10 times as hard, moving 10 times as far",
+          "correct": false,
+          "rationale": "That would create energy from nothing."
+        },
+        {
+          "id": "c",
+          "label": "Pushes just as hard, moving 10 times as far",
+          "correct": false,
+          "rationale": "The force is multiplied, not the distance."
+        },
+        {
+          "id": "d",
+          "label": "Pushes 10 times as hard with 10 times the energy",
+          "correct": false,
+          "rationale": "Energy is never multiplied."
+        }
+      ],
+      "explanation": "Same pressure over 10 times the area gives 10 times the force; the small piston must travel 10 times as far.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.motion_hydraulic_multiplier",
+        "concept.everyday_technology.motion_friction_brakes"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.028.c4",
+        "card.everyday_technology.026.c3"
+      ],
+      "prompt": "Level 26's brake pads squeeze a spinning disc. How does a light press on the pedal become a strong squeeze?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A small motor inside the pedal adds extra force",
+          "correct": false,
+          "rationale": "Hydraulic brakes need no motor."
+        },
+        {
+          "id": "b",
+          "label": "The pads grab much harder once they get hot",
+          "correct": false,
+          "rationale": "Heat is a result of braking, not its source."
+        },
+        {
+          "id": "c",
+          "label": "The spinning disc pulls the pads in by itself",
+          "correct": false,
+          "rationale": "The pads are pushed by pistons."
+        },
+        {
+          "id": "d",
+          "label": "Brake fluid passes the pressure to bigger pistons",
+          "correct": true
+        }
+      ],
+      "explanation": "The pedal pushes brake fluid, and the same pressure acting on larger pistons at the wheels gives a larger force.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_pascal_principle",
+    "source.openstax_pascal_principle",
+    "source.brit_brake",
+    "source.openstax_simple_machines"
+  ],
+  "art": "technology.crane"
+}

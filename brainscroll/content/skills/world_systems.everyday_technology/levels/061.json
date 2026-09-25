@@ -1,0 +1,226 @@
+{
+  "id": "level.world_systems.everyday_technology.061",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How the Internet Began",
+  "objective": "After this level you can describe ARPANET and how the internet grew from it.",
+  "summary": "ARPANET, funded by the US Defense Department, sent its first message (\"lo\") in 1969. TCP/IP, adopted in 1983, joined separate networks into one network of networks.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.internet_arpanet",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.internet_tcp_ip",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.technology_milestones",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.060"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.061.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The internet's first word was \"lo.\"",
+      "body": "On October 29, 1969, a computer at UCLA tried to log in to one at the Stanford Research Institute. It sent an \"l,\" then an \"o,\" and then the system crashed. So how did a network that tripped over its first two letters end up connecting most of humanity?"
+    },
+    {
+      "id": "card.everyday_technology.061.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A Defense Department experiment",
+      "body": "The network was ARPANET, funded in the late 1960s by ARPA, the research arm of the US Defense Department. It linked computers at universities and research sites. That first stuttered \"lo\" went from UCLA to Stanford Research Institute, and the full login worked about an hour later. By 1971 ARPANET had grown to 15 nodes. Not bad for something that crashed on its first word."
+    },
+    {
+      "id": "card.everyday_technology.061.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A network of networks",
+      "body": "ARPANET was only one network. In 1974, Vinton Cerf and Robert Kahn published TCP, a design for joining separately built networks, even radio and satellite ones, into one network of networks. On January 1, 1983, ARPANET switched to TCP/IP, with every connected computer converting at the same time. That shared set of rules is what makes the internet one thing. It isn't a single machine. It's an agreement."
+    },
+    {
+      "id": "card.everyday_technology.061.c4",
+      "type": "fact",
+      "fact": "On Level 1's day clock, the internet shows up about 1.5 seconds before midnight.",
+      "context": "Squeeze the 3.3 million years of tools into one day, and ARPANET's 1969 \"lo\" lands after Edison's bulb, which arrived under 4 seconds before midnight. In that last second and a half, the internet reached about 6 billion people in 2025, roughly three-quarters of the world, according to the ITU.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "From \"lo\" to most of humanity in a second and a half. I've had slower mornings."
+      }
+    },
+    {
+      "id": "card.everyday_technology.061.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.061.q1"
+    },
+    {
+      "id": "card.everyday_technology.061.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.061.q2"
+    },
+    {
+      "id": "card.everyday_technology.061.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.061.q3"
+    },
+    {
+      "id": "card.everyday_technology.061.c8",
+      "type": "checkpoint",
+      "headline": "The internet: switched on",
+      "learned": [
+        "ARPANET, funded by the US Defense Department, sent \"lo\" in 1969",
+        "TCP (1974) joined separate networks into a network of networks",
+        "ARPANET switched to TCP/IP on January 1, 1983",
+        "About 6 billion people were online in 2025 (ITU)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.internet_arpanet"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.061.c1",
+        "card.everyday_technology.061.c2"
+      ],
+      "prompt": "What was the first message ever sent over ARPANET, in October 1969?",
+      "options": [
+        {
+          "id": "a",
+          "label": "\"Hello, world,\" as a test",
+          "correct": false,
+          "rationale": "Nobody got that far: the system crashed after two letters."
+        },
+        {
+          "id": "b",
+          "label": "\"Login,\" typed out in full",
+          "correct": false,
+          "rationale": "The full login only worked about an hour later."
+        },
+        {
+          "id": "c",
+          "label": "\"Lo,\" before the system crashed",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "\"Testing, testing, one, two\"",
+          "correct": false,
+          "rationale": "It was a login attempt, not a test phrase."
+        }
+      ],
+      "explanation": "UCLA tried to log in to Stanford Research Institute; \"l\" and \"o\" got through, then the system crashed.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.internet_tcp_ip"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.061.c3"
+      ],
+      "prompt": "Why is the internet called a \"network of networks\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shared TCP/IP rules let separate networks join as one",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "One central computer runs every network",
+          "correct": false,
+          "rationale": "There's no single machine; it's an agreement on rules."
+        },
+        {
+          "id": "c",
+          "label": "The Defense Department built every network",
+          "correct": false,
+          "rationale": "ARPA funded ARPANET, but TCP joined other networks too."
+        },
+        {
+          "id": "d",
+          "label": "Each country runs its own separate internet",
+          "correct": false,
+          "rationale": "TCP/IP exists so networks can connect into one."
+        }
+      ],
+      "explanation": "Cerf and Kahn's TCP let separately built networks, even radio and satellite ones, work together; ARPANET adopted TCP/IP in 1983.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.technology_milestones",
+        "concept.everyday_technology.internet_arpanet"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.061.c4",
+        "card.everyday_technology.001.c4"
+      ],
+      "prompt": "On Level 1's one-day clock of tool history, how close to midnight does ARPANET's 1969 message arrive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Over 2 hours before",
+          "correct": false,
+          "rationale": "That's about when our species appears, at 9:49 p.m."
+        },
+        {
+          "id": "b",
+          "label": "About 2.5 minutes before",
+          "correct": false,
+          "rationale": "That's the wheel."
+        },
+        {
+          "id": "c",
+          "label": "Under 4 seconds before",
+          "correct": false,
+          "rationale": "That's Edison's 1879 bulb. The internet is later still."
+        },
+        {
+          "id": "d",
+          "label": "About 1.5 seconds before",
+          "correct": true
+        }
+      ],
+      "explanation": "ARPANET's 1969 message is 57 years old in 2026: 57 / 3.3 million of a day is about 1.5 seconds.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ucla_kleinrock_first_words",
+    "source.brit_arpanet",
+    "source.ethw_tcp_milestone",
+    "source.brit_internet",
+    "source.isoc_tcpip_1983",
+    "source.itu_facts_figures_2025",
+    "source.smithsonianmag_lomekwi_tools",
+    "source.si_homo_sapiens",
+    "source.brit_wheel",
+    "source.brit_volta",
+    "source.brit_incandescent_lamp"
+  ],
+  "art": "technology.network"
+}

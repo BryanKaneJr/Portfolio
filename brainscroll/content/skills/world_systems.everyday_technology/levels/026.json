@@ -1,0 +1,227 @@
+{
+  "id": "level.world_systems.everyday_technology.026",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Friction and Brakes",
+  "objective": "After this level you can explain friction and how brakes stop a moving car.",
+  "summary": "Friction resists sliding and turns motion into heat. Brakes use it on purpose, and since doubling speed quadruples the energy of motion, it quadruples braking distance.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.motion_friction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_friction_brakes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_regenerative_braking",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_conservation",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.025"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Double your speed, and your car needs four times as far to brake.",
+      "body": "Not twice as far: four times, with the same brakes pressing just as hard. The reason is energy, and the force that has to get rid of it is friction."
+    },
+    {
+      "id": "card.everyday_technology.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Friction: surfaces that catch",
+      "body": "Friction is a force that resists one surface sliding over another. Even surfaces that feel smooth are rough up close, and their bumps catch. Starting something sliding takes more force than keeping it going, which is why a heavy box suddenly lurches once it finally moves. Friction is also what lets your shoes grip the floor. Without it, every walk would be an ice rink."
+    },
+    {
+      "id": "card.everyday_technology.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Brakes turn motion into heat",
+      "body": "A disc brake is friction on purpose. Pads press against a metal disc that turns with the wheel, and the rubbing slows it. Level 2's rule decides where the car's energy of motion goes: it can't vanish, so it becomes heat in the brakes. Rub your hands together fast and you can feel the same trick, just smaller."
+    },
+    {
+      "id": "card.everyday_technology.026.c4",
+      "type": "fact",
+      "fact": "Twice the speed means four times the energy of motion to get rid of.",
+      "context": "A car at 100 km/h carries four times the energy of motion it has at 50 km/h. Brakes pressing equally hard remove it at a steady rate per meter, so the braking distance quadruples too. Level 25's regenerative braking saves some of that energy as electricity; friction brakes can only turn it into heat.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "That's why 'just a little faster' is never just a little. Your brakes do the maths even when you don't."
+      }
+    },
+    {
+      "id": "card.everyday_technology.026.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.026.q1"
+    },
+    {
+      "id": "card.everyday_technology.026.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.026.q2"
+    },
+    {
+      "id": "card.everyday_technology.026.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.026.q3"
+    },
+    {
+      "id": "card.everyday_technology.026.c8",
+      "type": "checkpoint",
+      "headline": "Friction and brakes: stopped",
+      "learned": [
+        "Friction resists sliding; rough surfaces catch",
+        "Starting to slide takes more force than keeping going",
+        "Brakes turn energy of motion into heat",
+        "Double the speed, four times the braking distance"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.motion_friction"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.026.c2"
+      ],
+      "prompt": "What is friction?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A force that resists surfaces sliding over each other",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A kind of energy stored inside rough objects",
+          "correct": false,
+          "rationale": "Friction is a force, not stored energy."
+        },
+        {
+          "id": "c",
+          "label": "The pull of gravity on cars as they move along",
+          "correct": false,
+          "rationale": "Gravity pulls down; friction resists sliding."
+        },
+        {
+          "id": "d",
+          "label": "The push that a spark gives to an engine piston",
+          "correct": false,
+          "rationale": "That is combustion (Level 24)."
+        }
+      ],
+      "explanation": "Friction is a force that resists one surface sliding over another, because rough surfaces catch.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.motion_friction_brakes"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.026.c4",
+        "card.everyday_technology.026.c1"
+      ],
+      "prompt": "A car doubles its speed. With the same brakes pressing just as hard, how far does it now need to brake?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The same distance",
+          "correct": false,
+          "rationale": "The car carries far more energy of motion."
+        },
+        {
+          "id": "b",
+          "label": "Twice as far",
+          "correct": false,
+          "rationale": "Energy of motion grows faster than speed."
+        },
+        {
+          "id": "c",
+          "label": "Four times as far",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Eight times as far",
+          "correct": false,
+          "rationale": "Doubling speed quadruples the energy, not eightfold."
+        }
+      ],
+      "explanation": "Doubling speed gives four times the energy of motion, so steady braking needs four times the distance.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.motion_friction_brakes",
+        "concept.everyday_technology.motion_regenerative_braking"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.026.c4",
+        "card.everyday_technology.025.c4"
+      ],
+      "prompt": "How does Level 25's regenerative braking differ from an ordinary friction brake?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It stops the car without slowing the wheels",
+          "correct": false,
+          "rationale": "Both slow the wheels."
+        },
+        {
+          "id": "b",
+          "label": "It saves some energy as electricity instead of heat",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It creates new energy while braking",
+          "correct": false,
+          "rationale": "Energy can't be created."
+        },
+        {
+          "id": "d",
+          "label": "It works only on gas cars",
+          "correct": false,
+          "rationale": "It needs a motor that can act as a generator."
+        }
+      ],
+      "explanation": "Friction brakes turn the energy of motion into heat; regenerative braking turns some of it into electricity for the battery.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_friction",
+    "source.openstax_friction",
+    "source.brit_brake",
+    "source.openstax_kinetic_energy",
+    "source.fueleconomy_hybrid_tech",
+    "source.eia_laws_of_energy",
+    "source.brit_energy"
+  ],
+  "art": "technology.car"
+}

@@ -1,0 +1,369 @@
+{
+  "id": "level.world_systems.everyday_technology.040",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 40,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Getting Around",
+  "objective": "After this level you can explain how planes, trains, ships and satellites move people and find the way.",
+  "summary": "Every vehicle moves by pushing something backward: air, water or its own exhaust. A propeller is a spinning wing. And finding the way means timing waves: echoes or one-way signals.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.transport_propeller",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.transport_action_reaction",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.flight_lift",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.ship_buoyancy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.rocket_propulsion",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.rail_maglev",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.echo_radar",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.echo_sonar",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.gps_positioning",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.gps_clocks",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.039"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.040.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 4 finale: what does each vehicle push against?",
+      "body": "Level 32's rule says no engine makes thrust without throwing something backward. Planes, ships and rockets each push something different. And to find the way, nearly everything in this chapter does one other thing: it times a wave. Put the chapter together, starting with the one pusher we haven't opened yet."
+    },
+    {
+      "id": "card.everyday_technology.040.c2",
+      "type": "comparison",
+      "headline": "What each one pushes",
+      "items": [
+        {
+          "label": "Air",
+          "points": [
+            "Wings turn air down, so it pushes them up (Level 31)",
+            "Jet engines throw air backward (Level 32)"
+          ]
+        },
+        {
+          "label": "Water",
+          "points": [
+            "Water pushes up with the weight of water pushed aside (Level 34)",
+            "Ship propellers throw water backward"
+          ]
+        },
+        {
+          "label": "Its own exhaust",
+          "points": [
+            "Rockets carry fuel and oxidizer (Level 36)",
+            "So they work where there is no air"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.everyday_technology.040.c3",
+      "type": "fact",
+      "fact": "A propeller is a spinning wing.",
+      "context": "Each blade is shaped like a wing. As it spins, it makes lift pointed forward, throwing air backward through the propeller: Level 32's action and reaction again. The blades are twisted because the tips move faster than the hub. Ship propellers work the same way in water. And like a jet, a propeller needs a fluid to push, so in space, with no air, it's useless."
+    },
+    {
+      "id": "card.everyday_technology.040.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Finding the way: time a wave",
+      "body": "The chapter's other trick is a stopwatch. Radar times a radio echo's round trip and halves it. Sonar does the same with sound, which crosses seawater at about 1,500 meters a second. GPS times one-way signals instead, which only works because the satellites carry atomic clocks, corrected for relativity. Distance is speed times time, whether you're a ship, a plane or a phone."
+    },
+    {
+      "id": "card.everyday_technology.040.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.040.q1"
+    },
+    {
+      "id": "card.everyday_technology.040.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.040.q2"
+    },
+    {
+      "id": "card.everyday_technology.040.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.040.q3"
+    },
+    {
+      "id": "card.everyday_technology.040.c8",
+      "type": "recall",
+      "questionId": "question.everyday_technology.040.q4"
+    },
+    {
+      "id": "card.everyday_technology.040.c9",
+      "type": "recall",
+      "questionId": "question.everyday_technology.040.q5"
+    },
+    {
+      "id": "card.everyday_technology.040.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 4 complete",
+      "learned": [
+        "Wings, jets, propellers and rockets all throw something backward",
+        "A propeller is a spinning wing; it needs air or water",
+        "Ships float on the weight of water they push aside",
+        "Radar and sonar time echoes; GPS times one-way signals"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.040.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.transport_propeller"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.040.c3"
+      ],
+      "prompt": "In the Getting Around checkpoint, what is a propeller blade's shape most like?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A wing",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A funnel",
+          "correct": false,
+          "rationale": "It doesn't channel air like a funnel."
+        },
+        {
+          "id": "c",
+          "label": "A paddle wheel",
+          "correct": false,
+          "rationale": "It makes lift like a wing instead."
+        },
+        {
+          "id": "d",
+          "label": "A sail",
+          "correct": false,
+          "rationale": "A sail catches wind; a propeller makes its own lift."
+        }
+      ],
+      "explanation": "A propeller acts like a rotating wing, making lift that points forward and throwing air or water backward.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.040.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.transport_propeller",
+        "concept.everyday_technology.transport_action_reaction"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.040.c3",
+        "card.everyday_technology.040.c2"
+      ],
+      "prompt": "Why is a propeller useless for flying in space?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Space is too cold for its blades",
+          "correct": false,
+          "rationale": "Temperature isn't the problem."
+        },
+        {
+          "id": "b",
+          "label": "Its engine has no oxidizer",
+          "correct": false,
+          "rationale": "Even with power, it would have nothing to push."
+        },
+        {
+          "id": "c",
+          "label": "There is no air for it to throw backward",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Gravity is too strong up there",
+          "correct": false,
+          "rationale": "Gravity isn't what stops a propeller."
+        }
+      ],
+      "explanation": "A propeller makes thrust by throwing air backward; in space there is no air, so there is nothing to push.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.040.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.flight_lift"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.031.c3"
+      ],
+      "prompt": "Getting Around recap, from Level 31: what does a wing do to the air to make lift?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Warms it so it rises",
+          "correct": false,
+          "rationale": "Lift doesn't come from heating air."
+        },
+        {
+          "id": "b",
+          "label": "Turns it downward",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Stops it completely",
+          "correct": false,
+          "rationale": "The air keeps flowing past."
+        },
+        {
+          "id": "d",
+          "label": "Makes it meet the air below at the back",
+          "correct": false,
+          "rationale": "That's the equal transit myth."
+        }
+      ],
+      "explanation": "A wing turns the passing air down, and by Newton's third law the air pushes the wing up.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.040.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.ship_buoyancy"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.034.c2"
+      ],
+      "prompt": "Getting Around recap, from Level 34: a loaded ship floats when the water it pushes aside weighs how much?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Half as much as the ship",
+          "correct": false,
+          "rationale": "It must match the full weight."
+        },
+        {
+          "id": "b",
+          "label": "Nothing, if the hull is sealed",
+          "correct": false,
+          "rationale": "Every floating ship displaces water."
+        },
+        {
+          "id": "c",
+          "label": "Twice as much as the ship",
+          "correct": false,
+          "rationale": "It settles until the weights match exactly."
+        },
+        {
+          "id": "d",
+          "label": "As much as the ship and its cargo",
+          "correct": true
+        }
+      ],
+      "explanation": "Archimedes' principle: the ship settles until the displaced water weighs as much as the ship and everything in it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.040.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.gps_positioning",
+        "concept.everyday_technology.echo_radar"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.040.c4",
+        "card.everyday_technology.037.c2"
+      ],
+      "prompt": "Getting Around recap: radar halves its echo time, but GPS does not. Why not?",
+      "options": [
+        {
+          "id": "a",
+          "label": "GPS signals are slower than radar waves",
+          "correct": false,
+          "rationale": "Both travel at the speed of light."
+        },
+        {
+          "id": "b",
+          "label": "A GPS signal only travels one way",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "GPS satellites halve it for you",
+          "correct": false,
+          "rationale": "The receiver does the timing."
+        },
+        {
+          "id": "d",
+          "label": "GPS measures height, not distance",
+          "correct": false,
+          "rationale": "GPS turns each delay into distance."
+        }
+      ],
+      "explanation": "A radar echo goes out and back, so it is halved; a GPS signal makes a single trip from satellite to receiver.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_glenn_propulsion_system",
+    "source.nasa_glenn_what_is_lift",
+    "source.brit_maglev",
+    "source.brit_archimedes_principle",
+    "source.nasa_glenn_rocket_thrust",
+    "source.brit_propeller",
+    "source.nasa_glenn_propeller",
+    "source.brit_radar",
+    "source.brit_seawater_acoustics",
+    "source.nasa_gps",
+    "source.noaa_gps_tutorial",
+    "source.nist_gps_relativity",
+    "source.osu_gps_relativity"
+  ],
+  "art": "technology.plane"
+}

@@ -1,0 +1,229 @@
+{
+  "id": "level.world_systems.everyday_technology.033",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 33,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Trains and High-Speed Rail",
+  "objective": "After this level you can explain how modern trains, including high-speed trains, work.",
+  "summary": "Modern trains are driven by electric motors. Electric trains draw current from a wire or third rail, diesel-electrics make it on board, and maglevs float on magnets.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.rail_electric_traction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.rail_maglev",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_motor",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.generator",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.electromagnetism",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.032"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.033.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1964, Japan opened a railway for trains at 210 km/h.",
+      "body": "The Tokaido Shinkansen between Tokyo and Osaka was a pioneer of high-speed rail. Its trains were electric, drawing their power from an overhead wire. So where does a train like that really get its push, and what actually turns its wheels?"
+    },
+    {
+      "id": "card.everyday_technology.033.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Electric trains leave the power station at home",
+      "body": "An electric train picks up current from an overhead wire or a third rail beside the track. Britannica calls electric locomotives power converters rather than power generators: traction motors, the same idea as Level 7's, turn that current into turning wheels. The generator that made the electricity is somewhere else on the grid. The train just borrows its output."
+    },
+    {
+      "id": "card.everyday_technology.033.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Diesel-electric: a power station on wheels",
+      "body": "Where there's no wire, most diesel locomotives still move by electricity. The diesel engine doesn't turn the wheels directly. It drives a generator, Level 8's machine that turns motion into electrical energy, and that current runs electric traction motors. So even a diesel train is driven by electric motors. It just makes its own electricity as it goes."
+    },
+    {
+      "id": "card.everyday_technology.033.c4",
+      "type": "fact",
+      "fact": "Shanghai's maglev floats about 1.3 cm above its track.",
+      "context": "No wheels touch the guideway at all. Magnets lift the train, and coils in the guideway, constantly changing polarity, pull it along: Level 7's attract and repel, put to work. Since January 2004, Shanghai's line has run daily passenger service at up to 430 km/h, the first high-speed maglev in commercial service. No wheels, no rolling, just a very fast hover."
+    },
+    {
+      "id": "card.everyday_technology.033.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.033.q1"
+    },
+    {
+      "id": "card.everyday_technology.033.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.033.q2"
+    },
+    {
+      "id": "card.everyday_technology.033.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.033.q3"
+    },
+    {
+      "id": "card.everyday_technology.033.c8",
+      "type": "checkpoint",
+      "headline": "Trains: rolling",
+      "learned": [
+        "The Shinkansen opened in 1964 at 210 km/h",
+        "Electric trains draw current from a wire or third rail",
+        "Diesel-electrics make their own current for electric motors",
+        "Maglevs float on magnets, with no wheels on the track"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.033.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.rail_electric_traction"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.033.c2"
+      ],
+      "prompt": "Where does an electric train get its electricity while it runs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A generator on board",
+          "correct": false,
+          "rationale": "That's a diesel-electric."
+        },
+        {
+          "id": "b",
+          "label": "An overhead wire or a third rail",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Solar panels on its roof",
+          "correct": false,
+          "rationale": "It draws current from the line."
+        },
+        {
+          "id": "d",
+          "label": "Batteries charged overnight",
+          "correct": false,
+          "rationale": "It draws current as it goes."
+        }
+      ],
+      "explanation": "Electric trains pick up current from an overhead wire or a third rail and turn it into motion with traction motors.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.rail_maglev"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.033.c4"
+      ],
+      "prompt": "Why don't a maglev train's wheels touch the track?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rides on a cushion of compressed air",
+          "correct": false,
+          "rationale": "It floats on magnetism, not air."
+        },
+        {
+          "id": "b",
+          "label": "Its track is coated in ice",
+          "correct": false,
+          "rationale": "No ice involved."
+        },
+        {
+          "id": "c",
+          "label": "Magnets hold it just above the guideway",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is lighter than the air around it",
+          "correct": false,
+          "rationale": "A train is far heavier than air."
+        }
+      ],
+      "explanation": "Magnets lift the train about 1.3 cm above the guideway, and changing-polarity coils pull it along.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.033.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.rail_electric_traction",
+        "concept.everyday_technology.electric_motor"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.033.c3",
+        "card.everyday_technology.007.c3"
+      ],
+      "prompt": "A diesel-electric locomotive has a diesel engine. What actually turns its wheels?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The diesel engine, through gears",
+          "correct": false,
+          "rationale": "In a diesel-electric, the engine drives a generator."
+        },
+        {
+          "id": "b",
+          "label": "A jet of hot exhaust",
+          "correct": false,
+          "rationale": "Trains don't use jet thrust."
+        },
+        {
+          "id": "c",
+          "label": "Steam from a boiler",
+          "correct": false,
+          "rationale": "No steam in a diesel-electric."
+        },
+        {
+          "id": "d",
+          "label": "Electric traction motors, like Level 7's",
+          "correct": true
+        }
+      ],
+      "explanation": "The diesel engine drives a generator, and the current it makes runs electric motors that turn the wheels.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_shinkansen",
+    "source.openstax_motors_generators",
+    "source.brit_electric_motor",
+    "source.brit_locomotive_electric",
+    "source.brit_electric_generator",
+    "source.brit_locomotive_diesel",
+    "source.brit_magnetism",
+    "source.brit_maglev",
+    "source.taipeitimes_shanghai_maglev"
+  ],
+  "art": "technology.train"
+}

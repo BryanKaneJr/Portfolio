@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.everyday_technology.014",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Nuclear Power",
+  "objective": "After this level you can explain how splitting atoms heats water in a nuclear power plant.",
+  "summary": "Neutrons split uranium-235 in a controlled chain reaction; the heat makes steam for a turbine, with no CO2 while running. Spent fuel stays dangerous for thousands of years.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.nuclear_fission",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.nuclear_tradeoffs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.thermal_power_plant",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.013"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One uranium pellet holds about as much energy as a ton of coal.",
+      "body": "That's the US Department of Energy's comparison, for one small ceramic pellet. The energy comes from splitting atoms. And here's the surprise: once that energy is out, a nuclear plant uses it the same way Level 12's coal plant does."
+    },
+    {
+      "id": "card.everyday_technology.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Splitting atoms, on purpose",
+      "body": "Nuclear plants use uranium-235, whose atoms split easily. A neutron strikes a uranium atom and splits it, releasing a lot of energy as heat and radiation, plus more neutrons. Those neutrons split more atoms: a chain reaction. Reactors keep it under control with control rods, pushed in to slow the reaction and pulled out to speed it up. A fire made of atoms, with a dimmer switch."
+    },
+    {
+      "id": "card.everyday_technology.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then it's a kettle again",
+      "body": "The uranium, made into pellets and sealed in metal fuel rods, heats water into steam. The steam spins a turbine, and the turbine spins a generator, just like in a coal plant. The difference is what's missing: nuclear reactors release no carbon dioxide or air pollution while they run. In 2025 they made about 18% of US electricity and about 9% of the world's."
+    },
+    {
+      "id": "card.everyday_technology.014.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why people argue about it",
+      "body": "Spent fuel is highly radioactive and can stay dangerous for thousands of years. The US still has no permanent place to put it, so it waits in pools of water and dry containers. Views split sharply. The International Energy Agency says nuclear power can play a major role in cutting emissions. Greenpeace opposes new plants, calling nuclear power dangerous and expensive and pointing to waste and to the Chernobyl and Fukushima accidents."
+    },
+    {
+      "id": "card.everyday_technology.014.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.014.q1"
+    },
+    {
+      "id": "card.everyday_technology.014.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.014.q2"
+    },
+    {
+      "id": "card.everyday_technology.014.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.014.q3"
+    },
+    {
+      "id": "card.everyday_technology.014.c8",
+      "type": "checkpoint",
+      "headline": "Nuclear: split",
+      "learned": [
+        "Neutrons split uranium-235 in a controlled chain reaction",
+        "Control rods slow or speed the reaction",
+        "The heat makes steam for a turbine, with no CO2 while running",
+        "Spent fuel stays dangerous for thousands of years"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.nuclear_fission"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.014.c2"
+      ],
+      "prompt": "In a nuclear reactor, what keeps the chain reaction going?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Uranium burning in oxygen",
+          "correct": false,
+          "rationale": "Nothing burns; atoms split."
+        },
+        {
+          "id": "b",
+          "label": "Steam pressing on the uranium",
+          "correct": false,
+          "rationale": "Steam is made by the heat; it doesn't split atoms."
+        },
+        {
+          "id": "c",
+          "label": "Electricity from the plant's generator",
+          "correct": false,
+          "rationale": "The reaction makes the heat; it isn't powered by electricity."
+        },
+        {
+          "id": "d",
+          "label": "Neutrons released by each split atom",
+          "correct": true
+        }
+      ],
+      "explanation": "Each split releases more neutrons, which split more uranium-235 atoms. Control rods slow it down.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.nuclear_tradeoffs"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.014.c4"
+      ],
+      "prompt": "Why is nuclear power's spent fuel such a big part of the debate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It releases lots of carbon dioxide",
+          "correct": false,
+          "rationale": "Reactors release no CO2 while running."
+        },
+        {
+          "id": "b",
+          "label": "It stays dangerously radioactive for thousands of years",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It can be burned again like coal",
+          "correct": false,
+          "rationale": "Spent fuel isn't burned; it has to be stored."
+        },
+        {
+          "id": "d",
+          "label": "It becomes harmless within a week",
+          "correct": false,
+          "rationale": "It stays dangerous for thousands of years."
+        }
+      ],
+      "explanation": "Spent fuel can stay dangerous for thousands of years, and the US has no permanent disposal site for it yet.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.nuclear_fission",
+        "concept.everyday_technology.thermal_power_plant"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.014.c3",
+        "card.everyday_technology.012.c2"
+      ],
+      "prompt": "What does a nuclear plant have in common with Level 12's coal plant?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both burn fuel in a boiler",
+          "correct": false,
+          "rationale": "A reactor splits atoms; nothing burns."
+        },
+        {
+          "id": "b",
+          "label": "Both release carbon dioxide while running",
+          "correct": false,
+          "rationale": "Reactors release none while running."
+        },
+        {
+          "id": "c",
+          "label": "Both heat water into steam that spins a turbine",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both use control rods",
+          "correct": false,
+          "rationale": "Control rods are only in nuclear reactors."
+        }
+      ],
+      "explanation": "Split atoms or burning coal, the heat boils water, and steam spins the turbine and generator.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.doe_ne_factsheet",
+    "source.eia_nuclear_explained",
+    "source.doe_nuclear_101",
+    "source.eia_nuclear_environment",
+    "source.eia_electricity_in_us",
+    "source.iea_ger2026_electricity",
+    "source.iea_nuclear_role",
+    "source.greenpeace_nuclear"
+  ],
+  "art": "technology.atom"
+}

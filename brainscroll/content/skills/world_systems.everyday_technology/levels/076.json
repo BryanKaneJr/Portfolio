@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.everyday_technology.076",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Vaccines",
+  "objective": "After this level you can explain how vaccines train the immune system.",
+  "summary": "Vaccines show the immune system a harmless form of a germ so it makes antibodies and remembers. Jenner's 1796 vaccine led to smallpox's eradication. Vaccines are tested, monitored and safe.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.vaccine_immune_training",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.vaccine_history_safety",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.water_germ_disinfection",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.075"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Smallpox is the only human disease ever wiped out. Milkmaids helped.",
+      "body": "In 1796, Edward Jenner noticed that milkmaids who had caught cowpox didn't catch smallpox. He turned that clue into the first successful vaccine. In 1980, after a worldwide campaign of vaccination and tracking cases, WHO declared smallpox eradicated. So how does a vaccine protect you?"
+    },
+    {
+      "id": "card.everyday_technology.076.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A training exercise for your immune system",
+      "body": "A vaccine gives your immune system a safe preview of a germ: a killed or weakened form, a piece of one, or genetic instructions (RNA or DNA) that tell your cells to make a piece. Your immune system recognizes it, makes antibodies, which are proteins that fight disease, and remembers, all without you getting the illness. It's a fire drill without the fire.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Your immune system studies for the test before the test. Honestly, a role model."
+      }
+    },
+    {
+      "id": "card.everyday_technology.076.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Remembering is the whole point",
+      "body": "If the real germ turns up later, your immune system already knows it and can destroy it quickly, before you become unwell. That protection can last years, decades or even a lifetime. Instead of treating a disease after it starts, a vaccine stops you getting sick in the first place. WHO reports that over the past 50 years, vaccines against 14 diseases have saved at least 154 million lives."
+    },
+    {
+      "id": "card.everyday_technology.076.c4",
+      "type": "fact",
+      "fact": "Every vaccine is tested before use and watched after.",
+      "context": "Each one goes through several phases of clinical trials, involving thousands of volunteers, before it is approved. Once in use, its safety is monitored continuously. The scientific consensus, in WHO's words, is that vaccines are very safe: side effects are usually minor and brief, like a sore arm or a mild fever, and serious ones are extremely rare."
+    },
+    {
+      "id": "card.everyday_technology.076.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.076.q1"
+    },
+    {
+      "id": "card.everyday_technology.076.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.076.q2"
+    },
+    {
+      "id": "card.everyday_technology.076.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.076.q3"
+    },
+    {
+      "id": "card.everyday_technology.076.c8",
+      "type": "checkpoint",
+      "headline": "Vaccines: understood",
+      "learned": [
+        "Jenner's 1796 cowpox clue made the first successful vaccine",
+        "Vaccines show the immune system a harmless form of a germ",
+        "The immune system makes antibodies and remembers",
+        "Vaccines pass clinical trials, are monitored, and are very safe"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.vaccine_history_safety"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.076.c1"
+      ],
+      "prompt": "What did Edward Jenner notice in 1796 that led to the first successful vaccine?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Milkmaids who'd had cowpox didn't catch smallpox",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Boiled water stopped cholera",
+          "correct": false,
+          "rationale": "Cholera and water are Level 73's story."
+        },
+        {
+          "id": "c",
+          "label": "Mold stopped bacteria growing in a dish",
+          "correct": false,
+          "rationale": "That's a later medical story."
+        },
+        {
+          "id": "d",
+          "label": "Smallpox spread through bad air",
+          "correct": false,
+          "rationale": "Bad-air ideas were wrong."
+        }
+      ],
+      "explanation": "Jenner saw that milkmaids who had caught cowpox were protected from smallpox, and built the first successful vaccine on it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.vaccine_immune_training"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.076.c2",
+        "card.everyday_technology.076.c3"
+      ],
+      "prompt": "Why can a vaccinated person fight off a germ faster than an unvaccinated person?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The vaccine keeps killing germs in the blood",
+          "correct": false,
+          "rationale": "The vaccine teaches; the immune system does the fighting."
+        },
+        {
+          "id": "b",
+          "label": "They caught a mild case of the disease from the vaccine",
+          "correct": false,
+          "rationale": "Vaccines train the immune system without the illness."
+        },
+        {
+          "id": "c",
+          "label": "Their immune system already recognizes and remembers it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The vaccine makes germs unable to enter the body",
+          "correct": false,
+          "rationale": "Germs can still arrive; they get destroyed quickly."
+        }
+      ],
+      "explanation": "The vaccine trained the immune system to recognize the germ and remember it, so it can destroy the real thing quickly.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.vaccine_immune_training",
+        "concept.everyday_technology.water_germ_disinfection"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.076.c2",
+        "card.everyday_technology.073.c3"
+      ],
+      "prompt": "Level 73's chlorine kills germs in water before you drink them. How does a vaccine protect you differently?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It puts a germ-killing disinfectant in your blood",
+          "correct": false,
+          "rationale": "It contains no disinfectant for your blood."
+        },
+        {
+          "id": "b",
+          "label": "It trains your immune system to know the germ",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It filters germs out of the food you eat",
+          "correct": false,
+          "rationale": "Filters are a water-plant step."
+        },
+        {
+          "id": "d",
+          "label": "It kills the germs living on surfaces in your home",
+          "correct": false,
+          "rationale": "It works inside your body, through immunity."
+        }
+      ],
+      "explanation": "Chlorine kills germs in the water supply; a vaccine prepares your own immune system to recognize and destroy a germ.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.who_smallpox",
+    "source.who_what_is_vaccination",
+    "source.who_vaccine_safety",
+    "source.fda_vaccine_development_101"
+  ],
+  "art": "science.microscope"
+}

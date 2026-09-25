@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.everyday_technology.021",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Levers, Wheels and Pulleys",
+  "objective": "After this level you can explain how simple machines make work easier.",
+  "summary": "Levers, wheels and pulleys multiply a push by trading it for distance. With 4 rope strands you pull a quarter as hard but haul 4 times the rope: no machine makes energy.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.motion_simple_machines",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_mechanical_advantage",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_conservation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.020"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A story says Archimedes pulled a loaded ship ashore by hand.",
+      "body": "The Greek writer Plutarch tells it: the ship was full of passengers and cargo, and Archimedes drew it toward him by quietly working a system of pulleys. Nobody can check a story that old. But the trick behind it is real, and it hides inside some of the simplest tools there are. How can a small push move something huge?"
+    },
+    {
+      "id": "card.everyday_technology.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A lever trades distance for force",
+      "body": "The lever is one of six classic simple machines, alongside the wheel and axle, pulley, inclined plane, wedge and screw. It's a bar that turns on a pivot, the fulcrum. Its rule: force times distance from the fulcrum balances on each side. Push five times farther from the pivot than the load sits, and your push is multiplied five times. That's how a small kid on a seesaw can balance a big one: sit farther out."
+    },
+    {
+      "id": "card.everyday_technology.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wheels and pulleys play the same trick",
+      "body": "A wheel and axle is a lever that goes round. Turn the big wheel, and the force at the small axle is multiplied by the ratio of their sizes. A pulley is a wheel carrying a rope. Run the rope round several pulleys so that 4 strands hold up the load, and the strands share the weight: you pull with about a quarter of the force. That's the kind of setup Archimedes supposedly used."
+    },
+    {
+      "id": "card.everyday_technology.021.c4",
+      "type": "fact",
+      "fact": "No machine gives you free work.",
+      "context": "The extra force always costs distance. With 4 strands holding the load, you have to haul in 4 meters of rope to lift it 1 meter. Force times distance, the work, comes out the same, and friction takes a little extra on top. Level 2's rule again: energy is never created, not even by Archimedes.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Machines are brilliant negotiators. They'll give you more force any day, as long as you pay in distance."
+      }
+    },
+    {
+      "id": "card.everyday_technology.021.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.021.q1"
+    },
+    {
+      "id": "card.everyday_technology.021.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.021.q2"
+    },
+    {
+      "id": "card.everyday_technology.021.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.021.q3"
+    },
+    {
+      "id": "card.everyday_technology.021.c8",
+      "type": "checkpoint",
+      "headline": "Simple machines: working",
+      "learned": [
+        "Six classic simple machines, the lever among them",
+        "A lever multiplies force far from the pivot",
+        "Pulley strands share a load",
+        "Less force always means more distance"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.motion_mechanical_advantage"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.021.c3"
+      ],
+      "prompt": "A pulley system holds a load on 4 rope strands. Roughly how hard must you pull?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Four times the load's weight",
+          "correct": false,
+          "rationale": "That would make pulleys worse than lifting by hand."
+        },
+        {
+          "id": "b",
+          "label": "The full weight of the load",
+          "correct": false,
+          "rationale": "The strands share the weight between them."
+        },
+        {
+          "id": "c",
+          "label": "About half the load's weight",
+          "correct": false,
+          "rationale": "That would take 2 strands."
+        },
+        {
+          "id": "d",
+          "label": "About a quarter of the load's weight",
+          "correct": true
+        }
+      ],
+      "explanation": "With 4 strands sharing the load, you pull with about a quarter of the force.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.motion_simple_machines"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.021.c2"
+      ],
+      "prompt": "Why can a long lever lift a rock you could never lift by hand?",
+      "options": [
+        {
+          "id": "a",
+          "label": "You push far from the pivot, so your force is multiplied",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The bar adds some energy of its own to your push",
+          "correct": false,
+          "rationale": "No machine creates energy."
+        },
+        {
+          "id": "c",
+          "label": "Rocks weigh less while a metal bar is touching them",
+          "correct": false,
+          "rationale": "The rock weighs the same; your push is multiplied."
+        },
+        {
+          "id": "d",
+          "label": "Metal bars pull rocks upward, a bit like magnets",
+          "correct": false,
+          "rationale": "It is leverage, not magnetism."
+        }
+      ],
+      "explanation": "Force times distance from the fulcrum balances on each side, so pushing far from the pivot multiplies your force.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.motion_mechanical_advantage",
+        "concept.everyday_technology.energy_conservation"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.021.c4",
+        "card.everyday_technology.002.c3"
+      ],
+      "prompt": "Level 2 said energy can't be created. How does a pulley system that cuts your pulling force obey that rule?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It stores up energy in the rope",
+          "correct": false,
+          "rationale": "Ropes pass force along; they are not batteries."
+        },
+        {
+          "id": "b",
+          "label": "You pull more rope, so the work stays the same",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Pulleys break the rule for heavy loads",
+          "correct": false,
+          "rationale": "Nothing breaks the rule."
+        },
+        {
+          "id": "d",
+          "label": "The load loses weight as it rises",
+          "correct": false,
+          "rationale": "Its weight stays the same."
+        }
+      ],
+      "explanation": "Less force means pulling farther: with 4 strands, 4 meters of rope lift the load 1 meter, so the work is unchanged.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_pulley",
+    "source.brit_simple_machine",
+    "source.openstax_simple_machines",
+    "source.teachengineering_pulleys",
+    "source.eia_laws_of_energy",
+    "source.brit_energy"
+  ],
+  "art": "technology.gears"
+}

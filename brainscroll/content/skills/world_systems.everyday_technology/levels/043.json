@@ -1,0 +1,222 @@
+{
+  "id": "level.world_systems.everyday_technology.043",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Telephone",
+  "objective": "After this level you can explain how early telephones turned voices into electric signals.",
+  "summary": "A telephone turns sound into a current shaped like the sound wave, then back into sound. Bell got the 1876 patent; Gray filed the same day and Meucci earlier.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.telephone_voice_current",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.telephone_invention_dispute",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electromagnetic_induction",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.telegraph_pulses",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.042"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.043.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On one day in 1876, two inventors filed papers on the same idea.",
+      "body": "On February 14, 1876, Alexander Graham Bell applied for a patent on sending sound by wire. Britannica says Elisha Gray filed a caveat, a formal notice of an invention in progress, on a similar method hours later that same day, though even the order is disputed. Bell's patent came through on March 7. The argument never quite ended."
+    },
+    {
+      "id": "card.everyday_technology.043.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A current shaped like your voice",
+      "body": "Level 42's telegraph only switched current on and off. A telephone does something subtler. Your voice makes a thin diaphragm vibrate, and the transmitter turns those vibrations into a current that rises and falls like the sound wave itself. At the other end, the changing current drives an electromagnet that shakes a second diaphragm, rebuilding the sound. The wire carries a copy of your voice, drawn in electricity."
+    },
+    {
+      "id": "card.everyday_technology.043.c3",
+      "type": "fact",
+      "fact": "March 10, 1876: \"Mr. Watson, come here, I want to see you.\"",
+      "context": "That's how Bell's lab notes record the first intelligible speech his apparatus carried. His idea leaned on Level 8's induction: a sound wave vibrating one membrane would induce a voltage in a coil, and that current could make a second, connected membrane vibrate the same way. History's first phone call was, fittingly, a request for company."
+    },
+    {
+      "id": "card.everyday_technology.043.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who invented the telephone? It depends who you ask.",
+      "body": "Gray's caveat described a liquid transmitter, and Bell's March 10 success used a liquid transmitter too, one reason the fight lasted. Earlier still, Antonio Meucci had filed a caveat of his own but couldn't pay the $10 fee to keep it after 1874. In 2002 the US House of Representatives passed a resolution honoring his work on the telephone. Bell holds the patent; the credit is still argued."
+    },
+    {
+      "id": "card.everyday_technology.043.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.043.q1"
+    },
+    {
+      "id": "card.everyday_technology.043.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.043.q2"
+    },
+    {
+      "id": "card.everyday_technology.043.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.043.q3"
+    },
+    {
+      "id": "card.everyday_technology.043.c8",
+      "type": "checkpoint",
+      "headline": "Telephone: connected",
+      "learned": [
+        "Sound becomes a current shaped like the sound wave",
+        "An electromagnet and diaphragm turn it back into sound",
+        "Bell's patent came in 1876; Gray filed the same day",
+        "Meucci's earlier caveat keeps the credit debate alive"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.telephone_voice_current"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.043.c2"
+      ],
+      "prompt": "How does a telephone's transmitter send your voice down the wire?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As light flashing inside the cable",
+          "correct": false,
+          "rationale": "No light involved: it's a changing current."
+        },
+        {
+          "id": "b",
+          "label": "As dots and dashes tapped on a key",
+          "correct": false,
+          "rationale": "That's the telegraph."
+        },
+        {
+          "id": "c",
+          "label": "As the sound itself, piped along a tube",
+          "correct": false,
+          "rationale": "The sound becomes an electric current."
+        },
+        {
+          "id": "d",
+          "label": "As a current that rises and falls like the sound wave",
+          "correct": true
+        }
+      ],
+      "explanation": "The diaphragm's vibrations become a current with the same pattern as the sound wave; the receiver turns it back into sound.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.telephone_invention_dispute"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.043.c1",
+        "card.everyday_technology.043.c4"
+      ],
+      "prompt": "Why is the question \"who invented the telephone?\" still argued today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Several inventors filed on similar ideas around the same time",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "No one was ever granted a telephone patent",
+          "correct": false,
+          "rationale": "Bell was granted one on March 7, 1876."
+        },
+        {
+          "id": "c",
+          "label": "Bell's first call failed to carry any speech",
+          "correct": false,
+          "rationale": "It carried intelligible speech on March 10, 1876."
+        },
+        {
+          "id": "d",
+          "label": "The first telephone was built in 2002",
+          "correct": false,
+          "rationale": "2002 is when the House honored Meucci."
+        }
+      ],
+      "explanation": "Gray filed a caveat the same day as Bell's application, and Meucci had filed one earlier, so Bell's patent never settled the credit.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.telephone_voice_current",
+        "concept.everyday_technology.electromagnetic_induction"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.043.c3",
+        "card.everyday_technology.008.c2"
+      ],
+      "prompt": "Bell reasoned that a vibrating membrane could induce a voltage in a coil. Which Level 8 discovery was he relying on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Opposite charges attract each other",
+          "correct": false,
+          "rationale": "That's about charges, not induction."
+        },
+        {
+          "id": "b",
+          "label": "A changing magnetic field makes a current flow",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Batteries store energy in chemicals",
+          "correct": false,
+          "rationale": "That's Level 6's battery."
+        },
+        {
+          "id": "d",
+          "label": "Energy turns mostly into heat in a bulb",
+          "correct": false,
+          "rationale": "That's Level 5's old bulb."
+        }
+      ],
+      "explanation": "Faraday's induction: a changing magnetic field in a coil makes a current. A vibrating membrane can supply the change.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_telegraph",
+    "source.technologyuk_analogue_digital",
+    "source.brit_telephone",
+    "source.brit_bell",
+    "source.brit_telephone_development",
+    "source.congress_meucci_hres269"
+  ],
+  "art": "technology.telephone"
+}

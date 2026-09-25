@@ -1,0 +1,242 @@
+{
+  "id": "level.world_systems.everyday_technology.049",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What's Inside a Smartphone",
+  "objective": "After this level you can name the main parts inside a smartphone and what each one does.",
+  "summary": "A smartphone joins a phone, radio, camera and screen. Its touchscreen senses a conducting finger; magnets, coils and motors make sound and buzz; lithium-ion powers it.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.smartphone_parts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.smartphone_touchscreen",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_motor",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.circuit_closed_loop",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.battery_chemistry",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.electromagnetism",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.cellular_cells",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.048"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.049.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your phone is a telephone, a radio, a camera and a screen in one case.",
+      "body": "Everything this chapter built fits in your pocket: Level 43's voice-to-current trick, Level 44's radio, Level 46's camera sensor and Level 47's pixels. A smartphone adds an operating system that lets you install apps. Open one up, and many of the parts are old friends."
+    },
+    {
+      "id": "card.everyday_technology.049.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The screen that feels your finger",
+      "body": "Most smartphones have capacitive touchscreens. The screen carries an electric field, and your finger, which conducts electricity, disturbs that field by an amount that depends on where it is. The phone works out the spot, and it can track several fingers at once. A plain plastic stylus does nothing, because plastic is an insulator, Level 4's word for a material that stops the flow of charge."
+    },
+    {
+      "id": "card.everyday_technology.049.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The speaker and the buzz",
+      "body": "The speaker is a coil of wire in a magnet's field. The changing current makes the coil move, the coil shakes a diaphragm, and the diaphragm pushes the air into sound, the same job as Level 43's earpiece. The buzz is a motor. Many phones spin a tiny off-center weight on a motor shaft; others, including iPhones, shake a weight on a spring with a coil. Level 7's magnets and motors, in your pocket."
+    },
+    {
+      "id": "card.everyday_technology.049.c4",
+      "type": "fact",
+      "fact": "The battery is a lithium-ion cell, a Nobel Prize-winning design.",
+      "context": "Lithium-ion batteries are light, rechargeable and powerful, which is why they run phones and laptops. John Goodenough, Stanley Whittingham and Akira Yoshino shared the 2019 Nobel Prize in Chemistry for developing them. Level 6's rule still applies: charging drives current through the battery in reverse, running the reaction backward to store energy again. The chips that run it all get their own chapter."
+    },
+    {
+      "id": "card.everyday_technology.049.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.049.q1"
+    },
+    {
+      "id": "card.everyday_technology.049.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.049.q2"
+    },
+    {
+      "id": "card.everyday_technology.049.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.049.q3"
+    },
+    {
+      "id": "card.everyday_technology.049.c8",
+      "type": "checkpoint",
+      "headline": "Smartphone: opened up",
+      "learned": [
+        "A smartphone adds an app-running operating system to a phone",
+        "Capacitive screens sense a conducting finger",
+        "Speakers and buzzers use magnets, coils and motors",
+        "Lithium-ion batteries recharge by running the reaction backward"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.smartphone_touchscreen"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.049.c2"
+      ],
+      "prompt": "Why doesn't a plain plastic stylus work on a phone's capacitive touchscreen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Plastic is too light to press the glass",
+          "correct": false,
+          "rationale": "It's not about pressure."
+        },
+        {
+          "id": "b",
+          "label": "Plastic is an insulator, so it can't disturb the field",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The screen only responds to heat",
+          "correct": false,
+          "rationale": "It senses the electric field, not warmth."
+        },
+        {
+          "id": "d",
+          "label": "Plastic scratches the pixels",
+          "correct": false,
+          "rationale": "Scratches aren't the reason."
+        }
+      ],
+      "explanation": "A capacitive screen senses a conductor, like your finger, disturbing its electric field. Plastic is an insulator, so nothing changes.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.smartphone_parts"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.049.c3"
+      ],
+      "prompt": "What makes the diaphragm in a phone's speaker move?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Air pumped in by a tiny fan",
+          "correct": false,
+          "rationale": "The push comes from magnetism."
+        },
+        {
+          "id": "b",
+          "label": "Light from the screen hitting it",
+          "correct": false,
+          "rationale": "The screen and speaker are separate."
+        },
+        {
+          "id": "c",
+          "label": "A changing current in a coil sitting in a magnet's field",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Heat from the battery expanding it",
+          "correct": false,
+          "rationale": "Heat isn't the driver."
+        }
+      ],
+      "explanation": "The changing current makes the coil move in the magnet's field, and the coil vibrates the diaphragm, which makes sound.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.smartphone_parts",
+        "concept.everyday_technology.electric_motor"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.049.c3",
+        "card.everyday_technology.007.c3"
+      ],
+      "prompt": "Many phones buzz using Level 7's invention, the electric motor. What does that motor spin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A tiny fan that blows on your hand",
+          "correct": false,
+          "rationale": "It's a weight, not a fan."
+        },
+        {
+          "id": "b",
+          "label": "A generator that recharges the battery",
+          "correct": false,
+          "rationale": "It uses energy; it doesn't make it."
+        },
+        {
+          "id": "c",
+          "label": "The whole screen, very slowly",
+          "correct": false,
+          "rationale": "Only a tiny part spins."
+        },
+        {
+          "id": "d",
+          "label": "A small off-center weight",
+          "correct": true
+        }
+      ],
+      "explanation": "Spinning an off-center weight makes the whole phone wobble: that's the buzz.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.physicsclassroom_circuit_requirements",
+    "source.physicsclassroom_circuit_misconceptions",
+    "source.brit_battery",
+    "source.brit_magnetism",
+    "source.brit_electric_motor",
+    "source.brit_mobile_telephone",
+    "source.libretexts_cellular",
+    "source.brit_smartphone",
+    "source.brit_loudspeaker",
+    "source.uw_makeability_vibromotor",
+    "source.nobel_chemistry_2019",
+    "source.explainthatstuff_touchscreens"
+  ],
+  "art": "technology.smartphone"
+}

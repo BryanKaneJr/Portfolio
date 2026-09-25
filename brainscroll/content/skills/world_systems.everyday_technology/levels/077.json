@@ -1,0 +1,222 @@
+{
+  "id": "level.world_systems.everyday_technology.077",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Seeing Inside the Body",
+  "objective": "After this level you can explain how X-rays, CT scans and MRI see inside the body.",
+  "summary": "Calcium-rich bone absorbs X-rays, so it shows white. CT spins an X-ray beam around you to build slices. MRI uses a magnet and radio pulses, with no ionizing radiation.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.imaging_xray_ct",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.imaging_mri",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.microwave_nonionizing",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.076"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.077.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1895, a physicist photographed his wife's bones.",
+      "body": "Wilhelm Rontgen had just discovered X-rays, a new, penetrating kind of ray. On 22 December 1895 he made an image of his wife's hand: the bones, and a ring. Doctors quickly took up X-rays to look inside the body without surgery. Today there are several ways to see inside you, and each sees something different."
+    },
+    {
+      "id": "card.everyday_technology.077.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "X-rays: a shadow picture",
+      "body": "X-rays carry more energy than visible light, so most of them pass straight through you. Bones, rich in calcium, absorb more of them. On the image, bones show up white, while fat, muscle and air-filled lungs appear as shades of gray. Unlike Level 72's microwaves, X-rays are ionizing radiation, which can harm living tissue, though the cancer risk from an X-ray is generally considered very small."
+    },
+    {
+      "id": "card.everyday_technology.077.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "CT: X-rays from every angle",
+      "body": "A single X-ray squashes you into one flat shadow. A CT scanner instead spins a narrow X-ray beam around your body, and a computer turns the signals into cross-sectional slices, like a loaf of bread sliced on screen. Stack the slices, and the computer can build a 3D image."
+    },
+    {
+      "id": "card.everyday_technology.077.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "MRI: a magnet and radio pulses",
+      "body": "An MRI reads the water inside you. Its powerful magnet lines up the protons in that water; radio pulses knock them out of line, and sensors pick up the energy they give off as they realign. It uses no ionizing radiation, and it shows soft tissue, like the brain, nerves and ligaments, more clearly than X-rays or CT. Its magnet is strong enough to fling a wheelchair across the room.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "An MRI mostly reads your water. You are, in the kindest possible way, a very detailed puddle."
+      }
+    },
+    {
+      "id": "card.everyday_technology.077.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.077.q1"
+    },
+    {
+      "id": "card.everyday_technology.077.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.077.q2"
+    },
+    {
+      "id": "card.everyday_technology.077.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.077.q3"
+    },
+    {
+      "id": "card.everyday_technology.077.c8",
+      "type": "checkpoint",
+      "headline": "Inside the body: seen",
+      "learned": [
+        "Rontgen X-rayed his wife's hand in 1895",
+        "Calcium-rich bone absorbs X-rays, so it shows white",
+        "CT spins an X-ray beam around you to build slices",
+        "MRI uses a magnet and radio pulses, with no ionizing radiation"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.imaging_xray_ct"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.077.c2"
+      ],
+      "prompt": "Why do bones show up white on an X-ray image?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They reflect light from the machine",
+          "correct": false,
+          "rationale": "X-rays are absorbed, not reflected, by bone."
+        },
+        {
+          "id": "b",
+          "label": "They are full of water",
+          "correct": false,
+          "rationale": "Water is what MRI reads."
+        },
+        {
+          "id": "c",
+          "label": "Their calcium absorbs more of the X-rays",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They give off X-rays of their own",
+          "correct": false,
+          "rationale": "The X-rays come from the machine."
+        }
+      ],
+      "explanation": "Calcium-rich bone absorbs more X-rays than soft tissue, so it shows up white.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.imaging_mri"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.077.c4"
+      ],
+      "prompt": "What does an MRI scanner build its picture from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "X-rays sent through you from every angle",
+          "correct": false,
+          "rationale": "That's how CT works."
+        },
+        {
+          "id": "b",
+          "label": "Heat given off by the bones and muscles",
+          "correct": false,
+          "rationale": "MRI reads protons, not heat."
+        },
+        {
+          "id": "c",
+          "label": "A tiny camera swallowed by the patient",
+          "correct": false,
+          "rationale": "MRI works from outside the body."
+        },
+        {
+          "id": "d",
+          "label": "Protons in your water, lined up by a magnet",
+          "correct": true
+        }
+      ],
+      "explanation": "A powerful magnet lines up protons in the body's water, radio pulses knock them out of line, and sensors read the energy as they realign.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.imaging_xray_ct",
+        "concept.everyday_technology.microwave_nonionizing"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.077.c2",
+        "card.everyday_technology.077.c3",
+        "card.everyday_technology.072.c4"
+      ],
+      "prompt": "Level 72 said microwaves are non-ionizing radiation. Which of these scans uses ionizing radiation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A CT scan",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "An MRI scan",
+          "correct": false,
+          "rationale": "MRI uses no ionizing radiation."
+        },
+        {
+          "id": "c",
+          "label": "Neither: all scans use only radio waves",
+          "correct": false,
+          "rationale": "CT uses X-rays."
+        },
+        {
+          "id": "d",
+          "label": "Neither: all scans use only visible light",
+          "correct": false,
+          "rationale": "CT uses X-rays, which are ionizing."
+        }
+      ],
+      "explanation": "A CT scanner uses X-rays, which are ionizing; MRI uses a magnet and radio pulses instead.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sciencemuseum_rontgen_hand",
+    "source.nibib_xrays_factsheet",
+    "source.nibib_medical_xrays",
+    "source.fda_microwave_ovens",
+    "source.nibib_ct",
+    "source.nibib_mri"
+  ],
+  "art": "technology.x-ray"
+}

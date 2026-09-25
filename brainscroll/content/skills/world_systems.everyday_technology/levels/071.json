@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.everyday_technology.071",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Refrigerators",
+  "objective": "After this level you can explain how a fridge moves heat out instead of making cold.",
+  "summary": "A fridge moves heat out of its cold inside into the room. Refrigerant evaporates inside, soaking up heat, and condenses in outside coils. An open fridge door warms the kitchen.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.fridge_moves_heat",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.fridge_refrigerant_cycle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_conservation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.070"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Leave the fridge door open on a hot day, and your kitchen gets warmer.",
+      "body": "It sounds backwards: all that cold air spilling out. But a fridge doesn't make cold. It moves heat, and that heat has to go somewhere. Put your hand behind a running fridge and you'll feel exactly where."
+    },
+    {
+      "id": "card.everyday_technology.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A fridge is a heat mover",
+      "body": "Heat never flows on its own from somewhere cold to somewhere warmer. A fridge forces it to. It takes heat out of the cold box and releases it into your kitchen, which is why the area behind a running fridge feels warmer than the room. The inside gets colder because heat left, not because cold arrived. Your fridge is less a cooler than a bouncer, showing heat the door."
+    },
+    {
+      "id": "card.everyday_technology.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The trick: a liquid that evaporates inside",
+      "body": "When a liquid evaporates, it draws energy from its surroundings, and they cool down. A fridge runs a special fluid, the refrigerant, around a closed loop. It evaporates in pipes inside the fridge, soaking up heat. A compressor then squeezes the vapor, so it condenses back into liquid in coils outside the cold box and gives that heat up to the room. Then the loop starts again."
+    },
+    {
+      "id": "card.everyday_technology.071.c4",
+      "type": "fact",
+      "fact": "An open fridge door heats your kitchen.",
+      "context": "Level 2's rule explains it: energy is never destroyed, only changed from one form to another. With the door open, heat just circles from the room into the fridge and straight back out. Meanwhile the motor keeps running, and it adds heat of its own. The result is a warmer kitchen and a fridge working hard for nothing.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "So standing in front of the open fridge isn't air conditioning. I have tested this. Extensively."
+      }
+    },
+    {
+      "id": "card.everyday_technology.071.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.071.q1"
+    },
+    {
+      "id": "card.everyday_technology.071.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.071.q2"
+    },
+    {
+      "id": "card.everyday_technology.071.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.071.q3"
+    },
+    {
+      "id": "card.everyday_technology.071.c8",
+      "type": "checkpoint",
+      "headline": "Refrigerators: chilled",
+      "learned": [
+        "A fridge moves heat out; it doesn't make cold",
+        "Evaporating refrigerant soaks up heat inside",
+        "Compressed refrigerant gives the heat up in coils outside",
+        "An open fridge door warms the kitchen"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.fridge_moves_heat"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.071.c2"
+      ],
+      "prompt": "Where does the heat taken out of a refrigerator's cold compartment go?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is destroyed by the cold inside",
+          "correct": false,
+          "rationale": "Energy is never destroyed; the heat moves."
+        },
+        {
+          "id": "b",
+          "label": "It is released into the kitchen",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is stored in the freezer compartment",
+          "correct": false,
+          "rationale": "The freezer is where heat is taken from."
+        },
+        {
+          "id": "d",
+          "label": "It turns into cold air for the food",
+          "correct": false,
+          "rationale": "Heat doesn't turn into cold; it leaves."
+        }
+      ],
+      "explanation": "A fridge forces heat out of its cold box and releases it into the kitchen, which is why the area behind it is warm.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.fridge_refrigerant_cycle"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.071.c3"
+      ],
+      "prompt": "Why does a fridge let its refrigerant evaporate in the pipes inside the cold box?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Evaporating makes the refrigerant heavier",
+          "correct": false,
+          "rationale": "The point is heat, not weight."
+        },
+        {
+          "id": "b",
+          "label": "Evaporating lets the refrigerant escape into the food",
+          "correct": false,
+          "rationale": "The refrigerant stays sealed in its loop."
+        },
+        {
+          "id": "c",
+          "label": "Evaporating draws heat from the surroundings",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Evaporating produces cold air from nothing",
+          "correct": false,
+          "rationale": "It cools things by taking heat away."
+        }
+      ],
+      "explanation": "An evaporating liquid draws energy from its surroundings, so the refrigerant soaks up heat inside the fridge.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.fridge_moves_heat",
+        "concept.everyday_technology.energy_conservation"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.071.c4",
+        "card.everyday_technology.002.c3"
+      ],
+      "prompt": "Level 2 said energy is never destroyed. So why does an open fridge door warm a kitchen instead of cooling it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The cold air destroys the heat in the room",
+          "correct": false,
+          "rationale": "Energy is never destroyed."
+        },
+        {
+          "id": "b",
+          "label": "Fridges only work with the door shut",
+          "correct": false,
+          "rationale": "It keeps running; that is the problem."
+        },
+        {
+          "id": "c",
+          "label": "The light inside the fridge heats the room",
+          "correct": false,
+          "rationale": "The motor, not the light, is the extra heat."
+        },
+        {
+          "id": "d",
+          "label": "Heat circles back out, and the running motor adds more",
+          "correct": true
+        }
+      ],
+      "explanation": "With the door open, heat just loops from the room through the fridge and back, while the motor keeps adding heat, so the room gets warmer.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.uiuc_physics_van_open_fridge",
+    "source.physlink_open_fridge",
+    "source.hyperphysics_refrigerator",
+    "source.brit_refrigeration",
+    "source.eia_laws_of_energy",
+    "source.brit_energy"
+  ],
+  "art": "technology.fridge"
+}

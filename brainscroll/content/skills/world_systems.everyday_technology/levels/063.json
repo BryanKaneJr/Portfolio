@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.everyday_technology.063",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Undersea Cables",
+  "objective": "After this level you can explain how most internet traffic crosses the oceans through cables.",
+  "summary": "Over 99% of data between continents travels as laser light in glass fibers inside undersea cables. Anchors and fishing, not sharks, cause most breaks.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.internet_undersea_cables",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.internet_fiber_optics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.internet_packet_origins",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.062"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.063.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your video call to another continent almost certainly went under the sea.",
+      "body": "Not up to space. Undersea cables carry over 99% of the data that travels between continents, a figure the telecom research firm TeleGeography confirmed in 2023. So what is actually lying down there on the seabed?"
+    },
+    {
+      "id": "card.everyday_technology.063.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Light inside a garden hose",
+      "body": "Modern undersea cables are fiber-optic. Lasers at one end flash light down glass fibers about as thin as a human hair, and receivers at the far end read the flashes. The fibers are wrapped in plastic and sometimes steel wire, and across the ocean the whole cable is typically about as wide as a garden hose. In the deep sea it simply lies on the ocean floor. Near shore it's buried under the seabed and given extra armor."
+    },
+    {
+      "id": "card.everyday_technology.063.c3",
+      "type": "fact",
+      "fact": "Ships' anchors are a bigger threat to the internet than sharks.",
+      "context": "Fishing vessels and dragged anchors cause about two-thirds of cable faults. Fish bites, sharks included, caused zero faults from 2007 to 2014, according to International Cable Protection Committee data. Breaks still happen, so countries use several cables and networks spread traffic across them. When one breaks, data keeps flowing over the others: Baran's idea from Level 62, a network that survives losing a piece.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Sharks get all the blame. Anchors do the damage. Classic."
+      }
+    },
+    {
+      "id": "card.everyday_technology.063.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why not satellites?",
+      "body": "Satellites are great for reaching places that aren't wired yet. But cables carry far more data at a fraction of the cost. Even your phone is wireless only as far as the nearest cell tower; from there, your data rides fiber. As of 2026, TeleGeography tracks more than 600 active and planned undersea cables, a web of glass laid across the ocean floor."
+    },
+    {
+      "id": "card.everyday_technology.063.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.063.q1"
+    },
+    {
+      "id": "card.everyday_technology.063.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.063.q2"
+    },
+    {
+      "id": "card.everyday_technology.063.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.063.q3"
+    },
+    {
+      "id": "card.everyday_technology.063.c8",
+      "type": "checkpoint",
+      "headline": "Undersea cables: surfaced",
+      "learned": [
+        "Over 99% of data between continents travels by undersea cable",
+        "Lasers send light down hair-thin glass fibers in a garden-hose-wide cable",
+        "Fishing and anchors cause about two-thirds of faults; sharks, almost none",
+        "Traffic is spread across many cables, so one break doesn't stop it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.internet_fiber_optics"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.063.c2"
+      ],
+      "prompt": "Inside an undersea internet cable, what actually carries the data?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Laser light flashing through hair-thin glass fibers",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Electric current flowing through thick copper bars",
+          "correct": false,
+          "rationale": "Modern cables are fiber-optic: light, not current."
+        },
+        {
+          "id": "c",
+          "label": "Radio waves bouncing along inside a hollow pipe",
+          "correct": false,
+          "rationale": "No radio here: it's light in glass fibers."
+        },
+        {
+          "id": "d",
+          "label": "Seawater that conducts the signal from shore to shore",
+          "correct": false,
+          "rationale": "The signal travels inside the glass fibers."
+        }
+      ],
+      "explanation": "Lasers flash light down glass fibers about as thin as a human hair; receivers at the far end read the flashes.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.internet_undersea_cables"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.063.c4",
+        "card.everyday_technology.063.c1"
+      ],
+      "prompt": "Why do cables, not satellites, carry almost all internet data between continents?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Satellites can't carry internet data of any kind",
+          "correct": false,
+          "rationale": "They can; they're great for places not yet wired."
+        },
+        {
+          "id": "b",
+          "label": "Cables never get damaged on the ocean floor",
+          "correct": false,
+          "rationale": "Anchors and fishing break them regularly."
+        },
+        {
+          "id": "c",
+          "label": "Cables carry far more data at a fraction of the cost",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Laws ban satellites from carrying internet data",
+          "correct": false,
+          "rationale": "No ban: cables simply win on capacity and cost."
+        }
+      ],
+      "explanation": "Satellites help reach unwired places, but cables carry far more data far more cheaply.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.internet_packet_origins",
+        "concept.everyday_technology.internet_undersea_cables"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.063.c3",
+        "card.everyday_technology.062.c3"
+      ],
+      "prompt": "Networks spread their traffic across several undersea cables. Which Level 62 design goal does that echo?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Giving each user a private line for the whole call",
+          "correct": false,
+          "rationale": "That's the old phone-call approach."
+        },
+        {
+          "id": "b",
+          "label": "Giving the pieces of data a catchy name, \"packets\"",
+          "correct": false,
+          "rationale": "That was Davies's word, not the goal."
+        },
+        {
+          "id": "c",
+          "label": "Sending every message by satellite instead of cable",
+          "correct": false,
+          "rationale": "Cables carry over 99% between continents."
+        },
+        {
+          "id": "d",
+          "label": "A network that keeps working when one piece is lost",
+          "correct": true
+        }
+      ],
+      "explanation": "Baran wanted a network that wouldn't fail if a node was destroyed; spreading traffic over many cables means one break doesn't stop the data.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.telegeography_99_percent",
+    "source.telegeography_cable_faq",
+    "source.ethw_packet_switching"
+  ],
+  "art": "technology.network"
+}

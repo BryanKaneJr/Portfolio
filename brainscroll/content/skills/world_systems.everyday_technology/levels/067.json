@@ -1,0 +1,230 @@
+{
+  "id": "level.world_systems.everyday_technology.067",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Cloud",
+  "objective": "After this level you can explain what the cloud really is: computers in data centers.",
+  "summary": "The cloud is shared computers in data centers, reached over the network. Data centers used about 415 billion kWh in 2024 (IEA); most becomes heat.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.cloud_computing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.cloud_data_center_energy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_power",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_conservation",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.066"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "\"The cloud\" is a building full of computers.",
+      "body": "When your phone backs up its photos to the cloud, they don't float anywhere. They travel over the internet to computers in a data center, a real building that uses a lot of real electricity: about 415 billion kilowatt-hours worldwide in 2024. So what does the cloud actually do for you?"
+    },
+    {
+      "id": "card.everyday_technology.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Renting someone else's computers",
+      "body": "NIST, the US standards agency, defines cloud computing as on-demand network access to a shared pool of computing resources: servers, storage, applications. You get a slice quickly when you need it and release it when you don't, with almost no setup. There is no mysterious sky machine. The cloud is someone else's computers, shared out by the slice."
+    },
+    {
+      "id": "card.everyday_technology.067.c3",
+      "type": "fact",
+      "fact": "Data centers used about 415 billion kilowatt-hours of electricity in 2024.",
+      "context": "That's the IEA's estimate of 415 terawatt-hours, around 1.5% of all the world's electricity. Each of those kilowatt-hours is Level 10's 3.6 million joules. Per unit of floor space, a data center uses 10 to 50 times the energy of a typical office building, says the US Department of Energy."
+    },
+    {
+      "id": "card.everyday_technology.067.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where all that energy goes",
+      "body": "Level 2's rule still holds: energy is never destroyed, it only changes form. In a data center, most of the electricity ends up as heat, and that heat has to be carried away before the machines overheat. Cooling alone can take up to 40% of a data center's energy. Your photo backup is, in a small way, a space heater.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Every cloud has a silver lining. This one has an enormous air conditioner."
+      }
+    },
+    {
+      "id": "card.everyday_technology.067.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.067.q1"
+    },
+    {
+      "id": "card.everyday_technology.067.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.067.q2"
+    },
+    {
+      "id": "card.everyday_technology.067.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.067.q3"
+    },
+    {
+      "id": "card.everyday_technology.067.c8",
+      "type": "checkpoint",
+      "headline": "The cloud: grounded",
+      "learned": [
+        "The cloud is on-demand access to shared computers over the network",
+        "Those computers sit in data centers, real buildings",
+        "Data centers used about 415 billion kWh in 2024, about 1.5% of world electricity",
+        "Most of that ends as heat; cooling can take up to 40%"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.cloud_computing"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.067.c1",
+        "card.everyday_technology.067.c2"
+      ],
+      "prompt": "When your phone backs up photos to \"the cloud,\" where do they actually go?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Into a satellite orbiting high above Earth",
+          "correct": false,
+          "rationale": "They go to computers on the ground."
+        },
+        {
+          "id": "b",
+          "label": "To computers in a data center, over the internet",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Into spare memory on your own phone",
+          "correct": false,
+          "rationale": "The cloud means the photos leave your phone."
+        },
+        {
+          "id": "d",
+          "label": "Into the router in your home",
+          "correct": false,
+          "rationale": "Wi-Fi only carries them as far as the router."
+        }
+      ],
+      "explanation": "Cloud storage lives on shared computers in data centers, reached over the internet.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.cloud_data_center_energy"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.067.c4"
+      ],
+      "prompt": "Why does a data center spend so much of its energy on cooling?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Servers only work when kept below freezing point",
+          "correct": false,
+          "rationale": "They just need their heat carried away."
+        },
+        {
+          "id": "b",
+          "label": "Cooling makes data travel faster through cables",
+          "correct": false,
+          "rationale": "Cooling prevents overheating; it doesn't add speed."
+        },
+        {
+          "id": "c",
+          "label": "Cold air is needed to hold stored data in place",
+          "correct": false,
+          "rationale": "Data is stored on the computers, not in the air."
+        },
+        {
+          "id": "d",
+          "label": "Most of its electricity turns into heat to remove",
+          "correct": true
+        }
+      ],
+      "explanation": "Energy changes form but isn't destroyed; most of a data center's electricity becomes heat, so cooling can take up to 40%.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.cloud_data_center_energy",
+        "concept.everyday_technology.electric_power"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.067.c3",
+        "card.everyday_technology.010.c4"
+      ],
+      "prompt": "The IEA says data centers used 415 terawatt-hours in 2024. In Level 10's billing unit, the kilowatt-hour, how much is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 415 thousand kWh",
+          "correct": false,
+          "rationale": "Far too small: tera means trillion."
+        },
+        {
+          "id": "b",
+          "label": "About 415 million kWh",
+          "correct": false,
+          "rationale": "Still a thousand times too small."
+        },
+        {
+          "id": "c",
+          "label": "About 415 billion kWh",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 415 trillion kWh",
+          "correct": false,
+          "rationale": "That would be 415 trillion kilowatt-hours; a terawatt-hour is a billion kWh."
+        }
+      ],
+      "explanation": "A terawatt-hour is a billion kilowatt-hours, so 415 TWh is about 415 billion kWh, each worth 3.6 million joules.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nist_sp800_145_cloud",
+    "source.doe_data_center_cooling",
+    "source.iea_energy_and_ai",
+    "source.doe_data_centers_servers",
+    "source.eesi_data_center_waste_heat",
+    "source.nist_sp811_conversion",
+    "source.psu_energy_units",
+    "source.eia_measuring_electricity",
+    "source.eia_laws_of_energy",
+    "source.brit_energy"
+  ],
+  "art": "technology.network"
+}

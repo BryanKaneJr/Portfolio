@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.everyday_technology.022",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Steam Engine",
+  "objective": "After this level you can explain how a steam engine turns heat into motion.",
+  "summary": "Newcomen's 1712 mine engine condensed steam so air pressure pushed its piston. Watt's separate condenser kept the cylinder hot and cut fuel costs; the watt honors him.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.motion_newcomen_engine",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_watt_steam_engine",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_power",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.021"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first working steam engines had one job: draining flooded mines.",
+      "body": "Pumping water out of mines with horses was expensive. So in 1712, near Dudley Castle in England, an engine designed by Thomas Newcomen went to work instead. It turned the heat of burning fuel into motion, though not in the way you'd probably guess."
+    },
+    {
+      "id": "card.everyday_technology.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The air did the pushing",
+      "body": "A steam engine uses heat to do mechanical work: steam from a boiler acts on a piston in a cylinder. Newcomen's version was sneaky. Steam filled the cylinder, then a spray of cold water condensed it back into a little water, leaving a partial vacuum. With almost nothing pushing from below, the atmosphere pressed the piston down, and that stroke worked the mine pump.",
+      "mascot": {
+        "pose": "idea",
+        "line": "So the first steam engines were really air engines with a steam assistant. Please don't tell the steam."
+      }
+    },
+    {
+      "id": "card.everyday_technology.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Watt's fix: keep the cylinder hot",
+      "body": "Every stroke, Newcomen's cylinder was chilled by the spray and then reheated by fresh steam, burning fuel just to warm it back up. In 1765 James Watt had the idea of condensing the steam in a separate chamber, so the cylinder could stay hot. He patented it in 1769, and it cut fuel costs. Then, in 1781, he made his engine turn a shaft, so it could drive machines, not just pumps."
+    },
+    {
+      "id": "card.everyday_technology.022.c4",
+      "type": "fact",
+      "fact": "Level 10's watt is named after James Watt.",
+      "context": "A watt is one joule of energy every second: the unit behind Level 10's 60-watt bulb. It honors the engineer whose work made steam engines far less wasteful. So each time you read a bulb's rating, you're quietly crediting a steam engineer."
+    },
+    {
+      "id": "card.everyday_technology.022.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.022.q1"
+    },
+    {
+      "id": "card.everyday_technology.022.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.022.q2"
+    },
+    {
+      "id": "card.everyday_technology.022.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.022.q3"
+    },
+    {
+      "id": "card.everyday_technology.022.c8",
+      "type": "checkpoint",
+      "headline": "Steam engines: running",
+      "learned": [
+        "Newcomen, 1712: an engine to pump mines dry",
+        "Condensed steam left a vacuum; air pushed the piston",
+        "Watt's separate condenser kept the cylinder hot",
+        "From 1781, steam engines turned shafts"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.motion_newcomen_engine"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.022.c1"
+      ],
+      "prompt": "What were the first Newcomen steam engines mainly used for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pulling passenger trains",
+          "correct": false,
+          "rationale": "Trains came much later."
+        },
+        {
+          "id": "b",
+          "label": "Making electricity for towns",
+          "correct": false,
+          "rationale": "Power stations came over a century later."
+        },
+        {
+          "id": "c",
+          "label": "Pumping water out of mines",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Spinning cotton in mills",
+          "correct": false,
+          "rationale": "Watt's later engines turned mill machinery."
+        }
+      ],
+      "explanation": "Newcomen engines pumped water out of mines, a job horses did at high cost.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.motion_watt_steam_engine"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.022.c3"
+      ],
+      "prompt": "Why did Watt's separate condenser save fuel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It burned each puff of steam twice, for double the push",
+          "correct": false,
+          "rationale": "Steam is not burned; it is condensed."
+        },
+        {
+          "id": "b",
+          "label": "The cylinder stayed hot instead of being chilled each stroke",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It swapped the steam for plain air, which costs nothing",
+          "correct": false,
+          "rationale": "It still ran on steam."
+        },
+        {
+          "id": "d",
+          "label": "It let the piston move freely without any cylinder",
+          "correct": false,
+          "rationale": "The piston still ran in a cylinder."
+        }
+      ],
+      "explanation": "Condensing steam in a separate chamber meant the cylinder no longer had to be reheated every stroke.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.motion_watt_steam_engine",
+        "concept.everyday_technology.electric_power"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.022.c4",
+        "card.everyday_technology.010.c3"
+      ],
+      "prompt": "Level 10's unit of power, the watt, honors a steam engineer. Which one, and why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Thomas Newcomen, for building the first mine engine",
+          "correct": false,
+          "rationale": "The unit honors the man who improved his engine."
+        },
+        {
+          "id": "b",
+          "label": "Alessandro Volta, for building the first battery",
+          "correct": false,
+          "rationale": "Volta gave his name to the volt."
+        },
+        {
+          "id": "c",
+          "label": "Michael Faraday, for building the first motor",
+          "correct": false,
+          "rationale": "Faraday worked on motors, not steam."
+        },
+        {
+          "id": "d",
+          "label": "James Watt, for making steam engines far more efficient",
+          "correct": true
+        }
+      ],
+      "explanation": "The watt, one joule per second, is named after James Watt, whose separate condenser cut the fuel steam engines wasted.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_newcomen",
+    "source.smg_newcomen_engine",
+    "source.brit_steam_engine",
+    "source.brit_james_watt",
+    "source.psu_energy_units",
+    "source.nist_sp330_si"
+  ],
+  "art": "technology.train"
+}

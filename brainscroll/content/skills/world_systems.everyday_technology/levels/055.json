@@ -1,0 +1,214 @@
+{
+  "id": "level.world_systems.everyday_technology.055",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Software and Code",
+  "objective": "After this level you can explain what code is and how programs tell a computer what to do.",
+  "summary": "Software is the instructions that tell hardware what to do. Processors run only binary machine code, so compilers translate languages like Python.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.computer_software_code",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_binary_numbers",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.054"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Install an app and your phone learns a new trick. Not one part changed.",
+      "body": "The phone's parts are the same before and after. What changed was a set of instructions. Those instructions are software, and writing them is called coding."
+    },
+    {
+      "id": "card.everyday_technology.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hardware and software",
+      "body": "Hardware is the physical machine: the chips, the screen, the case. Software is the instructions that tell it what to do, bundled into programs. Level 51's programmable computer is a machine that runs software. A new program doesn't change a single transistor. It changes what the transistors are told to do."
+    },
+    {
+      "id": "card.everyday_technology.055.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The processor only speaks binary",
+      "body": "A processor runs just one kind of instruction: machine code, written in Level 52's 0s and 1s. People find it very hard to read and write. So programmers use high-level languages such as Python or Java, which are much easier to read and write. Then something has to translate."
+    },
+    {
+      "id": "card.everyday_technology.055.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Compilers: the translators",
+      "body": "A compiler translates a whole program into machine code, saved to run whenever it's needed. An interpreter translates and runs it one instruction at a time instead. Grace Hopper designed one of the first compilers after joining the Eckert-Mauchly Computer Corporation in 1949. In 1957 her team's Flow-Matic became the first compiler for business data work written in English words.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "You write in something close to words, and the machine does the translating. Very civilized."
+      }
+    },
+    {
+      "id": "card.everyday_technology.055.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.055.q1"
+    },
+    {
+      "id": "card.everyday_technology.055.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.055.q2"
+    },
+    {
+      "id": "card.everyday_technology.055.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.055.q3"
+    },
+    {
+      "id": "card.everyday_technology.055.c8",
+      "type": "checkpoint",
+      "headline": "Code: compiled",
+      "learned": [
+        "Hardware is the machine; software is its instructions",
+        "Processors only run binary machine code",
+        "People write in languages like Python and Java",
+        "Compilers and interpreters translate; Grace Hopper built an early compiler"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.computer_software_code"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.055.c2"
+      ],
+      "prompt": "What name covers the programs and instructions that tell a computer what to do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hardware",
+          "correct": false,
+          "rationale": "Hardware is the physical machine that runs them."
+        },
+        {
+          "id": "b",
+          "label": "Firmware casing",
+          "correct": false,
+          "rationale": "Not a real category."
+        },
+        {
+          "id": "c",
+          "label": "Software",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Circuitry",
+          "correct": false,
+          "rationale": "Circuits are part of the hardware."
+        }
+      ],
+      "explanation": "Software is the instructions that tell a computer what to do; hardware is the machine itself.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.everyday_technology.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.computer_software_code"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.055.c3",
+        "card.everyday_technology.055.c4"
+      ],
+      "prompt": "Why do programmers usually write in a language like Python instead of in machine code?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Python runs without any processor",
+          "correct": false,
+          "rationale": "Every program still runs on a processor."
+        },
+        {
+          "id": "b",
+          "label": "It is far easier for people, and gets translated to machine code",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Machine code was banned in 1957",
+          "correct": false,
+          "rationale": "Machine code is still what every processor runs."
+        },
+        {
+          "id": "d",
+          "label": "Processors understand Python directly",
+          "correct": false,
+          "rationale": "Processors run only machine code."
+        }
+      ],
+      "explanation": "High-level languages are much easier for people to read and write; a compiler or interpreter turns them into machine code.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.computer_software_code",
+        "concept.everyday_technology.computer_binary_numbers"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.055.c3",
+        "card.everyday_technology.052.c2"
+      ],
+      "prompt": "Level 52 said computers work in 0s and 1s. What does a compiler turn a Python-style program into?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Plain English sentences",
+          "correct": false,
+          "rationale": "That runs the other way: toward people, not the processor."
+        },
+        {
+          "id": "b",
+          "label": "Magnetized patches on a disk",
+          "correct": false,
+          "rationale": "That describes how a hard drive stores bits."
+        },
+        {
+          "id": "c",
+          "label": "A list of pixel colors",
+          "correct": false,
+          "rationale": "Pixels are how pictures are stored."
+        },
+        {
+          "id": "d",
+          "label": "Machine code written in binary",
+          "correct": true
+        }
+      ],
+      "explanation": "Processors only run machine code, which is written in binary; the compiler does that translation.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_software",
+    "source.brit_programming_language",
+    "source.brit_grace_hopper"
+  ],
+  "art": "technology.laptop"
+}

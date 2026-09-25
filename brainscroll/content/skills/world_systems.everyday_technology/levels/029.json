@@ -1,0 +1,213 @@
+{
+  "id": "level.world_systems.everyday_technology.029",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Bicycles Stay Up",
+  "objective": "After this level you can explain what keeps a moving bicycle upright.",
+  "summary": "Riders stay up by steering the wheels under a fall. A moving bike can steer itself upright; a 2011 bike with no gyroscopic effect or trail still did. It's a subtle mix.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.motion_bike_steering_balance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_bike_self_stability",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.028"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.029.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first bicycle had no pedals.",
+      "body": "In 1817, Karl von Drais rode his wooden two-wheeler 14 km, pushing along with his feet on the ground. It already had handlebar steering, and steering turns out to be the heart of balance. Why a bike stays up is, amazingly, still not fully worked out."
+    },
+    {
+      "id": "card.everyday_technology.029.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "You balance by steering",
+      "body": "Think of balancing a broom upright on your hand: when it tips, you move your hand back under it. Riding works the same way. When the bike starts to lean one way, you steer that way, so the wheels roll back under your weight. You do it constantly without noticing. And that's why a stopped bike falls: with no rolling, steering can't fix anything."
+    },
+    {
+      "id": "card.everyday_technology.029.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A bike that balances itself",
+      "body": "Give a riderless bike a push at a decent speed and it can roll along upright, recovering from a sideways shove. As it leans, its front wheel steers into the lean all by itself. The usual explanation credited two things: the gyroscopic effect of the spinning front wheel, and trail, the way the front wheel touches the ground behind the steering axis, like a shopping-cart caster."
+    },
+    {
+      "id": "card.everyday_technology.029.c4",
+      "type": "fact",
+      "fact": "In 2011, a bike with neither effect still balanced itself.",
+      "context": "Kooijman and colleagues built a bike with extra wheels spinning backwards to cancel the gyroscopic effect, and a front wheel touching down ahead of the steering axis, so no trail. Rolling above about 5 mph (8 km/h), it still steered itself upright (Science, 2011). Where the bike's mass sits matters too. The honest summary: it's a mix of effects, and researchers say much is still to be learned.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Easy enough for a child to ride, hard enough to puzzle physicists. I love a good mystery."
+      }
+    },
+    {
+      "id": "card.everyday_technology.029.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.029.q1"
+    },
+    {
+      "id": "card.everyday_technology.029.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.029.q2"
+    },
+    {
+      "id": "card.everyday_technology.029.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.029.q3"
+    },
+    {
+      "id": "card.everyday_technology.029.c8",
+      "type": "checkpoint",
+      "headline": "Bicycles: upright",
+      "learned": [
+        "Riders balance by steering under the fall",
+        "A stopped bike cannot steer itself upright",
+        "A moving bike can steer itself into a lean",
+        "Gyroscopes and trail are not required (2011)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.motion_bike_self_stability"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.029.c4"
+      ],
+      "prompt": "What did the 2011 riderless bike experiment by Kooijman's team show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The spinning wheels alone keep a bike upright",
+          "correct": false,
+          "rationale": "Their bike cancelled the spin and still balanced."
+        },
+        {
+          "id": "b",
+          "label": "A bike can balance itself with no gyro effect or trail",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A bike can never balance itself without a rider",
+          "correct": false,
+          "rationale": "Their riderless bike balanced itself."
+        },
+        {
+          "id": "d",
+          "label": "Trail is the only thing that keeps a bike upright",
+          "correct": false,
+          "rationale": "Their bike had no trail and still balanced."
+        }
+      ],
+      "explanation": "Their test bike cancelled the gyroscopic effect and had no trail, yet steered itself upright: neither effect is required.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.motion_bike_steering_balance"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.029.c2"
+      ],
+      "prompt": "Riding along, you feel your bike start to tip to the left. What keeps you up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Leaning your body further to the left",
+          "correct": false,
+          "rationale": "That speeds up the fall."
+        },
+        {
+          "id": "b",
+          "label": "Steering sharply away, to the right",
+          "correct": false,
+          "rationale": "That moves the wheels away from under you."
+        },
+        {
+          "id": "c",
+          "label": "Pedaling backwards as fast as you can",
+          "correct": false,
+          "rationale": "Pedaling backwards does not move the wheels under you."
+        },
+        {
+          "id": "d",
+          "label": "Steering a little left, back under you",
+          "correct": true
+        }
+      ],
+      "explanation": "Steering toward the lean brings the wheels back under your weight, like moving your hand under a tipping broom.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.motion_bike_steering_balance"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.029.c1",
+        "card.everyday_technology.029.c2"
+      ],
+      "prompt": "Drais's 1817 running machine had no pedals, yet it had handlebar steering. What does that suggest about balance?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Balance comes from steering, not pedaling",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Balance needs a chain and gears",
+          "correct": false,
+          "rationale": "The running machine had neither."
+        },
+        {
+          "id": "c",
+          "label": "Riders balanced only by keeping both feet down",
+          "correct": false,
+          "rationale": "They pushed with their feet to move along."
+        },
+        {
+          "id": "d",
+          "label": "Wooden bikes balance better than metal ones",
+          "correct": false,
+          "rationale": "The material is not the point."
+        }
+      ],
+      "explanation": "Balance comes from steering the wheels under you as you roll; pedals only push the bike along.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_bicycle",
+    "source.asme_bicycle_bicentennial",
+    "source.conversation_bicycle_balance",
+    "source.sciencedaily_riderless_bicycle",
+    "source.science_kooijman_2011_bicycle"
+  ],
+  "art": "technology.gears"
+}

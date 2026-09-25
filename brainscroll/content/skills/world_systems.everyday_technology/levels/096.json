@@ -1,0 +1,232 @@
+{
+  "id": "level.world_systems.everyday_technology.096",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Fusion Power",
+  "objective": "After this level you can explain how fusion differs from fission and why it is so hard to achieve.",
+  "summary": "Fusion joins light nuclei; fission splits heavy ones. Because nuclei repel, fusion needs about 150 million °C. NIF's December 2022 shot gained energy on the target, not for the whole facility.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.fusion_vs_fission",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.fusion_difficulty",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.fusion_nif_ignition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_current",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_power",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.095"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.096.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On December 5, 2022, a fusion experiment got out more than it put in.",
+      "body": "At the National Ignition Facility in California, 192 lasers delivered 2.05 megajoules of energy to a tiny fuel target, and fusion released 3.15 megajoules. More out than in! So why isn't fusion lighting your home? Start with what fusion is, then read the fine print."
+    },
+    {
+      "id": "card.everyday_technology.096.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fusion joins; fission splits",
+      "body": "Fission releases energy by splitting heavy nuclei such as uranium. Fusion goes the other way: it joins very light nuclei into heavier ones, and it's what powers the Sun and the other stars. In the lab, the best reaction joins two kinds of hydrogen, deuterium and tritium, into helium. Fusion also can't run away: if control is lost, the reaction simply stops."
+    },
+    {
+      "id": "card.everyday_technology.096.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it's so hard: nuclei don't want to touch",
+      "body": "Remember Level 3: like charges repel. Nuclei are all positively charged, so they push each other away. To make them fuse, the fuel must be heated until the nuclei have enough energy to overcome that push. ITER says deuterium-tritium fusion needs 150,000,000 °C, 10 times hotter than the core of the Sun. At that heat the fuel is a plasma. Tokamaks hold it with magnetic fields; NIF squeezes its fuel with lasers."
+    },
+    {
+      "id": "card.everyday_technology.096.c4",
+      "type": "fact",
+      "fact": "NIF's gain was on the target, not the whole facility.",
+      "context": "The lasers delivered 2.05 megajoules and fusion released 3.15, a gain above 1.5 on the target. But making each shot takes about 300 megajoules of electricity from the grid, so the facility as a whole used far more energy than the fusion made. By Level 10's math, 3.15 megajoules is under one kilowatt-hour.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Target gain and facility gain: two different scoreboards. Always ask which one a headline means."
+      }
+    },
+    {
+      "id": "card.everyday_technology.096.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.096.q1"
+    },
+    {
+      "id": "card.everyday_technology.096.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.096.q2"
+    },
+    {
+      "id": "card.everyday_technology.096.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.096.q3"
+    },
+    {
+      "id": "card.everyday_technology.096.c8",
+      "type": "checkpoint",
+      "headline": "Fusion: ignited",
+      "learned": [
+        "Fusion joins light nuclei; fission splits heavy ones",
+        "Nuclei repel, so fusion needs about 150 million °C",
+        "Tokamaks use magnetic fields; NIF uses lasers",
+        "Dec 2022: gain on the target, not the facility"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.fusion_vs_fission"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.096.c2"
+      ],
+      "prompt": "How does nuclear fusion differ from nuclear fission?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fusion splits heavy nuclei; fission joins light ones",
+          "correct": false,
+          "rationale": "That's backwards."
+        },
+        {
+          "id": "b",
+          "label": "Fusion only works with uranium",
+          "correct": false,
+          "rationale": "Fusion uses very light nuclei such as hydrogen."
+        },
+        {
+          "id": "c",
+          "label": "Fission is what powers the Sun",
+          "correct": false,
+          "rationale": "The Sun runs on fusion."
+        },
+        {
+          "id": "d",
+          "label": "Fusion joins light nuclei; fission splits heavy ones",
+          "correct": true
+        }
+      ],
+      "explanation": "Fusion joins light nuclei such as hydrogen; fission splits heavy nuclei such as uranium.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.fusion_nif_ignition"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.096.c4"
+      ],
+      "prompt": "NIF's December 2022 shot put 2.05 MJ of laser energy on its target and got 3.15 MJ back. Why wasn't that net energy for the facility?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Making the laser shot took about 300 MJ from the grid",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Fusion destroyed part of the energy",
+          "correct": false,
+          "rationale": "Energy is never destroyed (Level 2)."
+        },
+        {
+          "id": "c",
+          "label": "The fusion energy was stored inside the target",
+          "correct": false,
+          "rationale": "The energy came out; the lasers simply cost far more."
+        },
+        {
+          "id": "d",
+          "label": "The measurement was in kilowatt-hours, not joules",
+          "correct": false,
+          "rationale": "Units don't change the result."
+        }
+      ],
+      "explanation": "The gain was on the target: the lasers drew about 300 MJ of electricity to deliver 2.05 MJ, far more than the 3.15 MJ of fusion energy.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.everyday_technology.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.fusion_difficulty",
+        "concept.everyday_technology.electric_current"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.096.c3",
+        "card.everyday_technology.003.c2"
+      ],
+      "prompt": "Level 3 said like charges repel. Why does that make fusion so hard?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Electrons inside the wire block the reaction",
+          "correct": false,
+          "rationale": "Wires aren't involved; the nuclei are the problem."
+        },
+        {
+          "id": "b",
+          "label": "Positively charged nuclei push each other apart",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Negative nuclei are pulled into the reactor walls",
+          "correct": false,
+          "rationale": "Nuclei are positive, and they repel each other."
+        },
+        {
+          "id": "d",
+          "label": "Like charges attract, so the fuel clumps together",
+          "correct": false,
+          "rationale": "Like charges repel."
+        }
+      ],
+      "explanation": "Every nucleus is positive, so nuclei repel; the fuel must be heated to about 150 million °C before they have enough energy to fuse.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.llnl_fusion_ignition_2022",
+    "source.optica_nif_ignition",
+    "source.brit_nuclear_fusion",
+    "source.iter_what_is_fusion",
+    "source.eia_science_of_electricity",
+    "source.nist_sp811_conversion",
+    "source.psu_energy_units",
+    "source.eia_measuring_electricity"
+  ],
+  "art": "technology.atom"
+}

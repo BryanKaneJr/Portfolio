@@ -1,0 +1,244 @@
+{
+  "id": "level.world_systems.everyday_technology.057",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The First Computers",
+  "objective": "After this level you can describe Babbage's engines, Ada Lovelace and the first electronic computers.",
+  "summary": "Babbage designed mechanical computers; Lovelace wrote an early program. The ABC, Z3, Colossus and ENIAC were each first by a different rule.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.computer_first_computers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_ipo_model",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.056"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A computer Babbage designed by 1849 was finally built in 1991.",
+      "body": "London's Science Museum followed Charles Babbage's plans for Difference Engine No. 2, designed in 1847-1849. The calculating section, finished in 1991, works as he intended. Babbage never saw it. So who built the first computer? That depends on your rules."
+    },
+    {
+      "id": "card.everyday_technology.057.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Babbage's Analytical Engine",
+      "body": "In 1834 Babbage conceived something bigger: the Analytical Engine, a mechanical machine to be programmed with punched cards. It had a store to hold numbers and a mill to do the arithmetic. Sound familiar? That's Level 51's memory and processing, sketched in brass and gears. It was never built."
+    },
+    {
+      "id": "card.everyday_technology.057.c3",
+      "type": "fact",
+      "fact": "In 1843 Ada Lovelace published what is often called the first computer program.",
+      "context": "Her notes on the Analytical Engine showed, step by step, how it could compute a series called the Bernoulli numbers. She also saw that it could work on letters and musical notes, not only numbers. A program for a machine that did not exist yet.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Writing a program for a machine nobody built. Now that is confidence."
+      }
+    },
+    {
+      "id": "card.everyday_technology.057.c4",
+      "type": "timeline",
+      "headline": "Four machines, four kinds of first",
+      "events": [
+        {
+          "when": "1939-1942",
+          "label": "Atanasoff-Berry Computer, Iowa: electronic, but not programmable"
+        },
+        {
+          "when": "1941",
+          "label": "Zuse's Z3, Germany: program-controlled, but built from relays, not electronics"
+        },
+        {
+          "when": "1944",
+          "label": "Colossus, Bletchley Park: electronic and programmable in a limited way; broke codes and stayed secret for decades"
+        },
+        {
+          "when": "1946",
+          "label": "ENIAC, Philadelphia: the first programmable, general-purpose electronic computer"
+        }
+      ]
+    },
+    {
+      "id": "card.everyday_technology.057.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "So who was first? First at what?",
+      "body": "Each machine wins by a different rule: mechanical design, program control, electronics, general purpose. Historians still argue about which rule matters. Even the courts got involved: in 1973 a US court ruled the ENIAC patent invalid, finding its inventors had drawn on John Atanasoff's ideas. The honest answer to \"who built the first computer?\" is a question back: first at what?"
+    },
+    {
+      "id": "card.everyday_technology.057.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.057.q1"
+    },
+    {
+      "id": "card.everyday_technology.057.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.057.q2"
+    },
+    {
+      "id": "card.everyday_technology.057.c8",
+      "type": "recall",
+      "questionId": "question.everyday_technology.057.q3"
+    },
+    {
+      "id": "card.everyday_technology.057.c9",
+      "type": "checkpoint",
+      "headline": "First computers: counted",
+      "learned": [
+        "Babbage's engines were mechanical; one was built in 1991 and works",
+        "Ada Lovelace wrote what is often called the first program (1843)",
+        "ABC, Z3, Colossus and ENIAC were each first by a different rule",
+        "Who was first depends on the rule you pick"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.computer_first_computers"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.057.c4"
+      ],
+      "prompt": "Which early machine was electronic but could not be programmed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Zuse's Z3",
+          "correct": false,
+          "rationale": "The Z3 was program-controlled but built from relays."
+        },
+        {
+          "id": "b",
+          "label": "The Atanasoff-Berry Computer",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Colossus",
+          "correct": false,
+          "rationale": "Colossus was programmable, in a limited way."
+        },
+        {
+          "id": "d",
+          "label": "ENIAC",
+          "correct": false,
+          "rationale": "ENIAC was programmable and general-purpose."
+        }
+      ],
+      "explanation": "The ABC (1939-1942) was electronic but not programmable.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.computer_first_computers"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.057.c5",
+        "card.everyday_technology.057.c4"
+      ],
+      "prompt": "Why is there no single agreed answer to which machine was the first computer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nobody kept any records",
+          "correct": false,
+          "rationale": "The machines are well documented."
+        },
+        {
+          "id": "b",
+          "label": "All of them were built in the same year",
+          "correct": false,
+          "rationale": "They span 1939 to 1946, plus Babbage a century earlier."
+        },
+        {
+          "id": "c",
+          "label": "Each early machine was first by a different rule",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A court banned the question",
+          "correct": false,
+          "rationale": "The 1973 ruling was about a patent."
+        }
+      ],
+      "explanation": "Mechanical design, program control, electronics or general purpose: change the rule and the winner changes.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.computer_first_computers",
+        "concept.everyday_technology.computer_ipo_model"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.057.c2",
+        "card.everyday_technology.051.c3"
+      ],
+      "prompt": "Babbage's Analytical Engine had a \"store\" and a \"mill\". Which of Level 51's four computer jobs did the mill do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Input",
+          "correct": false,
+          "rationale": "Input came in on punched cards."
+        },
+        {
+          "id": "b",
+          "label": "Memory",
+          "correct": false,
+          "rationale": "That was the store's job."
+        },
+        {
+          "id": "c",
+          "label": "Output",
+          "correct": false,
+          "rationale": "The mill worked on numbers rather than showing them."
+        },
+        {
+          "id": "d",
+          "label": "Processing",
+          "correct": true
+        }
+      ],
+      "explanation": "The store held numbers (memory); the mill did the arithmetic (processing), like a CPU.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.chm_babbage_modern_sequel",
+    "source.sciencemuseum_babbage_engines",
+    "source.brit_ada_lovelace",
+    "source.chm_atanasoff_berry",
+    "source.brit_konrad_zuse",
+    "source.chm_timeline_1941",
+    "source.tnmoc_colossus",
+    "source.brit_colossus",
+    "source.brit_eniac",
+    "source.iastate_abc_court_case",
+    "source.brit_computer"
+  ],
+  "art": "technology.gears"
+}

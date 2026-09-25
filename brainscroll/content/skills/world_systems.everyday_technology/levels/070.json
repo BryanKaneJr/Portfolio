@@ -1,0 +1,351 @@
+{
+  "id": "level.world_systems.everyday_technology.070",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 70,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: The Internet",
+  "objective": "After this level you can trace a message from your device across the internet and explain how it stays private.",
+  "summary": "A message leaves by Wi-Fi radio, travels as encrypted packets, crosses oceans as light in fiber and is rebuilt at the far end. Light in fiber takes about 5 millionths of a second per kilometer.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.internet_latency",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.wifi_basics",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.internet_packet_switching",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.crypto_public_key",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.internet_fiber_optics",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.internet_tcp_ip",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_current",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.069"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.070.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 7 finale: how long does your message take to cross an ocean?",
+      "body": "You tap Send. Your words leave by radio, cross the seabed as flashes of laser light in glass fiber and arrive on another continent. Put the whole chapter together and the answer is a small fraction of a second: about a twentieth for 10,000 km of fiber."
+    },
+    {
+      "id": "card.everyday_technology.070.c2",
+      "type": "comparison",
+      "headline": "One message, three stretches",
+      "items": [
+        {
+          "label": "Leaving home",
+          "points": [
+            "Wi-Fi radio carries it to your router (Level 64)",
+            "It travels as packets over any available route (Level 62)"
+          ]
+        },
+        {
+          "label": "On the way",
+          "points": [
+            "Public-key encryption keeps it unreadable (Level 68)",
+            "TCP numbers the packets and resends lost ones"
+          ]
+        },
+        {
+          "label": "Arriving",
+          "points": [
+            "The receiver puts the packets back in order",
+            "Only the right key unlocks the contents"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.everyday_technology.070.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Light, slowed down by glass",
+      "body": "In empty space, light crosses a kilometer in about 3.34 millionths of a second. Glass slows it: in optical fiber it takes about 4.9 millionths, usually rounded to 5. That's about two-thirds of its top speed. Level 3's electrical push also raced through wires at nearly the speed of light. In fiber, the signal is the light itself."
+    },
+    {
+      "id": "card.everyday_technology.070.c4",
+      "type": "fact",
+      "fact": "Every 1,000 km of fiber adds about 5 thousandths of a second.",
+      "context": "At 5 millionths of a second per kilometer, 1,000 km takes 5 thousandths of a second, and a 10,000 km trip takes about a twentieth of a second, one way. Physics sets that floor: the light can't go any faster through the glass.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Halfway around the planet in a twentieth of a second. And somehow the loading spinner still finds time to spin."
+      }
+    },
+    {
+      "id": "card.everyday_technology.070.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.070.q1"
+    },
+    {
+      "id": "card.everyday_technology.070.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.070.q2"
+    },
+    {
+      "id": "card.everyday_technology.070.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.070.q3"
+    },
+    {
+      "id": "card.everyday_technology.070.c8",
+      "type": "recall",
+      "questionId": "question.everyday_technology.070.q4"
+    },
+    {
+      "id": "card.everyday_technology.070.c9",
+      "type": "recall",
+      "questionId": "question.everyday_technology.070.q5"
+    },
+    {
+      "id": "card.everyday_technology.070.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 7 complete",
+      "learned": [
+        "Wi-Fi radio carries your message to the router; then it travels as packets",
+        "TCP resends lost packets; public-key encryption keeps them private",
+        "Undersea fiber carries data between continents as laser light",
+        "Light in fiber takes about 5 millionths of a second per kilometer"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.070.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.internet_latency"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.070.c4"
+      ],
+      "prompt": "Roughly how long does light take to travel through 1,000 km of optical fiber?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 5 millionths of a second",
+          "correct": false,
+          "rationale": "That's for one kilometer, not 1,000."
+        },
+        {
+          "id": "b",
+          "label": "About 5 thousandths of a second",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About half a second",
+          "correct": false,
+          "rationale": "Much faster than that."
+        },
+        {
+          "id": "d",
+          "label": "About 5 seconds",
+          "correct": false,
+          "rationale": "Far too slow for light."
+        }
+      ],
+      "explanation": "At about 5 millionths of a second per kilometer, 1,000 km takes about 5 thousandths of a second.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.070.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.internet_latency"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.070.c3"
+      ],
+      "prompt": "Why does light travel slower through an undersea fiber than through empty space?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Seawater pushes back against it",
+          "correct": false,
+          "rationale": "The light is inside the glass; the glass slows it."
+        },
+        {
+          "id": "b",
+          "label": "It travels as electric current, not light",
+          "correct": false,
+          "rationale": "It is light, from lasers."
+        },
+        {
+          "id": "c",
+          "label": "The glass of the fiber slows it down",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It stops at every packet to check the address",
+          "correct": false,
+          "rationale": "Speed in fiber is set by the glass itself."
+        }
+      ],
+      "explanation": "Light in optical fiber takes about 4.9 millionths of a second per km instead of 3.34 in a vacuum: the glass slows it to about two-thirds.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.everyday_technology.070.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.wifi_basics"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.064.c2",
+        "card.everyday_technology.070.c2"
+      ],
+      "prompt": "Tracing an internet message from your home: which stretch usually travels by radio rather than by cable?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From your device to your home router",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Across the ocean floor",
+          "correct": false,
+          "rationale": "That's laser light in glass fiber (Level 63)."
+        },
+        {
+          "id": "c",
+          "label": "Between continents, by satellite",
+          "correct": false,
+          "rationale": "Over 99% of that data goes by undersea cable."
+        },
+        {
+          "id": "d",
+          "label": "Inside the data center's cooling pipes",
+          "correct": false,
+          "rationale": "Cooling pipes carry heat away, not messages."
+        }
+      ],
+      "explanation": "Wi-Fi uses radio waves for the short hop between your device and the router; the long stretches run on cables.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.070.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.internet_packet_switching"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.062.c2"
+      ],
+      "prompt": "From Level 62: how do the packets of one internet message travel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "All together on one reserved line",
+          "correct": false,
+          "rationale": "That's an old phone call."
+        },
+        {
+          "id": "b",
+          "label": "In one piece, never split up",
+          "correct": false,
+          "rationale": "Packet switching splits the message up."
+        },
+        {
+          "id": "c",
+          "label": "Only by satellite",
+          "correct": false,
+          "rationale": "Most long-haul data goes by cable (Level 63)."
+        },
+        {
+          "id": "d",
+          "label": "Separately, over any available route",
+          "correct": true
+        }
+      ],
+      "explanation": "Each packet carries its destination address and travels independently; the message is reassembled at the end.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.070.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.crypto_public_key"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.068.c4"
+      ],
+      "prompt": "From Level 68: in public-key encryption, what can anyone holding your public key do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Unlock messages meant for you",
+          "correct": false,
+          "rationale": "Only your private key unlocks."
+        },
+        {
+          "id": "b",
+          "label": "Lock a message that only your private key can open",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Read every password stored in your password manager",
+          "correct": false,
+          "rationale": "A public key only locks; it reveals nothing."
+        },
+        {
+          "id": "d",
+          "label": "Break Caesar's cipher faster",
+          "correct": false,
+          "rationale": "Caesar's cipher falls to trying 25 shifts; keys don't matter."
+        }
+      ],
+      "explanation": "Public-key cryptography uses two keys: the public one locks, and only the matching private key unlocks.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.m2optics_fiber_latency",
+    "source.brit_wifi",
+    "source.brit_internet",
+    "source.ethw_packet_switching",
+    "source.ietf_rfc9293_tcp",
+    "source.nist_glossary_public_key",
+    "source.telegeography_cable_faq",
+    "source.physicsclassroom_electric_current",
+    "source.openstax_college_physics_current"
+  ],
+  "art": "technology.network"
+}

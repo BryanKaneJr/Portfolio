@@ -1,0 +1,223 @@
+{
+  "id": "level.world_systems.everyday_technology.037",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "GPS",
+  "objective": "After this level you can explain how GPS satellites and precise clocks find your position.",
+  "summary": "GPS receivers only listen: they time signals from at least four satellites to find distances, position and time. Satellite clocks run 38 microseconds a day fast and are corrected for relativity.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.gps_positioning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.gps_clocks",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.echo_radar",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.036"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your phone's GPS never sends a thing to the satellites.",
+      "body": "GPS satellites broadcast one-way signals, and your receiver only listens. The civilian service is free to anyone, anywhere. So how does something that just listens work out exactly where it is? It checks the time."
+    },
+    {
+      "id": "card.everyday_technology.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Distance from a delay",
+      "body": "At least 24 GPS satellites circle about 20,200 km up, each going around Earth twice a day, arranged so at least four are in view from almost anywhere. Each one broadcasts its position and the time. Your receiver notes how long each signal took to arrive. The signals travel at the speed of light, so every delay becomes a distance."
+    },
+    {
+      "id": "card.everyday_technology.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why four satellites",
+      "body": "The satellites carry very precise atomic clocks. Your receiver's clock is far cruder, and that's a problem when timing light. So a precise fix uses four satellites: three to find the position and a fourth to correct the error in the receiver's clock. Out comes latitude, longitude, altitude and the time. Your phone gets an atomic-grade clock for free."
+    },
+    {
+      "id": "card.everyday_technology.037.c4",
+      "type": "fact",
+      "fact": "GPS satellite clocks run about 38 microseconds a day fast.",
+      "context": "That's Einstein's relativity at work. Weaker gravity up there speeds the clocks by about 45 microseconds a day, and their orbital speed slows them by about 7, so engineers built in the correction. Ignore it and position errors would pile up at about 10 kilometers a day. Tiny times matter, because light travels about 300 meters in a millionth of a second.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Your map app quietly corrects for Einstein every single day. Not bad for something in your pocket."
+      }
+    },
+    {
+      "id": "card.everyday_technology.037.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.037.q1"
+    },
+    {
+      "id": "card.everyday_technology.037.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.037.q2"
+    },
+    {
+      "id": "card.everyday_technology.037.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.037.q3"
+    },
+    {
+      "id": "card.everyday_technology.037.c8",
+      "type": "checkpoint",
+      "headline": "GPS: located",
+      "learned": [
+        "Receivers only listen to one-way satellite signals",
+        "Signal delay at light speed gives each distance",
+        "Four satellites: three for position, one for the clock",
+        "Relativity makes satellite clocks run 38 microseconds a day fast"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.gps_positioning"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.037.c2"
+      ],
+      "prompt": "How does a GPS receiver work out its distance to each satellite?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By sending a signal and timing the reply",
+          "correct": false,
+          "rationale": "The receiver only listens; it never transmits."
+        },
+        {
+          "id": "b",
+          "label": "By measuring how strong the signal is",
+          "correct": false,
+          "rationale": "Distance comes from timing, not strength."
+        },
+        {
+          "id": "c",
+          "label": "By asking the nearest cell tower",
+          "correct": false,
+          "rationale": "GPS works without any tower."
+        },
+        {
+          "id": "d",
+          "label": "From how long the satellite's signal took to arrive",
+          "correct": true
+        }
+      ],
+      "explanation": "Each signal carries the time it was sent; the delay times the speed of light gives the distance.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.gps_clocks",
+        "concept.everyday_technology.gps_positioning"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.037.c3"
+      ],
+      "prompt": "Why does a precise GPS fix use a fourth satellite?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To correct the error in the receiver's clock",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To send the answer back to your phone",
+          "correct": false,
+          "rationale": "Satellites never receive from your phone."
+        },
+        {
+          "id": "c",
+          "label": "In case one satellite is switched off",
+          "correct": false,
+          "rationale": "The fourth is needed every time."
+        },
+        {
+          "id": "d",
+          "label": "To measure the height of the satellites",
+          "correct": false,
+          "rationale": "The satellites broadcast their own positions."
+        }
+      ],
+      "explanation": "Three satellites fix the position; the fourth corrects the receiver's much less precise clock.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.gps_positioning",
+        "concept.everyday_technology.echo_radar"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.037.c1",
+        "card.everyday_technology.037.c2",
+        "card.everyday_technology.035.c2"
+      ],
+      "prompt": "Level 35's radar times an echo that goes out and back. How is GPS timing different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "GPS times sound instead of radio",
+          "correct": false,
+          "rationale": "GPS signals are radio waves."
+        },
+        {
+          "id": "b",
+          "label": "GPS measures a one-way trip the receiver only hears",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "GPS halves its time like radar does",
+          "correct": false,
+          "rationale": "There is no return trip to halve."
+        },
+        {
+          "id": "d",
+          "label": "GPS uses the Doppler shift alone",
+          "correct": false,
+          "rationale": "GPS turns travel time into distance."
+        }
+      ],
+      "explanation": "Radar halves a round trip; a GPS signal makes one trip, satellite to receiver, and the receiver never transmits.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.gps_gov_overview",
+    "source.gps_gov_space_segment",
+    "source.nasa_gps",
+    "source.noaa_gps_tutorial",
+    "source.nist_gps_relativity",
+    "source.osu_gps_relativity",
+    "source.nist_speed_of_light"
+  ],
+  "art": "technology.satellite"
+}

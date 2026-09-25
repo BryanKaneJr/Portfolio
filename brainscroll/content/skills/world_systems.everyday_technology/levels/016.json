@@ -1,0 +1,217 @@
+{
+  "id": "level.world_systems.everyday_technology.016",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Wind Power",
+  "objective": "After this level you can explain how wind turbines work and where they work best.",
+  "summary": "Wind turns blades and a rotor that drives a generator. Wind power rises with the cube of wind speed, so turbines go on windy plains, hilltops and water, on tall towers.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.wind_turbine",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.wind_siting",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.generator",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.015"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Double the wind speed, and you get eight times the power.",
+      "body": "That one rule explains where wind turbines stand and why they're so tall. First, what's going on up there when the blades turn?"
+    },
+    {
+      "id": "card.everyday_technology.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A generator with wings",
+      "body": "A wind turbine's blades work like an airplane wing: moving air pushes them around. They turn a rotor, which drives a generator, either directly or through a shaft and gearbox. It all sits in a housing called the nacelle, on top of a tall tower. It's Level 8's generator again, except the wind does the spinning that steam does in Level 12's power plants."
+    },
+    {
+      "id": "card.everyday_technology.016.c3",
+      "type": "fact",
+      "fact": "The power in the wind grows with the cube of its speed.",
+      "context": "Double the speed and the power goes up two times two times two: eight times. That's why a site that's only a little windier can make far more electricity, and why small changes in wind speed swing a turbine's output so much."
+    },
+    {
+      "id": "card.everyday_technology.016.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the wind is worth it",
+      "body": "Good sites for big turbines average at least 13 mph of wind: smooth rounded hilltops, open plains, open water and mountain gaps that funnel the wind. Wind is also generally faster higher up, which is why the towers are so tall. In 2025, Texas, Iowa, Oklahoma, Kansas and Illinois made about 52% of US wind power. Across the country, wind made about a tenth of all electricity."
+    },
+    {
+      "id": "card.everyday_technology.016.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.016.q1"
+    },
+    {
+      "id": "card.everyday_technology.016.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.016.q2"
+    },
+    {
+      "id": "card.everyday_technology.016.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.016.q3"
+    },
+    {
+      "id": "card.everyday_technology.016.c8",
+      "type": "checkpoint",
+      "headline": "Wind: harnessed",
+      "learned": [
+        "Blades turn a rotor that drives a generator in the nacelle",
+        "Wind power grows with the cube of wind speed",
+        "Best sites: plains, hilltops, open water, mountain gaps",
+        "Tall towers reach faster wind"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.wind_turbine"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.016.c2"
+      ],
+      "prompt": "Inside a wind turbine, what do the turning blades ultimately drive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A boiler that makes steam",
+          "correct": false,
+          "rationale": "Wind turbines need no steam."
+        },
+        {
+          "id": "b",
+          "label": "A battery inside the tower",
+          "correct": false,
+          "rationale": "The blades drive a generator, not a battery."
+        },
+        {
+          "id": "c",
+          "label": "A generator in the nacelle",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A fan that pushes the air back",
+          "correct": false,
+          "rationale": "The turbine takes energy from the wind; it doesn't blow it."
+        }
+      ],
+      "explanation": "The blades turn a rotor that drives a generator, directly or through a gearbox, in the nacelle.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.wind_siting"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.016.c3"
+      ],
+      "prompt": "One site's winds blow twice as fast as another's. How much more power does its wind carry?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The same",
+          "correct": false,
+          "rationale": "Faster wind carries more power."
+        },
+        {
+          "id": "b",
+          "label": "Twice as much",
+          "correct": false,
+          "rationale": "Power grows faster than the speed."
+        },
+        {
+          "id": "c",
+          "label": "Four times as much",
+          "correct": false,
+          "rationale": "That's the square; power follows the cube."
+        },
+        {
+          "id": "d",
+          "label": "Eight times as much",
+          "correct": true
+        }
+      ],
+      "explanation": "Wind power follows the cube of the speed: 2 x 2 x 2 = 8.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.wind_turbine",
+        "concept.everyday_technology.generator"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.016.c2",
+        "card.everyday_technology.008.c3"
+      ],
+      "prompt": "Level 8 said something has to spin a generator's rotor. In a wind turbine, what does it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Steam from burning fuel",
+          "correct": false,
+          "rationale": "That's Level 12's power plants."
+        },
+        {
+          "id": "b",
+          "label": "Moving air pushing on the blades",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Water falling through a penstock",
+          "correct": false,
+          "rationale": "That's a hydro dam."
+        },
+        {
+          "id": "d",
+          "label": "Sunlight warming the tower",
+          "correct": false,
+          "rationale": "Sunlight isn't what turns the blades."
+        }
+      ],
+      "explanation": "The wind pushes the blades, which turn the rotor and the generator: Level 8's machine, spun by moving air.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.doe_how_wind_turbines_work",
+    "source.brit_wind_power",
+    "source.doe_llnl_wind_cube",
+    "source.eia_where_wind",
+    "source.eia_electricity_in_us",
+    "source.eia_how_electricity_generated",
+    "source.brit_electric_generator"
+  ],
+  "art": "technology.wind-turbine"
+}

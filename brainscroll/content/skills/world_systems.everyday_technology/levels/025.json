@@ -1,0 +1,233 @@
+{
+  "id": "level.world_systems.everyday_technology.025",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Electric Cars",
+  "objective": "After this level you can explain how electric cars work and how they differ from gas cars.",
+  "summary": "An electric car's battery-powered motor turns the wheels. Over 77% of plug energy reaches them, and regenerative braking runs the motor as a generator to recharge.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.motion_ev_drivetrain",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_regenerative_braking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_motor",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.generator",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_internal_combustion",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.024"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "By 1900, about a third of the vehicles on the road were electric.",
+      "body": "Then cheap gasoline cars such as Ford's Model T, and an electric starter that ended hand-cranking, pushed them aside. Now they're back: in 2025, about 1 in 4 new cars sold worldwide was electric, counting plug-in hybrids (IEA). Inside, they run on ideas from Chapter 1."
+    },
+    {
+      "id": "card.everyday_technology.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Battery, motor, wheels",
+      "body": "An all-electric car has no internal combustion engine at all. A big rechargeable battery pack stores the energy, and an electric traction motor, Level 7's machine for turning electricity into motion, drives the wheels. Nothing burns, so there's no tailpipe and no exhaust. Level 24's four strokes, spark plugs and pistons simply aren't there."
+    },
+    {
+      "id": "card.everyday_technology.025.c3",
+      "type": "fact",
+      "fact": "Counting from the plug, an electric car gets over 77% of its energy to the wheels.",
+      "context": "A gas car gets only about 12%-30% of its fuel's energy to the wheels, as Level 24 showed. The difference is mostly heat: an engine burning fuel loses most of its energy that way, and an electric motor loses far less. Level 2's rule does the accounting: less energy lost means more of it moving you."
+    },
+    {
+      "id": "card.everyday_technology.025.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Braking that charges the battery",
+      "body": "Here's the clever part. When an electric car slows down, the turning wheels spin its motor, and the motor runs as a generator, just as Level 8 said a motor run backwards would. It makes electricity that goes back into the battery, and doing that work helps slow the car. This is regenerative braking: energy that braking would normally waste gets saved.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A car that tops itself up a little every time it slows down. My bicycle has never been that considerate."
+      }
+    },
+    {
+      "id": "card.everyday_technology.025.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.025.q1"
+    },
+    {
+      "id": "card.everyday_technology.025.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.025.q2"
+    },
+    {
+      "id": "card.everyday_technology.025.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.025.q3"
+    },
+    {
+      "id": "card.everyday_technology.025.c8",
+      "type": "checkpoint",
+      "headline": "Electric cars: charged",
+      "learned": [
+        "Around 1900, about a third of vehicles were electric",
+        "A battery-powered motor drives the wheels",
+        "Over 77% of plug energy reaches the wheels",
+        "Regenerative braking turns the motor into a generator"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.motion_ev_drivetrain"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.025.c2"
+      ],
+      "prompt": "What turns the wheels of an all-electric car?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A small gas engine inside it",
+          "correct": false,
+          "rationale": "An all-electric car burns no fuel."
+        },
+        {
+          "id": "b",
+          "label": "A motor powered by a battery pack",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A steam turbine under the hood",
+          "correct": false,
+          "rationale": "No steam here: a motor does the work."
+        },
+        {
+          "id": "d",
+          "label": "Solar panels on the roof",
+          "correct": false,
+          "rationale": "The energy comes from a battery pack."
+        }
+      ],
+      "explanation": "An electric traction motor, powered by a rechargeable battery pack, drives the wheels.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.motion_ev_drivetrain"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.025.c3"
+      ],
+      "prompt": "Counting from the plug, why does an electric car get more of its energy to the wheels than a gas car gets from its fuel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Electricity weighs less than gasoline",
+          "correct": false,
+          "rationale": "Weight is not the reason."
+        },
+        {
+          "id": "b",
+          "label": "Electric cars are always smaller",
+          "correct": false,
+          "rationale": "Size is not the reason."
+        },
+        {
+          "id": "c",
+          "label": "Its battery makes extra energy",
+          "correct": false,
+          "rationale": "Batteries store energy; they cannot create it."
+        },
+        {
+          "id": "d",
+          "label": "Its motor loses far less energy as heat",
+          "correct": true
+        }
+      ],
+      "explanation": "Over 77% versus about 12%-30%: an engine burning fuel loses most of its energy as heat, while a motor loses much less.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.motion_regenerative_braking",
+        "concept.everyday_technology.generator"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.025.c4",
+        "card.everyday_technology.008.c4"
+      ],
+      "prompt": "Regenerative braking depends on an idea from Level 8. Which one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Current makes a magnetic field",
+          "correct": false,
+          "rationale": "That was Level 7, and it runs the motor."
+        },
+        {
+          "id": "b",
+          "label": "AC beat DC in the War of the Currents",
+          "correct": false,
+          "rationale": "That was Level 9."
+        },
+        {
+          "id": "c",
+          "label": "A motor run backwards works as a generator",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Batteries die when their chemicals run out",
+          "correct": false,
+          "rationale": "That was Level 6."
+        }
+      ],
+      "explanation": "Spun by the wheels, the motor becomes a generator, turning motion into electricity for the battery.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.doe_history_electric_car",
+    "source.iea_gevo_2026_trends",
+    "source.afdc_electric_cars",
+    "source.fueleconomy_ev_tech",
+    "source.fueleconomy_hybrid_tech",
+    "source.fueleconomy_gasoline_energy",
+    "source.brit_electric_motor",
+    "source.openstax_motors_generators",
+    "source.bu_generators"
+  ],
+  "art": "technology.car"
+}

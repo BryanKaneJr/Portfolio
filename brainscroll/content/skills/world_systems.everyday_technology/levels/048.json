@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.everyday_technology.048",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Cell Phones",
+  "objective": "After this level you can explain how cell towers pass a call from one area to the next.",
+  "summary": "A cellular network splits land into cells with base stations reached by radio. Low power lets frequencies be reused, and handoff passes calls from cell to cell.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.cellular_cells",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.cellular_handoff",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.radio_waves_broadcast",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.047"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.048.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first handheld cell phone call went to a rival.",
+      "body": "On April 3, 1973, Motorola engineer Martin Cooper used a 2.5-pound prototype to call Joel Engel of rival Bell Labs. Bell Labs had its own claim on the future: the cellular idea itself had been outlined in one of its technical memos back in 1947. So what exactly is a \"cell\"?"
+    },
+    {
+      "id": "card.everyday_technology.048.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A cell is a patch of the map",
+      "body": "A cell phone is a radio, just like Level 44's. A cellular network divides the land into small areas called cells, often drawn as hexagons. Each cell has a base station, the tower your phone talks to by radio waves. The base station passes your call to a switching office, which connects it to another cell or to the ordinary phone network."
+    },
+    {
+      "id": "card.everyday_technology.048.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why small cells mean more calls",
+      "body": "Phones run on batteries, so they transmit at low power and their signals don't reach far. That turns out to be the point. Because a phone's signal stays local, the frequencies used in one cell can be reused in other cells farther away. Every reuse carries another set of calls on the same airwaves. Weak signals, oddly, are what let so many people talk at once."
+    },
+    {
+      "id": "card.everyday_technology.048.c4",
+      "type": "fact",
+      "fact": "Your call can change towers mid-sentence, and you won't notice.",
+      "context": "As you move from one cell into the next during a call, a central controller automatically reroutes the call from the old cell's base station to the new one, without a noticeable break. This is called a handoff. On a long drive, your conversation is passed along from tower to tower like a baton in a relay race.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Next road trip, count the handoffs. Actually, keep your eyes on the road and let me count."
+      }
+    },
+    {
+      "id": "card.everyday_technology.048.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.048.q1"
+    },
+    {
+      "id": "card.everyday_technology.048.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.048.q2"
+    },
+    {
+      "id": "card.everyday_technology.048.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.048.q3"
+    },
+    {
+      "id": "card.everyday_technology.048.c8",
+      "type": "checkpoint",
+      "headline": "Cell phones: connected",
+      "learned": [
+        "Networks divide land into cells, each with a base station",
+        "Phones reach the base station by radio",
+        "Low power lets frequencies be reused",
+        "Handoff passes your call from cell to cell"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.cellular_cells"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.048.c2"
+      ],
+      "prompt": "In a cellular network, what does your phone talk to by radio?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A satellite directly overhead",
+          "correct": false,
+          "rationale": "Cell phones use nearby base stations."
+        },
+        {
+          "id": "b",
+          "label": "Every other phone in the city",
+          "correct": false,
+          "rationale": "Calls go through the base station."
+        },
+        {
+          "id": "c",
+          "label": "A telegraph office",
+          "correct": false,
+          "rationale": "That's Level 42's technology."
+        },
+        {
+          "id": "d",
+          "label": "The base station serving its cell",
+          "correct": true
+        }
+      ],
+      "explanation": "Each cell has a base station; your phone reaches it by radio, and it passes your call on through a switching office.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.cellular_handoff"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.048.c4"
+      ],
+      "prompt": "You drive out of one cell in the middle of a call. What keeps the call going?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Your phone boosts its power to reach the old tower",
+          "correct": false,
+          "rationale": "The network moves the call instead."
+        },
+        {
+          "id": "b",
+          "label": "The call is rerouted to the new cell's base station",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The call pauses until you stop driving",
+          "correct": false,
+          "rationale": "Handoff happens without a noticeable break."
+        },
+        {
+          "id": "d",
+          "label": "A wire unrolls behind the car",
+          "correct": false,
+          "rationale": "It's all radio, no wire to the phone."
+        }
+      ],
+      "explanation": "A central controller automatically hands the call from the old cell to the new one, without a noticeable interruption.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.cellular_cells",
+        "concept.everyday_technology.radio_waves_broadcast"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.048.c3",
+        "card.everyday_technology.048.c2",
+        "card.everyday_technology.044.c2"
+      ],
+      "prompt": "Phones reach towers with radio waves, like Level 44's broadcasts. Why can the same frequencies be reused in different cells?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Low-power phone signals don't reach far",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Radio waves can only travel one kilometer",
+          "correct": false,
+          "rationale": "Radio waves can cross oceans."
+        },
+        {
+          "id": "c",
+          "label": "Each tower uses a different kind of light",
+          "correct": false,
+          "rationale": "They all use radio waves."
+        },
+        {
+          "id": "d",
+          "label": "Phones switch to wires between cells",
+          "correct": false,
+          "rationale": "Phones stay wireless."
+        }
+      ],
+      "explanation": "Battery-powered phones transmit at low power, so a frequency used in one cell can be reused in cells farther away.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_mobile_telephone",
+    "source.libretexts_cellular",
+    "source.guinness_first_mobile_call"
+  ],
+  "art": "technology.smartphone"
+}

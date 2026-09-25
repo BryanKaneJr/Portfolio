@@ -1,0 +1,228 @@
+{
+  "id": "level.world_systems.everyday_technology.042",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Telegraph",
+  "objective": "After this level you can explain how the telegraph sent messages as electric pulses.",
+  "summary": "A telegraph key opens and closes a circuit; at the far end an electromagnet turns the pulses into dots and dashes. Morse's line opened in 1844, Cooke and Wheatstone's patent in 1837.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.telegraph_pulses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.telegraph_morse_code",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electromagnetism",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.circuit_closed_loop",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.041"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On May 24, 1844, a Bible verse traveled from Washington to Baltimore by wire.",
+      "body": "Samuel Morse tapped out \"What hath God wrought!\" in the Capitol, and his partner Alfred Vail read it in Baltimore. The words themselves never left Washington. So what actually traveled down the wire?"
+    },
+    {
+      "id": "card.everyday_technology.042.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A switch at one end, a magnet at the other",
+      "body": "A telegraph is Level 4's circuit stretched between cities. The sender's key is a switch: press it and the loop closes, so current flows; let go and it opens. At the far end, that current switches an electromagnet on and off, just like the ones in Level 7. In Morse's system the magnet pulled a stylus that marked a moving strip of paper. A short signal made a dot, a longer one a dash."
+    },
+    {
+      "id": "card.everyday_technology.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Morse code: the shortest mark for the commonest letter",
+      "body": "Dots and dashes had to spell letters, so the team gave E, the most frequent letter in English, the shortest code of all: a single dot. Less common letters got longer ones. Who designed that alphabet is still argued. Britannica credits Morse with a dot-and-dash system in 1835, but his partner Vail made many contributions, and the Franklin Institute credited Vail with the alphabet itself.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "E gets one dot because it's everywhere. Somewhere, the letter Q is still waiting for a shortcut."
+      }
+    },
+    {
+      "id": "card.everyday_technology.042.c4",
+      "type": "fact",
+      "fact": "Britain built a telegraph too: Cooke and Wheatstone patented theirs in 1837.",
+      "context": "Their instrument used six wires and five needles. The current swung the needles to point at letters, the same effect that moved Ørsted's compass needle in Level 7. Two countries, two designs, one idea: a message can travel as pulses of electric current."
+    },
+    {
+      "id": "card.everyday_technology.042.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.042.q1"
+    },
+    {
+      "id": "card.everyday_technology.042.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.042.q2"
+    },
+    {
+      "id": "card.everyday_technology.042.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.042.q3"
+    },
+    {
+      "id": "card.everyday_technology.042.c8",
+      "type": "checkpoint",
+      "headline": "Telegraph: tapped out",
+      "learned": [
+        "A key opens and closes the circuit",
+        "An electromagnet at the far end marks dots and dashes",
+        "E, the commonest letter, is a single dot",
+        "Morse's line opened in 1844; Cooke and Wheatstone's patent came in 1837"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.telegraph_pulses"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.042.c2"
+      ],
+      "prompt": "In Morse's telegraph, what happened when the operator pressed the sending key?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It closed the circuit, so current flowed down the line",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It sent the operator's voice down the wire",
+          "correct": false,
+          "rationale": "Telegraphs sent pulses of current, not sound."
+        },
+        {
+          "id": "c",
+          "label": "It spun a generator at the far end",
+          "correct": false,
+          "rationale": "The key is a switch; it just opens and closes the loop."
+        },
+        {
+          "id": "d",
+          "label": "It printed a letter on paper at the sender's end",
+          "correct": false,
+          "rationale": "The marks appeared at the receiving end."
+        }
+      ],
+      "explanation": "The key is a switch. Pressing it closes the circuit so current flows; releasing it opens the loop again.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.telegraph_morse_code"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.042.c3"
+      ],
+      "prompt": "Why does the letter E get just a single dot in Morse code?",
+      "options": [
+        {
+          "id": "a",
+          "label": "E was the first letter Morse ever sent",
+          "correct": false,
+          "rationale": "His famous first message began with W."
+        },
+        {
+          "id": "b",
+          "label": "E is the most frequent letter in English",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A single dot is all a wire can carry",
+          "correct": false,
+          "rationale": "Wires carried dashes and long messages too."
+        },
+        {
+          "id": "d",
+          "label": "E stands for \"electric\"",
+          "correct": false,
+          "rationale": "It's about how often E is used."
+        }
+      ],
+      "explanation": "Giving the commonest letter the shortest code keeps messages short. E, the most frequent letter in English, got a single dot.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.telegraph_pulses",
+        "concept.everyday_technology.electromagnetism"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.042.c2",
+        "card.everyday_technology.007.c2"
+      ],
+      "prompt": "Which Level 7 device, switched on and off by the incoming current, made the marks at a telegraph's receiving end?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A battery",
+          "correct": false,
+          "rationale": "A battery can power the line, but it doesn't mark paper."
+        },
+        {
+          "id": "b",
+          "label": "A light bulb",
+          "correct": false,
+          "rationale": "Bulbs make light, not marks."
+        },
+        {
+          "id": "c",
+          "label": "An electromagnet",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A generator",
+          "correct": false,
+          "rationale": "Generators make current; they don't read it."
+        }
+      ],
+      "explanation": "Each pulse switched an electromagnet on, pulling a stylus against the paper; when the current stopped, it let go.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.physicsclassroom_circuit_requirements",
+    "source.brit_oersted",
+    "source.brit_electromagnet",
+    "source.brit_telegraph",
+    "source.house_history_first_telegraph",
+    "source.technologyuk_analogue_digital",
+    "source.smg_cooke_wheatstone_telegraph",
+    "source.historynet_vail_morse_code",
+    "source.brit_morse_code"
+  ],
+  "art": "technology.telephone"
+}

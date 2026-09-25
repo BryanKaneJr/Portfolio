@@ -1,0 +1,213 @@
+{
+  "id": "level.world_systems.everyday_technology.083",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Bridges",
+  "objective": "After this level you can explain how beam, arch and suspension bridges carry their loads.",
+  "summary": "Bridges resist tension and compression. Beams bend, arches push, suspension decks hang from cables. Longest span as of 2026: 2,023 m, 1915 Canakkale Bridge (2022).",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.build_tension_compression",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.build_bridge_types",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.082"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Bend a ruler, and one face squeezes while the other stretches.",
+      "body": "Those are the two forces every bridge has to handle: compression, which squeezes, and tension, which stretches. Beam, arch and suspension bridges are three different answers to one question: where should the squeeze go, and where the stretch?"
+    },
+    {
+      "id": "card.everyday_technology.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The beam: squeezed on top, stretched below",
+      "body": "A beam bridge is a stiff span resting on supports, like a plank over a stream. When a truck rolls on, the beam bends a little. Its top is squeezed in compression, and its bottom is stretched in tension, exactly like your ruler. So a beam needs material that can take both at once. Stand in the middle of a plank over a stream and you are running the experiment."
+    },
+    {
+      "id": "card.everyday_technology.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Arch and suspension: push or hang",
+      "body": "An arch carries its load mainly by compression. Weight presses down along the curve and outward into supports at each end, which must be massive enough to hold that push. A suspension bridge flips the idea: the deck hangs from curved cables in tension. The cables pass the load to tall towers, which carry it to the ground in compression, and to anchorages at each end. An arch pushes; a suspension bridge hangs."
+    },
+    {
+      "id": "card.everyday_technology.083.c4",
+      "type": "fact",
+      "fact": "As of 2026, the longest suspension bridge span is 2,023 meters, in Turkey.",
+      "context": "It belongs to the 1915 Canakkale Bridge, a suspension bridge opened in 2022. It took the record from Japan's Akashi Kaikyo Bridge, which had held it since 1998, and China's Zhangjinggao Yangtze River Bridge, with a planned 2,300-meter span, is due around 2028.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Bridge records are like high scores. Always check the date on the leaderboard."
+      }
+    },
+    {
+      "id": "card.everyday_technology.083.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.083.q1"
+    },
+    {
+      "id": "card.everyday_technology.083.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.083.q2"
+    },
+    {
+      "id": "card.everyday_technology.083.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.083.q3"
+    },
+    {
+      "id": "card.everyday_technology.083.c8",
+      "type": "checkpoint",
+      "headline": "Bridges: spanned",
+      "learned": [
+        "Tension stretches; compression squeezes",
+        "A beam is squeezed on top and stretched below",
+        "Arches push into their supports; suspension decks hang from cables",
+        "Longest span as of 2026: 2,023 m, 1915 Canakkale Bridge (2022)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.build_tension_compression"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.083.c1"
+      ],
+      "prompt": "In bridge engineering, what is tension?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A pushing force that squeezes",
+          "correct": false,
+          "rationale": "That's compression."
+        },
+        {
+          "id": "b",
+          "label": "A pulling force that stretches",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The total weight of the traffic",
+          "correct": false,
+          "rationale": "Traffic is the load; tension is one way a part resists it."
+        },
+        {
+          "id": "d",
+          "label": "The wind pressing on the deck",
+          "correct": false,
+          "rationale": "Wind is a load, not one of the two basic forces."
+        }
+      ],
+      "explanation": "Tension pulls and stretches; compression pushes and squeezes.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.build_tension_compression"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.083.c2"
+      ],
+      "prompt": "A heavy truck stops in the middle of a beam bridge. What happens along the bottom of the beam?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is squeezed in compression",
+          "correct": false,
+          "rationale": "That happens along the top."
+        },
+        {
+          "id": "b",
+          "label": "It pushes outward into the supports",
+          "correct": false,
+          "rationale": "That's an arch's thrust."
+        },
+        {
+          "id": "c",
+          "label": "It is stretched in tension",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It feels no force at all",
+          "correct": false,
+          "rationale": "A bending beam feels both forces."
+        }
+      ],
+      "explanation": "A bending beam is squeezed on top and stretched on the bottom.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.build_bridge_types",
+        "concept.everyday_technology.build_tension_compression"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.083.c3"
+      ],
+      "prompt": "How do arch bridges and suspension bridges differ in the way they carry a load?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Arches hang from cables; suspension decks push on supports",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "b",
+          "label": "Both carry it only through tension",
+          "correct": false,
+          "rationale": "An arch works mainly in compression."
+        },
+        {
+          "id": "c",
+          "label": "Both rely on a bending beam alone",
+          "correct": false,
+          "rationale": "Neither depends on beam bending."
+        },
+        {
+          "id": "d",
+          "label": "Arches push in compression; suspension cables pull in tension",
+          "correct": true
+        }
+      ],
+      "explanation": "An arch presses its load into its supports; a suspension bridge hangs its deck from cables in tension, with towers in compression.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_bridge_engineering",
+    "source.brit_arch_bridge",
+    "source.brit_suspension_bridge",
+    "source.dezeen_canakkale_bridge",
+    "source.chinadaily_zhangjinggao_bridge"
+  ],
+  "art": "technology.bridge"
+}

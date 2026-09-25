@@ -1,0 +1,225 @@
+{
+  "id": "level.world_systems.everyday_technology.082",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Elevators",
+  "objective": "After this level you can explain how elevators and their safety brakes made tall buildings practical.",
+  "summary": "Otis's 1854 safety brake grips the guide rails if the rope fails. A counterweight means the motor lifts only the difference. Safe elevators made tall buildings practical.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.build_safety_elevator",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.build_elevator_counterweight",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_basics",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.build_skyscraper_frame",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.081"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1854, a man rode a platform above a New York crowd and had its rope cut.",
+      "body": "Elisha Otis was showing off his elevator at the Crystal Palace. The rope parted, and the platform did not fall. It was a stunt with a point: until people trusted an elevator with their lives, nobody was going to live or work very high up."
+    },
+    {
+      "id": "card.everyday_technology.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A brake that the fall itself switches on",
+      "body": "Otis's idea was a clamp held back by the rope's own pull. If the rope broke, that pull vanished, and the clamp gripped the guide rails the car runs along, holding it in place. No operator, no button: the broken rope set the brake. Modern elevators add a speed governor, which trips brakes onto the rails if the car starts down too fast."
+    },
+    {
+      "id": "card.everyday_technology.082.c3",
+      "type": "fact",
+      "fact": "An elevator's counterweight weighs about as much as the car half full.",
+      "context": "Car and counterweight hang from the same cables, which run over a grooved wheel called a sheave that a motor turns. As the car goes up, the counterweight goes down. So the motor only lifts the difference in weight, plus a little to beat friction. Level 2 said anything lifted high stores gravitational energy; here the two ends mostly trade it back and forth.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "The heaviest thing in the shaft is working for you. Very considerate of it."
+      }
+    },
+    {
+      "id": "card.everyday_technology.082.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why elevators made skyscrapers possible",
+      "body": "The first safe passenger elevator went into the Haughwout store in New York City in 1857. Britannica credits it with making buildings of more than four or five stories practical. Before that, stairs set the limit: nobody pays extra to haul groceries up ten flights. Pair Otis's brake with Level 81's steel frame, and the sky opens up."
+    },
+    {
+      "id": "card.everyday_technology.082.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.082.q1"
+    },
+    {
+      "id": "card.everyday_technology.082.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.082.q2"
+    },
+    {
+      "id": "card.everyday_technology.082.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.082.q3"
+    },
+    {
+      "id": "card.everyday_technology.082.c8",
+      "type": "checkpoint",
+      "headline": "Elevators: going up",
+      "learned": [
+        "Otis, 1854: the rope was cut and the platform held",
+        "The brake grips the guide rails when the rope loses its pull",
+        "A counterweight about equal to a half-full car saves the motor work",
+        "Safe elevators (1857) made tall buildings practical"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.build_safety_elevator"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.082.c1"
+      ],
+      "prompt": "What did Elisha Otis do at New York's Crystal Palace in 1854?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Opened the first steel-framed skyscraper",
+          "correct": false,
+          "rationale": "That was Jenney's Home Insurance Building in Chicago."
+        },
+        {
+          "id": "b",
+          "label": "Rode his raised elevator and had the rope cut",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Showed the first electric motor",
+          "correct": false,
+          "rationale": "Faraday built that in 1821 (Level 7)."
+        },
+        {
+          "id": "d",
+          "label": "Installed the first elevator in a department store",
+          "correct": false,
+          "rationale": "That came in 1857, at the Haughwout store."
+        }
+      ],
+      "explanation": "Otis rode his platform high above the crowd and ordered the rope cut; his safety device stopped the fall.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.build_safety_elevator"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.082.c2"
+      ],
+      "prompt": "In Otis's safety elevator, what makes the brake grip the guide rails?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A passenger pressing an alarm button",
+          "correct": false,
+          "rationale": "No button: it works on its own."
+        },
+        {
+          "id": "b",
+          "label": "An operator pulling a lever",
+          "correct": false,
+          "rationale": "It needs no operator."
+        },
+        {
+          "id": "c",
+          "label": "The hoist rope losing its pull",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The car reaching the top floor",
+          "correct": false,
+          "rationale": "It acts when the rope fails, anywhere in the shaft."
+        }
+      ],
+      "explanation": "The clamp is held back by the rope's tension; if the rope breaks, the tension vanishes and the clamp grips the rails.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.build_elevator_counterweight",
+        "concept.everyday_technology.energy_basics"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.082.c3",
+        "card.everyday_technology.002.c2"
+      ],
+      "prompt": "Level 2 said anything lifted high stores gravitational energy. Why does an elevator's counterweight save the motor work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It pushes the car up from underneath",
+          "correct": false,
+          "rationale": "It hangs on the other end of the cables."
+        },
+        {
+          "id": "b",
+          "label": "It stores electricity for later trips",
+          "correct": false,
+          "rationale": "It stores gravitational energy, not electricity."
+        },
+        {
+          "id": "c",
+          "label": "It makes the car lighter than air",
+          "correct": false,
+          "rationale": "The car still has all its weight."
+        },
+        {
+          "id": "d",
+          "label": "The motor only lifts the difference in weight",
+          "correct": true
+        }
+      ],
+      "explanation": "Car and counterweight balance each other on the cables, so the motor lifts only the difference, plus a little for friction.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_elisha_otis",
+    "source.brit_elevator",
+    "source.explainthatstuff_elevators",
+    "source.brit_skyscraper",
+    "source.eia_forms_of_energy",
+    "source.eia_what_is_energy"
+  ],
+  "art": "geo.skyline"
+}

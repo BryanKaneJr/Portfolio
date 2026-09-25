@@ -1,0 +1,223 @@
+{
+  "id": "level.world_systems.everyday_technology.046",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Cameras",
+  "objective": "After this level you can explain how a camera captures light, on film and on a sensor.",
+  "summary": "A camera is a dark box where a lens forms an image. Film records it in silver salts; a digital sensor turns light at each pixel into an electric current.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.camera_image_forming",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.camera_recording_media",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_current",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.045"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The oldest surviving camera photo took hours, maybe days, to expose.",
+      "body": "In 1827, Nicéphore Niépce left a bitumen-coated pewter plate inside a camera obscura pointed out of his window at Le Gras. Estimates of the exposure run from about eight hours to several days. What did he need, and how do cameras do the same job now?"
+    },
+    {
+      "id": "card.everyday_technology.046.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A dark box and a hole",
+      "body": "Camera obscura is Latin for \"dark chamber.\" The earliest were darkened rooms with a single tiny hole. Light through the hole cast an upside-down image of the outside scene on the opposite wall. A camera is that room, shrunk: a light-tight box, a lens to focus the light, an aperture and shutter to control how much gets in, and a light-sensitive surface to catch the image."
+    },
+    {
+      "id": "card.everyday_technology.046.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Film: silver that remembers light",
+      "body": "Film is coated with light-sensitive silver salts, such as silver bromide. Developing turns the crystals that light struck into dark metallic silver, so bright parts of the scene come out dark: a negative. Photography's credit is shared too. Daguerre's process was announced on January 9, 1839, and Britannica says that if Talbot had announced his negative method a few weeks earlier, he would probably be called photography's founder.",
+      "mascot": {
+        "pose": "oops",
+        "line": "A few weeks late, and history calls someone else the founder. Deadlines matter."
+      }
+    },
+    {
+      "id": "card.everyday_technology.046.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Digital: light becomes current",
+      "body": "A digital camera has no film. Its sensor is covered in tiny light receptors, the pixels. When light strikes one, it induces an electric current, Level 3's moving charge, and the camera measures it and stores it as digital data. The CCD sensor was invented in 1969 by Willard Boyle and George Smith, who shared half of the 2009 Nobel Prize in Physics for it."
+    },
+    {
+      "id": "card.everyday_technology.046.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.046.q1"
+    },
+    {
+      "id": "card.everyday_technology.046.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.046.q2"
+    },
+    {
+      "id": "card.everyday_technology.046.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.046.q3"
+    },
+    {
+      "id": "card.everyday_technology.046.c8",
+      "type": "checkpoint",
+      "headline": "Cameras: exposed",
+      "learned": [
+        "A camera is a dark box with a lens and a light-sensitive surface",
+        "Film's silver salts darken where light struck",
+        "Niépce, Daguerre and Talbot share photography's early story",
+        "A digital sensor turns light into current at each pixel"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.camera_image_forming"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.046.c2"
+      ],
+      "prompt": "How did the earliest camera obscura form its image?",
+      "options": [
+        {
+          "id": "a",
+          "label": "With a glass lens and a roll of film",
+          "correct": false,
+          "rationale": "Those came much later."
+        },
+        {
+          "id": "b",
+          "label": "Light through one tiny hole into a darkened room",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Mirrors reflecting a painting onto a wall",
+          "correct": false,
+          "rationale": "The image came straight through a hole."
+        },
+        {
+          "id": "d",
+          "label": "A lamp shining through a glass slide",
+          "correct": false,
+          "rationale": "That's a projector, not a camera obscura."
+        }
+      ],
+      "explanation": "Light passing through a single tiny hole in a darkened room cast an upside-down image of the scene on the opposite wall.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.camera_recording_media"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.046.c3"
+      ],
+      "prompt": "Why do the bright parts of a scene look dark on a developed film negative?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The film was kept in the dark too long",
+          "correct": false,
+          "rationale": "Darkness is exactly what film needs before developing."
+        },
+        {
+          "id": "b",
+          "label": "The lens flips light and dark as well as up and down",
+          "correct": false,
+          "rationale": "The lens flips the image, not its brightness."
+        },
+        {
+          "id": "c",
+          "label": "Light-struck silver salts turn into dark metallic silver",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Bright light burns holes in the film",
+          "correct": false,
+          "rationale": "Nothing burns; the silver changes."
+        }
+      ],
+      "explanation": "Where light hit the film, developing turns the silver salts into dark metallic silver, so bright areas record dark.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.camera_recording_media",
+        "concept.everyday_technology.electric_current"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.046.c4",
+        "card.everyday_technology.003.c2"
+      ],
+      "prompt": "Level 3 said a current is moving charge. What does light do when it strikes a pixel on a digital camera's sensor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It induces a small electric current",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It darkens a silver salt crystal",
+          "correct": false,
+          "rationale": "That's film, not a digital sensor."
+        },
+        {
+          "id": "c",
+          "label": "It spins a tiny motor",
+          "correct": false,
+          "rationale": "No motors: the light makes a current."
+        },
+        {
+          "id": "d",
+          "label": "It heats the pixel until it glows",
+          "correct": false,
+          "rationale": "That's how an old light bulb works."
+        }
+      ],
+      "explanation": "Light striking the sensor's pixels induces a current, which the camera measures and stores as digital data.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_camera_obscura",
+    "source.brit_camera",
+    "source.hrc_niepce_first_photo",
+    "source.brit_daguerre",
+    "source.brit_technology_of_photography",
+    "source.brit_talbot",
+    "source.brit_digital_camera",
+    "source.nobel_physics_2009"
+  ],
+  "art": "technology.camera"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "level.world_systems.everyday_technology.069",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Passwords and Hacking",
+  "objective": "After this level you can explain common attacks on accounts and how to protect yours.",
+  "summary": "Phishing, reused leaked passwords and guessing are common attacks. NIST and CISA advise long, unique passwords, a password manager and multifactor authentication.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.account_attacks",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.account_defenses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.crypto_public_key",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.068"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.069.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Password1!\" follows the old rules perfectly. It's still a bad password.",
+      "body": "Sites that demand a capital, a number and a symbol push people toward exactly this kind of choice, notes NIST, the US standards agency, and attackers are likely to guess it. So how do accounts really get broken into, and what actually protects yours?"
+    },
+    {
+      "id": "card.everyday_technology.069.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three common ways in",
+      "body": "Phishing: a message with urgent language, a request for your details or a look-alike address such as amazan.com lures you to a fake page. A padlock doesn't prove a site is honest, the FBI warns; phishing sites use HTTPS too. Credential stuffing: username and password pairs leaked in one breach get tried on other sites. Guessing: attackers try common and previously leaked passwords first. None of these needs movie-style genius, just predictable habits."
+    },
+    {
+      "id": "card.everyday_technology.069.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Long beats clever",
+      "body": "NIST's 2025 guidance puts length first: at least 15 characters when a password is used on its own. Sites shouldn't force symbol mixes or scheduled changes, only a change after a breach. CISA suggests at least 16 characters, such as a passphrase of 4 to 7 unrelated words, and a different password for every account. A password manager makes that painless: it generates, stores and fills them in for you."
+    },
+    {
+      "id": "card.everyday_technology.069.c4",
+      "type": "fact",
+      "fact": "With multifactor authentication, a stolen password alone isn't enough.",
+      "context": "MFA asks for two or more ways to prove it's you, such as your password plus a code or a physical security key. CISA rates security keys as the best protection against phishing and text or email codes as the weakest. Even the weakest kind means a thief needs more than your password.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Long passphrase, one per account, a manager to remember them, MFA on top. That's the whole recipe."
+      }
+    },
+    {
+      "id": "card.everyday_technology.069.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.069.q1"
+    },
+    {
+      "id": "card.everyday_technology.069.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.069.q2"
+    },
+    {
+      "id": "card.everyday_technology.069.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.069.q3"
+    },
+    {
+      "id": "card.everyday_technology.069.c8",
+      "type": "checkpoint",
+      "headline": "Accounts: protected",
+      "learned": [
+        "Phishing, credential stuffing and guessing are the common ways in",
+        "NIST (2025): length first, at least 15 characters for a password alone",
+        "Use a different password for every account, kept in a password manager",
+        "Turn on multifactor authentication; security keys resist phishing best"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.account_defenses"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.069.c3"
+      ],
+      "prompt": "NIST's 2025 password guidance puts one quality first. Which is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A mix of symbols, digits and capitals",
+          "correct": false,
+          "rationale": "NIST says sites shouldn't force those mixes."
+        },
+        {
+          "id": "b",
+          "label": "Changing it on a regular schedule",
+          "correct": false,
+          "rationale": "Change it only after a breach."
+        },
+        {
+          "id": "c",
+          "label": "Length",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A word you'll never forget, like a pet's name",
+          "correct": false,
+          "rationale": "Predictable words are among the first guesses."
+        }
+      ],
+      "explanation": "Under SP 800-63B-4, length comes first: at least 15 characters when the password is used alone.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.account_attacks"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.069.c2"
+      ],
+      "prompt": "Why is reusing one password on many sites risky?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Websites share their passwords with each other",
+          "correct": false,
+          "rationale": "They don't need to: attackers try leaked pairs themselves."
+        },
+        {
+          "id": "b",
+          "label": "A leak at one site lets attackers into the others",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Reused passwords expire faster",
+          "correct": false,
+          "rationale": "Passwords don't wear out; change them after a breach."
+        },
+        {
+          "id": "d",
+          "label": "It switches off multifactor authentication",
+          "correct": false,
+          "rationale": "MFA still helps; the reuse is the problem."
+        }
+      ],
+      "explanation": "In credential stuffing, pairs leaked in one breach are tried on other sites, so reuse spreads one leak to every account.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.crypto_public_key",
+        "concept.everyday_technology.account_attacks"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.068.c4",
+        "card.everyday_technology.069.c2"
+      ],
+      "prompt": "A phishing page shows Level 68's padlock icon beside its address. What does the padlock actually tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The site has been checked and is honest",
+          "correct": false,
+          "rationale": "The FBI warns phishing sites use HTTPS too."
+        },
+        {
+          "id": "b",
+          "label": "Your password manager approved the site",
+          "correct": false,
+          "rationale": "The padlock comes from the site's HTTPS, not your manager."
+        },
+        {
+          "id": "c",
+          "label": "The site can't read what you type",
+          "correct": false,
+          "rationale": "It's encrypted on the way to the site, which can read it."
+        },
+        {
+          "id": "d",
+          "label": "Only that your traffic to it is encrypted",
+          "correct": true
+        }
+      ],
+      "explanation": "The padlock means the connection is encrypted. It says nothing about whether the site on the other end is honest.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nist_sp800_63b4_strength",
+    "source.nist_sp800_63b4_passwords",
+    "source.cisa_phishing",
+    "source.fbi_ic3_https_phishing",
+    "source.owasp_credential_stuffing",
+    "source.cisa_strong_passwords",
+    "source.cisa_mfa"
+  ],
+  "art": "object.padlock"
+}

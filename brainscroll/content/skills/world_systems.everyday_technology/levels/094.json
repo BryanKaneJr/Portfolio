@@ -1,0 +1,225 @@
+{
+  "id": "level.world_systems.everyday_technology.094",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Drones",
+  "objective": "After this level you can explain how drones fly and what they are used for.",
+  "summary": "A quadcopter's propellers push air down for lift; two spin each way so their twists cancel, and it steers by changing propeller speeds under a flight computer. Drones deliver blood and count birds.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.drone_quadcopter_flight",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.drone_uses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_motor",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.093"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.094.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A helicopter needs a tail rotor. A four-propeller drone doesn't.",
+      "body": "Spin one big rotor and the helicopter's body tries to twist the other way, so a small tail rotor pushes back. A quadcopter, the four-propeller kind of drone, has no tail at all. It hovers without spinning like a top. The secret is in which way its propellers turn."
+    },
+    {
+      "id": "card.everyday_technology.094.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two turn one way, two turn the other",
+      "body": "Each propeller pushes air down, and the air pushes the drone up: action and reaction. But a spinning propeller also twists the drone's body the opposite way. So quadcopters are built with two propellers spinning clockwise and two counterclockwise. The twists cancel out, and the drone hangs steady in the air. No tail required."
+    },
+    {
+      "id": "card.everyday_technology.094.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Steering with speed alone",
+      "body": "A quadcopter steers with its four propellers and nothing else. Speed up the two on one side, and that side lifts; the drone tilts and slides toward the side with less lift. Speed up one spinning pair and slow the other, and the twists no longer cancel, so the drone turns on the spot. Every move is a change of speed."
+    },
+    {
+      "id": "card.everyday_technology.094.c4",
+      "type": "fact",
+      "fact": "Every quadcopter carries a tireless copilot.",
+      "context": "Its flight controller is an onboard computer. It reads sensors such as gyroscopes and accelerometers, compares where the drone is heading with where it should be, and adjusts the controls to hold its course. That constant correcting is what lets a machine with no rudder, no wings and no pilot aboard hang steady in the air.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Keeping four propellers in balance, nonstop. I can barely balance four library books."
+      }
+    },
+    {
+      "id": "card.everyday_technology.094.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "What drones actually do",
+      "body": "On October 14, 2016, Rwanda launched the world's first national drone delivery service: drones built and run by the company Zipline flew blood to 21 health facilities that give transfusions. Scientists use them too: the US Geological Survey flies drones to estimate migratory bird populations and to keep watch on volcanoes. A camera that can hover turns out to be very useful."
+    },
+    {
+      "id": "card.everyday_technology.094.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.094.q1"
+    },
+    {
+      "id": "card.everyday_technology.094.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.094.q2"
+    },
+    {
+      "id": "card.everyday_technology.094.c8",
+      "type": "recall",
+      "questionId": "question.everyday_technology.094.q3"
+    },
+    {
+      "id": "card.everyday_technology.094.c9",
+      "type": "checkpoint",
+      "headline": "Drones: airborne",
+      "learned": [
+        "Propellers push air down; the air pushes the drone up",
+        "Two spin each way so the twists cancel",
+        "Changing propeller speeds tilts and turns it",
+        "Drones deliver blood and count birds"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.drone_uses"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.094.c5"
+      ],
+      "prompt": "What did Rwanda's national drone service, launched in October 2016, deliver?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Blood for hospitals and clinics",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Counts of migratory birds",
+          "correct": false,
+          "rationale": "That's one of the USGS's drone jobs."
+        },
+        {
+          "id": "c",
+          "label": "Mail for every household",
+          "correct": false,
+          "rationale": "It flew blood to 21 facilities that give transfusions."
+        },
+        {
+          "id": "d",
+          "label": "Volcano warnings",
+          "correct": false,
+          "rationale": "The USGS uses drones to watch volcanoes; Rwanda's service carried blood."
+        }
+      ],
+      "explanation": "From October 14, 2016, Zipline's drones flew blood to 21 transfusing facilities in Rwanda.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.drone_quadcopter_flight"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.094.c3"
+      ],
+      "prompt": "A quadcopter speeds up the two propellers on its left side. What happens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It climbs straight up without tilting",
+          "correct": false,
+          "rationale": "Only one side gets extra lift, so it tilts."
+        },
+        {
+          "id": "b",
+          "label": "It spins on the spot",
+          "correct": false,
+          "rationale": "Turning on the spot comes from speeding one spinning pair."
+        },
+        {
+          "id": "c",
+          "label": "It tilts and moves to the right",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It tilts and moves to the left",
+          "correct": false,
+          "rationale": "It moves toward the side with less lift."
+        }
+      ],
+      "explanation": "Extra lift on the left tips the drone, and it moves toward the side with less lift: the right.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.everyday_technology.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.drone_quadcopter_flight",
+        "concept.everyday_technology.electric_motor"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.094.c2",
+        "card.everyday_technology.007.c3"
+      ],
+      "prompt": "Level 7's motor spins because a twisting force turns its coil. What does a spinning propeller's twist do to a quadcopter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It pushes the drone straight up",
+          "correct": false,
+          "rationale": "The upward push comes from air pushed down."
+        },
+        {
+          "id": "b",
+          "label": "It tries to turn the drone's body the opposite way",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It charges the drone's battery",
+          "correct": false,
+          "rationale": "A spinning propeller doesn't recharge anything."
+        },
+        {
+          "id": "d",
+          "label": "It reverses the propeller every half turn",
+          "correct": false,
+          "rationale": "That's the commutator's job in Level 7's motor."
+        }
+      ],
+      "explanation": "Like the turning force in a motor, a propeller's spin twists the body the opposite way, which is why quadcopters pair their propellers.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_quadcopters_reader",
+    "source.nasa_t2_flight_controller",
+    "source.gavi_zipline_rwanda",
+    "source.usgs_uas_uses"
+  ],
+  "art": "technology.drone"
+}

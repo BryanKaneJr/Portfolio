@@ -1,0 +1,222 @@
+{
+  "id": "level.world_systems.everyday_technology.065",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Web",
+  "objective": "After this level you can explain the difference between the internet and the World Wide Web.",
+  "summary": "The internet is the infrastructure; the web is one service on it, like email. Tim Berners-Lee invented the web at CERN in 1989 with HTML, URLs and HTTP, and CERN gave it away in 1993.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.web_vs_internet",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.web_invention",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.internet_tcp_ip",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.064"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The internet is 20 years older than the web.",
+      "body": "ARPANET sent its first message in 1969. The World Wide Web was invented in 1989. Most people use the two words as if they meant the same thing. They don't, and the difference explains what you're actually doing every time you open a browser."
+    },
+    {
+      "id": "card.everyday_technology.065.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Roads and deliveries",
+      "body": "The internet is the infrastructure: a huge network of computers talking to each other, the network of networks from Level 61. The web is one service built on top of it. It isn't the only one: email is another. Picture the internet as the road system and the web as one kind of traffic on it. Send an email with no browser open, and you've used the internet without touching the web."
+    },
+    {
+      "id": "card.everyday_technology.065.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Invented so scientists could share",
+      "body": "Tim Berners-Lee invented the web in 1989 while working at CERN, the physics lab, so scientists at universities and institutes around the world could share information automatically. By the end of 1990 he had the first web server and browser running. The server carried a handwritten label: \"This machine is a server. DO NOT POWER IT DOWN!!\"",
+      "mascot": {
+        "pose": "whisper",
+        "line": "The whole web once depended on nobody tidying up a desk. Respect the label."
+      }
+    },
+    {
+      "id": "card.everyday_technology.065.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three ingredients, given away",
+      "body": "Every page still uses his three building blocks. HTML is the language a page is written in, including its hyperlinks, the clickable connections to related pages. A URL is a page's address. HTTP is the set of rules servers and browsers use to talk. Then, on April 30, 1993, CERN put the web software in the public domain, free for anyone to use. That helped the web flourish."
+    },
+    {
+      "id": "card.everyday_technology.065.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.065.q1"
+    },
+    {
+      "id": "card.everyday_technology.065.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.065.q2"
+    },
+    {
+      "id": "card.everyday_technology.065.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.065.q3"
+    },
+    {
+      "id": "card.everyday_technology.065.c8",
+      "type": "checkpoint",
+      "headline": "The web: untangled",
+      "learned": [
+        "The internet is the infrastructure; the web is one service on it",
+        "Email uses the internet without using the web",
+        "Tim Berners-Lee invented the web at CERN in 1989",
+        "HTML, URLs and HTTP; CERN made the software free in 1993"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.web_invention"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.065.c3"
+      ],
+      "prompt": "Who invented the World Wide Web, and where?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A UCLA team, as part of ARPANET",
+          "correct": false,
+          "rationale": "UCLA sent ARPANET's first message, 20 years earlier."
+        },
+        {
+          "id": "b",
+          "label": "Tim Berners-Lee, at CERN",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Brin and Page, at Stanford",
+          "correct": false,
+          "rationale": "They built a search engine for the web later on."
+        },
+        {
+          "id": "d",
+          "label": "Paul Baran, at RAND",
+          "correct": false,
+          "rationale": "Baran worked on packet switching (Level 62)."
+        }
+      ],
+      "explanation": "Tim Berners-Lee invented the web in 1989 while working at CERN, to help scientists share information.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.web_vs_internet"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.065.c2"
+      ],
+      "prompt": "You send an email without ever opening a web browser. What have you used?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The web, but not the internet",
+          "correct": false,
+          "rationale": "The web runs on the internet, not the other way around."
+        },
+        {
+          "id": "b",
+          "label": "Neither the internet nor the web",
+          "correct": false,
+          "rationale": "Email travels over the internet."
+        },
+        {
+          "id": "c",
+          "label": "The internet, but not the web",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only HTML pages",
+          "correct": false,
+          "rationale": "HTML is the web's page language; email is a separate service."
+        }
+      ],
+      "explanation": "Email is its own service on the internet. The web is a different service on the same infrastructure.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.everyday_technology.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.web_vs_internet",
+        "concept.everyday_technology.internet_tcp_ip"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.065.c2",
+        "card.everyday_technology.061.c3"
+      ],
+      "prompt": "How is the World Wide Web related to Level 61's \"network of networks\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The web replaced it in 1989",
+          "correct": false,
+          "rationale": "The internet still carries the web and much else."
+        },
+        {
+          "id": "b",
+          "label": "They are two names for the same thing",
+          "correct": false,
+          "rationale": "The internet is the infrastructure; the web is one service on it."
+        },
+        {
+          "id": "c",
+          "label": "The web is older by 20 years",
+          "correct": false,
+          "rationale": "It's the other way round: the internet came first."
+        },
+        {
+          "id": "d",
+          "label": "The web is one service that runs on top of it",
+          "correct": true
+        }
+      ],
+      "explanation": "The internet is the infrastructure joined by TCP/IP; the web, like email, is a service built on top of it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ucla_kleinrock_first_words",
+    "source.cern_birth_of_web",
+    "source.cern_short_history_web",
+    "source.mdn_how_internet_works",
+    "source.brit_world_wide_web",
+    "source.ethw_tcp_milestone",
+    "source.brit_internet"
+  ],
+  "art": "technology.network"
+}

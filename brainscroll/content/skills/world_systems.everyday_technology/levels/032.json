@@ -1,0 +1,226 @@
+{
+  "id": "level.world_systems.everyday_technology.032",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Jet Engines",
+  "objective": "After this level you can explain how jet engines push planes forward.",
+  "summary": "A jet engine squeezes air, burns fuel in it and blasts it out of the back; the reaction pushes the plane forward. The turbine drives the compressor, and turbofans add a big fan.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.jet_engine",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.transport_action_reaction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.flight_four_forces",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.generator",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.031"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The jet engine was invented twice, by two men working separately.",
+      "body": "Frank Whittle in Britain patented his turbojet in 1930. In Germany, Hans von Ohain designed one independently, and his engine flew first, in the He 178 on August 27, 1939. An aircraft with Whittle's engine followed on May 15, 1941. Both had found the same trick for pushing a plane."
+    },
+    {
+      "id": "card.everyday_technology.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Throw air back, get pushed forward",
+      "body": "For every action there's an equal and opposite reaction: Newton's third law. Every engine that moves a vehicle uses it. It grabs a working fluid, accelerates it backward, and the reaction pushes the engine forward. A jet's working fluid is the air around it, and it makes thrust because the gas leaves the back faster than the air came in. That push is Level 31's thrust, the force that beats drag."
+    },
+    {
+      "id": "card.everyday_technology.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Inside: squeeze, burn, spin, blow",
+      "body": "Air enters the front and meets the compressor, rows of spinning blades that raise its pressure. In the burner, fuel mixes with that air and burns. The hot gas rushes through a turbine and spins it, and a shaft carries that spin forward to drive the compressor. Then the nozzle shoots the gas out, faster than it came in. The turbine is a cousin of Level 8's: power stations spin theirs with burning gas too."
+    },
+    {
+      "id": "card.everyday_technology.032.c4",
+      "type": "fact",
+      "fact": "Airliners wrap a giant fan around the jet.",
+      "context": "In a turbofan, the big fan at the front sends some air into the core and pushes the rest around it, just like air through a propeller. The fan adds thrust while barely changing how much fuel the core burns, so the engine gets more push for nearly the same fuel. That's why most modern airliners use turbofans. The big round front you see from your window seat is mostly fan.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Next time you board, peek into the engine. That giant fan is doing most of the work."
+      }
+    },
+    {
+      "id": "card.everyday_technology.032.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.032.q1"
+    },
+    {
+      "id": "card.everyday_technology.032.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.032.q2"
+    },
+    {
+      "id": "card.everyday_technology.032.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.032.q3"
+    },
+    {
+      "id": "card.everyday_technology.032.c8",
+      "type": "checkpoint",
+      "headline": "Jets: roaring",
+      "learned": [
+        "Whittle and von Ohain invented the jet separately",
+        "Throw gas backward, get pushed forward",
+        "Compressor, burner, turbine, nozzle; the turbine drives the compressor",
+        "Turbofans add thrust for nearly the same fuel"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.jet_engine"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.032.c3"
+      ],
+      "prompt": "Inside a jet engine, what turns the compressor at the front?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The turbine, through a shaft",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "An electric motor",
+          "correct": false,
+          "rationale": "No motor is needed: the hot gas does it."
+        },
+        {
+          "id": "c",
+          "label": "Air hitting the plane's nose",
+          "correct": false,
+          "rationale": "The compressor is driven from inside the engine."
+        },
+        {
+          "id": "d",
+          "label": "The nozzle at the back",
+          "correct": false,
+          "rationale": "The nozzle speeds the gas out; it doesn't spin."
+        }
+      ],
+      "explanation": "Hot gas spins the turbine, and a shaft links the turbine to the compressor.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.transport_action_reaction"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.032.c2"
+      ],
+      "prompt": "A jet engine throws gas out of its back. Why does that push the plane forward?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The gas shoves on the air behind the plane",
+          "correct": false,
+          "rationale": "The push comes from throwing the gas, not from the air behind."
+        },
+        {
+          "id": "b",
+          "label": "The gas is lighter than air",
+          "correct": false,
+          "rationale": "Weight has nothing to do with thrust."
+        },
+        {
+          "id": "c",
+          "label": "Pushing gas back makes the gas push the engine forward",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The engine pulls air in from the front",
+          "correct": false,
+          "rationale": "Taking air in is only the first step."
+        }
+      ],
+      "explanation": "Newton's third law: accelerate the working fluid backward, and the reaction pushes the engine forward.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.jet_engine",
+        "concept.everyday_technology.generator"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.032.c3",
+        "card.everyday_technology.008.c3"
+      ],
+      "prompt": "Level 8's power stations spin turbines with steam, water, wind or burning gas. What spins a jet engine's turbine?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wind from the plane's speed",
+          "correct": false,
+          "rationale": "The air is squeezed and burned first."
+        },
+        {
+          "id": "b",
+          "label": "A battery in the wing",
+          "correct": false,
+          "rationale": "No battery drives a jet."
+        },
+        {
+          "id": "c",
+          "label": "Steam from a boiler",
+          "correct": false,
+          "rationale": "Jets carry no boiler."
+        },
+        {
+          "id": "d",
+          "label": "Hot gas from burning fuel",
+          "correct": true
+        }
+      ],
+      "explanation": "Fuel burns in the squeezed air, and the hot gas rushing out spins the turbine, much like a gas turbine at a power station.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_whittle",
+    "source.brit_he178",
+    "source.nasa_glenn_propulsion_system",
+    "source.nasa_glenn_turbojet",
+    "source.eia_how_electricity_generated",
+    "source.brit_electric_generator",
+    "source.nasa_glenn_turbofan"
+  ],
+  "art": "technology.plane"
+}

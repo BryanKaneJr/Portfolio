@@ -1,0 +1,215 @@
+{
+  "id": "level.world_systems.everyday_technology.031",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Planes Fly",
+  "objective": "After this level you can explain lift, thrust, drag and weight.",
+  "summary": "Lift balances weight and thrust balances drag. A wing turns air downward, so the air pushes it up; faster air above means lower pressure there. The equal-transit story is a myth.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.flight_four_forces",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.flight_lift",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.030"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A favorite explanation of how wings work is wrong.",
+      "body": "You may have heard it: air over the curved top of a wing has farther to go, so it must hurry to meet the air underneath at the back edge. NASA calls this \"equal transit\" theory incorrect. It also can't explain how a stunt plane flies upside down. So what really holds a plane up?"
+    },
+    {
+      "id": "card.everyday_technology.031.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four forces, two tug-of-wars",
+      "body": "Every plane in flight feels four forces. Weight pulls it toward the center of the Earth, and lift from the wings opposes it. Drag is the air resisting the plane's motion, and thrust from the engines overcomes it. Cruising at a steady speed and height, lift equals weight and thrust equals drag. Unbalance them and the plane accelerates toward the biggest force: it speeds up, slows down, climbs or sinks."
+    },
+    {
+      "id": "card.everyday_technology.031.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "How a wing really lifts",
+      "body": "A wing is shaped and tilted so it turns the passing air downward. By Newton's third law, if the wing pushes air down, the air pushes the wing up. Now look at the same thing as pressure: the air speeds up over the top, and faster air has lower pressure, so the higher pressure underneath pushes up. NASA's point is that these aren't rival theories. Pressure and flow turning are two ways of describing one force: lift."
+    },
+    {
+      "id": "card.everyday_technology.031.c4",
+      "type": "fact",
+      "fact": "Air over the top of a wing reaches the back edge first.",
+      "context": "So the \"meet up at the back\" story fails its own test: the air on top doesn't wait for its partner. It also can't explain symmetric wings, flat paper airplanes, or planes flying upside down with the curved side at the bottom. What matters is the wing's angle to the oncoming air, its angle of attack. Pilots raise the nose at takeoff to get more lift, though tilt too far and the wing stalls.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Upside down, the \"longer\" side is on the bottom, and the plane flies anyway. Wings clearly never read that textbook."
+      }
+    },
+    {
+      "id": "card.everyday_technology.031.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.031.q1"
+    },
+    {
+      "id": "card.everyday_technology.031.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.031.q2"
+    },
+    {
+      "id": "card.everyday_technology.031.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.031.q3"
+    },
+    {
+      "id": "card.everyday_technology.031.c8",
+      "type": "checkpoint",
+      "headline": "Flight: explained",
+      "learned": [
+        "Lift balances weight; thrust balances drag",
+        "A wing turns air down, so the air pushes it up",
+        "Faster air above the wing means lower pressure there",
+        "Equal transit is a myth: the air on top arrives first"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.flight_four_forces"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.031.c2"
+      ],
+      "prompt": "When a plane cruises at a steady speed and height, which force does its engine thrust balance?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Weight",
+          "correct": false,
+          "rationale": "Lift balances weight."
+        },
+        {
+          "id": "b",
+          "label": "Lift",
+          "correct": false,
+          "rationale": "Lift acts across the flight path, balancing weight."
+        },
+        {
+          "id": "c",
+          "label": "Drag",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its own momentum",
+          "correct": false,
+          "rationale": "Momentum is not one of the four forces."
+        }
+      ],
+      "explanation": "In steady flight, thrust equals drag and lift equals weight.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.flight_lift"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.031.c3"
+      ],
+      "prompt": "According to NASA, what is really going on when a wing makes lift?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Air on top must meet air below at the back",
+          "correct": false,
+          "rationale": "That's the equal transit myth."
+        },
+        {
+          "id": "b",
+          "label": "It turns air downward, and the air pushes it up",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The wing is lighter than the air around it",
+          "correct": false,
+          "rationale": "Planes are far heavier than the air they displace; they must push air."
+        },
+        {
+          "id": "d",
+          "label": "Engines blow air directly under the wing",
+          "correct": false,
+          "rationale": "Engine thrust overcomes drag; the wing makes the lift."
+        }
+      ],
+      "explanation": "The wing turns the flow down; by Newton's third law the air pushes the wing up. Lower pressure above the wing describes the same force.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.flight_lift",
+        "concept.everyday_technology.flight_four_forces"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.031.c4",
+        "card.everyday_technology.031.c2"
+      ],
+      "prompt": "Just before takeoff, a pilot raises the plane's nose. How does that get the plane off the ground?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It reduces drag so thrust can win",
+          "correct": false,
+          "rationale": "Raising the nose is about lift, not drag."
+        },
+        {
+          "id": "b",
+          "label": "It points the engines at the ground",
+          "correct": false,
+          "rationale": "Thrust still works against drag."
+        },
+        {
+          "id": "c",
+          "label": "It makes air over the top arrive at the same time",
+          "correct": false,
+          "rationale": "That equal transit idea is a myth."
+        },
+        {
+          "id": "d",
+          "label": "A bigger angle of attack makes lift exceed weight",
+          "correct": true
+        }
+      ],
+      "explanation": "Raising the nose increases the angle of attack, which increases lift; when lift is bigger than weight, the plane climbs.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_glenn_equal_transit",
+    "source.nasa_glenn_four_forces",
+    "source.nasa_glenn_what_is_lift",
+    "source.si_howthingsfly_air_motion",
+    "source.nasa_glenn_bernoulli_newton",
+    "source.nasa_glenn_inclination_lift"
+  ],
+  "art": "technology.plane"
+}

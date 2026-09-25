@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.everyday_technology.088",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Factory Robots",
+  "objective": "After this level you can explain what factory robots do and how they are programmed.",
+  "summary": "Unimate, the first factory robot, started at General Motors in 1961. Robots are taught with a teach pendant and repeat tasks precisely; about 5 million worked in 2025.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.build_industrial_robot",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.build_robot_programming",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.build_moving_assembly_line",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.087"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The word \"robot\" comes from a Czech word for forced labor.",
+      "body": "Karel Capek used it in his 1920 play R.U.R. for manufactured workers. Forty-one years later a real one clocked in at a car plant, and its first job was handling hot metal parts."
+    },
+    {
+      "id": "card.everyday_technology.088.c2",
+      "type": "fact",
+      "fact": "The first factory robot, Unimate, started work at General Motors in 1961.",
+      "context": "At the plant in Ewing Township, New Jersey, the one-armed Unimate lifted hot metal parts out of a die-casting machine and stacked them. It followed step-by-step commands stored on a magnetic drum and could repeat a sequence of motions again and again. George Devol invented it, and Joseph Engelberger helped build the company that sold it."
+    },
+    {
+      "id": "card.everyday_technology.088.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Teaching a robot its job",
+      "body": "Most factory robots don't work anything out for themselves. A trained programmer uses a handheld teach pendant to guide the arm through its task, and the robot then repeats those moves with high accuracy, shift after shift. That is why robots took dangerous or repetitive jobs first: moving materials, welding, painting, loading machines. A swinging arm can't see you, so workers are kept out of its space by barriers and sensors.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Great at doing the same thing forever. Terrible at noticing you. Respect the fence."
+      }
+    },
+    {
+      "id": "card.everyday_technology.088.c4",
+      "type": "fact",
+      "fact": "About 5 million industrial robots were at work in factories in 2025.",
+      "context": "That's the count from the International Federation of Robotics. Remember Level 87's line, where each worker did one or two tasks over and over? A robot is what that job looks like when the worker never gets bored."
+    },
+    {
+      "id": "card.everyday_technology.088.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.088.q1"
+    },
+    {
+      "id": "card.everyday_technology.088.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.088.q2"
+    },
+    {
+      "id": "card.everyday_technology.088.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.088.q3"
+    },
+    {
+      "id": "card.everyday_technology.088.c8",
+      "type": "checkpoint",
+      "headline": "Robots: taught",
+      "learned": [
+        "\"Robot\" comes from Czech robota, forced labor",
+        "Unimate, 1961: first factory robot, at General Motors",
+        "Programmers teach robots with a teach pendant",
+        "About 5 million robots in factories in 2025"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.build_industrial_robot"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.088.c2"
+      ],
+      "prompt": "What was Unimate's first job at General Motors in 1961?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Welding car bodies together",
+          "correct": false,
+          "rationale": "Robots weld today, but Unimate began with die-cast parts."
+        },
+        {
+          "id": "b",
+          "label": "Painting finished cars",
+          "correct": false,
+          "rationale": "Its first job was handling hot metal."
+        },
+        {
+          "id": "c",
+          "label": "Inspecting engines with a camera",
+          "correct": false,
+          "rationale": "It lifted and stacked parts."
+        },
+        {
+          "id": "d",
+          "label": "Lifting hot parts out of a die-casting machine",
+          "correct": true
+        }
+      ],
+      "explanation": "Unimate lifted hot metal parts out of a die-casting machine and stacked them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.build_robot_programming"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.088.c3"
+      ],
+      "prompt": "How does a programmer usually teach a factory robot a new task?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By letting it watch workers until it learns",
+          "correct": false,
+          "rationale": "Most factory robots are taught the moves directly."
+        },
+        {
+          "id": "b",
+          "label": "By guiding it through the moves with a teach pendant",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "By rebuilding its arm for each job",
+          "correct": false,
+          "rationale": "The same arm is reprogrammed."
+        },
+        {
+          "id": "d",
+          "label": "By describing the task in plain English",
+          "correct": false,
+          "rationale": "A teach pendant guides the arm."
+        }
+      ],
+      "explanation": "A trained programmer guides the arm through its task with a teach pendant, and the robot repeats it precisely.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.build_robot_programming",
+        "concept.everyday_technology.build_moving_assembly_line"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.088.c3",
+        "card.everyday_technology.087.c2"
+      ],
+      "prompt": "Level 87's assembly line split work into small tasks repeated over and over. Why did that kind of work suit robots?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Robots were cheaper than a Model T",
+          "correct": false,
+          "rationale": "Price isn't the point here."
+        },
+        {
+          "id": "b",
+          "label": "Robots could walk from car to car",
+          "correct": false,
+          "rationale": "Factory robot arms stay in place."
+        },
+        {
+          "id": "c",
+          "label": "A robot repeats one taught sequence precisely",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Robots invent new tasks as they go",
+          "correct": false,
+          "rationale": "They repeat what they were taught."
+        }
+      ],
+      "explanation": "Robots repeat taught moves with high accuracy, a perfect fit for small, repeated tasks.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_robot_technology",
+    "source.ieee_robots_unimate",
+    "source.osha_industrial_robots",
+    "source.ifr_five_million_robots",
+    "source.thehenryford_assembly_line",
+    "source.ford_moving_assembly_line"
+  ],
+  "art": "technology.robot"
+}

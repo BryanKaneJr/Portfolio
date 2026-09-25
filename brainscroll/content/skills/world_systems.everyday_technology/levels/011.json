@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.everyday_technology.011",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Power Grid",
+  "objective": "After this level you can explain how electricity travels from a power plant to your wall socket.",
+  "summary": "Transformers step power up to as much as 765,000 volts for long lines, then down to 120 or 240 volts for your home. Operators must match supply and demand every moment.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.grid_journey",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.grid_balance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.war_of_currents",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.010"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most of mainland America runs on just three electric grids.",
+      "body": "The Eastern grid, the Western grid, and one that covers most of Texas. Each is a web of power plants and wires, and they mostly run on their own. Somewhere in yours, electricity is being made for your lamp. So how does it cross that web and come out of your wall?"
+    },
+    {
+      "id": "card.everyday_technology.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Up, across, down",
+      "body": "Level 9's transformers do the heavy lifting. At the power plant, a step-up transformer raises the voltage. High-voltage transmission lines carry the power long distances. At a substation, transformers step it down, and lower-voltage distribution lines carry it along your street. One last transformer near your home steps it down again, to a voltage that's safer indoors. Up for the journey, down for the delivery."
+    },
+    {
+      "id": "card.everyday_technology.011.c3",
+      "type": "fact",
+      "fact": "The biggest US power lines carry 765,000 volts. Your home gets 120 or 240.",
+      "context": "US transmission lines run at 230,000 to 765,000 volts. The top voltage is more than 6,000 times what a 120-volt home circuit gets. Why go so high? For the same power, higher voltage needs less current, and less current means less energy lost in the lines on the long trip."
+    },
+    {
+      "id": "card.everyday_technology.011.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The grid can't get ahead of you",
+      "body": "Here's the tricky part. Grid operators must call on power plants to supply just the right amount of electricity at every moment. Organizations called balancing authorities keep supply and demand precisely matched. If the two fall out of balance, local or even widespread blackouts can happen. So when millions of people switch things on, somewhere a power plant has to answer.",
+      "mascot": {
+        "pose": "idea",
+        "line": "So every light switch is a tiny order to a power plant. Please use your authority wisely."
+      }
+    },
+    {
+      "id": "card.everyday_technology.011.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.011.q1"
+    },
+    {
+      "id": "card.everyday_technology.011.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.011.q2"
+    },
+    {
+      "id": "card.everyday_technology.011.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.011.q3"
+    },
+    {
+      "id": "card.everyday_technology.011.c8",
+      "type": "checkpoint",
+      "headline": "Grid: connected",
+      "learned": [
+        "Three main grids serve the lower 48 US states",
+        "Step up for transmission, step down at substations and homes",
+        "Lines carry up to 765,000 volts; homes get 120 or 240",
+        "Supply must match demand every moment"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.grid_journey"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.011.c2"
+      ],
+      "prompt": "On the grid's trip from a power plant to your home, where is the voltage stepped down?",
+      "options": [
+        {
+          "id": "a",
+          "label": "At the power plant, before the long lines",
+          "correct": false,
+          "rationale": "That's where it's stepped up."
+        },
+        {
+          "id": "b",
+          "label": "At substations and a transformer near your home",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Nowhere: homes get the full line voltage",
+          "correct": false,
+          "rationale": "Homes get a much lower, safer voltage."
+        },
+        {
+          "id": "d",
+          "label": "Inside each appliance's plug",
+          "correct": false,
+          "rationale": "The grid steps it down before it reaches you."
+        }
+      ],
+      "explanation": "Substations step the high transmission voltage down for local lines, and a last transformer near your home lowers it again.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.grid_balance"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.011.c4"
+      ],
+      "prompt": "What can happen if electricity supply and demand on the grid fall out of balance?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The power lines switch to direct current",
+          "correct": false,
+          "rationale": "The grid stays AC either way."
+        },
+        {
+          "id": "b",
+          "label": "The extra electricity waits in the wires for later",
+          "correct": false,
+          "rationale": "The wires don't store it; supply must match demand."
+        },
+        {
+          "id": "c",
+          "label": "Nothing, because it evens out the next day",
+          "correct": false,
+          "rationale": "The match has to hold every moment."
+        },
+        {
+          "id": "d",
+          "label": "Local or even widespread blackouts",
+          "correct": true
+        }
+      ],
+      "explanation": "Balancing authorities keep supply and demand precisely matched; if they drift apart, blackouts can follow.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.grid_journey",
+        "concept.everyday_technology.war_of_currents"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.011.c3",
+        "card.everyday_technology.009.c3"
+      ],
+      "prompt": "Why do the biggest US power lines run at up to 765,000 volts rather than a home's 120?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Less current is needed, so less energy is lost",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Homes need 765,000 volts to run appliances",
+          "correct": false,
+          "rationale": "Homes get 120 or 240 volts."
+        },
+        {
+          "id": "c",
+          "label": "High voltage turns AC into DC",
+          "correct": false,
+          "rationale": "Transformers change voltage, not the kind of current."
+        },
+        {
+          "id": "d",
+          "label": "Only high voltage can cross state lines",
+          "correct": false,
+          "rationale": "The reason is efficiency, not borders."
+        }
+      ],
+      "explanation": "For the same power, higher voltage means less current and less line loss. Level 9's transformers make the switch possible.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.eia_delivery_to_consumers",
+    "source.openstax_transformers",
+    "source.crs_electricity_transmission",
+    "source.eia_generation_capacity_sales"
+  ],
+  "art": "technology.power-pylon"
+}

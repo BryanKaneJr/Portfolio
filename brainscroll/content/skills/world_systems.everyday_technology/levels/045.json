@@ -1,0 +1,216 @@
+{
+  "id": "level.world_systems.everyday_technology.045",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Television",
+  "objective": "After this level you can explain how television pictures were first sent and shown.",
+  "summary": "TV scans a picture spot by spot, line by line, and rebuilds it in the same order. Baird showed mechanical TV in 1926; Farnsworth and Zworykin built electronic TV.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.tv_scanning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.tv_invention_credit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.telephone_voice_current",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.044"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some of the first public TV pictures had just 30 lines.",
+      "body": "On January 26, 1926, John Logie Baird showed his mechanical \"Televisor\" to members of London's Royal Institution. Mechanical TV pictures of that era had only 30 lines, repeating about 12 times a second, and they flickered badly. But they moved. How do you send a moving picture down a wire?"
+    },
+    {
+      "id": "card.everyday_technology.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chop the picture into lines",
+      "body": "You can't send a whole picture at once, but you can send it one spot at a time. A TV camera scans the scene like a reader: start at the top left, sweep right, jump back one line lower, repeat. Each spot's brightness becomes part of an electrical signal. The receiver paints the spots back in the same order, fast enough that your eye sees one whole picture rather than a racing dot."
+    },
+    {
+      "id": "card.everyday_technology.045.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Spinning disks versus electron beams",
+      "body": "Baird's kind of system was mechanical. It scanned with a spinning disk punched with a spiral of holes, from Paul Nipkow's 1884 patent, each hole tracing one line. Philo Farnsworth decided only electronics could scan fast enough. On September 7, 1927, his image dissector camera tube sent its first image. At the screen end, a beam of electrons swept across, and the signal set how bright each spot glowed."
+    },
+    {
+      "id": "card.everyday_technology.045.c4",
+      "type": "fact",
+      "fact": "Television has no single inventor, and its pioneers fought in court.",
+      "context": "Vladimir Zworykin filed for an all-electronic system in 1923, and after visiting Farnsworth's lab in 1930 he built the iconoscope camera tube at RCA. RCA fought Farnsworth's patents for years, then in 1939 agreed to pay him royalties. Baird lost out too: in February 1937 the BBC chose the electronic Marconi-EMI system over his."
+    },
+    {
+      "id": "card.everyday_technology.045.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.045.q1"
+    },
+    {
+      "id": "card.everyday_technology.045.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.045.q2"
+    },
+    {
+      "id": "card.everyday_technology.045.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.045.q3"
+    },
+    {
+      "id": "card.everyday_technology.045.c8",
+      "type": "checkpoint",
+      "headline": "Television: switched on",
+      "learned": [
+        "TV scans a picture spot by spot, line by line",
+        "The receiver rebuilds it in the same order",
+        "Baird's disks were mechanical; Farnsworth's tube was electronic",
+        "Baird, Farnsworth and Zworykin all shaped TV"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.tv_scanning"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.045.c2"
+      ],
+      "prompt": "How does a TV camera turn a scene into a signal it can send?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It photographs the whole scene and mails the film",
+          "correct": false,
+          "rationale": "Television sends a signal, not film."
+        },
+        {
+          "id": "b",
+          "label": "It scans the scene spot by spot, line by line",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It sends each color down a separate wire",
+          "correct": false,
+          "rationale": "The picture is scanned in order, not split by color here."
+        },
+        {
+          "id": "d",
+          "label": "It records the scene's sound and rebuilds the image",
+          "correct": false,
+          "rationale": "Sound can't rebuild a picture."
+        }
+      ],
+      "explanation": "The camera sweeps across the scene one line at a time, turning each spot's brightness into part of an electrical signal.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.tv_invention_credit"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.045.c3",
+        "card.everyday_technology.045.c4"
+      ],
+      "prompt": "Why is it hard to name one inventor of television?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Baird, Farnsworth and Zworykin each built key parts",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Television was invented by accident in a single day",
+          "correct": false,
+          "rationale": "It took decades and many people."
+        },
+        {
+          "id": "c",
+          "label": "Nobody ever held a television patent",
+          "correct": false,
+          "rationale": "Patents were at the heart of the fight."
+        },
+        {
+          "id": "d",
+          "label": "It was a spin-off of the printing press",
+          "correct": false,
+          "rationale": "Its roots are in electric signals."
+        }
+      ],
+      "explanation": "Baird demonstrated mechanical TV, Farnsworth sent the first all-electronic image, and Zworykin developed camera tubes at RCA; patent battles followed.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.tv_scanning",
+        "concept.everyday_technology.telephone_voice_current"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.045.c2",
+        "card.everyday_technology.043.c2"
+      ],
+      "prompt": "A telephone turns sound into a rising and falling current. What does a TV camera turn into a rising and falling signal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The loudness of the room",
+          "correct": false,
+          "rationale": "That's closer to a microphone's job."
+        },
+        {
+          "id": "b",
+          "label": "The temperature of the scene",
+          "correct": false,
+          "rationale": "Brightness, not heat."
+        },
+        {
+          "id": "c",
+          "label": "The distance to each object",
+          "correct": false,
+          "rationale": "TV scanning records brightness, not distance."
+        },
+        {
+          "id": "d",
+          "label": "The brightness of each spot it scans",
+          "correct": true
+        }
+      ],
+      "explanation": "As the camera scans, each spot's brightness sets the strength of the signal, just as the telephone's current follows the sound.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_tv_technology",
+    "source.brit_pixel",
+    "source.brit_baird",
+    "source.brit_farnsworth",
+    "source.brit_zworykin"
+  ],
+  "art": "technology.tv"
+}

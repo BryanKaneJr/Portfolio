@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.everyday_technology.079",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Plastics",
+  "objective": "After this level you can explain what plastic is made from and why it lasts so long.",
+  "summary": "Plastics are long polymer chains, mostly from fossil-fuel carbon; Bakelite (1907) was the first fully synthetic one. Microbes can't digest them, so they break into microplastics.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.plastic_polymers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.plastic_persistence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.sewer_treatment_plant",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.078"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.079.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Plastic got its start on the billiard table.",
+      "body": "In the 1860s, a billiards company offered a $10,000 prize for a substitute for ivory billiard balls. John Wesley Hyatt took up the challenge, and his work led to celluloid, one of the first plastics. What makes plastic so useful turns out to be what makes it so hard to get rid of."
+    },
+    {
+      "id": "card.everyday_technology.079.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Plastic is a very long chain",
+      "body": "Polymer means 'of many parts'. A plastic is made of long chains of small units repeated over and over, and the length of those chains makes it strong, light and flexible. Most plastics are built from carbon that comes from petroleum and other fossil fuels. In 1907, Leo Baekeland's Bakelite became the first fully synthetic plastic, made of no molecules found in nature."
+    },
+    {
+      "id": "card.everyday_technology.079.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why nothing eats it",
+      "body": "Leaves and cardboard rot because microbes digest them, using enzymes to break the bonds in natural polymers such as lignin in plants. Those enzymes don't recognize the bonds that hold plastic together. So outdoors, plastic doesn't rot. It just breaks into smaller and smaller pieces, and it can take thousands of years to fully biodegrade. Being unnatural is exactly what makes it last."
+    },
+    {
+      "id": "card.everyday_technology.079.c4",
+      "type": "fact",
+      "fact": "Plastic pieces less than five millimeters long are called microplastics.",
+      "context": "That's about the size of a pencil eraser. Most plastic in the ocean breaks up into these small particles rather than disappearing. A bottle cap doesn't vanish; it turns into confetti.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Pencil-eraser size and shrinking. Plastic never really leaves; it just gets harder to spot."
+      }
+    },
+    {
+      "id": "card.everyday_technology.079.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.079.q1"
+    },
+    {
+      "id": "card.everyday_technology.079.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.079.q2"
+    },
+    {
+      "id": "card.everyday_technology.079.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.079.q3"
+    },
+    {
+      "id": "card.everyday_technology.079.c8",
+      "type": "checkpoint",
+      "headline": "Plastics: unwrapped",
+      "learned": [
+        "Hyatt's hunt for fake ivory led to an early plastic",
+        "Plastics are long chains, mostly from fossil-fuel carbon",
+        "Bakelite (1907) was the first fully synthetic plastic",
+        "Microbes can't digest it, so it breaks into microplastics"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.plastic_polymers"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.079.c2"
+      ],
+      "prompt": "What is a plastic polymer made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A single giant crystal of carbon",
+          "correct": false,
+          "rationale": "It's a chain, not a crystal."
+        },
+        {
+          "id": "b",
+          "label": "Tiny beads of melted glass sand",
+          "correct": false,
+          "rationale": "Plastics are built mostly from fossil-fuel carbon."
+        },
+        {
+          "id": "c",
+          "label": "Plant fibers pressed and glued",
+          "correct": false,
+          "rationale": "Plastics are synthetic chains."
+        },
+        {
+          "id": "d",
+          "label": "Long chains of repeating units",
+          "correct": true
+        }
+      ],
+      "explanation": "Polymer means 'of many parts': long chains of small units repeated over and over.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.plastic_persistence"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.079.c3",
+        "card.everyday_technology.079.c4"
+      ],
+      "prompt": "What usually happens to a plastic bottle left outdoors for years?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rots away completely within a few years",
+          "correct": false,
+          "rationale": "Microbes can't digest it."
+        },
+        {
+          "id": "b",
+          "label": "It turns back into petroleum",
+          "correct": false,
+          "rationale": "It only breaks into pieces."
+        },
+        {
+          "id": "c",
+          "label": "It breaks into smaller and smaller pieces",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It grows stronger in the sun",
+          "correct": false,
+          "rationale": "It breaks apart over time."
+        }
+      ],
+      "explanation": "Plastic doesn't rot; it breaks into ever smaller pieces, down to microplastics, and can take thousands of years to fully biodegrade.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.plastic_persistence",
+        "concept.everyday_technology.sewer_treatment_plant"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.079.c3",
+        "card.everyday_technology.074.c4"
+      ],
+      "prompt": "Level 74's sewage plants rely on microbes to eat organic material. Why can't microbes like that simply eat plastic waste?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Plastic is too cold for them",
+          "correct": false,
+          "rationale": "Temperature isn't the problem."
+        },
+        {
+          "id": "b",
+          "label": "Their enzymes don't recognize plastic's bonds",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Plastic is poisonous to all microbes",
+          "correct": false,
+          "rationale": "The problem is the bonds, not poison."
+        },
+        {
+          "id": "d",
+          "label": "Microbes only live underwater",
+          "correct": false,
+          "rationale": "Microbes live almost everywhere, including soil."
+        }
+      ],
+      "explanation": "Microbes digest natural polymers with enzymes, but those enzymes don't recognize the bonds that hold plastic polymers together.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sciencehistory_plastics_history",
+    "source.osu_why_plastic_not_biodegradable",
+    "source.noaa_microplastics"
+  ],
+  "art": "technology.plastic-bottle"
+}

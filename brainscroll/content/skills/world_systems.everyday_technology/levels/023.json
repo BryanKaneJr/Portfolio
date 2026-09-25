@@ -1,0 +1,217 @@
+{
+  "id": "level.world_systems.everyday_technology.023",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Industrial Revolution",
+  "objective": "After this level you can explain how steam power and factories changed the way people worked.",
+  "summary": "From the mid-1700s, Britain moved spinning from homes into powered mills. Steam freed factories from riverbanks; long shifts and child labor led to the 1833 Factory Act.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.motion_factory_system",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_industrial_work_life",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_watt_steam_engine",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.022"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In Richard Arkwright's first mills, the machines ran day and night.",
+      "body": "Two 13-hour shifts a day kept them turning. Not long before, most cotton spinning had been done at home. Arkwright moved it into huge powered mills with hundreds of workers. Multiply that change across a country and you get the Industrial Revolution."
+    },
+    {
+      "id": "card.everyday_technology.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From homes to factories",
+      "body": "Britain led the way, from the mid-1700s to about 1830, turning a farming and handicraft economy into one run by industry and machines. Machines such as the spinning jenny and the power loom let fewer hands make more cloth. In 1771 Arkwright began a mill at Cromford beside a fast river, whose water drove the machines. Inside, each worker did one small part of the job over and over: the factory system."
+    },
+    {
+      "id": "card.everyday_technology.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Steam sets the factories free",
+      "body": "A water wheel ties a mill to a good river. Remember Level 22: from 1781, Watt's engines could turn a shaft. With steam, mill owners could build where workers already lived, instead of hunting for the right stream. Arkwright's own mill on Miller Street in Manchester was the first spinning mill to use steam power. Towns filled with factories, and cities grew."
+    },
+    {
+      "id": "card.everyday_technology.023.c4",
+      "type": "fact",
+      "fact": "In 1833, Britain banned children under 9 from textile mills.",
+      "context": "Factory life meant long hours of tedious, often dangerous work for barely enough to live on, and children worked in the mills too. The Factory Act of 1833 banned under-9s from textile mills and limited 9-to-12-year-olds to 8 hours a day. Crucially, it created inspectors to enforce the rules: it was the first Factory Act with a way to make them stick."
+    },
+    {
+      "id": "card.everyday_technology.023.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.023.q1"
+    },
+    {
+      "id": "card.everyday_technology.023.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.023.q2"
+    },
+    {
+      "id": "card.everyday_technology.023.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.023.q3"
+    },
+    {
+      "id": "card.everyday_technology.023.c8",
+      "type": "checkpoint",
+      "headline": "Industrial Revolution: underway",
+      "learned": [
+        "Work moved from homes into powered mills",
+        "The factory system divided each job into parts",
+        "Steam freed factories from riverbanks",
+        "The 1833 Factory Act protected children"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.motion_industrial_work_life"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.023.c4"
+      ],
+      "prompt": "What did Britain's Factory Act of 1833 do for textile mills?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Banned steam engines from towns and cities",
+          "correct": false,
+          "rationale": "Steam kept spreading; the act was about workers."
+        },
+        {
+          "id": "b",
+          "label": "Banned under-9s and created inspectors to enforce it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Set a 13-hour minimum shift for every adult worker",
+          "correct": false,
+          "rationale": "13-hour shifts were the problem, not the cure."
+        },
+        {
+          "id": "d",
+          "label": "Closed every textile mill between dusk and dawn",
+          "correct": false,
+          "rationale": "It limited hours; it did not close mills."
+        }
+      ],
+      "explanation": "The 1833 Act banned children under 9 from textile mills, limited hours for older children and, for the first time, sent inspectors to enforce it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.motion_factory_system"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.023.c3",
+        "card.everyday_technology.023.c2"
+      ],
+      "prompt": "Early mills sat beside rivers. Why could steam-powered mills be built in towns instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Towns had cheaper, better water wheels",
+          "correct": false,
+          "rationale": "Water wheels still needed a river."
+        },
+        {
+          "id": "b",
+          "label": "Laws banned rivers from turning machines",
+          "correct": false,
+          "rationale": "No such ban: rivers were just limited."
+        },
+        {
+          "id": "c",
+          "label": "A steam engine turns machines without a flowing river",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Town air made machines run much faster",
+          "correct": false,
+          "rationale": "Location mattered, not the air."
+        }
+      ],
+      "explanation": "A water wheel ties a mill to a river. A steam engine can turn a shaft anywhere, so owners could build near workers in towns.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.motion_factory_system",
+        "concept.everyday_technology.motion_watt_steam_engine"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.023.c3",
+        "card.everyday_technology.022.c3"
+      ],
+      "prompt": "Which Level 22 improvement let steam engines drive the Industrial Revolution's factory machines?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Watt's engines turning a shaft, from 1781",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Newcomen's cold-water spray, from 1712",
+          "correct": false,
+          "rationale": "That made the vacuum for pumping, not rotation."
+        },
+        {
+          "id": "c",
+          "label": "Faraday's electric motor, from 1821",
+          "correct": false,
+          "rationale": "Faraday built his first motor 40 years later (Level 7)."
+        },
+        {
+          "id": "d",
+          "label": "The spinning jenny, a new spinning machine",
+          "correct": false,
+          "rationale": "That was a spinning machine, not an engine."
+        }
+      ],
+      "explanation": "From 1781 Watt's engines turned a shaft, so they could drive factory machinery, not just pumps.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sim_arkwright",
+    "source.brit_industrial_revolution",
+    "source.derwentvalleymills_cromford",
+    "source.pnasnexus_waterpower_steam",
+    "source.brit_james_watt",
+    "source.brit_factory_act_1833"
+  ],
+  "art": "technology.factory"
+}

@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.everyday_technology.056",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Algorithms",
+  "objective": "After this level you can explain algorithms as step-by-step instructions, using sorting as the example.",
+  "summary": "An algorithm is a step-by-step procedure with an end. In sorting, doubling the list quadruples selection sort's work but only slightly more than doubles merge sort's.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.computer_algorithms",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_sorting",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_software_code",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.055"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Algorithm\" began as a 9th-century mathematician's name.",
+      "body": "Al-Khwarizmi wrote a book on arithmetic, and its Latin translation turned his name into Algoritmi. From that name came the word for a step-by-step way to solve a problem. That is exactly what this level is about."
+    },
+    {
+      "id": "card.everyday_technology.056.c2",
+      "type": "fact",
+      "fact": "An algorithm is a step-by-step procedure that solves a problem in a finite number of steps.",
+      "context": "Long division is one: follow the steps and you always reach the answer. In computing, a program follows an algorithm, and Level 55's code is how you hand it to the machine. The driving directions in a map app come from one. Precise steps, a definite end, a correct answer."
+    },
+    {
+      "id": "card.everyday_technology.056.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sorting a shelf, the simple way",
+      "body": "Say you want a shelf of books in order by height. Selection sort: scan the whole shelf for the shortest book and move it to the front. Scan what's left for the next shortest, and repeat. It always works. But every pass rescans nearly everything, so the work grows with the square of the shelf: double the books and you roughly quadruple the scanning."
+    },
+    {
+      "id": "card.everyday_technology.056.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sorting the clever way",
+      "body": "Merge sort splits the books into two halves, sorts each half the same way, then merges them: compare the front books of the two sorted piles and take the shorter, again and again. Double the books now, and the work only slightly more than doubles. Same shelf, same result, far less effort.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Same books, same shelf. The only thing that changed was the plan."
+      }
+    },
+    {
+      "id": "card.everyday_technology.056.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.056.q1"
+    },
+    {
+      "id": "card.everyday_technology.056.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.056.q2"
+    },
+    {
+      "id": "card.everyday_technology.056.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.056.q3"
+    },
+    {
+      "id": "card.everyday_technology.056.c8",
+      "type": "checkpoint",
+      "headline": "Algorithms: in order",
+      "learned": [
+        "An algorithm: exact steps that end with a solution",
+        "The word comes from al-Khwarizmi, a 9th-century mathematician",
+        "Selection sort's work quadruples when the list doubles",
+        "Merge sort's work only slightly more than doubles"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.computer_algorithms"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.056.c2"
+      ],
+      "prompt": "Which description fits an algorithm, the idea named after al-Khwarizmi?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A step-by-step procedure that solves a problem in a finite number of steps",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A computer chip that stores numbers",
+          "correct": false,
+          "rationale": "That's memory hardware."
+        },
+        {
+          "id": "c",
+          "label": "Any very large number",
+          "correct": false,
+          "rationale": "An algorithm is a procedure, not a number."
+        },
+        {
+          "id": "d",
+          "label": "A code that turns letters into bytes",
+          "correct": false,
+          "rationale": "That's an encoding such as ASCII."
+        }
+      ],
+      "explanation": "Long division, a map route, a sort: each is a set of exact steps that ends with an answer.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.computer_sorting"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.056.c3"
+      ],
+      "prompt": "You double the number of books on the shelf. About how much more scanning does selection sort need?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The same amount",
+          "correct": false,
+          "rationale": "More books always means more scanning."
+        },
+        {
+          "id": "b",
+          "label": "About twice as much",
+          "correct": false,
+          "rationale": "Each pass also gets longer, so it grows faster than that."
+        },
+        {
+          "id": "c",
+          "label": "About four times as much",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About ten times as much",
+          "correct": false,
+          "rationale": "Too much: doubling the list about quadruples the work."
+        }
+      ],
+      "explanation": "Selection sort's work grows with the square of the list, so doubling the list about quadruples it.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.everyday_technology.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.computer_algorithms",
+        "concept.everyday_technology.computer_software_code"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.056.c2",
+        "card.everyday_technology.055.c2"
+      ],
+      "prompt": "How does an algorithm relate to Level 55's software?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Software is only the chips an algorithm runs on",
+          "correct": false,
+          "rationale": "The chips are hardware."
+        },
+        {
+          "id": "b",
+          "label": "A program is instructions that follow an algorithm",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Algorithms only exist in hardware",
+          "correct": false,
+          "rationale": "Long division is an algorithm on paper."
+        },
+        {
+          "id": "d",
+          "label": "They are unrelated ideas",
+          "correct": false,
+          "rationale": "Programs follow algorithms."
+        }
+      ],
+      "explanation": "Software is instructions; an algorithm is the step-by-step plan those instructions carry out.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_algorithm",
+    "source.khan_what_is_algorithm",
+    "source.khan_selection_sort_analysis",
+    "source.khan_merge_sort_overview"
+  ],
+  "art": "technology.laptop"
+}

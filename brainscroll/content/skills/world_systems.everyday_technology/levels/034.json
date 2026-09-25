@@ -1,0 +1,215 @@
+{
+  "id": "level.world_systems.everyday_technology.034",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Ships Float",
+  "objective": "After this level you can explain buoyancy and how a steel ship floats.",
+  "summary": "Water pushes up on a ship with the weight of the water it pushes aside. A steel hull full of air has an average density below water's, so it floats; the Plimsoll line shows how deep it may sit.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.ship_buoyancy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.ship_load_line",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.033"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Drop a lump of clay in water and it sinks. Mold it into a boat and it floats.",
+      "body": "Same clay, same weight. Only the shape changed. That's the whole secret of a steel ship, built from a metal about 7.8 times as dense as water."
+    },
+    {
+      "id": "card.everyday_technology.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Archimedes' push",
+      "body": "Anything in water feels an upward push, the buoyant force, equal to the weight of the water it pushes aside. That's Archimedes' principle. A ship settles into the water until the water it has pushed aside weighs exactly as much as the ship. Load it with cargo and it sinks deeper, pushing aside more water, until the two weights match again."
+    },
+    {
+      "id": "card.everyday_technology.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why steel can float",
+      "body": "Whether something floats depends on its average density. A solid block of steel is steel all the way through, so it sinks. A ship's hull is a steel shell around a huge space full of air, so the ship as a whole, steel plus air, averages out less dense than water. The clay boat works the same way: thin and hollow, it pushes aside more water than the lump did."
+    },
+    {
+      "id": "card.everyday_technology.034.c4",
+      "type": "fact",
+      "fact": "A mark on the hull shows how deep a ship may safely sit.",
+      "context": "After Samuel Plimsoll campaigned against overloaded ships, Britain's Merchant Shipping Act of 1876 fixed a loading mark on hulls: the Plimsoll line. Overload the ship and the mark disappears under water. Ships carry several marks, because fresh water is less dense than seawater: the same ship sits deeper in a river than at sea.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "So a ship rides a little higher once it reaches the sea. Salt water is simply better at holding things up."
+      }
+    },
+    {
+      "id": "card.everyday_technology.034.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.034.q1"
+    },
+    {
+      "id": "card.everyday_technology.034.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.034.q2"
+    },
+    {
+      "id": "card.everyday_technology.034.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.034.q3"
+    },
+    {
+      "id": "card.everyday_technology.034.c8",
+      "type": "checkpoint",
+      "headline": "Ships: afloat",
+      "learned": [
+        "The buoyant force equals the weight of water pushed aside",
+        "A ship settles until that water weighs as much as the ship",
+        "An air-filled hull gives steel ships a low average density",
+        "The Plimsoll line marks the safe loaded depth"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.ship_buoyancy"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.034.c2"
+      ],
+      "prompt": "According to Archimedes' principle, the upward push of water on a ship equals what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The weight of the water it pushes aside",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The weight of the steel in its hull",
+          "correct": false,
+          "rationale": "It depends on the displaced water, not the steel alone."
+        },
+        {
+          "id": "c",
+          "label": "The pressure of the air inside it",
+          "correct": false,
+          "rationale": "Air inside matters only through the hull's shape."
+        },
+        {
+          "id": "d",
+          "label": "The speed of the ship through the water",
+          "correct": false,
+          "rationale": "Buoyancy works even when the ship is still."
+        }
+      ],
+      "explanation": "The buoyant force equals the weight of the water displaced; a ship settles until that matches its own weight.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.ship_buoyancy"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.034.c3",
+        "card.everyday_technology.034.c1"
+      ],
+      "prompt": "Steel is much denser than water. How can a steel ship float?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Steel gets lighter when it is wet",
+          "correct": false,
+          "rationale": "Steel doesn't lose weight in water."
+        },
+        {
+          "id": "b",
+          "label": "Its engines hold it up",
+          "correct": false,
+          "rationale": "A ship floats with its engines off."
+        },
+        {
+          "id": "c",
+          "label": "Salt water turns steel buoyant",
+          "correct": false,
+          "rationale": "Salt helps a little, but steel blocks still sink in the sea."
+        },
+        {
+          "id": "d",
+          "label": "Its air-filled hull makes its average density lower",
+          "correct": true
+        }
+      ],
+      "explanation": "The hull encloses so much air that the ship, steel plus air, is less dense on average than water.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.ship_load_line",
+        "concept.everyday_technology.ship_buoyancy"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.034.c4",
+        "card.everyday_technology.034.c2"
+      ],
+      "prompt": "A cargo ship sails from a freshwater river into the sea without changing its load. What happens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sits deeper, because seawater is saltier",
+          "correct": false,
+          "rationale": "Denser water holds it higher, not lower."
+        },
+        {
+          "id": "b",
+          "label": "It rises a little, because seawater is denser",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Nothing changes, because its weight is the same",
+          "correct": false,
+          "rationale": "The same weight of denser water takes up less room."
+        },
+        {
+          "id": "d",
+          "label": "It sinks, because salt water corrodes the hull",
+          "correct": false,
+          "rationale": "Corrosion is far too slow to matter here."
+        }
+      ],
+      "explanation": "Denser seawater matches the ship's weight with less volume displaced, so the ship rides a little higher.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_archimedes",
+    "source.brit_archimedes_principle",
+    "source.brit_plimsoll",
+    "source.noaa_plimsoll_line",
+    "source.brit_naval_architecture_buoyancy"
+  ],
+  "art": "money.container-ship"
+}

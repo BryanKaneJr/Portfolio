@@ -1,0 +1,229 @@
+{
+  "id": "level.world_systems.everyday_technology.044",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Radio",
+  "objective": "After this level you can explain how radio sends sound through the air as waves.",
+  "summary": "Changing currents in antennas send and catch electromagnetic radio waves; AM or FM carries the sound. Marconi, Popov and Tesla all have claims on radio.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.radio_waves_broadcast",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.radio_invention_credit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.alternating_current",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.telephone_voice_current",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.043"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.044.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On December 12, 1901, three faint dots crossed the Atlantic with no wire.",
+      "body": "In Newfoundland, Guglielmo Marconi picked up the Morse letter S, sent from Cornwall. Level 42's dots had cut loose from the wire entirely. So what carried them across an ocean?"
+    },
+    {
+      "id": "card.everyday_technology.044.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Radio waves are light you can't see",
+      "body": "Radio waves are electromagnetic waves, the same family as visible light, with the longest wavelengths of all. Like light, they travel at the speed of light and need nothing to travel through, not even air. You make them with Level 9's alternating current: push a current that keeps changing up and down an antenna, and waves spread out. When they reach another antenna, they push its electrons back and forth, making a tiny matching current."
+    },
+    {
+      "id": "card.everyday_technology.044.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Riding the wave: AM and FM",
+      "body": "A station sends out a carrier wave at its own frequency, and tuning your radio picks that frequency out. To carry sound, the station changes the wave. AM (amplitude modulation) varies the wave's strength to match the sound. FM (frequency modulation) keeps the strength steady and varies the frequency instead. Your radio reads the changes and drives its speaker. It's Level 43's voice-shaped signal, sent through the air."
+    },
+    {
+      "id": "card.everyday_technology.044.c4",
+      "type": "fact",
+      "fact": "Who invented radio? Historians name several people.",
+      "context": "Heinrich Hertz first made radio waves. In Russia, Aleksandr Popov demonstrated a receiver on May 7, 1895, without knowing Marconi's work, and is hailed there as radio's inventor. Marconi shared the 1909 Nobel Prize in Physics. And in 1943 the US Supreme Court struck down Marconi's key US tuning patent as not new, citing earlier work, chiefly John Stone Stone's, and said Tesla had anticipated several of its features.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Radio has more parents than a school play. That's usually a sign of a very good idea."
+      }
+    },
+    {
+      "id": "card.everyday_technology.044.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.044.q1"
+    },
+    {
+      "id": "card.everyday_technology.044.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.044.q2"
+    },
+    {
+      "id": "card.everyday_technology.044.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.044.q3"
+    },
+    {
+      "id": "card.everyday_technology.044.c8",
+      "type": "checkpoint",
+      "headline": "Radio: tuned in",
+      "learned": [
+        "Radio waves are electromagnetic waves, like light",
+        "A changing current in an antenna sends them out",
+        "AM varies strength; FM varies frequency",
+        "Hertz, Marconi, Popov and Tesla all figure in radio's story"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.radio_invention_credit"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.044.c4"
+      ],
+      "prompt": "What did Aleksandr Popov demonstrate in Russia on May 7, 1895?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A transatlantic telegraph cable",
+          "correct": false,
+          "rationale": "Popov worked on wireless receivers, not cables."
+        },
+        {
+          "id": "b",
+          "label": "A mechanical television camera",
+          "correct": false,
+          "rationale": "Television came decades later."
+        },
+        {
+          "id": "c",
+          "label": "A radio receiver",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The first telephone exchange",
+          "correct": false,
+          "rationale": "That's a different invention entirely."
+        }
+      ],
+      "explanation": "Popov demonstrated a radio receiver (a lightning detector) in St. Petersburg, working without knowledge of Marconi's experiments.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.radio_waves_broadcast"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.044.c3"
+      ],
+      "prompt": "How does an FM station put sound onto its carrier wave?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By switching the wave on and off in Morse code",
+          "correct": false,
+          "rationale": "That would send dots and dashes, not sound."
+        },
+        {
+          "id": "b",
+          "label": "By varying the wave's strength to match the sound",
+          "correct": false,
+          "rationale": "That's AM."
+        },
+        {
+          "id": "c",
+          "label": "By pumping sound waves up the antenna",
+          "correct": false,
+          "rationale": "Sound itself isn't sent; the carrier is changed."
+        },
+        {
+          "id": "d",
+          "label": "By varying the wave's frequency to match the sound",
+          "correct": true
+        }
+      ],
+      "explanation": "FM keeps the carrier's strength steady and varies its frequency; AM varies the strength instead.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.radio_waves_broadcast",
+        "concept.everyday_technology.alternating_current"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.044.c2",
+        "card.everyday_technology.009.c2"
+      ],
+      "prompt": "Level 9's alternating current keeps reversing direction. What happens when a current like that surges up and down an antenna?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Electromagnetic waves spread out from it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The antenna stores the energy like a battery",
+          "correct": false,
+          "rationale": "Antennas send energy out as waves."
+        },
+        {
+          "id": "c",
+          "label": "The current turns into steady DC",
+          "correct": false,
+          "rationale": "Nothing converts it; the changing current radiates."
+        },
+        {
+          "id": "d",
+          "label": "Sound waves travel out from the tip",
+          "correct": false,
+          "rationale": "Radio waves are electromagnetic, not sound."
+        }
+      ],
+      "explanation": "A changing current in an antenna sends out electromagnetic waves at the speed of light; that's how a transmitter broadcasts.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.doe_war_of_currents",
+    "source.brit_electric_current",
+    "source.nasa_ems_anatomy",
+    "source.nasa_ems_radio_waves",
+    "source.openstax_em_wave_production",
+    "source.brit_modulation",
+    "source.brit_marconi",
+    "source.brit_morse_code",
+    "source.brit_popov",
+    "source.cornell_marconi_v_us"
+  ],
+  "art": "technology.radio"
+}

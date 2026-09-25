@@ -1,0 +1,215 @@
+{
+  "id": "level.world_systems.everyday_technology.093",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Virtual and Augmented Reality",
+  "objective": "After this level you can explain how VR and AR headsets create or add to what you see.",
+  "summary": "VR shows each eye a slightly different image and redraws the view as your head moves; a mismatch with your inner ear can cause motion sickness. AR adds images to the real world instead.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.vr_headset",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.ar_overlay",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.092"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.093.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first VR headset was so heavy it hung from the ceiling.",
+      "body": "In the late 1960s, Harvard's Ivan Sutherland built a head-mounted display that needed a big overhead beam to hold its weight. People jokingly called it the Sword of Damocles. Inside, you could explore a wire-frame room just by moving your head. Today's headsets are far lighter, but they pull the same two tricks."
+    },
+    {
+      "id": "card.everyday_technology.093.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Trick one: a picture for each eye",
+      "body": "Your two eyes see the world from slightly different spots, and your brain fuses the two views into one picture with depth. A VR headset copies that. It shows each eye its own image, offset just a little, and your brain does the rest. Lenses let your eyes focus on screens sitting only centimeters away. Two flat pictures in, one deep world out."
+    },
+    {
+      "id": "card.everyday_technology.093.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Trick two: the world follows your head",
+      "body": "Motion sensors track your head and redraw the view in real time, so when you turn, the virtual room turns with you. But sometimes the scene glides past while your body sits still. Your eyes report motion; your inner ear reports none. That conflict is the recipe for motion sickness, and video games and VR are known triggers for some people."
+    },
+    {
+      "id": "card.everyday_technology.093.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "AR adds to the world instead of replacing it",
+      "body": "Virtual reality swaps your view for an artificial one. Augmented reality (AR) overlays computer-made images on the real scene, through a phone, glasses or a headset. You may have seen early AR without noticing: the yellow first-down line added to American football broadcasts in the mid-1990s. In 2016, Pokemon GO used a phone's camera and GPS to put cartoon creatures on real sidewalks.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "That yellow line was never painted on the grass. Sorry if that ruins football."
+      }
+    },
+    {
+      "id": "card.everyday_technology.093.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.093.q1"
+    },
+    {
+      "id": "card.everyday_technology.093.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.093.q2"
+    },
+    {
+      "id": "card.everyday_technology.093.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.093.q3"
+    },
+    {
+      "id": "card.everyday_technology.093.c8",
+      "type": "checkpoint",
+      "headline": "VR and AR: in view",
+      "learned": [
+        "VR shows each eye a slightly offset image",
+        "Motion sensors redraw the view as your head moves",
+        "Eyes and inner ear disagreeing can cause motion sickness",
+        "AR adds images to the real world instead of replacing it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.vr_headset"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.093.c2"
+      ],
+      "prompt": "How does a VR headset give you a sense of depth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It projects the scene onto the walls around you",
+          "correct": false,
+          "rationale": "The images are on screens right in front of your eyes."
+        },
+        {
+          "id": "b",
+          "label": "It shows each eye a slightly offset image",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It overlays graphics on the real room",
+          "correct": false,
+          "rationale": "That's augmented reality."
+        },
+        {
+          "id": "d",
+          "label": "It uses one extra-bright screen for both eyes",
+          "correct": false,
+          "rationale": "Depth comes from two slightly different images."
+        }
+      ],
+      "explanation": "Each eye gets its own slightly offset image, and the brain fuses them into one picture with depth.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.vr_headset"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.093.c3"
+      ],
+      "prompt": "Why can a VR game make some people feel sick while sitting still?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The lenses make the screens impossible to focus on",
+          "correct": false,
+          "rationale": "Lenses exist so your eyes can focus."
+        },
+        {
+          "id": "b",
+          "label": "Head tracking stops the view from moving",
+          "correct": false,
+          "rationale": "Tracking moves the view with your head."
+        },
+        {
+          "id": "c",
+          "label": "Their eyes see motion that their inner ear doesn't feel",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The screens give off too much heat",
+          "correct": false,
+          "rationale": "The cause is conflicting signals, not heat."
+        }
+      ],
+      "explanation": "Motion sickness comes from conflicting signals: the eyes report motion while the inner ear senses stillness.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.ar_overlay",
+        "concept.everyday_technology.vr_headset"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.093.c4",
+        "card.everyday_technology.093.c2"
+      ],
+      "prompt": "In 2016, Pokemon GO put creatures on real sidewalks. How does that kind of AR differ from VR?",
+      "options": [
+        {
+          "id": "a",
+          "label": "AR needs two screens; VR needs only one",
+          "correct": false,
+          "rationale": "Both can use various screens; the difference is what you see."
+        },
+        {
+          "id": "b",
+          "label": "AR only works indoors",
+          "correct": false,
+          "rationale": "It was played outdoors on real streets."
+        },
+        {
+          "id": "c",
+          "label": "AR is older than VR by many decades",
+          "correct": false,
+          "rationale": "Both date to the same early experiments."
+        },
+        {
+          "id": "d",
+          "label": "AR adds images to the real view; VR replaces the view",
+          "correct": true
+        }
+      ],
+      "explanation": "Augmented reality overlays computer-made images on the real world; virtual reality shows an artificial world instead.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.chm_sword_of_damocles",
+    "source.brit_virtual_reality",
+    "source.clevelandclinic_motion_sickness",
+    "source.brit_pokemon_go",
+    "source.brit_augmented_reality"
+  ],
+  "art": "technology.vr-headset"
+}

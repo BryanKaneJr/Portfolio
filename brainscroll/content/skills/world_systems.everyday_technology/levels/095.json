@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.everyday_technology.095",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 95,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Gene Editing",
+  "objective": "After this level you can explain in simple terms what CRISPR gene editing does.",
+  "summary": "CRISPR-Cas9, borrowed from bacteria, uses a guide RNA to find a DNA spot and Cas9 to cut it. Casgevy became the first approved CRISPR medicine in 2023; editing embryos remains widely rejected.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.crispr_mechanism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.crispr_casgevy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.crispr_ethics",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.094"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.095.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The scissors behind gene editing were borrowed from bacteria.",
+      "body": "Bacteria get attacked by viruses too, and they keep a memory of the attackers. They store small pieces of viral DNA in their own DNA, in patterns called CRISPR arrays. If the virus returns, they make RNA that recognizes it, and an enzyme called Cas9 cuts the virus's DNA apart. Scientists realized they could borrow the whole kit."
+    },
+    {
+      "id": "card.everyday_technology.095.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Find, cut, repair",
+      "body": "In 2012, Jennifer Doudna, Emmanuelle Charpentier and colleagues showed that CRISPR could edit genes. Scientists write a short guide RNA that matches the DNA they want to change. The guide leads Cas9 to that exact spot, and Cas9 cuts. Then the cell's own repair machinery takes over, and researchers use it to delete, add or change genetic material. Doudna and Charpentier shared the 2020 Nobel Prize in Chemistry."
+    },
+    {
+      "id": "card.everyday_technology.095.c3",
+      "type": "fact",
+      "fact": "In late 2023, CRISPR became a medicine.",
+      "context": "In November 2023, the UK's medicines regulator authorized Casgevy, the world's first approved CRISPR therapy. On December 8, 2023, the US FDA approved it for sickle cell disease in patients 12 and older. Doctors take the patient's own blood stem cells, edit them to make more fetal hemoglobin, and return them after high-dose chemotherapy."
+    },
+    {
+      "id": "card.everyday_technology.095.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where to draw the line",
+      "body": "Casgevy edits body cells, so the change stays with one patient. Edit an egg, sperm or embryo, and the change could pass to future generations; that is illegal in the US and many other countries. In 2018, He Jiankui announced twin girls born from edited embryos, and in 2019 a Chinese court sentenced him to three years in prison. In 2023, the organizers of an international genome-editing summit, including the Royal Society, stated: \"Heritable human genome editing remains unacceptable at this time.\"",
+      "mascot": {
+        "pose": "thinking",
+        "line": "One patient, or every descendant after them. Same scissors, very different question."
+      }
+    },
+    {
+      "id": "card.everyday_technology.095.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.095.q1"
+    },
+    {
+      "id": "card.everyday_technology.095.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.095.q2"
+    },
+    {
+      "id": "card.everyday_technology.095.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.095.q3"
+    },
+    {
+      "id": "card.everyday_technology.095.c8",
+      "type": "checkpoint",
+      "headline": "Gene editing: explained",
+      "learned": [
+        "CRISPR came from a bacterial defense against viruses",
+        "A guide RNA leads Cas9 to cut a chosen DNA spot",
+        "Casgevy (2023): the first approved CRISPR medicine",
+        "Heritable editing remains widely rejected"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.095.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.crispr_mechanism"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.095.c2"
+      ],
+      "prompt": "In CRISPR gene editing, what does the guide RNA do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It leads Cas9 to the matching spot in the DNA",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It repairs the DNA after the cut",
+          "correct": false,
+          "rationale": "The cell's own repair machinery does that."
+        },
+        {
+          "id": "c",
+          "label": "It cuts both strands of DNA",
+          "correct": false,
+          "rationale": "Cutting is Cas9's job."
+        },
+        {
+          "id": "d",
+          "label": "It carries the edit to future generations",
+          "correct": false,
+          "rationale": "Only edits to eggs, sperm or embryos could be inherited."
+        }
+      ],
+      "explanation": "The guide RNA matches the target sequence and leads the Cas9 enzyme there to cut.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.095.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.crispr_casgevy"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.095.c3"
+      ],
+      "prompt": "How does Casgevy, approved in 2023, treat sickle cell disease?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It edits the DNA of the patient's future children",
+          "correct": false,
+          "rationale": "It edits the patient's own blood stem cells."
+        },
+        {
+          "id": "b",
+          "label": "It replaces the patient's blood with a donor's",
+          "correct": false,
+          "rationale": "It uses the patient's own cells."
+        },
+        {
+          "id": "c",
+          "label": "It edits the patient's blood stem cells to make fetal hemoglobin",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is a daily pill that switches genes off",
+          "correct": false,
+          "rationale": "Cells are edited outside the body and returned."
+        }
+      ],
+      "explanation": "Casgevy edits the patient's own blood stem cells to make more fetal hemoglobin, then returns them after chemotherapy.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.everyday_technology.095.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.crispr_ethics",
+        "concept.everyday_technology.crispr_casgevy"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.095.c4",
+        "card.everyday_technology.095.c3"
+      ],
+      "prompt": "Why did the 2023 genome-editing summit's warning about heritable editing not cover Casgevy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Casgevy doesn't use CRISPR",
+          "correct": false,
+          "rationale": "It's the first approved CRISPR therapy."
+        },
+        {
+          "id": "b",
+          "label": "Casgevy edits body cells, so the change isn't inherited",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The summit was held before Casgevy existed",
+          "correct": false,
+          "rationale": "Casgevy's approvals came in late 2023; the point is which cells it edits."
+        },
+        {
+          "id": "d",
+          "label": "Casgevy only works on bacteria",
+          "correct": false,
+          "rationale": "It treats people with sickle cell disease."
+        }
+      ],
+      "explanation": "Casgevy edits a patient's body cells, so the change stays with that patient; heritable editing of eggs, sperm or embryos is what the summit rejected.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.medlineplus_genome_editing",
+    "source.brit_crispr",
+    "source.nhs_genomics_casgevy",
+    "source.fda_casgevy_2023",
+    "source.mittr_he_jiankui_sentence",
+    "source.royalsociety_genome_summit_2023"
+  ],
+  "art": "technology.dna"
+}

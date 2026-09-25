@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.everyday_technology.052",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Binary",
+  "objective": "After this level you can explain how ones and zeros can stand for numbers, letters and pictures.",
+  "summary": "A switch is on or off, so computers count in binary: each place is worth double and 8 bits make a byte. Letters and pixel colors are stored as numbers.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.computer_binary_numbers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_binary_encoding",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.circuit_closed_loop",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.051"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The words you are reading are stored as 0s and 1s.",
+      "body": "So are your photos and your music. A computer stores numbers, letters, colors, pictures and sounds with just two symbols. How can two symbols spell out all of that?"
+    },
+    {
+      "id": "card.everyday_technology.052.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why only two?",
+      "body": "A computer is full of tiny electronic switches, and a switch has two states. Remember Level 4: a switch either closes the loop or leaves a gap. On stands for 1, off for 0. That two-symbol code is called binary (\"bi\" means two), and each single 0 or 1 is a bit. Everything else is built from bits.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A light switch has been speaking binary your whole life. It just never said much."
+      }
+    },
+    {
+      "id": "card.everyday_technology.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Counting with doubles",
+      "body": "In everyday numbers each place is worth ten times the one to its right. In binary each place is worth double: 1, 2, 4, 8, 16, 32, 64, 128. To write a number, switch on the places that add up to it. 5 is 4 + 1, so it's 101. Eight bits make a byte, running from 00000000 to 11111111: 256 patterns, for the numbers 0 to 255."
+    },
+    {
+      "id": "card.everyday_technology.052.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Letters and pictures are numbers in disguise",
+      "body": "Give every character a number and text becomes binary. In the ASCII code, one byte stands for one letter, digit or punctuation mark: lowercase a is 01100001. Pictures work the same way. A photo is a grid of tiny dots called pixels, and each dot's color is stored as numbers. Your favorite photo is, underneath, a very long list of numbers."
+    },
+    {
+      "id": "card.everyday_technology.052.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.052.q1"
+    },
+    {
+      "id": "card.everyday_technology.052.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.052.q2"
+    },
+    {
+      "id": "card.everyday_technology.052.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.052.q3"
+    },
+    {
+      "id": "card.everyday_technology.052.c8",
+      "type": "checkpoint",
+      "headline": "Binary: decoded",
+      "learned": [
+        "A switch is on (1) or off (0), so computers use binary",
+        "Each binary place is worth double: 1, 2, 4, 8 and so on",
+        "Eight bits make a byte: 256 patterns",
+        "Letters and pixel colors are stored as numbers"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.computer_binary_encoding"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.052.c4",
+        "card.everyday_technology.052.c3"
+      ],
+      "prompt": "In the ASCII code, how much space does a single letter such as lowercase a take up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One bit",
+          "correct": false,
+          "rationale": "One bit is a single 0 or 1: only two patterns."
+        },
+        {
+          "id": "b",
+          "label": "One byte",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "One pixel",
+          "correct": false,
+          "rationale": "Pixels are dots in a picture."
+        },
+        {
+          "id": "d",
+          "label": "256 bytes",
+          "correct": false,
+          "rationale": "256 is how many patterns one byte can make."
+        }
+      ],
+      "explanation": "ASCII is an 8-bit code: one byte per letter. Lowercase a is 01100001.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.computer_binary_numbers"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.052.c3"
+      ],
+      "prompt": "With binary place values of 8, 4, 2 and 1, which four-bit pattern stands for the number 6?",
+      "options": [
+        {
+          "id": "a",
+          "label": "0011",
+          "correct": false,
+          "rationale": "That's 2 + 1 = 3."
+        },
+        {
+          "id": "b",
+          "label": "0101",
+          "correct": false,
+          "rationale": "That's 4 + 1 = 5."
+        },
+        {
+          "id": "c",
+          "label": "0110",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "1100",
+          "correct": false,
+          "rationale": "That's 8 + 4 = 12."
+        }
+      ],
+      "explanation": "6 is 4 + 2, so switch on the 4s place and the 2s place: 0110.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.everyday_technology.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.computer_binary_numbers",
+        "concept.everyday_technology.circuit_closed_loop"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.052.c2",
+        "card.everyday_technology.004.c3"
+      ],
+      "prompt": "Level 4's switch either closes the loop or leaves a gap. Why does that make binary a natural fit for computers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each switch has exactly two states: on is 1, off is 0",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Switches can count to ten on their own",
+          "correct": false,
+          "rationale": "A switch has only two states."
+        },
+        {
+          "id": "c",
+          "label": "Binary needs no electricity at all",
+          "correct": false,
+          "rationale": "Computers' switches are electronic."
+        },
+        {
+          "id": "d",
+          "label": "Open switches store extra energy for later",
+          "correct": false,
+          "rationale": "An open switch just stops the current."
+        }
+      ],
+      "explanation": "A computer's tiny switches are on or off, so a two-symbol code, 1 and 0, matches them exactly.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.intel_digital_information",
+    "source.brit_computer",
+    "source.physicsclassroom_circuit_requirements"
+  ],
+  "art": "technology.lightbulb"
+}

@@ -1,0 +1,214 @@
+{
+  "id": "level.world_systems.everyday_technology.059",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Operating Systems",
+  "objective": "After this level you can explain what an operating system does.",
+  "summary": "An operating system shares the processor, memory and devices among programs, switching between them in tiny time slices; a start-up program loads it into RAM.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.computer_operating_system",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_memory_vs_storage",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.058"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.059.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Music plays, a file downloads, you type a message. All at once?",
+      "body": "Not quite. On a single processor core, the programs take turns, switching about 50 times a second, so fast you never notice. The referee handing out those turns is the operating system."
+    },
+    {
+      "id": "card.everyday_technology.059.c2",
+      "type": "fact",
+      "fact": "An operating system is the program that manages a computer's resources for every other program.",
+      "context": "It shares out the processor, memory, file storage, input and output devices and network connections among the programs that need them. Windows, macOS and Linux are operating systems for computers; Android and iOS run phones. Every app you open is a guest in its house."
+    },
+    {
+      "id": "card.everyday_technology.059.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Taking turns in 20-millisecond slices",
+      "body": "A multitasking operating system gives each program a tiny slice of processor time, about 20 milliseconds in Windows. When the slice runs out, it pauses that program, saves its place and hands the processor to the next. That makes about 50 slices a second, so the music, the download and your typing all seem to run at once.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "A card dealer so fast that every player thinks they are the only one at the table."
+      }
+    },
+    {
+      "id": "card.everyday_technology.059.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Booting: loading the boss",
+      "body": "Remember Level 54: RAM forgets everything when the power goes off. So each time you switch on, memory starts empty. A small start-up program stored on a chip, such as the BIOS, checks which devices are present, then loads the operating system from storage into main memory. Only then can the operating system start your apps."
+    },
+    {
+      "id": "card.everyday_technology.059.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.059.q1"
+    },
+    {
+      "id": "card.everyday_technology.059.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.059.q2"
+    },
+    {
+      "id": "card.everyday_technology.059.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.059.q3"
+    },
+    {
+      "id": "card.everyday_technology.059.c8",
+      "type": "checkpoint",
+      "headline": "Operating systems: running",
+      "learned": [
+        "The OS manages the computer's resources for every program",
+        "Programs take turns in slices of about 20 milliseconds",
+        "Windows, macOS, Linux, Android and iOS are operating systems",
+        "At start-up, a program such as the BIOS loads the OS into RAM"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.computer_operating_system"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.059.c2"
+      ],
+      "prompt": "Which job belongs to a computer's operating system?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Generating the electricity the chip runs on",
+          "correct": false,
+          "rationale": "That comes from a battery or the grid."
+        },
+        {
+          "id": "b",
+          "label": "Sharing the processor, memory and storage among programs",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Storing bits as magnetized patches",
+          "correct": false,
+          "rationale": "That's how a hard drive stores data."
+        },
+        {
+          "id": "d",
+          "label": "Turning Python into English",
+          "correct": false,
+          "rationale": "Translating code is a compiler or interpreter job."
+        }
+      ],
+      "explanation": "An operating system manages the computer's resources and shares them among the programs that need them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.computer_operating_system"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.059.c3",
+        "card.everyday_technology.059.c1"
+      ],
+      "prompt": "On a single processor core, how can music, a download and typing all seem to run at the same moment?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The OS switches between them in tiny time slices",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Each program gets its own separate computer",
+          "correct": false,
+          "rationale": "They share one processor core."
+        },
+        {
+          "id": "c",
+          "label": "The programs run one after another, each to the end",
+          "correct": false,
+          "rationale": "Then the music would stop while you type."
+        },
+        {
+          "id": "d",
+          "label": "The screen shows old copies of each program",
+          "correct": false,
+          "rationale": "They really do run, in turns."
+        }
+      ],
+      "explanation": "The OS gives each program a slice of about 20 milliseconds, then switches: about 50 turns a second.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.computer_operating_system",
+        "concept.everyday_technology.computer_memory_vs_storage"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.059.c4",
+        "card.everyday_technology.054.c2"
+      ],
+      "prompt": "Level 54 said most RAM forgets everything without power. So what must happen each time a computer is switched on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The operating system is typed in again by hand",
+          "correct": false,
+          "rationale": "A start-up program does the loading."
+        },
+        {
+          "id": "b",
+          "label": "The hard drive is erased",
+          "correct": false,
+          "rationale": "Storage keeps its data; that is its job."
+        },
+        {
+          "id": "c",
+          "label": "RAM is replaced with a fresh chip",
+          "correct": false,
+          "rationale": "The same RAM is reused; it just starts empty."
+        },
+        {
+          "id": "d",
+          "label": "A start-up program loads the operating system from storage into RAM",
+          "correct": true
+        }
+      ],
+      "explanation": "Because RAM starts empty, a start-up program such as the BIOS loads the operating system from storage into main memory.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.microsoft_multitasking",
+    "source.brit_operating_system",
+    "source.brit_computer_memory",
+    "source.brit_bios"
+  ],
+  "art": "technology.laptop"
+}

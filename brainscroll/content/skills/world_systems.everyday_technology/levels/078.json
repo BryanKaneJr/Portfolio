@@ -1,0 +1,216 @@
+{
+  "id": "level.world_systems.everyday_technology.078",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Antibiotics",
+  "objective": "After this level you can explain how antibiotics kill bacteria and why resistance matters.",
+  "summary": "Penicillin (1928) stops bacteria building cell walls; antibiotics don't work on viruses. Resistant bacteria survive and multiply: about 1 in 6 infections resisted antibiotics in 2023.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.antibiotic_how",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.antibiotic_resistance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.vaccine_immune_training",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.077"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1928, a moldy dish changed medicine.",
+      "body": "Alexander Fleming noticed that bacteria in one of his cultures wouldn't grow near a patch of Penicillium mold that had got in by accident. The mold was making penicillin. How can a drug kill bacteria and leave you alone, and why did Fleming soon worry it could stop working?"
+    },
+    {
+      "id": "card.everyday_technology.078.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Break the wall, burst the germ",
+      "body": "Penicillin stops bacteria from building their cell walls. Without a sturdy wall, a bacterium turns leaky and fragile, and it bursts. Your own cells have no such wall, so the drug leaves them alone. That's the trick of an antibiotic: hit something bacteria have and you don't. Viruses, like those behind colds and flu, lack those targets, so antibiotics don't work on them."
+    },
+    {
+      "id": "card.everyday_technology.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Resistance: the survivors win",
+      "body": "Antibiotic resistance doesn't mean your body gets used to a drug. It means the germs change. When an antibiotic is used, any bacteria that can defeat it survive, multiply and can even pass resistance traits in their DNA to other germs. Fleming saw it coming: in his 1945 Nobel lecture he warned that doses too small to kill microbes could make them resistant."
+    },
+    {
+      "id": "card.everyday_technology.078.c4",
+      "type": "fact",
+      "fact": "About 1 in 6 lab-confirmed bacterial infections worldwide resisted antibiotics in 2023.",
+      "context": "That's WHO's figure. In the US, CDC's 2019 report estimated more than 2.8 million antimicrobial-resistant infections and more than 35,000 deaths each year. WHO names the misuse and overuse of antibiotics as one of the main drivers. Every use gives resistant survivors a chance to win, which is why keeping antibiotics working matters."
+    },
+    {
+      "id": "card.everyday_technology.078.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.078.q1"
+    },
+    {
+      "id": "card.everyday_technology.078.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.078.q2"
+    },
+    {
+      "id": "card.everyday_technology.078.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.078.q3"
+    },
+    {
+      "id": "card.everyday_technology.078.c8",
+      "type": "checkpoint",
+      "headline": "Antibiotics: explained",
+      "learned": [
+        "Fleming found penicillin in a moldy dish in 1928",
+        "Penicillin stops bacteria building cell walls, so they burst",
+        "Antibiotics don't work on viruses",
+        "Resistant bacteria survive and multiply; about 1 in 6 infections resisted in 2023"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.antibiotic_how"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.078.c2"
+      ],
+      "prompt": "How does penicillin kill bacteria?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It trains the immune system to remember them",
+          "correct": false,
+          "rationale": "That's what a vaccine does (Level 76)."
+        },
+        {
+          "id": "b",
+          "label": "It stops them building their cell walls, so they burst",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It heats them until they die",
+          "correct": false,
+          "rationale": "It works on their walls, not with heat."
+        },
+        {
+          "id": "d",
+          "label": "It starves them of water",
+          "correct": false,
+          "rationale": "It blocks wall-building."
+        }
+      ],
+      "explanation": "Penicillin blocks cell-wall building, so bacteria become leaky and fragile and burst; human cells have no such walls.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.antibiotic_resistance"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.078.c3"
+      ],
+      "prompt": "What does antibiotic resistance actually mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The bacteria can defeat the drug",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Your body has become used to the drug",
+          "correct": false,
+          "rationale": "Resistance is in the germs, not your body."
+        },
+        {
+          "id": "c",
+          "label": "The drug has passed its expiry date",
+          "correct": false,
+          "rationale": "Resistance is about the bacteria changing."
+        },
+        {
+          "id": "d",
+          "label": "Viruses have learned to eat the drug",
+          "correct": false,
+          "rationale": "Antibiotics don't work on viruses at all."
+        }
+      ],
+      "explanation": "Resistance happens when germs develop the ability to defeat the drugs designed to kill them; it doesn't mean your body is resistant.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.antibiotic_how",
+        "concept.everyday_technology.vaccine_immune_training"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.078.c2",
+        "card.everyday_technology.076.c2"
+      ],
+      "prompt": "Level 76's vaccines and penicillin both help beat bacterial disease. What is the key difference in how they work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Vaccines kill bacteria directly; antibiotics train immunity",
+          "correct": false,
+          "rationale": "That's reversed."
+        },
+        {
+          "id": "b",
+          "label": "Only antibiotics work before you are sick",
+          "correct": false,
+          "rationale": "Vaccines are the ones that work ahead of time."
+        },
+        {
+          "id": "c",
+          "label": "They work in exactly the same way",
+          "correct": false,
+          "rationale": "One trains, the other attacks."
+        },
+        {
+          "id": "d",
+          "label": "A vaccine trains your immune system; an antibiotic attacks bacteria directly",
+          "correct": true
+        }
+      ],
+      "explanation": "A vaccine prepares the immune system to recognize a germ; penicillin attacks bacteria directly by breaking their cell walls.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_penicillin",
+    "source.hawaii_penicillin_cell_wall",
+    "source.cdc_about_antimicrobial_resistance",
+    "source.nobel_fleming_lecture",
+    "source.who_amr_factsheet",
+    "source.cdc_ar_threats_2019"
+  ],
+  "art": "science.microscope"
+}

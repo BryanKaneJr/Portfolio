@@ -1,0 +1,222 @@
+{
+  "id": "level.world_systems.everyday_technology.097",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 97,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Quantum Computers",
+  "objective": "After this level you can explain what makes quantum computers different, without the hype.",
+  "summary": "A qubit can be 0, 1 or a mix until measured. Quantum computers are expected to help with specific jobs like simulating molecules, not replace ordinary computers; qubits are fragile and error-prone.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.quantum_qubit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.quantum_uses_limits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.circuit_closed_loop",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.096"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.097.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2019, a quantum computer did a job in 200 seconds. The argument took longer.",
+      "body": "Google researchers reported that their Sycamore processor finished a calculation in 200 seconds that they estimated would take a top supercomputer 10,000 years. IBM researchers replied that a better classical method could do it in 2.5 days. To judge claims like these, you need to know what a qubit is, and what it's good for."
+    },
+    {
+      "id": "card.everyday_technology.097.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A switch that isn't just on or off",
+      "body": "Remember Level 4's switch: open or closed, never both. An ordinary computer bit is the same, either 0 or 1. A qubit, a quantum bit, can be 0, 1 or a mix of the two, called a superposition. But the moment you measure it, you get a plain 0 or 1. The in-between only lasts until you look."
+    },
+    {
+      "id": "card.everyday_technology.097.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What they're good for",
+      "body": "Quantum computers aren't faster at everything. NIST expects them to help with particular problems, such as simulating the quantum rules that govern molecules, chemicals and materials. In 1994, Peter Shor described a quantum algorithm that could quickly factor the huge numbers that protect much of today's encryption. That's why, in August 2024, NIST released its first encryption standards designed to withstand quantum attacks."
+    },
+    {
+      "id": "card.everyday_technology.097.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What they're not",
+      "body": "A quantum computer isn't a faster laptop: NIST sees the two kinds of machine working together, not one replacing the other. Qubits are fragile. Many must be kept near absolute zero, and today's machines make an error roughly once in every thousand operations. And that 2019 task? It was a benchmark, sampling random quantum circuits, chosen because it gets exponentially harder for ordinary computers.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "When a headline says quantum, ask: which problem, and compared with what?"
+      }
+    },
+    {
+      "id": "card.everyday_technology.097.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.097.q1"
+    },
+    {
+      "id": "card.everyday_technology.097.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.097.q2"
+    },
+    {
+      "id": "card.everyday_technology.097.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.097.q3"
+    },
+    {
+      "id": "card.everyday_technology.097.c8",
+      "type": "checkpoint",
+      "headline": "Quantum computers: demystified",
+      "learned": [
+        "A qubit can be 0, 1 or a mix until measured",
+        "Expected uses: simulating molecules, factoring (Shor, 1994)",
+        "Not a faster laptop; qubits are fragile and error-prone",
+        "Post-quantum encryption standards arrived in 2024"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.097.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.quantum_uses_limits"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.097.c4"
+      ],
+      "prompt": "Why must many quantum computers be kept near absolute zero?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To stop the laptop inside from overheating",
+          "correct": false,
+          "rationale": "There's no laptop inside; qubits are the issue."
+        },
+        {
+          "id": "b",
+          "label": "To store more encryption keys",
+          "correct": false,
+          "rationale": "Cooling protects the qubits."
+        },
+        {
+          "id": "c",
+          "label": "Because their qubits are fragile",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Because Level 4's switches only work when cold",
+          "correct": false,
+          "rationale": "Ordinary switches work at room temperature."
+        }
+      ],
+      "explanation": "Qubits are fragile and error-prone, so many designs must be kept at temperatures near absolute zero.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.097.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.quantum_uses_limits"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.097.c3",
+        "card.everyday_technology.097.c4"
+      ],
+      "prompt": "Which job are quantum computers actually expected to help with?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Running your web browser faster",
+          "correct": false,
+          "rationale": "They aren't faster laptops."
+        },
+        {
+          "id": "b",
+          "label": "Simulating how molecules and materials behave",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Replacing every ordinary computer",
+          "correct": false,
+          "rationale": "NIST expects the two to work together."
+        },
+        {
+          "id": "d",
+          "label": "Storing photos with fewer errors",
+          "correct": false,
+          "rationale": "Qubits make far more errors than ordinary bits."
+        }
+      ],
+      "explanation": "NIST expects quantum computers to help with specific problems, such as simulating the quantum rules of molecules, chemicals and materials.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.everyday_technology.097.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.quantum_qubit",
+        "concept.everyday_technology.circuit_closed_loop"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.097.c2",
+        "card.everyday_technology.004.c3"
+      ],
+      "prompt": "Level 4's light switch is either open or closed. How is a qubit different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It can be a mix of 0 and 1 until it's measured",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It stays 0 and 1 at once even after measuring",
+          "correct": false,
+          "rationale": "Measuring always gives a plain 0 or 1."
+        },
+        {
+          "id": "c",
+          "label": "It can only ever be 0",
+          "correct": false,
+          "rationale": "A qubit can be 0, 1 or a mix."
+        },
+        {
+          "id": "d",
+          "label": "It is a switch that opens a gap in a circuit",
+          "correct": false,
+          "rationale": "That's Level 4's switch, not a qubit."
+        }
+      ],
+      "explanation": "A qubit can be in a superposition of 0 and 1, but measuring it gives a plain 0 or 1.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sciencenews_quantum_supremacy_2019",
+    "source.physicsclassroom_circuit_requirements",
+    "source.nist_quantum_explained",
+    "source.brit_quantum_computer",
+    "source.nist_pqc_standards_2024",
+    "source.google_research_quantum_supremacy"
+  ],
+  "art": "technology.chip"
+}

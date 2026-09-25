@@ -1,0 +1,232 @@
+{
+  "id": "level.world_systems.everyday_technology.013",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Oil",
+  "objective": "After this level you can explain how oil forms, how it is drilled and what refining does.",
+  "summary": "Oil formed from ancient marine life and fills tiny spaces in rock. Drake's 1859 well started the industry. Refineries sort crude by boiling point and crack it into gasoline, mostly for transport.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.oil_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.oil_refining",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_basics",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.thermal_power_plant",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.012"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "There are no underground lakes of oil.",
+      "body": "Oil sits in tiny spaces inside rock, a bit like water in a sponge. So how did it get into the rock, how do people get it out, and how does crude oil become the fuel in a car's tank?"
+    },
+    {
+      "id": "card.everyday_technology.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ancient sea life, slow-cooked",
+      "body": "Crude oil formed from the remains of tiny marine plants and animals, such as diatoms, that lived millions of years ago. Buried under layers of sand, silt and rock, they were turned into oil by heat and pressure. What's locked inside is Level 2's stored energy: petroleum holds chemical energy in the bonds of its molecules. A tank of gasoline is energy from an ancient sea."
+    },
+    {
+      "id": "card.everyday_technology.013.c3",
+      "type": "fact",
+      "fact": "In 1859, Edwin Drake struck oil just 69 feet down.",
+      "context": "His well near Titusville, Pennsylvania, was the first productive oil well in the United States, and it launched the modern petroleum industry. The job is the same today: drill down through layers of sand, silt and rock until you reach the rock that holds the oil and gas."
+    },
+    {
+      "id": "card.everyday_technology.013.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Refining: sorting crude by boiling point",
+      "body": "Crude oil is a mix, and a refinery sorts it. First comes distillation: the crude is heated, and in a distillation tower the lightest parts rise as vapor to the top while the heaviest settle at the bottom. Then cracking uses heat, pressure and catalysts to break heavy molecules into lighter ones, such as those in gasoline. From one 42-gallon barrel, US refineries make about 19 to 20 gallons of gasoline."
+    },
+    {
+      "id": "card.everyday_technology.013.c5",
+      "type": "fact",
+      "fact": "Oil moves the world more than it lights it.",
+      "context": "In 2025, petroleum products supplied about 89% of the energy used for US transportation. Yet petroleum made only about 0.7% of US electricity that year. Level 12's power plants mostly burn gas and coal; oil mostly ends up in tanks.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Next time you fill up, you're pouring in a very old sea. A small thank-you to the diatoms seems fair."
+      }
+    },
+    {
+      "id": "card.everyday_technology.013.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.013.q1"
+    },
+    {
+      "id": "card.everyday_technology.013.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.013.q2"
+    },
+    {
+      "id": "card.everyday_technology.013.c8",
+      "type": "recall",
+      "questionId": "question.everyday_technology.013.q3"
+    },
+    {
+      "id": "card.everyday_technology.013.c9",
+      "type": "checkpoint",
+      "headline": "Oil: refined",
+      "learned": [
+        "Oil formed from ancient marine life under heat and pressure",
+        "It fills tiny spaces in rock, reached by drilling",
+        "Drake's 1859 well launched the petroleum industry",
+        "Refineries distill crude by boiling point, then crack it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.oil_formation"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.013.c2"
+      ],
+      "prompt": "What did crude oil form from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lava that cooled underground",
+          "correct": false,
+          "rationale": "Oil is made from ancient living things."
+        },
+        {
+          "id": "b",
+          "label": "Remains of tiny marine plants and animals",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Rainwater soaking into minerals",
+          "correct": false,
+          "rationale": "Water doesn't turn into oil."
+        },
+        {
+          "id": "d",
+          "label": "Tar poured out by ancient volcanoes",
+          "correct": false,
+          "rationale": "Oil's source was marine life, not volcanoes."
+        }
+      ],
+      "explanation": "Tiny marine plants and animals, buried under sand, silt and rock, were turned into oil by heat and pressure over millions of years.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.oil_refining"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.013.c4"
+      ],
+      "prompt": "In a refinery's distillation tower, why do the parts of crude oil separate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Magnets pull the heavy parts down",
+          "correct": false,
+          "rationale": "Distillation uses heat, not magnets."
+        },
+        {
+          "id": "b",
+          "label": "Workers skim them off by hand",
+          "correct": false,
+          "rationale": "The tower sorts them automatically."
+        },
+        {
+          "id": "c",
+          "label": "They boil at different temperatures",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Cracking glues them into one fuel",
+          "correct": false,
+          "rationale": "Cracking breaks molecules apart, after distillation."
+        }
+      ],
+      "explanation": "Heated crude separates by boiling point: light parts rise as vapor, and the heaviest settle at the bottom.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.oil_refining",
+        "concept.everyday_technology.thermal_power_plant"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.013.c5",
+        "card.everyday_technology.012.c4"
+      ],
+      "prompt": "Unlike Level 12's coal and gas, what is oil mostly used for in the US?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fuel for transportation",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Making most of the grid's electricity",
+          "correct": false,
+          "rationale": "Petroleum made only about 0.7% of US electricity in 2025."
+        },
+        {
+          "id": "c",
+          "label": "Charging the grid's big batteries",
+          "correct": false,
+          "rationale": "Batteries are charged with electricity, not oil."
+        },
+        {
+          "id": "d",
+          "label": "Boiling water in coal plants",
+          "correct": false,
+          "rationale": "Coal plants burn coal."
+        }
+      ],
+      "explanation": "Petroleum supplied about 89% of US transportation energy in 2025 but only about 0.7% of electricity; gas and coal fire most power plants.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eia_electricity_in_us",
+    "source.eia_oil_explained",
+    "source.eia_forms_of_energy",
+    "source.brit_drake",
+    "source.eia_refining_process",
+    "source.eia_refining_crude_oil",
+    "source.eia_transportation_energy"
+  ],
+  "art": "geo.oil-derrick"
+}

@@ -1,0 +1,241 @@
+{
+  "id": "level.world_systems.everyday_technology.075",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Heating and Cooling",
+  "objective": "After this level you can explain how heat pumps and air conditioners move heat.",
+  "summary": "An air conditioner is a fridge for a house, moving heat outdoors. A heat pump runs the same trick both ways, moving about 3 kWh of heat per 1 kWh of electricity.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.hvac_air_conditioning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.hvac_heat_pump",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.fridge_moves_heat",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.fridge_refrigerant_cycle",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_power",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_conservation",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.074"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.075.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first modern air conditioner was built for printed pages, not people.",
+      "body": "In 1902, engineer Willis Carrier took on a Brooklyn printing company's problem: humid air was spoiling its pages. His fix used cooling coils to control the humidity. The trick at the heart of every air conditioner since is the one inside your fridge."
+    },
+    {
+      "id": "card.everyday_technology.075.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An air conditioner is a fridge for your house",
+      "body": "Remember Level 71: a fridge moves heat out of a box and releases it into your kitchen. An air conditioner works on the same principle with a bigger box, your home. Refrigerant soaks up heat indoors and gives it up outside. In this version, your living room is the inside of the fridge, and the whole outdoors is the kitchen."
+    },
+    {
+      "id": "card.everyday_technology.075.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A heat pump runs it both ways",
+      "body": "A heat pump is the same kind of machine, built to work in either direction. In summer it moves heat from your home to the outdoors, like an air conditioner. In winter it flips around: it collects heat from the cool outdoor air and concentrates it inside. Even chilly air has heat to give."
+    },
+    {
+      "id": "card.everyday_technology.075.c4",
+      "type": "fact",
+      "fact": "A heat pump can move about 3 kWh of heat indoors using 1 kWh of electricity.",
+      "context": "An ordinary electric heater turns each kilowatt-hour, Level 10's unit, into one kilowatt-hour of heat. A heat pump spends its electricity moving heat that already exists, so it can bring in about three. Level 2's rule survives: nothing is created, just transferred. That's why heat pumps are so much more efficient than traditional heating.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Three for the price of one, and physics signs off on it. I love a legal bargain."
+      }
+    },
+    {
+      "id": "card.everyday_technology.075.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.075.q1"
+    },
+    {
+      "id": "card.everyday_technology.075.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.075.q2"
+    },
+    {
+      "id": "card.everyday_technology.075.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.075.q3"
+    },
+    {
+      "id": "card.everyday_technology.075.c8",
+      "type": "checkpoint",
+      "headline": "Heating and cooling: balanced",
+      "learned": [
+        "Carrier's 1902 system controlled humidity at a printer",
+        "An air conditioner is a fridge for your whole house",
+        "A heat pump moves heat outdoors in summer and indoors in winter",
+        "It can move about 3 kWh of heat per 1 kWh of electricity"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.hvac_air_conditioning"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.075.c1"
+      ],
+      "prompt": "What problem was Willis Carrier's 1902 cooling system built to solve?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stifling heat in New York offices",
+          "correct": false,
+          "rationale": "It began at a printing company."
+        },
+        {
+          "id": "b",
+          "label": "Meat spoiling on long sea voyages",
+          "correct": false,
+          "rationale": "That is refrigeration, not his job."
+        },
+        {
+          "id": "c",
+          "label": "Overheating electric motors in mills",
+          "correct": false,
+          "rationale": "His job was humidity at a printer."
+        },
+        {
+          "id": "d",
+          "label": "Humid air spoiling a printer's pages",
+          "correct": true
+        }
+      ],
+      "explanation": "Carrier's first system used cooling coils to control humidity that was spoiling a Brooklyn printer's pages.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.hvac_heat_pump"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.075.c3",
+        "card.everyday_technology.075.c4"
+      ],
+      "prompt": "How does a heat pump warm a house in winter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It burns fuel inside the house",
+          "correct": false,
+          "rationale": "It uses electricity to move heat."
+        },
+        {
+          "id": "b",
+          "label": "It collects heat from the outdoor air and moves it inside",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It creates new heat out of electricity alone",
+          "correct": false,
+          "rationale": "It mostly moves heat that already exists."
+        },
+        {
+          "id": "d",
+          "label": "It pulls the cold out of the house",
+          "correct": false,
+          "rationale": "Heat moves; cold is just less heat."
+        }
+      ],
+      "explanation": "In winter a heat pump collects heat from the cool outdoors and concentrates it indoors.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.hvac_air_conditioning",
+        "concept.everyday_technology.fridge_moves_heat"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.075.c2",
+        "card.everyday_technology.071.c2"
+      ],
+      "prompt": "Level 71's fridge moves heat out of a cold box. In an air-conditioned house, what plays the part of that cold box?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The outdoor air",
+          "correct": false,
+          "rationale": "That's where the heat goes, like the kitchen."
+        },
+        {
+          "id": "b",
+          "label": "The refrigerant pipes",
+          "correct": false,
+          "rationale": "The refrigerant carries the heat."
+        },
+        {
+          "id": "c",
+          "label": "The rooms of the house",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The electric grid",
+          "correct": false,
+          "rationale": "The grid supplies the electricity."
+        }
+      ],
+      "explanation": "An air conditioner moves heat out of the house to the outdoors, just as a fridge moves it out of its box into the kitchen.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.doe_history_air_conditioning",
+    "source.hyperphysics_refrigerator",
+    "source.doe_heat_pumps_savings",
+    "source.uiuc_physics_van_open_fridge",
+    "source.brit_refrigeration",
+    "source.hyperphysics_heat_pump",
+    "source.nist_sp811_conversion",
+    "source.psu_energy_units",
+    "source.eia_measuring_electricity",
+    "source.eia_laws_of_energy",
+    "source.brit_energy"
+  ],
+  "art": "nature.thermometer"
+}

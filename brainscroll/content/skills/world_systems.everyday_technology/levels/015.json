@@ -1,0 +1,222 @@
+{
+  "id": "level.world_systems.everyday_technology.015",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hydropower",
+  "objective": "After this level you can explain how dams turn falling water into electricity.",
+  "summary": "Water from a reservoir falls through a penstock to spin a turbine. More flow and a higher fall mean more power. Hydro made about 14% of the world's electricity in 2025.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.hydro_how",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.hydro_head_flow",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_basics",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.war_of_currents",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.014"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "America's first hydroelectric plant opened 26 days after Edison's.",
+      "body": "Level 9's Pearl Street station started on September 4, 1882. On September 30, a plant on the Fox River in Appleton, Wisconsin, began selling electricity made by moving water. People had used rivers to turn paddle wheels and grind grain for thousands of years. Now a river could light a room."
+    },
+    {
+      "id": "card.everyday_technology.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "How a dam makes electricity",
+      "body": "A dam holds back a reservoir of water. Near the bottom of the dam, water enters an intake and falls through a pipe called a penstock. At the end it spins a turbine, and the turbine's shaft turns a generator. No fire, no steam: the water pushes the turbine itself. It's Level 2's gravitational energy, the energy stored in anything raised high, cashed in."
+    },
+    {
+      "id": "card.everyday_technology.015.c3",
+      "type": "fact",
+      "fact": "The more water, and the farther it falls, the more electricity.",
+      "context": "Engineers call the height of the fall the head. The amount of energy in moving water depends on the flow and the head, so a big river behind a tall dam is the dream setup. The biggest hydroelectric facility in the world is the Three Gorges Dam on China's Yangtze River."
+    },
+    {
+      "id": "card.everyday_technology.015.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Big for the world, smaller for the US",
+      "body": "Hydropower made about 14% of the world's electricity in 2025, but only about 6% of US electricity. It all depends on where the big rivers and big drops are. And remember Level 9's win for AC? In 1896, the power that lit Buffalo came from Niagara Falls."
+    },
+    {
+      "id": "card.everyday_technology.015.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.015.q1"
+    },
+    {
+      "id": "card.everyday_technology.015.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.015.q2"
+    },
+    {
+      "id": "card.everyday_technology.015.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.015.q3"
+    },
+    {
+      "id": "card.everyday_technology.015.c8",
+      "type": "checkpoint",
+      "headline": "Hydropower: flowing",
+      "learned": [
+        "Appleton's 1882 plant followed Pearl Street by 26 days",
+        "Water falls through a penstock to spin a turbine",
+        "More flow and a higher head mean more power",
+        "About 14% of world electricity, about 6% in the US (2025)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.hydro_how"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.015.c2"
+      ],
+      "prompt": "At a hydroelectric dam, what turns the turbine?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Water falling through a penstock",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Steam from a boiler",
+          "correct": false,
+          "rationale": "A dam needs no fire and no steam."
+        },
+        {
+          "id": "c",
+          "label": "Wind blowing across the reservoir",
+          "correct": false,
+          "rationale": "It's the falling water that pushes."
+        },
+        {
+          "id": "d",
+          "label": "A battery at the base of the dam",
+          "correct": false,
+          "rationale": "Batteries store energy; they don't turn turbines here."
+        }
+      ],
+      "explanation": "Water from the reservoir falls through the penstock and spins the turbine, which turns the generator.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.hydro_head_flow"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.015.c3"
+      ],
+      "prompt": "Which two things decide how much energy a dam's water can deliver?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The water's temperature and saltiness",
+          "correct": false,
+          "rationale": "Those don't set its energy."
+        },
+        {
+          "id": "b",
+          "label": "The dam's width and the river's length",
+          "correct": false,
+          "rationale": "Width and length aren't the key factors."
+        },
+        {
+          "id": "c",
+          "label": "The reservoir's surface area and the season",
+          "correct": false,
+          "rationale": "What matters is how much flows and how far it falls."
+        },
+        {
+          "id": "d",
+          "label": "How much water flows and how far it falls",
+          "correct": true
+        }
+      ],
+      "explanation": "Flow and head (the height of the fall) set the energy; more of either means more electricity.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.hydro_how",
+        "concept.everyday_technology.energy_basics"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.015.c2",
+        "card.everyday_technology.002.c2"
+      ],
+      "prompt": "Level 2 sorted energy into stored and working kinds. What stored energy does a dam's reservoir hold?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chemical energy in the water",
+          "correct": false,
+          "rationale": "Water isn't a fuel."
+        },
+        {
+          "id": "b",
+          "label": "Gravitational energy of water held up high",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Electrical energy in the dam wall",
+          "correct": false,
+          "rationale": "The electricity is made later, in the generator."
+        },
+        {
+          "id": "d",
+          "label": "Nuclear energy in the riverbed",
+          "correct": false,
+          "rationale": "No atoms are split at a dam."
+        }
+      ],
+      "explanation": "Water held high has gravitational energy; falling through the penstock turns it into motion, then electricity.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eia_hydropower",
+    "source.ethw_pearl_street",
+    "source.usgs_hydroelectric_how",
+    "source.iea_hydropower_giant",
+    "source.eia_forms_of_energy",
+    "source.eia_what_is_energy",
+    "source.doe_war_of_currents"
+  ],
+  "art": "technology.dam"
+}

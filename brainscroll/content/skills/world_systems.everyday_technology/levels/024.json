@@ -1,0 +1,242 @@
+{
+  "id": "level.world_systems.everyday_technology.024",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Car Engine",
+  "objective": "After this level you can explain how a four-stroke engine turns fuel into motion.",
+  "summary": "A car engine burns fuel inside its cylinders. Intake, compression, power, exhaust: one push per cycle, and only about 12%-30% of the fuel energy moves the car.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.motion_internal_combustion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_four_stroke_cycle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_newcomen_engine",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_conservation",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.023"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Only about 12%-30% of the energy in a gas tank moves the car.",
+      "body": "Most of the rest is lost in the engine, mainly as heat. That sounds wasteful, and it is, but the engine still gets the job done. Here's how it turns fuel into motion, one burst of hot gas at a time."
+    },
+    {
+      "id": "card.everyday_technology.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fire inside the cylinder",
+      "body": "Level 22's steam engines made their steam in a separate boiler, then piped it to the piston. A car engine is an internal combustion engine: the fuel burns inside the cylinder itself. A spark plug ignites a mix of gasoline and air, and the hot, expanding gas shoves the piston. No boiler, no waiting for water to boil."
+    },
+    {
+      "id": "card.everyday_technology.024.c3",
+      "type": "timeline",
+      "headline": "Four strokes, one push",
+      "events": [
+        {
+          "when": "Stroke 1: intake",
+          "label": "The piston moves down, drawing in fuel and air"
+        },
+        {
+          "when": "Stroke 2: compression",
+          "label": "The piston moves up, squeezing the mix"
+        },
+        {
+          "when": "Stroke 3: power",
+          "label": "A spark ignites it; expanding gas drives the piston down"
+        },
+        {
+          "when": "Stroke 4: exhaust",
+          "label": "The piston moves up, pushing the burned gases out"
+        }
+      ]
+    },
+    {
+      "id": "card.everyday_technology.024.c4",
+      "type": "fact",
+      "fact": "Only one stroke in four actually pushes.",
+      "context": "A connecting rod links the piston to a crankshaft, which turns the up-and-down motion into spinning, much as your legs turn a bike's pedals. Each four-stroke cycle takes two turns of the crankshaft. Nikolaus Otto built an engine on this idea in 1876, though a Frenchman, Alphonse Beau de Rochas, had patented the cycle first.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Three strokes of preparation for one stroke of action. Honestly, that sounds like most of my mornings."
+      }
+    },
+    {
+      "id": "card.everyday_technology.024.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.024.q1"
+    },
+    {
+      "id": "card.everyday_technology.024.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.024.q2"
+    },
+    {
+      "id": "card.everyday_technology.024.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.024.q3"
+    },
+    {
+      "id": "card.everyday_technology.024.c8",
+      "type": "checkpoint",
+      "headline": "Car engines: firing",
+      "learned": [
+        "Fuel burns inside the cylinder",
+        "Intake, compression, power, exhaust",
+        "A crankshaft turns pushes into rotation",
+        "Only about 12%-30% of fuel energy moves the car"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.motion_four_stroke_cycle"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.024.c3"
+      ],
+      "prompt": "In a four-stroke car engine, which stroke drives the piston to do the work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Intake",
+          "correct": false,
+          "rationale": "That stroke draws in fuel and air."
+        },
+        {
+          "id": "b",
+          "label": "Compression",
+          "correct": false,
+          "rationale": "That stroke squeezes the mix."
+        },
+        {
+          "id": "c",
+          "label": "Power",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Exhaust",
+          "correct": false,
+          "rationale": "That stroke clears out the burned gases."
+        }
+      ],
+      "explanation": "In the power stroke a spark ignites the squeezed mix, and the expanding gas drives the piston down.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.motion_internal_combustion"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.024.c2"
+      ],
+      "prompt": "What makes a car engine an internal combustion engine?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its fuel burns inside the cylinder",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It boils water in a boiler first",
+          "correct": false,
+          "rationale": "That is how a steam engine works."
+        },
+        {
+          "id": "c",
+          "label": "It runs on electricity stored inside",
+          "correct": false,
+          "rationale": "That describes an electric car."
+        },
+        {
+          "id": "d",
+          "label": "Its engine sits inside the car body",
+          "correct": false,
+          "rationale": "The name is about where the fuel burns."
+        }
+      ],
+      "explanation": "The fuel burns inside the cylinder itself, and the hot expanding gas pushes the piston directly.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.motion_internal_combustion",
+        "concept.everyday_technology.energy_conservation"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.024.c1",
+        "card.everyday_technology.002.c3"
+      ],
+      "prompt": "Level 2 said energy is never destroyed. So where does most of a gas car's fuel energy go?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is destroyed by the spark plug",
+          "correct": false,
+          "rationale": "Energy can't be destroyed."
+        },
+        {
+          "id": "b",
+          "label": "It is stored in the crankshaft",
+          "correct": false,
+          "rationale": "A crankshaft turns; it does not store the fuel's energy."
+        },
+        {
+          "id": "c",
+          "label": "It turns back into gasoline",
+          "correct": false,
+          "rationale": "The burning is not reversed."
+        },
+        {
+          "id": "d",
+          "label": "It is lost as heat, mainly in the engine",
+          "correct": true
+        }
+      ],
+      "explanation": "Only about 12%-30% of the fuel energy moves the car; most of the rest becomes heat in the engine.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.fueleconomy_gasoline_energy",
+    "source.brit_steam_engine",
+    "source.brit_gasoline_engine",
+    "source.afdc_gasoline_cars",
+    "source.brit_otto_engine",
+    "source.eia_laws_of_energy",
+    "source.brit_energy"
+  ],
+  "art": "technology.piston"
+}

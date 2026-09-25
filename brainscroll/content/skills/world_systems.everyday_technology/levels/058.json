@@ -1,0 +1,241 @@
+{
+  "id": "level.world_systems.everyday_technology.058",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "From Rooms to Pockets",
+  "objective": "After this level you can explain how computers shrank from whole rooms to desks to pockets.",
+  "summary": "ENIAC weighed about 30 tons. Transistors replaced its tubes, the 1971 microprocessor put a CPU on a chip, PCs reached desks in 1977, and phones became computers.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.computer_miniaturization",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_transistor_switch",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_moores_law",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.057"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1946, a computer weighed about 30 tons.",
+      "body": "ENIAC used about 18,000 vacuum tubes and filled a 50-by-30-foot room. Today a smartphone is, in effect, a handheld computer built into a phone. How did computers get from a room to your pocket?"
+    },
+    {
+      "id": "card.everyday_technology.058.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The trouble with tubes",
+      "body": "ENIAC lost a vacuum tube roughly every day or two, and with almost 18,000 of them, finding the dead one was a hunt. Level 53's transistor fixed that. It was small, ran cool, was far more reliable and used little power, and by the late 1950s transistors had largely replaced tubes. Smaller switches meant smaller computers."
+    },
+    {
+      "id": "card.everyday_technology.058.c3",
+      "type": "timeline",
+      "headline": "From rooms to desks to pockets",
+      "events": [
+        {
+          "when": "1946",
+          "label": "ENIAC: about 30 tons, filling a room"
+        },
+        {
+          "when": "Late 1950s",
+          "label": "Transistors largely replace vacuum tubes"
+        },
+        {
+          "when": "1971",
+          "label": "Intel's 4004 puts a whole CPU on one chip"
+        },
+        {
+          "when": "1977",
+          "label": "Apple II, TRS-80 and Commodore PET bring computers to desks"
+        },
+        {
+          "when": "Today",
+          "label": "Smartphones: handheld computers built into phones"
+        }
+      ]
+    },
+    {
+      "id": "card.everyday_technology.058.c4",
+      "type": "fact",
+      "fact": "A personal computer is built for one person at a time.",
+      "context": "That was the real shift. Setting ENIAC up for each new problem meant connecting wires and setting switches by hand, and it took days. The 1977 machines sat on a desk for one person. In 1981 IBM's PC, with an Intel processor and Microsoft's MS-DOS, became an industry standard.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "From a machine a whole team rewired for days to one you can use in your pajamas."
+      }
+    },
+    {
+      "id": "card.everyday_technology.058.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.058.q1"
+    },
+    {
+      "id": "card.everyday_technology.058.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.058.q2"
+    },
+    {
+      "id": "card.everyday_technology.058.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.058.q3"
+    },
+    {
+      "id": "card.everyday_technology.058.c8",
+      "type": "checkpoint",
+      "headline": "Computers: shrunk",
+      "learned": [
+        "ENIAC (1946): about 30 tons and about 18,000 vacuum tubes",
+        "Transistors replaced tubes by the late 1950s",
+        "The 1971 microprocessor put a CPU on one chip",
+        "Personal computers from 1977; smartphones are pocket computers"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.computer_miniaturization"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.058.c3"
+      ],
+      "prompt": "On the road from rooms to pockets, what did Intel's 4004 of 1971 fit onto a single chip?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A whole CPU",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A hard drive",
+          "correct": false,
+          "rationale": "Drives stayed separate."
+        },
+        {
+          "id": "c",
+          "label": "A screen",
+          "correct": false,
+          "rationale": "Screens are output devices."
+        },
+        {
+          "id": "d",
+          "label": "A battery",
+          "correct": false,
+          "rationale": "Batteries store chemical energy."
+        }
+      ],
+      "explanation": "The 4004 was the first commercially available microprocessor: a complete CPU on one chip.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.computer_miniaturization"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.058.c4"
+      ],
+      "prompt": "What made the personal computers of 1977 so different from ENIAC?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They used more vacuum tubes",
+          "correct": false,
+          "rationale": "Tubes had been replaced by transistors."
+        },
+        {
+          "id": "b",
+          "label": "They were built for one person at a desk",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They needed rewiring for each problem",
+          "correct": false,
+          "rationale": "That was ENIAC."
+        },
+        {
+          "id": "d",
+          "label": "They weighed about 30 tons",
+          "correct": false,
+          "rationale": "That's ENIAC's weight."
+        }
+      ],
+      "explanation": "A personal computer is built for one person at a time; ENIAC took days of rewiring by a team for each new problem.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.computer_miniaturization",
+        "concept.everyday_technology.computer_transistor_switch"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.058.c2",
+        "card.everyday_technology.053.c2"
+      ],
+      "prompt": "How did Level 53's transistor help shrink computers from room-sized machines like ENIAC?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It made vacuum tubes glow brighter",
+          "correct": false,
+          "rationale": "Transistors replaced tubes altogether."
+        },
+        {
+          "id": "b",
+          "label": "It removed the need for any switches",
+          "correct": false,
+          "rationale": "The transistor is itself a switch."
+        },
+        {
+          "id": "c",
+          "label": "It replaced bulky, unreliable tubes with small, cool switches",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It let computers run without electricity",
+          "correct": false,
+          "rationale": "Transistors are switched by electrical signals."
+        }
+      ],
+      "explanation": "Transistors are small, cool, reliable switches that use little power; they replaced vacuum tubes.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_eniac",
+    "source.chm_eniac",
+    "source.smithsonianmag_eniac",
+    "source.brit_smartphone",
+    "source.brit_transistor",
+    "source.chm_intel_4004",
+    "source.brit_personal_computer"
+  ],
+  "art": "technology.laptop"
+}

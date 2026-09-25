@@ -1,0 +1,231 @@
+{
+  "id": "level.world_systems.everyday_technology.054",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Memory and Storage",
+  "objective": "After this level you can explain the difference between working memory and long-term storage.",
+  "summary": "RAM holds what the computer is working on right now, but forgets it without power. Storage keeps files for the long term: hard drives use magnetism and SSDs use flash memory.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.computer_memory_vs_storage",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_ipo_model",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.053"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The power flickers. Your unsaved essay is gone. Your photos aren't.",
+      "body": "Same computer, same outage, two different fates. That is because a computer has two kinds of memory, built for two different jobs: one for right now, one for keeps."
+    },
+    {
+      "id": "card.everyday_technology.054.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "RAM: working memory",
+      "body": "Main memory, usually called RAM, holds the programs and data the computer is using right now. Think of it as the top of your desk: everything you are working on, within easy reach. The catch is that most RAM is volatile. It keeps its bits only while it has power. Cut the power and the desk is wiped clean.",
+      "mascot": {
+        "pose": "oops",
+        "line": "I once lost a whole chapter this way. We do not speak of it."
+      }
+    },
+    {
+      "id": "card.everyday_technology.054.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Storage: the filing cabinet",
+      "body": "Storage holds the data and programs you are not using right now, for the long term: saved files, photos, apps. It is nonvolatile, so it keeps everything with the power off. A file you are editing sits in RAM; saving it writes a copy into storage. Until you save, the only copy lives in the part that forgets."
+    },
+    {
+      "id": "card.everyday_technology.054.c4",
+      "type": "comparison",
+      "headline": "Two ways to remember with the power off",
+      "items": [
+        {
+          "label": "Hard drive",
+          "points": [
+            "Spinning platters",
+            "Tiny areas magnetized for 1, demagnetized for 0",
+            "Magnetism holds the data without power"
+          ]
+        },
+        {
+          "label": "Solid-state drive (SSD)",
+          "points": [
+            "Flash memory chips",
+            "No moving parts",
+            "Also keeps data without power"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.everyday_technology.054.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.054.q1"
+    },
+    {
+      "id": "card.everyday_technology.054.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.054.q2"
+    },
+    {
+      "id": "card.everyday_technology.054.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.054.q3"
+    },
+    {
+      "id": "card.everyday_technology.054.c8",
+      "type": "checkpoint",
+      "headline": "Memory: saved",
+      "learned": [
+        "RAM holds what the computer is working on right now",
+        "Most RAM is volatile: it forgets without power",
+        "Storage keeps files long term, with the power off",
+        "Hard drives store bits magnetically; SSDs use flash chips"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.computer_memory_vs_storage"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.054.c2"
+      ],
+      "prompt": "What happens to the contents of a computer's RAM when the power is cut?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are copied to storage automatically",
+          "correct": false,
+          "rationale": "Only saved work is in storage."
+        },
+        {
+          "id": "b",
+          "label": "They are lost",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They are stored as magnetism",
+          "correct": false,
+          "rationale": "That's how a hard drive stores data."
+        },
+        {
+          "id": "d",
+          "label": "They move to the processor",
+          "correct": false,
+          "rationale": "The processor holds no long-term copy."
+        }
+      ],
+      "explanation": "Most RAM is volatile: it keeps its contents only while it has power.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.computer_memory_vs_storage"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.054.c3",
+        "card.everyday_technology.054.c2",
+        "card.everyday_technology.054.c1"
+      ],
+      "prompt": "In a power flicker, why do saved photos survive while an unsaved essay is lost?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Photos are smaller files than essays",
+          "correct": false,
+          "rationale": "Size has nothing to do with it."
+        },
+        {
+          "id": "b",
+          "label": "The essay was stored on a hard drive",
+          "correct": false,
+          "rationale": "Had it been saved to a drive, it would have survived."
+        },
+        {
+          "id": "c",
+          "label": "The photos were in nonvolatile storage; the essay was only in RAM",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Essays are deleted by the operating system",
+          "correct": false,
+          "rationale": "The essay was lost because RAM forgets without power."
+        }
+      ],
+      "explanation": "Saved files live in nonvolatile storage. Unsaved work exists only in RAM, which forgets when the power goes.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.computer_ipo_model",
+        "concept.everyday_technology.computer_memory_vs_storage"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.054.c2",
+        "card.everyday_technology.051.c3"
+      ],
+      "prompt": "Level 51 listed a computer's four basic jobs. Which one does RAM do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Input",
+          "correct": false,
+          "rationale": "Input comes from devices such as the keyboard."
+        },
+        {
+          "id": "b",
+          "label": "Processing",
+          "correct": false,
+          "rationale": "Processing happens in the CPU."
+        },
+        {
+          "id": "c",
+          "label": "Memory",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Output",
+          "correct": false,
+          "rationale": "Output goes to the screen or printer."
+        }
+      ],
+      "explanation": "RAM is the working memory: it holds data and instructions while the CPU processes them.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_computer_memory",
+    "source.ibm_hdd_vs_ssd",
+    "source.explainthatstuff_hard_drive"
+  ],
+  "art": "technology.chip"
+}

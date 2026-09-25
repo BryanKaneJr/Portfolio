@@ -1,0 +1,208 @@
+{
+  "id": "level.world_systems.everyday_technology.073",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Clean Water",
+  "objective": "After this level you can explain how water is cleaned before it reaches your tap.",
+  "summary": "Snow traced cholera to a pump in 1854. Plants now clump and settle dirt, filter water through sand, gravel or charcoal, and disinfect it with chlorine, which also guards the pipes.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.water_treatment_steps",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.water_germ_disinfection",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.072"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1854, a London doctor blamed a water pump for cholera.",
+      "body": "Most doctors then thought disease drifted on bad air, called miasma. John Snow mapped the deaths in Soho and found them clustered around one pump on Broad Street. The pump's handle came off. Snow had shown that dirty water could kill. So how does your tap water stay clean?"
+    },
+    {
+      "id": "card.everyday_technology.073.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step one: make the dirt clump",
+      "body": "A treatment plant starts with coagulation: chemicals that make dirt and tiny particles stick together. Gentle stirring, called flocculation, grows them into heavier clumps called flocs. Then the water rests, and the flocs settle to the bottom, a step called sedimentation. It's a snow globe in reverse: stop shaking, and everything sinks."
+    },
+    {
+      "id": "card.everyday_technology.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step two: filter, then disinfect",
+      "body": "Next the water runs through filters of sand, gravel or charcoal with different pore sizes, which catch leftover particles and many germs, from parasites to bacteria and viruses. Last comes disinfection: chlorine or chloramine to kill whatever germs remain. A little stays in the water on purpose, killing germs in the pipes all the way to your tap."
+    },
+    {
+      "id": "card.everyday_technology.073.c4",
+      "type": "fact",
+      "fact": "In 1908, Jersey City became the first US city to disinfect its drinking water routinely.",
+      "context": "Within about ten years, thousands of towns had followed. In 1900, US typhoid fever struck about 100 of every 100,000 people; by 1920 it was down to 33.8, about a third, as water treatment spread. Snow's pump handle fixed one street. Chlorine did the same job for whole cities."
+    },
+    {
+      "id": "card.everyday_technology.073.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.073.q1"
+    },
+    {
+      "id": "card.everyday_technology.073.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.073.q2"
+    },
+    {
+      "id": "card.everyday_technology.073.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.073.q3"
+    },
+    {
+      "id": "card.everyday_technology.073.c8",
+      "type": "checkpoint",
+      "headline": "Clean water: poured",
+      "learned": [
+        "Snow traced cholera to a Broad Street pump in 1854",
+        "Coagulation and flocculation clump dirt into flocs that settle",
+        "Filters of sand, gravel or charcoal catch particles and germs",
+        "Chlorine or chloramine kills germs, even in the pipes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.water_treatment_steps"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.073.c2"
+      ],
+      "prompt": "At a drinking-water treatment plant, what are flocs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Filters made of sand and charcoal",
+          "correct": false,
+          "rationale": "That is the filtration step."
+        },
+        {
+          "id": "b",
+          "label": "Germs killed by chlorine",
+          "correct": false,
+          "rationale": "Chlorine comes last, in disinfection."
+        },
+        {
+          "id": "c",
+          "label": "Heavier clumps of dirt that settle out",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Pipes that carry water to your tap",
+          "correct": false,
+          "rationale": "Flocs never leave the plant."
+        }
+      ],
+      "explanation": "Coagulation makes particles stick together, and gentle mixing grows them into heavy clumps called flocs, which settle out.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.water_germ_disinfection"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.073.c3"
+      ],
+      "prompt": "Why do water plants leave a little chlorine or chloramine in treated tap water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To kill germs in the pipes to your tap",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To make the flocs sink to the bottom faster",
+          "correct": false,
+          "rationale": "Settling happens earlier, before disinfection."
+        },
+        {
+          "id": "c",
+          "label": "To give tap water its familiar flavor",
+          "correct": false,
+          "rationale": "It's there for germs, not taste."
+        },
+        {
+          "id": "d",
+          "label": "To strip out leftover dirt particles",
+          "correct": false,
+          "rationale": "Coagulation and filters do that."
+        }
+      ],
+      "explanation": "The disinfectant left in the water keeps killing germs in the pipes between the plant and your tap.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.water_germ_disinfection"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.073.c1",
+        "card.everyday_technology.073.c4"
+      ],
+      "prompt": "John Snow traced cholera to one contaminated pump in 1854. What did Jersey City start doing in 1908 that tackled the same danger for a whole city?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Removing every public water pump",
+          "correct": false,
+          "rationale": "It treated the water instead."
+        },
+        {
+          "id": "b",
+          "label": "Mapping every case of disease",
+          "correct": false,
+          "rationale": "That was Snow's method, not the fix."
+        },
+        {
+          "id": "c",
+          "label": "Switching all its water to wells",
+          "correct": false,
+          "rationale": "It disinfected its supply."
+        },
+        {
+          "id": "d",
+          "label": "Routinely disinfecting its drinking water",
+          "correct": true
+        }
+      ],
+      "explanation": "Snow showed dirty water spreads disease; Jersey City became the first US city to disinfect its drinking water routinely, in 1908.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.londonmuseum_john_snow",
+    "source.historicengland_london_sewers",
+    "source.cdc_how_water_treatment_works",
+    "source.cdc_history_drinking_water"
+  ],
+  "art": "nature.water-drop"
+}

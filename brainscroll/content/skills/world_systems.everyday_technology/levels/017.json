@@ -1,0 +1,225 @@
+{
+  "id": "level.world_systems.everyday_technology.017",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Solar Power",
+  "objective": "After this level you can explain how solar panels turn sunlight into electricity.",
+  "summary": "Sunlight knocks electrons loose in a semiconductor cell, with nothing spinning. Panels make DC, so inverters turn it into AC. In 2025 solar passed wind worldwide.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.solar_photovoltaic",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.solar_inverter_dc",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.alternating_current",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.led_light",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.generator",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.016"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2025, solar passed wind as a source of the world's electricity.",
+      "body": "It was the first time, according to the International Energy Agency. And solar does it with no turbine at all. As Level 8 pointed out, nothing spins: sunlight goes in, electricity comes out. So how does a flat panel pull that off?"
+    },
+    {
+      "id": "card.everyday_technology.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Light knocks electrons loose",
+      "body": "A solar cell, or photovoltaic (PV) cell, is made of a semiconductor, like Level 5's LED. When it absorbs enough sunlight, electrons are knocked loose and move toward the cell's front surface. That builds up a charge imbalance, like the two ends of a battery. Connect the cell into a circuit and current flows. An LED turns electricity into light; a solar cell runs the trick the other way."
+    },
+    {
+      "id": "card.everyday_technology.017.c3",
+      "type": "fact",
+      "fact": "Solar cells make direct current, so an inverter turns it into AC.",
+      "context": "Remember Level 9: the grid runs on AC, while solar cells make DC. An inverter converts one into the other. Cells are wired into weather-tight panels, and panels are grouped into arrays. Edison's DC lost the War of the Currents, but every solar cell brings it back."
+    },
+    {
+      "id": "card.everyday_technology.017.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Better every decade",
+      "body": "The first practical solar cell came from Bell Telephone researchers in 1954. Efficiency, the share of sunlight a panel turns into electricity, has climbed steadily: commercial panels averaged under 10% in the mid-1980s, about 15% by 2015, and the best modules now approach 25%. One thing no panel can fix is sunset, so PV systems can charge batteries to supply power when the sun isn't shining."
+    },
+    {
+      "id": "card.everyday_technology.017.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.017.q1"
+    },
+    {
+      "id": "card.everyday_technology.017.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.017.q2"
+    },
+    {
+      "id": "card.everyday_technology.017.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.017.q3"
+    },
+    {
+      "id": "card.everyday_technology.017.c8",
+      "type": "checkpoint",
+      "headline": "Solar: switched on",
+      "learned": [
+        "Sunlight knocks electrons loose in a semiconductor",
+        "Solar cells make DC; inverters turn it into AC",
+        "Bell researchers made the first practical cell in 1954",
+        "In 2025 solar passed wind worldwide"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.solar_photovoltaic"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.017.c2"
+      ],
+      "prompt": "What happens when a solar cell absorbs enough sunlight?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Electrons are knocked loose from its atoms",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Water inside it boils into steam",
+          "correct": false,
+          "rationale": "Solar cells have no water and no steam."
+        },
+        {
+          "id": "c",
+          "label": "A tiny turbine inside it spins",
+          "correct": false,
+          "rationale": "Nothing spins in a solar cell."
+        },
+        {
+          "id": "d",
+          "label": "It stores the light as chemicals",
+          "correct": false,
+          "rationale": "That would be a battery's job."
+        }
+      ],
+      "explanation": "Sunlight knocks electrons loose; the charge imbalance drives a current when the cell is in a circuit.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.solar_inverter_dc"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.017.c3"
+      ],
+      "prompt": "Why does a rooftop solar system need an inverter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To point the panels at the Sun",
+          "correct": false,
+          "rationale": "An inverter converts current; it doesn't move panels."
+        },
+        {
+          "id": "b",
+          "label": "To store power for the night",
+          "correct": false,
+          "rationale": "Batteries store power; inverters convert it."
+        },
+        {
+          "id": "c",
+          "label": "To turn the panels' DC into the grid's AC",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To cool the panels on hot days",
+          "correct": false,
+          "rationale": "Inverters change the kind of current."
+        }
+      ],
+      "explanation": "Solar cells make direct current; the grid and homes run on alternating current, so an inverter converts it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.solar_photovoltaic",
+        "concept.everyday_technology.led_light"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.017.c2",
+        "card.everyday_technology.005.c4"
+      ],
+      "prompt": "How is a solar cell related to Level 5's LED?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both glow because a filament gets hot",
+          "correct": false,
+          "rationale": "Neither uses a hot filament."
+        },
+        {
+          "id": "b",
+          "label": "Both need a spinning magnet inside",
+          "correct": false,
+          "rationale": "Neither has moving parts."
+        },
+        {
+          "id": "c",
+          "label": "Both store energy as chemicals",
+          "correct": false,
+          "rationale": "That's a battery."
+        },
+        {
+          "id": "d",
+          "label": "Both are semiconductors, working in opposite directions",
+          "correct": true
+        }
+      ],
+      "explanation": "An LED turns electricity into light in a semiconductor; a solar cell turns light into electricity.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.iea_ger2026_solar_wind",
+    "source.eia_pv_electricity",
+    "source.brit_led",
+    "source.eia_how_electricity_generated",
+    "source.doe_war_of_currents"
+  ],
+  "art": "technology.solar-panel"
+}

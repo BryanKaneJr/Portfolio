@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.everyday_technology.066",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Search Engines",
+  "objective": "After this level you can explain how search engines find pages and rank them.",
+  "summary": "Crawlers follow links and file pages into an index, like a book's, which is what you actually search. Ranking began with links as votes (BackRub, later Google) and now weighs many signals.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.search_crawl_index",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.search_ranking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.web_invention",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.065"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "When you search, you aren't searching the web.",
+      "body": "You're searching a copy. Long before you typed anything, software had already visited pages and filed what it found. When you press Enter, Google looks through that filing system, its index, not the live web. So how does the filing get done, and who decides what comes first?"
+    },
+    {
+      "id": "card.everyday_technology.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Crawlers follow the links",
+      "body": "Search engines build their collections with software called crawlers. Crawlers automatically visit public web pages and follow the links on them, going from page to page much as you would when browsing. Everything they find gets organized into an index. Level 65's hyperlinks, written into each page's HTML, are the roads they travel."
+    },
+    {
+      "id": "card.everyday_technology.066.c3",
+      "type": "fact",
+      "fact": "Google's index works like the index at the back of a book.",
+      "context": "It has an entry for every word seen on every page it indexes, and it covers hundreds of billions of pages. Look up a word and you jump straight to the pages that contain it, with results arriving in a fraction of a second. Nobody reads the whole library; you check the index."
+    },
+    {
+      "id": "card.everyday_technology.066.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Links as votes",
+      "body": "But which page goes first? As Stanford graduate students, Sergey Brin and Larry Page built a search engine called BackRub that counted links. A site with thousands of links pointing at it was probably more valuable than one with a few, and a link from a heavily linked site counted as a stronger vote. BackRub grew into Google. Today ranking weighs many signals, including what your query means, how relevant and high-quality a page is, and your location.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A popularity contest where the voters are other web pages. Very democratic, very nerdy."
+      }
+    },
+    {
+      "id": "card.everyday_technology.066.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.066.q1"
+    },
+    {
+      "id": "card.everyday_technology.066.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.066.q2"
+    },
+    {
+      "id": "card.everyday_technology.066.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.066.q3"
+    },
+    {
+      "id": "card.everyday_technology.066.c8",
+      "type": "checkpoint",
+      "headline": "Search engines: indexed",
+      "learned": [
+        "Crawlers visit public pages and follow their links",
+        "What they find goes into an index, like the back of a book",
+        "Your search looks through the index, not the live web",
+        "BackRub (later Google) counted links as votes; ranking now weighs many signals"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.search_crawl_index"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.066.c2"
+      ],
+      "prompt": "What do a search engine's crawlers do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Visit public pages and follow their links",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Decide which pages pay for top spots",
+          "correct": false,
+          "rationale": "Crawlers find pages; they don't sell rankings."
+        },
+        {
+          "id": "c",
+          "label": "Write new web pages automatically",
+          "correct": false,
+          "rationale": "They read pages; they don't write them."
+        },
+        {
+          "id": "d",
+          "label": "Delete pages that break the rules",
+          "correct": false,
+          "rationale": "They visit and record pages; that's all."
+        }
+      ],
+      "explanation": "Crawlers automatically visit public pages, follow the links on them and organize what they find into an index.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.search_ranking"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.066.c4"
+      ],
+      "prompt": "Why did BackRub count a link from a heavily linked site more than one from an obscure site?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was a stronger vote for the page it pointed to",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Heavily linked sites paid for the privilege",
+          "correct": false,
+          "rationale": "The votes came from links, not payment."
+        },
+        {
+          "id": "c",
+          "label": "Obscure sites were banned from the index",
+          "correct": false,
+          "rationale": "Their links still counted, just less."
+        },
+        {
+          "id": "d",
+          "label": "Busy sites load their links faster",
+          "correct": false,
+          "rationale": "Speed wasn't the point; importance was."
+        }
+      ],
+      "explanation": "BackRub treated links as votes, and a link from a site that many others linked to carried more weight.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.everyday_technology.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.search_crawl_index",
+        "concept.everyday_technology.web_invention"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.066.c2",
+        "card.everyday_technology.065.c4"
+      ],
+      "prompt": "Search crawlers travel the web by following links. Which Level 65 building block of the web puts those links on a page?",
+      "options": [
+        {
+          "id": "a",
+          "label": "HTTP",
+          "correct": false,
+          "rationale": "HTTP is the rules servers and browsers use to talk."
+        },
+        {
+          "id": "b",
+          "label": "The URL",
+          "correct": false,
+          "rationale": "A URL is a page's address; the links live in the page's HTML."
+        },
+        {
+          "id": "c",
+          "label": "HTML",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "TCP",
+          "correct": false,
+          "rationale": "TCP handles packets (Level 62), not pages."
+        }
+      ],
+      "explanation": "A page is written in HTML, including its hyperlinks; crawlers follow those links from page to page.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.google_how_search_organizes",
+    "source.google_how_search_ranks",
+    "source.brit_google",
+    "source.brit_world_wide_web",
+    "source.cern_birth_of_web"
+  ],
+  "art": "object.magnifier"
+}

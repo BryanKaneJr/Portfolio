@@ -1,0 +1,229 @@
+{
+  "id": "level.world_systems.everyday_technology.047",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How a Screen Works",
+  "objective": "After this level you can explain pixels and how a screen mixes red, green and blue light.",
+  "summary": "A screen is a grid of pixels, about 2 million on HD. Red, green and blue light fool the eye's three cone types. An LCD passes or blocks a backlight.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.screen_pixels_lcd",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.screen_rgb_mixing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.led_light",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.camera_recording_media",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.046"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your screen has no yellow in it. So how does it show you a banana?",
+      "body": "Look closely enough at a color screen and you won't find yellow, orange or pink. Every pixel is built from just three colors: red, green and blue. The whole trick of a screen is how few colors it takes to fool your eye."
+    },
+    {
+      "id": "card.everyday_technology.047.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pixels: pictures made of dots",
+      "body": "A pixel is the smallest unit of a screen image, with its own brightness and color. Millions sit in a grid, and from a normal distance your eye blends them into one smooth picture. An HD screen is 1,920 pixels across and 1,080 down: about 2 million. A 4K screen has four times as many, about 8.3 million. Level 46's camera sensor has pixels too: there they catch light, and here they give it out."
+    },
+    {
+      "id": "card.everyday_technology.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three colors fool your eye",
+      "body": "Your eye senses color with three types of cone cells, each most sensitive to a different range of wavelengths, roughly red, green and blue. So a screen only needs those three lights. Each pixel holds red, green and blue subpixels, and mixing light adds up: red plus green looks yellow, and all three together look white. Vary how bright each one glows, and you get a broad range of hues.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Your banana is red and green light, standing very close together. Please don't tell the banana."
+      }
+    },
+    {
+      "id": "card.everyday_technology.047.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "An LCD is a wall of tiny shutters",
+      "body": "An LCD makes no light of its own. A backlight shines from behind, and each subpixel has liquid crystals that change how much light gets through when a voltage is applied, behind a red, green or blue filter. Level 5's LEDs make light directly; these crystals only let it pass or block it. The screen is less a lamp than a window with millions of tiny blinds."
+    },
+    {
+      "id": "card.everyday_technology.047.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.047.q1"
+    },
+    {
+      "id": "card.everyday_technology.047.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.047.q2"
+    },
+    {
+      "id": "card.everyday_technology.047.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.047.q3"
+    },
+    {
+      "id": "card.everyday_technology.047.c8",
+      "type": "checkpoint",
+      "headline": "Screens: lit",
+      "learned": [
+        "A pixel is the smallest unit of a screen image",
+        "HD is about 2 million pixels; 4K has four times as many",
+        "Red, green and blue light mix to make other colors",
+        "An LCD's crystals let a backlight through or block it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.screen_pixels_lcd"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.047.c2"
+      ],
+      "prompt": "About how many pixels does a 1,920 by 1,080 HD screen have?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 2 thousand",
+          "correct": false,
+          "rationale": "Far too few: that's one row plus a bit."
+        },
+        {
+          "id": "b",
+          "label": "About 200 thousand",
+          "correct": false,
+          "rationale": "Multiply 1,920 by 1,080 for the full count."
+        },
+        {
+          "id": "c",
+          "label": "About 2 million",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 2 billion",
+          "correct": false,
+          "rationale": "A thousand times too many."
+        }
+      ],
+      "explanation": "1,920 x 1,080 is about 2 million pixels; a 4K screen has four times as many.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.screen_rgb_mixing"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.047.c3",
+        "card.everyday_technology.047.c1"
+      ],
+      "prompt": "A screen shows a yellow banana with no yellow subpixels at all. How?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It shines red and green light together",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It mixes blue and orange paint in each pixel",
+          "correct": false,
+          "rationale": "Screens mix light, not paint."
+        },
+        {
+          "id": "c",
+          "label": "It switches every pixel off",
+          "correct": false,
+          "rationale": "Pixels switched off look black."
+        },
+        {
+          "id": "d",
+          "label": "It uses a special yellow backlight",
+          "correct": false,
+          "rationale": "The trick is mixing red and green light."
+        }
+      ],
+      "explanation": "Mixing light adds up: red plus green light looks yellow to the eye's three kinds of cones.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.screen_pixels_lcd",
+        "concept.everyday_technology.led_light"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.047.c4",
+        "card.everyday_technology.005.c4"
+      ],
+      "prompt": "Level 5's LEDs make their own light. How is an LCD screen different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It heats a filament behind each pixel",
+          "correct": false,
+          "rationale": "That's the old incandescent bulb."
+        },
+        {
+          "id": "b",
+          "label": "Its crystals only let a backlight through or block it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It makes light from a chemical reaction, like a battery",
+          "correct": false,
+          "rationale": "No chemistry: the crystals act as shutters."
+        },
+        {
+          "id": "d",
+          "label": "It has no pixels, just one big light",
+          "correct": false,
+          "rationale": "It has millions of pixels."
+        }
+      ],
+      "explanation": "An LCD makes no light of its own; its liquid crystals control how much backlight passes through each colored subpixel.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_led",
+    "source.brit_digital_camera",
+    "source.brit_camera",
+    "source.brit_pixel",
+    "source.ebu_uhdtv_glossary",
+    "source.brit_lcd",
+    "source.openstax_color_vision",
+    "source.webexhibits_color_mixing"
+  ],
+  "art": "technology.tv"
+}

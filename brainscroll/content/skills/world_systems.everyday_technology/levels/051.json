@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.everyday_technology.051",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What a Computer Is",
+  "objective": "After this level you can explain input, processing, memory and output.",
+  "summary": "Computer was once a job title for people who calculated. Today it means a programmable machine that takes input, processes it in a CPU, holds data in memory and sends out output.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.computer_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_ipo_model",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.technology_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.050"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.051.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1935, \"computer\" was a job title.",
+      "body": "That year the NACA, the agency that later became NASA, had women at its Langley lab working as computers: reading wind-tunnel data, running calculations and plotting the results. The word meant a person who computes. Today it almost always means a machine. So what does a machine need to earn the name?"
+    },
+    {
+      "id": "card.everyday_technology.051.c2",
+      "type": "fact",
+      "fact": "A computer is a programmable machine for processing, storing and displaying information.",
+      "context": "That's Britannica's definition, and programmable is the key word. A computer follows a set of instructions, a program, and you can swap the program. Same machine, new job. Remember Level 1: technology is knowledge put to work. A computer is a machine built to put instructions to work.",
+      "mascot": {
+        "pose": "idea",
+        "line": "One machine, endless jobs. It just needs someone to tell it which one."
+      }
+    },
+    {
+      "id": "card.everyday_technology.051.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four jobs: in, process, remember, out",
+      "body": "Every computer does four jobs. Input brings information in: a key press, a mouse click. Processing works on it, in the central processing unit, or CPU. Memory holds the data and the instructions while the work happens. Output sends the result back out, as letters on a screen or a page from the printer. Type a single letter and all four jobs take part."
+    },
+    {
+      "id": "card.everyday_technology.051.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "The human computer did all four",
+      "body": "Picture a Langley computer at her desk. Wind-tunnel readings arrive: input. She works through the arithmetic: processing. Her notes hold the numbers in between: memory. A plotted result goes to the engineers: output. When electronic computers arrived, many of these women took on programming them. The machine didn't invent a new job. It took over a human one, and kept the job title."
+    },
+    {
+      "id": "card.everyday_technology.051.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.051.q1"
+    },
+    {
+      "id": "card.everyday_technology.051.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.051.q2"
+    },
+    {
+      "id": "card.everyday_technology.051.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.051.q3"
+    },
+    {
+      "id": "card.everyday_technology.051.c8",
+      "type": "checkpoint",
+      "headline": "Computers: defined",
+      "learned": [
+        "\"Computer\" was once a job title for people who calculated",
+        "A computer is a programmable machine: swap the program, change the job",
+        "Four jobs: input, processing (in the CPU), memory, output"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.computer_ipo_model"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.051.c3"
+      ],
+      "prompt": "Which of a computer's four basic jobs happens inside the CPU?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Input",
+          "correct": false,
+          "rationale": "Input comes from devices like the keyboard."
+        },
+        {
+          "id": "b",
+          "label": "Processing",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Memory",
+          "correct": false,
+          "rationale": "Memory holds the data while the CPU works on it."
+        },
+        {
+          "id": "d",
+          "label": "Output",
+          "correct": false,
+          "rationale": "Output goes to the screen or printer."
+        }
+      ],
+      "explanation": "The central processing unit is where the processing happens: it works on the data that input brings in.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.computer_definition"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.051.c1",
+        "card.everyday_technology.051.c4"
+      ],
+      "prompt": "What did the women hired as \"computers\" at the NACA's Langley lab in 1935 actually do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Built and repaired electronic machines",
+          "correct": false,
+          "rationale": "The job came before electronic computers."
+        },
+        {
+          "id": "b",
+          "label": "Flew test aircraft",
+          "correct": false,
+          "rationale": "They worked on the data from wind tunnels."
+        },
+        {
+          "id": "c",
+          "label": "Typed letters for the engineers",
+          "correct": false,
+          "rationale": "Their work was mathematics, not typing."
+        },
+        {
+          "id": "d",
+          "label": "Calculated and plotted wind-tunnel results",
+          "correct": true
+        }
+      ],
+      "explanation": "A computer was a person who computes: they read wind-tunnel data, ran calculations and plotted results.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.computer_definition",
+        "concept.everyday_technology.technology_definition"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.051.c2",
+        "card.everyday_technology.001.c2"
+      ],
+      "prompt": "Level 1 called technology knowledge put to work. How does a programmable computer fit that idea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It follows instructions you can swap to do new jobs",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It creates knowledge without any instructions",
+          "correct": false,
+          "rationale": "It needs a program to follow."
+        },
+        {
+          "id": "c",
+          "label": "It can only ever do one fixed job",
+          "correct": false,
+          "rationale": "That's a single-purpose gadget, not a programmable computer."
+        },
+        {
+          "id": "d",
+          "label": "It works without electricity, like a stone tool",
+          "correct": false,
+          "rationale": "Modern computers are electronic machines."
+        }
+      ],
+      "explanation": "A computer is programmable: it puts a set of instructions to work, and a new program gives it a new job.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_computer",
+    "source.nasa_langley_computers",
+    "source.brit_ada_lovelace",
+    "source.brit_technology",
+    "source.brit_personal_computer",
+    "source.brit_cpu"
+  ],
+  "art": "technology.laptop"
+}

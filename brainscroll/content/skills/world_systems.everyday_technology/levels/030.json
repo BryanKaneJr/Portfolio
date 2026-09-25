@@ -1,0 +1,380 @@
+{
+  "id": "level.world_systems.everyday_technology.030",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 30,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Engines and Motion",
+  "objective": "After this level you can explain how machines and engines turn energy into motion.",
+  "summary": "One horsepower is about 746 watts. Engines turn heat into motion, motors turn electricity into motion, and levers, gears and hydraulics trade force for distance.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.motion_horsepower",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_watt_steam_engine",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_internal_combustion",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_newcomen_engine",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_mechanical_advantage",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_hydraulic_multiplier",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_regenerative_braking",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_ev_drivetrain",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_power",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_conservation",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.029"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.030.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 3 finale: one horsepower is more than one horse can keep up.",
+      "body": "James Watt set the unit in the late 1700s, after experiments with strong dray horses. It came out about 50% more than an average horse can manage over a working day. Engines have been measured against horses ever since. Time to line up this chapter's machines."
+    },
+    {
+      "id": "card.everyday_technology.030.c2",
+      "type": "fact",
+      "fact": "One horsepower is about 746 watts.",
+      "context": "Watt defined it as 33,000 foot-pounds of work per minute. In Level 10's units, that's about 746 joules every second. So a 100-horsepower engine delivers about 74,600 watts, or about 75 kilowatts. Two units of power, both from the same man: one named for horses, one named for him.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Watt measured his engines in horses and got a unit named after himself. Excellent career move."
+      }
+    },
+    {
+      "id": "card.everyday_technology.030.c3",
+      "type": "comparison",
+      "headline": "Engines and motion: three ways to move",
+      "items": [
+        {
+          "label": "Heat into motion",
+          "points": [
+            "Steam pushes a piston (Level 22)",
+            "Fuel burns inside the cylinder (Level 24)"
+          ]
+        },
+        {
+          "label": "Electricity into motion",
+          "points": [
+            "A battery-powered motor turns the wheels (Level 25)",
+            "Braking can turn motion back into charge"
+          ]
+        },
+        {
+          "label": "Force traded for distance",
+          "points": [
+            "Levers and pulleys (Level 21), gears (Level 27)",
+            "A bigger piston, a bigger push (Level 28)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.everyday_technology.030.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "One rule under all of them",
+      "body": "No machine in this chapter makes energy. A gas engine turns fuel into motion but loses most of it as heat. An electric car loses far less, getting over 77% of its plug energy to the wheels. Levers, gears and hydraulics only reshape a push: more force, paid for with more distance. Horsepower and watts just measure how fast any of them delivers the energy."
+    },
+    {
+      "id": "card.everyday_technology.030.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.030.q1"
+    },
+    {
+      "id": "card.everyday_technology.030.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.030.q2"
+    },
+    {
+      "id": "card.everyday_technology.030.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.030.q3"
+    },
+    {
+      "id": "card.everyday_technology.030.c8",
+      "type": "recall",
+      "questionId": "question.everyday_technology.030.q4"
+    },
+    {
+      "id": "card.everyday_technology.030.c9",
+      "type": "recall",
+      "questionId": "question.everyday_technology.030.q5"
+    },
+    {
+      "id": "card.everyday_technology.030.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 3 complete",
+      "learned": [
+        "One horsepower is about 746 watts",
+        "Engines turn heat into motion; motors turn electricity into motion",
+        "Simple machines, gears and hydraulics trade force for distance",
+        "No machine creates energy"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.030.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.motion_horsepower"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.030.c2"
+      ],
+      "prompt": "About how many watts is one horsepower?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 100 watts",
+          "correct": false,
+          "rationale": "Far too low."
+        },
+        {
+          "id": "b",
+          "label": "About 746 watts",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 1,000 watts",
+          "correct": false,
+          "rationale": "Close, but a horsepower is a bit less."
+        },
+        {
+          "id": "d",
+          "label": "About 33,000 watts",
+          "correct": false,
+          "rationale": "33,000 is foot-pounds per minute, not watts."
+        }
+      ],
+      "explanation": "One horsepower, 33,000 foot-pounds per minute, is about 746 watts.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.030.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.motion_horsepower",
+        "concept.everyday_technology.electric_power"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.030.c2",
+        "card.everyday_technology.010.c3"
+      ],
+      "prompt": "An engine is rated at 100 horsepower. About how much power is that in kilowatts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1 kilowatt",
+          "correct": false,
+          "rationale": "That is closer to 1 horsepower."
+        },
+        {
+          "id": "b",
+          "label": "About 7.5 kilowatts",
+          "correct": false,
+          "rationale": "Ten times too little."
+        },
+        {
+          "id": "c",
+          "label": "About 75 kilowatts",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 746 kilowatts",
+          "correct": false,
+          "rationale": "That mixes up watts and kilowatts."
+        }
+      ],
+      "explanation": "100 x 746 watts is about 74,600 watts, or about 75 kilowatts.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.everyday_technology.030.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.motion_internal_combustion",
+        "concept.everyday_technology.motion_newcomen_engine"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.024.c2",
+        "card.everyday_technology.022.c2"
+      ],
+      "prompt": "Engines and Motion recap: how does a car engine use heat differently from Level 22's steam engines?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its fuel burns inside the cylinder, not a boiler",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It uses no heat at all, only moving air",
+          "correct": false,
+          "rationale": "Burning fuel makes the heat that drives it."
+        },
+        {
+          "id": "c",
+          "label": "It relies on a vacuum made by a cold-water spray",
+          "correct": false,
+          "rationale": "That was the Newcomen engine."
+        },
+        {
+          "id": "d",
+          "label": "It turns electricity straight into motion",
+          "correct": false,
+          "rationale": "That is an electric motor."
+        }
+      ],
+      "explanation": "Steam engines made steam in a separate boiler; a car engine burns its fuel inside the cylinder itself.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.030.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.motion_mechanical_advantage",
+        "concept.everyday_technology.motion_hydraulic_multiplier"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.030.c3",
+        "card.everyday_technology.021.c4",
+        "card.everyday_technology.028.c3"
+      ],
+      "prompt": "Engines and Motion recap: what do a pulley system, a pair of gears and a hydraulic lift have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They all burn fuel to make their extra force",
+          "correct": false,
+          "rationale": "None of them burns anything."
+        },
+        {
+          "id": "b",
+          "label": "They all need electricity to run at all",
+          "correct": false,
+          "rationale": "All of them can work by hand."
+        },
+        {
+          "id": "c",
+          "label": "They all create a little extra energy",
+          "correct": false,
+          "rationale": "No machine creates energy."
+        },
+        {
+          "id": "d",
+          "label": "They multiply force but cost extra distance",
+          "correct": true
+        }
+      ],
+      "explanation": "Each one gives a bigger force in return for more rope, more turns or more piston travel. The energy stays the same.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.030.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.motion_regenerative_braking"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.025.c4"
+      ],
+      "prompt": "From Level 25: what does an electric car's motor do during regenerative braking?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It speeds up to cool down the friction brakes",
+          "correct": false,
+          "rationale": "It slows the car, not speeds it."
+        },
+        {
+          "id": "b",
+          "label": "It acts as a generator, charging the battery",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It switches off completely until you accelerate",
+          "correct": false,
+          "rationale": "It keeps working, as a generator."
+        },
+        {
+          "id": "d",
+          "label": "It burns a little fuel to help the car slow",
+          "correct": false,
+          "rationale": "Electric cars burn no fuel."
+        }
+      ],
+      "explanation": "The wheels spin the motor, which runs as a generator, sending electricity back into the battery as it slows the car.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_horsepower",
+    "source.brit_james_watt",
+    "source.psu_energy_units",
+    "source.brit_steam_engine",
+    "source.brit_gasoline_engine",
+    "source.afdc_electric_cars",
+    "source.fueleconomy_hybrid_tech",
+    "source.openstax_simple_machines",
+    "source.brit_pascal_principle",
+    "source.fueleconomy_gasoline_energy",
+    "source.fueleconomy_ev_tech",
+    "source.eia_laws_of_energy",
+    "source.brit_energy",
+    "source.nist_sp330_si",
+    "source.teachengineering_pulleys",
+    "source.afdc_gasoline_cars",
+    "source.openstax_pascal_principle"
+  ],
+  "art": "technology.piston"
+}

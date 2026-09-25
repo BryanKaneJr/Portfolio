@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.everyday_technology.036",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rockets",
+  "objective": "After this level you can explain how rockets push themselves forward in the vacuum of space.",
+  "summary": "A rocket pushes on its own exhaust, not on air, and carries its own oxidizer, so it works in a vacuum. Goddard flew the first liquid-fueled rocket in 1926.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.rocket_propulsion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.rocket_history",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.transport_action_reaction",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.jet_engine",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.035"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1920, a newspaper said rockets could never work in space.",
+      "body": "The New York Times mocked rocket pioneer Robert Goddard, claiming a rocket in a vacuum would have nothing to push against. On July 17, 1969, with Apollo 11 on its way to the Moon, the paper printed a correction. Who was right says a lot about how rockets work."
+    },
+    {
+      "id": "card.everyday_technology.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "It pushes on its own exhaust",
+      "body": "The Times had Level 32's law backwards. A rocket burns its propellant, and the nozzle accelerates the hot exhaust out of the back. By Newton's third law, the exhaust pushes back on the rocket, and that reaction is the thrust. Nothing outside is needed: the rocket isn't pushing on air or on the launch pad. It's pushing on its own exhaust, which works just as well in a vacuum."
+    },
+    {
+      "id": "card.everyday_technology.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why a jet can't follow it up",
+      "body": "Burning needs an oxidizer. A jet engine takes its oxygen from the air around it, so where there's no air, it can't work. A rocket carries its oxidizer on board along with its fuel. In a liquid rocket, both are pumped into a combustion chamber, where they mix and burn. That's why a rocket works in space and a jet engine doesn't. It brings its own breath, in a sense."
+    },
+    {
+      "id": "card.everyday_technology.036.c4",
+      "type": "fact",
+      "fact": "The first liquid-fueled rocket flew for just 2.5 seconds.",
+      "context": "On March 16, 1926, on a farm in Auburn, Massachusetts, Goddard launched a rocket burning gasoline and liquid oxygen. It rose 41 feet and landed 184 feet away. Not a long trip, but it was the first flight of a rocket burning liquid fuel with oxygen it carried along."
+    },
+    {
+      "id": "card.everyday_technology.036.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.036.q1"
+    },
+    {
+      "id": "card.everyday_technology.036.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.036.q2"
+    },
+    {
+      "id": "card.everyday_technology.036.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.036.q3"
+    },
+    {
+      "id": "card.everyday_technology.036.c8",
+      "type": "checkpoint",
+      "headline": "Rockets: launched",
+      "learned": [
+        "A rocket pushes on its own exhaust, not on air",
+        "It carries its own oxidizer, so it works in a vacuum",
+        "Jet engines need air, so they cannot work in space",
+        "Goddard flew the first liquid-fueled rocket in 1926"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.rocket_propulsion"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.036.c3"
+      ],
+      "prompt": "How can a rocket burn its fuel in space, where there is no air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It collects oxygen from sunlight",
+          "correct": false,
+          "rationale": "Sunlight holds no oxygen."
+        },
+        {
+          "id": "b",
+          "label": "It carries its own oxidizer",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its fuel burns without any oxidizer",
+          "correct": false,
+          "rationale": "Burning needs an oxidizer."
+        },
+        {
+          "id": "d",
+          "label": "It scoops gas from space as it flies",
+          "correct": false,
+          "rationale": "There is essentially nothing to scoop."
+        }
+      ],
+      "explanation": "A rocket carries its oxidizer on board with its fuel, so it can burn and make thrust in a vacuum.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.rocket_propulsion",
+        "concept.everyday_technology.rocket_history"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.036.c2",
+        "card.everyday_technology.036.c1"
+      ],
+      "prompt": "The Times's 1920 editorial said a rocket in a vacuum has nothing to push against. What does a rocket actually push against?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The air around it",
+          "correct": false,
+          "rationale": "There is no air in space, and it still works."
+        },
+        {
+          "id": "b",
+          "label": "The launch pad",
+          "correct": false,
+          "rationale": "It keeps accelerating long after leaving the pad."
+        },
+        {
+          "id": "c",
+          "label": "Its own exhaust gas",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Earth's magnetic field",
+          "correct": false,
+          "rationale": "Magnetism plays no part in rocket thrust."
+        }
+      ],
+      "explanation": "The rocket throws its exhaust backward, and the exhaust pushes the rocket forward: action and reaction.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.jet_engine",
+        "concept.everyday_technology.rocket_propulsion"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.036.c3"
+      ],
+      "prompt": "Level 32's jet engine and a rocket both throw hot gas backward. Why can't the jet work in space?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It takes its oxygen from the surrounding air",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its turbine freezes in the cold",
+          "correct": false,
+          "rationale": "Temperature isn't the reason."
+        },
+        {
+          "id": "c",
+          "label": "Jet fuel doesn't burn in darkness",
+          "correct": false,
+          "rationale": "Burning doesn't need light."
+        },
+        {
+          "id": "d",
+          "label": "It is too heavy to reach space",
+          "correct": false,
+          "rationale": "Weight isn't the reason it can't run there."
+        }
+      ],
+      "explanation": "A jet engine gets its oxygen from the air; with no air there is nothing to burn with, while a rocket carries its own oxidizer.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_goddard_first_rocket",
+    "source.nasa_glenn_propulsion_system",
+    "source.nasa_glenn_rocket_thrust",
+    "source.nasa_glenn_turbine_engines"
+  ],
+  "art": "astronomy.rocket"
+}

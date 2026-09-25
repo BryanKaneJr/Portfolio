@@ -1,0 +1,214 @@
+{
+  "id": "level.world_systems.everyday_technology.064",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Wi-Fi",
+  "objective": "After this level you can explain how Wi-Fi uses radio waves to connect devices at home.",
+  "summary": "Wi-Fi carries data by radio across the short hop between your devices and the router; the modem links your home to the provider. The 2.4 GHz band reaches farther, the 5 GHz band is faster.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.wifi_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.wifi_bands",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.alternating_current",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.063"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Wi-Fi\" doesn't stand for anything.",
+      "body": "Not \"wireless fidelity,\" whatever you've heard. A marketing firm picked the name because it sounded pleasant and echoed \"hi-fi.\" The technology behind the catchy name is simpler than it sounds, and it covers only a tiny part of your data's journey."
+    },
+    {
+      "id": "card.everyday_technology.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The shortest hop of the trip",
+      "body": "Wi-Fi uses radio waves to move data over short distances, usually less than 100 meters indoors. Your router creates the home network and passes packets to and from each device by radio. A separate box, the modem, connects that network to your internet provider. So Wi-Fi covers only the few meters from your couch to the router. Everything after that is someone else's wires.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Couch to router by radio, then out into the world. Your cat videos have a busy commute."
+      }
+    },
+    {
+      "id": "card.everyday_technology.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two bands: reach or speed",
+      "body": "Most routers offer two bands. The 2.4 GHz band reaches farther and gets through walls better. The 5 GHz band is faster but covers a shorter range. A hertz is one cycle per second, and giga means billion, so 2.4 GHz waves swing back and forth 2.4 billion times a second. Remember Level 9's 60-hertz AC? Wi-Fi swings 40 million times faster."
+    },
+    {
+      "id": "card.everyday_technology.064.c4",
+      "type": "fact",
+      "fact": "Your laptop and a stranger's router work together because of a 1997 rulebook.",
+      "context": "That year the IEEE approved a common standard, 802.11, so equipment from different makers could connect. The group formed to promote it is now called the Wi-Fi Alliance, and its marketing firm is where the name \"Wi-Fi\" came from."
+    },
+    {
+      "id": "card.everyday_technology.064.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.064.q1"
+    },
+    {
+      "id": "card.everyday_technology.064.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.064.q2"
+    },
+    {
+      "id": "card.everyday_technology.064.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.064.q3"
+    },
+    {
+      "id": "card.everyday_technology.064.c8",
+      "type": "checkpoint",
+      "headline": "Wi-Fi: connected",
+      "learned": [
+        "Wi-Fi uses radio for the short hop between your device and the router",
+        "The modem links your home network to your internet provider",
+        "2.4 GHz reaches farther; 5 GHz is faster over a shorter range",
+        "802.11, approved in 1997, lets devices from different makers connect"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.wifi_basics"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.064.c2"
+      ],
+      "prompt": "In a home Wi-Fi network, what carries data between your laptop and the router?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Light pulses in glass fibers",
+          "correct": false,
+          "rationale": "That's undersea cables (Level 63)."
+        },
+        {
+          "id": "b",
+          "label": "Sound too high for people to hear",
+          "correct": false,
+          "rationale": "Not sound: radio waves."
+        },
+        {
+          "id": "c",
+          "label": "Radio waves",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The modem's phone line",
+          "correct": false,
+          "rationale": "The modem links the home to the provider; Wi-Fi is radio."
+        }
+      ],
+      "explanation": "Wi-Fi uses radio waves to move data over short distances, usually under 100 meters indoors.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.wifi_bands"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.064.c3"
+      ],
+      "prompt": "Your laptop is several rooms and walls away from the router. Which Wi-Fi band is more likely to reach it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The 2.4 GHz band",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The 5 GHz band",
+          "correct": false,
+          "rationale": "5 GHz is faster but covers a shorter range."
+        },
+        {
+          "id": "c",
+          "label": "Neither; Wi-Fi can't pass through walls",
+          "correct": false,
+          "rationale": "Both can; 2.4 GHz gets through walls better."
+        }
+      ],
+      "explanation": "The 2.4 GHz band reaches farther and passes through walls better; 5 GHz trades range for speed.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.wifi_bands",
+        "concept.everyday_technology.alternating_current"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.064.c3",
+        "card.everyday_technology.009.c2"
+      ],
+      "prompt": "Level 9's grid AC cycles 60 times a second. How many times a second do 2.4 GHz Wi-Fi waves cycle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "60 times",
+          "correct": false,
+          "rationale": "That's the grid's AC."
+        },
+        {
+          "id": "b",
+          "label": "2.4 thousand times",
+          "correct": false,
+          "rationale": "Giga means billion, not thousand."
+        },
+        {
+          "id": "c",
+          "label": "2.4 million times",
+          "correct": false,
+          "rationale": "Giga means billion, not million."
+        },
+        {
+          "id": "d",
+          "label": "2.4 billion times",
+          "correct": true
+        }
+      ],
+      "explanation": "A hertz is one cycle per second and giga means billion: 2.4 billion cycles a second, 40 million times the grid's 60.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_wifi",
+    "source.hp_modem_vs_router",
+    "source.intel_wifi_bands",
+    "source.nist_sp330_si",
+    "source.brit_electric_generator",
+    "source.doe_war_of_currents"
+  ],
+  "art": "technology.radio"
+}

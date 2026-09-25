@@ -1,0 +1,216 @@
+{
+  "id": "level.world_systems.everyday_technology.062",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Packets",
+  "objective": "After this level you can explain how data travels in small packets that each find their own way.",
+  "summary": "Packet switching chops data into small addressed packets that travel separately by any available route and are rebuilt at the end. Baran and Davies invented it independently; TCP resends lost packets.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.internet_packet_switching",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.internet_packet_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.internet_tcp_ip",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.061"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your photo never crosses the internet in one piece.",
+      "body": "Send a picture to a friend and it gets chopped into small pieces that travel separately, maybe by different routes, and are put back together at the other end. It sounds like a recipe for chaos. It's actually the reason the internet works."
+    },
+    {
+      "id": "card.everyday_technology.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chop, label, send",
+      "body": "This is packet switching. A big message is broken into small packets, and each carries the address of its destination. Every packet travels independently over whatever route is available, across connected networks, and the pieces are reassembled at the end. An old phone call worked differently: it held one dedicated line for the whole conversation. Packets share the lines, like postcards from many senders riding in the same mail truck."
+    },
+    {
+      "id": "card.everyday_technology.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Designed to survive damage",
+      "body": "Why chop things up at all? In the early 1960s, Paul Baran at the RAND Corporation worked on a US Air Force network that would not fail if one of its nodes was destroyed: messages would go along whichever path still worked. In Britain, Donald Davies at the National Physical Laboratory reached the same idea on his own, and in a 1966 proposal he named the pieces \"packets.\"",
+      "mascot": {
+        "pose": "idea",
+        "line": "Break it into pieces so nothing can stop it. Honestly, that's also my approach to big sandwiches."
+      }
+    },
+    {
+      "id": "card.everyday_technology.062.c4",
+      "type": "fact",
+      "fact": "Lost packets are simply sent again.",
+      "context": "That's the job of the TCP half of Level 61's TCP/IP. TCP numbers the data it sends, so the receiving computer can put packets back in order and spot any gap. When a packet goes missing, it gets sent again. Think of a jigsaw puzzle with numbered pieces: you know exactly which one to ask for."
+    },
+    {
+      "id": "card.everyday_technology.062.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.062.q1"
+    },
+    {
+      "id": "card.everyday_technology.062.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.062.q2"
+    },
+    {
+      "id": "card.everyday_technology.062.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.062.q3"
+    },
+    {
+      "id": "card.everyday_technology.062.c8",
+      "type": "checkpoint",
+      "headline": "Packets: delivered",
+      "learned": [
+        "Messages are chopped into small packets, each carrying its destination address",
+        "Packets travel separately by any available route and are rebuilt at the end",
+        "Baran and Davies invented the idea independently; Davies named the packets",
+        "TCP numbers the data and resends any packet that goes missing"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.internet_packet_origins"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.062.c3"
+      ],
+      "prompt": "Who gave internet data packets their name?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Paul Baran",
+          "correct": false,
+          "rationale": "Baran worked on the idea at RAND for the Air Force, but Davies named the pieces."
+        },
+        {
+          "id": "b",
+          "label": "Donald Davies",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Vinton Cerf and Robert Kahn",
+          "correct": false,
+          "rationale": "They designed TCP in 1974, after packets had their name."
+        },
+        {
+          "id": "d",
+          "label": "The UCLA team behind \"lo\"",
+          "correct": false,
+          "rationale": "They sent ARPANET's first message (Level 61)."
+        }
+      ],
+      "explanation": "Donald Davies developed packet switching independently at the NPL and named the pieces \"packets\" in a 1966 proposal.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.internet_packet_switching"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.062.c2"
+      ],
+      "prompt": "Why can data from many people share the same lines with packet switching?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each user reserves a private line, taking turns",
+          "correct": false,
+          "rationale": "Holding a dedicated line is the old phone-call method."
+        },
+        {
+          "id": "b",
+          "label": "Messages go whole, one after another, in a queue",
+          "correct": false,
+          "rationale": "They're chopped into packets, not sent whole."
+        },
+        {
+          "id": "c",
+          "label": "Every packet is copied to every computer online",
+          "correct": false,
+          "rationale": "Each packet carries one destination address."
+        },
+        {
+          "id": "d",
+          "label": "No line is reserved; packets share any free route",
+          "correct": true
+        }
+      ],
+      "explanation": "Packets travel independently over any available route, so lines are shared instead of reserved for one conversation.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.everyday_technology.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.internet_tcp_ip"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.062.c4",
+        "card.everyday_technology.061.c3"
+      ],
+      "prompt": "Level 61 introduced TCP/IP. What does TCP do when one of a message's packets goes missing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Throws away the whole message and starts over",
+          "correct": false,
+          "rationale": "TCP only needs the missing piece."
+        },
+        {
+          "id": "b",
+          "label": "Spots the gap and has that packet sent again",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Fills the gap with a best guess",
+          "correct": false,
+          "rationale": "TCP resends data; it doesn't guess."
+        },
+        {
+          "id": "d",
+          "label": "Asks you to retype the message",
+          "correct": false,
+          "rationale": "TCP handles the gap itself by resending."
+        }
+      ],
+      "explanation": "TCP numbers the data, so the receiver can spot a gap; the missing packet is sent again.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_internet",
+    "source.ethw_packet_switching",
+    "source.ietf_rfc9293_tcp"
+  ],
+  "art": "technology.network"
+}

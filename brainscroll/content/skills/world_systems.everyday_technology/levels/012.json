@@ -1,0 +1,229 @@
+{
+  "id": "level.world_systems.everyday_technology.012",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Coal and Gas Plants",
+  "objective": "After this level you can explain how burning fuel boils water to spin turbines.",
+  "summary": "Burning coal boils water; steam spins a turbine and generator, and two-thirds of the fuel's energy ends up as waste heat. Combined-cycle gas plants reuse hot exhaust for a second spin.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.thermal_power_plant",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.gas_combined_cycle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.generator",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_conservation",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.incandescent_bulb",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.011"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most of the world's electricity comes from boiling water.",
+      "body": "Steam turbines make most of it, heated by coal, gas, nuclear fuel and a few other sources. A big power station is, at heart, a kettle the size of a building. This level follows the fire: how burning coal and gas becomes the electricity in your wall."
+    },
+    {
+      "id": "card.everyday_technology.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fire, water, steam, spin",
+      "body": "In a coal plant, fuel burns in a boiler and heats water into steam. The steam pushes on blades attached to a shaft and spins the turbine. The turbine turns a generator: Level 8's spinning electromagnet inside coils of wire. Follow the energy and it's Level 2's rule at work. Chemical energy in the fuel becomes heat, heat becomes motion, and motion becomes electricity."
+    },
+    {
+      "id": "card.everyday_technology.012.c3",
+      "type": "fact",
+      "fact": "A coal plant turns only about a third of its fuel's energy into electricity.",
+      "context": "That was the US average in 2024. The other two-thirds ends up as waste heat. Nothing is destroyed, as Level 2 promised; it just ends up somewhere useless. It's Level 5's old light bulb problem on a giant scale: most of the energy leaves as heat."
+    },
+    {
+      "id": "card.everyday_technology.012.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Gas plants get a second spin",
+      "body": "A gas plant can skip the boiler. A combustion gas turbine, similar to a jet engine, burns the fuel and lets the hot gases spin its blades directly. A combined-cycle plant then catches that hot exhaust and uses it to make steam for a second turbine. Two spins from one fire. In 2024 the average US gas plant turned about 44% of its fuel's energy into electricity, against coal's 32%. In 2025 gas was the top US source, making about 41% of the country's electricity."
+    },
+    {
+      "id": "card.everyday_technology.012.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.012.q1"
+    },
+    {
+      "id": "card.everyday_technology.012.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.012.q2"
+    },
+    {
+      "id": "card.everyday_technology.012.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.012.q3"
+    },
+    {
+      "id": "card.everyday_technology.012.c8",
+      "type": "checkpoint",
+      "headline": "Fuel plants: fired up",
+      "learned": [
+        "Most electricity comes from steam turbines",
+        "Burning fuel boils water; steam spins turbine and generator",
+        "Coal plants turn only about a third of fuel energy into power",
+        "Combined-cycle gas plants reuse hot exhaust for a second spin"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.thermal_power_plant"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.012.c2"
+      ],
+      "prompt": "In a coal-fired power plant, what actually pushes the turbine around?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Flames from the coal hitting the blades",
+          "correct": false,
+          "rationale": "The fire heats water; the steam does the pushing."
+        },
+        {
+          "id": "b",
+          "label": "Magnets repelling each other",
+          "correct": false,
+          "rationale": "The magnets are in the generator, which the turbine turns."
+        },
+        {
+          "id": "c",
+          "label": "Steam from water heated by the burning fuel",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Electricity drawn back from the grid",
+          "correct": false,
+          "rationale": "The plant makes electricity; it doesn't run on its own output."
+        }
+      ],
+      "explanation": "Burning coal heats water into steam, and the steam spins the turbine that drives the generator.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.gas_combined_cycle"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.012.c4"
+      ],
+      "prompt": "How does a combined-cycle gas plant get more electricity from the same fuel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its hot exhaust makes steam for a second turbine",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It burns coal alongside the gas",
+          "correct": false,
+          "rationale": "It reuses its own exhaust heat instead."
+        },
+        {
+          "id": "c",
+          "label": "It stores electricity in its boiler",
+          "correct": false,
+          "rationale": "Boilers make steam; they don't store electricity."
+        },
+        {
+          "id": "d",
+          "label": "It spins its generator in both directions",
+          "correct": false,
+          "rationale": "The gain comes from a second turbine."
+        }
+      ],
+      "explanation": "The gas turbine's hot exhaust makes steam for a steam turbine: two spins from one fire.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.thermal_power_plant",
+        "concept.everyday_technology.energy_conservation"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.012.c3",
+        "card.everyday_technology.002.c3"
+      ],
+      "prompt": "A coal plant turns only about a third of its fuel's energy into electricity. Where does the rest go?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's destroyed in the boiler",
+          "correct": false,
+          "rationale": "Energy is never destroyed (Level 2)."
+        },
+        {
+          "id": "b",
+          "label": "It stays locked inside the coal ash",
+          "correct": false,
+          "rationale": "The energy is released when the coal burns."
+        },
+        {
+          "id": "c",
+          "label": "It's stored in the generator for later",
+          "correct": false,
+          "rationale": "Generators don't store energy."
+        },
+        {
+          "id": "d",
+          "label": "It ends up as waste heat",
+          "correct": true
+        }
+      ],
+      "explanation": "Energy only changes form. About two-thirds of a coal plant's fuel energy ends up as waste heat, like an old bulb's.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eia_how_electricity_generated",
+    "source.eia_electricity_in_us",
+    "source.eia_heat_rates",
+    "source.eia_faq_plant_efficiency",
+    "source.eia_laws_of_energy",
+    "source.brit_energy",
+    "source.doe_efficient_lighting_guide",
+    "source.doe_history_light_bulb",
+    "source.brit_electric_generator"
+  ],
+  "art": "technology.power-plant"
+}

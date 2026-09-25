@@ -1,0 +1,226 @@
+{
+  "id": "level.world_systems.everyday_technology.099",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Judging New Technology",
+  "objective": "After this level you can weigh the benefits and risks of a new invention.",
+  "summary": "Leaded petrol boosted engines from 1922 and harmed health until 2021. Collingridge's dilemma: effects show late, when change is hard. Ask who benefits, who bears the risk and who supplies evidence.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.techjudge_tradeoffs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.techjudge_collingridge",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.techjudge_ai_act",
+      "role": "teach",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.war_of_currents",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.098"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For 99 years, the world put lead in its petrol on purpose.",
+      "body": "From 1922, a lead compound called tetraethyllead was added to petrol to make engines run better. It worked. It also harmed people's hearts and children's developing brains. The last country stopped selling it in July 2021. How do you judge a new invention before its costs show up?"
+    },
+    {
+      "id": "card.everyday_technology.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A benefit at the pump, a cost in the air",
+      "body": "The benefit was easy to see: better engine performance. The costs landed on people's health, and acting on them took decades. Most wealthy countries had banned leaded petrol by the 1980s, yet as late as 2002 almost all low- and middle-income countries still used it. The UN Environment Programme estimates that ending it prevents more than 1.2 million premature deaths a year."
+    },
+    {
+      "id": "card.everyday_technology.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Collingridge dilemma",
+      "body": "In 1980, David Collingridge described the trap in his book The Social Control of Technology. Early on, a technology is easy to change, but nobody can yet predict its effects. By the time the effects are clear, it's everywhere and hard to change. Leaded petrol fits neatly, and the trap is worth remembering for every technology in this chapter."
+    },
+    {
+      "id": "card.everyday_technology.099.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Questions worth asking",
+      "body": "Who benefits, and who bears the risk? What's the evidence, and who supplies it? Remember Level 9: Edison, whose Pearl Street station ran on DC, claimed AC was more dangerous and electrocuted animals to prove it. Lawmakers try to match rules to risk. The European Union's AI Act, in force since August 2024, bans a few uses such as social scoring, sets strict rules for high-risk uses like hiring, and leaves minimal-risk AI such as spam filters free of new obligations.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "My favorite question: who gains if I believe this? It works on headlines too."
+      }
+    },
+    {
+      "id": "card.everyday_technology.099.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.099.q1"
+    },
+    {
+      "id": "card.everyday_technology.099.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.099.q2"
+    },
+    {
+      "id": "card.everyday_technology.099.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.099.q3"
+    },
+    {
+      "id": "card.everyday_technology.099.c8",
+      "type": "checkpoint",
+      "headline": "New technology: weighed",
+      "learned": [
+        "Leaded petrol: better engines, harmed health, 1922 to 2021",
+        "Collingridge (1980): effects show late, when change is hard",
+        "Ask who benefits, who bears the risk, who supplies evidence",
+        "The EU AI Act (2024) matches rules to risk"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.techjudge_tradeoffs"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.099.c1",
+        "card.everyday_technology.099.c2"
+      ],
+      "prompt": "Why was lead added to petrol from 1922 onward?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To make engines run better",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To protect children's health",
+          "correct": false,
+          "rationale": "It harmed children's developing brains."
+        },
+        {
+          "id": "c",
+          "label": "To make petrol cheaper to refine",
+          "correct": false,
+          "rationale": "Its purpose was better engine performance."
+        },
+        {
+          "id": "d",
+          "label": "To stop cars from polluting",
+          "correct": false,
+          "rationale": "It spread lead pollution instead."
+        }
+      ],
+      "explanation": "Tetraethyllead was added to improve engine performance; its health costs took decades to act on.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.techjudge_collingridge"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.099.c3"
+      ],
+      "prompt": "What is the Collingridge dilemma?",
+      "options": [
+        {
+          "id": "a",
+          "label": "New technologies are always harmful at first",
+          "correct": false,
+          "rationale": "It's about knowledge and control, not harm."
+        },
+        {
+          "id": "b",
+          "label": "Governments should ban every new invention",
+          "correct": false,
+          "rationale": "Collingridge described a trap, not a ban."
+        },
+        {
+          "id": "c",
+          "label": "Early on, effects are unclear; later, change is hard",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Old technologies are easier to change than new ones",
+          "correct": false,
+          "rationale": "It's the other way round."
+        }
+      ],
+      "explanation": "Early on a technology is easy to change but its effects are hard to predict; once they are clear, it is entrenched.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.techjudge_tradeoffs",
+        "concept.everyday_technology.war_of_currents"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.099.c4",
+        "card.everyday_technology.009.c4"
+      ],
+      "prompt": "Level 9's Edison warned that AC was dangerous. Which question from this level fits his claim best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How much does the technology weigh?",
+          "correct": false,
+          "rationale": "Weight says nothing about whether to trust a claim."
+        },
+        {
+          "id": "b",
+          "label": "Is the technology newer than the light bulb?",
+          "correct": false,
+          "rationale": "Age isn't the issue."
+        },
+        {
+          "id": "c",
+          "label": "Does it run on batteries?",
+          "correct": false,
+          "rationale": "The question is about the claim, not the power source."
+        },
+        {
+          "id": "d",
+          "label": "Who supplies the evidence, and what do they gain?",
+          "correct": true
+        }
+      ],
+      "explanation": "Edison's own stations ran on DC, so he had something to gain from convincing people AC was dangerous.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.unep_leaded_petrol_2021",
+    "source.researchpolicy_collingridge",
+    "source.ethw_pearl_street",
+    "source.doe_war_of_currents",
+    "source.ec_ai_act"
+  ],
+  "art": "technology.lightbulb"
+}

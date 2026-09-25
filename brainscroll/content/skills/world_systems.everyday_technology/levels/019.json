@@ -1,0 +1,235 @@
+{
+  "id": "level.world_systems.everyday_technology.019",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Energy and Climate",
+  "objective": "After this level you can explain how the ways we make energy affect carbon emissions.",
+  "summary": "CO2 traps heat, and burning fossil fuels has raised it over 50%. Per kilowatt-hour, coal emits the most, gas under half as much, and wind and nuclear far less. Groups argue over the path.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.climate_co2_warming",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.climate_emissions_by_source",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.climate_energy_choices",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.gas_combined_cycle",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_power",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.nuclear_tradeoffs",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.018"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A coal-powered kilowatt-hour came with about 2.3 pounds of CO2.",
+      "body": "That was the US average for coal in 2023: Level 10's unit of energy, plus an invisible side order. Natural gas released less than half as much. Why does that gas matter, and which ways of making electricity release the least?"
+    },
+    {
+      "id": "card.everyday_technology.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why CO2 warms the planet",
+      "body": "Carbon dioxide is a greenhouse gas: it traps heat from sunlight, warming the planet. Since industrial times began in the 18th century, the CO2 in the air has risen by more than 50%, mainly from burning coal, oil and gas. The IPCC, the UN body that assesses climate science, finds that human activity has unequivocally caused global warming: about 1.1°C in 2011–2020 compared with 1850–1900."
+    },
+    {
+      "id": "card.everyday_technology.019.c3",
+      "type": "fact",
+      "fact": "Per kilowatt-hour, coal emits more than 70 times as much as wind.",
+      "context": "That counts a plant's whole life, from building it to running it. In the IPCC's 2014 review, typical figures were about 820 grams of CO2-equivalent per kilowatt-hour for coal, 490 for gas, and 12 or less for nuclear and onshore wind. Wind, solar and nuclear burn nothing; their emissions come mostly from building the plants and their supply chains."
+    },
+    {
+      "id": "card.everyday_technology.019.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Settled science, argued paths",
+      "body": "In the 2015 Paris Agreement, countries agreed to aim to hold warming well below 2°C. How to get there is fiercely argued. OPEC, the oil exporters' group, expects oil demand to keep growing to 2050 and stresses continued investment in oil. Greenpeace calls for a fast, fair phase-out of coal, oil and gas. The IEA sees a major role for nuclear power, which Greenpeace opposes. The physics sets the stakes; people argue over the route."
+    },
+    {
+      "id": "card.everyday_technology.019.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.019.q1"
+    },
+    {
+      "id": "card.everyday_technology.019.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.019.q2"
+    },
+    {
+      "id": "card.everyday_technology.019.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.019.q3"
+    },
+    {
+      "id": "card.everyday_technology.019.c8",
+      "type": "checkpoint",
+      "headline": "Climate: connected",
+      "learned": [
+        "CO2 traps heat; it's up more than 50% since industrial times",
+        "The IPCC: humans have unequivocally warmed the planet",
+        "Coal emits the most per kilowatt-hour; gas less than half",
+        "Paris set the goal; groups argue over the path"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.climate_co2_warming"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.019.c2"
+      ],
+      "prompt": "Why does adding carbon dioxide to the air warm the planet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It makes the Sun burn hotter",
+          "correct": false,
+          "rationale": "CO2 on Earth doesn't change the Sun."
+        },
+        {
+          "id": "b",
+          "label": "It thins the air so more sunlight gets in",
+          "correct": false,
+          "rationale": "It traps heat instead."
+        },
+        {
+          "id": "c",
+          "label": "It gives off heat of its own as it drifts",
+          "correct": false,
+          "rationale": "The warming comes from heat it traps."
+        },
+        {
+          "id": "d",
+          "label": "It traps heat from sunlight",
+          "correct": true
+        }
+      ],
+      "explanation": "CO2 is a greenhouse gas: it traps heat from sunlight, warming the planet.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.climate_emissions_by_source"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.019.c3"
+      ],
+      "prompt": "Counting a plant's whole life, why do wind and nuclear power still have some emissions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their turbines burn a little coal",
+          "correct": false,
+          "rationale": "They burn nothing."
+        },
+        {
+          "id": "b",
+          "label": "Building the plants and their supply chains emits some",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Wind and uranium give off CO2 when used",
+          "correct": false,
+          "rationale": "Neither releases CO2 while running."
+        },
+        {
+          "id": "d",
+          "label": "They don't; their total is exactly zero",
+          "correct": false,
+          "rationale": "Building them has a footprint."
+        }
+      ],
+      "explanation": "Wind, solar and nuclear have zero direct emissions; their small lifecycle totals come mostly from construction and supply chains.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.climate_emissions_by_source",
+        "concept.everyday_technology.gas_combined_cycle"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.019.c1",
+        "card.everyday_technology.012.c4"
+      ],
+      "prompt": "Level 12's gas plants beat coal on efficiency. How do they compare on CO2 per kilowatt-hour?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gas releases about twice as much as coal",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "b",
+          "label": "They release exactly the same",
+          "correct": false,
+          "rationale": "Gas releases much less."
+        },
+        {
+          "id": "c",
+          "label": "Gas releases less than half as much as coal",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Gas releases no CO2 at all",
+          "correct": false,
+          "rationale": "Burning gas does release CO2."
+        }
+      ],
+      "explanation": "In 2023, US coal power released about 2.31 pounds of CO2 per kilowatt-hour and gas about 0.96: less than half.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iea_nuclear_role",
+    "source.greenpeace_nuclear",
+    "source.eia_co2_per_kwh",
+    "source.ipcc_ar5_annex3",
+    "source.nasa_co2_indicator",
+    "source.nasa_greenhouse_effect",
+    "source.ipcc_ar6_syr_spm",
+    "source.un_paris_agreement",
+    "source.opec_woo2025",
+    "source.greenpeace_fossil_phaseout"
+  ],
+  "art": "nature.thermometer"
+}

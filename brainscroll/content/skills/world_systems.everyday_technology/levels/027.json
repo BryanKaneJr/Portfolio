@@ -1,0 +1,225 @@
+{
+  "id": "level.world_systems.everyday_technology.027",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Gears",
+  "objective": "After this level you can explain how gears trade speed for force.",
+  "summary": "Meshing gears can't slip, so tooth counts set speed: twice the teeth, half the speed, twice the turning force. Gears were predicting eclipses over 2,000 years ago.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.motion_gear_ratio",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_gear_torque_trade",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_simple_machines",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_mechanical_advantage",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.026"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On a steep hill, your bike's lowest gear makes you pedal more to go slower.",
+      "body": "Every turn of the pedals gets easier, but you cover less ground with it. That isn't a flaw; it's the deal. Gears trade speed for force, or force for speed, and here's how."
+    },
+    {
+      "id": "card.everyday_technology.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Teeth set the ratio",
+      "body": "A gear is a wheel with teeth. When two gears mesh, the teeth can't slip, so both gears pass the same number of teeth every second. Give the driven gear twice as many teeth as the one driving it, and it turns at half the speed. Count the teeth and you know the ratio."
+    },
+    {
+      "id": "card.everyday_technology.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Slower, but stronger",
+      "body": "That slower gear also turns with twice the twisting force, called torque. It's Level 21's wheel and axle again: gears multiply force by the ratio of their sizes, like levers that go round. Flip the pair, with a big gear driving a small one, and you get speed instead of force. Either way, Level 21's rule holds: no gear hands out free energy."
+    },
+    {
+      "id": "card.everyday_technology.027.c4",
+      "type": "fact",
+      "fact": "Gears were predicting eclipses over 2,000 years ago.",
+      "context": "In 1901, divers pulled the Antikythera mechanism from an ancient Greek shipwreck. Made around 100 BCE, it has 30 surviving bronze gears, and it predicted eclipses. The gears did it by turning at precise speed ratios, the same tooth-counting you just learned.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "A bronze sky calculator, found in a shipwreck. Clearly the ancients were very good with teeth."
+      }
+    },
+    {
+      "id": "card.everyday_technology.027.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.027.q1"
+    },
+    {
+      "id": "card.everyday_technology.027.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.027.q2"
+    },
+    {
+      "id": "card.everyday_technology.027.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.027.q3"
+    },
+    {
+      "id": "card.everyday_technology.027.c8",
+      "type": "checkpoint",
+      "headline": "Gears: meshed",
+      "learned": [
+        "Tooth counts set the speed ratio",
+        "Twice the teeth: half the speed, twice the torque",
+        "Big driving small trades force for speed",
+        "The Antikythera gears are over 2,000 years old"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.motion_gear_ratio"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.027.c2"
+      ],
+      "prompt": "A gear with 10 teeth drives a gear with 20 teeth. How fast does the bigger gear turn?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Four times as fast",
+          "correct": false,
+          "rationale": "The bigger gear turns more slowly, not faster."
+        },
+        {
+          "id": "b",
+          "label": "Twice as fast",
+          "correct": false,
+          "rationale": "A big gear driven by a small one slows down."
+        },
+        {
+          "id": "c",
+          "label": "At the same speed",
+          "correct": false,
+          "rationale": "Different tooth counts mean different speeds."
+        },
+        {
+          "id": "d",
+          "label": "Half as fast",
+          "correct": true
+        }
+      ],
+      "explanation": "With twice as many teeth, the driven gear turns at half the speed, and with twice the torque.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.motion_gear_torque_trade"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.027.c1",
+        "card.everyday_technology.027.c3"
+      ],
+      "prompt": "Why does a bike's lowest gear make a steep hill easier?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It adds extra energy to every pedal stroke",
+          "correct": false,
+          "rationale": "Gears never add energy."
+        },
+        {
+          "id": "b",
+          "label": "It trades speed for more turning force",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It makes the bike lighter",
+          "correct": false,
+          "rationale": "The bike weighs the same."
+        },
+        {
+          "id": "d",
+          "label": "It takes friction out of the chain",
+          "correct": false,
+          "rationale": "Friction is still there; the gear ratio changed."
+        }
+      ],
+      "explanation": "A low gear gives more turning force at the wheel for each pedal push, paid for with lower speed.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.motion_gear_torque_trade",
+        "concept.everyday_technology.motion_simple_machines"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.027.c3",
+        "card.everyday_technology.021.c3"
+      ],
+      "prompt": "What rule do a pair of gears share with Level 21's wheel and axle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both create a little extra energy of their own",
+          "correct": false,
+          "rationale": "No machine creates energy."
+        },
+        {
+          "id": "b",
+          "label": "Both only work when a rope runs around them",
+          "correct": false,
+          "rationale": "Gears have no rope."
+        },
+        {
+          "id": "c",
+          "label": "Both multiply force by the ratio of their sizes",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both need an electric motor to turn them",
+          "correct": false,
+          "rationale": "Both work by hand."
+        }
+      ],
+      "explanation": "Gears, like a wheel and axle, multiply force by the ratio of their radii, trading speed or distance for it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sheldonbrown_gear_theory",
+    "source.brit_gear",
+    "source.openstax_simple_machines",
+    "source.brit_antikythera",
+    "source.teachengineering_pulleys"
+  ],
+  "art": "technology.gears"
+}

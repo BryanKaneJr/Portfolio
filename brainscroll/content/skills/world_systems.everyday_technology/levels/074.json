@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.everyday_technology.074",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Sewers",
+  "objective": "After this level you can explain how sewers and treatment plants deal with waste water.",
+  "summary": "The Great Stink of 1858 led to Bazalgette's London sewers. Modern plants let gravity bring sewage in, settle out solids, let microbes eat the rest, then disinfect it.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.sewer_london_history",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.sewer_treatment_plant",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.water_germ_disinfection",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.073"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.074.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1858, London's river smelled so bad it disrupted Parliament.",
+      "body": "That hot summer, sewage baking in the River Thames produced the Great Stink, and the stench overwhelmed everyone nearby, lawmakers included. What London built next answers a question you rarely ask: where does it all go after you flush?"
+    },
+    {
+      "id": "card.everyday_technology.074.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The right sewers for the wrong reason",
+      "body": "Parliament funded a new sewer system for all of London, overseen by the engineer Joseph Bazalgette; the city still relies on it. Officials believed disease spread through bad air, so they thought the sewers would work by removing the smell. But remember Level 73: Snow had shown that sewage in drinking water was the real killer. In 1866, London's last cholera outbreak struck parts of east London not yet connected to the new sewers. Snow was right.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Wrong theory, right tunnels. Science does not always arrive in order."
+      }
+    },
+    {
+      "id": "card.everyday_technology.074.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Gravity does the first job",
+      "body": "Your drain feeds a sewer that mostly runs downhill, so treatment plants sit on low ground, often beside a river. First, screens catch big debris. Then the flow slows in settling tanks: heavy sludge sinks to the bottom, and floating grease and oil get skimmed off the top. So far, it's mostly patience."
+    },
+    {
+      "id": "card.everyday_technology.074.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then the microbes get to work",
+      "body": "Next, air is bubbled into big tanks so microorganisms already living in the sewage can thrive. They eat much of the organic material that's left. Finally the water is disinfected with chlorine or bleach and released into a river or the ocean. The hardest-working staff at a sewage plant are too small to see."
+    },
+    {
+      "id": "card.everyday_technology.074.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.074.q1"
+    },
+    {
+      "id": "card.everyday_technology.074.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.074.q2"
+    },
+    {
+      "id": "card.everyday_technology.074.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.074.q3"
+    },
+    {
+      "id": "card.everyday_technology.074.c8",
+      "type": "checkpoint",
+      "headline": "Sewers: flushed through",
+      "learned": [
+        "The Great Stink of 1858 led to Bazalgette's sewers",
+        "The sewers were built to remove 'bad air' but stopped cholera",
+        "Plants screen, settle and skim, then let microbes eat the rest",
+        "Disinfected water goes back to a river or the ocean"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.sewer_london_history"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.074.c1",
+        "card.everyday_technology.074.c2"
+      ],
+      "prompt": "What did London's Great Stink of 1858 lead Parliament to do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Move Parliament away from the river",
+          "correct": false,
+          "rationale": "It built sewers instead."
+        },
+        {
+          "id": "b",
+          "label": "Fund a new sewer system for all of London",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Ban public water pumps",
+          "correct": false,
+          "rationale": "The Stink led to sewers."
+        },
+        {
+          "id": "d",
+          "label": "Start chlorinating London's water",
+          "correct": false,
+          "rationale": "That kind of disinfection came decades later, in Level 73's story."
+        }
+      ],
+      "explanation": "The Great Stink pushed Parliament to fund Bazalgette's London-wide sewer system.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.sewer_treatment_plant"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.074.c4"
+      ],
+      "prompt": "In a sewage plant, why is air bubbled into the big treatment tanks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To blow the smell away from the neighbors",
+          "correct": false,
+          "rationale": "The air is for the microbes."
+        },
+        {
+          "id": "b",
+          "label": "To push the sewage uphill to the river",
+          "correct": false,
+          "rationale": "Gravity moves most sewage."
+        },
+        {
+          "id": "c",
+          "label": "To make the heavy sludge float to the top",
+          "correct": false,
+          "rationale": "Sludge sinks in the settling tanks."
+        },
+        {
+          "id": "d",
+          "label": "So microbes can thrive and eat the waste",
+          "correct": true
+        }
+      ],
+      "explanation": "Air lets microorganisms already in the sewage thrive, and they eat much of the organic material.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.sewer_london_history",
+        "concept.everyday_technology.water_germ_disinfection"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.074.c2",
+        "card.everyday_technology.073.c1"
+      ],
+      "prompt": "Level 73's John Snow said cholera spread through dirty water. How did London's 1866 cholera outbreak support him?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It struck areas not yet connected to the new sewers",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It started in Parliament during the Great Stink",
+          "correct": false,
+          "rationale": "It struck east London in 1866."
+        },
+        {
+          "id": "c",
+          "label": "It spread only where the air smelled worst",
+          "correct": false,
+          "rationale": "That was the bad-air idea Snow opposed."
+        },
+        {
+          "id": "d",
+          "label": "It hit every part of London equally",
+          "correct": false,
+          "rationale": "It struck the unconnected areas."
+        }
+      ],
+      "explanation": "The last outbreak hit parts of east London not yet on Bazalgette's sewers, the final proof that dirty water, not bad air, spread cholera.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.historicengland_london_sewers",
+    "source.londonmuseum_john_snow",
+    "source.usgs_wastewater_plant",
+    "source.nycdep_wastewater_treatment"
+  ],
+  "art": "nature.water-drop"
+}

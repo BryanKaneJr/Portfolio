@@ -1,0 +1,221 @@
+{
+  "id": "level.world_systems.everyday_technology.091",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Artificial Intelligence",
+  "objective": "After this level you can explain what AI is and how machine learning learns from examples.",
+  "summary": "AI is a computer doing tasks we link with intelligence. Deep Blue won at chess in 1997 by brute-force speed; machine learning instead finds patterns in labeled examples, flaws and all.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.ai_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.ai_machine_learning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.technology_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.090"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.091.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In May 1997, a computer beat the world chess champion by sheer speed.",
+      "body": "IBM's Deep Blue beat Garry Kasparov by brute force: it could evaluate 200 million chess positions every second. Impressive, but it's only one way to make a machine seem smart. Most of this level is about the other way, the one that learns from examples."
+    },
+    {
+      "id": "card.everyday_technology.091.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What counts as artificial intelligence",
+      "body": "Britannica defines AI as a computer or robot doing tasks we usually associate with intelligent beings. Beating a world champion at chess counts. The name is older than most people guess: John McCarthy coined \"artificial intelligence\" in 1955. And by Level 1's definition, AI is plain technology: knowledge put to work on a practical job. The job just happens to look like thinking."
+    },
+    {
+      "id": "card.everyday_technology.091.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Machine learning: rules found, not written",
+      "body": "Try writing down every sign of a spam email. You'll be at it a while. Machine learning flips the job around. You show a program, called a model, lots of emails already labeled \"spam\" or \"not spam.\" Training tunes the model until it finds the patterns that separate them, and then it sorts new emails it has never seen. Nobody wrote those rules. The model found them in the examples."
+    },
+    {
+      "id": "card.everyday_technology.091.c4",
+      "type": "fact",
+      "fact": "A model learns what its examples teach, gaps and flaws included.",
+      "context": "In 2022, the US National Institute of Standards and Technology (NIST) warned that biases in the data used to train AI end up in the AI itself. Models also often can't handle cases unlike the data they learned from. A spam filter trained only on English emails has simply never met a French one. Choosing the examples means choosing what the machine learns.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "So the real teacher is whoever picks the examples. No pressure."
+      }
+    },
+    {
+      "id": "card.everyday_technology.091.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.091.q1"
+    },
+    {
+      "id": "card.everyday_technology.091.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.091.q2"
+    },
+    {
+      "id": "card.everyday_technology.091.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.091.q3"
+    },
+    {
+      "id": "card.everyday_technology.091.c8",
+      "type": "checkpoint",
+      "headline": "Artificial intelligence: introduced",
+      "learned": [
+        "AI: computers doing tasks we link with intelligence",
+        "Deep Blue won at chess in 1997 by brute-force speed",
+        "Machine learning finds patterns in labeled examples",
+        "A model inherits the gaps and biases of its data"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.ai_definition"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.091.c1"
+      ],
+      "prompt": "How did IBM's Deep Blue beat world chess champion Garry Kasparov in 1997?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By learning from emails labeled by people",
+          "correct": false,
+          "rationale": "That's how a spam filter learns, not how Deep Blue played."
+        },
+        {
+          "id": "b",
+          "label": "By brute force, evaluating 200 million positions a second",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "By copying Kasparov's moves from earlier games",
+          "correct": false,
+          "rationale": "It searched positions at high speed; it didn't copy him."
+        },
+        {
+          "id": "d",
+          "label": "By asking grandmasters for help during each game",
+          "correct": false,
+          "rationale": "It won on raw computing power."
+        }
+      ],
+      "explanation": "Deep Blue won through brute-force computing power, evaluating 200 million chess positions per second.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.ai_machine_learning"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.091.c3"
+      ],
+      "prompt": "How does a machine-learning spam filter work out what spam looks like?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A programmer types in every spam rule by hand",
+          "correct": false,
+          "rationale": "That's the approach machine learning replaces."
+        },
+        {
+          "id": "b",
+          "label": "It checks millions of positions per second",
+          "correct": false,
+          "rationale": "That's Deep Blue's brute force, not learning."
+        },
+        {
+          "id": "c",
+          "label": "It asks each sender whether the email is spam",
+          "correct": false,
+          "rationale": "It learns from labeled examples instead."
+        },
+        {
+          "id": "d",
+          "label": "It finds patterns in emails already labeled spam or not",
+          "correct": true
+        }
+      ],
+      "explanation": "Training on labeled examples lets the model find the patterns that separate spam from normal email, then apply them to new messages.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.ai_machine_learning",
+        "concept.everyday_technology.technology_definition"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.091.c3",
+        "card.everyday_technology.091.c4",
+        "card.everyday_technology.001.c2"
+      ],
+      "prompt": "Level 1 called technology knowledge put to work. Where does a machine-learning model get its knowledge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From the examples it was trained on",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "From rules a programmer wrote one by one",
+          "correct": false,
+          "rationale": "Machine learning finds its rules in data."
+        },
+        {
+          "id": "c",
+          "label": "From the electricity that powers it",
+          "correct": false,
+          "rationale": "Electricity runs it; the knowledge comes from its training examples."
+        },
+        {
+          "id": "d",
+          "label": "From a list of every possible chess move",
+          "correct": false,
+          "rationale": "That's closer to Deep Blue's brute-force search."
+        }
+      ],
+      "explanation": "A model learns its patterns from its training examples, which is why NIST warns that biases and gaps in the data carry over.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.ibm_deep_blue",
+    "source.brit_technology",
+    "source.brit_artificial_intelligence",
+    "source.brit_john_mccarthy",
+    "source.google_ml_what_is_ml",
+    "source.nist_sp1270_ai_bias"
+  ],
+  "art": "technology.robot"
+}

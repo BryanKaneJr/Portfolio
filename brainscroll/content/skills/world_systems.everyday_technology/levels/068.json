@@ -1,0 +1,221 @@
+{
+  "id": "level.world_systems.everyday_technology.068",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Encryption",
+  "objective": "After this level you can explain how encryption keeps messages private.",
+  "summary": "Encryption uses a key to turn plaintext into ciphertext. Diffie and Hellman's 1976 public-key idea lets strangers keep secrets: one key locks, another unlocks.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.crypto_encryption_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.crypto_public_key",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.internet_packet_switching",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.067"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.068.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your messages pass through networks you'll never see.",
+      "body": "Remember Level 62? Your packets travel over whatever route is available, across many connected networks. So what keeps the computers along the way from reading your bank details? The packets are scrambled, and only the intended recipient can unscramble them."
+    },
+    {
+      "id": "card.everyday_technology.068.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Scramble it with a key",
+      "body": "Encryption uses a method and a key to turn readable plaintext into scrambled ciphertext, so only someone with the right key can read it. Julius Caesar used a simple version: he replaced each letter with the one three places down the alphabet, so HELLO became KHOOR. His key was the number three. It's also easy to crack, because there are only 25 possible shifts to try.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "KHOOR, dear learner. Sorry: HELLO."
+      }
+    },
+    {
+      "id": "card.everyday_technology.068.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The first-secret problem",
+      "body": "A shared key has a catch: both sides need it before they can talk privately, and you've never met your bank's computers. How do you agree on a key when anyone might be listening? In 1976, Whitfield Diffie and Martin Hellman published a blueprint for communicating over an open channel, with no prearrangement, while keeping messages secret from eavesdroppers."
+    },
+    {
+      "id": "card.everyday_technology.068.c4",
+      "type": "fact",
+      "fact": "Public-key encryption uses two keys: one locks, and a different one unlocks.",
+      "context": "Picture handing out open padlocks: anyone can snap one shut on a box, but only you hold the key that opens it. Public-key cryptography became the backbone of modern internet security, and it lets your browser check that your bank is really who it claims to be. The padlock icon beside a web address signals that your traffic to that site is encrypted."
+    },
+    {
+      "id": "card.everyday_technology.068.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.068.q1"
+    },
+    {
+      "id": "card.everyday_technology.068.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.068.q2"
+    },
+    {
+      "id": "card.everyday_technology.068.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.068.q3"
+    },
+    {
+      "id": "card.everyday_technology.068.c8",
+      "type": "checkpoint",
+      "headline": "Encryption: unlocked",
+      "learned": [
+        "Encryption turns plaintext into ciphertext using a key",
+        "Caesar shifted letters three places; it's easy to break",
+        "Diffie and Hellman (1976): secrets with no prearranged key",
+        "Public-key encryption: one key locks, a different key unlocks"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.crypto_encryption_basics"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.068.c2"
+      ],
+      "prompt": "In encryption, what does a key turn readable plaintext into?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Packets labeled with an address",
+          "correct": false,
+          "rationale": "That's packet switching (Level 62)."
+        },
+        {
+          "id": "b",
+          "label": "Ciphertext only the right key can read",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Hyperlinks to other pages",
+          "correct": false,
+          "rationale": "Those are the web's links (Level 65)."
+        },
+        {
+          "id": "d",
+          "label": "A shorter file that loads faster",
+          "correct": false,
+          "rationale": "Encryption hides meaning; it isn't about size."
+        }
+      ],
+      "explanation": "Encryption turns plaintext into ciphertext; only someone with the right key can turn it back.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.crypto_public_key"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.068.c3"
+      ],
+      "prompt": "What problem did Diffie and Hellman's 1976 blueprint solve?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Keeping messages secret with no key agreed in advance",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Making messages travel faster across the network",
+          "correct": false,
+          "rationale": "Speed wasn't the goal; secrecy was."
+        },
+        {
+          "id": "c",
+          "label": "Splitting messages into packets",
+          "correct": false,
+          "rationale": "That was Baran and Davies (Level 62)."
+        },
+        {
+          "id": "d",
+          "label": "Storing files in data centers",
+          "correct": false,
+          "rationale": "That's the cloud (Level 67)."
+        }
+      ],
+      "explanation": "Their blueprint let people communicate over an open channel with no prearrangement and still keep their messages secret.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.everyday_technology.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.internet_packet_switching",
+        "concept.everyday_technology.crypto_encryption_basics"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.062.c2",
+        "card.everyday_technology.068.c1"
+      ],
+      "prompt": "Why does Level 62's way of moving packets make encryption so important?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Packets never reach their destination",
+          "correct": false,
+          "rationale": "They do; TCP even resends lost ones."
+        },
+        {
+          "id": "b",
+          "label": "Packets are too small to hold passwords",
+          "correct": false,
+          "rationale": "Size isn't the issue; the route is."
+        },
+        {
+          "id": "c",
+          "label": "Packets always travel by satellite, never by cable",
+          "correct": false,
+          "rationale": "Nearly all long-haul data goes by cable (Level 63)."
+        },
+        {
+          "id": "d",
+          "label": "Packets cross many networks on the way to their destination",
+          "correct": true
+        }
+      ],
+      "explanation": "Packets travel over whatever route is available, across many connected networks, so they need to be unreadable to everyone but the recipient.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_internet",
+    "source.ethw_packet_switching",
+    "source.nist_glossary_encryption",
+    "source.brit_caesar_cipher",
+    "source.stanford_diffie_hellman_turing",
+    "source.nist_glossary_public_key",
+    "source.fbi_ic3_https_phishing"
+  ],
+  "art": "object.padlock"
+}

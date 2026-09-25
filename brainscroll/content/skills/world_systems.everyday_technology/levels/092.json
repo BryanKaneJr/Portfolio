@@ -1,0 +1,217 @@
+{
+  "id": "level.world_systems.everyday_technology.092",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Chatbots Work",
+  "objective": "After this level you can explain in simple terms how language models predict text.",
+  "summary": "A chatbot runs on a large language model that writes by predicting a likely next token, again and again. Trained on huge amounts of text, it sounds fluent but can be confidently wrong.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.chatbot_next_token",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.chatbot_hallucination",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.ai_machine_learning",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.091"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your phone's keyboard already plays a chatbot's favorite game.",
+      "body": "Type \"see you\" and it suggests \"soon.\" Britannica describes large language models, the engines inside chatbots, as advanced versions of that same predictive text: they aim to produce the most probable words for your prompt. So how does a guessing game write whole paragraphs, and why is it sometimes wrong?"
+    },
+    {
+      "id": "card.everyday_technology.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One token at a time",
+      "body": "A language model reads and writes in tokens: small chunks of text, usually a few characters long. Given your question, it works out which token is likely to come next, adds it, and asks the same question again with the longer text. A poem, a recipe or a history essay is built this way, one small prediction after another. There's no script hidden inside. There's only \"what comes next?\", asked over and over."
+    },
+    {
+      "id": "card.everyday_technology.092.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Trained on mountains of text",
+      "body": "Where do the predictions come from? Level 91's machine learning. In training, a model works through huge amounts of text, trillions of tokens, practicing predicting what comes next. The first large language models followed a design called the transformer, introduced in 2017. Chatbots add a finishing step: when OpenAI introduced ChatGPT in November 2022, it described fine-tuning the model with human feedback so it would answer in a conversational way."
+    },
+    {
+      "id": "card.everyday_technology.092.c4",
+      "type": "fact",
+      "fact": "Fluent is not the same as true.",
+      "context": "A model predicts the most probable words; making text sound right is not the same as checking it. So it can present something false in the same confident tone as something true, which is called a hallucination. In June 2023, a US federal judge fined two lawyers and their firm $5,000 for a brief citing six court cases that didn't exist. ChatGPT had made them up.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Sounding sure and being right are two different skills. Check the second one yourself."
+      }
+    },
+    {
+      "id": "card.everyday_technology.092.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.092.q1"
+    },
+    {
+      "id": "card.everyday_technology.092.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.092.q2"
+    },
+    {
+      "id": "card.everyday_technology.092.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.092.q3"
+    },
+    {
+      "id": "card.everyday_technology.092.c8",
+      "type": "checkpoint",
+      "headline": "Chatbots: decoded",
+      "learned": [
+        "Language models write one predicted token at a time",
+        "They are trained on huge amounts of text",
+        "Chatbots are further tuned with human feedback (2022)",
+        "They can be confidently wrong: hallucinations"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.chatbot_next_token"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.092.c2"
+      ],
+      "prompt": "While a language model writes a reply, what does it do at each step?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It looks up the next line in a fixed script",
+          "correct": false,
+          "rationale": "There's no script; it predicts."
+        },
+        {
+          "id": "b",
+          "label": "It checks each sentence against a fact database",
+          "correct": false,
+          "rationale": "Its core job is prediction, not fact-checking."
+        },
+        {
+          "id": "c",
+          "label": "It predicts a likely next token and adds it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It copies a stored answer to the whole question",
+          "correct": false,
+          "rationale": "It builds the reply one token at a time."
+        }
+      ],
+      "explanation": "A language model writes by predicting a likely next token, adding it to the text and repeating.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.chatbot_hallucination"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.092.c4"
+      ],
+      "prompt": "Why can a chatbot state something false in a confident tone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It predicts likely-sounding text instead of checking it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is programmed to be wrong some of the time",
+          "correct": false,
+          "rationale": "Nothing tells it to be wrong; it predicts probable text."
+        },
+        {
+          "id": "c",
+          "label": "It runs out of tokens halfway through",
+          "correct": false,
+          "rationale": "Length isn't the problem."
+        },
+        {
+          "id": "d",
+          "label": "It only ever learned from fake documents",
+          "correct": false,
+          "rationale": "It learned from huge amounts of ordinary text."
+        }
+      ],
+      "explanation": "A model produces the most probable words; sounding right is not the same as being checked, so it can hallucinate confidently.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.chatbot_next_token",
+        "concept.everyday_technology.ai_machine_learning"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.092.c3",
+        "card.everyday_technology.091.c3"
+      ],
+      "prompt": "Level 91's spam filter learned from labeled emails. What does a language model learn from in training?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Emails labeled spam or not spam",
+          "correct": false,
+          "rationale": "That's the spam filter's training data."
+        },
+        {
+          "id": "b",
+          "label": "Chess positions searched at high speed",
+          "correct": false,
+          "rationale": "That's Deep Blue's brute force."
+        },
+        {
+          "id": "c",
+          "label": "Rules typed in by programmers one by one",
+          "correct": false,
+          "rationale": "Machine learning finds patterns instead of being handed rules."
+        },
+        {
+          "id": "d",
+          "label": "Huge amounts of text, by predicting what comes next",
+          "correct": true
+        }
+      ],
+      "explanation": "Language models are trained on trillions of tokens of text by practicing predicting the next token.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_large_language_model",
+    "source.openai_introducing_chatgpt",
+    "source.findlaw_mata_v_avianca"
+  ],
+  "art": "geo.speech-bubbles"
+}

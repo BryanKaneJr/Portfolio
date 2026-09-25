@@ -1,0 +1,223 @@
+{
+  "id": "level.world_systems.everyday_technology.053",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Microchip",
+  "objective": "After this level you can explain how transistors on a chip act as tiny switches.",
+  "summary": "A transistor is a tiny semiconductor switch (Bell Labs, 1947); chips hold billions. Moore's law, an observation, saw counts double about every two years.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.computer_transistor_switch",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_moores_law",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.led_light",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.052"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A 2020 chip holds about 7 million times the switches of a 1971 one.",
+      "body": "Intel's 4004 of 1971, the first commercially available microprocessor, had 2,300 transistors. Apple's M1 chip, announced in November 2020, has 16 billion. What exactly is a transistor, and how did so many squeeze onto one chip?"
+    },
+    {
+      "id": "card.everyday_technology.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A switch with no moving parts",
+      "body": "A transistor is a tiny switch made from a semiconductor. No finger flips it: a small electrical signal turns it on or off, and when it's on, a larger current can flow. On is 1, off is 0, exactly Level 52's bits. John Bardeen, Walter Brattain and William Shockley made the first working one at Bell Labs in December 1947."
+    },
+    {
+      "id": "card.everyday_technology.053.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Many switches, one slice of silicon",
+      "body": "Early transistors had to be wired together one by one. Then Jack Kilby at Texas Instruments in 1958, and Robert Noyce at Fairchild in 1959, each found a way to build many parts and the connections between them on a single piece of semiconductor, usually silicon. That's an integrated circuit: a microchip. Today's processors hold billions of transistors, switching on and off billions of times a second."
+    },
+    {
+      "id": "card.everyday_technology.053.c4",
+      "type": "fact",
+      "fact": "Moore's law is an observation, not a law of nature.",
+      "context": "In 1965 Gordon Moore, who later co-founded Intel, predicted the number of parts on a chip would double every year. In 1975 he revised it to every two years. Nothing in physics forces it: chipmakers turned it into a target and kept chasing it. From 2,300 to 16 billion is almost 23 doublings in 49 years, about one every two years.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A law that works because people keep deciding to obey it. Rather like bedtime."
+      }
+    },
+    {
+      "id": "card.everyday_technology.053.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.053.q1"
+    },
+    {
+      "id": "card.everyday_technology.053.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.053.q2"
+    },
+    {
+      "id": "card.everyday_technology.053.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.053.q3"
+    },
+    {
+      "id": "card.everyday_technology.053.c8",
+      "type": "checkpoint",
+      "headline": "Microchips: switched on",
+      "learned": [
+        "A transistor is a tiny semiconductor switch: on is 1, off is 0",
+        "First working transistor: Bell Labs, 1947",
+        "Integrated circuits (1958 and 1959) put many parts on one chip",
+        "Moore's law is an observation: about a doubling every two years"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.computer_transistor_switch"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.053.c2"
+      ],
+      "prompt": "What job does each transistor on a microchip do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stores electricity like a tiny battery",
+          "correct": false,
+          "rationale": "Batteries store chemical energy; transistors switch."
+        },
+        {
+          "id": "b",
+          "label": "Spins to generate power for the chip",
+          "correct": false,
+          "rationale": "Transistors have no moving parts."
+        },
+        {
+          "id": "c",
+          "label": "Turns light into electric current",
+          "correct": false,
+          "rationale": "That's closer to a solar cell."
+        },
+        {
+          "id": "d",
+          "label": "Acts as a switch that a small signal turns on or off",
+          "correct": true
+        }
+      ],
+      "explanation": "A transistor is a semiconductor switch: a small signal turns it on or off, standing for 1 or 0.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.computer_moores_law"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.053.c4"
+      ],
+      "prompt": "Why is Moore's law about chip transistor counts called an observation rather than a law of nature?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Moore withdrew it completely in 1975",
+          "correct": false,
+          "rationale": "He revised the pace from one year to two, not withdrew it."
+        },
+        {
+          "id": "b",
+          "label": "It has never matched a real chip",
+          "correct": false,
+          "rationale": "It tracked real chips for decades."
+        },
+        {
+          "id": "c",
+          "label": "It is a trend the industry chased, not something physics forces",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It only ever applied to calculators",
+          "correct": false,
+          "rationale": "It describes chips in general."
+        }
+      ],
+      "explanation": "Moore described a trend and made a forecast; chipmakers adopted it as a target, which helped keep it true.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.computer_transistor_switch",
+        "concept.everyday_technology.led_light"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.053.c2",
+        "card.everyday_technology.005.c4"
+      ],
+      "prompt": "Level 5's LED and a microchip's transistor have something in common. What is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both are made from semiconductors",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Both work by heating a filament",
+          "correct": false,
+          "rationale": "LEDs have no filament, and neither do transistors."
+        },
+        {
+          "id": "c",
+          "label": "Both were invented by Edison",
+          "correct": false,
+          "rationale": "The transistor came from Bell Labs in 1947."
+        },
+        {
+          "id": "d",
+          "label": "Both need a spinning magnet",
+          "correct": false,
+          "rationale": "That's a generator."
+        }
+      ],
+      "explanation": "An LED makes light where current crosses a junction of semiconductors; a transistor is a semiconductor switch.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.chm_intel_4004",
+    "source.apple_m1_2020",
+    "source.brit_transistor",
+    "source.chm_point_contact_transistor",
+    "source.intel_digital_information",
+    "source.intel_cpu_clock_speed",
+    "source.brit_integrated_circuit",
+    "source.chm_moores_law",
+    "source.brit_moores_law"
+  ],
+  "art": "technology.chip"
+}

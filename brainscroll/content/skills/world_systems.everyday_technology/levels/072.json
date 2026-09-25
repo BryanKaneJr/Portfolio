@@ -1,0 +1,226 @@
+{
+  "id": "level.world_systems.everyday_technology.072",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Microwave Ovens",
+  "objective": "After this level you can explain how a microwave oven heats food.",
+  "summary": "A magnetron's microwaves twist food's water molecules about 2.45 billion times a second, and the jostling is heat. Microwaves are non-ionizing and don't make food radioactive.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.microwave_heating",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.microwave_nonionizing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.alternating_current",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.electric_current",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.071"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1945, a chocolate bar melted in an engineer's pocket.",
+      "body": "Percy Spencer of Raytheon had been standing near a running magnetron, a tube built for radar. Curious, he tried it on popcorn kernels, and they popped. By 1947 Raytheon had built the first microwave oven, the Radarange. So how does a radar tube cook dinner?"
+    },
+    {
+      "id": "card.everyday_technology.072.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Twisting water, billions of times a second",
+      "body": "The magnetron fills the oven with microwaves at about 2,450 megahertz. Water molecules in food have a slightly negative oxygen end and a slightly positive hydrogen end, and like Level 3's charges, those ends get pushed and pulled. The waves' field flips about 2.45 billion times a second, twisting the molecules back and forth until they jostle their neighbors. That jostling is heat. Level 9's grid current flips 60 times a second. Microwaves are busier."
+    },
+    {
+      "id": "card.everyday_technology.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A metal box with a safety catch",
+      "body": "Microwaves bounce off metal, pass through glass, paper and plastic, and are absorbed by food. So the oven is a metal box that keeps them bouncing around inside until the food soaks them up, while your glass bowl stays out of it. And US safety rules require two separate interlocks that stop the microwaves the moment the door opens."
+    },
+    {
+      "id": "card.everyday_technology.072.c4",
+      "type": "fact",
+      "fact": "Microwaved food is not radioactive.",
+      "context": "Microwaves are non-ionizing radiation, like visible light and radio waves: they don't carry enough energy to knock electrons out of atoms. X-rays do, which is why they're treated with more care. In the oven, microwave energy simply turns into heat as the food absorbs it. Your leftovers come out hot, not radioactive.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Reheated pizza: fully non-radioactive. The soggy crust is a separate problem, and I cannot help you there."
+      }
+    },
+    {
+      "id": "card.everyday_technology.072.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.072.q1"
+    },
+    {
+      "id": "card.everyday_technology.072.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.072.q2"
+    },
+    {
+      "id": "card.everyday_technology.072.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.072.q3"
+    },
+    {
+      "id": "card.everyday_technology.072.c8",
+      "type": "checkpoint",
+      "headline": "Microwaves: warmed up",
+      "learned": [
+        "Spencer's melted chocolate led to the 1947 Radarange",
+        "Microwaves twist water molecules back and forth, making heat",
+        "Metal walls reflect them; interlocks stop them when the door opens",
+        "Microwaves are non-ionizing and don't make food radioactive"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.microwave_heating"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.072.c2"
+      ],
+      "prompt": "In a microwave oven, what do the microwaves do to the water molecules in food?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Twist them back and forth, making heat",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Split them into hydrogen and oxygen",
+          "correct": false,
+          "rationale": "They twist the molecules; they don't split them."
+        },
+        {
+          "id": "c",
+          "label": "Make them radioactive so they glow warm",
+          "correct": false,
+          "rationale": "Microwave energy just becomes heat."
+        },
+        {
+          "id": "d",
+          "label": "Pull them out of the food as steam",
+          "correct": false,
+          "rationale": "They heat the water where it is."
+        }
+      ],
+      "explanation": "The microwaves' field twists water molecules back and forth, and their jostling against neighbors is heat.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.microwave_nonionizing"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.072.c4"
+      ],
+      "prompt": "Why doesn't a microwave oven make food radioactive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The glass door filters out the radiation",
+          "correct": false,
+          "rationale": "Glass lets microwaves through; metal reflects them."
+        },
+        {
+          "id": "b",
+          "label": "The food is cooked too quickly to absorb any",
+          "correct": false,
+          "rationale": "Speed has nothing to do with it."
+        },
+        {
+          "id": "c",
+          "label": "The magnetron switches off every few seconds to cool",
+          "correct": false,
+          "rationale": "That isn't why."
+        },
+        {
+          "id": "d",
+          "label": "Microwaves are non-ionizing; their energy becomes heat",
+          "correct": true
+        }
+      ],
+      "explanation": "Microwaves don't carry enough energy to knock electrons out of atoms; absorbed by food, their energy turns into heat.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.microwave_heating",
+        "concept.everyday_technology.alternating_current"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.072.c2",
+        "card.everyday_technology.009.c2"
+      ],
+      "prompt": "Level 9's grid current flips back and forth 60 times a second. About how often does the field inside a microwave oven flip?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 60 times a second",
+          "correct": false,
+          "rationale": "That is the US grid, not the oven."
+        },
+        {
+          "id": "b",
+          "label": "About 2.45 billion times a second",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 1,000 times a second",
+          "correct": false,
+          "rationale": "Far too slow."
+        },
+        {
+          "id": "d",
+          "label": "Once every few seconds",
+          "correct": false,
+          "rationale": "Far, far too slow."
+        }
+      ],
+      "explanation": "The microwaves run at about 2,450 megahertz, so their field flips about 2.45 billion times a second, compared with the grid's 60.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.mittr_melted_chocolate_microwave",
+    "source.fda_microwave_ovens",
+    "source.brit_microwave_oven",
+    "source.mcgill_oss_microwave_water",
+    "source.eia_science_of_electricity",
+    "source.brit_electric_generator",
+    "source.doe_war_of_currents"
+  ],
+  "art": "technology.fridge"
+}

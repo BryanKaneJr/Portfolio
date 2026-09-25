@@ -1,0 +1,248 @@
+{
+  "id": "level.world_systems.everyday_technology.018",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Storing Energy",
+  "objective": "After this level you can explain why storing electricity is hard and how big batteries help.",
+  "summary": "Storage turns electricity into another form and back, returning less than it took. Pumped storage lifts water uphill; big batteries shift midday solar into the evening.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.storage_challenge",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.pumped_storage",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.grid_balance",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.battery_chemistry",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_conservation",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.energy_basics",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.solar_photovoltaic",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.017"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "US grid batteries grew about fivefold in just three years.",
+      "body": "At the end of 2022, big batteries on the US grid could deliver about 9 billion watts at once. By the end of 2025, about 44 billion. Why the rush? Level 11's grid has to match supply and demand every moment, and solar power has to be saved for when the sun isn't shining."
+    },
+    {
+      "id": "card.everyday_technology.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "You can't bottle electricity",
+      "body": "Grid storage keeps energy as something else: water pumped uphill, chemicals in batteries, heat, compressed air or a spinning flywheel. Then it turns it back into electricity. That round trip costs something: storage always uses more electricity to charge than it gives back. And it makes no energy of its own, which is Level 2's rule again. Its job is timing: moving power from when there's plenty to when there isn't."
+    },
+    {
+      "id": "card.everyday_technology.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The water battery",
+      "body": "Pumped-storage hydropower uses spare electricity to run its turbines in reverse, pumping water up to a reservoir. When power is needed, the water flows back down through the turbines, just like Level 15's dam. America's oldest, Rocky River in Connecticut, began pumping in 1928. It's Level 2's lifted apple, with a lake instead of an apple.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A lake that goes up and down the hill every day. Honestly, the most relaxing battery ever built."
+      }
+    },
+    {
+      "id": "card.everyday_technology.018.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Saving sunshine for the evening",
+      "body": "Big grid batteries do Level 6's job on a grand scale, storing energy as chemicals. In California, they charge on extra solar power at midday and give it back in the evening peak, from 5 to 9 p.m. Their average output in those hours rose from under 1 billion watts in 2022 to about 4.9 billion in 2025, replacing electricity from gas plants."
+    },
+    {
+      "id": "card.everyday_technology.018.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.018.q1"
+    },
+    {
+      "id": "card.everyday_technology.018.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.018.q2"
+    },
+    {
+      "id": "card.everyday_technology.018.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.018.q3"
+    },
+    {
+      "id": "card.everyday_technology.018.c8",
+      "type": "checkpoint",
+      "headline": "Storage: charged",
+      "learned": [
+        "Storage turns electricity into another form and back",
+        "It always gives back less than it takes",
+        "Pumped storage lifts water uphill for later",
+        "Big batteries shift midday solar into the evening"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.pumped_storage"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.018.c3"
+      ],
+      "prompt": "How does pumped-storage hydropower store energy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By freezing water into ice",
+          "correct": false,
+          "rationale": "It stores energy by height, not cold."
+        },
+        {
+          "id": "b",
+          "label": "By pumping water uphill to run back down later",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "By charging chemicals in huge cells",
+          "correct": false,
+          "rationale": "That's a battery."
+        },
+        {
+          "id": "d",
+          "label": "By keeping its turbines spinning nonstop",
+          "correct": false,
+          "rationale": "The turbines run only when pumping or generating."
+        }
+      ],
+      "explanation": "Spare electricity pumps water up to a reservoir; later it falls back through the turbines to make electricity.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.storage_challenge"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.018.c2"
+      ],
+      "prompt": "Why is grid storage never a source of new energy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It only works at night",
+          "correct": false,
+          "rationale": "Storage can charge and discharge any time."
+        },
+        {
+          "id": "b",
+          "label": "It turns AC into DC",
+          "correct": false,
+          "rationale": "That's not why; storage makes no energy at all."
+        },
+        {
+          "id": "c",
+          "label": "It only gives back what generators made, minus losses",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It needs sunlight to work",
+          "correct": false,
+          "rationale": "Storage can be charged from any source."
+        }
+      ],
+      "explanation": "Storage must be charged by generators or the grid and returns less than it took; energy is never created.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.storage_challenge",
+        "concept.everyday_technology.grid_balance"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.018.c4",
+        "card.everyday_technology.011.c4"
+      ],
+      "prompt": "Level 11 said grid supply must match demand every moment. How do California's big batteries help?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They store midday solar and release it in the evening peak",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They make the Sun shine longer",
+          "correct": false,
+          "rationale": "They shift energy in time, not the sunset."
+        },
+        {
+          "id": "c",
+          "label": "They raise power lines to 765,000 volts",
+          "correct": false,
+          "rationale": "That's transformers, not batteries."
+        },
+        {
+          "id": "d",
+          "label": "They switch the grid over to DC",
+          "correct": false,
+          "rationale": "The grid stays AC."
+        }
+      ],
+      "explanation": "Batteries charge on extra midday solar and discharge from 5 to 9 p.m., helping supply keep up with demand.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eia_delivery_to_consumers",
+    "source.eia_generation_capacity_sales",
+    "source.eia_pv_electricity",
+    "source.eia_energy_storage",
+    "source.eia_battery_growth",
+    "source.eia_california_batteries",
+    "source.eia_forms_of_energy",
+    "source.eia_what_is_energy",
+    "source.psu_energy_units",
+    "source.eia_laws_of_energy",
+    "source.brit_energy",
+    "source.brit_battery",
+    "source.doe_explains_batteries"
+  ],
+  "art": "technology.battery"
+}

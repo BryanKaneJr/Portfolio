@@ -1,0 +1,332 @@
+{
+  "id": "level.world_systems.everyday_technology.060",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 60,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Computers",
+  "objective": "After this level you can explain how a computer turns switches, code and memory into useful work.",
+  "summary": "One key press uses the whole chapter. The CPU loops fetch, decode, execute to a clock measured in gigahertz: billions of cycles a second.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.computer_instruction_cycle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_binary_encoding",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_first_computers",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_memory_vs_storage",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.alternating_current",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_ipo_model",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_transistor_switch",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.059"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.060.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Computers finale: follow one key press through the machine.",
+      "body": "Press the letter a. Before it shows up on your screen, nearly every idea in this chapter takes a turn. Here is the trip, and the beat that keeps it all in step."
+    },
+    {
+      "id": "card.everyday_technology.060.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One key press, start to finish",
+      "body": "The key press is input (Level 51). The letter becomes a byte: lowercase a is 01100001 in ASCII (Level 52). It lands in RAM (Level 54), where your app, running under the operating system, works on it. The processor's billions of transistor switches (Level 53) do the processing. The result goes out as colored pixels on your screen: output."
+    },
+    {
+      "id": "card.everyday_technology.060.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fetch, decode, execute, repeat",
+      "body": "Inside the processor, one loop runs from start-up to shutdown. Fetch: the control unit pulls the next instruction from memory. Decode: it works out what the instruction means. Execute: it carries it out, often a sum or a comparison in the arithmetic-logic unit. Then it fetches the next one. Every app you've ever used is that loop, run over and over."
+    },
+    {
+      "id": "card.everyday_technology.060.c4",
+      "type": "fact",
+      "fact": "A 3.2 GHz processor's clock ticks 3.2 billion times a second.",
+      "context": "Clock speed counts those cycles in gigahertz: billions per second. Remember Level 9's grid, swinging back and forth 60 times a second? In one of those swings, that clock ticks about 53 million times. Speed isn't everything, though: the chip's design matters too.",
+      "mascot": {
+        "pose": "idea",
+        "line": "53 million ticks while your lights flicker once. The grid never stood a chance."
+      }
+    },
+    {
+      "id": "card.everyday_technology.060.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.060.q1"
+    },
+    {
+      "id": "card.everyday_technology.060.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.060.q2"
+    },
+    {
+      "id": "card.everyday_technology.060.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.060.q3"
+    },
+    {
+      "id": "card.everyday_technology.060.c8",
+      "type": "recall",
+      "questionId": "question.everyday_technology.060.q4"
+    },
+    {
+      "id": "card.everyday_technology.060.c9",
+      "type": "recall",
+      "questionId": "question.everyday_technology.060.q5"
+    },
+    {
+      "id": "card.everyday_technology.060.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 6 complete",
+      "learned": [
+        "A key press runs through binary, RAM, software, transistors and pixels",
+        "The CPU loops: fetch, decode, execute, repeat",
+        "Clock speed is cycles per second, in gigahertz",
+        "Binary, memory and a programmable design make a computer"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.060.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.computer_instruction_cycle"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.060.c3"
+      ],
+      "prompt": "In a processor's fetch, decode, execute loop, what does the decode step do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pulls the next instruction from memory",
+          "correct": false,
+          "rationale": "That's fetch."
+        },
+        {
+          "id": "b",
+          "label": "Works out what the instruction means",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Carries out the instruction",
+          "correct": false,
+          "rationale": "That's execute."
+        },
+        {
+          "id": "d",
+          "label": "Saves the file to storage",
+          "correct": false,
+          "rationale": "Saving is a separate job, not a step of the loop."
+        }
+      ],
+      "explanation": "Fetch gets the instruction, decode works out what it means, execute carries it out; then the loop repeats.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.060.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.computer_instruction_cycle"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.060.c4"
+      ],
+      "prompt": "A laptop processor is rated at 3 GHz. What does that figure measure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 3 billion clock cycles per second",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "3 billion bytes of storage",
+          "correct": false,
+          "rationale": "Storage is measured in bytes, not hertz."
+        },
+        {
+          "id": "c",
+          "label": "3 billion transistors on the chip",
+          "correct": false,
+          "rationale": "Hertz counts clock ticks, not parts."
+        },
+        {
+          "id": "d",
+          "label": "3 billion programs running at once",
+          "correct": false,
+          "rationale": "Programs take turns; hertz counts clock cycles."
+        }
+      ],
+      "explanation": "Gigahertz means billions of clock ticks each second, so 3 GHz is about 3 billion of them.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.060.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.computer_instruction_cycle",
+        "concept.everyday_technology.alternating_current"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.060.c4",
+        "card.everyday_technology.009.c2"
+      ],
+      "prompt": "Computers checkpoint: a processor's 3.2 GHz and Level 9's 60-hertz grid are both measured in hertz. What does a hertz count?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Joules of energy per second",
+          "correct": false,
+          "rationale": "That's a watt."
+        },
+        {
+          "id": "b",
+          "label": "Cycles per second",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Electrons passing per second",
+          "correct": false,
+          "rationale": "That's current, in amperes."
+        },
+        {
+          "id": "d",
+          "label": "Bits stored per second",
+          "correct": false,
+          "rationale": "Hertz counts cycles, whatever is cycling."
+        }
+      ],
+      "explanation": "One hertz is one cycle per second: the grid's back-and-forth swings, or a processor's clock ticks.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.060.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.computer_binary_encoding"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.060.c2",
+        "card.everyday_technology.052.c4"
+      ],
+      "prompt": "Computers checkpoint: on its trip through the machine, how is the letter a stored?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As one byte: 01100001",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "As one bit: 1",
+          "correct": false,
+          "rationale": "One bit can only tell two things apart."
+        },
+        {
+          "id": "c",
+          "label": "As a tiny picture of the letter",
+          "correct": false,
+          "rationale": "Text is stored as numbers; the picture comes later, as output."
+        },
+        {
+          "id": "d",
+          "label": "As a sound wave",
+          "correct": false,
+          "rationale": "Letters are stored as numbers."
+        }
+      ],
+      "explanation": "In ASCII, lowercase a is the byte 01100001.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.060.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.computer_first_computers"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.057.c4"
+      ],
+      "prompt": "Computers checkpoint: which machine, completed in 1946, was the first programmable, general-purpose electronic computer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Colossus",
+          "correct": false,
+          "rationale": "Colossus was programmable only in a limited way, built to break codes."
+        },
+        {
+          "id": "b",
+          "label": "Zuse's Z3",
+          "correct": false,
+          "rationale": "The Z3 used relays, not electronics."
+        },
+        {
+          "id": "c",
+          "label": "The Atanasoff-Berry Computer",
+          "correct": false,
+          "rationale": "The ABC was not programmable."
+        },
+        {
+          "id": "d",
+          "label": "ENIAC",
+          "correct": true
+        }
+      ],
+      "explanation": "ENIAC, completed in 1946 in Philadelphia, was the first programmable, general-purpose electronic computer.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_computer",
+    "source.brit_personal_computer",
+    "source.brit_cpu",
+    "source.intel_digital_information",
+    "source.intel_cpu_clock_speed",
+    "source.brit_computer_memory",
+    "source.uvm_fetch_decode_execute",
+    "source.brit_electric_generator",
+    "source.doe_war_of_currents"
+  ],
+  "art": "technology.chip"
+}

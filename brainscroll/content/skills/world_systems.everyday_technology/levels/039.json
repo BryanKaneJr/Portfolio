@@ -1,0 +1,239 @@
+{
+  "id": "level.world_systems.everyday_technology.039",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Self-Driving Cars",
+  "objective": "After this level you can explain how self-driving cars sense the road around them.",
+  "summary": "Self-driving cars combine cameras, radar, lidar, GPS and detailed maps. SAE Levels 0-5 say who is driving; a Level 3 system went on sale in California in 2023.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.selfdriving_sensors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.selfdriving_levels",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.echo_radar",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.038"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On October 8, 2020, the public could ride in a car with no driver at all.",
+      "body": "That day Waymo opened its fully driverless ride service, with no one at the wheel, to the public in the Phoenix area. To drive with no human, a car has to do what you do all the time without noticing: see everything around it, and know where it is."
+    },
+    {
+      "id": "card.everyday_technology.039.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seeing with timers",
+      "body": "A self-driving car carries cameras, radar and lidar, plus GPS and highly detailed maps of its roads. Radar works just like Level 35's: time the radio echo. Lidar does the same with pulses of laser light, measuring the distance to whatever each pulse bounces off. Computers fuse it all into a 3-D map of the surroundings and keep adjusting steering, speed and braking."
+    },
+    {
+      "id": "card.everyday_technology.039.c3",
+      "type": "comparison",
+      "headline": "SAE's levels: who is driving?",
+      "items": [
+        {
+          "label": "Levels 0-2",
+          "points": [
+            "You are driving, even when features help",
+            "You must supervise all the time"
+          ]
+        },
+        {
+          "label": "Level 3",
+          "points": [
+            "The car drives in limited conditions",
+            "You must take over when it asks"
+          ]
+        },
+        {
+          "label": "Levels 4-5",
+          "points": [
+            "Level 4 needs no takeover within its limits",
+            "Level 5 would drive anywhere"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.everyday_technology.039.c4",
+      "type": "fact",
+      "fact": "In 2023, California approved a Level 3 system for sale to the public.",
+      "context": "On June 8, 2023, the state approved Mercedes-Benz Drive Pilot: highways only, daylight only, up to 40 mph, and the driver must stay behind the wheel to take over when prompted. Britannica noted that, as of 2025, no car was fully autonomous. This field moves fast, so the date on any claim matters."
+    },
+    {
+      "id": "card.everyday_technology.039.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.039.q1"
+    },
+    {
+      "id": "card.everyday_technology.039.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.039.q2"
+    },
+    {
+      "id": "card.everyday_technology.039.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.039.q3"
+    },
+    {
+      "id": "card.everyday_technology.039.c8",
+      "type": "checkpoint",
+      "headline": "Self-driving: sensing",
+      "learned": [
+        "Cameras, radar, lidar, GPS and detailed maps",
+        "Lidar times laser echoes, like radar with light",
+        "SAE Levels 0-2: you drive; 3-5: the system drives",
+        "A Level 3 system went on sale in California in 2023"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.selfdriving_sensors"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.039.c2"
+      ],
+      "prompt": "What does a self-driving car's lidar use to measure distance?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Radio echoes",
+          "correct": false,
+          "rationale": "That's radar."
+        },
+        {
+          "id": "b",
+          "label": "Pulses of laser light",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sound pulses",
+          "correct": false,
+          "rationale": "That's sonar, used in water."
+        },
+        {
+          "id": "d",
+          "label": "Signals from GPS satellites",
+          "correct": false,
+          "rationale": "GPS gives position, not distances to nearby objects."
+        }
+      ],
+      "explanation": "Lidar times reflected pulses of laser light to measure the distance to objects around the car.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.selfdriving_levels"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.039.c3"
+      ],
+      "prompt": "A car drives itself on the highway but asks you to take over when it reaches its limits. Which SAE level is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Level 2",
+          "correct": false,
+          "rationale": "At Level 2 you're driving the whole time."
+        },
+        {
+          "id": "b",
+          "label": "Level 3",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Level 4",
+          "correct": false,
+          "rationale": "Level 4 doesn't need you to take over within its limits."
+        },
+        {
+          "id": "d",
+          "label": "Level 5",
+          "correct": false,
+          "rationale": "Level 5 would never need a driver."
+        }
+      ],
+      "explanation": "Level 3: the system drives in limited conditions, but the human must take over when asked.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.selfdriving_sensors",
+        "concept.everyday_technology.echo_radar"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.039.c2",
+        "card.everyday_technology.035.c2"
+      ],
+      "prompt": "Level 35's radar and a self-driving car's lidar both measure distance. How?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By comparing two camera images",
+          "correct": false,
+          "rationale": "Cameras are a separate sensor."
+        },
+        {
+          "id": "b",
+          "label": "By reading a detailed map",
+          "correct": false,
+          "rationale": "Maps help, but they don't measure distance."
+        },
+        {
+          "id": "c",
+          "label": "By timing how long a pulse takes to bounce back",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By measuring the temperature of objects",
+          "correct": false,
+          "rationale": "Neither senses heat."
+        }
+      ],
+      "explanation": "Radar times radio echoes and lidar times laser echoes; the round-trip time gives distance.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.waymo_driverless_phoenix",
+    "source.brit_radar",
+    "source.brit_autonomous_vehicle",
+    "source.ucs_self_driving_101",
+    "source.noaa_lidar",
+    "source.sae_j3016_update",
+    "source.autosinnovate_levels",
+    "source.ca_dmv_drive_pilot"
+  ],
+  "art": "technology.car"
+}

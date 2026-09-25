@@ -1,0 +1,221 @@
+{
+  "id": "level.world_systems.everyday_technology.038",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Traffic",
+  "objective": "After this level you can explain how traffic lights and road design keep cars moving safely.",
+  "summary": "Traffic lights make crossing roads take turns, and wire loops in the road detect waiting cars by induction. Roundabouts cut conflict points from 32 to 8 and injury crashes by 72-80%.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.traffic_signals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.traffic_roundabouts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.electromagnetic_induction",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.037"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The world's first traffic light exploded.",
+      "body": "In December 1868, a signal went up outside Parliament in London: semaphore arms by day, red and green gas lamps by night, worked by a police constable. In January 1869, a gas leak made it explode, burning the constable. Traffic control has come a long way since."
+    },
+    {
+      "id": "card.everyday_technology.038.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Red, green, and never both",
+      "body": "The first electric traffic signal went up in Cleveland, Ohio, on August 5, 1914: red and green lights at the corner of Euclid Avenue and East 105th Street, switched by hand from a booth. Its key design rule was that conflicting signals were impossible, so crossing roads could never both get green. That's the job of every traffic light: making drivers take turns."
+    },
+    {
+      "id": "card.everyday_technology.038.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "How the light knows you're waiting",
+      "body": "Near many traffic lights, a loop of wire is sawn into the road. It's the most common signal sensor. An electronics unit energizes the loop with a current that keeps changing, and Level 8 showed that a changing magnetic field induces current. Park over the loop, and currents flow in your car's metal, lowering the loop's inductance. The unit reads that as a car and calls for a green."
+    },
+    {
+      "id": "card.everyday_technology.038.c4",
+      "type": "fact",
+      "fact": "A roundabout cuts 32 conflict points to 8.",
+      "context": "A conflict point is anywhere two drivers' paths cross, merge or split. A standard four-way intersection has 32; a single-lane roundabout has 8, and it removes the most dangerous crashes, right-angle and left-turn head-on, since everyone circles the same way. When US intersections were converted to roundabouts, injury crashes fell by 72-80%.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Going around in circles, it turns out, is a very sensible way to get somewhere safely."
+      }
+    },
+    {
+      "id": "card.everyday_technology.038.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.038.q1"
+    },
+    {
+      "id": "card.everyday_technology.038.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.038.q2"
+    },
+    {
+      "id": "card.everyday_technology.038.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.038.q3"
+    },
+    {
+      "id": "card.everyday_technology.038.c8",
+      "type": "checkpoint",
+      "headline": "Traffic: flowing",
+      "learned": [
+        "London's 1868 gas-lit signal exploded in 1869",
+        "Cleveland, 1914: the first electric signal, never two greens",
+        "Wire loops in the road sense cars by induction",
+        "Roundabouts cut conflict points from 32 to 8"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.traffic_signals"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.038.c2"
+      ],
+      "prompt": "Where was the first electric traffic signal switched on, in 1914?",
+      "options": [
+        {
+          "id": "a",
+          "label": "London, outside Parliament",
+          "correct": false,
+          "rationale": "London's 1868 signal used gas lamps."
+        },
+        {
+          "id": "b",
+          "label": "New York City",
+          "correct": false,
+          "rationale": "Not New York."
+        },
+        {
+          "id": "c",
+          "label": "Cleveland, Ohio",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Detroit, Michigan",
+          "correct": false,
+          "rationale": "Not Detroit."
+        }
+      ],
+      "explanation": "On August 5, 1914, red and green electric lights went up at Euclid Avenue and East 105th Street in Cleveland.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.traffic_roundabouts"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.038.c4"
+      ],
+      "prompt": "Why are single-lane roundabouts safer than ordinary four-way intersections?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fewer conflict points and no right-angle crashes",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They have more traffic lights",
+          "correct": false,
+          "rationale": "Roundabouts usually have none."
+        },
+        {
+          "id": "c",
+          "label": "Cars can drive through them faster",
+          "correct": false,
+          "rationale": "They slow traffic down."
+        },
+        {
+          "id": "d",
+          "label": "Pedestrians are not allowed near them",
+          "correct": false,
+          "rationale": "People still cross at roundabouts."
+        }
+      ],
+      "explanation": "Conflict points drop from 32 to 8, and right-angle and head-on crashes disappear, so injury crashes fall sharply.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.traffic_signals",
+        "concept.everyday_technology.electromagnetic_induction"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.038.c3",
+        "card.everyday_technology.008.c2"
+      ],
+      "prompt": "A road loop senses your car because currents flow in the car's metal. Which Level 8 idea makes that happen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Like magnetic poles repel each other",
+          "correct": false,
+          "rationale": "Poles repelling spins motors; this is induction."
+        },
+        {
+          "id": "b",
+          "label": "Batteries store chemical energy",
+          "correct": false,
+          "rationale": "No battery is involved in the sensing."
+        },
+        {
+          "id": "c",
+          "label": "Heat makes a wire glow",
+          "correct": false,
+          "rationale": "That's a light bulb."
+        },
+        {
+          "id": "d",
+          "label": "A changing magnetic field induces current",
+          "correct": true
+        }
+      ],
+      "explanation": "The loop's changing magnetic field induces currents in the car's metal, which lowers the loop's inductance: electromagnetic induction.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonianmag_first_traffic_light",
+    "source.history_first_electric_signal",
+    "source.brit_electric_generator",
+    "source.openstax_motors_generators",
+    "source.fhwa_traffic_detector_handbook",
+    "source.fhwa_roundabouts_safety",
+    "source.iihs_roundabouts"
+  ],
+  "art": "technology.car"
+}

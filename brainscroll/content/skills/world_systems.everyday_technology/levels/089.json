@@ -1,0 +1,238 @@
+{
+  "id": "level.world_systems.everyday_technology.089",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "3D Printing",
+  "objective": "After this level you can explain how 3D printers build objects layer by layer.",
+  "summary": "3D printing builds objects layer upon layer instead of cutting away. Hull's 1983 stereolithography used UV light; Crump's glue-gun frog led to FDM in 1989.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.build_additive_manufacturing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.build_3d_printing_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.build_mass_production",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.088"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1988, a father tried to make his daughter a toy frog with a glue gun.",
+      "body": "Scott Crump loaded the gun with a mix of polyethylene and candle wax and built the frog up layer by layer. Then he wondered how a machine could do the same. His answer turned into one kind of 3D printer."
+    },
+    {
+      "id": "card.everyday_technology.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Adding, not cutting",
+      "body": "Most making is subtractive: you drill, cut or mill material away until the part is left, like a sculptor with a block. A 3D printer is additive. It takes a digital 3D model and builds the object layer upon layer. Nothing is carved away, which is why 3D printers are widely used to make complex components in all sorts of materials."
+    },
+    {
+      "id": "card.everyday_technology.089.c3",
+      "type": "timeline",
+      "headline": "How 3D printing got going",
+      "events": [
+        {
+          "when": "1983",
+          "label": "Chuck Hull develops stereolithography: UV light hardens liquid polymer, layer by layer"
+        },
+        {
+          "when": "1986",
+          "label": "Hull's patent is issued; he co-founds 3D Systems"
+        },
+        {
+          "when": "1987",
+          "label": "The SLA-1, the first 3D printer made for commercial sale"
+        },
+        {
+          "when": "1989",
+          "label": "Crump patents fused deposition modeling: melted plastic from a moving head"
+        },
+        {
+          "when": "1991",
+          "label": "Stratasys produces the first FDM machine"
+        }
+      ]
+    },
+    {
+      "id": "card.everyday_technology.089.c4",
+      "type": "fact",
+      "fact": "3D printing shines at prototypes and things made for one person.",
+      "context": "It is a leading technology for rapid prototyping, and it makes custom, patient-specific items such as hearing aids, dental aligners, implants and prosthetics. That is the opposite of Level 87's line, which turned out more than 15 million Model Ts. Mass production makes many of the same thing; a 3D printer shines when each one is different.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Ford: one design, millions of copies. A 3D printer: a million designs, one copy each."
+      }
+    },
+    {
+      "id": "card.everyday_technology.089.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.089.q1"
+    },
+    {
+      "id": "card.everyday_technology.089.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.089.q2"
+    },
+    {
+      "id": "card.everyday_technology.089.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.089.q3"
+    },
+    {
+      "id": "card.everyday_technology.089.c8",
+      "type": "checkpoint",
+      "headline": "3D printing: layered",
+      "learned": [
+        "Additive: build layer upon layer instead of cutting away",
+        "Hull, 1983: stereolithography with UV light; SLA-1 sold in 1987",
+        "Crump's glue-gun frog led to melted-plastic FDM in 1989",
+        "Best at prototypes and one-person custom parts"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.build_additive_manufacturing"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.089.c2"
+      ],
+      "prompt": "What makes 3D printing \"additive\" manufacturing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It cuts material away from a solid block",
+          "correct": false,
+          "rationale": "That's subtractive manufacturing."
+        },
+        {
+          "id": "b",
+          "label": "It builds the object layer upon layer",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It adds paint after the part is carved",
+          "correct": false,
+          "rationale": "Additive means adding material layer by layer."
+        },
+        {
+          "id": "d",
+          "label": "It glues finished parts together",
+          "correct": false,
+          "rationale": "It builds the part itself, layer by layer."
+        }
+      ],
+      "explanation": "A 3D printer builds an object layer upon layer from a digital model instead of removing material.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.build_3d_printing_origins"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.089.c3"
+      ],
+      "prompt": "In Chuck Hull's stereolithography, what turns liquid into each solid layer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A glue gun of melted wax",
+          "correct": false,
+          "rationale": "That was Crump's toy frog."
+        },
+        {
+          "id": "b",
+          "label": "Hot air drying the liquid out",
+          "correct": false,
+          "rationale": "It is hardened by light, not dried."
+        },
+        {
+          "id": "c",
+          "label": "Ultraviolet light hardening a liquid polymer",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A drill carving a solid block",
+          "correct": false,
+          "rationale": "That would be subtractive."
+        }
+      ],
+      "explanation": "Stereolithography uses ultraviolet light to harden liquid photopolymer one layer at a time.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.build_additive_manufacturing",
+        "concept.everyday_technology.build_mass_production"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.089.c4",
+        "card.everyday_technology.087.c3"
+      ],
+      "prompt": "Ford's line turned out over 15 million Model Ts. Which job suits a 3D printer better?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Millions of identical car doors, as cheaply as possible",
+          "correct": false,
+          "rationale": "That is what the assembly line was built for."
+        },
+        {
+          "id": "b",
+          "label": "Refining molten iron into steel",
+          "correct": false,
+          "rationale": "That's Bessemer's job (Level 86)."
+        },
+        {
+          "id": "c",
+          "label": "Mixing concrete for a bridge pier",
+          "correct": false,
+          "rationale": "Not a printing job at all."
+        },
+        {
+          "id": "d",
+          "label": "A dental aligner shaped for one patient",
+          "correct": true
+        }
+      ],
+      "explanation": "3D printing is used for custom, patient-specific items; the assembly line excels at many copies of one design.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.asme_stereolithography",
+    "source.encyclopedia_stratasys",
+    "source.thehenryford_assembly_line",
+    "source.ford_model_t_history"
+  ],
+  "art": "technology.3d-printer"
+}

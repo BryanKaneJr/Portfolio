@@ -1,0 +1,372 @@
+{
+  "id": "level.world_systems.everyday_technology.080",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 80,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Home and Health",
+  "objective": "After this level you can explain the technology behind clean water, kitchens and modern medicine.",
+  "summary": "The chapter moves heat (fridges, heat pumps, microwaves) and fights germs (water and sewage plants, vaccines, antibiotics). Germ theory, from Pasteur and Koch, gave the second job its target.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.health_germ_theory",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.fridge_moves_heat",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.vaccine_history_safety",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.antibiotic_resistance",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.hvac_heat_pump",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.microwave_heating",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.water_treatment_steps",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.sewer_treatment_plant",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.vaccine_immune_training",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.antibiotic_how",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.water_germ_disinfection",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.079"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.080.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Home and Health finale: what do chlorine, sewers, vaccines and penicillin share?",
+      "body": "Each one fights something too small to see. Back in Level 73, Snow made his case against dirty water before doctors understood germs. The idea that finally named the enemy ties this whole chapter together."
+    },
+    {
+      "id": "card.everyday_technology.080.c2",
+      "type": "comparison",
+      "headline": "Two jobs in one chapter",
+      "items": [
+        {
+          "label": "Moving heat",
+          "points": [
+            "A fridge pumps heat out of a box (Level 71)",
+            "A heat pump moves heat either way (Level 75)",
+            "A microwave makes heat inside the food (Level 72)"
+          ]
+        },
+        {
+          "label": "Fighting germs",
+          "points": [
+            "Water plants filter and disinfect (Level 73)",
+            "Sewage plants use microbes, then disinfect (Level 74)",
+            "Vaccines train your immune system (Level 76)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.everyday_technology.080.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Germ theory: naming the enemy",
+      "body": "Germ theory says infectious diseases are caused by microorganisms, such as bacteria and viruses, that invade the body and multiply. In the mid-1800s Louis Pasteur showed that microbes cause fermentation and rotting. In 1882 Robert Koch showed that a bacterium causes tuberculosis, and he soon identified the cholera germ too: the very disease Snow had chased through London's water."
+    },
+    {
+      "id": "card.everyday_technology.080.c4",
+      "type": "fact",
+      "fact": "Once germs had a name, the fixes had a target.",
+      "context": "Germ theory laid the foundation for disinfection, antiseptics, vaccines and antibiotics. Chlorine kills germs in your tap water; a vaccine trains your immune system to spot one; penicillin bursts bacteria's cell walls. Different tools, one enemy.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A whole chapter of rescues, aimed at enemies nobody could see. Microscopes deserve a thank-you card."
+      }
+    },
+    {
+      "id": "card.everyday_technology.080.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.080.q1"
+    },
+    {
+      "id": "card.everyday_technology.080.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.080.q2"
+    },
+    {
+      "id": "card.everyday_technology.080.c7",
+      "type": "recall",
+      "questionId": "question.everyday_technology.080.q3"
+    },
+    {
+      "id": "card.everyday_technology.080.c8",
+      "type": "recall",
+      "questionId": "question.everyday_technology.080.q4"
+    },
+    {
+      "id": "card.everyday_technology.080.c9",
+      "type": "recall",
+      "questionId": "question.everyday_technology.080.q5"
+    },
+    {
+      "id": "card.everyday_technology.080.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 8 complete",
+      "learned": [
+        "Fridges, air conditioners and heat pumps all move heat",
+        "Water and sewage plants filter, settle and disinfect",
+        "Germ theory: microorganisms cause infectious disease",
+        "Pasteur and Koch named the enemy that vaccines and antibiotics fight"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.080.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.health_germ_theory"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.080.c3"
+      ],
+      "prompt": "Home and Health checkpoint: according to germ theory, what causes infectious diseases?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Microorganisms multiplying in the body",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Bad air rising from sewage and rot",
+          "correct": false,
+          "rationale": "That was the miasma idea germ theory replaced."
+        },
+        {
+          "id": "c",
+          "label": "Cold drafts and damp in the home",
+          "correct": false,
+          "rationale": "Germs, not drafts."
+        },
+        {
+          "id": "d",
+          "label": "Too much heat escaping from the body",
+          "correct": false,
+          "rationale": "Germs, not heat loss."
+        }
+      ],
+      "explanation": "Germ theory: infectious diseases are caused by microorganisms, such as bacteria and viruses, that invade the body and multiply.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.everyday_technology.080.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.health_germ_theory"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.080.c3"
+      ],
+      "prompt": "Home and Health checkpoint: whose work tied cholera, the disease Snow chased, to a specific germ?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Edward Jenner's, with cowpox",
+          "correct": false,
+          "rationale": "Jenner worked on smallpox (Level 76)."
+        },
+        {
+          "id": "b",
+          "label": "Robert Koch's, in the 1880s",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Alexander Fleming's, with mold",
+          "correct": false,
+          "rationale": "Fleming found penicillin (Level 78)."
+        },
+        {
+          "id": "d",
+          "label": "Wilhelm Rontgen's, with X-rays",
+          "correct": false,
+          "rationale": "Rontgen discovered X-rays (Level 77)."
+        }
+      ],
+      "explanation": "After showing in 1882 that a bacterium causes tuberculosis, Robert Koch identified the germ behind cholera.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.080.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.vaccine_history_safety"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.076.c4"
+      ],
+      "prompt": "Home and Health checkpoint, looking back to Level 76: how is a vaccine's safety checked?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only after millions of people have had it",
+          "correct": false,
+          "rationale": "Clinical trials come before approval."
+        },
+        {
+          "id": "b",
+          "label": "It is never tested, because it is natural",
+          "correct": false,
+          "rationale": "Every vaccine goes through trials."
+        },
+        {
+          "id": "c",
+          "label": "Clinical trials, then ongoing monitoring",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A single lab test on the day each batch is made",
+          "correct": false,
+          "rationale": "Testing runs through several phases of trials and beyond."
+        }
+      ],
+      "explanation": "Each vaccine goes through several phases of clinical trials with thousands of volunteers, and its safety is monitored continuously once in use.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.everyday_technology.080.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.fridge_moves_heat"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.080.c2",
+        "card.everyday_technology.071.c2"
+      ],
+      "prompt": "Home and Health checkpoint: what job do a fridge, an air conditioner and a heat pump all do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Make cold out of electricity",
+          "correct": false,
+          "rationale": "Cold is just less heat; they move heat."
+        },
+        {
+          "id": "b",
+          "label": "Burn fuel to make heat",
+          "correct": false,
+          "rationale": "They run on electricity and move heat."
+        },
+        {
+          "id": "c",
+          "label": "Heat food with microwaves",
+          "correct": false,
+          "rationale": "That's a microwave oven."
+        },
+        {
+          "id": "d",
+          "label": "Move heat from one place to another",
+          "correct": true
+        }
+      ],
+      "explanation": "All three use refrigerant to move heat: out of a box, out of a house, or into a house in winter.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.everyday_technology.080.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.antibiotic_resistance"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.078.c3"
+      ],
+      "prompt": "Home and Health checkpoint, looking back to Level 78: why do resistant bacteria spread when antibiotics are used?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Resistant survivors multiply and spread",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Leftover antibiotics turn into new bacteria",
+          "correct": false,
+          "rationale": "The drug does not become germs."
+        },
+        {
+          "id": "c",
+          "label": "Your body grows resistant to the drug",
+          "correct": false,
+          "rationale": "Resistance is in the germs, not your body."
+        },
+        {
+          "id": "d",
+          "label": "Antibiotics make cold and flu viruses stronger",
+          "correct": false,
+          "rationale": "Antibiotics don't work on viruses at all."
+        }
+      ],
+      "explanation": "Bacteria that can defeat the drug survive, multiply and can pass resistance traits in their DNA to other germs.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.londonmuseum_john_snow",
+    "source.historicengland_london_sewers",
+    "source.hyperphysics_refrigerator",
+    "source.uiuc_physics_van_open_fridge",
+    "source.doe_heat_pumps_savings",
+    "source.mcgill_oss_microwave_water",
+    "source.fda_microwave_ovens",
+    "source.cdc_how_water_treatment_works",
+    "source.nycdep_wastewater_treatment",
+    "source.usgs_wastewater_plant",
+    "source.who_what_is_vaccination",
+    "source.brit_germ_theory",
+    "source.lindahall_robert_koch",
+    "source.brit_penicillin",
+    "source.hawaii_penicillin_cell_wall"
+  ],
+  "art": "nature.water-drop"
+}

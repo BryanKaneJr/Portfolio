@@ -1,0 +1,213 @@
+{
+  "id": "level.world_systems.everyday_technology.035",
+  "skillId": "skill.world_systems.everyday_technology",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Radar and Sonar",
+  "objective": "After this level you can explain how radar and sonar find things by bouncing waves off them.",
+  "summary": "Radar times radio echoes and sonar times sound echoes; half the round trip at the wave's speed gives the distance. Radio travels at the speed of light, sound in seawater at about 1,500 m/s.",
+  "concepts": [
+    {
+      "conceptId": "concept.everyday_technology.echo_radar",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.echo_sonar",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.everyday_technology.034"
+  ],
+  "cards": [
+    {
+      "id": "card.everyday_technology.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In February 1935, a green spot grew on a screen in a parked van.",
+      "body": "Inside, Robert Watson-Watt and Arnold Wilkins were watching radio waves from the BBC's Daventry transmitter bounce off a bomber about 8 miles away. The spot proved that radio echoes could reveal an aircraft. The trick was an echo, and it's the same trick ships use underwater."
+    },
+    {
+      "id": "card.everyday_technology.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Radar: shout, listen, time it",
+      "body": "Radar stands for radio detection and ranging. It sends out pulses of radio waves and listens for echoes. Distance comes from timing the round trip, out to the target and back, then halving it. Radio waves travel at the speed of light, about 300,000 km every second, so an echo from a plane 150 km away comes back in about a thousandth of a second."
+    },
+    {
+      "id": "card.everyday_technology.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sonar: the same trick with sound",
+      "body": "In water, sound travels much farther than radar or light waves, so ships use sonar (sound navigation and ranging). It sends a pulse of sound into the water and times the echo. Sound crosses seawater at about 1,500 meters per second. Hear the seafloor's echo 2 seconds after the ping, and the sound has gone 3,000 meters round trip: the bottom is 1,500 meters down."
+    },
+    {
+      "id": "card.everyday_technology.035.c4",
+      "type": "fact",
+      "fact": "Radar can also tell how fast something is moving.",
+      "context": "A moving target shifts the frequency of the echo it sends back, and the radar reads that shift as speed and direction: the Doppler principle. That's how radar helps with air traffic control, tracks storms, and catches drivers going too fast. One echo, two answers: where it is, and how fast it's going.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Every speed-radar sign on your street is quietly timing echoes. Wave back; it won't mind."
+      }
+    },
+    {
+      "id": "card.everyday_technology.035.c5",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.035.q1"
+    },
+    {
+      "id": "card.everyday_technology.035.c6",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.035.q2"
+    },
+    {
+      "id": "card.everyday_technology.035.c7",
+      "type": "mcq",
+      "questionId": "question.everyday_technology.035.q3"
+    },
+    {
+      "id": "card.everyday_technology.035.c8",
+      "type": "checkpoint",
+      "headline": "Echoes: timed",
+      "learned": [
+        "Radar times radio echoes; sonar times sound echoes",
+        "Halve the round trip to get the distance",
+        "Radio travels at the speed of light; sound in seawater about 1,500 m/s",
+        "A Doppler shift in the echo gives speed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.everyday_technology.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.everyday_technology.echo_radar"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.035.c2"
+      ],
+      "prompt": "How does radar work out how far away an airplane is?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It measures how bright the plane looks",
+          "correct": false,
+          "rationale": "Radar uses radio echoes, not light."
+        },
+        {
+          "id": "b",
+          "label": "It listens for the sound of the engines",
+          "correct": false,
+          "rationale": "That would be sound, and much slower."
+        },
+        {
+          "id": "c",
+          "label": "It times how long a radio echo takes to return",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It reads the plane's GPS position",
+          "correct": false,
+          "rationale": "Radar finds planes that send nothing."
+        }
+      ],
+      "explanation": "Radar times the echo's round trip at the speed of light and halves it to get the distance.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.everyday_technology.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.everyday_technology.echo_sonar"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.035.c3"
+      ],
+      "prompt": "A ship's sonar hears the seafloor's echo 2 seconds after its ping. About how deep is the water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "750 meters",
+          "correct": false,
+          "rationale": "That halves the answer twice."
+        },
+        {
+          "id": "b",
+          "label": "1,500 meters",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "3,000 meters",
+          "correct": false,
+          "rationale": "That's the round trip; halve it."
+        },
+        {
+          "id": "d",
+          "label": "6,000 meters",
+          "correct": false,
+          "rationale": "Far too deep: halve, don't double."
+        }
+      ],
+      "explanation": "In 2 seconds sound travels about 3,000 m in seawater; that is down and back, so the seafloor is about 1,500 m deep.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.everyday_technology.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.everyday_technology.echo_sonar",
+        "concept.everyday_technology.echo_radar"
+      ],
+      "sourceCardIds": [
+        "card.everyday_technology.035.c3"
+      ],
+      "prompt": "Why do ships map the seafloor with sonar instead of radar?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Radar only works at night",
+          "correct": false,
+          "rationale": "Radar works day or night."
+        },
+        {
+          "id": "b",
+          "label": "Sound travels farther in water than radio waves",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sound is faster than light",
+          "correct": false,
+          "rationale": "Light and radio are far faster."
+        },
+        {
+          "id": "d",
+          "label": "Radar echoes are too loud underwater",
+          "correct": false,
+          "rationale": "Radar waves are not sound."
+        }
+      ],
+      "explanation": "In water, sound travels much farther than radar or light waves, so sonar can reach the bottom and return.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.sciencemuseum_watson_watt",
+    "source.brit_radar",
+    "source.nist_speed_of_light",
+    "source.noaa_sonar",
+    "source.brit_seawater_acoustics"
+  ],
+  "art": "astronomy.radio-dish"
+}
