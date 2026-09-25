@@ -12,7 +12,7 @@
   "scripts": {
     "test": "npm run test -w @brainscroll/core && npm run test -w @brainscroll/scripts && npm run test -w @brainscroll/admin",
     "typecheck": "npm run typecheck -w @brainscroll/core && npm run typecheck -w @brainscroll/scripts && npm run typecheck -w @brainscroll/app && npm run typecheck -w @brainscroll/admin",
-    "validate:content": "npm run validate -w @brainscroll/scripts",
+    "validate:content": "npm run validate -w @brainscroll/scripts --",
     "test:db": "bash backend/tests/run.sh",
     "app": "npm run start -w @brainscroll/app",
     "check": "npm run typecheck && npm run lint && npm run lint:copy && npm test && npm run validate:content && npm run content:build -- --check && npm run art:sync -- --check",
