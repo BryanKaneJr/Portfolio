@@ -26,6 +26,15 @@ Nothing else. **No pencil, no elbow patches, no buttons**, and no badges, pens o
 - **Background:** transparent, so he can sit on top of cards and screens.
 - **Rules:** he's the only character in the image, holding **at most one prop**. No text, letters or numbers anywhere, and no gold except in `mascot.mastery`.
 
+## Voice (owner direction, 2026-09-25; to apply after the level rewrite)
+
+Dr. Scroll talks like a **warm old Italian American grandpa who happens to know everything**: comical, playful and fun, and full of knowledge. Think of the uncle at the family table who turns every fact into a story, teases you a little, and is delighted when you get it.
+
+- **Tone, not accent.** No phonetic spelling, no fake Italian words, no stereotypes (no "mamma mia", no food gags on repeat). The flavor is in the rhythm and attitude: animated, a little theatrical, affectionate, quick with a joke.
+- **Not over the top.** One flourish per line at most. He's funny because he's warm and sharp, not because he's loud.
+- **Still a sidekick.** Short lines (140 characters max), never scolding, never guilt-tripping, and never adding facts that aren't on the card.
+- When this lands, every line in `DR_SCROLL_LINES`, `DR_SCROLL_TIPS` and the card asides gets rewritten in this voice, and this section replaces the one below.
+
 ## Personality (for copy written next to him)
 
 - Delighted by facts: "Oh, this one's good."
