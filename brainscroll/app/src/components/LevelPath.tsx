@@ -2,7 +2,7 @@ import { MASTERY_BAND_SIZE } from '@brainscroll/core';
 import { useEffect, useState } from 'react';
 import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path, Polygon } from 'react-native-svg';
-import { DrScroll, Eyebrow, H2, Icon, usePop } from '@/components/ui';
+import { DrScroll, Eyebrow, H2, Icon, LevelArt, usePop } from '@/components/ui';
 import { chapterFor, levelByNumber, type Chapter } from '@/content';
 import { haptic, useReduceMotion } from '@/theme/feedback';
 import { color, depth, fw, space, type } from '@/theme/tokens';
@@ -17,6 +17,17 @@ const TOP_PLAIN = space.md;
 const SIZE = { done: 72, locked: 72, current: 84, boss: 96 } as const;
 const EDGE = 7; // the darker underside that makes a waypoint stand up
 const CALLOUT = 72; // extra room above the next level (past the first) for its callout
+/**
+ * Scenery: the open pockets across from the road's two bulges (it swings right
+ * around the 3rd waypoint and left around the 7th). Each pocket floats the
+ * illustration of the level beside it; `x` is the pocket's center as a share
+ * of the map's width.
+ */
+const POCKETS = [
+  { index: 2, x: 0.22 },
+  { index: 6, x: 0.74 },
+] as const;
+const SCENERY = 92;
 
 /**
  * The chapter as an adventure map: hexagonal waypoints joined by a dotted road,
@@ -107,6 +118,23 @@ export function LevelPath({
           {reached > 0 && <Path d={road(0, reached)} stroke={color.brandLine} strokeWidth={8} strokeLinecap="round" strokeDasharray="0.1 14" fill="none" />}
         </Svg>
 
+        {POCKETS.map((pocket) => {
+          // Dr. Scroll has the left pocket in the chapter you're in.
+          if (mascot && pocket.index === 2) return null;
+          const n = numbers[pocket.index];
+          const art = n !== undefined ? levelByNumber(skillId, n)?.art : undefined;
+          const at = points[pocket.index];
+          if (!art || !at) return null;
+          return (
+            <Floating
+              key={pocket.index}
+              art={art}
+              fogged={stateOf(n!) === 'locked'}
+              phase={pocket.index}
+              style={{ left: width * pocket.x - SCENERY / 2, top: at.y - SCENERY / 2 }}
+            />
+          );
+        })}
         {mascot && <DrScroll spot="home.path" size="md" style={{ position: 'absolute', left: space.xs, top: top + 2 * ROW }} />}
 
         {numbers.map((n, i) => {
@@ -250,6 +278,37 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, label, onPress }
           </View>
         )}
       </Pressable>
+    </Animated.View>
+  );
+}
+
+/** A level's illustration drifting gently in a pocket of the map. Decorative. */
+function Floating({ art, fogged, phase, style }: { art: string; fogged: boolean; phase: number; style: { left: number; top: number } }) {
+  const reduce = useReduceMotion();
+  const [drift] = useState(() => new Animated.Value(0));
+  useEffect(() => {
+    if (reduce) return;
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(drift, { toValue: 1, duration: 1900 + phase * 90, easing: Easing.inOut(Easing.sin), useNativeDriver: true }),
+        Animated.timing(drift, { toValue: 0, duration: 1900 + phase * 90, easing: Easing.inOut(Easing.sin), useNativeDriver: true }),
+      ]),
+    );
+    const t = setTimeout(() => loop.start(), phase * 260);
+    return () => {
+      clearTimeout(t);
+      loop.stop();
+    };
+  }, [drift, reduce, phase]);
+  return (
+    <Animated.View
+      pointerEvents="none"
+      style={[
+        { position: 'absolute', opacity: fogged ? 0.3 : 0.95 },
+        style,
+        { transform: [{ translateY: drift.interpolate({ inputRange: [0, 1], outputRange: [0, -7] }) }] },
+      ]}>
+      <LevelArt art={art} size={SCENERY} />
     </Animated.View>
   );
 }
