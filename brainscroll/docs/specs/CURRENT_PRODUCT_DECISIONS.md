@@ -282,6 +282,10 @@ Owner decision, 2026-09-25. A subject's attribute (History, Science, …) on the
 
 A subject masters like a skill band: clearing 100 levels in it earns a ★ after its name, and its name and level turn gold. The shown level then starts again from 1 toward the next ★ (the mastering level itself reads 100). This is display only; every level's XP still counts toward the Knowledge Level. `subjectAttribute()` in core computes it.
 
-## 16. Home is only the map; due reviews are offered on the Skills tab
+## 16. Home is the World Map; a skill's map is one step in
 
-Owner decision, 2026-09-25. Home shows the pinned bar (back to Skills, the skill and its level, today's count) and the skill's map, nothing else. When concepts are due, the "N things worth refreshing" strip with Start review sits at the top of the Skills tab instead. The Review tab and Daily Knowledge Complete still offer review as before.
+Owner decisions, 2026-09-25.
+
+- **Home is the World Map** of the subjects, RPG-inspired: each subject is an island showing its landmark and your level in it (a ring filling toward Lv. 100, gold with ★ once mastered). The subject you're playing flies a flag, with Dr. Scroll beside it. A Current Quest card (your skill, its level, the next level) continues where you left off.
+- **Tapping a subject** opens its skill's map. A subject with more than one playable skill opens its region first, to pick the skill. The skill map's back arrow returns to the region or the World Map.
+- **Due reviews** ("N things worth refreshing", Start review) are offered on the World Map, the category page. A skill's map shows only its bar and its map. The Review tab and Daily Knowledge Complete still offer review.

@@ -7,9 +7,9 @@ import { color, radius, space } from '@/theme/tokens';
 
 /**
  * "N things worth refreshing" with a Start review button, shown only when
- * concepts are due. It lives on the Skills tab (owner decision), so Home stays
- * just the map. Once the day's levels are done, Start review becomes the
- * primary action.
+ * concepts are due. It lives on the World Map, the category page (owner
+ * decision), so a skill's map stays just the map. Once the day's levels are
+ * done, Start review becomes the primary action.
  */
 export function ReviewStrip() {
   const { ready, refresh } = useProgress();

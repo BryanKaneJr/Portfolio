@@ -38,7 +38,7 @@ export default function TabLayout() {
         tabBarIconStyle: { width: 52, height: 36 },
         tabBarLabelStyle: { marginTop: space.xs,  fontSize: 11, ...fw('700'), letterSpacing: 0.4 },
       }}>
-      <Tabs.Screen name="index" options={{ title: 'Home', tabBarIcon: icon({ ios: 'house.fill', android: 'home', web: 'home' }) }} />
+      <Tabs.Screen name="(home)" options={{ title: 'Home', tabBarIcon: icon({ ios: 'house.fill', android: 'home', web: 'home' }) }} />
       <Tabs.Screen name="skills" options={{ title: 'Skills', tabBarIcon: icon({ ios: 'square.stack.3d.up.fill', android: 'layers', web: 'layers' }) }} />
       <Tabs.Screen name="review" options={{ title: 'Review', tabBarIcon: icon({ ios: 'arrow.triangle.2.circlepath', android: 'refresh', web: 'refresh' }) }} />
       <Tabs.Screen name="profile" options={{ title: 'Profile', tabBarIcon: icon({ ios: 'person.crop.circle.fill', android: 'person', web: 'person' }) }} />

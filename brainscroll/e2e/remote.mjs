@@ -2,7 +2,7 @@
 // sign-in before anything (phone, email, Google OAuth), server-graded
 // completion, exactly-once XP, live content revisions, the server-side 5/day
 // cap, review, progress that survives a reinstall, and account deletion.
-import { CURVE, REVIEW_XP, bodyText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql } from './helpers.mjs';
+import { questMap, CURVE, REVIEW_XP, bodyText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql } from './helpers.mjs';
 
 const { browser, page, errors } = await launch();
 // Every level bundle the app receives must be free of answer keys, and review
@@ -50,6 +50,7 @@ try {
 
   await home(page);
   check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'session and server progress survive a reload');
+  await questMap(page);
 
   // Content report + drop-off: open Level 2, report the card on screen, then leave it unfinished.
   await button(page, 'Start Level 2').click();
@@ -87,7 +88,7 @@ try {
   await button(page, 'Finish the day').click();
   await page.waitForTimeout(600);
   check((await bodyText(page)).includes('5 / 5'), 'Daily Knowledge Complete shows 5 / 5 from the server');
-  await home(page);
+  await questMap(page);
   await button(page, 'Daily knowledge complete').click();
   await page.waitForTimeout(500);
   check(sql(`select count(*) from public.user_level_progress where level_id = 'level.science.astronomy.006'`) === '0',
@@ -96,9 +97,7 @@ try {
   // Review: make everything due.
   sql(`update public.review_queue set due_at = now() - interval '1 minute'`);
   await home(page);
-  await page.getByRole('tab', { name: /Skills/ }).click();
-  await page.waitForTimeout(800);
-  check(/worth refreshing/.test(await bodyText(page)), 'due concepts from the server surface on the Skills tab');
+  check(/worth refreshing/.test(await bodyText(page)), 'due concepts from the server surface on the World Map');
   const seenBefore = Number(sql('select sum(seen_count) from public.user_concept_mastery'));
   await button(page, 'Start review').click();
   await checkButton(page).waitFor({ timeout: 10_000 });

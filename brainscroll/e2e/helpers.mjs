@@ -19,6 +19,13 @@ export async function home(page) {
   await page.waitForTimeout(1500);
 }
 
+/** Home is the World Map; its Current Quest card's Continue opens the active skill's map. */
+export async function questMap(page) {
+  await home(page);
+  await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await page.waitForTimeout(800);
+}
+
 /** The code every phone/email sign-in accepts in tests (fake-supabase FAKE_OTP, local DEV_CODE). */
 export const TEST_CODE = '123456';
 export const exactButton = (page, name) => page.getByRole('button', { name, exact: true });

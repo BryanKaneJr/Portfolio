@@ -156,7 +156,7 @@ export default function LevelCompleteScreen() {
             onPress={() => router.replace({ pathname: '/level/[id]', params: { id: next.id } })}
           />
         ) : null}
-        <Button variant="ghost" label="Home" onPress={() => router.dismissTo('/')} />
+        <Button variant="ghost" label="Back to the map" onPress={() => router.dismissTo({ pathname: '/skill/[id]', params: { id: s.skillId } })} />
       </View>
     </SafeAreaView>
   );

@@ -1,21 +1,29 @@
-import { Redirect, router } from 'expo-router';
+import { Redirect, router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { View, type ScrollView } from 'react-native';
 import { Body, Card, Emblem, Eyebrow, IconButton, Row, Screen, Stars, Title } from '@/components/ui';
 import { chaptersFor, getLevel, subjectName } from '@/content';
 import { LevelPath } from '@/components/LevelPath';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
+import { useCurrentSkill } from '@/progress/useCurrentSkill';
 import { useStartLevel } from '@/progress/useStartLevel';
 import { space } from '@/theme/tokens';
 
 /**
- * Home answers one question: what should I learn next? The current chapter's
- * level path owns the screen (the next level bounces); today's allowance is
- * secondary. Due reviews are offered on the Skills tab, not here.
+ * A skill's map: every chapter's level path, opened scrolled to the next level
+ * (it bounces). The pinned bar says where you are and leads back to the World
+ * Map (or the subject's region). Due reviews are offered on the World Map.
  */
-export default function HomeScreen() {
+export default function SkillMapScreen() {
+  const { id } = useLocalSearchParams<{ id: string }>();
   const p = useProgress();
   const v = useProgressView();
+  const current = useCurrentSkill();
+  const { setActiveSkill, activeSkillId } = p;
+  // Opening a skill's map makes it the one the World Map's quest card continues.
+  useEffect(() => {
+    if (id && id !== activeSkillId && v.skills.some((s) => s.id === id)) setActiveSkill(id);
+  }, [id, activeSkillId, setActiveSkill, v.skills]);
   const startLevel = useStartLevel();
   const scroll = useRef<ScrollView>(null);
   const [pathY, setPathY] = useState<number | null>(null);
@@ -29,14 +37,8 @@ export default function HomeScreen() {
   if (p.account?.status !== 'signed_in') return <Redirect href="/sign-in" />;
   if (!p.onboarded) return <Redirect href="/welcome" />;
 
-  // The skill to continue: the active one, else one with a level in progress,
-  // else the furthest along, else the first skill that has levels to play.
-  const playable = v.skills.filter((s) => p.nextLevelId(s.id) || s.view.level > 0);
-  const skill =
-    v.skills.find((s) => s.id === p.activeSkillId) ??
-    playable.find((s) => Object.keys(v.sessions).some((id) => id.startsWith(s.id.replace(/^skill\./, 'level.') + '.'))) ??
-    [...playable].sort((a, b) => b.view.level - a.view.level)[0] ??
-    v.skills[0]!;
+  const skill = v.skills.find((s) => s.id === id) ?? current;
+  if (!skill) return <Redirect href="/" />;
   const nextId = p.nextLevelId(skill.id);
   const next = nextId ? getLevel(nextId) : undefined;
   const resuming = nextId ? v.sessions[nextId] : undefined;
@@ -47,13 +49,19 @@ export default function HomeScreen() {
 
   const focus = next?.number ?? Math.max(skill.view.level, 1);
   const chapters = chaptersFor(skill.id);
+  // A subject with several skills goes back to its region; otherwise straight to the World Map.
+  const multi = v.skills.filter((k) => k.subjectId === skill.subjectId).length > 1;
 
   return (
     <Screen
       scrollRef={scroll}
       header={
         <Row gap={space.sm}>
-          <IconButton label="All skills" icon="back" onPress={() => router.navigate('/skills')} />
+          <IconButton
+            label={multi ? `Back to ${subjectName(skill.subjectId)}` : 'World map'}
+            icon="back"
+            onPress={() => router.navigate(multi ? { pathname: '/subject/[id]', params: { id: skill.subjectId } } : '/')}
+          />
           <Emblem value={skill.view.level} size="sm" />
           <View style={{ flex: 1, gap: space.xxs }}>
             <Eyebrow>

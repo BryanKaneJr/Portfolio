@@ -1,7 +1,7 @@
 // Development harness (no Supabase, simulated accounts): sign-in first, onboarding,
 // a full chapter, resume, persistence, first-day cap, review, and progress that
 // belongs to the account (sign out, a second account, deletion).
-import { CHECKPOINT_CURVE, CURVE, REVIEW_XP, bodyText, button, check, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn } from './helpers.mjs';
+import { questMap, CHECKPOINT_CURVE, CURVE, REVIEW_XP, bodyText, button, check, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn } from './helpers.mjs';
 
 const progressKeys = (page) => page.evaluate(() => Object.keys(localStorage).filter((k) => k.startsWith('brainscroll.progress.')));
 
@@ -45,14 +45,16 @@ try {
 
   await home(page);
   check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'progress persists across reload');
+  check(/World map/i.test(await bodyText(page)) && (await page.getByRole('button', { name: /^Open Science, level 1$/ }).count()) === 1, 'Home is the World Map, with each subject and its level');
 
   // Resume mid-level.
+  await questMap(page);
   await button(page, 'Start Level 2').click();
   await page.waitForTimeout(400);
   await button(page, 'Continue').click();
   await button(page, 'Continue').click();
   const before = (await bodyText(page)).slice(0, 200);
-  await home(page);
+  await questMap(page);
   await button(page, 'Resume Level 2').click();
   await page.waitForTimeout(600);
   check((await bodyText(page)).slice(0, 200) === before, 'an interrupted level resumes on the same card');
@@ -85,15 +87,11 @@ try {
     localStorage.setItem(k, JSON.stringify(s));
   });
   await home(page);
-  await page.getByRole('tab', { name: /Skills/ }).click();
-  await page.waitForTimeout(800);
-  check(/worth refreshing/.test(await bodyText(page)), 'due concepts surface on the Skills tab');
+  check(/worth refreshing/.test(await bodyText(page)), 'due concepts surface on the World Map');
   await page.getByRole('tab', { name: /Review/ }).click();
   await page.waitForTimeout(800);
   check(/ready to refresh/.test(await bodyText(page)), 'the Review tab shows what is ready (and settles: no refresh loop)');
   await home(page);
-  await page.getByRole('tab', { name: /Skills/ }).click();
-  await page.waitForTimeout(500);
   await button(page, 'Start review').click();
   await page.waitForTimeout(500);
   const corrected = await playReview(page);
@@ -113,9 +111,9 @@ try {
   // Choosing a skill makes it the one Home follows, and Home shows its map.
   await button(page, 'Open Ancient Rome').click();
   await page.waitForTimeout(800);
-  check((await bodyText(page)).includes('Founding and the Kings'), 'Home shows the chosen skill as a map of chapters');
+  check((await bodyText(page)).includes('Founding and the Kings'), 'opening a skill shows it as a map of chapters');
   await home(page);
-  check((await bodyText(page)).includes('Ancient Rome · Lv. 0'), 'Home follows the skill the learner chose last (a second tree plays from data)');
+  check((await bodyText(page)).includes('Ancient Rome · Lv. 0'), 'the Current Quest follows the skill the learner chose last (a second tree plays from data)');
   // Progress belongs to the account: sign out, and it comes back with the same sign-in.
   const profile = async () => { await home(page); await page.getByRole('tab', { name: /Profile/ }).click(); await page.waitForTimeout(800); };
   await profile();
