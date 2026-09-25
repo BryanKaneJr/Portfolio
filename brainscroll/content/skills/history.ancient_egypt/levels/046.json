@@ -1,0 +1,216 @@
+{
+  "id": "level.history.ancient_egypt.046",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Medicine",
+  "objective": "After this level you can describe Egyptian medicine and the medical papyri.",
+  "summary": "The Edwin Smith Papyrus is a chiefly practical casebook of 48 injuries with honest verdicts; the Ebers Papyrus mixes hundreds of remedies and spells with an early description of the heart.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.medical_papyri",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.scribe_training",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.045"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "An Egyptian casebook sorted injuries three ways: treat, fight, or let be.",
+      "body": "Egyptian doctors wrote down what they knew on papyrus. Two famous scrolls survive, and they show two very different sides of Egyptian medicine."
+    },
+    {
+      "id": "card.ancient_egypt.046.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The surgeon’s casebook",
+      "body": "The Edwin Smith Papyrus, from about 1600 BCE and written in hieratic, describes 48 cases of injuries, mostly to the head, neck and upper body. Every case follows the same pattern: the injury, a diagnosis, a prognosis, then the treatment. And each gives a verdict: a condition the doctor will treat, one he will contend with, or one that cannot be treated. It is honest about its limits."
+    },
+    {
+      "id": "card.ancient_egypt.046.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Almost no magic, until you turn it over",
+      "body": "The injury cases are chiefly practical, with treatments such as bandaging and splinting, and only one incantation. Flip the scroll over, though, and the back holds magical spells and recipes, including one “for making an old man into a youth.” Even a careful casebook had a wishful back page."
+    },
+    {
+      "id": "card.ancient_egypt.046.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The remedy book",
+      "body": "The Ebers Papyrus, from about 1550 BCE, is a different kind of book: hundreds of magical formulas and folk remedies, for troubles from crocodile bites to toenail pain. Yet it also describes the heart as the center of the blood supply, with vessels running throughout the body. Spells and sharp observation sat side by side, on the same scroll.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "History, not a prescription. Please keep your crocodile bites for a modern doctor."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.046.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.046.q1"
+    },
+    {
+      "id": "card.ancient_egypt.046.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.046.q2"
+    },
+    {
+      "id": "card.ancient_egypt.046.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.046.q3"
+    },
+    {
+      "id": "card.ancient_egypt.046.c8",
+      "type": "checkpoint",
+      "headline": "Medical papyri: read",
+      "learned": [
+        "Edwin Smith: 48 injury cases, about 1600 BCE",
+        "Each case: injury, diagnosis, prognosis, treatment, verdict",
+        "Its cases are chiefly practical; spells fill the back",
+        "Ebers: hundreds of remedies and spells, and the heart"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.medical_papyri"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.046.c2"
+      ],
+      "prompt": "How many injury cases does the Edwin Smith Papyrus describe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "12",
+          "correct": false,
+          "rationale": "It describes more cases than that."
+        },
+        {
+          "id": "b",
+          "label": "48",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "84",
+          "correct": false,
+          "rationale": "84 is the number of problems in the Rhind papyrus."
+        },
+        {
+          "id": "d",
+          "label": "700",
+          "correct": false,
+          "rationale": "That’s closer to the Ebers remedy count."
+        }
+      ],
+      "explanation": "It describes 48 cases of injuries, mostly to the head, neck and upper body.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.medical_papyri"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.046.c3",
+        "card.ancient_egypt.046.c4"
+      ],
+      "prompt": "What sets the Edwin Smith Papyrus apart from the Ebers Papyrus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is written on clay tablets, not papyrus",
+          "correct": false,
+          "rationale": "Both are written on papyrus."
+        },
+        {
+          "id": "b",
+          "label": "It holds hundreds of magical formulas",
+          "correct": false,
+          "rationale": "That describes the Ebers Papyrus."
+        },
+        {
+          "id": "c",
+          "label": "It was written in Greek for foreign doctors",
+          "correct": false,
+          "rationale": "It is written in Egyptian hieratic."
+        },
+        {
+          "id": "d",
+          "label": "Its injury cases are chiefly practical",
+          "correct": true
+        }
+      ],
+      "explanation": "The Smith cases are chiefly rational; the Ebers Papyrus is packed with magical formulas and folk remedies.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_egypt.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.medical_papyri",
+        "concept.ancient_egypt.scribe_training"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.046.c2",
+        "card.ancient_egypt.043.c2"
+      ],
+      "prompt": "The Edwin Smith Papyrus is written in the script scribes drilled in Level 43. Which one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Formal hieroglyphs carved in stone",
+          "correct": false,
+          "rationale": "Everyday papyri used the cursive script."
+        },
+        {
+          "id": "b",
+          "label": "Hieratic, the cursive script",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Greek letters",
+          "correct": false,
+          "rationale": "Greek came to Egypt much later."
+        },
+        {
+          "id": "d",
+          "label": "Numbers only, with no words",
+          "correct": false,
+          "rationale": "It is full of written cases."
+        }
+      ],
+      "explanation": "Like most everyday writing on papyrus, it is in hieratic, the cursive form of hieroglyphs.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.pmc_edwin_smith_spinal",
+    "source.brit_edwin_smith_papyrus",
+    "source.nyam_edwin_smith_papyrus",
+    "source.nlm_edwin_smith_papyrus",
+    "source.brit_ebers_papyrus"
+  ],
+  "art": "medieval.herbs"
+}

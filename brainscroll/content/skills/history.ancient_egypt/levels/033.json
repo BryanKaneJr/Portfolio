@@ -1,0 +1,215 @@
+{
+  "id": "level.history.ancient_egypt.033",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 33,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Osiris and Isis",
+  "objective": "After this level you can retell the myth of Osiris and Isis.",
+  "summary": "Seth killed his brother Osiris; Isis gathered his body, Anubis made the first mummy, Horus avenged his father, and Osiris became ruler of the dead.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.osiris_isis_myth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.black_red_land",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.032"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.033.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Egypt’s greatest myth begins with a murder in the royal family.",
+      "body": "A king, a jealous brother, a wife who won’t give up and a son out for justice. It’s the story Egyptians told about death, and about getting past it."
+    },
+    {
+      "id": "card.ancient_egypt.033.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A jealous brother",
+      "body": "In the myth, Osiris ruled Egypt as king. His brother Seth was lord of the desert and a master of storms and disorder: Deshret, the red land from Level 3, with a face. Jealous Seth tricked Osiris into a chest and threw it into the river. Later he cut the body into 14 pieces and scattered them across Egypt. Chaos had beaten order. For now."
+    },
+    {
+      "id": "card.ancient_egypt.033.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Putting a god back together",
+      "body": "Isis, Osiris’s wife, would not give up. With her sister Nephthys, she sought out and gathered the pieces. Anubis, the jackal-headed god, embalmed and wrapped the body, making the first mummy. Isis conceived a son, Horus. And Osiris lived on, not in this world but in the underworld, as its ruler and judge. In this story, death is more like a change of address."
+    },
+    {
+      "id": "card.ancient_egypt.033.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A myth with your name in it",
+      "body": "Horus grew up, fought Seth, avenged his father and became king. Egyptians mapped the story onto real life: the living king was identified with Horus, the dead king with Osiris. Later, every Egyptian, not just kings, was linked with Osiris at death. The myth turned into a promise: what happened to Osiris could happen to you.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A story about one god became a plan for everyone. That’s a very hardworking myth."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.033.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.033.q1"
+    },
+    {
+      "id": "card.ancient_egypt.033.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.033.q2"
+    },
+    {
+      "id": "card.ancient_egypt.033.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.033.q3"
+    },
+    {
+      "id": "card.ancient_egypt.033.c8",
+      "type": "checkpoint",
+      "headline": "The myth: retold",
+      "learned": [
+        "Seth killed his brother Osiris and scattered the body",
+        "Isis and Nephthys gathered it; Anubis made the first mummy",
+        "Horus avenged his father; Osiris ruled the dead",
+        "Every Egyptian was linked with Osiris at death"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.033.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.osiris_isis_myth"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.033.c3"
+      ],
+      "prompt": "In the myth, who gathered the scattered pieces of Osiris’s body?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Seth, his brother",
+          "correct": false,
+          "rationale": "Seth scattered them."
+        },
+        {
+          "id": "b",
+          "label": "Ra, the sun god",
+          "correct": false,
+          "rationale": "Ra isn’t part of this rescue."
+        },
+        {
+          "id": "c",
+          "label": "Isis, with her sister Nephthys",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Thoth, the ibis-headed god",
+          "correct": false,
+          "rationale": "It was Isis and Nephthys."
+        }
+      ],
+      "explanation": "Isis, Osiris’s wife, sought out the pieces with her sister Nephthys; Anubis then made the first mummy.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.osiris_isis_myth"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.033.c4"
+      ],
+      "prompt": "Why did the Osiris myth matter to ordinary Egyptians, not just kings?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It told them how to farm the black land",
+          "correct": false,
+          "rationale": "It is a story about death and what comes after."
+        },
+        {
+          "id": "b",
+          "label": "At death, every Egyptian was linked with Osiris, who lived on",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It promised that no one would ever die",
+          "correct": false,
+          "rationale": "Osiris died too; he lived on in the underworld."
+        },
+        {
+          "id": "d",
+          "label": "It made everyone a relative of Seth",
+          "correct": false,
+          "rationale": "People were linked with Osiris, not Seth."
+        }
+      ],
+      "explanation": "Later, every Egyptian was linked with Osiris at death, so his survival in the underworld became a promise for them too.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_egypt.033.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.osiris_isis_myth",
+        "concept.ancient_egypt.black_red_land"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.033.c2",
+        "card.ancient_egypt.003.c3"
+      ],
+      "prompt": "Seth, the brother who killed Osiris, was lord of the desert. Which land from Level 3 was his?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Kemet, the black land",
+          "correct": false,
+          "rationale": "That was the fertile valley."
+        },
+        {
+          "id": "b",
+          "label": "The Delta of Lower Egypt",
+          "correct": false,
+          "rationale": "The Delta was farmland, not desert."
+        },
+        {
+          "id": "c",
+          "label": "The First Cataract",
+          "correct": false,
+          "rationale": "That was a stretch of river rapids."
+        },
+        {
+          "id": "d",
+          "label": "Deshret, the red land",
+          "correct": true
+        }
+      ],
+      "explanation": "Deshret, “the red land,” was the hot, dry desert: fitting territory for the god of storms and disorder.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.bham_osiris_mummification",
+    "source.brit_osiris",
+    "source.brit_seth",
+    "source.carnegie_egypt_nile",
+    "source.brit_horus"
+  ],
+  "art": "egypt.ankh"
+}

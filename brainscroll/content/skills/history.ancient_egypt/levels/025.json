@@ -1,0 +1,217 @@
+{
+  "id": "level.history.ancient_egypt.025",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Who Built the Pyramids?",
+  "objective": "After this level you can explain the evidence that paid workers, not slaves, built the pyramids.",
+  "summary": "The builders’ own tombs, their healed bones and Merer’s logbook show the pyramids were built by Egyptian workers, called up in rotating crews and paid, not by slaves.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.pyramid_builders_workers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.great_pyramid_giza",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.024"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Slaves under the whip? Archaeologists went looking. They found graves.",
+      "body": "In 1990, a tourist’s horse stumbled on a mud-brick wall near the Giza pyramids. Behind it lay the cemetery of the people who built them."
+    },
+    {
+      "id": "card.ancient_egypt.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tombs beside the king",
+      "body": "The cemetery holds hundreds of small graves of laborers, plus bigger tombs for overseers and craftsmen, with job titles like “overseer of the side of the pyramid.” Zahi Hawass, who excavated them, put the point simply: “If they were slaves, they would not have been able to build their tombs beside their king’s.” Slaves don’t get a spot next to the king."
+    },
+    {
+      "id": "card.ancient_egypt.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What the bones say",
+      "body": "Their skeletons show backs and knees worn down by heavy work. They also show broken arms and legs that healed after being splinted, so someone was treating their injuries. The builders were Egyptians, many of them called up to serve rotating terms of work for the king under skilled craftsmen, and they were paid for it. Think national service, not chain gang.",
+      "callout": "Hard work, rotating crews, and someone to set a broken arm"
+    },
+    {
+      "id": "card.ancient_egypt.025.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A worker’s logbook",
+      "body": "In 2013, Pierre Tallet’s team found the oldest known inscribed papyri at Wadi al-Jarf, on the Red Sea coast. Among them was the logbook of Merer, an inspector who led a crew in Khufu’s reign. He reported to the noble Ankhhaf, Khufu’s half-brother, and his crew was supplied with food by the state. It reads less like a slave story and more like a shipping company’s paperwork.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "The best evidence isn’t a legend about the builders. It’s their own paperwork."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.025.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.025.q1"
+    },
+    {
+      "id": "card.ancient_egypt.025.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.025.q2"
+    },
+    {
+      "id": "card.ancient_egypt.025.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.025.q3"
+    },
+    {
+      "id": "card.ancient_egypt.025.c8",
+      "type": "checkpoint",
+      "headline": "The builders: identified",
+      "learned": [
+        "The builders’ cemetery was found in 1990",
+        "Tombs beside the king’s: not slaves",
+        "Rotating crews of Egyptians, paid for their work",
+        "Merer’s logbook: the oldest inscribed papyri"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.pyramid_builders_workers"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.025.c1",
+        "card.ancient_egypt.025.c2"
+      ],
+      "prompt": "What did archaeologists find near the Giza pyramids in 1990 that changed ideas about the builders?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A market where slaves were sold",
+          "correct": false,
+          "rationale": "No such market was found."
+        },
+        {
+          "id": "b",
+          "label": "A cemetery of the pyramid builders",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Khufu’s hidden palace",
+          "correct": false,
+          "rationale": "The find was the builders’ graves."
+        },
+        {
+          "id": "d",
+          "label": "A carved list of the builders’ owners",
+          "correct": false,
+          "rationale": "The tombs show titles, not owners."
+        }
+      ],
+      "explanation": "A stumbling horse led to the builders’ cemetery, with laborers’ graves and overseers’ tombs.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.pyramid_builders_workers"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.025.c2"
+      ],
+      "prompt": "Why did Zahi Hawass argue that the pyramid builders were not slaves?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They left signed work contracts",
+          "correct": false,
+          "rationale": "His point was about where they were buried."
+        },
+        {
+          "id": "b",
+          "label": "They were all foreigners paid in gold",
+          "correct": false,
+          "rationale": "They were Egyptians."
+        },
+        {
+          "id": "c",
+          "label": "Slaves were banned by law in Egypt",
+          "correct": false,
+          "rationale": "His argument was about the tombs."
+        },
+        {
+          "id": "d",
+          "label": "They were buried in their own tombs beside the king’s pyramid",
+          "correct": true
+        }
+      ],
+      "explanation": "Slaves would not have been allowed tombs beside their king’s; the builders had them.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.pyramid_builders_workers",
+        "concept.ancient_egypt.great_pyramid_giza"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.025.c4",
+        "card.ancient_egypt.024.c2"
+      ],
+      "prompt": "Merer’s logbook comes from the reign of which king, the builder of the Great Pyramid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Khufu",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Djoser",
+          "correct": false,
+          "rationale": "He built the Step Pyramid, long before."
+        },
+        {
+          "id": "c",
+          "label": "Sneferu",
+          "correct": false,
+          "rationale": "He was Khufu’s father."
+        },
+        {
+          "id": "d",
+          "label": "Imhotep",
+          "correct": false,
+          "rationale": "He was an architect, not a king."
+        }
+      ],
+      "explanation": "Merer worked in Khufu’s reign, the king for whom the Great Pyramid was built.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.hawass_builders_tombs",
+    "source.nbc_giza_workers_tombs",
+    "source.aera_home",
+    "source.whe_great_pyramid",
+    "source.smithsonianmag_wadi_al_jarf"
+  ],
+  "art": "geo.people"
+}

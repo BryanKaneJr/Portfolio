@@ -1,0 +1,217 @@
+{
+  "id": "level.history.ancient_egypt.069",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Letters in Clay",
+  "objective": "After this level you can explain what the Amarna letters show about ancient diplomacy.",
+  "summary": "The Amarna Letters, 382 cuneiform tablets in Akkadian, show great kings writing to the pharaoh as “brother” and vassals bowing and pleading for attention.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.newkingdom_amarna_letters",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.newkingdom_empire",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.newkingdom_akhenaten_aten",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.068"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.069.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Egypt’s royal mail wasn’t written in Egyptian.",
+      "body": "In 1887 a local woman at Tell el-Amarna, the site of Akhenaten’s old capital, stumbled on a cache of clay tablets. They turned out to be letters between the pharaoh and the rulers of his world."
+    },
+    {
+      "id": "card.ancient_egypt.069.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A borrowed language",
+      "body": "There are 382 known Amarna tablets. They are cuneiform tablets written mostly in Akkadian, the diplomatic language of the day, and they date to the reigns of Amenhotep III and Akhenaten. International diplomacy had a common language, and it wasn’t Egyptian.",
+      "callout": "Clay, cuneiform, Akkadian"
+    },
+    {
+      "id": "card.ancient_egypt.069.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dear brother",
+      "body": "The great kings of Babylonia, Assyria, Mitanni and the Hittites wrote to the pharaoh as equals and called him “brother.” Their letters fuss over gifts and royal marriages. Tushratta, king of Mitanni, complained that gold statues he’d been promised arrived as gold-plated wood. Even brothers checked whether the gold was solid."
+    },
+    {
+      "id": "card.ancient_egypt.069.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seven times and seven times",
+      "body": "Egypt’s vassals in Syria and Canaan wrote very differently. The ruler of Gezer opened: “I fall at the feet of the king, my lord, my god, my Sun, seven times and seven times.” Vassal letters are full of local troubles and complaints that Egypt isn’t paying attention. This is Level 62’s empire, seen from the other end."
+    },
+    {
+      "id": "card.ancient_egypt.069.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.069.q1"
+    },
+    {
+      "id": "card.ancient_egypt.069.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.069.q2"
+    },
+    {
+      "id": "card.ancient_egypt.069.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.069.q3"
+    },
+    {
+      "id": "card.ancient_egypt.069.c8",
+      "type": "checkpoint",
+      "headline": "The letters: read",
+      "learned": [
+        "382 clay tablets, mostly in Akkadian cuneiform",
+        "Great kings called the pharaoh “brother”",
+        "Their letters fuss over gifts and marriages",
+        "Vassals bowed low and pleaded for help"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.newkingdom_amarna_letters"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.069.c2"
+      ],
+      "prompt": "In what language were most of the Amarna Letters written?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Egyptian, in hieroglyphs",
+          "correct": false,
+          "rationale": "Egypt’s foreign mail used another language."
+        },
+        {
+          "id": "b",
+          "label": "Greek, on papyrus",
+          "correct": false,
+          "rationale": "They are clay tablets."
+        },
+        {
+          "id": "c",
+          "label": "Akkadian, in cuneiform",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Hittite, in picture signs",
+          "correct": false,
+          "rationale": "Even the Hittite king wrote in the shared language."
+        }
+      ],
+      "explanation": "The letters are cuneiform tablets, mostly in Akkadian, the diplomatic language of the day.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_egypt.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.newkingdom_amarna_letters"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.069.c3",
+        "card.ancient_egypt.069.c4"
+      ],
+      "prompt": "How did letters from the great kings differ from those of Egypt’s vassals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Great kings wrote in Egyptian; vassals wrote in Akkadian",
+          "correct": false,
+          "rationale": "Both used Akkadian cuneiform."
+        },
+        {
+          "id": "b",
+          "label": "Great kings wrote as “brothers”; vassals bowed low and complained of neglect",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Great kings demanded tribute from the pharaoh",
+          "correct": false,
+          "rationale": "They wrote as equals, trading gifts."
+        },
+        {
+          "id": "d",
+          "label": "Vassals wrote only about royal marriages",
+          "correct": false,
+          "rationale": "Marriages and gifts filled the great kings’ letters."
+        }
+      ],
+      "explanation": "Great powers wrote as equals about gifts and marriages; vassals fell at the king’s feet and pleaded about local troubles.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.newkingdom_amarna_letters",
+        "concept.ancient_egypt.newkingdom_empire"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.069.c4",
+        "card.ancient_egypt.062.c2"
+      ],
+      "prompt": "Vassal rulers in Canaan wrote to the pharaoh for help. From Level 62, why did Egypt hold lands in Canaan at all?",
+      "options": [
+        {
+          "id": "a",
+          "label": "For its fertile black silt",
+          "correct": false,
+          "rationale": "That was the Nile valley."
+        },
+        {
+          "id": "b",
+          "label": "To reach the land of Punt",
+          "correct": false,
+          "rationale": "Punt lay to the south, across the Red Sea."
+        },
+        {
+          "id": "c",
+          "label": "As a buffer zone to keep threats far from Egypt",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Because the Hyksos gave it to Ahmose",
+          "correct": false,
+          "rationale": "Ahmose drove the Hyksos out."
+        }
+      ],
+      "explanation": "After the Hyksos, Egypt built buffer zones in Nubia and Canaan that grew into an empire.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_tell_el_amarna",
+    "source.natgeo_amarna_letters",
+    "source.met_amarna_letters_essay",
+    "source.brit_amarna_letters"
+  ],
+  "art": "rome.carved-stone"
+}

@@ -1,0 +1,214 @@
+{
+  "id": "level.history.ancient_egypt.027",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Great Sphinx",
+  "objective": "After this level you can describe the Sphinx and what we know about it.",
+  "summary": "The Great Sphinx was carved from a block left in a quarry at Giza. Most scholars credit Khafre in the 4th dynasty; much later, Thutmose IV cleared its sand.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.great_sphinx_giza",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.great_pyramid_giza",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.026"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Great Sphinx wasn’t built. It was left behind.",
+      "body": "Workers cut stone away around a lump of rock, and the lump became a lion with a human head. Here’s what we know about it, and how we know."
+    },
+    {
+      "id": "card.ancient_egypt.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Carved, not stacked",
+      "body": "The Sphinx is about 73 m long and 20 m high, carved from a single mass of limestone. When workers quarried a ditch in the Giza bedrock, they left a large block standing, and that block became the Sphinx: the body of a resting lion with a human head in a royal headdress. After all those hauled blocks, here’s a monument nobody had to move."
+    },
+    {
+      "id": "card.ancient_egypt.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Whose face?",
+      "body": "Most scholars date the Sphinx to the 4th dynasty and credit King Khafre, who built his own pyramid at Giza. The Sphinx was likely part of his funerary complex. Mark Lehner mapped it and the nearby temples stone by stone and concluded that Khafre’s workers began shaping the Sphinx as they built his valley temple. So the face probably shows Khafre himself."
+    },
+    {
+      "id": "card.ancient_egypt.027.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Noses and dreams",
+      "body": "The nose is missing, but don’t blame Napoleon: drawings made before his troops reached Egypt already show it gone. Much later, Thutmose IV set up a stone slab, the Dream Stela, at the Sphinx. On it he says the god promised to make him king if he cleared away the sand around the Sphinx. Restoration work may have started in his reign. Useful dream, if you want a crown.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Napoleon gets blamed for a lot. The nose is one thing he didn’t do."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.027.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.027.q1"
+    },
+    {
+      "id": "card.ancient_egypt.027.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.027.q2"
+    },
+    {
+      "id": "card.ancient_egypt.027.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.027.q3"
+    },
+    {
+      "id": "card.ancient_egypt.027.c8",
+      "type": "checkpoint",
+      "headline": "The Sphinx: met",
+      "learned": [
+        "Carved from a block left in a quarry",
+        "About 73 m long: a lion with a human head",
+        "Most scholars credit Khafre, 4th dynasty",
+        "Thutmose IV’s Dream Stela: clear the sand, be king"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.great_sphinx_giza"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.027.c3"
+      ],
+      "prompt": "According to most scholars, which king had the Great Sphinx carved?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Djoser",
+          "correct": false,
+          "rationale": "He built the Step Pyramid at Saqqara."
+        },
+        {
+          "id": "b",
+          "label": "Khafre",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sneferu",
+          "correct": false,
+          "rationale": "He built at Meidum and Dahshur."
+        },
+        {
+          "id": "d",
+          "label": "Thutmose IV",
+          "correct": false,
+          "rationale": "He cleared its sand, much later."
+        }
+      ],
+      "explanation": "The mainstream view dates the Sphinx to the 4th dynasty and credits Khafre.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.great_sphinx_giza"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.027.c2"
+      ],
+      "prompt": "Why is it more accurate to say the Great Sphinx was carved than built?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was cut from a block of rock left standing in a quarry",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was cast in bronze and then painted",
+          "correct": false,
+          "rationale": "It is limestone."
+        },
+        {
+          "id": "c",
+          "label": "It was assembled from blocks shipped from Tura",
+          "correct": false,
+          "rationale": "Nobody moved it; it was carved in place."
+        },
+        {
+          "id": "d",
+          "label": "It is a natural rock that was never worked",
+          "correct": false,
+          "rationale": "Workers shaped it."
+        }
+      ],
+      "explanation": "Quarry workers left a large limestone block standing in the Giza bedrock and carved the Sphinx from it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.great_sphinx_giza",
+        "concept.ancient_egypt.great_pyramid_giza"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.027.c3",
+        "card.ancient_egypt.024.c2"
+      ],
+      "prompt": "The Great Sphinx and the Great Pyramid both stand at Giza. When were they made?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both under Djoser, in the 3rd dynasty",
+          "correct": false,
+          "rationale": "Djoser built at Saqqara."
+        },
+        {
+          "id": "b",
+          "label": "The Sphinx thousands of years before the pyramid",
+          "correct": false,
+          "rationale": "The mainstream view puts both in the 4th dynasty."
+        },
+        {
+          "id": "c",
+          "label": "Both in the 4th dynasty, under Khufu and Khafre",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both in the New Kingdom",
+          "correct": false,
+          "rationale": "Thutmose IV only cleared the sand."
+        }
+      ],
+      "explanation": "Khufu’s Great Pyramid and Khafre’s Sphinx are both 4th-dynasty works.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.aera_who_built_sphinx",
+    "source.brit_great_sphinx",
+    "source.brit_pyramids_giza",
+    "source.pbs_nova_dream_stela"
+  ],
+  "art": "egypt.sphinx"
+}

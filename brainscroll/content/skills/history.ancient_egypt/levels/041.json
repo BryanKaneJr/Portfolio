@@ -1,0 +1,215 @@
+{
+  "id": "level.history.ancient_egypt.041",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hieroglyphs",
+  "objective": "After this level you can explain how hieroglyphs mix sound signs and picture signs.",
+  "summary": "Hieroglyphs look like pictures, but most signs stood for sounds (consonants only), while meaning signs such as determinatives told readers what kind of word they were reading.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.hieroglyph_signs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.egypt_span",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.040"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In hieroglyphs, a picture of a house could help you write “go out.”",
+      "body": "It sounds like a riddle, but it’s the key to the whole system. Hieroglyphs look like pictures. Most of the time, they weren’t being used as pictures at all."
+    },
+    {
+      "id": "card.ancient_egypt.041.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Mostly sounds",
+      "body": "A hieroglyph could show the thing it pictured, but usually a sign stood for a sound: one, two or three consonants. Vowels weren’t written at all, so readers supplied them, the way you can still read “prmd” as pyramid. About 700 signs stayed in use for more than 2,000 years. That’s a lot to learn, but far fewer than a picture for every word would need.",
+      "callout": "Most signs spell sounds. Some carry meaning. Few are just pictures."
+    },
+    {
+      "id": "card.ancient_egypt.041.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Signs that steer the meaning",
+      "body": "Some signs carried meaning instead of sound. The sun sign could also mean “day,” or name the sun god Re. Others were helpers called determinatives, added to show what kind of word you were reading. The house sign also spelled the sound pr, and it helped write the verb “to go out.” Add a pair of walking legs, and you knew which word was meant: this one is about moving.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Walking legs for a word about moving. Honestly, very sensible."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.041.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Which way do I read?",
+      "body": "Hieroglyphs usually ran from right to left, but not always. The signs tell you: the way they face shows the reading direction, so the birds and people act as arrows. The system itself appeared in the late predynastic period, just before Egypt’s First Dynasty, as the Two Lands were becoming one kingdom around 3100 to 3000 BCE. Egypt got a king and a script at about the same time."
+    },
+    {
+      "id": "card.ancient_egypt.041.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.041.q1"
+    },
+    {
+      "id": "card.ancient_egypt.041.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.041.q2"
+    },
+    {
+      "id": "card.ancient_egypt.041.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.041.q3"
+    },
+    {
+      "id": "card.ancient_egypt.041.c8",
+      "type": "checkpoint",
+      "headline": "Hieroglyphs: decoded",
+      "learned": [
+        "Most signs stood for sounds of one to three consonants",
+        "Vowels were not written",
+        "Determinatives, like walking legs, showed meaning",
+        "The way signs face shows which way to read"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.hieroglyph_signs"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.041.c2"
+      ],
+      "prompt": "What did most Egyptian hieroglyphs stand for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whole scenes, like a comic strip",
+          "correct": false,
+          "rationale": "Hieroglyphs weren’t a comic strip; most signs spelled sounds."
+        },
+        {
+          "id": "b",
+          "label": "Sounds: one, two or three consonants",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only the names of gods",
+          "correct": false,
+          "rationale": "Gods’ names were only a small part of the writing."
+        },
+        {
+          "id": "d",
+          "label": "Single vowels, like our a, e and o",
+          "correct": false,
+          "rationale": "Vowels weren’t written at all."
+        }
+      ],
+      "explanation": "Signs could show what they pictured, but usually they stood for sounds of one to three consonants.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.hieroglyph_signs"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.041.c3"
+      ],
+      "prompt": "Why would a scribe add walking legs after the house sign?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To show that the house itself was moving somewhere",
+          "correct": false,
+          "rationale": "The legs were a meaning sign, not a moving house."
+        },
+        {
+          "id": "b",
+          "label": "To add the vowels that the house sign left out",
+          "correct": false,
+          "rationale": "Vowels weren’t written."
+        },
+        {
+          "id": "c",
+          "label": "To show which direction the line should be read",
+          "correct": false,
+          "rationale": "The way the signs face shows the reading direction."
+        },
+        {
+          "id": "d",
+          "label": "To mark the word as “go out,” a word about moving",
+          "correct": true
+        }
+      ],
+      "explanation": "The house sign could also spell the sound pr; the walking legs, a determinative, showed the verb “to go out” was meant.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_egypt.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.hieroglyph_signs",
+        "concept.ancient_egypt.egypt_span"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.041.c4",
+        "card.ancient_egypt.001.c2"
+      ],
+      "prompt": "Hieroglyphic writing appeared around the time of which Chapter 1 event?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The start of the New Kingdom",
+          "correct": false,
+          "rationale": "That came some 1,500 years later."
+        },
+        {
+          "id": "b",
+          "label": "Egypt becoming a province of Rome",
+          "correct": false,
+          "rationale": "That came at the very end of ancient Egypt."
+        },
+        {
+          "id": "c",
+          "label": "Upper and Lower Egypt becoming one kingdom",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The first farming villages in the Faiyum",
+          "correct": false,
+          "rationale": "Those villages came long before writing."
+        }
+      ],
+      "explanation": "Hieroglyphs arose in the late predynastic period, just before the First Dynasty, as Egypt was unified around 3100 to 3000 BCE.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_egyptian_language",
+    "source.brit_hieroglyph",
+    "source.met_egypt_educators",
+    "source.oup_oxford_history_egypt"
+  ],
+  "art": "rome.carved-stone"
+}

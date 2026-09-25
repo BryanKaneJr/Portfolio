@@ -1,0 +1,214 @@
+{
+  "id": "level.history.ancient_egypt.096",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Studying Egypt Today",
+  "objective": "After this level you can describe modern tools like scans and satellite images.",
+  "summary": "Muon detectors find hidden spaces in the Great Pyramid, CT scans unwrap mummies digitally, and infrared satellite images reveal buried mud-brick buildings.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.modern_egyptology_tools",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.black_red_land",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.095"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.096.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Archaeologists can now look inside a pyramid without moving a single block.",
+      "body": "They can unwrap a pharaoh without touching a thread, and spot buried buildings from orbit. Egypt is still giving up secrets. What’s changed is the tools."
+    },
+    {
+      "id": "card.ancient_egypt.096.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An X-ray lit by the sky",
+      "body": "Muons are particles made when cosmic rays hit our atmosphere, and they rain down constantly. Stone absorbs some of them, so detectors can map empty spaces inside a pyramid. In 2017 the ScanPyramids team reported a big void at least 30 metres long above the Great Pyramid’s Grand Gallery. In 2023, muons located a corridor about 9 metres long behind the north face, and a camera pushed inside confirmed it."
+    },
+    {
+      "id": "card.ancient_egypt.096.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Unwrapping without unwrapping",
+      "body": "Amenhotep I’s mummy was so finely wrapped, with flower garlands and a lifelike mask, that no one opened it in modern times. In 2021, radiologist Sahar Saleem and Egyptologist Zahi Hawass unwrapped it digitally with CT scans. Inside was a man about 35 years old, with good teeth and 30 amulets tucked into his wrappings. The mask stayed on. The secrets came out.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "No scissors, no unrolling: just a scanner and a lot of patience."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.096.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Archaeology from orbit",
+      "body": "Sarah Parcak of the University of Alabama at Birmingham processes satellite images to see in infrared, which your eyes can’t. In the desert, it picks up moisture differences in the ground above buried mud bricks, tracing the outlines of vanished buildings. Her team mapped the street grid of Tanis, once a capital in the Nile Delta, and tracked tomb looting after 2011. Some of the best new digging starts with no digging at all."
+    },
+    {
+      "id": "card.ancient_egypt.096.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.096.q1"
+    },
+    {
+      "id": "card.ancient_egypt.096.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.096.q2"
+    },
+    {
+      "id": "card.ancient_egypt.096.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.096.q3"
+    },
+    {
+      "id": "card.ancient_egypt.096.c8",
+      "type": "checkpoint",
+      "headline": "Modern tools: tried",
+      "learned": [
+        "Muons from cosmic rays map empty spaces in pyramids",
+        "A big void in 2017, a corridor in 2023",
+        "CT scans unwrapped Amenhotep I in 2021",
+        "Infrared satellite images reveal buried mud brick"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.modern_egyptology_tools"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.096.c2"
+      ],
+      "prompt": "What did muon scans reveal inside the Great Pyramid in 2017?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A second burial chamber full of gold",
+          "correct": false,
+          "rationale": "They found empty space, not treasure."
+        },
+        {
+          "id": "b",
+          "label": "A big hidden void above the Grand Gallery",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A tunnel leading under the Sphinx",
+          "correct": false,
+          "rationale": "The void is inside the pyramid itself."
+        },
+        {
+          "id": "d",
+          "label": "Cracks that mean the pyramid is sinking",
+          "correct": false,
+          "rationale": "The scans mapped a void, not damage."
+        }
+      ],
+      "explanation": "The ScanPyramids team found a void at least 30 metres long above the Grand Gallery.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.modern_egyptology_tools"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.096.c3"
+      ],
+      "prompt": "How could researchers study Amenhotep I’s body without unwrapping his mummy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They lifted off the mask for a few minutes",
+          "correct": false,
+          "rationale": "The mask stayed on."
+        },
+        {
+          "id": "b",
+          "label": "They took samples through a small cut",
+          "correct": false,
+          "rationale": "The study was non-invasive."
+        },
+        {
+          "id": "c",
+          "label": "CT scans let them see inside the wrappings",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They read a description left by his embalmers",
+          "correct": false,
+          "rationale": "The details came from the scans."
+        }
+      ],
+      "explanation": "In 2021, CT scans digitally unwrapped the mummy, revealing his age, teeth and 30 amulets.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.modern_egyptology_tools",
+        "concept.ancient_egypt.black_red_land"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.096.c4",
+        "card.ancient_egypt.003.c3"
+      ],
+      "prompt": "Satellites spot buried mud-brick buildings in the desert. From Level 3, where could Egyptian cities flourish?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Anywhere in the red desert, far from floods",
+          "correct": false,
+          "rationale": "Cities needed water."
+        },
+        {
+          "id": "b",
+          "label": "Only in ports along the Mediterranean coast",
+          "correct": false,
+          "rationale": "The valley and Delta held the cities too."
+        },
+        {
+          "id": "c",
+          "label": "Only high in the mountains of the Sinai",
+          "correct": false,
+          "rationale": "Cities grew where there was water."
+        },
+        {
+          "id": "d",
+          "label": "Where there was water: valley, Delta or oasis",
+          "correct": true
+        }
+      ],
+      "explanation": "Cities could flourish only where there was water, so ancient sites cluster in the valley, the Delta and oases.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nature_scanpyramids_big_void",
+    "source.natcomms_khufu_corridor",
+    "source.frontiers_amenhotep_unwrapped",
+    "source.smithsonian_parcak_satellite"
+  ],
+  "art": "technology.satellite"
+}

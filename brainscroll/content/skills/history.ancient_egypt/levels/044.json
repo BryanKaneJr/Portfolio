@@ -1,0 +1,211 @@
+{
+  "id": "level.history.ancient_egypt.044",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Egyptian Math",
+  "objective": "After this level you can explain how Egyptians wrote numbers and measured land.",
+  "summary": "Egyptians repeated signs for 1, 10, 100 and 1,000, used unit fractions, and solved practical problems in the Rhind papyrus. Land lost to the river was measured for tax.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.egypt_math_numbers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.nile_flood",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.043"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.044.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "If the Nile swept away part of your field, did you still owe the full tax?",
+      "body": "Herodotus heard the Egyptian answer: no. But proving it took numbers, fractions and careful measuring."
+    },
+    {
+      "id": "card.ancient_egypt.044.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Counting with pictures",
+      "body": "Egyptians counted in tens, like you do, with a separate sign for 1, 10, 100, 1,000 and on up: a stroke, a cattle hobble, a coil of rope, a lotus flower. To write a number, you repeated each sign as many times as needed, so 300 was three coils of rope. Simple to read, but writing 999 took 27 signs.",
+      "callout": "1 stroke · 10 hobble · 100 rope · 1,000 lotus"
+    },
+    {
+      "id": "card.ancient_egypt.044.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Only one on top",
+      "body": "Fractions came with a rule: use unit fractions, the kind with 1 on top, like a half or a third. Need five-sixths? Write a half plus a third. The one big exception was two-thirds. The Rhind papyrus, now in the British Museum, opens with a long table of fractions to help with division, then works through 84 problems. It was copied in the 17th century BCE from a text about two centuries older."
+    },
+    {
+      "id": "card.ancient_egypt.044.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Measuring what the river took",
+      "body": "The Rhind problems are practical: sharing bread and beer as wages, working out the area of fields. Land mattered because of Level 2’s flood. Herodotus heard that a man who lost part of his field to the river could report it. The king sent men to measure how much was gone, and the tax shrank to match. Herodotus thought the Greeks learned land measuring from Egypt. Math, it turns out, started as a tax dispute."
+    },
+    {
+      "id": "card.ancient_egypt.044.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.044.q1"
+    },
+    {
+      "id": "card.ancient_egypt.044.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.044.q2"
+    },
+    {
+      "id": "card.ancient_egypt.044.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.044.q3"
+    },
+    {
+      "id": "card.ancient_egypt.044.c8",
+      "type": "checkpoint",
+      "headline": "Egyptian math: counted",
+      "learned": [
+        "Signs for 1, 10, 100 and 1,000 were repeated as needed",
+        "Fractions were unit fractions, plus two-thirds",
+        "The Rhind papyrus holds a fraction table and 84 problems",
+        "Land lost to the river was measured for tax"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.egypt_math_numbers"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.044.c2"
+      ],
+      "prompt": "Which hieroglyph did Egyptians use to write the number 100?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A single stroke",
+          "correct": false,
+          "rationale": "A stroke was 1."
+        },
+        {
+          "id": "b",
+          "label": "A cattle hobble",
+          "correct": false,
+          "rationale": "A hobble was 10."
+        },
+        {
+          "id": "c",
+          "label": "A coil of rope",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A lotus flower",
+          "correct": false,
+          "rationale": "A lotus was 1,000."
+        }
+      ],
+      "explanation": "A stroke was 1, a hobble 10, a coil of rope 100 and a lotus 1,000.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.egypt_math_numbers"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.044.c3"
+      ],
+      "prompt": "Using only unit fractions, how would an Egyptian scribe write five-sixths?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As a half plus a third",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "As five over six, like we do",
+          "correct": false,
+          "rationale": "Scribes used fractions with 1 on top."
+        },
+        {
+          "id": "c",
+          "label": "As five separate sixths in a row",
+          "correct": false,
+          "rationale": "Five separate sixths isn’t how they wrote it."
+        },
+        {
+          "id": "d",
+          "label": "As a lotus flower with a stroke",
+          "correct": false,
+          "rationale": "A lotus meant 1,000."
+        }
+      ],
+      "explanation": "Scribes wrote fractions as sums of fractions with 1 on top: a half plus a third makes five-sixths.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_egypt.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.egypt_math_numbers",
+        "concept.ancient_egypt.nile_flood"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.044.c4",
+        "card.ancient_egypt.002.c4"
+      ],
+      "prompt": "Level 2’s Herodotus called Egypt the gift of the river. What did he say the river could also do to a farmer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Double the size of his field in a good year",
+          "correct": false,
+          "rationale": "The river could take land, not double it."
+        },
+        {
+          "id": "b",
+          "label": "Carry away part of his land",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Wash away the tax records kept at the temple",
+          "correct": false,
+          "rationale": "Herodotus described land, not records."
+        },
+        {
+          "id": "d",
+          "label": "Shift the whole road to Memphis each year",
+          "correct": false,
+          "rationale": "His story was about fields."
+        }
+      ],
+      "explanation": "Herodotus wrote that a man robbed by the river of part of his land could have the loss measured and his tax lowered.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.perseus_herodotus_2_109",
+    "source.brit_egyptian_mathematics",
+    "source.maa_egyptian_numerals",
+    "source.britishmuseum_rhind_papyrus"
+  ],
+  "art": "rome.carved-stone"
+}

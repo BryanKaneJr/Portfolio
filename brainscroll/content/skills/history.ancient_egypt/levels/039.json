@@ -1,0 +1,235 @@
+{
+  "id": "level.history.ancient_egypt.039",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Amulets and the Scarab",
+  "objective": "After this level you can explain lucky charms like the scarab and the Eye of Horus.",
+  "summary": "The scarab stood for Khepri, who rolled the Sun like a dung ball: rebirth. Heart scarabs silenced the heart at judgment; the wedjat eye protected.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.afterlife_amulets",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.ra_sun_journey",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.osiris_isis_myth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.weighing_heart_judgment",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.mummification_method",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.038"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Egypt’s favorite lucky charm was a dung beetle.",
+      "body": "Not a lion. Not a falcon. A beetle that rolls balls of dung. To Egyptians, it carried one of the biggest ideas they had."
+    },
+    {
+      "id": "card.ancient_egypt.039.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The beetle that rolls the Sun",
+      "body": "Watch a scarab push its ball of dung along the ground, and Egyptians saw the god Khepri rolling the Sun across the sky. Khepri, the scarab god, stood for creation, rebirth and the morning sun: the Sun reborn after Ra’s night voyage through the underworld in Level 32. Young beetles even seemed to come out of the dung ball as if self-created. A small insect, a very big idea."
+    },
+    {
+      "id": "card.ancient_egypt.039.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A word with your heart",
+      "body": "Scarabs were the most numerous Egyptian amulets, and most were made for the living. But one kind went with the dead. A heart scarab, placed with the mummy, carried a Book of the Dead spell telling the heart not to stand up as a witness against its owner. Remember the scales in Level 36? This was insurance against your own heart telling on you.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Even your heart got a little pep talk before the big day."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.039.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The eye that healed",
+      "body": "Another favorite was the wedjat eye. In the myth from Level 33, Seth damaged Horus’s eye in their fight, and it was healed. Wedjat means “the sound one.” It became one of Egypt’s most popular amulets, used for protection by the living and the dead. Amulets like these were often tucked into a mummy’s linen wrappings: small charms for a long trip."
+    },
+    {
+      "id": "card.ancient_egypt.039.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.039.q1"
+    },
+    {
+      "id": "card.ancient_egypt.039.c6",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.039.q2"
+    },
+    {
+      "id": "card.ancient_egypt.039.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.039.q3"
+    },
+    {
+      "id": "card.ancient_egypt.039.c8",
+      "type": "checkpoint",
+      "headline": "Amulets: explained",
+      "learned": [
+        "The scarab stood for Khepri and the reborn sun",
+        "Scarabs were the most common amulets",
+        "Heart scarabs told the heart not to witness against its owner",
+        "The wedjat eye was Horus’s healed eye, a sign of protection"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.afterlife_amulets"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.039.c2"
+      ],
+      "prompt": "Which god did Egyptians link with the scarab beetle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Anubis",
+          "correct": false,
+          "rationale": "Anubis was a jackal."
+        },
+        {
+          "id": "b",
+          "label": "Khepri",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Seth",
+          "correct": false,
+          "rationale": "Seth was lord of the desert."
+        },
+        {
+          "id": "d",
+          "label": "Hathor",
+          "correct": false,
+          "rationale": "Hathor was pictured as a cow."
+        }
+      ],
+      "explanation": "Khepri, the scarab god of creation, rebirth and the morning sun, was pictured rolling the Sun like a dung ball.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.afterlife_amulets",
+        "concept.ancient_egypt.weighing_heart_judgment"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.039.c3"
+      ],
+      "prompt": "What was the spell on a heart scarab meant to do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Make the heart heavier than the feather",
+          "correct": false,
+          "rationale": "A heavy heart was the last thing you wanted."
+        },
+        {
+          "id": "b",
+          "label": "Keep the heart beating after death",
+          "correct": false,
+          "rationale": "It was about testimony, not heartbeats."
+        },
+        {
+          "id": "c",
+          "label": "Stop the heart from witnessing against its owner",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Turn the heart into a beetle",
+          "correct": false,
+          "rationale": "The scarab was just the shape of the amulet."
+        }
+      ],
+      "explanation": "Its Book of the Dead spell told the heart not to stand up as a witness against its owner at judgment.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.afterlife_amulets",
+        "concept.ancient_egypt.ra_sun_journey"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.039.c2",
+        "card.ancient_egypt.032.c3"
+      ],
+      "prompt": "Khepri stood for the reborn morning sun. In Level 32’s myth, what did Ra do overnight before being born again?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rested in a temple sanctuary",
+          "correct": false,
+          "rationale": "His night was anything but restful."
+        },
+        {
+          "id": "b",
+          "label": "Sailed the underworld and defeated the serpent Apophis",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Hid behind the Moon",
+          "correct": false,
+          "rationale": "He traveled through the underworld."
+        },
+        {
+          "id": "d",
+          "label": "Was weighed against a feather",
+          "correct": false,
+          "rationale": "That was the judgment of the dead."
+        }
+      ],
+      "explanation": "Ra sailed through the underworld each night and defeated Apophis, so the Sun could be reborn at dawn.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.mcclung_sacred_scarab",
+    "source.iu_lilly_scarabs_sun",
+    "source.brit_re",
+    "source.smarthistory_hunefer",
+    "source.bm_journey_afterlife",
+    "source.met_wedjat_amulet",
+    "source.brit_horus",
+    "source.australian_museum_mummification",
+    "source.usyd_mummification"
+  ],
+  "art": "egypt.scarab"
+}

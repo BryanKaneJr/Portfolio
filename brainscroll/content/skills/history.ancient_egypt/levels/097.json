@@ -1,0 +1,225 @@
+{
+  "id": "level.history.ancient_egypt.097",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 97,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Who Owns the Past?",
+  "objective": "After this level you can explain debates over returning ancient objects to Egypt.",
+  "summary": "Zahi Hawass wants the Rosetta Stone and Nefertiti bust returned; the museums in London and Berlin defend how they got them. Egypt opened the Grand Egyptian Museum in 2025.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.repatriation_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.rosetta_stone_find",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.tutankhamun_tomb_discovery",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.096"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.097.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Rosetta Stone has sat in London since 1802. Many want it back.",
+      "body": "Who should keep objects taken from Egypt long ago? It’s a real argument, and both sides have reasons. Here are both cases, who makes them, and one very large new building."
+    },
+    {
+      "id": "card.ancient_egypt.097.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The case for return",
+      "body": "In 2022, Zahi Hawass, Egypt’s former antiquities minister, launched a petition for the Rosetta Stone’s return that passed 100,000 signatures. He also wants the bust of Nefertiti back from Berlin and the Dendera Zodiac from the Louvre, saying these unique objects belong in Egypt. On Nefertiti he goes further: he argues the bust, found in 1912 and taken to Berlin in 1913, left Egypt illegally."
+    },
+    {
+      "id": "card.ancient_egypt.097.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The museums’ case",
+      "body": "The British Museum says the Rosetta Stone came to Britain under an 1801 treaty signed by a representative of Egypt. It adds that Egypt’s government has made no formal request, and that most known copies of the decree are already in Egypt. Berlin’s museum points out that the Nefertiti bust left through an official division of finds in 1913, overseen by an inspector of Egypt’s antiquities service. Same objects, very different stories.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "When two sides tell the same story differently, it helps to know exactly who is saying what."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.097.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A new home by the pyramids",
+      "body": "Egypt has also made its point in concrete. The Grand Egyptian Museum, near the Great Pyramid at Giza, officially opened on 1 November 2025 with about 100,000 artifacts. For the first time since its discovery, Tutankhamun’s entire collection is shown together. Remember Carter’s 5,398 numbered objects from Level 95? They’re finally all in one place."
+    },
+    {
+      "id": "card.ancient_egypt.097.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.097.q1"
+    },
+    {
+      "id": "card.ancient_egypt.097.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.097.q2"
+    },
+    {
+      "id": "card.ancient_egypt.097.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.097.q3"
+    },
+    {
+      "id": "card.ancient_egypt.097.c8",
+      "type": "checkpoint",
+      "headline": "Who owns the past: weighed",
+      "learned": [
+        "Hawass: the Rosetta Stone and Nefertiti belong in Egypt",
+        "British Museum: an 1801 treaty and no formal request",
+        "Berlin: an official division of finds in 1913",
+        "Grand Egyptian Museum opened at Giza in 2025"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.097.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.repatriation_debate"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.097.c4"
+      ],
+      "prompt": "Where did Egypt’s Grand Egyptian Museum open in November 2025?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In Alexandria, by the sea",
+          "correct": false,
+          "rationale": "It’s at Giza."
+        },
+        {
+          "id": "b",
+          "label": "Near the Great Pyramid at Giza",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "On the island of Philae",
+          "correct": false,
+          "rationale": "It’s at Giza, by the pyramids."
+        },
+        {
+          "id": "d",
+          "label": "In the Valley of the Kings",
+          "correct": false,
+          "rationale": "It’s near the Great Pyramid."
+        }
+      ],
+      "explanation": "The Grand Egyptian Museum stands near the Great Pyramid at Giza and opened on 1 November 2025.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.097.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.repatriation_debate",
+        "concept.ancient_egypt.rosetta_stone_find"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.097.c3"
+      ],
+      "prompt": "What reason does the British Museum give for keeping the Rosetta Stone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Champollion left it to the museum in his will",
+          "correct": false,
+          "rationale": "It came to Britain in 1801."
+        },
+        {
+          "id": "b",
+          "label": "Egypt’s government sold it to Britain in 1900",
+          "correct": false,
+          "rationale": "No sale is involved in the museum’s case."
+        },
+        {
+          "id": "c",
+          "label": "An 1801 treaty signed by a representative of Egypt",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is only a copy carved later in London",
+          "correct": false,
+          "rationale": "It’s the original ancient decree."
+        }
+      ],
+      "explanation": "The museum cites the 1801 treaty and notes that Egypt’s government has made no formal request.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.097.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.repatriation_debate",
+        "concept.ancient_egypt.tutankhamun_tomb_discovery"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.097.c4",
+        "card.ancient_egypt.095.c4"
+      ],
+      "prompt": "The Grand Egyptian Museum shows Tutankhamun’s whole collection together. From Level 95, how many objects did Carter’s team number?",
+      "options": [
+        {
+          "id": "a",
+          "label": "30",
+          "correct": false,
+          "rationale": "That’s the number of amulets in Amenhotep I’s wrappings."
+        },
+        {
+          "id": "b",
+          "label": "486",
+          "correct": false,
+          "rationale": "That’s the number of Greek words on the Rosetta Stone."
+        },
+        {
+          "id": "c",
+          "label": "1,419",
+          "correct": false,
+          "rationale": "That’s Champollion’s count of signs on the Rosetta Stone."
+        },
+        {
+          "id": "d",
+          "label": "5,398",
+          "correct": true
+        }
+      ],
+      "explanation": "Carter’s team numbered 5,398 objects, now shown together at the Grand Egyptian Museum.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_rosetta_stone",
+    "source.britishmuseum_rosetta_stone_blog",
+    "source.griffith_tutankhamun_object_numbers",
+    "source.brit_howard_carter",
+    "source.pbs_rosetta_return_petition",
+    "source.artnewspaper_hawass_return",
+    "source.aljazeera_nefertiti_petition",
+    "source.smb_nefertiti_partage",
+    "source.unesco_grand_egyptian_museum"
+  ],
+  "art": "arts.frame"
+}

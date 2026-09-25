@@ -1,0 +1,212 @@
+{
+  "id": "level.history.ancient_egypt.054",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Growing Up in Egypt",
+  "objective": "After this level you can describe childhood and schooling in ancient Egypt.",
+  "summary": "Children wore the sidelock of youth. Only elite children had a chance at schooling; most learned by apprenticeship, and fingerprints show children as young as ten working in workshops.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.daily_childhood",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.daily_bread_beer",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.053"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "How do you know a child worked in an ancient workshop? Check the fingerprints.",
+      "body": "Egyptian children left their marks in clay, in art and even in their hairstyles. Here’s what growing up by the Nile looked like."
+    },
+    {
+      "id": "card.ancient_egypt.054.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The hairstyle of childhood",
+      "body": "In Egyptian art you can spot a child at a glance. Children were often shown unclothed, with a single plait of hair hanging at the side of the head: the sidelock of youth, also called the Horus lock. Many are drawn with a finger to the mouth, sucking a thumb. Egyptian artists used a simple code: one braid, no clothes, thumb in mouth."
+    },
+    {
+      "id": "card.ancient_egypt.054.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "School for the few",
+      "body": "Most children never sat in a classroom. Only children from elite and royal families had the chance of some schooling. Everyone else learned by apprenticeship, watching and helping an adult at work. Girls’ education centred on home life, learned from their mothers. For most kids, the classroom was the kitchen, the field or the workshop."
+    },
+    {
+      "id": "card.ancient_egypt.054.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Small hands at work",
+      "body": "Children worked from a young age to help support their families. One job was pressing amulets into lumps of clay to make moulds. Fingerprints left in those moulds show that children as young as ten were working in workshops. And work meant pay the Egyptian way: in a land without coins, workers were often paid in food rations. Their work still carries their fingerprints.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "A fingerprint in clay: the closest thing archaeology has to a child’s signature."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.054.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.054.q1"
+    },
+    {
+      "id": "card.ancient_egypt.054.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.054.q2"
+    },
+    {
+      "id": "card.ancient_egypt.054.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.054.q3"
+    },
+    {
+      "id": "card.ancient_egypt.054.c8",
+      "type": "checkpoint",
+      "headline": "Childhood: remembered",
+      "learned": [
+        "Children wore the sidelock of youth",
+        "Only elite children had a chance at schooling",
+        "Most learned by apprenticeship; girls learned home life from mothers",
+        "Fingerprints show children as young as ten at work"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.daily_childhood"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.054.c2"
+      ],
+      "prompt": "In Egyptian art, which hairstyle marks a figure as a child?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A shaved head under a heavy wig",
+          "correct": false,
+          "rationale": "Children wore a single side plait."
+        },
+        {
+          "id": "b",
+          "label": "The sidelock of youth, a single plait at the side",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Two long braids down the back",
+          "correct": false,
+          "rationale": "It was one plait, at the side of the head."
+        },
+        {
+          "id": "d",
+          "label": "A tall cone of hair on top",
+          "correct": false,
+          "rationale": "Children are shown with the sidelock of youth."
+        }
+      ],
+      "explanation": "The sidelock of youth, or Horus lock, was a single plait at the side of a child’s head.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.daily_childhood"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.054.c4"
+      ],
+      "prompt": "How do archaeologists know children as young as ten worked in Egyptian workshops?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From school attendance lists",
+          "correct": false,
+          "rationale": "The evidence is physical, not written."
+        },
+        {
+          "id": "b",
+          "label": "From fingerprints left in clay moulds",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "From child-sized statues of workers",
+          "correct": false,
+          "rationale": "The clue is in the clay itself."
+        },
+        {
+          "id": "d",
+          "label": "From laws setting a working age",
+          "correct": false,
+          "rationale": "No such law is the source here."
+        }
+      ],
+      "explanation": "Fingerprints pressed into clay amulet moulds show children as young as ten at work.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.daily_childhood",
+        "concept.ancient_egypt.daily_bread_beer"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.054.c4",
+        "card.ancient_egypt.052.c3"
+      ],
+      "prompt": "Growing up in Egypt meant work for most children. From Level 52, how were Egyptian workers often paid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In silver coins",
+          "correct": false,
+          "rationale": "Egypt didn’t use coins."
+        },
+        {
+          "id": "b",
+          "label": "In paper money",
+          "correct": false,
+          "rationale": "Egypt had no paper money."
+        },
+        {
+          "id": "c",
+          "label": "In food rations",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They were never paid",
+          "correct": false,
+          "rationale": "Workers and household staff were paid, usually in food."
+        }
+      ],
+      "explanation": "Without coins, workers and household staff were often paid in food rations.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ees_childhood_egypt",
+    "source.met_food_feasts_egypt"
+  ],
+  "art": "egypt.scribe-palette"
+}

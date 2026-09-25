@@ -1,0 +1,214 @@
+{
+  "id": "level.history.ancient_egypt.024",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Great Pyramid",
+  "objective": "After this level you can describe the Great Pyramid of Giza and its size.",
+  "summary": "Khufu’s Great Pyramid was about 146 m tall, built of some 2.3 million blocks, and the tallest human-made structure for about 3,800 years.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.great_pyramid_giza",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.sneferu_true_pyramid",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.023"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For about 3,800 years, nothing people built stood taller.",
+      "body": "Not a temple, not a tower, not a city wall, anywhere on Earth. So what exactly did Sneferu’s son put up at Giza?"
+    },
+    {
+      "id": "card.ancient_egypt.024.c2",
+      "type": "fact",
+      "fact": "The Great Pyramid was originally about 146 m tall.",
+      "context": "It was built for Khufu, second king of the 4th dynasty, and finished in the early 25th century BCE. For an estimated 3,800 years it was the tallest structure humans had made. It is a little shorter today, and the reason is on its surface."
+    },
+    {
+      "id": "card.ancient_egypt.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A mountain of blocks",
+      "body": "About 2.3 million blocks of stone were cut, moved and fitted together to build it. Each side of the base runs about 230 m. Stroll once around the bottom and you’ve walked about 920 m, nearly a kilometer, without going up a single step.",
+      "callout": "About 2.3 million blocks"
+    },
+    {
+      "id": "card.ancient_egypt.024.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "It used to shine",
+      "body": "The rough, stepped surface in today’s photos isn’t what Egyptians saw. Polished limestone casing stones once made the sides smooth and gleaming. Most of that casing was later removed, and together with erosion, that’s why the pyramid is shorter now. It has outlasted the whole list it belongs to: of the Seven Wonders of the ancient world, the pyramids of Giza are the only one still standing.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Six wonders gone. The pyramids are still here, looking unbothered."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.024.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.024.q1"
+    },
+    {
+      "id": "card.ancient_egypt.024.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.024.q2"
+    },
+    {
+      "id": "card.ancient_egypt.024.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.024.q3"
+    },
+    {
+      "id": "card.ancient_egypt.024.c8",
+      "type": "checkpoint",
+      "headline": "The Great Pyramid: measured",
+      "learned": [
+        "Built for Khufu, about 146 m tall",
+        "Tallest human-made structure for about 3,800 years",
+        "About 2.3 million blocks; sides about 230 m",
+        "The last of the Seven Wonders still standing"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.great_pyramid_giza"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.024.c2"
+      ],
+      "prompt": "About how tall was the Great Pyramid of Giza when it was finished?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 60 m",
+          "correct": false,
+          "rationale": "That’s Djoser’s Step Pyramid."
+        },
+        {
+          "id": "b",
+          "label": "About 146 m",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 300 m",
+          "correct": false,
+          "rationale": "That’s about twice as tall."
+        },
+        {
+          "id": "d",
+          "label": "About 830 m",
+          "correct": false,
+          "rationale": "That’s more than five times too tall."
+        }
+      ],
+      "explanation": "The Great Pyramid originally stood about 146 m tall.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.great_pyramid_giza"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.024.c4"
+      ],
+      "prompt": "Why is the Great Pyramid shorter today than when it was built?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sank into the sand over time",
+          "correct": false,
+          "rationale": "It lost height from the outside."
+        },
+        {
+          "id": "b",
+          "label": "Its builders stopped before the top",
+          "correct": false,
+          "rationale": "It was finished at about 146 m."
+        },
+        {
+          "id": "c",
+          "label": "Most of its casing stones were removed, and it eroded",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "An invading army knocked off the top",
+          "correct": false,
+          "rationale": "The losses came from casing removal and erosion."
+        }
+      ],
+      "explanation": "The polished casing stones were mostly taken away and the surface has eroded.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.great_pyramid_giza",
+        "concept.ancient_egypt.sneferu_true_pyramid"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.024.c2",
+        "card.ancient_egypt.023.c4"
+      ],
+      "prompt": "Khufu built the Great Pyramid. Which king, his father, had worked out the true pyramid before him?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Djoser",
+          "correct": false,
+          "rationale": "He built the Step Pyramid, much earlier."
+        },
+        {
+          "id": "b",
+          "label": "Menes",
+          "correct": false,
+          "rationale": "He is the legendary first king."
+        },
+        {
+          "id": "c",
+          "label": "Perneb",
+          "correct": false,
+          "rationale": "He was an official with a mastaba."
+        },
+        {
+          "id": "d",
+          "label": "Sneferu",
+          "correct": true
+        }
+      ],
+      "explanation": "Sneferu’s Bent and Red Pyramids taught the lessons his son Khufu used at Giza.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_great_pyramid_tallest",
+    "source.brit_great_pyramid",
+    "source.brit_pyramids_giza",
+    "source.whe_great_pyramid"
+  ],
+  "art": "geo.pyramids"
+}

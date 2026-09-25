@@ -1,0 +1,216 @@
+{
+  "id": "level.history.ancient_egypt.067",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Nefertiti",
+  "objective": "After this level you can describe Nefertiti's role and her famous portrait bust.",
+  "summary": "Nefertiti, Akhenaten’s queen, appears in art with a royal role. Her bust was found at Amarna in 1912; whether she later ruled as co-regent is debated.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.newkingdom_nefertiti",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.newkingdom_akhenaten_aten",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.066"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Nefertiti’s famous bust has only one inlaid eye. Nobody knows for certain why.",
+      "body": "That missing eye is just one of the mysteries around Akhenaten’s queen."
+    },
+    {
+      "id": "card.ancient_egypt.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Beside the king",
+      "body": "Nefertiti was Akhenaten’s queen, and she was never in the background. She worshipped the Aten alongside him and was shown at the same scale as the king. Some scenes even show her smiting Egypt’s enemies, a motif previously reserved for the pharaoh. Her name is usually translated “a beautiful woman has come.”"
+    },
+    {
+      "id": "card.ancient_egypt.067.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The bust",
+      "body": "On 6 December 1912, a German team led by Ludwig Borchardt found a painted limestone bust of Nefertiti at Amarna, in the workshop of the sculptor Thutmose. It is now in the Neues Museum in Berlin. Only the right eye has an inlay, and many think the bust was a model kept in the workshop for sculptors to copy. A masterpiece that may have been a reference sheet.",
+      "callout": "Found in a sculptor’s workshop, not a tomb"
+    },
+    {
+      "id": "card.ancient_egypt.067.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Queen, co-ruler or king?",
+      "body": "What Nefertiti did later is one of Egypt’s great debates. Some scholars think she ruled beside Akhenaten as co-regent, or even as king under another name. Others disagree, and the evidence is not conclusive. The face everyone recognizes belongs to a woman nobody can fully place.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "When the clues run out, “we don’t know yet” is a perfectly good answer."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.067.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.067.q1"
+    },
+    {
+      "id": "card.ancient_egypt.067.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.067.q2"
+    },
+    {
+      "id": "card.ancient_egypt.067.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.067.q3"
+    },
+    {
+      "id": "card.ancient_egypt.067.c8",
+      "type": "checkpoint",
+      "headline": "Nefertiti: met",
+      "learned": [
+        "Akhenaten’s queen, shown with a royal role",
+        "Her bust was found at Amarna in 1912",
+        "It is in Berlin, with only one inlaid eye",
+        "Whether she later ruled is debated"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.newkingdom_nefertiti"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.067.c3"
+      ],
+      "prompt": "Where was Nefertiti’s painted bust found in 1912?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In her tomb in the Valley of the Kings",
+          "correct": false,
+          "rationale": "It wasn’t in a tomb at all."
+        },
+        {
+          "id": "b",
+          "label": "Inside Karnak temple at Thebes",
+          "correct": false,
+          "rationale": "It was found at Amarna."
+        },
+        {
+          "id": "c",
+          "label": "In the workshop of the sculptor Thutmose at Amarna",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "In a palace storeroom in Memphis",
+          "correct": false,
+          "rationale": "It came from a sculptor’s workshop at Amarna."
+        }
+      ],
+      "explanation": "A German team found it at Amarna in the workshop of the sculptor Thutmose.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.newkingdom_nefertiti"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.067.c4"
+      ],
+      "prompt": "Why can’t historians say for sure whether Nefertiti ruled as co-regent?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The evidence for it is not conclusive",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Her name was never written down",
+          "correct": false,
+          "rationale": "Her name is well known."
+        },
+        {
+          "id": "c",
+          "label": "Her bust shows her wearing a king’s crown",
+          "correct": false,
+          "rationale": "The bust doesn’t settle the question."
+        },
+        {
+          "id": "d",
+          "label": "She died before Akhenaten became king",
+          "correct": false,
+          "rationale": "She was his queen during his reign."
+        }
+      ],
+      "explanation": "Some scholars think she co-ruled or ruled as king under another name; others disagree, and the evidence is inconclusive.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.newkingdom_nefertiti",
+        "concept.ancient_egypt.newkingdom_akhenaten_aten"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.067.c3",
+        "card.ancient_egypt.066.c3"
+      ],
+      "prompt": "Nefertiti’s bust was found at Amarna. From Level 66, what was that city in Akhenaten’s day?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Avaris, the Hyksos capital",
+          "correct": false,
+          "rationale": "Avaris was in the eastern Delta."
+        },
+        {
+          "id": "b",
+          "label": "Thebes, city of Amun",
+          "correct": false,
+          "rationale": "Akhenaten left Thebes behind."
+        },
+        {
+          "id": "c",
+          "label": "Memphis, the old capital",
+          "correct": false,
+          "rationale": "He built somewhere new."
+        },
+        {
+          "id": "d",
+          "label": "Akhetaten, his new capital for the Aten",
+          "correct": true
+        }
+      ],
+      "explanation": "Akhenaten built Akhetaten, “Horizon of the Aten,” on empty ground; today the site is called Amarna.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_nefertiti",
+    "source.arce_nefertiti",
+    "source.smb_nefertiti_bust",
+    "source.smarthistory_nefertiti_bust",
+    "source.brit_tell_el_amarna"
+  ],
+  "art": "rome.cobra-diadem"
+}

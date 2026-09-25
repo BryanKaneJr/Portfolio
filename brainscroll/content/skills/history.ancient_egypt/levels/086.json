@@ -1,0 +1,214 @@
+{
+  "id": "level.history.ancient_egypt.086",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Alexandria",
+  "objective": "After this level you can describe Alexandria’s lighthouse and library.",
+  "summary": "Alexandria’s Pharos lighthouse was one of the Seven Wonders, and its library tried to collect every book in the world. The library faded slowly over centuries, not in one fire.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.alexandria_lighthouse_library",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.alexander_takes_egypt",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.085"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One city had antiquity’s most famous lighthouse and its most famous library.",
+      "body": "One burned a fire every night. The other, whatever you’ve heard, didn’t vanish in one great blaze."
+    },
+    {
+      "id": "card.ancient_egypt.086.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A tower with a fire on top",
+      "body": "On the island of Pharos stood a lighthouse finished in about 280 BCE, one of the Seven Wonders of the World. It rose more than 110 metres; only the pyramids of Giza would have been taller. A spiral ramp led to the top, where a fire burned at night. It stood until an earthquake in the 1300s, and in 1477 a sultan, Qaitbay, built a fort from its ruins. Ancient recycling, on a grand scale."
+    },
+    {
+      "id": "card.ancient_egypt.086.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "All the books in the world",
+      "body": "Around 295 BCE, Ptolemy I had Demetrius of Phaleron found a library and the Mouseion, a research institute for scholars. The goal: all the books in the world. Ships entering Alexandria’s harbor were searched, and books found aboard were confiscated or copied for the collection. Imagine landing at an airport and having your paperback copied at customs."
+    },
+    {
+      "id": "card.ancient_egypt.086.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A slow goodbye, not one fire",
+      "body": "The popular story is one great fire. The evidence is messier. In 48 BCE, during Julius Caesar’s civil war, at least part of the library was damaged, yet scholars seem to have kept working there. Historians describe a slow decline through neglect and several blows over centuries, and they still debate the causes. A later tale blaming the Arab conquerors is, modern historians say, a myth. No single villain, no single night.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Big fires make great stories. Slow neglect makes real history."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.086.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.086.q1"
+    },
+    {
+      "id": "card.ancient_egypt.086.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.086.q2"
+    },
+    {
+      "id": "card.ancient_egypt.086.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.086.q3"
+    },
+    {
+      "id": "card.ancient_egypt.086.c8",
+      "type": "checkpoint",
+      "headline": "Alexandria: met",
+      "learned": [
+        "The Pharos lighthouse was one of the Seven Wonders",
+        "The library aimed to collect every book, even from ships",
+        "Caesar’s war damaged part of the library in 48 BCE",
+        "It declined slowly; the single-fire story is a myth"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.alexandria_lighthouse_library"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.086.c2"
+      ],
+      "prompt": "What made the Pharos of Alexandria stand out in its day?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the tomb built for Alexander the Great",
+          "correct": false,
+          "rationale": "It was a lighthouse on Pharos island."
+        },
+        {
+          "id": "b",
+          "label": "It held the library’s scrolls in its tower",
+          "correct": false,
+          "rationale": "The library was a separate institution."
+        },
+        {
+          "id": "c",
+          "label": "It was over 110 metres tall, with a fire on top",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It was the main temple of the god Serapis",
+          "correct": false,
+          "rationale": "It was a lighthouse, not a temple."
+        }
+      ],
+      "explanation": "The lighthouse rose more than 110 metres, with a fire burning at the top at night; it was one of the Seven Wonders.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.alexandria_lighthouse_library"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.086.c4"
+      ],
+      "prompt": "Why do historians reject the idea that the Library of Alexandria vanished in one great fire?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The evidence points to a slow decline over centuries",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The library was never damaged at all",
+          "correct": false,
+          "rationale": "Caesar’s war damaged at least part of it."
+        },
+        {
+          "id": "c",
+          "label": "The whole library was shipped to Rome intact",
+          "correct": false,
+          "rationale": "It declined in Alexandria."
+        },
+        {
+          "id": "d",
+          "label": "The library never really existed",
+          "correct": false,
+          "rationale": "Its founding is well recorded."
+        }
+      ],
+      "explanation": "Part of it was damaged in 48 BCE, but scholars kept working; it faded through neglect and several blows, for debated reasons.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_egypt.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.alexandria_lighthouse_library",
+        "concept.ancient_egypt.alexander_takes_egypt"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.086.c2",
+        "card.ancient_egypt.085.c4"
+      ],
+      "prompt": "Alexandria’s lighthouse stood on Pharos. In Level 85, what role did that island play when Alexander founded the city?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was where Alexander was crowned",
+          "correct": false,
+          "rationale": "He was crowned at Memphis."
+        },
+        {
+          "id": "b",
+          "label": "It sheltered the new city’s site",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It held the oracle of Amun",
+          "correct": false,
+          "rationale": "The oracle was in the Siwa oasis."
+        },
+        {
+          "id": "d",
+          "label": "It was where Alexander died",
+          "correct": false,
+          "rationale": "He died in Babylon."
+        }
+      ],
+      "explanation": "Alexander chose a site between the sea and Lake Mareotis, protected by the island of Pharos.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_pharos_lighthouse",
+    "source.brit_library_alexandria",
+    "source.brit_ptolemy_i_soter",
+    "source.natgeo_library_alexandria"
+  ],
+  "art": "geo.lighthouse"
+}

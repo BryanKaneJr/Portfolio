@@ -1,0 +1,217 @@
+{
+  "id": "level.history.ancient_egypt.028",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pyramid Towns",
+  "objective": "After this level you can describe the workers' towns near the pyramids.",
+  "summary": "South of the Sphinx lay the builders’ town: galleries for crews serving their term, bakeries and silos, and meat enough to feed thousands.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.pyramid_workers_town",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.pyramid_builders_workers",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.027"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Thousands of people built the pyramids. Where did they sleep?",
+      "body": "And who cooked dinner? In 1988, a team led by Mark Lehner started finding out, just south of the Sphinx."
+    },
+    {
+      "id": "card.ancient_egypt.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Lost City",
+      "body": "About 400 m south of the Sphinx, Lehner and AERA found a large settlement: the base for building the pyramid complexes of Menkaure, Khafre and probably Khufu. Laborers, craftsmen, managers and administrators all lived there. It sits by a huge stone wall known in Arabic as Heit el-Ghurab, the “Wall of the Crow.” Archaeologists call it the Lost City of the Pyramids. It was a company town, and the company was the king."
+    },
+    {
+      "id": "card.ancient_egypt.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bunks for a crew",
+      "body": "Long buildings called galleries run through the town. Each may have housed a za, a crew of 40 men, while they served their term of compulsory work for the king. That fits Level 25’s picture: crews rotating in, doing their stint, and going home. Think dormitory, not dungeon.",
+      "callout": "One gallery, one crew of 40"
+    },
+    {
+      "id": "card.ancient_egypt.028.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bread, beer and beef",
+      "body": "The town ran on food. Its streets were lined with bakeries, kitchens and warehouses, and royal silos held the grain for bread and beer. Animal bones suggest that on average more than 4,000 pounds of cattle, sheep and goat meat was slaughtered every day. The gallery crews ate mostly sheep and goat. Nobody hauls stone on an empty stomach.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Pyramids were built on bread and beer. Also on a very serious amount of mutton."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.028.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.028.q1"
+    },
+    {
+      "id": "card.ancient_egypt.028.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.028.q2"
+    },
+    {
+      "id": "card.ancient_egypt.028.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.028.q3"
+    },
+    {
+      "id": "card.ancient_egypt.028.c8",
+      "type": "checkpoint",
+      "headline": "The pyramid town: visited",
+      "learned": [
+        "The Lost City lies south of the Sphinx",
+        "Galleries housed crews of 40",
+        "Bakeries and royal silos fed the workforce",
+        "Thousands of pounds of meat a day"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.pyramid_workers_town"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.028.c3"
+      ],
+      "prompt": "What were the long “galleries” in the Lost City of the Pyramids probably used for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Storing the king’s treasure",
+          "correct": false,
+          "rationale": "They were for people."
+        },
+        {
+          "id": "b",
+          "label": "Displaying statues of the gods",
+          "correct": false,
+          "rationale": "They were living quarters."
+        },
+        {
+          "id": "c",
+          "label": "Housing crews of workers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Holding slaves in chains",
+          "correct": false,
+          "rationale": "The crews were serving a term of work."
+        }
+      ],
+      "explanation": "Each gallery may have housed a za, a crew of 40 men, during their term of work.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.pyramid_workers_town"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.028.c4"
+      ],
+      "prompt": "What do the Lost City’s bakeries, silos and animal bones tell us about how the builders lived?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were fed on a huge, organized scale",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They grew their own food between shifts",
+          "correct": false,
+          "rationale": "Food was supplied from bakeries and silos."
+        },
+        {
+          "id": "c",
+          "label": "They ate almost nothing while working",
+          "correct": false,
+          "rationale": "The bones show lots of meat."
+        },
+        {
+          "id": "d",
+          "label": "They lived only on fish from the Nile",
+          "correct": false,
+          "rationale": "The bones are cattle, sheep and goat."
+        }
+      ],
+      "explanation": "Bakeries, royal silos and more than 4,000 pounds of meat a day show an organized system feeding the workforce.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.pyramid_workers_town",
+        "concept.ancient_egypt.pyramid_builders_workers"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.028.c3",
+        "card.ancient_egypt.025.c3"
+      ],
+      "prompt": "A gallery crew served a term of work for the king. How does that fit what Level 25 found about the builders?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It shows they were foreign prisoners of war",
+          "correct": false,
+          "rationale": "They were Egyptians."
+        },
+        {
+          "id": "b",
+          "label": "It shows they were called up in rotating terms, not enslaved",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It shows they worked for no reward",
+          "correct": false,
+          "rationale": "They were paid for their work."
+        },
+        {
+          "id": "d",
+          "label": "It shows only priests built the pyramids",
+          "correct": false,
+          "rationale": "The crews were ordinary workers."
+        }
+      ],
+      "explanation": "Both the town and the cemetery point to Egyptians called up to serve rotating terms, paid and fed.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.aera_fieldwork",
+    "source.aera_lost_city",
+    "source.hawass_builders_tombs",
+    "source.aera_home",
+    "source.whe_great_pyramid",
+    "source.nbc_feeding_pyramid_builders"
+  ],
+  "art": "rome.amphora"
+}

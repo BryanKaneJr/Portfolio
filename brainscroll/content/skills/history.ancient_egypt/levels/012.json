@@ -1,0 +1,224 @@
+{
+  "id": "level.history.ancient_egypt.012",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Crook and Flail",
+  "objective": "After this level you can explain the symbols of royal power.",
+  "summary": "The crook began as a herdsman’s staff; the flail’s meaning is unclear. With the nemes, the uraeus cobra, the royal beard and the crowns, regalia made the office visible.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.royal_regalia",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.two_lands",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.pharaoh_role",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.011"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Egypt’s kings carried a herdsman’s staff. The other prop is still a mystery.",
+      "body": "Egypt’s kings held a crook and a flail. One has a clear meaning. The other is still an argument."
+    },
+    {
+      "id": "card.ancient_egypt.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The king as herdsman",
+      "body": "The crook began as a herdsman’s staff, a long stick curved at one end. It became a sign of kingship through a simple picture: the king as the herdsman of his people. So Egypt’s ruler was, officially, a shepherd. His flock just happened to be a whole country.",
+      "callout": "Crook: the king as herdsman of his people"
+    },
+    {
+      "id": "card.ancient_egypt.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The mystery flail",
+      "body": "Remember the Narmer Palette from Level 8? The flail already appears on it, and it kept roughly that shape for the rest of Egyptian history. Yet nobody knows for sure what it meant. It has been read as a herdsman’s whip, a symbol of birth, or a tool for gathering a sticky resin called labdanum. The god Osiris holds both: crook in one hand, flail in the other.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Carried by king after king, and its meaning still slipped away. Egypt keeps a few secrets."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.012.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dressed as the office",
+      "body": "The props came with an outfit. Royal regalia included crowns, headcloths, the royal beard, even an animal tail. The nemes was a folded headcloth whose two lappets fell onto the chest. On the forehead reared the uraeus, a cobra that was the goddess Wadjet, protector of Lower Egypt. Add Level 6’s white or red crown, and nobody could mistake who was king."
+    },
+    {
+      "id": "card.ancient_egypt.012.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.012.q1"
+    },
+    {
+      "id": "card.ancient_egypt.012.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.012.q2"
+    },
+    {
+      "id": "card.ancient_egypt.012.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.012.q3"
+    },
+    {
+      "id": "card.ancient_egypt.012.c8",
+      "type": "checkpoint",
+      "headline": "Crook and flail: decoded",
+      "learned": [
+        "Crook: a herdsman’s staff, the king as herdsman",
+        "Flail: already on the Narmer Palette; meaning unclear",
+        "Nemes headcloth, uraeus cobra (Wadjet) and royal beard",
+        "Regalia made the office visible"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.royal_regalia"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.012.c2"
+      ],
+      "prompt": "What did the royal crook start out as?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A spear used in battle",
+          "correct": false,
+          "rationale": "It was a farming tool, not a weapon."
+        },
+        {
+          "id": "b",
+          "label": "A herdsman’s staff",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A rod for measuring the flood",
+          "correct": false,
+          "rationale": "That was a different job entirely."
+        },
+        {
+          "id": "d",
+          "label": "A priest’s writing reed",
+          "correct": false,
+          "rationale": "It was a long staff curved at one end."
+        }
+      ],
+      "explanation": "The crook was a herdsman’s staff that came to stand for the king as herdsman of his people.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.royal_regalia"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.012.c3"
+      ],
+      "prompt": "Why do Egyptologists disagree about the royal flail?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its original meaning is unclear",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was invented by modern artists",
+          "correct": false,
+          "rationale": "It already appears on the Narmer Palette."
+        },
+        {
+          "id": "c",
+          "label": "No picture of it survives",
+          "correct": false,
+          "rationale": "It appears on the Narmer Palette and in images of Osiris."
+        },
+        {
+          "id": "d",
+          "label": "Only foreign kings carried it",
+          "correct": false,
+          "rationale": "It was Egyptian royal regalia."
+        }
+      ],
+      "explanation": "It has been read as a herdsman’s whip, a birth symbol or a tool for gathering labdanum; nobody knows for sure.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.royal_regalia",
+        "concept.ancient_egypt.two_lands"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.012.c4",
+        "card.ancient_egypt.006.c3"
+      ],
+      "prompt": "The uraeus cobra was Wadjet, protector of Lower Egypt. From Level 6, which crown belonged to Lower Egypt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The white crown",
+          "correct": false,
+          "rationale": "That was Upper Egypt’s crown."
+        },
+        {
+          "id": "b",
+          "label": "The blue crown",
+          "correct": false,
+          "rationale": "Level 6’s two crowns were white and red."
+        },
+        {
+          "id": "c",
+          "label": "The red crown",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The nemes headcloth",
+          "correct": false,
+          "rationale": "The nemes was a headcloth, not a land’s crown."
+        }
+      ],
+      "explanation": "Lower Egypt’s crown was the red one; Upper Egypt’s was white.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.gem_crook",
+    "source.gem_flagellum",
+    "source.brit_osiris",
+    "source.gem_regalia",
+    "source.gem_nemes",
+    "source.gem_uraeus",
+    "source.brit_crowns_egypt",
+    "source.met_egypt_educators"
+  ],
+  "art": "egypt.crook-flail"
+}

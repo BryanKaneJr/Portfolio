@@ -1,0 +1,237 @@
+{
+  "id": "level.history.ancient_egypt.037",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Book of the Dead",
+  "objective": "After this level you can explain what the Book of the Dead was for.",
+  "summary": "The Book of the Dead was a papyrus roll of spells to protect the dead. It grew from the royal Pyramid Texts and the Coffin Texts and was bought for burials.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.book_of_dead_spells",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.weighing_heart_judgment",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.egypt_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.036"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Book of the Dead wasn’t a book, and Egyptians didn’t call it that.",
+      "body": "It was a roll of spells: a guidebook and protection kit for the hardest journey an Egyptian expected to make."
+    },
+    {
+      "id": "card.ancient_egypt.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Spells for the road",
+      "body": "Its Egyptian title was “The Chapters of Coming Forth by Day.” It collected spells placed in tombs to protect and help the dead; about 200 are known. Some kept you from losing your head or your heart. Others protected you from snakes, crocodiles and insects along the way. Spell 125 covered the judgment before Osiris from Level 36. An exam, with the answers packed in the luggage."
+    },
+    {
+      "id": "card.ancient_egypt.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Standard or deluxe?",
+      "body": "Scribes copied the spells onto rolls of papyrus, often colorfully illustrated, and sold them for burials. No papyrus contains every spell. You could buy a ready-made copy with blank spaces for your name, or pay more and probably choose your own spells. On papyrus, the spells reached far more people than ever before, though a fine illustrated copy was expensive. Afterlife insurance came in standard and deluxe.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Fill in your name here. Eternity, now in convenient scroll form."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.037.c4",
+      "type": "timeline",
+      "headline": "From kings’ walls to papyrus rolls",
+      "events": [
+        {
+          "when": "Old Kingdom, about 2686–2160 BCE",
+          "label": "Pyramid Texts, written inside pyramids for kings"
+        },
+        {
+          "when": "Middle Kingdom, about 2055–1650 BCE",
+          "label": "Coffin Texts, mostly on coffins of officials and nobles"
+        },
+        {
+          "when": "16th century BCE",
+          "label": "The Book of the Dead is probably compiled"
+        },
+        {
+          "when": "New Kingdom, about 1550–1069 BCE",
+          "label": "Papyrus rolls of spells go into tombs"
+        }
+      ]
+    },
+    {
+      "id": "card.ancient_egypt.037.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.037.q1"
+    },
+    {
+      "id": "card.ancient_egypt.037.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.037.q2"
+    },
+    {
+      "id": "card.ancient_egypt.037.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.037.q3"
+    },
+    {
+      "id": "card.ancient_egypt.037.c8",
+      "type": "checkpoint",
+      "headline": "The Book of the Dead: opened",
+      "learned": [
+        "A roll of spells to protect and help the dead",
+        "About 200 spells; no copy has them all",
+        "Ready-made copies had blanks for a name",
+        "It grew from the Pyramid Texts and Coffin Texts"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.book_of_dead_spells"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.037.c2"
+      ],
+      "prompt": "What was the Egyptian Book of the Dead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A list of everyone buried in a cemetery",
+          "correct": false,
+          "rationale": "It held spells, not names of the buried."
+        },
+        {
+          "id": "b",
+          "label": "A collection of spells to protect and help the dead",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A history of Egypt’s kings",
+          "correct": false,
+          "rationale": "That would be a king list."
+        },
+        {
+          "id": "d",
+          "label": "A handbook for embalmers",
+          "correct": false,
+          "rationale": "It was for the dead themselves."
+        }
+      ],
+      "explanation": "It was a collection of spells placed in tombs to protect and help the dead in the afterlife.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_egypt.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.book_of_dead_spells"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.037.c3",
+        "card.ancient_egypt.037.c4"
+      ],
+      "prompt": "Why could far more Egyptians own afterlife spells once they were written on papyrus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Papyrus rolls could be bought, unlike pyramid walls",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The government handed them out free",
+          "correct": false,
+          "rationale": "Copies were sold, and fine ones were expensive."
+        },
+        {
+          "id": "c",
+          "label": "The spells became shorter and easier to memorize",
+          "correct": false,
+          "rationale": "About 200 spells were known."
+        },
+        {
+          "id": "d",
+          "label": "Only kings were allowed to die",
+          "correct": false,
+          "rationale": "Everyone died; the question was who had spells."
+        }
+      ],
+      "explanation": "Pyramid Texts were for kings and Coffin Texts for officials and nobles; papyrus copies were sold to anyone who could pay.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_egypt.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.book_of_dead_spells",
+        "concept.ancient_egypt.egypt_eras"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.037.c4",
+        "card.ancient_egypt.001.c2"
+      ],
+      "prompt": "Egypt’s oldest afterlife spells, the Pyramid Texts, were written in which of Level 1’s great kingdoms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Old Kingdom",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Middle Kingdom",
+          "correct": false,
+          "rationale": "That was the age of the Coffin Texts."
+        },
+        {
+          "id": "c",
+          "label": "The New Kingdom",
+          "correct": false,
+          "rationale": "That was the age of papyrus rolls."
+        },
+        {
+          "id": "d",
+          "label": "The Roman province",
+          "correct": false,
+          "rationale": "Far too late."
+        }
+      ],
+      "explanation": "The Pyramid Texts were written inside Old Kingdom pyramids, the age of the great pyramids.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_book_of_dead",
+    "source.australian_museum_funerary_texts",
+    "source.bm_what_book_dead",
+    "source.fitzwilliam_ramose_spell125",
+    "source.oup_oxford_history_egypt"
+  ],
+  "art": "rome.scroll"
+}

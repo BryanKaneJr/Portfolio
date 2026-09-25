@@ -1,0 +1,210 @@
+{
+  "id": "level.history.ancient_egypt.034",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Temples",
+  "objective": "After this level you can explain what happened inside Egyptian temples.",
+  "summary": "A temple was a god’s house, the god living in a statue in a dark sanctuary. Priests dressed and fed it daily; ordinary people saw it at festivals.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.temple_god_house",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.ra_sun_journey",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.033"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "An Egyptian temple wasn’t built for crowds. It was built for one resident.",
+      "body": "Egyptians believed the god actually lived there. And like any honored resident, the god expected to be dressed and served breakfast."
+    },
+    {
+      "id": "card.ancient_egypt.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A house for a god",
+      "body": "A temple was a house for its god, and Egyptians believed the god lived within its statue, kept in a shrine deep inside. Walk in from the gate and the building closed in around you: the sanctuary was the darkest, most enclosed part, with the highest floor. Most people never got close. Non-priests may have been allowed no farther than the open court. The god’s house had a very strict door policy."
+    },
+    {
+      "id": "card.ancient_egypt.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Breakfast for a god",
+      "body": "Every morning the high priest, acting for the king, opened the shrine and greeted the statue with hymns. He dressed it in fine cloth and jewelry and presented it with food. None of it went to waste: the leftover offerings were divided among the priests as part of their wages. The god was served first. The staff ate after.",
+      "callout": "Open, greet, dress, feed, repeat tomorrow"
+    },
+    {
+      "id": "card.ancient_egypt.034.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The god goes out",
+      "body": "Festivals were different. Priests carried the god’s statue out of the sanctuary in a barque, a portable shrine shaped like a boat. For ordinary Egyptians, this was the chance to glimpse the god. Remember Ra, who crossed the sky by boat in Level 32? On festival days, a temple’s god traveled by boat too, carried by priests."
+    },
+    {
+      "id": "card.ancient_egypt.034.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.034.q1"
+    },
+    {
+      "id": "card.ancient_egypt.034.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.034.q2"
+    },
+    {
+      "id": "card.ancient_egypt.034.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.034.q3"
+    },
+    {
+      "id": "card.ancient_egypt.034.c8",
+      "type": "checkpoint",
+      "headline": "Inside the temple",
+      "learned": [
+        "A temple was the god’s house; the god lived in its statue",
+        "The sanctuary was dark and closed to ordinary people",
+        "Priests dressed and fed the statue every morning",
+        "At festivals the god came out in a boat-shaped shrine"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.temple_god_house"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.034.c2"
+      ],
+      "prompt": "Where in an Egyptian temple was the god’s statue kept?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the open court, where everyone could see it",
+          "correct": false,
+          "rationale": "The court was as far as most people went."
+        },
+        {
+          "id": "b",
+          "label": "On the roof, facing the Sun",
+          "correct": false,
+          "rationale": "It stayed deep inside."
+        },
+        {
+          "id": "c",
+          "label": "In the sanctuary, the darkest and most enclosed part",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "In the priests’ homes",
+          "correct": false,
+          "rationale": "It lived in its own house: the temple."
+        }
+      ],
+      "explanation": "The god’s statue sat in a shrine in the sanctuary, the darkest, most enclosed part of the temple.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.temple_god_house"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.034.c3"
+      ],
+      "prompt": "What happened to the food a temple’s god was offered each morning?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was burned so the smoke reached the sky",
+          "correct": false,
+          "rationale": "The food was put to practical use."
+        },
+        {
+          "id": "b",
+          "label": "It was thrown into the Nile",
+          "correct": false,
+          "rationale": "None of it went to waste."
+        },
+        {
+          "id": "c",
+          "label": "It was sealed in the god’s shrine forever",
+          "correct": false,
+          "rationale": "It came back out."
+        },
+        {
+          "id": "d",
+          "label": "The leftovers were divided among the priests as wages",
+          "correct": true
+        }
+      ],
+      "explanation": "After the god was served, the leftover offerings went to the priests as part of their pay.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.temple_god_house",
+        "concept.ancient_egypt.ra_sun_journey"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.034.c4",
+        "card.ancient_egypt.032.c2"
+      ],
+      "prompt": "Ra crossed the sky by boat. How did a temple’s god travel out among the people at festivals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In a portable shrine shaped like a boat",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "On horseback through the streets",
+          "correct": false,
+          "rationale": "The statue was carried by priests."
+        },
+        {
+          "id": "c",
+          "label": "It never left the sanctuary",
+          "correct": false,
+          "rationale": "Festivals were exactly when it came out."
+        },
+        {
+          "id": "d",
+          "label": "On a real ship sailing to the sea",
+          "correct": false,
+          "rationale": "The barque was carried, not sailed."
+        }
+      ],
+      "explanation": "Priests carried the statue out in a barque, a boat-shaped portable shrine, so people could glimpse the god.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ees_egypt_temples",
+    "source.brit_egyptian_religion_cult",
+    "source.brit_re"
+  ],
+  "art": "egypt.temple"
+}

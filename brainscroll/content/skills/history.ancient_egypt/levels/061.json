@@ -1,0 +1,216 @@
+{
+  "id": "level.history.ancient_egypt.061",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Hyksos",
+  "objective": "After this level you can explain who the Hyksos were and what they brought to Egypt.",
+  "summary": "The Hyksos, “rulers of foreign lands,” held northern Egypt from Avaris and brought the horse and chariot. Ahmose of Thebes drove them out and began the New Kingdom.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.newkingdom_hyksos",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.egypt_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.060"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.061.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For about a century, northern Egypt was ruled by kings from abroad.",
+      "body": "Remember Level 1’s Intermediate Periods, when Egypt split apart? In the second one, the north ended up under foreign kings. How Egypt got rid of them is where the New Kingdom begins."
+    },
+    {
+      "id": "card.ancient_egypt.061.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rulers of foreign lands",
+      "body": "Egyptians called these kings heqa khasut, “rulers of foreign lands,” and the Greek form of that title gives us “Hyksos.” For generations, people from Southwest Asia had been settling in the eastern Delta. As the pharaohs’ grip weakened, leaders at their city of Avaris rose to power and ruled much of Lower Egypt as the 15th Dynasty. Many scholars now think it was less a sudden invasion than the neighbors slowly taking over the street.",
+      "callout": "Heqa khasut: “rulers of foreign lands”"
+    },
+    {
+      "id": "card.ancient_egypt.061.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "New weapons",
+      "body": "The Hyksos brought new technology to Egypt: the horse and chariot, the composite bow and improved metal weapons. Egypt kept the chariot and the composite bow after the Hyksos were gone, and those two advantages would later help it build an empire. The Hyksos kings left, but their chariots stayed."
+    },
+    {
+      "id": "card.ancient_egypt.061.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The fightback from Thebes",
+      "body": "The fightback came from Thebes, in the south. King Kamose campaigned against the Hyksos, and his successor Ahmose captured Avaris and drove them out. Ahmose founded the 18th Dynasty, and with it the New Kingdom, around 1550 BCE. Later Egyptian texts cast the Hyksos as villains, yet they had ruled as pharaohs and appear as legitimate kings in the Turin king list.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Villains in the later stories, kings in the paperwork. It pays to read both."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.061.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.061.q1"
+    },
+    {
+      "id": "card.ancient_egypt.061.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.061.q2"
+    },
+    {
+      "id": "card.ancient_egypt.061.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.061.q3"
+    },
+    {
+      "id": "card.ancient_egypt.061.c8",
+      "type": "checkpoint",
+      "headline": "The Hyksos: met",
+      "learned": [
+        "Hyksos means “rulers of foreign lands”",
+        "They ruled the north from Avaris as the 15th Dynasty",
+        "They brought the horse and chariot and the composite bow",
+        "Ahmose drove them out and began the New Kingdom"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.newkingdom_hyksos"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.061.c3"
+      ],
+      "prompt": "Which new military technology did the Hyksos bring to Egypt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "War elephants",
+          "correct": false,
+          "rationale": "Elephants weren’t part of it."
+        },
+        {
+          "id": "b",
+          "label": "Siege towers",
+          "correct": false,
+          "rationale": "Their big change moved on wheels, pulled by horses."
+        },
+        {
+          "id": "c",
+          "label": "The horse and chariot",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Camel-mounted archers",
+          "correct": false,
+          "rationale": "Horses, not camels, were the new arrival."
+        }
+      ],
+      "explanation": "The Hyksos introduced the horse and chariot, along with the composite bow and better metal weapons.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.newkingdom_hyksos"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.061.c2"
+      ],
+      "prompt": "How do many historians now think the Hyksos came to rule northern Egypt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Settlers in the Delta rose to power as the pharaohs’ grip weakened",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A single lightning invasion from the sea",
+          "correct": false,
+          "rationale": "The evidence points to a slower rise from within."
+        },
+        {
+          "id": "c",
+          "label": "Egypt’s kings invited them to take the throne",
+          "correct": false,
+          "rationale": "They took power as royal authority declined."
+        },
+        {
+          "id": "d",
+          "label": "They conquered Thebes first, then the Delta",
+          "correct": false,
+          "rationale": "Thebes was where the fightback began."
+        }
+      ],
+      "explanation": "People from Southwest Asia had settled in the eastern Delta for generations; their leaders at Avaris gained power as central authority faded.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_egypt.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.newkingdom_hyksos",
+        "concept.ancient_egypt.egypt_eras"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.061.c4",
+        "card.ancient_egypt.001.c2"
+      ],
+      "prompt": "Ahmose drove the Hyksos out of Avaris. Which of Level 1’s great ages began with his reign?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Old Kingdom",
+          "correct": false,
+          "rationale": "That was the age of the great pyramids, long before."
+        },
+        {
+          "id": "b",
+          "label": "The Middle Kingdom",
+          "correct": false,
+          "rationale": "That came before the Second Intermediate Period."
+        },
+        {
+          "id": "c",
+          "label": "The New Kingdom",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Third Intermediate Period",
+          "correct": false,
+          "rationale": "That came after the New Kingdom ended."
+        }
+      ],
+      "explanation": "Ahmose founded the 18th Dynasty around 1550 BCE, the start of the New Kingdom.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_hyksos",
+    "source.arce_hyksos",
+    "source.whe_hyksos",
+    "source.oup_oxford_history_egypt",
+    "source.met_egypt_educators"
+  ],
+  "art": "rome.chariot"
+}

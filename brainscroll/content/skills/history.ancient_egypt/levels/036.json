@@ -1,0 +1,224 @@
+{
+  "id": "level.history.ancient_egypt.036",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Weighing of the Heart",
+  "objective": "After this level you can explain how Egyptians believed the dead were judged.",
+  "summary": "Egyptians believed the heart was weighed against the feather of Maat. Ammit ate a heart that failed; those who passed reached the Field of Reeds.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.weighing_heart_judgment",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.mummification_method",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.flood_farming",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.035"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "After death, Egyptians believed, your heart went on the scales.",
+      "body": "On the other side of the balance sat a single feather. What happened next decided your forever."
+    },
+    {
+      "id": "card.ancient_egypt.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The scene",
+      "body": "Picture a Book of the Dead made for Hunefer, a royal scribe, around 1275 BCE, now in the British Museum. Anubis brings Hunefer in and supervises the scales. On one side sits his heart. On the other, the feather of Maat, which stood for truth and right order. Ibis-headed Thoth records the verdict. Remember why embalmers left the heart inside the body in Level 35? Here is where it gets its big moment."
+    },
+    {
+      "id": "card.ancient_egypt.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Devourer",
+      "body": "Crouched by the scales waits Ammit, the Devourer: a crocodile’s front, a lion’s middle and a hippopotamus’s rear. If the heart failed, Ammit ate it, and the afterlife was lost. At the judgment, the dead also declared to each of 42 judges that they had not committed a particular wrong, a text now called the Negative Confession. Picture a job interview where you list everything you didn’t do.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Three of Egypt’s most dangerous animals in one body. You really wanted that feather to win."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.036.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Paradise looks familiar",
+      "body": "Pass, and Horus presents you to Osiris, judge of the dead. Beyond lay the Field of Reeds, imagined as a perfect version of Egypt, with clear rivers, bright sun and plentiful crops to harvest. So even in paradise there was a harvest to bring in, just as Level 4’s farmers cut their crops with sickles. Egyptians pictured paradise as home, only better.",
+      "callout": "Heart light as a feather: welcome to the Field of Reeds"
+    },
+    {
+      "id": "card.ancient_egypt.036.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.036.q1"
+    },
+    {
+      "id": "card.ancient_egypt.036.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.036.q2"
+    },
+    {
+      "id": "card.ancient_egypt.036.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.036.q3"
+    },
+    {
+      "id": "card.ancient_egypt.036.c8",
+      "type": "checkpoint",
+      "headline": "The judgment: explained",
+      "learned": [
+        "The heart was weighed against the feather of Maat",
+        "Anubis ran the scales and Thoth recorded the verdict",
+        "Ammit ate a heart that failed",
+        "The worthy reached the Field of Reeds, a perfect Egypt"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.weighing_heart_judgment"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.036.c2"
+      ],
+      "prompt": "In the weighing of the heart, what was the heart weighed against?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A gold weight",
+          "correct": false,
+          "rationale": "Gold couldn’t measure truth."
+        },
+        {
+          "id": "b",
+          "label": "The dead person’s brain",
+          "correct": false,
+          "rationale": "The brain was often thrown away."
+        },
+        {
+          "id": "c",
+          "label": "The feather of Maat",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A stone scarab",
+          "correct": false,
+          "rationale": "The scale held a feather."
+        }
+      ],
+      "explanation": "The heart was weighed against the feather of Maat, which stood for truth and right order.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_egypt.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.weighing_heart_judgment"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.036.c3"
+      ],
+      "prompt": "What did Egyptians believe happened if a heart failed the weighing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The person got a second try the next day",
+          "correct": false,
+          "rationale": "There was no retake."
+        },
+        {
+          "id": "b",
+          "label": "Ammit ate the heart, and the afterlife was lost",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The person became a god",
+          "correct": false,
+          "rationale": "That’s far too generous."
+        },
+        {
+          "id": "d",
+          "label": "The heart was returned to the body",
+          "correct": false,
+          "rationale": "A failed heart met Ammit."
+        }
+      ],
+      "explanation": "Ammit, the Devourer, ate a heart that failed, denying the dead person the afterlife.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.weighing_heart_judgment",
+        "concept.ancient_egypt.flood_farming"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.036.c4",
+        "card.ancient_egypt.004.c4"
+      ],
+      "prompt": "What did the blessed dead do in the Field of Reeds, just like Level 4’s farmers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Built pyramids for the gods",
+          "correct": false,
+          "rationale": "They farmed."
+        },
+        {
+          "id": "b",
+          "label": "Sailed to the stars",
+          "correct": false,
+          "rationale": "They stayed in a perfect version of Egypt."
+        },
+        {
+          "id": "c",
+          "label": "Slept forever",
+          "correct": false,
+          "rationale": "Paradise had work in it."
+        },
+        {
+          "id": "d",
+          "label": "Harvested plentiful crops",
+          "correct": true
+        }
+      ],
+      "explanation": "The Field of Reeds was a perfect Egypt with crops to harvest, like the farmers who cut grain with sickles.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.smarthistory_hunefer",
+    "source.bm_journey_afterlife",
+    "source.australian_museum_mummification",
+    "source.smithsonianmag_make_mummy",
+    "source.bm_what_book_dead",
+    "source.ucl_book_dead_125b",
+    "source.fitzwilliam_ramose_spell125",
+    "source.brit_agriculture_nile"
+  ],
+  "art": "money.scale"
+}

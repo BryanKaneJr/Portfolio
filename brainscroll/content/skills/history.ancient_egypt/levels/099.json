@@ -1,0 +1,222 @@
+{
+  "id": "level.history.ancient_egypt.099",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Egypt's Legacy",
+  "objective": "After this level you can name what the modern world still owes to ancient Egypt.",
+  "summary": "Our calendar descends from Egypt’s solar calendar via Julius Caesar, the letter A from an ox-head sign, and the word paper from papyrus.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.egypt_legacy_today",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.champollion_decipherment",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.egypt_span",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.098"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You use ancient Egypt daily: in your calendar, your alphabet and your paper.",
+      "body": "Egypt became a Roman province in 30 BCE, but pieces of it never left. Here are three hiding in plain sight."
+    },
+    {
+      "id": "card.ancient_egypt.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your calendar",
+      "body": "In 46 BCE, Julius Caesar reformed Rome’s calendar by adopting the Egyptian solar calendar, advised by Sosigenes, an astronomer from Alexandria. The year became 365 and a quarter days, with an extra day every fourth year. Pope Gregory XIII fine-tuned it in 1582, and his Gregorian calendar gradually replaced Caesar’s. Every leap day has an Egyptian ancestor.",
+      "callout": "Egypt, then Caesar, then Gregory, then your wall"
+    },
+    {
+      "id": "card.ancient_egypt.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your alphabet",
+      "body": "Look at the letter A. The inventors of the alphabet were influenced by Egyptian writing, and A goes back to a sign shaped like an ox’s head. Early Semitic writing in Sinai adopted it around 1500 BCE. The Phoenicians called it aleph, meaning “ox,” and the Greeks renamed it alpha and used it for a vowel. Turn a capital A upside down and imagine the horns.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "A for ox. Once you see the horns, you can’t unsee them."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.099.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your paper",
+      "body": "The word “paper” comes from papyrus, the Egyptian writing material. The Greeks adopted papyrus, and the Roman Empire used it widely. Books and documents on papyrus were still being made, now and then, until about the 12th century. So whenever you ask for a sheet of paper, you’re naming an Egyptian invention."
+    },
+    {
+      "id": "card.ancient_egypt.099.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.099.q1"
+    },
+    {
+      "id": "card.ancient_egypt.099.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.099.q2"
+    },
+    {
+      "id": "card.ancient_egypt.099.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.099.q3"
+    },
+    {
+      "id": "card.ancient_egypt.099.c8",
+      "type": "checkpoint",
+      "headline": "Egypt’s legacy: found",
+      "learned": [
+        "Caesar’s calendar came from Egypt’s solar year",
+        "The letter A began as an ox’s head",
+        "“Paper” comes from papyrus",
+        "Ancient Egypt still hides in everyday life"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.egypt_legacy_today"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.099.c4"
+      ],
+      "prompt": "Where does the English word “paper” come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Papyrus, the Egyptian writing material",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Ptolemy, the name of Egypt’s Greek kings",
+          "correct": false,
+          "rationale": "It comes from a writing material, not a king."
+        },
+        {
+          "id": "c",
+          "label": "A Latin word for tree bark",
+          "correct": false,
+          "rationale": "It traces back to papyrus."
+        },
+        {
+          "id": "d",
+          "label": "Paris, where paper was first made",
+          "correct": false,
+          "rationale": "It comes from papyrus."
+        }
+      ],
+      "explanation": "Paper takes its name from papyrus, which the Greeks and Romans adopted from Egypt.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_egypt.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.egypt_legacy_today"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.099.c2"
+      ],
+      "prompt": "How did Egypt’s calendar reach the modern world?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Napoleon’s scholars brought it to Paris in 1798",
+          "correct": false,
+          "rationale": "It arrived much earlier, with Caesar."
+        },
+        {
+          "id": "b",
+          "label": "Caesar adopted it; it later became the Gregorian calendar",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Champollion read it on the Rosetta Stone in 1822",
+          "correct": false,
+          "rationale": "Caesar had adopted it long before."
+        },
+        {
+          "id": "d",
+          "label": "The Phoenicians spread it along with the alphabet",
+          "correct": false,
+          "rationale": "It came through Rome."
+        }
+      ],
+      "explanation": "Caesar based Rome’s calendar on Egypt’s solar year in 46 BCE; the Gregorian reform of 1582 refined it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.egypt_legacy_today",
+        "concept.ancient_egypt.champollion_decipherment"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.099.c3",
+        "card.ancient_egypt.093.c3"
+      ],
+      "prompt": "The letter A began as an Egyptian-inspired sign that came to stand for a sound. From Level 93, what did Champollion prove about many hieroglyphs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were purely decorative",
+          "correct": false,
+          "rationale": "They were real writing."
+        },
+        {
+          "id": "b",
+          "label": "They copied the Greek alphabet",
+          "correct": false,
+          "rationale": "They were Egyptian, and much older."
+        },
+        {
+          "id": "c",
+          "label": "They were used only for foreign names",
+          "correct": false,
+          "rationale": "He read native names like Ramesses too."
+        },
+        {
+          "id": "d",
+          "label": "They stood for sounds",
+          "correct": true
+        }
+      ],
+      "explanation": "Champollion showed that many hieroglyphs were sound signs, the same idea behind every letter of an alphabet.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.met_egypt_educators",
+    "source.oup_oxford_history_egypt",
+    "source.brit_julian_calendar",
+    "source.brit_letter_a",
+    "source.brit_alphabet",
+    "source.brit_papyrus"
+  ],
+  "art": "geo.pyramids"
+}

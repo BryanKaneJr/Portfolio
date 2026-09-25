@@ -1,0 +1,221 @@
+{
+  "id": "level.history.ancient_egypt.019",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Royal Court",
+  "objective": "After this level you can describe life in the pharaoh's palace.",
+  "summary": "Palaces were mud brick while temples and tombs were stone, so few survive; Malqata shows how richly painted they were. The royal harem could breed deadly plots, as Ramesses III found.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.royal_court_palace",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.pharaoh_role",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.royal_women_queens",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.018"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "“Pharaoh” first meant the palace. Hardly any palaces survive.",
+      "body": "Egypt’s temples and tombs still stand, built of stone. The great house where the king actually lived was mud brick. So what was it like inside?"
+    },
+    {
+      "id": "card.ancient_egypt.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stone for gods, mud for kings",
+      "body": "From the Old Kingdom on, Egyptians built tombs and temples in stone: the eternal houses of the dead and of the gods. Homes were mud brick, and so were royal palaces. The king, god on earth or not, lived in the same material as his subjects. Eternity got stone. Everyday life, even a king’s, got mud brick.",
+      "callout": "Temples and tombs: stone. Palaces: mud brick"
+    },
+    {
+      "id": "card.ancient_egypt.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A painted palace",
+      "body": "The best-preserved royal palace is Amenhotep III’s complex at Malqata, in western Thebes. Its walls, floors and even ceilings were decorated with paintings. So picture plain mud-brick walls holding rooms full of color, right down to the floor under the king’s feet."
+    },
+    {
+      "id": "card.ancient_egypt.019.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A household of rivals",
+      "body": "The court also held the royal harem, where the king’s wives usually lived. That could turn dangerous. One of Ramesses III’s secondary wives plotted to kill him and put her own son on the throne. The conspirators were put on trial, but did the king survive? In 2012, a CT scan of his mummy found a deep knife wound in the throat. The plotters, it seems, got their king.",
+      "mascot": {
+        "pose": "oops",
+        "line": "A palace plot, solved by a hospital scanner. Some cold cases are very cold."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.019.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.019.q1"
+    },
+    {
+      "id": "card.ancient_egypt.019.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.019.q2"
+    },
+    {
+      "id": "card.ancient_egypt.019.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.019.q3"
+    },
+    {
+      "id": "card.ancient_egypt.019.c8",
+      "type": "checkpoint",
+      "headline": "The royal court: visited",
+      "learned": [
+        "Temples and tombs: stone; palaces: mud brick",
+        "Malqata: Amenhotep III’s painted palace",
+        "The king’s wives lived in the royal harem",
+        "A harem plot killed Ramesses III"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.royal_court_palace"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.019.c2"
+      ],
+      "prompt": "What were Egyptian royal palaces built of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stone, like the temples",
+          "correct": false,
+          "rationale": "Stone was for tombs and temples."
+        },
+        {
+          "id": "b",
+          "label": "Cedar wood",
+          "correct": false,
+          "rationale": "The card names another material."
+        },
+        {
+          "id": "c",
+          "label": "Mud brick",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Fired clay tiles",
+          "correct": false,
+          "rationale": "Palaces were built like homes."
+        }
+      ],
+      "explanation": "Stone was for the eternal houses of gods and the dead; homes, even royal palaces, were mud brick.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.royal_court_palace"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.019.c4"
+      ],
+      "prompt": "Why could the royal harem be a danger to the king?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was built on flood-prone land",
+          "correct": false,
+          "rationale": "The danger was political."
+        },
+        {
+          "id": "b",
+          "label": "Wives could plot to put their own sons on the throne",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It housed the army’s chariots",
+          "correct": false,
+          "rationale": "The harem was where the king’s wives lived."
+        },
+        {
+          "id": "d",
+          "label": "Its paintings were thought to bring bad luck",
+          "correct": false,
+          "rationale": "Nothing suggests that."
+        }
+      ],
+      "explanation": "One of Ramesses III’s secondary wives plotted to kill him so her son would become king.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.royal_court_palace",
+        "concept.ancient_egypt.pharaoh_role"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.019.c1",
+        "card.ancient_egypt.011.c2"
+      ],
+      "prompt": "The palace was the per-aa, the “great house.” From Level 11, what did that word later come to mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The king himself, as “pharaoh”",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The royal harem",
+          "correct": false,
+          "rationale": "It came to name the king."
+        },
+        {
+          "id": "c",
+          "label": "The vizier’s office",
+          "correct": false,
+          "rationale": "It named the king, not his deputy."
+        },
+        {
+          "id": "d",
+          "label": "A royal tomb",
+          "correct": false,
+          "rationale": "Tombs were houses of eternity, not per-aa."
+        }
+      ],
+      "explanation": "From the New Kingdom, per-aa came to mean the king himself, and it became our word “pharaoh.”",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_egyptian_architecture",
+    "source.arce_virtual_malqata",
+    "source.gem_queen",
+    "source.brit_ramesses_iii",
+    "source.brit_pharaoh"
+  ],
+  "art": "rome.jewelry"
+}

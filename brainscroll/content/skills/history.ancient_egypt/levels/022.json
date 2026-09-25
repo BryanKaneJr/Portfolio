@@ -1,0 +1,217 @@
+{
+  "id": "level.history.ancient_egypt.022",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Djoser's Step Pyramid",
+  "objective": "After this level you can explain how Imhotep designed the first pyramid.",
+  "summary": "Imhotep turned King Djoser’s mastaba at Saqqara into six stone steps: Egypt’s first pyramid and the oldest known monumental stone building.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.step_pyramid_imhotep",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.mastaba_tombs",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.021"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "What do you get when you stack benches, each smaller than the last?",
+      "body": "Egypt’s first pyramid. It was built for a king named Djoser, and, unusually for something this old, we know the name of the man who designed it."
+    },
+    {
+      "id": "card.ancient_egypt.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stacking the bench",
+      "body": "Djoser, a king of the 3rd dynasty, began his tomb at Saqqara as a flat-topped mastaba, like the ones in Level 21. Then the plan changed completely. The tomb grew into six steps of stone, each smaller than the one below, rising about 60 m. Picture a wedding cake made by a stonemason. It was the first Egyptian pyramid."
+    },
+    {
+      "id": "card.ancient_egypt.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "All in stone",
+      "body": "Until then, Egyptian builders had mixed mud brick with some stone. Djoser’s pyramid was built entirely of stone, and it is the oldest known monumental stone building anywhere in the world. When it comes to big buildings in stone, this is where the known record starts.",
+      "callout": "The world’s oldest known monumental stone building"
+    },
+    {
+      "id": "card.ancient_egypt.022.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The architect with a name",
+      "body": "How do we know who designed it? A statue base of Djoser, now in the Egyptian Museum in Cairo, carries the name and titles of Imhotep, his vizier. Imhotep is often called the world’s first named architect. Later Egyptians worshipped him as a god of medicine, and the Greeks matched him with their healing god, Asclepius. One thing is still missing: his tomb has never been found.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "He designed the most famous tomb of his age, and his own is still hiding. Archaeologists love a mystery like that."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.022.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.022.q1"
+    },
+    {
+      "id": "card.ancient_egypt.022.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.022.q2"
+    },
+    {
+      "id": "card.ancient_egypt.022.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.022.q3"
+    },
+    {
+      "id": "card.ancient_egypt.022.c8",
+      "type": "checkpoint",
+      "headline": "The first pyramid: built",
+      "learned": [
+        "Djoser’s tomb began as a mastaba at Saqqara",
+        "It became six stone steps, about 60 m high",
+        "It’s the oldest known monumental stone building",
+        "Imhotep designed it; his tomb has never been found"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.step_pyramid_imhotep"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.022.c4"
+      ],
+      "prompt": "Whose name and titles on a statue base tell us who designed Djoser’s Step Pyramid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Narmer",
+          "correct": false,
+          "rationale": "He belongs to unification, much earlier."
+        },
+        {
+          "id": "b",
+          "label": "Menes",
+          "correct": false,
+          "rationale": "He is the legendary first king."
+        },
+        {
+          "id": "c",
+          "label": "Imhotep",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Herodotus",
+          "correct": false,
+          "rationale": "He was a Greek visitor, much later."
+        }
+      ],
+      "explanation": "Imhotep, Djoser’s vizier, is named on the statue base and credited with the design.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_egypt.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.step_pyramid_imhotep"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.022.c3"
+      ],
+      "prompt": "What makes Djoser’s Step Pyramid a landmark in the history of building, not just of Egypt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the first tomb with a burial shaft",
+          "correct": false,
+          "rationale": "Mastabas already had shafts."
+        },
+        {
+          "id": "b",
+          "label": "It is the oldest known monumental stone building in the world",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It was the tallest structure ever built",
+          "correct": false,
+          "rationale": "At about 60 m, it was far from that."
+        },
+        {
+          "id": "d",
+          "label": "It was the first building made of mud brick",
+          "correct": false,
+          "rationale": "It broke with mud brick: it was all stone."
+        }
+      ],
+      "explanation": "Built entirely of stone, it is the world’s oldest known monumental stone building.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.step_pyramid_imhotep",
+        "concept.ancient_egypt.mastaba_tombs"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.022.c2",
+        "card.ancient_egypt.021.c2"
+      ],
+      "prompt": "How did Djoser’s Step Pyramid grow out of the mastaba tombs from Level 21?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was built inside a hollowed-out mastaba",
+          "correct": false,
+          "rationale": "It was built up, not in."
+        },
+        {
+          "id": "b",
+          "label": "It replaced the mastaba’s shaft with a staircase",
+          "correct": false,
+          "rationale": "The steps are on the outside."
+        },
+        {
+          "id": "c",
+          "label": "It copied a mastaba’s shape in mud brick",
+          "correct": false,
+          "rationale": "It was built entirely of stone."
+        },
+        {
+          "id": "d",
+          "label": "It began as a flat-topped mastaba and became six stone steps",
+          "correct": true
+        }
+      ],
+      "explanation": "Djoser’s tomb started as a mastaba; the plan changed and it rose in six steps, each smaller than the last.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_step_pyramid_djoser",
+    "source.memphis_step_pyramid",
+    "source.arce_imhotep_tomb",
+    "source.brit_imhotep",
+    "source.brit_djoser",
+    "source.brit_pyramid_architecture"
+  ],
+  "art": "arts.step-pyramid"
+}

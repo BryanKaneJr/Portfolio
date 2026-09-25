@@ -1,0 +1,217 @@
+{
+  "id": "level.history.ancient_egypt.077",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Cleopatra",
+  "objective": "After this level you can explain who Cleopatra was and how she ruled.",
+  "summary": "Cleopatra VII came from a Macedonian Greek dynasty but learned Egyptian. She ruled from 51 to 30 BCE, allied with Caesar and Antony, and lost to Octavian.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.cleopatra_vii",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.egypt_span",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.076"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.077.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Cleopatra came from a line of kings who never learned Egyptian.",
+      "body": "According to Plutarch, the kings before her hadn’t even tried. Cleopatra did. That tells you a lot about how she ruled."
+    },
+    {
+      "id": "card.ancient_egypt.077.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Greek by family, Egyptian by choice",
+      "body": "Cleopatra VII was born in 70 or 69 BCE into the Ptolemies, a royal family of Macedonian Greek descent. Plutarch says she learned Egyptian and switched languages so easily that she seldom needed an interpreter. For political reasons she also styled herself the new Isis, after the Egyptian goddess. She didn’t just rule Egypt; she spoke to it."
+    },
+    {
+      "id": "card.ancient_egypt.077.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A queen against Rome",
+      "body": "She ruled from 51 to 30 BCE. Forced out by her brother Ptolemy XIII, she regained power with Julius Caesar’s help and had a son by him, Caesarion. Later she allied with Mark Antony. In 31 BCE Octavian defeated them at the Battle of Actium, and in 30 BCE she died. Legend says by an asp’s bite; how she really died is uncertain. That same year, Egypt became a Roman province.",
+      "callout": "Caesar, Antony, Actium, 30 BCE"
+    },
+    {
+      "id": "card.ancient_egypt.077.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What did she look like?",
+      "body": "Nobody knows for sure. A coin from her alliance with Antony shows both of them with beaked noses and jutting chins, like her Ptolemaic ancestors: a political image, not a photograph. Her mother isn’t known for certain, so part of her family tree is a question mark. And Plutarch wrote that her beauty alone wasn’t incomparable; her conversation was what charmed people.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "The most famous face in history, and her fans kept talking about her conversation."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.077.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.077.q1"
+    },
+    {
+      "id": "card.ancient_egypt.077.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.077.q2"
+    },
+    {
+      "id": "card.ancient_egypt.077.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.077.q3"
+    },
+    {
+      "id": "card.ancient_egypt.077.c8",
+      "type": "checkpoint",
+      "headline": "Cleopatra: met",
+      "learned": [
+        "Cleopatra VII came from a Macedonian Greek dynasty",
+        "She learned Egyptian and styled herself the new Isis",
+        "Allied with Caesar and Antony, she lost to Octavian at Actium",
+        "Her real appearance is uncertain"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.cleopatra_vii"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.077.c2",
+        "card.ancient_egypt.077.c1"
+      ],
+      "prompt": "What set Cleopatra apart from the Ptolemaic kings before her, according to Plutarch?",
+      "options": [
+        {
+          "id": "a",
+          "label": "She was the first born in Egypt",
+          "correct": false,
+          "rationale": "Plutarch’s point was about language."
+        },
+        {
+          "id": "b",
+          "label": "She learned the Egyptian language",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "She refused to speak Greek",
+          "correct": false,
+          "rationale": "She spoke many languages."
+        },
+        {
+          "id": "d",
+          "label": "She was the first to marry a Roman",
+          "correct": false,
+          "rationale": "Plutarch’s contrast was that the earlier kings never learned Egyptian."
+        }
+      ],
+      "explanation": "Plutarch says earlier kings had not even tried to learn Egyptian; Cleopatra did, and seldom needed an interpreter.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.cleopatra_vii"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.077.c4"
+      ],
+      "prompt": "Why can’t we say exactly what Cleopatra looked like?",
+      "options": [
+        {
+          "id": "a",
+          "label": "No images of her were ever made",
+          "correct": false,
+          "rationale": "Coins of her survive."
+        },
+        {
+          "id": "b",
+          "label": "Her coins are political images, and even her mother isn’t certain",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Her mummy shows her face clearly",
+          "correct": false,
+          "rationale": "No mummy settles the question."
+        },
+        {
+          "id": "d",
+          "label": "Plutarch described her face in exact, careful detail",
+          "correct": false,
+          "rationale": "He talked about her conversation instead."
+        }
+      ],
+      "explanation": "Her coin portraits were official images, part of her ancestry is unknown, and ancient writers praised her charm more than her looks.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_egypt.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.cleopatra_vii",
+        "concept.ancient_egypt.egypt_span"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.077.c3",
+        "card.ancient_egypt.001.c2"
+      ],
+      "prompt": "Cleopatra died in 30 BCE. From Level 1, what happened to Egypt that same year?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was united for the first time",
+          "correct": false,
+          "rationale": "That was around 3100 to 3000 BCE."
+        },
+        {
+          "id": "b",
+          "label": "It became a province of Rome",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Old Kingdom began",
+          "correct": false,
+          "rationale": "That was about 2686 BCE."
+        },
+        {
+          "id": "d",
+          "label": "The New Kingdom ended",
+          "correct": false,
+          "rationale": "That was about 1069 BCE."
+        }
+      ],
+      "explanation": "Cleopatra’s death in 30 BCE closed ancient Egypt’s roughly 3,000-year story: Egypt became a Roman province.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.met_egypt_educators",
+    "source.oup_oxford_history_egypt",
+    "source.brit_cleopatra",
+    "source.plutarch_antony_lacus",
+    "source.artic_cleopatra_coin"
+  ],
+  "art": "rome.cobra-diadem"
+}

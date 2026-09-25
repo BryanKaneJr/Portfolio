@@ -1,0 +1,211 @@
+{
+  "id": "level.history.ancient_egypt.063",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Karnak",
+  "objective": "After this level you can describe the great temple complex at Karnak.",
+  "summary": "Karnak at Thebes, Egypt’s largest temple complex, was the house of Amun-Re, “the Hidden One.” After the Hyksos and the empire, Amun’s temples grew rich.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.newkingdom_karnak",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.newkingdom_hyksos",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.062"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.063.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One temple, nearly 2,000 years of building work.",
+      "body": "Ruler after ruler added something to Karnak, from the Middle Kingdom onward. So whose house was it, and who paid for all that stone?"
+    },
+    {
+      "id": "card.ancient_egypt.063.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The house of the Hidden One",
+      "body": "Karnak stands on the east bank of the Nile at Thebes, today’s Luxor. It is the largest temple complex in Egypt, the great temple of the state god Amun-Re. Amun’s name meant “the Hidden One,” and artists painted him blue to show that he was invisible. An invisible god, with the biggest house in the country."
+    },
+    {
+      "id": "card.ancient_egypt.063.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Paid for by victory",
+      "body": "Amun was the god of Thebes, and Theban kings had just driven out the Hyksos (Level 61). After that victory, and the empire that followed, Amun’s standing and the wealth of his temples grew. From the New Kingdom on, Karnak was among the largest and wealthiest temples in the land. Win a war, thank your god, add a wing."
+    },
+    {
+      "id": "card.ancient_egypt.063.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A forest of stone",
+      "body": "Karnak’s showpiece is the Great Hypostyle Hall, whose roof rested on 134 columns. It has been called one of the wonders of antiquity. Walking in is like wandering through a forest where every trunk is carved stone.",
+      "callout": "134 columns under one roof"
+    },
+    {
+      "id": "card.ancient_egypt.063.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.063.q1"
+    },
+    {
+      "id": "card.ancient_egypt.063.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.063.q2"
+    },
+    {
+      "id": "card.ancient_egypt.063.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.063.q3"
+    },
+    {
+      "id": "card.ancient_egypt.063.c8",
+      "type": "checkpoint",
+      "headline": "Karnak: toured",
+      "learned": [
+        "Egypt’s largest temple complex, at Thebes",
+        "The house of Amun-Re, “the Hidden One”",
+        "Victory over the Hyksos made Amun’s temples rich",
+        "The Great Hypostyle Hall has 134 columns"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.newkingdom_karnak"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.063.c2"
+      ],
+      "prompt": "Which god was Karnak’s great temple built for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Osiris",
+          "correct": false,
+          "rationale": "Karnak was the house of the state god."
+        },
+        {
+          "id": "b",
+          "label": "Amun-Re",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Aten",
+          "correct": false,
+          "rationale": "The Aten’s moment came later, under Akhenaten."
+        },
+        {
+          "id": "d",
+          "label": "Hathor",
+          "correct": false,
+          "rationale": "Karnak’s great temple belonged to the Hidden One."
+        }
+      ],
+      "explanation": "Karnak was the great temple of the state god Amun-Re.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_egypt.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.newkingdom_karnak"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.063.c3"
+      ],
+      "prompt": "Why did Amun’s temples at Karnak grow so wealthy in the New Kingdom?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gold was discovered beneath the temple",
+          "correct": false,
+          "rationale": "The wealth came from war and empire."
+        },
+        {
+          "id": "b",
+          "label": "The victory over the Hyksos and a new empire raised Amun’s standing",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Farmers stopped supporting every other temple",
+          "correct": false,
+          "rationale": "Nothing like that is recorded here."
+        },
+        {
+          "id": "d",
+          "label": "Foreign kings paid to build it as a gift",
+          "correct": false,
+          "rationale": "Egypt’s own kings built it up."
+        }
+      ],
+      "explanation": "After the Theban victory over the Hyksos and the creation of an empire, Amun’s standing and his temples’ wealth grew.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.newkingdom_karnak",
+        "concept.ancient_egypt.newkingdom_hyksos"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.063.c3",
+        "card.ancient_egypt.061.c4"
+      ],
+      "prompt": "Karnak’s god rose with the Theban kings. Which Theban king captured Avaris and drove out the Hyksos?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Narmer",
+          "correct": false,
+          "rationale": "He belongs to the first kings, over a thousand years earlier."
+        },
+        {
+          "id": "b",
+          "label": "Thutmose I",
+          "correct": false,
+          "rationale": "He came later and campaigned in Syria."
+        },
+        {
+          "id": "c",
+          "label": "Menes",
+          "correct": false,
+          "rationale": "He is the legendary first king of a united Egypt."
+        },
+        {
+          "id": "d",
+          "label": "Ahmose",
+          "correct": true
+        }
+      ],
+      "explanation": "Kamose began the fight; his successor Ahmose took Avaris and founded the 18th Dynasty.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.whe_karnak",
+    "source.brit_karnak",
+    "source.brit_amon",
+    "source.brit_akhenaten_religion"
+  ],
+  "art": "egypt.temple"
+}

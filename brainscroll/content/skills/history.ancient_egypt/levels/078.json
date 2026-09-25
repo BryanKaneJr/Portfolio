@@ -1,0 +1,228 @@
+{
+  "id": "level.history.ancient_egypt.078",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Pharaoh's Names",
+  "objective": "After this level you can explain the royal names and the cartouche.",
+  "summary": "A pharaoh had five names, four of them given at coronation. The throne name and birth name were written inside a cartouche, a rope loop standing for eternity.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.pharaoh_names_cartouche",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.two_lands",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.ramesses_builder",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.tutankhamun_king",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.077"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A pharaoh didn’t have a name. He had five.",
+      "body": "One came at birth; the other four arrived with the crown. Two of them were drawn inside a loop of rope. And one of them became the title of a famous English poem."
+    },
+    {
+      "id": "card.ancient_egypt.078.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five names, five titles",
+      "body": "A pharaoh’s full title had five names, each introduced by a title: Horus, Two Ladies, Golden Horus, King of Upper and Lower Egypt, and Son of Re. Only one name was given at birth; the other four came at his coronation. “King of Upper and Lower Egypt” should ring a bell: Level 6 showed every king held it after unification. Becoming king meant getting a whole new name tag."
+    },
+    {
+      "id": "card.ancient_egypt.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The rope loop",
+      "body": "Two of the names, the throne name and the birth name, were written inside an oval called a cartouche. It shows a loop of rope and stands for a shen ring, a circle symbolizing eternity, wrapped protectively around the king’s name. The word itself is French for a paper cartridge, which is what the ovals looked like. Eternity, mistaken for ammunition.",
+      "callout": "Cartouche = rope loop = eternity around a name",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Spot an oval full of hieroglyphs, and you’ve found a royal name."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.078.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Names at work",
+      "body": "Names carried messages. Tutankhaten became Tutankhamun as Egypt went back to the old gods (Level 71). And Ramesses II’s throne name, Usermaatre, came out in Greek as “Ozymandias,” the king of Shelley’s poem (Level 72). The cartouche promised eternity; the pronunciation got lost in translation."
+    },
+    {
+      "id": "card.ancient_egypt.078.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.078.q1"
+    },
+    {
+      "id": "card.ancient_egypt.078.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.078.q2"
+    },
+    {
+      "id": "card.ancient_egypt.078.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.078.q3"
+    },
+    {
+      "id": "card.ancient_egypt.078.c8",
+      "type": "checkpoint",
+      "headline": "Royal names: read",
+      "learned": [
+        "A pharaoh had five names, four given at coronation",
+        "The throne name and birth name went in cartouches",
+        "A cartouche is a rope loop standing for eternity",
+        "Usermaatre, Ramesses II’s throne name, became “Ozymandias”"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.pharaoh_names_cartouche"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.078.c2"
+      ],
+      "prompt": "How many names made up a pharaoh’s full royal title?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two",
+          "correct": false,
+          "rationale": "Two of them went in cartouches; there were more."
+        },
+        {
+          "id": "b",
+          "label": "Three",
+          "correct": false,
+          "rationale": "There were more than three."
+        },
+        {
+          "id": "c",
+          "label": "Five",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Seven",
+          "correct": false,
+          "rationale": "The full title had fewer."
+        }
+      ],
+      "explanation": "Horus, Two Ladies, Golden Horus, King of Upper and Lower Egypt and Son of Re each introduced one of five names.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.pharaoh_names_cartouche"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.078.c3"
+      ],
+      "prompt": "What did the oval cartouche around a king’s name stand for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A gun cartridge, which Egyptians invented",
+          "correct": false,
+          "rationale": "The cartridge idea came from much later French speakers."
+        },
+        {
+          "id": "b",
+          "label": "The shape of the king’s tomb",
+          "correct": false,
+          "rationale": "It showed a rope loop, not a tomb."
+        },
+        {
+          "id": "c",
+          "label": "A shen ring, a symbol of eternity protecting the name",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Nile’s yearly flood",
+          "correct": false,
+          "rationale": "It was about eternity and protection."
+        }
+      ],
+      "explanation": "The cartouche is a rope loop representing a shen ring, a circle symbolizing eternity that protects the name inside.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.pharaoh_names_cartouche",
+        "concept.ancient_egypt.ramesses_builder"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.078.c4",
+        "card.ancient_egypt.072.c1"
+      ],
+      "prompt": "Shelley’s “Ozymandias” (Level 72) is Ramesses II. Which of his names became “Ozymandias” in Greek?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His birth name, Ramesses",
+          "correct": false,
+          "rationale": "The Greek name came from a coronation name."
+        },
+        {
+          "id": "b",
+          "label": "His throne name, Usermaatre",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "His Horus name",
+          "correct": false,
+          "rationale": "It came from the name written in a cartouche."
+        },
+        {
+          "id": "d",
+          "label": "His father’s name, Seti",
+          "correct": false,
+          "rationale": "It was his own name."
+        }
+      ],
+      "explanation": "Usermaatre, the throne name in his cartouche, became Ozymandias in Greek.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_upper_egypt",
+    "source.brit_tutankhamun",
+    "source.brit_ozymandias_poem",
+    "source.brit_pharaoh",
+    "source.livius_cartouche",
+    "source.etymonline_cartouche",
+    "source.bm_younger_memnon"
+  ],
+  "art": "rome.carved-stone"
+}

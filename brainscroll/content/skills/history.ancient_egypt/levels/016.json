@@ -1,0 +1,223 @@
+{
+  "id": "level.history.ancient_egypt.016",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ma'at: Order and Justice",
+  "objective": "After this level you can explain ma'at and why keeping order mattered so much.",
+  "summary": "Ma’at meant truth, justice and cosmic order, against isfet, chaos. Keeping it was the king’s central duty, and the Tale of the Eloquent Peasant shows justice was owed even to a peasant.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.maat_kingship_order",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.pharaoh_role",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.015"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In one Egyptian tale, a king keeps a robbed man pleading for justice on purpose.",
+      "body": "He wanted more of the man’s speeches written down. It’s a story, not a court record, but it’s built around the idea Egypt ran on: ma’at."
+    },
+    {
+      "id": "card.ancient_egypt.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One word for everything right",
+      "body": "Ma’at was truth, justice and cosmic order in one word, and also a goddess, shown as a woman with an ostrich feather on her head. Its opposite was isfet: disorder and chaos. Imagine a single word meaning both “honest” and “the universe working properly.” That was ma’at.",
+      "callout": "Ma’at: truth, justice, order. Isfet: chaos"
+    },
+    {
+      "id": "card.ancient_egypt.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The king’s real job",
+      "body": "Remember Level 11’s job description, “setting order in place of disorder”? That order was ma’at. It was set up at creation and reaffirmed each time a new king took the throne, and the king’s duty was to keep isfet at bay, as the sun god Re did. New Kingdom temple reliefs show the king presenting a figure of Ma’at to the gods: order itself, offered as a gift."
+    },
+    {
+      "id": "card.ancient_egypt.016.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Eloquent Peasant",
+      "body": "In a Middle Kingdom tale, a peasant named Khunanup is robbed of his donkeys and goods by Nemtinakht and appeals to the high steward Rensi. The king, hearing how well he speaks, orders Rensi to keep him talking without an answer, so the speeches can be written down, and to feed him and his family in secret. Nine appeals later, the robber’s property is handed to the peasant."
+    },
+    {
+      "id": "card.ancient_egypt.016.c5",
+      "type": "fact",
+      "fact": "“Doing Truth is the breath of life.”",
+      "context": "That’s the peasant in R. B. Parkinson’s translation, and the Truth he means is ma’at, a word that rings through the whole tale. His point: justice isn’t a favor officials hand out. It’s as necessary as breathing.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Nine speeches to get your donkeys back. Persistence might be a kind of ma’at too."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.016.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.016.q1"
+    },
+    {
+      "id": "card.ancient_egypt.016.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.016.q2"
+    },
+    {
+      "id": "card.ancient_egypt.016.c8",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.016.q3"
+    },
+    {
+      "id": "card.ancient_egypt.016.c9",
+      "type": "checkpoint",
+      "headline": "Ma’at: understood",
+      "learned": [
+        "Ma’at: truth, justice and cosmic order",
+        "Isfet: chaos, its opposite",
+        "Each new king reaffirmed ma’at and had to keep isfet at bay",
+        "The Eloquent Peasant: justice owed even to a peasant"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.maat_kingship_order"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.016.c2"
+      ],
+      "prompt": "What did the Egyptian word ma’at stand for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Truth, justice and cosmic order",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The yearly flood of the Nile",
+          "correct": false,
+          "rationale": "The flood had its own season names."
+        },
+        {
+          "id": "c",
+          "label": "Chaos and disorder",
+          "correct": false,
+          "rationale": "That was isfet, ma’at’s opposite."
+        },
+        {
+          "id": "d",
+          "label": "The royal palace",
+          "correct": false,
+          "rationale": "That was per-aa."
+        }
+      ],
+      "explanation": "Ma’at meant truth, justice and cosmic order, and was also a goddess with an ostrich feather.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.maat_kingship_order"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.016.c3"
+      ],
+      "prompt": "Why did keeping ma’at matter so much for an Egyptian king?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It kept his palace tidy",
+          "correct": false,
+          "rationale": "Ma’at was cosmic order, not housekeeping."
+        },
+        {
+          "id": "b",
+          "label": "It was a tax he paid to the priests",
+          "correct": false,
+          "rationale": "It was his duty, not a payment."
+        },
+        {
+          "id": "c",
+          "label": "His duty was to hold back isfet, the chaos threatening the world",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It let him skip the temple rituals",
+          "correct": false,
+          "rationale": "Rituals were part of keeping order."
+        }
+      ],
+      "explanation": "Ma’at was reaffirmed with each new king, and his job was to keep isfet at bay, as Re did.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_egypt.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.maat_kingship_order",
+        "concept.ancient_egypt.pharaoh_role"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.016.c4",
+        "card.ancient_egypt.011.c3"
+      ],
+      "prompt": "The Eloquent Peasant finally gets justice through the king’s officials. Which part of Level 11’s royal job description does that match?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Living in the great house",
+          "correct": false,
+          "rationale": "The palace isn’t about justice."
+        },
+        {
+          "id": "b",
+          "label": "Judging mankind",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Wearing the double crown",
+          "correct": false,
+          "rationale": "Crowns show rule, not judgment."
+        },
+        {
+          "id": "d",
+          "label": "Sailing south with the wind",
+          "correct": false,
+          "rationale": "That’s Nile travel, not kingship."
+        }
+      ],
+      "explanation": "The text says the king is on earth “judging mankind,” and his officials carried that out.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_maat",
+    "source.rosicrucian_maat",
+    "source.brit_isfet",
+    "source.isac_presentation_maat",
+    "source.bm_eloquent_peasant",
+    "source.brit_egypt_kingship"
+  ],
+  "art": "money.scale"
+}

@@ -1,0 +1,250 @@
+{
+  "id": "level.history.ancient_egypt.035",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mummies",
+  "objective": "After this level you can explain how and why Egyptians mummified the dead.",
+  "summary": "Egyptians believed the ka and ba needed a preserved body. Over about 70 days, embalmers removed organs, dried the body in natron and wrapped it in linen.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.mummification_method",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.black_red_land",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.flood_farming",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.osiris_isis_myth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.034"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first Egyptian mummies were made by the desert, not by people.",
+      "body": "Early bodies buried in shallow pits in the sand were dried out by its heat. Remember Level 3: the red land’s dry climate made it ideal for cemeteries. Later, Egyptians learned to do on purpose what the desert did by accident."
+    },
+    {
+      "id": "card.ancient_egypt.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why keep a body?",
+      "body": "Egyptians believed a person’s soul had several parts. The two most important, the ka and the ba, needed a well-preserved body they could recognize and return to. Without it, they could not survive. And there was a model to follow: in Level 33’s myth, Anubis embalmed and wrapped Osiris, making the first mummy. Every embalmer after that was copying a god."
+    },
+    {
+      "id": "card.ancient_egypt.035.c3",
+      "type": "timeline",
+      "headline": "Inside the embalmers’ workshop",
+      "events": [
+        {
+          "when": "First",
+          "label": "The brain comes out through the nose, and is often thrown away"
+        },
+        {
+          "when": "Next",
+          "label": "Lungs, stomach, liver and intestines go into canopic jars"
+        },
+        {
+          "when": "About 40 days",
+          "label": "Natron, a natural salt, dries the body"
+        },
+        {
+          "when": "Last",
+          "label": "Layers of linen, with amulets tucked in"
+        },
+        {
+          "when": "About 70 days",
+          "label": "The whole process is complete"
+        }
+      ]
+    },
+    {
+      "id": "card.ancient_egypt.035.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The heart stays home",
+      "body": "Through a cut in the side, embalmers removed the lungs, stomach, liver and intestines for the canopic jars. But the heart was usually left inside, because Egyptians saw it as the center of knowledge and emotions. The wrappings were linen, woven from flax like the flax farmers grew in Level 4. The whole job took about 70 days, and Herodotus, the Greek historian from Level 2, gave the same figure.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "The brain went out, the heart stayed in. Egyptians knew which one they’d be needing later."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.035.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.035.q1"
+    },
+    {
+      "id": "card.ancient_egypt.035.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.035.q2"
+    },
+    {
+      "id": "card.ancient_egypt.035.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.035.q3"
+    },
+    {
+      "id": "card.ancient_egypt.035.c8",
+      "type": "checkpoint",
+      "headline": "Mummies: explained",
+      "learned": [
+        "The first mummies were dried by desert sand",
+        "The ka and ba needed a preserved body",
+        "Organs went into canopic jars; the heart stayed in",
+        "Natron dried the body; linen wrapped it; about 70 days in all"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.mummification_method"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.035.c3",
+        "card.ancient_egypt.035.c4"
+      ],
+      "prompt": "About how long did the full Egyptian mummification process take?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 7 days",
+          "correct": false,
+          "rationale": "Far longer than a week."
+        },
+        {
+          "id": "b",
+          "label": "About 40 days",
+          "correct": false,
+          "rationale": "That was the natron drying stage alone."
+        },
+        {
+          "id": "c",
+          "label": "About 70 days",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 365 days",
+          "correct": false,
+          "rationale": "It took months, not a year."
+        }
+      ],
+      "explanation": "Mummification took about 70 days, the same figure Herodotus gave; about 40 of those were spent drying in natron.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.mummification_method"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.035.c4"
+      ],
+      "prompt": "Why did embalmers usually leave the heart inside the body?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was too hard to reach",
+          "correct": false,
+          "rationale": "Embalmers removed organs all around it."
+        },
+        {
+          "id": "b",
+          "label": "Egyptians saw it as the center of knowledge and emotions",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It dried out on its own in natron",
+          "correct": false,
+          "rationale": "The reason was belief, not chemistry."
+        },
+        {
+          "id": "d",
+          "label": "It was kept in a canopic jar instead",
+          "correct": false,
+          "rationale": "The jars held lungs, stomach, liver and intestines."
+        }
+      ],
+      "explanation": "Egyptians saw the heart as the center of knowledge and emotions, so it stayed with the body.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.mummification_method",
+        "concept.ancient_egypt.black_red_land"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.035.c1",
+        "card.ancient_egypt.003.c3"
+      ],
+      "prompt": "How did Egypt’s earliest mummies form without any embalmer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Nile flood soaked them in silt",
+          "correct": false,
+          "rationale": "Water would have done the opposite."
+        },
+        {
+          "id": "b",
+          "label": "Priests froze them in winter",
+          "correct": false,
+          "rationale": "It was heat, not cold."
+        },
+        {
+          "id": "c",
+          "label": "Hot, dry desert sand dried out the bodies buried in it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They were sealed inside pyramids",
+          "correct": false,
+          "rationale": "These were simple pits in the sand."
+        }
+      ],
+      "explanation": "Bodies buried in shallow pits in the desert were dried by its heat; the red land made ideal cemeteries.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.spurlock_mummification_history",
+    "source.carnegie_egypt_nile",
+    "source.spurlock_mummification_rituals",
+    "source.bham_osiris_mummification",
+    "source.usyd_mummification",
+    "source.australian_museum_mummification",
+    "source.smithsonianmag_make_mummy",
+    "source.perseus_herodotus_embalming",
+    "source.brit_agriculture_nile"
+  ],
+  "art": "egypt.canopic-jar"
+}

@@ -1,0 +1,222 @@
+{
+  "id": "level.history.ancient_egypt.011",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What a Pharaoh Was",
+  "objective": "After this level you can explain the pharaoh's role as king and as a god on earth.",
+  "summary": "Pharaoh first meant the palace, per-aa, and named the king only from the New Kingdom. The king judged, kept the gods content and set order in place of disorder; his divinity came with the office.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.pharaoh_role",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.two_lands",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.nile_flood",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.010"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For most of Egyptian history, nobody called the king “pharaoh.”",
+      "body": "The word first meant a building. The man who lived in it had a job description no modern ruler would sign up for."
+    },
+    {
+      "id": "card.ancient_egypt.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A house, not a man",
+      "body": "“Pharaoh” comes from the Egyptian per-aa, “great house”: the royal palace. Only in the New Kingdom, from the 18th Dynasty, did Egyptians start using it for the king himself, the way a news report might say “the palace announced.” Before that, he was simply the king, and his official title was the one you met in Level 6: “King of Upper and Lower Egypt.”",
+      "callout": "Pharaoh: first the palace, then the king"
+    },
+    {
+      "id": "card.ancient_egypt.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The job description",
+      "body": "One Egyptian text sums up the king’s role in a single breath: he “is on earth for ever and ever, judging mankind and propitiating the gods, and setting order in place of disorder.” Judge of his people, keeper of the gods’ goodwill, and the one person standing between Egypt and chaos. Try fitting that on a business card."
+    },
+    {
+      "id": "card.ancient_egypt.011.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A god, sort of",
+      "body": "So was the king a god? Egyptians said yes, carefully. His divinity came with the office and was renewed through rituals, but it ranked far below the great gods. The living king was identified with Horus, the falcon god; at death he became Osiris, god of the underworld. To his people he showed the gods on earth, and to the gods he stood for his people: a go-between wearing a crown.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "“A god, sort of” sounds like a dodge. For Egyptians it was a precise answer."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.011.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.011.q1"
+    },
+    {
+      "id": "card.ancient_egypt.011.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.011.q2"
+    },
+    {
+      "id": "card.ancient_egypt.011.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.011.q3"
+    },
+    {
+      "id": "card.ancient_egypt.011.c8",
+      "type": "checkpoint",
+      "headline": "What a pharaoh was: met",
+      "learned": [
+        "Pharaoh comes from per-aa, “great house,” the palace",
+        "It named the king himself only from the New Kingdom",
+        "The king judged, kept the gods content and set order in place of disorder",
+        "Living king: Horus; dead king: Osiris"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.pharaoh_role"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.011.c2"
+      ],
+      "prompt": "What did per-aa, the Egyptian word behind “pharaoh,” first mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A falcon god who protected the king",
+          "correct": false,
+          "rationale": "Horus was the falcon god; per-aa was a building."
+        },
+        {
+          "id": "b",
+          "label": "The “great house,” the royal palace",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The double crown of the Two Lands",
+          "correct": false,
+          "rationale": "The crown had its own names."
+        },
+        {
+          "id": "d",
+          "label": "A priest who spoke for the gods",
+          "correct": false,
+          "rationale": "Per-aa named a place, not a person, at first."
+        }
+      ],
+      "explanation": "Per-aa meant “great house,” the palace; only in the New Kingdom did it come to mean the king.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.pharaoh_role"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.011.c4"
+      ],
+      "prompt": "In what sense did Egyptians see their king as divine?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He was the most powerful god of all",
+          "correct": false,
+          "rationale": "His divinity ranked far below the great gods."
+        },
+        {
+          "id": "b",
+          "label": "He became a god only by winning wars",
+          "correct": false,
+          "rationale": "It came with his office, not with battles."
+        },
+        {
+          "id": "c",
+          "label": "His divinity came with the office, below the great gods",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They saw him as an entirely ordinary man",
+          "correct": false,
+          "rationale": "He was identified with Horus while alive."
+        }
+      ],
+      "explanation": "The office made him divine, renewed through ritual, but his divinity was far below that of the major gods.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_egypt.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.pharaoh_role",
+        "concept.ancient_egypt.nile_flood"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.011.c3",
+        "card.ancient_egypt.002.c4"
+      ],
+      "prompt": "From Level 2: when the flood failed, Egyptians might blame a king who had neglected his duties. Why the king?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He was thought to control rainfall in Ethiopia",
+          "correct": false,
+          "rationale": "Egyptians didn’t know the flood came from Ethiopian rain."
+        },
+        {
+          "id": "b",
+          "label": "He personally owned every field in Egypt",
+          "correct": false,
+          "rationale": "Ownership isn’t why he was blamed."
+        },
+        {
+          "id": "c",
+          "label": "He had built dams that failed",
+          "correct": false,
+          "rationale": "The blame was about duty, not engineering."
+        },
+        {
+          "id": "d",
+          "label": "His job was to keep the gods content and hold back disorder",
+          "correct": true
+        }
+      ],
+      "explanation": "The king’s role was propitiating the gods and setting order in place of disorder, so a disordered flood looked like his failure.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_pharaoh",
+    "source.brit_egypt_kingship",
+    "source.brit_horus",
+    "source.brit_osiris",
+    "source.brit_upper_egypt",
+    "source.met_egypt_educators"
+  ],
+  "art": "egypt.headdress"
+}

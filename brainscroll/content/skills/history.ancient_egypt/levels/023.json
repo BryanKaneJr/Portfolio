@@ -1,0 +1,215 @@
+{
+  "id": "level.history.ancient_egypt.023",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Bent Pyramid",
+  "objective": "After this level you can explain what builders learned from Sneferu's pyramids.",
+  "summary": "Sneferu’s builders turned steps into smooth sides. The Bent Pyramid changed angle when cracks appeared, and the Red Pyramid got the angle right.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.sneferu_true_pyramid",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.step_pyramid_imhotep",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.022"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One of Egypt’s great pyramids changes its angle halfway up.",
+      "body": "It’s called the Bent Pyramid, and it isn’t a ruin or a joke. It’s a record, in stone, of builders learning how to make a pyramid with smooth sides."
+    },
+    {
+      "id": "card.ancient_egypt.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Filling in the steps",
+      "body": "Djoser’s pyramid had steps. Sneferu, the first king of the 4th dynasty, wanted a true pyramid, with smooth, sloping sides. At Meidum, a step pyramid was reworked into a true one. Then at Dahshur his builders started the first pyramid designed as a true pyramid from the very beginning. That’s where things got bent."
+    },
+    {
+      "id": "card.ancient_egypt.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A change of plan",
+      "body": "The Bent Pyramid starts steep, at 54 degrees. But as it rose, cracks and structural faults appeared, and about halfway up the builders cut the angle to 43 degrees. The top half is noticeably flatter than the bottom. It looks as if someone got nervous in the middle, and someone did. Their nerves are still visible today.",
+      "callout": "54 degrees below, 43 degrees above",
+      "mascot": {
+        "pose": "oops",
+        "line": "Changing the plan halfway isn’t failure. It’s engineering with the lights on."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.023.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Third time right",
+      "body": "Sneferu’s builders tried again just to the north. The Red Pyramid rises at 43 degrees, the Bent Pyramid’s safer top angle, all the way up. It is the earliest tomb known to have been designed and built as a true pyramid throughout. That made three major pyramids for one king. His son Khufu inherited the lessons, and took them to Giza."
+    },
+    {
+      "id": "card.ancient_egypt.023.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.023.q1"
+    },
+    {
+      "id": "card.ancient_egypt.023.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.023.q2"
+    },
+    {
+      "id": "card.ancient_egypt.023.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.023.q3"
+    },
+    {
+      "id": "card.ancient_egypt.023.c8",
+      "type": "checkpoint",
+      "headline": "The bend: explained",
+      "learned": [
+        "Sneferu wanted smooth-sided “true” pyramids",
+        "The Bent Pyramid dropped from 54 to 43 degrees",
+        "Cracks forced the change",
+        "The Red Pyramid got it right; Khufu came next"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.sneferu_true_pyramid"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.023.c3"
+      ],
+      "prompt": "What did Sneferu’s builders change partway up the Bent Pyramid at Dahshur?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They switched from stone to mud brick",
+          "correct": false,
+          "rationale": "It was the angle that changed."
+        },
+        {
+          "id": "b",
+          "label": "They added a seventh step",
+          "correct": false,
+          "rationale": "The Bent Pyramid has smooth sides, not steps."
+        },
+        {
+          "id": "c",
+          "label": "They cut its angle from 54 to 43 degrees",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They made it steeper to reach higher",
+          "correct": false,
+          "rationale": "They made it less steep."
+        }
+      ],
+      "explanation": "The lower part rises at 54 degrees; the upper part at 43 degrees.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.sneferu_true_pyramid"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.023.c3"
+      ],
+      "prompt": "Why did the builders make the Bent Pyramid’s upper half less steep?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cracks and structural faults appeared at the steep angle",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The king ordered a different shape for fun",
+          "correct": false,
+          "rationale": "The change fixed a problem."
+        },
+        {
+          "id": "c",
+          "label": "They ran out of limestone",
+          "correct": false,
+          "rationale": "The problem was the structure, not supply."
+        },
+        {
+          "id": "d",
+          "label": "A flatter top was easier to paint",
+          "correct": false,
+          "rationale": "It was about keeping it standing."
+        }
+      ],
+      "explanation": "The steep angle was causing cracks, so the builders lowered it to 43 degrees.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.sneferu_true_pyramid",
+        "concept.ancient_egypt.step_pyramid_imhotep"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.023.c2",
+        "card.ancient_egypt.022.c2"
+      ],
+      "prompt": "What was Sneferu’s builders’ big change from Djoser’s Step Pyramid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They built in mud brick instead of stone",
+          "correct": false,
+          "rationale": "They kept building in stone."
+        },
+        {
+          "id": "b",
+          "label": "They aimed for smooth, sloping sides instead of steps",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They built tombs underground instead",
+          "correct": false,
+          "rationale": "Their pyramids rose high above ground."
+        },
+        {
+          "id": "d",
+          "label": "They added a Sphinx to guard each pyramid",
+          "correct": false,
+          "rationale": "Their goal was the shape."
+        }
+      ],
+      "explanation": "Djoser’s pyramid had six steps; Sneferu wanted a true pyramid with smooth sides.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_pyramid_architecture",
+    "source.memphis_step_pyramid",
+    "source.brit_snefru",
+    "source.smithsonianmag_bent_pyramid"
+  ],
+  "art": "geo.pyramids"
+}

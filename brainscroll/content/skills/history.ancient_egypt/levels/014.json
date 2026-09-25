@@ -1,0 +1,224 @@
+{
+  "id": "level.history.ancient_egypt.014",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Taxes Paid in Grain",
+  "objective": "After this level you can explain how Egypt collected taxes without coins.",
+  "summary": "Egypt taxed in grain, cattle, cloth and labor, stored grain in state granaries, set taxes by the flood height, and used no coins until the mid-first millennium BCE.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.grain_taxes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.flood_farming",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.nile_flood",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.pharaoh_role",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.013"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Egypt ran on taxes long before it had a single coin.",
+      "body": "So what did you hand the tax collector? Look in your granary. A share of the harvest, a cow, some cloth, or your own sweat."
+    },
+    {
+      "id": "card.ancient_egypt.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Taxes you could eat",
+      "body": "Egypt’s economy ran without money. The state collected produce, stored it and handed it out again. Officials took dues in grain, textiles, cattle and labor, and a share of each field’s harvest went to state granaries, which held massive reserves. Remember Level 4’s emmer wheat and barley? That was the tax. Coins arrived only in the mid-first millennium BCE, brought by foreign powers.",
+      "callout": "No coins: taxes in grain, cattle, cloth and labor"
+    },
+    {
+      "id": "card.ancient_egypt.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Taxing the flood",
+      "body": "How much should a farmer owe? Egyptians checked the river. Nilometers measured how high the flood rose, and a level promising a strong harvest meant higher taxes. It made sense: as Level 2 showed, a low flood could bring hunger, and a very high one could wipe out villages. Egypt was, in effect, taxing the harvest before it had grown."
+    },
+    {
+      "id": "card.ancient_egypt.014.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The king comes to count",
+      "body": "In the Old Kingdom, the king himself toured the country every year or two, a trip called the “Following of Horus.” (Remember Level 11: the living king was Horus.) He checked each province’s wealth and collected taxes. And if you had no grain to spare, you might pay with your back: ordinary Egyptians could be called up to farm, quarry, and build temples and tombs."
+    },
+    {
+      "id": "card.ancient_egypt.014.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.014.q1"
+    },
+    {
+      "id": "card.ancient_egypt.014.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.014.q2"
+    },
+    {
+      "id": "card.ancient_egypt.014.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.014.q3"
+    },
+    {
+      "id": "card.ancient_egypt.014.c8",
+      "type": "checkpoint",
+      "headline": "Taxes without coins: paid",
+      "learned": [
+        "Taxes came in grain, cattle, cloth and labor",
+        "State granaries held massive grain reserves",
+        "Nilometers set taxes by the flood height",
+        "Coins arrived only in the mid-first millennium BCE"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.grain_taxes"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.014.c2"
+      ],
+      "prompt": "Before coins, what did Egyptians pay their taxes in?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Silver coins stamped with the king’s face",
+          "correct": false,
+          "rationale": "Coins came only in the mid-first millennium BCE."
+        },
+        {
+          "id": "b",
+          "label": "Gold rings of fixed weight",
+          "correct": false,
+          "rationale": "Taxes were collected as everyday goods."
+        },
+        {
+          "id": "c",
+          "label": "Goods like grain and cattle, or labor",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nothing: Egyptians paid no taxes",
+          "correct": false,
+          "rationale": "The state collected dues from its people."
+        }
+      ],
+      "explanation": "Officials collected grain, textiles, cattle and labor, and grain filled state granaries.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.grain_taxes"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.014.c3"
+      ],
+      "prompt": "Why did Egyptian tax officials care how high the Nile rose?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A high flood meant the king was angry",
+          "correct": false,
+          "rationale": "The link was practical: harvests."
+        },
+        {
+          "id": "b",
+          "label": "The flood height predicted the harvest, and so the tax",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Taxes were paid in river water",
+          "correct": false,
+          "rationale": "Taxes came from harvests and goods."
+        },
+        {
+          "id": "d",
+          "label": "Boats could only reach tax offices at high water",
+          "correct": false,
+          "rationale": "The nilometer measured harvest prospects."
+        }
+      ],
+      "explanation": "A flood level that promised a strong harvest meant higher taxes.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.grain_taxes",
+        "concept.ancient_egypt.pharaoh_role"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.014.c4",
+        "card.ancient_egypt.011.c4"
+      ],
+      "prompt": "The Old Kingdom tax tour was called the “Following of Horus.” From Level 11, why Horus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Horus was the god of taxes",
+          "correct": false,
+          "rationale": "Horus was the falcon god linked to kingship."
+        },
+        {
+          "id": "b",
+          "label": "Tax collectors dressed as falcons",
+          "correct": false,
+          "rationale": "Nothing suggests that."
+        },
+        {
+          "id": "c",
+          "label": "Horus was the god of the dead",
+          "correct": false,
+          "rationale": "That was Osiris."
+        },
+        {
+          "id": "d",
+          "label": "The living king was identified with Horus",
+          "correct": true
+        }
+      ],
+      "explanation": "Following the king meant following Horus, since the living king was identified with the falcon god.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonian_egypt_taxes",
+    "source.brit_egypt_kingship",
+    "source.natgeo_nilometer_taxes",
+    "source.brit_agriculture_nile",
+    "source.natgeo_nile_flooding",
+    "source.brit_horus",
+    "source.brit_osiris"
+  ],
+  "art": "nature.wheat"
+}

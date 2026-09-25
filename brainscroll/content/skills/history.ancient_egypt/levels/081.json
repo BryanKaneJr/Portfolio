@@ -1,0 +1,214 @@
+{
+  "id": "level.history.ancient_egypt.081",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Sea Peoples",
+  "objective": "After this level you can describe the raiders who struck around 1177 BCE.",
+  "summary": "Around 1177 BCE Ramesses III beat off the Sea Peoples, a mix of raiders whose identity is still debated. Egypt won, but came out of the Late Bronze Age collapse much diminished.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.sea_peoples_invasion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.egypt_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.080"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.081.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Around 1177 BCE, raiders hit Egypt by land and by sea. Egypt won.",
+      "body": "So why do historians file that victory under the start of Egypt’s decline? And who were the raiders, anyway? Both answers are messier than the battle."
+    },
+    {
+      "id": "card.ancient_egypt.081.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ramesses III’s big win",
+      "body": "Historian Eric Cline dates it to 1177 BCE, the eighth year of Pharaoh Ramesses III’s reign. Warriors reached Egypt’s edge, some marching overland, others in ships. Ramesses beat them in battles on land and at sea, probably in or near the Nile Delta. Then he did what pharaohs did best: he advertised. The walls of his mortuary temple at Medinet Habu, near Thebes, show the fighting and rows of captives. Egypt’s side of the story, carved in stone."
+    },
+    {
+      "id": "card.ancient_egypt.081.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who were they?",
+      "body": "Egyptian texts name the groups one by one. The Peleset are generally believed to be the Philistines; the Sherden were probably from Sardinia. The carvings show feathered headdresses next to horned helmets, which suggests many peoples from many places, not one nation. Beyond that, their exact origins are uncertain. “Sea Peoples” is less a name than a label on a mystery box.",
+      "callout": "Many peoples, many places, one label"
+    },
+    {
+      "id": "card.ancient_egypt.081.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Winning the battle, losing the era",
+      "body": "Scholars once blamed the Sea Peoples for wrecking the great powers of the day, such as the Hittite empire. Recent research sees the Late Bronze Age collapse as having many causes, climate change among them, and the raiders’ role is debated. Egypt was the only major power to fight them off. Yet afterward, New Kingdom Egypt was much diminished. It survived the storm, but the whole neighborhood had changed.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "The most visible villain in a story isn’t always the whole explanation."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.081.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.081.q1"
+    },
+    {
+      "id": "card.ancient_egypt.081.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.081.q2"
+    },
+    {
+      "id": "card.ancient_egypt.081.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.081.q3"
+    },
+    {
+      "id": "card.ancient_egypt.081.c8",
+      "type": "checkpoint",
+      "headline": "The Sea Peoples: met",
+      "learned": [
+        "Ramesses III beat the Sea Peoples around 1177 BCE",
+        "He carved the battles at Medinet Habu",
+        "Who they were is still debated",
+        "Egypt won but came out diminished"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.sea_peoples_invasion"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.081.c2"
+      ],
+      "prompt": "How did Ramesses III make sure his victory over the Sea Peoples would be remembered?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He buried a written account inside the Great Pyramid",
+          "correct": false,
+          "rationale": "He used his own temple, not a pyramid."
+        },
+        {
+          "id": "b",
+          "label": "He had it carved on his temple walls at Medinet Habu",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He sent the story to the Hittite king in a letter",
+          "correct": false,
+          "rationale": "The record is on his temple walls."
+        },
+        {
+          "id": "d",
+          "label": "He renamed the Nile Delta after the battle",
+          "correct": false,
+          "rationale": "His record is carved at Medinet Habu."
+        }
+      ],
+      "explanation": "The walls of Ramesses III’s mortuary temple at Medinet Habu, near Thebes, show the battles and the captives.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.sea_peoples_invasion"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.081.c4"
+      ],
+      "prompt": "Why do many historians no longer blame the Sea Peoples alone for the Late Bronze Age collapse?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Egyptian records show they never reached Egypt",
+          "correct": false,
+          "rationale": "Ramesses III fought them in the Delta."
+        },
+        {
+          "id": "b",
+          "label": "The great powers of the day survived untouched",
+          "correct": false,
+          "rationale": "Powers such as the Hittite empire fell."
+        },
+        {
+          "id": "c",
+          "label": "Research points to many causes, including climate change",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Egypt itself destroyed the Hittite empire",
+          "correct": false,
+          "rationale": "Egypt was fending off raiders, not toppling the Hittites."
+        }
+      ],
+      "explanation": "Recent research sees many causes behind the collapse, so the Sea Peoples’ role is debated.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_egypt.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.sea_peoples_invasion",
+        "concept.ancient_egypt.egypt_eras"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.081.c2",
+        "card.ancient_egypt.001.c2"
+      ],
+      "prompt": "Ramesses III fought the Sea Peoples in 1177 BCE. In which of Level 1’s great ages was he ruling?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Old Kingdom",
+          "correct": false,
+          "rationale": "That ended about 2160 BCE."
+        },
+        {
+          "id": "b",
+          "label": "The Middle Kingdom",
+          "correct": false,
+          "rationale": "That ended about 1650 BCE."
+        },
+        {
+          "id": "c",
+          "label": "The New Kingdom",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "After Egypt became a Roman province",
+          "correct": false,
+          "rationale": "That came in 30 BCE."
+        }
+      ],
+      "explanation": "The New Kingdom ran from about 1550 to 1069 BCE, so 1177 BCE falls near its end.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.oup_oxford_history_egypt",
+    "source.princeton_cline_1177",
+    "source.brit_sea_peoples"
+  ],
+  "art": "rome.warship"
+}

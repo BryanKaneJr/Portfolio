@@ -1,0 +1,215 @@
+{
+  "id": "level.history.ancient_egypt.047",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Stars and Buildings",
+  "objective": "After this level you can explain how Egyptians used the stars to line up buildings.",
+  "summary": "Egyptians used star-sighting tools like the merkhet to lay out buildings. One leading idea says pyramid builders found north by lining up two stars on a plumb line.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.stars_building_alignment",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.calendar_365",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.046"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Great Pyramid’s sides face north, south, east and west, and accurately.",
+      "body": "How do you find true north for a building that size? Egyptians had tools for reading the night sky, and one leading idea says two stars did the job."
+    },
+    {
+      "id": "card.ancient_egypt.047.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A star-watching kit",
+      "body": "Egyptians had instruments for the night sky. The merkhet was a bar with a plumb line hanging from it, used to measure stars as they crossed the sky. The bay was a forked stick for lining things up. A string, a weight and a stick: simple tools, pointed at the stars.",
+      "callout": "Merkhet: bar + plumb line. Bay: forked stick."
+    },
+    {
+      "id": "card.ancient_egypt.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two stars and a plumb line",
+      "body": "In the pyramid age, no star marked the north pole of the sky. In 2000, Cambridge Egyptologist Kate Spence suggested a trick: watch two stars, Kochab and Mizar, circle that empty spot, and wait until a plumb line lines them both up. Then you are looking north. The clincher: the small errors in earlier and later pyramids follow the slow drift of those same two stars.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "The mistakes turned out to be the best clue. I love it when that happens."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.047.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stretching the cord",
+      "body": "Temples began with a ceremony. Temple reliefs show the king performing “stretching the cord,” a surveying rite, together with Seshat, the goddess of writing. Measuring out a building and writing shared a goddess. In Egypt, knowing things and building things went together."
+    },
+    {
+      "id": "card.ancient_egypt.047.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.047.q1"
+    },
+    {
+      "id": "card.ancient_egypt.047.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.047.q2"
+    },
+    {
+      "id": "card.ancient_egypt.047.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.047.q3"
+    },
+    {
+      "id": "card.ancient_egypt.047.c8",
+      "type": "checkpoint",
+      "headline": "Stars and buildings: aligned",
+      "learned": [
+        "The Great Pyramid’s sides face the four directions accurately",
+        "The merkhet and bay were star-sighting tools",
+        "One leading idea: two stars and a plumb line found north",
+        "Temples began with the king ’stretching the cord’ with Seshat"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.stars_building_alignment"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.047.c2"
+      ],
+      "prompt": "What was the Egyptian merkhet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A copper saw for cutting pyramid blocks",
+          "correct": false,
+          "rationale": "The merkhet watched stars, not stone."
+        },
+        {
+          "id": "b",
+          "label": "A water clock filled from the Nile",
+          "correct": false,
+          "rationale": "It wasn’t a clock filled with water."
+        },
+        {
+          "id": "c",
+          "label": "A map of Egypt carved on a stone slab",
+          "correct": false,
+          "rationale": "It was a sighting tool, not a map."
+        },
+        {
+          "id": "d",
+          "label": "A bar with a plumb line for watching stars",
+          "correct": true
+        }
+      ],
+      "explanation": "The merkhet was a bar with a plumb line used to measure star transits.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.stars_building_alignment"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.047.c3"
+      ],
+      "prompt": "What makes Kate Spence’s two-star idea for pyramid alignment convincing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A papyrus spells out the whole method step by step",
+          "correct": false,
+          "rationale": "No such papyrus is known."
+        },
+        {
+          "id": "b",
+          "label": "Their small errors follow the two stars’ drift",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The two stars are carved into the Great Pyramid",
+          "correct": false,
+          "rationale": "The stars aren’t carved there."
+        },
+        {
+          "id": "d",
+          "label": "A compass was found inside one of the pyramids",
+          "correct": false,
+          "rationale": "No compass has been found."
+        }
+      ],
+      "explanation": "Earlier and later pyramids are off by amounts that track the drift of Kochab and Mizar relative to true north.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.ancient_egypt.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.stars_building_alignment",
+        "concept.ancient_egypt.calendar_365"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.047.c3",
+        "card.ancient_egypt.045.c3"
+      ],
+      "prompt": "Stars could set a building’s direction. What did the rising of Sirius set, back in Level 45?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The height of the next pyramid",
+          "correct": false,
+          "rationale": "Sirius set the calendar, not building sizes."
+        },
+        {
+          "id": "b",
+          "label": "The start of each king’s reign",
+          "correct": false,
+          "rationale": "Years were counted by reigns, not Sirius."
+        },
+        {
+          "id": "c",
+          "label": "The price of grain",
+          "correct": false,
+          "rationale": "Sirius marked the New Year."
+        },
+        {
+          "id": "d",
+          "label": "New Year’s Day",
+          "correct": true
+        }
+      ],
+      "explanation": "Sirius’s first rising just before sunrise signaled New Year’s Day, around the time the flood began.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_great_pyramid",
+    "source.sciencemuseum_merkhet",
+    "source.abc_spence_pyramid_stars",
+    "source.memphis_foundation_rituals"
+  ],
+  "art": "astronomy.star"
+}

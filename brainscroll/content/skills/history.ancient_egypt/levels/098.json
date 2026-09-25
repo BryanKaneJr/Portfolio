@@ -1,0 +1,223 @@
+{
+  "id": "level.history.ancient_egypt.098",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Myths About Egypt",
+  "objective": "After this level you can debunk common myths, like aliens building the pyramids.",
+  "summary": "Paid workers, not slaves, built the Giza pyramids; Merer’s logbook shows human crews at work; the curse and Cleopatra’s looks rest on thin evidence.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.egypt_myths_debunked",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.nile_flood",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.nile_highway",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.097"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Ancient Egypt collects myths the way a pyramid collects sand.",
+      "body": "Take the famous curse on Tutankhamun’s tomb: Howard Carter, the man who opened it in 1922, lived until 1939. Some myths started with ancient writers, and some with Hollywood. The fix is always the same: check the evidence."
+    },
+    {
+      "id": "card.ancient_egypt.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Myth: slaves built the pyramids",
+      "body": "The picture of whipped slaves comes from Herodotus (yes, Level 2’s “gift of the river” man), misreadings of the Bible’s book of Exodus, and Hollywood films. The ground tells another story. Near the Giza pyramids, archaeologists found workers’ districts with bakeries and workshops, and workers’ tombs close to the pyramids, some naming the dead. Most archaeologists now think paid laborers built them."
+    },
+    {
+      "id": "card.ancient_egypt.098.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Myth: aliens did it",
+      "body": "The builders left paperwork. In 2013, archaeologists at Wadi al-Jarf on the Red Sea found the oldest known inscribed papyri, including the logbook of an official named Merer. His crew shipped limestone by boat from the Tura quarries to Giza for Khufu’s pyramid, and he logged the work in half-day entries. Aliens, as far as anyone knows, don’t fill in timesheets.",
+      "mascot": {
+        "pose": "idea",
+        "line": "The best answer to a wild theory is often a very boring document."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.098.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Myth: we know Cleopatra’s face",
+      "body": "People argue hotly about Cleopatra’s looks, but the evidence is thin. She belonged to a Macedonian Greek dynasty, yet even her mother’s identity is uncertain, and her coins and portrait busts don’t all agree. Plutarch, writing long after, said her beauty was “not altogether incomparable,” but that talking with her had “an irresistible charm.” Egypt’s most famous face is one of its least certain."
+    },
+    {
+      "id": "card.ancient_egypt.098.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.098.q1"
+    },
+    {
+      "id": "card.ancient_egypt.098.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.098.q2"
+    },
+    {
+      "id": "card.ancient_egypt.098.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.098.q3"
+    },
+    {
+      "id": "card.ancient_egypt.098.c8",
+      "type": "checkpoint",
+      "headline": "Myths: checked",
+      "learned": [
+        "Curse? Carter lived until 1939",
+        "Paid workers, not slaves, built the Giza pyramids",
+        "Merer’s logbook: human crews moving stone",
+        "Cleopatra’s looks: the evidence is thin"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.egypt_myths_debunked"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.098.c2"
+      ],
+      "prompt": "What evidence near the Giza pyramids suggests the builders were not slaves?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A carved order forbidding slaves on the site",
+          "correct": false,
+          "rationale": "No such order is part of the evidence."
+        },
+        {
+          "id": "b",
+          "label": "Workers’ tombs near the pyramids, and bakeries",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Herodotus’s description of the building work",
+          "correct": false,
+          "rationale": "He’s one source of the myth."
+        },
+        {
+          "id": "d",
+          "label": "Hollywood films shot on location at Giza",
+          "correct": false,
+          "rationale": "Films helped spread the myth."
+        }
+      ],
+      "explanation": "Workers’ districts with bakeries and workshops, and honored tombs near the pyramids, point to paid laborers.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.egypt_myths_debunked"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.098.c3"
+      ],
+      "prompt": "Why does Merer’s logbook undercut the idea that aliens built the pyramids?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It says the pyramids were built in a single day",
+          "correct": false,
+          "rationale": "It logs ordinary work in half-day entries."
+        },
+        {
+          "id": "b",
+          "label": "It was written by a visiting Greek historian",
+          "correct": false,
+          "rationale": "Merer was an Egyptian official."
+        },
+        {
+          "id": "c",
+          "label": "It describes a map of the stars above Giza",
+          "correct": false,
+          "rationale": "It’s a record of shipping stone."
+        },
+        {
+          "id": "d",
+          "label": "It records crews shipping limestone to Khufu’s pyramid",
+          "correct": true
+        }
+      ],
+      "explanation": "Merer’s crew moved Tura limestone by boat to Giza for Khufu’s pyramid and logged the work.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.egypt_myths_debunked",
+        "concept.ancient_egypt.nile_highway"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.098.c3",
+        "card.ancient_egypt.005.c4"
+      ],
+      "prompt": "Merer’s crew moved limestone to Giza by boat. From Level 5, why was the Nile the natural way to move heavy loads?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was Egypt’s main highway, the easiest way to travel",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Roads were banned for stone",
+          "correct": false,
+          "rationale": "The river was simply the easiest road."
+        },
+        {
+          "id": "c",
+          "label": "The Nile flowed toward Giza from every direction",
+          "correct": false,
+          "rationale": "The Nile flows north."
+        },
+        {
+          "id": "d",
+          "label": "Boats were cheaper because the river was always in flood",
+          "correct": false,
+          "rationale": "The flood came once a year."
+        }
+      ],
+      "explanation": "The Nile was Egypt’s great highway, essential for building projects and moving materials.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.perseus_herodotus_histories",
+    "source.carnegie_egypt_nile",
+    "source.brit_howard_carter",
+    "source.brit_video_pyramid_builders",
+    "source.brit_paid_pyramid_builders",
+    "source.smithsonian_merer_papyri",
+    "source.brit_cleopatra",
+    "source.uchicago_plutarch_antony"
+  ],
+  "art": "object.magnifier"
+}

@@ -1,0 +1,214 @@
+{
+  "id": "level.history.ancient_egypt.043",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Scribes",
+  "objective": "After this level you can describe how scribes trained and worked.",
+  "summary": "Scribal schools taught reading, writing and math, above all the cursive hieratic script. Scribes wrote with reed brushes in black and red ink, and their rare skill set them above most Egyptians.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.scribe_training",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.hieroglyph_signs",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.042"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.043.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Probably fewer than 1 Egyptian in 100 could read. Scribes could.",
+      "body": "That made writing a rare skill, and a powerful one. So how did you become one of the few, and what did you carry to work?"
+    },
+    {
+      "id": "card.ancient_egypt.043.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Scribe school",
+      "body": "Young men enrolled in scribal schools to learn the trade: reading, writing and the basics of math. The script they drilled most was hieratic, a flowing, cursive form of the hieroglyphs from Level 41, written on papyrus, broken pottery and flakes of stone. Hieroglyphs were for monuments and display. Hieratic was for getting work done, the way you print neatly on a poster but scribble in a notebook."
+    },
+    {
+      "id": "card.ancient_egypt.043.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The original red pen",
+      "body": "A scribe’s main tool was his palette: a slim board with two inkwells and a slot for reed pens. He chewed the end of a reed into a little brush, dipped it in water and rubbed it on the ink cake. Black ink was for the text. Red ink was for titles and for corrections. Marking mistakes in red is a very, very old habit.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Red for mistakes. Some things never change, and maybe they shouldn’t."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.043.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Worth the homework",
+      "body": "Why put up with years of copying? Because most Egyptians could not read or write, a scribe automatically ranked above most people. Egyptian texts didn’t hide the boast either: the scribe gave the orders, they said, while the rest did the work. It’s quite a sales pitch for school."
+    },
+    {
+      "id": "card.ancient_egypt.043.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.043.q1"
+    },
+    {
+      "id": "card.ancient_egypt.043.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.043.q2"
+    },
+    {
+      "id": "card.ancient_egypt.043.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.043.q3"
+    },
+    {
+      "id": "card.ancient_egypt.043.c8",
+      "type": "checkpoint",
+      "headline": "Scribes: trained",
+      "learned": [
+        "Probably fewer than 1 in 100 Egyptians could read",
+        "Scribal schools taught reading, writing and math",
+        "Hieratic was the cursive script for everyday writing",
+        "Black ink for text, red for titles and corrections"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.scribe_training"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.043.c3"
+      ],
+      "prompt": "On an Egyptian scribe’s papyrus, what was red ink used for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The whole text of letters to the king",
+          "correct": false,
+          "rationale": "Black ink carried the main text."
+        },
+        {
+          "id": "b",
+          "label": "Only the names of gods",
+          "correct": false,
+          "rationale": "Red marked titles and corrections."
+        },
+        {
+          "id": "c",
+          "label": "Numbers above 100",
+          "correct": false,
+          "rationale": "Numbers were written in black like other text."
+        },
+        {
+          "id": "d",
+          "label": "Titles and corrections",
+          "correct": true
+        }
+      ],
+      "explanation": "Black ink carried the text; red marked titles and corrections.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.scribe_training"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.043.c4"
+      ],
+      "prompt": "Why did scribes rank above most Egyptians?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were all members of the royal family",
+          "correct": false,
+          "rationale": "Scribes didn’t have to be royal."
+        },
+        {
+          "id": "b",
+          "label": "They owned most of the farmland",
+          "correct": false,
+          "rationale": "Their power came from writing, not land."
+        },
+        {
+          "id": "c",
+          "label": "Most Egyptians could not read or write",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They were the only ones allowed on the Nile",
+          "correct": false,
+          "rationale": "Everyone used the river."
+        }
+      ],
+      "explanation": "With literacy probably well below 1 percent, being able to read and write set scribes apart.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.scribe_training",
+        "concept.ancient_egypt.hieroglyph_signs"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.043.c2",
+        "card.ancient_egypt.041.c2"
+      ],
+      "prompt": "Scribes trained above all in hieratic. How was it related to Level 41’s hieroglyphs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was a flowing, cursive form of hieroglyphs",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was a foreign alphabet with no link to them",
+          "correct": false,
+          "rationale": "Hieratic grew out of hieroglyphs."
+        },
+        {
+          "id": "c",
+          "label": "It used only pictures, with no sound signs",
+          "correct": false,
+          "rationale": "Like hieroglyphs, hieratic spelled sounds."
+        },
+        {
+          "id": "d",
+          "label": "It was a secret code only priests could read",
+          "correct": false,
+          "rationale": "It was the everyday script of scribes."
+        }
+      ],
+      "explanation": "Hieratic was the cursive, everyday form of hieroglyphs, used on papyrus rather than monuments.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ancient_egypt_writing",
+    "source.brit_egyptian_mathematics",
+    "source.memphis_scribal_palette",
+    "source.brit_egyptian_language"
+  ],
+  "art": "egypt.scribe-palette"
+}

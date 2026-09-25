@@ -1,0 +1,216 @@
+{
+  "id": "level.history.ancient_egypt.071",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tutankhamun",
+  "objective": "After this level you can explain why a minor king became the most famous pharaoh.",
+  "summary": "Tutankhamun became king as a child, turned Egypt back to the old gods and died at about 19. His small tomb largely escaped robbers, and its gold made him famous.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.tutankhamun_king",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.egypt_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.070"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A boy king with “little claim to fame” became the most famous pharaoh.",
+      "body": "Britannica says it plainly: but for his tomb, Tutankhamun has little claim to fame. Yet he is better known than the longer-lived, better-documented kings before and after him. How does that happen?"
+    },
+    {
+      "id": "card.ancient_egypt.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A child on the throne",
+      "body": "Tutankhamun became king at about nine, around 1333 BCE, in the New Kingdom. He was born Tutankhaten, a name that included the Aten, the god of Akhenaten’s religious revolution. Under the boy king, Egypt turned back: a decree restored the temples, images, priests and privileges of the old gods. His name changed too, to Tutankhamun, now including Amun. New government, new name tag."
+    },
+    {
+      "id": "card.ancient_egypt.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A case still open",
+      "body": "Around 1323 BCE, at about 19, he died, and nobody knows for sure why. A 2010 study found malaria parasites in his mummy and suggested malaria combined with a bone disease. Others point to a badly broken leg. Neither diagnosis is certain, so the most famous mummy in the world still has an open file.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Three thousand years on, and the doctors are still arguing. That’s a very long second opinion."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.071.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Famous for what nobody stole",
+      "body": "His tomb was small, hastily converted for him, and later hidden under rock chippings from a later tomb. It became the only royal tomb in the Valley of the Kings to largely escape the robbers. Inside, his mummy lay in a nest of three coffins, the innermost of solid gold, wearing a golden portrait mask, with more than 5,000 objects around him. Tutankhamun isn’t famous for what he did. He’s famous for what survived.",
+      "callout": "Short reign, small tomb, surviving gold"
+    },
+    {
+      "id": "card.ancient_egypt.071.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.071.q1"
+    },
+    {
+      "id": "card.ancient_egypt.071.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.071.q2"
+    },
+    {
+      "id": "card.ancient_egypt.071.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.071.q3"
+    },
+    {
+      "id": "card.ancient_egypt.071.c8",
+      "type": "checkpoint",
+      "headline": "Tutankhamun: met",
+      "learned": [
+        "Tutankhamun became king at about nine and died at about 19",
+        "Born Tutankhaten, he restored the old gods and became Tutankhamun",
+        "How he died is still debated",
+        "His small tomb largely escaped robbers, so its gold survived"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.tutankhamun_king"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.071.c4"
+      ],
+      "prompt": "What was the innermost of Tutankhamun’s three coffins made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Painted cedar wood",
+          "correct": false,
+          "rationale": "Wood with gold hammered over it made the outer ones."
+        },
+        {
+          "id": "b",
+          "label": "Carved alabaster",
+          "correct": false,
+          "rationale": "The innermost coffin was metal."
+        },
+        {
+          "id": "c",
+          "label": "Solid gold",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Polished black granite",
+          "correct": false,
+          "rationale": "It was precious metal, not stone."
+        }
+      ],
+      "explanation": "His mummy lay in three nested coffins, and the innermost was solid gold.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.tutankhamun_king"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.071.c4",
+        "card.ancient_egypt.071.c1"
+      ],
+      "prompt": "Why is Tutankhamun better known than many longer-reigning pharaohs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His tomb largely escaped robbers, so its treasures survived",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He conquered more land than any other Egyptian king before him",
+          "correct": false,
+          "rationale": "His short reign is not remembered for conquest."
+        },
+        {
+          "id": "c",
+          "label": "He ruled for over half a century",
+          "correct": false,
+          "rationale": "He died at about 19."
+        },
+        {
+          "id": "d",
+          "label": "He wrote Egypt’s most famous laws",
+          "correct": false,
+          "rationale": "His fame comes from his tomb, not from laws."
+        }
+      ],
+      "explanation": "His small tomb was the only royal tomb in the valley to largely escape plunder, so his gold and more than 5,000 objects survived.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.tutankhamun_king",
+        "concept.ancient_egypt.egypt_eras"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.071.c2",
+        "card.ancient_egypt.001.c2"
+      ],
+      "prompt": "Tutankhamun became king around 1333 BCE. From Level 1, which great age of Egypt was that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Old Kingdom",
+          "correct": false,
+          "rationale": "That ended about 2160 BCE."
+        },
+        {
+          "id": "b",
+          "label": "The Middle Kingdom",
+          "correct": false,
+          "rationale": "That ended about 1650 BCE."
+        },
+        {
+          "id": "c",
+          "label": "The New Kingdom",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Roman rule",
+          "correct": false,
+          "rationale": "That began in 30 BCE."
+        }
+      ],
+      "explanation": "The New Kingdom ran from about 1550 to 1069 BCE, so Tutankhamun’s reign falls inside it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.oup_oxford_history_egypt",
+    "source.brit_tutankhamun",
+    "source.brit_valley_of_the_kings",
+    "source.smithsonian_tut_objects"
+  ],
+  "art": "egypt.headdress"
+}

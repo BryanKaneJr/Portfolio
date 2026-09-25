@@ -1,0 +1,216 @@
+{
+  "id": "level.history.ancient_egypt.083",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Nubian Pharaohs",
+  "objective": "After this level you can describe the kings of Kush who ruled Egypt.",
+  "summary": "Kush, a Nubian kingdom south of Egypt, conquered Egypt in the 8th century BCE and ruled it as the 25th Dynasty. Driven out by Assyria, Kush lasted another thousand years.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.kushite_pharaohs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.nile_highway",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.082"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In the 700s BCE, a kingdom from the south conquered Egypt.",
+      "body": "Many people have never heard of it. But Kush was no small neighbor. It was one of Africa’s earliest civilizations, and for nearly a century its kings ruled Egypt as pharaohs."
+    },
+    {
+      "id": "card.ancient_egypt.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The kingdom up the river",
+      "body": "Kush was the southern part of Nubia, a region stretching south from near the Nile’s first cataract, in what is now Sudan. Remember Level 5’s rapids at Aswan, Egypt’s southern border? Kush lay beyond them, upstream. Its kings ruled from Napata, near Mount Barkal, and the cult of Egypt’s god Amun was strongly rooted there. Egypt’s new pharaohs would already know its gods."
+    },
+    {
+      "id": "card.ancient_egypt.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Piye marches north",
+      "body": "In the 8th century BCE, King Piye marched into Egypt, ended its petty kingdoms and took Memphis. By about 715 BCE, under Piye and then Shabaka, all of Egypt was ruled from Kush. How do we know Piye’s side? He recorded his conquest on a great stone stela, found back home at Mount Barkal. The Kushite kings ruled as Egypt’s 25th Dynasty. The pharaohs now came from the south."
+    },
+    {
+      "id": "card.ancient_egypt.083.c4",
+      "type": "fact",
+      "fact": "Sudan has some 255 ancient pyramids, more than twice as many as Egypt built.",
+      "context": "Kushite kings were buried in pyramids. Their rule in Egypt ended after the Assyrians invaded in 671 BCE; by 654 BCE the Kushites were back in Nubia. But Kush didn’t fade. It lasted about another thousand years, later ruling from Meroe, until the king of Aksum destroyed Meroe in 350 CE. Losing Egypt was one chapter in Kush’s story, not the end.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "More pyramids than Egypt. Kush deserves a much bigger spot in the story."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.083.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.083.q1"
+    },
+    {
+      "id": "card.ancient_egypt.083.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.083.q2"
+    },
+    {
+      "id": "card.ancient_egypt.083.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.083.q3"
+    },
+    {
+      "id": "card.ancient_egypt.083.c8",
+      "type": "checkpoint",
+      "headline": "The Nubian pharaohs: met",
+      "learned": [
+        "Kush, in Nubia, was one of Africa’s earliest civilizations",
+        "Piye and Shabaka brought all of Egypt under Kush",
+        "Kushite kings ruled as the 25th Dynasty",
+        "Kush lasted about a thousand more years and built some 255 pyramids"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.kushite_pharaohs"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.083.c2"
+      ],
+      "prompt": "Where was the kingdom of Kush, whose kings ruled Egypt as the 25th Dynasty?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the Nile Delta, around Tanis",
+          "correct": false,
+          "rationale": "Kush lay far to the south."
+        },
+        {
+          "id": "b",
+          "label": "West of Egypt, in the Libyan desert",
+          "correct": false,
+          "rationale": "Kush lay south, along the Nile."
+        },
+        {
+          "id": "c",
+          "label": "South of Egypt, in Nubia, now Sudan",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Across the sea, on the island of Sardinia",
+          "correct": false,
+          "rationale": "Kush was up the Nile, in Nubia."
+        }
+      ],
+      "explanation": "Kush was the southern part of Nubia, upstream of Egypt, in what is now Sudan.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.kushite_pharaohs"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.083.c4"
+      ],
+      "prompt": "What happened to Kush after the Assyrians drove its kings out of Egypt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It carried on for about a thousand years, later ruled from Meroe",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It collapsed within a few years of leaving Egypt",
+          "correct": false,
+          "rationale": "It lasted until 350 CE."
+        },
+        {
+          "id": "c",
+          "label": "It became a province of the Assyrian Empire",
+          "correct": false,
+          "rationale": "The Kushites went back to Nubia and ruled on."
+        },
+        {
+          "id": "d",
+          "label": "Its people all moved north to live in Egypt",
+          "correct": false,
+          "rationale": "Kush continued in Nubia."
+        }
+      ],
+      "explanation": "Kush lasted about another thousand years, ruling later from Meroe, until Aksum destroyed Meroe in 350 CE.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.kushite_pharaohs",
+        "concept.ancient_egypt.nile_highway"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.083.c2",
+        "card.ancient_egypt.005.c4"
+      ],
+      "prompt": "Kush lay beyond Egypt’s old southern border. From Level 5, what marked that border?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Mediterranean coast",
+          "correct": false,
+          "rationale": "That was Egypt’s northern edge."
+        },
+        {
+          "id": "b",
+          "label": "The rocky rapids of the First Cataract at Aswan",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The branches of the Nile Delta",
+          "correct": false,
+          "rationale": "The Delta is in the north."
+        },
+        {
+          "id": "d",
+          "label": "A wall of pyramids along the river",
+          "correct": false,
+          "rationale": "The border was natural: the rapids."
+        }
+      ],
+      "explanation": "The First Cataract at Aswan, a stretch of rock-strewn rapids, marked Egypt’s southern border.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_nile_physiography",
+    "source.met_egypt_educators",
+    "source.brit_kush",
+    "source.brit_nubia",
+    "source.natgeo_sudan_pyramids",
+    "source.brit_piye",
+    "source.brit_sudan_kush"
+  ],
+  "art": "geo.pyramids"
+}

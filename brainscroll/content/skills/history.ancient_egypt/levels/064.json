@@ -1,0 +1,217 @@
+{
+  "id": "level.history.ancient_egypt.064",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Valley of the Kings",
+  "objective": "After this level you can explain why pharaohs chose a hidden valley for their tombs.",
+  "summary": "From Thutmose I, New Kingdom kings hid rock-cut tombs in a desert valley at Thebes under a pyramid-shaped peak, with temples built apart. Almost all were robbed anyway.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.newkingdom_valley_of_kings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.black_red_land",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.063"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Pyramids told everyone where a king was buried. That was the problem.",
+      "body": "New Kingdom pharaohs, fearing for their rich burials, tried another plan: hide the tomb, and hope nobody finds it."
+    },
+    {
+      "id": "card.ancient_egypt.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A lonely valley",
+      "body": "Thutmose I is thought to have been the first king to cut his tomb in the Valley of the Kings, a narrow valley in the western hills at Thebes, probably for security. Kings of the 18th, 19th and 20th Dynasties followed, hiding their rock-cut tombs out of sight. Remember Level 3’s red land? Its dry climate made the desert an ideal place for cemeteries."
+    },
+    {
+      "id": "card.ancient_egypt.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A pyramid after all",
+      "body": "Pharaohs didn’t give up on pyramids entirely. Above the valley rises a peak called the Qurn, whose shape may have reminded Egyptians of a pyramid. Their temples for worship after death were built separately, at the edge of the farmland, far from the hidden tombs. The tomb went into hiding; the temple stayed on show.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A natural pyramid overhead and nothing to point at your door. Clever."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.064.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Built to baffle",
+      "body": "A typical tomb was a corridor sloping down into the rock, broken by deep shafts (perhaps to stop robbers, perhaps to catch floodwater), ending in a burial chamber. It didn’t work. Virtually every tomb in the valley was emptied in ancient times; Tutankhamun’s is the famous one that escaped. Hidden, it turns out, isn’t the same as safe."
+    },
+    {
+      "id": "card.ancient_egypt.064.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.064.q1"
+    },
+    {
+      "id": "card.ancient_egypt.064.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.064.q2"
+    },
+    {
+      "id": "card.ancient_egypt.064.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.064.q3"
+    },
+    {
+      "id": "card.ancient_egypt.064.c8",
+      "type": "checkpoint",
+      "headline": "The valley: explored",
+      "learned": [
+        "From Thutmose I, kings hid rock-cut tombs at Thebes",
+        "The Qurn peak stood in for a pyramid",
+        "Mortuary temples were built apart, by the farmland",
+        "Almost every tomb was robbed anyway"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.newkingdom_valley_of_kings"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.064.c2"
+      ],
+      "prompt": "Which king is thought to have been the first to cut his tomb in the Valley of the Kings?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ahmose",
+          "correct": false,
+          "rationale": "The valley’s first royal tomb came a little later."
+        },
+        {
+          "id": "b",
+          "label": "Narmer",
+          "correct": false,
+          "rationale": "He lived long before the New Kingdom."
+        },
+        {
+          "id": "c",
+          "label": "Thutmose I",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Kamose",
+          "correct": false,
+          "rationale": "He fought the Hyksos; the valley’s first tomb was someone else’s."
+        }
+      ],
+      "explanation": "Thutmose I is thought to have been the first king buried in the valley, probably for security.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.newkingdom_valley_of_kings"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.064.c1",
+        "card.ancient_egypt.064.c2",
+        "card.ancient_egypt.064.c4"
+      ],
+      "prompt": "Why did New Kingdom kings hide their tombs in a remote valley?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Priests had banned the building of pyramids",
+          "correct": false,
+          "rationale": "The reason was security, not a ban."
+        },
+        {
+          "id": "b",
+          "label": "To protect their rich burials from robbers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "To be closer to the Nile’s yearly flood",
+          "correct": false,
+          "rationale": "The valley is dry desert, away from the flood."
+        },
+        {
+          "id": "d",
+          "label": "Because the valley was sacred to the Aten",
+          "correct": false,
+          "rationale": "The Aten had nothing to do with it."
+        }
+      ],
+      "explanation": "Fearing for their rich burials, kings hid rock-cut tombs out of sight, though almost all were robbed anyway.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.newkingdom_valley_of_kings",
+        "concept.ancient_egypt.black_red_land"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.064.c2",
+        "card.ancient_egypt.003.c3"
+      ],
+      "prompt": "The Valley of the Kings lies in the desert hills. From Level 3, what made the red land a good place for burials?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its dry climate",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its rich black soil",
+          "correct": false,
+          "rationale": "That was the black land, used for farming."
+        },
+        {
+          "id": "c",
+          "label": "Its heavy yearly rains",
+          "correct": false,
+          "rationale": "Egypt gets very little rain."
+        },
+        {
+          "id": "d",
+          "label": "Its closeness to the sea",
+          "correct": false,
+          "rationale": "The valley is far inland at Thebes."
+        }
+      ],
+      "explanation": "The desert’s dry climate made it an ideal place for cemeteries.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_valley_kings",
+    "source.brit_thutmose_i",
+    "source.tmp_valley_kings",
+    "source.brit_mortuary_temple",
+    "source.carnegie_egypt_nile"
+  ],
+  "art": "geo.canyon"
+}

@@ -1,0 +1,213 @@
+{
+  "id": "level.history.ancient_egypt.042",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Papyrus",
+  "objective": "After this level you can explain how papyrus was made from reeds.",
+  "summary": "Papyrus sheets were made from crossed strips of a Delta marsh plant, pressed so its own sap glued them, then pasted into rolls. The oldest known roll is blank.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.papyrus_making",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.two_lands",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.041"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The word “paper” comes from a reed that grew along the Nile.",
+      "body": "Long before paper mills, Egyptians wrote on sheets made from a marsh plant, and the plant supplied its own glue. Here’s how a reed became a notebook."
+    },
+    {
+      "id": "card.ancient_egypt.042.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A reed for everything",
+      "body": "Papyrus grew thick in marshes, and Egyptians cultivated it in the Nile Delta. It was a do-everything reed: people made rope, mats, sandals and even boats from it. Remember Level 6? The Delta was Lower Egypt, the northern of the Two Lands. So Egypt’s writing material grew in the north, in the same marshes where the river fans out toward the sea."
+    },
+    {
+      "id": "card.ancient_egypt.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Strips, cross, press",
+      "body": "To make a sheet, workers cut the stem’s inner pith into long strips and laid them side by side. A second layer went on top at right angles. The sheet was dampened and pressed, and the plant’s own gluelike sap cemented the layers together. Then it was hammered and dried in the sun. No glue pot needed: the plant glued itself.",
+      "callout": "Lay, cross, press, hammer, dry"
+    },
+    {
+      "id": "card.ancient_egypt.042.c4",
+      "type": "fact",
+      "fact": "The oldest known papyrus roll, from about 2900 BCE, is blank.",
+      "context": "It comes from the First Dynasty tomb of an official named Hemaka. Sheets were pasted into rolls, usually no more than 20 sheets long, ready for writing. This one never got a single word. Egypt’s oldest surviving roll, and nobody wrote in it.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Somewhere, a scribe is still meaning to get round to it."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.042.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.042.q1"
+    },
+    {
+      "id": "card.ancient_egypt.042.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.042.q2"
+    },
+    {
+      "id": "card.ancient_egypt.042.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.042.q3"
+    },
+    {
+      "id": "card.ancient_egypt.042.c8",
+      "type": "checkpoint",
+      "headline": "Papyrus: pressed",
+      "learned": [
+        "Papyrus grew in marshes and was cultivated in the Delta",
+        "Crossed strips were pressed so the sap glued them",
+        "Sheets were pasted into rolls",
+        "The oldest known roll, about 2900 BCE, is blank"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.papyrus_making"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.042.c3"
+      ],
+      "prompt": "What held the crossed layers of a papyrus sheet together?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The plant’s own sap, pressed in",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Glue made from boiled animal bones",
+          "correct": false,
+          "rationale": "No glue was needed."
+        },
+        {
+          "id": "c",
+          "label": "Tiny stitches of fine linen thread",
+          "correct": false,
+          "rationale": "The layers weren’t sewn."
+        },
+        {
+          "id": "d",
+          "label": "A thin layer of wet clay between them",
+          "correct": false,
+          "rationale": "The plant supplied its own glue."
+        }
+      ],
+      "explanation": "Pressing the damp sheet let the papyrus plant’s gluelike sap cement the layers.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.papyrus_making"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.042.c3"
+      ],
+      "prompt": "Which order of steps turned papyrus stems into a writing sheet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Boil the stems, pulp them, pour the pulp into a frame",
+          "correct": false,
+          "rationale": "That’s how later paper was made."
+        },
+        {
+          "id": "b",
+          "label": "Weave whole stems into a mat, then paint it white",
+          "correct": false,
+          "rationale": "Whole stems weren’t woven into sheets."
+        },
+        {
+          "id": "c",
+          "label": "Lay pith strips side by side, add a crossed layer, press, then dry",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Peel the bark into sheets and stretch it on a frame",
+          "correct": false,
+          "rationale": "Papyrus sheets came from the pith, not bark."
+        }
+      ],
+      "explanation": "Strips were laid side by side, crossed at right angles by a second layer, dampened and pressed, hammered and sun-dried.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.papyrus_making",
+        "concept.ancient_egypt.two_lands"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.042.c2",
+        "card.ancient_egypt.006.c2"
+      ],
+      "prompt": "Papyrus was cultivated in the Nile Delta. Which of Level 6’s Two Lands was that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Upper Egypt, in the south",
+          "correct": false,
+          "rationale": "Upper Egypt was the southern valley."
+        },
+        {
+          "id": "b",
+          "label": "Lower Egypt, in the north",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Nubia, beyond the First Cataract",
+          "correct": false,
+          "rationale": "The Delta lies far to the north of the cataract."
+        },
+        {
+          "id": "d",
+          "label": "The red land of the desert",
+          "correct": false,
+          "rationale": "The Delta was marshland, not desert."
+        }
+      ],
+      "explanation": "The Delta, where the Nile fans into branches, was Lower Egypt in the north.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_papyrus_plant",
+    "source.brit_papyrus_writing",
+    "source.met_papyrus_egypt"
+  ],
+  "art": "egypt.papyrus"
+}

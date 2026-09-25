@@ -1,0 +1,214 @@
+{
+  "id": "level.history.ancient_egypt.013",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Viziers and Scribes",
+  "objective": "After this level you can explain how officials ran Egypt for the pharaoh.",
+  "summary": "The vizier, chief administrator and judge, ran Egypt for the king; the New Kingdom had one for each land. Provinces had their own officials, and government ran on writing few could read.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.pharaoh_officials",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.two_lands",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.012"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The king was a god on earth. Someone still had to do the paperwork.",
+      "body": "Treasuries to check, granaries to count, temples to manage, cases to judge. One king couldn’t do it all. So who actually ran Egypt day to day?"
+    },
+    {
+      "id": "card.ancient_egypt.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The vizier",
+      "body": "Just below the king stood the vizier, the chief administrator and judge, who reported to the king. As the king’s deputy he oversaw the treasuries and granaries, supervised officials, managed temple affairs and administered justice. Picture a prime minister, chief justice and head of the treasury rolled into one very busy person.",
+      "callout": "Vizier: the king’s deputy, administrator and judge"
+    },
+    {
+      "id": "card.ancient_egypt.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two lands, two viziers",
+      "body": "At first one vizier served all of Egypt. By the New Kingdom, the Two Lands each had their own: one for Upper Egypt, the southern valley, based at Thebes, and one for Lower Egypt based at Memphis. We know the job in detail thanks to Rekhmire, a vizier under Thutmose III, whose tomb at Thebes spells out his duties. Not every official gets his job description written up for eternity."
+    },
+    {
+      "id": "card.ancient_egypt.013.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Power in a pen",
+      "body": "Below the viziers, Egypt was divided into provinces called nomes, each with its own officials. And the whole system ran on writing, in a country where about 99 percent of people couldn’t read. No wonder texts urging the young to become scribes promised that the scribe gives the orders while everyone else does the work.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Reading was a superpower here. Quietly, you’re using one right now."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.013.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.013.q1"
+    },
+    {
+      "id": "card.ancient_egypt.013.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.013.q2"
+    },
+    {
+      "id": "card.ancient_egypt.013.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.013.q3"
+    },
+    {
+      "id": "card.ancient_egypt.013.c8",
+      "type": "checkpoint",
+      "headline": "Viziers and scribes: met",
+      "learned": [
+        "The vizier: chief administrator and judge, under the king",
+        "New Kingdom: one vizier for each of the Two Lands",
+        "Rekhmire’s tomb describes the vizier’s duties",
+        "Government ran on writing; about 99 percent couldn’t read"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.pharaoh_officials"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.013.c2"
+      ],
+      "prompt": "Which official stood just below the Egyptian king as chief administrator and judge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The high priest of Amun",
+          "correct": false,
+          "rationale": "The top administrator and judge was a different office."
+        },
+        {
+          "id": "b",
+          "label": "The king’s eldest son",
+          "correct": false,
+          "rationale": "Heirs weren’t automatically administrators."
+        },
+        {
+          "id": "c",
+          "label": "The governor of a province",
+          "correct": false,
+          "rationale": "Provinces had officials, but they ranked lower."
+        },
+        {
+          "id": "d",
+          "label": "The vizier",
+          "correct": true
+        }
+      ],
+      "explanation": "The vizier ran the government for the king and reported to him.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.pharaoh_officials"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.013.c4"
+      ],
+      "prompt": "Why did writing give Egyptian scribes so much power?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Government ran on writing, and very few could read",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Scribes were all members of the royal family",
+          "correct": false,
+          "rationale": "Their power came from literacy, not birth."
+        },
+        {
+          "id": "c",
+          "label": "Only scribes were allowed to own land",
+          "correct": false,
+          "rationale": "The card says nothing about land."
+        },
+        {
+          "id": "d",
+          "label": "Scribes commanded the army in battle",
+          "correct": false,
+          "rationale": "Their tool was writing, not weapons."
+        }
+      ],
+      "explanation": "About 99 percent of Egyptians couldn’t read, and the whole administration ran on written records.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.pharaoh_officials",
+        "concept.ancient_egypt.two_lands"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.013.c3",
+        "card.ancient_egypt.006.c2"
+      ],
+      "prompt": "In the New Kingdom, one vizier ran Upper Egypt from Thebes. From Level 6, what was Upper Egypt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The northern Delta, downstream",
+          "correct": false,
+          "rationale": "That was Lower Egypt."
+        },
+        {
+          "id": "b",
+          "label": "The southern Nile valley, upstream",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The western desert oases",
+          "correct": false,
+          "rationale": "Both lands lay along the Nile."
+        },
+        {
+          "id": "d",
+          "label": "The land beyond the Second Cataract",
+          "correct": false,
+          "rationale": "That was outside Egypt’s two lands."
+        }
+      ],
+      "explanation": "Upper Egypt was the southern valley, upstream on the north-flowing Nile.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_egypt_kingship",
+    "source.gem_vizier",
+    "source.brit_upper_egypt"
+  ],
+  "art": "egypt.scribe-palette"
+}

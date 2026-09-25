@@ -1,0 +1,229 @@
+{
+  "id": "level.history.ancient_egypt.045",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Calendar",
+  "objective": "After this level you can explain Egypt’s 365-day calendar and the rising of Sirius.",
+  "summary": "Egypt’s civil calendar had 12 months of 30 days, grouped into the three seasons, plus 5 extra days: 365 in all. Sirius’s rising marked New Year, and without leap years the calendar drifted.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.calendar_365",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.flood_farming",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.044"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Egypt’s calendar had 365 days. Its New Year still wandered off.",
+      "body": "Egyptians made the first known calendar with a 365-day year, very close to the real solar year. Very close, but not quite, and a bright star kept score."
+    },
+    {
+      "id": "card.ancient_egypt.045.c2",
+      "type": "timeline",
+      "headline": "One year: 12 months of 30 days, plus 5",
+      "events": [
+        {
+          "when": "Akhet",
+          "label": "Four months of 30 days: the flood"
+        },
+        {
+          "when": "Peret",
+          "label": "Four months of 30 days: the land emerges"
+        },
+        {
+          "when": "Shemu",
+          "label": "Four months of 30 days: low water"
+        },
+        {
+          "when": "5 extra days",
+          "label": "Added at the end of the year"
+        }
+      ]
+    },
+    {
+      "id": "card.ancient_egypt.045.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tidy math, one bright star",
+      "body": "Remember Level 4’s three seasons, Akhet, Peret and Shemu, each four months long? That’s 12 months, and every month had exactly 30 days: 360 in all. Five extra days at the end made 365. The New Year was signaled by Sirius, which Egyptians called Sothis. Each year it first rose just before sunrise at about the time the flood began. Egyptians long believed the star caused the flood."
+    },
+    {
+      "id": "card.ancient_egypt.045.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A quarter day adrift",
+      "body": "There was a catch. Sirius came back every 365.25 days, not 365. With no leap year, the calendar slipped a quarter of a day every year, a whole day every four years. So the civil New Year slowly drifted through all the seasons, taking 1,460 years to come back round. Imagine New Year’s Day wandering from winter to summer over the centuries.",
+      "mascot": {
+        "pose": "oops",
+        "line": "A quarter of a day sounds harmless. Give it a few centuries."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.045.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.045.q1"
+    },
+    {
+      "id": "card.ancient_egypt.045.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.045.q2"
+    },
+    {
+      "id": "card.ancient_egypt.045.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.045.q3"
+    },
+    {
+      "id": "card.ancient_egypt.045.c8",
+      "type": "checkpoint",
+      "headline": "The calendar: counted",
+      "learned": [
+        "12 months of 30 days, plus 5 extra days: 365",
+        "The months formed the three seasons of four months",
+        "Sirius’s rising signaled New Year’s Day",
+        "With no leap year, the calendar drifted through the seasons"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.calendar_365"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.045.c2"
+      ],
+      "prompt": "How were the 365 days of the Egyptian civil calendar made up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "12 months of 29 or 30 days, following the Moon",
+          "correct": false,
+          "rationale": "The civil calendar used fixed 30-day months."
+        },
+        {
+          "id": "b",
+          "label": "10 months of 36 days, plus 5 extra days",
+          "correct": false,
+          "rationale": "Egyptian months had 30 days, not 36."
+        },
+        {
+          "id": "c",
+          "label": "12 months of 30 days, plus 5 extra days",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "13 months of 28 days, plus 1 extra day",
+          "correct": false,
+          "rationale": "The calendar had 12 months, not 13."
+        }
+      ],
+      "explanation": "Twelve 30-day months made 360 days; five extra days at the end of the year made 365.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.calendar_365"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.045.c4"
+      ],
+      "prompt": "Why did the Egyptian civil New Year slowly drift through the seasons?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Nile flooded earlier every year",
+          "correct": false,
+          "rationale": "The flood’s timing wasn’t the cause."
+        },
+        {
+          "id": "b",
+          "label": "Priests moved it to honor each new king",
+          "correct": false,
+          "rationale": "The calendar kept counting regardless of kings."
+        },
+        {
+          "id": "c",
+          "label": "The year had 365 days, but Sirius returned every 365.25",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Sirius stopped rising after the Old Kingdom",
+          "correct": false,
+          "rationale": "Sirius kept rising every year."
+        }
+      ],
+      "explanation": "With no leap year, the 365-day calendar slipped a quarter day a year against Sirius and the seasons.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_egypt.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.calendar_365",
+        "concept.ancient_egypt.flood_farming"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.045.c3",
+        "card.ancient_egypt.004.c2"
+      ],
+      "prompt": "From Level 4: the calendar’s 12 months were grouped into which three seasons?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Akhet, Peret and Shemu",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Kemet, Deshret and Akhet",
+          "correct": false,
+          "rationale": "Kemet and Deshret were lands, not seasons."
+        },
+        {
+          "id": "c",
+          "label": "Spring, summer and winter",
+          "correct": false,
+          "rationale": "Those are our seasons, not Egypt’s."
+        },
+        {
+          "id": "d",
+          "label": "Sothis, Re and Peret",
+          "correct": false,
+          "rationale": "Sothis was a star and Re a god."
+        }
+      ],
+      "explanation": "Akhet (flood), Peret (emergence) and Shemu (low water), four months each.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_egyptian_calendar",
+    "source.brit_akhet",
+    "source.brit_sirius"
+  ],
+  "art": "rome.calendar"
+}

@@ -1,0 +1,218 @@
+{
+  "id": "level.history.ancient_egypt.091",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Forgetting Hieroglyphs",
+  "objective": "After this level you can explain how knowledge of hieroglyphs was lost.",
+  "summary": "The last known hieroglyphs were carved at Philae in 394 CE. Egyptians switched to a Greek-based alphabet, and later scholars like Horapollo misread the signs as symbols.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.hieroglyphs_forgotten",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.egypt_span",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.090"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.091.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For more than 1,400 years, nobody on Earth could read a hieroglyph.",
+      "body": "The signs never went anywhere. They stayed carved on temple walls and tombs the whole time. What vanished was anyone who knew what they said. So how does a whole civilization’s writing get forgotten?"
+    },
+    {
+      "id": "card.ancient_egypt.091.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The last hieroglyph",
+      "body": "The last known hieroglyphic inscription was carved in 394 CE, at the Temple of Isis at Philae. That’s more than four centuries after Egypt became a Roman province in 30 BCE (remember the end of Level 1’s timeline?). The old script had outlived the pharaohs by a long way. Its final signs are roughly cut but still clear enough to read. There was just no one left to read them."
+    },
+    {
+      "id": "card.ancient_egypt.091.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A new alphabet",
+      "body": "Why stop? As Christianity spread in Egypt, people dropped hieroglyphs for an adapted form of the Greek alphabet. The language itself lived on as Coptic, the final stage of Egyptian, written in Greek letters plus seven letters borrowed from demotic. So Egyptians kept speaking their ancestors’ language while the old signs fell silent. It’s like keeping your family’s recipes but losing the handwriting they were written in.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Same language, new letters. Hold on to Coptic: it comes back to help later in this chapter."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.091.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reading riddles",
+      "body": "Without readers, people guessed. In the 5th century CE, a Greco-Egyptian scholar named Horapollo wrote the Hieroglyphica, explaining each sign as a symbol or an allegory. He couldn’t actually read hieroglyphs himself. Renaissance scholars loved his book anyway, and the idea stuck: hieroglyphs were picture riddles, not sounds. That one wrong idea kept the door locked until the 1820s.",
+      "callout": "Wrong assumption: pictures, not sounds"
+    },
+    {
+      "id": "card.ancient_egypt.091.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.091.q1"
+    },
+    {
+      "id": "card.ancient_egypt.091.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.091.q2"
+    },
+    {
+      "id": "card.ancient_egypt.091.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.091.q3"
+    },
+    {
+      "id": "card.ancient_egypt.091.c8",
+      "type": "checkpoint",
+      "headline": "The lost script: traced",
+      "learned": [
+        "The last known hieroglyphs: Philae, 394 CE",
+        "Egyptians switched to a Greek-based alphabet",
+        "Coptic kept the Egyptian language alive",
+        "Horapollo misread the signs as symbols"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.hieroglyphs_forgotten"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.091.c2"
+      ],
+      "prompt": "When was the last known hieroglyphic inscription carved at Philae?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 3100 BCE",
+          "correct": false,
+          "rationale": "That’s around when Egypt became one kingdom."
+        },
+        {
+          "id": "b",
+          "label": "30 BCE",
+          "correct": false,
+          "rationale": "That’s when Egypt became a Roman province; hieroglyphs kept going."
+        },
+        {
+          "id": "c",
+          "label": "394 CE",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "1500 CE",
+          "correct": false,
+          "rationale": "Far too late: by then no one could read them."
+        }
+      ],
+      "explanation": "The last known hieroglyphs were carved at the Temple of Isis at Philae in 394 CE.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.hieroglyphs_forgotten"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.091.c4"
+      ],
+      "prompt": "Why did Horapollo’s Hieroglyphica keep later scholars from reading hieroglyphs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was written in a language nobody knew",
+          "correct": false,
+          "rationale": "It was read and admired in the Renaissance."
+        },
+        {
+          "id": "b",
+          "label": "It read the signs as symbols, not sounds",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It was lost until the twentieth century",
+          "correct": false,
+          "rationale": "Renaissance scholars knew it well."
+        },
+        {
+          "id": "d",
+          "label": "It explained only the names of kings",
+          "correct": false,
+          "rationale": "It explained the signs in general."
+        }
+      ],
+      "explanation": "Horapollo couldn’t read hieroglyphs and explained them as symbols, an idea that misled readers for centuries.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.hieroglyphs_forgotten",
+        "concept.ancient_egypt.egypt_span"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.091.c2",
+        "card.ancient_egypt.001.c4"
+      ],
+      "prompt": "Egypt became a Roman province in 30 BCE. What does the Philae inscription show happened to hieroglyphs after that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They stopped being carved that same year",
+          "correct": false,
+          "rationale": "The last known ones came centuries later."
+        },
+        {
+          "id": "b",
+          "label": "Only Roman officials could write them",
+          "correct": false,
+          "rationale": "Egyptian temples kept them going."
+        },
+        {
+          "id": "c",
+          "label": "They were replaced by Latin within a year",
+          "correct": false,
+          "rationale": "Egyptians later switched to a Greek-based alphabet."
+        },
+        {
+          "id": "d",
+          "label": "They were carved for over four more centuries",
+          "correct": true
+        }
+      ],
+      "explanation": "Hieroglyphs outlived the pharaohs: the last known inscription dates to 394 CE, over 400 years after Roman rule began.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.met_egypt_educators",
+    "source.oup_oxford_history_egypt",
+    "source.brit_hieroglyph",
+    "source.brit_champollion",
+    "source.memphis_philae_last_hieroglyphs",
+    "source.brit_coptic_language",
+    "source.brit_horapollon"
+  ],
+  "art": "rome.carved-stone"
+}

@@ -1,0 +1,214 @@
+{
+  "id": "level.history.ancient_egypt.079",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Mummy's Curse",
+  "objective": "After this level you can explain where the legend of the mummy's curse came from.",
+  "summary": "When Lord Carnarvon died of an infected mosquito bite in 1923, newspapers blamed a curse, a plot fiction had already written. A 2002 study found no evidence for it.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.mummy_curse_myth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.tutankhamun_king",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.078"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.079.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Tutankhamun’s tomb supposedly cursed its openers. Its excavator lived to 1939.",
+      "body": "Howard Carter, who led the excavation, died in London at 64. For a pharaoh’s revenge, that’s a remarkably slow start. So where did the curse come from?"
+    },
+    {
+      "id": "card.ancient_egypt.079.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One death, many headlines",
+      "body": "In April 1923, Lord Carnarvon, Carter’s patron, died in Cairo. The cause was an infection after a mosquito bite he got while visiting the newly opened burial chamber. His death set off sensational newspaper stories about a mummy’s curse. An infected bite is a sad story. A pharaoh’s revenge is a headline.",
+      "callout": "Real cause: an infected mosquito bite"
+    },
+    {
+      "id": "card.ancient_egypt.079.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The plot was already written",
+      "body": "The curse wasn’t new. Mummy curses had appeared in fiction long before: back in 1869, Louisa May Alcott published a thriller called “Lost in a Pyramid; or, The Mummy’s Curse.” When Carnarvon died, the story was waiting. The newspapers just had to fill in the names."
+    },
+    {
+      "id": "card.ancient_egypt.079.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Putting the curse on trial",
+      "body": "In 2002, a study in the BMJ, a medical journal, tested the legend. It compared Westerners who were exposed to the “curse” at the tomb with those who weren’t. The exposed group died at an average age of 70, and the difference was not significant. Verdict: no evidence of a curse. Mosquito, one. Pharaoh, zero.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "When a legend meets a spreadsheet, the spreadsheet usually wins."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.079.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.079.q1"
+    },
+    {
+      "id": "card.ancient_egypt.079.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.079.q2"
+    },
+    {
+      "id": "card.ancient_egypt.079.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.079.q3"
+    },
+    {
+      "id": "card.ancient_egypt.079.c8",
+      "type": "checkpoint",
+      "headline": "The curse: debunked",
+      "learned": [
+        "Carnarvon died of an infected mosquito bite",
+        "Newspapers turned his death into a curse story",
+        "Mummy curses already existed in fiction, like Alcott’s 1869 tale",
+        "A 2002 BMJ study found no evidence of a curse"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.mummy_curse_myth"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.079.c2"
+      ],
+      "prompt": "What actually killed Lord Carnarvon in 1923?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A falling stone in the tomb",
+          "correct": false,
+          "rationale": "He died in Cairo, of illness."
+        },
+        {
+          "id": "b",
+          "label": "Poison painted on the tomb walls",
+          "correct": false,
+          "rationale": "No poison was involved."
+        },
+        {
+          "id": "c",
+          "label": "An infection after a mosquito bite",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A snake bite in the Valley of the Kings",
+          "correct": false,
+          "rationale": "It was an insect, not a snake."
+        }
+      ],
+      "explanation": "Carnarvon died of infection after a mosquito bite, not of any curse.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.mummy_curse_myth"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.079.c4"
+      ],
+      "prompt": "A 2002 BMJ study tested the mummy’s curse. What did it find?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Exposed people died years younger",
+          "correct": false,
+          "rationale": "There was no significant difference."
+        },
+        {
+          "id": "b",
+          "label": "No evidence that exposure shortened lives",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Mould in the tomb caused several deaths",
+          "correct": false,
+          "rationale": "The study found no link at all."
+        },
+        {
+          "id": "d",
+          "label": "Only Carnarvon was affected",
+          "correct": false,
+          "rationale": "It compared many people and found no effect."
+        }
+      ],
+      "explanation": "People exposed to the “curse” died at an average age of 70, with no significant difference from the others.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.mummy_curse_myth",
+        "concept.ancient_egypt.tutankhamun_king"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.071.c4",
+        "card.ancient_egypt.079.c2"
+      ],
+      "prompt": "The curse legend grew up around Tutankhamun’s tomb. From Level 71, why was that tomb so special?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the largest tomb in Egypt",
+          "correct": false,
+          "rationale": "It was small and hastily converted."
+        },
+        {
+          "id": "b",
+          "label": "It was the only royal tomb in the valley to largely escape robbers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It belonged to the longest-reigning king in Egypt’s history",
+          "correct": false,
+          "rationale": "Tutankhamun died at about 19."
+        },
+        {
+          "id": "d",
+          "label": "It had a curse carved over its door",
+          "correct": false,
+          "rationale": "The curse came from newspapers and fiction."
+        }
+      ],
+      "explanation": "Its gold and objects survived almost untouched, which made it world news, and the curse rode along.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_howard_carter",
+    "source.brit_carnarvon",
+    "source.bmj_mummy_curse_2002"
+  ],
+  "art": "egypt.canopic-jar"
+}

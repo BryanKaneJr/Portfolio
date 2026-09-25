@@ -1,0 +1,227 @@
+{
+  "id": "level.history.ancient_egypt.088",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rome's Breadbasket",
+  "objective": "After this level you can explain how Egypt became the grain supply of Rome.",
+  "summary": "From 30 BCE Egypt was the Roman emperor’s own province, closed to senators without permission. Its Nile-fed grain fed Rome for about four months a year.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.roman_egypt_grain",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.egypt_span",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.nile_flood",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.black_red_land",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.087"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For four months of every year, one ancient writer said, Rome ate Egyptian grain.",
+      "body": "No wonder the emperors kept Egypt on a very short leash."
+    },
+    {
+      "id": "card.ancient_egypt.088.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The emperor’s own province",
+      "body": "In 30 BCE Egypt became a Roman province, but not an ordinary one. Octavian, the future emperor Augustus, treated it as his own private kingdom, as heir to the Ptolemies. A prefect he appointed ran it, and Roman senators were forbidden to visit without the emperor’s permission. Egypt wasn’t just conquered. It was fenced off."
+    },
+    {
+      "id": "card.ancient_egypt.088.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four months of bread",
+      "body": "Why the fuss? Grain. Egypt’s granaries now belonged to Rome, and Egypt became the empire’s breadbasket. The historian Josephus, writing in the 1st century CE, said Egypt sent Rome enough grain to feed it for four months of the year, on top of its tax money. Four months out of twelve: a third of the city’s year, from one province.",
+      "callout": "Egypt fed Rome a third of the year"
+    },
+    {
+      "id": "card.ancient_egypt.088.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Nile pays Rome’s bills",
+      "body": "Remember Level 2’s flood? Its silt was a natural fertilizer that let Egypt feed a dense population, and now Rome took the harvest. Josephus even noted that Egypt was walled round by near-impassable deserts and harborless seas, the defenses you met in Level 3, and still it submitted to Rome. The walls that guarded the pharaohs didn’t keep out the tax collector.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Same river, same silt. Only the address on the grain sacks changed."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.088.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.088.q1"
+    },
+    {
+      "id": "card.ancient_egypt.088.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.088.q2"
+    },
+    {
+      "id": "card.ancient_egypt.088.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.088.q3"
+    },
+    {
+      "id": "card.ancient_egypt.088.c8",
+      "type": "checkpoint",
+      "headline": "Rome’s breadbasket: met",
+      "learned": [
+        "From 30 BCE Egypt was the emperor’s own province",
+        "Senators needed permission to visit",
+        "Josephus: Egypt fed Rome four months a year",
+        "Nile silt made the surplus possible"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.roman_egypt_grain"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.088.c3"
+      ],
+      "prompt": "According to Josephus, for how much of the year did Egyptian grain feed Rome?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About one week",
+          "correct": false,
+          "rationale": "He said four months."
+        },
+        {
+          "id": "b",
+          "label": "About one month",
+          "correct": false,
+          "rationale": "He said four months."
+        },
+        {
+          "id": "c",
+          "label": "About four months",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The whole year",
+          "correct": false,
+          "rationale": "He said four months; other lands supplied the rest."
+        }
+      ],
+      "explanation": "Josephus wrote that Egypt sent Rome enough grain for four months of the year.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.roman_egypt_grain"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.088.c2"
+      ],
+      "prompt": "What set Roman Egypt apart from an ordinary Roman province?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It kept its own pharaoh, who paid Rome a yearly tribute",
+          "correct": false,
+          "rationale": "Rome ran it through a prefect."
+        },
+        {
+          "id": "b",
+          "label": "It was ruled jointly by the Senate and the Ptolemies",
+          "correct": false,
+          "rationale": "Senators couldn’t even visit freely."
+        },
+        {
+          "id": "c",
+          "label": "It paid no taxes, because it already fed Rome",
+          "correct": false,
+          "rationale": "It paid tribute as well as grain."
+        },
+        {
+          "id": "d",
+          "label": "The emperor treated it as his own, and senators needed permission to visit",
+          "correct": true
+        }
+      ],
+      "explanation": "Octavian treated Egypt as his private kingdom, ran it through a prefect and barred senators without permission.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_egypt.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.roman_egypt_grain",
+        "concept.ancient_egypt.nile_flood"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.088.c4",
+        "card.ancient_egypt.002.c3"
+      ],
+      "prompt": "Egypt fed Rome for months each year. From Level 2, what made Egypt’s fields so productive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Heavy rain falling on Egypt all year",
+          "correct": false,
+          "rationale": "Egypt gets very little rain."
+        },
+        {
+          "id": "b",
+          "label": "Silt left by the Nile’s yearly flood",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Grain imported from Rome",
+          "correct": false,
+          "rationale": "The grain went the other way."
+        },
+        {
+          "id": "d",
+          "label": "Farms in the red desert",
+          "correct": false,
+          "rationale": "Crops grew on the black land."
+        }
+      ],
+      "explanation": "The flood left dark, fertile silt on the fields, a natural fertilizer.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.met_egypt_educators",
+    "source.oup_oxford_history_egypt",
+    "source.natgeo_nile_flooding",
+    "source.whe_roman_egypt",
+    "source.brit_cleopatra",
+    "source.gutenberg_josephus_wars"
+  ],
+  "art": "nature.wheat"
+}
