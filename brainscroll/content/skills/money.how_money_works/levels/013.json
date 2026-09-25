@@ -1,0 +1,220 @@
+{
+  "id": "level.money.how_money_works.013",
+  "skillId": "skill.money.how_money_works",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Budgets",
+  "objective": "After this level you can build a simple budget that separates needs, wants and saving.",
+  "summary": "A budget is a written monthly plan: list expenses, note income, subtract. The popular 50/30/20 rule splits after-tax income into needs, wants and saving.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.budget_plan",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.budget_50_30_20",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.pay_gross_net",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.012"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your budget is named after a leather bag.",
+      "body": "The word comes from the Old French bougette, a small leather bag. Its money meaning dates from 1733, from the picture of a treasury minister keeping his financial plans in one. Yours can live in a notebook or an app. The job hasn't changed.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Treasury ministers got a bag. You get a spreadsheet. Progress, of a kind."
+      }
+    },
+    {
+      "id": "card.how_money_works.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A plan you write down",
+      "body": "A budget is a plan you write down to decide how you'll spend your money each month. Making one takes three steps: list your bills and other expenses, write down your monthly income, then subtract. The answer should be more than zero. If it's below zero, you're spending more than you make, and something in the plan has to change. Arithmetic is not moved by optimism."
+    },
+    {
+      "id": "card.how_money_works.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three buckets: 50, 30, 20",
+      "body": "One popular way to split the money was popularized by Elizabeth Warren and her daughter Amelia Warren Tyagi in their book All Your Worth. Put 50% of after-tax income toward needs, 30% toward wants and 20% toward saving or paying down debt. After-tax is Level 12's net pay: the buckets are filled from what actually arrives.",
+      "callout": "50% needs · 30% wants · 20% saving or debt"
+    },
+    {
+      "id": "card.how_money_works.013.c4",
+      "type": "fact",
+      "fact": "The 50/30/20 rule is a guideline, not a law of physics.",
+      "context": "It's meant to get you thinking about where each paycheck goes, not to be followed to the dollar. Whatever split you use, a budget runs as a monthly loop: make the plan at the start, write down what you spend each day, and check at the end of the month whether you spent what you planned."
+    },
+    {
+      "id": "card.how_money_works.013.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.013.q1"
+    },
+    {
+      "id": "card.how_money_works.013.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.013.q2"
+    },
+    {
+      "id": "card.how_money_works.013.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.013.q3"
+    },
+    {
+      "id": "card.how_money_works.013.c8",
+      "type": "checkpoint",
+      "headline": "Budget: planned",
+      "learned": [
+        "A budget is a written monthly plan",
+        "List expenses, note income, subtract",
+        "50/30/20: needs, wants, saving",
+        "It splits take-home pay, not gross"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.budget_50_30_20"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.013.c3"
+      ],
+      "prompt": "In the 50/30/20 rule, what does the 30% go toward?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Needs",
+          "correct": false,
+          "rationale": "Needs get the 50%."
+        },
+        {
+          "id": "b",
+          "label": "Saving or paying down debt",
+          "correct": false,
+          "rationale": "Saving or debt gets the 20%."
+        },
+        {
+          "id": "c",
+          "label": "Wants",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Taxes",
+          "correct": false,
+          "rationale": "The rule starts from after-tax income, so taxes are already out."
+        }
+      ],
+      "explanation": "The rule puts 50% toward needs, 30% toward wants and 20% toward saving or debt.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.budget_plan"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.013.c2"
+      ],
+      "prompt": "Your monthly income minus your expenses comes out below zero. What does that tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "You're spending more than you make",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Your budget is on track",
+          "correct": false,
+          "rationale": "On track means the result is above zero."
+        },
+        {
+          "id": "c",
+          "label": "You've saved more than planned",
+          "correct": false,
+          "rationale": "Saving shows up as money left over, not a shortfall."
+        },
+        {
+          "id": "d",
+          "label": "Your taxes were refunded",
+          "correct": false,
+          "rationale": "A below-zero result is about spending, not taxes."
+        }
+      ],
+      "explanation": "Below zero means expenses are bigger than income, so something in the plan has to change.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.budget_50_30_20",
+        "concept.how_money_works.pay_gross_net"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.013.c3",
+        "card.how_money_works.012.c2"
+      ],
+      "prompt": "From Level 12: the 50/30/20 rule divides which amount?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gross pay, before deductions",
+          "correct": false,
+          "rationale": "The rule uses after-tax income, not gross pay."
+        },
+        {
+          "id": "b",
+          "label": "Your employer's total payroll cost",
+          "correct": false,
+          "rationale": "That includes costs that never reach you."
+        },
+        {
+          "id": "c",
+          "label": "Your savings balance",
+          "correct": false,
+          "rationale": "The rule splits income, not savings."
+        },
+        {
+          "id": "d",
+          "label": "Net pay, after taxes and deductions",
+          "correct": true
+        }
+      ],
+      "explanation": "The rule splits after-tax income, which is your net, or take-home, pay.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.etymonline_budget",
+    "source.consumergov_making_budget",
+    "source.cfpb_paycheck_deductions",
+    "source.britannica_50_30_20",
+    "source.time_50_30_20_warren"
+  ],
+  "art": "money.piggy-bank"
+}

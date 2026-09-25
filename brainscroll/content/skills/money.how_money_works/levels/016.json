@@ -1,0 +1,217 @@
+{
+  "id": "level.money.how_money_works.016",
+  "skillId": "skill.money.how_money_works",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Prices Nudge You",
+  "objective": "After this level you can spot common pricing tricks like prices ending in 99 and decoy options.",
+  "summary": "Most shoppers don't know what a price should be, so cues steer them: a dress sold better at $39 than $34, and the word \"sale\" lifted demand. A decoy option can make its neighbor look like a bargain.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.pricing_cues",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.pricing_decoy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.oppcost_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.015"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A dress sold better at $39 than at $34.",
+      "body": "In a catalog study by Eric Anderson and Duncan Simester, raising the price lifted demand by about a third. Higher price, more buyers. Something other than the number was doing the selling."
+    },
+    {
+      "id": "card.how_money_works.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the 9 works",
+      "body": "For most things you buy, you don't really know what the price should be. Nobody carries the fair price of a dress around in their head. So shoppers lean on cues, signals that hint at a bargain, and a price ending in 9 is one of them. In the dress study, that little 9 did better than an actual $5 discount."
+    },
+    {
+      "id": "card.how_money_works.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The word that sells",
+      "body": "Another cue is a single word. In catalog tests, putting \"sale\" beside a price increased demand by more than 50%. It works for the same reason as the 9: you can't easily check the price yourself, so the sign does the judging for you."
+    },
+    {
+      "id": "card.how_money_works.016.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The option nobody buys",
+      "body": "Picture a coffee shop with a small for $3 and a large for $5. Now it adds a medium priced just under the large. Hardly anyone orders the medium, but suddenly the large looks like a steal. That's the decoy effect: adding a third, less attractive option changes how people choose between the original two. The decoy's job isn't to sell. It's to make its neighbor look brilliant.",
+      "mascot": {
+        "pose": "idea",
+        "line": "The decoy is the friend who makes you look great in every photo."
+      }
+    },
+    {
+      "id": "card.how_money_works.016.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.016.q1"
+    },
+    {
+      "id": "card.how_money_works.016.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.016.q2"
+    },
+    {
+      "id": "card.how_money_works.016.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.016.q3"
+    },
+    {
+      "id": "card.how_money_works.016.c8",
+      "type": "checkpoint",
+      "headline": "Price tricks: spotted",
+      "learned": [
+        "Shoppers rarely know what a price should be",
+        "Cues like 9-endings and \"sale\" signs steer them",
+        "A $39 dress outsold the same dress at $34",
+        "A decoy makes its neighbor look like a bargain"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.pricing_cues"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.016.c1"
+      ],
+      "prompt": "In the catalog study, what happened when a dress's price rose from $34 to $39?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Demand fell by about a third",
+          "correct": false,
+          "rationale": "The surprise is that it went the other way."
+        },
+        {
+          "id": "b",
+          "label": "Demand stayed the same",
+          "correct": false,
+          "rationale": "It changed, and in an unexpected direction."
+        },
+        {
+          "id": "c",
+          "label": "Demand rose by about a third",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The dress was withdrawn from sale",
+          "correct": false,
+          "rationale": "It stayed on sale and sold better."
+        }
+      ],
+      "explanation": "The higher price ending in 9 lifted demand by about a third.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.pricing_decoy"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.016.c4"
+      ],
+      "prompt": "Hardly anyone orders the medium, priced just under the large. Why offer it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It raises the price of the small",
+          "correct": false,
+          "rationale": "The small stays at $3."
+        },
+        {
+          "id": "b",
+          "label": "It makes the $5 large look like a bargain",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is meant to be the best seller",
+          "correct": false,
+          "rationale": "Hardly anyone orders it; that is the point."
+        },
+        {
+          "id": "d",
+          "label": "It replaces the small",
+          "correct": false,
+          "rationale": "The small is still on the menu."
+        }
+      ],
+      "explanation": "A decoy is a less attractive option that changes how people choose between the other two.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.oppcost_definition",
+        "concept.how_money_works.pricing_cues"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.015.c2",
+        "card.how_money_works.016.c2"
+      ],
+      "prompt": "From Level 15: a 9-ending price nudges you to spend $39. What do economists call the next best thing that money could have bought?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A pricing cue",
+          "correct": false,
+          "rationale": "A cue is the nudge, not what you gave up."
+        },
+        {
+          "id": "b",
+          "label": "A decoy",
+          "correct": false,
+          "rationale": "A decoy is an option meant to steer you."
+        },
+        {
+          "id": "c",
+          "label": "Net pay",
+          "correct": false,
+          "rationale": "Net pay is take-home income."
+        },
+        {
+          "id": "d",
+          "label": "Its opportunity cost",
+          "correct": true
+        }
+      ],
+      "explanation": "Whatever the $39 could otherwise have bought is the purchase's opportunity cost.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.hbr_mind_your_pricing_cues",
+    "source.decisionlab_decoy_effect"
+  ],
+  "art": "money.price-tag"
+}

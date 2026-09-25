@@ -1,0 +1,217 @@
+{
+  "id": "level.money.how_money_works.053",
+  "skillId": "skill.money.how_money_works",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Public Goods",
+  "objective": "After this level you can explain why things like roads and lighthouses are usually paid for by governments.",
+  "summary": "Public goods are nonexcludable and nonrival, so people can free ride and markets underprovide them. Taxes fix that. Coase found England's lighthouses were paid for by port dues.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.govt_public_goods",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_free_rider",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_lighthouse_story",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.052"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Economists' go-to example for a century: the lighthouse. Then someone checked.",
+      "body": "From John Stuart Mill to Paul Samuelson, the lighthouse stood for something markets supposedly couldn't provide: how would you make a passing ship pay for the light? To see the problem, start with a fireworks show."
+    },
+    {
+      "id": "card.how_money_works.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The fireworks problem",
+      "body": "Someone has to pay for the town's fireworks show. But once the rockets go up, anyone can watch from their own backyard. So each person has a reason to let others pay and enjoy the show for free. Economists call that free riding. If enough people do it, the money never comes in, and a show everyone would have enjoyed simply never happens."
+    },
+    {
+      "id": "card.how_money_works.053.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Public goods",
+      "body": "Fireworks are a public good, with two features. They're nonexcludable: it's costly or impossible to stop non-payers from enjoying them. And they're nonrival: your watching doesn't use up anyone else's view. National defense is the classic case, protecting everyone in a country at once. The usual fix is the one from Level 51: people agree through politics to pay taxes for it, and the free riders have nowhere to hide.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Nonexcludable, nonrival: two clunky words for 'everyone gets it, and it never runs out'."
+      }
+    },
+    {
+      "id": "card.how_money_works.053.c4",
+      "type": "fact",
+      "fact": "England's early lighthouses were often privately run, paid for by fees collected at ports.",
+      "context": "In 1974, economist Ronald Coase dug into the history. Ships that passed a light still had to dock somewhere, and there they paid light dues. Free riding solved? Critics point out that the right to collect those dues came from a royal patent, so government was still doing the enforcing. The lighthouse turned out to be a debate, not a textbook certainty."
+    },
+    {
+      "id": "card.how_money_works.053.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.053.q1"
+    },
+    {
+      "id": "card.how_money_works.053.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.053.q2"
+    },
+    {
+      "id": "card.how_money_works.053.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.053.q3"
+    },
+    {
+      "id": "card.how_money_works.053.c8",
+      "type": "checkpoint",
+      "headline": "Public goods: explained",
+      "learned": [
+        "Public goods are nonexcludable and nonrival",
+        "Free riders let others pay",
+        "Taxes solve free riding",
+        "Coase's lighthouses were paid for at the port"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.govt_public_goods"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.053.c3"
+      ],
+      "prompt": "Which two features make something a public good?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is expensive and rare",
+          "correct": false,
+          "rationale": "Public goods are defined by who can use them, not by price."
+        },
+        {
+          "id": "b",
+          "label": "Non-payers cannot easily be excluded, and one person using it does not use it up",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is sold in shops and taxed at the till",
+          "correct": false,
+          "rationale": "That describes ordinary goods with a sales tax."
+        },
+        {
+          "id": "d",
+          "label": "It is made by the government and given away",
+          "correct": false,
+          "rationale": "Who makes it is not the test: Coase found private lighthouses."
+        }
+      ],
+      "explanation": "A public good is nonexcludable and nonrival, like national defense.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.govt_free_rider"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.053.c2"
+      ],
+      "prompt": "Why might a fireworks show paid for by voluntary donations never happen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fireworks are banned in most towns",
+          "correct": false,
+          "rationale": "The problem is about paying, not permission."
+        },
+        {
+          "id": "b",
+          "label": "Only a few people enjoy fireworks",
+          "correct": false,
+          "rationale": "The show would be enjoyed by many; that is the point."
+        },
+        {
+          "id": "c",
+          "label": "People can watch for free, so many let others pay",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The show gets worse as more people watch",
+          "correct": false,
+          "rationale": "It's nonrival: extra watchers don't spoil it."
+        }
+      ],
+      "explanation": "When non-payers cannot be kept out, people free ride, and too little money comes in.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.govt_lighthouse_story",
+        "concept.how_money_works.govt_free_rider"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.053.c2",
+        "card.how_money_works.053.c4"
+      ],
+      "prompt": "How did the light dues Coase studied get around free riding?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ships were charged when they docked, so users of the light could be made to pay",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Lighthouse keepers switched the light off for ships that had not paid",
+          "correct": false,
+          "rationale": "The light shone for everyone; the charge came at the port."
+        },
+        {
+          "id": "c",
+          "label": "Donations from sailors covered all the costs",
+          "correct": false,
+          "rationale": "Voluntary giving is exactly what free riding undermines."
+        },
+        {
+          "id": "d",
+          "label": "Ships paid nothing, because lighthouses ran on volunteers",
+          "correct": false,
+          "rationale": "Coase found private operators collecting dues."
+        }
+      ],
+      "explanation": "Passing ships had to dock somewhere, and the dues were collected there. Critics add that a royal patent backed the charge.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.coase_lighthouse_economics",
+    "source.econlib_public_goods",
+    "source.openstax_public_goods"
+  ],
+  "art": "geo.lighthouse"
+}

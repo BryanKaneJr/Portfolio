@@ -1,0 +1,219 @@
+{
+  "id": "level.money.how_money_works.084",
+  "skillId": "skill.money.how_money_works",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Economies of Scale",
+  "objective": "After this level you can explain why making more of something can make each one cheaper.",
+  "summary": "Making more spreads fixed costs over more units, so each costs less: economies of scale. Ford's Model T fell from $850 to $260. Firms that grow too big hit diseconomies of scale.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.scale_economies",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.scale_diseconomies",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.profit_fixed_variable",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.083"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1908, a Model T cost $850. Later it sold for as little as $260.",
+      "body": "Same basic car, a fraction of the price. The trick wasn't a clearance sale. Ford built more than 15 million of them."
+    },
+    {
+      "id": "card.how_money_works.084.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Spreading the fixed costs",
+      "body": "Remember Level 83's fixed costs? A factory's rent and machinery cost the same whether it turns out ten cars or ten thousand. Divide total cost by the number made and you get the average cost of each one. Make more, and the fixed costs are spread thinner, so each unit's share shrinks. It's like splitting a delivery fee: the more friends sharing it, the less each one pays."
+    },
+    {
+      "id": "card.how_money_works.084.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Economies of scale",
+      "body": "When making more lowers the cost of each unit, economists call it economies of scale. Ford rode them hard. Mass production let it sell the Model T cheaply, and from 1908 to 1927 the price fell from $850 to as little as $260. By the early 1920s, more than half of the registered cars in the world were Fords."
+    },
+    {
+      "id": "card.how_money_works.084.c4",
+      "type": "fact",
+      "fact": "Bigger isn't always cheaper.",
+      "context": "A firm can grow so large that it's hard to manage. Layers of managers try to talk to workers and to each other, messages get garbled, and work and materials stop flowing smoothly. Then the cost of each unit starts climbing again. Economists call that diseconomies of scale.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "So there is a sweet spot: big enough to spread the costs, small enough to hear each other."
+      }
+    },
+    {
+      "id": "card.how_money_works.084.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.084.q1"
+    },
+    {
+      "id": "card.how_money_works.084.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.084.q2"
+    },
+    {
+      "id": "card.how_money_works.084.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.084.q3"
+    },
+    {
+      "id": "card.how_money_works.084.c8",
+      "type": "checkpoint",
+      "headline": "Scale: explained",
+      "learned": [
+        "Average cost = total cost divided by units made",
+        "More output spreads fixed costs thinner",
+        "Economies of scale: cost per unit falls as output rises",
+        "Model T: $850 down to $260",
+        "Too big to manage: diseconomies of scale"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.scale_economies"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.084.c3"
+      ],
+      "prompt": "What are economies of scale?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Prices rising as a firm grows bigger",
+          "correct": false,
+          "rationale": "It's about cost per unit falling, not prices rising."
+        },
+        {
+          "id": "b",
+          "label": "Selling goods abroad more cheaply",
+          "correct": false,
+          "rationale": "That's about trade, not the cost of making more."
+        },
+        {
+          "id": "c",
+          "label": "Paying workers less as a firm grows",
+          "correct": false,
+          "rationale": "It's about spreading costs, not cutting wages."
+        },
+        {
+          "id": "d",
+          "label": "Cost per unit falling as output rises",
+          "correct": true
+        }
+      ],
+      "explanation": "Economies of scale: as the quantity produced goes up, the cost of each unit goes down.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.scale_diseconomies"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.084.c4"
+      ],
+      "prompt": "A company grows so big that messages between its layers of managers keep getting garbled. What tends to happen to its cost per unit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rises, as diseconomies of scale set in",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It falls, as fixed costs spread further",
+          "correct": false,
+          "rationale": "That's economies of scale; here management trouble pushes costs up."
+        },
+        {
+          "id": "c",
+          "label": "It stays exactly the same as before",
+          "correct": false,
+          "rationale": "Disrupted work and materials raise costs."
+        },
+        {
+          "id": "d",
+          "label": "It drops, because managers cost nothing",
+          "correct": false,
+          "rationale": "Management problems add cost rather than removing it."
+        }
+      ],
+      "explanation": "When a firm is too large to manage well, disruptions raise the cost of each unit: diseconomies of scale.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.scale_economies",
+        "concept.how_money_works.profit_fixed_variable"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.084.c2",
+        "card.how_money_works.083.c3"
+      ],
+      "prompt": "Which cost from Level 83 is the key to economies of scale?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Variable costs, which rise with output",
+          "correct": false,
+          "rationale": "Those grow as you make more; it's fixed costs that get spread out."
+        },
+        {
+          "id": "b",
+          "label": "Fixed costs, spread over more units",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Revenue, which grows with every sale",
+          "correct": false,
+          "rationale": "Revenue isn't a cost at all."
+        },
+        {
+          "id": "d",
+          "label": "Losses, which vanish as firms grow",
+          "correct": false,
+          "rationale": "Losses aren't a kind of cost."
+        }
+      ],
+      "explanation": "Fixed costs stay the same as output rises, so making more spreads them over more units and cuts the average cost.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_short_run_costs",
+    "source.openstax_long_run_costs",
+    "source.thehenryford_assembly_line",
+    "source.ford_model_t_history"
+  ],
+  "art": "technology.factory"
+}

@@ -1,0 +1,215 @@
+{
+  "id": "level.money.how_money_works.042",
+  "skillId": "skill.money.how_money_works",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Supply",
+  "objective": "After this level you can explain why sellers offer more of something when its price rises.",
+  "summary": "The law of supply: a higher price almost always brings more to market, because it means more profit. The supply curve slopes upward; costs, weather, technology and policy shift it.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.supply_law",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.supply_shifts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.market_definition",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.041"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Cookies suddenly sell for twice as much. How many do you bake?",
+      "body": "If you ran a bakery, you'd probably bake more, maybe stay open later. So would the bakery down the road. Economists turned that hunch into a law."
+    },
+    {
+      "id": "card.how_money_works.042.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The law of supply",
+      "body": "A rise in price almost always leads sellers to offer more of a good or service, and a fall in price leads them to offer less. The amount they offer at a given price is the quantity supplied. Why the rise? A higher price means more profit, which encourages profit-seeking firms to expand production and bring more to market. More money on the table, more cookies on the shelf."
+    },
+    {
+      "id": "card.how_money_works.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The curve that climbs",
+      "body": "Economists draw this as a supply curve: price up the side, quantity along the bottom. It usually slopes upward, like a staircase, because each higher price coaxes out more of the product. Every point on it answers one question: at this price, how much would sellers bring to Level 41's market?"
+    },
+    {
+      "id": "card.how_money_works.042.c4",
+      "type": "fact",
+      "fact": "Price isn't the only thing that moves supply.",
+      "context": "The curve assumes all other things stay equal, which economists call ceteris paribus. When they don't, the whole curve shifts. Supply depends on the costs of production: pricier raw materials, new taxes and bad weather for farmers cut it; better technology or a subsidy raises it. A change in the product's own price just moves sellers along the curve.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Ceteris paribus: Latin for \"please nobody touch anything while I draw this graph.\""
+      }
+    },
+    {
+      "id": "card.how_money_works.042.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.042.q1"
+    },
+    {
+      "id": "card.how_money_works.042.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.042.q2"
+    },
+    {
+      "id": "card.how_money_works.042.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.042.q3"
+    },
+    {
+      "id": "card.how_money_works.042.c8",
+      "type": "checkpoint",
+      "headline": "Supply: understood",
+      "learned": [
+        "Higher price, more offered: the law of supply",
+        "More profit is the reason",
+        "The supply curve slopes upward",
+        "Costs, weather and technology shift it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.supply_law"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.042.c2"
+      ],
+      "prompt": "What does the law of supply say?",
+      "options": [
+        {
+          "id": "a",
+          "label": "When a price rises, buyers want less",
+          "correct": false,
+          "rationale": "That's the law of demand, the buyers' side."
+        },
+        {
+          "id": "b",
+          "label": "Prices always rise over time",
+          "correct": false,
+          "rationale": "The law is about how much sellers offer at each price."
+        },
+        {
+          "id": "c",
+          "label": "Sellers always offer the same amount",
+          "correct": false,
+          "rationale": "The amount they offer changes with the price."
+        },
+        {
+          "id": "d",
+          "label": "When a price rises, sellers offer more",
+          "correct": true
+        }
+      ],
+      "explanation": "A rise in price almost always increases the quantity supplied, and a fall in price decreases it.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.supply_law"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.042.c2"
+      ],
+      "prompt": "Why do firms bring more of a product to market when its price rises?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The government orders them to",
+          "correct": false,
+          "rationale": "No order is needed: the price does the work."
+        },
+        {
+          "id": "b",
+          "label": "A higher price means more profit",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Their costs fall when prices rise",
+          "correct": false,
+          "rationale": "Costs don't fall; the reward for selling rises."
+        },
+        {
+          "id": "d",
+          "label": "Buyers want more at higher prices",
+          "correct": false,
+          "rationale": "Buyers usually want less at higher prices."
+        }
+      ],
+      "explanation": "Higher prices encourage profit-seeking firms to expand production.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.supply_shifts"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.042.c4"
+      ],
+      "prompt": "A drought ruins part of the wheat harvest. What happens to wheat's supply curve?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nothing, because only price moves supply",
+          "correct": false,
+          "rationale": "Price moves sellers along the curve; weather shifts it."
+        },
+        {
+          "id": "b",
+          "label": "The whole curve shifts toward less supply",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It flips and slopes downward",
+          "correct": false,
+          "rationale": "Supply curves still slope upward; the curve just moves."
+        },
+        {
+          "id": "d",
+          "label": "It becomes the demand curve",
+          "correct": false,
+          "rationale": "Weather changes how much farmers can supply, not what buyers want."
+        }
+      ],
+      "explanation": "Weather is one of the production conditions held equal when the curve is drawn. Bad weather shifts the whole supply curve toward less.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_demand_supply",
+    "source.britannica_supply_demand",
+    "source.openstax_shifts_demand_supply"
+  ],
+  "art": "money.market-stall"
+}

@@ -1,0 +1,219 @@
+{
+  "id": "level.money.how_money_works.015",
+  "skillId": "skill.money.how_money_works",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Opportunity Cost",
+  "objective": "After this level you can explain that every choice costs the next best thing you give up.",
+  "summary": "Opportunity cost is the value of the next best alternative you give up. College costs lost earnings as well as tuition, and time always counts: there's no such thing as a free lunch.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.oppcost_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.oppcost_free_lunch",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.income_factor_payments",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.014"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "American saloons once gave away lunch. There was a catch.",
+      "body": "In the 1800s and early 1900s, the free lunch came with a condition: you had to buy a drink. The sign said free; the bar tab said otherwise. Economists later turned the joke into a rule."
+    },
+    {
+      "id": "card.how_money_works.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The price tag you don't see",
+      "body": "Every choice has a cost that never shows up on a receipt. Economists call it opportunity cost: the value of the next best alternative, the thing you gave up by choosing. Sleep through a class and the cost isn't money. It's the learning you missed. Pick pizza for dinner and the cost is the burger you didn't have."
+    },
+    {
+      "id": "card.how_money_works.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "College's hidden bill",
+      "body": "College has out-of-pocket costs: tuition, books and the rest. It also has an opportunity cost. While you're in class or studying, you can't be working at a paying job, so the earnings you give up are part of the price. For college, that opportunity cost is bigger than the money cost. The largest part of the bill never arrives in the mail."
+    },
+    {
+      "id": "card.how_money_works.015.c4",
+      "type": "fact",
+      "fact": "Time is part of the price of everything.",
+      "context": "Spend 3 hours and $20 at the movies the night before an exam, and the cost isn't just the $20. It's also the study time you gave up. So even when a lunch is free, the hour you spend on it isn't. That's the saloon lesson: there's no such thing as a free lunch. The saying was an economic maxim by 1938, and Milton Friedman used a version of it as a book title in 1975.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Free samples, free trials, free lunches. All free, except for the you part."
+      }
+    },
+    {
+      "id": "card.how_money_works.015.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.015.q1"
+    },
+    {
+      "id": "card.how_money_works.015.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.015.q2"
+    },
+    {
+      "id": "card.how_money_works.015.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.015.q3"
+    },
+    {
+      "id": "card.how_money_works.015.c8",
+      "type": "checkpoint",
+      "headline": "Opportunity cost: counted",
+      "learned": [
+        "Every choice gives up the next best thing",
+        "That's opportunity cost",
+        "College costs lost earnings, not just tuition",
+        "Time counts: no lunch is free"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.oppcost_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.015.c2"
+      ],
+      "prompt": "What is opportunity cost?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The price printed on the receipt",
+          "correct": false,
+          "rationale": "The receipt shows the money cost, not what you gave up."
+        },
+        {
+          "id": "b",
+          "label": "The value of the next best alternative you give up",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The tax added at the checkout",
+          "correct": false,
+          "rationale": "Tax is part of the money cost."
+        },
+        {
+          "id": "d",
+          "label": "The fee for paying by card",
+          "correct": false,
+          "rationale": "A card fee is a money cost too."
+        }
+      ],
+      "explanation": "Opportunity cost is the value of the next best thing you gave up by choosing.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.oppcost_free_lunch",
+        "concept.how_money_works.oppcost_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.015.c4",
+        "card.how_money_works.015.c1"
+      ],
+      "prompt": "Why do economists say there's no such thing as a free lunch?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Restaurants always add hidden charges",
+          "correct": false,
+          "rationale": "The point is broader than restaurant billing."
+        },
+        {
+          "id": "b",
+          "label": "Lunch prices always rise over time",
+          "correct": false,
+          "rationale": "It isn't about prices rising."
+        },
+        {
+          "id": "c",
+          "label": "Even a free thing costs something you give up, like time",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Governments tax every meal",
+          "correct": false,
+          "rationale": "Taxes aren't the point of the saying."
+        }
+      ],
+      "explanation": "Every choice has an opportunity cost. Even when the food is free, the time you spend isn't.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.oppcost_definition",
+        "concept.how_money_works.income_factor_payments"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.015.c3",
+        "card.how_money_works.011.c3"
+      ],
+      "prompt": "From Level 11: a student's lost earnings from a paying job would have been which kind of income?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wages",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Rent",
+          "correct": false,
+          "rationale": "Rent is what land earns."
+        },
+        {
+          "id": "c",
+          "label": "Interest",
+          "correct": false,
+          "rationale": "Interest is what capital earns."
+        },
+        {
+          "id": "d",
+          "label": "Profit",
+          "correct": false,
+          "rationale": "Profit is what an entrepreneur keeps."
+        }
+      ],
+      "explanation": "A paying job earns wages, the income of labor. Those lost wages are part of college's opportunity cost.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.quoteinvestigator_free_lunch",
+    "source.openstax_opportunity_cost",
+    "source.stlouisfed_opportunity_cost"
+  ],
+  "art": "money.scale"
+}

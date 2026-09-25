@@ -1,0 +1,226 @@
+{
+  "id": "level.money.how_money_works.079",
+  "skillId": "skill.money.how_money_works",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Global Institutions",
+  "objective": "After this level you can describe what the IMF, the World Bank and the WTO do.",
+  "summary": "Bretton Woods (1944) created the IMF, which lends in crises with conditions, and the World Bank, which funds development. The WTO (1995) runs trade rules and disputes. Each has critics.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.global_bretton_woods_institutions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.global_wto",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.gold_standard_end",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.tariff_who_pays",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.078"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.079.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "July 1944: the war wasn't over, yet 44 nations planned the postwar economy.",
+      "body": "Delegates met at the Mount Washington Hotel in Bretton Woods, New Hampshire. Level 7 showed you the currency system they built. They also created two institutions that still exist: the International Monetary Fund and what is now the World Bank."
+    },
+    {
+      "id": "card.how_money_works.079.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The IMF: help, with strings",
+      "body": "The IMF was set up to watch over exchange rates and lend to countries short of foreign currency to pay their international bills. It still lends in a crisis, with conditions: the borrower agrees to change its economic policies to fix the problems that led it to ask. Critics argue that austere conditions can slow growth, deepen crises and hurt the poorest people."
+    },
+    {
+      "id": "card.how_money_works.079.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The World Bank: a builder",
+      "body": "The Bank's first loan went to France, for rebuilding after the war. When the Marshall Plan took over rebuilding Europe, the Bank turned to power, irrigation and transport projects around the world. Today, part of it gives grants and low-interest loans to help low-income countries invest and develop.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Same conference, two jobs: the IMF is the fire brigade, the World Bank the construction crew."
+      }
+    },
+    {
+      "id": "card.how_money_works.079.c4",
+      "type": "fact",
+      "fact": "The WTO referees trade among 166 members.",
+      "context": "The World Trade Organization began on 1 January 1995, succeeding the 1947 General Agreement on Tariffs and Trade. It runs trade agreements, hosts negotiations and handles disputes between members, which together account for 98% of world trade. Critics say it favors large corporations and raise concerns about the environment, labor rights and national sovereignty."
+    },
+    {
+      "id": "card.how_money_works.079.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.079.q1"
+    },
+    {
+      "id": "card.how_money_works.079.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.079.q2"
+    },
+    {
+      "id": "card.how_money_works.079.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.079.q3"
+    },
+    {
+      "id": "card.how_money_works.079.c8",
+      "type": "checkpoint",
+      "headline": "Global institutions",
+      "learned": [
+        "Bretton Woods, 1944, created the IMF and the World Bank",
+        "The IMF lends in crises, with conditions",
+        "The World Bank funds development",
+        "The WTO, since 1995, runs trade rules and disputes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.global_bretton_woods_institutions"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.079.c1"
+      ],
+      "prompt": "Which two institutions came out of the 1944 Bretton Woods conference?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The WTO and the United Nations",
+          "correct": false,
+          "rationale": "The WTO came in 1995."
+        },
+        {
+          "id": "b",
+          "label": "The Federal Reserve and the IMF",
+          "correct": false,
+          "rationale": "The Federal Reserve is a US central bank, not a Bretton Woods creation."
+        },
+        {
+          "id": "c",
+          "label": "The IMF and the World Bank",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The World Bank and GATT",
+          "correct": false,
+          "rationale": "GATT came in 1947, separately."
+        }
+      ],
+      "explanation": "The conference created the International Monetary Fund and the bank now called the World Bank.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.global_wto"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.079.c4"
+      ],
+      "prompt": "Two countries disagree over whether a tariff breaks their trade agreements. Which body handles disputes like that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The World Trade Organization",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The World Bank",
+          "correct": false,
+          "rationale": "The World Bank funds development projects."
+        },
+        {
+          "id": "c",
+          "label": "The International Monetary Fund",
+          "correct": false,
+          "rationale": "The IMF lends to countries in financial trouble."
+        },
+        {
+          "id": "d",
+          "label": "The Silk Road merchants' guild",
+          "correct": false,
+          "rationale": "That's a joke option; trade disputes go to the WTO."
+        }
+      ],
+      "explanation": "The WTO runs trade agreements and handles trade disputes between its members.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.how_money_works.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.gold_standard_end",
+        "concept.how_money_works.global_bretton_woods_institutions"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.079.c1",
+        "card.how_money_works.007.c4"
+      ],
+      "prompt": "From Level 7: besides the IMF and the World Bank, what did the Bretton Woods system set up for currencies?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One world currency run by the IMF",
+          "correct": false,
+          "rationale": "There was no single world currency."
+        },
+        {
+          "id": "b",
+          "label": "Free-floating rates with no gold link",
+          "correct": false,
+          "rationale": "Rates were fixed, not floating."
+        },
+        {
+          "id": "c",
+          "label": "Currencies fixed to the dollar, the dollar to gold",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Every currency pegged to the pound",
+          "correct": false,
+          "rationale": "Currencies were fixed to the dollar, not the pound."
+        }
+      ],
+      "explanation": "Under Bretton Woods, other currencies were fixed to the dollar, and dollars were convertible to gold at $35 an ounce.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.fedhistory_bretton_woods_created",
+    "source.imf_conditionality",
+    "source.brit_imf",
+    "source.worldbank_history",
+    "source.worldbank_who_we_are",
+    "source.wto_what_is",
+    "source.brit_wto"
+  ],
+  "art": "money.capitol"
+}

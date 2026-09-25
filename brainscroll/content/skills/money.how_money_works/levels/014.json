@@ -1,0 +1,218 @@
+{
+  "id": "level.money.how_money_works.014",
+  "skillId": "skill.money.how_money_works",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Needs and Wants",
+  "objective": "After this level you can tell needs from wants and explain why the line differs from person to person.",
+  "summary": "Needs are essential to survival and basic living; wants are for enjoyment. Adam Smith showed that custom moves the line: a linen shirt or leather shoes could be a need in one place and not another.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.needs_wants_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.needs_custom_smith",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.budget_50_30_20",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.013"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Is a linen shirt a need? In 1776, it depended where you lived.",
+      "body": "Adam Smith took the question seriously in The Wealth of Nations. His answer explains why your list of needs won't match everybody else's."
+    },
+    {
+      "id": "card.how_money_works.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Needs keep you going. Wants make it nicer.",
+      "body": "Needs are the things essential to survival and basic living: food, shelter, clothing, utilities. Wants are the things you'd like for enjoyment or lifestyle. Level 13's 50/30/20 rule gives them separate buckets. The tricky part is that a need can come in a want-sized version. You need food. Dining out every night is a want.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Dessert: need or want? Asking for a friend."
+      }
+    },
+    {
+      "id": "card.how_money_works.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Smith's shirt test",
+      "body": "Smith defined necessaries as more than what keeps you alive. They also included whatever local custom made it shameful for respectable people to go without. A linen shirt isn't strictly needed for life: the ancient Greeks and Romans lived comfortably without linen. Yet a respectable day-labourer of Smith's time would be ashamed to appear in public without one. Same shirt, different century, different category."
+    },
+    {
+      "id": "card.how_money_works.014.c4",
+      "type": "fact",
+      "fact": "In Smith's day, leather shoes were a need in England, half a need in Scotland and no need in France.",
+      "context": "Custom made them a necessity for both men and women in England, for men but not women in Scotland, and for neither in France, where people could go in wooden shoes or barefoot without shame. The line between needs and wants isn't drawn by nature. Where you live, and when, helps draw it."
+    },
+    {
+      "id": "card.how_money_works.014.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.014.q1"
+    },
+    {
+      "id": "card.how_money_works.014.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.014.q2"
+    },
+    {
+      "id": "card.how_money_works.014.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.014.q3"
+    },
+    {
+      "id": "card.how_money_works.014.c8",
+      "type": "checkpoint",
+      "headline": "Needs vs wants: sorted",
+      "learned": [
+        "Needs keep you alive and housed",
+        "Wants are for enjoyment",
+        "A need can come in a want-sized version",
+        "Custom moves the line (Smith's linen shirt)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.needs_wants_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.014.c2"
+      ],
+      "prompt": "Which of these is a want rather than a need?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Groceries for the week",
+          "correct": false,
+          "rationale": "Food is a need."
+        },
+        {
+          "id": "b",
+          "label": "Rent for your home",
+          "correct": false,
+          "rationale": "Shelter is a need."
+        },
+        {
+          "id": "c",
+          "label": "Electricity for your home",
+          "correct": false,
+          "rationale": "Utilities are a need."
+        },
+        {
+          "id": "d",
+          "label": "Dining out every night",
+          "correct": true
+        }
+      ],
+      "explanation": "Food is a need, but eating out every night is the want-sized version of it.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.needs_custom_smith"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.014.c3"
+      ],
+      "prompt": "Why did Adam Smith count a linen shirt as a necessary in his time?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Custom made it shameful to appear in public without one",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Linen was the only fabric available",
+          "correct": false,
+          "rationale": "Availability wasn't his point; custom was."
+        },
+        {
+          "id": "c",
+          "label": "A law required workers to wear linen",
+          "correct": false,
+          "rationale": "Custom, not law, set the standard."
+        },
+        {
+          "id": "d",
+          "label": "The ancient Greeks and Romans wore linen",
+          "correct": false,
+          "rationale": "He noted they lived comfortably without it."
+        }
+      ],
+      "explanation": "Smith counted as necessaries whatever custom made it shameful for respectable people to go without.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.budget_50_30_20",
+        "concept.how_money_works.needs_wants_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.013.c3",
+        "card.how_money_works.014.c2"
+      ],
+      "prompt": "From Level 13: in the 50/30/20 rule, what share of after-tax income goes to needs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "20%",
+          "correct": false,
+          "rationale": "That share is for saving or paying down debt."
+        },
+        {
+          "id": "b",
+          "label": "30%",
+          "correct": false,
+          "rationale": "That share is for wants."
+        },
+        {
+          "id": "c",
+          "label": "50%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "80%",
+          "correct": false,
+          "rationale": "That's needs and wants together."
+        }
+      ],
+      "explanation": "Needs get half of after-tax income in the 50/30/20 rule.",
+      "difficulty": 0.15
+    }
+  ],
+  "sourceIds": [
+    "source.econlib_smith_wealth_of_nations",
+    "source.britannica_50_30_20",
+    "source.time_50_30_20_warren",
+    "source.experian_needs_vs_wants"
+  ],
+  "art": "money.shopping-cart"
+}

@@ -1,0 +1,231 @@
+{
+  "id": "level.money.how_money_works.034",
+  "skillId": "skill.money.how_money_works",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What a Bond Is",
+  "objective": "After this level you can explain how a bond works as a loan to a government or company.",
+  "summary": "A bond is an IOU: you lend to an issuer that pays interest and returns the face value at maturity. Bondholders are paid before shareholders. Britain's War Loan ran from 1917 to 2015.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.bond_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.bond_risks_priority",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.bond_war_loan",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.bank_deposit_money",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.stock_share_ownership",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.033"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2015, Britain repaid money it borrowed in 1917 to fight World War I.",
+      "body": "By then more than 120,000 holders were still owed a share of it, and still collecting interest. The loan was a bond. So what exactly were they holding?"
+    },
+    {
+      "id": "card.how_money_works.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A bond is an IOU you can buy",
+      "body": "Buying a bond means lending money to whoever issued it: a government, a city or a company. In return they promise interest at a set rate, usually paid on a schedule such as every six months, and your original sum, the face value, back on a set date called maturity. Level 8 said your bank balance is the bank's IOU to you. A bond is an IOU with a price tag."
+    },
+    {
+      "id": "card.how_money_works.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Steadier than stocks, not risk-free",
+      "body": "Bonds can bring a predictable income and help offset jumpier stocks. But the issuer might fail to pay: that's a default. If a company goes bust, its bondholders are paid before its shareholders, who get whatever is left, which may be nothing. Selling early has a catch too. When interest rates rise, new bonds pay more, so an older, lower-paying bond may only sell at a discount."
+    },
+    {
+      "id": "card.how_money_works.034.c4",
+      "type": "fact",
+      "fact": "Britain's War Loan had no end date, until the government picked one.",
+      "context": "In 1932, holders of the 5% War Loan from 1917 were persuaded to switch to a lower-paying 3½% bond with no fixed maturity. That let the government choose when to repay. It waited until 2015, when interest rates were exceptionally low, and paid off the £1.9 billion still outstanding.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A loan with no due date. Lenders might want to read the small print before saying yes."
+      }
+    },
+    {
+      "id": "card.how_money_works.034.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.034.q1"
+    },
+    {
+      "id": "card.how_money_works.034.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.034.q2"
+    },
+    {
+      "id": "card.how_money_works.034.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.034.q3"
+    },
+    {
+      "id": "card.how_money_works.034.c8",
+      "type": "checkpoint",
+      "headline": "Bonds: issued",
+      "learned": [
+        "A bond is a loan to its issuer",
+        "It pays interest and returns face value at maturity",
+        "Issuers can default; bondholders are paid first",
+        "Britain's War Loan: 1917 to 2015"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.bond_basics"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.034.c2"
+      ],
+      "prompt": "When you buy a bond, what are you doing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lending money to the issuer",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Buying part-ownership of the issuer",
+          "correct": false,
+          "rationale": "That's a stock."
+        },
+        {
+          "id": "c",
+          "label": "Opening a savings account",
+          "correct": false,
+          "rationale": "A bond is a loan to a government, city or company."
+        },
+        {
+          "id": "d",
+          "label": "Paying next year's taxes early",
+          "correct": false,
+          "rationale": "Buyers lend money and are paid interest for it."
+        }
+      ],
+      "explanation": "A bond is an IOU: the buyer lends, and the issuer pays interest and returns the face value at maturity.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.bond_war_loan",
+        "concept.how_money_works.bond_basics"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.034.c4"
+      ],
+      "prompt": "Why could Britain choose to wait until 2015 to repay its 3½% War Loan?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its holders had agreed to give up all interest",
+          "correct": false,
+          "rationale": "Holders kept collecting interest until repayment."
+        },
+        {
+          "id": "b",
+          "label": "Bonds never have to be repaid at all",
+          "correct": false,
+          "rationale": "Most bonds have a maturity date when the face value is due."
+        },
+        {
+          "id": "c",
+          "label": "The bond had no fixed maturity date",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A court had frozen the debt since 1932",
+          "correct": false,
+          "rationale": "The 1932 change was a swap into a new bond, not a court order."
+        }
+      ],
+      "explanation": "The 1932 conversion created a bond with no fixed maturity, so the government chose when to repay: in 2015, when rates were exceptionally low.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.bond_risks_priority",
+        "concept.how_money_works.stock_share_ownership"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.034.c3",
+        "card.how_money_works.033.c3"
+      ],
+      "prompt": "A company goes bankrupt. Compared with Level 33's shareholders, where do its bondholders stand?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They get paid only after shareholders",
+          "correct": false,
+          "rationale": "It's the reverse: lenders come before owners."
+        },
+        {
+          "id": "b",
+          "label": "They're paid first; shareholders get what's left",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both groups always lose everything",
+          "correct": false,
+          "rationale": "Bondholders are paid first from whatever assets remain."
+        },
+        {
+          "id": "d",
+          "label": "Both groups share the assets equally",
+          "correct": false,
+          "rationale": "The order is set: bondholders before shareholders."
+        }
+      ],
+      "explanation": "Bondholders are lenders and are paid first. Shareholders are owners and get whatever is left, which may be nothing.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sec_investor_bonds",
+    "source.sec_investor_what_is_risk",
+    "source.sec_investor_stocks",
+    "source.govuk_war_loan_repayment",
+    "source.wfa_first_world_war_paid_off",
+    "source.boe_money_modern_economy"
+  ],
+  "art": "money.handshake"
+}

@@ -1,0 +1,230 @@
+{
+  "id": "level.money.how_money_works.045",
+  "skillId": "skill.money.how_money_works",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Shortages and Surpluses",
+  "objective": "After this level you can explain what happens when prices are held too low or too high.",
+  "summary": "A price floor above equilibrium creates a surplus, like Europe's butter mountains. A price ceiling below equilibrium creates a shortage, like rent control.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.price_floor_surplus",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.cap_butter_mountains",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.price_ceiling_shortage",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.price_market_pressure",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.supply_law",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.044"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In the 1980s, Europe had a butter mountain. And a wine lake.",
+      "body": "Those were the nicknames for giant stored surpluses of butter and wine. They grew out of a rule that stopped prices doing Level 44's job."
+    },
+    {
+      "id": "card.how_money_works.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Floors make surpluses",
+      "body": "Governments sometimes regulate prices by law. A price floor is the lowest price anyone may legally pay. Set it above the equilibrium price and sellers offer more than buyers want: a surplus. Level 44's cure, cutting the price, is now against the rules. So the extra has nowhere to go."
+    },
+    {
+      "id": "card.how_money_works.045.c3",
+      "type": "fact",
+      "fact": "Europe's farm policy held prices high, and farmers produced more and more.",
+      "context": "When the Common Agricultural Policy began in 1962, it supported farmers mainly by keeping their prices artificially high. That's a floor, and Level 42 predicts the rest: a higher price, more supply. By the 1980s, the result was huge stored surpluses of butter and wine. (The wine was actually industrial alcohol. No lake of fine vintage, sadly.)",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A butter mountain sounds delicious until you realize someone has to store it."
+      }
+    },
+    {
+      "id": "card.how_money_works.045.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ceilings make shortages",
+      "body": "Now flip it. A price ceiling is the highest price anyone may legally charge, often set to keep necessities affordable. Set it below equilibrium and buyers want more than sellers offer: a shortage. This time the price can't rise to close the gap, so the shortage stays. Rent control is the classic case: it can leave fewer apartments to rent than there would be at market rates."
+    },
+    {
+      "id": "card.how_money_works.045.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.045.q1"
+    },
+    {
+      "id": "card.how_money_works.045.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.045.q2"
+    },
+    {
+      "id": "card.how_money_works.045.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.045.q3"
+    },
+    {
+      "id": "card.how_money_works.045.c8",
+      "type": "checkpoint",
+      "headline": "Price controls: tested",
+      "learned": [
+        "A floor above equilibrium makes a surplus",
+        "Europe's butter mountains came from a floor",
+        "A ceiling below equilibrium makes a shortage",
+        "Rent control is the classic ceiling"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.price_ceiling_shortage"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.045.c4"
+      ],
+      "prompt": "What is a price ceiling?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The lowest price anyone may legally pay",
+          "correct": false,
+          "rationale": "That's a price floor."
+        },
+        {
+          "id": "b",
+          "label": "The price where supply meets demand",
+          "correct": false,
+          "rationale": "That's the equilibrium price."
+        },
+        {
+          "id": "c",
+          "label": "The highest price anyone may legally charge",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A tax added on top of a price",
+          "correct": false,
+          "rationale": "A ceiling caps the price; it adds nothing."
+        }
+      ],
+      "explanation": "A price ceiling is a legal maximum price, often meant to keep necessities affordable.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.cap_butter_mountains",
+        "concept.how_money_works.price_floor_surplus"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.045.c3",
+        "card.how_money_works.045.c2"
+      ],
+      "prompt": "Why did Europe's farm policy end up with butter mountains?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Prices held high made farmers produce more than buyers wanted",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A bad harvest made farmers store butter for later",
+          "correct": false,
+          "rationale": "The surpluses came from too much production, not too little."
+        },
+        {
+          "id": "c",
+          "label": "People in the 1980s stopped eating butter",
+          "correct": false,
+          "rationale": "The cause was the price policy, not a change in taste."
+        },
+        {
+          "id": "d",
+          "label": "Prices were held so low that nobody would sell",
+          "correct": false,
+          "rationale": "Low prices would cause a shortage, not a surplus."
+        }
+      ],
+      "explanation": "Artificially high prices acted as a floor: farmers produced more and more, and the surplus had to be stored.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.price_ceiling_shortage",
+        "concept.how_money_works.price_market_pressure"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.045.c4",
+        "card.how_money_works.044.c3"
+      ],
+      "prompt": "From Level 44: in a free market, a shortage pushes the price up. What does a price ceiling below equilibrium do to that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It speeds the rise up",
+          "correct": false,
+          "rationale": "A ceiling caps the price, so it cannot rise past it."
+        },
+        {
+          "id": "b",
+          "label": "It turns the shortage into a surplus",
+          "correct": false,
+          "rationale": "Only a price held too high makes a surplus."
+        },
+        {
+          "id": "c",
+          "label": "It has no effect on the shortage",
+          "correct": false,
+          "rationale": "It matters a lot: it stops the fix from happening."
+        },
+        {
+          "id": "d",
+          "label": "It blocks the rise, so the shortage stays",
+          "correct": true
+        }
+      ],
+      "explanation": "Normally sellers raise prices in a shortage. A ceiling forbids that, so the gap between wanted and offered doesn't close.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.conversation_eu_cap",
+    "source.openstax_price_controls",
+    "source.openstax_demand_supply",
+    "source.britannica_supply_demand"
+  ],
+  "art": "money.market-stall"
+}

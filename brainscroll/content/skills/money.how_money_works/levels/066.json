@@ -1,0 +1,220 @@
+{
+  "id": "level.money.how_money_works.066",
+  "skillId": "skill.money.how_money_works",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Business Cycle",
+  "objective": "After this level you can explain why economies go through booms and recessions.",
+  "summary": "Economies swing irregularly between expansions and recessions, which the NBER dates after the fact. Economists debate whether spending swings or productivity shocks drive the cycle.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.business_cycle_phases",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.cycle_causes_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.gdp_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.065"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The US spent a whole year in recession before it was made official.",
+      "body": "On December 1, 2008, the referees announced that a recession had begun back in December 2007. Economies rise and fall, but the turns are only clear in the rear-view mirror."
+    },
+    {
+      "id": "card.how_money_works.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A rollercoaster without a timetable",
+      "body": "Economies go through expansions, or booms, when activity grows, and recessions, when it declines. The peak is the last month of an expansion; the trough is the last month of a recession. It's called a cycle, but it keeps no schedule: expansions and recessions arrive at irregular intervals and last for different lengths of time."
+    },
+    {
+      "id": "card.how_money_works.066.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who calls a recession?",
+      "body": "In the US, the referees are the National Bureau of Economic Research, or NBER. Its definition: a significant decline in economic activity, spread across the economy, lasting more than a few months. The popular rule of two straight quarters of falling real GDP isn't the NBER's test, though most recessions fit it. Recessions vary a lot: the 2020 one lasted about two months."
+    },
+    {
+      "id": "card.how_money_works.066.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the ride? Economists split",
+      "body": "Economists still disagree about what drives the cycle. Many see swings in spending as the main engine: a surge in private or public spending fuels a boom, and a pullback brings a recession. Central banks can push too, by raising or lowering interest rates. Economists in the new classical tradition argue instead that cycles come largely from shocks to productivity and tastes, not changes in demand.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Same rollercoaster, different theories about the engine. Both sides have evidence to argue over."
+      }
+    },
+    {
+      "id": "card.how_money_works.066.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.066.q1"
+    },
+    {
+      "id": "card.how_money_works.066.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.066.q2"
+    },
+    {
+      "id": "card.how_money_works.066.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.066.q3"
+    },
+    {
+      "id": "card.how_money_works.066.c8",
+      "type": "checkpoint",
+      "headline": "Business cycle: mapped",
+      "learned": [
+        "Economies swing between expansions and recessions",
+        "Peak: last month of a boom; trough: last month of a recession",
+        "The NBER dates US recessions, often long after",
+        "Economists debate spending swings versus productivity shocks"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.business_cycle_phases"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.066.c2"
+      ],
+      "prompt": "In the business cycle, what is the trough?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The last month of an expansion",
+          "correct": false,
+          "rationale": "That's the peak."
+        },
+        {
+          "id": "b",
+          "label": "The last month of a recession",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The middle of a long boom",
+          "correct": false,
+          "rationale": "A trough marks the bottom, not the middle of a boom."
+        },
+        {
+          "id": "d",
+          "label": "A fixed ten-year low point",
+          "correct": false,
+          "rationale": "The cycle keeps no schedule."
+        }
+      ],
+      "explanation": "The trough is the last month of a recession; recovery starts after it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.cycle_causes_debate"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.066.c4"
+      ],
+      "prompt": "Which explanation of booms and recessions comes from the new classical tradition?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Swings in private and public spending",
+          "correct": false,
+          "rationale": "That's the spending-shock view."
+        },
+        {
+          "id": "b",
+          "label": "Central banks moving interest rates",
+          "correct": false,
+          "rationale": "That's a monetary lever, not the new classical view."
+        },
+        {
+          "id": "c",
+          "label": "Shocks to productivity and tastes",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A regular timetable of ups and downs",
+          "correct": false,
+          "rationale": "Cycles keep no timetable."
+        }
+      ],
+      "explanation": "New classical economists argue cycles come largely from shocks to productivity and tastes, not from changes in demand.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.how_money_works.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.gdp_definition",
+        "concept.how_money_works.business_cycle_phases"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.066.c3",
+        "card.how_money_works.065.c3"
+      ],
+      "prompt": "The popular rule of thumb calls it a recession after two straight quarters of falling what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Consumer prices",
+          "correct": false,
+          "rationale": "Falling prices would be deflation, not the recession rule."
+        },
+        {
+          "id": "b",
+          "label": "Stock prices",
+          "correct": false,
+          "rationale": "Markets can fall without a recession."
+        },
+        {
+          "id": "c",
+          "label": "Bank deposits",
+          "correct": false,
+          "rationale": "The rule uses output, not deposits."
+        },
+        {
+          "id": "d",
+          "label": "Real GDP",
+          "correct": true
+        }
+      ],
+      "explanation": "The rule of thumb uses real GDP from Level 65, though the NBER looks at a broader set of evidence.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nber_business_cycle_dating",
+    "source.nber_dating_faq",
+    "source.nber_dec2008_announcement",
+    "source.econlib_romer_business_cycles",
+    "source.brit_business_cycle"
+  ],
+  "art": "money.rollercoaster"
+}

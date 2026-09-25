@@ -1,0 +1,218 @@
+{
+  "id": "level.money.how_money_works.096",
+  "skillId": "skill.money.how_money_works",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Game Theory",
+  "objective": "After this level you can explain the prisoner's dilemma and why cooperation is hard.",
+  "summary": "In the prisoner's dilemma, each player does better by betraying whatever the other does, yet both end up worse off. When the game repeats with no known end, cooperation can pay, as tit for tat showed.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.ideas_prisoners_dilemma",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.ideas_repeated_cooperation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.ideas_smith_invisible_hand",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.095"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.096.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two shops cut prices to steal each other's customers. Both end up poorer.",
+      "body": "Neither gains a single customer, and both earn smaller profits. Why would two sensible owners do that? Game theory has a famous answer, and it starts in a police station."
+    },
+    {
+      "id": "card.how_money_works.096.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The prisoner's dilemma",
+      "body": "Two suspects are questioned in separate rooms. If both stay silent, each gets a year. If both confess, five years each. If one confesses and the other stays silent, the confessor walks free and the silent one gets 20 years. Work it through: whatever your partner does, confessing leaves you better off. So both confess, and both serve five years instead of one.",
+      "callout": "Both silent: 1 year each · Both confess: 5 years each"
+    },
+    {
+      "id": "card.how_money_works.096.c3",
+      "type": "fact",
+      "fact": "The prisoner's dilemma was invented before it had any prisoners.",
+      "context": "Merrill Flood and Melvin Dresher devised the game at the RAND Corporation in 1950. Albert Tucker added the prison story later, to make it easier to explain. The same trap turns up far from any jail: in an arms race, two nations keep buying weapons, neither gains an advantage, and both end up poorer. The price-cutting shops are in it too.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "The prisoners were a marketing decision. Good one, though."
+      }
+    },
+    {
+      "id": "card.how_money_works.096.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Play again, and trust can pay",
+      "body": "There's a way out: meet again. When the game repeats and nobody knows which round is last, cooperation can emerge. In Robert Axelrod's computer tournaments, Anatol Rapoport's tit for tat did famously well: cooperate first, then copy your partner's last move. Axelrod found that every \"nice\" strategy, one that never betrays first, beat every strategy that wasn't."
+    },
+    {
+      "id": "card.how_money_works.096.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.096.q1"
+    },
+    {
+      "id": "card.how_money_works.096.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.096.q2"
+    },
+    {
+      "id": "card.how_money_works.096.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.096.q3"
+    },
+    {
+      "id": "card.how_money_works.096.c8",
+      "type": "checkpoint",
+      "headline": "The prisoner's dilemma",
+      "learned": [
+        "Betraying is best for each, whatever the other does",
+        "Yet both betraying leaves both worse off",
+        "Price wars and arms races follow the same logic",
+        "Repeated play lets cooperation pay"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.ideas_prisoners_dilemma"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.096.c2"
+      ],
+      "prompt": "In the classic prisoner's dilemma, what happens if both suspects confess?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both go free",
+          "correct": false,
+          "rationale": "Only a lone confessor goes free."
+        },
+        {
+          "id": "b",
+          "label": "Each serves one year",
+          "correct": false,
+          "rationale": "That's what happens if both stay silent."
+        },
+        {
+          "id": "c",
+          "label": "Each serves five years",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Each serves 20 years",
+          "correct": false,
+          "rationale": "Twenty years is for a silent suspect whose partner confesses."
+        }
+      ],
+      "explanation": "Both confessing earns five years each, worse than the one year each they'd get by both staying silent.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.ideas_repeated_cooperation"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.096.c4"
+      ],
+      "prompt": "Why can cooperation survive when the game is played again and again?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Players forget what happened last round",
+          "correct": false,
+          "rationale": "Tit for tat depends on remembering the last move."
+        },
+        {
+          "id": "b",
+          "label": "Future rounds let players reward cooperation and answer betrayal",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The payoffs for betrayal disappear",
+          "correct": false,
+          "rationale": "The payoffs stay the same; the future changes the choice."
+        },
+        {
+          "id": "d",
+          "label": "A referee forces everyone to cooperate",
+          "correct": false,
+          "rationale": "No referee: cooperation emerges from the players."
+        }
+      ],
+      "explanation": "With no known last round, strategies like tit for tat reward cooperation and answer betrayal, so being nice can pay.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.how_money_works.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.ideas_prisoners_dilemma",
+        "concept.how_money_works.ideas_smith_invisible_hand"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.096.c2",
+        "card.how_money_works.091.c3"
+      ],
+      "prompt": "How does the prisoner's dilemma complicate Level 91's invisible hand?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It proves self-interest always helps everyone",
+          "correct": false,
+          "rationale": "It shows the opposite can happen."
+        },
+        {
+          "id": "b",
+          "label": "It shows markets need gold to work",
+          "correct": false,
+          "rationale": "Gold has nothing to do with it."
+        },
+        {
+          "id": "c",
+          "label": "It shows people never act in their own interest",
+          "correct": false,
+          "rationale": "Each player does act in self-interest; that's the trap."
+        },
+        {
+          "id": "d",
+          "label": "Each player chasing self-interest can leave both worse off",
+          "correct": true
+        }
+      ],
+      "explanation": "Smith's hand turns self-interest into shared good; the dilemma shows cases where self-interest leaves everyone worse off.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_game_theory",
+    "source.sep_prisoners_dilemma",
+    "source.brit_invisible_hand"
+  ],
+  "art": "money.chess-king"
+}

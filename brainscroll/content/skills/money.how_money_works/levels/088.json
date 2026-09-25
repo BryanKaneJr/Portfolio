@@ -1,0 +1,226 @@
+{
+  "id": "level.money.how_money_works.088",
+  "skillId": "skill.money.how_money_works",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Automation and Jobs",
+  "objective": "After this level you can explain how machines have changed work, from looms to robots.",
+  "summary": "Luddites smashed machines from 1811. Farm work fell from 41% of US jobs in 1900 to 1.9% in 2000, and ATMs changed tellers' work. Machines take over tasks; work shifts.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.automation_luddites",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.automation_job_shift",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.pin_factory_division",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.087"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1811, English workers started smashing machines.",
+      "body": "They signed threatening letters in the name of \"Ned Ludd\", a leader who never existed. What were they really fighting?"
+    },
+    {
+      "id": "card.how_money_works.088.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not against machines",
+      "body": "The Luddite attacks began near Nottingham in March 1811, on knitting machines called stocking frames. But the Luddites weren't against machines as such. They objected to owners using them to get around labor standards, turning out cheaper, lower-quality work. Parliament's answer was harsh: breaking a machine became a capital crime."
+    },
+    {
+      "id": "card.how_money_works.088.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where did the farmers go?",
+      "body": "The biggest shift came on farms. In 1900, 41% of American workers worked in agriculture; by 2000, just 1.9% did. Tractors replaced horses and mules, and more productive farms freed a huge share of the population for jobs outside farming. The farm jobs went. The workers moved on."
+    },
+    {
+      "id": "card.how_money_works.088.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Machines take tasks",
+      "body": "ATMs were supposed to finish off bank tellers. Instead, each urban branch needed fewer of them: 13 instead of 20 between 1988 and 2004. But banks opened 43% more urban branches, so teller jobs didn't disappear. They changed, from counting cash toward helping customers with other services."
+    },
+    {
+      "id": "card.how_money_works.088.c5",
+      "type": "fact",
+      "fact": "The first industrial robot clocked in at General Motors in 1961.",
+      "context": "Unimate, a robot arm, lifted and stacked hot die-cast metal parts. It's Level 85's third reason in steel: divide work into simple steps, and machines that save labor follow.",
+      "mascot": {
+        "pose": "idea",
+        "line": "From stocking frames to robot arms, the question stays the same: which tasks, and who gains?"
+      }
+    },
+    {
+      "id": "card.how_money_works.088.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.088.q1"
+    },
+    {
+      "id": "card.how_money_works.088.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.088.q2"
+    },
+    {
+      "id": "card.how_money_works.088.c8",
+      "type": "recall",
+      "questionId": "question.how_money_works.088.q3"
+    },
+    {
+      "id": "card.how_money_works.088.c9",
+      "type": "checkpoint",
+      "headline": "Automation: in motion",
+      "learned": [
+        "Luddites (1811) opposed how machines were used",
+        "US farm jobs fell from 41% to 1.9% of workers",
+        "ATMs changed tellers' work instead of ending it",
+        "Unimate, the first industrial robot, started in 1961"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.automation_luddites"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.088.c2"
+      ],
+      "prompt": "What did the original Luddites object to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Any kind of machine, however it was used",
+          "correct": false,
+          "rationale": "They were fine with machines; the issue was how owners used them."
+        },
+        {
+          "id": "b",
+          "label": "Owners using machines to get around labor standards",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "New taxes on the cloth they wove at home",
+          "correct": false,
+          "rationale": "Their target was how machines were used."
+        },
+        {
+          "id": "d",
+          "label": "Robots taking over jobs in car factories",
+          "correct": false,
+          "rationale": "Industrial robots came 150 years later."
+        }
+      ],
+      "explanation": "The Luddites objected to owners using machines to dodge labor standards and turn out cheaper, lower-quality work.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.automation_job_shift"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.088.c4"
+      ],
+      "prompt": "ATMs cut the number of tellers each bank branch needed. Why didn't teller jobs disappear?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Banks kept ATMs out of their city branches",
+          "correct": false,
+          "rationale": "ATMs spread; the number of branches grew too."
+        },
+        {
+          "id": "b",
+          "label": "A law protected tellers from automation",
+          "correct": false,
+          "rationale": "No law: more branches kept the jobs."
+        },
+        {
+          "id": "c",
+          "label": "Banks opened many more branches",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Customers refused to use the machines",
+          "correct": false,
+          "rationale": "ATMs spread widely; branches multiplied as well."
+        }
+      ],
+      "explanation": "Each branch needed fewer tellers, but banks opened 43% more urban branches, so teller jobs held up and changed.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.automation_job_shift",
+        "concept.how_money_works.pin_factory_division"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.088.c3",
+        "card.how_money_works.085.c3"
+      ],
+      "prompt": "Level 85's Smith said dividing work leads to labor-saving machines. What happened to farm work's share of US jobs from 1900 to 2000?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rose from 1.9% to 41%",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "b",
+          "label": "It stayed near 41%",
+          "correct": false,
+          "rationale": "It collapsed as tractors spread."
+        },
+        {
+          "id": "c",
+          "label": "It fell from 41% to about 20%",
+          "correct": false,
+          "rationale": "It fell much further, to 1.9%."
+        },
+        {
+          "id": "d",
+          "label": "It fell from 41% to 1.9%",
+          "correct": true
+        }
+      ],
+      "explanation": "Agriculture fell from 41% of US workers in 1900 to 1.9% in 2000 as machines replaced muscle.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonian_luddites",
+    "source.usda_ers_farm_transformation",
+    "source.imf_bessen_toil_technology",
+    "source.nihf_devol_unimate",
+    "source.econlib_smith_wealth_of_nations"
+  ],
+  "art": "technology.robot"
+}

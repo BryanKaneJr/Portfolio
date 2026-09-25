@@ -1,0 +1,229 @@
+{
+  "id": "level.money.how_money_works.056",
+  "skillId": "skill.money.how_money_works",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Interest Rates and the Economy",
+  "objective": "After this level you can explain how central banks raise or lower interest rates to cool or boost the economy.",
+  "summary": "A central bank's key rate feeds into loan and savings rates. Raising it cools spending and price rises; cutting it boosts borrowing and hiring. Effects lag. Volcker's near-20% rates show the cost.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.govt_policy_rate_effects",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_volcker_rates",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_central_bank_role",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.055"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1981, America's key interest rate was near 20%. On purpose.",
+      "body": "Under chair Paul Volcker, the Federal Reserve let the federal funds rate approach 20% to fight high inflation. Why would a central bank make borrowing that painful? Follow what one interest rate does to a whole economy."
+    },
+    {
+      "id": "card.how_money_works.056.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One rate, many ripples",
+      "body": "A central bank sets one core short-term interest rate: the Bank of England calls its version Bank Rate. It sounds like a number only bankers care about, but it ripples outward. Change it, and the rates banks charge on loans and mortgages, and pay on savings, tend to follow. Your mortgage, your car loan and your savings account all feel it."
+    },
+    {
+      "id": "card.how_money_works.056.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The brake and the accelerator",
+      "body": "Raising the rate is the brake. Loan and mortgage payments go up and saving pays more, so people spend less, and businesses find it harder to raise prices. Cutting the rate is the accelerator. Borrowing gets cheaper, so households and businesses spend more, and businesses hire more workers to keep up."
+    },
+    {
+      "id": "card.how_money_works.056.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A shower with a long pipe",
+      "body": "The catch is timing. In 1959, economist Milton Friedman told Congress that monetary policy works with a long and variable lag; in his study, the delay ran from 4 to 29 months. It's like a shower with a very long pipe: turn the tap, wait, and it's easy to overshoot into scalding or freezing before you feel the change.",
+      "mascot": {
+        "pose": "oops",
+        "line": "We have all been that person frantically twisting the shower tap. Central bankers just do it with the whole economy."
+      }
+    },
+    {
+      "id": "card.how_money_works.056.c5",
+      "type": "fact",
+      "fact": "Volcker's brake slowed prices, and it hurt.",
+      "context": "High rates hit industries that run on borrowing, like construction and autos. US unemployment reached nearly 11% late in 1982. But by October 1982, inflation had fallen to 5%. The brake worked on one goal while hurting another."
+    },
+    {
+      "id": "card.how_money_works.056.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.056.q1"
+    },
+    {
+      "id": "card.how_money_works.056.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.056.q2"
+    },
+    {
+      "id": "card.how_money_works.056.c8",
+      "type": "recall",
+      "questionId": "question.how_money_works.056.q3"
+    },
+    {
+      "id": "card.how_money_works.056.c9",
+      "type": "checkpoint",
+      "headline": "Rates: explained",
+      "learned": [
+        "A core rate ripples into loan and savings rates",
+        "Raising it cools spending; cutting it boosts it",
+        "Effects come with long, variable lags",
+        "Volcker's near-20% rates cut inflation but cost jobs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.govt_policy_rate_effects"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.056.c2",
+        "card.how_money_works.056.c3"
+      ],
+      "prompt": "When a central bank raises its key interest rate, what usually happens to loans and mortgages?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They become cheaper",
+          "correct": false,
+          "rationale": "That's what a rate cut does."
+        },
+        {
+          "id": "b",
+          "label": "They become more expensive",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They are banned for a year",
+          "correct": false,
+          "rationale": "Rates change the price of borrowing, not whether it is allowed."
+        },
+        {
+          "id": "d",
+          "label": "Nothing: the central bank rate only affects banks",
+          "correct": false,
+          "rationale": "Loan and savings rates tend to follow it."
+        }
+      ],
+      "explanation": "Raising the core rate pushes up the rates banks charge, making borrowing costlier.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.govt_policy_rate_effects"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.056.c3",
+        "card.how_money_works.056.c4"
+      ],
+      "prompt": "A central bank cuts rates during a slump. How is that meant to help, and what is the catch?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It boosts spending and hiring, but only after a long, variable lag",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It makes saving pay more, and it works the next morning",
+          "correct": false,
+          "rationale": "A cut lowers what savings pay, and the effect lags."
+        },
+        {
+          "id": "c",
+          "label": "It cuts taxes directly, with no delay at all",
+          "correct": false,
+          "rationale": "Central banks don't set taxes."
+        },
+        {
+          "id": "d",
+          "label": "It makes prices fall at once, with no side effects",
+          "correct": false,
+          "rationale": "Cheaper borrowing tends to push spending and prices up, not down."
+        }
+      ],
+      "explanation": "Cutting the rate is the accelerator, but Friedman found the lag ran from 4 to 29 months.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.govt_volcker_rates",
+        "concept.how_money_works.govt_central_bank_role"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.055.c2",
+        "card.how_money_works.056.c5"
+      ],
+      "prompt": "From Level 55: the Fed aims for stable prices and maximum employment. How did Volcker's high rates affect those two goals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both goals were met at once",
+          "correct": false,
+          "rationale": "Unemployment rose to nearly 11%."
+        },
+        {
+          "id": "b",
+          "label": "Employment rose while inflation climbed",
+          "correct": false,
+          "rationale": "The reverse: inflation fell and unemployment rose."
+        },
+        {
+          "id": "c",
+          "label": "Inflation fell, but unemployment rose",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Neither changed, because of the long lag",
+          "correct": false,
+          "rationale": "Lags delay effects, but both moved by 1982."
+        }
+      ],
+      "explanation": "By October 1982 inflation was down to 5%, but unemployment neared 11%: one goal helped, the other hurt.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.fedhistory_recession_1981",
+    "source.boe_bank_rate",
+    "source.fed_monetary_policy_faq",
+    "source.stlouisfed_long_variable_lags",
+    "source.fedhistory_reform_act_1977",
+    "source.fed_independence_faq"
+  ],
+  "art": "architecture.bank"
+}

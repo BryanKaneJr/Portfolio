@@ -1,0 +1,218 @@
+{
+  "id": "level.money.how_money_works.011",
+  "skillId": "skill.money.how_money_works",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Where Income Comes From",
+  "objective": "After this level you can explain the main ways people earn money: wages, profits, interest and rent.",
+  "summary": "Economists group what it takes to make things into land, labor, capital and entrepreneurship. Each earns its own income: rent, wages, interest and profit. Wages are most people's main income.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.income_factors_of_production",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.income_factor_payments",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.bank_deposit_money",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.010"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One slice of pizza pays four different kinds of income.",
+      "body": "The cook, the landlord, the lender behind the oven and the owner of the shop all get a cut of what you paid. Economists have a name for each cut. Learn the four and you'll start seeing them everywhere."
+    },
+    {
+      "id": "card.how_money_works.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four ingredients for making anything",
+      "body": "Making anything, from pizza to phones, takes four ingredients. Economists call them the factors of production. Land is any natural resource, like water, oil or forests. Labor is people's work. Capital is the tools, machinery and buildings, like hammers, computers and delivery vans. Entrepreneurship is the person who combines the other three to earn a profit. So when an economist says capital, picture the oven, not the cash."
+    },
+    {
+      "id": "card.how_money_works.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every ingredient gets paid",
+      "body": "Each factor earns its own kind of income. Land earns rent. Labor earns wages. Capital earns interest. Entrepreneurship earns profit, and profit is whatever is left after the wages, rent and interest have been paid. In the pizza shop, the owner gets paid last.",
+      "callout": "Land: rent · Labor: wages · Capital: interest · Entrepreneurship: profit",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Owners eat last. At a pizza shop, that's almost poetic."
+      }
+    },
+    {
+      "id": "card.how_money_works.011.c4",
+      "type": "fact",
+      "fact": "For most people, the paycheck that matters is wages.",
+      "context": "Rent goes to people who own land, interest to people who lend, profit to people who own a business. Wages go to anyone who sells their work, and they're the largest source of income for most people. Remember Level 8? Most people now receive that pay as bank deposits, and many never swap it back into cash."
+    },
+    {
+      "id": "card.how_money_works.011.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.011.q1"
+    },
+    {
+      "id": "card.how_money_works.011.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.011.q2"
+    },
+    {
+      "id": "card.how_money_works.011.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.011.q3"
+    },
+    {
+      "id": "card.how_money_works.011.c8",
+      "type": "checkpoint",
+      "headline": "Income: sorted",
+      "learned": [
+        "Four factors: land, labor, capital, entrepreneurship",
+        "They earn rent, wages, interest and profit",
+        "Profit is what's left after the others are paid",
+        "Wages are most people's main income"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.income_factor_payments"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.011.c3"
+      ],
+      "prompt": "In economics, what kind of income does land earn?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wages",
+          "correct": false,
+          "rationale": "Wages are what labor earns."
+        },
+        {
+          "id": "b",
+          "label": "Rent",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Interest",
+          "correct": false,
+          "rationale": "Interest is what capital earns."
+        },
+        {
+          "id": "d",
+          "label": "Profit",
+          "correct": false,
+          "rationale": "Profit is what entrepreneurship earns."
+        }
+      ],
+      "explanation": "Each factor earns its own income, and the one for land (natural resources) is rent.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.income_factors_of_production"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.011.c2"
+      ],
+      "prompt": "To an economist, which of these counts as capital?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The cash in the shop's till",
+          "correct": false,
+          "rationale": "Capital here means tools, machinery and buildings, not money."
+        },
+        {
+          "id": "b",
+          "label": "The cook's work in the kitchen",
+          "correct": false,
+          "rationale": "That's labor."
+        },
+        {
+          "id": "c",
+          "label": "The pizza shop's oven",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The water used in the dough",
+          "correct": false,
+          "rationale": "That's a natural resource, so it counts as land."
+        }
+      ],
+      "explanation": "Capital is the tools, machinery and buildings used to make things. The oven is capital; the cash isn't.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.income_factor_payments",
+        "concept.how_money_works.bank_deposit_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.011.c4",
+        "card.how_money_works.008.c2"
+      ],
+      "prompt": "From Level 8: how do most people receive their wages today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In gold coins",
+          "correct": false,
+          "rationale": "Gold coins haven't been everyday pay for a long time."
+        },
+        {
+          "id": "b",
+          "label": "As bank deposits",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "As shares in the company",
+          "correct": false,
+          "rationale": "Shares are ownership, not a wage payment."
+        },
+        {
+          "id": "d",
+          "label": "In a cash envelope each week",
+          "correct": false,
+          "rationale": "Most pay now arrives as numbers in a bank account."
+        }
+      ],
+      "explanation": "Wages now mostly arrive as bank deposits: records of what the bank owes you.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.stlouisfed_factors_of_production",
+    "source.tutor2u_factor_incomes",
+    "source.boe_money_modern_economy"
+  ],
+  "art": "money.wallet"
+}

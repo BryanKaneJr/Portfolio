@@ -1,0 +1,219 @@
+{
+  "id": "level.money.how_money_works.017",
+  "skillId": "skill.money.how_money_works",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Paying by Card",
+  "objective": "After this level you can explain how a card payment works and who pays the fees.",
+  "summary": "A card payment runs from the merchant's bank through the card network to your bank and back. The merchant pays a fee, mostly interchange to your bank, and passes it on in prices, even to cash users.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.card_payment_chain",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.card_fees_interchange",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.card_payment_records",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.016"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One tap for a coffee puts four parties to work.",
+      "body": "You, the café, your bank and the café's bank all play a part. One of them pays a fee for the privilege. It isn't you. At least, not directly."
+    },
+    {
+      "id": "card.how_money_works.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ask, approve, pay",
+      "body": "When you tap, the café's bank (the acquirer) sends a request through the card network, like Visa or Mastercard, to the bank that issued your card. Your bank checks that the account is valid and approves. Then the acquirer settles the sale, paying the café with money from your bank. Remember Level 8? Nothing physical travels. Balances change."
+    },
+    {
+      "id": "card.how_money_works.017.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The café pays to get paid",
+      "body": "Card payments aren't free for the seller. The café pays a merchant discount fee on each sale, and most of it goes to your bank as an interchange fee. The card networks set that fee; for credit cards it generally runs from about 1 to 3 percent of the price. So the café receives a little less than the price on the menu.",
+      "callout": "Interchange: set by the network, paid to your bank"
+    },
+    {
+      "id": "card.how_money_works.017.c4",
+      "type": "fact",
+      "fact": "Pay with cash and you may still be paying card fees.",
+      "context": "Shops generally cover card costs through higher prices for everyone, because they usually charge card and cash customers the same. A 2010 Boston Fed study concluded that cash users in effect pay part of the cost of card fees and rewards. The fee isn't on your receipt. It's folded into the price.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Your cash-only uncle is quietly chipping in for everyone's card rewards."
+      }
+    },
+    {
+      "id": "card.how_money_works.017.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.017.q1"
+    },
+    {
+      "id": "card.how_money_works.017.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.017.q2"
+    },
+    {
+      "id": "card.how_money_works.017.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.017.q3"
+    },
+    {
+      "id": "card.how_money_works.017.c8",
+      "type": "checkpoint",
+      "headline": "Card payments: traced",
+      "learned": [
+        "Four parties: you, your bank, the shop, its bank",
+        "The network carries the request and approval",
+        "The shop pays a fee, mostly interchange",
+        "Card costs end up in everyone's prices"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.card_fees_interchange"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.017.c3"
+      ],
+      "prompt": "Who sets interchange fees?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The card networks",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Each café",
+          "correct": false,
+          "rationale": "The café pays the fee but doesn't set it."
+        },
+        {
+          "id": "c",
+          "label": "The shopper",
+          "correct": false,
+          "rationale": "Shoppers don't see or set it."
+        },
+        {
+          "id": "d",
+          "label": "The shopper's employer",
+          "correct": false,
+          "rationale": "Employers aren't part of the payment."
+        }
+      ],
+      "explanation": "Card networks like Visa and Mastercard set interchange fees, which go to the card issuer.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.card_fees_interchange"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.017.c4"
+      ],
+      "prompt": "Why might a customer who always pays cash still pay part of card fees?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Banks charge a fee on every banknote",
+          "correct": false,
+          "rationale": "Banknotes don't carry a per-use fee."
+        },
+        {
+          "id": "b",
+          "label": "Cash customers pay a surcharge at the till",
+          "correct": false,
+          "rationale": "Shops usually charge everyone the same price."
+        },
+        {
+          "id": "c",
+          "label": "Card networks tax cash sales",
+          "correct": false,
+          "rationale": "Networks only handle card payments."
+        },
+        {
+          "id": "d",
+          "label": "Shops generally build card costs into prices for everyone",
+          "correct": true
+        }
+      ],
+      "explanation": "Shops usually charge one price, so card costs end up in prices that cash users pay too.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.card_payment_records",
+        "concept.how_money_works.card_payment_chain"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.008.c3",
+        "card.how_money_works.017.c2"
+      ],
+      "prompt": "From Level 8: when your card payment settles, what actually changes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Coins move in an armored van",
+          "correct": false,
+          "rationale": "No cash travels in a card payment."
+        },
+        {
+          "id": "b",
+          "label": "Numbers in bank records: balances change",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Gold moves between bank vaults",
+          "correct": false,
+          "rationale": "Gold hasn't backed payments like this for decades."
+        },
+        {
+          "id": "d",
+          "label": "A paper check is mailed to the café",
+          "correct": false,
+          "rationale": "Card payments don't use checks."
+        }
+      ],
+      "explanation": "A card payment is a change to records: your balance goes down and the café's goes up.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.gao_interchange_fees_2009",
+    "source.britannica_interchange_fees",
+    "source.boe_money_modern_economy",
+    "source.bostonfed_credit_card_payments"
+  ],
+  "art": "money.credit-card"
+}

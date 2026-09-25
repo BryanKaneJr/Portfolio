@@ -1,0 +1,220 @@
+{
+  "id": "level.money.how_money_works.021",
+  "skillId": "skill.money.how_money_works",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Banks Do",
+  "objective": "After this level you can explain how banks take deposits and make loans.",
+  "summary": "Banks grew out of medieval money changers' benches. A bank takes deposits and makes loans, standing between savers and borrowers, and earns on the spread between the two interest rates.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.banking_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.banking_intermediary",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.banking_spread",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.020"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Why is it called a bank? Blame a wooden bench.",
+      "body": "In medieval Italy, money changers did business at a banco, a bench or table. Along the way they invented the job every bank still does."
+    },
+    {
+      "id": "card.how_money_works.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Deposits in, loans out",
+      "body": "Lombard money changers started out swapping coins for foreign merchants and travelers. Then clients began leaving money with them for safekeeping, and anyone who wanted to borrow could come to the changer, who lent those deposits out. That's still the heart of banking: a bank accepts deposits and makes loans."
+    },
+    {
+      "id": "card.how_money_works.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The middleman",
+      "body": "Economists call a bank a financial intermediary. It sits between savers who deposit money and borrowers who take out loans. Without one, a saver with spare cash would have to hunt down someone who wanted to borrow it and trust them to pay it back. Remember barter's lucky match from Level 2? A bank spares savers and borrowers from having to find each other."
+    },
+    {
+      "id": "card.how_money_works.021.c4",
+      "type": "fact",
+      "fact": "A bank earns its living in the gap between two interest rates.",
+      "context": "It pays interest on deposits and charges a higher rate on its loans. The difference is called the spread, and it covers the bank's costs and its profit. The benches got fancier over the centuries. The business model barely changed.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "From a wooden bench to a banking app, and still the same trick: borrow at one price, lend at a higher one."
+      }
+    },
+    {
+      "id": "card.how_money_works.021.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.021.q1"
+    },
+    {
+      "id": "card.how_money_works.021.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.021.q2"
+    },
+    {
+      "id": "card.how_money_works.021.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.021.q3"
+    },
+    {
+      "id": "card.how_money_works.021.c8",
+      "type": "checkpoint",
+      "headline": "Banks: explained",
+      "learned": [
+        "The word bank comes from the Italian banco, a bench",
+        "Banks take deposits and make loans",
+        "They stand between savers and borrowers",
+        "They earn on the spread between loan and deposit rates"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.banking_intermediary"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.021.c2",
+        "card.how_money_works.021.c3"
+      ],
+      "prompt": "At its core, what two things does a bank do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Prints banknotes and sets shop prices",
+          "correct": false,
+          "rationale": "Banks take deposits and lend; they don't set shop prices."
+        },
+        {
+          "id": "b",
+          "label": "Collects taxes and pays pensions",
+          "correct": false,
+          "rationale": "That's government work, not a bank's core job."
+        },
+        {
+          "id": "c",
+          "label": "Accepts deposits and makes loans",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Buys gold and stores it in vaults",
+          "correct": false,
+          "rationale": "Storing gold isn't the heart of banking; lending deposits is."
+        }
+      ],
+      "explanation": "A bank accepts deposits from savers and makes loans to borrowers: it is a financial intermediary.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.banking_spread"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.021.c4"
+      ],
+      "prompt": "How does a bank make money from lending?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It charges borrowers more interest than it pays depositors",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It keeps a fee from every coin it exchanges",
+          "correct": false,
+          "rationale": "That was the money changers' old trade, not the lending business."
+        },
+        {
+          "id": "c",
+          "label": "It pays depositors more interest than it charges borrowers",
+          "correct": false,
+          "rationale": "That would lose money: the loan rate is the higher one."
+        },
+        {
+          "id": "d",
+          "label": "The government pays it for each new account",
+          "correct": false,
+          "rationale": "Its income comes from the spread between the two rates."
+        }
+      ],
+      "explanation": "The spread between the higher loan rate and the lower deposit rate covers the bank's costs and profit.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.banking_origins",
+        "concept.how_money_works.banking_intermediary"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.021.c2",
+        "card.how_money_works.021.c3"
+      ],
+      "prompt": "A medieval Lombard money changer lent out his clients' deposits. What modern role was he playing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A tax collector for the local ruler",
+          "correct": false,
+          "rationale": "He was matching savers' money with borrowers, not collecting taxes."
+        },
+        {
+          "id": "b",
+          "label": "A shopkeeper selling goods on credit",
+          "correct": false,
+          "rationale": "He dealt in money, not goods."
+        },
+        {
+          "id": "c",
+          "label": "A mint stamping new coins",
+          "correct": false,
+          "rationale": "Minting coins is a state job; he was lending deposits."
+        },
+        {
+          "id": "d",
+          "label": "A financial intermediary between savers and borrowers",
+          "correct": true
+        }
+      ],
+      "explanation": "Taking deposits and lending them out is exactly what makes a bank a financial intermediary.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.boe_money_creation",
+    "source.brit_bank",
+    "source.etymonline_bank",
+    "source.nbb_money_changers_bench",
+    "source.openstax_role_of_banks"
+  ],
+  "art": "architecture.bank"
+}

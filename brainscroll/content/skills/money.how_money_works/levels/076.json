@@ -1,0 +1,221 @@
+{
+  "id": "level.money.how_money_works.076",
+  "skillId": "skill.money.how_money_works",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "From Caravans to Containers",
+  "objective": "After this level you can trace how trade routes grew from the Silk Road to container ships.",
+  "summary": "The Silk Road linked China and the West, with goods passed along by middlemen. In 1956, Malcolm McLean's containers made loading ships far cheaper than handling loose cargo.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.trade_silk_road",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.trade_container_shipping",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.europe_banknotes",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.075"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Silk crossed Asia for centuries, yet almost nobody made the whole trip.",
+      "body": "On the Silk Road, few people traveled the entire route. Goods moved in stages, handed from middleman to middleman. This level follows how goods traveled, from camel caravans to steel boxes."
+    },
+    {
+      "id": "card.how_money_works.076.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Silk Road",
+      "body": "The Silk Road was a caravan route of about 6,400 km linking China with the West, carrying goods and ideas between China and Rome. Silk went west; wool, gold and silver went east. Religions traveled it too, and so did diseases. After years as an unsafe, little-used route, it revived under the Mongols. That's when Marco Polo went east, and came home describing Level 5's Chinese paper money."
+    },
+    {
+      "id": "card.how_money_works.076.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One sack at a time",
+      "body": "Ships carried goods much farther than camels, but loading them stayed slow. Sacks, barrels and crates were handled one by one. This loose, break-bulk cargo could take several days to load, so ships often sat in port for long periods. Picture packing for a house move one sock at a time.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "All that way across the ocean, and the slowest part was the dock."
+      }
+    },
+    {
+      "id": "card.how_money_works.076.c4",
+      "type": "fact",
+      "fact": "April 26, 1956: 58 boxes set sail, and loading got cheap.",
+      "context": "Trucking entrepreneur Malcolm McLean sent his ship, the Ideal X, from Newark to Houston carrying 58 metal containers. Instead of loose cargo, whole boxes went aboard. Loading a ship the conventional way cost more than $5.80 a ton. Loading McLean's containers cost about 16 cents."
+    },
+    {
+      "id": "card.how_money_works.076.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.076.q1"
+    },
+    {
+      "id": "card.how_money_works.076.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.076.q2"
+    },
+    {
+      "id": "card.how_money_works.076.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.076.q3"
+    },
+    {
+      "id": "card.how_money_works.076.c8",
+      "type": "checkpoint",
+      "headline": "Caravans to containers",
+      "learned": [
+        "The Silk Road linked China and the West",
+        "Goods passed along it through middlemen",
+        "Loose cargo made loading ships slow",
+        "McLean's 1956 containers made loading far cheaper"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.trade_silk_road"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.076.c1",
+        "card.how_money_works.076.c2"
+      ],
+      "prompt": "How did goods usually travel the length of the Silk Road?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One merchant carried them all the way",
+          "correct": false,
+          "rationale": "Few people made the whole journey."
+        },
+        {
+          "id": "b",
+          "label": "They passed in stages between middlemen",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Roman convoys escorted them end to end",
+          "correct": false,
+          "rationale": "The route was a caravan tract worked by middlemen, not convoys."
+        },
+        {
+          "id": "d",
+          "label": "They went by container ship",
+          "correct": false,
+          "rationale": "Containers came many centuries later, in 1956."
+        }
+      ],
+      "explanation": "Few people traveled the whole route; goods moved along it in stages through middlemen.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.trade_container_shipping"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.076.c3",
+        "card.how_money_works.076.c4"
+      ],
+      "prompt": "Why did McLean's containers make loading ships so much cheaper?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whole boxes went aboard instead of loose cargo",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The ships were much smaller",
+          "correct": false,
+          "rationale": "Size wasn't the point; the loading method was."
+        },
+        {
+          "id": "c",
+          "label": "Dockworkers were no longer paid",
+          "correct": false,
+          "rationale": "Loading still took work; it just took far less."
+        },
+        {
+          "id": "d",
+          "label": "The goods inside weighed less",
+          "correct": false,
+          "rationale": "The cargo was the same kind of goods, packed differently."
+        }
+      ],
+      "explanation": "Loading whole containers replaced handling sacks, barrels and crates one by one, cutting the cost from more than $5.80 a ton to about 16 cents.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.how_money_works.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.trade_silk_road",
+        "concept.how_money_works.europe_banknotes"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.076.c2",
+        "card.how_money_works.005.c4"
+      ],
+      "prompt": "Marco Polo traveled the revived Silk Road. From Level 5, what Chinese money did he describe for Europeans?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cowrie shells",
+          "correct": false,
+          "rationale": "Cowries were early money, but Polo is remembered for describing paper money."
+        },
+        {
+          "id": "b",
+          "label": "Gold coins stamped with a lion",
+          "correct": false,
+          "rationale": "Lion-stamped coins were Lydia's, from Level 4."
+        },
+        {
+          "id": "c",
+          "label": "Stone discs",
+          "correct": false,
+          "rationale": "Stone discs were Yap's money, from Level 3."
+        },
+        {
+          "id": "d",
+          "label": "Paper money",
+          "correct": true
+        }
+      ],
+      "explanation": "Marco Polo gave one of the earliest European accounts of China's paper money.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_silk_road",
+    "source.natgeo_silk_road",
+    "source.worldhistory_paper_china",
+    "source.porthouston_ideal_x",
+    "source.transportgeography_ideal_x"
+  ],
+  "art": "money.container-ship"
+}

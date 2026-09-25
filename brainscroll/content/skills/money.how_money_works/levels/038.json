@@ -1,0 +1,212 @@
+{
+  "id": "level.money.how_money_works.038",
+  "skillId": "skill.money.how_money_works",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Saving for Retirement",
+  "objective": "After this level you can explain why starting early matters so much when saving for retirement.",
+  "summary": "Time does most of the work in retirement saving: the earlier you start, the longer growth earns growth. Pensions promise a benefit; in 401(k)-style plans, the worker carries the risk.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.retire_start_early",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.retire_plans",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.divers_enron",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.037"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Skip a $1 candy bar every day for a year. What is that $365 worth in 30 years?",
+      "body": "The US Securities and Exchange Commission ran the numbers. Save the $365 once, let it earn 5% a year, and it grows to $465.84 in five years. Leave it alone for 30 years and it becomes $1,577.50. Same candy bars, very different payoff."
+    },
+    {
+      "id": "card.how_money_works.038.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Time does the heavy lifting",
+      "body": "Look closer. In its first five years, the $365 earns about $101. In the next 25, about $1,112. Same money, same rate: the difference is time, because growth keeps earning growth of its own. That's why the SEC's guide for people starting their first job says starting early is key: the younger you are when you begin, the more time your investments have to grow.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Your future self will thank you. Possibly with a candy bar."
+      }
+    },
+    {
+      "id": "card.how_money_works.038.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who carries the risk?",
+      "body": "Many people save through work. A traditional pension is the employer's promise: it invests the money and pays you a benefit based on your pay and years of service. In a 401(k)-style plan, the account is yours: you choose how much to save and how it's invested, and some employers add a match, such as 50 cents per dollar. As savings moved to 401(k)s, the risk moved from employers to workers. Level 36's Enron staff found out what that means."
+    },
+    {
+      "id": "card.how_money_works.038.c4",
+      "type": "mcq",
+      "questionId": "question.how_money_works.038.q1"
+    },
+    {
+      "id": "card.how_money_works.038.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.038.q2"
+    },
+    {
+      "id": "card.how_money_works.038.c6",
+      "type": "recall",
+      "questionId": "question.how_money_works.038.q3"
+    },
+    {
+      "id": "card.how_money_works.038.c7",
+      "type": "checkpoint",
+      "headline": "Retirement saving: started",
+      "learned": [
+        "Starting early gives money more time to grow",
+        "Growth earns growth, so later years add the most",
+        "Pensions promise a benefit",
+        "401(k)-style plans put the risk on the worker"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.retire_start_early"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.038.c1"
+      ],
+      "prompt": "In the SEC's candy-bar example, what turns $365 into $1,577.50?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Adding $365 more every single year",
+          "correct": false,
+          "rationale": "The $365 is saved once, then left alone."
+        },
+        {
+          "id": "b",
+          "label": "A 30% return each year",
+          "correct": false,
+          "rationale": "The example uses 5% a year."
+        },
+        {
+          "id": "c",
+          "label": "Buying a candy company's shares",
+          "correct": false,
+          "rationale": "It's just savings earning 5% a year."
+        },
+        {
+          "id": "d",
+          "label": "Thirty years of growth at 5% a year",
+          "correct": true
+        }
+      ],
+      "explanation": "Saved once and earning 5% a year, the $365 grows to $465.84 in five years and $1,577.50 in 30.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.retire_start_early"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.038.c2"
+      ],
+      "prompt": "In the example, the $365 earns about $101 in five years but about $1,112 over the next 25. Why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The interest rate rises in later years",
+          "correct": false,
+          "rationale": "The rate stays at 5% throughout."
+        },
+        {
+          "id": "b",
+          "label": "Growth keeps earning growth, so time matters most",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The saver adds more money every year",
+          "correct": false,
+          "rationale": "Nothing is added after the first $365."
+        },
+        {
+          "id": "d",
+          "label": "Banks pay a bonus to long-term savers",
+          "correct": false,
+          "rationale": "No bonus: just time and a steady rate."
+        }
+      ],
+      "explanation": "Each year the growth itself starts growing, so the later years add far more. Starting early buys more of those years.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.retire_plans",
+        "concept.how_money_works.divers_enron"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.038.c3",
+        "card.how_money_works.036.c1"
+      ],
+      "prompt": "Level 36's Enron workers held their 401(k)s in company stock. In a 401(k)-style plan, who carries the investment risk?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The employer",
+          "correct": false,
+          "rationale": "That's a traditional pension, where the employer promises the benefit."
+        },
+        {
+          "id": "b",
+          "label": "The government",
+          "correct": false,
+          "rationale": "A 401(k) is the worker's own account."
+        },
+        {
+          "id": "c",
+          "label": "The worker",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The stock exchange",
+          "correct": false,
+          "rationale": "Exchanges match trades; they carry none of your risk."
+        }
+      ],
+      "explanation": "In a 401(k) the worker chooses and owns the investments, so the risk moved from employers to workers.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sec_investor_small_savings",
+    "source.sec_investor_first_job",
+    "source.senate_hsgac_enron_401k",
+    "source.brit_enron_scandal"
+  ],
+  "art": "money.coin-plant"
+}

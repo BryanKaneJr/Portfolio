@@ -1,0 +1,219 @@
+{
+  "id": "level.money.how_money_works.083",
+  "skillId": "skill.money.how_money_works",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Revenue, Costs and Profit",
+  "objective": "After this level you can explain how a business makes a profit.",
+  "summary": "Revenue is price times quantity sold; profit is revenue minus total cost. Fixed costs stay put while variable costs move with output. Amazon lost money in 2002 despite billions in sales.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.profit_revenue_cost",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.profit_fixed_variable",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.startup_costs_funding",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.082"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2002, Amazon sold about $3.9 billion of goods. It still lost money.",
+      "body": "Shoppers were buying and the orders kept coming, yet the year ended in the red. How? Because the money coming in is not the money you get to keep."
+    },
+    {
+      "id": "card.how_money_works.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Revenue in, profit left",
+      "body": "Revenue is what a business takes in from selling: the price of each item times how many it sells. Profit is what's left after paying all the costs: revenue minus total cost. If costs are bigger than revenue, the answer is negative, and that's a loss. Amazon's 2002 revenue was huge, but its costs were bigger still, leaving a loss of about $149 million."
+    },
+    {
+      "id": "card.how_money_works.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two kinds of cost",
+      "body": "Costs come in two kinds. Fixed costs, like the rent on a shop or factory, machinery and advertising, stay the same whether you make one thing or a million. Variable costs, like workers' hours and raw materials, rise and fall with how much you make. Sell more and revenue grows, but variable costs grow right along with it. Only the fixed costs sit still."
+    },
+    {
+      "id": "card.how_money_works.083.c4",
+      "type": "fact",
+      "fact": "In 2003, Amazon finally made a full-year profit: about $35 million.",
+      "context": "Its net sales that year were about $5.26 billion. So the profit was a sliver of the revenue: less than a penny for every dollar of sales. The lesson: a big revenue number tells you how much a business sells, not how much it keeps.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Revenue is the size of the pizza. Profit is the slice you actually get to eat."
+      }
+    },
+    {
+      "id": "card.how_money_works.083.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.083.q1"
+    },
+    {
+      "id": "card.how_money_works.083.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.083.q2"
+    },
+    {
+      "id": "card.how_money_works.083.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.083.q3"
+    },
+    {
+      "id": "card.how_money_works.083.c8",
+      "type": "checkpoint",
+      "headline": "Profit: calculated",
+      "learned": [
+        "Revenue = price times quantity sold",
+        "Profit = revenue minus total cost",
+        "Fixed costs stay put; variable costs move with output",
+        "Amazon's first full-year profit came in 2003"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.profit_revenue_cost"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.083.c2"
+      ],
+      "prompt": "How do you work out a business's profit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Total revenue minus total cost",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Price times quantity sold",
+          "correct": false,
+          "rationale": "That's revenue, before any costs come out."
+        },
+        {
+          "id": "c",
+          "label": "Revenue plus fixed costs",
+          "correct": false,
+          "rationale": "Costs are subtracted, not added."
+        },
+        {
+          "id": "d",
+          "label": "Fixed costs minus variable costs",
+          "correct": false,
+          "rationale": "Profit compares revenue with costs."
+        }
+      ],
+      "explanation": "Profit is total revenue minus total cost. A negative result is a loss.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.profit_revenue_cost"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.083.c1",
+        "card.how_money_works.083.c2"
+      ],
+      "prompt": "How could Amazon sell about $3.9 billion of goods in 2002 and still make a loss?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its sales were counted in the wrong year",
+          "correct": false,
+          "rationale": "Nothing like that: costs simply exceeded revenue."
+        },
+        {
+          "id": "b",
+          "label": "Its costs were bigger than its revenue",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Revenue and profit mean the same thing",
+          "correct": false,
+          "rationale": "They don't: profit is revenue minus costs."
+        },
+        {
+          "id": "d",
+          "label": "It gave most of its products away free",
+          "correct": false,
+          "rationale": "It sold them; its costs were just higher."
+        }
+      ],
+      "explanation": "Profit is revenue minus total cost. When costs are bigger than revenue, even billions in sales end in a loss.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.profit_fixed_variable",
+        "concept.how_money_works.startup_costs_funding"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.083.c3",
+        "card.how_money_works.082.c3"
+      ],
+      "prompt": "Level 82's founders counted a used drill press in their $538. In this level's terms, what kind of cost is machinery?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A variable cost that rises with each unit",
+          "correct": false,
+          "rationale": "Machinery costs the same however much you make."
+        },
+        {
+          "id": "b",
+          "label": "Not a cost at all, since it is only a tool",
+          "correct": false,
+          "rationale": "Buying or renting machinery is a cost."
+        },
+        {
+          "id": "c",
+          "label": "A fixed cost",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Revenue, because it helps make sales",
+          "correct": false,
+          "rationale": "Revenue is money coming in from sales."
+        }
+      ],
+      "explanation": "Machinery is a fixed cost: it stays the same however much a firm produces.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_accounting_economic_profit",
+    "source.openstax_short_run_costs",
+    "source.sec_amazon_2003_results",
+    "source.sba_startup_costs"
+  ],
+  "art": "money.receipt"
+}

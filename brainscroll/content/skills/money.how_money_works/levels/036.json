@@ -1,0 +1,219 @@
+{
+  "id": "level.money.how_money_works.036",
+  "skillId": "skill.money.how_money_works",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Diversification",
+  "objective": "After this level you can explain why spreading money across many investments lowers risk.",
+  "summary": "Diversification spreads money across and within kinds of investments so one failure can't sink you. It can't prevent losses in a market-wide fall. Enron's workers showed the cost of one basket.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.divers_spreading_risk",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.divers_enron",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.risk_stocks_vs_bills",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.035"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "At Enron, many workers kept their paycheck and their savings in one basket.",
+      "body": "At the end of 2000, more than half the money in Enron's 401(k) retirement plan was invested in Enron's own stock. On December 2, 2001, the company went bankrupt. Many employees lost their jobs and much of their retirement savings at the same moment."
+    },
+    {
+      "id": "card.how_money_works.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Don't put all your eggs in one basket",
+      "body": "That old saying is the whole idea of diversification: spreading your money among different investments to reduce risk. If one company or industry does badly, others doing well may make up for it. You can spread across kinds of assets, like stocks, bonds and cash, and within them: many companies, in many different industries."
+    },
+    {
+      "id": "card.how_money_works.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What spreading out can't do",
+      "body": "Diversification shrinks the damage any single failure can do. It can't make you immune when the whole market drops. It improves the odds that you won't lose money, or won't lose as much, but it guarantees nothing. Remember Level 32's 1931, when US stocks lost more than 40%? Owning every one of them wouldn't have saved you that year."
+    },
+    {
+      "id": "card.how_money_works.036.c4",
+      "type": "fact",
+      "fact": "Funds make spreading out easy.",
+      "context": "Buying hundreds of companies one at a time would be a lot of paperwork. Mutual funds and exchange-traded funds (ETFs) pool money from many investors and invest it in many holdings, so each investor owns a small portion of all of them. One warning: a fund focused on a single industry is still one basket.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "One fund, many baskets. Just check the baskets are not all sitting on the same shelf."
+      }
+    },
+    {
+      "id": "card.how_money_works.036.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.036.q1"
+    },
+    {
+      "id": "card.how_money_works.036.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.036.q2"
+    },
+    {
+      "id": "card.how_money_works.036.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.036.q3"
+    },
+    {
+      "id": "card.how_money_works.036.c8",
+      "type": "checkpoint",
+      "headline": "Diversification: spread",
+      "learned": [
+        "Spreading money across investments lowers risk",
+        "Spread across and within kinds of assets",
+        "It can't stop a market-wide fall",
+        "Funds let you own a slice of many investments"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.divers_spreading_risk"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.036.c2"
+      ],
+      "prompt": "What is diversification?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Moving all your money into the best recent performer",
+          "correct": false,
+          "rationale": "That's the opposite: one basket."
+        },
+        {
+          "id": "b",
+          "label": "Spreading money across many investments to cut risk",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Keeping all savings in cash under a mattress",
+          "correct": false,
+          "rationale": "That's one basket too, and a squashy one."
+        },
+        {
+          "id": "d",
+          "label": "Buying and selling shares every single day",
+          "correct": false,
+          "rationale": "Diversifying is about how widely you spread, not how often you trade."
+        }
+      ],
+      "explanation": "Diversification means spreading money among different investments so one failure can't sink everything.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.divers_enron"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.036.c1"
+      ],
+      "prompt": "Why were so many Enron employees hit so hard when the company failed in 2001?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their savings were spread over hundreds of firms",
+          "correct": false,
+          "rationale": "Then Enron's failure would have mattered much less."
+        },
+        {
+          "id": "b",
+          "label": "The government had frozen all 401(k) accounts",
+          "correct": false,
+          "rationale": "The problem was what the accounts held."
+        },
+        {
+          "id": "c",
+          "label": "Their jobs and much of their savings rode on one company",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The whole US stock market fell by 90% that year",
+          "correct": false,
+          "rationale": "It was Enron's collapse that did it."
+        }
+      ],
+      "explanation": "More than half of the plan's money was in Enron stock, so the same failure took their paychecks and their savings.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.divers_spreading_risk",
+        "concept.how_money_works.risk_stocks_vs_bills"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.036.c3",
+        "card.how_money_works.032.c2"
+      ],
+      "prompt": "In 1931, US stocks lost more than 40%. Why would owning many different US stocks not have protected you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Diversification only works for bonds",
+          "correct": false,
+          "rationale": "It works for stocks too, against single failures."
+        },
+        {
+          "id": "b",
+          "label": "Diversification can't stop a market-wide drop",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Stock exchanges were closed that year",
+          "correct": false,
+          "rationale": "Stocks traded; they just fell."
+        },
+        {
+          "id": "d",
+          "label": "Owning many stocks increases your risk",
+          "correct": false,
+          "rationale": "Spreading out lowers the risk from any one company."
+        }
+      ],
+      "explanation": "Spreading out protects against one company's failure, not against nearly everything falling at once.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.senate_hsgac_enron_401k",
+    "source.brit_enron_scandal",
+    "source.sec_investor_asset_allocation",
+    "source.sec_investor_diversify",
+    "source.nyu_damodaran_historical_returns"
+  ],
+  "art": "money.chart-up"
+}

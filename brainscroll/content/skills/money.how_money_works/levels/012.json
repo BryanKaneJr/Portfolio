@@ -1,0 +1,217 @@
+{
+  "id": "level.money.how_money_works.012",
+  "skillId": "skill.money.how_money_works",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Gross and Net Pay",
+  "objective": "After this level you can explain why take-home pay is smaller than the salary on a job offer.",
+  "summary": "Gross pay is what you earn; net pay is what arrives after withholding. In the US, payroll taxes take 7.65% before income tax and other deductions.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.pay_gross_net",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.pay_deductions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.income_factor_payments",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.011"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The salary on your job offer never lands in your bank account.",
+      "body": "Not all of it, anyway. Before your pay reaches you, your employer takes some out and sends it elsewhere. Your first paycheck is where you find out how much."
+    },
+    {
+      "id": "card.how_money_works.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Gross comes first, net comes home",
+      "body": "Your gross pay is everything you earn from your wages or salary, before anything is taken out. Your net pay, also called take-home pay, is what you actually receive after tax withholding and other deductions. Gross is what you earn. Net is what you get.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Gross is the whole pizza. Net is the slices that make it to your plate."
+      }
+    },
+    {
+      "id": "card.how_money_works.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who gets a slice first",
+      "body": "Your employer withholds part of every paycheck to cover payroll taxes and income tax, and sends it to the government. In the US, the payroll taxes are called FICA: Social Security and Medicare. Federal income tax rates are the same nationwide, and some states and localities add their own. Money can also come out for retirement savings or health insurance. Your pay passes several tollbooths on the way to you."
+    },
+    {
+      "id": "card.how_money_works.012.c4",
+      "type": "fact",
+      "fact": "On a $1,000 paycheck, $76.50 goes to payroll taxes alone.",
+      "context": "That's 6.2% for Social Security plus 1.45% for Medicare, 7.65% in all: $62.00 and $14.50. Your employer also pays its own matching share on top, which never appears in your pay at all. Income tax, and any retirement or health deductions, come out as well."
+    },
+    {
+      "id": "card.how_money_works.012.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.012.q1"
+    },
+    {
+      "id": "card.how_money_works.012.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.012.q2"
+    },
+    {
+      "id": "card.how_money_works.012.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.012.q3"
+    },
+    {
+      "id": "card.how_money_works.012.c8",
+      "type": "checkpoint",
+      "headline": "Paycheck: decoded",
+      "learned": [
+        "Gross pay is what you earn",
+        "Net pay is what you take home",
+        "Employers withhold payroll and income taxes",
+        "US payroll taxes take 7.65%"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.pay_gross_net"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.012.c2"
+      ],
+      "prompt": "What is net pay?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Your pay before any deductions",
+          "correct": false,
+          "rationale": "That's gross pay."
+        },
+        {
+          "id": "b",
+          "label": "What you receive after withholding and deductions",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Your employer's matching payroll tax",
+          "correct": false,
+          "rationale": "That's paid on top and never reaches your paycheck."
+        },
+        {
+          "id": "d",
+          "label": "Your yearly salary divided by 12",
+          "correct": false,
+          "rationale": "That's still gross pay, just split into months."
+        }
+      ],
+      "explanation": "Net pay, or take-home pay, is what's left after tax withholding and other deductions.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.pay_deductions"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.012.c3",
+        "card.how_money_works.012.c4"
+      ],
+      "prompt": "Why is your take-home pay smaller than your gross pay?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Your bank charges a fee to receive it",
+          "correct": false,
+          "rationale": "Banks don't take a cut of incoming pay."
+        },
+        {
+          "id": "b",
+          "label": "Your employer withholds taxes and other deductions first",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Wages only count hours spent at your desk",
+          "correct": false,
+          "rationale": "Gross pay already covers what you earned."
+        },
+        {
+          "id": "d",
+          "label": "Gross pay includes your employer's share of tax",
+          "correct": false,
+          "rationale": "The employer's share is paid on top, not taken from you."
+        }
+      ],
+      "explanation": "Employers withhold payroll taxes and income tax, plus any retirement or health deductions, before paying you.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.income_factor_payments",
+        "concept.how_money_works.pay_gross_net"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.011.c3",
+        "card.how_money_works.012.c2"
+      ],
+      "prompt": "From Level 11: gross pay comes from wages. Which factor of production earns wages?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Land",
+          "correct": false,
+          "rationale": "Land earns rent."
+        },
+        {
+          "id": "b",
+          "label": "Capital",
+          "correct": false,
+          "rationale": "Capital earns interest."
+        },
+        {
+          "id": "c",
+          "label": "Entrepreneurship",
+          "correct": false,
+          "rationale": "Entrepreneurship earns profit."
+        },
+        {
+          "id": "d",
+          "label": "Labor",
+          "correct": true
+        }
+      ],
+      "explanation": "Wages are the income labor earns, and gross pay is what your labor earned before deductions.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.cfpb_paycheck_deductions",
+    "source.irs_topic_751_fica"
+  ],
+  "art": "money.receipt"
+}

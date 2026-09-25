@@ -1,0 +1,222 @@
+{
+  "id": "level.money.how_money_works.055",
+  "skillId": "skill.money.how_money_works",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Central Banks",
+  "objective": "After this level you can explain what a central bank does and why it is kept independent.",
+  "summary": "Central banks run monetary policy and watch over banks. Sweden's Riksbank (1668) is the oldest. They are kept independent from elections, though critics question unelected power.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.govt_central_bank_role",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_cb_independence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.europe_banknotes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.054"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The world's oldest central bank rose from the ruins of a failed one.",
+      "body": "Remember Level 5's Stockholms Banco, which issued Europe's first banknotes in 1661 and failed when the public lost confidence? Its founder, Johan Palmstruch, was sentenced to death, then reprieved. And in 1668, Sweden built a new bank from the wreckage. It still runs today as the Riksbank."
+    },
+    {
+      "id": "card.how_money_works.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The bank at the center",
+      "body": "A central bank is the bank at the heart of a country's money. The US got one, the Federal Reserve, in 1913. Its jobs include steering interest rates and money (monetary policy), supervising banks, keeping the financial system stable and payments safe. Since 1977, Congress has told it to aim for maximum employment and stable prices. The goal is old: the Riksbank's law told it to keep the coinage at its 'right and fair value' from 1668."
+    },
+    {
+      "id": "card.how_money_works.055.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why keep it at arm's length?",
+      "body": "Imagine an election is coming. A government may be tempted to juice the economy with cheap money, even if prices rise later. So many countries put money decisions at arm's length. Federal Reserve governors serve staggered 14-year terms, and elected officials can't sit on its Board. A study of 155 central banks over 50 years found that greater independence helped keep inflation in check."
+    },
+    {
+      "id": "card.how_money_works.055.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Independent, but answerable",
+      "body": "Not everyone is comfortable. Critics question whether unelected officials should hold so much power over everyone's money. Paul Tucker, a former Bank of England deputy governor, explored exactly that in his 2018 book, Unelected Power. The usual answer is accountability: the Fed's chair testifies to Congress, and it reports on its policy twice a year. Where to draw the line is still argued over.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Independence cuts both ways: shielded from politics, but still answering to the public."
+      }
+    },
+    {
+      "id": "card.how_money_works.055.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.055.q1"
+    },
+    {
+      "id": "card.how_money_works.055.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.055.q2"
+    },
+    {
+      "id": "card.how_money_works.055.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.055.q3"
+    },
+    {
+      "id": "card.how_money_works.055.c8",
+      "type": "checkpoint",
+      "headline": "Central banks: explained",
+      "learned": [
+        "Sweden's Riksbank, from 1668, is the oldest",
+        "Central banks steer rates and watch over banks",
+        "The Fed aims for maximum employment and stable prices",
+        "Independence resists election pressure; critics ask about accountability"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.govt_central_bank_role"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.055.c2"
+      ],
+      "prompt": "Which of these is a core job of a central bank like the Federal Reserve?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Deciding how much the government spends on roads",
+          "correct": false,
+          "rationale": "That's the government's budget, not the central bank's job."
+        },
+        {
+          "id": "b",
+          "label": "Setting income tax rates",
+          "correct": false,
+          "rationale": "Taxes are set by elected governments."
+        },
+        {
+          "id": "c",
+          "label": "Steering interest rates and supervising banks",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Running the country's biggest retail bank for shoppers",
+          "correct": false,
+          "rationale": "A central bank is the bank at the center, not a high-street bank."
+        }
+      ],
+      "explanation": "Central banks run monetary policy, supervise banks and keep the financial system stable.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.govt_cb_independence"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.055.c3"
+      ],
+      "prompt": "Why do many countries keep their central bank independent of elected politicians?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So it can set taxes without a vote",
+          "correct": false,
+          "rationale": "Central banks do not set taxes."
+        },
+        {
+          "id": "b",
+          "label": "To resist pressure to boost the economy before elections",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Because central banks are private companies owned by shareholders",
+          "correct": false,
+          "rationale": "Independence is about distance from elections, not ownership."
+        },
+        {
+          "id": "d",
+          "label": "So it never has to explain its decisions",
+          "correct": false,
+          "rationale": "The Fed still testifies and reports to Congress."
+        }
+      ],
+      "explanation": "Independence shields money decisions from short-term election pressure; studies link it to lower inflation.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.europe_banknotes",
+        "concept.how_money_works.govt_central_bank_role"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.005.c4",
+        "card.how_money_works.055.c1"
+      ],
+      "prompt": "From Level 5: what happened to Stockholms Banco, the bank whose ruins the Riksbank rose from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It merged with the Bank of England",
+          "correct": false,
+          "rationale": "It collapsed in Sweden; the Riksbank replaced it."
+        },
+        {
+          "id": "b",
+          "label": "It was closed when Sweden adopted gold coins",
+          "correct": false,
+          "rationale": "The problem was confidence, not a switch to gold."
+        },
+        {
+          "id": "c",
+          "label": "It moved its business to China",
+          "correct": false,
+          "rationale": "Paper money came from China, but the bank stayed in Sweden."
+        },
+        {
+          "id": "d",
+          "label": "It failed after the public lost confidence in its notes",
+          "correct": true
+        }
+      ],
+      "explanation": "Stockholms Banco issued Europe's first banknotes in 1661 and failed when trust ran out; the Riksbank followed in 1668.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.riksbank_founded_1668",
+    "source.riksbank_first_banknotes",
+    "source.fed_who_we_are",
+    "source.fedhistory_reform_act_1977",
+    "source.fed_independence_faq",
+    "source.ecb_blog_independence_2025",
+    "source.princeton_unelected_power"
+  ],
+  "art": "architecture.bank"
+}

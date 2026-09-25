@@ -1,0 +1,216 @@
+{
+  "id": "level.money.how_money_works.085",
+  "skillId": "skill.money.how_money_works",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Division of Labor",
+  "objective": "After this level you can explain Adam Smith's pin factory and why specializing raises output.",
+  "summary": "In Adam Smith's pin factory (1776), ten workers splitting about 18 operations made upwards of 48,000 pins a day. Specializing builds skill, saves time and leads to machines.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.pin_factory_division",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.pin_smith_warning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.scale_economies",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.084"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One worker alone: perhaps not one pin a day. Ten together: 48,000.",
+      "body": "That's Adam Smith's famous pin factory, from the first chapter of The Wealth of Nations, published in 1776. Same people, same wire. The difference was how they split up the work."
+    },
+    {
+      "id": "card.how_money_works.085.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Eighteen small jobs",
+      "body": "Smith counted about 18 distinct operations in making a pin. One worker draws out the wire, another straightens it, a third cuts it, and so on down the line. Ten workers, each sticking to a few steps, could make upwards of 48,000 pins a day: about 4,800 each. Working alone, Smith reckoned, each could certainly not make 20, and perhaps not even one."
+    },
+    {
+      "id": "card.how_money_works.085.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why specializing works",
+      "body": "Smith gave three reasons. Practice: doing one task over and over makes you better at it. Time: nobody loses minutes switching from one kind of work to the next. Machines: dividing the work leads to machines that save labor. Same hands, far more pins."
+    },
+    {
+      "id": "card.how_money_works.085.c4",
+      "type": "fact",
+      "fact": "Smith also saw the dark side of dividing labor.",
+      "context": "Later in the same book, he warned that a worker who spends a whole life on a few simple operations \"generally becomes as stupid and ignorant as it is possible for a human creature to become.\" Harsh words from the man who made the pin factory famous. Specializing multiplies output; it doesn't promise interesting work.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Big output, tiny tasks. Smith wanted you to see both sides of that deal."
+      }
+    },
+    {
+      "id": "card.how_money_works.085.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.085.q1"
+    },
+    {
+      "id": "card.how_money_works.085.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.085.q2"
+    },
+    {
+      "id": "card.how_money_works.085.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.085.q3"
+    },
+    {
+      "id": "card.how_money_works.085.c8",
+      "type": "checkpoint",
+      "headline": "Division of labor: divided",
+      "learned": [
+        "Smith's pin factory: 18 operations, 48,000 pins a day",
+        "Specializing builds skill and saves switching time",
+        "Dividing work leads to labor-saving machines",
+        "Smith warned endless repetition could dull minds"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.pin_factory_division"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.085.c2"
+      ],
+      "prompt": "In Smith's pin factory, about how many pins could ten specialized workers make in a day?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 48",
+          "correct": false,
+          "rationale": "Far more: upwards of 48,000."
+        },
+        {
+          "id": "b",
+          "label": "About 480",
+          "correct": false,
+          "rationale": "Far more: upwards of 48,000."
+        },
+        {
+          "id": "c",
+          "label": "About 4,800",
+          "correct": false,
+          "rationale": "That's each worker's share; together they made upwards of 48,000."
+        },
+        {
+          "id": "d",
+          "label": "Upwards of 48,000",
+          "correct": true
+        }
+      ],
+      "explanation": "Ten workers dividing about 18 operations made upwards of 48,000 pins a day, about 4,800 each.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.pin_smith_warning"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.085.c4"
+      ],
+      "prompt": "What worried Smith about dividing work into tiny tasks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pins would become too cheap to sell",
+          "correct": false,
+          "rationale": "His worry was about workers, not pin prices."
+        },
+        {
+          "id": "b",
+          "label": "Factories would need too many managers",
+          "correct": false,
+          "rationale": "That's Level 84's diseconomies of scale, not Smith's warning."
+        },
+        {
+          "id": "c",
+          "label": "Repetition could dull workers' minds",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Workers would earn far too much",
+          "correct": false,
+          "rationale": "His warning was about minds, not pay."
+        }
+      ],
+      "explanation": "Smith warned that a lifetime of a few simple operations could leave a worker \"as stupid and ignorant as it is possible\" to become.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.pin_factory_division",
+        "concept.how_money_works.scale_economies"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.085.c2",
+        "card.how_money_works.084.c2"
+      ],
+      "prompt": "Recall Level 84's average cost. If the pin workers' daily pay stays the same but they make far more pins, what happens to the cost of each pin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It falls, since the same pay covers more pins",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It rises, since each pin takes more steps",
+          "correct": false,
+          "rationale": "More steps, but far more pins: the cost per pin drops."
+        },
+        {
+          "id": "c",
+          "label": "It stays the same, since pay didn't change",
+          "correct": false,
+          "rationale": "Same total pay divided by more pins means less per pin."
+        },
+        {
+          "id": "d",
+          "label": "It doubles, since more workers are involved",
+          "correct": false,
+          "rationale": "The same ten workers make many more pins."
+        }
+      ],
+      "explanation": "Average cost is total cost divided by units made. Same pay, many more pins: each pin costs less.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.econlib_smith_wealth_of_nations",
+    "source.openstax_short_run_costs"
+  ],
+  "art": "technology.gears"
+}

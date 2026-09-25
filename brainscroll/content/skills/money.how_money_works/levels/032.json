@@ -1,0 +1,222 @@
+{
+  "id": "level.money.how_money_works.032",
+  "skillId": "skill.money.how_money_works",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Risk and Return",
+  "objective": "After this level you can explain why higher possible returns come with higher risk.",
+  "summary": "Risk is uncertainty about what an investment will return. From 1928 to 2025, US stocks grew far more than Treasury bills but had big losing years; investors want higher returns for taking more risk.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.risk_return_tradeoff",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.risk_stocks_vs_bills",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.save_emergency_fund",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.031"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "$100 in 1928: one path passed $1 million, the other about $2,600.",
+      "body": "Put $100 into big US companies' stocks at the start of 1928, reinvest the dividends, and by the end of 2025 you'd have had over $1 million, before inflation. The same $100 in short-term US government loans called Treasury bills: about $2,600. So why would anyone pick the bills?"
+    },
+    {
+      "id": "card.how_money_works.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Risk means not knowing",
+      "body": "In finance, risk is uncertainty: you don't know what your return will be, and you might lose money. Stocks were the uncertain path. Their worst year was 1931, when they lost more than 40%, and they lost money in 26 of the 98 years. Treasury bills never had a single losing year. Slow, yes. Scary, never."
+    },
+    {
+      "id": "card.how_money_works.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why risk gets paid",
+      "body": "Nobody takes the rollercoaster for the same fare as the bus. As investment risks rise, investors seek higher returns to make up for them. That's the risk-return tradeoff: the chance of a bigger reward comes packaged with the chance of loss. Time matters too. Someone with decades to wait can sit through bad years; someone who needs the money next month may not want the ride at all."
+    },
+    {
+      "id": "card.how_money_works.032.c4",
+      "type": "fact",
+      "fact": "The past is a record, not a promise.",
+      "context": "The 1928 to 2025 numbers tell you what did happen. They can't tell you what will. As the US Securities and Exchange Commission puts it, past performance is real historical information, but it cannot predict future performance. Risk means exactly that: the years ahead might look different.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "History is a great teacher. It just refuses to hand out the answers to next year's test."
+      }
+    },
+    {
+      "id": "card.how_money_works.032.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.032.q1"
+    },
+    {
+      "id": "card.how_money_works.032.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.032.q2"
+    },
+    {
+      "id": "card.how_money_works.032.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.032.q3"
+    },
+    {
+      "id": "card.how_money_works.032.c8",
+      "type": "checkpoint",
+      "headline": "Risk and return: weighed",
+      "learned": [
+        "Risk is uncertainty about returns",
+        "Stocks grew most, but had big losing years",
+        "Treasury bills never lost a year, 1928 to 2025",
+        "Higher possible returns come with higher risk"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.risk_return_tradeoff"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.032.c3"
+      ],
+      "prompt": "What is the risk-return tradeoff?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Safer investments always pay more in the end",
+          "correct": false,
+          "rationale": "It's the other way round: more reward comes with more risk."
+        },
+        {
+          "id": "b",
+          "label": "A chance of higher returns comes with more risk",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Every investment returns the same over time",
+          "correct": false,
+          "rationale": "Stocks and bills ended 1928 to 2025 very far apart."
+        },
+        {
+          "id": "d",
+          "label": "Risky investments are guaranteed to lose money",
+          "correct": false,
+          "rationale": "Risk means uncertainty, not certain loss."
+        }
+      ],
+      "explanation": "As risks rise, investors seek higher returns to compensate: possible reward and possible loss come together.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.risk_stocks_vs_bills"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.032.c2",
+        "card.how_money_works.032.c1"
+      ],
+      "prompt": "Stocks beat Treasury bills by miles from 1928 to 2025. Why might someone still have chosen bills?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bills paid more interest than stocks earned",
+          "correct": false,
+          "rationale": "Bills grew to about $2,600; stocks passed $1 million."
+        },
+        {
+          "id": "b",
+          "label": "Stocks were illegal to buy in those years",
+          "correct": false,
+          "rationale": "People bought stocks the whole time."
+        },
+        {
+          "id": "c",
+          "label": "Bills never had a losing year; stocks had many",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Bills doubled in value every decade",
+          "correct": false,
+          "rationale": "Bills grew slowly; that was the price of safety."
+        }
+      ],
+      "explanation": "Stocks lost money in 26 of 98 years, once more than 40%. Bills never lost a year. Some people value that certainty more than growth.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.save_emergency_fund",
+        "concept.how_money_works.risk_return_tradeoff"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.031.c2",
+        "card.how_money_works.032.c3"
+      ],
+      "prompt": "From Level 31: why does an emergency fund usually sit in safe savings rather than stocks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It may be needed any day, and stocks can fall",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Stocks can only be bought by companies",
+          "correct": false,
+          "rationale": "Anyone can own shares; the problem is timing and risk."
+        },
+        {
+          "id": "c",
+          "label": "Savings accounts earn far more than stocks",
+          "correct": false,
+          "rationale": "Safe savings usually earn a low interest rate."
+        },
+        {
+          "id": "d",
+          "label": "Emergencies only happen when stocks rise",
+          "correct": false,
+          "rationale": "Emergencies don't check the market first."
+        }
+      ],
+      "explanation": "Emergency money needs a short time horizon's safety: it must be there when a surprise hits, even in a bad year for stocks.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nyu_damodaran_historical_returns",
+    "source.openstax_finance_risk_return",
+    "source.sec_investor_what_is_risk",
+    "source.sec_investor_asset_allocation",
+    "source.sec_investor_performance_claims",
+    "source.cftc_gold_no_safe_investment",
+    "source.cfpb_emergency_fund_guide"
+  ],
+  "art": "money.scale"
+}

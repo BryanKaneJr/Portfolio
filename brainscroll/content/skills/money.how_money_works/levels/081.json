@@ -1,0 +1,218 @@
+{
+  "id": "level.money.how_money_works.081",
+  "skillId": "skill.money.how_money_works",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What a Company Is",
+  "objective": "After this level you can explain how companies are owned and organized.",
+  "summary": "Sole proprietors and partners owe business debts personally. A corporation is a separate legal person with limited liability, as the Salomon case showed. Shareholders elect its board.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.company_business_forms",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.company_salomon_case",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.company_governance",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.080"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.081.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A bootmaker's company went bust. Did he have to pay its debts?",
+      "body": "Aron Salomon made leather boots in London. In 1892 he turned his business into a limited company, and soon afterwards it failed, owing money. The fight over who should pay went all the way to Britain's top court. Its answer still shapes what a company is."
+    },
+    {
+      "id": "card.how_money_works.081.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three ways to own a business",
+      "body": "The simplest business is a sole proprietorship: one owner, who in law is the business. If it runs up debts, the owner owes them personally, with no limit. A partnership is the same deal shared by two or more owners, and in a general partnership every partner is on the hook. Before 1892, Salomon was a sole proprietor. His boots, and his debts, were all his."
+    },
+    {
+      "id": "card.how_money_works.081.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A person made of paperwork",
+      "body": "A corporation is different. In law it's a separate person: it can own property, sign contracts, and sue or be sued. Its owners have limited liability, so they can lose what they put in, but no more. That was the whole case. Salomon's company failed, and its liquidator argued that Salomon should pay its debts himself. The House of Lords said no: the company was a separate person in law, even though he held nearly all its shares.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A person made entirely of paperwork, who can own things, owe things and go to court. Company law is stranger than fiction."
+      }
+    },
+    {
+      "id": "card.how_money_works.081.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Owning isn't running",
+      "body": "In a corporation, owning and running are split. The owners are shareholders, and they elect a board of directors. The board sets the big goals and policies, then hires officers, like the chief executive officer (CEO), to run the firm day to day. So you can own a slice of a company without ever setting foot in it."
+    },
+    {
+      "id": "card.how_money_works.081.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.081.q1"
+    },
+    {
+      "id": "card.how_money_works.081.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.081.q2"
+    },
+    {
+      "id": "card.how_money_works.081.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.081.q3"
+    },
+    {
+      "id": "card.how_money_works.081.c8",
+      "type": "checkpoint",
+      "headline": "Companies: incorporated",
+      "learned": [
+        "Sole proprietors and partners owe business debts personally",
+        "A corporation is a separate person in law",
+        "Limited liability: owners lose only what they put in",
+        "Shareholders elect a board, which hires the CEO"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.company_governance"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.081.c4"
+      ],
+      "prompt": "In a corporation, who elects the board of directors?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The chief executive officer",
+          "correct": false,
+          "rationale": "The board hires the CEO, not the other way round."
+        },
+        {
+          "id": "b",
+          "label": "The company's biggest customers",
+          "correct": false,
+          "rationale": "Customers buy from the company; they don't govern it."
+        },
+        {
+          "id": "c",
+          "label": "The shareholders who own it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The judges of the House of Lords",
+          "correct": false,
+          "rationale": "Judges ruled in Salomon's case; they don't choose boards."
+        }
+      ],
+      "explanation": "Shareholders own the corporation and elect the board, which sets policy and hires officers such as the CEO.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.company_salomon_case"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.081.c3"
+      ],
+      "prompt": "Why didn't Salomon have to pay his failed company's debts himself?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The company was a separate person in law",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He had sold all his shares before it failed",
+          "correct": false,
+          "rationale": "He still held nearly all of them."
+        },
+        {
+          "id": "c",
+          "label": "Boot makers were exempt from paying debts",
+          "correct": false,
+          "rationale": "No such rule: the company's separate status decided it."
+        },
+        {
+          "id": "d",
+          "label": "His creditors agreed to forgive the debts",
+          "correct": false,
+          "rationale": "The liquidator tried to make him pay; the court said no."
+        }
+      ],
+      "explanation": "The House of Lords ruled that the company, not Salomon, owed the money: once formed, a company is a separate person in law.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.company_business_forms",
+        "concept.how_money_works.company_salomon_case"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.081.c2",
+        "card.how_money_works.081.c3"
+      ],
+      "prompt": "Suppose Salomon had never formed a company. Who would have owed his business debts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nobody: the debts would die with the business",
+          "correct": false,
+          "rationale": "A sole proprietor's debts don't vanish; the owner owes them."
+        },
+        {
+          "id": "b",
+          "label": "His suppliers, who sold him the leather",
+          "correct": false,
+          "rationale": "Suppliers are the ones owed money, not the ones who owe it."
+        },
+        {
+          "id": "c",
+          "label": "The government that licensed his trade",
+          "correct": false,
+          "rationale": "No licence makes the state liable for a business."
+        },
+        {
+          "id": "d",
+          "label": "Salomon himself, as a sole proprietor",
+          "correct": true
+        }
+      ],
+      "explanation": "A sole proprietor is the business in law, so its debts are the owner's own, with no limit.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_finance_business_structures",
+    "source.openstax_business_corporations",
+    "source.translex_salomon_judgment"
+  ],
+  "art": "money.briefcase"
+}

@@ -1,0 +1,225 @@
+{
+  "id": "level.money.how_money_works.057",
+  "skillId": "skill.money.how_money_works",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Printing Money",
+  "objective": "After this level you can explain why creating money too fast makes prices rise.",
+  "summary": "When money grows faster than the goods it buys, prices rise, as in Radford's camp and 16th-century Europe. The link holds over time but is not mechanical.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.govt_money_growth_prices",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_price_revolution",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.pow_cigarette_money",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.bank_deposit_money",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.056"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In Level 1's prison camp, a flood of cigarettes sent prices soaring.",
+      "body": "Economist R. A. Radford saw it happen. Big deliveries could bring several hundred thousand cigarettes within a fortnight. Prices soared, then fell as stocks ran out. The camp's money had suddenly multiplied. What does that do to prices?"
+    },
+    {
+      "id": "card.how_money_works.057.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "More money, same stuff",
+      "body": "Why would more money push prices up? Picture a market with the same bread and jam as yesterday, but everyone holding twice the cash. The quantity theory of money says that when money grows faster than the goods and services it can buy, the extra money bids up prices rather than conjuring more stuff. Milton Friedman's answer was a rule: if output grows 2% a year, let money grow 2% too, and prices stay put."
+    },
+    {
+      "id": "card.how_money_works.057.c3",
+      "type": "fact",
+      "fact": "In the 1500s, a flood of American silver helped push up European prices.",
+      "context": "From 1550, silver from mines like Potosí arrived in Spain in huge volumes and spread across Europe. Over the century, prices rose about sixfold, in what historians call the price revolution. They also point to a growing population needing food and housing, and still debate how much each cause mattered."
+    },
+    {
+      "id": "card.how_money_works.057.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not a simple dial",
+      "body": "The link isn't a machine. In the 1980s and 1990s, how fast money changed hands became unstable, and many economists dropped strict money-growth rules. Most still agree prices can't keep rising indefinitely without more money. And today's 'printing' rarely needs a press: remember Level 8, where 97% of the money UK people hold is bank deposits.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Money growth and prices: a strong link over time, but a wobbly one month to month."
+      }
+    },
+    {
+      "id": "card.how_money_works.057.c5",
+      "type": "recall",
+      "questionId": "question.how_money_works.057.q1"
+    },
+    {
+      "id": "card.how_money_works.057.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.057.q2"
+    },
+    {
+      "id": "card.how_money_works.057.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.057.q3"
+    },
+    {
+      "id": "card.how_money_works.057.c8",
+      "type": "checkpoint",
+      "headline": "Printing money: explained",
+      "learned": [
+        "More money chasing the same goods pushes prices up",
+        "Radford's camp and 16th-century silver both showed it",
+        "Friedman: grow money as fast as output",
+        "The link holds over time but is not mechanical"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.057.q1",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.govt_money_growth_prices",
+        "concept.how_money_works.pow_cigarette_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.057.c1",
+        "card.how_money_works.057.c2"
+      ],
+      "prompt": "From Level 1: why did prices in Radford's camp soar after a big cigarette delivery?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The guards raised prices as a punishment",
+          "correct": false,
+          "rationale": "Prices moved with the camp's own supply of money."
+        },
+        {
+          "id": "b",
+          "label": "Suddenly much more money was chasing the camp's goods",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Prisoners had stopped smoking, so cigarettes lost value",
+          "correct": false,
+          "rationale": "The flood of cigarettes was the cause, not smoking habits."
+        },
+        {
+          "id": "d",
+          "label": "The Red Cross also doubled the food parcels",
+          "correct": false,
+          "rationale": "The surge was in cigarettes, the camp's money."
+        }
+      ],
+      "explanation": "Cigarettes were the camp's money. More money chasing the same goods bid prices up.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.057.q2",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.govt_money_growth_prices"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.057.c2"
+      ],
+      "prompt": "Under Milton Friedman's rule, if the economy's output grows 2% a year, how fast should money grow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "0%",
+          "correct": false,
+          "rationale": "Holding money flat while output grows would push prices down."
+        },
+        {
+          "id": "b",
+          "label": "2%",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "4%",
+          "correct": false,
+          "rationale": "Faster than output would push prices up."
+        },
+        {
+          "id": "d",
+          "label": "10%",
+          "correct": false,
+          "rationale": "Far faster than output would push prices up a lot."
+        }
+      ],
+      "explanation": "Friedman proposed money should grow at the same rate as output, leaving prices unchanged.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.govt_price_revolution",
+        "concept.how_money_works.govt_money_growth_prices"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.057.c1",
+        "card.how_money_works.057.c3"
+      ],
+      "prompt": "What do the camp's cigarette flood and 16th-century Europe's price revolution have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both were caused by new taxes on goods",
+          "correct": false,
+          "rationale": "Neither story involves a tax."
+        },
+        {
+          "id": "b",
+          "label": "Both happened because goods became more plentiful",
+          "correct": false,
+          "rationale": "In both, it was money that multiplied."
+        },
+        {
+          "id": "c",
+          "label": "A surge in the supply of money came before prices rose",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both ended when a central bank raised interest rates",
+          "correct": false,
+          "rationale": "Neither the camp nor 16th-century Europe had one doing that."
+        }
+      ],
+      "explanation": "Cigarettes in the camp and American silver in Europe both multiplied the money supply, and prices climbed. For Europe, a growing population also played a part.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.economica_radford_pow_camp",
+    "source.imf_what_is_monetarism",
+    "source.britannica_europe_price_revolution",
+    "source.boe_money_modern_economy"
+  ],
+  "art": "money.banknote"
+}

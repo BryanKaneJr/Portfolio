@@ -1,0 +1,220 @@
+{
+  "id": "level.money.how_money_works.037",
+  "skillId": "skill.money.how_money_works",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Index Funds",
+  "objective": "After this level you can explain what index funds are and why they are popular.",
+  "summary": "An index fund tracks a market index such as the S&P 500 instead of picking stocks, and can cost less. Mocked as 'Bogle's Folly' in 1976, index funds led US fund assets by 2023.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.index_fund_how",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.index_fund_history",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.divers_spreading_risk",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.036"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1976, a fund that didn't try to beat the market was called 'Bogle's Folly'.",
+      "body": "John Bogle's First Index Investment Trust hoped to raise up to $150 million. It raised about $11 million. Critics called it a path to mediocrity. Yet at the end of 2023, index-style funds in the US held more money than traditional stock-picking funds for the first time. What were they on to?"
+    },
+    {
+      "id": "card.how_money_works.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Buy the whole basket",
+      "body": "A market index, like the S&P 500, measures how a basket of investments performs. You can't buy an index itself, but an index fund can track it by holding all (or a sample) of what's inside. Instead of hunting for tomorrow's winners, it simply owns the basket. And since a fund gives each investor a small slice of many holdings, Level 36's diversification comes built in."
+    },
+    {
+      "id": "card.how_money_works.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why cheap matters",
+      "body": "Index funds are usually passive: they buy and sell rarely. Active funds trade more, trying to beat an index. With no research analysts picking stocks, an index fund can cost less to run, though not every one does. And fees come straight out of your return: if two funds' holdings perform the same, the cheaper fund returns more."
+    },
+    {
+      "id": "card.how_money_works.037.c4",
+      "type": "fact",
+      "fact": "Over 15 years, 89.5% of active large-company funds trailed the index.",
+      "context": "S&P Dow Jones Indices keeps score: in the 15 years to the end of 2024, that share of US active large-company stock funds did worse than the S&P 500. None of this makes an index fund safe. It carries the same risks as the basket it tracks, so when the market falls, so does the fund.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Beating the average is hard when the average is everybody."
+      }
+    },
+    {
+      "id": "card.how_money_works.037.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.037.q1"
+    },
+    {
+      "id": "card.how_money_works.037.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.037.q2"
+    },
+    {
+      "id": "card.how_money_works.037.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.037.q3"
+    },
+    {
+      "id": "card.how_money_works.037.c8",
+      "type": "checkpoint",
+      "headline": "Index funds: tracked",
+      "learned": [
+        "An index fund tracks a market index",
+        "Passive funds trade rarely and can cost less",
+        "1976: 'Bogle's Folly' raised about $11 million",
+        "It carries the same risks as its index"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.index_fund_history"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.037.c1"
+      ],
+      "prompt": "What was 'Bogle's Folly'?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A 1920s bank that failed overnight",
+          "correct": false,
+          "rationale": "It was a 1976 fund, and it's still running."
+        },
+        {
+          "id": "b",
+          "label": "A famous bet that stocks would crash in 1976",
+          "correct": false,
+          "rationale": "It was a fund, not a bet on a crash."
+        },
+        {
+          "id": "c",
+          "label": "The first index fund for ordinary investors",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A rule banning funds from charging fees",
+          "correct": false,
+          "rationale": "No: it was John Bogle's index fund."
+        }
+      ],
+      "explanation": "Critics mocked John Bogle's 1976 First Index Investment Trust, which raised only about $11 million.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.index_fund_how"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.037.c3"
+      ],
+      "prompt": "Why can index funds often cost less to run than actively managed funds?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The government pays part of their fees",
+          "correct": false,
+          "rationale": "No subsidy: the saving comes from how they invest."
+        },
+        {
+          "id": "b",
+          "label": "They don't pay analysts to pick stocks",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They only ever hold cash",
+          "correct": false,
+          "rationale": "They hold the securities in their index."
+        },
+        {
+          "id": "d",
+          "label": "They are guaranteed never to lose money",
+          "correct": false,
+          "rationale": "They carry the same risks as their index."
+        }
+      ],
+      "explanation": "Passive index funds skip stock-picking research and trade rarely, which can lower their costs.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.index_fund_how",
+        "concept.how_money_works.divers_spreading_risk"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.037.c2",
+        "card.how_money_works.036.c4"
+      ],
+      "prompt": "How does an S&P 500 index fund connect to Level 36's diversification?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It owns small slices of many companies at once",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It puts all its money into the single best company",
+          "correct": false,
+          "rationale": "That's one basket, the opposite of diversifying."
+        },
+        {
+          "id": "c",
+          "label": "It guarantees you never lose in a crash",
+          "correct": false,
+          "rationale": "Diversification can't stop a market-wide fall."
+        },
+        {
+          "id": "d",
+          "label": "It avoids stocks and holds only bonds",
+          "correct": false,
+          "rationale": "An S&P 500 fund holds stocks."
+        }
+      ],
+      "explanation": "A fund gives each investor a small portion of many holdings, so an index fund spreads money across its whole basket.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.sec_investor_index_funds",
+    "source.vanguard_indexing_50_years",
+    "source.zweig_bogles_folly_40",
+    "source.spglobal_spiva_us_2024",
+    "source.morningstar_passive_overtakes_active",
+    "source.sec_investor_asset_allocation"
+  ],
+  "art": "money.chart-up"
+}

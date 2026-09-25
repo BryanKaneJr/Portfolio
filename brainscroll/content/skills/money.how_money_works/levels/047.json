@@ -1,0 +1,232 @@
+{
+  "id": "level.money.how_money_works.047",
+  "skillId": "skill.money.how_money_works",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Monopolies",
+  "objective": "After this level you can explain what a monopoly is and why governments limit them.",
+  "summary": "A monopoly is one seller of something with no substitute, shielded by barriers to entry. It sells less at a higher price, so laws limit it: Standard Oil was broken up in 1911.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.monopoly_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.monopoly_price_output",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.monopoly_standard_oil",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.competition_benefits",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.competition_entry",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.046"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The board game Monopoly began as an economics lesson.",
+      "body": "It grew out of The Landlord's Game, which Lizzie Magie patented in 1904 to teach economic ideas about land and rent. Real monopolies are a lot less fun to play against."
+    },
+    {
+      "id": "card.how_money_works.047.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One seller, no substitute",
+      "body": "A monopoly is a market with a single supplier of something that has no substitute. It can set its price without fear of competitors. What keeps rivals out? Barriers to entry: legal, technological or market forces that stop newcomers. Behind those walls, big profits no longer pull in Level 46's rivals, so nothing drags the price down."
+    },
+    {
+      "id": "card.how_money_works.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Less stuff, higher prices",
+      "body": "Compared with a competitive market, a monopoly sells a smaller quantity at a higher price, so buyers lose out. It can get lazy, too: with no rival to fear, it can keep making the same old products in the same old way. In 1935, economist John Hicks summed it up: \"The best of all monopoly profits is a quiet life.\"",
+      "mascot": {
+        "pose": "thinking",
+        "line": "No rivals, no pressure, no new ideas. A very comfortable nap."
+      }
+    },
+    {
+      "id": "card.how_money_works.047.c4",
+      "type": "fact",
+      "fact": "Standard Oil once refined 90 to 95 percent of America's oil. Then came the breakup.",
+      "context": "That was its share by 1880. In 1890, the Sherman Act outlawed monopolizing a market, and in 1911 the US Supreme Court ordered Standard Oil broken up into separate companies. Governments limit monopolies to protect what Level 46 showed: competition is what keeps prices down and quality up."
+    },
+    {
+      "id": "card.how_money_works.047.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.047.q1"
+    },
+    {
+      "id": "card.how_money_works.047.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.047.q2"
+    },
+    {
+      "id": "card.how_money_works.047.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.047.q3"
+    },
+    {
+      "id": "card.how_money_works.047.c8",
+      "type": "checkpoint",
+      "headline": "Monopolies: understood",
+      "learned": [
+        "A monopoly is one seller with no substitute",
+        "Barriers to entry keep rivals out",
+        "It sells less at a higher price",
+        "Antitrust laws broke up Standard Oil"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.monopoly_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.047.c2"
+      ],
+      "prompt": "What is a monopoly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Many firms selling identical products",
+          "correct": false,
+          "rationale": "That's perfect competition."
+        },
+        {
+          "id": "b",
+          "label": "A price set by law below equilibrium",
+          "correct": false,
+          "rationale": "That's a price ceiling."
+        },
+        {
+          "id": "c",
+          "label": "A board game about banks",
+          "correct": false,
+          "rationale": "The game is named after the idea, not the other way round."
+        },
+        {
+          "id": "d",
+          "label": "A single seller of something with no substitute",
+          "correct": true
+        }
+      ],
+      "explanation": "A monopoly is the exclusive possession of a market by a supplier of a product or service that has no substitute.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.monopoly_price_output",
+        "concept.how_money_works.monopoly_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.047.c3",
+        "card.how_money_works.047.c2"
+      ],
+      "prompt": "Compared with a competitive market, what does a monopoly usually do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sells more at a lower price",
+          "correct": false,
+          "rationale": "That is what competition tends to do."
+        },
+        {
+          "id": "b",
+          "label": "Sells less at a higher price",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sells the same amount at the same price",
+          "correct": false,
+          "rationale": "Without rivals, it can charge more and sell less."
+        },
+        {
+          "id": "d",
+          "label": "Gives its product away to win customers",
+          "correct": false,
+          "rationale": "With no rivals, it has no need to."
+        }
+      ],
+      "explanation": "Without rivals, a monopoly sells a lower quantity at a higher price, and consumers lose out.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.monopoly_standard_oil",
+        "concept.how_money_works.competition_benefits"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.047.c4",
+        "card.how_money_works.046.c4"
+      ],
+      "prompt": "Why do governments use laws like the Sherman Act to limit monopolies?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To set every price themselves",
+          "correct": false,
+          "rationale": "Antitrust laws protect competition; they do not set prices."
+        },
+        {
+          "id": "b",
+          "label": "To help the biggest firm grow faster",
+          "correct": false,
+          "rationale": "They do the opposite: they stop one firm dominating."
+        },
+        {
+          "id": "c",
+          "label": "To protect the competition that keeps prices down and quality up",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To collect more tax from large companies",
+          "correct": false,
+          "rationale": "That is a job for tax law, not antitrust law."
+        }
+      ],
+      "explanation": "Competition pushes businesses to run efficiently, keep prices down and keep quality up. Antitrust laws protect it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.bl_lizzie_magie",
+    "source.britannica_monopoly",
+    "source.openstax_monopoly_barriers",
+    "source.openstax_monopoly_price_output",
+    "source.britannica_standard_oil",
+    "source.ftc_antitrust_laws"
+  ],
+  "art": "money.chess-king"
+}

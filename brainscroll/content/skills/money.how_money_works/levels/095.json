@@ -1,0 +1,221 @@
+{
+  "id": "level.money.how_money_works.095",
+  "skillId": "skill.money.how_money_works",
+  "number": 95,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Behavioral Economics",
+  "objective": "After this level you can explain why real people don't always act rationally with money.",
+  "summary": "Behavioral economics tests whether people are perfectly rational. Loss aversion makes owners value things more, and mental accounting sorts money into jars. Experience may shrink these effects.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.ideas_behav_loss_aversion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.ideas_behav_mental_accounting",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.money_six_traits",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.094"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.095.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Hand someone a mug and it instantly becomes worth more. To them.",
+      "body": "In a 1990 experiment, economists gave mugs to randomly chosen people and let them sell to people who didn't get one. Theory said about half the mugs should change hands. Far fewer did."
+    },
+    {
+      "id": "card.how_money_works.095.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rational on paper",
+      "body": "Traditional economic theory assumes people have good information and process it perfectly. Behavioral economics checks that against how people really behave. One of its founders wasn't even an economist: psychologist Daniel Kahneman, whose work with Amos Tversky produced \"Prospect Theory\" in 1979. He won the 2002 economics Nobel for bringing psychological research into economics."
+    },
+    {
+      "id": "card.how_money_works.095.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Losses hurt more",
+      "body": "So why did the mug owners hang on? Richard Thaler's answer is loss aversion: losing something feels worse than gaining the same thing feels good. Once the mug is yours, selling it feels like a loss. That's the endowment effect: we value things more simply because we own them. Anyone who has tried to clear out a closet knows the feeling."
+    },
+    {
+      "id": "card.how_money_works.095.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Money in labeled jars",
+      "body": "Thaler also described mental accounting: we sort money into separate accounts in our heads and judge each decision on its own. Losing money even hurts less if you're still \"in the black\" in that mental account, which Thaler calls the house money effect. That work helped win him the 2017 economics Nobel for his contributions to behavioral economics."
+    },
+    {
+      "id": "card.how_money_works.095.c5",
+      "type": "fact",
+      "fact": "Experience may shrink the mug effect.",
+      "context": "Not everyone thinks these quirks run the world. In 2003, economist John List studied real marketplaces and found that as traders gained market experience, the endowment effect faded. A real quirk, then, but maybe not a permanent one."
+    },
+    {
+      "id": "card.how_money_works.095.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.095.q1"
+    },
+    {
+      "id": "card.how_money_works.095.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.095.q2"
+    },
+    {
+      "id": "card.how_money_works.095.c8",
+      "type": "recall",
+      "questionId": "question.how_money_works.095.q3"
+    },
+    {
+      "id": "card.how_money_works.095.c9",
+      "type": "checkpoint",
+      "headline": "Real people, real money",
+      "learned": [
+        "Traditional theory assumes perfect rationality",
+        "Loss aversion: losses sting more than gains please",
+        "Endowment effect: we value what we own",
+        "Mental accounting: money in jars"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.095.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.ideas_behav_loss_aversion"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.095.c3"
+      ],
+      "prompt": "What is loss aversion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Avoiding all risky investments",
+          "correct": false,
+          "rationale": "It is about how losses feel, not a rule about investing."
+        },
+        {
+          "id": "b",
+          "label": "Feeling a loss more strongly than an equal gain",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Forgetting what you paid for something",
+          "correct": false,
+          "rationale": "It is about the sting of losing, not memory."
+        },
+        {
+          "id": "d",
+          "label": "Refusing ever to sell anything",
+          "correct": false,
+          "rationale": "Owners do sell; they just want more to part with things."
+        }
+      ],
+      "explanation": "Loss aversion means a loss stings more than an equally large gain pleases.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.095.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.ideas_behav_loss_aversion"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.095.c1",
+        "card.how_money_works.095.c3"
+      ],
+      "prompt": "In the 1990 mug experiment, why did so few mugs change hands?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The mugs were broken",
+          "correct": false,
+          "rationale": "Nothing was wrong with the mugs."
+        },
+        {
+          "id": "b",
+          "label": "Buyers had no money",
+          "correct": false,
+          "rationale": "Buyers could pay; owners just asked for more."
+        },
+        {
+          "id": "c",
+          "label": "The rules banned selling",
+          "correct": false,
+          "rationale": "Owners were free to sell."
+        },
+        {
+          "id": "d",
+          "label": "Owners valued their mugs more once they had them",
+          "correct": true
+        }
+      ],
+      "explanation": "The endowment effect: loss aversion makes owners value what they have more than non-owners do.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.095.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.ideas_behav_mental_accounting",
+        "concept.how_money_works.money_six_traits"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.095.c4",
+        "card.how_money_works.010.c2"
+      ],
+      "prompt": "Level 10 said good money is uniform: every unit as good as another. Which idea shows people don't always treat it that way?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mental accounting",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The double coincidence of wants",
+          "correct": false,
+          "rationale": "That's Level 2's barter problem."
+        },
+        {
+          "id": "c",
+          "label": "The gold standard",
+          "correct": false,
+          "rationale": "That's about backing money with gold."
+        },
+        {
+          "id": "d",
+          "label": "Legal tender",
+          "correct": false,
+          "rationale": "That's a government's declaration about money, from Level 6."
+        }
+      ],
+      "explanation": "Mental accounting sorts identical dollars into separate jars in our heads, treating them differently.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nobel_2017_thaler_popular",
+    "source.brit_kahneman",
+    "source.qje_list_market_experience"
+  ],
+  "art": "money.carrot"
+}

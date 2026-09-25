@@ -1,0 +1,222 @@
+{
+  "id": "level.money.how_money_works.049",
+  "skillId": "skill.money.how_money_works",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Scarcity",
+  "objective": "After this level you can explain scarcity as the basic problem that economics studies.",
+  "summary": "Scarcity means wants exceed what's available, for everyone. Economics studies how people choose under scarcity. It explains why water, vital but plentiful, costs less than diamonds.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.scarcity_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.water_diamond_paradox",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.marshall_scissors",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.price_equilibrium",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.048"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.049.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Water keeps you alive. Diamonds don't. Guess which costs more.",
+      "body": "Adam Smith puzzled over exactly this in 1776. The answer is the problem at the heart of all economics."
+    },
+    {
+      "id": "card.how_money_works.049.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wants beat what there is",
+      "body": "Scarcity means people's wants for goods, services and resources exceed what's available. It doesn't mean rare. It means not enough to go round, and it hits everyone. The ultimate scarce resource is time: rich or poor, you get the same 24 hours a day. No billionaire can buy a 25th."
+    },
+    {
+      "id": "card.how_money_works.049.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The study of choosing",
+      "body": "Because there's never enough of everything, people have to choose. That's what economics studies: how people make decisions in the face of scarcity. In 1932, Lionel Robbins put it this way: economics studies human behavior as a relationship between ends and scarce means which have alternative uses. Translation: limited stuff, many possible uses, pick."
+    },
+    {
+      "id": "card.how_money_works.049.c4",
+      "type": "fact",
+      "fact": "Water is vital and cheap. Diamonds are useless and dear. Scarcity explains it.",
+      "context": "In The Wealth of Nations, Smith noted that nothing is more useful than water, yet it buys scarcely anything, while a diamond, of scarcely any use, trades for a great quantity of other goods. The standard answer: water is plentiful, so one more glass is worth little to you. Diamonds are scarce, so each one is worth a lot. Price follows scarcity, not usefulness.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Stranded in a desert, you would swap every diamond you own for one glass of water."
+      }
+    },
+    {
+      "id": "card.how_money_works.049.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.049.q1"
+    },
+    {
+      "id": "card.how_money_works.049.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.049.q2"
+    },
+    {
+      "id": "card.how_money_works.049.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.049.q3"
+    },
+    {
+      "id": "card.how_money_works.049.c8",
+      "type": "checkpoint",
+      "headline": "Scarcity: understood",
+      "learned": [
+        "Scarcity: wants exceed what's available",
+        "Time is the ultimate scarce resource",
+        "Economics studies choices under scarcity",
+        "Scarcity explains cheap water, dear diamonds"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.scarcity_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.049.c2"
+      ],
+      "prompt": "What does scarcity mean in economics?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Something is extremely rare",
+          "correct": false,
+          "rationale": "Scarcity doesn't mean rare; everyday things can be scarce."
+        },
+        {
+          "id": "b",
+          "label": "Only poor people run short of things",
+          "correct": false,
+          "rationale": "Scarcity affects everyone, rich or poor."
+        },
+        {
+          "id": "c",
+          "label": "Wants exceed what's available",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Prices are held down by law",
+          "correct": false,
+          "rationale": "That's a price ceiling."
+        }
+      ],
+      "explanation": "Scarcity means human wants for goods, services and resources exceed what's available.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.water_diamond_paradox"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.049.c4"
+      ],
+      "prompt": "Water is far more useful than diamonds. Why is it usually much cheaper?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Water is plentiful, so one more glass is worth little",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Governments set the price of water by law",
+          "correct": false,
+          "rationale": "The puzzle is explained by scarcity, not law."
+        },
+        {
+          "id": "c",
+          "label": "Diamonds cost more to transport",
+          "correct": false,
+          "rationale": "Transport is not what drives the gap."
+        },
+        {
+          "id": "d",
+          "label": "People value diamonds more than staying alive",
+          "correct": false,
+          "rationale": "Nobody does; each extra glass is worth little because water is plentiful."
+        }
+      ],
+      "explanation": "Price follows scarcity. Water is plentiful, so an extra unit is worth little; diamonds are scarce, so each is worth a lot.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.water_diamond_paradox",
+        "concept.how_money_works.marshall_scissors"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.049.c4",
+        "card.how_money_works.044.c4"
+      ],
+      "prompt": "Level 44 says price comes from both supply and demand. In the water puzzle, which blade keeps water cheap?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Very low demand for water",
+          "correct": false,
+          "rationale": "Demand for water is huge; everyone needs it."
+        },
+        {
+          "id": "b",
+          "label": "A plentiful supply of water",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A price ceiling on water",
+          "correct": false,
+          "rationale": "The puzzle is about scarcity, not a legal cap."
+        },
+        {
+          "id": "d",
+          "label": "A monopoly on water",
+          "correct": false,
+          "rationale": "A monopoly would push the price up, not down."
+        }
+      ],
+      "explanation": "Water is in great demand, but its supply is so plentiful that one more glass is worth little. That's the supply blade at work.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.adamsmithworks_water_diamond",
+    "source.openstax_what_is_economics",
+    "source.econlib_robbins"
+  ],
+  "art": "money.scale"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "level.money.how_money_works.022",
+  "skillId": "skill.money.how_money_works",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Banks Create Money",
+  "objective": "After this level you can explain how bank lending creates most of the money in circulation.",
+  "summary": "A new bank loan creates a matching deposit: new money. Most money today starts this way. Repaying destroys it, and profit, risk, rules and interest rates limit it.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.banking_loans_create_money",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.banking_creation_limits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.banking_intermediary",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.bank_deposit_money",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.021"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "When a bank lends you money, it doesn't hand you anyone's savings.",
+      "body": "It creates a brand-new deposit in your account. According to the Bank of England, that's where most of today's money comes from."
+    },
+    {
+      "id": "card.how_money_works.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Money at the stroke of a pen",
+      "body": "Say you take out a mortgage to buy a house. The bank doesn't count out banknotes. It credits your account with a new deposit the size of the loan, and at that moment new money exists that didn't before. Some economists call this \"fountain pen money\", created at the stroke of a banker's pen when a loan is approved. The pen is optional these days."
+    },
+    {
+      "id": "card.how_money_works.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Level 21, flipped",
+      "body": "Level 21 showed a bank standing between savers and borrowers. The Bank of England says the order usually runs the other way: rather than lending out deposits that savers placed with them, banks create deposits by lending. That's how Level 8's 97% came about. Most of the money people hold in banks started life as somebody's loan."
+    },
+    {
+      "id": "card.how_money_works.022.c4",
+      "type": "fact",
+      "fact": "Paying off a loan makes money disappear.",
+      "context": "Repaying a bank loan destroys the deposit that lending created. And banks can't create money without limit: they must lend profitably and manage their risks, regulators set rules, and the central bank's interest rates act as the ultimate brake.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Money that pops into existence with a loan and pops back out with the last payment. Banking is stranger than it looks."
+      }
+    },
+    {
+      "id": "card.how_money_works.022.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.022.q1"
+    },
+    {
+      "id": "card.how_money_works.022.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.022.q2"
+    },
+    {
+      "id": "card.how_money_works.022.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.022.q3"
+    },
+    {
+      "id": "card.how_money_works.022.c8",
+      "type": "checkpoint",
+      "headline": "Money creation: decoded",
+      "learned": [
+        "A new loan creates a matching new deposit",
+        "Most money today starts as bank lending",
+        "Repaying a loan destroys that money",
+        "Profit, risk, rules and rates limit it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.banking_loans_create_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.022.c2"
+      ],
+      "prompt": "A bank approves your loan. Where does the money in your account come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's moved over from other customers' savings",
+          "correct": false,
+          "rationale": "That's the textbook picture; in fact, lending creates a new deposit."
+        },
+        {
+          "id": "b",
+          "label": "The bank creates a new deposit for you",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The central bank prints fresh banknotes",
+          "correct": false,
+          "rationale": "No banknotes are involved: the bank credits your account."
+        },
+        {
+          "id": "d",
+          "label": "It's taken from the bank's gold reserves",
+          "correct": false,
+          "rationale": "No gold moves: the loan creates a new deposit."
+        }
+      ],
+      "explanation": "Making a loan credits the borrower's account with a matching new deposit, which is new money.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.banking_creation_limits"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.022.c4"
+      ],
+      "prompt": "Why can't a bank create unlimited money by lending?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every loan must be matched by gold in its vault",
+          "correct": false,
+          "rationale": "The gold link is long gone. Profit, risk, rules and rates limit lending."
+        },
+        {
+          "id": "b",
+          "label": "It must lend profitably, follow rules and face interest rates",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The law caps each bank at a fixed number of customers",
+          "correct": false,
+          "rationale": "No such cap: the limits are profit, risk, regulation and rates."
+        },
+        {
+          "id": "d",
+          "label": "Borrowers must deposit cash before any loan",
+          "correct": false,
+          "rationale": "Lending creates the deposit; no cash has to come first."
+        }
+      ],
+      "explanation": "Banks must lend profitably and manage risk, regulators constrain them, and central bank interest rates are the ultimate limit.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.how_money_works.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.banking_loans_create_money",
+        "concept.how_money_works.bank_deposit_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.022.c3",
+        "card.how_money_works.008.c1"
+      ],
+      "prompt": "Level 8 said 97% of UK money is bank deposits. Where did most of those deposits come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Banknotes that people paid into banks",
+          "correct": false,
+          "rationale": "Deposits mostly start as loans, not paid-in cash."
+        },
+        {
+          "id": "b",
+          "label": "Gold that banks bought and stored",
+          "correct": false,
+          "rationale": "Gold plays no part: lending creates the deposits."
+        },
+        {
+          "id": "c",
+          "label": "The central bank's printing presses",
+          "correct": false,
+          "rationale": "Presses make notes, which are only about 3% of UK money."
+        },
+        {
+          "id": "d",
+          "label": "Banks making loans",
+          "correct": true
+        }
+      ],
+      "explanation": "Most money is created by commercial banks lending: each loan creates a matching deposit.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.boe_money_creation",
+    "source.boe_money_modern_economy"
+  ],
+  "art": "architecture.bank"
+}

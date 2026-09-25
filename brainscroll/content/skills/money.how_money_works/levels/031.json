@@ -1,0 +1,226 @@
+{
+  "id": "level.money.how_money_works.031",
+  "skillId": "skill.money.how_money_works",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Save?",
+  "objective": "After this level you can explain emergency funds and saving for goals.",
+  "summary": "An emergency fund is cash kept safe and reachable for unplanned bills; goal saving targets costs you can see coming. Safe, handy savings usually earn a low interest rate.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.save_emergency_fund",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.save_goals_tradeoff",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.money_three_jobs",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.pow_cigarette_money",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.030"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A surprise $400 bill lands today. Could you pay it without borrowing?",
+      "body": "Every year the US Federal Reserve asks adults that question. In its survey for 2024, 63% said they'd cover it with cash or its equivalent. Another 13% said they couldn't pay it by any means. The gap between those answers has a name: savings."
+    },
+    {
+      "id": "card.how_money_works.031.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An emergency fund has one job: be there",
+      "body": "An emergency fund is cash set aside for the bills nobody plans: a car repair, a medical bill, a cracked phone, a lost paycheck. Because emergencies don't wait, it lives somewhere safe and easy to reach, like a bank account, and somewhere you won't be tempted to dip into. A fund you raid for concert tickets is just a wallet with ambitions."
+    },
+    {
+      "id": "card.how_money_works.031.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Goal saving: the bills you can see coming",
+      "body": "Other saving has a target on it: a laptop, a trip, a bike. Here the trick is naming it. The US Consumer Financial Protection Bureau points out that having a specific goal for your savings can help you stay motivated. \"Money for the laptop\" is harder to spend on snacks than \"some money\". Divide the price by the months you have, and a big number becomes a small monthly one."
+    },
+    {
+      "id": "card.how_money_works.031.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Safe, handy and a little sleepy",
+      "body": "Remember Level 1's prisoners? Their cigarette reserves were a store of value until people smoked them. Savings only work if they keep. So they usually sit in safe places you can reach any time, like savings accounts. The catch: that safety and access come at a price, a low interest rate. Money that's always ready to go rarely has time to grow.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Safe, reachable, growing fast: savings can usually pick two. Hold that thought for Level 32."
+      }
+    },
+    {
+      "id": "card.how_money_works.031.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.031.q1"
+    },
+    {
+      "id": "card.how_money_works.031.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.031.q2"
+    },
+    {
+      "id": "card.how_money_works.031.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.031.q3"
+    },
+    {
+      "id": "card.how_money_works.031.c8",
+      "type": "checkpoint",
+      "headline": "Saving: started",
+      "learned": [
+        "An emergency fund covers unplanned bills",
+        "Keep it safe, reachable and untempting",
+        "A named goal helps you keep saving",
+        "Safe, handy savings earn low interest"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.save_emergency_fund"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.031.c2"
+      ],
+      "prompt": "What is an emergency fund for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A planned purchase, like next summer's trip",
+          "correct": false,
+          "rationale": "That's goal saving: a cost you can see coming."
+        },
+        {
+          "id": "b",
+          "label": "Unplanned costs, like a car repair or lost pay",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Buying shares when prices look cheap",
+          "correct": false,
+          "rationale": "It's cash kept ready for surprises, not for investing."
+        },
+        {
+          "id": "d",
+          "label": "Paying for regular treats each week",
+          "correct": false,
+          "rationale": "Spending it on non-emergencies defeats the point."
+        }
+      ],
+      "explanation": "An emergency fund is cash set aside for unplanned expenses: repairs, medical bills, a lost income.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.save_emergency_fund"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.031.c2"
+      ],
+      "prompt": "Why is an emergency fund kept somewhere safe and easy to reach?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Those places always pay the highest interest",
+          "correct": false,
+          "rationale": "Safe, reachable savings usually pay low interest."
+        },
+        {
+          "id": "b",
+          "label": "The law requires emergency money in a bank",
+          "correct": false,
+          "rationale": "There's no such law; it's about being ready."
+        },
+        {
+          "id": "c",
+          "label": "Emergencies don't wait, so the money must be ready",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "So it is hard to reach and never gets spent",
+          "correct": false,
+          "rationale": "It should be hard to spend on whims, but easy to reach in a crisis."
+        }
+      ],
+      "explanation": "Emergencies arrive without notice, so the fund has to be safe and quick to get at, but not so handy that you spend it on non-emergencies.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.money_three_jobs",
+        "concept.how_money_works.save_goals_tradeoff"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.031.c4",
+        "card.how_money_works.001.c4"
+      ],
+      "prompt": "From Level 1: which of money's three jobs is your savings account doing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Medium of exchange",
+          "correct": false,
+          "rationale": "That's the job money does when you spend it."
+        },
+        {
+          "id": "b",
+          "label": "Unit of account",
+          "correct": false,
+          "rationale": "That's money as a ruler for prices."
+        },
+        {
+          "id": "c",
+          "label": "Double coincidence of wants",
+          "correct": false,
+          "rationale": "That's barter's matching problem, not a job of money."
+        },
+        {
+          "id": "d",
+          "label": "Store of value",
+          "correct": true
+        }
+      ],
+      "explanation": "Savings keep value until you need it: that is money working as a store of value.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.fed_shed_2024_savings",
+    "source.cfpb_emergency_fund_guide",
+    "source.sec_investor_save_rainy_day",
+    "source.imf_what_is_money",
+    "source.openstax_money_functions",
+    "source.economica_radford_pow_camp"
+  ],
+  "art": "money.piggy-bank"
+}

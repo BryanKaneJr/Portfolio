@@ -1,0 +1,211 @@
+{
+  "id": "level.money.how_money_works.019",
+  "skillId": "skill.money.how_money_works",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Scams and Fraud",
+  "objective": "After this level you can recognize common money scams and their warning signs.",
+  "summary": "The FTC's four signs of a scam: pretend, problem or prize, pressure, and pay in a specific way. People reported losing more than $12.5 billion to fraud in 2024.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.scam_warning_signs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.scam_losses",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.018"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The caller says he's from the government. He wants payment in gift cards.",
+      "body": "That's all you need to know. No real business or government agency will ever tell you to buy a gift card to pay them."
+    },
+    {
+      "id": "card.how_money_works.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pretend, then a problem or a prize",
+      "body": "Scams come in endless costumes, but the FTC boils them down to four signs. First, scammers pretend to be from an organization you know: the government, a utility, a tech company. Second, they say there's a problem (you owe money, your account needs verifying) or a prize you've won. The costume changes. The script doesn't."
+    },
+    {
+      "id": "card.how_money_works.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then hurry, and pay this way",
+      "body": "Third, they pressure you to act immediately, before you have time to think, sometimes with threats of arrest or a lawsuit. Fourth, they tell you exactly how to pay: cryptocurrency, a money wire, a payment app or a gift card. A real problem can wait while you hang up and check. A scam can't.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Pretend, problem or prize, pressure, pay. If you hear all four, you've heard enough."
+      }
+    },
+    {
+      "id": "card.how_money_works.019.c4",
+      "type": "fact",
+      "fact": "In 2024, people told the FTC they lost more than $12.5 billion to fraud.",
+      "context": "Impostors, people pretending to be someone they're not, were the most commonly reported scam. And people lost more through payments by bank transfer or cryptocurrency than through all other payment methods combined. Those are exactly the ways of paying that sign four warns about."
+    },
+    {
+      "id": "card.how_money_works.019.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.019.q1"
+    },
+    {
+      "id": "card.how_money_works.019.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.019.q2"
+    },
+    {
+      "id": "card.how_money_works.019.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.019.q3"
+    },
+    {
+      "id": "card.how_money_works.019.c8",
+      "type": "checkpoint",
+      "headline": "Scams: spotted",
+      "learned": [
+        "Scammers pretend to be someone you know",
+        "They claim a problem or a prize",
+        "They pressure you to act now",
+        "They demand gift cards, wires, apps or crypto"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.scam_losses"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.019.c4"
+      ],
+      "prompt": "According to FTC data, about how much did people report losing to fraud in 2024?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About $12.5 million",
+          "correct": false,
+          "rationale": "Far more: the total ran into billions."
+        },
+        {
+          "id": "b",
+          "label": "About $125 million",
+          "correct": false,
+          "rationale": "Far more: the total ran into billions."
+        },
+        {
+          "id": "c",
+          "label": "About $1.25 billion",
+          "correct": false,
+          "rationale": "Ten times more than that."
+        },
+        {
+          "id": "d",
+          "label": "More than $12.5 billion",
+          "correct": true
+        }
+      ],
+      "explanation": "People reported losing more than $12.5 billion to fraud in 2024.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.scam_warning_signs"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.019.c3"
+      ],
+      "prompt": "Why do scammers push you to act immediately?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So you act before you have time to think",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Because real offers always expire within minutes",
+          "correct": false,
+          "rationale": "Real organizations let you take time to check."
+        },
+        {
+          "id": "c",
+          "label": "Because the law requires fast payment",
+          "correct": false,
+          "rationale": "No law requires you to pay a caller on the spot."
+        },
+        {
+          "id": "d",
+          "label": "So your bank can approve the payment faster",
+          "correct": false,
+          "rationale": "Speed helps the scammer, not your bank."
+        }
+      ],
+      "explanation": "Pressure is a warning sign: scammers want you to act before you can think or check.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.scam_warning_signs"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.019.c2",
+        "card.how_money_works.019.c3"
+      ],
+      "prompt": "A text says your bank account needs verifying within the hour or it will be closed. Which warning signs does it show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A prize, plus a request for gift cards",
+          "correct": false,
+          "rationale": "There's no prize or payment request in it."
+        },
+        {
+          "id": "b",
+          "label": "A problem, plus pressure to act now",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "None, because banks send these routinely",
+          "correct": false,
+          "rationale": "A deadline and a threat are classic signs."
+        },
+        {
+          "id": "d",
+          "label": "A specific payment method only",
+          "correct": false,
+          "rationale": "It hasn't asked for payment yet."
+        }
+      ],
+      "explanation": "An account that \"needs verifying\" is the problem; the one-hour deadline is the pressure.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ftc_gift_card_scams",
+    "source.ftc_how_to_avoid_scam",
+    "source.ftc_fraud_losses_2024"
+  ],
+  "art": "object.padlock"
+}

@@ -1,0 +1,241 @@
+{
+  "id": "level.money.how_money_works.051",
+  "skillId": "skill.money.how_money_works",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Taxes",
+  "objective": "After this level you can explain what taxes pay for and name the main kinds of tax.",
+  "summary": "Taxes pay for what governments provide, about a third of GDP across rich countries. They fall on what you earn, buy and own; most countries use a VAT, the US does not.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.govt_tax_purpose",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_tax_kinds",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.050"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.051.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1789, Benjamin Franklin named the only two sure things in life.",
+      "body": "One was death. The other was taxes. More than two centuries later, both are still going strong. So what do they actually pay for, and what exactly gets taxed?"
+    },
+    {
+      "id": "card.how_money_works.051.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What your taxes buy",
+      "body": "Taxes are how a government pays for the things it provides. In the US, the biggest federal items are national defense, Social Security, healthcare and interest on past borrowing. States and cities spend most on education, then on highways, libraries, parks, police and fire protection. So the fire truck racing down your street? You've already chipped in."
+    },
+    {
+      "id": "card.how_money_works.051.c3",
+      "type": "fact",
+      "fact": "Across rich countries, taxes add up to about a third of the whole economy.",
+      "context": "In 2023, taxes averaged 33.9% of GDP (the value of everything a country produces in a year) across OECD countries. The range is wide: under a fifth in Mexico, over two-fifths in France and Denmark. How big that slice should be is a choice each country makes, and they choose very differently."
+    },
+    {
+      "id": "card.how_money_works.051.c4",
+      "type": "comparison",
+      "headline": "Three things to tax: what you earn, buy and own",
+      "items": [
+        {
+          "label": "What you earn",
+          "points": [
+            "Income tax on wages and other income",
+            "Payroll taxes on wages",
+            "Corporate income tax on profits"
+          ]
+        },
+        {
+          "label": "What you buy",
+          "points": [
+            "Sales taxes and value-added taxes",
+            "Excise taxes on gasoline, tobacco and alcohol"
+          ]
+        },
+        {
+          "label": "What you own",
+          "points": [
+            "Property taxes, a mainstay for US states and cities",
+            "Estate taxes on what people leave behind"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.how_money_works.051.c5",
+      "type": "fact",
+      "fact": "The US is the only OECD country without a VAT.",
+      "context": "A value-added tax is a sales tax collected in slices. Each business along the chain, from lumber yard to furniture maker, pays tax on its sales and gets credit for the tax already paid on its inputs. More than 170 countries use one. The US relies instead on state and local sales taxes, added at the till.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A VAT is a relay race: every runner carries the tax a little further, and the shopper crosses the finish line."
+      }
+    },
+    {
+      "id": "card.how_money_works.051.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.051.q1"
+    },
+    {
+      "id": "card.how_money_works.051.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.051.q2"
+    },
+    {
+      "id": "card.how_money_works.051.c8",
+      "type": "mcq",
+      "questionId": "question.how_money_works.051.q3"
+    },
+    {
+      "id": "card.how_money_works.051.c9",
+      "type": "checkpoint",
+      "headline": "Taxes: sorted",
+      "learned": [
+        "Taxes pay for what governments provide",
+        "Across the OECD, about a third of GDP",
+        "Taxed: what you earn, buy and own",
+        "A VAT is collected at every stage; the US has none"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.govt_tax_kinds"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.051.c4",
+        "card.how_money_works.051.c5"
+      ],
+      "prompt": "Which of these is a tax on what you buy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Property tax",
+          "correct": false,
+          "rationale": "That taxes what you own."
+        },
+        {
+          "id": "b",
+          "label": "Income tax",
+          "correct": false,
+          "rationale": "That taxes what you earn."
+        },
+        {
+          "id": "c",
+          "label": "Value-added tax",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Estate tax",
+          "correct": false,
+          "rationale": "That taxes what people leave behind."
+        }
+      ],
+      "explanation": "A VAT, like a sales tax, falls on spending: it is a tax on what you buy.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.govt_tax_kinds"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.051.c5"
+      ],
+      "prompt": "How is a VAT collected differently from a US-style sales tax?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only people with high incomes pay it",
+          "correct": false,
+          "rationale": "Everyone who buys taxed goods pays it."
+        },
+        {
+          "id": "b",
+          "label": "It is taken out of wages each payday",
+          "correct": false,
+          "rationale": "That's how income and payroll taxes work."
+        },
+        {
+          "id": "c",
+          "label": "It is charged once a year on property",
+          "correct": false,
+          "rationale": "That's a property tax."
+        },
+        {
+          "id": "d",
+          "label": "Each business in the chain pays on its sales, with credit for tax already paid",
+          "correct": true
+        }
+      ],
+      "explanation": "A VAT is collected in slices at every stage of production; a US sales tax is added once, at the till.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.govt_tax_purpose"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.051.c2"
+      ],
+      "prompt": "Part of today's US federal tax money pays for decisions made years ago. Which spending item is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Interest on past borrowing",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Fire protection",
+          "correct": false,
+          "rationale": "That's a state and local service, and it's paid for today."
+        },
+        {
+          "id": "c",
+          "label": "Parks and libraries",
+          "correct": false,
+          "rationale": "Those are mostly state and local spending."
+        },
+        {
+          "id": "d",
+          "label": "Highways",
+          "correct": false,
+          "rationale": "Mostly state and local, and not a payment for past decisions."
+        }
+      ],
+      "explanation": "Interest on past borrowing is one of the biggest federal items: today's taxes paying for yesterday's borrowing. Level 54 follows that thread.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.constitutioncenter_franklin_death_taxes",
+    "source.openstax_government_spending",
+    "source.openstax_taxation",
+    "source.oecd_revenue_statistics_2024",
+    "source.taxfoundation_consumption_tax_policies"
+  ],
+  "art": "money.receipt"
+}

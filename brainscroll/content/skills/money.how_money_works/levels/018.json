@@ -1,0 +1,217 @@
+{
+  "id": "level.money.how_money_works.018",
+  "skillId": "skill.money.how_money_works",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Small Costs Add Up",
+  "objective": "After this level you can explain how small recurring costs like subscriptions add up over a year.",
+  "summary": "People guessed they spent $86 a month on subscriptions; the real average was $219. Small recurring costs hide month to month and add up over a year, and every one has an opportunity cost.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.smallcost_subscriptions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.smallcost_yearly",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.oppcost_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.017"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Guess what you spend on subscriptions each month. Now more than double it.",
+      "body": "In a 2022 C+R Research survey of 1,000 US consumers, people guessed $86 a month. When they listed every subscription, the average came to $219."
+    },
+    {
+      "id": "card.how_money_works.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why small costs hide",
+      "body": "A subscription asks for your attention once, then charges quietly every month with nothing to hand over at a till. In the same survey, 74% said recurring charges were easy to forget, and 42% had stopped using a subscription but forgot they were still paying for it. That's money buying precisely nothing."
+    },
+    {
+      "id": "card.how_money_works.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Multiply by twelve",
+      "body": "Small costs look small because we meet them one month at a time. The survey's gap between guess and reality was $133 a month. Over 12 months, that's $1,596. Same money, very different feeling."
+    },
+    {
+      "id": "card.how_money_works.018.c4",
+      "type": "fact",
+      "fact": "$5 a day sounds like nothing. $1,250 a year sounds like a vacation.",
+      "context": "An economics textbook example: spending $5 a day more on a bought lunch than one from home adds up to $1,250 over 250 workdays, perhaps the cost of a decent vacation. That's Level 15's opportunity cost, scaled up. Describing the cost as \"a nice vacation\" instead of \"$5 a day\" might lead to a different choice.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Nobody misses $5. Plenty of people would miss a vacation."
+      }
+    },
+    {
+      "id": "card.how_money_works.018.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.018.q1"
+    },
+    {
+      "id": "card.how_money_works.018.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.018.q2"
+    },
+    {
+      "id": "card.how_money_works.018.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.018.q3"
+    },
+    {
+      "id": "card.how_money_works.018.c8",
+      "type": "checkpoint",
+      "headline": "Small costs: added up",
+      "learned": [
+        "People guessed $86 a month; the real figure was $219",
+        "Recurring charges are easy to forget",
+        "Multiply monthly costs by 12 to see them",
+        "$5 a day is a vacation a year"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.smallcost_subscriptions"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.018.c1"
+      ],
+      "prompt": "In the 2022 survey, how did people's guesses about their subscription spending compare with reality?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their guesses were about right",
+          "correct": false,
+          "rationale": "The gap was $133 a month."
+        },
+        {
+          "id": "b",
+          "label": "They guessed too high",
+          "correct": false,
+          "rationale": "Reality came in higher, not lower."
+        },
+        {
+          "id": "c",
+          "label": "They guessed far too low",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Most had no subscriptions",
+          "correct": false,
+          "rationale": "They averaged $219 a month in subscriptions."
+        }
+      ],
+      "explanation": "People guessed $86 a month; itemized, the average was $219.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.smallcost_yearly"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.018.c3"
+      ],
+      "prompt": "Why can a small recurring cost feel smaller than it really is?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Recurring charges shrink over time",
+          "correct": false,
+          "rationale": "The charge stays the same each month."
+        },
+        {
+          "id": "b",
+          "label": "We see it one month at a time, not added up over a year",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Banks refund small charges automatically",
+          "correct": false,
+          "rationale": "Nobody refunds a subscription you forgot."
+        },
+        {
+          "id": "d",
+          "label": "Small charges aren't counted in a budget",
+          "correct": false,
+          "rationale": "A budget lists every bill and expense."
+        }
+      ],
+      "explanation": "Seen monthly, $133 feels small. Over 12 months it's $1,596.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.oppcost_definition",
+        "concept.how_money_works.smallcost_yearly"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.015.c2",
+        "card.how_money_works.018.c4"
+      ],
+      "prompt": "From Level 15: in the lunch example, what is the opportunity cost of buying lunch out all year?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The $5 extra paid each day",
+          "correct": false,
+          "rationale": "That's the money cost. The opportunity cost is what it could have bought."
+        },
+        {
+          "id": "b",
+          "label": "The tax on each meal",
+          "correct": false,
+          "rationale": "Tax is part of the money cost."
+        },
+        {
+          "id": "c",
+          "label": "The vacation the $1,250 could have paid for",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The cook's wages",
+          "correct": false,
+          "rationale": "That's the café's cost, not yours."
+        }
+      ],
+      "explanation": "Opportunity cost is the next best alternative given up: here, a vacation's worth of spending.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.crresearch_subscription_costs",
+    "source.openstax_opportunity_cost",
+    "source.stlouisfed_opportunity_cost"
+  ],
+  "art": "money.receipt"
+}

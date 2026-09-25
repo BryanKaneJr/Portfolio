@@ -1,0 +1,223 @@
+{
+  "id": "level.money.how_money_works.048",
+  "skillId": "skill.money.how_money_works",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Incentives",
+  "objective": "After this level you can explain how incentives shape the choices people make.",
+  "summary": "Incentives are rewards and penalties that shape choices, and people respond to them. Hanoi's 1902 rat-tail bounty backfired: people bred rats for their tails. Prices are incentives too.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.incentive_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.hanoi_rat_bounty",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.supply_law",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.demand_law",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.047"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.048.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1902, Hanoi paid people for dead rats. Soon, people were farming rats.",
+      "body": "It's one of history's great backfires. And it shows just how seriously people take a reward."
+    },
+    {
+      "id": "card.how_money_works.048.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Carrots and sticks",
+      "body": "An incentive rewards or penalizes a choice. Positive incentives are rewards, like a buy-one-get-one-free sale. Negative incentives are penalties, like a speeding ticket or a littering fine. Some come from governments, some from businesses. People respond to them, and usually in predictable ways. That's the whole point of having them."
+    },
+    {
+      "id": "card.how_money_works.048.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The rat-tail bounty",
+      "body": "In colonial Hanoi, the French authorities wanted fewer rats. They paid a few cents for each rat tail handed in to the police. A tail seemed like proof of a dead rat. It wasn't. People cut the tails off rats and let them go free to breed more. Officials even found people farming rats, and a network smuggling them into the city.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Pay for tails, get tails. The rats kept everything else."
+      }
+    },
+    {
+      "id": "card.how_money_works.048.c4",
+      "type": "fact",
+      "fact": "Every price is an incentive.",
+      "context": "Economic incentives involve a financial benefit or cost. That's Level 42 in one line: a higher price rewards producing more, so sellers bring more to market. Hanoi's bounty was simply a price for rat tails, and people supplied rat tails. The lesson: reward exactly what you want, because that's what you'll get."
+    },
+    {
+      "id": "card.how_money_works.048.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.048.q1"
+    },
+    {
+      "id": "card.how_money_works.048.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.048.q2"
+    },
+    {
+      "id": "card.how_money_works.048.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.048.q3"
+    },
+    {
+      "id": "card.how_money_works.048.c8",
+      "type": "checkpoint",
+      "headline": "Incentives: understood",
+      "learned": [
+        "Incentives are rewards and penalties",
+        "People respond to them predictably",
+        "Hanoi's rat-tail bounty backfired",
+        "Every price is an incentive"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.incentive_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.048.c2"
+      ],
+      "prompt": "Which of these is a negative incentive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A buy-one-get-one-free sale",
+          "correct": false,
+          "rationale": "That's a reward, so it's a positive incentive."
+        },
+        {
+          "id": "b",
+          "label": "A littering fine",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A bonus for good work",
+          "correct": false,
+          "rationale": "A bonus is a reward, a positive incentive."
+        },
+        {
+          "id": "d",
+          "label": "A discount for paying early",
+          "correct": false,
+          "rationale": "A discount rewards a choice, so it is positive."
+        }
+      ],
+      "explanation": "Negative incentives are penalties that discourage a behavior, like fines and speeding tickets.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.hanoi_rat_bounty",
+        "concept.how_money_works.incentive_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.048.c3"
+      ],
+      "prompt": "Why did Hanoi's rat-tail bounty backfire?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The bounty was too small for anyone to bother",
+          "correct": false,
+          "rationale": "People bothered a lot: they farmed rats."
+        },
+        {
+          "id": "b",
+          "label": "The rats fled the city to escape the hunt",
+          "correct": false,
+          "rationale": "Rats were even smuggled in."
+        },
+        {
+          "id": "c",
+          "label": "It paid for tails, so people bred rats to supply them",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The police refused to pay for tails",
+          "correct": false,
+          "rationale": "The payments were made, which is why it backfired."
+        }
+      ],
+      "explanation": "The reward was for tails, not for fewer rats. People responded exactly to what was rewarded.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.supply_law",
+        "concept.how_money_works.incentive_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.048.c4",
+        "card.how_money_works.042.c2"
+      ],
+      "prompt": "From Level 42: why do sellers offer more when the price rises, in the language of incentives?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A higher price is a penalty for selling",
+          "correct": false,
+          "rationale": "It is a reward, not a penalty."
+        },
+        {
+          "id": "b",
+          "label": "Prices have nothing to do with incentives",
+          "correct": false,
+          "rationale": "A price is an economic incentive."
+        },
+        {
+          "id": "c",
+          "label": "Sellers are ordered to by law",
+          "correct": false,
+          "rationale": "No law is needed; the reward does the work."
+        },
+        {
+          "id": "d",
+          "label": "A higher price is a reward for producing more",
+          "correct": true
+        }
+      ],
+      "explanation": "A price is an economic incentive. A higher one means more profit, which encourages firms to produce more.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.madeinchina_vann_rat_hunt",
+    "source.stlouisfed_incentives_lesson",
+    "source.openstax_demand_supply"
+  ],
+  "art": "money.carrot"
+}

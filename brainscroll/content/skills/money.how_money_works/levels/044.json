@@ -1,0 +1,229 @@
+{
+  "id": "level.money.how_money_works.044",
+  "skillId": "skill.money.how_money_works",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Where Prices Come From",
+  "objective": "After this level you can explain how supply and demand together set a price.",
+  "summary": "The equilibrium price is where supply and demand cross. A surplus pushes prices down and a shortage pushes them up. Marshall called supply and demand the two blades of a pair of scissors.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.price_equilibrium",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.price_market_pressure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.marshall_scissors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.supply_law",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.demand_law",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.043"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.044.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Who decides what things cost?",
+      "body": "Most of the time, no single person. In markets, prices come from supply and demand pushing against each other. Put Level 42 and Level 43 on one chart and watch what happens."
+    },
+    {
+      "id": "card.how_money_works.044.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the curves cross",
+      "body": "Supply climbs, demand falls, so the two curves cross at one point. That's the equilibrium price: the only price where the amount buyers want to buy equals the amount sellers want to sell. At that price, every buyer willing to pay it finds a seller, and every seller willing to accept it finds a buyer."
+    },
+    {
+      "id": "card.how_money_works.044.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The market's nudge",
+      "body": "Price too high? Sellers bring more than buyers want: a surplus. Rather than sit on unsold stock, some sellers cut their prices, because selling cheaper beats not selling at all. Price too low? Buyers want more than there is: a shortage, and sellers spot a chance to charge more. Either way, the price gets shoved toward the crossing point."
+    },
+    {
+      "id": "card.how_money_works.044.c4",
+      "type": "fact",
+      "fact": "Supply or demand: which one sets the price? Both, like scissors.",
+      "context": "In his Principles of Economics, published in 1890, Alfred Marshall said that arguing over it is like arguing whether the upper or the lower blade of a pair of scissors does the cutting. One blade alone cuts nothing. Price comes from supply and demand working together.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Next time someone says \"it's all demand,\" hand them one scissor blade and some paper."
+      }
+    },
+    {
+      "id": "card.how_money_works.044.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.044.q1"
+    },
+    {
+      "id": "card.how_money_works.044.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.044.q2"
+    },
+    {
+      "id": "card.how_money_works.044.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.044.q3"
+    },
+    {
+      "id": "card.how_money_works.044.c8",
+      "type": "checkpoint",
+      "headline": "Prices: explained",
+      "learned": [
+        "Equilibrium is where supply meets demand",
+        "Surpluses push prices down",
+        "Shortages push prices up",
+        "Marshall: supply and demand are scissor blades"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.price_equilibrium"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.044.c2"
+      ],
+      "prompt": "What is the equilibrium price?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The highest price any buyer will pay",
+          "correct": false,
+          "rationale": "Some buyers would pay more; equilibrium is where the amounts match."
+        },
+        {
+          "id": "b",
+          "label": "The price where the amount wanted equals the amount offered",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A price fixed by law",
+          "correct": false,
+          "rationale": "Equilibrium comes from the market, not from a law."
+        },
+        {
+          "id": "d",
+          "label": "The lowest price a seller can survive on",
+          "correct": false,
+          "rationale": "That is about costs, not where supply meets demand."
+        }
+      ],
+      "explanation": "Equilibrium is where the supply and demand curves cross: quantity demanded equals quantity supplied.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.price_market_pressure"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.044.c3"
+      ],
+      "prompt": "A shop's price is above equilibrium, and unsold stock is piling up. What usually happens next?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sellers raise the price further",
+          "correct": false,
+          "rationale": "Raising it would make the pile bigger."
+        },
+        {
+          "id": "b",
+          "label": "Buyers start wanting more at that price",
+          "correct": false,
+          "rationale": "Buyers want less at a high price, not more."
+        },
+        {
+          "id": "c",
+          "label": "Nothing: prices never move on their own",
+          "correct": false,
+          "rationale": "Unsold stock gives sellers a reason to move."
+        },
+        {
+          "id": "d",
+          "label": "Sellers cut the price",
+          "correct": true
+        }
+      ],
+      "explanation": "A surplus pushes some sellers to cut prices, since selling cheaper beats not selling at all.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.marshall_scissors",
+        "concept.how_money_works.supply_law",
+        "concept.how_money_works.demand_law"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.044.c4"
+      ],
+      "prompt": "Why did Marshall compare supply and demand to the blades of a pair of scissors?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Price comes from both working together",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Supply always cuts prices down",
+          "correct": false,
+          "rationale": "Neither blade works alone; that was his point."
+        },
+        {
+          "id": "c",
+          "label": "Demand matters more than supply",
+          "correct": false,
+          "rationale": "He argued that neither one matters more."
+        },
+        {
+          "id": "d",
+          "label": "Markets cut costs like tailors cut cloth",
+          "correct": false,
+          "rationale": "The picture is about two forces acting together."
+        }
+      ],
+      "explanation": "Asking which blade cuts is pointless, just like asking whether supply or demand alone sets the price.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_market",
+    "source.openstax_demand_supply",
+    "source.britannica_supply_demand",
+    "source.openstax_shifts_demand_supply",
+    "source.britannica_alfred_marshall"
+  ],
+  "art": "money.scale"
+}

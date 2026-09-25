@@ -1,0 +1,221 @@
+{
+  "id": "level.money.how_money_works.087",
+  "skillId": "skill.money.how_money_works",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Unions",
+  "objective": "After this level you can explain what unions are and how collective bargaining works.",
+  "summary": "A union is workers acting together. It bargains collectively over wages, hours and conditions, and can strike. The 1936 to 1937 Flint sit-down strike won recognition of the UAW.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.union_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.union_flint_strike",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.wage_labor_market",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.086"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.087.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1936, autoworkers in Flint went on strike without leaving work.",
+      "body": "They sat down inside General Motors' plants and stayed put, for 44 days. Why would a strike work better from the inside?"
+    },
+    {
+      "id": "card.how_money_works.087.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bargaining as a team",
+      "body": "One worker asking for a raise is easy to turn down. A union is an association of workers who act together to improve their conditions. Through collective bargaining, the union's representatives negotiate with the employer over wages, hours and working conditions. If talks fail, workers can strike: a collective refusal to work on the employer's terms.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Strength in numbers, written into a contract."
+      }
+    },
+    {
+      "id": "card.how_money_works.087.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why sit down?",
+      "body": "Strikers who walk out can be replaced by other workers. So from December 30, 1936, the Flint strikers occupied GM's plants instead of picketing outside, which kept them out of the weather and hard to replace. On February 11, 1937, General Motors agreed to recognize their union, the United Auto Workers. Sit-down strikes like theirs are now counted among illegal kinds of strike."
+    },
+    {
+      "id": "card.how_money_works.087.c4",
+      "type": "fact",
+      "fact": "About 1 in 10 US workers belongs to a union.",
+      "context": "In 2025, 10.0% of US wage and salary workers were union members, about half the 20.1% of 1983. Where a union does bargain, Level 86's price of labor isn't settled one worker at a time: it's negotiated for the group."
+    },
+    {
+      "id": "card.how_money_works.087.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.087.q1"
+    },
+    {
+      "id": "card.how_money_works.087.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.087.q2"
+    },
+    {
+      "id": "card.how_money_works.087.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.087.q3"
+    },
+    {
+      "id": "card.how_money_works.087.c8",
+      "type": "checkpoint",
+      "headline": "Unions: organized",
+      "learned": [
+        "A union is workers acting together",
+        "Collective bargaining sets wages, hours and conditions",
+        "A strike is a collective refusal to work",
+        "Flint's 44-day sit-down won recognition of the UAW",
+        "About 1 in 10 US workers is in a union"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.union_basics"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.087.c4"
+      ],
+      "prompt": "Roughly what share of US wage and salary workers were union members in 2025?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1 in 50",
+          "correct": false,
+          "rationale": "Higher: 10.0%."
+        },
+        {
+          "id": "b",
+          "label": "About 1 in 10",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 1 in 3",
+          "correct": false,
+          "rationale": "Lower: 10.0%."
+        },
+        {
+          "id": "d",
+          "label": "About 1 in 2",
+          "correct": false,
+          "rationale": "Much lower: even in 1983 it was 20.1%."
+        }
+      ],
+      "explanation": "In 2025, 10.0% of US wage and salary workers were union members, down from 20.1% in 1983.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.union_flint_strike"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.087.c3"
+      ],
+      "prompt": "Why did the Flint strikers stay inside GM's plants?",
+      "options": [
+        {
+          "id": "a",
+          "label": "GM had locked the gates from outside",
+          "correct": false,
+          "rationale": "The strikers chose to occupy the plants."
+        },
+        {
+          "id": "b",
+          "label": "They were still being paid to work",
+          "correct": false,
+          "rationale": "They had stopped working."
+        },
+        {
+          "id": "c",
+          "label": "Occupying the plants made them hard to replace",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The law required strikers to stay inside",
+          "correct": false,
+          "rationale": "No: sit-down strikes are now counted as illegal."
+        }
+      ],
+      "explanation": "Staying inside protected the strikers from the weather and from being replaced by other workers.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.union_basics",
+        "concept.how_money_works.wage_labor_market"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.087.c2",
+        "card.how_money_works.086.c2"
+      ],
+      "prompt": "Level 86 called a wage the price of labor. In collective bargaining, how is that price set?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Negotiated for the workers as a group",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "By each worker bargaining alone",
+          "correct": false,
+          "rationale": "That's exactly what a union replaces."
+        },
+        {
+          "id": "c",
+          "label": "By the union alone, without the employer",
+          "correct": false,
+          "rationale": "The employer negotiates with the union's representatives."
+        },
+        {
+          "id": "d",
+          "label": "By the government, for every job",
+          "correct": false,
+          "rationale": "Collective bargaining is between workers and employers."
+        }
+      ],
+      "explanation": "In collective bargaining, the union's representatives negotiate wages, hours and conditions with the employer for the whole group.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_organized_labor",
+    "source.brit_collective_bargaining",
+    "source.brit_strike",
+    "source.loc_flint_sitdown_strike",
+    "source.bls_union_members_2025",
+    "source.openstax_labor_markets"
+  ],
+  "art": "geo.people"
+}

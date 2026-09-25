@@ -1,0 +1,223 @@
+{
+  "id": "level.money.how_money_works.023",
+  "skillId": "skill.money.how_money_works",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Interest",
+  "objective": "After this level you can explain interest as the price of borrowing money.",
+  "summary": "Interest is the price of borrowing, usually a yearly rate. Lenders charge for waiting and for risk. Hammurabi's laws set interest rates over 1,000 years before coins.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.interest_price_of_borrowing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.interest_ancient_rates",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.banking_spread",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.lydia_first_coins",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.022"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Interest is older than coins.",
+      "body": "Mesopotamian laws, including Hammurabi's code, were setting interest rates in the 18th century BCE. Lydia's first coins from Level 4 came more than 1,000 years later, around 650 BCE. People have been paying to borrow for a very long time."
+    },
+    {
+      "id": "card.how_money_works.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rent for money",
+      "body": "Interest is the price of borrowing: the fee a borrower pays a lender for the use of money. It's usually quoted as a rate. Borrow $100 at 5% a year, and a year's use of that money costs you $5. Think of it as rent. You get to use someone else's money for a while, and like a rented flat, it goes back at the end, with the rent on top."
+    },
+    {
+      "id": "card.how_money_works.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why lenders charge",
+      "body": "Lending means waiting. If someone would pay $95 today for a promise of $100 in a year, the $5 difference is interest, the reward for giving up money now. Risk raises the price too. Mesopotamian law allowed 20% on loans of silver but more on barley, because barley loans usually went to the poor and were seen as riskier."
+    },
+    {
+      "id": "card.how_money_works.023.c4",
+      "type": "fact",
+      "fact": "Interest runs both ways.",
+      "context": "When you borrow, you pay it. When you deposit money in certain accounts, the bank may pay you. Level 21's spread lives in the gap between those two rates: the bank charges borrowers more than it pays savers."
+    },
+    {
+      "id": "card.how_money_works.023.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.023.q1"
+    },
+    {
+      "id": "card.how_money_works.023.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.023.q2"
+    },
+    {
+      "id": "card.how_money_works.023.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.023.q3"
+    },
+    {
+      "id": "card.how_money_works.023.c8",
+      "type": "checkpoint",
+      "headline": "Interest: priced",
+      "learned": [
+        "Interest is the price of borrowing money",
+        "It is usually quoted as a yearly rate",
+        "Lenders charge for waiting and for risk",
+        "Hammurabi's laws set rates before coins existed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.interest_price_of_borrowing"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.023.c2"
+      ],
+      "prompt": "What is interest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A tax charged on every bank deposit",
+          "correct": false,
+          "rationale": "It isn't a tax: it's a lender's fee for the use of money."
+        },
+        {
+          "id": "b",
+          "label": "The fee for swapping one currency for another",
+          "correct": false,
+          "rationale": "That was the money changers' exchange trade."
+        },
+        {
+          "id": "c",
+          "label": "The price paid for the use of borrowed money",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A bank's share of every salary it handles",
+          "correct": false,
+          "rationale": "Banks earn on lending, not by taking a cut of pay."
+        }
+      ],
+      "explanation": "Interest is the price, or fee, a borrower pays a lender for the use of money.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.interest_ancient_rates",
+        "concept.how_money_works.interest_price_of_borrowing"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.023.c3"
+      ],
+      "prompt": "Why did Mesopotamian law allow a higher interest rate on barley loans than on silver?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Barley loans usually went to the poor and were seen as riskier",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Barley was worth more than silver",
+          "correct": false,
+          "rationale": "The rate reflected risk, not the value of barley."
+        },
+        {
+          "id": "c",
+          "label": "The king owned all the barley",
+          "correct": false,
+          "rationale": "The reason was risk: barley loans usually went to the poor."
+        },
+        {
+          "id": "d",
+          "label": "Silver loans were banned",
+          "correct": false,
+          "rationale": "Silver loans were allowed, at 20%."
+        }
+      ],
+      "explanation": "More risk, higher price: barley loans usually went to poorer borrowers and were seen as riskier.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.interest_ancient_rates",
+        "concept.how_money_works.lydia_first_coins"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.023.c1",
+        "card.how_money_works.004.c1"
+      ],
+      "prompt": "Which came first: laws setting interest rates, or the Lydian coins from Level 4?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The coins, by about a century",
+          "correct": false,
+          "rationale": "Hammurabi's laws came first, by over a thousand years."
+        },
+        {
+          "id": "b",
+          "label": "Both appeared in the same century",
+          "correct": false,
+          "rationale": "They were more than a thousand years apart."
+        },
+        {
+          "id": "c",
+          "label": "Interest laws only began with medieval banks",
+          "correct": false,
+          "rationale": "Hammurabi's code set rates in the 18th century BCE."
+        },
+        {
+          "id": "d",
+          "label": "Interest laws, by more than 1,000 years",
+          "correct": true
+        }
+      ],
+      "explanation": "Hammurabi's code (18th century BCE) set interest rates more than 1,000 years before Lydia's coins (around 650 BCE).",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.bancaditalia_mesopotamian_tablets",
+    "source.boe_money_creation",
+    "source.brit_bank",
+    "source.brit_interest",
+    "source.britishmuseum_money_gallery",
+    "source.cfpb_secured_unsecured",
+    "source.worldhistory_lydian_stater"
+  ],
+  "art": "money.coin-plant"
+}

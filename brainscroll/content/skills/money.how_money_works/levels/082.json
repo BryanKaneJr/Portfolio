@@ -1,0 +1,221 @@
+{
+  "id": "level.money.how_money_works.082",
+  "skillId": "skill.money.how_money_works",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Starting a Business",
+  "objective": "After this level you can explain what an entrepreneur does and what it costs to start a business.",
+  "summary": "An entrepreneur organizes a business and carries its risk. HP began in a garage with $538. Start-ups face one-time and ongoing costs, and about half last five years.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.startup_entrepreneur",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.startup_costs_funding",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.company_business_forms",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.081"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two friends, a garage and $538. That's how HP started.",
+      "body": "Bill Hewlett and Dave Packard began working part-time in a Palo Alto garage. California now honors it as the \"Birthplace of Silicon Valley\". On day one, though, it was just two people and an idea that might not work."
+    },
+    {
+      "id": "card.how_money_works.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What an entrepreneur does",
+      "body": "An entrepreneur is someone who organizes a business, runs it and carries its risk. The word comes from the Old French entreprendre, \"to undertake\", and that's the job: taking on something that might fail. Hewlett and Packard made it official on January 1, 1939, as a partnership, Level 81's two-owner model. Even the company's name was settled by a coin toss."
+    },
+    {
+      "id": "card.how_money_works.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What it costs to begin",
+      "body": "Their $538 of working capital even counted the value of Packard's used drill press. Every start-up has costs. Some are one-time, like equipment, permits and licenses. Others keep coming, like rent, salaries and utilities. The money usually comes from the founders' own savings, from loans, or from investors, who put in cash in return for a share of ownership."
+    },
+    {
+      "id": "card.how_money_works.082.c4",
+      "type": "fact",
+      "fact": "About half of new US businesses are gone within five years.",
+      "context": "Government statisticians tracked every US business location that opened in March 2013. A year later, 79.6% were still going. After five years, 50.6% were left; after ten, 34.7%. That's the risk hiding inside \"undertake\". A garage that grows into HP is the famous exception, not the rule.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Brave, not reckless: knowing the odds is part of the entrepreneur's job."
+      }
+    },
+    {
+      "id": "card.how_money_works.082.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.082.q1"
+    },
+    {
+      "id": "card.how_money_works.082.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.082.q2"
+    },
+    {
+      "id": "card.how_money_works.082.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.082.q3"
+    },
+    {
+      "id": "card.how_money_works.082.c8",
+      "type": "checkpoint",
+      "headline": "Start-ups: launched",
+      "learned": [
+        "An entrepreneur organizes a business and carries its risk",
+        "HP began in a garage with $538",
+        "Start-up costs are one-time or ongoing",
+        "Funding comes from savings, loans or investors",
+        "About half of new businesses last five years"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.startup_entrepreneur"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.082.c4"
+      ],
+      "prompt": "Of US businesses that opened in March 2013, about how many were still running five years later?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1 in 10",
+          "correct": false,
+          "rationale": "Far more survived: about half."
+        },
+        {
+          "id": "b",
+          "label": "About 1 in 4",
+          "correct": false,
+          "rationale": "More than that: about half were still going."
+        },
+        {
+          "id": "c",
+          "label": "About half",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 9 in 10",
+          "correct": false,
+          "rationale": "Fewer: about 4 in 5 even made it through the first year."
+        }
+      ],
+      "explanation": "50.6% of the establishments that opened in March 2013 were still operating five years later.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.startup_costs_funding"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.082.c3"
+      ],
+      "prompt": "A new bakery buys an oven once and pays rent every month. How do these costs differ?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both are one-time start-up costs",
+          "correct": false,
+          "rationale": "Rent keeps coming every month."
+        },
+        {
+          "id": "b",
+          "label": "The oven is one-time; the rent is ongoing",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The rent is one-time; the oven is ongoing",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "d",
+          "label": "Neither counts as a business cost",
+          "correct": false,
+          "rationale": "Both are costs of starting and running the bakery."
+        }
+      ],
+      "explanation": "Equipment like an oven is a one-time start-up cost; rent is an ongoing cost that keeps coming.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.startup_entrepreneur",
+        "concept.how_money_works.company_business_forms"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.082.c2",
+        "card.how_money_works.081.c2"
+      ],
+      "prompt": "Hewlett and Packard started out as a partnership. From Level 81, what did that mean for their business debts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The partnership alone owed them, like a corporation",
+          "correct": false,
+          "rationale": "That's a corporation's limited liability; partners are personally liable."
+        },
+        {
+          "id": "b",
+          "label": "Only the partner who signed the loan was liable",
+          "correct": false,
+          "rationale": "In a general partnership, every partner faces unlimited liability."
+        },
+        {
+          "id": "c",
+          "label": "The debts were capped at the $538 they started with",
+          "correct": false,
+          "rationale": "There's no cap: partners' liability is unlimited."
+        },
+        {
+          "id": "d",
+          "label": "Each partner could owe them personally",
+          "correct": true
+        }
+      ],
+      "explanation": "In a general partnership, every partner faces unlimited personal liability for the business's debts.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_entrepreneurship",
+    "source.hp_garage_history",
+    "source.ca_ohp_birthplace_silicon_valley",
+    "source.sba_startup_costs",
+    "source.bls_business_survival_2013",
+    "source.openstax_finance_business_structures"
+  ],
+  "art": "technology.lightbulb"
+}

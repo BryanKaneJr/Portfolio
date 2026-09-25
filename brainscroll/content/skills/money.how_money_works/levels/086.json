@@ -1,0 +1,219 @@
+{
+  "id": "level.money.how_money_works.086",
+  "skillId": "skill.money.how_money_works",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Sets Wages",
+  "objective": "After this level you can explain what determines how much a job pays.",
+  "summary": "A wage is the price of labor. Productive, well-trained workers are in more demand and in shorter supply. Dirty or dangerous jobs pay extra: a compensating differential.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.wage_labor_market",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.wage_compensating_differentials",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.profit_fixed_variable",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.085"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In Adam Smith's day, a coal miner could out-earn a skilled blacksmith.",
+      "body": "The blacksmith had the craft. The miner had the dirt, the danger and the dark. So what really sets how much a job pays?"
+    },
+    {
+      "id": "card.how_money_works.086.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A wage is a price",
+      "body": "A wage is the price of labor. In the labor market, employers are the buyers, demanding workers, and workers are the sellers, supplying their time. Employers want more workers when those workers produce more, for example because they're better trained, or when customers want more of what they make. On the other side, jobs that need more education or training have fewer people able to do them."
+    },
+    {
+      "id": "card.how_money_works.086.c3",
+      "type": "fact",
+      "fact": "In 2024, US workers with a bachelor's degree earned a median $1,543 a week.",
+      "context": "That compares with $930 for those with only a high school diploma, counting full-time workers aged 25 and over. Both sides of the market are at work: training can make workers more productive, which raises demand for them, and fewer people have it, which limits supply."
+    },
+    {
+      "id": "card.how_money_works.086.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Paying for the dirt",
+      "body": "Back to the coal miner. Smith noticed that wages vary with the ease or hardship, and the cleanliness or dirtiness, of the work. A journeyman blacksmith seldom earned in 12 hours what a coal miner earned in 8, because mining was dirtier, more dangerous and done underground. Economists call this extra pay a compensating differential: to fill an unpleasant job, employers have to make it worth someone's while.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "So the least pleasant jobs can carry a bonus built into the pay. The dirt is part of the price."
+      }
+    },
+    {
+      "id": "card.how_money_works.086.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.086.q1"
+    },
+    {
+      "id": "card.how_money_works.086.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.086.q2"
+    },
+    {
+      "id": "card.how_money_works.086.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.086.q3"
+    },
+    {
+      "id": "card.how_money_works.086.c8",
+      "type": "checkpoint",
+      "headline": "Wages: explained",
+      "learned": [
+        "A wage is the price of labor",
+        "Productive, well-trained workers are in more demand",
+        "Jobs needing more training have fewer candidates",
+        "Dirty or dangerous jobs carry a compensating differential"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.wage_labor_market"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.086.c2"
+      ],
+      "prompt": "In a labor market, what is the wage?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A tax that employers pay",
+          "correct": false,
+          "rationale": "It's a price, not a tax."
+        },
+        {
+          "id": "b",
+          "label": "The price of labor",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The employer's profit",
+          "correct": false,
+          "rationale": "Wages are one of the costs that profit is measured after."
+        },
+        {
+          "id": "d",
+          "label": "A gift employers choose to give",
+          "correct": false,
+          "rationale": "It's a price set in the labor market."
+        }
+      ],
+      "explanation": "A wage is the price of labor: employers demand workers, and workers supply their labor.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.wage_compensating_differentials"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.086.c4"
+      ],
+      "prompt": "Two jobs need the same skills, but one is dirty and dangerous. Which usually pays more, and why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The safe one, since more people want it",
+          "correct": false,
+          "rationale": "Popular jobs attract plenty of workers, so they needn't pay extra."
+        },
+        {
+          "id": "b",
+          "label": "Neither: skill alone sets the pay",
+          "correct": false,
+          "rationale": "Working conditions matter too, as Smith noticed."
+        },
+        {
+          "id": "c",
+          "label": "The dangerous one, to attract workers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The safe one, since it is more respected",
+          "correct": false,
+          "rationale": "Hard, dirty work is what earns the extra pay here."
+        }
+      ],
+      "explanation": "Employers must pay extra to fill unpleasant or risky jobs: a compensating differential.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.wage_labor_market",
+        "concept.how_money_works.profit_fixed_variable"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.086.c2",
+        "card.how_money_works.083.c3"
+      ],
+      "prompt": "From Level 83: for a business, what kind of cost are its workers' hourly wages?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A fixed cost, like the rent",
+          "correct": false,
+          "rationale": "Rent stays put; hours worked rise and fall with output."
+        },
+        {
+          "id": "b",
+          "label": "Revenue earned from selling labor",
+          "correct": false,
+          "rationale": "Wages are paid out, not taken in."
+        },
+        {
+          "id": "c",
+          "label": "Profit, once the work is done",
+          "correct": false,
+          "rationale": "Profit is what is left after costs such as wages."
+        },
+        {
+          "id": "d",
+          "label": "A variable cost that rises with output",
+          "correct": true
+        }
+      ],
+      "explanation": "Labor is a variable cost: make more and you pay for more workers' hours.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_labor_markets",
+    "source.bls_education_pays_2024",
+    "source.econlib_smith_wealth_of_nations",
+    "source.econlib_compensating_differentials",
+    "source.openstax_short_run_costs"
+  ],
+  "art": "money.wallet"
+}

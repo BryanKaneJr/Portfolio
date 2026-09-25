@@ -1,0 +1,228 @@
+{
+  "id": "level.money.how_money_works.058",
+  "skillId": "skill.money.how_money_works",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rules for Business",
+  "objective": "After this level you can explain why governments set rules for banks and businesses.",
+  "summary": "Rules help where sellers know more than buyers, as The Jungle showed in 1906, and make banks hold capital to absorb losses. Every rule also has costs, which is why the right amount is argued over.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.govt_asymmetric_info_rules",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_bank_capital_rules",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.057"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A 1906 novel turned readers' stomachs and changed the law that same year.",
+      "body": "Upton Sinclair's The Jungle showed filthy conditions in Chicago's meatpacking plants. On June 30, 1906, President Theodore Roosevelt signed both the Meat Inspection Act and the Pure Food and Drug Act. Why did buyers need a law to protect them?"
+    },
+    {
+      "id": "card.how_money_works.058.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "You can't see inside a sausage",
+      "body": "The seller knows how it was made; you don't. Economists call this asymmetric information: one side of a deal knows more about quality than the other. Rules help close the gap. The 1906 food law banned adulterated and mislabeled food and drugs from being shipped between states. US advertising rules let sellers exaggerate, but a claim presented as a fact must be true."
+    },
+    {
+      "id": "card.how_money_works.058.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A cushion for banks",
+      "body": "Banks get rules too. Regulators make them hold capital: the owners' own money, which works like a cushion. If some loans go bad, the losses hit that cushion first, so the bank can still repay its depositors. The aim is to make bank failures, and government bailouts, less likely.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Capital is the airbag: you hope never to need it, and you really want it there when you do."
+      }
+    },
+    {
+      "id": "card.how_money_works.058.c4",
+      "type": "comparison",
+      "headline": "Every rule has a price",
+      "items": [
+        {
+          "label": "What rules can buy",
+          "points": [
+            "Safer food and honest labels",
+            "Claims you can trust",
+            "Sturdier banks"
+          ]
+        },
+        {
+          "label": "What rules can cost",
+          "points": [
+            "Licenses reassure customers but can make it harder to enter a trade",
+            "Higher capital requirements may slow lending and growth"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.how_money_works.058.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.058.q1"
+    },
+    {
+      "id": "card.how_money_works.058.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.058.q2"
+    },
+    {
+      "id": "card.how_money_works.058.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.058.q3"
+    },
+    {
+      "id": "card.how_money_works.058.c8",
+      "type": "checkpoint",
+      "headline": "Rules: explained",
+      "learned": [
+        "Asymmetric information: one side knows more",
+        "The Jungle led to two food laws in 1906",
+        "Capital is a cushion that absorbs bank losses",
+        "Rules bring benefits and costs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.govt_asymmetric_info_rules"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.058.c2"
+      ],
+      "prompt": "What does asymmetric information mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Prices differ from one shop to the next",
+          "correct": false,
+          "rationale": "That's price variation, not an information gap."
+        },
+        {
+          "id": "b",
+          "label": "One side of a deal knows more about quality than the other",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A seller refuses to publish its prices",
+          "correct": false,
+          "rationale": "The gap is about quality, known to one side only."
+        },
+        {
+          "id": "d",
+          "label": "Buyers and sellers speak different languages",
+          "correct": false,
+          "rationale": "It is about knowledge of the product, not language."
+        }
+      ],
+      "explanation": "Asymmetric information is when buyer or seller knows more about the product's quality than the other.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.govt_bank_capital_rules"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.058.c3"
+      ],
+      "prompt": "Why do regulators make banks hold capital?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So that losses hit the owners' cushion first and depositors can still be repaid",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "So banks can lend out every dollar they receive",
+          "correct": false,
+          "rationale": "Capital rules limit risk rather than maximizing lending."
+        },
+        {
+          "id": "c",
+          "label": "So the government earns interest from banks",
+          "correct": false,
+          "rationale": "Capital is the owners' money, not a payment to government."
+        },
+        {
+          "id": "d",
+          "label": "So banks never make a bad loan",
+          "correct": false,
+          "rationale": "Loans still go bad; capital absorbs the losses."
+        }
+      ],
+      "explanation": "Capital is a cushion of the owners' money that absorbs losses, making failures and bailouts less likely.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.govt_asymmetric_info_rules"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.058.c1",
+        "card.how_money_works.058.c2"
+      ],
+      "prompt": "How does The Jungle illustrate asymmetric information?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Meatpackers could not find enough workers",
+          "correct": false,
+          "rationale": "The story's point is what buyers couldn't see."
+        },
+        {
+          "id": "b",
+          "label": "Shoppers knew more about the meat than the packers did",
+          "correct": false,
+          "rationale": "It was the other way round."
+        },
+        {
+          "id": "c",
+          "label": "The novel was banned before readers could see it",
+          "correct": false,
+          "rationale": "It was widely read, and it helped pass the laws."
+        },
+        {
+          "id": "d",
+          "label": "Buyers couldn't see the filthy conditions in which their meat was made",
+          "correct": true
+        }
+      ],
+      "explanation": "The packers knew how the meat was made; buyers could not. The 1906 laws tried to close that gap.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.fda_1906_act",
+    "source.britannica_meat_inspection_act",
+    "source.openstax_asymmetric_information",
+    "source.philadelphiafed_capital_requirements"
+  ],
+  "art": "money.capitol"
+}

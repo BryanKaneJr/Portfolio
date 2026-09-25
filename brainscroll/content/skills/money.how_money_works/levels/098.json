@@ -1,0 +1,225 @@
+{
+  "id": "level.money.how_money_works.098",
+  "skillId": "skill.money.how_money_works",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Externalities",
+  "objective": "After this level you can explain costs like pollution that fall on people outside a deal.",
+  "summary": "An externality is the effect of a deal on someone outside it, like pollution. Pigou proposed taxing such costs; Coase argued that when deals are cheap to make, people can bargain their way to a fix.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.ideas_externality_def",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.ideas_pigou_tax",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.ideas_coase_bargaining",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.ideas_smith_limits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.097"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "An outdoor concert sells tickets. The neighbors hear every song.",
+      "body": "They never bought a ticket and never agreed to the noise, but the deal between the band and the fans lands on them anyway. Economists have a name for that."
+    },
+    {
+      "id": "card.how_money_works.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Costs that leak out",
+      "body": "An externality is the effect of a deal on a third party who is outside it. Pollution is the classic negative one: a factory's costs cover its workers and materials, but not the harm its smoke does to the neighbors. Because nobody pays for that harm, the market makes too much of the product. Externalities can be good, too: research that others build on is a standard example."
+    },
+    {
+      "id": "card.how_money_works.098.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pigou: send the bill",
+      "body": "In The Economics of Welfare, published in 1920, economist Arthur Pigou proposed a fix. Tax activities that impose costs on others; subsidize ones that spread benefits. The tax puts the missing cost back into the price. A carbon tax is the modern example, ideally set equal to the social cost of carbon."
+    },
+    {
+      "id": "card.how_money_works.098.c4",
+      "type": "fact",
+      "fact": "Ronald Coase asked: why not let the neighbors bargain?",
+      "context": "In his 1960 paper \"The Problem of Social Cost\", Coase challenged Pigou's approach. Picture a rancher whose cattle trample a farmer's crops. The farmer could simply pay the rancher to keep fewer cattle. If making a deal costs little, the two can bargain to an efficient fix without government, whoever the law favors. The catch: deal-making costs range from negligible to enormous. Coase won the 1991 economics Nobel.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Pigou says tax it. Coase says talk it out. Both are asking who pays for the mess."
+      }
+    },
+    {
+      "id": "card.how_money_works.098.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.098.q1"
+    },
+    {
+      "id": "card.how_money_works.098.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.098.q2"
+    },
+    {
+      "id": "card.how_money_works.098.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.098.q3"
+    },
+    {
+      "id": "card.how_money_works.098.c8",
+      "type": "checkpoint",
+      "headline": "Externalities",
+      "learned": [
+        "A deal can affect people outside it",
+        "Unpriced pollution means too much of the product",
+        "Pigou: tax the harm, subsidize the benefit",
+        "Coase: cheap bargaining can fix it too"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.ideas_externality_def"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.098.c2"
+      ],
+      "prompt": "What is an externality?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A deal's effect on someone outside the deal",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A tax on goods from abroad",
+          "correct": false,
+          "rationale": "An externality is about third parties, not imports."
+        },
+        {
+          "id": "c",
+          "label": "Profit a company earns overseas",
+          "correct": false,
+          "rationale": "It's an effect on outsiders, not foreign profit."
+        },
+        {
+          "id": "d",
+          "label": "Any cost a buyer agrees to pay",
+          "correct": false,
+          "rationale": "Externalities fall on people who never agreed."
+        }
+      ],
+      "explanation": "An externality is the effect of a market exchange on a third party outside it, like pollution or concert noise.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.ideas_coase_bargaining"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.098.c4"
+      ],
+      "prompt": "In Coase's view, when can a rancher and farmer sort out crop damage without government?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only when the law favors the farmer",
+          "correct": false,
+          "rationale": "Coase argued the outcome is efficient whoever the law favors."
+        },
+        {
+          "id": "b",
+          "label": "Never; government must always step in",
+          "correct": false,
+          "rationale": "That's close to the view Coase challenged."
+        },
+        {
+          "id": "c",
+          "label": "When making a deal costs little",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only when a carbon tax is in place",
+          "correct": false,
+          "rationale": "That's Pigou's kind of fix, not bargaining."
+        }
+      ],
+      "explanation": "If transaction costs are low, the parties can bargain to an efficient outcome on their own.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.how_money_works.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.ideas_externality_def",
+        "concept.how_money_works.ideas_smith_limits"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.098.c2",
+        "card.how_money_works.091.c5"
+      ],
+      "prompt": "How do externalities help explain Stiglitz's criticism of Level 91's invisible hand?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Buyers always pay too much",
+          "correct": false,
+          "rationale": "The problem is costs that fall on people outside the deal."
+        },
+        {
+          "id": "b",
+          "label": "Markets never produce anything",
+          "correct": false,
+          "rationale": "They produce, sometimes too much."
+        },
+        {
+          "id": "c",
+          "label": "Self-interested deals ignore costs on outsiders, so markets can overproduce",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Pollution makes goods cheaper to tax",
+          "correct": false,
+          "rationale": "The issue is unpriced harm, not tax collection."
+        }
+      ],
+      "explanation": "When costs like pollution land on outsiders, self-interested trades don't count them, so the market makes too much.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_pollution",
+    "source.econlib_externalities",
+    "source.brit_pigou",
+    "source.pmc_pigou_carbon",
+    "source.econlib_coase",
+    "source.guardian_stiglitz_invisible_hand"
+  ],
+  "art": "technology.factory"
+}

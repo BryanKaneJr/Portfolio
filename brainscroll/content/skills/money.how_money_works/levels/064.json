@@ -1,0 +1,227 @@
+{
+  "id": "level.money.how_money_works.064",
+  "skillId": "skill.money.how_money_works",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Deflation",
+  "objective": "After this level you can explain why falling prices can hurt an economy.",
+  "summary": "Deflation is a general fall in prices. It usually comes from collapsing spending, and it hurts by making people delay purchases and making debts heavier.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.deflation_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.deflation_harms",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.inflation_definition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.pow_cigarette_money",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.barter_history",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.063"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Prices that keep falling sound like a never-ending sale. Economists dread them.",
+      "body": "Level 1's camp got a taste. When cigarette deliveries stopped, stocks ran out and prices fell. Trade slid back toward barter. Some sale."
+    },
+    {
+      "id": "card.how_money_works.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Deflation, defined",
+      "body": "Deflation is a general decline in prices, and as Fed governor Ben Bernanke stressed in 2002, the key word is general. TVs getting cheaper because factories got more efficient is generally no problem for the economy as a whole. Real deflation is almost always a side effect of a collapse in spending so severe that producers must keep cutting prices to find buyers."
+    },
+    {
+      "id": "card.how_money_works.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why buy today?",
+      "body": "If prices will be lower next month, why buy now? When prices are falling, people delay purchases if they can. Multiply that across a whole country and you get less economic activity, less income for the businesses selling things, and slower growth. A sale that makes everyone wait turns into a stall."
+    },
+    {
+      "id": "card.how_money_works.064.c4",
+      "type": "fact",
+      "fact": "Under deflation, debts get heavier while you sleep.",
+      "context": "A loan is a fixed amount of money. When prices fall, each dollar is worth more, so borrowers repay dollars of ever-increasing real value. Japan showed how stubborn this can be: by 2002, a mild fall in consumer prices, about 1% a year, had come with years of painfully slow growth.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "The number on your loan never changes. What it's worth quietly does."
+      }
+    },
+    {
+      "id": "card.how_money_works.064.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.064.q1"
+    },
+    {
+      "id": "card.how_money_works.064.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.064.q2"
+    },
+    {
+      "id": "card.how_money_works.064.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.064.q3"
+    },
+    {
+      "id": "card.how_money_works.064.c8",
+      "type": "checkpoint",
+      "headline": "Deflation: defined",
+      "learned": [
+        "Deflation is a general fall in prices",
+        "It usually follows a collapse in spending",
+        "People delay buying, so the economy slows",
+        "Debts get heavier in real terms"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.deflation_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.064.c2"
+      ],
+      "prompt": "Which of these is deflation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "TV prices fall as factories get more efficient",
+          "correct": false,
+          "rationale": "That's one sector, which is generally no problem for the whole economy."
+        },
+        {
+          "id": "b",
+          "label": "One shop holds a big end-of-season sale",
+          "correct": false,
+          "rationale": "One shop's sale isn't a general fall in prices."
+        },
+        {
+          "id": "c",
+          "label": "Prices across the whole economy keep falling",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Prices rise, but by less than last year",
+          "correct": false,
+          "rationale": "Prices are still rising, so that isn't deflation."
+        }
+      ],
+      "explanation": "Deflation is a general decline in prices across the economy, not a drop in one product or one shop.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.deflation_harms"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.064.c3"
+      ],
+      "prompt": "Why can falling prices shrink an economy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "People put off buying, expecting lower prices",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Shops run out of goods to sell",
+          "correct": false,
+          "rationale": "Deflation comes with weak spending, not shortages."
+        },
+        {
+          "id": "c",
+          "label": "Workers demand much higher wages",
+          "correct": false,
+          "rationale": "That would push prices up, not down."
+        },
+        {
+          "id": "d",
+          "label": "Governments must print far more money",
+          "correct": false,
+          "rationale": "Printing money is linked to rising prices, not falling ones."
+        }
+      ],
+      "explanation": "When prices are falling, people delay purchases, so activity, income and growth all drop.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.inflation_definition",
+        "concept.how_money_works.deflation_harms"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.061.c3",
+        "card.how_money_works.064.c4"
+      ],
+      "prompt": "Level 61 showed inflation shrinking what money buys. What does deflation do to a borrower's debt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shrinks it, because prices are lower",
+          "correct": false,
+          "rationale": "The debt stays fixed while each dollar grows in value."
+        },
+        {
+          "id": "b",
+          "label": "Makes it heavier, since each dollar is worth more",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Cancels it after a year of falling prices",
+          "correct": false,
+          "rationale": "Nothing cancels the debt."
+        },
+        {
+          "id": "d",
+          "label": "Leaves its real value exactly the same",
+          "correct": false,
+          "rationale": "Its real value rises as prices fall."
+        }
+      ],
+      "explanation": "Inflation makes each dollar buy less; deflation makes each dollar worth more, so a fixed debt weighs more in real terms.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.fed_bernanke_deflation_2002",
+    "source.imf_what_is_inflation",
+    "source.economica_radford_pow_camp"
+  ],
+  "art": "money.balloon"
+}

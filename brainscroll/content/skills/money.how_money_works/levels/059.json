@@ -1,0 +1,239 @@
+{
+  "id": "level.money.how_money_works.059",
+  "skillId": "skill.money.how_money_works",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Safety Nets",
+  "objective": "After this level you can explain unemployment insurance, pensions and other safety nets.",
+  "summary": "Germany created old-age social insurance in 1889. Unemployment insurance replaces part of lost wages. US Social Security is pay-as-you-go, strained as workers per beneficiary fall.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.govt_social_insurance_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_unemployment_insurance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_payg_pensions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_tax_purpose",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.058"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.059.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The world's first state pension started at age 70.",
+      "body": "In 1889, Germany, under Chancellor Otto von Bismarck, became the first nation to adopt old-age social insurance. It gave workers basic security from age 70, and workers, employers and the government all paid in. It was a net stretched under ordinary life."
+    },
+    {
+      "id": "card.how_money_works.059.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Insurance for losing your job",
+      "body": "A safety net catches you when income suddenly stops. Unemployment insurance gives temporary, partial wage replacement to workers who lose their jobs through no fault of their own. Temporary, because it runs out; partial, because it covers only part of your old pay. In between, it helps people keep paying the rent and the bills while they look for work."
+    },
+    {
+      "id": "card.how_money_works.059.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Today's workers, today's retirees",
+      "body": "US Social Security is one of Level 51's biggest federal items, and it works pay-as-you-go. The taxes today's workers pay fund today's beneficiaries; nobody's contributions sit in a personal pot. That makes one ratio matter a lot. In 1965, about four workers paid in for each beneficiary. By 2023, there were 2.7.",
+      "callout": "1965: about 4 workers per beneficiary. 2023: 2.7."
+    },
+    {
+      "id": "card.how_money_works.059.c4",
+      "type": "comparison",
+      "headline": "How should a net be designed? The trade-offs",
+      "items": [
+        {
+          "label": "Unemployment benefits",
+          "points": [
+            "Help families keep paying bills",
+            "People receiving them still search hard for work",
+            "But longer benefits can lengthen unemployment somewhat"
+          ]
+        },
+        {
+          "label": "Pay-as-you-go pensions",
+          "points": [
+            "Pay retirees straight from current workers' taxes",
+            "Come under strain as retirees grow relative to workers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.how_money_works.059.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.059.q1"
+    },
+    {
+      "id": "card.how_money_works.059.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.059.q2"
+    },
+    {
+      "id": "card.how_money_works.059.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.059.q3"
+    },
+    {
+      "id": "card.how_money_works.059.c8",
+      "type": "checkpoint",
+      "headline": "Safety nets: explained",
+      "learned": [
+        "Germany: first old-age social insurance, 1889",
+        "Unemployment insurance: temporary, partial wage replacement",
+        "Pay-as-you-go: today's workers fund today's retirees",
+        "Fewer workers per retiree strains the system"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.govt_unemployment_insurance"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.059.c2"
+      ],
+      "prompt": "Who is unemployment insurance designed for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Anyone who quits to start a business",
+          "correct": false,
+          "rationale": "It covers job loss through no fault of your own."
+        },
+        {
+          "id": "b",
+          "label": "Retirees over age 70",
+          "correct": false,
+          "rationale": "That's an old-age pension."
+        },
+        {
+          "id": "c",
+          "label": "Workers who lose their jobs through no fault of their own",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only workers who never earned wages",
+          "correct": false,
+          "rationale": "It replaces part of lost wages, so it needs past wages."
+        }
+      ],
+      "explanation": "Unemployment insurance gives temporary, partial wage replacement to workers who lose jobs through no fault of their own.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.govt_payg_pensions"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.059.c3"
+      ],
+      "prompt": "Why does the drop from about four workers per beneficiary to 2.7 matter for US Social Security?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each retiree now has a bigger personal account",
+          "correct": false,
+          "rationale": "There are no personal pots: it is pay-as-you-go."
+        },
+        {
+          "id": "b",
+          "label": "Fewer workers' taxes are funding each beneficiary",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The ratio only affects private pensions",
+          "correct": false,
+          "rationale": "It matters precisely because Social Security is pay-as-you-go."
+        },
+        {
+          "id": "d",
+          "label": "Beneficiaries now pay the workers",
+          "correct": false,
+          "rationale": "It's the other way round."
+        }
+      ],
+      "explanation": "In a pay-as-you-go system, today's workers fund today's beneficiaries, so fewer workers per beneficiary means more strain.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.govt_payg_pensions",
+        "concept.how_money_works.govt_tax_purpose"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.051.c2",
+        "card.how_money_works.059.c3"
+      ],
+      "prompt": "From Level 51: which of the biggest US federal spending items is a safety net for retirees?",
+      "options": [
+        {
+          "id": "a",
+          "label": "National defense",
+          "correct": false,
+          "rationale": "Defense protects the country, not retirees' incomes."
+        },
+        {
+          "id": "b",
+          "label": "Interest on past borrowing",
+          "correct": false,
+          "rationale": "That pays lenders, not retirees."
+        },
+        {
+          "id": "c",
+          "label": "Highways",
+          "correct": false,
+          "rationale": "Mostly state and local spending, and not a safety net."
+        },
+        {
+          "id": "d",
+          "label": "Social Security",
+          "correct": true
+        }
+      ],
+      "explanation": "Social Security is one of the biggest federal items, paid for by today's workers' taxes.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ssa_bismarck",
+    "source.bismarck_biografie_social_laws",
+    "source.dol_unemployment_insurance",
+    "source.chicagofed_ui_job_search",
+    "source.pew_social_security_data",
+    "source.oecd_ecoscope_ageing",
+    "source.openstax_government_spending"
+  ],
+  "art": "money.capitol"
+}

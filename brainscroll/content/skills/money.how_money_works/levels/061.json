@@ -1,0 +1,225 @@
+{
+  "id": "level.money.how_money_works.061",
+  "skillId": "skill.money.how_money_works",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Inflation Is",
+  "objective": "After this level you can explain inflation as a general rise in prices over time.",
+  "summary": "Inflation is a broad rise in prices that shrinks what money buys. Its causes include demand-pull, cost-push and expectations; economists disagree on how much money supply matters.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.inflation_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.inflation_causes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.money_three_jobs",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.pow_cigarette_money",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.060"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.061.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In Level 1's prison camp, a flood of cigarettes sent prices soaring.",
+      "body": "Radford watched it happen: several hundred thousand cigarettes might arrive in a fortnight. Prices soared, then fell back as stocks ran out. The camp had just lived through a small, smoky bout of inflation."
+    },
+    {
+      "id": "card.how_money_works.061.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Prices, plural",
+      "body": "Inflation is the rate at which prices rise over a period of time. The key word is broad: it tracks the overall rise in prices across a country, not one item. If only coffee gets pricier after a bad harvest, that's coffee news. When the whole shopping list creeps up together, month after month, that's inflation."
+    },
+    {
+      "id": "card.how_money_works.061.c3",
+      "type": "fact",
+      "fact": "Inflation shrinks your money without changing the number on it.",
+      "context": "Economists call it lost purchasing power: as prices rise, each unit of money buys less. That's a blow to Level 1's third job, store of value. A banknote in a drawer shows the same amount next year; it just buys less. And if your pay rises more slowly than prices, you can afford less, even after a raise.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Same note, smaller shopping bag. Sneaky, isn't it?"
+      }
+    },
+    {
+      "id": "card.how_money_works.061.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why prices rise, and why economists argue",
+      "body": "Textbooks name three culprits. Demand-pull: spending outgrows what the economy can produce, \"too much money chasing too few goods.\" Cost-push: a shock like pricier oil raises the cost of making things. Expectations: if everyone expects higher prices, wages and contracts build them in. How much each matters is argued over. Milton Friedman said inflation is \"always and everywhere a monetary phenomenon\"; Keynesians put more weight on spending and demand."
+    },
+    {
+      "id": "card.how_money_works.061.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.061.q1"
+    },
+    {
+      "id": "card.how_money_works.061.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.061.q2"
+    },
+    {
+      "id": "card.how_money_works.061.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.061.q3"
+    },
+    {
+      "id": "card.how_money_works.061.c8",
+      "type": "checkpoint",
+      "headline": "Inflation: defined",
+      "learned": [
+        "Inflation is a broad rise in prices over time",
+        "It shrinks what each unit of money buys",
+        "Causes: demand-pull, cost-push and expectations",
+        "Economists disagree on how much money supply matters"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.inflation_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.061.c2"
+      ],
+      "prompt": "What does inflation measure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A price jump for one popular product",
+          "correct": false,
+          "rationale": "One item isn't enough: inflation is a broad rise."
+        },
+        {
+          "id": "b",
+          "label": "The number of new banknotes printed",
+          "correct": false,
+          "rationale": "That's about the money supply, not prices themselves."
+        },
+        {
+          "id": "c",
+          "label": "The overall rise in prices over time",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The growth of everything a country produces",
+          "correct": false,
+          "rationale": "That's output, not prices."
+        }
+      ],
+      "explanation": "Inflation is the rate at which prices rise across the economy, not the price of a single item.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.inflation_causes"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.061.c4"
+      ],
+      "prompt": "Oil prices surge, raising the cost of making almost everything. What kind of inflation follows?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Demand-pull inflation",
+          "correct": false,
+          "rationale": "That's when spending outgrows what the economy can produce."
+        },
+        {
+          "id": "b",
+          "label": "Cost-push inflation",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Expectations-driven inflation",
+          "correct": false,
+          "rationale": "That's when expected price rises get built into wages and contracts."
+        },
+        {
+          "id": "d",
+          "label": "Deflation",
+          "correct": false,
+          "rationale": "Deflation means prices falling, not rising."
+        }
+      ],
+      "explanation": "A supply shock that raises production costs leads to cost-push inflation.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.money_three_jobs",
+        "concept.how_money_works.inflation_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.061.c3",
+        "card.how_money_works.001.c4"
+      ],
+      "prompt": "Which of Level 1's three jobs of money does inflation undermine most?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Medium of exchange",
+          "correct": false,
+          "rationale": "Money still works for paying; each unit just buys less."
+        },
+        {
+          "id": "b",
+          "label": "Unit of account",
+          "correct": false,
+          "rationale": "Prices are still quoted in money."
+        },
+        {
+          "id": "c",
+          "label": "Double coincidence of wants",
+          "correct": false,
+          "rationale": "That's barter's matching problem, not a job of money."
+        },
+        {
+          "id": "d",
+          "label": "Store of value",
+          "correct": true
+        }
+      ],
+      "explanation": "Saved money buys less as prices rise, so inflation weakens money as a store of value.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.imf_what_is_inflation",
+    "source.brit_inflation",
+    "source.frbsf_williams_money_inflation",
+    "source.economica_radford_pow_camp",
+    "source.imf_what_is_money",
+    "source.openstax_money_functions"
+  ],
+  "art": "money.balloon"
+}

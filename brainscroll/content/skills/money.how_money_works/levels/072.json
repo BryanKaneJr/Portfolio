@@ -1,0 +1,234 @@
+{
+  "id": "level.money.how_money_works.072",
+  "skillId": "skill.money.how_money_works",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Comparative Advantage",
+  "objective": "After this level you can explain why countries gain by specializing, even when one is better at everything.",
+  "summary": "Ricardo showed in 1817 that Portugal and England both gain by specializing, though Portugal was better at both goods. What counts is comparative advantage: the lowest cost in goods given up.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.trade_comparative_advantage",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.trade_ricardo_wine_cloth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.trade_gains",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.071"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Portugal was better at making both wine and cloth. It should still buy cloth.",
+      "body": "That was David Ricardo's claim in 1817: specialization and free trade benefit all trading partners, even the less efficient ones. It sounds backwards. Let's check his numbers."
+    },
+    {
+      "id": "card.how_money_works.072.c2",
+      "type": "comparison",
+      "headline": "Ricardo's numbers: workers needed for a year",
+      "items": [
+        {
+          "label": "England",
+          "points": [
+            "Cloth: 100 workers",
+            "Wine: 120 workers"
+          ]
+        },
+        {
+          "label": "Portugal",
+          "points": [
+            "Cloth: 90 workers",
+            "Wine: 80 workers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.how_money_works.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Better at everything, cheaper at one",
+      "body": "Portugal has an absolute advantage in both goods: it can make more of each than England. But costs are relative. In Portugal, wine takes fewer workers than cloth (80 against 90), so wine is its bargain. In England, cloth takes fewer than wine (100 against 120), so cloth is England's. That's comparative advantage: making a good at a lower cost in terms of the other goods you give up."
+    },
+    {
+      "id": "card.how_money_works.072.c4",
+      "type": "fact",
+      "fact": "Specialize and swap, and both countries end up with more of both.",
+      "context": "If Portugal makes only wine and England only cloth, then they trade, each can consume more wine and more cloth than by making both itself. Real life is messier than two countries and two goods: resources are limited, and workers and jobs don't always switch industries neatly. But the core idea holds: you don't have to be the best at something to gain from trading it.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Being worse at everything still leaves you something you're least worse at. Oddly comforting."
+      }
+    },
+    {
+      "id": "card.how_money_works.072.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.072.q1"
+    },
+    {
+      "id": "card.how_money_works.072.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.072.q2"
+    },
+    {
+      "id": "card.how_money_works.072.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.072.q3"
+    },
+    {
+      "id": "card.how_money_works.072.c8",
+      "type": "checkpoint",
+      "headline": "Comparative advantage",
+      "learned": [
+        "Ricardo, 1817: both partners can gain",
+        "Absolute advantage: more of a good",
+        "Comparative advantage: lower cost in goods given up",
+        "Specializing and trading leaves more of both"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.trade_comparative_advantage"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.072.c3"
+      ],
+      "prompt": "What does it mean to have a comparative advantage in a good?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Making more of it than anyone else",
+          "correct": false,
+          "rationale": "That's absolute advantage."
+        },
+        {
+          "id": "b",
+          "label": "Making it at a lower cost in terms of goods given up",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Having the most workers in that industry",
+          "correct": false,
+          "rationale": "Worker numbers alone don't settle it; relative cost does."
+        },
+        {
+          "id": "d",
+          "label": "Charging the highest price for it",
+          "correct": false,
+          "rationale": "Price isn't the test; the cost in other goods given up is."
+        }
+      ],
+      "explanation": "Comparative advantage is about relative cost: what you give up to make something.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.trade_ricardo_wine_cloth",
+        "concept.how_money_works.trade_comparative_advantage"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.072.c3",
+        "card.how_money_works.072.c4"
+      ],
+      "prompt": "In Ricardo's example, why should Portugal import cloth even though it makes cloth with fewer workers than England?",
+      "options": [
+        {
+          "id": "a",
+          "label": "England's cloth is higher quality",
+          "correct": false,
+          "rationale": "Quality isn't part of Ricardo's example; costs are."
+        },
+        {
+          "id": "b",
+          "label": "Portugal's cloth workers refused to work",
+          "correct": false,
+          "rationale": "Nothing like that happens in the example."
+        },
+        {
+          "id": "c",
+          "label": "Wine is Portugal's relative bargain, so specializing leaves more of both",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Tariffs made Portuguese cloth illegal",
+          "correct": false,
+          "rationale": "No tariffs appear in the example; it's about relative costs."
+        }
+      ],
+      "explanation": "Wine costs Portugal less in terms of cloth given up, so making wine and trading for cloth leaves both countries with more.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.how_money_works.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.trade_gains",
+        "concept.how_money_works.trade_ricardo_wine_cloth"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.072.c4",
+        "card.how_money_works.071.c2"
+      ],
+      "prompt": "From Level 71: trade happens only when both sides gain. What does England gain from trading with Portugal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "More wine and more cloth than it could make alone",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Nothing: only Portugal gains",
+          "correct": false,
+          "rationale": "Ricardo's point is that both sides gain."
+        },
+        {
+          "id": "c",
+          "label": "Only the wine",
+          "correct": false,
+          "rationale": "It gets more cloth too, not just wine."
+        },
+        {
+          "id": "d",
+          "label": "Portugal's workers",
+          "correct": false,
+          "rationale": "Trade swaps goods, not workers."
+        }
+      ],
+      "explanation": "Specializing in cloth and trading for wine leaves England with more of both goods, so it gains too.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_comparative_advantage",
+    "source.econlib_ricardo_principles_ch7",
+    "source.hbs_comparative_advantage",
+    "source.britmoney_comparative_advantage"
+  ],
+  "art": "money.scale"
+}

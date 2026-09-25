@@ -1,0 +1,239 @@
+{
+  "id": "level.money.how_money_works.052",
+  "skillId": "skill.money.how_money_works",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Who Pays What",
+  "objective": "After this level you can compare tax systems where the rate rises with income to systems with one rate.",
+  "summary": "Progressive taxes take a bigger share of bigger incomes, flat taxes the same share, regressive taxes a smaller share. Brackets tax only the extra dollars, so a raise never cuts your pay.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.govt_tax_progressivity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_marginal_brackets",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_tax_kinds",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.051"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Could a raise push you into a higher tax bracket and leave you poorer?",
+      "body": "No. Only the extra dollars pay the higher rate, so your take-home pay still rises. Why that's true opens up the bigger question of this level: how should a tax bill be shared out?"
+    },
+    {
+      "id": "card.how_money_works.052.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three ways to share the bill",
+      "body": "Picture three people earning very different incomes. A progressive tax takes a bigger share from the higher incomes; the US federal income tax works this way. A proportional, or flat, tax takes the same share from everyone, like the US Medicare payroll tax. A regressive tax takes a smaller share as income rises. In 1994, Estonia became the first country in Eastern Europe to swap its income tax for a flat one."
+    },
+    {
+      "id": "card.how_money_works.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Brackets are buckets",
+      "body": "Progressive income taxes usually work in brackets. Picture your income pouring into a row of buckets. The first bucket is taxed at the lowest rate; only the money that spills into the next bucket pays the next rate, and so on. So when a raise tips you into a higher bracket, only the extra dollars are taxed at the higher rate. Your take-home pay goes up. Always.",
+      "callout": "A higher bracket taxes the extra dollars, not all of them."
+    },
+    {
+      "id": "card.how_money_works.052.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The same rate, a different bite",
+      "body": "Remember Level 51's taxes on what you buy? A sales tax charges everyone the same rate at the till. But lower-income households spend a bigger share of their income on goods, while higher-income households spend a smaller share of theirs. So measured against income, a sales tax takes a bigger bite from lower incomes. That makes it regressive, even though the rate never changes."
+    },
+    {
+      "id": "card.how_money_works.052.c5",
+      "type": "comparison",
+      "headline": "One rate or rising rates? Both sides of the argument",
+      "items": [
+        {
+          "label": "For a flat income tax",
+          "points": [
+            "Simpler: many people could file their own return",
+            "Clears out deductions special interests exploit",
+            "Lower top rates encourage working, saving and investing"
+          ]
+        },
+        {
+          "label": "Against a flat income tax",
+          "points": [
+            "Less fair: shifts the burden toward lower and middle incomes",
+            "Could bring in less revenue"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.how_money_works.052.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.052.q1"
+    },
+    {
+      "id": "card.how_money_works.052.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.052.q2"
+    },
+    {
+      "id": "card.how_money_works.052.c8",
+      "type": "recall",
+      "questionId": "question.how_money_works.052.q3"
+    },
+    {
+      "id": "card.how_money_works.052.c9",
+      "type": "checkpoint",
+      "headline": "Who pays: explained",
+      "learned": [
+        "Progressive: bigger incomes pay a bigger share",
+        "Flat: the same share for everyone",
+        "Regressive: bigger incomes pay a smaller share",
+        "Brackets tax only the extra dollars"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.govt_tax_progressivity"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.052.c2"
+      ],
+      "prompt": "In a progressive tax, how does the share of income paid change as income rises?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It stays exactly the same",
+          "correct": false,
+          "rationale": "That's a proportional, or flat, tax."
+        },
+        {
+          "id": "b",
+          "label": "It gets bigger",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It gets smaller",
+          "correct": false,
+          "rationale": "That's a regressive tax."
+        },
+        {
+          "id": "d",
+          "label": "It drops to zero above a set income",
+          "correct": false,
+          "rationale": "No: the share rises with income."
+        }
+      ],
+      "explanation": "A progressive tax, like the US federal income tax, takes a bigger share of higher incomes.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.govt_marginal_brackets"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.052.c3"
+      ],
+      "prompt": "Mia's raise moves part of her income into a higher tax bracket. What happens to her pay after tax?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It falls, because all her income is now taxed at the higher rate",
+          "correct": false,
+          "rationale": "Only the dollars inside the higher bracket pay that rate."
+        },
+        {
+          "id": "b",
+          "label": "It stays the same, because the extra tax cancels the raise",
+          "correct": false,
+          "rationale": "The higher rate applies only to the extra dollars, so she keeps part of them."
+        },
+        {
+          "id": "c",
+          "label": "It rises, because only the extra dollars pay the higher rate",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It rises by the full raise, because raises are tax-free",
+          "correct": false,
+          "rationale": "The extra dollars are taxed, just at the higher rate."
+        }
+      ],
+      "explanation": "Brackets work like buckets: only the income that spills into the higher bracket pays the higher rate.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.govt_tax_progressivity",
+        "concept.how_money_works.govt_tax_kinds"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.052.c4",
+        "card.how_money_works.051.c4"
+      ],
+      "prompt": "From Level 51: a sales tax charges everyone the same rate. Why is it still called regressive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rich shoppers get a discount at the till",
+          "correct": false,
+          "rationale": "Everyone pays the same rate at the till."
+        },
+        {
+          "id": "b",
+          "label": "It is only charged in poorer neighborhoods",
+          "correct": false,
+          "rationale": "It applies everywhere the tax is set."
+        },
+        {
+          "id": "c",
+          "label": "Its rate falls as prices rise",
+          "correct": false,
+          "rationale": "The rate stays the same; what differs is the share of income spent."
+        },
+        {
+          "id": "d",
+          "label": "Lower-income households spend a bigger share of their income",
+          "correct": true
+        }
+      ],
+      "explanation": "Measured against income, the same sales tax takes a bigger bite from households that spend more of what they earn.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_taxation",
+    "source.britannica_taxation_progressive",
+    "source.britannica_tax_brackets",
+    "source.britannica_flat_tax",
+    "source.au_treasury_flat_taxes"
+  ],
+  "art": "money.scale"
+}

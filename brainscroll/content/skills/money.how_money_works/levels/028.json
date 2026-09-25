@@ -1,0 +1,223 @@
+{
+  "id": "level.money.how_money_works.028",
+  "skillId": "skill.money.how_money_works",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Loans for Big Goals",
+  "objective": "After this level you can compare loans for school, cars and businesses.",
+  "summary": "Secured loans like car loans are backed by collateral and usually cost less; unsecured ones like student loans aren't. Yunus showed small loans without collateral could work.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.loan_secured_unsecured",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.microcredit_grameen",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.mortgage_collateral",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.credit_score_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.027"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A lender can take back a car. It can't take back a diploma.",
+      "body": "That simple difference shapes how loans for cars, school and businesses work."
+    },
+    {
+      "id": "card.how_money_works.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Secured: backed by something",
+      "body": "A secured loan is backed by collateral, something valuable the lender can take and sell if the loan isn't repaid. Level 27's mortgage is one. A car loan is another, backed by the car. Because the lender has a fallback, secured loans are less risky for it, so they usually come with lower interest rates and higher borrowing limits."
+    },
+    {
+      "id": "card.how_money_works.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Unsecured: backed by you",
+      "body": "Student loans, personal loans and credit cards are typically unsecured: there's no property to claim. Lenders see them as riskier, so they may charge higher interest. For many unsecured loans, the lender leans on your income and credit record instead. Hello again, Level 26."
+    },
+    {
+      "id": "card.how_money_works.028.c4",
+      "type": "fact",
+      "fact": "Microcredit began with $27.",
+      "context": "In 1976, economist Muhammad Yunus lent $27 of his own money to 42 women in the Bangladeshi village of Jobra. By 1983 his project had become Grameen Bank, making small loans to poor people who had no collateral to offer. In 2006, Yunus and the bank shared the Nobel Peace Prize.",
+      "mascot": {
+        "pose": "idea",
+        "line": "No collateral, tiny loans, a Nobel Prize. Sometimes the thing you pledge is simply trust."
+      }
+    },
+    {
+      "id": "card.how_money_works.028.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.028.q1"
+    },
+    {
+      "id": "card.how_money_works.028.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.028.q2"
+    },
+    {
+      "id": "card.how_money_works.028.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.028.q3"
+    },
+    {
+      "id": "card.how_money_works.028.c8",
+      "type": "checkpoint",
+      "headline": "Loans: compared",
+      "learned": [
+        "Secured loans are backed by collateral",
+        "Car loans and mortgages are secured",
+        "Student loans and credit cards are unsecured",
+        "Grameen Bank made small loans without collateral"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.loan_secured_unsecured"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.028.c2"
+      ],
+      "prompt": "What makes a car loan a secured loan?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The car is collateral the lender can take",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The borrower has a high credit score",
+          "correct": false,
+          "rationale": "Scores matter, but security comes from collateral."
+        },
+        {
+          "id": "c",
+          "label": "The interest rate is fixed by law",
+          "correct": false,
+          "rationale": "Security means collateral, not a legal rate."
+        },
+        {
+          "id": "d",
+          "label": "The loan is paid off within a year",
+          "correct": false,
+          "rationale": "Length doesn't make a loan secured."
+        }
+      ],
+      "explanation": "A secured loan is backed by collateral. In a car loan, the car is what the lender can take if payments stop.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.loan_secured_unsecured"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.028.c2",
+        "card.how_money_works.028.c3"
+      ],
+      "prompt": "Why do unsecured loans often carry higher interest rates than secured ones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are always for smaller amounts",
+          "correct": false,
+          "rationale": "Size isn't the reason; risk is."
+        },
+        {
+          "id": "b",
+          "label": "They are taxed by the government",
+          "correct": false,
+          "rationale": "No special tax: the difference is risk."
+        },
+        {
+          "id": "c",
+          "label": "With no collateral, lenders face more risk",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only banks offer secured loans",
+          "correct": false,
+          "rationale": "The rate gap comes from risk, not who lends."
+        }
+      ],
+      "explanation": "Without collateral to take, a lender stands to lose more if the loan goes unpaid, so it may charge a higher rate.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.microcredit_grameen",
+        "concept.how_money_works.loan_secured_unsecured"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.028.c4",
+        "card.how_money_works.028.c3"
+      ],
+      "prompt": "Grameen Bank's loans went to poor people with no collateral. What kind of loans were they?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mortgages on the borrowers' homes",
+          "correct": false,
+          "rationale": "Mortgages are pledged on property; these had no collateral."
+        },
+        {
+          "id": "b",
+          "label": "Secured loans backed by land",
+          "correct": false,
+          "rationale": "The borrowers had no collateral to pledge."
+        },
+        {
+          "id": "c",
+          "label": "Car loans backed by vehicles",
+          "correct": false,
+          "rationale": "No vehicles were pledged: these loans had no collateral."
+        },
+        {
+          "id": "d",
+          "label": "Unsecured loans",
+          "correct": true
+        }
+      ],
+      "explanation": "Loans with no collateral are unsecured. Grameen showed small unsecured loans to the poor could work.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_yunus",
+    "source.cfpb_secured_unsecured",
+    "source.grameen_yunus_founder"
+  ],
+  "art": "money.handshake"
+}

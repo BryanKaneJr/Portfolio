@@ -1,0 +1,236 @@
+{
+  "id": "level.money.how_money_works.039",
+  "skillId": "skill.money.how_money_works",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Property and Other Assets",
+  "objective": "After this level you can describe property, commodities and the other things people invest in.",
+  "summary": "Investments pay through income, a price change or both. Property earns rent and changes in value; commodities trade through futures, as at Osaka's Dojima rice market; gold pays no income.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.assets_return_sources",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.assets_property",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.assets_commodities",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.stock_share_ownership",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.salt_money",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.038"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1730, Osaka's rice traders were licensed to trade rice for the future.",
+      "body": "In Edo-period Japan, rice collected as tax was sold to brokers for rice bills, notes you could swap for rice, and those bills were traded busily. In 1730 the shogunate authorized the Dojima Rice Exchange, with a futures market in rice. Stocks and bonds aren't the only things people invest in."
+    },
+    {
+      "id": "card.how_money_works.039.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two ways anything can pay",
+      "body": "An investment is anything you acquire to make a gain through income or a rise in value. So ask any asset two questions. Does it pay income along the way? Stocks may pay dividends; bonds pay interest. And will its price change? Total return is the income plus the price gain, or minus the loss. Those two questions sort almost everything."
+    },
+    {
+      "id": "card.how_money_works.039.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Property: rent and price",
+      "body": "Property can pay both ways: buildings can produce rent, and their value can rise or fall. Buying a whole building is a big step, so there's another route. A real estate investment trust, or REIT, is a company that owns income-producing property like offices, apartments and warehouses, letting investors share the income. Some REITs trade on stock exchanges; others are illiquid and hard to sell quickly."
+    },
+    {
+      "id": "card.how_money_works.039.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Commodities: price, and only price",
+      "body": "Commodities include metals, grains and other foods. Level 3's salt was one. Many now trade through futures contracts, agreements to buy or sell a set amount at a set price on a future date, just as Dojima traded rice. Some pay no income at all: gold earns no dividends or interest, so its return depends on someone paying more later. US regulators warn that precious metals are highly volatile.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A gold bar just sits there. Very shiny. Not very chatty about income."
+      }
+    },
+    {
+      "id": "card.how_money_works.039.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.039.q1"
+    },
+    {
+      "id": "card.how_money_works.039.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.039.q2"
+    },
+    {
+      "id": "card.how_money_works.039.c8",
+      "type": "recall",
+      "questionId": "question.how_money_works.039.q3"
+    },
+    {
+      "id": "card.how_money_works.039.c9",
+      "type": "checkpoint",
+      "headline": "Other assets: sorted",
+      "learned": [
+        "Returns come from income, price change or both",
+        "Property earns rent and changes in value",
+        "REITs share property income; some are hard to sell",
+        "Commodities trade in futures; gold pays no income"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.assets_commodities"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.039.c4"
+      ],
+      "prompt": "What is a futures contract?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A share in a company that sells commodities",
+          "correct": false,
+          "rationale": "That's a stock, not a futures contract."
+        },
+        {
+          "id": "b",
+          "label": "A loan repaid in grain instead of money",
+          "correct": false,
+          "rationale": "It is an agreement about a future trade."
+        },
+        {
+          "id": "c",
+          "label": "An insurance policy on a harvest",
+          "correct": false,
+          "rationale": "It fixes a trade, not an insurance payout."
+        },
+        {
+          "id": "d",
+          "label": "A deal to trade a set amount at a set price later",
+          "correct": true
+        }
+      ],
+      "explanation": "A futures contract is an agreement to buy or sell a set quantity at a set price on a future date.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.assets_return_sources",
+        "concept.how_money_works.assets_property"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.039.c2",
+        "card.how_money_works.039.c3"
+      ],
+      "prompt": "A flat earns rent for years and then sells for more than it cost. What is its total return?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Just the rent collected",
+          "correct": false,
+          "rationale": "The price gain counts too."
+        },
+        {
+          "id": "b",
+          "label": "The rent plus the price gain",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Just the price gain on sale",
+          "correct": false,
+          "rationale": "The rent counts too."
+        },
+        {
+          "id": "d",
+          "label": "Nothing until the flat is sold",
+          "correct": false,
+          "rationale": "Income along the way is part of the return."
+        }
+      ],
+      "explanation": "Total return adds the income an asset pays to its change in price.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.assets_commodities",
+        "concept.how_money_works.stock_share_ownership"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.039.c4",
+        "card.how_money_works.033.c3"
+      ],
+      "prompt": "Unlike Level 33's shares, which way can gold never pay you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Through a rise in its price",
+          "correct": false,
+          "rationale": "Gold can rise in price; that's its only way to pay."
+        },
+        {
+          "id": "b",
+          "label": "By being sold to someone else",
+          "correct": false,
+          "rationale": "Gold can be sold; its return depends on the sale price."
+        },
+        {
+          "id": "c",
+          "label": "Through income such as dividends",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By being traded through futures",
+          "correct": false,
+          "rationale": "Metals do trade through futures contracts."
+        }
+      ],
+      "explanation": "Shares can pay dividends and rise in price. Gold pays no dividends or interest, so price is its only source of return.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.jpx_dojima_rice_exchange",
+    "source.openstax_finance_ch7_key_terms",
+    "source.openstax_finance_risk_return",
+    "source.sec_investor_reits",
+    "source.sec_investor_commodities",
+    "source.cbs_gold_downside",
+    "source.cftc_gold_no_safe_investment",
+    "source.sec_investor_stocks",
+    "source.moneymuseum_amole_salt"
+  ],
+  "art": "money.house-key"
+}

@@ -1,0 +1,238 @@
+{
+  "id": "level.money.how_money_works.067",
+  "skillId": "skill.money.how_money_works",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Unemployment",
+  "objective": "After this level you can explain how unemployment is measured and name its main causes.",
+  "summary": "The US measures unemployment with a monthly household survey: you must lack a job, have looked for work and be able to start. Unemployment can be frictional, structural or cyclical.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.unemployment_measurement",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.unemployment_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.business_cycle_phases",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.066"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You can have no job and still not count as unemployed.",
+      "body": "Retirees don't count. Neither do full-time students. In official statistics, \"unemployed\" means something precise, and the fine print changes the story."
+    },
+    {
+      "id": "card.how_money_works.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Asking 60,000 households",
+      "body": "The US doesn't count the jobless one by one. Each month, the Current Population Survey asks about 60,000 households who is working. You count as unemployed if you have no job, have actively looked for work in the prior 4 weeks, and are available to start. Why not just count benefit claims? Many jobless people aren't eligible or never apply."
+    },
+    {
+      "id": "card.how_money_works.067.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The rate, and who vanishes from it",
+      "body": "The labor force is everyone who is employed or unemployed, and the unemployment rate is the unemployed as a percentage of it. Retirees, students and discouraged workers, who want a job but have stopped looking, sit outside the labor force. So give up looking and you vanish from the unemployment rate, even though you're still out of work.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Stop looking for work, and the statistics stop looking at you."
+      }
+    },
+    {
+      "id": "card.how_money_works.067.c4",
+      "type": "comparison",
+      "headline": "Three ways to be out of work",
+      "items": [
+        {
+          "label": "Frictional",
+          "points": [
+            "Between jobs, or hunting for a first one",
+            "Some always exists, even in good times"
+          ]
+        },
+        {
+          "label": "Structural",
+          "points": [
+            "Your skills no longer match what employers want",
+            "With frictional, it makes up the natural rate"
+          ]
+        },
+        {
+          "label": "Cyclical",
+          "points": [
+            "Rises in recessions, falls in expansions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.how_money_works.067.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.067.q1"
+    },
+    {
+      "id": "card.how_money_works.067.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.067.q2"
+    },
+    {
+      "id": "card.how_money_works.067.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.067.q3"
+    },
+    {
+      "id": "card.how_money_works.067.c8",
+      "type": "checkpoint",
+      "headline": "Unemployment: counted",
+      "learned": [
+        "A monthly survey of about 60,000 households measures it",
+        "Unemployed: no job, looked in the last 4 weeks, able to start",
+        "Discouraged workers fall outside the labor force",
+        "Types: frictional, structural and cyclical"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.unemployment_measurement"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.067.c2"
+      ],
+      "prompt": "Who counts as unemployed in US statistics?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Anyone without a paid job, retirees included",
+          "correct": false,
+          "rationale": "Retirees are outside the labor force."
+        },
+        {
+          "id": "b",
+          "label": "Everyone who files for unemployment benefits",
+          "correct": false,
+          "rationale": "Benefit claims aren't used; many jobless people never claim."
+        },
+        {
+          "id": "c",
+          "label": "Jobless people who looked for work lately and can start",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Workers who want more hours than they get",
+          "correct": false,
+          "rationale": "They have a job, so they aren't unemployed."
+        }
+      ],
+      "explanation": "You count as unemployed if you have no job, looked for work in the prior 4 weeks and are available to start.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.unemployment_measurement"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.067.c3"
+      ],
+      "prompt": "A jobless worker stops looking because she thinks no jobs exist nearby. How do the statistics count her?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As unemployed, since she has no job",
+          "correct": false,
+          "rationale": "She hasn't looked in the prior 4 weeks, so she isn't counted as unemployed."
+        },
+        {
+          "id": "b",
+          "label": "Outside the labor force, not as unemployed",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "As employed part-time",
+          "correct": false,
+          "rationale": "She has no job at all."
+        },
+        {
+          "id": "d",
+          "label": "As frictionally unemployed",
+          "correct": false,
+          "rationale": "She's stopped searching, so she's outside the labor force."
+        }
+      ],
+      "explanation": "A discouraged worker who has stopped looking sits outside the labor force, so she vanishes from the unemployment rate.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.how_money_works.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.unemployment_types",
+        "concept.how_money_works.business_cycle_phases"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.067.c4",
+        "card.how_money_works.066.c2"
+      ],
+      "prompt": "Which type of unemployment rises and falls with Level 66's booms and recessions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cyclical",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Frictional",
+          "correct": false,
+          "rationale": "That exists even in good times, as people move between jobs."
+        },
+        {
+          "id": "c",
+          "label": "Structural",
+          "correct": false,
+          "rationale": "That's a mismatch between skills and jobs."
+        },
+        {
+          "id": "d",
+          "label": "Discouraged",
+          "correct": false,
+          "rationale": "Discouraged workers aren't counted as unemployed at all."
+        }
+      ],
+      "explanation": "Cyclical unemployment rises in recessions and falls in expansions, tracking the business cycle.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.bls_how_unemployment_measured",
+    "source.stlouisfed_unemployment_data",
+    "source.openstax_unemployment_long_run"
+  ],
+  "art": "money.briefcase"
+}

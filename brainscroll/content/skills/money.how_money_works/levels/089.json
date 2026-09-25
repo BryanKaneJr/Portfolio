@@ -1,0 +1,223 @@
+{
+  "id": "level.money.how_money_works.089",
+  "skillId": "skill.money.how_money_works",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Advertising",
+  "objective": "After this level you can explain how advertising shapes what people buy.",
+  "summary": "Advertising can inform (eyeglasses cost more where ads were banned) and persuade (brand loyalty, \"A Diamond Is Forever\"). Pigou argued rival ads may simply cancel out.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.advert_information",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.advert_persuasion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.advert_rival_cancel",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.profit_revenue_cost",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.088"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Four words from 1947: \"A Diamond Is Forever.\"",
+      "body": "Copywriter Frances Gerety wrote them for De Beers. In 1999, Advertising Age named them the best advertising slogan of the 20th century. How can a few words change what people buy?"
+    },
+    {
+      "id": "card.how_money_works.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ads that inform",
+      "body": "Some ads are simply news: this exists, here's what it does, here's the price. That helps you compare. In 1972, economist Lee Benham found that eyeglasses cost more in US states that banned advertising than in states that allowed it. When shoppers can't see prices, they can't easily compare them."
+    },
+    {
+      "id": "card.how_money_works.089.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ads that persuade",
+      "body": "Other ads work on feelings. Blindfolded, many people can't tell common ketchups apart, yet habit and advertising give them strong favorites. De Beers's four words helped make the diamond solitaire the standard engagement ring. Before, engagement rings often used colored gems, small diamonds or even pearls. The stone didn't change. The story around it did."
+    },
+    {
+      "id": "card.how_money_works.089.c4",
+      "type": "fact",
+      "fact": "Rival ads can cancel each other out.",
+      "context": "In 1920, economist A. C. Pigou pointed out that when two competing firms each spend to lure customers from the other, the spending may simply neutralize itself, leaving both where they'd be if neither had advertised. Picture two neighbors in a shouting match: both get louder, and nobody hears anything new.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Next time two rival brands shout at you back to back, you're watching Pigou's point play out."
+      }
+    },
+    {
+      "id": "card.how_money_works.089.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.089.q1"
+    },
+    {
+      "id": "card.how_money_works.089.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.089.q2"
+    },
+    {
+      "id": "card.how_money_works.089.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.089.q3"
+    },
+    {
+      "id": "card.how_money_works.089.c8",
+      "type": "checkpoint",
+      "headline": "Advertising: decoded",
+      "learned": [
+        "Ads can inform: Benham's eyeglass prices",
+        "Ads can persuade: habit and brand loyalty",
+        "\"A Diamond Is Forever\" (1947) reshaped engagement rings",
+        "Rival ads may cancel out, as Pigou argued"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.advert_information"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.089.c2"
+      ],
+      "prompt": "What did Lee Benham find about eyeglass prices in 1972?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were lower where ads were banned",
+          "correct": false,
+          "rationale": "The opposite: they were higher where ads were banned."
+        },
+        {
+          "id": "b",
+          "label": "They were the same in every state",
+          "correct": false,
+          "rationale": "Prices differed with the advertising rules."
+        },
+        {
+          "id": "c",
+          "label": "They were higher where ads were banned",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They rose wherever optometrists advertised",
+          "correct": false,
+          "rationale": "The opposite: prices were higher where ads were banned."
+        }
+      ],
+      "explanation": "Eyeglasses cost more in states that banned advertising: ads helped shoppers compare prices.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.advert_persuasion"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.089.c3"
+      ],
+      "prompt": "Blindfolded, many people can't tell ketchups apart, yet they have strong favorites. What does this show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Habit and advertising shape preferences",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "All ketchup brands use one recipe",
+          "correct": false,
+          "rationale": "The point is people can't taste a difference, not that recipes match."
+        },
+        {
+          "id": "c",
+          "label": "Blindfolds dull people's sense of taste",
+          "correct": false,
+          "rationale": "The test shows preferences come from habit and ads."
+        },
+        {
+          "id": "d",
+          "label": "Ads only work on expensive goods",
+          "correct": false,
+          "rationale": "Ketchup is cheap, and ads still shape preferences."
+        }
+      ],
+      "explanation": "When people can't taste a difference but still have favorites, habit and advertising are doing the work.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.advert_rival_cancel",
+        "concept.how_money_works.profit_revenue_cost"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.089.c4",
+        "card.how_money_works.083.c2"
+      ],
+      "prompt": "Using Level 83's profit formula: if two rivals' ads cancel out, as Pigou argued, what happens to each firm's profit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rises, since ads always boost sales",
+          "correct": false,
+          "rationale": "Pigou's point: rival ads can leave sales where they were."
+        },
+        {
+          "id": "b",
+          "label": "It's unchanged, since ads cost nothing",
+          "correct": false,
+          "rationale": "Ads are a cost, so they cut into profit."
+        },
+        {
+          "id": "c",
+          "label": "It doubles, since both firms advertised",
+          "correct": false,
+          "rationale": "Neither firm wins customers from the other."
+        },
+        {
+          "id": "d",
+          "label": "It falls: extra cost, no extra revenue",
+          "correct": true
+        }
+      ],
+      "explanation": "Profit is revenue minus total cost. Ads that win no extra revenue still add to costs, so profit falls.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.econlib_advertising",
+    "source.openstax_monopolistic_competition",
+    "source.sothebys_diamond_forever",
+    "source.openstax_accounting_economic_profit"
+  ],
+  "art": "money.price-tag"
+}

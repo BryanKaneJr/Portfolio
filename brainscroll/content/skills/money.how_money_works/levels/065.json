@@ -1,0 +1,218 @@
+{
+  "id": "level.money.how_money_works.065",
+  "skillId": "skill.money.how_money_works",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "GDP",
+  "objective": "After this level you can explain what GDP measures and what it misses.",
+  "summary": "GDP adds up the market value of the final goods and services a country produces. Real GDP strips out price changes, and GDP misses unpaid work, pollution, leisure and how income is shared.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.gdp_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.gdp_limits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.inflation_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.064"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Cook dinner at home and GDP ignores it. Buy the same meal, and it counts.",
+      "body": "Same food, same full stomach. The economy's headline number sees only one of them. What it counts, and what it skips, is this level's story."
+    },
+    {
+      "id": "card.how_money_works.065.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Everything a country makes, in one number",
+      "body": "Gross domestic product, or GDP, is the market value of the final goods and services a country produces in a period, such as a quarter or a year. \"Final\" matters: flour sold to a baker is an input, and only the bread counts. You can add GDP up three ways: the value added at each stage of production, the spending of final buyers, or the incomes everyone earns making it all."
+    },
+    {
+      "id": "card.how_money_works.065.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Real GDP: more stuff, not just pricier stuff",
+      "body": "Remember Level 61? If a country made exactly the same things this year but prices rose, its GDP in money terms would still grow. That's why economists watch real GDP, which adjusts for price changes. Real growth means the economy actually made more, not that the price tags got bigger."
+    },
+    {
+      "id": "card.how_money_works.065.c4",
+      "type": "fact",
+      "fact": "The first US national accounts came with a warning label.",
+      "context": "In 1934, economist Simon Kuznets presented them to Congress, and warned that the welfare of a nation can scarcely be inferred from national income. GDP leaves out unpaid work like housework and volunteering, and ignores pollution, lost leisure and how income is shared. It measures how much a country produces, not how well its people live.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A great ruler for output. A wobbly one for happiness."
+      }
+    },
+    {
+      "id": "card.how_money_works.065.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.065.q1"
+    },
+    {
+      "id": "card.how_money_works.065.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.065.q2"
+    },
+    {
+      "id": "card.how_money_works.065.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.065.q3"
+    },
+    {
+      "id": "card.how_money_works.065.c8",
+      "type": "checkpoint",
+      "headline": "GDP: measured",
+      "learned": [
+        "GDP is the market value of a country's final goods and services",
+        "Only final products count, like the bread and not the flour",
+        "Real GDP strips out price changes",
+        "It misses unpaid work, pollution, leisure and fairness"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.gdp_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.065.c2"
+      ],
+      "prompt": "What does GDP measure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The total amount of money held in a country's banks",
+          "correct": false,
+          "rationale": "That's about money, not production."
+        },
+        {
+          "id": "b",
+          "label": "The average price of a basket of household goods",
+          "correct": false,
+          "rationale": "That's the CPI from Level 62."
+        },
+        {
+          "id": "c",
+          "label": "The total value of everything a country buys from abroad",
+          "correct": false,
+          "rationale": "GDP counts what a country produces."
+        },
+        {
+          "id": "d",
+          "label": "The market value of a country's final goods and services",
+          "correct": true
+        }
+      ],
+      "explanation": "GDP is the market value of the final goods and services produced in a country in a period.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.gdp_limits"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.065.c4",
+        "card.how_money_works.065.c1"
+      ],
+      "prompt": "You paint your own house instead of hiring a painter. Why doesn't your work show up in GDP?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Houses are not goods",
+          "correct": false,
+          "rationale": "A hired painter would count; the issue is that your work is unpaid."
+        },
+        {
+          "id": "b",
+          "label": "GDP leaves out unpaid work",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Painting is only an input",
+          "correct": false,
+          "rationale": "The issue is that nobody paid for the work."
+        },
+        {
+          "id": "d",
+          "label": "Only factory output counts",
+          "correct": false,
+          "rationale": "Paid services count too."
+        }
+      ],
+      "explanation": "GDP leaves out unpaid work, like housework and volunteering, because it is hard to measure and value.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.inflation_definition",
+        "concept.how_money_works.gdp_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.065.c3",
+        "card.how_money_works.061.c2"
+      ],
+      "prompt": "Why do economists compare years using real GDP rather than GDP in money terms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Real GDP strips out rising prices",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Real GDP adds in unpaid housework",
+          "correct": false,
+          "rationale": "It doesn't; the adjustment is for prices."
+        },
+        {
+          "id": "c",
+          "label": "Real GDP counts only exports",
+          "correct": false,
+          "rationale": "It covers all final output."
+        },
+        {
+          "id": "d",
+          "label": "Money GDP leaves out services",
+          "correct": false,
+          "rationale": "Both include services; real GDP removes price changes."
+        }
+      ],
+      "explanation": "Real GDP adjusts for price changes, so growth reflects more output rather than Level 61-style inflation.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.imf_gdp_basics",
+    "source.bea_gdp_great_invention",
+    "source.fraser_kuznets_national_income_1934"
+  ],
+  "art": "money.chart-up"
+}

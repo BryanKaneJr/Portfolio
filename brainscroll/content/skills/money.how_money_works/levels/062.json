@@ -1,0 +1,219 @@
+{
+  "id": "level.money.how_money_works.062",
+  "skillId": "skill.money.how_money_works",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Measuring Inflation",
+  "objective": "After this level you can explain how a basket of everyday goods measures the cost of living.",
+  "summary": "The consumer price index tracks the cost of a spending-weighted basket of what households buy. The basket is updated as habits change, and a fixed basket tends to overstate how fast living costs rise.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.cpi_basket",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.cpi_biases",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.inflation_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.061"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2024, air fryers were officially promoted into Britain's inflation basket.",
+      "body": "Vinyl records got back in too. Hand sanitiser got dropped. To measure inflation, statisticians track a whole basket of what people buy, and they keep repacking it."
+    },
+    {
+      "id": "card.how_money_works.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A country-sized shopping cart",
+      "body": "The consumer price index, or CPI, tracks the cost of a representative basket of goods and services that households buy. Its rise is how inflation gets measured. In the US, data collectors record the prices of about 80,000 items every month. Each item counts in proportion to what households actually spend on it, so housing, the biggest slice, far outweighs clothing."
+    },
+    {
+      "id": "card.how_money_works.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The basket gets repacked",
+      "body": "A basket frozen in time would slowly stop looking like real life. So the UK updates its basket, 744 items in 2024, every year. That year, air fryers went in, prized for their energy savings, and vinyl records returned after more than thirty years away. Hand sanitiser came out as the pandemic faded. The basket is a portrait of how people live, redrawn every year.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A basket that tracks your habits better than your own shopping list."
+      }
+    },
+    {
+      "id": "card.how_money_works.062.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why a fixed basket runs hot",
+      "body": "Say beef gets pricey, so you switch to chicken. A fixed basket assumes you kept buying beef, so it overstates how much your living costs rose. That's substitution bias. A fixed basket also misses quality: a new phone that does more for the same price looks like no change at all. Both quirks make a fixed basket overstate the rising cost of living, which is why US statisticians now use methods that allow for some switching."
+    },
+    {
+      "id": "card.how_money_works.062.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.062.q1"
+    },
+    {
+      "id": "card.how_money_works.062.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.062.q2"
+    },
+    {
+      "id": "card.how_money_works.062.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.062.q3"
+    },
+    {
+      "id": "card.how_money_works.062.c8",
+      "type": "checkpoint",
+      "headline": "CPI: unpacked",
+      "learned": [
+        "The CPI tracks the cost of a basket of what households buy",
+        "Items are weighted by spending; housing is biggest",
+        "The basket is updated as habits change",
+        "A fixed basket overstates rising living costs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.cpi_basket"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.062.c2"
+      ],
+      "prompt": "What does the consumer price index track over time?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The cost of a basket of things households buy",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The prices of company shares on the stock market",
+          "correct": false,
+          "rationale": "That's a stock index, not the CPI."
+        },
+        {
+          "id": "c",
+          "label": "The value of everything a country produces",
+          "correct": false,
+          "rationale": "That's output, not the price of a household basket."
+        },
+        {
+          "id": "d",
+          "label": "The wages paid to government workers",
+          "correct": false,
+          "rationale": "Wages aren't the basket; prices of what households buy are."
+        }
+      ],
+      "explanation": "The CPI follows the cost of a representative, spending-weighted basket of goods and services.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.cpi_biases"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.062.c4"
+      ],
+      "prompt": "Beef prices jump and shoppers switch to chicken. Why does a fixed basket overstate their costs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chicken prices always rise faster than beef",
+          "correct": false,
+          "rationale": "The problem is the switch, not chicken's price."
+        },
+        {
+          "id": "b",
+          "label": "It counts every chicken purchase twice",
+          "correct": false,
+          "rationale": "Nothing is double counted; the basket just ignores the switch."
+        },
+        {
+          "id": "c",
+          "label": "It assumes they kept buying the pricier beef",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It leaves food out of the basket entirely",
+          "correct": false,
+          "rationale": "Food is in the basket."
+        }
+      ],
+      "explanation": "A fixed basket ignores substitution: it prices the beef people stopped buying. That is substitution bias.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.inflation_definition",
+        "concept.how_money_works.cpi_basket"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.062.c2",
+        "card.how_money_works.061.c2"
+      ],
+      "prompt": "Why does the CPI track a whole basket rather than one price, like milk?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Milk prices are kept secret by stores",
+          "correct": false,
+          "rationale": "They aren't; one item just isn't enough."
+        },
+        {
+          "id": "b",
+          "label": "One price rarely changes at all",
+          "correct": false,
+          "rationale": "Single prices change all the time."
+        },
+        {
+          "id": "c",
+          "label": "A basket is quicker and cheaper to measure",
+          "correct": false,
+          "rationale": "It's far more work, but it's what inflation means."
+        },
+        {
+          "id": "d",
+          "label": "Inflation is a broad rise in prices, not one item's",
+          "correct": true
+        }
+      ],
+      "explanation": "Level 61 defined inflation as the overall rise in prices, so measuring it takes a broad, representative basket.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.bls_cpi_faq",
+    "source.openstax_cost_of_living",
+    "source.ons_basket_2024",
+    "source.imf_what_is_inflation"
+  ],
+  "art": "money.shopping-cart"
+}

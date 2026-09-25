@@ -1,0 +1,218 @@
+{
+  "id": "level.money.how_money_works.026",
+  "skillId": "skill.money.how_money_works",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Credit Scores",
+  "objective": "After this level you can explain what a credit score measures and what raises or lowers it.",
+  "summary": "A credit score predicts how likely you are to repay on time, from your credit reports. FICO weighs payment history most, then amounts owed. Income is not part of it, and there is no single score.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.credit_score_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.credit_score_factors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.interest_ancient_rates",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.025"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Lenders can size you up without ever meeting you.",
+      "body": "They look at a number built from your borrowing record. Most of these numbers fall between 300 and 850. What goes into one is less mysterious than it seems."
+    },
+    {
+      "id": "card.how_money_works.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A forecast, not a grade",
+      "body": "A credit score is a prediction: how likely you are to pay back a loan on time, worked out from the record of your past borrowing in your credit reports. Usually a higher score makes a loan easier to get and may bring a better interest rate. Remember Level 23's barley loans: more risk, higher rate. A score is how a lender estimates the risk."
+    },
+    {
+      "id": "card.how_money_works.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What's in the recipe",
+      "body": "FICO scores weigh five things. Paying on time is the biggest single slice, and how much you owe comes next. The length of your credit history, new credit and your mix of credit types fill in the rest. In other words, the score mostly watches what you do with borrowed money.",
+      "callout": "Payment history 35% · Amounts owed 30% · History length 15% · New credit 10% · Mix 10%"
+    },
+    {
+      "id": "card.how_money_works.026.c4",
+      "type": "fact",
+      "fact": "Your salary isn't in your score.",
+      "context": "A FICO score comes only from your credit report, so income isn't part of it (though lenders may ask about income separately). And you don't have just one score: it varies with the scoring model, the data used and even the day it's calculated.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "A score reads habits, not paychecks. Good to know which one it is looking at."
+      }
+    },
+    {
+      "id": "card.how_money_works.026.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.026.q1"
+    },
+    {
+      "id": "card.how_money_works.026.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.026.q2"
+    },
+    {
+      "id": "card.how_money_works.026.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.026.q3"
+    },
+    {
+      "id": "card.how_money_works.026.c8",
+      "type": "checkpoint",
+      "headline": "Credit scores: demystified",
+      "learned": [
+        "A score predicts whether you will repay on time",
+        "Most scores fall between 300 and 850",
+        "Payment history counts most, then amounts owed",
+        "Income is not in it; there is no single score"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.credit_score_factors"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.026.c3"
+      ],
+      "prompt": "Which single factor carries the most weight in a FICO score?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Your income",
+          "correct": false,
+          "rationale": "Income isn't in the score at all."
+        },
+        {
+          "id": "b",
+          "label": "Your mix of credit types",
+          "correct": false,
+          "rationale": "That's only 10%."
+        },
+        {
+          "id": "c",
+          "label": "Your payment history",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "How long you have had credit",
+          "correct": false,
+          "rationale": "That's 15%, less than payment history."
+        }
+      ],
+      "explanation": "Payment history is the biggest slice of a FICO score, at 35%.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.credit_score_factors"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.026.c4"
+      ],
+      "prompt": "Two people have identical credit reports, but one earns twice as much. How do their FICO scores compare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The higher earner scores twice as high",
+          "correct": false,
+          "rationale": "Income is not part of the score."
+        },
+        {
+          "id": "b",
+          "label": "The higher earner scores a little higher",
+          "correct": false,
+          "rationale": "The score comes only from the credit report, which doesn't include income."
+        },
+        {
+          "id": "c",
+          "label": "The lower earner scores higher",
+          "correct": false,
+          "rationale": "Income does not count either way."
+        },
+        {
+          "id": "d",
+          "label": "They'd match: income isn't in the score",
+          "correct": true
+        }
+      ],
+      "explanation": "A FICO score is calculated only from the credit report. Lenders may ask about income separately, but it is not in the score.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.credit_score_definition",
+        "concept.how_money_works.interest_ancient_rates"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.026.c2",
+        "card.how_money_works.023.c3"
+      ],
+      "prompt": "Why might a higher credit score bring a lower interest rate, given the barley loans of Level 23?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A lower predicted risk of not being repaid",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Higher scores come with government subsidies",
+          "correct": false,
+          "rationale": "No subsidy is involved: it is about risk."
+        },
+        {
+          "id": "c",
+          "label": "Banks are required to charge everyone the same rate",
+          "correct": false,
+          "rationale": "Rates vary with risk, as in Mesopotamia."
+        },
+        {
+          "id": "d",
+          "label": "The score is set by how much you earn",
+          "correct": false,
+          "rationale": "Income isn't in the score. The score predicts repayment."
+        }
+      ],
+      "explanation": "A higher score predicts a better chance of repayment, and lenders have long charged less when risk is lower.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.bancaditalia_mesopotamian_tablets",
+    "source.cfpb_credit_score",
+    "source.myfico_score_factors"
+  ],
+  "art": "money.chart-up"
+}

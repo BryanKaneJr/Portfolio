@@ -1,0 +1,218 @@
+{
+  "id": "level.money.how_money_works.097",
+  "skillId": "skill.money.how_money_works",
+  "number": 97,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Inequality",
+  "objective": "After this level you can explain how income and wealth inequality are measured.",
+  "summary": "The Gini coefficient runs from 0 (everyone has the same) to 1 (one person has it all). Wealth is far more unequal than income: in OECD countries, the top 10% hold about half of wealth.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.ideas_gini_coefficient",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.ideas_wealth_vs_income",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.ideas_marx_critique",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.096"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.097.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Ten friends split a pizza. How do you put one number on how fairly?",
+      "body": "Everyone gets a slice: that's one extreme. One friend eats the whole thing: that's the other. Economists measure how evenly a country shares its income on exactly that kind of scale."
+    },
+    {
+      "id": "card.how_money_works.097.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Gini coefficient",
+      "body": "Italian statistician Corrado Gini devised it in 1912. A Gini of 0 means perfect equality: everyone has the same income. A Gini of 1 means one person gets all of it and everyone else gets nothing. It's tied to the Lorenz curve, a chart from 1905 that plots what share of income goes to what share of the people."
+    },
+    {
+      "id": "card.how_money_works.097.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Income isn't wealth",
+      "body": "Income is a flow: the money coming in. Wealth is a stock: what you own. And wealth is shared far less evenly. Across 28 OECD countries, the richest 10% of households held 52% of all household wealth, while the top 10% of earners got 24% of income. On average, wealth inequality ran about twice as high as income inequality.",
+      "callout": "Top 10%: 52% of wealth · 24% of income"
+    },
+    {
+      "id": "card.how_money_works.097.c4",
+      "type": "fact",
+      "fact": "Two very different countries can have the same Gini.",
+      "context": "The Gini shows how unequal a distribution is, but not why. Two countries with very different income patterns can land on the same score. And some countries measure consumption rather than income, which can miss how much wealth the richest households hold. One number is a starting point, not the whole story.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Same number, different pizzas. Always ask what went into the measure."
+      }
+    },
+    {
+      "id": "card.how_money_works.097.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.097.q1"
+    },
+    {
+      "id": "card.how_money_works.097.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.097.q2"
+    },
+    {
+      "id": "card.how_money_works.097.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.097.q3"
+    },
+    {
+      "id": "card.how_money_works.097.c8",
+      "type": "checkpoint",
+      "headline": "Measuring inequality",
+      "learned": [
+        "The Gini runs from 0 (equal) to 1 (one person has all)",
+        "Income is a flow; wealth is a stock",
+        "Wealth is about twice as unequal as income",
+        "One number never tells the whole story"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.097.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.ideas_gini_coefficient"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.097.c2"
+      ],
+      "prompt": "A country's Gini coefficient is 0. What does that mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One person has all the income",
+          "correct": false,
+          "rationale": "That's a Gini of 1."
+        },
+        {
+          "id": "b",
+          "label": "Nobody has any income",
+          "correct": false,
+          "rationale": "The Gini measures sharing, not the total."
+        },
+        {
+          "id": "c",
+          "label": "The data is missing",
+          "correct": false,
+          "rationale": "Zero is a real score: perfect equality."
+        },
+        {
+          "id": "d",
+          "label": "Everyone has the same income",
+          "correct": true
+        }
+      ],
+      "explanation": "A Gini of 0 is perfect equality; a Gini of 1 means one person gets everything.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.097.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.ideas_gini_coefficient"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.097.c4"
+      ],
+      "prompt": "Why can two countries share the same Gini score yet look very different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Gini shows how unequal a distribution is, not why",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Gini only counts people over 65",
+          "correct": false,
+          "rationale": "It covers the whole distribution."
+        },
+        {
+          "id": "c",
+          "label": "The Gini ignores income entirely",
+          "correct": false,
+          "rationale": "It is usually built from income data."
+        },
+        {
+          "id": "d",
+          "label": "Every country has the same Gini",
+          "correct": false,
+          "rationale": "Scores differ; the point is that one number hides detail."
+        }
+      ],
+      "explanation": "Different income patterns can produce the same Gini, because it summarizes how unequal, not why.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.how_money_works.097.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.ideas_wealth_vs_income",
+        "concept.how_money_works.ideas_marx_critique"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.097.c3",
+        "card.how_money_works.092.c3"
+      ],
+      "prompt": "Level 92's Marx expected wealth to pile up in fewer hands. What do OECD figures show about wealth today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wealth is shared more evenly than income",
+          "correct": false,
+          "rationale": "It is the other way around."
+        },
+        {
+          "id": "b",
+          "label": "The richest 10% of households hold about half of it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Every household holds the same share",
+          "correct": false,
+          "rationale": "That would be a Gini of 0."
+        },
+        {
+          "id": "d",
+          "label": "The richest 10% hold under a tenth of it",
+          "correct": false,
+          "rationale": "They hold 52%, not under 10%."
+        }
+      ],
+      "explanation": "Across 28 OECD countries, the richest 10% of households held 52% of household wealth, about twice as concentrated as income.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_gini_coefficient",
+    "source.oecd_household_wealth_2018",
+    "source.econlib_karl_marx"
+  ],
+  "art": "money.scale"
+}

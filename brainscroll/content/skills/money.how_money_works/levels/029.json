@@ -1,0 +1,219 @@
+{
+  "id": "level.money.how_money_works.029",
+  "skillId": "skill.money.how_money_works",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "When Banks Fail",
+  "objective": "After this level you can explain bank runs and how deposit insurance protects savers.",
+  "summary": "Banks borrow short and lend long, so they can't pay everyone at once. A run feeds itself. US deposit insurance covers $250,000 per depositor, per bank, per ownership category.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.bank_run_mechanics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.deposit_insurance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.money_trust",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.028"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.029.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In a single day in 2023, customers pulled more than $40 billion out of one bank.",
+      "body": "The bank was Silicon Valley Bank, and regulators seized it the next day. To see how that can happen, look at what a bank does with your deposit."
+    },
+    {
+      "id": "card.how_money_works.029.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why no bank can pay everyone at once",
+      "body": "You can withdraw a deposit any day, but a bank's loans run for years. Economists call this borrowing short and lending long maturity transformation. Banks keep funds in reserve for depositors who want their money, but they can't pay off all their depositors at once."
+    },
+    {
+      "id": "card.how_money_works.029.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The rush that feeds itself",
+      "body": "A bank run is when many depositors try to withdraw at the same time, and it can put a bank out of business. Here's the trap: once a run starts, the bank really is at risk, so it makes sense for everyone else to withdraw too. Economists Douglas Diamond and Philip Dybvig worked out that logic, and it helped earn them the 2022 Nobel Prize in economics. It's Level 6 in reverse: money works because people believe it will, and a run is what happens when belief cracks."
+    },
+    {
+      "id": "card.how_money_works.029.c4",
+      "type": "fact",
+      "fact": "Since 1933, no depositor has lost a penny of FDIC-insured money.",
+      "context": "The US answer to runs is deposit insurance. The FDIC was created in 1933, after thousands of bank failures, to keep public confidence in the banking system. Today it covers $250,000 per depositor, per insured bank, for each ownership category.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A bank run is a rumor with a queue. Deposit insurance is there to keep the queue from forming."
+      }
+    },
+    {
+      "id": "card.how_money_works.029.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.029.q1"
+    },
+    {
+      "id": "card.how_money_works.029.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.029.q2"
+    },
+    {
+      "id": "card.how_money_works.029.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.029.q3"
+    },
+    {
+      "id": "card.how_money_works.029.c8",
+      "type": "checkpoint",
+      "headline": "Bank runs: understood",
+      "learned": [
+        "Banks lend long and borrow short",
+        "They cannot pay all depositors at once",
+        "A run feeds itself as fear spreads",
+        "FDIC insurance covers $250,000 per depositor, per bank, per category"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.bank_run_mechanics"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.029.c3"
+      ],
+      "prompt": "What is a bank run?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A bank opening many new branches at once",
+          "correct": false,
+          "rationale": "A run is about withdrawals, not branches."
+        },
+        {
+          "id": "b",
+          "label": "Many depositors trying to withdraw at the same time",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A bank lending more than it takes in",
+          "correct": false,
+          "rationale": "That's lending; a run is a rush of withdrawals."
+        },
+        {
+          "id": "d",
+          "label": "A race between banks to offer the best rate",
+          "correct": false,
+          "rationale": "A run is a rush to withdraw."
+        }
+      ],
+      "explanation": "A bank run is an attempt by many depositors to withdraw their money at the same time.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.bank_run_mechanics"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.029.c2"
+      ],
+      "prompt": "Why can't a bank pay all of its depositors at once?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Banks are forbidden to keep any cash",
+          "correct": false,
+          "rationale": "Banks keep reserves, just not enough for everyone at once."
+        },
+        {
+          "id": "b",
+          "label": "Deposits are sent to the government each night",
+          "correct": false,
+          "rationale": "Deposits stay with the bank. Its money is in long-term loans."
+        },
+        {
+          "id": "c",
+          "label": "Its money is tied up in loans that run for years",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Depositors must give a year of notice",
+          "correct": false,
+          "rationale": "Deposits can be withdrawn any day; the loans are what take years."
+        }
+      ],
+      "explanation": "Banks borrow short and lend long (maturity transformation), so they keep only some funds in reserve.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.deposit_insurance",
+        "concept.how_money_works.money_trust"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.029.c4",
+        "card.how_money_works.006.c3"
+      ],
+      "prompt": "Level 6 said money works because people believe it will. What was the FDIC created to protect?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The price of gold",
+          "correct": false,
+          "rationale": "The FDIC insures deposits, not gold prices."
+        },
+        {
+          "id": "b",
+          "label": "Banks' profits",
+          "correct": false,
+          "rationale": "It protects depositors and confidence, not profits."
+        },
+        {
+          "id": "c",
+          "label": "The value of homes",
+          "correct": false,
+          "rationale": "It insures deposits, not houses."
+        },
+        {
+          "id": "d",
+          "label": "Public confidence in the banking system",
+          "correct": true
+        }
+      ],
+      "explanation": "The FDIC was created to maintain stability and public confidence: the belief that keeps depositors from rushing out.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.fdic_understanding_deposit_insurance",
+    "source.fed_svb_review",
+    "source.imf_what_is_money",
+    "source.loc_fdic_established",
+    "source.stlouisfed_bank_runs_2023"
+  ],
+  "art": "money.chart-down"
+}

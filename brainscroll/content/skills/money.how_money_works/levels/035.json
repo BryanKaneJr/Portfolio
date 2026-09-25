@@ -1,0 +1,222 @@
+{
+  "id": "level.money.how_money_works.035",
+  "skillId": "skill.money.how_money_works",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Stock Markets",
+  "objective": "After this level you can explain how stock exchanges match buyers and sellers.",
+  "summary": "The NYSE grew from the 1792 Buttonwood Agreement. Exchanges gather buyers and sellers so you can nearly always trade; bids and asks meet, and orders are matched automatically.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.exchange_meeting_place",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.exchange_orders",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.barter_double_coincidence",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.034"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The New York Stock Exchange began as a two-sentence deal between 24 brokers.",
+      "body": "They signed it on May 17, 1792, meeting under a buttonwood tree on Wall Street, and promised to trade with each other at fixed commissions. The tree is long gone. Its job, bringing buyers and sellers together, is bigger than ever."
+    },
+    {
+      "id": "card.how_money_works.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The problem an exchange solves",
+      "body": "Say you want to sell a share. Somewhere there's a buyer, but where? Remember Level 2's mechanic hunting for a farmer with a broken car? An exchange ends the hunt by bringing buyers and sellers together in one place. It guarantees a basic level of liquidity: you can always find someone to trade with. Whether you like their price is another story."
+    },
+    {
+      "id": "card.how_money_works.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bids, asks and the spread",
+      "body": "Every stock has two live prices. The bid is the highest price any buyer will pay; the ask is the lowest any seller will take. The ask is almost always higher, and the gap between them is the spread. Electronic networks match buy and sell orders automatically. The price in the headlines is the last trade, not a promise about yours."
+    },
+    {
+      "id": "card.how_money_works.035.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Speed or price: pick one",
+      "body": "A market order says: trade now. It's sure to go through, but the price isn't guaranteed. A limit order says: only at my price or better, so a buy fills at your limit or lower and a sell at your limit or higher. Your price is protected, but the trade might never happen.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Market order: \"I want it now.\" Limit order: \"I want it at my price.\" Both very human."
+      }
+    },
+    {
+      "id": "card.how_money_works.035.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.035.q1"
+    },
+    {
+      "id": "card.how_money_works.035.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.035.q2"
+    },
+    {
+      "id": "card.how_money_works.035.c8",
+      "type": "recall",
+      "questionId": "question.how_money_works.035.q3"
+    },
+    {
+      "id": "card.how_money_works.035.c9",
+      "type": "checkpoint",
+      "headline": "Exchanges: open",
+      "learned": [
+        "The NYSE began with 24 brokers in 1792",
+        "Exchanges bring buyers and sellers together",
+        "Bid, ask and the spread between them",
+        "Market orders trade now; limit orders wait for your price"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.exchange_orders"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.035.c3"
+      ],
+      "prompt": "What is a stock's bid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The lowest price any seller will take",
+          "correct": false,
+          "rationale": "That's the ask."
+        },
+        {
+          "id": "b",
+          "label": "The fee the exchange charges per trade",
+          "correct": false,
+          "rationale": "The bid is a price a buyer offers."
+        },
+        {
+          "id": "c",
+          "label": "The highest price any buyer will pay",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The price of the last trade",
+          "correct": false,
+          "rationale": "That's the last-traded price."
+        }
+      ],
+      "explanation": "The bid is the best price buyers are offering; the ask is the best price sellers will accept.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.exchange_orders"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.035.c4"
+      ],
+      "prompt": "You place a limit order to buy at $10 while the stock trades at $12. What happens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It fills at once at $12",
+          "correct": false,
+          "rationale": "That's what a market order would do."
+        },
+        {
+          "id": "b",
+          "label": "It waits, filling only at $10 or lower",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The exchange cancels it immediately",
+          "correct": false,
+          "rationale": "Limit orders can wait for the price to come to them."
+        },
+        {
+          "id": "d",
+          "label": "It fills at $11 to split the difference",
+          "correct": false,
+          "rationale": "A buy limit fills only at the limit price or lower."
+        }
+      ],
+      "explanation": "A buy limit order executes only at your limit price or better. Until then, it waits, and it might never fill.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.exchange_meeting_place",
+        "concept.how_money_works.barter_double_coincidence"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.035.c2",
+        "card.how_money_works.002.c2"
+      ],
+      "prompt": "Level 2's barter needed a lucky match of partners. How does a stock exchange handle the same hunt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It fixes one price for every stock each day",
+          "correct": false,
+          "rationale": "Prices keep moving as bids and asks change."
+        },
+        {
+          "id": "b",
+          "label": "It lets buyers swap goods directly for shares",
+          "correct": false,
+          "rationale": "Trades are paid in money, not goods."
+        },
+        {
+          "id": "c",
+          "label": "It limits trading to people who know each other",
+          "correct": false,
+          "rationale": "The Buttonwood brokers did at first; exchanges today are open to buyers and sellers everywhere."
+        },
+        {
+          "id": "d",
+          "label": "It gathers buyers and sellers so trades can always happen",
+          "correct": true
+        }
+      ],
+      "explanation": "An exchange brings buyers and sellers together, so you don't need a lucky match: that guaranteed liquidity is its core job.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nyse_history",
+    "source.history_buttonwood_agreement",
+    "source.openstax_finance_financial_markets",
+    "source.sec_investor_bid_ask",
+    "source.sec_investor_executing_order",
+    "source.sec_investor_order_types",
+    "source.openstax_money_functions"
+  ],
+  "art": "money.chart-up"
+}

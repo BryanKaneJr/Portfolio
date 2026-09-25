@@ -1,0 +1,230 @@
+{
+  "id": "level.money.how_money_works.024",
+  "skillId": "skill.money.how_money_works",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Compound Interest",
+  "objective": "After this level you can explain how earning interest on interest makes money grow faster over time.",
+  "summary": "Compound interest pays interest on earlier interest, so growth speeds up. Franklin calculated £1,000 at 5% would become £131,000 in a century, not £6,000. The Rule of 72 estimates doubling time.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.interest_compounding",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.franklin_bequest",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.interest_rule_of_72",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.interest_price_of_borrowing",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.interest_ancient_rates",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.023"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Ben Franklin left Boston £1,000 and a 200-year homework assignment.",
+      "body": "In his will, he asked for the money to be lent out at interest to young tradesmen, and he did the math on what would happen. His answer shows why interest on interest is such a big deal."
+    },
+    {
+      "id": "card.how_money_works.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Interest on interest",
+      "body": "Simple interest is paid only on the amount you started with. Compound interest is paid on that amount plus all the interest it has already earned. So each year's interest joins the pile that earns next year's. The pile grows, so the interest grows, so the pile grows faster. It's a snowball rolling downhill, picking up snow that picks up more snow."
+    },
+    {
+      "id": "card.how_money_works.024.c3",
+      "type": "fact",
+      "fact": "£1,000 at 5% for 100 years: Franklin reckoned it would become £131,000.",
+      "context": "With simple interest, £50 a year for 100 years adds just £5,000, for £6,000 in all. Compounding made a difference of about £125,000. Reality was messier: the funds were badly managed and fell short of his estimates. Even so, by 1990 Boston's fund had grown to about $4.5 million.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Franklin's arithmetic held up beautifully. The people running his fund, somewhat less so."
+      }
+    },
+    {
+      "id": "card.how_money_works.024.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Rule of 72",
+      "body": "Here's a shortcut for compounding: divide 72 by the yearly interest rate to estimate how many years it takes money to double. At 8%, about 9 years. At 2%, about 36. The rate matters enormously: quadruple the rate from 2% to 8% and the money doubles four times as fast."
+    },
+    {
+      "id": "card.how_money_works.024.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.024.q1"
+    },
+    {
+      "id": "card.how_money_works.024.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.024.q2"
+    },
+    {
+      "id": "card.how_money_works.024.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.024.q3"
+    },
+    {
+      "id": "card.how_money_works.024.c8",
+      "type": "checkpoint",
+      "headline": "Compounding: grasped",
+      "learned": [
+        "Compound interest earns interest on interest",
+        "Franklin's £1,000 at 5% was aimed at £131,000 in 100 years",
+        "Simple interest would have made just £6,000",
+        "Rule of 72: 72 ÷ rate = years to double"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.interest_compounding"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.024.c2"
+      ],
+      "prompt": "What makes compound interest different from simple interest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is only charged on loans, never on savings",
+          "correct": false,
+          "rationale": "Compounding works on savings and debts alike."
+        },
+        {
+          "id": "b",
+          "label": "It is paid on earlier interest as well as the original amount",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is always charged at a lower rate",
+          "correct": false,
+          "rationale": "The rate can be the same; what differs is what it's paid on."
+        },
+        {
+          "id": "d",
+          "label": "It is paid once, at the very end",
+          "correct": false,
+          "rationale": "It's added along the way, and then earns interest itself."
+        }
+      ],
+      "explanation": "Compound interest is paid on the original amount plus the interest already earned: interest on interest.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.franklin_bequest",
+        "concept.how_money_works.interest_compounding"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.024.c3",
+        "card.how_money_works.024.c2"
+      ],
+      "prompt": "Why did Franklin expect his £1,000 to reach £131,000 in a century, rather than £6,000?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He expected the interest rate to rise every year",
+          "correct": false,
+          "rationale": "The plan used a steady 5%."
+        },
+        {
+          "id": "b",
+          "label": "Boston promised to add money every year",
+          "correct": false,
+          "rationale": "No extra money was added: the interest did the work."
+        },
+        {
+          "id": "c",
+          "label": "Each year's interest would itself earn interest",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He expected the pound to lose value",
+          "correct": false,
+          "rationale": "Inflation wasn't his calculation; compounding was."
+        }
+      ],
+      "explanation": "At 5% simple interest, £1,000 becomes £6,000 in 100 years. Compounding, interest on interest, makes it about £131,000.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.interest_rule_of_72",
+        "concept.how_money_works.interest_ancient_rates"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.024.c4",
+        "card.how_money_works.023.c3"
+      ],
+      "prompt": "If a debt at Level 23's 20% rate on silver compounded yearly, about how long would it take to double?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 3.6 years",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "About 7.2 years",
+          "correct": false,
+          "rationale": "That's the doubling time at 10%. Try 72 divided by 20."
+        },
+        {
+          "id": "c",
+          "label": "About 20 years",
+          "correct": false,
+          "rationale": "The Rule of 72 divides 72 by the rate: 72 ÷ 20."
+        },
+        {
+          "id": "d",
+          "label": "About 72 years",
+          "correct": false,
+          "rationale": "Divide 72 by the rate, 20, to get the years."
+        }
+      ],
+      "explanation": "By the Rule of 72, 72 ÷ 20 = 3.6: a debt growing at 20% a year doubles in about 3.6 years.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.boston_franklin_fund",
+    "source.cfi_simple_vs_compound",
+    "source.historynet_franklin_gift",
+    "source.stlouisfed_compound_interest"
+  ],
+  "art": "money.coin-plant"
+}

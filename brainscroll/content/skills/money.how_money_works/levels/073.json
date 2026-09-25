@@ -1,0 +1,225 @@
+{
+  "id": "level.money.how_money_works.073",
+  "skillId": "skill.money.how_money_works",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Imports and Exports",
+  "objective": "After this level you can explain imports, exports and the balance of trade.",
+  "summary": "Exports are sold abroad and imports are bought from abroad; travel spending counts too. Exports minus imports gives the trade balance, and whether a deficit matters is debated.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.trade_imports_exports",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.trade_balance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.trade_gains",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.trade_natural_advantages",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.072"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Buy a souvenir on holiday abroad, and your country just imported something.",
+      "body": "No ship, no container, no customs form. Yet the statisticians count it. What foreign visitors spend in a country counts as its exports, and what its residents spend on trips abroad counts as imports."
+    },
+    {
+      "id": "card.how_money_works.073.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Out the door, in the door",
+      "body": "An export is a good or service a country sells to other countries; an import is one it buys from them. Exports bring money in, and imports send it out. Goods like cars and coffee count, but so do services: finance, software, consulting and design. So does your holiday. A tourist eating pasta in Rome is, technically, an Italian export.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Next time someone asks about your trip, tell them you were supporting Italian exports."
+      }
+    },
+    {
+      "id": "card.how_money_works.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Keeping score",
+      "body": "Take exports, subtract imports, and you get the trade balance. Export more than you import and you run a trade surplus. Import more and you run a trade deficit. The United States has run a deficit year after year since the mid-1970s. So is it losing?"
+    },
+    {
+      "id": "card.how_money_works.073.c4",
+      "type": "fact",
+      "fact": "Is a trade deficit a loss? People disagree.",
+      "context": "Some policymakers see a deficit as proof that a country is losing at trade. Most experts say a deficit, or a surplus, is in itself neither good nor bad. Remember Level 71: each trade happens because both sides expect to gain. Whether a country's overall deficit is a problem is a separate, and still debated, question."
+    },
+    {
+      "id": "card.how_money_works.073.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.073.q1"
+    },
+    {
+      "id": "card.how_money_works.073.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.073.q2"
+    },
+    {
+      "id": "card.how_money_works.073.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.073.q3"
+    },
+    {
+      "id": "card.how_money_works.073.c8",
+      "type": "checkpoint",
+      "headline": "Imports, exports, balance",
+      "learned": [
+        "Exports are sold abroad; imports are bought from abroad",
+        "Services and travel spending count",
+        "Trade balance = exports minus imports",
+        "Whether deficits matter is debated"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.trade_imports_exports"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.073.c1",
+        "card.how_money_works.073.c2"
+      ],
+      "prompt": "A tourist from Japan pays for a museum ticket in New York. For the US, what is that spending?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An import of services",
+          "correct": false,
+          "rationale": "It would be an import for Japan, not the US."
+        },
+        {
+          "id": "b",
+          "label": "Not trade at all",
+          "correct": false,
+          "rationale": "Services, including travel, count as trade."
+        },
+        {
+          "id": "c",
+          "label": "A tariff",
+          "correct": false,
+          "rationale": "A tariff is a tax on imports, not a purchase."
+        },
+        {
+          "id": "d",
+          "label": "An export of services",
+          "correct": true
+        }
+      ],
+      "explanation": "What foreign visitors spend in a country counts as that country's exports, so the ticket is a US export.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.trade_balance"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.073.c3"
+      ],
+      "prompt": "A country exports $50 billion and imports $70 billion in a year. What does it have?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A trade surplus of $20 billion",
+          "correct": false,
+          "rationale": "A surplus needs exports bigger than imports."
+        },
+        {
+          "id": "b",
+          "label": "A trade surplus of $120 billion",
+          "correct": false,
+          "rationale": "The balance subtracts imports from exports; it doesn't add them."
+        },
+        {
+          "id": "c",
+          "label": "A trade deficit of $20 billion",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A balanced trade account",
+          "correct": false,
+          "rationale": "It imports more than it exports, so it isn't balanced."
+        }
+      ],
+      "explanation": "Exports minus imports is 50 minus 70, or minus 20: a trade deficit of $20 billion.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.trade_balance",
+        "concept.how_money_works.trade_gains"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.073.c4",
+        "card.how_money_works.071.c2"
+      ],
+      "prompt": "Level 71 said voluntary trades make both sides better off. What do most experts say about a trade deficit in itself?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It proves a country is losing",
+          "correct": false,
+          "rationale": "That's the view of some policymakers, not most experts."
+        },
+        {
+          "id": "b",
+          "label": "It is neither good nor bad",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is always a sign of strength",
+          "correct": false,
+          "rationale": "Experts don't call it a sign of strength either."
+        },
+        {
+          "id": "d",
+          "label": "It means trade has stopped",
+          "correct": false,
+          "rationale": "A deficit means imports exceed exports; trade continues."
+        }
+      ],
+      "explanation": "Most experts say a deficit or surplus is in itself neither good nor bad, though some policymakers see deficits as losing.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.ita_travel_receipts",
+    "source.cfr_trade_deficit_means",
+    "source.openstax_trade_balances",
+    "source.dallasfed_trade_deficits",
+    "source.stlouisfed_trade_winners_losers"
+  ],
+  "art": "money.container-ship"
+}

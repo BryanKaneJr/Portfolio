@@ -1,0 +1,225 @@
+{
+  "id": "level.money.how_money_works.063",
+  "skillId": "skill.money.how_money_works",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hyperinflation",
+  "objective": "After this level you can describe hyperinflation in Weimar Germany and Zimbabwe and explain what caused it.",
+  "summary": "Hyperinflation is inflation above 50% a month. Weimar Germany in 1923 and Zimbabwe in 2008 both printed money to pay the government's bills until their currencies collapsed.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.hyperinflation_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.weimar_hyperinflation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.zimbabwe_hyperinflation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.money_trust",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.062"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.063.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1914, a dollar cost just over four German marks. By late 1923: trillions.",
+      "body": "About 4.2 trillion, to be exact. That isn't prices creeping up. That's money dissolving, and economists have a name for it."
+    },
+    {
+      "id": "card.how_money_works.063.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "When inflation runs wild",
+      "body": "In 1956, economist Phillip Cagan drew the line: hyperinflation means prices rising more than 50% in a single month. It usually starts the same way. A government creates new money to pay for its spending, faster than the economy can produce. Then trust breaks. People rush to spend money before it loses more value, or swap it for foreign currency, and prices race even faster."
+    },
+    {
+      "id": "card.how_money_works.063.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Germany, 1923",
+      "body": "After World War I, Germany's government printed more and more money to pay its bills, including war reparations. In early 1923, French and Belgian troops occupied the Ruhr region, coal output there stopped, and prices climbed further. Savings were wiped out. Historians still debate the blame: how much lies with reparations, and how much with Germany's own choices, such as printing money rather than raising taxes."
+    },
+    {
+      "id": "card.how_money_works.063.c4",
+      "type": "fact",
+      "fact": "In 2008, Zimbabwe's prices were doubling roughly every day.",
+      "context": "After land reforms crippled farm output, Zimbabwe's government printed money aggressively. By mid-November 2008, monthly inflation hit about 79.6 billion percent. In January 2009, a 100 trillion dollar note went into circulation. That same year, the country gave up its own currency, and people paid in foreign money, mainly US dollars.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A price tag that needs rewriting before lunch. Imagine doing the shopping."
+      }
+    },
+    {
+      "id": "card.how_money_works.063.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.063.q1"
+    },
+    {
+      "id": "card.how_money_works.063.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.063.q2"
+    },
+    {
+      "id": "card.how_money_works.063.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.063.q3"
+    },
+    {
+      "id": "card.how_money_works.063.c8",
+      "type": "checkpoint",
+      "headline": "Hyperinflation: explained",
+      "learned": [
+        "Hyperinflation: prices rising over 50% a month",
+        "It starts when governments print money to pay their bills",
+        "Germany 1923: a dollar cost trillions of marks",
+        "Zimbabwe 2008: prices doubled about daily, then the currency was dropped"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.weimar_hyperinflation"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.063.c3"
+      ],
+      "prompt": "What did Germany's government do that fueled the hyperinflation of 1923?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Raised taxes sharply to pay its debts",
+          "correct": false,
+          "rationale": "It printed money rather than raising taxes."
+        },
+        {
+          "id": "b",
+          "label": "Printed more and more money to pay its bills",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Banned paper money and paid in gold",
+          "correct": false,
+          "rationale": "Paper marks kept pouring out."
+        },
+        {
+          "id": "d",
+          "label": "Stopped paying all war reparations",
+          "correct": false,
+          "rationale": "It printed money to pay its bills, reparations included."
+        }
+      ],
+      "explanation": "Germany's government printed ever more money to pay its bills, including reparations, and prices exploded.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.hyperinflation_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.063.c2"
+      ],
+      "prompt": "Once hyperinflation takes hold, why do prices race even faster?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Factories suddenly produce far more goods",
+          "correct": false,
+          "rationale": "More goods would ease prices, not push them up."
+        },
+        {
+          "id": "b",
+          "label": "The government cuts its spending sharply",
+          "correct": false,
+          "rationale": "That would slow inflation, not speed it up."
+        },
+        {
+          "id": "c",
+          "label": "Shops refuse to accept any money at all",
+          "correct": false,
+          "rationale": "Money still changes hands, faster and faster."
+        },
+        {
+          "id": "d",
+          "label": "People rush to spend money before it loses more value",
+          "correct": true
+        }
+      ],
+      "explanation": "As trust collapses, people spend money as fast as they can or swap it for foreign currency, pushing prices up faster still.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.how_money_works.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.zimbabwe_hyperinflation",
+        "concept.how_money_works.money_trust"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.063.c4",
+        "card.how_money_works.006.c4"
+      ],
+      "prompt": "Zimbabweans dropped their own dollar and paid in US dollars. Which Level 6 idea does that show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "When belief goes, paper is just paper",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Money has to be made of precious metal",
+          "correct": false,
+          "rationale": "Neither currency is backed by metal."
+        },
+        {
+          "id": "c",
+          "label": "Coins always win out over paper money",
+          "correct": false,
+          "rationale": "People switched to another currency, not to coins."
+        },
+        {
+          "id": "d",
+          "label": "Barter always comes before money",
+          "correct": false,
+          "rationale": "That's a different, disputed story from Level 2."
+        }
+      ],
+      "explanation": "Money works because people trust it. Once Zimbabweans lost that trust, their dollar stopped working as money.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_hyperinflation",
+    "source.brit_weimar_hyperinflation",
+    "source.smithsonian_weimar_hyperinflation",
+    "source.cato_hanke_zimbabwe",
+    "source.cnn_zimbabwe_100_trillion",
+    "source.imf_what_is_inflation"
+  ],
+  "art": "money.banknote"
+}

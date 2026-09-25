@@ -1,0 +1,225 @@
+{
+  "id": "level.money.how_money_works.075",
+  "skillId": "skill.money.how_money_works",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Exchange Rates",
+  "objective": "After this level you can explain how currencies are traded and why their values change.",
+  "summary": "An exchange rate is the price of one currency in another. Floating rates move with interest rates, inflation and expectations; a stronger currency makes imports cheaper and exports pricier.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.fx_exchange_rates",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.fx_rate_movers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.gold_standard_end",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.tariff_who_pays",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.074"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.075.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every day, $9.6 trillion of money is traded for other money.",
+      "body": "That was the daily average in April 2025, up from $7.5 trillion in 2022. It's the foreign exchange market, where people and firms use one currency to buy another. Every price in it is an exchange rate."
+    },
+    {
+      "id": "card.how_money_works.075.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A price tag on money",
+      "body": "An exchange rate is how much one currency is worth in terms of another. Swap dollars for euros before a trip and you're a buyer in this market. So are firms paying foreign suppliers and investors buying assets abroad. If your currency buys more euros than last year, it has appreciated, or strengthened. If it buys fewer, it has depreciated, or weakened."
+    },
+    {
+      "id": "card.how_money_works.075.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What pushes rates around",
+      "body": "Most big currencies float: their rates are mainly set by the market, through supply and demand. Relatively high interest rates pull in money from abroad, so the currency tends to rise. Relatively high inflation eats away at what a currency buys, so it tends to fall. And expectations feed themselves: if people expect a currency to rise, they buy it, and that can push it up."
+    },
+    {
+      "id": "card.how_money_works.075.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Strong isn't simply good",
+      "body": "A stronger dollar helps Americans buying imports or traveling abroad, but a weaker one helps US exporters and foreign tourists visiting the US. Every move has winners and losers. Some countries skip the ride and fix, or peg, their rate against another currency, as the world did under Level 7's Bretton Woods system, when other currencies were fixed to the dollar.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Same dollar, same day: great news for your holiday, bad news for your country's exporters."
+      }
+    },
+    {
+      "id": "card.how_money_works.075.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.075.q1"
+    },
+    {
+      "id": "card.how_money_works.075.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.075.q2"
+    },
+    {
+      "id": "card.how_money_works.075.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.075.q3"
+    },
+    {
+      "id": "card.how_money_works.075.c8",
+      "type": "checkpoint",
+      "headline": "Exchange rates",
+      "learned": [
+        "An exchange rate is the price of one currency in another",
+        "About $9.6 trillion a day traded (2025)",
+        "Interest rates, inflation and expectations move floating rates",
+        "A strong currency makes imports cheaper, exports pricier"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.fx_exchange_rates"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.075.c2"
+      ],
+      "prompt": "What is an exchange rate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The interest a bank pays on savings",
+          "correct": false,
+          "rationale": "That's an interest rate."
+        },
+        {
+          "id": "b",
+          "label": "How much one currency is worth in another",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The fee for changing money at an airport",
+          "correct": false,
+          "rationale": "A fee may apply, but the rate itself is the currency's price."
+        },
+        {
+          "id": "d",
+          "label": "A tax on imported goods",
+          "correct": false,
+          "rationale": "That's a tariff."
+        }
+      ],
+      "explanation": "An exchange rate is the price of one currency in terms of another.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.fx_rate_movers"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.075.c3"
+      ],
+      "prompt": "A country's interest rates rise relative to other countries'. What tends to happen to its currency?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It tends to fall as savers leave",
+          "correct": false,
+          "rationale": "Higher rates attract money rather than drive it away."
+        },
+        {
+          "id": "b",
+          "label": "Nothing, because rates are fixed by law",
+          "correct": false,
+          "rationale": "Most big currencies float, so rates move."
+        },
+        {
+          "id": "c",
+          "label": "It tends to rise as money flows in",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It stops being traded",
+          "correct": false,
+          "rationale": "Trading continues; demand rises."
+        }
+      ],
+      "explanation": "Higher relative interest rates attract money from abroad, raising demand for the currency.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.how_money_works.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.fx_exchange_rates",
+        "concept.how_money_works.tariff_who_pays"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.075.c4",
+        "card.how_money_works.074.c2"
+      ],
+      "prompt": "A weaker dollar makes imports pricier for Americans. Which Level 74 tool can also raise import prices?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A tariff",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A trade surplus",
+          "correct": false,
+          "rationale": "A surplus is a trade result, not a tool that raises import prices."
+        },
+        {
+          "id": "c",
+          "label": "A peg",
+          "correct": false,
+          "rationale": "A peg holds a rate steady; it doesn't tax imports."
+        },
+        {
+          "id": "d",
+          "label": "A positive-sum trade",
+          "correct": false,
+          "rationale": "That describes why trade happens, not a price-raising tool."
+        }
+      ],
+      "explanation": "A tariff is a tax on imports that importers can pass on to shoppers as higher prices.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.bis_fx_turnover_2025",
+    "source.openstax_fx_market",
+    "source.imf_exchange_rate_regimes",
+    "source.openstax_fx_shifts",
+    "source.fedhistory_gold_convertibility_ends"
+  ],
+  "art": "money.banknote"
+}

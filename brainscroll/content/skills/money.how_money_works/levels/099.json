@@ -1,0 +1,225 @@
+{
+  "id": "level.money.how_money_works.099",
+  "skillId": "skill.money.how_money_works",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Economics of Your Life",
+  "objective": "After this level you can apply the tree's big ideas to everyday choices about work, saving and spending.",
+  "summary": "Keynes's 15-hour week never came, but longer retirements added leisure. Defaults shape how people save, and the sunk cost effect shows spent money steering choices.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.ideas_keynes_grandchildren",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.ideas_nudge_defaults",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.ideas_sunk_cost",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.money_three_jobs",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.098"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Big ideas, small choices: your job, your savings, tonight's ticket.",
+      "body": "Economics isn't only about nations and markets. Its ideas show up in how much you work, whether you save, and whether you sit through a play you're not enjoying."
+    },
+    {
+      "id": "card.how_money_works.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Work: Keynes's 15-hour week",
+      "body": "In 1930, Keynes predicted that a century later, living standards would be four to eight times higher and people might work just 15 hours a week. Economist Nicholas Crafts concluded the short week won't arrive by 2030. But the free time turned up somewhere else: in the UK, expected lifetime hours of leisure and home production rose 58% between 1931 and 2011, reflecting longer lives and longer retirements."
+    },
+    {
+      "id": "card.how_money_works.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Saving: the power of the default",
+      "body": "Behavioral economists find that small details shape big decisions. One is the default: what happens unless you actively choose something else. Another is timing. Promising to save more in the future, especially after a raise, feels easier than saving more today, and Thaler and Shlomo Benartzi built their Save More Tomorrow plan on that. Critics call such nudges paternalistic; supporters stress that joining is voluntary and you can opt out any time."
+    },
+    {
+      "id": "card.how_money_works.099.c4",
+      "type": "fact",
+      "fact": "Paying full price made people go to more plays.",
+      "context": "In a 1985 study, Hal Arkes and Catherine Blumer sold theater season tickets at full price or at random discounts. Over the next six months, the full-price buyers went to more plays, though the money was spent either way. That's the sunk cost effect: a greater tendency to keep going with something once money, effort or time has gone into it.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Paid full price, so you'd better go? The study suggests that's exactly how our heads work."
+      }
+    },
+    {
+      "id": "card.how_money_works.099.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.099.q1"
+    },
+    {
+      "id": "card.how_money_works.099.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.099.q2"
+    },
+    {
+      "id": "card.how_money_works.099.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.099.q3"
+    },
+    {
+      "id": "card.how_money_works.099.c8",
+      "type": "checkpoint",
+      "headline": "Economics, up close",
+      "learned": [
+        "Keynes's 15-hour week never came, but retirement did",
+        "Defaults and timing shape how much people save",
+        "Sunk costs can steer choices they shouldn't",
+        "Big ideas show up in small decisions"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.ideas_keynes_grandchildren"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.099.c2"
+      ],
+      "prompt": "What did Keynes predict in 1930 for a century later?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Falling living standards and longer hours",
+          "correct": false,
+          "rationale": "He predicted the opposite on both counts."
+        },
+        {
+          "id": "b",
+          "label": "Much higher living standards and a 15-hour work week",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The end of money",
+          "correct": false,
+          "rationale": "His essay was about wealth and work, not abolishing money."
+        },
+        {
+          "id": "d",
+          "label": "A return to the gold standard",
+          "correct": false,
+          "rationale": "The essay was about living standards and leisure."
+        }
+      ],
+      "explanation": "Keynes predicted living standards four to eight times higher and a 15-hour week; the short week hasn't arrived.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.ideas_sunk_cost"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.099.c4"
+      ],
+      "prompt": "In Arkes and Blumer's study, why did full-price ticket holders go to more plays?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their seats were better",
+          "correct": false,
+          "rationale": "The only difference was the price, set at random."
+        },
+        {
+          "id": "b",
+          "label": "The plays they chose were better",
+          "correct": false,
+          "rationale": "Everyone had the same season of plays."
+        },
+        {
+          "id": "c",
+          "label": "Money already spent pushed them to keep going",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They got refunds for missed plays",
+          "correct": false,
+          "rationale": "No refunds: the money was spent either way."
+        }
+      ],
+      "explanation": "That is the sunk cost effect: past spending that can't be recovered still steers what people do next.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.ideas_nudge_defaults",
+        "concept.how_money_works.money_three_jobs"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.099.c3",
+        "card.how_money_works.001.c4"
+      ],
+      "prompt": "From Level 1: Save More Tomorrow helps people use money for which of its three jobs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Medium of exchange",
+          "correct": false,
+          "rationale": "That's the job money does when you spend it."
+        },
+        {
+          "id": "b",
+          "label": "Unit of account",
+          "correct": false,
+          "rationale": "That's the job of pricing things."
+        },
+        {
+          "id": "c",
+          "label": "Double coincidence of wants",
+          "correct": false,
+          "rationale": "That's barter's matching problem from Level 2."
+        },
+        {
+          "id": "d",
+          "label": "Store of value",
+          "correct": true
+        }
+      ],
+      "explanation": "Saving money to use later is its job as a store of value, which Save More Tomorrow encourages.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.keynes_grandchildren_essay",
+    "source.warwick_crafts_15_hour_week",
+    "source.nobel_2017_thaler_popular",
+    "source.obhdp_arkes_blumer_sunk_cost",
+    "source.imf_what_is_money",
+    "source.openstax_money_functions"
+  ],
+  "art": "money.wallet"
+}

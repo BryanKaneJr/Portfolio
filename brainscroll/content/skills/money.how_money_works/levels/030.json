@@ -1,0 +1,369 @@
+{
+  "id": "level.money.how_money_works.030",
+  "skillId": "skill.money.how_money_works",
+  "number": 30,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Banks and Borrowing",
+  "objective": "After this level you can explain how banks, interest and credit work together, and the risks of debt.",
+  "summary": "Credit comes from Latin credere, to trust. A loan is born as a new deposit and destroyed when repaid. Interest, collateral, scores and bank runs all turn on trust.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.credit_trust_root",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.banking_loans_create_money",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.interest_compounding",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.revolving_card_interest",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.loan_secured_unsecured",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.credit_score_definition",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.bank_run_mechanics",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.mortgage_repayment",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.deposit_insurance",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.interest_price_of_borrowing",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.money_trust",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.029"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.030.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every loan in this chapter ran on one word: believe.",
+      "body": "\"Credit\" comes from the Latin credere, to trust or believe. Time to see how that trust ties banks, interest and debt together."
+    },
+    {
+      "id": "card.how_money_works.030.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Credit means trust",
+      "body": "The Latin creditum meant a loan, a thing entrusted to another, from credere: to trust, entrust, believe. This whole chapter is that word at work. A borrower is trusted to repay, and interest is the price paid for the loan. A credit score is a lender's prediction of how likely you are to pay a loan back on time."
+    },
+    {
+      "id": "card.how_money_works.030.c3",
+      "type": "timeline",
+      "headline": "The life of one loan",
+      "events": [
+        {
+          "when": "Approval",
+          "label": "The bank credits a new deposit: new money (Level 22)"
+        },
+        {
+          "when": "Early years",
+          "label": "Payments go mostly to interest (Level 27)"
+        },
+        {
+          "when": "If payments stop",
+          "label": "On a secured loan, the lender can take the collateral (Level 28)"
+        },
+        {
+          "when": "Last payment",
+          "label": "Repaying the loan destroys the money it created (Level 22)"
+        }
+      ]
+    },
+    {
+      "id": "card.how_money_works.030.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "When belief cracks",
+      "body": "Trust runs the other way too. A bank run is when many depositors try to withdraw at once, and it can put a bank out of business. Deposit insurance exists to keep public confidence steady. From Level 6's banknotes to Level 29's queues, money and credit work because people believe they will."
+    },
+    {
+      "id": "card.how_money_works.030.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.030.q1"
+    },
+    {
+      "id": "card.how_money_works.030.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.030.q2"
+    },
+    {
+      "id": "card.how_money_works.030.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.030.q3"
+    },
+    {
+      "id": "card.how_money_works.030.c8",
+      "type": "recall",
+      "questionId": "question.how_money_works.030.q4"
+    },
+    {
+      "id": "card.how_money_works.030.c9",
+      "type": "mcq",
+      "questionId": "question.how_money_works.030.q5"
+    },
+    {
+      "id": "card.how_money_works.030.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 3 complete",
+      "learned": [
+        "Banks take deposits, make loans and create money by lending",
+        "Interest is the price of borrowing; compounding speeds it up",
+        "Collateral and credit records shape what loans cost",
+        "Credit means trust, and runs show what happens when it breaks"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.030.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.credit_trust_root"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.030.c2"
+      ],
+      "prompt": "The word credit comes from Latin credere. What did credere mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To count or measure",
+          "correct": false,
+          "rationale": "Credere is about trust, not counting."
+        },
+        {
+          "id": "b",
+          "label": "To trust or believe",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "To lend at interest",
+          "correct": false,
+          "rationale": "The root meaning is trust; lending grew out of it."
+        },
+        {
+          "id": "d",
+          "label": "To buy or sell",
+          "correct": false,
+          "rationale": "Credere meant to trust, entrust or believe."
+        }
+      ],
+      "explanation": "Credere meant 'to trust, entrust, believe', and creditum was a loan, a thing entrusted to another.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.030.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.banking_loans_create_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.030.c3",
+        "card.how_money_works.022.c4"
+      ],
+      "prompt": "You make the final payment on a bank loan. What happens to the money that loan created?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It moves into the central bank's reserves",
+          "correct": false,
+          "rationale": "Repayment destroys it rather than moving it."
+        },
+        {
+          "id": "b",
+          "label": "It becomes the bank's profit",
+          "correct": false,
+          "rationale": "The bank's profit comes from interest; the loan money itself is destroyed."
+        },
+        {
+          "id": "c",
+          "label": "It is destroyed",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is sent back to the original saver",
+          "correct": false,
+          "rationale": "No saver's money was lent: the loan created the deposit."
+        }
+      ],
+      "explanation": "Lending creates a deposit; repaying the loan destroys it.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.how_money_works.030.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.revolving_card_interest",
+        "concept.how_money_works.interest_compounding"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.025.c3",
+        "card.how_money_works.024.c2"
+      ],
+      "prompt": "An unpaid card balance at about 22% a year grows faster each year. Which idea explains that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Compound interest: interest charged on earlier interest",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Simple interest charged only on the first purchase",
+          "correct": false,
+          "rationale": "Simple interest would grow by the same amount each year."
+        },
+        {
+          "id": "c",
+          "label": "Deposit insurance limits",
+          "correct": false,
+          "rationale": "Insurance protects deposits; it has nothing to do with card debt."
+        },
+        {
+          "id": "d",
+          "label": "The Minimum Payment Warning adding fees",
+          "correct": false,
+          "rationale": "The warning is a disclosure, not a charge."
+        }
+      ],
+      "explanation": "Unpaid interest joins the balance and is charged interest too, so the debt snowballs.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.030.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.loan_secured_unsecured",
+        "concept.how_money_works.credit_score_definition"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.028.c2",
+        "card.how_money_works.028.c3"
+      ],
+      "prompt": "Why does a car loan usually carry a lower rate than an unsecured personal loan?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cars never lose value",
+          "correct": false,
+          "rationale": "The point is that the lender can take the car."
+        },
+        {
+          "id": "b",
+          "label": "Personal loans are banned from being cheap",
+          "correct": false,
+          "rationale": "No such rule: the difference is risk."
+        },
+        {
+          "id": "c",
+          "label": "Car buyers always have higher credit scores",
+          "correct": false,
+          "rationale": "Scores vary. Collateral is what lowers the lender's risk."
+        },
+        {
+          "id": "d",
+          "label": "The car is collateral, so the lender takes less risk",
+          "correct": true
+        }
+      ],
+      "explanation": "Secured loans are less risky for lenders, so they usually carry lower interest rates.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.030.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.credit_trust_root",
+        "concept.how_money_works.bank_run_mechanics"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.030.c2",
+        "card.how_money_works.030.c4"
+      ],
+      "prompt": "What do a credit score and a bank run have in common, in this chapter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both are set by the central bank",
+          "correct": false,
+          "rationale": "Neither is set by a central bank."
+        },
+        {
+          "id": "b",
+          "label": "Both are about trust that money will be repaid",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both only happen with credit cards",
+          "correct": false,
+          "rationale": "Runs hit banks; scores cover all kinds of borrowing."
+        },
+        {
+          "id": "d",
+          "label": "Both were invented in 1933",
+          "correct": false,
+          "rationale": "1933 is when the FDIC was created."
+        }
+      ],
+      "explanation": "A score measures how far a lender can trust a borrower; a run is what happens when depositors stop trusting a bank. Credit means trust.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.boe_money_creation",
+    "source.brit_interest",
+    "source.cfpb_credit_score",
+    "source.cfpb_paying_down_mortgage",
+    "source.cfpb_secured_unsecured",
+    "source.etymonline_credit",
+    "source.fdic_understanding_deposit_insurance",
+    "source.imf_what_is_money",
+    "source.stlouisfed_bank_runs_2023"
+  ],
+  "art": "architecture.bank"
+}

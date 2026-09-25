@@ -1,0 +1,221 @@
+{
+  "id": "level.money.how_money_works.033",
+  "skillId": "skill.money.how_money_works",
+  "number": 33,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What a Stock Is",
+  "objective": "After this level you can explain what owning a share of a company means.",
+  "summary": "A share of stock is a slice of ownership in a company. Shareholders can gain from dividends and rising prices, but can also lose. In 1602 the VOC became the first company to sell shares to the public.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.stock_share_ownership",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.stock_voc_first_shares",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.yap_stone_money",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.032"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.033.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1602, a new Dutch company invited the public to buy a piece of it.",
+      "body": "The Dutch East India Company, the VOC, invited the public in, and 1,143 investors signed up in Amsterdam alone. It's considered the first publicly traded company. Those investors weren't lending it money. They were buying ownership, and that's still what a share of stock is."
+    },
+    {
+      "id": "card.how_money_works.033.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A share is a slice of a company",
+      "body": "A stock (or share) gives you a slice of ownership in a company. Companies sell shares to raise money: to pay off debt, launch products or build new facilities. Owning common stock usually gets you a vote at shareholder meetings. Hold one share of a giant company and you really do own a sliver of it. Just don't try taking a desk home."
+    },
+    {
+      "id": "card.how_money_works.033.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two ways a share can pay",
+      "body": "Shareholders can gain in two ways. Dividends: the company hands out part of its earnings. Capital appreciation: the share rises in price and is worth more than you paid. Neither is promised. Stock prices move down as well as up, there's no guarantee the company will do well, and you can lose money."
+    },
+    {
+      "id": "card.how_money_works.033.c4",
+      "type": "fact",
+      "fact": "The first dividend was paid in spice.",
+      "context": "The VOC paid nothing until 1610, then handed shareholders mace, a spice, worth 75% of the share capital. Selling up worked differently too: the company's bookkeeper recorded the new owner in a register. Like Level 3's Yap stones, ownership changed hands in the record.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Imagine checking your investment account and finding a sack of mace. Tasty, but hard to reinvest."
+      }
+    },
+    {
+      "id": "card.how_money_works.033.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.033.q1"
+    },
+    {
+      "id": "card.how_money_works.033.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.033.q2"
+    },
+    {
+      "id": "card.how_money_works.033.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.033.q3"
+    },
+    {
+      "id": "card.how_money_works.033.c8",
+      "type": "checkpoint",
+      "headline": "Stocks: owned",
+      "learned": [
+        "A share is a slice of ownership",
+        "Companies sell shares to raise money",
+        "Returns: dividends and rising prices",
+        "The VOC sold shares to the public in 1602"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.033.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.stock_share_ownership"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.033.c2"
+      ],
+      "prompt": "What do you own when you own a share of stock?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A loan the company must repay with interest",
+          "correct": false,
+          "rationale": "That's a bond, the subject of Level 34."
+        },
+        {
+          "id": "b",
+          "label": "A guaranteed yearly payment from the company",
+          "correct": false,
+          "rationale": "Dividends are possible, never guaranteed."
+        },
+        {
+          "id": "c",
+          "label": "A deposit that the company keeps for you",
+          "correct": false,
+          "rationale": "A deposit is a bank's IOU, not ownership."
+        },
+        {
+          "id": "d",
+          "label": "A small slice of ownership in the company",
+          "correct": true
+        }
+      ],
+      "explanation": "A share of stock is a piece of ownership in a company.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.how_money_works.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.stock_share_ownership"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.033.c3"
+      ],
+      "prompt": "Your shares rise from $20 to $26 each, and you sell them. What is that gain called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A dividend",
+          "correct": false,
+          "rationale": "A dividend is earnings the company pays out, not a price rise."
+        },
+        {
+          "id": "b",
+          "label": "Capital appreciation",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Interest",
+          "correct": false,
+          "rationale": "Interest is what borrowers pay lenders."
+        },
+        {
+          "id": "d",
+          "label": "A coupon",
+          "correct": false,
+          "rationale": "Coupons belong to bonds."
+        }
+      ],
+      "explanation": "A rise in the share price is capital appreciation, the second way (besides dividends) a share can pay.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.033.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.stock_voc_first_shares",
+        "concept.how_money_works.yap_stone_money"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.033.c4",
+        "card.how_money_works.003.c4"
+      ],
+      "prompt": "How was selling a VOC share like passing on one of Level 3's Yap stones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both were weighed on the scales before trading",
+          "correct": false,
+          "rationale": "Neither was weighed: ownership was simply recorded or known."
+        },
+        {
+          "id": "b",
+          "label": "Both had to be carried to the new owner's house",
+          "correct": false,
+          "rationale": "Big Yap stones stayed put, and shares were entries in a register."
+        },
+        {
+          "id": "c",
+          "label": "The owner changed in the record; nothing moved",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both were valued in pounds of mace",
+          "correct": false,
+          "rationale": "Mace was only the VOC's first dividend."
+        }
+      ],
+      "explanation": "Yap's community knew who owned each stone; the VOC's bookkeeper wrote each new shareholder into a register.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sec_investor_stocks",
+    "source.worldhistory_dutch_east_india",
+    "source.petram_voc_first_ipo",
+    "source.petram_voc_returns",
+    "source.openstax_finance_risk_return",
+    "source.npr_island_of_stone_money",
+    "source.hoover_friedman_stone_money"
+  ],
+  "art": "money.chart-up"
+}

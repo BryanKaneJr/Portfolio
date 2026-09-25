@@ -1,0 +1,220 @@
+{
+  "id": "level.money.how_money_works.071",
+  "skillId": "skill.money.how_money_works",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Countries Trade",
+  "objective": "After this level you can explain why trade can leave both sides better off.",
+  "summary": "Voluntary trade happens only when both sides expect to gain, and countries trade because their resources and climates differ. A country gains overall, but some of its workers and firms lose.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.trade_gains",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.trade_natural_advantages",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.money_three_jobs",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.070"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Scotland could make fine wine. It would just cost about 30 times as much.",
+      "body": "Adam Smith pointed it out: with glass, hotbeds and heated walls, very good grapes will grow in Scotland. So why import wine at all? Answer that, and you know why countries trade."
+    },
+    {
+      "id": "card.how_money_works.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Both sides win, or it doesn't happen",
+      "body": "Nobody forces a voluntary trade. It happens only if it makes both parties better off: you hand over something you value less for something you value more. Economists call that positive-sum. The swap doesn't just move value around; it creates some. The logic is the same in a school cafeteria and in the global marketplace. Countries don't trade to beat each other. They trade because each side comes out ahead."
+    },
+    {
+      "id": "card.how_money_works.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Copper for coffee",
+      "body": "Countries are dealt different hands. Chile has copper; Guatemala's climate suits coffee. So Chile provides copper, Guatemala grows coffee, and they trade. Money makes the swap easy: exports bring money into a country and imports send it out. That's Level 1's medium of exchange, working across borders. Chile doesn't need a Guatemalan who wants copper, just buyers who pay.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Copper for coffee: less romantic than wine, but the very same idea."
+      }
+    },
+    {
+      "id": "card.how_money_works.071.c4",
+      "type": "fact",
+      "fact": "Trade makes a country better off overall, not every person in it.",
+      "context": "Shoppers get lower prices and more variety, and exporters reach bigger markets. But some firms fail against cheaper foreign rivals, and their workers lose jobs. The gains are spread thinly across millions of people and are hard to see; the costs land hard on particular companies and workers. That's why trade can be good for a country and still be fiercely argued about."
+    },
+    {
+      "id": "card.how_money_works.071.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.071.q1"
+    },
+    {
+      "id": "card.how_money_works.071.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.071.q2"
+    },
+    {
+      "id": "card.how_money_works.071.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.071.q3"
+    },
+    {
+      "id": "card.how_money_works.071.c8",
+      "type": "checkpoint",
+      "headline": "Trade: why it happens",
+      "learned": [
+        "Voluntary trade needs both sides to gain",
+        "Countries differ in resources and climate",
+        "Exports bring money in; imports send it out",
+        "A country gains overall, but some people lose"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.trade_gains"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.071.c2"
+      ],
+      "prompt": "When does a voluntary trade take place?",
+      "options": [
+        {
+          "id": "a",
+          "label": "When one side can force the other to accept",
+          "correct": false,
+          "rationale": "Force makes it involuntary. Voluntary trade needs both sides to gain."
+        },
+        {
+          "id": "b",
+          "label": "When both sides expect to be better off",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "When both sides give up exactly equal value",
+          "correct": false,
+          "rationale": "Each side gets something it values more than what it gives, so both gain."
+        },
+        {
+          "id": "d",
+          "label": "When a government sets the price",
+          "correct": false,
+          "rationale": "No official is needed; both sides simply have to expect a gain."
+        }
+      ],
+      "explanation": "A voluntary trade happens only if both parties expect to gain: each gives up something it values less for something it values more.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.how_money_works.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.trade_gains"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.071.c4"
+      ],
+      "prompt": "Trade leaves a country better off overall. Who can still lose out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shoppers, who pay more for imports",
+          "correct": false,
+          "rationale": "Shoppers usually gain lower prices and more variety."
+        },
+        {
+          "id": "b",
+          "label": "Exporters, who lose foreign buyers",
+          "correct": false,
+          "rationale": "Exporters gain bigger markets."
+        },
+        {
+          "id": "c",
+          "label": "Workers at firms beaten by cheaper foreign rivals",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nobody: trade gains reach everyone",
+          "correct": false,
+          "rationale": "The gains are spread widely, but some people do lose."
+        }
+      ],
+      "explanation": "Some firms fail against foreign competition and their workers lose jobs, even while the country gains overall.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.trade_natural_advantages",
+        "concept.how_money_works.money_three_jobs"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.071.c3",
+        "card.how_money_works.001.c2"
+      ],
+      "prompt": "From Level 1: Chile sells copper for money, then spends it on Guatemalan coffee. Which job is money doing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Unit of account",
+          "correct": false,
+          "rationale": "That's the job of measuring prices, not passing money on."
+        },
+        {
+          "id": "b",
+          "label": "Store of value",
+          "correct": false,
+          "rationale": "That's keeping money for later, not passing it on."
+        },
+        {
+          "id": "c",
+          "label": "Double coincidence of wants",
+          "correct": false,
+          "rationale": "That's the match barter needs; money removes the need for it."
+        },
+        {
+          "id": "d",
+          "label": "Medium of exchange",
+          "correct": true
+        }
+      ],
+      "explanation": "Money sits between the two trades: Chile accepts it for copper so it can spend it on coffee. That's a medium of exchange.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.oll_smith_wine_free_trade",
+    "source.stlouisfed_trade_winners_losers",
+    "source.openstax_comparative_advantage",
+    "source.openstax_trade_balances",
+    "source.openstax_money_functions",
+    "source.piie_what_is_globalization"
+  ],
+  "art": "money.handshake"
+}

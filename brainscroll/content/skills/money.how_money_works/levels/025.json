@@ -1,0 +1,230 @@
+{
+  "id": "level.money.how_money_works.025",
+  "skillId": "skill.money.how_money_works",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Credit Cards and Debt",
+  "objective": "After this level you can explain how credit card interest can turn a small debt into a big one.",
+  "summary": "A credit card is revolving credit. Paying in full may avoid interest; unpaid balances compound at high rates. US statements must warn about paying only the minimum.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.revolving_card_credit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.revolving_card_interest",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.interest_compounding",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.interest_price_of_borrowing",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.interest_rule_of_72",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.024"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every US credit card bill carries a warning label.",
+      "body": "Not about your health. Federal rules require it on every statement, and it's about one choice: paying only the minimum."
+    },
+    {
+      "id": "card.how_money_works.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A loan every time you tap",
+      "body": "A credit card is revolving credit: you can borrow up to a set limit, then repay in one go or bit by bit. Pay the whole balance by the due date, and you may not be charged interest on purchases at all. Leave part unpaid, and that part is charged interest. It's the same card either way. What changes is whether it's working as a way to pay or as a loan."
+    },
+    {
+      "id": "card.how_money_works.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The snowball, in reverse",
+      "body": "Level 24's snowball works on debts too. Unpaid interest is added to the balance, and then interest is charged on the lot. That's how card debt can balloon. And card rates are steep: in 2026, US card accounts charged interest paid about 22% a year on average. By the Rule of 72, a balance growing at 22% would double in a little over three years if nothing were paid."
+    },
+    {
+      "id": "card.how_money_works.025.c4",
+      "type": "fact",
+      "fact": "The warning: pay only the minimum, and you pay more interest for longer.",
+      "context": "The statement must also estimate how long paying only the minimum would take to clear the balance, and what it would cost in total. It's Level 24's math, printed with your own numbers.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Of all the numbers on a card statement, that little box might be the most interesting one."
+      }
+    },
+    {
+      "id": "card.how_money_works.025.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.025.q1"
+    },
+    {
+      "id": "card.how_money_works.025.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.025.q2"
+    },
+    {
+      "id": "card.how_money_works.025.c7",
+      "type": "mcq",
+      "questionId": "question.how_money_works.025.q3"
+    },
+    {
+      "id": "card.how_money_works.025.c8",
+      "type": "checkpoint",
+      "headline": "Card debt: unpacked",
+      "learned": [
+        "A credit card is revolving credit up to a limit",
+        "Paying in full by the due date may avoid interest",
+        "Unpaid balances compound at high rates",
+        "Statements warn about paying only the minimum"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.revolving_card_credit"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.025.c2"
+      ],
+      "prompt": "You pay your whole card balance by the due date. What happens with interest on those purchases?",
+      "options": [
+        {
+          "id": "a",
+          "label": "You may not be charged any",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "You pay interest on the full amount anyway",
+          "correct": false,
+          "rationale": "Paying in full by the due date can avoid interest on purchases."
+        },
+        {
+          "id": "c",
+          "label": "You pay half the usual rate",
+          "correct": false,
+          "rationale": "There is no half rate: paying in full can mean no interest."
+        },
+        {
+          "id": "d",
+          "label": "The bank pays you interest instead",
+          "correct": false,
+          "rationale": "Card balances are borrowing, not savings."
+        }
+      ],
+      "explanation": "Paying the balance in full by the due date means you may not be charged interest on purchases; only unpaid portions are.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.revolving_card_interest",
+        "concept.how_money_works.interest_compounding"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.025.c3"
+      ],
+      "prompt": "Why can a card balance keep growing even with no new purchases?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Card companies raise the limit each month",
+          "correct": false,
+          "rationale": "A higher limit adds no debt by itself."
+        },
+        {
+          "id": "b",
+          "label": "Unpaid interest is added and then charged interest too",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Prices of past purchases are updated",
+          "correct": false,
+          "rationale": "Past purchases keep their prices."
+        },
+        {
+          "id": "d",
+          "label": "Banks charge a fee for every day of the month",
+          "correct": false,
+          "rationale": "The growth comes from compounding interest."
+        }
+      ],
+      "explanation": "Unpaid interest joins the balance and is itself charged interest: compounding working against the borrower.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.revolving_card_interest",
+        "concept.how_money_works.interest_price_of_borrowing"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.025.c3",
+        "card.how_money_works.023.c2"
+      ],
+      "prompt": "In Level 23's terms, what is a credit card's rate of about 22% a year?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A tax on the shop's sale",
+          "correct": false,
+          "rationale": "It is paid by the cardholder for borrowing, not by the shop."
+        },
+        {
+          "id": "b",
+          "label": "A reward the bank pays you",
+          "correct": false,
+          "rationale": "You pay it; it is the cost of borrowing."
+        },
+        {
+          "id": "c",
+          "label": "A one-time fee for opening the card",
+          "correct": false,
+          "rationale": "It is charged each year on unpaid balances."
+        },
+        {
+          "id": "d",
+          "label": "The price of borrowing the unpaid balance",
+          "correct": true
+        }
+      ],
+      "explanation": "Interest is the price of borrowing. The card rate is what you pay each year for the use of the unpaid balance.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.cfpb_grace_period",
+    "source.cfpb_reg_z_periodic_statement",
+    "source.fed_g19_about",
+    "source.fed_g19_consumer_credit",
+    "source.stlouisfed_compound_interest"
+  ],
+  "art": "money.credit-card"
+}

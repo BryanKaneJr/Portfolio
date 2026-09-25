@@ -1,0 +1,241 @@
+{
+  "id": "level.money.how_money_works.074",
+  "skillId": "skill.money.how_money_works",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tariffs",
+  "objective": "After this level you can explain what tariffs are and who ends up paying them.",
+  "summary": "A tariff is a tax on imports, paid by the importing company, and its cost often reaches shoppers, as with 2018's US washer tariffs. Supporters and critics weigh jobs against costs.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.tariff_who_pays",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.tariff_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.trade_imports_exports",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.trade_gains",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.073"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.074.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2018, the US put a tariff on imported washers. Dryers got pricier too.",
+      "body": "Dryers had no tariff at all. To see why their prices moved, you need to know what a tariff is and who ends up paying it."
+    },
+    {
+      "id": "card.how_money_works.074.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A tax at the border",
+      "body": "A tariff is a tax on goods as they cross a national border, usually charged by the importing country. The foreign country doesn't pay it. The importing company does, handing it to the customs authority. Then the cost moves: the importer can pass it on to shoppers as higher prices or absorb it, and foreign exporters may accept thinner profit margins to keep selling."
+    },
+    {
+      "id": "card.how_money_works.074.c3",
+      "type": "fact",
+      "fact": "Washer prices rose about 12%. Dryers, with no tariff, rose about the same.",
+      "context": "Economists Aaron Flaaen, Ali Hortaçsu and Felix Tintelnot studied the 2018 tariffs. People often buy washers and dryers together, so sellers raised dryer prices too. The tariffs did create about 1,800 US jobs. The study put the cost to consumers at roughly $815,000 a year for each of those jobs.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "The dryer never saw a tax bill. It just stood next to the washer."
+      }
+    },
+    {
+      "id": "card.how_money_works.074.c4",
+      "type": "comparison",
+      "headline": "The tariff argument",
+      "items": [
+        {
+          "label": "Supporters say tariffs",
+          "points": [
+            "Protect domestic industries and jobs",
+            "Bolster national security",
+            "Give young industries time to grow",
+            "Raise revenue and bargaining leverage"
+          ]
+        },
+        {
+          "label": "Critics say tariffs",
+          "points": [
+            "Raise costs",
+            "Distort markets",
+            "Provoke retaliation from trading partners"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.how_money_works.074.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.074.q1"
+    },
+    {
+      "id": "card.how_money_works.074.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.074.q2"
+    },
+    {
+      "id": "card.how_money_works.074.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.074.q3"
+    },
+    {
+      "id": "card.how_money_works.074.c8",
+      "type": "checkpoint",
+      "headline": "Tariffs",
+      "learned": [
+        "A tariff is a tax on imports",
+        "The importing company pays it",
+        "The cost can reach shoppers, as with 2018's washers",
+        "Supporters and critics weigh jobs against costs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.tariff_who_pays"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.074.c2"
+      ],
+      "prompt": "When a tariff is charged on imported goods, who pays it to the customs authority?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The foreign government",
+          "correct": false,
+          "rationale": "The foreign country doesn't pay it."
+        },
+        {
+          "id": "b",
+          "label": "The foreign factory",
+          "correct": false,
+          "rationale": "The foreign maker may cut prices, but it doesn't pay the tariff."
+        },
+        {
+          "id": "c",
+          "label": "The company importing the goods",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The customs officers",
+          "correct": false,
+          "rationale": "Customs collects the tariff; it doesn't pay it."
+        }
+      ],
+      "explanation": "The importing company pays the tariff; it may then pass the cost on as higher prices.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.tariff_who_pays"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.074.c3"
+      ],
+      "prompt": "Why did US dryer prices rise after the 2018 washer tariffs, though dryers weren't taxed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A separate dryer tariff followed",
+          "correct": false,
+          "rationale": "Dryers had no tariff."
+        },
+        {
+          "id": "b",
+          "label": "People often buy the two together, so sellers raised both",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Dryer factories closed that year",
+          "correct": false,
+          "rationale": "The study doesn't point to closures; it points to pricing."
+        },
+        {
+          "id": "d",
+          "label": "Shoppers stopped buying dryers",
+          "correct": false,
+          "rationale": "Falling demand would push prices down, not up."
+        }
+      ],
+      "explanation": "Washers and dryers are often bought together, so sellers facing the washer tariff raised dryer prices too.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.how_money_works.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.tariff_debate",
+        "concept.how_money_works.trade_gains"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.074.c4",
+        "card.how_money_works.071.c4"
+      ],
+      "prompt": "Level 71 said some firms and workers lose out to foreign rivals. Which argument for tariffs speaks to them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Protecting domestic industries and jobs",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Provoking retaliation",
+          "correct": false,
+          "rationale": "That's a critics' point, not an argument for tariffs."
+        },
+        {
+          "id": "c",
+          "label": "Lowering prices for shoppers",
+          "correct": false,
+          "rationale": "Tariffs tend to raise prices, not lower them."
+        },
+        {
+          "id": "d",
+          "label": "Distorting markets",
+          "correct": false,
+          "rationale": "That's a critics' point too."
+        }
+      ],
+      "explanation": "Supporters say tariffs protect domestic industries and jobs, the people trade can leave behind.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.aea_washer_tariffs",
+    "source.brit_tariff",
+    "source.usafacts_tariffs",
+    "source.brit_how_tariffs_work",
+    "source.openstax_restricting_imports"
+  ],
+  "art": "money.price-tag"
+}

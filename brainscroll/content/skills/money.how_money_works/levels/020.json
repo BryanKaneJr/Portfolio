@@ -1,0 +1,352 @@
+{
+  "id": "level.money.how_money_works.020",
+  "skillId": "skill.money.how_money_works",
+  "number": 20,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Earning and Spending",
+  "objective": "After this level you can build a budget and explain how income, prices and ways of paying affect it.",
+  "summary": "Engel's law: the lower the income, the bigger the share spent on food (33.0% vs 6.4% for the poorest and richest US fifths in 2024). Chapter 2 follows one paycheck.",
+  "concepts": [
+    {
+      "conceptId": "concept.how_money_works.engel_food_share",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.income_factor_payments",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.pay_gross_net",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.budget_50_30_20",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.needs_wants_definition",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.oppcost_definition",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.pricing_cues",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.card_fees_interchange",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.smallcost_yearly",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.scam_warning_signs",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.money.how_money_works.019"
+  ],
+  "cards": [
+    {
+      "id": "card.how_money_works.020.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Everyone eats. So why does food take a bigger bite out of some budgets?",
+      "body": "Chapter 2 followed money from paycheck to purchase. One old discovery shows how much your income shapes what a budget looks like."
+    },
+    {
+      "id": "card.how_money_works.020.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Engel's discovery",
+      "body": "The statistician Ernst Engel studied the budgets of 153 Belgian families and found a pattern: the lower a family's income, the bigger the share of it that goes on food. Economists call it Engel's law. Food is Level 14's classic need, and Engel showed how much room it takes up at different incomes."
+    },
+    {
+      "id": "card.how_money_works.020.c3",
+      "type": "fact",
+      "fact": "In 2024, the poorest fifth of US households spent 33.0% of income on food. The richest fifth: 6.4%.",
+      "context": "The richest fifth actually spent more dollars on food, $16,989 on average against $5,498. But a bigger income turns the grocery bill into a much smaller slice of the pie. Engel's pattern still holds."
+    },
+    {
+      "id": "card.how_money_works.020.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chapter 2 in one paycheck",
+      "body": "Follow one paycheck. It starts as wages, the income labor earns. Deductions shrink gross pay to net. A 50/30/20 budget splits the net into needs, wants and saving, and every choice gives up the next best thing. At the till, price cues nudge you, card fees hide inside prices, small charges quietly add up, and scammers pretend, press and ask for gift cards."
+    },
+    {
+      "id": "card.how_money_works.020.c5",
+      "type": "mcq",
+      "questionId": "question.how_money_works.020.q1"
+    },
+    {
+      "id": "card.how_money_works.020.c6",
+      "type": "mcq",
+      "questionId": "question.how_money_works.020.q2"
+    },
+    {
+      "id": "card.how_money_works.020.c7",
+      "type": "recall",
+      "questionId": "question.how_money_works.020.q3"
+    },
+    {
+      "id": "card.how_money_works.020.c8",
+      "type": "recall",
+      "questionId": "question.how_money_works.020.q4"
+    },
+    {
+      "id": "card.how_money_works.020.c9",
+      "type": "recall",
+      "questionId": "question.how_money_works.020.q5"
+    },
+    {
+      "id": "card.how_money_works.020.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 2 complete",
+      "learned": [
+        "Income: wages, rent, interest, profit",
+        "Gross pay shrinks to net; budgets split the net",
+        "Every choice has an opportunity cost",
+        "Prices, card fees and small costs shape spending",
+        "Engel's law: food takes a bigger share of smaller incomes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.how_money_works.020.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.how_money_works.engel_food_share"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.020.c2"
+      ],
+      "prompt": "What did Ernst Engel find in the budgets of Belgian families?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Richer families spent a bigger share on food",
+          "correct": false,
+          "rationale": "It was the other way around."
+        },
+        {
+          "id": "b",
+          "label": "Every family spent the same share on food",
+          "correct": false,
+          "rationale": "The share changed with income."
+        },
+        {
+          "id": "c",
+          "label": "The lower the income, the bigger the share spent on food",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Poorer families spent more dollars on food",
+          "correct": false,
+          "rationale": "It was about the share of income, not the dollar amount."
+        }
+      ],
+      "explanation": "Engel's law: the lower a family's income, the greater the share spent on food.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.how_money_works.020.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.how_money_works.engel_food_share"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.020.c3"
+      ],
+      "prompt": "The richest fifth of US households spend more dollars on food than the poorest. Why is their food share so much smaller?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They eat far less food overall",
+          "correct": false,
+          "rationale": "They spend more dollars on food, not less."
+        },
+        {
+          "id": "b",
+          "label": "The same kind of grocery bill is a small slice of a much bigger income",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Food is cheaper in richer neighborhoods",
+          "correct": false,
+          "rationale": "The card doesn't say that; the difference is income."
+        },
+        {
+          "id": "d",
+          "label": "Food isn't a need for richer households",
+          "correct": false,
+          "rationale": "Food is a need at every income."
+        }
+      ],
+      "explanation": "They spent $16,989 against $5,498, but that's 6.4% of a large income versus 33.0% of a small one.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.020.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.pay_gross_net",
+        "concept.how_money_works.budget_50_30_20"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.012.c2",
+        "card.how_money_works.013.c3"
+      ],
+      "prompt": "You plan a 50/30/20 budget after starting a new job. Which figure do you split?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The salary on the job offer",
+          "correct": false,
+          "rationale": "That's gross pay, before deductions."
+        },
+        {
+          "id": "b",
+          "label": "Your take-home pay",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Your employer's matching tax",
+          "correct": false,
+          "rationale": "That never reaches your paycheck."
+        },
+        {
+          "id": "d",
+          "label": "Your bank's interchange fees",
+          "correct": false,
+          "rationale": "Those are paid by shops, not budgeted by you."
+        }
+      ],
+      "explanation": "The rule splits after-tax income, which is your net, or take-home, pay.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.how_money_works.020.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.card_fees_interchange",
+        "concept.how_money_works.pricing_cues"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.016.c2",
+        "card.how_money_works.017.c4"
+      ],
+      "prompt": "Across Levels 16 and 17: which cost is usually hidden inside the price rather than shown separately?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Card fees the shop pays",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The 20% you save in a budget",
+          "correct": false,
+          "rationale": "Saving is your choice, not part of a shop's price."
+        },
+        {
+          "id": "c",
+          "label": "The payroll taxes on your wages",
+          "correct": false,
+          "rationale": "Payroll taxes come out of your pay, not shop prices."
+        },
+        {
+          "id": "d",
+          "label": "The price ending in 9",
+          "correct": false,
+          "rationale": "The 9 is on the tag for all to see."
+        }
+      ],
+      "explanation": "Shops generally cover card fees through higher prices for everyone.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.how_money_works.020.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.how_money_works.scam_warning_signs"
+      ],
+      "sourceCardIds": [
+        "card.how_money_works.019.c2",
+        "card.how_money_works.019.c3"
+      ],
+      "prompt": "A caller claiming to be your payroll team says your paycheck is on hold unless you pay a fee in gift cards today. How many of the FTC's four signs does it show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One",
+          "correct": false,
+          "rationale": "Look again: pretend, problem, pressure and pay are all there."
+        },
+        {
+          "id": "b",
+          "label": "Two",
+          "correct": false,
+          "rationale": "Look again: pretend, problem, pressure and pay are all there."
+        },
+        {
+          "id": "c",
+          "label": "Three",
+          "correct": false,
+          "rationale": "Look again: pretend, problem, pressure and pay are all there."
+        },
+        {
+          "id": "d",
+          "label": "All four",
+          "correct": true
+        }
+      ],
+      "explanation": "Pretend (payroll team), problem (pay on hold), pressure (today) and pay (gift cards): all four.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.experian_needs_vs_wants",
+    "source.britannica_ernst_engel",
+    "source.usda_ers_food_spending",
+    "source.stlouisfed_factors_of_production",
+    "source.tutor2u_factor_incomes",
+    "source.cfpb_paycheck_deductions",
+    "source.britannica_50_30_20",
+    "source.time_50_30_20_warren",
+    "source.openstax_opportunity_cost",
+    "source.stlouisfed_opportunity_cost",
+    "source.hbr_mind_your_pricing_cues",
+    "source.gao_interchange_fees_2009",
+    "source.britannica_interchange_fees",
+    "source.crresearch_subscription_costs",
+    "source.ftc_how_to_avoid_scam"
+  ],
+  "art": "money.wallet"
+}
