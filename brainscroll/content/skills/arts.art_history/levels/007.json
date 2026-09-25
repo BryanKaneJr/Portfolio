@@ -1,0 +1,217 @@
+{
+  "id": "level.arts.art_history.007",
+  "skillId": "skill.arts.art_history",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The First Sculptures",
+  "objective": "After this level you can describe early carved figures and what they may have meant.",
+  "summary": "The Lion-Man, carved in mammoth ivory about 40,000 years ago, mixes lion and human. Small figures of women, like Hohle Fels and Willendorf, have unknown meanings.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.lion_man",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.venus_figurines",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.blombos_drawing",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.006"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About 40,000 years ago, someone carved a creature nobody had ever seen.",
+      "body": "It stands upright like a person, but it has the head of a cave lion, and it's carved from a mammoth's tusk. Meet the Lion-Man."
+    },
+    {
+      "id": "card.art_history.007.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Lion-Man",
+      "body": "He was found in Hohlenstein-Stadel cave in Germany and stands 31 cm tall, about the length of a school ruler. That makes him the largest known sculpture of Ice Age art. When a modern experimenter carved a copy with Ice Age-style stone tools, it took hundreds of hours. That's a lot of time to spend on something you can't eat, wear or hunt with."
+    },
+    {
+      "id": "card.art_history.007.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Small women, carved to hold",
+      "body": "The Venus of Hohle Fels, from another German cave, is mammoth ivory, 6 cm tall and 35,000 to 40,000 years old. Instead of a head, she has a small pierced loop, so she may have been worn as a pendant. The Venus of Willendorf, found in Austria, is about 30,000 years old: 11.1 cm of limestone, tinted with red ochre. She has no face at all, only a pattern like a braid or a cap."
+    },
+    {
+      "id": "card.art_history.007.c4",
+      "type": "fact",
+      "fact": "\"Venus\" isn't their name, and nobody knows what they meant.",
+      "context": "Modern scholars borrowed the name from the Roman goddess of love, a goddess from many thousands of years later. Ideas about Willendorf include a fertility figure, a good-luck charm and a mother goddess. And a 2022 study added a travel story: her stone likely came from near Lake Garda in northern Italy, across the Alps."
+    },
+    {
+      "id": "card.art_history.007.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.007.q1"
+    },
+    {
+      "id": "card.art_history.007.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.007.q2"
+    },
+    {
+      "id": "card.art_history.007.c7",
+      "type": "recall",
+      "questionId": "question.art_history.007.q3"
+    },
+    {
+      "id": "card.art_history.007.c8",
+      "type": "checkpoint",
+      "headline": "First sculptures: handled",
+      "learned": [
+        "The Lion-Man: ivory, about 40,000 years old",
+        "Hohle Fels' figure may have been a pendant",
+        "Willendorf: limestone, tinted with red ochre",
+        "\"Venus\" is a modern name; the meaning is unknown"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.lion_man"
+      ],
+      "sourceCardIds": [
+        "card.art_history.007.c1",
+        "card.art_history.007.c2"
+      ],
+      "prompt": "What is the Lion-Man?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An ivory lion-headed figure with a human body",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A cave painting of a lion attacking a man",
+          "correct": false,
+          "rationale": "It's a carving, not a painting."
+        },
+        {
+          "id": "c",
+          "label": "A limestone lion carved near Lake Garda",
+          "correct": false,
+          "rationale": "Lake Garda is where Willendorf's stone likely came from."
+        },
+        {
+          "id": "d",
+          "label": "A cave lion's skull buried in a German cave",
+          "correct": false,
+          "rationale": "It's a sculpture carved from mammoth ivory."
+        }
+      ],
+      "explanation": "About 40,000 years old, it's carved from mammoth ivory and mixes a cave lion's head with a human body.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.venus_figurines"
+      ],
+      "sourceCardIds": [
+        "card.art_history.007.c4"
+      ],
+      "prompt": "Why is \"Venus\" a misleading name for the Willendorf figure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "She was found in Rome",
+          "correct": false,
+          "rationale": "She was found in Austria."
+        },
+        {
+          "id": "b",
+          "label": "She is carved from Roman marble",
+          "correct": false,
+          "rationale": "She is limestone, likely from northern Italy's Lake Garda area."
+        },
+        {
+          "id": "c",
+          "label": "The name comes from a goddess from thousands of years later",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Her makers called her something else, recorded in writing",
+          "correct": false,
+          "rationale": "They left no writing; nobody knows what they called her."
+        }
+      ],
+      "explanation": "Modern scholars borrowed the name of the Roman goddess of love, who belongs to a world many thousands of years later.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.venus_figurines",
+        "concept.art_history.blombos_drawing"
+      ],
+      "sourceCardIds": [
+        "card.art_history.007.c3",
+        "card.art_history.005.c2"
+      ],
+      "prompt": "The Willendorf figure shares a material with Level 5's Blombos drawing. Which one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mammoth ivory",
+          "correct": false,
+          "rationale": "That's the Lion-Man and the Venus of Hohle Fels."
+        },
+        {
+          "id": "b",
+          "label": "Red ochre",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Charcoal",
+          "correct": false,
+          "rationale": "Charcoal made Chauvet's black lines."
+        },
+        {
+          "id": "d",
+          "label": "Bronze",
+          "correct": false,
+          "rationale": "Bronze came much later: think Bird in Space."
+        }
+      ],
+      "explanation": "Willendorf is tinted with red ochre, the same iron-oxide pigment as the Blombos crayon.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.museumulm_lion_man",
+    "source.britishmuseum_lion_man",
+    "source.bradshaw_hohle_fels",
+    "source.brit_venus_willendorf",
+    "source.archaeologymag_willendorf_stone",
+    "source.khan_venus_willendorf"
+  ],
+  "art": "arts.clay-figure"
+}

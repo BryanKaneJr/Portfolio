@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.art_history.003",
+  "skillId": "skill.arts.art_history",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Artist's Toolkit",
+  "objective": "After this level you can name the basic elements of art: line, shape, color, texture and space.",
+  "summary": "Every artwork is built from the elements of art: line, shape, color, texture and space (many lists add form). Even empty space has a shape.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.elements_of_art",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.negative_space",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.oldest_known_art",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.002"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every picture ever made uses the same few building blocks.",
+      "body": "A cave wall, a comic, the icon on your phone: artists build them all from what they call the elements of art. Learn five of them and you can take any picture apart."
+    },
+    {
+      "id": "card.art_history.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Line and shape",
+      "body": "Start with line: a mark longer than it is wide. It can be straight or curved, thick or thin. Close a line into a loop and you have a shape. Shapes are flat and come in two families: geometric, like squares and circles, or organic, the free-form shapes you find in nature. A smiley face is one circle, two dots and a curve. Line and shape, doing all the work."
+    },
+    {
+      "id": "card.art_history.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Color and texture",
+      "body": "Color is light reflected off things (Level 4 is all about it). Texture is how a surface feels, or looks like it would feel. It can be real, like thick paint you could touch, or only implied. A drawing of a porcupine can look prickly, but run your finger over it and the paper is smooth. The prickles are an illusion.",
+      "mascot": {
+        "pose": "oops",
+        "line": "I once tried to pet a painted porcupine. Very smooth. Mildly embarrassing."
+      }
+    },
+    {
+      "id": "card.art_history.003.c4",
+      "type": "fact",
+      "fact": "Empty space has a shape too.",
+      "context": "Space is the area around and between things. The empty part is called negative space, and it has a shape of its own: think of the hole in the letter O. Space also means the feeling of depth, when a flat picture seems to open up like a window. That's the five: line, shape, color, texture and space. Many lists add form, meaning 3D shapes like balls and boxes."
+    },
+    {
+      "id": "card.art_history.003.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.003.q1"
+    },
+    {
+      "id": "card.art_history.003.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.003.q2"
+    },
+    {
+      "id": "card.art_history.003.c7",
+      "type": "recall",
+      "questionId": "question.art_history.003.q3"
+    },
+    {
+      "id": "card.art_history.003.c8",
+      "type": "checkpoint",
+      "headline": "Toolkit: unpacked",
+      "learned": [
+        "Line: a mark longer than it is wide",
+        "Shape: a closed line, geometric or organic",
+        "Color is reflected light; texture can be real or implied",
+        "Space includes negative space and the feeling of depth"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.elements_of_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.003.c2"
+      ],
+      "prompt": "In the elements of art, what is a shape?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A mark longer than it is wide",
+          "correct": false,
+          "rationale": "That's a line."
+        },
+        {
+          "id": "b",
+          "label": "The way a surface feels",
+          "correct": false,
+          "rationale": "That's texture."
+        },
+        {
+          "id": "c",
+          "label": "Light reflected off an object",
+          "correct": false,
+          "rationale": "That's color."
+        },
+        {
+          "id": "d",
+          "label": "A closed line",
+          "correct": true
+        }
+      ],
+      "explanation": "Close a line into a loop and you get a flat shape, geometric or organic.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.elements_of_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.003.c3"
+      ],
+      "prompt": "A painted velvet cushion looks soft, but the canvas feels hard. What is the painter using?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Negative space",
+          "correct": false,
+          "rationale": "Negative space is the empty area around things."
+        },
+        {
+          "id": "b",
+          "label": "Implied texture",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Geometric shape",
+          "correct": false,
+          "rationale": "Squares and circles don't make anything look soft."
+        },
+        {
+          "id": "d",
+          "label": "Form",
+          "correct": false,
+          "rationale": "Form is a real 3D shape, like a ball or a box."
+        }
+      ],
+      "explanation": "Implied texture only looks like it would feel a certain way, like the porcupine drawing that's smooth to the touch.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.negative_space",
+        "concept.art_history.oldest_known_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.003.c4",
+        "card.art_history.001.c1"
+      ],
+      "prompt": "Level 1's hand stencil: pigment was blown around a hand, so the hand itself is bare rock. Which element makes the hand appear?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Implied texture",
+          "correct": false,
+          "rationale": "The rock's feel isn't what shows the hand."
+        },
+        {
+          "id": "b",
+          "label": "Geometric shape",
+          "correct": false,
+          "rationale": "A hand is an organic shape, and nobody painted it."
+        },
+        {
+          "id": "c",
+          "label": "Negative space",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A thick line",
+          "correct": false,
+          "rationale": "No one drew the outline; it's where the pigment stopped."
+        }
+      ],
+      "explanation": "The hand is the empty, unpainted area: negative space, which has a shape of its own.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.getty_elements_of_art"
+  ],
+  "art": "arts.brushes"
+}

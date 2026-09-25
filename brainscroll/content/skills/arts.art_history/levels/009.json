@@ -1,0 +1,241 @@
+{
+  "id": "level.arts.art_history.009",
+  "skillId": "skill.arts.art_history",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Early People Made Art",
+  "objective": "After this level you can compare the main ideas about why early humans made art.",
+  "summary": "Why early people made art is debated. Main ideas: an urge to record the world, hunting magic (with a reindeer problem), a spirit world, and keeping records.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.purpose_ideas",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.hunting_magic",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.spirit_world",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.lion_man",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.hand_stencils",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.008"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Nobody left a note explaining the cave paintings.",
+      "body": "So researchers work from clues, and they disagree. The purpose of this art is still debated. Here are the main ideas. Hold them as ideas, not answers."
+    },
+    {
+      "id": "card.art_history.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Idea: because people need to",
+      "body": "One view skips usefulness altogether: humans have a basic need to record and recreate the world around them. On this view the first artists drew for the same deep reason you doodle in a meeting. The catch is that it's hard to test."
+    },
+    {
+      "id": "card.art_history.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Idea: hunting magic",
+      "body": "Maybe painting an animal was a kind of spell, to make a hunt succeed or herds multiply. It has a big problem at Lascaux. The bones left behind show the painters mostly ate reindeer, yet reindeer are almost absent from the walls. If you're casting a spell for dinner, you'd paint dinner."
+    },
+    {
+      "id": "card.art_history.009.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Idea: a spirit world",
+      "body": "Most experts think cave art was symbolic or religious, sometimes both. One version: shamans entered trances to contact spirits, and the art shows that other world. Mixed creatures fit this idea, like Level 7's Lion-Man, or the Muna hand narrowed into a claw, which researchers think may reflect links between people and animals, or spiritual beliefs.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Notice the word \"may\". In this level, it's doing a lot of honest work."
+      }
+    },
+    {
+      "id": "card.art_history.009.c5",
+      "type": "fact",
+      "fact": "Some marks may be records, not pictures.",
+      "context": "Researchers suggest the patterns on an engraved ochre plaque from Blombos Cave may be a way of counting or storing information. Others wonder whether animals painted in their seasonal coats worked as an early calendar. The ideas don't have to compete: one cave could be a gallery, a temple and a notebook."
+    },
+    {
+      "id": "card.art_history.009.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.009.q1"
+    },
+    {
+      "id": "card.art_history.009.c7",
+      "type": "mcq",
+      "questionId": "question.art_history.009.q2"
+    },
+    {
+      "id": "card.art_history.009.c8",
+      "type": "recall",
+      "questionId": "question.art_history.009.q3"
+    },
+    {
+      "id": "card.art_history.009.c9",
+      "type": "checkpoint",
+      "headline": "Why art: debated",
+      "learned": [
+        "The purpose of prehistoric art is still debated",
+        "Hunting magic struggles with Lascaux's missing reindeer",
+        "Many experts see symbolic or religious meaning",
+        "Some marks may be records, like counts or calendars"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.purpose_ideas"
+      ],
+      "sourceCardIds": [
+        "card.art_history.009.c5"
+      ],
+      "prompt": "Which idea treats some early marks as a way to count or keep track of time?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hunting magic",
+          "correct": false,
+          "rationale": "That idea is about spells for the hunt."
+        },
+        {
+          "id": "b",
+          "label": "Records and notation",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A spirit world",
+          "correct": false,
+          "rationale": "That idea is about shamans and spirits."
+        },
+        {
+          "id": "d",
+          "label": "Pure decoration",
+          "correct": false,
+          "rationale": "Decoration doesn't store information."
+        }
+      ],
+      "explanation": "Patterns like those on the Blombos plaque may count or store information, and seasonal animals may have worked as a calendar.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.hunting_magic"
+      ],
+      "sourceCardIds": [
+        "card.art_history.009.c3"
+      ],
+      "prompt": "Why do the food bones at Lascaux cause trouble for the hunting magic idea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The bones are older than the paintings",
+          "correct": false,
+          "rationale": "The problem is which animals, not when."
+        },
+        {
+          "id": "b",
+          "label": "The painters didn't eat meat at all",
+          "correct": false,
+          "rationale": "They mostly ate reindeer."
+        },
+        {
+          "id": "c",
+          "label": "The bones show the animals were never hunted",
+          "correct": false,
+          "rationale": "Reindeer were clearly hunted and eaten."
+        },
+        {
+          "id": "d",
+          "label": "The painters ate reindeer but barely painted them",
+          "correct": true
+        }
+      ],
+      "explanation": "If paintings were spells for the hunt, you'd expect reindeer everywhere. Instead they're almost absent.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.spirit_world",
+        "concept.art_history.lion_man"
+      ],
+      "sourceCardIds": [
+        "card.art_history.009.c4",
+        "card.art_history.007.c1"
+      ],
+      "prompt": "Level 7's Lion-Man is part human, part lion. Which idea about early art does a creature like that fit best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Art about a spirit world",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Hunting magic",
+          "correct": false,
+          "rationale": "Nobody hunted lion-men."
+        },
+        {
+          "id": "c",
+          "label": "Records and counting",
+          "correct": false,
+          "rationale": "A lion-man doesn't count or track anything."
+        },
+        {
+          "id": "d",
+          "label": "Copying nature exactly",
+          "correct": false,
+          "rationale": "No such creature exists in nature."
+        }
+      ],
+      "explanation": "Creatures mixing human and animal fit the idea that early art showed a world of spirits and beliefs.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_prehistoric_art",
+    "source.brit_paleolithic_art",
+    "source.bradshaw_lascaux",
+    "source.griffith_metanduno_stencil",
+    "source.smithsonianmag_metanduno_stencil",
+    "source.museumulm_lion_man",
+    "source.britishmuseum_lion_man",
+    "source.brit_cave_art",
+    "source.sciencedaily_oldest_handprint",
+    "source.smithsonian_blombos_plaque"
+  ],
+  "art": "arts.cave-hand"
+}

@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.art_history.006",
+  "skillId": "skill.arts.art_history",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Lascaux and Chauvet",
+  "objective": "After this level you can describe the animal paintings in the caves of Lascaux and Chauvet.",
+  "summary": "Lascaux (about 17,000 years old) has huge black aurochs and closed in 1963 after visitors harmed it. Chauvet (about 35,500 years old) is full of lions, rhinos and mammoths.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.lascaux",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.chauvet",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.negative_space",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.005"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1994, cave explorers in France felt a faint draft from a pile of stones.",
+      "body": "Behind it was a cave sealed by rockfalls for at least 21,000 years. On its walls: cave lions, woolly rhinos and mammoths. But first, meet an older discovery: Lascaux."
+    },
+    {
+      "id": "card.art_history.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lascaux: the Hall of the Bulls",
+      "body": "Four teenagers found Lascaux in 1940. Radiocarbon dating of its charcoal says about 17,000 years old. In its most famous room, four huge black bulls (aurochs) sweep across the rock, some about 5 meters long. Their bodies are drawn from the side, but their horns twist toward you, so you see both at once. The painters built scaffolding to reach the ceiling."
+    },
+    {
+      "id": "card.art_history.006.c3",
+      "type": "fact",
+      "fact": "Lascaux lasted about 17,000 years in the dark, then about 15 years of tourists.",
+      "context": "It opened to visitors in 1948, up to 100,000 a year. Their traffic and the artificial lights faded the colors and brought algae, bacteria and crystals. In 1963 it closed. Since 1983, visitors have toured a replica nearby instead.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Sometimes the kindest way to love a painting is to stop breathing on it."
+      }
+    },
+    {
+      "id": "card.art_history.006.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chauvet: twice as old",
+      "body": "Radiocarbon dates put most of Chauvet's art at about 35,500 years old, roughly twice Lascaux's age. Its artists chose dangerous animals: among over 400 animals of 14 species are cave lions, woolly rhinos, mammoths and bears. They scraped walls clean, strengthened outlines and smudged charcoal to shade. In the End Chamber, a pride of lions hunts bison."
+    },
+    {
+      "id": "card.art_history.006.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.006.q1"
+    },
+    {
+      "id": "card.art_history.006.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.006.q2"
+    },
+    {
+      "id": "card.art_history.006.c7",
+      "type": "recall",
+      "questionId": "question.art_history.006.q3"
+    },
+    {
+      "id": "card.art_history.006.c8",
+      "type": "checkpoint",
+      "headline": "Two great caves: explored",
+      "learned": [
+        "Lascaux: found 1940, about 17,000 years old",
+        "Its Hall of the Bulls holds four huge aurochs",
+        "Visitors damaged it; it closed in 1963",
+        "Chauvet: about 35,500 years old, full of dangerous animals"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.lascaux"
+      ],
+      "sourceCardIds": [
+        "card.art_history.006.c2"
+      ],
+      "prompt": "What fills Lascaux's most famous room, the Hall of the Bulls?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lions hunting bison",
+          "correct": false,
+          "rationale": "That scene is in Chauvet's End Chamber."
+        },
+        {
+          "id": "b",
+          "label": "Rows of hand stencils",
+          "correct": false,
+          "rationale": "Lascaux is famous for its animals."
+        },
+        {
+          "id": "c",
+          "label": "Four huge black aurochs",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A herd of woolly rhinos",
+          "correct": false,
+          "rationale": "Rhinos star at Chauvet."
+        }
+      ],
+      "explanation": "Four huge black bulls, or aurochs, some about 5 meters long, with horns twisted to face you.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.lascaux"
+      ],
+      "sourceCardIds": [
+        "card.art_history.006.c3"
+      ],
+      "prompt": "Why was Lascaux closed to the public in 1963?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A rockfall blocked the cave's entrance",
+          "correct": false,
+          "rationale": "That happened to Chauvet, long ago."
+        },
+        {
+          "id": "b",
+          "label": "Visitors and lights were damaging the paintings",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The paintings were found to be fakes",
+          "correct": false,
+          "rationale": "They're genuine, about 17,000 years old."
+        },
+        {
+          "id": "d",
+          "label": "Heavy rain flooded the lower chambers",
+          "correct": false,
+          "rationale": "Water wasn't the problem; people were."
+        }
+      ],
+      "explanation": "Up to 100,000 visitors a year and artificial lighting faded the colors and brought algae, bacteria and crystals.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.chauvet",
+        "concept.art_history.negative_space"
+      ],
+      "sourceCardIds": [
+        "card.art_history.006.c4",
+        "card.art_history.003.c4"
+      ],
+      "prompt": "Chauvet's artists smudged charcoal to shade their animals. Which Level 3 element does shading help create?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Line, the outline of each animal",
+          "correct": false,
+          "rationale": "The outlines are line; the shading does something else."
+        },
+        {
+          "id": "b",
+          "label": "Negative space around the animals",
+          "correct": false,
+          "rationale": "That's the empty area around a shape."
+        },
+        {
+          "id": "c",
+          "label": "Geometric shape, like circles",
+          "correct": false,
+          "rationale": "The animals are organic, not squares and circles."
+        },
+        {
+          "id": "d",
+          "label": "Space, the feeling of depth",
+          "correct": true
+        }
+      ],
+      "explanation": "Shading makes the animals look rounded and solid, giving a flat wall the feeling of depth: space.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_chauvet",
+    "source.pnas_chauvet_rockfall",
+    "source.smithsonianmag_chauvet_timeline",
+    "source.brit_lascaux",
+    "source.bradshaw_lascaux"
+  ],
+  "art": "arts.cave-hand"
+}

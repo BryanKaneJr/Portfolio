@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.art_history.005",
+  "skillId": "skill.arts.art_history",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The First Artists",
+  "objective": "After this level you can describe the oldest known cave art and how it was made.",
+  "summary": "The oldest finds go from lines (a 73,000-year-old ochre crosshatch at Blombos Cave) to hands (stencils blown in ochre) to scenes (a picture story at least 51,200 years old in Sulawesi).",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.blombos_drawing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.hand_stencils",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.sulawesi_story_scene",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.oldest_known_art",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.004"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The oldest known drawing looks like a hashtag.",
+      "body": "It's a crosshatch of red lines on a small flake of stone from South Africa, about 73,000 years old. The earliest finds tell a story in three steps: first lines, then hands, then whole scenes."
+    },
+    {
+      "id": "card.art_history.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 1: lines",
+      "body": "The flake comes from Blombos Cave. Someone drew on it with a pointed crayon of red ochre, an earth pigment that gets its color from iron oxide. It's at least 30,000 years older than any other known drawing. Is it art? Researchers still disagree. The lines might mean something, or they might just be left over from sharpening the crayon."
+    },
+    {
+      "id": "card.art_history.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 2: hands",
+      "body": "Remember Level 1's hand, at least 67,800 years old? To make a stencil, you press your hand to the rock and blow pigment over it, sometimes through a pipe. Lift your hand and its outline stays. On Muna island, someone later went back and narrowed the fingers, turning a human hand into something closer to a claw."
+    },
+    {
+      "id": "card.art_history.005.c4",
+      "type": "fact",
+      "fact": "The oldest known picture story is at least 51,200 years old.",
+      "context": "On a cave wall at Leang Karampuang, also in Sulawesi, three human-like figures interact with a wild pig. It's not one animal on its own: it's a scene, the earliest known narrative art. Its age comes from thin mineral crusts that formed on top of the paint, dated by the uranium in them.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Three figures and a pig. Honestly, better plot than some movies I've seen."
+      }
+    },
+    {
+      "id": "card.art_history.005.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.005.q1"
+    },
+    {
+      "id": "card.art_history.005.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.005.q2"
+    },
+    {
+      "id": "card.art_history.005.c7",
+      "type": "recall",
+      "questionId": "question.art_history.005.q3"
+    },
+    {
+      "id": "card.art_history.005.c8",
+      "type": "checkpoint",
+      "headline": "The first artists: found",
+      "learned": [
+        "Oldest drawing: an ochre crosshatch, about 73,000 years old",
+        "Hand stencils: pigment blown around a hand",
+        "Oldest picture story: at least 51,200 years old",
+        "Dates come from mineral crusts over the paint"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.sulawesi_story_scene"
+      ],
+      "sourceCardIds": [
+        "card.art_history.005.c4"
+      ],
+      "prompt": "What does the oldest known picture story, at Leang Karampuang, show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A hand stencil with claw-like fingers",
+          "correct": false,
+          "rationale": "That's Muna's record-breaking stencil, not a scene."
+        },
+        {
+          "id": "b",
+          "label": "Three human-like figures with a wild pig",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Four huge black bulls in a long row",
+          "correct": false,
+          "rationale": "Wrong cave, and much younger."
+        },
+        {
+          "id": "d",
+          "label": "A crosshatch of red ochre lines",
+          "correct": false,
+          "rationale": "That's the Blombos drawing."
+        }
+      ],
+      "explanation": "Three human-like figures interact with a wild pig, making it a scene: the earliest known narrative art.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.blombos_drawing"
+      ],
+      "sourceCardIds": [
+        "card.art_history.005.c2"
+      ],
+      "prompt": "Why aren't researchers sure the Blombos crosshatch is art?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It may have been drawn by accident in a flood",
+          "correct": false,
+          "rationale": "No one suggests a flood; the debate is about the crayon."
+        },
+        {
+          "id": "b",
+          "label": "It's too young to count as prehistoric",
+          "correct": false,
+          "rationale": "It's about 73,000 years old."
+        },
+        {
+          "id": "c",
+          "label": "Nobody knows what it's drawn with",
+          "correct": false,
+          "rationale": "It was drawn with a red ochre crayon."
+        },
+        {
+          "id": "d",
+          "label": "The lines might be left from sharpening a crayon",
+          "correct": true
+        }
+      ],
+      "explanation": "The lines could carry meaning, or they could just be marks from sharpening the ochre crayon.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.hand_stencils",
+        "concept.art_history.oldest_known_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.005.c3",
+        "card.art_history.001.c1"
+      ],
+      "prompt": "Level 1's 67,800-year-old hand stencil on Muna island was later changed. How?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its fingers were narrowed to look like a claw",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A second hand was painted on top",
+          "correct": false,
+          "rationale": "The change was to its own fingers."
+        },
+        {
+          "id": "c",
+          "label": "It was carved deeper into the rock",
+          "correct": false,
+          "rationale": "Stencils are sprayed, not carved."
+        },
+        {
+          "id": "d",
+          "label": "Someone painted it black with charcoal",
+          "correct": false,
+          "rationale": "The change was to its shape, not its color."
+        }
+      ],
+      "explanation": "Someone went back and narrowed the fingers, turning the hand into something like a claw.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nhm_blombos_drawing",
+    "source.brit_cave_art",
+    "source.griffith_metanduno_stencil",
+    "source.smithsonianmag_metanduno_stencil",
+    "source.griffith_karampuang_story"
+  ],
+  "art": "arts.cave-hand"
+}

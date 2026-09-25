@@ -1,0 +1,223 @@
+{
+  "id": "level.arts.art_history.008",
+  "skillId": "skill.arts.art_history",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Stonehenge and Great Stones",
+  "objective": "After this level you can explain what monuments like Stonehenge show about early societies.",
+  "summary": "Stonehenge took hundreds of workers, stones from Wales and feasts drawing people from across Britain. Göbekli Tepe, about 11,500 years old, was built by hunter-gatherers.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.stonehenge",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.stonehenge_gatherings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.gobekli_tepe",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.lion_man",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.007"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Stonehenge's builders joined giant stones the way a carpenter joins wood.",
+      "body": "Picture a ring of huge upright stones on a grassy plain, with stone beams laid across their tops. The beams are slotted on with joints you'd normally find in furniture. Monuments like this tell you who built them: how many people, how organized, and what mattered to them."
+    },
+    {
+      "id": "card.art_history.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Built by hundreds, over centuries",
+      "body": "Stonehenge began as a circular ditch and bank about 3000 BC; the stones went up about 2500 BC. The giant sarsens, about 25 tons each on average, came from about 25 km away. The smaller bluestones came from the Preseli Hills in Wales, more than 200 km away. Moving, shaping and raising them took hundreds of people. That's not a weekend project. That's a society working together."
+    },
+    {
+      "id": "card.art_history.008.c3",
+      "type": "fact",
+      "fact": "Some pigs at Stonehenge-era feasts came from as far as north-east Scotland.",
+      "context": "At Durrington Walls, near Stonehenge, archaeologists have found over 38,000 animal bones. Pig teeth show animals raised in west Wales, northern England and north-east Scotland, then slaughtered at midwinter. Stonehenge itself is lined up with the Sun: at midsummer the sun rises beside the Heel Stone, and at midwinter it set through the tallest arch. People came from far away, at special times of year."
+    },
+    {
+      "id": "card.art_history.008.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Göbekli Tepe: older than farming",
+      "body": "In southeastern Turkey, hunter-gatherers began Göbekli Tepe about 11,500 years ago, more than twice Stonehenge's age and before farming. Its T-shaped limestone pillars reach over 5 meters and weigh up to 50 tons. Some are carved with foxes, scorpions and lions. Others have arms and hands carved down their sides, meeting in front over a belt: giant stone people. Building together may have led people to settle, not the other way round."
+    },
+    {
+      "id": "card.art_history.008.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.008.q1"
+    },
+    {
+      "id": "card.art_history.008.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.008.q2"
+    },
+    {
+      "id": "card.art_history.008.c7",
+      "type": "recall",
+      "questionId": "question.art_history.008.q3"
+    },
+    {
+      "id": "card.art_history.008.c8",
+      "type": "checkpoint",
+      "headline": "Great stones: raised",
+      "learned": [
+        "Stonehenge: ditch about 3000 BC, stones about 2500 BC",
+        "Bluestones came from Wales; it took hundreds of people",
+        "Feasts drew people and animals from across Britain",
+        "Göbekli Tepe: built by hunter-gatherers, about 11,500 years ago"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.stonehenge"
+      ],
+      "sourceCardIds": [
+        "card.art_history.008.c2"
+      ],
+      "prompt": "Where did Stonehenge's bluestones come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "West Woods, about 25 km away",
+          "correct": false,
+          "rationale": "That's where the big sarsens came from."
+        },
+        {
+          "id": "b",
+          "label": "Near Lake Garda in Italy",
+          "correct": false,
+          "rationale": "That's where the Venus of Willendorf's stone likely came from."
+        },
+        {
+          "id": "c",
+          "label": "Southeastern Turkey",
+          "correct": false,
+          "rationale": "That's Göbekli Tepe's home."
+        },
+        {
+          "id": "d",
+          "label": "The Preseli Hills in Wales",
+          "correct": true
+        }
+      ],
+      "explanation": "The bluestones traveled more than 200 km from the Preseli Hills in Wales.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.stonehenge_gatherings"
+      ],
+      "sourceCardIds": [
+        "card.art_history.008.c3"
+      ],
+      "prompt": "What do the pig bones at Durrington Walls suggest about Stonehenge's world?",
+      "options": [
+        {
+          "id": "a",
+          "label": "People traveled from across Britain to feast at midwinter",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Stonehenge's builders were farmers from Turkey",
+          "correct": false,
+          "rationale": "The pigs were raised around Britain."
+        },
+        {
+          "id": "c",
+          "label": "Pigs were worshipped as gods",
+          "correct": false,
+          "rationale": "The bones show feasting, not worship."
+        },
+        {
+          "id": "d",
+          "label": "Only local people ever came to Stonehenge",
+          "correct": false,
+          "rationale": "The animals came from as far as Scotland."
+        }
+      ],
+      "explanation": "Pigs raised in Wales, northern England and Scotland were slaughtered at midwinter: people gathered from far away to feast.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.gobekli_tepe",
+        "concept.art_history.lion_man"
+      ],
+      "sourceCardIds": [
+        "card.art_history.008.c4",
+        "card.art_history.007.c1"
+      ],
+      "prompt": "Level 7's Lion-Man turned ivory into a figure with a human body. What at Göbekli Tepe turns stone into people?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lions carved on the pillars",
+          "correct": false,
+          "rationale": "Those are animals, not people."
+        },
+        {
+          "id": "b",
+          "label": "Its alignment with the Sun",
+          "correct": false,
+          "rationale": "That's Stonehenge, and it isn't about people's shapes."
+        },
+        {
+          "id": "c",
+          "label": "Arms and hands carved on the pillars",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Stones dragged from Wales",
+          "correct": false,
+          "rationale": "That's Stonehenge's bluestones."
+        }
+      ],
+      "explanation": "Some T-shaped pillars have arms and hands carved down their sides and a belt: they're read as giant stylized people.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eh_stonehenge_building",
+    "source.eh_stonehenge_history",
+    "source.eh_stonehenge_significance",
+    "source.eh_stonehenge_understanding",
+    "source.eh_stonehenge_feasting",
+    "source.brit_gobekli_tepe",
+    "source.unesco_gobekli_tepe",
+    "source.dai_gobekli_t_pillars"
+  ],
+  "art": "arts.stonehenge"
+}

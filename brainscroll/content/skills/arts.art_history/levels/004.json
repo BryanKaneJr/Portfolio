@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.art_history.004",
+  "skillId": "skill.arts.art_history",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Color Works",
+  "objective": "After this level you can explain primary and complementary colors and how artists use them.",
+  "summary": "Newton bent the spectrum into a color wheel. Red, yellow and blue are the painter's primaries; complements sit opposite, look more intense side by side, and mix to brown.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.color_wheel_primaries",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.complementary_colors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.elements_of_art",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.003"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1824, the royal tapestry works in Paris had a problem: weak colors.",
+      "body": "The new head of dyeing at the Gobelins, a chemist named Michel-Eugène Chevreul, went looking for bad dye. He found something much stranger. To see what, you need a color wheel."
+    },
+    {
+      "id": "card.art_history.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Newton bends the rainbow",
+      "body": "In his book Opticks, in 1704, Isaac Newton took the colors of the spectrum and bent them into a circle: an early color wheel. Painters use the idea to this day. Three colors sit at the heart of a painter's wheel: red, yellow and blue, the primaries. Every other color is a mix of them. Mix two primaries and you get a secondary: orange, green or violet."
+    },
+    {
+      "id": "card.art_history.004.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Opposites on the wheel",
+      "body": "Colors directly across the wheel from each other are complementary: red and green, blue and orange, yellow and violet. Each pair shares no primary. Red is a primary, and green is blue plus yellow, so between them they use all three. Mix complements in paint and they cancel each other out into brown.",
+      "callout": "Red ↔ green · Blue ↔ orange · Yellow ↔ violet"
+    },
+    {
+      "id": "card.art_history.004.c4",
+      "type": "fact",
+      "fact": "A color changes depending on its neighbors.",
+      "context": "That was the Gobelins mystery. The dye was fine; the colors woven next to each other were changing how each one looked. Chevreul published his law of simultaneous contrast in 1839. Put complements side by side and each makes the other look more intense. His ideas went on to influence painters, including the Impressionists.",
+      "mascot": {
+        "pose": "idea",
+        "line": "So if a color looks off, check the neighbors before you blame the paint."
+      }
+    },
+    {
+      "id": "card.art_history.004.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.004.q1"
+    },
+    {
+      "id": "card.art_history.004.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.004.q2"
+    },
+    {
+      "id": "card.art_history.004.c7",
+      "type": "recall",
+      "questionId": "question.art_history.004.q3"
+    },
+    {
+      "id": "card.art_history.004.c8",
+      "type": "checkpoint",
+      "headline": "Color: decoded",
+      "learned": [
+        "Newton bent the spectrum into a color wheel",
+        "Painter's primaries: red, yellow, blue",
+        "Complements sit opposite and mix to brown",
+        "Side by side, complements look more intense"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.color_wheel_primaries"
+      ],
+      "sourceCardIds": [
+        "card.art_history.004.c2"
+      ],
+      "prompt": "Which three are the primary colors on a painter's color wheel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Red, yellow and blue",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Orange, green and violet",
+          "correct": false,
+          "rationale": "Those are the secondaries, mixed from two primaries."
+        },
+        {
+          "id": "c",
+          "label": "Red, green and yellow",
+          "correct": false,
+          "rationale": "Green is a secondary: blue plus yellow."
+        },
+        {
+          "id": "d",
+          "label": "Black, white and gray",
+          "correct": false,
+          "rationale": "Those aren't on the color wheel's primary list."
+        }
+      ],
+      "explanation": "Red, yellow and blue are the painter's primaries; every other color is a mix of them.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.art_history.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.complementary_colors"
+      ],
+      "sourceCardIds": [
+        "card.art_history.004.c4",
+        "card.art_history.004.c1"
+      ],
+      "prompt": "What did Chevreul discover about the Gobelins tapestries' weak colors?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The dyes were fading in sunlight",
+          "correct": false,
+          "rationale": "He found the dyes were fine."
+        },
+        {
+          "id": "b",
+          "label": "The wool was the wrong type",
+          "correct": false,
+          "rationale": "The problem wasn't the material."
+        },
+        {
+          "id": "c",
+          "label": "Neighboring colors changed how each looked",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Weavers were mixing up the threads",
+          "correct": false,
+          "rationale": "Nobody made a mistake; it was an optical effect."
+        }
+      ],
+      "explanation": "Colors side by side change how each other look: Chevreul's law of simultaneous contrast.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.complementary_colors",
+        "concept.art_history.elements_of_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.004.c3",
+        "card.art_history.004.c4",
+        "card.art_history.003.c3"
+      ],
+      "prompt": "Color is one of Level 3's elements of art. A painter wants a red apple to look as vivid as possible. Which background works best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Orange",
+          "correct": false,
+          "rationale": "Orange sits next to red, so it won't boost it much."
+        },
+        {
+          "id": "b",
+          "label": "Another red",
+          "correct": false,
+          "rationale": "Red on red makes the apple blend in."
+        },
+        {
+          "id": "c",
+          "label": "Brown",
+          "correct": false,
+          "rationale": "Brown is what complements make when mixed; it dulls things."
+        },
+        {
+          "id": "d",
+          "label": "Green",
+          "correct": true
+        }
+      ],
+      "explanation": "Green is red's complement. Side by side, complements make each other look more intense.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_chevreul",
+    "source.lindahall_chevreul",
+    "source.royalsociety_colour_wheel",
+    "source.getty_elements_of_art"
+  ],
+  "art": "object.palette"
+}

@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.art_history.002",
+  "skillId": "skill.arts.art_history",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Counts as Art?",
+  "objective": "After this level you can explain why people have disagreed about what counts as art.",
+  "summary": "In 1926 US customs taxed Brancusi's Bird in Space as metal because it didn't look like a bird. In 1928 a court ruled it art: art could express an idea, not just copy nature.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.brancusi_trial",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.art_definition_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.art_eras",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.001"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1926, US customs decided a famous sculpture wasn't art. Just metal.",
+      "body": "So they taxed it like any factory-made object. The fight that followed went all the way to court, where a judge had to settle a question people still argue about in galleries: what counts as art?"
+    },
+    {
+      "id": "card.art_history.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A bird with no wings",
+      "body": "The sculpture was Constantin Brancusi's Bird in Space. Picture a tall, slender strip of bronze, polished like a mirror. Brancusi left out the wings and feathers, stretched the body long and shrank the head and beak to a slanted oval. It doesn't show what one particular bird looks like. It's about the idea of flight."
+    },
+    {
+      "id": "card.art_history.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two ideas of art collide",
+      "body": "Customs followed the old rule: a sculpture was carved or shaped in the likeness of natural models, like people and animals. No likeness, no sculpture. So they charged a 40% duty on it as a manufacture of metal. Brancusi's side said art could capture an idea instead. The critic Frank Crowninshield testified that it suggested flight, grace and speed, just as a bird does.",
+      "callout": "Old test: does it look like something? New test: does it express something?"
+    },
+    {
+      "id": "card.art_history.002.c4",
+      "type": "fact",
+      "fact": "In 1928, a court ruled that Bird in Space was art.",
+      "context": "The court noted a new school of art whose artists tried to portray abstract ideas rather than imitate natural objects, and said it had to be recognized. The ruling even admitted it might be hard to associate the thing with a bird. It was still pleasing to look at, and a work of art. The idea of art had moved, and the law moved with it.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Next time someone says \"my kid could make that\", remember: that argument once needed a judge."
+      }
+    },
+    {
+      "id": "card.art_history.002.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.002.q1"
+    },
+    {
+      "id": "card.art_history.002.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.002.q2"
+    },
+    {
+      "id": "card.art_history.002.c7",
+      "type": "recall",
+      "questionId": "question.art_history.002.q3"
+    },
+    {
+      "id": "card.art_history.002.c8",
+      "type": "checkpoint",
+      "headline": "What counts as art: argued",
+      "learned": [
+        "Customs taxed Bird in Space as metal in 1926",
+        "The old rule: sculpture must resemble natural models",
+        "In 1928 a court ruled it art",
+        "Art can express an idea, not only copy nature"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.brancusi_trial"
+      ],
+      "sourceCardIds": [
+        "card.art_history.002.c3"
+      ],
+      "prompt": "Why did US customs refuse to treat Bird in Space as a sculpture?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was too large to count as art",
+          "correct": false,
+          "rationale": "Size wasn't the issue; likeness was."
+        },
+        {
+          "id": "b",
+          "label": "Brancusi wasn't a professional sculptor",
+          "correct": false,
+          "rationale": "The court found it was the work of a professional sculptor."
+        },
+        {
+          "id": "c",
+          "label": "It didn't look like a real bird",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Bronze wasn't allowed in sculpture",
+          "correct": false,
+          "rationale": "Bronze sculpture was nothing new; the problem was the shape."
+        }
+      ],
+      "explanation": "The old rule said sculpture had to be in the likeness of natural models. With no wings or feathers, it was taxed as metal.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.art_history.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.art_definition_debate",
+        "concept.art_history.brancusi_trial"
+      ],
+      "sourceCardIds": [
+        "card.art_history.002.c3",
+        "card.art_history.002.c4"
+      ],
+      "prompt": "What did the 1928 ruling accept about art?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Art can express an idea instead of copying nature",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Only realistic copies of nature count as art",
+          "correct": false,
+          "rationale": "That was the old rule the ruling moved past."
+        },
+        {
+          "id": "c",
+          "label": "Anything made of metal is art",
+          "correct": false,
+          "rationale": "Customs had classed it as metal; the court judged it as sculpture."
+        },
+        {
+          "id": "d",
+          "label": "Art must be approved by customs officers",
+          "correct": false,
+          "rationale": "The court overruled customs."
+        }
+      ],
+      "explanation": "The court recognized a new school of art that portrays abstract ideas rather than imitating natural objects.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.art_history.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.art_definition_debate",
+        "concept.art_history.art_eras"
+      ],
+      "sourceCardIds": [
+        "card.art_history.002.c2",
+        "card.art_history.001.c4"
+      ],
+      "prompt": "Level 1: photography freed painting from having to record the world exactly. How does Bird in Space fit that change?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It copies a bird more exactly than a photo can",
+          "correct": false,
+          "rationale": "It leaves out wings and feathers entirely."
+        },
+        {
+          "id": "b",
+          "label": "It suggests an idea, flight, instead of copying a bird",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It was made from a photograph of a bird",
+          "correct": false,
+          "rationale": "Nothing suggests that; it's about flight, not one bird."
+        },
+        {
+          "id": "d",
+          "label": "It follows Renaissance rules of realism",
+          "correct": false,
+          "rationale": "It breaks with realism, like modern painters did."
+        }
+      ],
+      "explanation": "Once art no longer had to copy appearances, artists like Brancusi could aim at an idea, here the idea of flight.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.moma_brancusi_trial",
+    "source.met_bird_in_space",
+    "source.bellevue_brancusi_decision",
+    "source.guggenheim_bird_in_space",
+    "source.dailyart_brancusi_trial"
+  ],
+  "art": "arts.frame"
+}

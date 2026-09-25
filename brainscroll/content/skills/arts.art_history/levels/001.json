@@ -1,0 +1,242 @@
+{
+  "id": "level.arts.art_history.001",
+  "skillId": "skill.arts.art_history",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Art History in One Level",
+  "objective": "After this level you can describe the big eras of art from cave paintings to today.",
+  "summary": "The oldest known art is a hand stencil at least 67,800 years old, far older than writing. Art then moved through big eras, Stone Age to modern, each answering the last.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.oldest_known_art",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.art_eras",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.art_history.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The oldest known artwork is a hand. It's at least 67,800 years old.",
+      "body": "Someone on Muna island, in Indonesia, pressed a hand to a cave wall and blew red ochre over it. Lift the hand away and its outline stays on the bare rock. It's still there. Art history starts with that hand, and this level runs from there to today."
+    },
+    {
+      "id": "card.art_history.001.c2",
+      "type": "fact",
+      "fact": "If all of art history were one day, writing wouldn't show up until after 10 p.m.",
+      "context": "Squeeze the 67,800 years since that hand into 24 hours. Writing, invented about 5,200 years ago, appears just after 10 p.m.: for more than 22 hours, people made art but wrote nothing down. The Mona Lisa, begun about 1503, arrives about 11 minutes before midnight. Most of art's story happened before anyone could write about it.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Art had a 22-hour head start on writing. Honestly, that explains why pictures still say it faster."
+      }
+    },
+    {
+      "id": "card.art_history.001.c3",
+      "type": "timeline",
+      "headline": "The big eras, in order",
+      "events": [
+        {
+          "when": "Stone Age",
+          "label": "Hand stencils, cave animals, carvings"
+        },
+        {
+          "when": "Ancient worlds",
+          "label": "Egypt, Greece, Rome: Egypt's art serves king and gods"
+        },
+        {
+          "when": "Middle Ages",
+          "label": "Western art is mostly art for the church"
+        },
+        {
+          "when": "Renaissance",
+          "label": "Italy revives ancient Greece and Rome"
+        },
+        {
+          "when": "Baroque, 1600s",
+          "label": "Drama, movement, emotion"
+        },
+        {
+          "when": "Modern, mid-1800s on",
+          "label": "Painters break the old rules"
+        }
+      ]
+    },
+    {
+      "id": "card.art_history.001.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every era answers the one before",
+      "body": "Eras aren't just labels; they talk to each other. Renaissance is French for \"rebirth\": starting in 14th-century Italy, artists revived the ideas of ancient Greece and Rome. Centuries later, photography could record the world exactly, so painting no longer had to. Modern painters, starting in mid-1800s France, threw out the old rules. Each new era is partly a reply to the last one."
+    },
+    {
+      "id": "card.art_history.001.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.001.q1"
+    },
+    {
+      "id": "card.art_history.001.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.001.q2"
+    },
+    {
+      "id": "card.art_history.001.c7",
+      "type": "mcq",
+      "questionId": "question.art_history.001.q3"
+    },
+    {
+      "id": "card.art_history.001.c8",
+      "type": "checkpoint",
+      "headline": "Art history: mapped",
+      "learned": [
+        "The oldest known art is a hand stencil, at least 67,800 years old",
+        "Art is far older than writing",
+        "Big eras: Stone Age, ancient, medieval, Renaissance, Baroque, modern",
+        "Each era partly answers the one before"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.oldest_known_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.001.c1"
+      ],
+      "prompt": "What is the oldest reliably dated cave art known today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A painted wild pig",
+          "correct": false,
+          "rationale": "Animal paintings in Sulawesi are old, but younger than this."
+        },
+        {
+          "id": "b",
+          "label": "A hand stencil on Muna island",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A carved ivory figure",
+          "correct": false,
+          "rationale": "Carvings are old too, but this record belongs to a painting."
+        },
+        {
+          "id": "d",
+          "label": "A ring of standing stones",
+          "correct": false,
+          "rationale": "Great stone rings are thousands of years old, not tens of thousands."
+        }
+      ],
+      "explanation": "A hand stencil in Liang Metanduno cave, on Muna island in Indonesia, is at least 67,800 years old.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.art_history.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.oldest_known_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.001.c2"
+      ],
+      "prompt": "Squeeze art history into one day. What does the late arrival of writing show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Art only began once people could write",
+          "correct": false,
+          "rationale": "Art came first, by a very long way."
+        },
+        {
+          "id": "b",
+          "label": "Writing and art began at the same time",
+          "correct": false,
+          "rationale": "Writing arrives after 10 p.m.; art was there from the start."
+        },
+        {
+          "id": "c",
+          "label": "Most famous paintings are very old",
+          "correct": false,
+          "rationale": "The Mona Lisa lands about 11 minutes before midnight."
+        },
+        {
+          "id": "d",
+          "label": "Art is far older than writing",
+          "correct": true
+        }
+      ],
+      "explanation": "For more than 22 of the 24 hours, people made art but wrote nothing down. Writing is only about 5,200 years old.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.art_history.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.art_eras"
+      ],
+      "sourceCardIds": [
+        "card.art_history.001.c3",
+        "card.art_history.001.c4"
+      ],
+      "prompt": "Renaissance means \"rebirth\". Which earlier era did its artists bring back to life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ancient Greece and Rome",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Prehistoric cave art",
+          "correct": false,
+          "rationale": "Cave art wasn't known to Renaissance artists."
+        },
+        {
+          "id": "c",
+          "label": "The Middle Ages in Europe",
+          "correct": false,
+          "rationale": "The Renaissance came right after the Middle Ages; it reached further back."
+        },
+        {
+          "id": "d",
+          "label": "The Baroque of the 1600s",
+          "correct": false,
+          "rationale": "The Baroque came after the Renaissance."
+        }
+      ],
+      "explanation": "Starting in 14th-century Italy, Renaissance artists revived the learning and art of ancient Greece and Rome.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.griffith_metanduno_stencil",
+    "source.smithsonianmag_metanduno_stencil",
+    "source.brit_cave_art",
+    "source.brit_cuneiform",
+    "source.brit_mona_lisa",
+    "source.brit_western_painting",
+    "source.brit_prehistoric_art",
+    "source.brit_egyptian_art",
+    "source.brit_christianity_art",
+    "source.brit_renaissance",
+    "source.brit_baroque",
+    "source.brit_western_painting_modern"
+  ],
+  "art": "object.palette"
+}

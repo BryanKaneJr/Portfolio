@@ -1,0 +1,376 @@
+{
+  "id": "level.arts.art_history.010",
+  "skillId": "skill.arts.art_history",
+  "number": 10,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: The First Artists",
+  "objective": "After this level you can describe the earliest known art and the main ideas about why it was made.",
+  "summary": "Radiocarbon dates charcoal back to about 50,000 years; uranium-series dates crusts over mineral paint, giving a minimum age. That's why records say 'at least'.",
+  "concepts": [
+    {
+      "conceptId": "concept.art_history.dating_cave_art",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.blombos_drawing",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.oldest_known_art",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.lion_man",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.chauvet",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.lascaux",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.stonehenge",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.sulawesi_story_scene",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.art_history.gobekli_tepe",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.complementary_colors",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.art_history.009"
+  ],
+  "cards": [
+    {
+      "id": "card.art_history.010.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 1 finale: how do you date a painting nobody signed?",
+      "body": "Every date in this chapter came from a lab, not a label. Here's the whole chapter in order, then how those numbers were found, and why so many of them start with \"at least\"."
+    },
+    {
+      "id": "card.art_history.010.c2",
+      "type": "timeline",
+      "headline": "The first artists, oldest first",
+      "events": [
+        {
+          "when": "About 73,000 years ago",
+          "label": "An ochre crosshatch at Blombos Cave"
+        },
+        {
+          "when": "At least 67,800 years ago",
+          "label": "A hand stencil on Muna island"
+        },
+        {
+          "when": "About 40,000 years ago",
+          "label": "The Lion-Man, carved in ivory"
+        },
+        {
+          "when": "About 35,500 years ago",
+          "label": "Chauvet's lions and rhinos"
+        },
+        {
+          "when": "About 17,000 years ago",
+          "label": "Lascaux's great aurochs"
+        },
+        {
+          "when": "About 4,500 years ago",
+          "label": "Stonehenge's stones go up"
+        }
+      ]
+    },
+    {
+      "id": "card.art_history.010.c3",
+      "type": "fact",
+      "fact": "Charcoal is a clock.",
+      "context": "Radiocarbon dating measures carbon-14 in things that were once alive, like the burnt wood in charcoal, and works back to about 50,000 years. Many of Chauvet's black lines are charcoal, so labs can date the drawings themselves: most are about 35,500 years old. At Lascaux, charcoal from the cave gives about 17,000."
+    },
+    {
+      "id": "card.art_history.010.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why \"at least\"?",
+      "body": "Red ochre is iron oxide, a mineral, and many paintings have no organic material to date. So researchers date something else: thin mineral crusts that grew over the paint, using uranium, as at Leang Karampuang. The crust formed after the painting, so the paint must be older. That's a minimum age. The real one could be older, which is why records keep getting broken.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "\"At least 67,800 years\" is science being honest. The hand might be older still."
+      }
+    },
+    {
+      "id": "card.art_history.010.c5",
+      "type": "mcq",
+      "questionId": "question.art_history.010.q1"
+    },
+    {
+      "id": "card.art_history.010.c6",
+      "type": "mcq",
+      "questionId": "question.art_history.010.q2"
+    },
+    {
+      "id": "card.art_history.010.c7",
+      "type": "mcq",
+      "questionId": "question.art_history.010.q3"
+    },
+    {
+      "id": "card.art_history.010.c8",
+      "type": "recall",
+      "questionId": "question.art_history.010.q4"
+    },
+    {
+      "id": "card.art_history.010.c9",
+      "type": "recall",
+      "questionId": "question.art_history.010.q5"
+    },
+    {
+      "id": "card.art_history.010.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "The oldest known drawing is about 73,000 years old",
+        "Radiocarbon dates charcoal, back to about 50,000 years",
+        "Uranium dating of crusts gives a minimum age",
+        "Chauvet and Lascaux were dated from their charcoal"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.art_history.010.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.dating_cave_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.010.c4"
+      ],
+      "prompt": "Why is the Muna hand stencil dated \"at least\" 67,800 years old?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The lab lost part of the sample",
+          "correct": false,
+          "rationale": "Nothing went wrong; the method gives a minimum."
+        },
+        {
+          "id": "b",
+          "label": "Radiocarbon can only estimate roughly",
+          "correct": false,
+          "rationale": "This date comes from uranium in mineral crusts."
+        },
+        {
+          "id": "c",
+          "label": "The dated crust formed on top of the paint, after it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Scientists round every date down",
+          "correct": false,
+          "rationale": "It's not rounding; the paint is simply older than the crust."
+        }
+      ],
+      "explanation": "Uranium-series dating dates the crust over the paint. The paint came first, so it's at least that old.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.art_history.010.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.art_history.dating_cave_art"
+      ],
+      "sourceCardIds": [
+        "card.art_history.010.c3",
+        "card.art_history.010.c4"
+      ],
+      "prompt": "Radiocarbon needs something that was once alive. Which of these could it date directly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A charcoal drawing of lions at Chauvet",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A red ochre hand stencil",
+          "correct": false,
+          "rationale": "Red ochre is iron oxide, a mineral."
+        },
+        {
+          "id": "c",
+          "label": "The limestone of the Willendorf figure",
+          "correct": false,
+          "rationale": "Limestone isn't charcoal or anything once alive."
+        },
+        {
+          "id": "d",
+          "label": "A Stonehenge sarsen",
+          "correct": false,
+          "rationale": "A stone has no carbon from a living thing."
+        }
+      ],
+      "explanation": "Charcoal is burnt wood, once alive, so its carbon-14 can be measured.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.art_history.010.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.blombos_drawing",
+        "concept.art_history.lion_man",
+        "concept.art_history.chauvet",
+        "concept.art_history.lascaux"
+      ],
+      "sourceCardIds": [
+        "card.art_history.010.c2"
+      ],
+      "prompt": "Chapter recap: which of these is the oldest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lascaux's aurochs",
+          "correct": false,
+          "rationale": "About 17,000 years old."
+        },
+        {
+          "id": "b",
+          "label": "Chauvet's lions",
+          "correct": false,
+          "rationale": "About 35,500 years old."
+        },
+        {
+          "id": "c",
+          "label": "The Lion-Man",
+          "correct": false,
+          "rationale": "About 40,000 years old."
+        },
+        {
+          "id": "d",
+          "label": "The Blombos crosshatch",
+          "correct": true
+        }
+      ],
+      "explanation": "The Blombos drawing, about 73,000 years old, is the oldest known drawing.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.010.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.art_history.gobekli_tepe"
+      ],
+      "sourceCardIds": [
+        "card.art_history.008.c4"
+      ],
+      "prompt": "From Level 8: what did Göbekli Tepe show about hunter-gatherers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They never stayed in one place",
+          "correct": false,
+          "rationale": "They came together to build something huge."
+        },
+        {
+          "id": "b",
+          "label": "They could build a monument before farming",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They copied Stonehenge",
+          "correct": false,
+          "rationale": "Göbekli Tepe is more than twice Stonehenge's age."
+        },
+        {
+          "id": "d",
+          "label": "They carved only in ivory",
+          "correct": false,
+          "rationale": "Its pillars are limestone."
+        }
+      ],
+      "explanation": "Hunter-gatherers built its giant carved pillars about 11,500 years ago, before farming. Building together may even have led people to settle.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.art_history.010.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.art_history.complementary_colors"
+      ],
+      "sourceCardIds": [
+        "card.art_history.004.c3"
+      ],
+      "prompt": "From Level 4: which pair are complementary colors?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Red and orange",
+          "correct": false,
+          "rationale": "Neighbors on the wheel, not opposites."
+        },
+        {
+          "id": "b",
+          "label": "Yellow and green",
+          "correct": false,
+          "rationale": "Green contains yellow, so they share a primary."
+        },
+        {
+          "id": "c",
+          "label": "Blue and orange",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Red and violet",
+          "correct": false,
+          "rationale": "Violet contains red."
+        }
+      ],
+      "explanation": "Blue and orange sit opposite on the color wheel and share no primary.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.griffith_metanduno_stencil",
+    "source.smithsonianmag_metanduno_stencil",
+    "source.nhm_blombos_drawing",
+    "source.brit_lascaux",
+    "source.brit_chauvet",
+    "source.smithsonianmag_chauvet_timeline",
+    "source.museumulm_lion_man",
+    "source.britishmuseum_lion_man",
+    "source.eh_stonehenge_history",
+    "source.brit_carbon14_dating",
+    "source.brit_cave_art",
+    "source.griffith_karampuang_story",
+    "source.sciencedaily_uranium_cave_art"
+  ],
+  "art": "arts.cave-hand"
+}
