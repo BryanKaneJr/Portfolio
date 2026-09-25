@@ -59,7 +59,10 @@ export const ART: Record<string, ImageSourcePropType> = {
   'astronomy.uranus-neptune': require('../../assets/images/art/astronomy.uranus-neptune.webp'),
   'astronomy.venus': require('../../assets/images/art/astronomy.venus.webp'),
   'astronomy.webb': require('../../assets/images/art/astronomy.webb.webp'),
+  'geo.map': require('../../assets/images/art/geo.map.webp'),
+  'geo.mountains': require('../../assets/images/art/geo.mountains.webp'),
   'nature.volcano': require('../../assets/images/art/nature.volcano.webp'),
+  'object.globe': require('../../assets/images/art/object.globe.webp'),
   'object.telescope': require('../../assets/images/art/object.telescope.webp'),
   'rome.altar-flame': require('../../assets/images/art/rome.altar-flame.webp'),
   'rome.amphora-feast': require('../../assets/images/art/rome.amphora-feast.webp'),
@@ -130,4 +133,5 @@ export const ART: Record<string, ImageSourcePropType> = {
   'rome.war-elephant': require('../../assets/images/art/rome.war-elephant.webp'),
   'rome.warship': require('../../assets/images/art/rome.warship.webp'),
   'rome.wax-seal': require('../../assets/images/art/rome.wax-seal.webp'),
+  'technology.satellite': require('../../assets/images/art/technology.satellite.webp'),
 };
