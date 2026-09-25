@@ -1,0 +1,219 @@
+{
+  "id": "level.science.human_body.025",
+  "skillId": "skill.science.human_body",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Blood Types",
+  "objective": "After this level you can explain blood types and why they matter for transfusions.",
+  "summary": "In 1901 Landsteiner found blood groups by watching red cells clump. ABO type depends on A and B antigens on red cells; mismatched antibodies attack donated cells, so transfusions must match.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.bloodtype_abo",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.bloodtype_transfusion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.cell_parts",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.024"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Giving someone blood used to be a gamble.",
+      "body": "Blood transfusions stayed risky until an Austrian physician, Karl Landsteiner, discovered the major human blood groups. It turns out your blood carries a label, and the label matters."
+    },
+    {
+      "id": "card.human_body.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The clumping clue",
+      "body": "In 1901 Landsteiner published what he'd found: mix blood from two people, and sometimes the red cells clump together. The clumping wasn't random. It followed blood groups, the start of the ABO system we still use. The discovery earned him the 1930 Nobel Prize in Physiology or Medicine. Not bad for watching blood misbehave."
+    },
+    {
+      "id": "card.human_body.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Name tags on your red cells",
+      "body": "Your ABO type depends on two markers, the A and B antigens, sitting on the plasma membrane of your red cells (Level 2's outer wall). Type A has A, type B has B, type AB has both and type O has neither. Your plasma also carries antibodies against any marker you lack: type A blood carries anti-B, type B carries anti-A, type O carries both and type AB carries neither."
+    },
+    {
+      "id": "card.human_body.025.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why a mismatch matters",
+      "body": "Give someone red cells with a marker their antibodies target, and those antibodies latch on, making the donated cells clump and break apart. There's a second label too: Rh positive or negative, set by the Rh D antigen (about 85 percent of Americans are positive). Type O negative red cells carry no A, B or Rh D, so they can go to anyone in an emergency. Type AB positive people can receive any type.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "O negative: the red cells with no name tags at all, which is exactly what makes them welcome everywhere."
+      }
+    },
+    {
+      "id": "card.human_body.025.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.025.q1"
+    },
+    {
+      "id": "card.human_body.025.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.025.q2"
+    },
+    {
+      "id": "card.human_body.025.c7",
+      "type": "recall",
+      "questionId": "question.human_body.025.q3"
+    },
+    {
+      "id": "card.human_body.025.c8",
+      "type": "checkpoint",
+      "headline": "Blood types: sorted",
+      "learned": [
+        "Landsteiner published the ABO groups in 1901",
+        "A and B antigens on red cells set your type",
+        "Plasma carries antibodies against markers you lack",
+        "O negative can go to anyone; AB positive can receive any"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.bloodtype_abo"
+      ],
+      "sourceCardIds": [
+        "card.human_body.025.c2"
+      ],
+      "prompt": "What did Karl Landsteiner see when he mixed blood from two people?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The blood turned blue",
+          "correct": false,
+          "rationale": "Blood doesn't turn blue; the cells clumped."
+        },
+        {
+          "id": "b",
+          "label": "Sometimes the red cells clumped together",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The plasma boiled away",
+          "correct": false,
+          "rationale": "Nothing like that happened."
+        },
+        {
+          "id": "d",
+          "label": "The white cells multiplied",
+          "correct": false,
+          "rationale": "He saw red cells clumping."
+        }
+      ],
+      "explanation": "Landsteiner found that mixing blood from two people could make the red blood cells clump, which revealed the ABO blood groups.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.bloodtype_transfusion"
+      ],
+      "sourceCardIds": [
+        "card.human_body.025.c3",
+        "card.human_body.025.c4"
+      ],
+      "prompt": "Why can't a person with type A blood safely receive type B red cells?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Type B cells have no hemoglobin",
+          "correct": false,
+          "rationale": "All red cells carry hemoglobin."
+        },
+        {
+          "id": "b",
+          "label": "Type A blood has no plasma",
+          "correct": false,
+          "rationale": "Every blood type has plasma."
+        },
+        {
+          "id": "c",
+          "label": "Type B cells are too big for capillaries",
+          "correct": false,
+          "rationale": "Size isn't the problem; markers are."
+        },
+        {
+          "id": "d",
+          "label": "Their plasma carries anti-B antibodies",
+          "correct": true
+        }
+      ],
+      "explanation": "Type A plasma carries anti-B antibodies, which attach to type B red cells and make them clump and break apart.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.bloodtype_abo",
+        "concept.human_body.cell_parts"
+      ],
+      "sourceCardIds": [
+        "card.human_body.025.c3",
+        "card.human_body.002.c3"
+      ],
+      "prompt": "Level 2 called the plasma membrane a cell's outer wall. What on the red cell's membrane sets your ABO type?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The A and B antigens",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The nucleus",
+          "correct": false,
+          "rationale": "Mature red cells have no nucleus, and type is set at the surface."
+        },
+        {
+          "id": "c",
+          "label": "The mitochondria",
+          "correct": false,
+          "rationale": "They supply energy in cells that have them."
+        },
+        {
+          "id": "d",
+          "label": "The platelets",
+          "correct": false,
+          "rationale": "Platelets are separate cell fragments in blood."
+        }
+      ],
+      "explanation": "Your ABO type depends on whether the A and B antigens sit on your red cells' plasma membrane.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_blood_typing",
+    "source.brit_landsteiner",
+    "source.medlineplus_cell"
+  ],
+  "art": "body.blood-cells"
+}

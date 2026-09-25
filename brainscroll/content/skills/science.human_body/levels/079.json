@@ -1,0 +1,221 @@
+{
+  "id": "level.science.human_body.079",
+  "skillId": "skill.science.human_body",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Allergies",
+  "objective": "After this level you can explain what an allergy is and why some people have them.",
+  "summary": "An allergy is an immune false alarm: IgE antibodies prime mast cells, which release histamine on a later exposure. Genes and environment both play a part.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.defense_allergy_mechanism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.defense_allergy_causes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.defense_adaptive_immunity",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.078"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.079.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "An allergy is your immune system sounding the alarm over pollen.",
+      "body": "Normally your immune system fights germs. In most allergic reactions, it's responding to a false alarm: something that doesn't bother most other people. So what goes wrong, and why only in some of us?"
+    },
+    {
+      "id": "card.human_body.079.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The usual suspects",
+      "body": "The triggers are called allergens. Common ones include pollen, dust mites, mold spores, pet dander, foods, insect stings and some medicines. None of them is a germ trying to infect you. Your defenses have simply locked onto the wrong target, like a smoke alarm going off over toast."
+    },
+    {
+      "id": "card.human_body.079.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Loaded first, triggered later",
+      "body": "Allergies run on a kind of antibody called IgE. Once the immune system has made IgE against an allergen, those antibodies attach to mast cells and wait. That's called sensitization. The next time the allergen arrives, it binds to the IgE, and the mast cells release histamine, the chemical behind symptoms like a runny nose and swelling. The first meeting loads the trap; a later one springs it.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Same antibody machinery that fights real germs, aimed at a flower. Enthusiastic, just misdirected."
+      }
+    },
+    {
+      "id": "card.human_body.079.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why you, and not your friend",
+      "body": "Genes and environment both play a role. If both your parents have allergies, there's a good chance you'll have them too. Allergies are common: in 2021, 31.8 percent of US adults had a diagnosed seasonal allergy, eczema or food allergy. Most reactions are a nuisance, but a severe one, called anaphylaxis, can be life-threatening."
+    },
+    {
+      "id": "card.human_body.079.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.079.q1"
+    },
+    {
+      "id": "card.human_body.079.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.079.q2"
+    },
+    {
+      "id": "card.human_body.079.c7",
+      "type": "recall",
+      "questionId": "question.human_body.079.q3"
+    },
+    {
+      "id": "card.human_body.079.c8",
+      "type": "checkpoint",
+      "headline": "Allergies: explained",
+      "learned": [
+        "An allergy is an immune false alarm",
+        "IgE antibodies prime mast cells",
+        "On a later exposure, mast cells release histamine",
+        "Genes and environment both play a role"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.defense_allergy_mechanism"
+      ],
+      "sourceCardIds": [
+        "card.human_body.079.c3"
+      ],
+      "prompt": "Which chemical, released by mast cells, causes symptoms like a runny nose and swelling?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Keratin",
+          "correct": false,
+          "rationale": "Keratin is the tough protein in skin, hair and nails."
+        },
+        {
+          "id": "b",
+          "label": "Pyrogens",
+          "correct": false,
+          "rationale": "Pyrogens push up the brain's temperature setting in a fever."
+        },
+        {
+          "id": "c",
+          "label": "Penicillin",
+          "correct": false,
+          "rationale": "Penicillin comes from a mold and attacks bacteria."
+        },
+        {
+          "id": "d",
+          "label": "Histamine",
+          "correct": true
+        }
+      ],
+      "explanation": "When an allergen binds IgE on mast cells, they release histamine, which causes the symptoms.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.defense_allergy_causes"
+      ],
+      "sourceCardIds": [
+        "card.human_body.079.c4"
+      ],
+      "prompt": "Two friends breathe the same pollen, but only one sneezes. What best explains the difference?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only one of them has an immune system",
+          "correct": false,
+          "rationale": "Everyone has one; allergies make it overreact."
+        },
+        {
+          "id": "b",
+          "label": "Genes and environment both shape who has allergies",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The pollen is a germ that infects only one person",
+          "correct": false,
+          "rationale": "Pollen is harmless; the reaction is a false alarm."
+        },
+        {
+          "id": "d",
+          "label": "The friend who sneezes has a fever",
+          "correct": false,
+          "rationale": "A fever is a response to infection, not pollen."
+        }
+      ],
+      "explanation": "Genes and environment both play a role in developing allergies, and they run in families.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.defense_allergy_mechanism",
+        "concept.human_body.defense_adaptive_immunity"
+      ],
+      "sourceCardIds": [
+        "card.human_body.079.c1",
+        "card.human_body.079.c3",
+        "card.human_body.073.c4"
+      ],
+      "prompt": "Level 73's antibodies lock onto germs. What goes wrong with the IgE antibodies in an allergy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They target something harmless, like pollen",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They attack the body's own skin",
+          "correct": false,
+          "rationale": "An allergy targets an outside substance that most people ignore."
+        },
+        {
+          "id": "c",
+          "label": "They stop working entirely",
+          "correct": false,
+          "rationale": "They work too eagerly, on the wrong target."
+        },
+        {
+          "id": "d",
+          "label": "They turn into viruses",
+          "correct": false,
+          "rationale": "Antibodies are proteins; they don't turn into germs."
+        }
+      ],
+      "explanation": "An allergy is an immune response to something harmless: IgE antibodies are aimed at an allergen.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.medlineplus_allergy",
+    "source.brit_allergy",
+    "source.pmc_galli_ige_mast_cells",
+    "source.cdc_nchs_adult_allergies_2021",
+    "source.medlineplus_allergies_ency"
+  ],
+  "art": "body.germ"
+}

@@ -1,0 +1,227 @@
+{
+  "id": "level.science.human_body.071",
+  "skillId": "skill.science.human_body",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Skin",
+  "objective": "After this level you can explain how skin protects the body.",
+  "summary": "Skin, your largest organ, is topped by dead keratin-packed cells replaced about every 4 weeks. Its cool, dry, acidic surface, oil and friendly microbes keep germs out.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.defense_skin_layers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.defense_skin_chemistry",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.tissue_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.microbiome_residents",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.070"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your biggest organ is the one you're wearing.",
+      "body": "Skin is the largest organ in your body, and it covers every bit of you. It's also the first wall every germ runs into. So how does something this thin keep the outside world outside?"
+    },
+    {
+      "id": "card.human_body.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three layers, one wall",
+      "body": "Skin is built in three layers. The deepest, the hypodermis, is mostly fat. Above it, the dermis holds blood vessels, hair follicles and sweat glands. On top sits the epidermis, made of closely packed epithelial cells: the covering tissue from Level 4. Laid out flat, an adult's skin covers about 1.8 square meters, roughly the top of a single bed."
+    },
+    {
+      "id": "card.human_body.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A wall built from dead bricks",
+      "body": "The very top of the epidermis is a layer of dry, dead cells packed with keratin, the tough, water-resistant protein in your hair and nails. That layer helps keep microbes out and water in. New cells are made at the bottom of the epidermis and pushed upward, dying as they go, and the whole outer layer is replaced about every 4 weeks.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Every handshake you have ever had was with dead cells. Friendly dead cells, though."
+      }
+    },
+    {
+      "id": "card.human_body.071.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sour, dry and already occupied",
+      "body": "The surface is hostile ground for germs, too. It's cool, dry and slightly acidic, and that acid holds back harmful bacteria. Oil from glands in your skin kills bacteria as well. And the best spots are already taken: part of the microbiome from Level 8 lives on your skin, and those friendly microbes help protect you against more harmful ones. Germs arrive to find a moat and no vacancies."
+    },
+    {
+      "id": "card.human_body.071.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.071.q1"
+    },
+    {
+      "id": "card.human_body.071.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.071.q2"
+    },
+    {
+      "id": "card.human_body.071.c7",
+      "type": "recall",
+      "questionId": "question.human_body.071.q3"
+    },
+    {
+      "id": "card.human_body.071.c8",
+      "type": "checkpoint",
+      "headline": "Skin: understood",
+      "learned": [
+        "Skin is your largest organ, built in three layers",
+        "Its top layer is dead, keratin-packed cells",
+        "The outer layer is replaced about every 4 weeks",
+        "A cool, dry, acidic surface and friendly microbes block germs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.defense_skin_layers"
+      ],
+      "sourceCardIds": [
+        "card.human_body.071.c3"
+      ],
+      "prompt": "What makes up the very top layer of your skin's epidermis?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Living fat cells",
+          "correct": false,
+          "rationale": "Fat sits in the deepest layer, the hypodermis."
+        },
+        {
+          "id": "b",
+          "label": "Dry, dead cells packed with keratin",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Blood vessels and sweat glands",
+          "correct": false,
+          "rationale": "Those are in the dermis, lower down."
+        },
+        {
+          "id": "d",
+          "label": "A thin sheet of bone",
+          "correct": false,
+          "rationale": "Skin contains no bone; its top layer is dead cells."
+        }
+      ],
+      "explanation": "The outermost layer is dry, dead cells filled with keratin, which help keep microbes out and water in.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.defense_skin_chemistry"
+      ],
+      "sourceCardIds": [
+        "card.human_body.071.c4"
+      ],
+      "prompt": "Why do harmful bacteria have a hard time settling on healthy skin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It stays warm and wet, so germs rinse off",
+          "correct": false,
+          "rationale": "The surface is cool and dry."
+        },
+        {
+          "id": "b",
+          "label": "It has no microbes living on it at all",
+          "correct": false,
+          "rationale": "Friendly microbes live there and help protect you."
+        },
+        {
+          "id": "c",
+          "label": "It's cool, dry, acidic and already crowded",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its surface cells chase and swallow germs",
+          "correct": false,
+          "rationale": "The surface cells are dead; the defenses are chemical and microbial."
+        }
+      ],
+      "explanation": "Skin's surface is cool, dry and slightly acidic, oil from its glands kills bacteria, and friendly microbes already occupy it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.defense_skin_layers",
+        "concept.human_body.tissue_types"
+      ],
+      "sourceCardIds": [
+        "card.human_body.071.c2",
+        "card.human_body.004.c3"
+      ],
+      "prompt": "Level 4 named four tissue types. Which one forms the epidermis, your skin's outer layer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nervous tissue",
+          "correct": false,
+          "rationale": "Nervous tissue sends signals between body parts."
+        },
+        {
+          "id": "b",
+          "label": "Muscle tissue",
+          "correct": false,
+          "rationale": "Muscle tissue contracts to make movement."
+        },
+        {
+          "id": "c",
+          "label": "Connective tissue",
+          "correct": false,
+          "rationale": "Connective tissue binds and supports, deeper in."
+        },
+        {
+          "id": "d",
+          "label": "Epithelial tissue",
+          "correct": true
+        }
+      ],
+      "explanation": "The epidermis is made of closely packed epithelial cells, the tissue that covers surfaces.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_human_skin",
+    "source.pmc_grice_skin_microbiome",
+    "source.openstax_ap_skin_layers",
+    "source.openstax_ap_tissue_types",
+    "source.medlineplus_skin_components",
+    "source.nhgri_hmp_2012",
+    "source.pmc_skin_acid_mantle"
+  ],
+  "art": "body.bandage"
+}

@@ -1,0 +1,233 @@
+{
+  "id": "level.science.human_body.027",
+  "skillId": "skill.science.human_body",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Harvey and Circulation",
+  "objective": "After this level you can explain how William Harvey showed that blood circulates.",
+  "summary": "Galen taught that the liver makes blood the body uses up. In 1628 Harvey showed by arithmetic and a banded arm that blood circulates, and in 1661 Malpighi's microscope found the capillaries.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.harvey_circulation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.malpighi_capillaries",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.vesalius_dissection",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.vessel_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.vessel_capillaries",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.026"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For about 1,500 years, doctors thought blood was used up like fuel.",
+      "body": "Galen, the Greek physician in the Roman Empire from Level 9, taught that the liver makes blood, which flows out and is used up by the body. Then, in 1628, an English physician named William Harvey published De Motu Cordis and argued the heart pumps the same blood around in a circuit."
+    },
+    {
+      "id": "card.human_body.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Harvey does the math",
+      "body": "Harvey estimated how much blood each beat pushes out, keeping his guesses cautious, then multiplied. The heart, he found, pumps far more blood in a day than the whole body weighs. No body could make that much from food and use it all up. There was only one way out of the numbers: the same blood must be going round and round."
+    },
+    {
+      "id": "card.human_body.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The banded-arm trick",
+      "body": "Next, Harvey showed which way it flows. He tied a band around a person's upper arm until the forearm veins swelled and their valves showed. Pressing on a vein, he could push blood toward the heart easily, but not away from it. Remember Level 23's valves in the veins? Harvey read them as one-way signs.",
+      "mascot": {
+        "pose": "idea",
+        "line": "No microscope, no scanner, just a band, a thumb and very good arithmetic. Science on a budget."
+      }
+    },
+    {
+      "id": "card.human_body.027.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The missing link",
+      "body": "Harvey had one gap: he couldn't see how blood got from arteries into veins, because capillaries were still unknown. Physicians opposed his theory at first, yet it was well established by the time he died. Then, in 1661, Marcello Malpighi looked at lung tissue under a microscope and described capillaries connecting small arteries with small veins. The circle was closed."
+    },
+    {
+      "id": "card.human_body.027.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.027.q1"
+    },
+    {
+      "id": "card.human_body.027.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.027.q2"
+    },
+    {
+      "id": "card.human_body.027.c7",
+      "type": "recall",
+      "questionId": "question.human_body.027.q3"
+    },
+    {
+      "id": "card.human_body.027.c8",
+      "type": "checkpoint",
+      "headline": "Circulation: discovered",
+      "learned": [
+        "Galen: blood made in the liver and used up",
+        "1628: Harvey argues blood circulates",
+        "His arithmetic and a banded arm made the case",
+        "1661: Malpighi sees the capillaries"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.harvey_circulation"
+      ],
+      "sourceCardIds": [
+        "card.human_body.027.c1"
+      ],
+      "prompt": "What did William Harvey's 1628 book argue about blood?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The liver makes it fresh from food",
+          "correct": false,
+          "rationale": "That was Galen's older view."
+        },
+        {
+          "id": "b",
+          "label": "The heart pumps it around in a circuit",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Muscles use it up as fuel",
+          "correct": false,
+          "rationale": "Harvey argued the same blood keeps circulating."
+        },
+        {
+          "id": "d",
+          "label": "It only moves while we walk",
+          "correct": false,
+          "rationale": "The heart moves it all the time."
+        }
+      ],
+      "explanation": "In De Motu Cordis (1628), Harvey argued that the heart pumps the same blood around the body in a continuous circuit.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.harvey_circulation"
+      ],
+      "sourceCardIds": [
+        "card.human_body.027.c2"
+      ],
+      "prompt": "Why did Harvey's arithmetic count against Galen's idea that blood is made and used up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The heart pumped far more blood than a body could make",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It showed the liver was too small to exist",
+          "correct": false,
+          "rationale": "He didn't question the liver's existence."
+        },
+        {
+          "id": "c",
+          "label": "It proved blood is made in the lungs",
+          "correct": false,
+          "rationale": "His point was that the same blood circulates."
+        },
+        {
+          "id": "d",
+          "label": "It showed the heart barely moves blood",
+          "correct": false,
+          "rationale": "It showed the heart moves a huge amount."
+        }
+      ],
+      "explanation": "Even with cautious estimates, the heart pumped far more blood in a day than the whole body weighs, so the same blood had to circulate.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.malpighi_capillaries",
+        "concept.human_body.vessel_capillaries"
+      ],
+      "sourceCardIds": [
+        "card.human_body.027.c4",
+        "card.human_body.023.c4"
+      ],
+      "prompt": "Harvey couldn't see how blood crossed from arteries into veins. What did Malpighi's microscope reveal in 1661?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Valves inside the veins",
+          "correct": false,
+          "rationale": "Harvey already used those in his banded-arm test."
+        },
+        {
+          "id": "b",
+          "label": "A second heart in the lungs",
+          "correct": false,
+          "rationale": "There is only one heart."
+        },
+        {
+          "id": "c",
+          "label": "Capillaries linking small arteries to small veins",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Pores in the wall between the ventricles",
+          "correct": false,
+          "rationale": "Malpighi found capillaries, not pores."
+        }
+      ],
+      "explanation": "In 1661 Malpighi described capillaries connecting small arteries with small veins, the link Harvey could not see.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.pmc_friedland_harvey",
+    "source.rcp_harvey_ceaseless_motion",
+    "source.brit_harvey",
+    "source.brit_malpighi",
+    "source.openstax_ap_blood_vessels",
+    "source.brit_capillary",
+    "source.brit_galen",
+    "source.conversation_vesalius"
+  ],
+  "art": "arts.quill"
+}

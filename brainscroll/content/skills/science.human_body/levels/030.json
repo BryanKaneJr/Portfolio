@@ -1,0 +1,341 @@
+{
+  "id": "level.science.human_body.030",
+  "skillId": "skill.science.human_body",
+  "number": 30,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Heart and Blood",
+  "objective": "After this level you can explain how the heart, blood vessels and blood deliver what cells need.",
+  "summary": "One lap: left ventricle, arteries, capillaries, veins, right heart, lungs and back, passing the heart twice. At rest about 5 liters a minute go through, so your blood laps roughly once a minute.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.circulation_loop",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.heart_chambers",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.vessel_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.vessel_capillaries",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.blood_red_cells",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.heart_output",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.bloodtype_transfusion",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.bloodpressure_measure",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.harvey_circulation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.029"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.030.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 3 finale: ride along with one red blood cell.",
+      "body": "You've met the pump, the pipes and the passengers. Now follow a single red blood cell on one lap of your body. At rest, your blood passes through your heart about once a minute."
+    },
+    {
+      "id": "card.human_body.030.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One lap, two circuits",
+      "body": "Start in the left ventricle. One push sends your red cell out along an artery, branching smaller and smaller until it squeezes single file through a capillary and hands its oxygen to the tissues. Now a duskier red, it drifts home through the veins, with valves keeping it on course, into the right atrium. The right ventricle sends it to the lungs to reload, and it returns to the left side bright red again. One lap, two trips through the heart."
+    },
+    {
+      "id": "card.human_body.030.c3",
+      "type": "fact",
+      "fact": "At rest, your blood passes through your heart about once a minute.",
+      "context": "Your heart moves about 5 liters a minute, roughly an adult's whole blood supply. That is the circulation Harvey argued for in 1628: not fresh blood made in the liver and used up, but the same blood going round and round.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Same blood, lap after lap. Harvey did it with arithmetic; you just did it with one red cell."
+      }
+    },
+    {
+      "id": "card.human_body.030.c4",
+      "type": "mcq",
+      "questionId": "question.human_body.030.q1"
+    },
+    {
+      "id": "card.human_body.030.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.030.q2"
+    },
+    {
+      "id": "card.human_body.030.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.030.q3"
+    },
+    {
+      "id": "card.human_body.030.c7",
+      "type": "recall",
+      "questionId": "question.human_body.030.q4"
+    },
+    {
+      "id": "card.human_body.030.c8",
+      "type": "recall",
+      "questionId": "question.human_body.030.q5"
+    },
+    {
+      "id": "card.human_body.030.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 3 complete",
+      "learned": [
+        "Four chambers, two pumps, one-way valves",
+        "Arteries out, veins back, capillaries deliver",
+        "Plasma, red cells, white cells and platelets",
+        "Blood types, blood pressure and clotting",
+        "Your blood laps your body about once a minute"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.030.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.circulation_loop"
+      ],
+      "sourceCardIds": [
+        "card.human_body.030.c3"
+      ],
+      "prompt": "Heart and Blood recap: at rest, roughly how often does all your blood pass through your heart?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About once a second",
+          "correct": false,
+          "rationale": "Far too fast: the heart moves about 5 liters a minute."
+        },
+        {
+          "id": "b",
+          "label": "About once a minute",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About once an hour",
+          "correct": false,
+          "rationale": "Much too slow for 5 liters a minute."
+        },
+        {
+          "id": "d",
+          "label": "About once a day",
+          "correct": false,
+          "rationale": "The day's total is thousands of liters."
+        }
+      ],
+      "explanation": "The heart moves about 5 liters a minute at rest, roughly an adult's whole blood supply.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.030.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.circulation_loop",
+        "concept.human_body.heart_chambers"
+      ],
+      "sourceCardIds": [
+        "card.human_body.030.c2"
+      ],
+      "prompt": "Heart and Blood recap: on one full lap of the body, why does blood pass through the heart twice?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The heart pumps each drop twice for extra force",
+          "correct": false,
+          "rationale": "Each side pumps a different circuit."
+        },
+        {
+          "id": "b",
+          "label": "Blood is made again in the heart halfway round",
+          "correct": false,
+          "rationale": "The same blood keeps circulating."
+        },
+        {
+          "id": "c",
+          "label": "It goes through the lungs and the body as two separate circuits",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The valves send half of it backward",
+          "correct": false,
+          "rationale": "Valves stop backflow."
+        }
+      ],
+      "explanation": "The right side pumps blood through the lungs and back to the left side, which pumps it through the body and back to the right side.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.030.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.bloodtype_transfusion"
+      ],
+      "sourceCardIds": [
+        "card.human_body.025.c4"
+      ],
+      "prompt": "Heart and Blood recap, from Level 25: why can type O negative red cells be given to anyone in an emergency?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They carry extra hemoglobin",
+          "correct": false,
+          "rationale": "Hemoglobin isn't what matters for matching."
+        },
+        {
+          "id": "b",
+          "label": "They have no plasma around them",
+          "correct": false,
+          "rationale": "Matching is about markers on the cells."
+        },
+        {
+          "id": "c",
+          "label": "They are the most common type",
+          "correct": false,
+          "rationale": "Common isn't the reason; the missing markers are."
+        },
+        {
+          "id": "d",
+          "label": "They carry no A, B or Rh D antigen",
+          "correct": true
+        }
+      ],
+      "explanation": "O negative red cells carry none of the A, B or Rh D antigens, so there is nothing for a recipient's antibodies to target.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.030.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.bloodpressure_measure"
+      ],
+      "sourceCardIds": [
+        "card.human_body.026.c2"
+      ],
+      "prompt": "Heart and Blood recap, from Level 26: what does the bottom (diastolic) number of a blood pressure reading measure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pressure between beats, as the heart refills",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Pressure as the heart pumps blood out",
+          "correct": false,
+          "rationale": "That is the top (systolic) number."
+        },
+        {
+          "id": "c",
+          "label": "The number of beats per minute",
+          "correct": false,
+          "rationale": "That is the pulse, not blood pressure."
+        },
+        {
+          "id": "d",
+          "label": "The amount of blood in the body",
+          "correct": false,
+          "rationale": "Blood pressure measures force, not volume."
+        }
+      ],
+      "explanation": "Diastolic pressure is the pressure between beats, while the heart refills.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.030.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.harvey_circulation",
+        "concept.human_body.vessel_types"
+      ],
+      "sourceCardIds": [
+        "card.human_body.027.c3"
+      ],
+      "prompt": "Heart and Blood recap, from Level 27: what did Harvey's band on a person's upper arm show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Blood in the arm is made in the liver",
+          "correct": false,
+          "rationale": "That was Galen's idea, which Harvey overturned."
+        },
+        {
+          "id": "b",
+          "label": "Blood in the veins flows toward the heart",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Arteries have no valves to stop backflow",
+          "correct": false,
+          "rationale": "His test was about the valves in veins."
+        },
+        {
+          "id": "d",
+          "label": "Capillaries link arteries and veins",
+          "correct": false,
+          "rationale": "Malpighi saw those in 1661."
+        }
+      ],
+      "explanation": "With the band on, blood in the forearm veins could be pushed toward the heart but not away from it: the vein valves keep it flowing one way.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nhlbi_heart_blood_flow",
+    "source.openstax_ap_blood_vessels",
+    "source.openstax_ap_cardiac_physiology",
+    "source.openstax_ap_blood_overview",
+    "source.clevelandclinic_cardiac_output",
+    "source.brit_capillary",
+    "source.brit_malpighi",
+    "source.medlineplus_blood",
+    "source.brit_blood",
+    "source.openstax_ap_blood_typing",
+    "source.nhlbi_high_blood_pressure",
+    "source.brit_blood_pressure",
+    "source.pmc_friedland_harvey",
+    "source.rcp_harvey_ceaseless_motion",
+    "source.brit_harvey"
+  ],
+  "art": "body.heart"
+}

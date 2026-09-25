@@ -1,0 +1,241 @@
+{
+  "id": "level.science.human_body.096",
+  "skillId": "skill.science.human_body",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Testing Medicines",
+  "objective": "After this level you can explain how new medicines are tested before doctors use them.",
+  "summary": "Medicines go from lab tests through Phases 1 to 3, then Phase 4 after approval. Placebos, random allocation and blinding separate a drug's real effect from chance and hope.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.health_trial_phases",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.health_placebo_control",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.vesalius_dissection",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.095"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.096.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1948, sealed envelopes decided who got a new drug.",
+      "body": "Britain's Medical Research Council was testing streptomycin against tuberculosis. Doctors couldn't pick who got it: the choice came from random numbers hidden in sealed envelopes. It's widely regarded as the first randomized controlled trial. Why go to all that trouble?"
+    },
+    {
+      "id": "card.human_body.096.c2",
+      "type": "timeline",
+      "headline": "From lab bench to pharmacy shelf",
+      "events": [
+        {
+          "when": "Preclinical",
+          "label": "Lab and animal studies answer basic safety questions"
+        },
+        {
+          "when": "Phase 1",
+          "label": "20 to 100 people: is it safe, and at what dose?"
+        },
+        {
+          "when": "Phase 2",
+          "label": "Up to several hundred patients: does it work, what side effects?"
+        },
+        {
+          "when": "Phase 3",
+          "label": "300 to 3,000 patients over 1 to 4 years: does it work, any harms?"
+        },
+        {
+          "when": "Phase 4",
+          "label": "After approval: thousands more, still watched for safety"
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.096.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The fake pill that keeps trials honest",
+      "body": "In many trials, one group gets the medicine and another gets a placebo: an inactive substance that looks just like it. Why? People can feel better simply because they expect a treatment to help. That's the placebo effect. Comparing the two groups shows whether changes come from the treatment or from chance. If the pill and the placebo do equally well, the pill isn't the one doing the work."
+    },
+    {
+      "id": "card.human_body.096.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Random and blind",
+      "body": "Back to 1948's envelopes. Allocating patients at random stops researchers from choosing, even unconsciously, who gets the new drug, a choice that could tilt the result. Blinding goes further. In a blind test, patients don't know whether they got the drug or the placebo; in a double-blind test, their doctors don't know either. Nobody's hopes get a vote.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "If nobody knows who got the real pill, nobody can nudge the answer. Clever, and a little sneaky."
+      }
+    },
+    {
+      "id": "card.human_body.096.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.096.q1"
+    },
+    {
+      "id": "card.human_body.096.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.096.q2"
+    },
+    {
+      "id": "card.human_body.096.c7",
+      "type": "recall",
+      "questionId": "question.human_body.096.q3"
+    },
+    {
+      "id": "card.human_body.096.c8",
+      "type": "checkpoint",
+      "headline": "Testing medicines: explained",
+      "learned": [
+        "Preclinical, then Phases 1, 2 and 3, then Phase 4",
+        "A placebo looks like the drug but does nothing",
+        "Random allocation and blinding keep results fair",
+        "1948 streptomycin trial: the first randomized controlled trial"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.health_trial_phases"
+      ],
+      "sourceCardIds": [
+        "card.human_body.096.c2"
+      ],
+      "prompt": "In the FDA's sequence of clinical-trial phases, what is Phase 1 mainly checking?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Long-term safety after approval",
+          "correct": false,
+          "rationale": "That's Phase 4."
+        },
+        {
+          "id": "b",
+          "label": "Whether it beats other drugs in thousands",
+          "correct": false,
+          "rationale": "Large comparisons come in Phase 3."
+        },
+        {
+          "id": "c",
+          "label": "Safety and the right dose, in 20 to 100 people",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "How it behaves in lab dishes only",
+          "correct": false,
+          "rationale": "That's preclinical research."
+        }
+      ],
+      "explanation": "Phase 1 tests safety and dosage in a small group of 20 to 100 people.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.health_placebo_control"
+      ],
+      "sourceCardIds": [
+        "card.human_body.096.c3"
+      ],
+      "prompt": "Why do many clinical trials give one group an inactive placebo instead of nothing at all?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Placebos are cheaper medicines",
+          "correct": false,
+          "rationale": "A placebo isn't a medicine."
+        },
+        {
+          "id": "b",
+          "label": "To separate the drug's real effect from expectation and chance",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "To make the trial last longer",
+          "correct": false,
+          "rationale": "It's about comparison, not length."
+        },
+        {
+          "id": "d",
+          "label": "Because placebos cure most illnesses",
+          "correct": false,
+          "rationale": "The placebo effect is about expectation, not cures."
+        }
+      ],
+      "explanation": "People can improve just from expecting help. Comparing drug and placebo groups shows whether changes come from the drug or from chance.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.vesalius_dissection",
+        "concept.human_body.health_placebo_control"
+      ],
+      "sourceCardIds": [
+        "card.human_body.009.c2",
+        "card.human_body.096.c3"
+      ],
+      "prompt": "Level 9's Vesalius checked human bodies himself instead of trusting Galen's books. How do clinical trials follow the same idea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They trust the most famous doctor's opinion",
+          "correct": false,
+          "rationale": "That's the habit Vesalius broke."
+        },
+        {
+          "id": "b",
+          "label": "They skip human testing entirely",
+          "correct": false,
+          "rationale": "Human trials are the whole point."
+        },
+        {
+          "id": "c",
+          "label": "They rely on animal anatomy",
+          "correct": false,
+          "rationale": "That's Galen's method."
+        },
+        {
+          "id": "d",
+          "label": "They test the drug on people and compare results",
+          "correct": true
+        }
+      ],
+      "explanation": "Vesalius relied on his own human dissections; trials likewise judge a medicine by comparing groups of people, not by reputation.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.jll_streptomycin_randomization",
+    "source.fda_clinical_research",
+    "source.nccih_placebo",
+    "source.brit_placebo",
+    "source.brit_vesalius",
+    "source.conversation_vesalius"
+  ],
+  "art": "body.pill"
+}

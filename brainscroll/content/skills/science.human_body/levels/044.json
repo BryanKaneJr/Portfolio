@@ -1,0 +1,216 @@
+{
+  "id": "level.science.human_body.044",
+  "skillId": "skill.science.human_body",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Intestines",
+  "objective": "After this level you can explain how the intestines absorb nutrients.",
+  "summary": "Villi and microvilli let the small intestine absorb almost all nutrients. In 2014 the gut lining measured 30 to 40 square meters, not a tennis court. The large intestine takes back water.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.intestine_absorption",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.intestine_surface_area",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.microbiome_residents",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.043"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.044.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your gut's lining was said to be as big as a tennis court.",
+      "body": "Textbooks repeated it for decades: 180 to 300 square meters inside you. Then, in 2014, two scientists measured it properly. The real answer is smaller, but still big enough to explain how you absorb a meal."
+    },
+    {
+      "id": "card.human_body.044.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where food becomes you",
+      "body": "Your small intestine is where most digestion happens and almost all nutrients are absorbed. Its lining isn't smooth. It's covered in tiny finger-like projections called villi, and the cells on the villi carry even tinier ones called microvilli. Think of a bath towel next to a sheet of plastic: all those loops give far more surface to soak things up."
+    },
+    {
+      "id": "card.human_body.044.c3",
+      "type": "fact",
+      "fact": "Your gut's inner surface is about 30 to 40 square meters: half a badminton court.",
+      "context": "Herbert Helander and Lars Fändriks found that in 2014 using microscope measurements. Older textbooks said 180 to 300 square meters, a tennis court or more. Most of the real area is in the small intestine; the large intestine adds only about 2 square meters. Smaller than the legend, still roomy."
+    },
+    {
+      "id": "card.human_body.044.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Into the blood, then the colon",
+      "body": "Once absorbed, simple sugars, amino acids and some vitamins and salts travel in your blood to the liver first, while fatty acids take a side route through the lymphatic system. Whatever isn't absorbed moves on to the large intestine. There water is absorbed, and bacteria break down remaining nutrients and make vitamin K. Level 8's microbes get the leftovers and pay you back in vitamins."
+    },
+    {
+      "id": "card.human_body.044.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.044.q1"
+    },
+    {
+      "id": "card.human_body.044.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.044.q2"
+    },
+    {
+      "id": "card.human_body.044.c7",
+      "type": "recall",
+      "questionId": "question.human_body.044.q3"
+    },
+    {
+      "id": "card.human_body.044.c8",
+      "type": "checkpoint",
+      "headline": "Intestines: measured",
+      "learned": [
+        "The small intestine absorbs almost all nutrients",
+        "Villi and microvilli add huge surface",
+        "The gut's lining is about half a badminton court, not a tennis court",
+        "Absorbed nutrients go to the liver first; the large intestine takes back water"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.intestine_surface_area"
+      ],
+      "sourceCardIds": [
+        "card.human_body.044.c3"
+      ],
+      "prompt": "What did a 2014 measurement find about the inner surface area of the digestive tract?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's about half a badminton court",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It's bigger than a tennis court",
+          "correct": false,
+          "rationale": "That was the old textbook claim the study corrected."
+        },
+        {
+          "id": "c",
+          "label": "It's about the size of a postcard",
+          "correct": false,
+          "rationale": "Far too small: it's 30 to 40 square meters."
+        },
+        {
+          "id": "d",
+          "label": "It's about the size of a soccer field",
+          "correct": false,
+          "rationale": "Far too big."
+        }
+      ],
+      "explanation": "Helander and Fändriks measured about 30 to 40 square meters, half a badminton court, not the 180 to 300 square meters textbooks claimed.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.intestine_absorption"
+      ],
+      "sourceCardIds": [
+        "card.human_body.044.c2"
+      ],
+      "prompt": "How do villi and microvilli help the small intestine absorb nutrients?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They squeeze food along the tube",
+          "correct": false,
+          "rationale": "That's peristalsis, from muscle."
+        },
+        {
+          "id": "b",
+          "label": "They greatly enlarge the absorbing surface",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They make stomach acid",
+          "correct": false,
+          "rationale": "Acid comes from glands in the stomach."
+        },
+        {
+          "id": "d",
+          "label": "They store bile",
+          "correct": false,
+          "rationale": "The gallbladder stores bile."
+        }
+      ],
+      "explanation": "Finger-like villi, covered in cells with microvilli, greatly increase the surface that absorbs nutrients.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.microbiome_residents",
+        "concept.human_body.intestine_absorption"
+      ],
+      "sourceCardIds": [
+        "card.human_body.044.c4",
+        "card.human_body.008.c4"
+      ],
+      "prompt": "In the large intestine, what do Level 8's gut bacteria do with food that wasn't absorbed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Turn it back into stomach acid",
+          "correct": false,
+          "rationale": "Bacteria don't make stomach acid."
+        },
+        {
+          "id": "b",
+          "label": "Send it back to the small intestine",
+          "correct": false,
+          "rationale": "The tube runs one way."
+        },
+        {
+          "id": "c",
+          "label": "Break down some of it and make vitamin K",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Store it as glycogen",
+          "correct": false,
+          "rationale": "Glycogen storage is a liver job."
+        }
+      ],
+      "explanation": "Bacteria in the large intestine help break down remaining nutrients and make vitamins such as vitamin K.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_intestines",
+    "source.brit_digestive_system",
+    "source.sjg_helander_gut_surface",
+    "source.eurekalert_gut_surface",
+    "source.niddk_digestive_system",
+    "source.nhgri_hmp_2012"
+  ],
+  "art": "body.stomach"
+}

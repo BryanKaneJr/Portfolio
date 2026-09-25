@@ -1,0 +1,431 @@
+{
+  "id": "level.science.human_body.050",
+  "skillId": "skill.science.human_body",
+  "number": 50,
+  "type": "milestone",
+  "revision": 1,
+  "status": "draft",
+  "title": "Milestone: Fuel and Oxygen",
+  "objective": "After this level you can connect digestion, breathing and blood into one picture of how cells get energy.",
+  "summary": "Digestion turns lunch into glucose, the blood carries it past the liver to every cell, and mitochondria combine it with oxygen from the lungs to release its energy.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.digestion_fuel_to_cells",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.digestion_tract_route",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.teeth_enamel",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.kidney_filtering",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.scurvy_vitamin_c",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.intestine_absorption",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.nutrients_big_three",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.cell_parts",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.systems_teamwork",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.body_water_share",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.049"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.050.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Milestone: halfway to Mastery. Follow one bite all the way to a cell.",
+      "body": "You've taken food down the tube, through the stomach and intestines, and past the liver. One question is left: where does the energy in your lunch actually get used? The answer is inside your cells."
+    },
+    {
+      "id": "card.human_body.050.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From lunch to a power station",
+      "body": "Digestion breaks the starch in your lunch into simple sugars, and your body turns them into glucose, your cells' main fuel. The small intestine absorbs it, and your blood takes it to the liver first, then on to cells all over your body. Inside each cell, Level 2's mitochondria convert the energy from food into a form the cell can use. Fuel you don't need right away can be stored in the liver, muscles and body fat."
+    },
+    {
+      "id": "card.human_body.050.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fuel meets oxygen",
+      "body": "Mitochondria can't release that energy from fuel alone. In cellular respiration, cells combine oxygen with food molecules to free their chemical energy. That oxygen comes from your lungs into your blood, and your cardiovascular system carries it, along with the nutrients, to the tissues: Level 1's teamwork again. Breakfast and breath end up in the same tiny place.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Your sandwich and your last breath have a meeting scheduled. Location: a mitochondrion near you."
+      }
+    },
+    {
+      "id": "card.human_body.050.c4",
+      "type": "recall",
+      "questionId": "question.human_body.050.q1"
+    },
+    {
+      "id": "card.human_body.050.c5",
+      "type": "recall",
+      "questionId": "question.human_body.050.q2"
+    },
+    {
+      "id": "card.human_body.050.c6",
+      "type": "recall",
+      "questionId": "question.human_body.050.q3"
+    },
+    {
+      "id": "card.human_body.050.c7",
+      "type": "recall",
+      "questionId": "question.human_body.050.q4"
+    },
+    {
+      "id": "card.human_body.050.c8",
+      "type": "mcq",
+      "questionId": "question.human_body.050.q5"
+    },
+    {
+      "id": "card.human_body.050.c9",
+      "type": "mcq",
+      "questionId": "question.human_body.050.q6"
+    },
+    {
+      "id": "card.human_body.050.c10",
+      "type": "recall",
+      "questionId": "question.human_body.050.q7"
+    },
+    {
+      "id": "card.human_body.050.c11",
+      "type": "checkpoint",
+      "headline": "Milestone: fuel delivered",
+      "learned": [
+        "Food travels one tube and is absorbed in the small intestine",
+        "Absorbed sugars pass the liver, then reach every cell",
+        "Mitochondria combine fuel with oxygen to release energy",
+        "Blood carries both, delivered by one cardiovascular system"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.050.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.digestion_tract_route"
+      ],
+      "sourceCardIds": [
+        "card.human_body.041.c2"
+      ],
+      "prompt": "Food and Digestion milestone: in what order does food pass through the digestive tract?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mouth, stomach, esophagus, large intestine, small intestine",
+          "correct": false,
+          "rationale": "The esophagus comes before the stomach."
+        },
+        {
+          "id": "b",
+          "label": "Mouth, esophagus, stomach, small intestine, large intestine",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Mouth, esophagus, small intestine, stomach, large intestine",
+          "correct": false,
+          "rationale": "The stomach comes before the small intestine."
+        },
+        {
+          "id": "d",
+          "label": "Mouth, liver, stomach, small intestine, large intestine",
+          "correct": false,
+          "rationale": "The liver sits beside the tube."
+        }
+      ],
+      "explanation": "The tube runs mouth, esophagus, stomach, small intestine, large intestine, anus.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.050.q2",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.teeth_enamel"
+      ],
+      "sourceCardIds": [
+        "card.human_body.042.c4"
+      ],
+      "prompt": "Food and Digestion milestone: what is the hardest substance in the human body?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Thigh bone",
+          "correct": false,
+          "rationale": "Bone is hard, but enamel is harder."
+        },
+        {
+          "id": "b",
+          "label": "Fingernail",
+          "correct": false,
+          "rationale": "Nails are far softer."
+        },
+        {
+          "id": "c",
+          "label": "Tooth enamel",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Cartilage",
+          "correct": false,
+          "rationale": "Cartilage is flexible."
+        }
+      ],
+      "explanation": "Tooth enamel is the hardest substance in the body, about 95 percent mineral.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.050.q3",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.kidney_filtering"
+      ],
+      "sourceCardIds": [
+        "card.human_body.046.c4"
+      ],
+      "prompt": "Food and Digestion milestone: about what share of the fluid your kidneys filter goes back into your blood?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1 percent",
+          "correct": false,
+          "rationale": "That's roughly the share that becomes urine."
+        },
+        {
+          "id": "b",
+          "label": "About 25 percent",
+          "correct": false,
+          "rationale": "Far more goes back."
+        },
+        {
+          "id": "c",
+          "label": "About 50 percent",
+          "correct": false,
+          "rationale": "Far more goes back."
+        },
+        {
+          "id": "d",
+          "label": "About 99 percent",
+          "correct": true
+        }
+      ],
+      "explanation": "Of 150 to 180 liters filtered a day, about 99 percent returns to the blood and 1 to 2 liters become urine.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.050.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.scurvy_vitamin_c"
+      ],
+      "sourceCardIds": [
+        "card.human_body.049.c2"
+      ],
+      "prompt": "Food and Digestion milestone: why does a lack of vitamin C lead to bleeding gums and wounds that won't heal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Vitamin C is the body's main fuel",
+          "correct": false,
+          "rationale": "Glucose is the main fuel."
+        },
+        {
+          "id": "b",
+          "label": "The body can't make collagen properly",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Stomach acid stops working",
+          "correct": false,
+          "rationale": "Scurvy isn't a stomach problem."
+        },
+        {
+          "id": "d",
+          "label": "The kidneys stop filtering",
+          "correct": false,
+          "rationale": "Scurvy affects connective tissue."
+        }
+      ],
+      "explanation": "Vitamin C is needed to make collagen, so without it connective tissue weakens.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.050.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.digestion_fuel_to_cells",
+        "concept.human_body.cell_parts"
+      ],
+      "sourceCardIds": [
+        "card.human_body.050.c2",
+        "card.human_body.002.c4"
+      ],
+      "prompt": "Food and Digestion milestone: glucose from your lunch reaches a muscle cell. What happens to its energy there?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is stored in the nucleus as DNA",
+          "correct": false,
+          "rationale": "DNA holds instructions, not fuel."
+        },
+        {
+          "id": "b",
+          "label": "It leaves in urine unused",
+          "correct": false,
+          "rationale": "Cells use it."
+        },
+        {
+          "id": "c",
+          "label": "It is turned back into starch in the blood",
+          "correct": false,
+          "rationale": "Starch is broken down, not rebuilt, in the blood."
+        },
+        {
+          "id": "d",
+          "label": "Mitochondria convert it into a form the cell can use",
+          "correct": true
+        }
+      ],
+      "explanation": "Mitochondria convert the energy from food into a form the cell can use.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.050.q6",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.digestion_fuel_to_cells",
+        "concept.human_body.systems_teamwork"
+      ],
+      "sourceCardIds": [
+        "card.human_body.050.c3",
+        "card.human_body.001.c3"
+      ],
+      "prompt": "Food and Digestion milestone: which organ system delivers both absorbed nutrients and oxygen to your cells?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The cardiovascular system",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The digestive system",
+          "correct": false,
+          "rationale": "It absorbs nutrients but doesn't deliver them."
+        },
+        {
+          "id": "c",
+          "label": "The urinary system",
+          "correct": false,
+          "rationale": "It filters waste from the blood."
+        },
+        {
+          "id": "d",
+          "label": "The skeletal system",
+          "correct": false,
+          "rationale": "It holds you up."
+        }
+      ],
+      "explanation": "The cardiovascular system carries oxygen from the lungs and nutrients from the gut to the tissues.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.050.q7",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.body_water_share",
+        "concept.human_body.digestion_tract_route"
+      ],
+      "sourceCardIds": [
+        "card.human_body.007.c2",
+        "card.human_body.041.c4"
+      ],
+      "prompt": "Food and Digestion milestone: Level 7 said water is 50 to 60 percent of an adult. Which part of the digestive tract takes water back from the leftovers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The esophagus",
+          "correct": false,
+          "rationale": "Food only passes through it."
+        },
+        {
+          "id": "b",
+          "label": "The stomach",
+          "correct": false,
+          "rationale": "Water is taken back later, in the large intestine."
+        },
+        {
+          "id": "c",
+          "label": "The large intestine",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The mouth",
+          "correct": false,
+          "rationale": "Saliva adds water there."
+        }
+      ],
+      "explanation": "The large intestine absorbs water and turns what's left into stool.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.niddk_digestive_system",
+    "source.medlineplus_carbohydrates",
+    "source.medlineplus_metabolism",
+    "source.brit_cellular_respiration",
+    "source.medlineplus_cell",
+    "source.openstax_ap_body_organization",
+    "source.nhgri_mitochondria",
+    "source.openstax_ap_digestive_overview"
+  ],
+  "art": "body.figure"
+}

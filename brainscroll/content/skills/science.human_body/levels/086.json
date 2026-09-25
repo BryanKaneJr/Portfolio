@@ -1,0 +1,226 @@
+{
+  "id": "level.science.human_body.086",
+  "skillId": "skill.science.human_body",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Long Humans Live",
+  "objective": "After this level you can explain why life expectancy has risen so much.",
+  "summary": "Global life expectancy reached 73.3 years in 2024 (UN). Past averages were dragged down by child deaths; gains now reach every age. Jeanne Calment lived to 122.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.lifespan_life_expectancy_rise",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.lifespan_calment_record",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.aging_senescent_cells",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.085"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Life expectancy is an average. Averages can hide a lot.",
+      "body": "Life expectancy is the number of years people can expect to live, on average. Today the world's stands at 73.3 years. To see why it used to be so much lower, you have to look at who was dying."
+    },
+    {
+      "id": "card.human_body.086.c2",
+      "type": "fact",
+      "fact": "Global life expectancy at birth reached 73.3 years in 2024.",
+      "context": "That's 8.4 years longer than in 1995, according to the UN's World Population Prospects 2024. It dipped during the COVID-19 pandemic and has been rising again since."
+    },
+    {
+      "id": "card.human_body.086.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The average that fooled everyone",
+      "body": "Before modern times, about a quarter of babies died in their first year, and almost half of children died before the end of puberty. Deaths that early drag an average down hard. So a low life expectancy never meant adults routinely died young; it meant many people never got to be adults."
+    },
+    {
+      "id": "card.human_body.086.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then every age gained",
+      "body": "Saving children was a huge part of the rise, but not all of it: life expectancy has increased at every age. Better nutrition and sanitation, fighting infection and modern health care all played a part. Aging itself hasn't gone away (Level 85's damage still builds up); more people simply live long enough to experience it."
+    },
+    {
+      "id": "card.human_body.086.c5",
+      "type": "fact",
+      "fact": "The oldest verified person lived to 122.",
+      "context": "Jeanne Calment of France died in 1997, aged 122 years and 164 days. In 2018 researchers claimed her daughter had taken her identity decades earlier. The scientists who validated her age rejected the claim, and most researchers still accept the record.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Even a record-holder gets fact-checked. Good science double-checks everyone, however old."
+      }
+    },
+    {
+      "id": "card.human_body.086.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.086.q1"
+    },
+    {
+      "id": "card.human_body.086.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.086.q2"
+    },
+    {
+      "id": "card.human_body.086.c8",
+      "type": "recall",
+      "questionId": "question.human_body.086.q3"
+    },
+    {
+      "id": "card.human_body.086.c9",
+      "type": "checkpoint",
+      "headline": "Lifespans: explained",
+      "learned": [
+        "Global life expectancy: 73.3 years in 2024 (UN)",
+        "Past averages were dragged down by child deaths",
+        "Life expectancy has risen at all ages",
+        "Jeanne Calment: 122, the oldest verified person"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.lifespan_calment_record"
+      ],
+      "sourceCardIds": [
+        "card.human_body.086.c5"
+      ],
+      "prompt": "How long did Jeanne Calment, the oldest verified person, live?",
+      "options": [
+        {
+          "id": "a",
+          "label": "122 years",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "100 years",
+          "correct": false,
+          "rationale": "She passed that by more than two decades."
+        },
+        {
+          "id": "c",
+          "label": "112 years",
+          "correct": false,
+          "rationale": "She lived ten years beyond that."
+        },
+        {
+          "id": "d",
+          "label": "135 years",
+          "correct": false,
+          "rationale": "No verified person has reached that."
+        }
+      ],
+      "explanation": "Jeanne Calment died in 1997 aged 122 years and 164 days; most researchers accept the record.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.lifespan_life_expectancy_rise"
+      ],
+      "sourceCardIds": [
+        "card.human_body.086.c3"
+      ],
+      "prompt": "Why was average life expectancy so low before modern times?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Adults rarely lived past 30",
+          "correct": false,
+          "rationale": "Many adults did; the average hid them."
+        },
+        {
+          "id": "b",
+          "label": "People aged faster in the past",
+          "correct": false,
+          "rationale": "The cause was early deaths."
+        },
+        {
+          "id": "c",
+          "label": "Many babies and children died young",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nobody kept records of older people",
+          "correct": false,
+          "rationale": "The low figure reflects real deaths."
+        }
+      ],
+      "explanation": "About a quarter of babies died in their first year and almost half of children before the end of puberty, dragging the average down.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.lifespan_life_expectancy_rise",
+        "concept.human_body.aging_senescent_cells"
+      ],
+      "sourceCardIds": [
+        "card.human_body.086.c4",
+        "card.human_body.085.c5"
+      ],
+      "prompt": "Life expectancy has risen at every age, yet everyone still ages. Which idea from Level 85 explains why aging still happens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Telomeres grow back during sleep",
+          "correct": false,
+          "rationale": "Telomeres shorten; they don't regrow."
+        },
+        {
+          "id": "b",
+          "label": "Molecular and cellular damage builds up over time",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Cells stop dividing at birth",
+          "correct": false,
+          "rationale": "Cells divide throughout life."
+        },
+        {
+          "id": "d",
+          "label": "Aging only affects people over 100",
+          "correct": false,
+          "rationale": "Aging affects everyone."
+        }
+      ],
+      "explanation": "The WHO describes aging as many kinds of molecular and cellular damage building up over time.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.un_population_global_issues",
+    "source.brit_life_expectancy",
+    "source.owid_life_expectancy_all_ages",
+    "source.who_ageing_health",
+    "source.jgerontol_robine_calment_2019",
+    "source.smithsonianmag_calment_age_question"
+  ],
+  "art": "object.hourglass"
+}

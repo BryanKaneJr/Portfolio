@@ -1,0 +1,223 @@
+{
+  "id": "level.science.human_body.069",
+  "skillId": "skill.science.human_body",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Optical Illusions",
+  "objective": "After this level you can explain why the brain can be fooled by optical illusions.",
+  "summary": "An optical illusion is a perception that contradicts reality. The Müller-Lyer lines and Adelson's checker-shadow squares show the brain's interpretations misfiring.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.senses_illusions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.senses_lightness_constancy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.senses_retina_to_brain",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.068"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.069.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two lines, exactly the same length. One looks longer.",
+      "body": "Add arrowheads to one line and outward-flaring fins to the other, and the fins win. Your eyes aren't broken. Your brain is interpreting what it sees, and here the interpretation goes wrong."
+    },
+    {
+      "id": "card.human_body.069.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seeing isn't measuring",
+      "body": "An optical illusion is a perception that contradicts reality. Some illusions come from light or poor lighting, some from the eye itself, and many from how your brain processes what the eyes send. The two lines are the Müller-Lyer illusion, published in 1889 by Franz Carl Müller-Lyer: equal lines, but the one with fins flaring outward looks longer. What you see is your brain's reading of the scene, not a ruler's."
+    },
+    {
+      "id": "card.human_body.069.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The shadow that fools you",
+      "body": "In Edward Adelson's 1995 checker-shadow illusion, a cylinder casts a shadow across a checkerboard. A square inside the shadow looks much lighter than one outside it, yet they're the exact same grey. Your visual system estimates where the light comes from and judges each surface's own shade, correcting for shadow. On a flat picture that correction misleads you. In the real world, it keeps a white shirt looking white in the shade.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Your brain subtracts a shadow that was never really there. Very diligent. Slightly wrong."
+      }
+    },
+    {
+      "id": "card.human_body.069.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "You've been edited all along",
+      "body": "You've met this editor before. In Level 62 your brain turned the upside-down image on your retina upright, and quietly filled in each eye's blind spot. Illusions aren't a glitch in an otherwise perfect camera. They're the rare moments you catch your brain at work."
+    },
+    {
+      "id": "card.human_body.069.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.069.q1"
+    },
+    {
+      "id": "card.human_body.069.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.069.q2"
+    },
+    {
+      "id": "card.human_body.069.c7",
+      "type": "recall",
+      "questionId": "question.human_body.069.q3"
+    },
+    {
+      "id": "card.human_body.069.c8",
+      "type": "checkpoint",
+      "headline": "Illusions: explained",
+      "learned": [
+        "An illusion is a perception that contradicts reality",
+        "Müller-Lyer (1889): equal lines, unequal looks",
+        "Adelson (1995): the brain corrects for shadows",
+        "Filling the blind spot is the same editor at work"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.senses_illusions"
+      ],
+      "sourceCardIds": [
+        "card.human_body.069.c2",
+        "card.human_body.069.c1"
+      ],
+      "prompt": "In the Müller-Lyer illusion, which of two equal lines looks longer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The one capped with arrowheads",
+          "correct": false,
+          "rationale": "That one looks shorter."
+        },
+        {
+          "id": "b",
+          "label": "The one drawn in a shadow",
+          "correct": false,
+          "rationale": "Shadows belong to the checker illusion."
+        },
+        {
+          "id": "c",
+          "label": "Neither; they look equal",
+          "correct": false,
+          "rationale": "The illusion is that they don't."
+        },
+        {
+          "id": "d",
+          "label": "The one with fins flaring outward",
+          "correct": true
+        }
+      ],
+      "explanation": "The two lines are the same length, but the one with fins flaring outward looks longer.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.senses_lightness_constancy"
+      ],
+      "sourceCardIds": [
+        "card.human_body.069.c3"
+      ],
+      "prompt": "In Adelson's checker-shadow illusion, why does the square in the shadow look lighter than it really is?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its paint is lighter than the other square's",
+          "correct": false,
+          "rationale": "They are the exact same grey."
+        },
+        {
+          "id": "b",
+          "label": "The brain corrects for a shadow it thinks is there",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The blind spot hides part of the picture",
+          "correct": false,
+          "rationale": "The blind spot isn't involved."
+        },
+        {
+          "id": "d",
+          "label": "Rods take over from cones inside the shadow",
+          "correct": false,
+          "rationale": "It's a flat picture, seen in the same light."
+        }
+      ],
+      "explanation": "Your visual system estimates the lighting and judges each surface's own shade, correcting for shadow; on a flat picture the correction misleads.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.senses_retina_to_brain",
+        "concept.human_body.senses_illusions"
+      ],
+      "sourceCardIds": [
+        "card.human_body.069.c4",
+        "card.human_body.062.c4",
+        "card.human_body.062.c3"
+      ],
+      "prompt": "Level 62's blind spot and today's illusions share one lesson about vision. What is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The eye sends the brain a perfect copy",
+          "correct": false,
+          "rationale": "The brain edits what the eye sends."
+        },
+        {
+          "id": "b",
+          "label": "Illusions only fool people with poor eyesight",
+          "correct": false,
+          "rationale": "They're about interpretation, not eyesight."
+        },
+        {
+          "id": "c",
+          "label": "The brain edits and interprets what the eyes send",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The retina decides what you see",
+          "correct": false,
+          "rationale": "The retina detects light; the brain builds the picture."
+        }
+      ],
+      "explanation": "The brain fills in the blind spot, turns the image upright and corrects for shadows: seeing is interpretation.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.illusionsindex_muller_lyer",
+    "source.britannica_optical_illusion",
+    "source.illusionsindex_checker_shadow",
+    "source.britannica_retina_image_inverted",
+    "source.britannica_blind_spot",
+    "source.nei_how_eyes_work"
+  ],
+  "art": "body.eye"
+}

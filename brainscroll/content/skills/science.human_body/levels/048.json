@@ -1,0 +1,227 @@
+{
+  "id": "level.science.human_body.048",
+  "skillId": "skill.science.human_body",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Calories",
+  "objective": "After this level you can explain what a calorie measures.",
+  "summary": "A calorie is a unit of energy; the food Calorie is a kilocalorie. Atwater's room-sized calorimeter showed energy is conserved in people. How much energy a body uses varies from person to person.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.calorie_unit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.calorie_measuring",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.calorie_needs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.nutrients_big_three",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.047"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.048.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A calorie is a unit, like a meter.",
+      "body": "It measures energy, the way a meter measures length. It isn't a score or a verdict on a food. So what exactly does it measure, and how did anyone measure the energy a person uses?"
+    },
+    {
+      "id": "card.human_body.048.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Warming a gram of water",
+      "body": "One calorie is the heat it takes to warm 1 gram of water by 1 °C. That's tiny, so food labels use a bigger unit: the Calorie with a capital C, which is a kilocalorie, 1,000 small calories. When food is broken down, its energy is released, and your cells spend it on everything they do, from building proteins on up.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Nobody calls a meter good or bad. A calorie is the same kind of thing: a unit."
+      }
+    },
+    {
+      "id": "card.human_body.048.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A room built to measure people",
+      "body": "In 1896 at Wesleyan University, Wilbur Atwater's team began about 500 experiments in a respiration calorimeter: a small sealed room where volunteers stayed, sometimes for days, while the heat and carbon dioxide they gave off were measured. It showed that the law of conservation of energy holds for people too, and let the team work out the energy in foods: about 4 Calories per gram for protein or carbohydrate, about 9 for fat."
+    },
+    {
+      "id": "card.human_body.048.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every body runs its own budget",
+      "body": "How much energy a body uses isn't one number. It varies with age, sex, body size, physical activity and each person's metabolic rate, so no single figure fits everyone. Much of it goes on work you never notice. Your brain is about 2 percent of an adult's body weight but uses about 20 percent of the body's calories, at a fairly steady rate whether you're solving puzzles or daydreaming."
+    },
+    {
+      "id": "card.human_body.048.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.048.q1"
+    },
+    {
+      "id": "card.human_body.048.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.048.q2"
+    },
+    {
+      "id": "card.human_body.048.c7",
+      "type": "recall",
+      "questionId": "question.human_body.048.q3"
+    },
+    {
+      "id": "card.human_body.048.c8",
+      "type": "checkpoint",
+      "headline": "Calories: defined",
+      "learned": [
+        "A calorie is a unit of energy",
+        "A food Calorie is a kilocalorie, 1,000 small calories",
+        "Atwater showed energy is conserved in the human body",
+        "Energy use differs from body to body"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.calorie_unit"
+      ],
+      "sourceCardIds": [
+        "card.human_body.048.c2"
+      ],
+      "prompt": "What does a calorie measure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The weight of a food",
+          "correct": false,
+          "rationale": "Weight is measured in grams."
+        },
+        {
+          "id": "b",
+          "label": "Energy",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How much sugar a food holds",
+          "correct": false,
+          "rationale": "Sugar is one nutrient; calories measure energy."
+        },
+        {
+          "id": "d",
+          "label": "How healthy a food is",
+          "correct": false,
+          "rationale": "It's a unit of energy, not a rating."
+        }
+      ],
+      "explanation": "A calorie is a unit of energy: the heat that warms 1 gram of water by 1 °C.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.calorie_needs"
+      ],
+      "sourceCardIds": [
+        "card.human_body.048.c4"
+      ],
+      "prompt": "Why can't one daily energy figure fit every person?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Energy use varies with age, size, activity and metabolism",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Calories are measured differently in each country",
+          "correct": false,
+          "rationale": "The unit is the same everywhere."
+        },
+        {
+          "id": "c",
+          "label": "Only muscles use energy",
+          "correct": false,
+          "rationale": "Every cell uses energy, and the brain uses a lot."
+        },
+        {
+          "id": "d",
+          "label": "The brain uses no energy at rest",
+          "correct": false,
+          "rationale": "It uses about 20 percent of the body's calories."
+        }
+      ],
+      "explanation": "Energy needs vary with age, sex, body size, physical activity and metabolic rate.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.calorie_measuring",
+        "concept.human_body.nutrients_big_three"
+      ],
+      "sourceCardIds": [
+        "card.human_body.048.c3",
+        "card.human_body.047.c2"
+      ],
+      "prompt": "Level 47 said fats give energy. By Atwater's figures, how much energy does a gram of fat hold compared with a gram of carbohydrate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About the same",
+          "correct": false,
+          "rationale": "Fat holds more."
+        },
+        {
+          "id": "b",
+          "label": "About half as much",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "c",
+          "label": "About twice as much",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About ten times as much",
+          "correct": false,
+          "rationale": "Too much: about 9 versus 4."
+        }
+      ],
+      "explanation": "Atwater's factors give about 9 Calories per gram of fat and about 4 per gram of carbohydrate.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_calorie",
+    "source.msd_calories",
+    "source.sciencehistory_counting_calories",
+    "source.brit_atwater_rosa_calorimeter",
+    "source.usda_ars_atwater_calories",
+    "source.pnas_raichle_brain_energy",
+    "source.medlineplus_dietary_fats"
+  ],
+  "art": "body.food-plate"
+}

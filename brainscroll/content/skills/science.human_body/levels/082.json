@@ -1,0 +1,234 @@
+{
+  "id": "level.science.human_body.082",
+  "skillId": "skill.science.human_body",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Inherited Traits",
+  "objective": "After this level you can explain how children inherit traits from both parents.",
+  "summary": "You get two versions of each gene, one from each parent, and a dominant one can mask the other. But most traits, even eye color, involve many genes, and every egg or sperm carries a new mix.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.inheritance_allele_pairs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.inheritance_polygenic_traits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.gene_basics",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.dna_location",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.081"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Half your DNA came from each parent. You're still not an even blend.",
+      "body": "Brothers and sisters share the same two parents, yet each gets a different mix. Each parent can make over eight million different eggs or sperm. So how do traits actually pass down? It starts with pairs."
+    },
+    {
+      "id": "card.human_body.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two copies of almost everything",
+      "body": "Your 46 chromosomes come as 23 pairs, so wherever DNA varies between people, you carry two versions, called alleles: one from each parent. For some traits, one allele is dominant: a single copy is enough to show, and it masks the other, recessive one. Genes come in pairs, like shoes, one from each parent's closet."
+    },
+    {
+      "id": "card.human_body.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Eye color is not a coin toss",
+      "body": "Researchers used to think eye color was one gene, with brown dominant over blue. It's more complex. The color comes from how much melanin pigment sits in your iris, and several genes, led by two called OCA2 and HERC2, combine to set it, giving a continuum of shades. So, although it's uncommon, two blue-eyed parents can have a brown-eyed child.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Brown beats blue was a tidy story. Your eyes prefer the messy truth."
+      }
+    },
+    {
+      "id": "card.human_body.082.c4",
+      "type": "fact",
+      "fact": "Many traits are team efforts.",
+      "context": "Traits like height and skin color are polygenic: two or more genes shape them, and the environment usually has a say too. Remember Level 6? Height involves hundreds of gene variants, each with a small effect, plus things like nutrition."
+    },
+    {
+      "id": "card.human_body.082.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why siblings differ",
+      "body": "Each egg or sperm gets one chromosome from each of a parent's 23 pairs, sorted at random. That alone allows over eight million different combinations, and paired chromosomes also swap matching pieces first. So no two eggs or sperm are likely to match, and siblings each get their own shuffle of the same two decks."
+    },
+    {
+      "id": "card.human_body.082.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.082.q1"
+    },
+    {
+      "id": "card.human_body.082.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.082.q2"
+    },
+    {
+      "id": "card.human_body.082.c8",
+      "type": "recall",
+      "questionId": "question.human_body.082.q3"
+    },
+    {
+      "id": "card.human_body.082.c9",
+      "type": "checkpoint",
+      "headline": "Inherited traits: sorted",
+      "learned": [
+        "Two alleles for each variable gene, one from each parent",
+        "A dominant allele can mask a recessive one",
+        "Eye color involves several genes, not one",
+        "Random sorting gives siblings different mixes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.inheritance_allele_pairs"
+      ],
+      "sourceCardIds": [
+        "card.human_body.082.c2"
+      ],
+      "prompt": "What is the name for the different versions of a stretch of DNA that you inherit, one from each parent?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Codons",
+          "correct": false,
+          "rationale": "Those are three-letter units a ribosome reads."
+        },
+        {
+          "id": "b",
+          "label": "Zygotes",
+          "correct": false,
+          "rationale": "A zygote is the first cell of a new person."
+        },
+        {
+          "id": "c",
+          "label": "Chromosomes",
+          "correct": false,
+          "rationale": "Chromosomes are the packages that hold the DNA."
+        },
+        {
+          "id": "d",
+          "label": "Alleles",
+          "correct": true
+        }
+      ],
+      "explanation": "Alleles are the versions of a DNA sequence; you inherit two, one from each parent.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.inheritance_polygenic_traits"
+      ],
+      "sourceCardIds": [
+        "card.human_body.082.c3"
+      ],
+      "prompt": "Why can two blue-eyed parents, though rarely, have a brown-eyed child?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Eye color changes after birth with sunlight",
+          "correct": false,
+          "rationale": "Iris melanin is set by genes."
+        },
+        {
+          "id": "b",
+          "label": "Several genes together set eye color, not one",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Brown is always dominant over blue",
+          "correct": false,
+          "rationale": "That was the old single-gene idea."
+        },
+        {
+          "id": "d",
+          "label": "The child inherits no genes for eye color",
+          "correct": false,
+          "rationale": "Everyone inherits eye-color genes from both parents."
+        }
+      ],
+      "explanation": "Eye color is shaped by several genes, led by OCA2 and HERC2, so the simple brown-beats-blue rule doesn't hold.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.inheritance_polygenic_traits",
+        "concept.human_body.gene_basics"
+      ],
+      "sourceCardIds": [
+        "card.human_body.082.c4",
+        "card.human_body.006.c5"
+      ],
+      "prompt": "Level 6 said height is shaped by hundreds of gene variants plus nutrition. What kind of trait does that make height?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A dominant trait",
+          "correct": false,
+          "rationale": "Dominance describes one allele masking another."
+        },
+        {
+          "id": "b",
+          "label": "A single-gene trait",
+          "correct": false,
+          "rationale": "Hundreds of variants are involved."
+        },
+        {
+          "id": "c",
+          "label": "A polygenic trait",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A recessive trait",
+          "correct": false,
+          "rationale": "Recessive describes a masked allele."
+        }
+      ],
+      "explanation": "A polygenic trait is influenced by two or more genes, often along with the environment.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nhgri_allele",
+    "source.openstax_bio_meiosis",
+    "source.nhgri_intro_genomics",
+    "source.nhgri_dominant",
+    "source.medlineplus_eye_color",
+    "source.medlineplus_height",
+    "source.nature_height_variants_2010",
+    "source.nhgri_polygenic_trait"
+  ],
+  "art": "technology.dna"
+}

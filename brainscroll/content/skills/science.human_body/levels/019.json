@@ -1,0 +1,230 @@
+{
+  "id": "level.science.human_body.019",
+  "skillId": "skill.science.human_body",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Babies Have More Bones",
+  "objective": "After this level you can explain how bones grow and fuse from birth to adulthood.",
+  "summary": "A newborn has roughly 270 to 300 bones. Many start as cartilage, skull gaps close in the first two years, growth plates lengthen bones until early adulthood, and fusion leaves 206.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.bone_growth_fusion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.bone_growth_plates",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.skeleton_bone_count",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.018"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A newborn has more bones than you do.",
+      "body": "Estimates put a newborn at roughly 270 to 300 bones. You have 206. Nobody loses bones growing up. They join. Here's how a baby's skeleton becomes yours."
+    },
+    {
+      "id": "card.human_body.019.c2",
+      "type": "fact",
+      "fact": "A newborn has roughly 270 to 300 bones; sources vary.",
+      "context": "Many of them start as cartilage, a tough but flexible tissue. The cartilage doesn't turn into bone; it works as a template that bone gradually replaces. As the skeleton grows, many separate pieces fuse, until the count settles at Level 11's 206."
+    },
+    {
+      "id": "card.human_body.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Soft spots, on purpose",
+      "body": "At birth the skull's bones aren't yet joined, so the head can change shape on the way through the birth canal. The gaps, called fontanelles, also leave room for the brain to grow. The one at the back usually closes by 1 to 2 months; the one at the front, sometime between 7 and 19 months."
+    },
+    {
+      "id": "card.human_body.019.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Growth plates: where bones get longer",
+      "body": "Long bones grow at growth plates, layers of cartilage near each end. On one side of a plate new cartilage forms; on the other it's replaced by bone, so the shaft gets longer. This continues until early adulthood. Then bone replaces the plate entirely, leaving only a thin line, and growth in length is done.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Cartilage on one side, bone on the other. A growth plate is a construction zone that closes when the job is done."
+      }
+    },
+    {
+      "id": "card.human_body.019.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fusing into one",
+      "body": "Some bones merge late. Each hip bone starts as three separate bones, the ilium, ischium and pubis, which fuse during the late teens. Your sacrum, at the base of your spine, is five vertebrae fused into a single bone."
+    },
+    {
+      "id": "card.human_body.019.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.019.q1"
+    },
+    {
+      "id": "card.human_body.019.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.019.q2"
+    },
+    {
+      "id": "card.human_body.019.c8",
+      "type": "recall",
+      "questionId": "question.human_body.019.q3"
+    },
+    {
+      "id": "card.human_body.019.c9",
+      "type": "checkpoint",
+      "headline": "Growing bones: explained",
+      "learned": [
+        "A newborn has roughly 270 to 300 bones",
+        "Many start as cartilage that bone replaces",
+        "Fontanelles close within the first two years",
+        "Growth plates lengthen bones until early adulthood",
+        "Fusion brings the count to 206"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.bone_growth_fusion"
+      ],
+      "sourceCardIds": [
+        "card.human_body.019.c2"
+      ],
+      "prompt": "Roughly how many bones does a newborn baby have?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 106",
+          "correct": false,
+          "rationale": "That's how many an adult has in the hands and feet."
+        },
+        {
+          "id": "b",
+          "label": "About 206",
+          "correct": false,
+          "rationale": "That's the adult count."
+        },
+        {
+          "id": "c",
+          "label": "About 270 to 300",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 600",
+          "correct": false,
+          "rationale": "Far too many; estimates stop around 300."
+        }
+      ],
+      "explanation": "Estimates of a newborn's bones run from about 270 to about 300; sources vary.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.bone_growth_plates"
+      ],
+      "sourceCardIds": [
+        "card.human_body.019.c4"
+      ],
+      "prompt": "Why can't an adult's leg bones keep growing longer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their marrow has turned yellow",
+          "correct": false,
+          "rationale": "Marrow makes or stores; it doesn't set length."
+        },
+        {
+          "id": "b",
+          "label": "Bone has replaced their growth plates",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Their collagen has dissolved",
+          "correct": false,
+          "rationale": "Collagen stays in bone for life."
+        },
+        {
+          "id": "d",
+          "label": "Their joints have fused shut",
+          "correct": false,
+          "rationale": "The limb joints keep moving."
+        }
+      ],
+      "explanation": "Long bones lengthen at cartilage growth plates; in early adulthood bone replaces the plates and growth in length stops.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.bone_growth_fusion",
+        "concept.human_body.skeleton_bone_count"
+      ],
+      "sourceCardIds": [
+        "card.human_body.019.c2",
+        "card.human_body.019.c5",
+        "card.human_body.011.c2"
+      ],
+      "prompt": "A baby starts with more bones than Level 11's adult count of 206. Why does the number fall?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Many separate bones fuse into single bones",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Extra bones dissolve into the blood",
+          "correct": false,
+          "rationale": "No bones are lost; they join."
+        },
+        {
+          "id": "c",
+          "label": "Bones fall out along with baby teeth",
+          "correct": false,
+          "rationale": "Teeth aren't counted as bones, and nothing falls out."
+        },
+        {
+          "id": "d",
+          "label": "Marrow replaces the smallest bones",
+          "correct": false,
+          "rationale": "Marrow sits inside bones; it doesn't replace them."
+        }
+      ],
+      "explanation": "As the skeleton grows, many separate bones fuse, such as the three bones of each hip bone, leaving 206.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.statpearls_bone_physiology",
+    "source.clevelandclinic_baby_bones",
+    "source.openstax_ap_skeleton_divisions",
+    "source.openstax_ap_bone_formation",
+    "source.medlineplus_cranial_sutures",
+    "source.openstax_ap_pelvic_girdle",
+    "source.openstax_ap_vertebral_column"
+  ],
+  "art": "body.bone"
+}

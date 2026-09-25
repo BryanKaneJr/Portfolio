@@ -1,0 +1,222 @@
+{
+  "id": "level.science.human_body.012",
+  "skillId": "skill.science.human_body",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Inside a Bone",
+  "objective": "After this level you can explain what bones are made of and how marrow makes blood.",
+  "summary": "Bone is living tissue: collagen for flexibility, calcium phosphate for hardness. Compact bone outside, spongy bone inside, and red marrow in the spaces makes blood cells.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.bone_materials",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.bone_marrow_blood",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.cell_turnover",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.011"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your bones are alive, and some of them are making blood right now.",
+      "body": "The skeleton in a science classroom is dry and dead. Yours is living tissue, full of working cells. Let's cut one open and see what it's made of, and find the factory hidden inside."
+    },
+    {
+      "id": "card.human_body.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tough fibers, hard crystals",
+      "body": "Bone is built from two main materials. Collagen, a tough protein, forms fibers that make bone flexible instead of brittle. Crystals of calcium phosphate harden around those fibers and make bone hard and strong. It's a bit like reinforced concrete: a hard material wrapped around a tough framework. Hard enough to hold you up, with just enough give to take a knock."
+    },
+    {
+      "id": "card.human_body.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Solid outside, spongy inside",
+      "body": "Cut through a bone and you'll find two kinds of bone tissue. Compact bone is the dense, strong outer layer. Inside is spongy bone: a lattice of thin struts called trabeculae, with open spaces between them. The struts form along the lines of stress the bone carries, like scaffolding placed exactly where the load goes."
+    },
+    {
+      "id": "card.human_body.012.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The blood factory",
+      "body": "Those open spaces in spongy bone hold red marrow, and red marrow makes your blood cells: red blood cells that carry oxygen, white blood cells that fight infection, and platelets that help blood clot. Your hip and thigh bones are among the places it works. Remember Level 10: about 90 percent of the cells your body replaces each day are blood cells. Yellow marrow, the other kind, is mostly fat, an energy store.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Every time you sit down, you are sitting on a blood factory. It does not mind at all."
+      }
+    },
+    {
+      "id": "card.human_body.012.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.012.q1"
+    },
+    {
+      "id": "card.human_body.012.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.012.q2"
+    },
+    {
+      "id": "card.human_body.012.c7",
+      "type": "recall",
+      "questionId": "question.human_body.012.q3"
+    },
+    {
+      "id": "card.human_body.012.c8",
+      "type": "checkpoint",
+      "headline": "Bone: opened up",
+      "learned": [
+        "Bone is living tissue",
+        "Collagen gives flexibility; calcium phosphate gives hardness",
+        "Compact bone outside, spongy bone inside",
+        "Red marrow makes blood cells; yellow marrow is mostly fat"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.bone_materials"
+      ],
+      "sourceCardIds": [
+        "card.human_body.012.c3"
+      ],
+      "prompt": "Which kind of bone tissue forms the dense, strong outer layer of a bone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spongy bone",
+          "correct": false,
+          "rationale": "Spongy bone is the lattice inside."
+        },
+        {
+          "id": "b",
+          "label": "Compact bone",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Red marrow",
+          "correct": false,
+          "rationale": "Red marrow fills spaces in spongy bone and makes blood cells."
+        },
+        {
+          "id": "d",
+          "label": "Yellow marrow",
+          "correct": false,
+          "rationale": "Yellow marrow is mostly fat."
+        }
+      ],
+      "explanation": "Compact bone is the denser, stronger tissue on the outside; spongy bone sits inside.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.bone_materials"
+      ],
+      "sourceCardIds": [
+        "card.human_body.012.c2"
+      ],
+      "prompt": "Bone contains both collagen and calcium phosphate. What does the collagen add?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hardness, like stone",
+          "correct": false,
+          "rationale": "The calcium phosphate crystals supply the hardness."
+        },
+        {
+          "id": "b",
+          "label": "Blood cells for the body",
+          "correct": false,
+          "rationale": "Blood cells come from red marrow."
+        },
+        {
+          "id": "c",
+          "label": "Flexibility, so bone isn't brittle",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Most of the body's calcium",
+          "correct": false,
+          "rationale": "The calcium is in the mineral crystals."
+        }
+      ],
+      "explanation": "Collagen fibers make bone flexible rather than brittle; calcium phosphate crystals make it hard and strong.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.bone_marrow_blood",
+        "concept.human_body.cell_turnover"
+      ],
+      "sourceCardIds": [
+        "card.human_body.012.c4",
+        "card.human_body.010.c3"
+      ],
+      "prompt": "Level 10 found that most cells your body replaces each day are blood cells. Where are new blood cells made?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the compact outer layer of bone",
+          "correct": false,
+          "rationale": "Compact bone is solid; the marrow is in spongy bone's spaces."
+        },
+        {
+          "id": "b",
+          "label": "In yellow marrow",
+          "correct": false,
+          "rationale": "Yellow marrow is mostly fat."
+        },
+        {
+          "id": "c",
+          "label": "In the collagen fibers",
+          "correct": false,
+          "rationale": "Collagen is bone's flexible framework."
+        },
+        {
+          "id": "d",
+          "label": "In red marrow inside bones",
+          "correct": true
+        }
+      ],
+      "explanation": "Red marrow, in the spaces of spongy bone, makes red blood cells, white blood cells and platelets.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.statpearls_bone_physiology",
+    "source.openstax_ap_bone_structure",
+    "source.openstax_ap_skeletal_functions",
+    "source.medlineplus_bone_marrow",
+    "source.brit_bone",
+    "source.natmed_cell_turnover_2021",
+    "source.weizmann_cell_replacement"
+  ],
+  "art": "body.bone"
+}

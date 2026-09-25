@@ -1,0 +1,219 @@
+{
+  "id": "level.science.human_body.039",
+  "skillId": "skill.science.human_body",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Asthma",
+  "objective": "After this level you can explain what happens in an asthma attack and how inhalers help.",
+  "summary": "In an asthma attack the airways swell, narrow, make extra mucus and may tighten. Asthma has no cure but is managed with medical care; inhalers deliver medicine straight to the lungs.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.asthma_airways",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.asthma_care",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.lung_airways",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.038"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Imagine trying to breathe in through a straw.",
+      "body": "That's how some people describe an asthma attack. Asthma is the most common chronic disease among children. So what is actually happening inside the airways?"
+    },
+    {
+      "id": "card.human_body.039.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Airways that squeeze shut",
+      "body": "Asthma is a long-term condition of the airways in the lungs. During an attack, the airways become inflamed, swell and narrow, and can make extra mucus. The muscles wrapped around them may tighten too. Air has to squeeze through a narrower tube, which makes breathing harder, especially breathing out. It can bring coughing, wheezing and a tight chest."
+    },
+    {
+      "id": "card.human_body.039.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Something sets it off",
+      "body": "Attacks often have a trigger. Pollen, dust, smoke, fumes, cold air, viral infections and even exercise can set off or worsen asthma symptoms. Smoke, the villain of Level 38, is on the list again."
+    },
+    {
+      "id": "card.human_body.039.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Managed with medical care",
+      "body": "There's no cure for asthma, but it can be managed. People with asthma work with a healthcare provider on a written asthma action plan that sets out which medicines to take and when. Inhalers deliver asthma medicine directly to the lungs. Quick-relief medicines open narrowed airways during an attack; daily controller medicines reduce inflammation to help prevent attacks.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Straight to the airways, no detour. That's what an inhaler is for."
+      }
+    },
+    {
+      "id": "card.human_body.039.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.039.q1"
+    },
+    {
+      "id": "card.human_body.039.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.039.q2"
+    },
+    {
+      "id": "card.human_body.039.c7",
+      "type": "recall",
+      "questionId": "question.human_body.039.q3"
+    },
+    {
+      "id": "card.human_body.039.c8",
+      "type": "checkpoint",
+      "headline": "Asthma: explained",
+      "learned": [
+        "A long-term condition of the airways",
+        "In an attack airways swell, narrow and tighten",
+        "Triggers include pollen, smoke and cold air",
+        "Managed with care; inhalers go straight to the lungs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.asthma_airways"
+      ],
+      "sourceCardIds": [
+        "card.human_body.039.c2"
+      ],
+      "prompt": "What happens inside the airways during an asthma attack?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They fill with blood",
+          "correct": false,
+          "rationale": "They swell, narrow and can make extra mucus."
+        },
+        {
+          "id": "b",
+          "label": "They widen and let in too much air",
+          "correct": false,
+          "rationale": "They narrow, making breathing harder."
+        },
+        {
+          "id": "c",
+          "label": "They swell and narrow, and muscles may tighten",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They stop making mucus",
+          "correct": false,
+          "rationale": "They can make extra mucus."
+        }
+      ],
+      "explanation": "In an attack the airways become inflamed, swell and narrow, can make extra mucus, and the muscles around them may tighten.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.asthma_care"
+      ],
+      "sourceCardIds": [
+        "card.human_body.039.c4"
+      ],
+      "prompt": "Why is asthma medicine often given through an inhaler?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It replaces seeing a healthcare provider",
+          "correct": false,
+          "rationale": "Asthma is managed with a provider and an action plan."
+        },
+        {
+          "id": "b",
+          "label": "It cures asthma after one use",
+          "correct": false,
+          "rationale": "There is no cure; asthma is managed."
+        },
+        {
+          "id": "c",
+          "label": "It trains the diaphragm",
+          "correct": false,
+          "rationale": "Inhalers deliver medicine; they don't train muscles."
+        },
+        {
+          "id": "d",
+          "label": "It delivers medicine directly to the lungs",
+          "correct": true
+        }
+      ],
+      "explanation": "Inhalers deliver asthma medicine directly to the lungs, where the narrowed airways are.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.asthma_airways",
+        "concept.human_body.lung_airways"
+      ],
+      "sourceCardIds": [
+        "card.human_body.039.c2",
+        "card.human_body.032.c2"
+      ],
+      "prompt": "Asthma narrows the airways. In Level 32's bronchial tree, what are the thinnest tubes before the air sacs called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bronchioles",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Bronchi",
+          "correct": false,
+          "rationale": "These are the bigger branches higher up."
+        },
+        {
+          "id": "c",
+          "label": "The windpipe",
+          "correct": false,
+          "rationale": "That's the trunk of the tree."
+        },
+        {
+          "id": "d",
+          "label": "Alveoli",
+          "correct": false,
+          "rationale": "These are the air sacs themselves."
+        }
+      ],
+      "explanation": "The bronchial tubes branch into thousands of thinner tubes, the bronchioles, which end in the air sacs.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nhlbi_asthma_treatment",
+    "source.nhlbi_asthma_attacks",
+    "source.who_asthma_factsheet",
+    "source.nhlbi_asthma"
+  ],
+  "art": "body.stethoscope"
+}

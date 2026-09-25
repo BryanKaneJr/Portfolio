@@ -1,0 +1,242 @@
+{
+  "id": "level.science.human_body.057",
+  "skillId": "skill.science.human_body",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Sleep",
+  "objective": "After this level you can explain what happens in the body and brain during sleep.",
+  "summary": "Sleep cycles through three non-REM stages and REM several times a night. Why we sleep is still debated, from memory to cleaning the brain.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.neuro_sleep_stages",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.neuro_sleep_purpose",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.memory_hippocampus",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.056"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You spend about a third of your life asleep. Your brain stays busy.",
+      "body": "Your brain and body stay remarkably active while you sleep. The night runs on a schedule of stages, and scientists are still arguing about what it's all for."
+    },
+    {
+      "id": "card.human_body.057.c2",
+      "type": "timeline",
+      "headline": "One trip through the stages",
+      "events": [
+        {
+          "when": "Stage 1",
+          "label": "A few minutes of changeover: heartbeat and breathing slow, muscles twitch"
+        },
+        {
+          "when": "Stage 2",
+          "label": "Light sleep: body temperature drops and eye movements stop"
+        },
+        {
+          "when": "Stage 3",
+          "label": "Deep sleep: the slowest brain waves, and you may be hard to wake"
+        },
+        {
+          "when": "About 90 minutes",
+          "label": "REM: eyes dart, brain waves near waking, arms and legs paralyzed"
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.057.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then round again",
+      "body": "You don't pass through the stages once. You cycle through non-REM and REM sleep several times a night. Deep stage 3 comes in longer stretches in the first half of the night, while REM periods grow longer later on. So the early night is deep-sleep country, and the small hours belong more and more to REM."
+    },
+    {
+      "id": "card.human_body.057.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why sleep? The honest answer",
+      "body": "Everyone needs sleep, but its biological purpose remains a mystery. One strong clue: storing memories, the hippocampus job from Level 56, most likely needs both non-REM and REM sleep. Your brain spends the night filing, not just resting."
+    },
+    {
+      "id": "card.human_body.057.c5",
+      "type": "fact",
+      "fact": "Does sleep clean the brain? Scientists are still arguing.",
+      "context": "In 2013, a study in mice led by Maiken Nedergaard suggested the space between brain cells grows during sleep, letting fluid flush out toxins built up while awake. In 2024, a mouse study by Nicholas Franks, William Wisden and colleagues found clearance was reduced during sleep instead. The debate continues, which is how science is supposed to work.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Two good labs, opposite answers. Stay tuned; that is how science gets settled."
+      }
+    },
+    {
+      "id": "card.human_body.057.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.057.q1"
+    },
+    {
+      "id": "card.human_body.057.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.057.q2"
+    },
+    {
+      "id": "card.human_body.057.c8",
+      "type": "recall",
+      "questionId": "question.human_body.057.q3"
+    },
+    {
+      "id": "card.human_body.057.c9",
+      "type": "checkpoint",
+      "headline": "Sleep: staged",
+      "learned": [
+        "Three non-REM stages, from changeover to deep sleep",
+        "REM starts about 90 minutes in; the limbs are paralyzed",
+        "Several cycles a night; REM grows longer toward morning",
+        "Purpose still debated: memory storage, maybe brain cleaning"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.neuro_sleep_stages"
+      ],
+      "sourceCardIds": [
+        "card.human_body.057.c2"
+      ],
+      "prompt": "About how long after you fall asleep does REM sleep first begin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10 minutes",
+          "correct": false,
+          "rationale": "Stage 1 alone lasts several minutes, and the deeper stages come first."
+        },
+        {
+          "id": "b",
+          "label": "About 30 minutes",
+          "correct": false,
+          "rationale": "Still too early."
+        },
+        {
+          "id": "c",
+          "label": "About 90 minutes",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 4 hours",
+          "correct": false,
+          "rationale": "It comes much earlier than that."
+        }
+      ],
+      "explanation": "REM sleep first occurs about 90 minutes after falling asleep, after the non-REM stages.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.neuro_sleep_purpose"
+      ],
+      "sourceCardIds": [
+        "card.human_body.057.c5"
+      ],
+      "prompt": "Why is the idea that sleep flushes toxins from the brain still debated?",
+      "options": [
+        {
+          "id": "a",
+          "label": "No one has ever studied it",
+          "correct": false,
+          "rationale": "Studies in 2013 and 2024 tested it."
+        },
+        {
+          "id": "b",
+          "label": "Sleep turns the brain off completely",
+          "correct": false,
+          "rationale": "The brain stays active during sleep."
+        },
+        {
+          "id": "c",
+          "label": "The 2013 study was in humans only",
+          "correct": false,
+          "rationale": "Both studies used mice."
+        },
+        {
+          "id": "d",
+          "label": "A 2024 mouse study found clearance slowed during sleep",
+          "correct": true
+        }
+      ],
+      "explanation": "A 2013 mouse study suggested sleep speeds clearance; a 2024 mouse study found it was reduced, so the question is open.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.neuro_sleep_purpose",
+        "concept.human_body.memory_hippocampus"
+      ],
+      "sourceCardIds": [
+        "card.human_body.057.c4",
+        "card.human_body.056.c2"
+      ],
+      "prompt": "Level 56 showed the hippocampus filing new memories. Which sleep does storing memories most likely need?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only REM sleep",
+          "correct": false,
+          "rationale": "Non-REM sleep matters too."
+        },
+        {
+          "id": "b",
+          "label": "Only stage 1",
+          "correct": false,
+          "rationale": "The short changeover stage is not singled out."
+        },
+        {
+          "id": "c",
+          "label": "Both non-REM and REM sleep",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "No sleep; it all happens awake",
+          "correct": false,
+          "rationale": "Sleep is part of the process."
+        }
+      ],
+      "explanation": "Memory consolidation most likely requires both non-REM and REM sleep.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ninds_brain_basics_sleep",
+    "source.nih_sleep_toxins_2013",
+    "source.natneuro_miao_brain_clearance_2024",
+    "source.brainfacts_patient_hm",
+    "source.ninds_brain_basics_know_your_brain"
+  ],
+  "art": "astronomy.moon"
+}

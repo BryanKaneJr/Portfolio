@@ -1,0 +1,218 @@
+{
+  "id": "level.science.human_body.032",
+  "skillId": "skill.science.human_body",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Lungs",
+  "objective": "After this level you can describe the lungs, the airways and the tiny air sacs.",
+  "summary": "Air runs down the windpipe and the branching bronchial tree to about 480 million air sacs, where oxygen crosses into the blood. Cilia sweep the airways clean.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.lung_airways",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.lung_alveoli",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.breathing_cell_respiration",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.031"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your lungs are an upside-down tree with 480 million leaves.",
+      "body": "Level 31's oxygen has to get from the air into your blood. The route runs down one trunk, out through thousands of branches, and ends in tiny air sacs with walls so thin that gas slips straight through."
+    },
+    {
+      "id": "card.human_body.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Down the trunk, out along the branches",
+      "body": "Air comes in through your nose or mouth, passes your voice box and heads down the windpipe. Inside your lungs, the bronchial tubes keep branching (anatomists call it the bronchial tree) into thousands of thinner tubes, the bronchioles. Your right lung has three lobes and your left has two. Every branch ends the same way: in clusters of tiny air sacs called alveoli."
+    },
+    {
+      "id": "card.human_body.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pipes that clean themselves",
+      "body": "Air brings dust and germs along for the ride. Your airways are lined with cilia, tiny hairlike structures that beat constantly, sweeping a layer of sticky mucus, and everything caught in it, up toward your throat. There it gets swallowed. Yes: you have been quietly swallowing the dust you breathe in for your whole life.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Nobody mentions it at dinner parties, but everybody's airways do it."
+      }
+    },
+    {
+      "id": "card.human_body.032.c4",
+      "type": "fact",
+      "fact": "Your lungs hold about 480 million air sacs.",
+      "context": "That's the average a 2004 study counted in adult lungs, and bigger lungs have more. Each sac is wrapped in tiny blood vessels called capillaries, and the barrier between air and blood is only about 0.5 micrometers thick. Oxygen passes through into the blood; carbon dioxide passes the other way."
+    },
+    {
+      "id": "card.human_body.032.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.032.q1"
+    },
+    {
+      "id": "card.human_body.032.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.032.q2"
+    },
+    {
+      "id": "card.human_body.032.c7",
+      "type": "recall",
+      "questionId": "question.human_body.032.q3"
+    },
+    {
+      "id": "card.human_body.032.c8",
+      "type": "checkpoint",
+      "headline": "Lungs: explored",
+      "learned": [
+        "Windpipe, bronchi, bronchioles, alveoli",
+        "Right lung three lobes, left lung two",
+        "Cilia sweep mucus up to be swallowed",
+        "About 480 million air sacs swap gases"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.lung_alveoli"
+      ],
+      "sourceCardIds": [
+        "card.human_body.032.c4"
+      ],
+      "prompt": "About how many alveoli did a 2004 study count, on average, in adult human lungs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 480 thousand",
+          "correct": false,
+          "rationale": "Far too few."
+        },
+        {
+          "id": "b",
+          "label": "About 4.8 million",
+          "correct": false,
+          "rationale": "Still a hundred times too few."
+        },
+        {
+          "id": "c",
+          "label": "About 480 million",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 48 billion",
+          "correct": false,
+          "rationale": "A hundred times too many."
+        }
+      ],
+      "explanation": "Ochs and colleagues counted a mean of about 480 million alveoli, with bigger lungs having more.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.lung_airways"
+      ],
+      "sourceCardIds": [
+        "card.human_body.032.c3"
+      ],
+      "prompt": "Dust you breathe in gets caught in mucus. How do your airways get rid of it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It dissolves inside the air sacs",
+          "correct": false,
+          "rationale": "The air sacs exchange gases; the cleanup happens in the airways."
+        },
+        {
+          "id": "b",
+          "label": "Cilia sweep it up to the throat to be swallowed",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The lobes store it for good",
+          "correct": false,
+          "rationale": "Lobes are sections of the lung, not storage bins."
+        },
+        {
+          "id": "d",
+          "label": "It passes into the blood",
+          "correct": false,
+          "rationale": "What crosses into the blood is oxygen, not dust."
+        }
+      ],
+      "explanation": "Cilia beat constantly, sweeping mucus and trapped debris up toward the throat, where it is swallowed.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.lung_alveoli",
+        "concept.human_body.breathing_cell_respiration"
+      ],
+      "sourceCardIds": [
+        "card.human_body.032.c4",
+        "card.human_body.031.c3"
+      ],
+      "prompt": "Level 31's cells dump carbon dioxide into your blood. Where in your breathing system does it leave the blood?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the windpipe",
+          "correct": false,
+          "rationale": "The windpipe only carries air."
+        },
+        {
+          "id": "b",
+          "label": "In the bronchi",
+          "correct": false,
+          "rationale": "These branches lead to the exchange sites."
+        },
+        {
+          "id": "c",
+          "label": "In the nose",
+          "correct": false,
+          "rationale": "The nose is the entrance, not the exchange."
+        },
+        {
+          "id": "d",
+          "label": "In the alveoli",
+          "correct": true
+        }
+      ],
+      "explanation": "Carbon dioxide crosses the thin walls of the alveoli from the blood into the air, and is breathed out.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nhlbi_respiratory_system",
+    "source.ajrccm_ochs_alveoli_2004",
+    "source.nhlbi_breathing_benefits",
+    "source.openstax_ap_respiratory_organs"
+  ],
+  "art": "body.lungs"
+}

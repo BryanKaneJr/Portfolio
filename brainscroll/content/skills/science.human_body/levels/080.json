@@ -1,0 +1,344 @@
+{
+  "id": "level.science.human_body.080",
+  "skillId": "skill.science.human_body",
+  "number": 80,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Defending the Body",
+  "objective": "After this level you can explain how skin, the immune system and medicine protect us from germs.",
+  "summary": "Defenses in layers: the skin wall, innate phagocytes and fever, acquired immunity with memory, and human tools. Lymph nodes are where white blood cells fight germs.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.defense_lymph_nodes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.organ_systems",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.defense_skin_chemistry",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.defense_innate_immunity",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.defense_adaptive_immunity",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.defense_variolation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.defense_fever_benefit",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.defense_vaccine_training",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.defense_handwashing_science",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.defense_penicillin_development",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.defense_skin_layers",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.079"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.080.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 8 finale: your defenses are built like a castle.",
+      "body": "A wall, guards on patrol and specialists who remember every enemy, plus a few tools humans added. First, a walk along the walls. Then a stop at the barracks you can sometimes feel swelling in your neck."
+    },
+    {
+      "id": "card.human_body.080.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four layers of defense",
+      "body": "Layer one is the wall: dead, keratin-packed skin cells, replaced about every 4 weeks, on a dry, acidic surface. Layer two is innate immunity, the defense you're born with: phagocytes devour intruders, and fever's heat stirs white blood cells on. Layer three is acquired immunity: B cells, T cells and memory. Layer four is ours. Soap and water scrub germs away, vaccines train memory in advance, and penicillin blocks bacteria from building their cell walls."
+    },
+    {
+      "id": "card.human_body.080.c3",
+      "type": "fact",
+      "fact": "Your 'swollen glands' are your immune system at work.",
+      "context": "Those glands are lymph nodes, part of the lymphatic system from Level 1 that returns fluid and defends against germs. They sit along lymph vessels in places like your neck, armpits and groin. Along with the spleen, they're where white blood cells fight infection, and infections are the most common reason they swell."
+    },
+    {
+      "id": "card.human_body.080.c4",
+      "type": "mcq",
+      "questionId": "question.human_body.080.q1"
+    },
+    {
+      "id": "card.human_body.080.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.080.q2"
+    },
+    {
+      "id": "card.human_body.080.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.080.q3"
+    },
+    {
+      "id": "card.human_body.080.c7",
+      "type": "recall",
+      "questionId": "question.human_body.080.q4"
+    },
+    {
+      "id": "card.human_body.080.c8",
+      "type": "recall",
+      "questionId": "question.human_body.080.q5"
+    },
+    {
+      "id": "card.human_body.080.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 8 complete",
+      "learned": [
+        "Skin is the wall: dead cells, dry and acidic",
+        "Innate immunity: phagocytes and fever",
+        "Acquired immunity: antibodies, B and T cells, memory",
+        "Human tools: handwashing, vaccines, penicillin",
+        "Lymph nodes are where white blood cells meet germs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.080.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.defense_lymph_nodes"
+      ],
+      "sourceCardIds": [
+        "card.human_body.080.c3"
+      ],
+      "prompt": "Defending the Body recap: what are the 'swollen glands' you can sometimes feel during an infection?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Blocked sweat glands in the skin",
+          "correct": false,
+          "rationale": "They're lymph nodes, part of the lymphatic system."
+        },
+        {
+          "id": "b",
+          "label": "Lymph nodes, where white blood cells fight infection",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Mast cells releasing histamine",
+          "correct": false,
+          "rationale": "That's an allergic reaction, not swollen glands."
+        },
+        {
+          "id": "d",
+          "label": "Pockets of dead skin cells",
+          "correct": false,
+          "rationale": "Dead skin cells form the outer wall, not glands."
+        }
+      ],
+      "explanation": "Swollen glands are lymph nodes; with the spleen, they're where white blood cells fight infection.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.080.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.defense_adaptive_immunity"
+      ],
+      "sourceCardIds": [
+        "card.human_body.080.c2",
+        "card.human_body.073.c4"
+      ],
+      "prompt": "Defending the Body recap: which layer of defense remembers a germ and responds faster next time?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The skin wall",
+          "correct": false,
+          "rationale": "Skin blocks germs but doesn't remember them."
+        },
+        {
+          "id": "b",
+          "label": "Fever",
+          "correct": false,
+          "rationale": "Fever stirs white blood cells but doesn't store memory."
+        },
+        {
+          "id": "c",
+          "label": "Acquired immunity, with its B and T cells",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Phagocytes in innate immunity",
+          "correct": false,
+          "rationale": "Innate defenses are nonspecific; memory belongs to lymphocytes."
+        }
+      ],
+      "explanation": "Acquired immunity keeps memory B and T cells, so a second meeting with the same germ is faster.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.080.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.defense_lymph_nodes",
+        "concept.human_body.organ_systems"
+      ],
+      "sourceCardIds": [
+        "card.human_body.080.c3",
+        "card.human_body.001.c2"
+      ],
+      "prompt": "Defending the Body recap: lymph nodes belong to which of Level 1's organ systems?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Urinary",
+          "correct": false,
+          "rationale": "It filters waste from the blood."
+        },
+        {
+          "id": "b",
+          "label": "Integumentary",
+          "correct": false,
+          "rationale": "That's skin, hair and nails, the outer wall."
+        },
+        {
+          "id": "c",
+          "label": "Endocrine",
+          "correct": false,
+          "rationale": "It sends hormones that regulate the body."
+        },
+        {
+          "id": "d",
+          "label": "Lymphatic",
+          "correct": true
+        }
+      ],
+      "explanation": "Lymph nodes are part of the lymphatic system, which returns fluid and defends against germs.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.080.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.defense_variolation"
+      ],
+      "sourceCardIds": [
+        "card.human_body.076.c2"
+      ],
+      "prompt": "Defending the Body recap, from Level 76: what risky practice protected people from smallpox before vaccines?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Variolation",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Washing in chlorinated lime",
+          "correct": false,
+          "rationale": "That was Semmelweis, in 1847, against childbed fever."
+        },
+        {
+          "id": "c",
+          "label": "Penicillin",
+          "correct": false,
+          "rationale": "Penicillin was discovered in 1928, and it attacks bacteria."
+        },
+        {
+          "id": "d",
+          "label": "Sensitization",
+          "correct": false,
+          "rationale": "Sensitization is how allergies prime mast cells."
+        }
+      ],
+      "explanation": "Variolation exposed people to smallpox material; about 2 to 3 percent died, far fewer than from natural smallpox.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.080.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.defense_fever_benefit"
+      ],
+      "sourceCardIds": [
+        "card.human_body.074.c4"
+      ],
+      "prompt": "Defending the Body recap, from Level 74: why does the body raise its temperature during an infection?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To sweat the germs out through the skin",
+          "correct": false,
+          "rationale": "Sweating comes as a fever breaks, to cool you."
+        },
+        {
+          "id": "b",
+          "label": "Heat stirs white blood cells and can slow some germs",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Germs are heating the body from inside",
+          "correct": false,
+          "rationale": "The brain chooses the higher setting on purpose."
+        },
+        {
+          "id": "d",
+          "label": "To save energy while you rest",
+          "correct": false,
+          "rationale": "Fever costs energy: 10 to 12.5 percent more per 1°C."
+        }
+      ],
+      "explanation": "Fever stimulates white blood cells and antibody production, and heat may slow some bacteria and viruses.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.medlineplus_lymphatic_diseases",
+    "source.medlineplus_swollen_lymph_nodes",
+    "source.brit_fever",
+    "source.brit_penicillin",
+    "source.cdc_clean_hands_about",
+    "source.medlineplus_immune_response",
+    "source.openstax_ap_skin_layers",
+    "source.pmc_grice_skin_microbiome",
+    "source.pmc_skin_acid_mantle",
+    "source.who_what_is_vaccination",
+    "source.openstax_ap_body_organization"
+  ],
+  "art": "body.germ"
+}

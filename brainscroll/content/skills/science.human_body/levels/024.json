@@ -1,0 +1,225 @@
+{
+  "id": "level.science.human_body.024",
+  "skillId": "skill.science.human_body",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Blood Is Made Of",
+  "objective": "After this level you can name the parts of blood and what each one does.",
+  "summary": "Blood is over half plasma, a watery liquid, plus red cells (about 45 percent) that carry oxygen on hemoglobin, and a sliver of white cells and platelets. Adults have about 4 to 6 liters.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.blood_components",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.blood_red_cells",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.cell_count",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.body_water_share",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.023"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Spin a tube of blood and it splits into layers.",
+      "body": "Put a blood sample in a centrifuge and it separates: plasma on top, a thin pale layer in the middle, red cells at the bottom. Blood is plasma plus red cells, white cells and platelets. So what is each layer doing?"
+    },
+    {
+      "id": "card.human_body.024.c2",
+      "type": "fact",
+      "fact": "Over half your blood is plasma, and plasma is about 92% water.",
+      "context": "It's a watery liquid with salts and proteins dissolved in it, and everything else in blood rides along in it. An adult has about 4 to 6 liters of blood in all. Remember Level 7's water outside your cells? Part of that third is right here, flowing."
+    },
+    {
+      "id": "card.human_body.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Red cells: the oxygen couriers",
+      "body": "Red blood cells make up about 45 percent of blood's volume, and Level 3 found they are about 84 percent of all your cells. Their job is delivering oxygen from your lungs to your tissues. The carrier is hemoglobin, an iron-containing protein that also gives blood its color. Fresh from the lungs, blood is bright red; after dropping off oxygen, it's a duskier red. Never blue.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Bright red or dusky red, but never blue. Blood only comes in shades of red."
+      }
+    },
+    {
+      "id": "card.human_body.024.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The thin pale band",
+      "body": "That middle layer holds the rest: white blood cells, which fight infection, and platelets, which help blood clot when you cut yourself. Together they're less than 1 percent of a blood sample. The smallest share of blood, doing two of its most urgent jobs. Platelets get their moment in Level 28."
+    },
+    {
+      "id": "card.human_body.024.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.024.q1"
+    },
+    {
+      "id": "card.human_body.024.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.024.q2"
+    },
+    {
+      "id": "card.human_body.024.c7",
+      "type": "recall",
+      "questionId": "question.human_body.024.q3"
+    },
+    {
+      "id": "card.human_body.024.c8",
+      "type": "checkpoint",
+      "headline": "Blood: separated",
+      "learned": [
+        "Over half of blood is plasma, about 92% water",
+        "Red cells, about 45%, carry oxygen on hemoglobin",
+        "Bright red with oxygen, dusky red without",
+        "White cells and platelets: under 1%, big jobs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.blood_components"
+      ],
+      "sourceCardIds": [
+        "card.human_body.024.c2"
+      ],
+      "prompt": "Which part of blood makes up more than half of its volume?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Red blood cells",
+          "correct": false,
+          "rationale": "They are about 45 percent."
+        },
+        {
+          "id": "b",
+          "label": "Plasma",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Platelets",
+          "correct": false,
+          "rationale": "With white cells, under 1 percent."
+        },
+        {
+          "id": "d",
+          "label": "White blood cells",
+          "correct": false,
+          "rationale": "With platelets, under 1 percent."
+        }
+      ],
+      "explanation": "Plasma, a liquid that is about 92 percent water, makes up over half of blood.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.blood_red_cells"
+      ],
+      "sourceCardIds": [
+        "card.human_body.024.c3"
+      ],
+      "prompt": "Blood fresh from the lungs is bright red; blood coming back from the tissues is a duskier red. Why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has turned blue inside the veins",
+          "correct": false,
+          "rationale": "Blood is never blue; it stays red."
+        },
+        {
+          "id": "b",
+          "label": "It has lost its plasma",
+          "correct": false,
+          "rationale": "Plasma stays in the blood."
+        },
+        {
+          "id": "c",
+          "label": "It has given up oxygen to the tissues",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It has picked up extra platelets",
+          "correct": false,
+          "rationale": "Platelets don't change blood's color."
+        }
+      ],
+      "explanation": "Hemoglobin changes color with oxygen: bright red when loaded, dusky red after dropping oxygen off.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.blood_red_cells",
+        "concept.human_body.cell_count"
+      ],
+      "sourceCardIds": [
+        "card.human_body.024.c3",
+        "card.human_body.003.c2"
+      ],
+      "prompt": "Level 3 found red blood cells are your most numerous cells. What is their job?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fighting infection",
+          "correct": false,
+          "rationale": "That is the white blood cells' job."
+        },
+        {
+          "id": "b",
+          "label": "Helping blood clot",
+          "correct": false,
+          "rationale": "Platelets do that."
+        },
+        {
+          "id": "c",
+          "label": "Carrying salts in the plasma",
+          "correct": false,
+          "rationale": "Salts are dissolved in the plasma itself."
+        },
+        {
+          "id": "d",
+          "label": "Delivering oxygen to the tissues",
+          "correct": true
+        }
+      ],
+      "explanation": "Red blood cells deliver oxygen from the lungs to the tissues, carried by hemoglobin.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.medlineplus_blood",
+    "source.openstax_ap_blood_overview",
+    "source.brit_blood",
+    "source.openstax_ap_body_fluids",
+    "source.msd_water_sodium_balance",
+    "source.plosbio_sender_cell_counts"
+  ],
+  "art": "body.blood-cells"
+}

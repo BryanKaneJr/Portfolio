@@ -1,0 +1,216 @@
+{
+  "id": "level.science.human_body.038",
+  "skillId": "skill.science.human_body",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Smoking and the Lungs",
+  "objective": "After this level you can explain how smoking damages the lungs.",
+  "summary": "Smoke stalls the airway cilia and adds mucus, causes most US cases of COPD, which damages air sacs and airways, and is linked to about 80 percent of US lung cancer deaths.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.smoking_lung_damage",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.smoking_disease_toll",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.lung_alveoli",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.037"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Remember Level 32's self-cleaning pipes? Smoke switches the cleaners off.",
+      "body": "The CDC, the NIH and the WHO agree: smoking harms the lungs, from the airways down to the air sacs. Here's what it does, one part at a time."
+    },
+    {
+      "id": "card.human_body.038.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The sweepers stall",
+      "body": "Cigarette smoke paralyzes and damages the cilia that sweep your airways clean, and it makes the airways produce more mucus. So the escalator from Level 32 slows down just as more mucus arrives. The clearing of mucus, the airway's everyday cleanup, falls behind."
+    },
+    {
+      "id": "card.human_body.038.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Damage deep in the lungs",
+      "body": "In the US, smoking is the main cause of COPD, a disease of damage to the airways or other parts of the lung. In emphysema, the walls between many air sacs are damaged: the same thin walls where oxygen crosses into your blood. In chronic bronchitis, the airway lining stays irritated and inflamed. COPD has no cure."
+    },
+    {
+      "id": "card.human_body.038.c4",
+      "type": "fact",
+      "fact": "About 80 percent of US lung cancer deaths are linked to cigarette smoking.",
+      "context": "The CDC says people who smoke are 15 to 30 times more likely to get or die from lung cancer. Smoke from other people's cigarettes causes it too, and the WHO says there is no safe level of tobacco exposure. The CDC also notes that a person's lung cancer risk goes down after they quit."
+    },
+    {
+      "id": "card.human_body.038.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.038.q1"
+    },
+    {
+      "id": "card.human_body.038.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.038.q2"
+    },
+    {
+      "id": "card.human_body.038.c7",
+      "type": "recall",
+      "questionId": "question.human_body.038.q3"
+    },
+    {
+      "id": "card.human_body.038.c8",
+      "type": "checkpoint",
+      "headline": "Smoking: examined",
+      "learned": [
+        "Smoke stalls the cilia and adds mucus",
+        "Smoking is the main US cause of COPD",
+        "About 80% of US lung cancer deaths linked to smoking",
+        "WHO: no safe level of tobacco exposure"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.smoking_disease_toll"
+      ],
+      "sourceCardIds": [
+        "card.human_body.038.c4"
+      ],
+      "prompt": "According to the CDC, about what share of US lung cancer deaths is linked to cigarette smoking?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10 percent",
+          "correct": false,
+          "rationale": "Far too low."
+        },
+        {
+          "id": "b",
+          "label": "About 30 percent",
+          "correct": false,
+          "rationale": "Much too low."
+        },
+        {
+          "id": "c",
+          "label": "About 50 percent",
+          "correct": false,
+          "rationale": "Still too low."
+        },
+        {
+          "id": "d",
+          "label": "About 80 percent",
+          "correct": true
+        }
+      ],
+      "explanation": "In the US, cigarette smoking is linked to about 80 percent of lung cancer deaths.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.smoking_lung_damage"
+      ],
+      "sourceCardIds": [
+        "card.human_body.038.c2"
+      ],
+      "prompt": "Why does mucus tend to build up in the airways of someone who smokes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The lungs grow extra lobes",
+          "correct": false,
+          "rationale": "Lobes don't change; the cilia do."
+        },
+        {
+          "id": "b",
+          "label": "Smoke stalls the cilia and adds mucus",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The diaphragm stops working",
+          "correct": false,
+          "rationale": "The problem is in the airway lining."
+        },
+        {
+          "id": "d",
+          "label": "The nose stops warming the air",
+          "correct": false,
+          "rationale": "The problem is stalled cilia and extra mucus."
+        }
+      ],
+      "explanation": "Smoke paralyzes and damages the cilia and makes the airways produce more mucus, so clearing falls behind.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.smoking_lung_damage",
+        "concept.human_body.lung_alveoli"
+      ],
+      "sourceCardIds": [
+        "card.human_body.038.c3",
+        "card.human_body.032.c4"
+      ],
+      "prompt": "Emphysema damages the walls between air sacs. Why does that matter, given what Level 32 showed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Those walls make your voice",
+          "correct": false,
+          "rationale": "Voice comes from the vocal folds."
+        },
+        {
+          "id": "b",
+          "label": "Those walls hold up the ribs",
+          "correct": false,
+          "rationale": "The walls are deep inside the lungs."
+        },
+        {
+          "id": "c",
+          "label": "Oxygen crosses into the blood there",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Those walls produce the mucus",
+          "correct": false,
+          "rationale": "Their job is gas exchange."
+        }
+      ],
+      "explanation": "The thin walls of the air sacs are where oxygen passes into the blood and carbon dioxide passes out.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nhlbi_breathing_benefits",
+    "source.openstax_ap_respiratory_organs",
+    "source.pmc_prasetyo_smoking_cilia_2020",
+    "source.nhlbi_copd",
+    "source.cdc_lung_cancer_risk_factors",
+    "source.who_tobacco_factsheet"
+  ],
+  "art": "body.lungs"
+}

@@ -1,0 +1,244 @@
+{
+  "id": "level.science.human_body.015",
+  "skillId": "skill.science.human_body",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Muscles",
+  "objective": "After this level you can name the three kinds of muscle and what each one does.",
+  "summary": "Skeletal muscle moves bones on your command; smooth muscle works the gut, blood vessels and bladder on its own; cardiac muscle, found only in the heart, never stops.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.muscle_three_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.tissue_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.cell_kinds",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.014"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Three kinds of muscle are working right now. You're steering one.",
+      "body": "Your heart is beating. Your stomach may be churning. Your hand is holding this screen. All three are muscle at work, but only one of them takes orders from you. Meet the three kinds."
+    },
+    {
+      "id": "card.human_body.015.c2",
+      "type": "comparison",
+      "headline": "Skeletal, smooth, cardiac",
+      "items": [
+        {
+          "label": "Skeletal",
+          "points": [
+            "Attached to bones",
+            "Voluntary: moves when you decide",
+            "Striped (striated) under a microscope"
+          ]
+        },
+        {
+          "label": "Smooth",
+          "points": [
+            "In the walls of blood vessels, gut and bladder",
+            "Involuntary",
+            "No stripes"
+          ]
+        },
+        {
+          "label": "Cardiac",
+          "points": [
+            "Found only in the walls of the heart",
+            "Involuntary",
+            "Striped, like skeletal muscle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The muscle you never have to think about",
+      "body": "Remember Level 4's stomach wall, with three layers of smooth muscle that churn food? You never tell them to. Smooth muscle and heart muscle work without conscious control. Skeletal muscle is different: it depends completely on signals from your nervous system. No signal, no movement. That's why your arm waits for you, and your heartbeat doesn't."
+    },
+    {
+      "id": "card.human_body.015.c4",
+      "type": "fact",
+      "fact": "Skeletal muscle cells make up about half of your body's cell mass.",
+      "context": "Yet, as Level 3 found, they're only a tiny fraction of your cells by number. The trick is size: the biggest muscle fibers are the heaviest cells you have, sitting at the far end of a range that starts with tiny red blood cells. A few heavyweights, doing the lifting.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Few in number, huge in size. Muscle fibers are the heavyweights of your cell world."
+      }
+    },
+    {
+      "id": "card.human_body.015.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.015.q1"
+    },
+    {
+      "id": "card.human_body.015.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.015.q2"
+    },
+    {
+      "id": "card.human_body.015.c7",
+      "type": "recall",
+      "questionId": "question.human_body.015.q3"
+    },
+    {
+      "id": "card.human_body.015.c8",
+      "type": "checkpoint",
+      "headline": "Muscles: sorted",
+      "learned": [
+        "Skeletal muscle: on bones, voluntary, striped",
+        "Smooth muscle: gut, vessels and bladder, involuntary",
+        "Cardiac muscle: only in the heart, involuntary, striped",
+        "Skeletal muscle is about half your cell mass"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.muscle_three_types"
+      ],
+      "sourceCardIds": [
+        "card.human_body.015.c2"
+      ],
+      "prompt": "Which kind of muscle is found only in the walls of the heart?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Skeletal muscle",
+          "correct": false,
+          "rationale": "Skeletal muscle is attached to bones."
+        },
+        {
+          "id": "b",
+          "label": "Smooth muscle",
+          "correct": false,
+          "rationale": "Smooth muscle lines blood vessels, the gut and the bladder."
+        },
+        {
+          "id": "c",
+          "label": "Cardiac muscle",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Voluntary muscle",
+          "correct": false,
+          "rationale": "Voluntary muscle is skeletal muscle, attached to bones."
+        }
+      ],
+      "explanation": "Cardiac muscle is found only in the heart; like skeletal muscle it is striped, but it is involuntary.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.muscle_three_types"
+      ],
+      "sourceCardIds": [
+        "card.human_body.015.c3",
+        "card.human_body.015.c2"
+      ],
+      "prompt": "Why can you choose to move your arm but not choose to churn your stomach?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Arm muscle is voluntary skeletal muscle; the gut's is smooth",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The stomach wall has no muscle layers at all",
+          "correct": false,
+          "rationale": "It has three layers of smooth muscle."
+        },
+        {
+          "id": "c",
+          "label": "Your arm is moved by cardiac muscle, like the heart",
+          "correct": false,
+          "rationale": "Cardiac muscle is found only in the heart."
+        },
+        {
+          "id": "d",
+          "label": "Stomach muscle only works while you are asleep",
+          "correct": false,
+          "rationale": "Smooth muscle works on its own, awake or asleep."
+        }
+      ],
+      "explanation": "Skeletal muscle waits for signals from your nervous system; smooth muscle, like the stomach's, works without conscious control.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.muscle_three_types",
+        "concept.human_body.cell_kinds"
+      ],
+      "sourceCardIds": [
+        "card.human_body.015.c4",
+        "card.human_body.003.c4"
+      ],
+      "prompt": "Level 3 found one kind of cell makes up about half your cell mass. Which kind of muscle are those cells from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Smooth muscle",
+          "correct": false,
+          "rationale": "The heavyweights are skeletal muscle fibers."
+        },
+        {
+          "id": "b",
+          "label": "Cardiac muscle",
+          "correct": false,
+          "rationale": "Heart muscle is found only in the heart."
+        },
+        {
+          "id": "c",
+          "label": "None: they are red blood cells",
+          "correct": false,
+          "rationale": "Red blood cells are the smallest, not the heaviest."
+        },
+        {
+          "id": "d",
+          "label": "Skeletal muscle",
+          "correct": true
+        }
+      ],
+      "explanation": "Skeletal muscle cells are about half of the body's cell mass, though only a tiny fraction of its cells by number.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.seer_muscle_types",
+    "source.openstax_ap_muscle_tissue_overview",
+    "source.openstax_ap_digestive_overview",
+    "source.openstax_ap_stomach",
+    "source.pnas_hatton_cell_count"
+  ],
+  "art": "body.muscle"
+}

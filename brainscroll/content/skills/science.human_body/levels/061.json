@@ -1,0 +1,223 @@
+{
+  "id": "level.science.human_body.061",
+  "skillId": "skill.science.human_body",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "More Than Five Senses",
+  "objective": "After this level you can explain why we have more than the classic five senses.",
+  "summary": "Aristotle listed five senses, but balance, body position, temperature, pain and hunger are senses too. The count depends on how you define one: from six or seven to 22 to 33.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.senses_beyond_five",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.senses_count_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.organ_systems",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.060"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.061.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Close your eyes and touch your nose. Which of the five senses did that?",
+      "body": "Not sight, and not hearing, smell or taste. Not really touch either, since your hand found your nose before it felt it. You just used a sense that isn't on the famous list. So where did the list come from, and how many senses do you actually have?"
+    },
+    {
+      "id": "card.human_body.061.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Aristotle's famous five",
+      "body": "The classic list comes from Aristotle, the ancient Greek philosopher. In his book On the Soul (De Anima) he named sight, hearing, touch, taste and smell, and then argued there could be no sixth. The list stuck so well that it still feels like a law of nature. It's really a philosopher's tally, and tallies can be redone."
+    },
+    {
+      "id": "card.human_body.061.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The senses nobody listed",
+      "body": "Receptors in your muscles, tendons and joints keep a running report on where your limbs are and how they move: that's how you found your nose. Organs in your inner ear give you balance. You also sense temperature and pain, and receptors in your gut help create hunger and thirst. None of them made Aristotle's list. All of them are on duty right now.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Five senses on the brochure, a whole staff working backstage."
+      }
+    },
+    {
+      "id": "card.human_body.061.c4",
+      "type": "fact",
+      "fact": "So how many senses do you have? It depends on how you count.",
+      "context": "In 2024, three neurologists proposed adding balance and body position, for six or seven. Philosopher Barry Smith reports that colleagues of neuroscientist Charles Spence put the number anywhere between 22 and 33. The argument isn't about hidden organs; it's over what counts as one separate sense. Is sensing heat one sense, or part of touch? The safe answer is simply: more than five."
+    },
+    {
+      "id": "card.human_body.061.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.061.q1"
+    },
+    {
+      "id": "card.human_body.061.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.061.q2"
+    },
+    {
+      "id": "card.human_body.061.c7",
+      "type": "recall",
+      "questionId": "question.human_body.061.q3"
+    },
+    {
+      "id": "card.human_body.061.c8",
+      "type": "checkpoint",
+      "headline": "Senses: recounted",
+      "learned": [
+        "Aristotle listed five senses and ruled out a sixth",
+        "Body position, balance, temperature, pain and hunger are senses too",
+        "Counts range from six or seven to 22 to 33",
+        "The number depends on how you define one sense"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.senses_beyond_five"
+      ],
+      "sourceCardIds": [
+        "card.human_body.061.c3",
+        "card.human_body.061.c1"
+      ],
+      "prompt": "With your eyes shut, you can still touch your nose. Which sense makes that possible?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sight, even with eyes shut",
+          "correct": false,
+          "rationale": "Your eyes were closed."
+        },
+        {
+          "id": "b",
+          "label": "Hearing your hand move",
+          "correct": false,
+          "rationale": "Sound doesn't tell you where your hand is."
+        },
+        {
+          "id": "c",
+          "label": "Sense of body position",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Touch, before contact",
+          "correct": false,
+          "rationale": "Your hand found your nose before it touched it."
+        }
+      ],
+      "explanation": "Receptors in your muscles, tendons and joints report where your limbs are and how they move, so you can find your nose without looking.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.senses_count_debate"
+      ],
+      "sourceCardIds": [
+        "card.human_body.061.c4"
+      ],
+      "prompt": "Why do experts give such different answers to 'How many senses do humans have?'",
+      "options": [
+        {
+          "id": "a",
+          "label": "They disagree about what counts as one separate sense",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Some people are born with extra sense organs",
+          "correct": false,
+          "rationale": "The disagreement is about counting, not bodies."
+        },
+        {
+          "id": "c",
+          "label": "Most senses have not been discovered yet",
+          "correct": false,
+          "rationale": "The senses are known; the tally differs."
+        },
+        {
+          "id": "d",
+          "label": "Only five senses can be measured in a lab",
+          "correct": false,
+          "rationale": "Balance and body position are well studied too."
+        }
+      ],
+      "explanation": "Counts run from six or seven to between 22 and 33 because researchers define a separate sense in different ways.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.senses_beyond_five",
+        "concept.human_body.organ_systems"
+      ],
+      "sourceCardIds": [
+        "card.human_body.061.c3",
+        "card.human_body.001.c2"
+      ],
+      "prompt": "Level 1's nervous system senses and responds. Where are the organs behind your sense of balance?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the skin of the feet",
+          "correct": false,
+          "rationale": "Those sense touch and pressure."
+        },
+        {
+          "id": "b",
+          "label": "In the retina of the eye",
+          "correct": false,
+          "rationale": "The retina senses light."
+        },
+        {
+          "id": "c",
+          "label": "In the lining of the stomach",
+          "correct": false,
+          "rationale": "Gut receptors help create hunger and thirst."
+        },
+        {
+          "id": "d",
+          "label": "In the inner ear",
+          "correct": true
+        }
+      ],
+      "explanation": "Balance comes from organs in the inner ear, one of the senses Aristotle's list left out.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_proprioceptor",
+    "source.britannica_human_sensory_reception",
+    "source.frontiers_brandt_senses_2024",
+    "source.yorku_aristotle_de_anima_3",
+    "source.openstax_psych_sensation_perception",
+    "source.theconversation_33_senses",
+    "source.irishtimes_more_than_five_senses",
+    "source.openstax_ap_body_organization"
+  ],
+  "art": "body.figure"
+}

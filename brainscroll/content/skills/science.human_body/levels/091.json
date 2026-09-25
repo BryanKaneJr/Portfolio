@@ -1,0 +1,220 @@
+{
+  "id": "level.science.human_body.091",
+  "skillId": "skill.science.human_body",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "A Balanced Diet",
+  "objective": "After this level you can describe what a balanced diet looks like.",
+  "summary": "WHO's healthy-diet guidance rests on four principles (adequacy, balance, moderation, diversity) plus a few numbers: 400 g of fruit and vegetables a day, and limits on free sugars and salt.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.health_diet_principles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.health_diet_who_limits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.cell_basics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.090"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.091.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "There's no single perfect plate. The WHO says so itself.",
+      "body": "Its healthy-diet guidance, updated in January 2026, says the exact mix differs with the person, the culture and the foods grown nearby. So what stays the same on every healthy plate, from Lagos to Lima?"
+    },
+    {
+      "id": "card.human_body.091.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four words behind every healthy plate",
+      "body": "The WHO describes a healthy diet with four principles. Adequacy: enough of the nutrients your body needs, without going over. Balance: the energy you take in matches the energy you use. Moderation: going easy on things that can harm in large amounts. Diversity: a wide variety of foods, within and across food groups. Get those right, the WHO says, and a diet helps protect against malnutrition and diseases such as diabetes, heart disease, stroke and cancer. Different kitchens, same four rules."
+    },
+    {
+      "id": "card.human_body.091.c3",
+      "type": "fact",
+      "fact": "WHO recommends at least 400 g of fruit and vegetables a day for everyone over 10.",
+      "context": "That number is behind the NHS's famous '5 A Day': the NHS counts one portion as 80 g, and five portions make 400 g. Younger children get smaller targets from the WHO: at least 250 g at ages 2 to 5 and 350 g at ages 6 to 9. A slogan, it turns out, is just arithmetic."
+    },
+    {
+      "id": "card.human_body.091.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Moderation has numbers too",
+      "body": "The WHO advises keeping free sugars under 10 percent of daily energy. Free sugars are those added by a manufacturer, cook or consumer, plus the sugars in honey, syrups and fruit juice; the sugar inside a fresh apple doesn't count. For salt, the limit is under 5 g a day, just under a teaspoon. The world averages about 11 g, more than double, and in many countries most of it arrives already inside processed foods like bread, cheese and salty snacks, not from the shaker.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "An apple gets a pass. Apple juice doesn't. Same fruit, different rulebook."
+      }
+    },
+    {
+      "id": "card.human_body.091.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.091.q1"
+    },
+    {
+      "id": "card.human_body.091.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.091.q2"
+    },
+    {
+      "id": "card.human_body.091.c7",
+      "type": "recall",
+      "questionId": "question.human_body.091.q3"
+    },
+    {
+      "id": "card.human_body.091.c8",
+      "type": "checkpoint",
+      "headline": "A balanced diet: decoded",
+      "learned": [
+        "WHO's four principles: adequacy, balance, moderation, diversity",
+        "The exact mix varies by person and culture",
+        "At least 400 g of fruit and vegetables a day (5 A Day)",
+        "Free sugars under 10% of energy; salt under 5 g"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.health_diet_who_limits"
+      ],
+      "sourceCardIds": [
+        "card.human_body.091.c3"
+      ],
+      "prompt": "How much fruit and vegetables a day does WHO's healthy-diet guidance recommend, at minimum, for people over 10?",
+      "options": [
+        {
+          "id": "a",
+          "label": "100 g",
+          "correct": false,
+          "rationale": "Far below the WHO's minimum."
+        },
+        {
+          "id": "b",
+          "label": "250 g",
+          "correct": false,
+          "rationale": "That's the target for children aged 2 to 5."
+        },
+        {
+          "id": "c",
+          "label": "400 g",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "1,000 g",
+          "correct": false,
+          "rationale": "The minimum is well under a kilogram."
+        }
+      ],
+      "explanation": "WHO recommends at least 400 g of fruit and vegetables a day for everyone over 10, which is where the NHS's five 80 g portions come from.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.health_diet_who_limits"
+      ],
+      "sourceCardIds": [
+        "card.human_body.091.c4"
+      ],
+      "prompt": "Under the WHO's definition of free sugars, which of these counts toward the under-10-percent limit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The sugar in a fresh, whole apple",
+          "correct": false,
+          "rationale": "WHO's limit doesn't apply to sugars in fresh fruit."
+        },
+        {
+          "id": "b",
+          "label": "Honey stirred into a cup of tea",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The sugar naturally found in milk",
+          "correct": false,
+          "rationale": "Sugars naturally in milk are left out of the limit."
+        },
+        {
+          "id": "d",
+          "label": "A plate of plain steamed vegetables",
+          "correct": false,
+          "rationale": "Sugars in fresh vegetables don't count either."
+        }
+      ],
+      "explanation": "Free sugars are added by a manufacturer, cook or consumer, or come from honey, syrups and fruit juices. Sugars inside fresh fruit, vegetables and milk are not counted.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.human_body.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.health_diet_principles",
+        "concept.human_body.cell_basics"
+      ],
+      "sourceCardIds": [
+        "card.human_body.091.c2",
+        "card.human_body.002.c2"
+      ],
+      "prompt": "Level 2 said each cell takes in nutrients from food and turns them into energy. Which WHO diet principle is about getting enough nutrients, without going over?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Diversity",
+          "correct": false,
+          "rationale": "That's about variety across food groups."
+        },
+        {
+          "id": "b",
+          "label": "Moderation",
+          "correct": false,
+          "rationale": "That's about limiting foods that can harm."
+        },
+        {
+          "id": "c",
+          "label": "Balance",
+          "correct": false,
+          "rationale": "That's about energy in matching energy used."
+        },
+        {
+          "id": "d",
+          "label": "Adequacy",
+          "correct": true
+        }
+      ],
+      "explanation": "Adequacy means meeting the body's nutrient needs without exceeding them, which is what trillions of cells rely on.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.who_healthy_diet",
+    "source.nhs_why_5_a_day",
+    "source.who_sugars_guideline_2015",
+    "source.who_salt_reduction",
+    "source.medlineplus_cell",
+    "source.nhgri_cell"
+  ],
+  "art": "body.food-plate"
+}

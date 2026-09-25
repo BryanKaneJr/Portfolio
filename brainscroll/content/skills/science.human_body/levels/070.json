@@ -1,0 +1,349 @@
+{
+  "id": "level.science.human_body.070",
+  "skillId": "skill.science.human_body",
+  "number": 70,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: The Senses",
+  "objective": "After this level you can explain how the senses gather information and how the brain makes sense of it.",
+  "summary": "Every sense turns a stimulus into a nerve signal (transduction). Sensation detects; perception interprets. And the brain tunes out what doesn't change: sensory adaptation.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.senses_sensation_perception",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.senses_sensory_adaptation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.senses_retina_to_brain",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.senses_cochlea_hair_cells",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.senses_skin_receptors",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.senses_taste_basics",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.senses_flavor_smell",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.senses_lightness_constancy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.senses_color_blindness",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.senses_balance_mismatch",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.069"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.070.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 7 finale: you couldn't feel your socks until you read this.",
+      "body": "Your senses report all day long, yet you don't notice most of it. First, the one trick every sense shares. Then, why your brain stops listening to whatever doesn't change."
+    },
+    {
+      "id": "card.human_body.070.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every sense, one trick",
+      "body": "Every sense starts with specialized receptor cells that turn one kind of stimulus into a nerve signal, a step called transduction. In your retina, photoreceptors do it with light. In your cochlea, hair cells do it with vibration. Taste cells, the smell cells high in your nose and the sensors in your skin do it with chemicals, pressure and heat. Different doors, one currency."
+    },
+    {
+      "id": "card.human_body.070.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sensing isn't perceiving",
+      "body": "Sensation is a receptor detecting something. Perception is your brain organizing and interpreting it into an experience. They aren't the same: Level 69's checkerboard sent your eyes two identical greys, and your brain perceived two different ones. Your receptors collect the data. Your brain writes the story."
+    },
+    {
+      "id": "card.human_body.070.c4",
+      "type": "fact",
+      "fact": "You stop noticing what doesn't change.",
+      "context": "It's called sensory adaptation: we often stop perceiving stimuli that stay the same for a long time. Picture a hotel room with a light flashing steadily outside the window. After a while, you stop noticing it. Your socks are still there too. They've just stopped being news.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Your brain only reads the headlines. Steady things never make the front page."
+      }
+    },
+    {
+      "id": "card.human_body.070.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.070.q1"
+    },
+    {
+      "id": "card.human_body.070.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.070.q2"
+    },
+    {
+      "id": "card.human_body.070.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.070.q3"
+    },
+    {
+      "id": "card.human_body.070.c8",
+      "type": "recall",
+      "questionId": "question.human_body.070.q4"
+    },
+    {
+      "id": "card.human_body.070.c9",
+      "type": "recall",
+      "questionId": "question.human_body.070.q5"
+    },
+    {
+      "id": "card.human_body.070.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 7 complete",
+      "learned": [
+        "More than five senses: how many depends on how you count",
+        "Eyes focus light; the brain builds, flips and fills in the picture",
+        "Ears sort sound by pitch and keep you balanced",
+        "Flavor is taste plus smell; skin senses touch, heat and pain",
+        "Receptors sense; the brain perceives, and tunes out what doesn't change"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.070.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.senses_sensory_adaptation"
+      ],
+      "sourceCardIds": [
+        "card.human_body.070.c4"
+      ],
+      "prompt": "Senses recap: what is it called when you stop perceiving a stimulus that stays the same for a long time?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Transduction",
+          "correct": false,
+          "rationale": "That's turning a stimulus into a nerve signal."
+        },
+        {
+          "id": "b",
+          "label": "Sensory adaptation",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Proprioception",
+          "correct": false,
+          "rationale": "That's your sense of body position."
+        },
+        {
+          "id": "d",
+          "label": "Motion sickness",
+          "correct": false,
+          "rationale": "That comes from clashing balance signals."
+        }
+      ],
+      "explanation": "Sensory adaptation: we often stop perceiving stimuli that stay relatively constant, like a steadily flashing light.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.070.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.senses_sensation_perception"
+      ],
+      "sourceCardIds": [
+        "card.human_body.070.c2"
+      ],
+      "prompt": "Senses recap: what do a photoreceptor in the eye and a hair cell in the cochlea have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both focus light onto the retina",
+          "correct": false,
+          "rationale": "Only the cornea and lens focus light."
+        },
+        {
+          "id": "b",
+          "label": "Both sense gravity",
+          "correct": false,
+          "rationale": "Grains in the utricle and saccule do that."
+        },
+        {
+          "id": "c",
+          "label": "Both grow back every day",
+          "correct": false,
+          "rationale": "Hair cells don't grow back at all."
+        },
+        {
+          "id": "d",
+          "label": "Both turn a stimulus into a nerve signal",
+          "correct": true
+        }
+      ],
+      "explanation": "Both are receptor cells doing transduction: photoreceptors with light, hair cells with vibration.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.070.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.senses_sensation_perception",
+        "concept.human_body.senses_lightness_constancy"
+      ],
+      "sourceCardIds": [
+        "card.human_body.070.c3",
+        "card.human_body.069.c3"
+      ],
+      "prompt": "Senses recap: Adelson's two squares send your eyes the same grey but look different. Where does the difference arise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In perception: the brain interprets the same input differently",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "In the cornea, which bends the two squares differently",
+          "correct": false,
+          "rationale": "The cornea bends all the light alike."
+        },
+        {
+          "id": "c",
+          "label": "In the cones, which see one square as colored",
+          "correct": false,
+          "rationale": "Both squares are the same grey."
+        },
+        {
+          "id": "d",
+          "label": "In the blind spot, which hides one square",
+          "correct": false,
+          "rationale": "The blind spot isn't involved."
+        }
+      ],
+      "explanation": "Sensation delivers two identical greys; perception, the brain's interpretation, corrects for the shadow and makes them look different.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.070.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.senses_color_blindness"
+      ],
+      "sourceCardIds": [
+        "card.human_body.063.c4"
+      ],
+      "prompt": "Senses recap, from Level 63: what did DNA from John Dalton's preserved eye reveal in 1995?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His eye fluid was tinted blue, as he had guessed",
+          "correct": false,
+          "rationale": "The fluid was colorless."
+        },
+        {
+          "id": "b",
+          "label": "He had no rods at all, only cones, in his retinas",
+          "correct": false,
+          "rationale": "His problem was a missing cone pigment gene."
+        },
+        {
+          "id": "c",
+          "label": "He lacked the gene for the green-sensitive cone pigment",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He had perfectly normal color vision after all",
+          "correct": false,
+          "rationale": "He was color-blind; the DNA showed why."
+        }
+      ],
+      "explanation": "DNA from Dalton's preserved eye showed he lacked the gene for the medium-wavelength, green-sensitive cone pigment.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.070.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.senses_balance_mismatch"
+      ],
+      "sourceCardIds": [
+        "card.human_body.066.c4"
+      ],
+      "prompt": "Senses recap, from Level 66: what is the leading explanation for motion sickness below deck on a ship?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The inner ear feels motion the eyes can't see",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Sea air blocks the smell cells",
+          "correct": false,
+          "rationale": "Smell isn't the cause."
+        },
+        {
+          "id": "c",
+          "label": "The ship's noise damages hair cells",
+          "correct": false,
+          "rationale": "Motion sickness comes from clashing signals."
+        },
+        {
+          "id": "d",
+          "label": "The eyes see motion the inner ear can't feel",
+          "correct": false,
+          "rationale": "It's the other way round below deck."
+        }
+      ],
+      "explanation": "Below deck, the inner ear reports motion while the eyes see a still cabin; that sensory conflict is the leading explanation.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_sensation_perception",
+    "source.nei_how_eyes_work",
+    "source.nidcd_how_we_hear",
+    "source.openstax_bio_somatosensation",
+    "source.nidcd_smell_disorders",
+    "source.nidcd_taste_disorders",
+    "source.illusionsindex_checker_shadow",
+    "source.sim_dalton_colour_blindness",
+    "source.nidcd_balance_disorders",
+    "source.scienceworld_spinning",
+    "source.cdc_yellowbook_motion_sickness"
+  ],
+  "art": "body.eye"
+}

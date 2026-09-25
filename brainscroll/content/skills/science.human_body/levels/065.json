@@ -1,0 +1,220 @@
+{
+  "id": "level.science.human_body.065",
+  "skillId": "skill.science.human_body",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Ears Hear",
+  "objective": "After this level you can explain how the ear turns sound waves into signals.",
+  "summary": "The eardrum vibrates, three tiny bones amplify, and the fluid-filled cochlea's hair cells, sorted by pitch, send signals to the brain. Human hair cells never grow back.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.senses_hearing_path",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.senses_cochlea_hair_cells",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.cell_turnover",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.064"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every sound you hear ends as a ripple in a snail-shaped tube of fluid.",
+      "body": "A voice, a song, a dog barking: each arrives as sound waves in the air. Your ear's job is to turn them into electrical signals your brain can read. It takes a relay from air to bone to liquid."
+    },
+    {
+      "id": "card.human_body.065.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Drum, bones, fluid",
+      "body": "Sound waves travel down your ear canal to the eardrum, which vibrates. It hands the vibrations to three tiny bones in the middle ear: the malleus, the incus and the stapes, a stirrup-shaped bone that is the smallest of the three. The bones amplify the vibrations and pass them into the cochlea, a snail-shaped, fluid-filled structure in the inner ear. Air, then bone, then liquid."
+    },
+    {
+      "id": "card.human_body.065.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hair cells ride the wave",
+      "body": "Inside the cochlea, the vibrations start a traveling wave along a membrane, and sensory hair cells ride it. Cells near the wide end respond to high pitches, like a baby crying; those toward the center respond to low ones, like a big dog barking. As the cells move, tiny bristles on top bend, channels open and an electrical signal is born. The auditory nerve carries it to your brain.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Think of a piano keyboard rolled up like a snail shell, with hair cells for keys."
+      }
+    },
+    {
+      "id": "card.human_body.065.c4",
+      "type": "fact",
+      "fact": "Your hair cells are not on the replacement list.",
+      "context": "Unlike the hair cells of birds and amphibians, human hair cells don't grow back, and their damage and death cause most noise-induced hearing loss. Compare Level 10, where about 330 billion of your cells are replaced every day. The ones you hear with have to last."
+    },
+    {
+      "id": "card.human_body.065.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.065.q1"
+    },
+    {
+      "id": "card.human_body.065.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.065.q2"
+    },
+    {
+      "id": "card.human_body.065.c7",
+      "type": "recall",
+      "questionId": "question.human_body.065.q3"
+    },
+    {
+      "id": "card.human_body.065.c8",
+      "type": "checkpoint",
+      "headline": "Hearing: traced",
+      "learned": [
+        "Eardrum vibrates; three tiny bones amplify",
+        "The stapes is the smallest of the three",
+        "The fluid-filled cochlea sorts pitches along its length",
+        "Bending hair cells make electrical signals",
+        "Human hair cells don't grow back"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.senses_hearing_path"
+      ],
+      "sourceCardIds": [
+        "card.human_body.065.c2"
+      ],
+      "prompt": "What are the malleus, the incus and the stapes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Three parts of the cochlea's membrane",
+          "correct": false,
+          "rationale": "The cochlea is in the inner ear, past the bones."
+        },
+        {
+          "id": "b",
+          "label": "Three tiny bones in the middle ear",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Three nerves leading to the brain",
+          "correct": false,
+          "rationale": "The auditory nerve carries the signal."
+        },
+        {
+          "id": "d",
+          "label": "Three layers of the eardrum",
+          "correct": false,
+          "rationale": "The eardrum passes vibrations to them."
+        }
+      ],
+      "explanation": "The malleus, incus and stapes are the middle ear's three tiny bones; they amplify the eardrum's vibrations and pass them to the cochlea.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.senses_cochlea_hair_cells"
+      ],
+      "sourceCardIds": [
+        "card.human_body.065.c3"
+      ],
+      "prompt": "How can your cochlea tell a baby's cry from a big dog's bark?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The eardrum sorts the sounds before the cochlea gets them",
+          "correct": false,
+          "rationale": "The eardrum just vibrates and passes it on."
+        },
+        {
+          "id": "b",
+          "label": "One single hair cell hears every sound, one at a time",
+          "correct": false,
+          "rationale": "Many hair cells ride the wave."
+        },
+        {
+          "id": "c",
+          "label": "Hair cells in different places respond to different pitches",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Low sounds skip the cochlea and go straight to the nerve",
+          "correct": false,
+          "rationale": "All sounds reach the cochlea."
+        }
+      ],
+      "explanation": "Hair cells near the cochlea's wide end respond to high pitches and those toward the center to low pitches.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.senses_cochlea_hair_cells",
+        "concept.human_body.cell_turnover"
+      ],
+      "sourceCardIds": [
+        "card.human_body.065.c4",
+        "card.human_body.010.c3"
+      ],
+      "prompt": "Level 10 said about 330 billion of your cells are replaced every day. What happens to your hearing's hair cells?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are replaced every night",
+          "correct": false,
+          "rationale": "Human hair cells don't regrow."
+        },
+        {
+          "id": "b",
+          "label": "Once they die, they don't grow back",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They regrow, as they do in birds",
+          "correct": false,
+          "rationale": "Birds' hair cells regrow; ours don't."
+        },
+        {
+          "id": "d",
+          "label": "They are rebuilt from blood cells",
+          "correct": false,
+          "rationale": "Blood cells lead the daily turnover, but don't become hair cells."
+        }
+      ],
+      "explanation": "Most of your cells are renewed, but human hair cells don't grow back once they die, unlike those of birds and amphibians.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nidcd_how_we_hear",
+    "source.britannica_stapes",
+    "source.nidcd_noise_hearing_loss",
+    "source.natmed_cell_turnover_2021",
+    "source.weizmann_cell_replacement"
+  ],
+  "art": "body.ear"
+}

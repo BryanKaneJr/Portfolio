@@ -1,0 +1,228 @@
+{
+  "id": "level.science.human_body.088",
+  "skillId": "skill.science.human_body",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Leftovers of Evolution",
+  "objective": "After this level you can explain body parts like the appendix and goosebumps.",
+  "summary": "Vestigial parts are ancestral leftovers, like the goosebump muscle and the embryo's tail. Leftover isn't useless: the appendix may shelter gut bacteria.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.vestigial_traits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.vestigial_appendix",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.microbiome_residents",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.087"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You have muscles built to fluff up fur you don't have.",
+      "body": "Goosebumps are one of several body parts that make the most sense as leftovers from our ancestors. But leftover doesn't always mean useless, as your appendix is quietly proving."
+    },
+    {
+      "id": "card.human_body.088.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What vestigial means",
+      "body": "Biologists call a structure vestigial when it has little or no apparent function and looks like a residual part from a past common ancestor. Wings on flightless birds and hind leg bones in whales are classic examples. They're one line of evidence for evolution, and your own body has a few."
+    },
+    {
+      "id": "card.human_body.088.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Goosebumps",
+      "body": "Each hair has a small muscle, the arrector pili, that can make it stand up. On a furry animal, like a frightened cat, that traps a layer of insulating air. On us, with far less hair, you mostly just get bumps. Yet in 2020 Harvard researchers found, in mice, that the same muscle and nerve also help regulate the stem cells that grow new hair.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A leftover with a side job. Evolution is not big on throwing things out."
+      }
+    },
+    {
+      "id": "card.human_body.088.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A tail, mostly gone",
+      "body": "Human embryos, like those of other great apes, have a tail that's lost before birth. What remains is your tailbone, or coccyx. It isn't idle, though: it anchors muscles, supports tendons and ligaments, and helps bear your weight when you sit, like one leg of a tripod."
+    },
+    {
+      "id": "card.human_body.088.c5",
+      "type": "fact",
+      "fact": "The appendix: vestigial, but not useless.",
+      "context": "This small tube attached to the start of the large intestine has immune tissue and may shelter helpful gut bacteria that restock the gut after an illness. A 2017 study of 533 mammal species found the appendix evolved independently over 30 times. Remember Level 8's gut microbes, which help digest your food? This may be their backup."
+    },
+    {
+      "id": "card.human_body.088.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.088.q1"
+    },
+    {
+      "id": "card.human_body.088.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.088.q2"
+    },
+    {
+      "id": "card.human_body.088.c8",
+      "type": "recall",
+      "questionId": "question.human_body.088.q3"
+    },
+    {
+      "id": "card.human_body.088.c9",
+      "type": "checkpoint",
+      "headline": "Leftovers of evolution: found",
+      "learned": [
+        "Vestigial: little apparent function, left from an ancestor",
+        "Goosebump muscles once fluffed fur for warmth",
+        "The tailbone is a remnant of an embryonic tail",
+        "The appendix has immune tissue and may shelter gut bacteria"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.vestigial_traits"
+      ],
+      "sourceCardIds": [
+        "card.human_body.088.c3"
+      ],
+      "prompt": "What makes a hair stand up when you get goosebumps?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The hair grows suddenly longer",
+          "correct": false,
+          "rationale": "The hair is lifted, not grown."
+        },
+        {
+          "id": "b",
+          "label": "Sweat pushes it up from below",
+          "correct": false,
+          "rationale": "A muscle does the lifting."
+        },
+        {
+          "id": "c",
+          "label": "A small muscle attached to the hair, the arrector pili",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The skin shrinks around it",
+          "correct": false,
+          "rationale": "The bump comes from a muscle pulling."
+        }
+      ],
+      "explanation": "The arrector pili muscle attached to each hair can make it stand up, which shows as goose bumps.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.vestigial_traits"
+      ],
+      "sourceCardIds": [
+        "card.human_body.088.c4"
+      ],
+      "prompt": "Why is the tailbone counted as a leftover of evolution, even though it still does jobs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It grows back if it breaks",
+          "correct": false,
+          "rationale": "That's not what makes it a leftover."
+        },
+        {
+          "id": "b",
+          "label": "It's what remains of a tail that human embryos lose",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It stores gut bacteria",
+          "correct": false,
+          "rationale": "That's the appendix."
+        },
+        {
+          "id": "d",
+          "label": "It only appears in old age",
+          "correct": false,
+          "rationale": "Everyone has one."
+        }
+      ],
+      "explanation": "Human embryos have a tail that is lost before birth; the tailbone is its remnant, though it anchors muscles and bears weight.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.vestigial_appendix",
+        "concept.human_body.microbiome_residents"
+      ],
+      "sourceCardIds": [
+        "card.human_body.088.c5",
+        "card.human_body.008.c1"
+      ],
+      "prompt": "Level 8 described the helpful microbes in your gut. What role might the appendix play for them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A safe house that can restock the gut after illness",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A furnace that destroys all gut bacteria",
+          "correct": false,
+          "rationale": "It may protect helpful bacteria."
+        },
+        {
+          "id": "c",
+          "label": "A pump that moves food through the stomach",
+          "correct": false,
+          "rationale": "The appendix is attached to the large intestine."
+        },
+        {
+          "id": "d",
+          "label": "A store for spare red blood cells",
+          "correct": false,
+          "rationale": "It holds immune tissue, not a blood store."
+        }
+      ],
+      "explanation": "The appendix may shelter helpful gut bacteria that can restock the gut after an illness wipes them out.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_skin_accessory",
+    "source.brit_appendix",
+    "source.crpalevol_smith_appendix_2017",
+    "source.openstax_bio_understanding_evolution",
+    "source.cell_shwartz_goosebumps_2020",
+    "source.clevelandclinic_coccyx",
+    "source.nhgri_hmp_2012"
+  ],
+  "art": "body.figure"
+}

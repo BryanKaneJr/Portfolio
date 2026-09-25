@@ -1,0 +1,225 @@
+{
+  "id": "level.science.human_body.052",
+  "skillId": "skill.science.human_body",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Neurons",
+  "objective": "After this level you can explain how a neuron sends a signal.",
+  "summary": "Your brain has about 86 billion neurons. Each takes messages in through dendrites and sends them down an axon: electrical along the wire, chemical across the gap.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.neuron_count",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.neuron_parts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.neuron_signal",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.cell_parts",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.051"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For decades the textbooks said 100 billion. Nobody had counted.",
+      "body": "It was a nice round number of neurons, with no published count behind it. In 2009, a team finally did the counting, and the answer came out smaller. Then comes the better question: how does each one of those cells pass a message on?"
+    },
+    {
+      "id": "card.human_body.052.c2",
+      "type": "fact",
+      "fact": "Your brain has about 86 billion neurons.",
+      "context": "Frederico Azevedo and colleagues dissolved brain tissue into an even soup of loose cell nuclei, stained and counted the nuclei in samples, then scaled up. Across four men's brains, the average was about 86 billion neurons, with about 85 billion other cells alongside them. Not quite 100 billion, but nobody's complaining.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Brain soup, for science. Not a recipe I'll be sharing."
+      }
+    },
+    {
+      "id": "card.human_body.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dendrites listen, the axon talks",
+      "body": "A neuron has three parts. Dendrites branch out like a tree and receive messages. The cell body holds the nucleus, Level 2's command center. The axon is a long tail that sends the message on to another neuron, a muscle or another cell. Some axons reach less than a hair's width; others run from your brain all the way down your spinal cord. Information flows one way: dendrites, cell body, axon."
+    },
+    {
+      "id": "card.human_body.052.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Electric along the wire, chemical across the gap",
+      "body": "Neurons use electrical and chemical signals. A signal races along the axon electrically, helped by myelin, a fatty wrapping that insulates it so signals travel faster and farther. At the axon's end, tiny sacs release chemicals called neurotransmitters into a tiny gap, the synapse. They cross it and attach to the next cell. So every neuron is part wire, part postbox."
+    },
+    {
+      "id": "card.human_body.052.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.052.q1"
+    },
+    {
+      "id": "card.human_body.052.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.052.q2"
+    },
+    {
+      "id": "card.human_body.052.c7",
+      "type": "recall",
+      "questionId": "question.human_body.052.q3"
+    },
+    {
+      "id": "card.human_body.052.c8",
+      "type": "checkpoint",
+      "headline": "Neurons: wired",
+      "learned": [
+        "About 86 billion neurons (2009 count)",
+        "Dendrites receive, the cell body holds the nucleus, the axon sends",
+        "Electrical along the axon, sped by myelin",
+        "Chemical across the synapse: neurotransmitters"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.neuron_count"
+      ],
+      "sourceCardIds": [
+        "card.human_body.052.c2"
+      ],
+      "prompt": "About how many neurons did Azevedo's team count in an adult human brain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 86 million",
+          "correct": false,
+          "rationale": "A thousand times too few."
+        },
+        {
+          "id": "b",
+          "label": "About 8.6 billion",
+          "correct": false,
+          "rationale": "Ten times too few."
+        },
+        {
+          "id": "c",
+          "label": "About 86 billion",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 86 trillion",
+          "correct": false,
+          "rationale": "A thousand times too many."
+        }
+      ],
+      "explanation": "The 2009 count averaged about 86 billion neurons, lower than the old round figure of 100 billion.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.neuron_signal"
+      ],
+      "sourceCardIds": [
+        "card.human_body.052.c4"
+      ],
+      "prompt": "A signal reaches the end of one neuron's axon. How does it get across to the next cell?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Neurotransmitters cross the synapse and attach to it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The two cells are fused, so no gap exists",
+          "correct": false,
+          "rationale": "There is a tiny gap, the synapse."
+        },
+        {
+          "id": "c",
+          "label": "Blood carries it to the next cell",
+          "correct": false,
+          "rationale": "The message crosses the synapse directly."
+        },
+        {
+          "id": "d",
+          "label": "The myelin carries it over",
+          "correct": false,
+          "rationale": "Myelin insulates the axon; it does not bridge the gap."
+        }
+      ],
+      "explanation": "At the end of the axon, neurotransmitters are released into the synapse, cross it and attach to receptors on the next cell.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.neuron_parts",
+        "concept.human_body.cell_parts"
+      ],
+      "sourceCardIds": [
+        "card.human_body.052.c3",
+        "card.human_body.002.c4"
+      ],
+      "prompt": "Level 2 called the nucleus a cell's command center. In a neuron, which part holds the nucleus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The axon",
+          "correct": false,
+          "rationale": "The axon is the long tail that sends messages on."
+        },
+        {
+          "id": "b",
+          "label": "The dendrites",
+          "correct": false,
+          "rationale": "Dendrites are the branches that receive messages."
+        },
+        {
+          "id": "c",
+          "label": "The synapse",
+          "correct": false,
+          "rationale": "The synapse is the gap between cells."
+        },
+        {
+          "id": "d",
+          "label": "The cell body",
+          "correct": true
+        }
+      ],
+      "explanation": "A neuron's cell body contains its nucleus; dendrites receive messages and the axon sends them on.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.jcn_azevedo_neuron_count",
+    "source.scitable_neuron_count",
+    "source.ninds_brain_basics_neuron",
+    "source.ninds_brain_basics_know_your_brain",
+    "source.openstax_ap_nervous_tissue",
+    "source.medlineplus_cell"
+  ],
+  "art": "body.neuron"
+}

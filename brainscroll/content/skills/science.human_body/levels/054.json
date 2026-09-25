@@ -1,0 +1,251 @@
+{
+  "id": "level.science.human_body.054",
+  "skillId": "skill.science.human_body",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Parts of the Brain",
+  "objective": "After this level you can name the main parts of the brain and what each one does.",
+  "summary": "The brainstem keeps you alive, the cerebellum coordinates movement, and the cerebrum thinks through four lobes. The small cerebellum holds about 80 percent of the neurons.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.brain_main_parts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.brain_lobes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.neuron_count",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.cell_kinds",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.cell_count",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.053"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your brain's biggest part isn't where most of your neurons live.",
+      "body": "The brain works like a team of experts: every part pitches in, but each has its own responsibilities. Meet the three main players and the four neighborhoods of the biggest one. Then find out which small part holds about 80 percent of the staff."
+    },
+    {
+      "id": "card.human_body.054.c2",
+      "type": "comparison",
+      "headline": "Three parts, three jobs",
+      "items": [
+        {
+          "label": "Brainstem",
+          "points": [
+            "Links the brain to the spinal cord",
+            "Runs vital functions like breathing and heart rate"
+          ]
+        },
+        {
+          "label": "Cerebellum",
+          "points": [
+            "A wrinkled ball of tissue",
+            "Coordinates movement, like playing piano"
+          ]
+        },
+        {
+          "label": "Cerebrum",
+          "points": [
+            "The largest part",
+            "Conscious thought, memory and planning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.054.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four lobes, four neighborhoods",
+      "body": "The cerebrum's surface divides into lobes. The frontal lobes, behind your forehead, plan and drive voluntary movement. The parietal lobes take in touch and temperature. The temporal lobes handle hearing and help form memories. The occipital lobes, at the back, process images from the eyes; damage there can cause blindness. So you're reading this with the back of your head."
+    },
+    {
+      "id": "card.human_body.054.c4",
+      "type": "fact",
+      "fact": "The 'little brain' holds about 80 percent of your neurons.",
+      "context": "The cerebral cortex is about 82 percent of the brain's mass but holds about 16 billion of its roughly 86 billion neurons. The cerebellum, about 10 percent of the mass, packs in about 69 billion. Remember Level 3? Red blood cells won the headcount while muscle won the mass. Same lesson: size isn't headcount.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Small room, huge crowd. The cerebellum would make a terrible elevator."
+      }
+    },
+    {
+      "id": "card.human_body.054.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.054.q1"
+    },
+    {
+      "id": "card.human_body.054.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.054.q2"
+    },
+    {
+      "id": "card.human_body.054.c7",
+      "type": "recall",
+      "questionId": "question.human_body.054.q3"
+    },
+    {
+      "id": "card.human_body.054.c8",
+      "type": "checkpoint",
+      "headline": "Brain: toured",
+      "learned": [
+        "Brainstem: breathing and heart rate",
+        "Cerebellum: coordinates movement",
+        "Cerebrum: thought, memory, planning, in four lobes",
+        "Occipital lobes at the back handle vision",
+        "The small cerebellum holds about 80% of the neurons"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.brain_main_parts"
+      ],
+      "sourceCardIds": [
+        "card.human_body.054.c2"
+      ],
+      "prompt": "Which part of the brain runs vital functions such as breathing and heart rate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The cerebrum",
+          "correct": false,
+          "rationale": "It handles conscious thought, memory and planning."
+        },
+        {
+          "id": "b",
+          "label": "The cerebellum",
+          "correct": false,
+          "rationale": "It coordinates movement."
+        },
+        {
+          "id": "c",
+          "label": "The brainstem",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The occipital lobes",
+          "correct": false,
+          "rationale": "They process images from the eyes."
+        }
+      ],
+      "explanation": "The brainstem links the brain to the spinal cord and runs vital functions like breathing and heart rate.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.brain_lobes"
+      ],
+      "sourceCardIds": [
+        "card.human_body.054.c3"
+      ],
+      "prompt": "Someone's occipital lobes are damaged. Which ability is most at risk?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hearing",
+          "correct": false,
+          "rationale": "Hearing is handled in the temporal lobes."
+        },
+        {
+          "id": "b",
+          "label": "Seeing",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Planning the day",
+          "correct": false,
+          "rationale": "Planning is frontal lobe work."
+        },
+        {
+          "id": "d",
+          "label": "Sensing temperature",
+          "correct": false,
+          "rationale": "Touch and temperature go to the parietal lobes."
+        }
+      ],
+      "explanation": "The occipital lobes process images from the eyes, and damage to them can cause blindness.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.brain_main_parts",
+        "concept.human_body.neuron_count"
+      ],
+      "sourceCardIds": [
+        "card.human_body.054.c4",
+        "card.human_body.052.c2"
+      ],
+      "prompt": "Level 52 counted about 86 billion neurons. Which part of the brain holds roughly 80 percent of them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The cerebral cortex",
+          "correct": false,
+          "rationale": "It is most of the mass but holds only about 16 billion."
+        },
+        {
+          "id": "b",
+          "label": "The brainstem",
+          "correct": false,
+          "rationale": "The big share is elsewhere."
+        },
+        {
+          "id": "c",
+          "label": "The frontal lobes",
+          "correct": false,
+          "rationale": "They are part of the cortex, which holds about 19 percent."
+        },
+        {
+          "id": "d",
+          "label": "The cerebellum",
+          "correct": true
+        }
+      ],
+      "explanation": "The cerebellum is about 10 percent of brain mass but holds about 69 billion of the roughly 86 billion neurons.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ninds_brain_basics_know_your_brain",
+    "source.frontiers_herculano_houzel_brain_numbers",
+    "source.jcn_azevedo_neuron_count",
+    "source.plosbio_sender_cell_counts",
+    "source.pnas_hatton_cell_count"
+  ],
+  "art": "body.neuron"
+}

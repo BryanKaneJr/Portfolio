@@ -1,0 +1,226 @@
+{
+  "id": "level.science.human_body.076",
+  "skillId": "skill.science.human_body",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Jenner and Smallpox",
+  "objective": "After this level you can explain how Edward Jenner's cowpox experiment led to the first vaccine.",
+  "summary": "Variolation was safer than smallpox but still risky. In 1796 Jenner showed cowpox protected against smallpox and named it vaccination. Smallpox was eradicated by 1980.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.defense_variolation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.defense_jenner_cowpox",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.defense_vaccine_training",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.075"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For centuries, the best defense against smallpox was catching it on purpose.",
+      "body": "Smallpox killed up to about 3 in 10 of the people who caught it. The protection people used was itself a gamble. Then Edward Jenner followed up a clue from the milkmaids."
+    },
+    {
+      "id": "card.human_body.076.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Variolation: a smaller dose of danger",
+      "body": "Long before vaccines, people in Africa, India and China practiced variolation: material from a smallpox sore was scratched into a healthy person's arm, or breathed in. About 2 to 3 percent of them died, far fewer than from smallpox caught naturally. In 1721, Lady Mary Wortley Montagu, who had seen it in the Ottoman Empire, had her daughter variolated in London. Safer, yes. Safe, no."
+    },
+    {
+      "id": "card.human_body.076.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The milkmaid clue",
+      "body": "Jenner noticed that milkmaids who had caught cowpox, a disease picked up from cows, didn't catch smallpox. On May 14, 1796, he took material from cowpox sores on the hand of a dairymaid, Sarah Nelmes, and inoculated 8-year-old James Phipps. In July he inoculated the boy with smallpox matter. No disease developed."
+    },
+    {
+      "id": "card.human_body.076.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Named after a cow",
+      "body": "Jenner wasn't the first to use cowpox; a farmer, Benjamin Jesty, had done it earlier. But Jenner tested it and published his results in 1798, and he called the method vaccination, from the Latin vacca, 'cow'. Every vaccine in Level 75 still carries that cow in its name.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Somewhere in history there is a cow who never got the credit she deserved."
+      }
+    },
+    {
+      "id": "card.human_body.076.c5",
+      "type": "fact",
+      "fact": "In 1980, WHO declared smallpox eradicated.",
+      "context": "It's the only human infectious disease ever eradicated. The last natural case was in Somalia in 1977, less than two centuries after James Phipps's cowpox."
+    },
+    {
+      "id": "card.human_body.076.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.076.q1"
+    },
+    {
+      "id": "card.human_body.076.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.076.q2"
+    },
+    {
+      "id": "card.human_body.076.c8",
+      "type": "recall",
+      "questionId": "question.human_body.076.q3"
+    },
+    {
+      "id": "card.human_body.076.c9",
+      "type": "checkpoint",
+      "headline": "Jenner: remembered",
+      "learned": [
+        "Variolation was safer than smallpox, but still risky",
+        "Milkmaids with cowpox escaped smallpox",
+        "1796: Jenner tested cowpox on James Phipps",
+        "'Vaccine' comes from vacca, cow",
+        "Smallpox was declared eradicated in 1980"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.defense_variolation"
+      ],
+      "sourceCardIds": [
+        "card.human_body.076.c2"
+      ],
+      "prompt": "What did variolation involve?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Inoculating people with cowpox from a dairymaid",
+          "correct": false,
+          "rationale": "That was Jenner's method, from 1796."
+        },
+        {
+          "id": "b",
+          "label": "Scratching material from smallpox sores into a healthy person's arm",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Keeping everyone away from smallpox patients",
+          "correct": false,
+          "rationale": "Variolation deliberately exposed people."
+        },
+        {
+          "id": "d",
+          "label": "Drinking milk from cows with cowpox",
+          "correct": false,
+          "rationale": "Cowpox came from sores, not milk, and that was Jenner's idea."
+        }
+      ],
+      "explanation": "Variolation exposed people to material from smallpox sores, scratched into the arm or breathed in.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.defense_jenner_cowpox"
+      ],
+      "sourceCardIds": [
+        "card.human_body.076.c3"
+      ],
+      "prompt": "Why did Jenner inoculate James Phipps with smallpox matter in July 1796?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To give him a second dose of cowpox",
+          "correct": false,
+          "rationale": "The July material was smallpox, not cowpox."
+        },
+        {
+          "id": "b",
+          "label": "Because the cowpox had made him ill",
+          "correct": false,
+          "rationale": "The July step was a test, not a treatment."
+        },
+        {
+          "id": "c",
+          "label": "To test whether the cowpox had protected him",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To collect smallpox for the milkmaids",
+          "correct": false,
+          "rationale": "It was a test of the boy's protection."
+        }
+      ],
+      "explanation": "Jenner exposed Phipps to smallpox to test the cowpox protection, and no disease developed.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.defense_jenner_cowpox",
+        "concept.human_body.defense_vaccine_training"
+      ],
+      "sourceCardIds": [
+        "card.human_body.076.c3",
+        "card.human_body.075.c2"
+      ],
+      "prompt": "Level 75 said vaccines train immunity without the disease. How did Jenner's cowpox fit that idea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It gave Phipps smallpox so he could survive it",
+          "correct": false,
+          "rationale": "That describes variolation."
+        },
+        {
+          "id": "b",
+          "label": "It only worked for people who milked cows",
+          "correct": false,
+          "rationale": "It protected James Phipps, a boy, not a milkmaid."
+        },
+        {
+          "id": "c",
+          "label": "It killed the smallpox germ in the air",
+          "correct": false,
+          "rationale": "It worked inside the body, by training defenses."
+        },
+        {
+          "id": "d",
+          "label": "Cowpox trained his defenses to resist smallpox without the disease",
+          "correct": true
+        }
+      ],
+      "explanation": "Like any vaccine, cowpox gave Phipps's immune system a safe first meeting, so smallpox caused no disease.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.who_smallpox",
+    "source.cdc_smallpox_history",
+    "source.pmc_riedel_jenner",
+    "source.brit_jenner"
+  ],
+  "art": "body.syringe"
+}

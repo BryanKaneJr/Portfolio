@@ -1,0 +1,218 @@
+{
+  "id": "level.science.human_body.021",
+  "skillId": "skill.science.human_body",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Heart",
+  "objective": "After this level you can explain how the heart's four chambers pump blood.",
+  "summary": "The heart is a fist-sized pump with four chambers: atria receive blood, ventricles push it out. The right side feeds the lungs, the left the body, and four valves keep it one-way.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.heart_chambers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.heart_valves",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.organ_systems",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.020"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your heart is two pumps sharing one body.",
+      "body": "It's a muscle about the size of your fist. Look inside, though, and you find four chambers working as two pumps, side by side. Why would one organ need two?"
+    },
+    {
+      "id": "card.human_body.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four rooms: two upstairs, two down",
+      "body": "Your heart has four chambers. The two upper ones, the atria, are receiving rooms where blood arrives. The two lower ones, the ventricles, are the pumps that push it back out. Picture a house with a front hall above an engine room, on each side. Blood comes in upstairs, drops downstairs and gets shoved out the door."
+    },
+    {
+      "id": "card.human_body.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Right side to the lungs, left side to everything else",
+      "body": "The right side handles blood coming home from your body, low on oxygen. It arrives in the right atrium through two big veins, the venae cavae, and the right ventricle pumps it to your lungs. Refilled with oxygen, it returns through the pulmonary veins to the left atrium. Then the left ventricle gives the big push that sends it to your whole body. That's why you need two pumps: one short hop, one very long haul.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Right goes to the lungs, left goes everywhere else. Two pumps, one heartbeat, zero arguments about who does more."
+      }
+    },
+    {
+      "id": "card.human_body.021.c4",
+      "type": "fact",
+      "fact": "Four valves keep your blood on a one-way street.",
+      "context": "The tricuspid, mitral, pulmonary and aortic valves open to let blood through, then close so it can't flow backward. You can even hear them: the \"lub\" of a heartbeat is the mitral and tricuspid valves closing, and the \"dub\" is the aortic and pulmonary valves closing. So the famous sound of your heart isn't the muscle. It's the doors shutting."
+    },
+    {
+      "id": "card.human_body.021.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.021.q1"
+    },
+    {
+      "id": "card.human_body.021.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.021.q2"
+    },
+    {
+      "id": "card.human_body.021.c7",
+      "type": "recall",
+      "questionId": "question.human_body.021.q3"
+    },
+    {
+      "id": "card.human_body.021.c8",
+      "type": "checkpoint",
+      "headline": "The heart: opened",
+      "learned": [
+        "A muscular pump about the size of your fist",
+        "Atria receive blood; ventricles pump it out",
+        "Right side to the lungs, left side to the body",
+        "Four valves stop backflow; \"lub-dub\" is them closing"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.heart_chambers"
+      ],
+      "sourceCardIds": [
+        "card.human_body.021.c2"
+      ],
+      "prompt": "Which heart chambers are the lower pumps that push blood out of the heart?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The atria",
+          "correct": false,
+          "rationale": "They are the upper chambers that receive blood."
+        },
+        {
+          "id": "b",
+          "label": "The ventricles",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The valves",
+          "correct": false,
+          "rationale": "Valves are doors between spaces, not chambers."
+        },
+        {
+          "id": "d",
+          "label": "The venae cavae",
+          "correct": false,
+          "rationale": "Those are the large veins bringing blood in."
+        }
+      ],
+      "explanation": "The two lower chambers, the ventricles, pump blood out; the atria above them receive it.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.heart_valves"
+      ],
+      "sourceCardIds": [
+        "card.human_body.021.c4"
+      ],
+      "prompt": "Why does the heart need valves between its chambers and arteries?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To add oxygen to the blood",
+          "correct": false,
+          "rationale": "Blood picks up oxygen in the lungs, not at the valves."
+        },
+        {
+          "id": "b",
+          "label": "To store blood between beats",
+          "correct": false,
+          "rationale": "Valves open and close; they don't hold blood."
+        },
+        {
+          "id": "c",
+          "label": "To stop blood flowing backward",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To make the blood thicker",
+          "correct": false,
+          "rationale": "Valves only control the direction of flow."
+        }
+      ],
+      "explanation": "Valves open to let blood through, then close so it cannot flow backward.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.heart_chambers",
+        "concept.human_body.organ_systems"
+      ],
+      "sourceCardIds": [
+        "card.human_body.021.c3",
+        "card.human_body.001.c2"
+      ],
+      "prompt": "Level 1 said the cardiovascular system delivers oxygen and nutrients. Which chamber gives the push that sends blood to your whole body?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Right atrium",
+          "correct": false,
+          "rationale": "It receives oxygen-poor blood coming back from the body."
+        },
+        {
+          "id": "b",
+          "label": "Right ventricle",
+          "correct": false,
+          "rationale": "It pumps blood to the lungs."
+        },
+        {
+          "id": "c",
+          "label": "Left atrium",
+          "correct": false,
+          "rationale": "It receives blood returning from the lungs."
+        },
+        {
+          "id": "d",
+          "label": "Left ventricle",
+          "correct": true
+        }
+      ],
+      "explanation": "The left ventricle generates the high pressure needed to pump oxygen-rich blood to the whole body.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nhlbi_heart_works",
+    "source.brit_heart",
+    "source.nhlbi_heart_blood_flow",
+    "source.openstax_ap_body_organization"
+  ],
+  "art": "body.heart"
+}

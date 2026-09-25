@@ -1,0 +1,270 @@
+{
+  "id": "level.science.human_body.099",
+  "skillId": "skill.science.human_body",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Myths About the Body",
+  "objective": "After this level you can debunk common myths, like using only 10 percent of your brain.",
+  "summary": "No 10% brain, no tongue map, no swallowed spiders, no growth after death, no heat-leaking head. One-hand knuckle tests and blinded sugar trials show how evidence wins.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.health_body_myths",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.health_myth_testing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.health_placebo_control",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.098"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Seven things 'everybody knows' about the body. All seven are wrong.",
+      "body": "Here's how people found out, from brain scans to a doctor who spent 50 years cracking the knuckles of just one hand."
+    },
+    {
+      "id": "card.human_body.099.c2",
+      "type": "comparison",
+      "headline": "Two myths about your head",
+      "items": [
+        {
+          "label": "The 10% brain",
+          "points": [
+            "Brain scans find no completely silent area",
+            "Damage to almost any area has lasting effects",
+            "Nobody has found the 'unused 90%'"
+          ]
+        },
+        {
+          "label": "The tongue map",
+          "points": [
+            "A 1901 study found only tiny sensitivity differences",
+            "A 1940s redrawing turned them into separate zones",
+            "Every area with taste buds senses every taste"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The doctor who cracked one hand",
+      "body": "Does knuckle cracking cause arthritis? Donald Unger tested it on himself. For 50 years he cracked the knuckles of his left hand at least twice a day, leaving the right as a control. In 1998 he reported no arthritis in either hand, and won an Ig Nobel Prize for it in 2009. One man proves little, but a 2011 study of 215 people found hand arthritis about as common in crackers as in non-crackers."
+    },
+    {
+      "id": "card.human_body.099.c4",
+      "type": "comparison",
+      "headline": "Three spooky myths, busted",
+      "items": [
+        {
+          "label": "Spiders in your sleep",
+          "points": [
+            "Your heartbeat and breathing send out warning vibrations",
+            "Spiders prefer quiet corners"
+          ]
+        },
+        {
+          "label": "Hair and nails after death",
+          "points": [
+            "Growth needs hormones that stop",
+            "Drying skin pulls back, so they only look longer"
+          ]
+        },
+        {
+          "label": "Heat lost through the head",
+          "points": [
+            "The head is about 10% of your surface",
+            "Heat loss tracks how much skin is uncovered"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.099.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The sugar rush that wasn't there",
+      "body": "Double-blind trials find sugar doesn't change children's behavior or thinking. So why do parents see it? In a 1994 study, every boy got a sugar-free placebo, but some mothers were told their sons had been given sugar. Those mothers rated their sons as more hyperactive. The sugar rush was in the watching.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Expectations are powerful. Even the grown-ups got a placebo effect of their own."
+      }
+    },
+    {
+      "id": "card.human_body.099.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.099.q1"
+    },
+    {
+      "id": "card.human_body.099.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.099.q2"
+    },
+    {
+      "id": "card.human_body.099.c8",
+      "type": "recall",
+      "questionId": "question.human_body.099.q3"
+    },
+    {
+      "id": "card.human_body.099.c9",
+      "type": "checkpoint",
+      "headline": "Myths: busted",
+      "learned": [
+        "You use far more than 10% of your brain",
+        "No tongue map; spiders avoid sleepers",
+        "Hair and nails don't grow after death; the head is no heat leak",
+        "Knuckle cracking and sugar myths fail the evidence test"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.health_myth_testing"
+      ],
+      "sourceCardIds": [
+        "card.human_body.099.c3"
+      ],
+      "prompt": "What did Donald Unger find after cracking only his left hand's knuckles for 50 years?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Arthritis in the left hand only",
+          "correct": false,
+          "rationale": "Neither hand developed it."
+        },
+        {
+          "id": "b",
+          "label": "Arthritis in both hands",
+          "correct": false,
+          "rationale": "Neither hand developed it."
+        },
+        {
+          "id": "c",
+          "label": "Stronger knuckles on the left",
+          "correct": false,
+          "rationale": "He reported no difference between hands."
+        },
+        {
+          "id": "d",
+          "label": "No arthritis in either hand",
+          "correct": true
+        }
+      ],
+      "explanation": "Unger reported in 1998 that neither hand had arthritis and there was no apparent difference between them.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.health_body_myths"
+      ],
+      "sourceCardIds": [
+        "card.human_body.099.c4"
+      ],
+      "prompt": "Why can a dead person's hair and nails look longer, even though they have stopped growing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Growth hormones keep working for weeks",
+          "correct": false,
+          "rationale": "Growth needs hormonal control that stops at death."
+        },
+        {
+          "id": "b",
+          "label": "The skin dries and pulls back around them",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Cold makes hair and nails expand",
+          "correct": false,
+          "rationale": "Drying skin, not cold, explains it."
+        },
+        {
+          "id": "d",
+          "label": "Nails keep taking in water",
+          "correct": false,
+          "rationale": "The skin loses water; nothing is added."
+        }
+      ],
+      "explanation": "Drying skin retracts, exposing more of the hair and nails, which creates the illusion of growth.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.health_placebo_control",
+        "concept.human_body.health_myth_testing"
+      ],
+      "sourceCardIds": [
+        "card.human_body.096.c3",
+        "card.human_body.099.c5"
+      ],
+      "prompt": "In the 1994 sugar study every boy got a placebo. Using Level 96, what does the mothers' reaction show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Placebos contain hidden sugar",
+          "correct": false,
+          "rationale": "It was sugar-free."
+        },
+        {
+          "id": "b",
+          "label": "Sugar works even when absent",
+          "correct": false,
+          "rationale": "No sugar was given at all."
+        },
+        {
+          "id": "c",
+          "label": "Expectation changed what they saw",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The boys were secretly given sugar",
+          "correct": false,
+          "rationale": "Every boy got the placebo."
+        }
+      ],
+      "explanation": "A placebo shows the effect of expectation. Mothers who expected sugar saw more hyperactivity, though no child had sugar.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sciam_knuckle_cracking",
+    "source.bmj_medical_myths_2007",
+    "source.sciam_ten_percent_brain",
+    "source.smithsonian_tongue_map",
+    "source.jabfm_knuckle_oa_2011",
+    "source.brit_spiders_sleep",
+    "source.bmj_festive_myths_2008",
+    "source.jama_sugar_meta_1995",
+    "source.jacp_sugar_expectancy_1994",
+    "source.nccih_placebo",
+    "source.brit_placebo"
+  ],
+  "art": "object.magnifier"
+}

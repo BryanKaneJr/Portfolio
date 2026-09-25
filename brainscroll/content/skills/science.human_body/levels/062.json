@@ -1,0 +1,220 @@
+{
+  "id": "level.science.human_body.062",
+  "skillId": "skill.science.human_body",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Eyes See",
+  "objective": "After this level you can explain how the eye focuses light and the brain builds a picture.",
+  "summary": "The cornea and lens focus light on the retina, whose photoreceptors signal the brain via the optic nerve. The brain turns the upside-down image upright and fills in the blind spot.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.senses_eye_focusing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.senses_retina_to_brain",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.organization_levels",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.061"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your eye takes every picture upside down. You've never noticed.",
+      "body": "The image that lands at the back of your eye is inverted, yet the world looks the right way up. Follow a beam of light through your eye to find out who does the fixing."
+    },
+    {
+      "id": "card.human_body.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bend, then focus",
+      "body": "Light first passes through the cornea, the clear dome at the front of your eye, which bends it. Some of that light gets in through the pupil, an opening whose size is set by the colored iris around it. Next comes the lens, which works with the cornea to focus the light onto the retina, a light-sensitive layer of tissue at the back. Two lenses in a row, and no focus ring to twist."
+    },
+    {
+      "id": "card.human_body.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The brain develops the picture",
+      "body": "In the retina, special cells called photoreceptors turn light into electrical signals. The optic nerve carries those signals to your brain, which turns them into the images you see. Because the cornea and lens together act like one convex lens, the image on the retina is upside down, and your brain corrects for it. Your eye collects the light. Your brain does the seeing.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A camera that shoots upside down, with a darkroom that fixes every frame for free."
+      }
+    },
+    {
+      "id": "card.human_body.062.c4",
+      "type": "fact",
+      "fact": "Each of your eyes has a blind spot, and you're not seeing it right now.",
+      "context": "It sits where the optic nerve leaves the retina, a patch with no rods or cones, so nothing landing there is detected. You don't notice the hole because your two eyes' views overlap, and even with one eye shut your brain fills in or ignores the gap. Your brain isn't just receiving the picture. It's quietly editing it."
+    },
+    {
+      "id": "card.human_body.062.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.062.q1"
+    },
+    {
+      "id": "card.human_body.062.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.062.q2"
+    },
+    {
+      "id": "card.human_body.062.c7",
+      "type": "recall",
+      "questionId": "question.human_body.062.q3"
+    },
+    {
+      "id": "card.human_body.062.c8",
+      "type": "checkpoint",
+      "headline": "Eyes: focused",
+      "learned": [
+        "The cornea bends light; the iris sets the pupil",
+        "Cornea and lens focus light on the retina",
+        "Photoreceptors send signals down the optic nerve",
+        "The brain turns the upside-down image upright",
+        "Each eye's blind spot is filled in by the brain"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.senses_eye_focusing"
+      ],
+      "sourceCardIds": [
+        "card.human_body.062.c2"
+      ],
+      "prompt": "Which two parts of the eye work together to focus light onto the retina?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The iris and the pupil",
+          "correct": false,
+          "rationale": "They control how much light gets in."
+        },
+        {
+          "id": "b",
+          "label": "The cornea and the lens",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The optic nerve and the iris",
+          "correct": false,
+          "rationale": "The optic nerve carries signals to the brain."
+        },
+        {
+          "id": "d",
+          "label": "The blind spot and the pupil",
+          "correct": false,
+          "rationale": "The blind spot detects nothing at all."
+        }
+      ],
+      "explanation": "The cornea bends incoming light, and the lens works with it to focus the light onto the retina.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.senses_retina_to_brain"
+      ],
+      "sourceCardIds": [
+        "card.human_body.062.c4"
+      ],
+      "prompt": "Each eye has a blind spot with no rods or cones. Why don't you see a hole in your view?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The lens slides over to cover the gap",
+          "correct": false,
+          "rationale": "The lens focuses light; it doesn't move sideways."
+        },
+        {
+          "id": "b",
+          "label": "The blind spot only exists in dim light",
+          "correct": false,
+          "rationale": "It is always there, in any light."
+        },
+        {
+          "id": "c",
+          "label": "The views overlap and the brain fills the gap",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The iris shades that part of the retina",
+          "correct": false,
+          "rationale": "The iris controls the pupil, not the retina."
+        }
+      ],
+      "explanation": "Your two eyes' views overlap, and the brain fills in or ignores the missing patch.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.senses_retina_to_brain",
+        "concept.human_body.organization_levels"
+      ],
+      "sourceCardIds": [
+        "card.human_body.062.c3",
+        "card.human_body.062.c2",
+        "card.human_body.004.c2"
+      ],
+      "prompt": "Level 4 defined a tissue as similar cells working together. What do the special cells in your retina's tissue do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bend light as it enters the eye",
+          "correct": false,
+          "rationale": "That's the cornea's job."
+        },
+        {
+          "id": "b",
+          "label": "Set the size of the pupil",
+          "correct": false,
+          "rationale": "That's the iris."
+        },
+        {
+          "id": "c",
+          "label": "Turn light into electrical signals",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Store images until you sleep",
+          "correct": false,
+          "rationale": "Signals go straight on to the brain."
+        }
+      ],
+      "explanation": "The retina is a light-sensitive layer of tissue whose photoreceptors turn light into electrical signals for the optic nerve.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_retina_image_inverted",
+    "source.nei_how_eyes_work",
+    "source.britannica_blind_spot",
+    "source.openstax_ap_body_organization"
+  ],
+  "art": "body.eye"
+}

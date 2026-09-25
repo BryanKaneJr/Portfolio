@@ -1,0 +1,230 @@
+{
+  "id": "level.science.human_body.087",
+  "skillId": "skill.science.human_body",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Our Ancestors in Us",
+  "objective": "After this level you can explain which features our bodies inherited from early humans.",
+  "summary": "Walking upright goes back about 6 million years, big brains came later, and Homo sapiens arose in Africa about 300,000 years ago. Many people also carry 1 to 4 percent Neanderthal DNA.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.ancestry_upright_walking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.ancestry_big_brain",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.ancestry_neanderthal_dna",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.organ_systems",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.086"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.087.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The design of your lower back is millions of years old.",
+      "body": "Our species appeared in Africa about 300,000 years ago, but many of your body's features are far older, inherited from earlier humans. Read your body like a family history, starting with the way you stand."
+    },
+    {
+      "id": "card.human_body.087.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Standing up came first",
+      "body": "Walking on two legs is the oldest of these inheritances: the oldest evidence for it comes from fossils of the earliest known humans, about 6 million years ago. The curve of your lower back, which absorbs shock with every step, is uniquely human, and a similar curve shows up in the spine of an early human called Australopithecus africanus."
+    },
+    {
+      "id": "card.human_body.087.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then the brain grew",
+      "body": "Big brains came much later. The earliest humans had brains about the size of a chimpanzee's. Over human evolution, brain size tripled, growing fastest during a time of dramatic climate change. Our own species, Homo sapiens, evolved in Africa about 300,000 years ago, carrying that big brain on top of a very old way of walking."
+    },
+    {
+      "id": "card.human_body.087.c4",
+      "type": "fact",
+      "fact": "Many people carry some Neanderthal DNA.",
+      "context": "Svante Pääbo's team published the first Neanderthal genome in 2010 and showed that our species interbred with Neanderthals. For people of European or Asian descent, about 1 to 4 percent of their DNA comes from them. The work won Pääbo the 2022 Nobel Prize in Physiology or Medicine.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Some of your ancestors' relatives were Neanderthals. Family reunions used to be very interesting."
+      }
+    },
+    {
+      "id": "card.human_body.087.c5",
+      "type": "text",
+      "role": "connect",
+      "headline": "A family tree in bone and DNA",
+      "body": "Fossils and DNA tell the same story: humans are one of more than 200 species of primates, and Neanderthals are our closest extinct relatives. Your body is a patchwork of those inheritances: an upright walker's spine, a big brain, and, for many people, a little Neanderthal."
+    },
+    {
+      "id": "card.human_body.087.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.087.q1"
+    },
+    {
+      "id": "card.human_body.087.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.087.q2"
+    },
+    {
+      "id": "card.human_body.087.c8",
+      "type": "recall",
+      "questionId": "question.human_body.087.q3"
+    },
+    {
+      "id": "card.human_body.087.c9",
+      "type": "checkpoint",
+      "headline": "Our ancestors: found",
+      "learned": [
+        "Walking upright goes back about 6 million years",
+        "Brain size tripled over human evolution",
+        "Homo sapiens evolved in Africa about 300,000 years ago",
+        "About 1 to 4 percent Neanderthal DNA in many people"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.ancestry_big_brain"
+      ],
+      "sourceCardIds": [
+        "card.human_body.087.c3"
+      ],
+      "prompt": "About when did Homo sapiens evolve in Africa?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 30,000 years ago",
+          "correct": false,
+          "rationale": "Ten times too recent."
+        },
+        {
+          "id": "b",
+          "label": "About 300,000 years ago",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 3 million years ago",
+          "correct": false,
+          "rationale": "Far too early for our species."
+        },
+        {
+          "id": "d",
+          "label": "About 6 million years ago",
+          "correct": false,
+          "rationale": "That's when upright walking appears."
+        }
+      ],
+      "explanation": "Homo sapiens evolved in Africa about 300,000 years ago.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.ancestry_neanderthal_dna"
+      ],
+      "sourceCardIds": [
+        "card.human_body.087.c4"
+      ],
+      "prompt": "What does the Neanderthal DNA found in many people today show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Our species and Neanderthals interbred",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Neanderthals are still alive",
+          "correct": false,
+          "rationale": "Neanderthals are extinct."
+        },
+        {
+          "id": "c",
+          "label": "Humans evolved from Neanderthals in Europe",
+          "correct": false,
+          "rationale": "Homo sapiens evolved in Africa."
+        },
+        {
+          "id": "d",
+          "label": "DNA can't last more than a century",
+          "correct": false,
+          "rationale": "Pääbo sequenced ancient Neanderthal DNA."
+        }
+      ],
+      "explanation": "Pääbo's work showed that Homo sapiens and Neanderthals interbred, leaving about 1 to 4 percent Neanderthal DNA in people of European or Asian descent.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.ancestry_upright_walking",
+        "concept.human_body.organ_systems"
+      ],
+      "sourceCardIds": [
+        "card.human_body.087.c2",
+        "card.human_body.001.c2"
+      ],
+      "prompt": "Level 1 said the skeletal system holds you up. Which skeletal feature is uniquely human and absorbs shock when you walk?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The shape of the jaw",
+          "correct": false,
+          "rationale": "It's not the feature named here."
+        },
+        {
+          "id": "b",
+          "label": "The number of fingers",
+          "correct": false,
+          "rationale": "Not the feature this level named."
+        },
+        {
+          "id": "c",
+          "label": "The size of the skull",
+          "correct": false,
+          "rationale": "The feature is lower down."
+        },
+        {
+          "id": "d",
+          "label": "The curve of the lower back",
+          "correct": true
+        }
+      ],
+      "explanation": "The curve of the lower back absorbs shock when you walk and is uniquely human.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.si_walking_upright",
+    "source.si_homo_sapiens",
+    "source.nobel_medicine_2022_press",
+    "source.si_brains"
+  ],
+  "art": "arts.cave-hand"
+}

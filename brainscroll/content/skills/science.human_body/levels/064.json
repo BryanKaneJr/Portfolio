@@ -1,0 +1,224 @@
+{
+  "id": "level.science.human_body.064",
+  "skillId": "skill.science.human_body",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Glasses and Contacts",
+  "objective": "After this level you can explain how lenses correct short and long sight.",
+  "summary": "Nearsighted eyes focus light in front of the retina, farsighted eyes behind it. Concave lenses push the focus back; convex lenses pull it forward. Contacts work the same way.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.senses_refractive_errors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.senses_corrective_lenses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.senses_eye_focusing",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.063"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Raphael painted a pope holding a lens that curves inward.",
+      "body": "In the portrait, from the late 1510s, Pope Leo X holds a concave lens: he was nearsighted. It's an early picture of a lens for blurry distance vision, and today's glasses still work on the same idea. To see why, start with what goes wrong inside the eye."
+    },
+    {
+      "id": "card.human_body.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Focus in the wrong place",
+      "body": "Remember Level 62: your cornea and lens should focus light right on the retina. When the eye's shape is a little off, the focus misses. In nearsightedness, or short sight, the eyeball is often too long, so light focuses in front of the retina and far-away things blur. In farsightedness, or long sight, it's often too short, so light focuses behind the retina and nearby things blur. Same camera, focus set slightly wrong."
+    },
+    {
+      "id": "card.human_body.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bend it back",
+      "body": "A lens in front of your eye moves the focus. A concave lens, thinner in the middle, spreads light rays apart, pushing the focus back onto the retina: the fix for nearsightedness. A convex lens, thicker in the middle, brings rays together and pulls the focus forward, which helps farsighted eyes. A contact lens does the same job as a thin lens worn right on the surface of your eye.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Glasses don't fix the eye. They just meet it halfway, one bend at a time."
+      }
+    },
+    {
+      "id": "card.human_body.064.c4",
+      "type": "fact",
+      "fact": "The first glasses helped people see up close.",
+      "context": "The earliest eyeglasses, which in Europe first appeared in Italy, had convex lenses to help farsighted people. Lenses for the opposite problem came later, which is why the pope's concave lens is worth a close look. Eyes that blurred up close got help first."
+    },
+    {
+      "id": "card.human_body.064.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.064.q1"
+    },
+    {
+      "id": "card.human_body.064.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.064.q2"
+    },
+    {
+      "id": "card.human_body.064.c7",
+      "type": "recall",
+      "questionId": "question.human_body.064.q3"
+    },
+    {
+      "id": "card.human_body.064.c8",
+      "type": "checkpoint",
+      "headline": "Lenses: fitted",
+      "learned": [
+        "Nearsighted: focus in front of the retina, far things blur",
+        "Farsighted: focus behind the retina, near things blur",
+        "Concave lenses spread light; convex lenses bring it together",
+        "Contacts are thin lenses worn on the eye",
+        "The first glasses were convex, for close work"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.senses_refractive_errors"
+      ],
+      "sourceCardIds": [
+        "card.human_body.064.c2"
+      ],
+      "prompt": "In a nearsighted eye, where does light from far-away objects come to a focus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Behind the retina",
+          "correct": false,
+          "rationale": "That happens in farsightedness."
+        },
+        {
+          "id": "b",
+          "label": "Exactly on the retina",
+          "correct": false,
+          "rationale": "That would give a sharp image."
+        },
+        {
+          "id": "c",
+          "label": "In front of the retina",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "On the iris",
+          "correct": false,
+          "rationale": "The iris only controls the pupil."
+        }
+      ],
+      "explanation": "In nearsightedness light focuses in front of the retina, often because the eyeball is too long, so distant things blur.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.senses_corrective_lenses"
+      ],
+      "sourceCardIds": [
+        "card.human_body.064.c3"
+      ],
+      "prompt": "Why does a concave lens help a nearsighted eye see far away?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It spreads rays so the focus moves back",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It magnifies whatever is far away",
+          "correct": false,
+          "rationale": "Magnifying convex lenses help with close work."
+        },
+        {
+          "id": "c",
+          "label": "It blocks extra light from the pupil",
+          "correct": false,
+          "rationale": "The problem is focus, not brightness."
+        },
+        {
+          "id": "d",
+          "label": "It makes the eyeball itself shorter",
+          "correct": false,
+          "rationale": "Glasses change the light, not the eye."
+        }
+      ],
+      "explanation": "A concave lens spreads light rays apart, pushing the focus back from in front of the retina onto it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.senses_refractive_errors",
+        "concept.human_body.senses_eye_focusing"
+      ],
+      "sourceCardIds": [
+        "card.human_body.064.c2",
+        "card.human_body.062.c2"
+      ],
+      "prompt": "Level 62's cornea and lens aim light at the retina. In a farsighted eye, where does that light land in focus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "On the optic nerve",
+          "correct": false,
+          "rationale": "The nerve carries signals; it doesn't catch light."
+        },
+        {
+          "id": "b",
+          "label": "In front of the retina",
+          "correct": false,
+          "rationale": "That's nearsightedness."
+        },
+        {
+          "id": "c",
+          "label": "On the cornea itself",
+          "correct": false,
+          "rationale": "The cornea bends light on its way in."
+        },
+        {
+          "id": "d",
+          "label": "Behind the retina",
+          "correct": true
+        }
+      ],
+      "explanation": "In farsightedness light focuses behind the retina, often because the eyeball is too short, so nearby things blur.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_eyeglasses",
+    "source.aao_concave_convex_lenses",
+    "source.britannica_myopia",
+    "source.britannica_hyperopia",
+    "source.nei_refractive_errors",
+    "source.nei_nearsightedness",
+    "source.nei_farsightedness",
+    "source.nei_how_eyes_work",
+    "source.britannica_contact_lens"
+  ],
+  "art": "body.glasses"
+}

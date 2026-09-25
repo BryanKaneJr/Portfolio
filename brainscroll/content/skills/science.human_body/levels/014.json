@@ -1,0 +1,235 @@
+{
+  "id": "level.science.human_body.014",
+  "skillId": "skill.science.human_body",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Broken Bones",
+  "objective": "After this level you can explain how a broken bone heals.",
+  "summary": "A fracture is a break in a bone, seen on X-rays because calcium-rich bone shows white. It heals in stages: clot, cartilage callus, spongy bone, then compact bone and remodeling.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.fracture_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.fracture_healing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.bone_materials",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.013"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A well-healed break can vanish without a trace.",
+      "body": "When a bone breaks, your body doesn't just glue the pieces together. It rebuilds real bone, and often, once the repair is finished, there's no outside sign the break was ever there. Here's how that happens."
+    },
+    {
+      "id": "card.human_body.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seeing the break",
+      "body": "A fracture is simply a break in a bone. Most come from injuries such as falls, car accidents and sports, though overuse and repeated motions can cause them too. To find one, doctors usually take an X-ray. Bones contain calcium, which absorbs X-rays readily, so bone shows up white while muscle and fat appear in shades of gray."
+    },
+    {
+      "id": "card.human_body.014.c3",
+      "type": "timeline",
+      "headline": "Four stages of bone repair",
+      "events": [
+        {
+          "when": "Within hours",
+          "label": "Blood from torn vessels clots around the break"
+        },
+        {
+          "when": "About 2 days",
+          "label": "A callus of cartilage starts bridging the gap"
+        },
+        {
+          "when": "Days to weeks",
+          "label": "Bone cells replace the cartilage with spongy bone"
+        },
+        {
+          "when": "Months to years",
+          "label": "Compact bone forms and remodeling restores the shape"
+        }
+      ],
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Clot, cartilage, spongy bone, compact bone. Your skeleton repairs itself like a very patient building crew."
+      }
+    },
+    {
+      "id": "card.human_body.014.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why a broken bone is kept still",
+      "body": "Healing builds new bone around the pieces wherever they happen to be. A bone that isn't set back in line will heal in its bent position. That's why doctors put the pieces in place and use a cast or splint to keep the bone from moving while it heals. Children run through the same repair stages as adults, only much faster."
+    },
+    {
+      "id": "card.human_body.014.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.014.q1"
+    },
+    {
+      "id": "card.human_body.014.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.014.q2"
+    },
+    {
+      "id": "card.human_body.014.c7",
+      "type": "recall",
+      "questionId": "question.human_body.014.q3"
+    },
+    {
+      "id": "card.human_body.014.c8",
+      "type": "checkpoint",
+      "headline": "Fractures: mended",
+      "learned": [
+        "A fracture is a break in a bone",
+        "Calcium makes bone show white on an X-ray",
+        "Clot, cartilage callus, spongy bone, then compact bone",
+        "A cast keeps the pieces in line while they heal"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.fracture_healing"
+      ],
+      "sourceCardIds": [
+        "card.human_body.014.c3"
+      ],
+      "prompt": "What forms first at a broken bone, within hours of the break?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A blood clot around the break",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A callus of cartilage",
+          "correct": false,
+          "rationale": "That starts bridging the gap after about 2 days."
+        },
+        {
+          "id": "c",
+          "label": "Spongy bone",
+          "correct": false,
+          "rationale": "Spongy bone replaces the cartilage over days to weeks."
+        },
+        {
+          "id": "d",
+          "label": "Compact bone",
+          "correct": false,
+          "rationale": "Compact bone comes last, during remodeling."
+        }
+      ],
+      "explanation": "Within hours, blood from torn vessels clots around the break; the cartilage callus follows about 2 days later.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.fracture_basics"
+      ],
+      "sourceCardIds": [
+        "card.human_body.014.c4"
+      ],
+      "prompt": "Why do doctors use a cast or splint to keep a broken bone from moving?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So X-rays can pass through the bone",
+          "correct": false,
+          "rationale": "X-rays are for seeing the break, not healing it."
+        },
+        {
+          "id": "b",
+          "label": "So the marrow stops making blood",
+          "correct": false,
+          "rationale": "Marrow keeps working; the cast is about position."
+        },
+        {
+          "id": "c",
+          "label": "So the bone loses its extra calcium",
+          "correct": false,
+          "rationale": "Healing adds bone; it doesn't drain calcium."
+        },
+        {
+          "id": "d",
+          "label": "So the bone doesn't heal out of line",
+          "correct": true
+        }
+      ],
+      "explanation": "New bone forms around the pieces wherever they lie, so a bone that moves or isn't set in line heals bent.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.fracture_healing",
+        "concept.human_body.bone_materials"
+      ],
+      "sourceCardIds": [
+        "card.human_body.014.c3",
+        "card.human_body.012.c3"
+      ],
+      "prompt": "Level 12 met spongy and compact bone. In what order do they form as a break heals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Compact bone first, then spongy bone",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "b",
+          "label": "Spongy bone first, then compact bone",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only compact bone forms",
+          "correct": false,
+          "rationale": "Spongy bone replaces the cartilage callus first."
+        },
+        {
+          "id": "d",
+          "label": "Neither: the gap fills with marrow",
+          "correct": false,
+          "rationale": "Marrow makes blood cells; it doesn't bridge breaks."
+        }
+      ],
+      "explanation": "Bone cells first replace the cartilage callus with spongy bone; compact bone forms later, during remodeling.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_fracture_repair",
+    "source.medlineplus_fractures",
+    "source.nibib_xrays_factsheet",
+    "source.rch_fracture_healing"
+  ],
+  "art": "technology.x-ray"
+}

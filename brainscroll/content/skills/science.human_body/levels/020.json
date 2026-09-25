@@ -1,0 +1,340 @@
+{
+  "id": "level.science.human_body.020",
+  "skillId": "skill.science.human_body",
+  "number": 20,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Bones and Muscles",
+  "objective": "After this level you can explain how bones, joints and muscles work together to move you.",
+  "summary": "Bones are levers, joints are fulcrums and muscles supply the effort. The bent arm trades force for a big, fast movement, and one lift uses nerves, muscle, tendon, joint and ligament together.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.musculoskeletal_levers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.muscle_three_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.muscle_sliding_filaments",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.muscle_pull_pairs",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.synovial_joints",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.tendon_ligament_roles",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.skeleton_bone_count",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.fracture_basics",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.bone_growth_plates",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.019"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.020.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 2 finale: every move you make is a lever.",
+      "body": "Bones, joints, muscles, tendons: you've met all the parts. Now watch them work as one machine, the same one you use to pull a nail with a hammer."
+    },
+    {
+      "id": "card.human_body.020.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Levers everywhere",
+      "body": "Pull a nail with the back of a hammer and you're using a lever: a stiff bar turning on a fixed point, the fulcrum. Your body works the same way. Bones are the stiff levers, joints are the fulcrums, and contracting muscles supply the effort. The load is whatever you're moving, even your own head when you lift it."
+    },
+    {
+      "id": "card.human_body.020.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Built for speed, not strength",
+      "body": "Bend your arm. The elbow is the pivot, and the biceps pulls on the forearm closer to the elbow than the cup in your hand. That costs force: the muscle must pull harder than the load it lifts. In return, a small contraction swings your hand through a large, fast movement. Many of your muscle-and-bone pairs make the same trade.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Your arm trades strength for speed. Handy for catching things, and for waving hello."
+      }
+    },
+    {
+      "id": "card.human_body.020.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "One sip, the whole chapter",
+      "body": "Lift that cup. Your nervous system signals the biceps, skeletal muscle you control. Myosin pulls actin, the muscle shortens, and a tendon carries the pull to your forearm bone. The elbow, a hinge joint where ligaments connect the bones, bends. The triceps relaxes, ready to pull back the other way."
+    },
+    {
+      "id": "card.human_body.020.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.020.q1"
+    },
+    {
+      "id": "card.human_body.020.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.020.q2"
+    },
+    {
+      "id": "card.human_body.020.c7",
+      "type": "recall",
+      "questionId": "question.human_body.020.q3"
+    },
+    {
+      "id": "card.human_body.020.c8",
+      "type": "recall",
+      "questionId": "question.human_body.020.q4"
+    },
+    {
+      "id": "card.human_body.020.c9",
+      "type": "recall",
+      "questionId": "question.human_body.020.q5"
+    },
+    {
+      "id": "card.human_body.020.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 2 complete",
+      "learned": [
+        "Adults have 206 bones; babies start with roughly 270 to 300",
+        "Bone is living tissue with blood-making marrow",
+        "Joints are fulcrums; bones are levers; muscles pull",
+        "Muscles only pull, so they work in pairs",
+        "Tendons link muscle to bone; ligaments link bone to bone"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.020.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.musculoskeletal_levers"
+      ],
+      "sourceCardIds": [
+        "card.human_body.020.c2"
+      ],
+      "prompt": "Bones and Muscles recap: in the body's lever system, what acts as the fulcrum?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The bones",
+          "correct": false,
+          "rationale": "Bones are the stiff levers."
+        },
+        {
+          "id": "b",
+          "label": "The joints",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The muscles",
+          "correct": false,
+          "rationale": "Muscles supply the effort."
+        },
+        {
+          "id": "d",
+          "label": "The load",
+          "correct": false,
+          "rationale": "The load is whatever is being moved."
+        }
+      ],
+      "explanation": "Bones are the levers, joints are the fulcrums and contracting muscles supply the effort.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.020.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.musculoskeletal_levers"
+      ],
+      "sourceCardIds": [
+        "card.human_body.020.c3"
+      ],
+      "prompt": "Bones and Muscles recap: the biceps pulls close to the elbow. What does the arm gain from that setup?",
+      "options": [
+        {
+          "id": "a",
+          "label": "More force than the load, so lifting is easy",
+          "correct": false,
+          "rationale": "It costs force: the muscle pulls harder than the load."
+        },
+        {
+          "id": "b",
+          "label": "An elbow that needs no ligaments",
+          "correct": false,
+          "rationale": "Ligaments still connect the bones at the elbow."
+        },
+        {
+          "id": "c",
+          "label": "A biceps that can push as well as pull",
+          "correct": false,
+          "rationale": "Muscles can only pull."
+        },
+        {
+          "id": "d",
+          "label": "A large, fast movement from a small contraction",
+          "correct": true
+        }
+      ],
+      "explanation": "The bent arm trades force for speed: the biceps pulls harder than the load, but a small contraction gives a large, fast movement.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.020.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.skeleton_bone_count"
+      ],
+      "sourceCardIds": [
+        "card.human_body.011.c2"
+      ],
+      "prompt": "Bones and Muscles recap, from Level 11: where are more than half of an adult's 206 bones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the hands and feet",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "In the skull",
+          "correct": false,
+          "rationale": "The skull is part of the 80-bone axial skeleton."
+        },
+        {
+          "id": "c",
+          "label": "In the spine and ribs",
+          "correct": false,
+          "rationale": "Those are axial bones, fewer than 80 in total."
+        },
+        {
+          "id": "d",
+          "label": "In the arms and legs, not counting hands and feet",
+          "correct": false,
+          "rationale": "The hands and feet alone hold 106."
+        }
+      ],
+      "explanation": "Each hand has 27 bones and each foot 26, so the hands and feet hold 106 of the 206.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.020.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.fracture_basics"
+      ],
+      "sourceCardIds": [
+        "card.human_body.014.c2"
+      ],
+      "prompt": "Bones and Muscles recap, from Level 14: why do bones show up white on an X-ray?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are full of red marrow",
+          "correct": false,
+          "rationale": "Marrow isn't what makes bone show white."
+        },
+        {
+          "id": "b",
+          "label": "They are coated in cartilage",
+          "correct": false,
+          "rationale": "Only joint surfaces are capped with cartilage."
+        },
+        {
+          "id": "c",
+          "label": "Their calcium absorbs X-rays readily",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They reflect light from the machine",
+          "correct": false,
+          "rationale": "X-rays are absorbed, not reflected."
+        }
+      ],
+      "explanation": "Bones contain calcium, which absorbs X-rays readily, so bone appears white and soft tissue gray.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.020.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.bone_growth_plates"
+      ],
+      "sourceCardIds": [
+        "card.human_body.019.c4"
+      ],
+      "prompt": "Bones and Muscles recap, from Level 19: where do long bones grow in length?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the red marrow",
+          "correct": false,
+          "rationale": "Marrow makes blood cells."
+        },
+        {
+          "id": "b",
+          "label": "At the joints' synovial fluid",
+          "correct": false,
+          "rationale": "That fluid lubricates joints."
+        },
+        {
+          "id": "c",
+          "label": "Along the tendons",
+          "correct": false,
+          "rationale": "Tendons connect muscle to bone."
+        },
+        {
+          "id": "d",
+          "label": "At cartilage growth plates near their ends",
+          "correct": true
+        }
+      ],
+      "explanation": "Long bones lengthen at growth plates, layers of cartilage near each end that bone gradually replaces.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_muscle_levers",
+    "source.sciencelearn_body_levers",
+    "source.openstax_ap_muscle_tissue_overview",
+    "source.seer_muscle_types",
+    "source.openstax_ap_muscle_contraction",
+    "source.medlineplus_sprains_strains",
+    "source.openstax_ap_synovial_joints",
+    "source.brit_muscle_system"
+  ],
+  "art": "body.muscle"
+}

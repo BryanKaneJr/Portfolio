@@ -1,0 +1,228 @@
+{
+  "id": "level.science.human_body.031",
+  "skillId": "skill.science.human_body",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why We Breathe",
+  "objective": "After this level you can explain that cells need oxygen and give off carbon dioxide.",
+  "summary": "Cells use oxygen to release energy from food, mostly in their mitochondria, and give off carbon dioxide. Each breath out still carries most of the oxygen you breathed in.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.breathing_cell_respiration",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.breathing_air_in_out",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.cell_parts",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.cell_count",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.030"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every breath you take is a delivery for your cells.",
+      "body": "At rest you breathe about 12 to 18 times a minute without giving it a thought. Your lungs don't keep that air. They pass what they need along to your roughly 30 trillion cells. So what do cells want with it, and what do they send back?"
+    },
+    {
+      "id": "card.human_body.031.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your cells burn food with oxygen",
+      "body": "Remember Level 2's mitochondria, the cell's power stations? This is what they need your breath for. In cellular respiration, a cell combines oxygen with molecules from food to release the energy stored inside them, and most of that work happens in the mitochondria. Like any fire, it leaves exhaust: carbon dioxide and water.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Thirty trillion tiny campfires, and not one of them needs a match. Just breathe."
+      }
+    },
+    {
+      "id": "card.human_body.031.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Breathing out is taking out the trash",
+      "body": "Carbon dioxide can't pile up inside you. It passes from your cells into your blood, which has to get rid of it. In your lungs it crosses from the blood into the air, and your next breath out carries it away. So every breath is a two-way trip: oxygen in for your cells, their exhaust out."
+    },
+    {
+      "id": "card.human_body.031.c4",
+      "type": "fact",
+      "fact": "You breathe back out most of the oxygen you breathe in.",
+      "context": "Fresh air is about 21 percent oxygen. The last air leaving your lungs still holds about 16 percent, plus 4 to 5 percent carbon dioxide. Each breath, your body keeps only a slice of the oxygen and swaps in its exhaust. That's why the deliveries never stop: roughly 17,000 to 26,000 breaths a day."
+    },
+    {
+      "id": "card.human_body.031.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.031.q1"
+    },
+    {
+      "id": "card.human_body.031.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.031.q2"
+    },
+    {
+      "id": "card.human_body.031.c7",
+      "type": "recall",
+      "questionId": "question.human_body.031.q3"
+    },
+    {
+      "id": "card.human_body.031.c8",
+      "type": "checkpoint",
+      "headline": "Why we breathe: explained",
+      "learned": [
+        "Cells use oxygen to release energy from food",
+        "Most of that happens in the mitochondria",
+        "Carbon dioxide is the exhaust, breathed out",
+        "Breath out: still about 16% oxygen"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.breathing_cell_respiration"
+      ],
+      "sourceCardIds": [
+        "card.human_body.031.c2"
+      ],
+      "prompt": "When your cells use oxygen to release energy from food, which waste gas do they give off?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Oxygen",
+          "correct": false,
+          "rationale": "That's the gas they use up."
+        },
+        {
+          "id": "b",
+          "label": "Nitrogen",
+          "correct": false,
+          "rationale": "Cellular respiration's waste is carbon dioxide and water."
+        },
+        {
+          "id": "c",
+          "label": "Carbon dioxide",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Hydrogen",
+          "correct": false,
+          "rationale": "The waste products are carbon dioxide and water."
+        }
+      ],
+      "explanation": "In cellular respiration, cells combine oxygen with food molecules and give off carbon dioxide and water as waste.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.breathing_air_in_out"
+      ],
+      "sourceCardIds": [
+        "card.human_body.031.c4"
+      ],
+      "prompt": "Air going into your lungs is about 21 percent oxygen. Why does the air coming out still hold about 16 percent?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Your body keeps only part of each breath's oxygen",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Your lungs make fresh oxygen",
+          "correct": false,
+          "rationale": "Lungs don't make oxygen; cells use it up."
+        },
+        {
+          "id": "c",
+          "label": "Carbon dioxide turns back into oxygen",
+          "correct": false,
+          "rationale": "Carbon dioxide is the cells' exhaust and is breathed out."
+        },
+        {
+          "id": "d",
+          "label": "Oxygen can't get into the blood at all",
+          "correct": false,
+          "rationale": "Some does get in; the body just keeps only a slice."
+        }
+      ],
+      "explanation": "Each breath, the body takes only part of the oxygen and swaps in carbon dioxide, so exhaled air is still about 16 percent oxygen.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.cell_parts",
+        "concept.human_body.breathing_cell_respiration"
+      ],
+      "sourceCardIds": [
+        "card.human_body.031.c2",
+        "card.human_body.002.c4"
+      ],
+      "prompt": "Level 2 called mitochondria the cell's power stations. What do they need the oxygen you breathe for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To build the cell's outer lining",
+          "correct": false,
+          "rationale": "That's the plasma membrane, and oxygen isn't its building material."
+        },
+        {
+          "id": "b",
+          "label": "To store it for later",
+          "correct": false,
+          "rationale": "The oxygen is used to release energy, not stockpiled."
+        },
+        {
+          "id": "c",
+          "label": "To pass orders to the nucleus",
+          "correct": false,
+          "rationale": "The nucleus gives the orders; oxygen isn't a message."
+        },
+        {
+          "id": "d",
+          "label": "To release energy from food",
+          "correct": true
+        }
+      ],
+      "explanation": "Most of cellular respiration, which combines oxygen with food to release energy, happens in the mitochondria.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.medlineplus_vital_signs",
+    "source.openstax_ap_breathing_process",
+    "source.nhlbi_breathing_benefits",
+    "source.nhlbi_respiratory_system",
+    "source.jisrp_spelce_oxygen_deficient",
+    "source.britannica_cellular_respiration",
+    "source.plosbio_sender_cell_counts",
+    "source.medlineplus_cell",
+    "source.nhgri_mitochondria"
+  ],
+  "art": "body.lungs"
+}

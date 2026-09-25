@@ -1,0 +1,227 @@
+{
+  "id": "level.science.human_body.095",
+  "skillId": "skill.science.human_body",
+  "number": 95,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Sun and Skin",
+  "objective": "After this level you can explain how sunlight helps make vitamin D and how too much harms skin.",
+  "summary": "Skin makes vitamin D from UVB in sunlight. Too much UV damages DNA and raises skin cancer risk; WHO advises protection at UV Index 3+, and the CDC advises SPF 15+ sunscreen.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.health_sun_vitamin_d",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.health_uv_protection",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.dna_basics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.094"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.095.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The same sunshine helps build your bones and can burn your skin.",
+      "body": "The WHO calls small amounts of ultraviolet (UV) radiation essential to good health, because it leads to vitamin D. Too much does the opposite. The difference is the dose."
+    },
+    {
+      "id": "card.human_body.095.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A vitamin your skin makes",
+      "body": "Your skin makes vitamin D when ultraviolet B (UVB) rays in sunlight reach it. Vitamin D helps control the calcium and phosphate that keep bones, teeth and muscles healthy; too little can lead to rickets in children. One catch: window glass blocks UVB. That sunny spot by the window warms you up, but it won't make any vitamin D."
+    },
+    {
+      "id": "card.human_body.095.c3",
+      "type": "fact",
+      "fact": "In the UK, sunlight from October to early March can't make enough vitamin D.",
+      "context": "The NHS says skin there makes vitamin D from sunlight from about late March or early April to the end of September. For the darker months, UK government advice is that everyone consider a daily vitamin D supplement. Same sun, weaker deal."
+    },
+    {
+      "id": "card.human_body.095.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Too much of a good thing",
+      "body": "The WHO lists DNA damage and sunburn as short-term effects of too much UV. Over the years, it raises the risk of skin cancer, cataracts in the eyes and early skin ageing, and sunburns in childhood raise skin cancer risk later in life. A tan isn't a badge of health either: the CDC calls any change in skin color after UV exposure, tan or burn, a sign of injury."
+    },
+    {
+      "id": "card.human_body.095.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "What the WHO and the CDC recommend",
+      "body": "The WHO recommends sun protection whenever the UV Index reaches 3 or above: shade, especially around midday, protective clothing, a wide-brimmed hat, sunglasses and broad-spectrum sunscreen. The CDC's sunscreen advice is SPF 15 or higher, reapplied after 2 hours and after swimming, sweating or toweling off. And the WHO adds one warning: sunscreen isn't a ticket to stay out longer.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Shade, hat, sunglasses, sunscreen. Sunscreen is the last line, not the whole wall."
+      }
+    },
+    {
+      "id": "card.human_body.095.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.095.q1"
+    },
+    {
+      "id": "card.human_body.095.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.095.q2"
+    },
+    {
+      "id": "card.human_body.095.c8",
+      "type": "recall",
+      "questionId": "question.human_body.095.q3"
+    },
+    {
+      "id": "card.human_body.095.c9",
+      "type": "checkpoint",
+      "headline": "Sun and skin: explained",
+      "learned": [
+        "Skin makes vitamin D from UVB; glass blocks UVB",
+        "Vitamin D helps bones, teeth and muscles",
+        "Too much UV damages DNA and raises skin cancer risk",
+        "WHO: protect at UV Index 3+; CDC: SPF 15+"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.095.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.health_uv_protection"
+      ],
+      "sourceCardIds": [
+        "card.human_body.095.c5"
+      ],
+      "prompt": "The WHO recommends sun protection once the UV Index reaches what level?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1",
+          "correct": false,
+          "rationale": "Protection is advised from a higher level."
+        },
+        {
+          "id": "b",
+          "label": "3",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "8",
+          "correct": false,
+          "rationale": "Protection starts well before this."
+        },
+        {
+          "id": "d",
+          "label": "11",
+          "correct": false,
+          "rationale": "That's extreme; protection starts much lower."
+        }
+      ],
+      "explanation": "WHO says sun protection measures should be used when the UV Index reaches 3 or above.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.095.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.health_sun_vitamin_d"
+      ],
+      "sourceCardIds": [
+        "card.human_body.095.c2"
+      ],
+      "prompt": "Why doesn't sitting in a sunny spot behind a closed window help your skin make vitamin D?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Window light is too warm",
+          "correct": false,
+          "rationale": "Warmth isn't what makes vitamin D."
+        },
+        {
+          "id": "b",
+          "label": "Skin only makes vitamin D in winter",
+          "correct": false,
+          "rationale": "In the UK, winter sun is too weak for it."
+        },
+        {
+          "id": "c",
+          "label": "Window glass blocks the UVB rays",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Vitamin D only comes from food",
+          "correct": false,
+          "rationale": "Skin makes it from UVB in sunlight."
+        }
+      ],
+      "explanation": "Skin makes vitamin D from UVB rays, and window glass blocks UVB.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.095.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.dna_basics",
+        "concept.human_body.health_uv_protection"
+      ],
+      "sourceCardIds": [
+        "card.human_body.005.c2",
+        "card.human_body.095.c4"
+      ],
+      "prompt": "The WHO lists DNA damage as an effect of too much UV. Using Level 5, why is damage to a skin cell's DNA a big deal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "DNA stores the cell's hereditary instructions",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "DNA is the skin's main pigment",
+          "correct": false,
+          "rationale": "DNA carries information, not color."
+        },
+        {
+          "id": "c",
+          "label": "DNA makes vitamin D directly",
+          "correct": false,
+          "rationale": "Skin makes vitamin D from UVB; DNA is the instruction book."
+        },
+        {
+          "id": "d",
+          "label": "DNA is only found in bones",
+          "correct": false,
+          "rationale": "Nearly every cell carries DNA."
+        }
+      ],
+      "explanation": "DNA is the hereditary material, a coded set of instructions, so damaging it can scramble what the cell is told to do.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.who_uv_radiation",
+    "source.nih_ods_vitamin_d_consumer",
+    "source.nhs_vitamin_d",
+    "source.cdc_skin_cancer_prevention",
+    "source.cdc_sun_safety",
+    "source.medlineplus_dna"
+  ],
+  "art": "astronomy.sun"
+}

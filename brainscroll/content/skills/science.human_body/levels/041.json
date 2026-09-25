@@ -1,0 +1,220 @@
+{
+  "id": "level.science.human_body.041",
+  "skillId": "skill.science.human_body",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "A Journey Through Digestion",
+  "objective": "After this level you can trace food from the mouth through the intestines.",
+  "summary": "Food travels one tube from mouth to anus, pushed by waves of muscle called peristalsis, not by gravity. Helper organs add juices, the small intestine absorbs, the large intestine takes back water.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.digestion_tract_route",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.digestion_peristalsis",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.microbiome_residents",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.040"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1962, John Glenn ate applesauce in orbit.",
+      "body": "On February 20, 1962, aboard Friendship 7, he squeezed it from a tube while floating weightless. Down was no longer a direction, yet the applesauce went where it should. So what moves food through you, if not gravity? Follow one bite all the way through."
+    },
+    {
+      "id": "card.human_body.041.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One tube, open at both ends",
+      "body": "Your digestive tract is one long tube: mouth, esophagus, stomach, small intestine, large intestine, anus. Because it opens to the outside at both ends, food inside it is technically still outside your body until it's absorbed. That sandwich isn't part of you yet. It's just passing through the tunnel."
+    },
+    {
+      "id": "card.human_body.041.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Squeezed, not dropped",
+      "body": "Food doesn't fall down the tube. It's pushed. Waves of muscle contraction called peristalsis squeeze it along, a bit like squeezing toothpaste from the bottom of the tube. Gravity isn't needed, so swallowed food can travel your esophagus even when you're upside down. That's why Glenn's applesauce went the right way in orbit.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Try it with a sip of water while lying down. Your esophagus does not care which way is up."
+      }
+    },
+    {
+      "id": "card.human_body.041.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Helpers along the route",
+      "body": "Some digestive organs sit beside the tube instead of in it. The liver, pancreas and gallbladder add digestive juices. The small intestine then absorbs most of the nutrients from your food. What's left moves into the large intestine, which includes the colon: water is absorbed there, and the leftovers become stool. The colon is also where almost all of Level 8's bacteria live. Last stop, busiest neighborhood."
+    },
+    {
+      "id": "card.human_body.041.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.041.q1"
+    },
+    {
+      "id": "card.human_body.041.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.041.q2"
+    },
+    {
+      "id": "card.human_body.041.c7",
+      "type": "recall",
+      "questionId": "question.human_body.041.q3"
+    },
+    {
+      "id": "card.human_body.041.c8",
+      "type": "checkpoint",
+      "headline": "Digestion: mapped",
+      "learned": [
+        "One tube: mouth, esophagus, stomach, small and large intestine, anus",
+        "Peristalsis pushes food along, no gravity needed",
+        "Liver, pancreas and gallbladder add juices",
+        "Small intestine absorbs nutrients; large intestine absorbs water"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.digestion_tract_route"
+      ],
+      "sourceCardIds": [
+        "card.human_body.041.c2"
+      ],
+      "prompt": "On its journey through the digestive tract, which organ does food reach right after the esophagus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The small intestine",
+          "correct": false,
+          "rationale": "That comes after the stomach."
+        },
+        {
+          "id": "b",
+          "label": "The stomach",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The liver",
+          "correct": false,
+          "rationale": "The liver sits beside the tube; food never passes through it."
+        },
+        {
+          "id": "d",
+          "label": "The large intestine",
+          "correct": false,
+          "rationale": "That's near the end of the tube."
+        }
+      ],
+      "explanation": "The tube runs mouth, esophagus, stomach, small intestine, large intestine, anus.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.digestion_peristalsis"
+      ],
+      "sourceCardIds": [
+        "card.human_body.041.c3"
+      ],
+      "prompt": "Why could John Glenn swallow applesauce while weightless in orbit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His capsule had artificial gravity",
+          "correct": false,
+          "rationale": "Friendship 7 had no artificial gravity."
+        },
+        {
+          "id": "b",
+          "label": "Applesauce is too thin to need swallowing",
+          "correct": false,
+          "rationale": "All swallowed food has to be moved along."
+        },
+        {
+          "id": "c",
+          "label": "Air pressure in his helmet pushed it down",
+          "correct": false,
+          "rationale": "The pushing is done by muscle."
+        },
+        {
+          "id": "d",
+          "label": "Waves of muscle push food along the tube",
+          "correct": true
+        }
+      ],
+      "explanation": "Peristalsis, waves of muscle contraction, moves food through the digestive tract without help from gravity.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.digestion_tract_route",
+        "concept.human_body.microbiome_residents"
+      ],
+      "sourceCardIds": [
+        "card.human_body.041.c4",
+        "card.human_body.008.c2"
+      ],
+      "prompt": "Level 8 said almost all your bacteria live in the colon. Which part of the digestive tract is the colon in?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The large intestine",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The stomach",
+          "correct": false,
+          "rationale": "The colon comes well after the stomach."
+        },
+        {
+          "id": "c",
+          "label": "The esophagus",
+          "correct": false,
+          "rationale": "That's the tube from mouth to stomach."
+        },
+        {
+          "id": "d",
+          "label": "The small intestine",
+          "correct": false,
+          "rationale": "The colon is part of the large intestine."
+        }
+      ],
+      "explanation": "The colon is part of the large intestine, the last stretch of the tube, where water is absorbed and most gut bacteria live.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonian_glenn_applesauce",
+    "source.niddk_digestive_system",
+    "source.openstax_ap_digestive_overview",
+    "source.brit_digestive_system",
+    "source.plosbio_sender_cell_counts"
+  ],
+  "art": "body.stomach"
+}

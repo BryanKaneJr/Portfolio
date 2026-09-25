@@ -1,0 +1,227 @@
+{
+  "id": "level.science.human_body.077",
+  "skillId": "skill.science.human_body",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Fleming and Penicillin",
+  "objective": "After this level you can explain how Alexander Fleming discovered penicillin.",
+  "summary": "In 1928 Fleming saw a mold stop bacteria and named its substance penicillin. Florey and Chain's Oxford team made it a medicine; all three shared the 1945 Nobel Prize.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.defense_penicillin_discovery",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.defense_penicillin_development",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.defense_virus_hijackers",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.076"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.077.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Penicillin was discovered in 1928. Its first patient came in 1941.",
+      "body": "The famous part is a moldy dish and a lucky accident. The less famous part took a team in Oxford, a lot of glassware and even hospital bedpans. Both halves made the medicine."
+    },
+    {
+      "id": "card.human_body.077.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The dish on the bench",
+      "body": "Before a two-week vacation, Alexander Fleming left a dish of Staphylococcus bacteria on his lab bench. A Penicillium mold spore got in, perhaps through a window, more likely floating up a stairwell from the lab below. In September 1928, Fleming saw that the bacteria failed to grow near the mold. Something the mold made was killing them, and he named it penicillin."
+    },
+    {
+      "id": "card.human_body.077.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A discovery isn't a medicine",
+      "body": "Fleming published in 1929, and the scientific community took little notice. Working with two young researchers, he also failed to stabilize and purify penicillin, let alone make enough to test on patients. A dish that kills bacteria is a clue. A medicine is something you can make, measure and give."
+    },
+    {
+      "id": "card.human_body.077.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Oxford turns mold into medicine",
+      "body": "In the late 1930s, Howard Florey and Ernst Chain's team at Oxford isolated and purified penicillin, growing the mold in any vessel they could find, hospital bedpans included. In 1940, four infected mice given penicillin were alive hours later; four untreated mice were dead. In February 1941 a policeman became the first patient. He improved, then died when the supply ran out, even though they recovered penicillin from his urine.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Recycling medicine from a patient's urine. That is how short the supply really was."
+      }
+    },
+    {
+      "id": "card.human_body.077.c5",
+      "type": "fact",
+      "fact": "Fleming, Florey and Chain shared the 1945 Nobel Prize.",
+      "context": "By then, a British-American wartime effort of thousands of people and some 35 institutions was producing penicillin. It works by blocking the enzymes bacteria use to build their cell walls. The accident gave the clue; the teamwork gave the cure."
+    },
+    {
+      "id": "card.human_body.077.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.077.q1"
+    },
+    {
+      "id": "card.human_body.077.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.077.q2"
+    },
+    {
+      "id": "card.human_body.077.c8",
+      "type": "recall",
+      "questionId": "question.human_body.077.q3"
+    },
+    {
+      "id": "card.human_body.077.c9",
+      "type": "checkpoint",
+      "headline": "Penicillin: the full story",
+      "learned": [
+        "1928: a stray mold stopped bacteria on Fleming's dish",
+        "Fleming could not purify or produce penicillin",
+        "Florey and Chain's Oxford team made it a medicine",
+        "All three shared the 1945 Nobel Prize"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.defense_penicillin_discovery"
+      ],
+      "sourceCardIds": [
+        "card.human_body.077.c2"
+      ],
+      "prompt": "What did Fleming notice on his dish in September 1928?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bacteria failed to grow near a mold",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The mold had died off completely",
+          "correct": false,
+          "rationale": "The mold thrived; the bacteria near it didn't."
+        },
+        {
+          "id": "c",
+          "label": "A new virus had killed the bacteria",
+          "correct": false,
+          "rationale": "It was a Penicillium mold, not a virus."
+        },
+        {
+          "id": "d",
+          "label": "Bacteria grew faster around the mold",
+          "correct": false,
+          "rationale": "The opposite: they failed to grow near it."
+        }
+      ],
+      "explanation": "The bacteria failed to grow near a stray Penicillium mold, whose substance Fleming named penicillin.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.defense_penicillin_development"
+      ],
+      "sourceCardIds": [
+        "card.human_body.077.c3",
+        "card.human_body.077.c4"
+      ],
+      "prompt": "Why did penicillin wait until 1941 for its first patient?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fleming kept the discovery secret",
+          "correct": false,
+          "rationale": "He published it in 1929."
+        },
+        {
+          "id": "b",
+          "label": "Doctors were forbidden to use mold",
+          "correct": false,
+          "rationale": "The problem was making it, not permission."
+        },
+        {
+          "id": "c",
+          "label": "It only ever worked in mice",
+          "correct": false,
+          "rationale": "It went on to treat people too."
+        },
+        {
+          "id": "d",
+          "label": "Nobody could purify and produce it until Florey and Chain's team did",
+          "correct": true
+        }
+      ],
+      "explanation": "Fleming couldn't stabilize or purify penicillin; Florey and Chain's Oxford team made it usable.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.defense_penicillin_development",
+        "concept.human_body.defense_virus_hijackers"
+      ],
+      "sourceCardIds": [
+        "card.human_body.077.c5",
+        "card.human_body.072.c2"
+      ],
+      "prompt": "Penicillin stops bacteria building their cell walls. Why can't it do that to Level 72's viruses?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Viruses are too big for penicillin to reach",
+          "correct": false,
+          "rationale": "Viruses are far smaller than bacteria."
+        },
+        {
+          "id": "b",
+          "label": "Viruses aren't cells, so they have no cell walls to build",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Viruses live only in plants",
+          "correct": false,
+          "rationale": "Viruses infect people too."
+        },
+        {
+          "id": "d",
+          "label": "Viruses build their walls too fast",
+          "correct": false,
+          "rationale": "Viruses are genetic material in a protein coat, with no cell wall."
+        }
+      ],
+      "explanation": "Penicillin targets how bacteria build cell walls. A virus is genetic material in a protein coat, not a cell.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_fleming",
+    "source.brit_penicillin",
+    "source.shi_florey_chain",
+    "source.pmc_tan_fleming",
+    "source.shi_fleming"
+  ],
+  "art": "science.microscope"
+}

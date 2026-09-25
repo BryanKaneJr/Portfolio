@@ -1,0 +1,219 @@
+{
+  "id": "level.science.human_body.016",
+  "skillId": "skill.science.human_body",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Muscles Pull",
+  "objective": "After this level you can explain why muscles can only pull and so work in pairs.",
+  "summary": "Myosin heads pull actin filaments past them, shortening a muscle. A muscle can only pull, so muscles work in pairs: the biceps bends the elbow and the triceps straightens it.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.muscle_pull_pairs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.muscle_sliding_filaments",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.synovial_joints",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.015"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your muscles can't push. So how do you push a door?",
+      "body": "Every muscle in your body can only pull. Yet you push doors, shopping carts and elevator buttons all day. The answer is teamwork, and it starts deep inside each muscle fiber."
+    },
+    {
+      "id": "card.human_body.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tiny hands on a rope",
+      "body": "Inside a muscle fiber lie two kinds of protein filament: thick ones with myosin heads, and thin ones made of actin. When a signal arrives, the myosin heads grab the actin and pull it, sliding the thin filaments past the thick ones. Each head pulls only a tiny distance, lets go, re-cocks using energy from ATP and grabs again. Picture a crowd of hands hauling in a rope."
+    },
+    {
+      "id": "card.human_body.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pull only, so muscles come in pairs",
+      "body": "Sliding filaments can shorten a muscle, but a muscle can only contract, never push. So muscles work in pairs that pull in opposite directions. Your biceps pulls to bend your elbow; your triceps, on the back of your arm, pulls to straighten it. At the knee, the quadriceps straighten and the hamstrings bend. When one partner pulls, the other relaxes."
+    },
+    {
+      "id": "card.human_body.016.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every push is a pull in disguise",
+      "body": "So how do you push that door? Your triceps pulls to straighten your elbow, and your arm drives forward while the biceps relaxes. No muscle pushed anything. Every push you'll ever make is a pull happening somewhere else.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Push-ups are secretly pull-ups for your triceps. Please do not tell the gym."
+      }
+    },
+    {
+      "id": "card.human_body.016.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.016.q1"
+    },
+    {
+      "id": "card.human_body.016.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.016.q2"
+    },
+    {
+      "id": "card.human_body.016.c7",
+      "type": "recall",
+      "questionId": "question.human_body.016.q3"
+    },
+    {
+      "id": "card.human_body.016.c8",
+      "type": "checkpoint",
+      "headline": "Muscles: pulling together",
+      "learned": [
+        "Myosin heads pull actin filaments past them",
+        "Each head re-cocks using ATP energy",
+        "Muscles only pull, so they work in pairs",
+        "Biceps bends the elbow; triceps straightens it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.muscle_sliding_filaments"
+      ],
+      "sourceCardIds": [
+        "card.human_body.016.c2"
+      ],
+      "prompt": "Inside a muscle fiber, which protein's heads grab the thin actin filaments and pull them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Collagen",
+          "correct": false,
+          "rationale": "Collagen gives bone its flexible framework."
+        },
+        {
+          "id": "b",
+          "label": "Myosin",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Calcium phosphate",
+          "correct": false,
+          "rationale": "That's the hard mineral in bone."
+        },
+        {
+          "id": "d",
+          "label": "Synovial fluid",
+          "correct": false,
+          "rationale": "That's the lubricant inside joints."
+        }
+      ],
+      "explanation": "Myosin heads on the thick filaments grab actin, pull, let go and re-cock using ATP.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.muscle_pull_pairs"
+      ],
+      "sourceCardIds": [
+        "card.human_body.016.c3"
+      ],
+      "prompt": "Why do skeletal muscles work in pairs on opposite sides of a joint?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One muscle stores energy for the other",
+          "correct": false,
+          "rationale": "Each muscle powers its own pull with ATP."
+        },
+        {
+          "id": "b",
+          "label": "Pairs of muscles share one tendon",
+          "correct": false,
+          "rationale": "The pairing is about direction, not sharing parts."
+        },
+        {
+          "id": "c",
+          "label": "Each muscle can push and pull, but tires fast",
+          "correct": false,
+          "rationale": "Muscles can never push."
+        },
+        {
+          "id": "d",
+          "label": "A muscle only pulls, so a partner pulls back",
+          "correct": true
+        }
+      ],
+      "explanation": "A muscle can only contract and pull, so a second muscle is needed to pull the joint the other way.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.muscle_pull_pairs",
+        "concept.human_body.synovial_joints"
+      ],
+      "sourceCardIds": [
+        "card.human_body.016.c3",
+        "card.human_body.013.c4"
+      ],
+      "prompt": "Level 13 called the elbow a hinge joint. Which muscle pulls to straighten it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The biceps",
+          "correct": false,
+          "rationale": "The biceps bends the elbow."
+        },
+        {
+          "id": "b",
+          "label": "The quadriceps",
+          "correct": false,
+          "rationale": "The quadriceps straighten the knee."
+        },
+        {
+          "id": "c",
+          "label": "The triceps",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The hamstrings",
+          "correct": false,
+          "rationale": "The hamstrings bend the knee."
+        }
+      ],
+      "explanation": "The triceps, on the back of the arm, pulls to straighten the elbow; the biceps pulls to bend it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_muscle_system",
+    "source.openstax_ap_muscle_contraction",
+    "source.openstax_ap_muscle_tissue_overview",
+    "source.openstax_ap_muscle_levers"
+  ],
+  "art": "body.muscle"
+}

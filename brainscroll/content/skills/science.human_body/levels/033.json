@@ -1,0 +1,217 @@
+{
+  "id": "level.science.human_body.033",
+  "skillId": "skill.science.human_body",
+  "number": 33,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Diaphragm",
+  "objective": "After this level you can explain how the diaphragm moves air in and out.",
+  "summary": "The dome-shaped diaphragm contracts and moves down, the chest grows, pressure in the lungs falls and air flows in. At rest, breathing out is just the lungs springing back.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.breathing_diaphragm",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.breathing_out_passive",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.organ_systems",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.032"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.033.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You don't suck air in. You make room, and the air comes in by itself.",
+      "body": "The muscle that does it sits right under your lungs. It is working right now, and you have probably never once seen it. Meet the diaphragm."
+    },
+    {
+      "id": "card.human_body.033.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A dome that flattens",
+      "body": "Your diaphragm is a dome-shaped muscle below your lungs, the wall between your chest and your belly, and it's your main breathing muscle. When it contracts, it moves down and makes your chest cavity bigger. Your lungs expand into the new space. It works like pulling back the plunger of a syringe."
+    },
+    {
+      "id": "card.human_body.033.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Air flows downhill",
+      "body": "Here's the physics. When your lungs expand, the air pressure inside them drops below the pressure of the air outside. Air always flows from higher pressure to lower pressure, so in it comes. A quiet breath brings in about 500 milliliters, about as much as a small bottle of water."
+    },
+    {
+      "id": "card.human_body.033.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Breathing out is free",
+      "body": "At rest, breathing out takes no muscle effort at all. Your diaphragm and rib muscles relax, and your stretchy lungs spring back like an open balloon, pushing the air out. Only when you work hard do the muscles between your ribs, the intercostals, and a few extra muscles join in to force air in and out.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Breathing out at rest runs on pure bounce. Your lungs are wonderfully lazy."
+      }
+    },
+    {
+      "id": "card.human_body.033.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.033.q1"
+    },
+    {
+      "id": "card.human_body.033.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.033.q2"
+    },
+    {
+      "id": "card.human_body.033.c7",
+      "type": "recall",
+      "questionId": "question.human_body.033.q3"
+    },
+    {
+      "id": "card.human_body.033.c8",
+      "type": "checkpoint",
+      "headline": "Diaphragm: understood",
+      "learned": [
+        "The diaphragm is the main breathing muscle",
+        "It contracts and moves down to make room",
+        "Air flows from higher to lower pressure",
+        "At rest, breathing out is just recoil"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.033.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.breathing_diaphragm"
+      ],
+      "sourceCardIds": [
+        "card.human_body.033.c2"
+      ],
+      "prompt": "What does your diaphragm do when you breathe in?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It contracts and moves down",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It relaxes and rises",
+          "correct": false,
+          "rationale": "That's what happens when you breathe out."
+        },
+        {
+          "id": "c",
+          "label": "It pumps air into the lungs",
+          "correct": false,
+          "rationale": "It makes room; air flows in because of pressure."
+        },
+        {
+          "id": "d",
+          "label": "It squeezes the lungs smaller",
+          "correct": false,
+          "rationale": "It makes the chest bigger so the lungs can expand."
+        }
+      ],
+      "explanation": "The diaphragm contracts and moves down, enlarging the chest so the lungs expand.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.breathing_out_passive"
+      ],
+      "sourceCardIds": [
+        "card.human_body.033.c4"
+      ],
+      "prompt": "Why does breathing out at rest take no muscle effort?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The heart pushes the air out",
+          "correct": false,
+          "rationale": "The heart doesn't move air; the lungs spring back."
+        },
+        {
+          "id": "b",
+          "label": "The rib muscles squeeze hard",
+          "correct": false,
+          "rationale": "They join in only during hard work."
+        },
+        {
+          "id": "c",
+          "label": "Air leaks out through the skin",
+          "correct": false,
+          "rationale": "Air leaves through the airways, pushed by recoil."
+        },
+        {
+          "id": "d",
+          "label": "Relaxed muscles let the lungs spring back",
+          "correct": true
+        }
+      ],
+      "explanation": "When the diaphragm and rib muscles relax, the elastic lungs recoil like an open balloon and push air out.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.033.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.organ_systems",
+        "concept.human_body.breathing_diaphragm"
+      ],
+      "sourceCardIds": [
+        "card.human_body.033.c2",
+        "card.human_body.001.c2"
+      ],
+      "prompt": "The diaphragm is a muscle, but its work serves which of Level 1's systems?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Digestive: processing food",
+          "correct": false,
+          "rationale": "It sits above the belly but doesn't process food."
+        },
+        {
+          "id": "b",
+          "label": "Respiratory: oxygen in, carbon dioxide out",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Skeletal: holding you up",
+          "correct": false,
+          "rationale": "It moves air rather than holding you up."
+        },
+        {
+          "id": "d",
+          "label": "Urinary: filtering waste",
+          "correct": false,
+          "rationale": "That system filters waste from the blood."
+        }
+      ],
+      "explanation": "The diaphragm is the main breathing muscle, so its work serves the respiratory system, which brings in oxygen and removes carbon dioxide.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_breathing_process",
+    "source.nhlbi_body_controls_breathing"
+  ],
+  "art": "body.lungs"
+}

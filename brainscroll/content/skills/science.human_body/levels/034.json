@@ -1,0 +1,219 @@
+{
+  "id": "level.science.human_body.034",
+  "skillId": "skill.science.human_body",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Your Voice",
+  "objective": "After this level you can explain how the vocal cords make sound.",
+  "summary": "Air from the lungs makes the vocal folds in the larynx vibrate. Their speed sets the pitch; throat, nose, mouth, tongue and lips turn the buzz into words.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.voice_vocal_folds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.voice_pitch",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.lung_airways",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.033"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every word you've ever said was made of breath going out.",
+      "body": "Level 33's diaphragm moves air in and out all day. Your voice borrows the outgoing half. So how does a plain stream of air become a laugh, a whisper or your own name?"
+    },
+    {
+      "id": "card.human_body.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two folds in your voice box",
+      "body": "Your voice box, the larynx, sits between the base of your tongue and the top of your windpipe. Inside it are the vocal folds (also called vocal cords), two bands of tissue. When you breathe, they stay open. When you speak, they snap together, and air from your lungs blowing past makes them vibrate. That buzz is your voice."
+    },
+    {
+      "id": "card.human_body.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A guitar string you tune from the inside",
+      "body": "How fast your vocal folds vibrate sets your pitch, and when you talk they vibrate more than 100 times a second. Tighten them and the pitch changes, just like tuning a guitar string. Size matters too: vocal folds are shorter and thinner in women and children, which is part of why their voices are higher.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Hum a low note, then a high one. You just retuned your own strings, no guitar required."
+      }
+    },
+    {
+      "id": "card.human_body.034.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "From buzz to words",
+      "body": "The raw buzz isn't speech yet. The sound travels through your throat, nose and mouth, which shape it as it echoes around inside them. Then your tongue and lips get to work, carving it into words. Your folds make the sound; your mouth makes the meaning."
+    },
+    {
+      "id": "card.human_body.034.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.034.q1"
+    },
+    {
+      "id": "card.human_body.034.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.034.q2"
+    },
+    {
+      "id": "card.human_body.034.c7",
+      "type": "recall",
+      "questionId": "question.human_body.034.q3"
+    },
+    {
+      "id": "card.human_body.034.c8",
+      "type": "checkpoint",
+      "headline": "Voice: tuned",
+      "learned": [
+        "Vocal folds in the larynx vibrate to make sound",
+        "Faster vibration means higher pitch",
+        "Shorter, thinner folds give higher voices",
+        "Throat, mouth, tongue and lips make words"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.voice_vocal_folds"
+      ],
+      "sourceCardIds": [
+        "card.human_body.034.c2"
+      ],
+      "prompt": "What produces the sound of your voice?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The tongue tapping the teeth",
+          "correct": false,
+          "rationale": "The tongue shapes sound; it doesn't start the buzz."
+        },
+        {
+          "id": "b",
+          "label": "Vibrating vocal folds in the larynx",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The lungs humming as they fill",
+          "correct": false,
+          "rationale": "The lungs supply air; the sound starts in the voice box."
+        },
+        {
+          "id": "d",
+          "label": "The windpipe shaking",
+          "correct": false,
+          "rationale": "The windpipe carries air; the folds vibrate."
+        }
+      ],
+      "explanation": "Air from the lungs makes the vocal folds in the larynx vibrate, and that vibration is your voice.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.voice_pitch"
+      ],
+      "sourceCardIds": [
+        "card.human_body.034.c3"
+      ],
+      "prompt": "Why do children usually have higher-pitched voices than adult men?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their lungs are smaller",
+          "correct": false,
+          "rationale": "Pitch comes from the vocal folds, not lung size."
+        },
+        {
+          "id": "b",
+          "label": "They breathe faster",
+          "correct": false,
+          "rationale": "Breathing rate doesn't set pitch."
+        },
+        {
+          "id": "c",
+          "label": "Their vocal folds are shorter and thinner",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Their mouths block low sounds",
+          "correct": false,
+          "rationale": "The mouth shapes sound; fold size and speed set pitch."
+        }
+      ],
+      "explanation": "Vocal folds are shorter and thinner in women and children, which partly explains their higher voices.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.lung_airways",
+        "concept.human_body.voice_vocal_folds"
+      ],
+      "sourceCardIds": [
+        "card.human_body.034.c2",
+        "card.human_body.032.c2"
+      ],
+      "prompt": "Level 32 sent air past the voice box and down the windpipe. What are the vocal folds doing while you simply breathe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Staying open to let air through",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Snapped shut",
+          "correct": false,
+          "rationale": "Then no air could pass."
+        },
+        {
+          "id": "c",
+          "label": "Vibrating quietly",
+          "correct": false,
+          "rationale": "They vibrate when they snap together to speak."
+        },
+        {
+          "id": "d",
+          "label": "Sweeping mucus upward",
+          "correct": false,
+          "rationale": "That's the cilia's job."
+        }
+      ],
+      "explanation": "The vocal folds stay open for breathing and snap together only to vibrate when you speak.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nidcd_voice_care",
+    "source.britannica_vocal_cord",
+    "source.weillcornell_voice_function",
+    "source.nidcd_voice_speech"
+  ],
+  "art": "geo.speech-bubbles"
+}

@@ -1,0 +1,220 @@
+{
+  "id": "level.science.human_body.043",
+  "skillId": "skill.science.human_body",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Stomach",
+  "objective": "After this level you can explain how the stomach breaks food down with acid.",
+  "summary": "Beaumont watched a living stomach through a healed gunshot wound. Acid and pepsin break food down, muscles churn it into chyme, and mucus and fast renewal protect the wall.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.stomach_beaumont",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.stomach_acid_juice",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.tissue_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.042"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.043.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A gunshot wound gave one doctor a window into a stomach.",
+      "body": "For centuries physicians argued about what the stomach does. Some thought it cooked food with inner heat; others blamed fermentation or rotting. Then, in 1822, an accident on the Michigan frontier let a doctor look inside a living one."
+    },
+    {
+      "id": "card.human_body.043.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The window into a stomach",
+      "body": "Alexis St. Martin was a 19-year-old fur trapper when he was shot at close range. Army surgeon William Beaumont treated him, and the wound healed with a permanent opening into his stomach. Beaumont lowered foods in on a silk string to time their digestion and drew out gastric juice. His 1833 book reported that the juice held hydrochloric acid and dissolved food. It came at a cost: St. Martin reported pain during some experiments, and once left for Canada without Beaumont's consent."
+    },
+    {
+      "id": "card.human_body.043.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Acid and a protein cutter",
+      "body": "The juice Beaumont collected comes from glands in your stomach lining. It carries hydrochloric acid, strong enough to kill many swallowed bacteria. The acid also switches on pepsin, an enzyme that breaks down proteins. Meanwhile Level 4's three layers of smooth muscle churn everything together until your meal becomes a thick liquid called chyme, ready for the small intestine."
+    },
+    {
+      "id": "card.human_body.043.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it doesn't digest itself",
+      "body": "So why doesn't all that acid and pepsin digest the stomach too? A thick coat of mucus, rich in bicarbonate that neutralizes acid, lines the wall. And the surface lining is replaced every few days. The stomach doesn't avoid the damage. It simply outpaces it.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A bag full of acid that keeps itself intact by never standing still. Respect."
+      }
+    },
+    {
+      "id": "card.human_body.043.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.043.q1"
+    },
+    {
+      "id": "card.human_body.043.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.043.q2"
+    },
+    {
+      "id": "card.human_body.043.c7",
+      "type": "recall",
+      "questionId": "question.human_body.043.q3"
+    },
+    {
+      "id": "card.human_body.043.c8",
+      "type": "checkpoint",
+      "headline": "Stomach: opened",
+      "learned": [
+        "Beaumont studied digestion through St. Martin's healed wound",
+        "Gastric juice holds hydrochloric acid and dissolves food",
+        "Pepsin breaks down proteins; muscles churn food into chyme",
+        "Mucus and a fast-renewing lining protect the wall"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.stomach_beaumont"
+      ],
+      "sourceCardIds": [
+        "card.human_body.043.c2"
+      ],
+      "prompt": "How did William Beaumont study digestion inside a living stomach?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By dissecting animals after meals",
+          "correct": false,
+          "rationale": "He studied a living person."
+        },
+        {
+          "id": "b",
+          "label": "With early X-ray images",
+          "correct": false,
+          "rationale": "X-rays were decades away."
+        },
+        {
+          "id": "c",
+          "label": "Through a patient's healed gunshot opening",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By swallowing food on a string himself",
+          "correct": false,
+          "rationale": "The string went into St. Martin's stomach."
+        }
+      ],
+      "explanation": "Alexis St. Martin's gunshot wound healed with a permanent opening into his stomach, and Beaumont studied digestion through it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.stomach_acid_juice"
+      ],
+      "sourceCardIds": [
+        "card.human_body.043.c4"
+      ],
+      "prompt": "Why doesn't the stomach's own acid and pepsin digest the stomach wall?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The wall is made of bone",
+          "correct": false,
+          "rationale": "It's soft tissue, protected in other ways."
+        },
+        {
+          "id": "b",
+          "label": "Pepsin only works at night",
+          "correct": false,
+          "rationale": "Pepsin works whenever food is there."
+        },
+        {
+          "id": "c",
+          "label": "A mucus coat and a fast-renewing lining",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The acid leaves before it can touch it",
+          "correct": false,
+          "rationale": "The acid stays in the stomach with the food."
+        }
+      ],
+      "explanation": "Bicarbonate-rich mucus neutralizes acid at the wall, and the surface lining is replaced every few days.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.tissue_types",
+        "concept.human_body.stomach_acid_juice"
+      ],
+      "sourceCardIds": [
+        "card.human_body.004.c4",
+        "card.human_body.043.c3"
+      ],
+      "prompt": "Level 4 said the stomach wall has three layers of smooth muscle. What is their job in digestion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Making hydrochloric acid",
+          "correct": false,
+          "rationale": "Glands in the lining do that."
+        },
+        {
+          "id": "b",
+          "label": "Churning food with gastric juice",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Absorbing most nutrients",
+          "correct": false,
+          "rationale": "That's the small intestine's job."
+        },
+        {
+          "id": "d",
+          "label": "Storing bile between meals",
+          "correct": false,
+          "rationale": "The gallbladder does that."
+        }
+      ],
+      "explanation": "The smooth muscle layers churn food with gastric juice until it becomes chyme.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_beaumont",
+    "source.sciencehistory_beaumont",
+    "source.openstax_ap_stomach",
+    "source.niddk_digestive_system",
+    "source.openstax_ap_digestive_overview"
+  ],
+  "art": "body.stomach"
+}

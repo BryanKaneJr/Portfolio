@@ -1,0 +1,224 @@
+{
+  "id": "level.science.human_body.018",
+  "skillId": "skill.science.human_body",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Getting Stronger",
+  "objective": "After this level you can explain what happens inside muscles when you exercise.",
+  "summary": "Muscles grow by thickening fibers with more myofibrils, not by adding cells. Endurance exercise can add mitochondria and capillaries; unused muscle shrinks, but can often recover.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.training_muscle_growth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.training_endurance_disuse",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.cell_parts",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.muscle_sliding_filaments",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.017"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Lifting weights won't give you new muscle cells. It upgrades the old ones.",
+      "body": "When muscles grow, your body doesn't add new muscle cells. It remodels the ones you already have. What changes depends on how you use them, and on whether you use them at all."
+    },
+    {
+      "id": "card.human_body.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Thicker fibers, same number",
+      "body": "Resistance exercise, such as lifting weights, makes muscle fibers build more myofibrils. Each myofibril is a chain of tiny units holding Level 16's actin and myosin filaments. With more of them packed in, each fiber gets thicker, and so does the muscle. This is called hypertrophy: same cells, more rope-pullers inside each one.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Your muscles do not hire new staff. They promote from within."
+      }
+    },
+    {
+      "id": "card.human_body.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Endurance builds the power supply",
+      "body": "Long, steady exercise changes muscle in a different way. It can add more mitochondria, the power stations from Level 2 that turn energy from food into a form cells can use. It can also add capillaries, the tiny blood vessels threading through the muscle. More engines, more fuel lines."
+    },
+    {
+      "id": "card.human_body.018.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Use it or lose it",
+      "body": "The upgrade runs in reverse, too. When a muscle isn't used, it loses structural proteins and shrinks. That's called atrophy. The good news: atrophy from disuse can often be reversed with exercise. Your muscles keep adjusting to whatever you ask of them."
+    },
+    {
+      "id": "card.human_body.018.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.018.q1"
+    },
+    {
+      "id": "card.human_body.018.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.018.q2"
+    },
+    {
+      "id": "card.human_body.018.c7",
+      "type": "recall",
+      "questionId": "question.human_body.018.q3"
+    },
+    {
+      "id": "card.human_body.018.c8",
+      "type": "checkpoint",
+      "headline": "Muscles: trained",
+      "learned": [
+        "Muscles grow without adding cells",
+        "Resistance exercise adds myofibrils, thickening fibers",
+        "Endurance exercise can add mitochondria and capillaries",
+        "Unused muscle shrinks (atrophy), but can often recover"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.training_muscle_growth"
+      ],
+      "sourceCardIds": [
+        "card.human_body.018.c2"
+      ],
+      "prompt": "When resistance exercise makes a muscle bigger, what happens to its fibers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They split into many new muscle cells",
+          "correct": false,
+          "rationale": "Muscles grow without forming new cells."
+        },
+        {
+          "id": "b",
+          "label": "They turn into tendon tissue",
+          "correct": false,
+          "rationale": "They stay muscle; they just get thicker."
+        },
+        {
+          "id": "c",
+          "label": "They fill up with yellow marrow",
+          "correct": false,
+          "rationale": "Marrow is inside bones, not muscles."
+        },
+        {
+          "id": "d",
+          "label": "Each fiber gets thicker with more myofibrils",
+          "correct": true
+        }
+      ],
+      "explanation": "Resistance exercise adds myofibrils, so each fiber thickens; this is hypertrophy.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.training_endurance_disuse"
+      ],
+      "sourceCardIds": [
+        "card.human_body.018.c4"
+      ],
+      "prompt": "A leg muscle gets smaller after weeks without being used. What is happening inside it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is losing structural proteins from disuse",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its fibers are turning into bone",
+          "correct": false,
+          "rationale": "Muscle doesn't become bone."
+        },
+        {
+          "id": "c",
+          "label": "It is gaining extra mitochondria",
+          "correct": false,
+          "rationale": "That comes with endurance exercise, not disuse."
+        },
+        {
+          "id": "d",
+          "label": "Its cells are dividing too fast",
+          "correct": false,
+          "rationale": "Atrophy is a loss of protein, not extra division."
+        }
+      ],
+      "explanation": "An unused muscle loses structural proteins and shrinks (atrophy), which exercise can often reverse.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.training_endurance_disuse",
+        "concept.human_body.cell_parts"
+      ],
+      "sourceCardIds": [
+        "card.human_body.018.c3",
+        "card.human_body.002.c4"
+      ],
+      "prompt": "Endurance exercise can add more of which cell part from Level 2, the one that turns food energy into a usable form?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The nucleus",
+          "correct": false,
+          "rationale": "The nucleus is the command center."
+        },
+        {
+          "id": "b",
+          "label": "Mitochondria",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The cell membrane",
+          "correct": false,
+          "rationale": "The membrane controls what enters and leaves."
+        },
+        {
+          "id": "d",
+          "label": "The cytoplasm",
+          "correct": false,
+          "rationale": "Cytoplasm is the jelly-like fluid filling the cell."
+        }
+      ],
+      "explanation": "Endurance exercise can increase the number of mitochondria, the cell's power stations.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_muscle_exercise",
+    "source.openstax_ap_muscle_contraction",
+    "source.medlineplus_cell",
+    "source.nhgri_mitochondria"
+  ],
+  "art": "body.dumbbell"
+}

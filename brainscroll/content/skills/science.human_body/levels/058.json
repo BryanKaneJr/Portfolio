@@ -1,0 +1,241 @@
+{
+  "id": "level.science.human_body.058",
+  "skillId": "skill.science.human_body",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Dreams",
+  "objective": "After this level you can describe what scientists know about why we dream.",
+  "summary": "In the early 1950s, rapid eye movements in sleep were found and linked to dreaming. Why we dream is still open: wishes, random signals and memory are rival theories.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.dream_rem_link",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.dream_theories",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.neuro_sleep_stages",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.057"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1951, a machine said a sleeping boy was wide awake.",
+      "body": "Eugene Aserinsky taped electrodes to his 8-year-old son Armond's head and put him to bed. Hours later, the pens were swinging as if the boy were alert and looking around. Aserinsky went in to check. Armond's eyes were closed. He was fast asleep."
+    },
+    {
+      "id": "card.human_body.058.c2",
+      "type": "fact",
+      "fact": "Wake someone when their eyes dart, and they'll tell you a dream.",
+      "context": "In 1953, Aserinsky and Nathaniel Kleitman at the University of Chicago reported regular periods of rapid eye movements in sleep. Sleepers woken during them had been dreaming, often vividly. Today we know everyone dreams, for about two hours a night, and dreams happen in all stages but are usually most vivid in REM sleep. Most are forgotten by breakfast."
+    },
+    {
+      "id": "card.human_body.058.c3",
+      "type": "comparison",
+      "headline": "Why dream? Three big theories",
+      "items": [
+        {
+          "label": "Disguised wishes",
+          "points": [
+            "Sigmund Freud, 1899",
+            "Dreams fulfill wishes in disguise"
+          ]
+        },
+        {
+          "label": "Activation-synthesis",
+          "points": [
+            "Hobson and McCarley, 1977",
+            "The brainstem fires signals in REM",
+            "The forebrain builds a story from them"
+          ]
+        },
+        {
+          "label": "Processing",
+          "points": [
+            "Dreams may help process emotions",
+            "Or help sort memories"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.058.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "No winner yet",
+      "body": "Here's the honest part: the exact purpose of dreaming is not known. Each theory explains some things about dreams, and none has settled the question. So treat any confident claim about what dreams are for as a theory, not a verdict.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "If anyone tells you exactly what last night's dream meant, they know more than the scientists do."
+      }
+    },
+    {
+      "id": "card.human_body.058.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.058.q1"
+    },
+    {
+      "id": "card.human_body.058.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.058.q2"
+    },
+    {
+      "id": "card.human_body.058.c7",
+      "type": "recall",
+      "questionId": "question.human_body.058.q3"
+    },
+    {
+      "id": "card.human_body.058.c8",
+      "type": "checkpoint",
+      "headline": "Dreams: explored",
+      "learned": [
+        "Rapid eye movements in sleep were reported in 1953",
+        "Everyone dreams, about two hours a night, most vividly in REM",
+        "Theories: disguised wishes, activation-synthesis, processing",
+        "The purpose of dreaming is still unknown"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.dream_rem_link"
+      ],
+      "sourceCardIds": [
+        "card.human_body.058.c2"
+      ],
+      "prompt": "In which kind of sleep are dreams usually most vivid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stage 1, the changeover",
+          "correct": false,
+          "rationale": "Dreams can happen there, but REM dreams are most vivid."
+        },
+        {
+          "id": "b",
+          "label": "Stage 3, deep sleep",
+          "correct": false,
+          "rationale": "Dreams can occur in all stages, but not most vividly here."
+        },
+        {
+          "id": "c",
+          "label": "REM sleep",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "None; dreams happen only awake",
+          "correct": false,
+          "rationale": "Dreaming happens in sleep."
+        }
+      ],
+      "explanation": "Dreams can happen in all sleep stages, but they are usually most vivid in REM sleep.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.dream_theories"
+      ],
+      "sourceCardIds": [
+        "card.human_body.058.c3"
+      ],
+      "prompt": "According to the activation-synthesis hypothesis, where do dreams come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wishes in disguise",
+          "correct": false,
+          "rationale": "That is Freud's theory."
+        },
+        {
+          "id": "b",
+          "label": "The forebrain making a story from signals fired in REM",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Messages about the future",
+          "correct": false,
+          "rationale": "No scientific theory here says that."
+        },
+        {
+          "id": "d",
+          "label": "Sounds in the bedroom only",
+          "correct": false,
+          "rationale": "The theory centers on signals from the brainstem."
+        }
+      ],
+      "explanation": "Hobson and McCarley proposed that the brainstem fires signals during REM and the forebrain builds a story to make sense of them.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.dream_rem_link",
+        "concept.human_body.neuro_sleep_stages"
+      ],
+      "sourceCardIds": [
+        "card.human_body.057.c2",
+        "card.human_body.058.c2"
+      ],
+      "prompt": "Level 57 described REM sleep. Why don't your legs actually run when you dream of running?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dreams never involve movement",
+          "correct": false,
+          "rationale": "Dreams can feature plenty of action."
+        },
+        {
+          "id": "b",
+          "label": "You are in deep stage 3 sleep",
+          "correct": false,
+          "rationale": "Vivid dreams come mostly in REM."
+        },
+        {
+          "id": "c",
+          "label": "The spinal cord shuts off each night",
+          "correct": false,
+          "rationale": "The limbs are paralyzed in REM, not unwired."
+        },
+        {
+          "id": "d",
+          "label": "Arm and leg muscles are temporarily paralyzed in REM",
+          "correct": true
+        }
+      ],
+      "explanation": "During REM sleep, when dreams are most vivid, arm and leg muscles are temporarily paralyzed, which stops you acting dreams out.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonian_rem_discovery",
+    "source.sleep_who_discovered_rem",
+    "source.ninds_brain_basics_sleep",
+    "source.brit_interpretation_of_dreams",
+    "source.ajp_hobson_mccarley_activation_synthesis"
+  ],
+  "art": "astronomy.moon"
+}

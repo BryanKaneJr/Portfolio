@@ -1,0 +1,249 @@
+{
+  "id": "level.science.human_body.045",
+  "skillId": "skill.science.human_body",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Liver",
+  "objective": "After this level you can name the many jobs the liver does.",
+  "summary": "The liver, the largest gland, meets absorbed nutrients first. It makes bile, stores glycogen and vitamins, clears wastes and old red blood cells, and can grow back after up to two-thirds is removed.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.liver_jobs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.liver_regrowth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.intestine_absorption",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.cell_turnover",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.044"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In Greek myth, an eagle ate Prometheus's liver. It kept growing back.",
+      "body": "That was Zeus's punishment: the liver regrew, so the torment never ended. Myth, of course. But real livers have a surprising talent for regrowing too. First, though: what does this organ actually do all day?"
+    },
+    {
+      "id": "card.human_body.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "First stop after the gut",
+      "body": "Your liver is the largest gland in your body, about 1.2 to 1.6 kg in an adult. Remember Level 44? Blood from your intestines goes to the liver first, carrying the sugars and amino acids you just absorbed. The liver stores and processes those nutrients and sends them on to the rest of your body when they're needed. Every meal clears customs here."
+    },
+    {
+      "id": "card.human_body.045.c3",
+      "type": "comparison",
+      "headline": "One organ, many jobs",
+      "items": [
+        {
+          "label": "Digestion",
+          "points": [
+            "Makes bile, which helps digest fats",
+            "The gallbladder stores bile until you eat"
+          ]
+        },
+        {
+          "label": "Storage",
+          "points": [
+            "Keeps glycogen, a store of energy",
+            "Holds some vitamins"
+          ]
+        },
+        {
+          "label": "Clean-up",
+          "points": [
+            "Breaks down old red blood cells",
+            "Removes wastes and harmful substances from the blood"
+          ]
+        }
+      ],
+      "mascot": {
+        "pose": "pointing",
+        "line": "Chef, pantry and cleaning crew in one organ. The liver does not do job descriptions."
+      }
+    },
+    {
+      "id": "card.human_body.045.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The organ that grows back",
+      "body": "Surgeons can remove up to two-thirds of a healthy liver, and what's left grows back to about its original size, over weeks to months in people. The remaining liver cells divide and enlarge to rebuild it. It's Level 10's rule at work: new cells come only from existing cells. Prometheus had the right organ, just a faster schedule."
+    },
+    {
+      "id": "card.human_body.045.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.045.q1"
+    },
+    {
+      "id": "card.human_body.045.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.045.q2"
+    },
+    {
+      "id": "card.human_body.045.c7",
+      "type": "recall",
+      "questionId": "question.human_body.045.q3"
+    },
+    {
+      "id": "card.human_body.045.c8",
+      "type": "checkpoint",
+      "headline": "Liver: at work",
+      "learned": [
+        "The largest gland, about 1.2 to 1.6 kg",
+        "Absorbed nutrients reach it first",
+        "Makes bile, stores glycogen, clears wastes",
+        "Can regrow after up to two-thirds is removed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.liver_jobs"
+      ],
+      "sourceCardIds": [
+        "card.human_body.045.c3"
+      ],
+      "prompt": "Which liver product helps your body digest fats?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pepsin",
+          "correct": false,
+          "rationale": "Pepsin is a stomach enzyme for proteins."
+        },
+        {
+          "id": "b",
+          "label": "Chyme",
+          "correct": false,
+          "rationale": "Chyme is the churned food leaving the stomach."
+        },
+        {
+          "id": "c",
+          "label": "Saliva",
+          "correct": false,
+          "rationale": "Saliva comes from glands in the mouth."
+        },
+        {
+          "id": "d",
+          "label": "Bile",
+          "correct": true
+        }
+      ],
+      "explanation": "The liver makes bile, which helps digest fats; the gallbladder stores it between meals.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.liver_jobs",
+        "concept.human_body.intestine_absorption"
+      ],
+      "sourceCardIds": [
+        "card.human_body.045.c2",
+        "card.human_body.044.c4"
+      ],
+      "prompt": "Why does blood from the intestines pass through the liver before reaching the rest of the body?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So the liver can store and process the nutrients",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "So the liver can add stomach acid",
+          "correct": false,
+          "rationale": "The stomach makes its own acid."
+        },
+        {
+          "id": "c",
+          "label": "So the liver can chew the food further",
+          "correct": false,
+          "rationale": "Chewing happens in the mouth."
+        },
+        {
+          "id": "d",
+          "label": "So the liver can make it into urine",
+          "correct": false,
+          "rationale": "Urine is the kidneys' work."
+        }
+      ],
+      "explanation": "Absorbed nutrients reach the liver first, which stores, processes and sends them on when they're needed.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.liver_regrowth",
+        "concept.human_body.cell_turnover"
+      ],
+      "sourceCardIds": [
+        "card.human_body.045.c4",
+        "card.human_body.010.c4"
+      ],
+      "prompt": "Level 10's rule says new cells come only from existing cells. How does that show up when a liver regrows?",
+      "options": [
+        {
+          "id": "a",
+          "label": "New liver cells arrive from the blood",
+          "correct": false,
+          "rationale": "They come from the liver itself."
+        },
+        {
+          "id": "b",
+          "label": "Its remaining cells divide to rebuild it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The gallbladder turns into liver",
+          "correct": false,
+          "rationale": "The gallbladder only stores bile."
+        },
+        {
+          "id": "d",
+          "label": "It doesn't: livers can't regrow",
+          "correct": false,
+          "rationale": "A healthy liver can regrow after up to two-thirds is removed."
+        }
+      ],
+      "explanation": "After surgery, the remaining liver cells divide and enlarge until the liver is back to about its original size.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_liver",
+    "source.niddk_digestive_system",
+    "source.clevelandclinic_hepatectomy",
+    "source.pmc_bangru_liver_regeneration",
+    "source.brit_prometheus",
+    "source.openstax_bio_studying_cells"
+  ],
+  "art": "body.stomach"
+}

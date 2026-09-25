@@ -1,0 +1,219 @@
+{
+  "id": "level.science.human_body.051",
+  "skillId": "skill.science.human_body",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Nervous System",
+  "objective": "After this level you can explain how the brain, the spinal cord and the nerves connect.",
+  "summary": "The brain and spinal cord are the central nervous system; nerves everywhere else are the peripheral one. Messages run both ways, and much of the work runs without you.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.nervous_central_peripheral",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.nervous_voluntary_involuntary",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.organ_systems",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.050"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.051.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Wiggle your toes. A message just made a round trip.",
+      "body": "Back in Level 1, the nervous system's job was to sense and respond. To move your toes, orders ran from your brain, down your spinal cord and out along nerves to your foot muscles. This level maps that wiring."
+    },
+    {
+      "id": "card.human_body.051.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Head office and the roads out",
+      "body": "Anatomists split the nervous system in two. The central nervous system is your brain and spinal cord, packed safely inside your skull and your backbone. The peripheral nervous system is everything else: the nerves that branch out to every corner of you. Think of a head office with a road to every branch. The decisions happen at head office; the roads are how news and orders get there and back."
+    },
+    {
+      "id": "card.human_body.051.c3",
+      "type": "fact",
+      "fact": "Nerves are two-way streets.",
+      "context": "Sensory neurons carry information in, from your sense organs toward your brain. Motor neurons carry messages out, from your brain to your muscles, down the spinal cord and along the nerves. Stub your toe and the news travels up; decide to hop around the kitchen and the orders travel down."
+    },
+    {
+      "id": "card.human_body.051.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "You choose to wave. You never choose to sweat.",
+      "body": "Some responses are voluntary, like contracting the skeletal muscles that wave your hand. The somatic nervous system runs those. Others are involuntary: heart muscle, the smooth muscle in your organs, and glands such as your sweat glands. The autonomic nervous system handles them, no permission needed.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Imagine having to remember to sweat. Nobody would get anything else done."
+      }
+    },
+    {
+      "id": "card.human_body.051.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.051.q1"
+    },
+    {
+      "id": "card.human_body.051.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.051.q2"
+    },
+    {
+      "id": "card.human_body.051.c7",
+      "type": "recall",
+      "questionId": "question.human_body.051.q3"
+    },
+    {
+      "id": "card.human_body.051.c8",
+      "type": "checkpoint",
+      "headline": "Nervous system: mapped",
+      "learned": [
+        "Central nervous system: brain and spinal cord",
+        "Peripheral nervous system: the nerves everywhere else",
+        "Sensory neurons carry news in; motor neurons carry orders out",
+        "Somatic runs voluntary moves; autonomic runs the automatic jobs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.nervous_central_peripheral"
+      ],
+      "sourceCardIds": [
+        "card.human_body.051.c2"
+      ],
+      "prompt": "Which two parts make up the central nervous system?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The brain and the heart",
+          "correct": false,
+          "rationale": "The heart belongs to the cardiovascular system."
+        },
+        {
+          "id": "b",
+          "label": "The brain and the spinal cord",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The spinal cord and the arm nerves",
+          "correct": false,
+          "rationale": "Nerves outside the brain and spinal cord are peripheral."
+        },
+        {
+          "id": "d",
+          "label": "The brain and the eyes",
+          "correct": false,
+          "rationale": "The eyes are sense organs, not part of the central pair."
+        }
+      ],
+      "explanation": "The central nervous system is the brain and spinal cord; everything else, like the nerves, is the peripheral nervous system.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.nervous_voluntary_involuntary"
+      ],
+      "sourceCardIds": [
+        "card.human_body.051.c4"
+      ],
+      "prompt": "You never decide to make your sweat glands work. Which part of the nervous system handles jobs like that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The somatic nervous system",
+          "correct": false,
+          "rationale": "It runs voluntary moves of skeletal muscle."
+        },
+        {
+          "id": "b",
+          "label": "Only the sensory neurons",
+          "correct": false,
+          "rationale": "Sensory neurons carry information in; they do not run glands."
+        },
+        {
+          "id": "c",
+          "label": "The autonomic nervous system",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The spinal cord alone, with no nerves",
+          "correct": false,
+          "rationale": "Orders still travel out along nerves."
+        }
+      ],
+      "explanation": "Involuntary responses, such as heart muscle, smooth muscle and glands, are governed by the autonomic nervous system.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.nervous_central_peripheral",
+        "concept.human_body.organ_systems"
+      ],
+      "sourceCardIds": [
+        "card.human_body.051.c3",
+        "card.human_body.051.c2",
+        "card.human_body.001.c2"
+      ],
+      "prompt": "Level 1 said the nervous system senses and responds. Which route do the orders take when you decide to wiggle your toes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Toes, then heart, then brain",
+          "correct": false,
+          "rationale": "The heart pumps blood; it does not relay nerve orders."
+        },
+        {
+          "id": "b",
+          "label": "Stomach, then spinal cord, then toes",
+          "correct": false,
+          "rationale": "The orders start in the brain."
+        },
+        {
+          "id": "c",
+          "label": "Brain, then blood, then toes",
+          "correct": false,
+          "rationale": "Nerve orders travel along neurons, not in the blood."
+        },
+        {
+          "id": "d",
+          "label": "Brain, then spinal cord, then nerves to the foot muscles",
+          "correct": true
+        }
+      ],
+      "explanation": "Motor messages run from the brain down the spinal cord and out along peripheral nerves to the muscles.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_nervous_system_basics",
+    "source.ninds_brain_basics_neuron",
+    "source.ninds_brain_basics_know_your_brain",
+    "source.openstax_ap_body_organization"
+  ],
+  "art": "body.neuron"
+}

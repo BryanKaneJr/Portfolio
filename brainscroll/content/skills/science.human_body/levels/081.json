@@ -1,0 +1,250 @@
+{
+  "id": "level.science.human_body.081",
+  "skillId": "skill.science.human_body",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "From One Cell to a Baby",
+  "objective": "After this level you can explain how a baby develops from a single cell.",
+  "summary": "Egg and sperm, 23 chromosomes each, fuse into one cell with 46. It divides, its cells specialize, it becomes a fetus at week 10, and birth comes at about 40 weeks.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.fertilization_zygote",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.prenatal_development",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.dna_location",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.cell_kinds",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.080"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.081.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every person you've ever met started as one cell.",
+      "body": "So did you. That first cell had no heart, no brain and no bones, just a full set of instructions. About 40 weeks later, there was a baby. Here's how one cell pulls that off."
+    },
+    {
+      "id": "card.human_body.081.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Half a set from each side",
+      "body": "It begins with fertilization: a sperm cell and an egg cell fuse into one new cell, the zygote. Each of those two cells carries exactly 23 chromosomes, one of each pair. Together they make 46. Remember Level 5's 23 pairs? This is where they come from: in every pair, one chromosome is from each parent."
+    },
+    {
+      "id": "card.human_body.081.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One cell, many careers",
+      "body": "In its first days the zygote divides, then divides again, into a ball of cells. Then the copies start to specialize, step by step, into every cell type the body needs: nerve cells, muscle cells, liver cells, about 400 kinds in all. Each keeps the same DNA. Same instruction book, very different careers.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "One cell, one instruction book, and somehow it builds a whole person. No foreman required."
+      }
+    },
+    {
+      "id": "card.human_body.081.c4",
+      "type": "timeline",
+      "headline": "Three names in about 40 weeks",
+      "events": [
+        {
+          "when": "Fertilization",
+          "label": "Egg and sperm fuse into one cell, the zygote"
+        },
+        {
+          "when": "First days",
+          "label": "The zygote divides into a ball of cells"
+        },
+        {
+          "when": "End of week 10",
+          "label": "The embryo is now called a fetus"
+        },
+        {
+          "when": "About week 40",
+          "label": "Birth"
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.081.c5",
+      "type": "fact",
+      "fact": "Week 10 of pregnancy is only about 8 weeks after fertilization.",
+      "context": "Doctors count pregnancy from the first day of the last menstrual period, about two weeks before fertilization happens. So the embryo becomes a fetus at the end of week 10 on the calendar, about 8 weeks into its own life. The calendar starts before the story does."
+    },
+    {
+      "id": "card.human_body.081.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.081.q1"
+    },
+    {
+      "id": "card.human_body.081.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.081.q2"
+    },
+    {
+      "id": "card.human_body.081.c8",
+      "type": "recall",
+      "questionId": "question.human_body.081.q3"
+    },
+    {
+      "id": "card.human_body.081.c9",
+      "type": "checkpoint",
+      "headline": "One cell to a baby: traced",
+      "learned": [
+        "Egg and sperm, 23 chromosomes each, fuse into a zygote with 46",
+        "The zygote divides, and its cells specialize",
+        "Embryo becomes fetus at the end of week 10 of pregnancy",
+        "Pregnancy lasts about 40 weeks, counted from before fertilization"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.fertilization_zygote"
+      ],
+      "sourceCardIds": [
+        "card.human_body.081.c2"
+      ],
+      "prompt": "At fertilization, how many chromosomes does each egg or sperm cell carry?",
+      "options": [
+        {
+          "id": "a",
+          "label": "12",
+          "correct": false,
+          "rationale": "Too few: each carries one of every pair."
+        },
+        {
+          "id": "b",
+          "label": "23",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "46",
+          "correct": false,
+          "rationale": "That's the total after they fuse."
+        },
+        {
+          "id": "d",
+          "label": "92",
+          "correct": false,
+          "rationale": "Double the full human set."
+        }
+      ],
+      "explanation": "Each egg or sperm carries 23 chromosomes, so the zygote they make has 46.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.prenatal_development"
+      ],
+      "sourceCardIds": [
+        "card.human_body.081.c5"
+      ],
+      "prompt": "Why is the embryo called a fetus at the end of week 10 of pregnancy, when it's only about 8 weeks old?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Embryos grow twice as fast as fetuses",
+          "correct": false,
+          "rationale": "Growth speed isn't why the numbers differ."
+        },
+        {
+          "id": "b",
+          "label": "Fertilization happens two weeks after birth",
+          "correct": false,
+          "rationale": "Fertilization comes at the very start."
+        },
+        {
+          "id": "c",
+          "label": "Pregnancy is counted from about two weeks before fertilization",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Doctors round every week up to ten",
+          "correct": false,
+          "rationale": "The gap comes from where the count starts."
+        }
+      ],
+      "explanation": "Pregnancy is dated from the first day of the last menstrual period, about two weeks before fertilization.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.prenatal_development",
+        "concept.human_body.dna_location"
+      ],
+      "sourceCardIds": [
+        "card.human_body.081.c3",
+        "card.human_body.005.c3"
+      ],
+      "prompt": "Level 5 said nearly every cell in your body has the same DNA. How does one zygote still produce nerve, muscle and liver cells?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its dividing cells specialize while keeping the same DNA",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Each new cell receives a different set of genes",
+          "correct": false,
+          "rationale": "Each keeps the same DNA."
+        },
+        {
+          "id": "c",
+          "label": "Nerve cells come from the mother, muscle from the father",
+          "correct": false,
+          "rationale": "Every cell gets chromosomes from both parents."
+        },
+        {
+          "id": "d",
+          "label": "The cells swap DNA with the mother's body",
+          "correct": false,
+          "rationale": "The embryo's cells keep their own DNA."
+        }
+      ],
+      "explanation": "The zygote's copies all keep the same DNA but specialize, step by step, into different cell types.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nichd_pregnancy_about",
+    "source.medlineplus_fetal_development",
+    "source.nhgri_intro_genomics",
+    "source.nhgri_meiosis",
+    "source.pnas_hatton_cell_count",
+    "source.medlineplus_dna",
+    "source.nih_stem_cell_basics",
+    "source.nhgri_stem_cell"
+  ],
+  "art": "body.cell"
+}

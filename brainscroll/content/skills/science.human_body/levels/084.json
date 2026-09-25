@@ -1,0 +1,225 @@
+{
+  "id": "level.science.human_body.084",
+  "skillId": "skill.science.human_body",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Growing Up",
+  "objective": "After this level you can explain how growth spurts and hormones change the body.",
+  "summary": "A hormone relay from hypothalamus to pituitary to ovaries or testes starts puberty. Growth spurts peak around 11.5 (girls) and 13.5 (boys); the brain matures last.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.puberty_hormone_relay",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.puberty_growth_changes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.organ_systems",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.083"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Puberty starts in the brain, not the body.",
+      "body": "Before anything visible changes, a small part of your brain starts sending chemical messages. Here's the relay that turns a child's body into an adult's, and why the finish line comes much later than you'd guess."
+    },
+    {
+      "id": "card.human_body.084.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A three-step hormone relay",
+      "body": "The trigger is the hypothalamus, a small part of the brain. It releases a hormone called GnRH, which tells the pituitary, a pea-sized gland just below it, to send out two more hormones, LH and FSH. Those reach the ovaries or testes, which start releasing sex hormones such as estrogens and testosterone. Those hormones drive the changes you can see. Brain, gland, organs: a relay race run in chemicals."
+    },
+    {
+      "id": "card.human_body.084.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A wide starting window",
+      "body": "Puberty is the time of life when the body matures sexually. Its physical changes typically begin between ages 8 and 13 in girls and between 9 and 14 in boys. That's a window of about five years, so two friends of the same age can be at very different stages. The relay starts when it starts."
+    },
+    {
+      "id": "card.human_body.084.c4",
+      "type": "fact",
+      "fact": "Girls' growth spurt peaks around age 11.5; boys' around 13.5.",
+      "context": "Girls' growth then slows around 16, and boys' around 18. New body hair appears too, usually at about 9 or 10 in girls and about 12 in boys. That's why girls often shoot up first, and boys catch up later."
+    },
+    {
+      "id": "card.human_body.084.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The brain signs off last",
+      "body": "Your brain stops growing in size by early adolescence, but it keeps fine-tuning how it works until the mid-to-late 20s. One of the last parts to mature is the prefrontal cortex, just behind your forehead, which handles planning and decisions. Growing up happens in stages, and the planning department finishes last.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Next time someone says you're not thinking ahead, you can blame the construction schedule."
+      }
+    },
+    {
+      "id": "card.human_body.084.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.084.q1"
+    },
+    {
+      "id": "card.human_body.084.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.084.q2"
+    },
+    {
+      "id": "card.human_body.084.c8",
+      "type": "recall",
+      "questionId": "question.human_body.084.q3"
+    },
+    {
+      "id": "card.human_body.084.c9",
+      "type": "checkpoint",
+      "headline": "Growing up: mapped",
+      "learned": [
+        "Hypothalamus, then pituitary, then ovaries or testes",
+        "Changes typically begin between 8 and 14",
+        "Growth spurts peak around 11.5 (girls) and 13.5 (boys)",
+        "The brain matures into the mid-to-late 20s"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.puberty_growth_changes"
+      ],
+      "sourceCardIds": [
+        "card.human_body.084.c5"
+      ],
+      "prompt": "Which part of the brain is one of the last to mature, in the mid-to-late 20s?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The pituitary",
+          "correct": false,
+          "rationale": "It's a gland in the hormone relay."
+        },
+        {
+          "id": "b",
+          "label": "The hypothalamus",
+          "correct": false,
+          "rationale": "It triggers puberty."
+        },
+        {
+          "id": "c",
+          "label": "The prefrontal cortex",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The spinal cord",
+          "correct": false,
+          "rationale": "It's not the part named here."
+        }
+      ],
+      "explanation": "The prefrontal cortex, behind the forehead, handles planning and decisions and is one of the last parts to mature.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.puberty_hormone_relay"
+      ],
+      "sourceCardIds": [
+        "card.human_body.084.c3"
+      ],
+      "prompt": "Why can two 12-year-old friends be at very different stages of puberty?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its changes typically start anywhere from about 8 to 14",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Puberty starts on each child's 12th birthday",
+          "correct": false,
+          "rationale": "There's no fixed start date."
+        },
+        {
+          "id": "c",
+          "label": "Only one friend has a hypothalamus",
+          "correct": false,
+          "rationale": "Everyone has one."
+        },
+        {
+          "id": "d",
+          "label": "Puberty always finishes by age 12",
+          "correct": false,
+          "rationale": "The growth spurt alone runs later than that."
+        }
+      ],
+      "explanation": "Puberty's physical changes typically begin between 8 and 13 in girls and 9 and 14 in boys.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.puberty_hormone_relay",
+        "concept.human_body.organ_systems"
+      ],
+      "sourceCardIds": [
+        "card.human_body.084.c2",
+        "card.human_body.001.c2"
+      ],
+      "prompt": "Level 1 described the endocrine system as the body's hormone messenger. In what order does puberty's hormone relay run?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ovaries or testes, then pituitary, then hypothalamus",
+          "correct": false,
+          "rationale": "That's the relay backwards."
+        },
+        {
+          "id": "b",
+          "label": "Pituitary, then hypothalamus, then ovaries or testes",
+          "correct": false,
+          "rationale": "The hypothalamus goes first."
+        },
+        {
+          "id": "c",
+          "label": "Hypothalamus, then ovaries or testes, then pituitary",
+          "correct": false,
+          "rationale": "The pituitary signals the ovaries or testes."
+        },
+        {
+          "id": "d",
+          "label": "Hypothalamus, then pituitary, then ovaries or testes",
+          "correct": true
+        }
+      ],
+      "explanation": "The hypothalamus releases GnRH, the pituitary releases LH and FSH, and the ovaries or testes release sex hormones.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nichd_puberty_causes",
+    "source.nichd_puberty_about",
+    "source.medlineplus_adolescent_development",
+    "source.nimh_teen_brain"
+  ],
+  "art": "body.figure"
+}

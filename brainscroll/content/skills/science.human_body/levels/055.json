@@ -1,0 +1,218 @@
+{
+  "id": "level.science.human_body.055",
+  "skillId": "skill.science.human_body",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Left Brain, Right Brain?",
+  "objective": "After this level you can explain what the two halves of the brain do and why \"left-brained\" is a myth.",
+  "summary": "Two hemispheres, linked by the corpus callosum, each run the opposite side of the body, and language leans left. But no one is left-brained or right-brained.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.brain_hemispheres",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.brain_left_right_myth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.brain_main_parts",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.054"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Logical or creative? The quiz says you're one side. Scans disagree.",
+      "body": "A popular idea says logical, detail-minded people are left-brained and creative, subjective people are right-brained. There is real science about the brain's two halves. The personality labels are where it falls apart."
+    },
+    {
+      "id": "card.human_body.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two halves, one cable, crossed wires",
+      "body": "A deep groove splits your cerebrum into two halves, the hemispheres. They talk through the corpus callosum, a thick bundle of nerve fibers. And the wiring crosses over: your right hemisphere mainly controls the left side of your body, and the left hemisphere the right. That's why a stroke in the right hemisphere can paralyze the left arm and leg. Wave your right hand: that was the left side of your brain."
+    },
+    {
+      "id": "card.human_body.055.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Some jobs really do lean to one side",
+      "body": "The halves aren't identical twins. For most people, forming words and speech rely mainly on the left hemisphere, while the right takes the lead in spatial tasks and attention. So the brain does split some work. The question is whether whole people split too."
+    },
+    {
+      "id": "card.human_body.055.c4",
+      "type": "fact",
+      "fact": "Nobody is left-brained or right-brained.",
+      "context": "In 2013, Jared Nielsen, Jeff Anderson and colleagues at the University of Utah analyzed resting brain scans of 1,011 people aged 7 to 29, split into about 7,000 regions. Particular connections leaned left or right, like the language areas, but no one had a stronger left or right network overall. Lopsided jobs, yes. Lopsided people, no.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Good news for quiz-takers: you don't have to pick a side."
+      }
+    },
+    {
+      "id": "card.human_body.055.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.055.q1"
+    },
+    {
+      "id": "card.human_body.055.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.055.q2"
+    },
+    {
+      "id": "card.human_body.055.c7",
+      "type": "recall",
+      "questionId": "question.human_body.055.q3"
+    },
+    {
+      "id": "card.human_body.055.c8",
+      "type": "checkpoint",
+      "headline": "Two halves: sorted",
+      "learned": [
+        "The corpus callosum links the two hemispheres",
+        "Each hemisphere mainly controls the opposite side of the body",
+        "Speech leans left for most people; spatial tasks lean right",
+        "1,011 scans: no left-brained or right-brained people"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.brain_left_right_myth"
+      ],
+      "sourceCardIds": [
+        "card.human_body.055.c4"
+      ],
+      "prompt": "What did the 2013 University of Utah scan study find about 'left-brained' and 'right-brained' people?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Creative people used their right half more",
+          "correct": false,
+          "rationale": "No person showed a stronger side."
+        },
+        {
+          "id": "b",
+          "label": "No one had a stronger left or right network overall",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Most people are left-brained",
+          "correct": false,
+          "rationale": "No overall left-brained group turned up."
+        },
+        {
+          "id": "d",
+          "label": "Only children showed a stronger side",
+          "correct": false,
+          "rationale": "Ages 7 to 29 showed no overall side."
+        }
+      ],
+      "explanation": "Nielsen, Anderson and colleagues found individual connections were lateralized, but no one had a stronger left or right network overall.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.brain_hemispheres"
+      ],
+      "sourceCardIds": [
+        "card.human_body.055.c2"
+      ],
+      "prompt": "A stroke damages the right hemisphere of the brain. Which side of the body is more likely to be affected?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The left side",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The right side",
+          "correct": false,
+          "rationale": "The wiring crosses over."
+        },
+        {
+          "id": "c",
+          "label": "Both sides equally",
+          "correct": false,
+          "rationale": "Each hemisphere mainly controls the opposite side."
+        },
+        {
+          "id": "d",
+          "label": "Neither, only speech",
+          "correct": false,
+          "rationale": "Movement on the opposite side can be affected."
+        }
+      ],
+      "explanation": "Signals cross over, so the right hemisphere mainly controls the left side of the body.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.brain_hemispheres",
+        "concept.human_body.brain_main_parts"
+      ],
+      "sourceCardIds": [
+        "card.human_body.055.c2",
+        "card.human_body.054.c2"
+      ],
+      "prompt": "Level 54 called the cerebrum the brain's largest part. What links its two hemispheres so they can share information?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The cerebellum",
+          "correct": false,
+          "rationale": "It coordinates movement."
+        },
+        {
+          "id": "b",
+          "label": "The brainstem",
+          "correct": false,
+          "rationale": "It links the brain to the spinal cord."
+        },
+        {
+          "id": "c",
+          "label": "The corpus callosum",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The spinal cord",
+          "correct": false,
+          "rationale": "It links the brain to the body, not the halves to each other."
+        }
+      ],
+      "explanation": "The two cerebral hemispheres communicate through the corpus callosum, a thick bundle of nerve fibers.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ninds_brain_basics_know_your_brain",
+    "source.brit_cerebral_hemisphere",
+    "source.uofuhealth_left_right_brain",
+    "source.plosone_nielsen_left_right_brain"
+  ],
+  "art": "body.neuron"
+}

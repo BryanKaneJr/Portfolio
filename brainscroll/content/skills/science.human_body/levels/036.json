@@ -1,0 +1,218 @@
+{
+  "id": "level.science.human_body.036",
+  "skillId": "skill.science.human_body",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Breathing at Altitude",
+  "objective": "After this level you can explain why breathing is harder high up and how bodies adapt.",
+  "summary": "Air is about 21 percent oxygen at any height, but pressure falls, so each breath brings less oxygen. Given time, the body acclimatizes with deeper breathing and more red blood cells.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.altitude_thin_air",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.altitude_acclimatization",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.breathing_cell_respiration",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.035"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1978, two climbers reached the top of Everest on the mountain's own air.",
+      "body": "Reinhold Messner and Peter Habeler were the first to climb Everest without bottled oxygen. Up there, the air is still about 21 percent oxygen, the same share as at the beach. So why is breathing on a mountaintop so hard?"
+    },
+    {
+      "id": "card.human_body.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same recipe, thinner air",
+      "body": "The mix never changes; the pressure does. The higher you go, the lower the air pressure, so every breath brings less oxygen into your lungs even though the percentage is the same. At the height of Everest's summit, air pressure is only about 30 percent of its sea-level value. Same gulp, much less oxygen inside it."
+    },
+    {
+      "id": "card.human_body.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The body turns up the supply",
+      "body": "Stay high for a while and your body adapts, a process called acclimatization. You breathe more deeply and faster, your heart beats faster, and over time you make more red blood cells to carry oxygen. It's the body's version of hiring extra delivery drivers when every shipment arrives short.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Your body can't make the mountain air richer, so it gets better at collecting it."
+      }
+    },
+    {
+      "id": "card.human_body.036.c4",
+      "type": "fact",
+      "fact": "Altitude sickness usually strikes above about 2,400 meters (8,000 feet).",
+      "context": "It comes from the lower air pressure and oxygen up high, and it's more likely the faster people climb, before the body has had time to adjust. Symptoms usually fade within 2 to 5 days as acclimatization catches up."
+    },
+    {
+      "id": "card.human_body.036.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.036.q1"
+    },
+    {
+      "id": "card.human_body.036.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.036.q2"
+    },
+    {
+      "id": "card.human_body.036.c7",
+      "type": "recall",
+      "questionId": "question.human_body.036.q3"
+    },
+    {
+      "id": "card.human_body.036.c8",
+      "type": "checkpoint",
+      "headline": "Altitude: climbed",
+      "learned": [
+        "Air is about 21% oxygen at every height",
+        "Lower pressure means less oxygen per breath",
+        "Everest summit: about 30% of sea-level pressure",
+        "Acclimatization: deeper breathing, more red cells"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.altitude_thin_air"
+      ],
+      "sourceCardIds": [
+        "card.human_body.036.c2"
+      ],
+      "prompt": "High on a mountain, what happens to the share of oxygen in the air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It drops to about half",
+          "correct": false,
+          "rationale": "The share stays about 21 percent."
+        },
+        {
+          "id": "b",
+          "label": "It rises, since the air is cleaner",
+          "correct": false,
+          "rationale": "The share doesn't change with height."
+        },
+        {
+          "id": "c",
+          "label": "It stays the same; the pressure drops",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It vanishes above the clouds",
+          "correct": false,
+          "rationale": "There is still oxygen at Everest's summit."
+        }
+      ],
+      "explanation": "Air stays about 21 percent oxygen at every altitude, but the pressure falls, so each breath brings in less oxygen.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.altitude_acclimatization"
+      ],
+      "sourceCardIds": [
+        "card.human_body.036.c3"
+      ],
+      "prompt": "After days at high altitude, how has the body adjusted to the thinner air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Deeper breathing and more red blood cells",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The lungs have grown new lobes",
+          "correct": false,
+          "rationale": "Lobes don't change; breathing and blood do."
+        },
+        {
+          "id": "c",
+          "label": "Cells have stopped needing oxygen",
+          "correct": false,
+          "rationale": "Cells always need oxygen."
+        },
+        {
+          "id": "d",
+          "label": "The diaphragm has stopped moving",
+          "correct": false,
+          "rationale": "Breathing gets deeper and faster, not slower."
+        }
+      ],
+      "explanation": "Acclimatization means deeper, faster breathing, a faster heart and, over time, more red blood cells to carry oxygen.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.altitude_thin_air",
+        "concept.human_body.breathing_cell_respiration"
+      ],
+      "sourceCardIds": [
+        "card.human_body.036.c2",
+        "card.human_body.031.c2"
+      ],
+      "prompt": "Level 31's cells need oxygen to release energy from food. What does the low air pressure near Everest's summit mean for them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They switch to using nitrogen",
+          "correct": false,
+          "rationale": "Cells release energy with oxygen, not nitrogen."
+        },
+        {
+          "id": "b",
+          "label": "Each breath delivers them less oxygen",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They make more carbon dioxide",
+          "correct": false,
+          "rationale": "The change is in what arrives, not what they make."
+        },
+        {
+          "id": "d",
+          "label": "Nothing, since air is still 21 percent oxygen",
+          "correct": false,
+          "rationale": "The share is the same, but each breath holds less."
+        }
+      ],
+      "explanation": "Lower pressure means each breath brings less oxygen into the lungs, so less reaches the cells that burn food with it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_altitude_sickness",
+    "source.bmj_peacock_altitude_1998",
+    "source.britannica_reinhold_messner",
+    "source.medlineplus_mountain_sickness"
+  ],
+  "art": "geo.mountains"
+}

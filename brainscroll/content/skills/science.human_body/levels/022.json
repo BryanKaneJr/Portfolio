@@ -1,0 +1,220 @@
+{
+  "id": "level.science.human_body.022",
+  "skillId": "skill.science.human_body",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "A Lifetime of Beats",
+  "objective": "After this level you can explain heart rate and how much blood the heart pumps in a lifetime.",
+  "summary": "Each beat starts at the SA node in the right atrium. A resting adult heart beats 60 to 100 times a minute, about 100,000 times a day: nearly 2.9 billion beats in a 79-year life.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.heart_rate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.heart_output",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.heart_chambers",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.021"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Press two fingers to your wrist. That tap is your heart at work.",
+      "body": "Each tap is one heartbeat, and the number in a minute is your heart rate. Now multiply that rhythm by a whole lifetime. How many beats is that, and how much blood gets moved?"
+    },
+    {
+      "id": "card.human_body.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every beat starts with a spark",
+      "body": "Your heart has its own built-in drummer. Pacemaker cells in the sinoatrial (SA) node, in the right atrium, fire an electrical signal, and the heart muscle contracts in response. At rest, 60 to 100 beats a minute is normal for adults. Young children run faster (80 to 130 at ages 1 to 2), well-trained athletes can idle at 40 to 60, and exercise speeds everyone up. Same drummer, different tempo."
+    },
+    {
+      "id": "card.human_body.022.c3",
+      "type": "fact",
+      "fact": "Your heart beats about 100,000 times a day.",
+      "context": "Each beat pushes only about 70 milliliters of blood out of a ventricle, around 5 liters a minute at rest. But the beats never stop adding up: by bedtime your heart has moved about 7,000 to 8,000 liters of blood. Small sips, enormous total."
+    },
+    {
+      "id": "card.human_body.022.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Now multiply by a lifetime",
+      "body": "Keep that pace for an average life of almost 79 years and your heart beats nearly 2.9 billion times. Over those years it pumps more than 200 million liters of blood. It never takes a weekend off, and it does all of it with a muscle about the size of your fist.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Nearly three billion beats and not a single sick day. I would like to meet its manager."
+      }
+    },
+    {
+      "id": "card.human_body.022.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.022.q1"
+    },
+    {
+      "id": "card.human_body.022.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.022.q2"
+    },
+    {
+      "id": "card.human_body.022.c7",
+      "type": "recall",
+      "questionId": "question.human_body.022.q3"
+    },
+    {
+      "id": "card.human_body.022.c8",
+      "type": "checkpoint",
+      "headline": "Heartbeats: counted",
+      "learned": [
+        "Each beat starts at the SA node in the right atrium",
+        "60 to 100 beats a minute is a normal resting adult rate",
+        "About 100,000 beats and 7,000 to 8,000 liters a day",
+        "Nearly 2.9 billion beats in a 79-year life"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.heart_rate"
+      ],
+      "sourceCardIds": [
+        "card.human_body.022.c2"
+      ],
+      "prompt": "What resting heart rate range is normal for an adult?",
+      "options": [
+        {
+          "id": "a",
+          "label": "20 to 40 beats a minute",
+          "correct": false,
+          "rationale": "Too slow; even trained athletes rest at about 40 to 60."
+        },
+        {
+          "id": "b",
+          "label": "60 to 100 beats a minute",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "120 to 180 beats a minute",
+          "correct": false,
+          "rationale": "Far above the normal resting range."
+        },
+        {
+          "id": "d",
+          "label": "200 to 250 beats a minute",
+          "correct": false,
+          "rationale": "Far above any normal resting rate."
+        }
+      ],
+      "explanation": "At rest, 60 to 100 beats a minute is normal for adults.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.heart_output"
+      ],
+      "sourceCardIds": [
+        "card.human_body.022.c3"
+      ],
+      "prompt": "Each heartbeat moves only about 70 milliliters of blood. How does the heart still pump thousands of liters a day?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It beats about 100,000 times a day",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Each beat pushes out a full liter",
+          "correct": false,
+          "rationale": "Each beat moves only about 70 milliliters."
+        },
+        {
+          "id": "c",
+          "label": "The veins pump most of the blood",
+          "correct": false,
+          "rationale": "The heart does the pumping."
+        },
+        {
+          "id": "d",
+          "label": "Blood is made fresh every hour",
+          "correct": false,
+          "rationale": "The heart is moving the same blood around."
+        }
+      ],
+      "explanation": "At about 100,000 beats a day, 70 milliliters per beat adds up to about 7,000 to 8,000 liters.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.heart_rate",
+        "concept.human_body.heart_chambers"
+      ],
+      "sourceCardIds": [
+        "card.human_body.022.c2",
+        "card.human_body.021.c2"
+      ],
+      "prompt": "Level 21 described the heart's four chambers. In which chamber does each heartbeat's electrical signal begin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Left ventricle",
+          "correct": false,
+          "rationale": "It gives the big push to the body, but the signal starts elsewhere."
+        },
+        {
+          "id": "b",
+          "label": "Right ventricle",
+          "correct": false,
+          "rationale": "It pumps blood to the lungs."
+        },
+        {
+          "id": "c",
+          "label": "Right atrium",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Left atrium",
+          "correct": false,
+          "rationale": "It receives blood from the lungs."
+        }
+      ],
+      "explanation": "The signal starts in pacemaker cells of the SA node, in the right atrium.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.medlineplus_pulse",
+    "source.nhlbi_heart_beats",
+    "source.brit_heart",
+    "source.openstax_ap_cardiac_physiology",
+    "source.clevelandclinic_blood_flow",
+    "source.nhlbi_heart_works"
+  ],
+  "art": "body.heart"
+}

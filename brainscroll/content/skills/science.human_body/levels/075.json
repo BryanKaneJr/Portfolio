@@ -1,0 +1,227 @@
+{
+  "id": "level.science.human_body.075",
+  "skillId": "skill.science.human_body",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Vaccines",
+  "objective": "After this level you can explain how vaccines train the immune system.",
+  "summary": "A vaccine imitates an infection so the body makes antibodies and memory without the disease. Vaccines are very safe and have saved at least 154 million lives since 1974.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.defense_vaccine_training",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.defense_vaccine_impact",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.defense_adaptive_immunity",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.074"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.075.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A vaccine lets your immune system practice without the disease.",
+      "body": "Remember Level 73's memory cells, the reason a second meeting with a germ goes faster? A vaccine arranges the first meeting in advance, on your terms, without you getting sick."
+    },
+    {
+      "id": "card.human_body.075.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A wanted poster, not the criminal",
+      "body": "A vaccine works by imitating an infection. Inside is an antigen: a killed or weakened form of the germ, a part of it, or genetic instructions (RNA or DNA) that tell your cells to make that part. Your immune system recognizes it, makes antibodies and remembers how to fight it. It learns the germ's face without meeting the germ at full strength."
+    },
+    {
+      "id": "card.human_body.075.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Protection that stays",
+      "body": "After one or more doses, protection typically lasts years, decades or even a lifetime. If the real germ turns up, your trained defenses destroy it quickly. That's why a vaccinated person is far less likely to die or become seriously ill than someone whose immune system is unprepared."
+    },
+    {
+      "id": "card.human_body.075.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tested, watched and shared",
+      "body": "Vaccines are very safe. Each one passes several phases of clinical trials before it's used, and health authorities keep monitoring it afterwards. Side effects are usually minor and short, like a sore arm, and serious reactions are extremely rare. Vaccines protect other people too: those who can't be vaccinated, such as very young babies, depend on the people around them being vaccinated.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "A small sting in the arm, and your immune system gets the whole training manual."
+      }
+    },
+    {
+      "id": "card.human_body.075.c5",
+      "type": "fact",
+      "fact": "Vaccines have saved at least 154 million lives in 50 years.",
+      "context": "That's the estimate from a 2024 WHO-led study of immunization since 1974: about 6 lives every minute, 101 million of them infants. It found immunization to be the single greatest contribution of any health intervention to babies surviving into healthy adulthood."
+    },
+    {
+      "id": "card.human_body.075.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.075.q1"
+    },
+    {
+      "id": "card.human_body.075.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.075.q2"
+    },
+    {
+      "id": "card.human_body.075.c8",
+      "type": "recall",
+      "questionId": "question.human_body.075.q3"
+    },
+    {
+      "id": "card.human_body.075.c9",
+      "type": "checkpoint",
+      "headline": "Vaccines: understood",
+      "learned": [
+        "Vaccines imitate an infection without the disease",
+        "Antigens can be weakened germs, parts or RNA/DNA instructions",
+        "Vaccines are very safe and far lower the risk of serious illness",
+        "At least 154 million lives saved since 1974"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.defense_vaccine_training"
+      ],
+      "sourceCardIds": [
+        "card.human_body.075.c2"
+      ],
+      "prompt": "Which of these can a vaccine contain as its antigen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A live germ at full strength",
+          "correct": false,
+          "rationale": "Vaccines use killed or weakened germs, parts, or instructions."
+        },
+        {
+          "id": "b",
+          "label": "Antibodies taken from another person",
+          "correct": false,
+          "rationale": "Your own immune system makes the antibodies."
+        },
+        {
+          "id": "c",
+          "label": "Genetic instructions to make part of a germ",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Extra white blood cells",
+          "correct": false,
+          "rationale": "The vaccine trains your own white blood cells."
+        }
+      ],
+      "explanation": "A vaccine's antigen can be a killed or weakened germ, a part of it, or RNA or DNA instructions to make that part.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.defense_vaccine_impact"
+      ],
+      "sourceCardIds": [
+        "card.human_body.075.c4"
+      ],
+      "prompt": "How can vaccination protect a baby who is too young to be vaccinated?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Babies are born remembering every germ",
+          "correct": false,
+          "rationale": "Memory comes from meeting a germ or a vaccine."
+        },
+        {
+          "id": "b",
+          "label": "A baby's skin blocks every germ at first",
+          "correct": false,
+          "rationale": "Skin is a strong wall, but not a complete one."
+        },
+        {
+          "id": "c",
+          "label": "Vaccines spread through the air to the baby",
+          "correct": false,
+          "rationale": "Protection comes from the people around the baby."
+        },
+        {
+          "id": "d",
+          "label": "People around the baby are protected, so the germ is less likely to reach it",
+          "correct": true
+        }
+      ],
+      "explanation": "People who can't be vaccinated, like very young babies, depend on others being vaccinated.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.defense_vaccine_training",
+        "concept.human_body.defense_adaptive_immunity"
+      ],
+      "sourceCardIds": [
+        "card.human_body.075.c1",
+        "card.human_body.075.c2",
+        "card.human_body.073.c4"
+      ],
+      "prompt": "Why can a vaccine protect you from a germ you've never caught?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It gives your immune system a first meeting, leaving memory cells",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It makes your skin impossible for germs to cross",
+          "correct": false,
+          "rationale": "Vaccines train immune memory; they don't change the skin."
+        },
+        {
+          "id": "c",
+          "label": "It kills the germ in the air around you",
+          "correct": false,
+          "rationale": "It works inside your body, by training your defenses."
+        },
+        {
+          "id": "d",
+          "label": "It raises your temperature until the germ dies",
+          "correct": false,
+          "rationale": "That's fever; vaccines train antibodies and memory."
+        }
+      ],
+      "explanation": "A vaccine imitates an infection, so B and T cells make antibodies and keep memory for when the real germ arrives.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.medlineplus_immune_response",
+    "source.who_what_is_vaccination",
+    "source.cdc_how_vaccines_work",
+    "source.who_vaccine_safety",
+    "source.who_immunization_154_million"
+  ],
+  "art": "body.syringe"
+}

@@ -1,0 +1,222 @@
+{
+  "id": "level.science.human_body.067",
+  "skillId": "skill.science.human_body",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Smell and Taste",
+  "objective": "After this level you can explain how smell and taste work together to make flavor.",
+  "summary": "Taste buds detect at least five tastes, and every taste area senses all of them. Flavor adds smell, reaching the nose from the throat as you chew, plus heat, cold and texture.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.senses_taste_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.senses_flavor_smell",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.senses_beyond_five",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.066"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your tongue can tell sweet from bitter. It can't tell a pear from an apple.",
+      "body": "That job needs your nose. When a cold blocks it, food tastes bland even though your tongue is fine. Flavor is a team effort, and the tongue isn't the star you think it is."
+    },
+    {
+      "id": "card.human_body.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five tastes, everywhere",
+      "body": "Taste cells sit in taste buds on your tongue, on the roof of your mouth and along your throat. They respond to at least five basic tastes: sweet, sour, bitter, salty and umami, the savory taste of glutamate in foods like broth, meat extracts and some cheeses. That's the whole menu your tongue can read. Everything else on your plate is reaching you another way."
+    },
+    {
+      "id": "card.human_body.067.c3",
+      "type": "fact",
+      "fact": "The 'tongue map' is a myth.",
+      "context": "You may have seen a diagram with sweet at the tip and bitter at the back. In fact, taste cells for different tastes are scattered across the tongue, and every area with taste buds senses all the tastes. The map grew from a 1901 study that found only tiny differences in sensitivity, redrawn in the 1940s by Harvard psychologist Edwin Boring and read as separate zones.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Decades of classroom posters, all from one overdrawn graph. Science corrects itself, eventually."
+      }
+    },
+    {
+      "id": "card.human_body.067.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The nose does the heavy lifting",
+      "body": "Smell comes from sensory cells high inside your nose. Odors reach them two ways: through your nostrils and, as you chew, up a channel from the roof of your throat to your nose. Your brain blends those smells with the basic tastes, plus heat, cold and texture, into flavor. That's what tells a pear from an apple, and why a blocked nose leaves food flat."
+    },
+    {
+      "id": "card.human_body.067.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.067.q1"
+    },
+    {
+      "id": "card.human_body.067.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.067.q2"
+    },
+    {
+      "id": "card.human_body.067.c7",
+      "type": "recall",
+      "questionId": "question.human_body.067.q3"
+    },
+    {
+      "id": "card.human_body.067.c8",
+      "type": "checkpoint",
+      "headline": "Flavor: unpacked",
+      "learned": [
+        "Taste buds on the tongue, palate and throat",
+        "At least five tastes: sweet, sour, bitter, salty, umami",
+        "The tongue map is a myth: every area tastes everything",
+        "Smell reaches the nose from the throat as you chew",
+        "Flavor = tastes + smells + heat, cold and texture"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.senses_taste_basics"
+      ],
+      "sourceCardIds": [
+        "card.human_body.067.c2"
+      ],
+      "prompt": "Which of these is one of the basic tastes your taste cells detect?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spicy",
+          "correct": false,
+          "rationale": "Chili burn is felt by nerves, not taste cells."
+        },
+        {
+          "id": "b",
+          "label": "Minty",
+          "correct": false,
+          "rationale": "Mint's coolness is a feeling of cold, not a taste."
+        },
+        {
+          "id": "c",
+          "label": "Umami",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Crunchy",
+          "correct": false,
+          "rationale": "That's texture, felt rather than tasted."
+        }
+      ],
+      "explanation": "Taste cells respond to at least five basic tastes: sweet, sour, bitter, salty and umami, the savory taste of glutamate.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.senses_flavor_smell"
+      ],
+      "sourceCardIds": [
+        "card.human_body.067.c4",
+        "card.human_body.067.c1"
+      ],
+      "prompt": "Why does food taste bland when a cold blocks your nose?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Aromas can't reach the smell cells in your nose",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The cold switches off your taste buds",
+          "correct": false,
+          "rationale": "Your tongue still tastes the basic tastes."
+        },
+        {
+          "id": "c",
+          "label": "Your tongue loses its sweet zone",
+          "correct": false,
+          "rationale": "There are no taste zones; that's the tongue-map myth."
+        },
+        {
+          "id": "d",
+          "label": "Mucus turns every food bitter",
+          "correct": false,
+          "rationale": "The basic tastes still work; aroma is missing."
+        }
+      ],
+      "explanation": "Much of flavor is smell: aromas from chewing travel up to the nose, and a blocked channel cuts them off.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.senses_flavor_smell",
+        "concept.human_body.senses_beyond_five"
+      ],
+      "sourceCardIds": [
+        "card.human_body.067.c4",
+        "card.human_body.061.c3"
+      ],
+      "prompt": "Level 61 found senses beyond Aristotle's five, including temperature. What does your brain blend to make flavor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tastes from the tongue, and nothing else",
+          "correct": false,
+          "rationale": "Taste is only part of flavor."
+        },
+        {
+          "id": "b",
+          "label": "Smells and the look of the food only",
+          "correct": false,
+          "rationale": "Tastes, temperature and texture count too."
+        },
+        {
+          "id": "c",
+          "label": "Balance, body position and hearing",
+          "correct": false,
+          "rationale": "Those aren't part of flavor."
+        },
+        {
+          "id": "d",
+          "label": "Tastes, smells, heat, cold and texture",
+          "correct": true
+        }
+      ],
+      "explanation": "Flavor combines the basic tastes with smell and with sensations of heat, cold and texture.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nidcd_taste_disorders",
+    "source.smithsonian_tongue_map",
+    "source.nidcd_smell_disorders",
+    "source.britannica_proprioceptor",
+    "source.britannica_human_sensory_reception",
+    "source.openstax_psych_sensation_perception"
+  ],
+  "art": "body.food-plate"
+}

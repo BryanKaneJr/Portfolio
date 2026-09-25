@@ -1,0 +1,226 @@
+{
+  "id": "level.science.human_body.066",
+  "skillId": "skill.science.human_body",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Balance",
+  "objective": "After this level you can explain how the inner ear keeps you balanced.",
+  "summary": "Three fluid-filled canals in the inner ear sense head turns; tiny grains in two pouches feel gravity. When ears and eyes disagree, you get dizziness or motion sickness.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.senses_vestibular_system",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.senses_balance_mismatch",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.senses_cochlea_hair_cells",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.senses_beyond_five",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.065"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Spin in circles, stop, and the room keeps turning.",
+      "body": "You've stopped. Your eyes can see you've stopped. Something inside your head disagrees. That something is Level 61's missing sense, balance, and it lives right next door to your hearing."
+    },
+    {
+      "id": "card.human_body.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three loops of fluid",
+      "body": "Your balance organ, the vestibular system, is a maze of bone and soft tissue in your inner ear. It holds three fluid-filled semicircular canals, looped at roughly right angles to each other. When you turn your head, the fluid moves and bends hair cells, the same kind of sensor you hear with, which tells your brain which way you turned. Nod, shake or tilt, and the fluid reports it."
+    },
+    {
+      "id": "card.human_body.066.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tiny stones that feel gravity",
+      "body": "Two small pouches, the utricle and the saccule, sense which way is down. Their hair cells sit under a gel holding tiny grains of calcium carbonate. Gravity pulls on the grains and bends the hair cells, telling your brain if you're upright, leaning back or lying down. You carry a built-in spirit level, and it runs on tiny stones.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Pebbles in your ears, doing precision work. Nature has a sense of humor."
+      }
+    },
+    {
+      "id": "card.human_body.066.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "When the reports disagree",
+      "body": "Your brain builds balance from your eyes, your inner ears and the muscles and touch sensors in your legs. After spinning, canal fluid keeps moving though you've stopped: ears say motion, eyes say still, and you feel dizzy. Below deck on a ship it flips. Your inner ear feels the motion, your eyes see a still cabin, and that clash is the leading explanation for motion sickness."
+    },
+    {
+      "id": "card.human_body.066.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.066.q1"
+    },
+    {
+      "id": "card.human_body.066.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.066.q2"
+    },
+    {
+      "id": "card.human_body.066.c7",
+      "type": "recall",
+      "questionId": "question.human_body.066.q3"
+    },
+    {
+      "id": "card.human_body.066.c8",
+      "type": "checkpoint",
+      "headline": "Balance: steadied",
+      "learned": [
+        "Three fluid-filled canals sense head turns",
+        "The utricle and saccule use tiny grains to feel gravity",
+        "Balance blends eyes, inner ears and leg sensors",
+        "Clashing signals cause dizziness and motion sickness"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.senses_vestibular_system"
+      ],
+      "sourceCardIds": [
+        "card.human_body.066.c2"
+      ],
+      "prompt": "Which parts of the inner ear tell your brain that your head is turning?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The utricle and the saccule",
+          "correct": false,
+          "rationale": "They sense gravity and which way is down."
+        },
+        {
+          "id": "b",
+          "label": "The eardrum and the stapes",
+          "correct": false,
+          "rationale": "Those pass sound on for hearing."
+        },
+        {
+          "id": "c",
+          "label": "The cochlea's hair cells",
+          "correct": false,
+          "rationale": "Those hear sound."
+        },
+        {
+          "id": "d",
+          "label": "The semicircular canals",
+          "correct": true
+        }
+      ],
+      "explanation": "When your head turns, fluid in the three semicircular canals moves and bends hair cells, signaling the turn.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.senses_balance_mismatch"
+      ],
+      "sourceCardIds": [
+        "card.human_body.066.c4",
+        "card.human_body.066.c1"
+      ],
+      "prompt": "Why do you feel dizzy right after you stop spinning?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Your eyes stop sending signals for a while",
+          "correct": false,
+          "rationale": "Your eyes correctly show you're still."
+        },
+        {
+          "id": "b",
+          "label": "Canal fluid keeps moving, so ears and eyes disagree",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The grains in your inner ear dissolve",
+          "correct": false,
+          "rationale": "The grains stay put; gravity keeps pulling on them."
+        },
+        {
+          "id": "d",
+          "label": "Blood drains out of your inner ear for a moment",
+          "correct": false,
+          "rationale": "The cause is moving canal fluid."
+        }
+      ],
+      "explanation": "The fluid in the semicircular canals keeps moving after you stop, so your inner ear reports motion while your eyes report stillness.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.senses_vestibular_system",
+        "concept.human_body.senses_cochlea_hair_cells"
+      ],
+      "sourceCardIds": [
+        "card.human_body.066.c2",
+        "card.human_body.066.c3",
+        "card.human_body.065.c3"
+      ],
+      "prompt": "Level 65's hair cells turn sound into signals. What do hair cells do in your balance organs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bend with moving fluid or gravity to signal head movement",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Vibrate to amplify incoming sound for the cochlea",
+          "correct": false,
+          "rationale": "The middle-ear bones amplify sound."
+        },
+        {
+          "id": "c",
+          "label": "Detect light that leaks in through the ear canal",
+          "correct": false,
+          "rationale": "Light is sensed in the retina."
+        },
+        {
+          "id": "d",
+          "label": "Filter out loud sounds before they reach the eardrum",
+          "correct": false,
+          "rationale": "Sound travels down the ear canal to the eardrum first."
+        }
+      ],
+      "explanation": "In the canals, moving fluid bends hair cells; in the utricle and saccule, gravity-pulled grains do. Either way, bending makes a signal, just as in the cochlea.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.scienceworld_spinning",
+    "source.nidcd_balance_disorders",
+    "source.cdc_yellowbook_motion_sickness",
+    "source.nidcd_how_we_hear"
+  ],
+  "art": "body.ear"
+}

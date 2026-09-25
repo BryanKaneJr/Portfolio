@@ -1,0 +1,234 @@
+{
+  "id": "level.science.human_body.092",
+  "skillId": "skill.science.human_body",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Exercise",
+  "objective": "After this level you can explain what exercise does for the heart, the muscles and the brain.",
+  "summary": "WHO's 2020 guidelines: an average of 60 active minutes a day for ages 5 to 17, 150 to 300 a week for adults. Activity builds heart, lung, muscle and bone fitness and helps the brain.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.health_activity_guidelines",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.health_activity_benefits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.systems_teamwork",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.091"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About 4 in 5 teenagers worldwide don't move as much as the WHO recommends.",
+      "body": "A WHO-led study pooled surveys of 1.6 million students aged 11 to 17 and found 81 percent weren't active enough. So how much movement does the WHO actually suggest, and what does it do for you?"
+    },
+    {
+      "id": "card.human_body.092.c2",
+      "type": "comparison",
+      "headline": "WHO's 2020 activity guidelines",
+      "items": [
+        {
+          "label": "Ages 5 to 17",
+          "points": [
+            "An average of 60 minutes a day of moderate-to-vigorous activity, mostly aerobic",
+            "Vigorous activity and muscle- and bone-strengthening on at least 3 days a week"
+          ]
+        },
+        {
+          "label": "Adults 18 to 64",
+          "points": [
+            "150 to 300 minutes a week of moderate activity, or 75 to 150 of vigorous",
+            "Muscle-strengthening on 2 or more days a week"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.092.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The talk test",
+      "body": "How hard is 'moderate'? The CDC has a shortcut: during moderate activity you can talk, but not sing. At vigorous intensity you can't say more than a few words without pausing for breath. And the WHO counts it all: walking, cycling, sports, active play, even getting around town. Its headline message is that any amount of activity is better than none. No gym membership required."
+    },
+    {
+      "id": "card.human_body.092.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What it does for heart, muscles and brain",
+      "body": "The WHO lists the payoffs. For children and teens: fitter heart, lungs and muscles, better heart and metabolic health, stronger bones, and better thinking and mental health. For adults: lower risk of heart disease, high blood pressure and type 2 diabetes, better sleep, and fewer symptoms of anxiety and depression. The CDC adds that some brain benefits show up right after a single session. Your brain gets paid on the day.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Every staircase is a tiny workout. Your heart, lungs and legs all clock in together."
+      }
+    },
+    {
+      "id": "card.human_body.092.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.092.q1"
+    },
+    {
+      "id": "card.human_body.092.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.092.q2"
+    },
+    {
+      "id": "card.human_body.092.c7",
+      "type": "recall",
+      "questionId": "question.human_body.092.q3"
+    },
+    {
+      "id": "card.human_body.092.c8",
+      "type": "checkpoint",
+      "headline": "Exercise: explained",
+      "learned": [
+        "WHO 2020: ages 5 to 17 average 60 minutes a day",
+        "Adults: 150 to 300 minutes of moderate activity a week",
+        "Talk test: moderate means talk but not sing",
+        "Benefits for heart, lungs, muscles, bones and brain"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.health_activity_guidelines"
+      ],
+      "sourceCardIds": [
+        "card.human_body.092.c2"
+      ],
+      "prompt": "Under WHO's 2020 activity guidelines, how much moderate-to-vigorous activity is recommended for young people aged 5 to 17?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An average of 60 minutes a day",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "20 minutes, once a week",
+          "correct": false,
+          "rationale": "Far less than the guideline."
+        },
+        {
+          "id": "c",
+          "label": "150 minutes every single day",
+          "correct": false,
+          "rationale": "That's the adult weekly minimum, not a daily one."
+        },
+        {
+          "id": "d",
+          "label": "Only on weekends, for 3 hours",
+          "correct": false,
+          "rationale": "The guideline is a daily average."
+        }
+      ],
+      "explanation": "WHO recommends ages 5 to 17 average 60 minutes a day of moderate-to-vigorous, mostly aerobic activity.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.health_activity_guidelines"
+      ],
+      "sourceCardIds": [
+        "card.human_body.092.c3"
+      ],
+      "prompt": "You're cycling to school and can chat with a friend, but singing would be impossible. By the CDC's talk test, what intensity is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Resting",
+          "correct": false,
+          "rationale": "Resting wouldn't stop you singing."
+        },
+        {
+          "id": "b",
+          "label": "Too light to count",
+          "correct": false,
+          "rationale": "WHO says all activity counts."
+        },
+        {
+          "id": "c",
+          "label": "Vigorous",
+          "correct": false,
+          "rationale": "At vigorous intensity you can only manage a few words."
+        },
+        {
+          "id": "d",
+          "label": "Moderate",
+          "correct": true
+        }
+      ],
+      "explanation": "Moderate activity lets you talk but not sing; vigorous activity leaves you pausing for breath after a few words.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.systems_teamwork",
+        "concept.human_body.health_activity_guidelines"
+      ],
+      "sourceCardIds": [
+        "card.human_body.001.c3",
+        "card.human_body.092.c3"
+      ],
+      "prompt": "Vigorous exercise leaves you pausing for breath. Using Level 1's staircase, which two systems team up to get that extra oxygen to your muscles?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Skeletal and urinary",
+          "correct": false,
+          "rationale": "Bones hold you up; the urinary system filters blood."
+        },
+        {
+          "id": "b",
+          "label": "Respiratory and cardiovascular",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Digestive and lymphatic",
+          "correct": false,
+          "rationale": "They handle food and fluid return."
+        },
+        {
+          "id": "d",
+          "label": "Integumentary and reproductive",
+          "correct": false,
+          "rationale": "Neither delivers oxygen."
+        }
+      ],
+      "explanation": "The respiratory system brings oxygen into the blood and the cardiovascular system carries it to working muscles.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.who_adolescent_activity_2019",
+    "source.who_physical_activity",
+    "source.cdc_activity_intensity",
+    "source.cdc_activity_benefits",
+    "source.openstax_ap_body_organization"
+  ],
+  "art": "body.dumbbell"
+}

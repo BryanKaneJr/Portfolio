@@ -1,0 +1,215 @@
+{
+  "id": "level.science.human_body.059",
+  "skillId": "skill.science.human_body",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hormones and Feelings",
+  "objective": "After this level you can explain how hormones like adrenaline shape the way we feel.",
+  "summary": "Nerves send fast, local messages; hormones travel in the blood. In a scare, nerves trigger the adrenal glands, and adrenaline readies the body to fight or flee.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.adrenaline_fight_or_flight",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.nerve_vs_hormone_signals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.organ_systems",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.058"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.059.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Before a big test, your heart pounds and your mouth goes dry.",
+      "body": "You never asked for either. Deep in your brain, the hypothalamus gets the adrenaline flowing during a test or a job interview, and adrenaline brings a racing heart and a dry mouth. Here's how a feeling turns into a body-wide event."
+    },
+    {
+      "id": "card.human_body.059.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nerves text. Hormones broadcast.",
+      "body": "Level 1 gave the endocrine system one job: sending hormones. Here's how they differ from nerves. A nerve's chemical message acts locally, and the target cell responds within milliseconds. Hormones are released by glands into the blood and travel all over the body to their targets, so they usually act more slowly; some take up to 48 hours. A nerve is a text to one person. A hormone is an announcement over the loudspeaker."
+    },
+    {
+      "id": "card.human_body.059.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The fast lane to adrenaline",
+      "body": "So how does a scare hit you in seconds? The two systems team up. In danger or stress, a nerve pathway from the hypothalamus triggers your adrenal glands, which release epinephrine, better known as adrenaline, into the blood within seconds. The quick nervous system lights the fuse; the blood carries the hormone everywhere."
+    },
+    {
+      "id": "card.human_body.059.c4",
+      "type": "fact",
+      "fact": "Adrenaline preps you to fight or run.",
+      "context": "Walter Cannon coined 'fight or flight' in the early 1900s. Adrenaline raises your heart rate and blood pressure, widens your airways and pupils, and releases sugar into your blood for fuel. It diverts blood from your gut and skin to your muscles and brain. The dry mouth and vanished appetite? Digestion has been put on hold."
+    },
+    {
+      "id": "card.human_body.059.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.059.q1"
+    },
+    {
+      "id": "card.human_body.059.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.059.q2"
+    },
+    {
+      "id": "card.human_body.059.c7",
+      "type": "recall",
+      "questionId": "question.human_body.059.q3"
+    },
+    {
+      "id": "card.human_body.059.c8",
+      "type": "checkpoint",
+      "headline": "Hormones: decoded",
+      "learned": [
+        "Nerves act locally in milliseconds; hormones travel in the blood",
+        "A nerve pathway triggers the adrenal glands in danger",
+        "Adrenaline: faster heart, wider airways, sugar for fuel",
+        "Gut and skin get less blood, so digestion pauses"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.adrenaline_fight_or_flight"
+      ],
+      "sourceCardIds": [
+        "card.human_body.059.c3"
+      ],
+      "prompt": "In a fight-or-flight moment, which glands release adrenaline into the blood?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The sweat glands",
+          "correct": false,
+          "rationale": "They make sweat, not adrenaline."
+        },
+        {
+          "id": "b",
+          "label": "The adrenal glands",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The salivary glands",
+          "correct": false,
+          "rationale": "Your mouth actually goes dry."
+        },
+        {
+          "id": "d",
+          "label": "The hippocampus",
+          "correct": false,
+          "rationale": "That is a brain structure for memory, not a gland."
+        }
+      ],
+      "explanation": "A nerve pathway from the hypothalamus triggers the adrenal glands to release epinephrine, or adrenaline.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.nerve_vs_hormone_signals"
+      ],
+      "sourceCardIds": [
+        "card.human_body.059.c2"
+      ],
+      "prompt": "Why do hormones usually act more slowly than nerve signals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They travel through the blood to reach their targets",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They are made only at night",
+          "correct": false,
+          "rationale": "Hormones are released whenever they are needed."
+        },
+        {
+          "id": "c",
+          "label": "They must pass through the spinal cord",
+          "correct": false,
+          "rationale": "They travel in the bloodstream."
+        },
+        {
+          "id": "d",
+          "label": "Nerves are longer than blood vessels",
+          "correct": false,
+          "rationale": "The difference is the route, not length."
+        }
+      ],
+      "explanation": "Nerve messages act locally within milliseconds, while hormones travel through the bloodstream to target cells across the body.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.nerve_vs_hormone_signals",
+        "concept.human_body.organ_systems"
+      ],
+      "sourceCardIds": [
+        "card.human_body.059.c3",
+        "card.human_body.001.c2"
+      ],
+      "prompt": "Level 1 listed the nervous and endocrine systems separately. How do they team up in a sudden scare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The endocrine system replaces the nerves",
+          "correct": false,
+          "rationale": "Nerves still start the response."
+        },
+        {
+          "id": "b",
+          "label": "Hormones trigger the nerves a day later",
+          "correct": false,
+          "rationale": "The response comes within seconds."
+        },
+        {
+          "id": "c",
+          "label": "Nerves trigger the adrenal glands, whose hormone spreads the response",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They take turns, one per hour",
+          "correct": false,
+          "rationale": "They work at the same time."
+        }
+      ],
+      "explanation": "The fast nervous system triggers the adrenal glands, and adrenaline travels in the blood to prepare the whole body.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ninds_brain_basics_know_your_brain",
+    "source.openstax_ap_endocrine_overview",
+    "source.openstax_ap_adrenal_glands",
+    "source.brit_fight_or_flight",
+    "source.openstax_ap_body_organization"
+  ],
+  "art": "body.heart"
+}

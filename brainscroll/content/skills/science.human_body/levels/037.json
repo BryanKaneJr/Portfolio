@@ -1,0 +1,225 @@
+{
+  "id": "level.science.human_body.037",
+  "skillId": "skill.science.human_body",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Holding Your Breath",
+  "objective": "After this level you can explain what controls the urge to breathe.",
+  "summary": "The brainstem runs breathing on autopilot, and its main alarm is rising carbon dioxide. Hyperventilating delays that alarm while oxygen falls, so breath-holding in water can kill.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.breath_co2_drive",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.breath_hold_danger",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.breathing_cell_respiration",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.036"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The urge to breathe isn't mainly your body running out of oxygen.",
+      "body": "When you hold your breath, the urge to breathe builds fast, and it feels like oxygen running low. Mostly, your body is sensing something else piling up. On land, that's clever physiology. In water, it's a trap."
+    },
+    {
+      "id": "card.human_body.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An autopilot in your brainstem",
+      "body": "You rarely think about breathing because you don't have to. A respiratory center in the medulla oblongata, part of your brainstem, sets the pace automatically, adjusting to the carbon dioxide, oxygen and acidity in your blood. That's why you have never once forgotten to breathe."
+    },
+    {
+      "id": "card.human_body.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The alarm is carbon dioxide",
+      "body": "Surprisingly, the main signal to breathe isn't falling oxygen. It's rising carbon dioxide, Level 31's cell exhaust. As it builds up, it makes your brain more acidic, and that drives you to breathe faster and deeper. Low oxygen only drives breathing once it gets quite low. Your breathing alarm is a smoke detector for exhaust, not a fuel gauge.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A smoke detector for exhaust. Sensible design, as long as nobody tampers with it."
+      }
+    },
+    {
+      "id": "card.human_body.037.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why breath-holding in water is dangerous",
+      "body": "That design has a deadly gap. Overbreathing before going under (hyperventilating), or long breath-holding, lowers your carbon dioxide first. The alarm is delayed, but oxygen keeps falling, and a swimmer can pass out underwater. The CDC warns that hyperventilating before swimming underwater, or holding your breath underwater for long periods, can cause you to pass out and drown."
+    },
+    {
+      "id": "card.human_body.037.c5",
+      "type": "fact",
+      "fact": "In one CDC review of these drownings, all four people who died were advanced swimmers.",
+      "context": "The report covered 16 incidents in New York State from 1988 to 2011. The four who died were aged 17 to 22, and all had hyperventilated on purpose. Being a strong swimmer didn't protect them."
+    },
+    {
+      "id": "card.human_body.037.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.037.q1"
+    },
+    {
+      "id": "card.human_body.037.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.037.q2"
+    },
+    {
+      "id": "card.human_body.037.c8",
+      "type": "recall",
+      "questionId": "question.human_body.037.q3"
+    },
+    {
+      "id": "card.human_body.037.c9",
+      "type": "checkpoint",
+      "headline": "Breath control: understood",
+      "learned": [
+        "The brainstem runs breathing automatically",
+        "Rising carbon dioxide is the main alarm",
+        "Hyperventilating delays the alarm as oxygen falls",
+        "Breath-holding in water can cause drowning"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.breath_co2_drive"
+      ],
+      "sourceCardIds": [
+        "card.human_body.037.c3"
+      ],
+      "prompt": "What is the main signal that drives your urge to breathe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Falling oxygen in your blood",
+          "correct": false,
+          "rationale": "Low oxygen matters only once it gets quite low."
+        },
+        {
+          "id": "b",
+          "label": "Rising carbon dioxide in your blood",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Tired rib muscles",
+          "correct": false,
+          "rationale": "The muscles follow the signal; they don't send it."
+        },
+        {
+          "id": "d",
+          "label": "Lungs stretching too far",
+          "correct": false,
+          "rationale": "The main alarm is chemical: carbon dioxide."
+        }
+      ],
+      "explanation": "Rising carbon dioxide makes the brain more acidic, and that is the main drive to breathe.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.breath_hold_danger"
+      ],
+      "sourceCardIds": [
+        "card.human_body.037.c4"
+      ],
+      "prompt": "Why is hyperventilating before swimming underwater so dangerous?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It fills the lungs with carbon dioxide",
+          "correct": false,
+          "rationale": "It does the opposite: it lowers carbon dioxide."
+        },
+        {
+          "id": "b",
+          "label": "It makes the diaphragm cramp",
+          "correct": false,
+          "rationale": "The danger is a delayed alarm, not a cramp."
+        },
+        {
+          "id": "c",
+          "label": "It warms the body too much",
+          "correct": false,
+          "rationale": "The risk is passing out from low oxygen."
+        },
+        {
+          "id": "d",
+          "label": "It delays the urge to breathe as oxygen falls",
+          "correct": true
+        }
+      ],
+      "explanation": "Hyperventilating lowers carbon dioxide, so the urge to breathe comes late while oxygen keeps falling, and a swimmer can pass out and drown.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.breath_co2_drive",
+        "concept.human_body.breathing_cell_respiration"
+      ],
+      "sourceCardIds": [
+        "card.human_body.037.c3",
+        "card.human_body.031.c3"
+      ],
+      "prompt": "Level 31's cells keep giving off carbon dioxide. What happens to it while you hold your breath?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It builds up and sets off your breathing alarm",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It turns back into oxygen",
+          "correct": false,
+          "rationale": "It's exhaust, and it isn't recycled into oxygen."
+        },
+        {
+          "id": "c",
+          "label": "It stays locked inside the cells",
+          "correct": false,
+          "rationale": "It passes into the blood, where it builds up."
+        },
+        {
+          "id": "d",
+          "label": "It stops being made",
+          "correct": false,
+          "rationale": "Cells keep working and keep making it."
+        }
+      ],
+      "explanation": "With no breath out to remove it, carbon dioxide builds up, and rising carbon dioxide is the main trigger of the urge to breathe.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_breathing_process",
+    "source.nhlbi_body_controls_breathing",
+    "source.cdc_drowning_prevention",
+    "source.cdc_mmwr_breath_holding_2015"
+  ],
+  "art": "body.lungs"
+}

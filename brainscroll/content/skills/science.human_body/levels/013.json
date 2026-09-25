@@ -1,0 +1,259 @@
+{
+  "id": "level.science.human_body.013",
+  "skillId": "skill.science.human_body",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Joints",
+  "objective": "After this level you can name the main kinds of joint and explain how they let us move.",
+  "summary": "A joint is where bones meet. Some never move (skull sutures), some move a little (between vertebrae), and synovial joints move freely, cushioned by cartilage and slick fluid.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.joint_movement_classes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.synovial_joints",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.skeleton_bone_count",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.012"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some of your joints never move. That's the point.",
+      "body": "A joint is anywhere two bones meet. Your knee bends, your shoulder swings in a circle, and the joints in your skull barely move at all. Same word, very different jobs."
+    },
+    {
+      "id": "card.human_body.013.c2",
+      "type": "comparison",
+      "headline": "Three kinds of joint, sorted by movement",
+      "items": [
+        {
+          "label": "Immovable",
+          "points": [
+            "Sutures lock the skull's bones together",
+            "Their job is protecting the brain"
+          ]
+        },
+        {
+          "label": "Slightly movable",
+          "points": [
+            "The discs between the vertebrae of your spine",
+            "A little movement, no more"
+          ]
+        },
+        {
+          "label": "Freely movable",
+          "points": [
+            "Synovial joints, such as the knee, hip and elbow",
+            "Built for motion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why a knee doesn't grind",
+      "body": "Freely movable joints share one clever design. The bone ends are capped with smooth cartilage and sealed inside a capsule. The capsule's lining makes synovial fluid, a thick, slippery liquid that lubricates the joint and cuts friction between the bones. Every time you bend a knee, cartilage glides over cartilage on a thin slick of fluid."
+    },
+    {
+      "id": "card.human_body.013.c4",
+      "type": "comparison",
+      "headline": "Shape decides the move",
+      "items": [
+        {
+          "label": "Hinge",
+          "points": [
+            "Elbow, knee and ankle",
+            "Bend and straighten along one line, like a door"
+          ]
+        },
+        {
+          "label": "Pivot",
+          "points": [
+            "Between your top two vertebrae",
+            "Rotates, so you can turn your head"
+          ]
+        },
+        {
+          "label": "Ball-and-socket",
+          "points": [
+            "Hip and shoulder, the only two",
+            "The widest range of motion of any joint"
+          ]
+        }
+      ],
+      "mascot": {
+        "pose": "thinking",
+        "line": "Door hinges, a swivel and two joysticks. You are carrying a small hardware store around."
+      }
+    },
+    {
+      "id": "card.human_body.013.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.013.q1"
+    },
+    {
+      "id": "card.human_body.013.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.013.q2"
+    },
+    {
+      "id": "card.human_body.013.c7",
+      "type": "recall",
+      "questionId": "question.human_body.013.q3"
+    },
+    {
+      "id": "card.human_body.013.c8",
+      "type": "checkpoint",
+      "headline": "Joints: in motion",
+      "learned": [
+        "A joint is where two bones meet",
+        "Immovable, slightly movable and freely movable joints",
+        "Synovial joints: cartilage caps and slippery synovial fluid",
+        "Hinge, pivot and ball-and-socket shapes move differently"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.synovial_joints"
+      ],
+      "sourceCardIds": [
+        "card.human_body.013.c4"
+      ],
+      "prompt": "Which two joints are the body's only ball-and-socket joints?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The shoulder and the hip",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The elbow and the knee",
+          "correct": false,
+          "rationale": "Those are hinge joints."
+        },
+        {
+          "id": "c",
+          "label": "The skull sutures",
+          "correct": false,
+          "rationale": "Sutures are immovable joints."
+        },
+        {
+          "id": "d",
+          "label": "The top two vertebrae",
+          "correct": false,
+          "rationale": "That's a pivot joint for turning the head."
+        }
+      ],
+      "explanation": "The hip and shoulder are the only ball-and-socket joints, and they have the widest range of motion.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.synovial_joints"
+      ],
+      "sourceCardIds": [
+        "card.human_body.013.c3"
+      ],
+      "prompt": "What does synovial fluid do inside a freely movable joint?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Locks the bones so they can't move",
+          "correct": false,
+          "rationale": "That describes immovable sutures, not synovial joints."
+        },
+        {
+          "id": "b",
+          "label": "Lubricates the joint and reduces friction",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Makes new blood cells",
+          "correct": false,
+          "rationale": "Blood cells come from red marrow."
+        },
+        {
+          "id": "d",
+          "label": "Hardens the ends of the bones",
+          "correct": false,
+          "rationale": "The bone ends are capped with smooth cartilage."
+        }
+      ],
+      "explanation": "Synovial fluid is a thick, slippery fluid that lubricates the joint and reduces friction between the bones.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.joint_movement_classes",
+        "concept.human_body.skeleton_bone_count"
+      ],
+      "sourceCardIds": [
+        "card.human_body.013.c2",
+        "card.human_body.011.c3"
+      ],
+      "prompt": "Level 11's axial skeleton protects the brain. What kind of joint holds the skull's bones together?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A ball-and-socket joint",
+          "correct": false,
+          "rationale": "Only the hip and shoulder have those."
+        },
+        {
+          "id": "b",
+          "label": "A hinge joint",
+          "correct": false,
+          "rationale": "Hinges bend, like the elbow and knee."
+        },
+        {
+          "id": "c",
+          "label": "Immovable sutures",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A pivot joint",
+          "correct": false,
+          "rationale": "The pivot sits between the top two vertebrae."
+        }
+      ],
+      "explanation": "The skull's bones are joined by sutures, immovable joints that help protect the brain.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_joint_classification",
+    "source.openstax_ap_synovial_joints"
+  ],
+  "art": "body.bone"
+}

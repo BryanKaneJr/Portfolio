@@ -1,0 +1,320 @@
+{
+  "id": "level.science.human_body.060",
+  "skillId": "skill.science.human_body",
+  "number": 60,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Brain and Nerves",
+  "objective": "After this level you can explain how nerves and the brain sense, decide and act.",
+  "summary": "The nervous system senses, integrates and responds, like a batter judging a pitch. The brain doing it is about 2 percent of your weight but uses about 20 percent of your energy.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.nervous_sense_decide_act",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.brain_energy_budget",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.nervous_central_peripheral",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.brain_hemispheres",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.memory_forgetting",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.neuro_sleep_stages",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.059"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.060.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 6 finale: your brain is the body's priciest organ.",
+      "body": "It's about 2 percent of your weight and uses about 20 percent of your energy. First, one baseball pitch that puts this whole chapter to work. Then, what the bill says."
+    },
+    {
+      "id": "card.human_body.060.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sense, decide, act",
+      "body": "The nervous system has three basic jobs: sensation, integration and response. Watch a batter. Sensory neurons carry news of the pitch in. Then comes integration: the ball's speed and path get weighed against memories and the game situation. A batter doesn't swing automatically. Only then does the response go out, as motor messages down the spinal cord and along the nerves to the muscles. Or the bat stays still."
+    },
+    {
+      "id": "card.human_body.060.c3",
+      "type": "fact",
+      "fact": "Your brain: about 2 percent of your weight, about 20 percent of your energy.",
+      "context": "That's for an adult at rest, and the rate is remarkably steady. Solving a hard puzzle adds only a tiny amount on top of that large baseline. So thinking harder won't burn much extra; the brain is expensive even when you're just sitting there.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Pricey, yes. But it just ran a whole chapter on itself, which is a neat trick."
+      }
+    },
+    {
+      "id": "card.human_body.060.c4",
+      "type": "mcq",
+      "questionId": "question.human_body.060.q1"
+    },
+    {
+      "id": "card.human_body.060.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.060.q2"
+    },
+    {
+      "id": "card.human_body.060.c6",
+      "type": "recall",
+      "questionId": "question.human_body.060.q3"
+    },
+    {
+      "id": "card.human_body.060.c7",
+      "type": "recall",
+      "questionId": "question.human_body.060.q4"
+    },
+    {
+      "id": "card.human_body.060.c8",
+      "type": "recall",
+      "questionId": "question.human_body.060.q5"
+    },
+    {
+      "id": "card.human_body.060.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 6 complete",
+      "learned": [
+        "Brain and spinal cord decide; nerves carry news in and orders out",
+        "Neurons: electrical along the axon, chemical across the synapse",
+        "Reflexes loop through the spinal cord before you feel the pain",
+        "Hippocampus files memories; sleep stages cycle through the night",
+        "The brain: about 2% of your weight, about 20% of your energy"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.060.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.brain_energy_budget"
+      ],
+      "sourceCardIds": [
+        "card.human_body.060.c3"
+      ],
+      "prompt": "Brain and Nerves recap: about what share of the body's energy does an adult brain use at rest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 2 percent",
+          "correct": false,
+          "rationale": "That is its share of body weight."
+        },
+        {
+          "id": "b",
+          "label": "About 10 percent",
+          "correct": false,
+          "rationale": "Too low."
+        },
+        {
+          "id": "c",
+          "label": "About 20 percent",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 50 percent",
+          "correct": false,
+          "rationale": "Too high."
+        }
+      ],
+      "explanation": "The brain is about 2 percent of body weight but uses about 20 percent of the energy the body consumes at rest.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.060.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.nervous_sense_decide_act"
+      ],
+      "sourceCardIds": [
+        "card.human_body.060.c2"
+      ],
+      "prompt": "Brain and Nerves recap: a batter weighs the pitch's speed and the game situation before swinging. Which job is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sensation",
+          "correct": false,
+          "rationale": "Sensation is taking in the pitch in the first place."
+        },
+        {
+          "id": "b",
+          "label": "Integration",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Response",
+          "correct": false,
+          "rationale": "The response is the swing that follows."
+        },
+        {
+          "id": "d",
+          "label": "A stretch reflex",
+          "correct": false,
+          "rationale": "Reflexes skip the weighing-up step."
+        }
+      ],
+      "explanation": "Integration is weighing incoming information against memories and circumstances before a response is chosen.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.060.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.brain_hemispheres"
+      ],
+      "sourceCardIds": [
+        "card.human_body.055.c3",
+        "card.human_body.055.c4"
+      ],
+      "prompt": "Brain and Nerves recap, from Level 55: which statement matches what brain research shows?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Creative people run on the right hemisphere",
+          "correct": false,
+          "rationale": "No one had a stronger side overall."
+        },
+        {
+          "id": "b",
+          "label": "The hemispheres do identical work",
+          "correct": false,
+          "rationale": "Speech leans left for most people."
+        },
+        {
+          "id": "c",
+          "label": "Some jobs lean to one side, but people are not left- or right-brained",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Logical people run on the left hemisphere",
+          "correct": false,
+          "rationale": "The scans found no such people."
+        }
+      ],
+      "explanation": "Some functions, like speech, lean to one hemisphere, but the 2013 Utah study found no one with a stronger side overall.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.060.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.memory_forgetting"
+      ],
+      "sourceCardIds": [
+        "card.human_body.056.c4"
+      ],
+      "prompt": "Brain and Nerves recap, from Level 56: what did Ebbinghaus's forgetting curve show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Forgetting happens at an even pace",
+          "correct": false,
+          "rationale": "It is steep at first, then slows."
+        },
+        {
+          "id": "b",
+          "label": "Forgetting is fastest soon after learning",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Nothing is forgotten in the first week",
+          "correct": false,
+          "rationale": "Early forgetting is the fastest."
+        },
+        {
+          "id": "d",
+          "label": "Cramming beats spaced study",
+          "correct": false,
+          "rationale": "Spacing study out works better."
+        }
+      ],
+      "explanation": "Ebbinghaus found forgetting is fastest soon after learning and then slows.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.060.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.neuro_sleep_stages"
+      ],
+      "sourceCardIds": [
+        "card.human_body.057.c2"
+      ],
+      "prompt": "Brain and Nerves recap, from Level 57: which sleep stage is the deep sleep with the slowest brain waves?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stage 1",
+          "correct": false,
+          "rationale": "That is the short changeover."
+        },
+        {
+          "id": "b",
+          "label": "Stage 2",
+          "correct": false,
+          "rationale": "That is light sleep."
+        },
+        {
+          "id": "c",
+          "label": "Stage 3",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "REM",
+          "correct": false,
+          "rationale": "REM brain waves are close to waking."
+        }
+      ],
+      "explanation": "Stage 3 non-REM is deep sleep, with the slowest brain waves, when you may be hard to wake.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_nervous_system_basics",
+    "source.pnas_raichle_brain_energy",
+    "source.sciam_brain_energy",
+    "source.ninds_brain_basics_neuron",
+    "source.ninds_brain_basics_know_your_brain",
+    "source.brit_cerebral_hemisphere",
+    "source.uofuhealth_left_right_brain",
+    "source.brit_hermann_ebbinghaus",
+    "source.plosone_murre_forgetting_curve",
+    "source.ninds_brain_basics_sleep"
+  ],
+  "art": "body.neuron"
+}

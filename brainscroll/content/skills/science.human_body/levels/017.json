@@ -1,0 +1,253 @@
+{
+  "id": "level.science.human_body.017",
+  "skillId": "skill.science.human_body",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tendons and Ligaments",
+  "objective": "After this level you can explain what tendons and ligaments connect.",
+  "summary": "Tendons tie muscle to bone; ligaments tie bone to bone at joints. Both are ropes of parallel collagen with little blood supply. The Achilles tendon is the body's thickest.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.tendon_ligament_roles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.tendon_ligament_tissue",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.tissue_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.bone_materials",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.muscle_pull_pairs",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.016"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your body's thickest tendon is named after a hero's weak spot.",
+      "body": "In Greek myth, Achilles' heel was the one place he could be hurt. Today his name belongs to the tendon at the back of your heel. So what is a tendon, and what's the thing people always mix it up with?"
+    },
+    {
+      "id": "card.human_body.017.c2",
+      "type": "comparison",
+      "headline": "Muscle to bone, bone to bone",
+      "items": [
+        {
+          "label": "Tendons",
+          "points": [
+            "Connect muscle to bone",
+            "Carry a muscle's pull to the skeleton"
+          ]
+        },
+        {
+          "label": "Ligaments",
+          "points": [
+            "Connect bone to bone at a joint",
+            "Some have elastic fibers that spring back after stretching"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.017.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Built like rope",
+      "body": "Both are dense connective tissue, the binding-and-supporting tissue type from Level 4. They're packed with collagen, the same tough protein that keeps bone from being brittle, and the fibers are lined up in parallel. Like the strands of a rope, parallel fibers resist stretching in the direction of the pull."
+    },
+    {
+      "id": "card.human_body.017.c4",
+      "type": "fact",
+      "fact": "The Achilles tendon is the thickest and most powerful tendon in your body.",
+      "context": "It connects your calf muscles to your heel. So the legend's famous weak spot is home to your strongest tendon."
+    },
+    {
+      "id": "card.human_body.017.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two injuries, two tissues",
+      "body": "A sprain is a stretched or torn ligament. A strain is a stretched or torn muscle or tendon. They sound alike, but they hurt different tissues. And because tendons don't have a rich blood supply, they heal slowly.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Sprain: ligament. Strain: muscle or tendon. The t in strain is for tendon, if that helps."
+      }
+    },
+    {
+      "id": "card.human_body.017.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.017.q1"
+    },
+    {
+      "id": "card.human_body.017.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.017.q2"
+    },
+    {
+      "id": "card.human_body.017.c8",
+      "type": "recall",
+      "questionId": "question.human_body.017.q3"
+    },
+    {
+      "id": "card.human_body.017.c9",
+      "type": "checkpoint",
+      "headline": "Connections: made",
+      "learned": [
+        "Tendons: muscle to bone",
+        "Ligaments: bone to bone at a joint",
+        "Parallel collagen fibers make them strong like rope",
+        "Sprain hurts a ligament; strain hurts a muscle or tendon",
+        "The Achilles tendon is the thickest"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.tendon_ligament_roles"
+      ],
+      "sourceCardIds": [
+        "card.human_body.017.c2"
+      ],
+      "prompt": "What does a ligament connect?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bone to bone at a joint",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Muscle to bone",
+          "correct": false,
+          "rationale": "That's a tendon."
+        },
+        {
+          "id": "c",
+          "label": "Muscle to muscle",
+          "correct": false,
+          "rationale": "Ligaments join bones."
+        },
+        {
+          "id": "d",
+          "label": "Skin to muscle",
+          "correct": false,
+          "rationale": "Ligaments join bones at joints."
+        }
+      ],
+      "explanation": "Ligaments connect bones to each other at a joint; tendons connect muscle to bone.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.tendon_ligament_tissue"
+      ],
+      "sourceCardIds": [
+        "card.human_body.017.c5"
+      ],
+      "prompt": "Why do tendons usually heal slowly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They contain no collagen",
+          "correct": false,
+          "rationale": "They are packed with collagen."
+        },
+        {
+          "id": "b",
+          "label": "They are made of smooth muscle",
+          "correct": false,
+          "rationale": "They are dense connective tissue."
+        },
+        {
+          "id": "c",
+          "label": "They don't have a rich blood supply",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They are coated in synovial fluid",
+          "correct": false,
+          "rationale": "Synovial fluid lubricates joints; it doesn't slow healing."
+        }
+      ],
+      "explanation": "Tendons do not have an abundant blood supply, so they heal slowly.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.tendon_ligament_roles",
+        "concept.human_body.muscle_pull_pairs"
+      ],
+      "sourceCardIds": [
+        "card.human_body.017.c2",
+        "card.human_body.016.c3"
+      ],
+      "prompt": "Level 16's biceps pulls to bend the elbow. What carries that pull from the muscle to the bone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A ligament",
+          "correct": false,
+          "rationale": "Ligaments connect bone to bone."
+        },
+        {
+          "id": "b",
+          "label": "A tendon",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Synovial fluid",
+          "correct": false,
+          "rationale": "That lubricates the joint."
+        },
+        {
+          "id": "d",
+          "label": "The triceps",
+          "correct": false,
+          "rationale": "The triceps pulls the other way."
+        }
+      ],
+      "explanation": "Tendons connect muscle to bone, carrying the muscle's pull to the skeleton.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_achilles_tendon",
+    "source.medlineplus_sprains_strains",
+    "source.openstax_ap_muscle_levers",
+    "source.openstax_ap_connective_tissue",
+    "source.openstax_ap_tissue_types",
+    "source.openstax_ap_bone_structure",
+    "source.brit_bone"
+  ],
+  "art": "body.bone"
+}

@@ -1,0 +1,224 @@
+{
+  "id": "level.science.human_body.078",
+  "skillId": "skill.science.human_body",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Handwashing",
+  "objective": "After this level you can explain why handwashing saves lives, from Semmelweis to today.",
+  "summary": "In 1847 Semmelweis cut childbed fever deaths from about 18 to 1 percent with handwashing, and was rejected. Today the CDC calls soap and water the best way to remove germs.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.defense_semmelweis",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.defense_handwashing_science",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.defense_skin_layers",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.077"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1847, one doctor cut deaths on a ward from about 18 to about 1 percent.",
+      "body": "His treatment wasn't a drug. He made medical students wash their hands in a chlorinated lime solution. Most of his colleagues rejected the idea anyway."
+    },
+    {
+      "id": "card.human_body.078.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two divisions, two death rates",
+      "body": "Ignaz Semmelweis worked in a maternity clinic in Vienna with two divisions: medical students trained in one, midwives in the other. In the students' division, deaths from childbed fever were two or three times higher. Same hospital, same illness, very different odds. The question was what the students were bringing with them."
+    },
+    {
+      "id": "card.human_body.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The clue from the dissecting room",
+      "body": "Then a colleague died of a wound infection picked up while examining the body of a woman who had died of childbed fever. Semmelweis reasoned that students coming straight from the dissecting room carried the infection on their hands. In 1847 he ordered them to wash in chlorinated lime before each examination, and deaths fell from about 18 percent to about 1 percent. The weight of medical authority still stood against him.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Right answer, wrong decade. Sometimes the data has to wait for the world to catch up."
+      }
+    },
+    {
+      "id": "card.human_body.078.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What the CDC says today",
+      "body": "The CDC says washing with soap and water is the best way to get rid of germs in most situations. Scrub for at least 20 seconds, about two runs of 'Happy Birthday'. Lathering and scrubbing create friction that lifts dirt, grease and microbes off your skin. It matters because hands carry germs to your eyes, nose and mouth, right past Level 71's wall."
+    },
+    {
+      "id": "card.human_body.078.c5",
+      "type": "fact",
+      "fact": "Handwashing cuts diarrheal illness by 23 to 40 percent.",
+      "context": "That's the CDC's summary of the research. Handwashing also cuts respiratory illnesses, such as colds, by 16 to 21 percent. Semmelweis's basin of chlorinated lime was the right idea after all."
+    },
+    {
+      "id": "card.human_body.078.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.078.q1"
+    },
+    {
+      "id": "card.human_body.078.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.078.q2"
+    },
+    {
+      "id": "card.human_body.078.c8",
+      "type": "recall",
+      "questionId": "question.human_body.078.q3"
+    },
+    {
+      "id": "card.human_body.078.c9",
+      "type": "checkpoint",
+      "headline": "Handwashing: understood",
+      "learned": [
+        "Students' hands carried childbed fever in 1847 Vienna",
+        "Chlorinated lime cut deaths from about 18 to 1 percent",
+        "The CDC: soap and water, scrub at least 20 seconds",
+        "Handwashing cuts diarrheal illness 23 to 40 percent"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.defense_semmelweis"
+      ],
+      "sourceCardIds": [
+        "card.human_body.078.c3"
+      ],
+      "prompt": "What did Semmelweis order medical students to do before examining patients?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hand every examination over to midwives",
+          "correct": false,
+          "rationale": "He kept the students; he changed their hands."
+        },
+        {
+          "id": "b",
+          "label": "Wait a day after any dissection",
+          "correct": false,
+          "rationale": "His rule was washing, before each examination."
+        },
+        {
+          "id": "c",
+          "label": "Wash their hands in chlorinated lime",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Wear gloves made of rubber",
+          "correct": false,
+          "rationale": "His rule was handwashing in chlorinated lime."
+        }
+      ],
+      "explanation": "In 1847 Semmelweis ordered students to wash in chlorinated lime before each examination.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.defense_handwashing_science"
+      ],
+      "sourceCardIds": [
+        "card.human_body.078.c4"
+      ],
+      "prompt": "According to the CDC, why does lathering and scrubbing with soap help?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The friction lifts dirt and microbes off your skin",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It makes your skin acidic enough to kill everything",
+          "correct": false,
+          "rationale": "The CDC's point is friction lifting germs off."
+        },
+        {
+          "id": "c",
+          "label": "It thickens the dead-cell layer of skin",
+          "correct": false,
+          "rationale": "Scrubbing removes germs; it doesn't build skin."
+        },
+        {
+          "id": "d",
+          "label": "It trains your immune system like a vaccine",
+          "correct": false,
+          "rationale": "Washing removes germs; it doesn't train immunity."
+        }
+      ],
+      "explanation": "Lathering and scrubbing create friction that lifts dirt, grease and microbes from the skin.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.defense_handwashing_science",
+        "concept.human_body.defense_skin_layers"
+      ],
+      "sourceCardIds": [
+        "card.human_body.078.c4",
+        "card.human_body.071.c1"
+      ],
+      "prompt": "Level 71's skin keeps germs out. So why do unwashed hands still make people sick?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Germs dissolve the skin on your hands",
+          "correct": false,
+          "rationale": "The skin wall holds; the germs go around it."
+        },
+        {
+          "id": "b",
+          "label": "Hands carry germs to your eyes, nose and mouth",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Soap weakens the skin barrier",
+          "correct": false,
+          "rationale": "Washing removes germs; it's the unwashed hands that cause trouble."
+        },
+        {
+          "id": "d",
+          "label": "Germs on hands turn into viruses",
+          "correct": false,
+          "rationale": "Germs don't change kind; they get carried to your face."
+        }
+      ],
+      "explanation": "Skin is a barrier, but hands carry germs to the eyes, nose and mouth, where they can get in.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_semmelweis",
+    "source.cdc_clean_hands_about",
+    "source.cdc_handwashing_facts"
+  ],
+  "art": "body.soap"
+}

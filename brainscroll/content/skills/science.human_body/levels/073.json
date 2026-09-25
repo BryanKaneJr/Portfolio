@@ -1,0 +1,217 @@
+{
+  "id": "level.science.human_body.073",
+  "skillId": "skill.science.human_body",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Immune System",
+  "objective": "After this level you can explain how white blood cells fight infection.",
+  "summary": "Innate immunity includes skin and phagocytes, found by Metchnikoff in 1882. Acquired immunity uses B cells that make antibodies, T cells, and memory.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.defense_innate_immunity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.defense_adaptive_immunity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.defense_skin_layers",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.072"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1882, a zoologist stuck splinters into see-through starfish larvae.",
+      "body": "Elie Metchnikoff was studying the tiny animals in Messina, Italy. What he saw crowding around those splinters became one of the first clues to how your own body fights infection."
+    },
+    {
+      "id": "card.human_body.073.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The devouring cells",
+      "body": "Certain cells in the larvae surrounded the splinters and engulfed them. Metchnikoff named them phagocytes, from Greek words meaning 'devouring cells', and the discovery earned him a share of the 1908 Nobel Prize. You have phagocytes too: white blood cells that swallow germs and dead or damaged cells. Your body runs its own cleanup crew, and it eats on the job."
+    },
+    {
+      "id": "card.human_body.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The defenses you were born with",
+      "body": "Phagocytes belong to your innate immunity, the defense system you're born with. It's nonspecific: it doesn't need to know which germ it's facing. It also includes barriers like the skin from Level 71, which keeps harmful material out in the first place. Think of a wall with guards who throw out anything that doesn't belong."
+    },
+    {
+      "id": "card.human_body.073.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Specialists who learn and remember",
+      "body": "Your second defense, acquired immunity, develops as you meet germs. It relies on lymphocytes, white blood cells of two kinds. B cells become plasma cells that make antibodies: proteins that lock onto one specific antigen, usually a protein on a germ's surface, and make it easier to destroy. T cells attack directly and help run the response. Afterwards, some B and T cells stay on as memory, so the next time that germ turns up, the answer comes faster.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Your immune system keeps a file on every germ it has beaten. Quietly, thoroughly, forever-ish."
+      }
+    },
+    {
+      "id": "card.human_body.073.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.073.q1"
+    },
+    {
+      "id": "card.human_body.073.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.073.q2"
+    },
+    {
+      "id": "card.human_body.073.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.073.q3"
+    },
+    {
+      "id": "card.human_body.073.c8",
+      "type": "checkpoint",
+      "headline": "Immune system: met",
+      "learned": [
+        "Phagocytes are white blood cells that engulf germs",
+        "Innate immunity, including skin, is the defense you are born with",
+        "B cells make antibodies that fit one specific antigen",
+        "Memory cells make the second response faster"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.defense_innate_immunity"
+      ],
+      "sourceCardIds": [
+        "card.human_body.073.c2"
+      ],
+      "prompt": "What did Metchnikoff see certain cells do to the splinters in starfish larvae?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Push them out through the skin",
+          "correct": false,
+          "rationale": "The cells came to the splinters and engulfed them."
+        },
+        {
+          "id": "b",
+          "label": "Surround and engulf them",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Dissolve them with acid",
+          "correct": false,
+          "rationale": "The cells engulfed the splinters; that's what 'phagocyte' means."
+        },
+        {
+          "id": "d",
+          "label": "Make antibodies against them",
+          "correct": false,
+          "rationale": "Antibodies come from B cells, part of acquired immunity."
+        }
+      ],
+      "explanation": "Metchnikoff saw cells surround and engulf the splinters, and named them phagocytes, 'devouring cells'.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.defense_adaptive_immunity"
+      ],
+      "sourceCardIds": [
+        "card.human_body.073.c4"
+      ],
+      "prompt": "Why does acquired immunity respond faster the second time the same germ shows up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The germ is weaker the second time",
+          "correct": false,
+          "rationale": "It's the same germ; your defenses are what changed."
+        },
+        {
+          "id": "b",
+          "label": "Your skin grows thicker after an infection",
+          "correct": false,
+          "rationale": "The speed-up comes from memory cells, not skin."
+        },
+        {
+          "id": "c",
+          "label": "Some B and T cells stay on as memory",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Phagocytes learn to recognize every germ",
+          "correct": false,
+          "rationale": "Phagocytes are nonspecific; memory belongs to lymphocytes."
+        }
+      ],
+      "explanation": "After an infection, some B and T cells remain as memory, so the response to the same antigen is faster next time.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.defense_innate_immunity"
+      ],
+      "sourceCardIds": [
+        "card.human_body.073.c3",
+        "card.human_body.071.c1"
+      ],
+      "prompt": "Level 71's skin and Metchnikoff's phagocytes belong to which part of your defenses?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Acquired immunity",
+          "correct": false,
+          "rationale": "Acquired immunity develops as you meet germs and uses lymphocytes."
+        },
+        {
+          "id": "b",
+          "label": "Antibodies",
+          "correct": false,
+          "rationale": "Antibodies come from B cells in acquired immunity."
+        },
+        {
+          "id": "c",
+          "label": "The microbiome",
+          "correct": false,
+          "rationale": "The microbiome is microbes living on you, not your own defenses."
+        },
+        {
+          "id": "d",
+          "label": "Innate immunity",
+          "correct": true
+        }
+      ],
+      "explanation": "Innate immunity is the defense you're born with: barriers like skin plus phagocytes.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_metchnikoff",
+    "source.medlineplus_immune_response",
+    "source.pmc_grice_skin_microbiome"
+  ],
+  "art": "body.blood-cells"
+}

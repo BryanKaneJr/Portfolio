@@ -1,0 +1,368 @@
+{
+  "id": "level.science.human_body.090",
+  "skillId": "skill.science.human_body",
+  "number": 90,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Growing and Changing",
+  "objective": "After this level you can explain how genes, hormones and time shape a body from birth to old age.",
+  "summary": "One life, from zygote to senescent cells. And epigenetics: chemical tags that switch genes on or off without changing DNA, which is why identical twins drift apart as they age.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.epigenetics_switches",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.fertilization_zygote",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.prenatal_development",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.puberty_hormone_relay",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.puberty_growth_changes",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.aging_division_limit",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.aging_senescent_cells",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.twins_two_kinds",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.twins_genes_environment",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.089"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.090.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 9 finale: identical twins start the same and drift apart.",
+      "body": "Identical twins share the same DNA from their first cell. Yet as they age they grow more different, in ways that go deeper than fingerprints. First, one life at a glance. Then, the switches that time flips."
+    },
+    {
+      "id": "card.human_body.090.c2",
+      "type": "timeline",
+      "headline": "One life, from a single cell",
+      "events": [
+        {
+          "when": "Fertilization",
+          "label": "Egg and sperm (23 chromosomes each) make a zygote with 46"
+        },
+        {
+          "when": "Week 10 of pregnancy",
+          "label": "The embryo is now a fetus; birth at about 40 weeks"
+        },
+        {
+          "when": "About 8 to 14",
+          "label": "Hypothalamus to pituitary to ovaries or testes: puberty begins"
+        },
+        {
+          "when": "Mid-to-late 20s",
+          "label": "The prefrontal cortex finishes maturing"
+        },
+        {
+          "when": "Later life",
+          "label": "Telomeres shorten and senescent cells build up"
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.090.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Switches on the DNA",
+      "body": "Your DNA letters stay the same for life, but your cells attach chemical tags to DNA that turn genes on or off. That's epigenetics. A common tag is a methyl group: when methyl groups sit on a gene, that gene is switched off. Diet and pollutants can change the tags, and cells keep them when they divide. Same text, different highlights."
+    },
+    {
+      "id": "card.human_body.090.c4",
+      "type": "fact",
+      "fact": "Identical twins drift apart with age.",
+      "context": "A 2005 study found that young identical twins have nearly indistinguishable epigenetic tags, while older identical twins differ markedly. Add Level 83's fingerprints, shaped in the womb, and the lesson is clear: genes write the book, but life keeps editing the highlights.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Same genes, different lives, different switches. That's the whole chapter in one pair of twins."
+      }
+    },
+    {
+      "id": "card.human_body.090.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.090.q1"
+    },
+    {
+      "id": "card.human_body.090.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.090.q2"
+    },
+    {
+      "id": "card.human_body.090.c7",
+      "type": "recall",
+      "questionId": "question.human_body.090.q3"
+    },
+    {
+      "id": "card.human_body.090.c8",
+      "type": "recall",
+      "questionId": "question.human_body.090.q4"
+    },
+    {
+      "id": "card.human_body.090.c9",
+      "type": "recall",
+      "questionId": "question.human_body.090.q5"
+    },
+    {
+      "id": "card.human_body.090.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 9 complete",
+      "learned": [
+        "Egg and sperm make one cell; it becomes a fetus at week 10",
+        "Traits pass down in allele pairs; most involve many genes",
+        "A hormone relay starts puberty; the brain matures last",
+        "Telomeres, senescent cells and damage drive aging",
+        "Epigenetic tags let time edit how genes are used"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.090.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.epigenetics_switches"
+      ],
+      "sourceCardIds": [
+        "card.human_body.090.c3"
+      ],
+      "prompt": "Growing and Changing recap: what do epigenetic tags do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rewrite the letters of your DNA",
+          "correct": false,
+          "rationale": "The DNA sequence stays the same."
+        },
+        {
+          "id": "b",
+          "label": "Switch genes on or off without changing the DNA",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Add new chromosomes as you age",
+          "correct": false,
+          "rationale": "You keep 46 chromosomes."
+        },
+        {
+          "id": "d",
+          "label": "Shorten telomeres at each division",
+          "correct": false,
+          "rationale": "That's the Hayflick story from Level 85."
+        }
+      ],
+      "explanation": "Epigenetic tags, like methyl groups, turn genes on or off without changing the DNA sequence.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.090.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.epigenetics_switches"
+      ],
+      "sourceCardIds": [
+        "card.human_body.090.c4"
+      ],
+      "prompt": "Growing and Changing recap: identical twins share the same DNA. Why do older twins differ more than young ones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They lose chromosomes as they age",
+          "correct": false,
+          "rationale": "Their chromosome count doesn't change."
+        },
+        {
+          "id": "b",
+          "label": "One twin's DNA letters mutate into the other's",
+          "correct": false,
+          "rationale": "The DNA sequence isn't the difference."
+        },
+        {
+          "id": "c",
+          "label": "Identical twins only share DNA as babies",
+          "correct": false,
+          "rationale": "They share it for life."
+        },
+        {
+          "id": "d",
+          "label": "Their epigenetic tags drift apart over time",
+          "correct": true
+        }
+      ],
+      "explanation": "Young identical twins have nearly the same epigenetic tags, but older twins differ markedly.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.090.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.prenatal_development"
+      ],
+      "sourceCardIds": [
+        "card.human_body.081.c5",
+        "card.human_body.090.c2"
+      ],
+      "prompt": "Growing and Changing recap, from Level 81: when is a developing embryo first called a fetus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "At the end of week 10 of pregnancy",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "On the day of fertilization",
+          "correct": false,
+          "rationale": "Then it's a single cell, the zygote."
+        },
+        {
+          "id": "c",
+          "label": "At about week 40",
+          "correct": false,
+          "rationale": "That's around birth."
+        },
+        {
+          "id": "d",
+          "label": "At the start of puberty",
+          "correct": false,
+          "rationale": "That's years after birth."
+        }
+      ],
+      "explanation": "At the end of week 10 of pregnancy, about 8 weeks after fertilization, the embryo is called a fetus.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.090.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.aging_division_limit"
+      ],
+      "sourceCardIds": [
+        "card.human_body.085.c3"
+      ],
+      "prompt": "Growing and Changing recap, from Level 85: what happens to a chromosome's telomere each time the cell divides?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It doubles in length",
+          "correct": false,
+          "rationale": "It gets shorter."
+        },
+        {
+          "id": "b",
+          "label": "It moves to the middle",
+          "correct": false,
+          "rationale": "It stays at the chromosome's end."
+        },
+        {
+          "id": "c",
+          "label": "Some of its repeats are cut off",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It becomes an epigenetic tag",
+          "correct": false,
+          "rationale": "Telomeres are repeated DNA, not tags."
+        }
+      ],
+      "explanation": "Every division cuts off some telomere repeats, until the cell can no longer divide successfully.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.090.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.twins_genes_environment",
+        "concept.human_body.epigenetics_switches"
+      ],
+      "sourceCardIds": [
+        "card.human_body.083.c4",
+        "card.human_body.090.c4"
+      ],
+      "prompt": "Growing and Changing recap: identical twins differ in fingerprints and, later, in epigenetic tags. What does that show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Identical twins have different DNA",
+          "correct": false,
+          "rationale": "They share the same DNA."
+        },
+        {
+          "id": "b",
+          "label": "Environment and time shape a body alongside genes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Fingerprints are inherited from grandparents",
+          "correct": false,
+          "rationale": "Womb conditions shape their details."
+        },
+        {
+          "id": "d",
+          "label": "Epigenetic tags are fixed at birth",
+          "correct": false,
+          "rationale": "They change over a lifetime."
+        }
+      ],
+      "explanation": "Same DNA, yet womb conditions shape fingerprints and life shapes epigenetic tags: genes aren't the whole story.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.medlineplus_twins",
+    "source.brit_identical_twin",
+    "source.pnas_fraga_twins_2005",
+    "source.nichd_pregnancy_about",
+    "source.medlineplus_fetal_development",
+    "source.nhgri_meiosis",
+    "source.nichd_puberty_about",
+    "source.nichd_puberty_causes",
+    "source.nimh_teen_brain",
+    "source.nhgri_telomere",
+    "source.asu_embryo_hayflick_limit",
+    "source.nih_irp_cellular_aging",
+    "source.medlineplus_epigenetics",
+    "source.medlineplus_fingerprints"
+  ],
+  "art": "technology.dna"
+}

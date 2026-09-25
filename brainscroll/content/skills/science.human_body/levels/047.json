@@ -1,0 +1,255 @@
+{
+  "id": "level.science.human_body.047",
+  "skillId": "skill.science.human_body",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Nutrients",
+  "objective": "After this level you can explain carbohydrates, proteins, fats, vitamins and minerals.",
+  "summary": "Digestion takes carbohydrates, proteins and fats apart into sugars, amino acids, and fatty acids and glycerol. Vitamins and minerals are micronutrients: tiny amounts, big jobs.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.nutrients_big_three",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.nutrients_micronutrients",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.gene_to_protein",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.teeth_enamel",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.046"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You eat proteins, take them apart, and build your own.",
+      "body": "Digestion isn't a trash compactor. It's a disassembly line. Food arrives as big molecules, and your gut breaks them into small parts your cells can use. Here are the parts, and what happens to them."
+    },
+    {
+      "id": "card.human_body.047.c2",
+      "type": "comparison",
+      "headline": "The big three, taken apart",
+      "items": [
+        {
+          "label": "Carbohydrates",
+          "points": [
+            "Sugars and starches",
+            "Broken into simple sugars",
+            "Glucose is your cells' main fuel"
+          ]
+        },
+        {
+          "label": "Proteins",
+          "points": [
+            "Chains of amino acids",
+            "Broken back into amino acids"
+          ]
+        },
+        {
+          "label": "Fats",
+          "points": [
+            "Broken into fatty acids and glycerol",
+            "Energy, about twice as much per gram",
+            "Help you absorb vitamins"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same bricks, new building",
+      "body": "Remember Level 6? Your proteins are chains built from 20 kinds of amino acids, and every protein is built from that same set. Digestion snips the proteins in your food back into amino acids, and your ribosomes link them into your own proteins, in the order your genes spell out. Your body can make some amino acids itself; the essential ones have to arrive in food. Same bricks, new building."
+    },
+    {
+      "id": "card.human_body.047.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Small amounts, big jobs",
+      "body": "Vitamins and minerals are micronutrients: your body needs them in very small amounts, yet they're critical for health. There are 13 essential vitamins. Minerals such as calcium and phosphorus help keep bones, muscles, heart and brain working, and Level 42's enamel is mostly crystals of calcium phosphate. A pinch, not a scoop, and still essential.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Micro means the amount, not the importance. Tiny doses, full-size jobs."
+      }
+    },
+    {
+      "id": "card.human_body.047.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.047.q1"
+    },
+    {
+      "id": "card.human_body.047.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.047.q2"
+    },
+    {
+      "id": "card.human_body.047.c7",
+      "type": "recall",
+      "questionId": "question.human_body.047.q3"
+    },
+    {
+      "id": "card.human_body.047.c8",
+      "type": "checkpoint",
+      "headline": "Nutrients: sorted",
+      "learned": [
+        "Carbohydrates, proteins and fats are the three main nutrients",
+        "They break into sugars, amino acids, fatty acids and glycerol",
+        "Your cells rebuild amino acids into your own proteins",
+        "Vitamins and minerals are needed in tiny amounts"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.nutrients_big_three"
+      ],
+      "sourceCardIds": [
+        "card.human_body.047.c2"
+      ],
+      "prompt": "Digestion breaks the proteins in food down into which smaller parts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Simple sugars",
+          "correct": false,
+          "rationale": "Those come from carbohydrates."
+        },
+        {
+          "id": "b",
+          "label": "Fatty acids",
+          "correct": false,
+          "rationale": "Those come from fats."
+        },
+        {
+          "id": "c",
+          "label": "Amino acids",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Vitamins",
+          "correct": false,
+          "rationale": "Vitamins aren't made by breaking down protein."
+        }
+      ],
+      "explanation": "Proteins are chains of amino acids, and digestion breaks them back into amino acids.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.nutrients_micronutrients"
+      ],
+      "sourceCardIds": [
+        "card.human_body.047.c4"
+      ],
+      "prompt": "Why are vitamins and minerals called micronutrients?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are too small to see",
+          "correct": false,
+          "rationale": "The name is about the amount needed."
+        },
+        {
+          "id": "b",
+          "label": "The body needs them in very small amounts",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They supply most of the body's energy",
+          "correct": false,
+          "rationale": "Carbohydrates and fats supply energy."
+        },
+        {
+          "id": "d",
+          "label": "They are made by gut microbes",
+          "correct": false,
+          "rationale": "Most must come from food."
+        }
+      ],
+      "explanation": "Micronutrients are needed in very small amounts, but they're still critical for health.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.gene_to_protein",
+        "concept.human_body.nutrients_big_three"
+      ],
+      "sourceCardIds": [
+        "card.human_body.047.c3",
+        "card.human_body.006.c4"
+      ],
+      "prompt": "Level 6 said ribosomes link amino acids into proteins. Where do many of those amino acids come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are copied straight from DNA",
+          "correct": false,
+          "rationale": "DNA holds the recipe, not the amino acids."
+        },
+        {
+          "id": "b",
+          "label": "From water inside cells",
+          "correct": false,
+          "rationale": "Water isn't made of amino acids."
+        },
+        {
+          "id": "c",
+          "label": "From enamel as it wears away",
+          "correct": false,
+          "rationale": "Enamel is mineral, not protein."
+        },
+        {
+          "id": "d",
+          "label": "From proteins in food, broken down by digestion",
+          "correct": true
+        }
+      ],
+      "explanation": "Digestion breaks food proteins into amino acids, which ribosomes link into your own proteins; the essential ones must come from food.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.medlineplus_carbohydrates",
+    "source.medlineplus_dietary_fats",
+    "source.medlineplus_protein_diet",
+    "source.niddk_digestive_system",
+    "source.who_micronutrients",
+    "source.medlineplus_vitamins",
+    "source.medlineplus_minerals",
+    "source.pmc_lacruz_enamel",
+    "source.medlineplus_protein",
+    "source.medlineplus_making_protein",
+    "source.nhgri_amino_acids",
+    "source.brit_tooth"
+  ],
+  "art": "body.food-plate"
+}

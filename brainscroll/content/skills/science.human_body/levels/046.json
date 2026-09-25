@@ -1,0 +1,225 @@
+{
+  "id": "level.science.human_body.046",
+  "skillId": "skill.science.human_body",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Kidneys",
+  "objective": "After this level you can explain how the kidneys filter the blood.",
+  "summary": "Two fist-sized kidneys hold about a million nephrons each. A glomerulus filters the blood and a tubule takes back what's needed: of 150 to 180 liters filtered a day, about 99 percent returns.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.kidney_nephrons",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.kidney_filtering",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.organ_systems",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.body_water_jobs",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.045"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your kidneys filter 150 to 180 liters a day, then hand back 99 percent.",
+      "body": "That sounds wasteful, like emptying the whole kitchen cupboard to find one spoon. It's actually a clever way to clean blood. Here's how two fist-sized organs pull it off."
+    },
+    {
+      "id": "card.human_body.046.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two fists, a million filters each",
+      "body": "Your kidneys are two bean-shaped organs, each about the size of a fist, tucked just below your rib cage on either side of your spine. Each holds about a million tiny filtering units called nephrons. They're the working heart of Level 1's urinary system, the team that removes waste from the blood and balances water."
+    },
+    {
+      "id": "card.human_body.046.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Filter first, then take back",
+      "body": "In each nephron, blood first passes a filter called the glomerulus. Water, wastes and other small molecules get through; blood cells and proteins are held back. Then a tubule returns the substances your body still needs to the blood. What's left is waste in a little water: urine. Throw out almost everything, then keep the good stuff."
+    },
+    {
+      "id": "card.human_body.046.c4",
+      "type": "fact",
+      "fact": "About 99 percent of what your kidneys filter goes back into your blood.",
+      "context": "Of the 150 to 180 liters filtered each day, only about 1 to 2 liters leave as urine. It's Level 7's water doing one of its day jobs: a small share carries wastes out of your body, and the rest goes straight back into circulation.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Recycling rate: about 99 percent. Your kidneys would win any sustainability award."
+      }
+    },
+    {
+      "id": "card.human_body.046.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.046.q1"
+    },
+    {
+      "id": "card.human_body.046.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.046.q2"
+    },
+    {
+      "id": "card.human_body.046.c7",
+      "type": "recall",
+      "questionId": "question.human_body.046.q3"
+    },
+    {
+      "id": "card.human_body.046.c8",
+      "type": "checkpoint",
+      "headline": "Kidneys: filtered",
+      "learned": [
+        "Two fist-sized, bean-shaped kidneys below the ribs",
+        "About a million nephrons in each",
+        "The glomerulus filters; the tubule takes back what's needed",
+        "About 99 percent of filtered fluid returns to the blood"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.kidney_nephrons"
+      ],
+      "sourceCardIds": [
+        "card.human_body.046.c2"
+      ],
+      "prompt": "What are the kidneys' tiny filtering units called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Villi",
+          "correct": false,
+          "rationale": "Villi line the small intestine."
+        },
+        {
+          "id": "b",
+          "label": "Microvilli",
+          "correct": false,
+          "rationale": "Those are on intestinal cells."
+        },
+        {
+          "id": "c",
+          "label": "Nephrons",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Chambers",
+          "correct": false,
+          "rationale": "Kidneys filter with nephrons."
+        }
+      ],
+      "explanation": "Each kidney holds about a million filtering units called nephrons.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.kidney_filtering",
+        "concept.human_body.kidney_nephrons"
+      ],
+      "sourceCardIds": [
+        "card.human_body.046.c3",
+        "card.human_body.046.c4"
+      ],
+      "prompt": "Why does most of the fluid the kidneys filter never become urine?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A tubule returns it to the blood",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It evaporates through the skin",
+          "correct": false,
+          "rationale": "Filtered fluid is taken back inside the kidney."
+        },
+        {
+          "id": "c",
+          "label": "The glomerulus blocks all water",
+          "correct": false,
+          "rationale": "Water passes through the glomerulus."
+        },
+        {
+          "id": "d",
+          "label": "The liver absorbs it first",
+          "correct": false,
+          "rationale": "The kidneys take it back themselves."
+        }
+      ],
+      "explanation": "After the glomerulus filters the blood, tubules return needed substances and about 99 percent of the fluid to the blood.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.organ_systems",
+        "concept.human_body.kidney_nephrons"
+      ],
+      "sourceCardIds": [
+        "card.human_body.001.c2",
+        "card.human_body.046.c2"
+      ],
+      "prompt": "Level 1 listed the organ systems. The kidneys belong to the urinary system. Which two jobs does that system do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pumps blood and carries oxygen",
+          "correct": false,
+          "rationale": "That's the cardiovascular system."
+        },
+        {
+          "id": "b",
+          "label": "Senses and responds",
+          "correct": false,
+          "rationale": "That's the nervous system."
+        },
+        {
+          "id": "c",
+          "label": "Makes hormones and sex cells",
+          "correct": false,
+          "rationale": "Those are endocrine and reproductive jobs."
+        },
+        {
+          "id": "d",
+          "label": "Removes waste from blood and balances water",
+          "correct": true
+        }
+      ],
+      "explanation": "The urinary system, with the kidneys at its core, removes waste from the blood and balances the body's water.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.niddk_kidneys",
+    "source.openstax_ap_urine_formation",
+    "source.openstax_ap_body_organization",
+    "source.cdc_water_healthy_drinks"
+  ],
+  "art": "nature.water-drop"
+}

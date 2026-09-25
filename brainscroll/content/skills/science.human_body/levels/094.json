@@ -1,0 +1,220 @@
+{
+  "id": "level.science.human_body.094",
+  "skillId": "skill.science.human_body",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Stress",
+  "objective": "After this level you can explain how stress affects the body.",
+  "summary": "Stress is a response to a demand. The amygdala alerts the hypothalamus, adrenaline and cortisol rev you up, and a brake calms you. Short bursts help; lasting stress harms.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.health_stress_response",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.health_stress_long_term",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.organ_systems",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.093"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.094.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your body can treat a traffic jam like a threat to your life.",
+      "body": "Stress is your body's response to a demand, from a pile of homework to an illness. The alarm system behind it is fast, and not very good at telling a bear from a deadline. Here's how it works."
+    },
+    {
+      "id": "card.human_body.094.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The alarm goes off before you know why",
+      "body": "When your eyes or ears pick up danger, the signal reaches the amygdala, which instantly alerts the hypothalamus, the command center for the response. This starts even before your brain's visual centers have fully worked out what you saw. That's why you can flinch at a shape in the dark before you realize it's only a coat."
+    },
+    {
+      "id": "card.human_body.094.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Gas, then brake",
+      "body": "Next come hormones. Adrenaline makes your heart beat faster, pushing blood to your muscles, heart and other vital organs. Breathing speeds up, small airways in the lungs open wide, and stored sugar and fat are released for quick energy. As that surge fades, a second system keeps cortisol flowing to hold you on alert. When the threat passes, cortisol falls and the parasympathetic nervous system acts as the brake. Walter Cannon named this the fight-or-flight response in the early 1900s."
+    },
+    {
+      "id": "card.human_body.094.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Useful in bursts, harmful on repeat",
+      "body": "A short burst of stress isn't all bad: it can push you to meet a deadline. The trouble is stress that doesn't let up. Long-lasting stress can disturb sleep and affect the immune, digestive and cardiovascular systems. Health guides from NIMH and KidsHealth say that when stress feels like too much or won't go away, talking with a trusted adult or a health professional can help. An alarm is useful. An alarm that never switches off isn't.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Even a good alarm needs someone to help find the off switch. That's what trusted people are for."
+      }
+    },
+    {
+      "id": "card.human_body.094.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.094.q1"
+    },
+    {
+      "id": "card.human_body.094.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.094.q2"
+    },
+    {
+      "id": "card.human_body.094.c7",
+      "type": "recall",
+      "questionId": "question.human_body.094.q3"
+    },
+    {
+      "id": "card.human_body.094.c8",
+      "type": "checkpoint",
+      "headline": "Stress: explained",
+      "learned": [
+        "Amygdala alerts the hypothalamus, fast",
+        "Adrenaline speeds heart and breathing and releases fuel",
+        "Cortisol keeps you alert; the parasympathetic brake calms",
+        "Short bursts can help; stress that lingers can harm"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.health_stress_response"
+      ],
+      "sourceCardIds": [
+        "card.human_body.094.c2"
+      ],
+      "prompt": "In the stress response, which part of the brain first sends a distress signal to the hypothalamus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The amygdala",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The spinal cord",
+          "correct": false,
+          "rationale": "The signal starts in the brain, at the amygdala."
+        },
+        {
+          "id": "c",
+          "label": "The visual centers, once they finish",
+          "correct": false,
+          "rationale": "The alarm starts before they finish processing."
+        },
+        {
+          "id": "d",
+          "label": "The stomach",
+          "correct": false,
+          "rationale": "Not part of the brain at all."
+        }
+      ],
+      "explanation": "The eyes or ears send information to the amygdala, which instantly alerts the hypothalamus.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.health_stress_long_term"
+      ],
+      "sourceCardIds": [
+        "card.human_body.094.c4"
+      ],
+      "prompt": "NIMH says a short burst of stress can push you to meet a deadline. When does stress start to cause harm?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The moment any stress hormone appears",
+          "correct": false,
+          "rationale": "Short bursts can be helpful."
+        },
+        {
+          "id": "b",
+          "label": "Only during a real physical danger",
+          "correct": false,
+          "rationale": "Everyday stressors count too."
+        },
+        {
+          "id": "c",
+          "label": "When it lasts and doesn't let up",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Never: stress only affects mood",
+          "correct": false,
+          "rationale": "Lasting stress can affect sleep and body systems."
+        }
+      ],
+      "explanation": "Short-term stress can help, but stress that doesn't let up can disturb sleep and affect the immune, digestive and cardiovascular systems.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.organ_systems",
+        "concept.human_body.health_stress_response"
+      ],
+      "sourceCardIds": [
+        "card.human_body.001.c2",
+        "card.human_body.094.c3"
+      ],
+      "prompt": "Level 1 gave each organ system a job. Which system's job shows up when adrenaline and cortisol flood your body under stress?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Skeletal: holding you up",
+          "correct": false,
+          "rationale": "Bones don't send the stress hormones."
+        },
+        {
+          "id": "b",
+          "label": "Digestive: processing food",
+          "correct": false,
+          "rationale": "Digestion isn't the messenger here."
+        },
+        {
+          "id": "c",
+          "label": "Integumentary: wrapping you",
+          "correct": false,
+          "rationale": "Skin isn't the hormone sender."
+        },
+        {
+          "id": "d",
+          "label": "Endocrine: sending hormones",
+          "correct": true
+        }
+      ],
+      "explanation": "The endocrine system sends hormones that regulate the body; adrenaline and cortisol are its stress messengers.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nimh_stress_fact_sheet",
+    "source.harvard_health_stress_response",
+    "source.brit_fight_or_flight",
+    "source.kidshealth_teen_stress",
+    "source.openstax_ap_body_organization"
+  ],
+  "art": "body.heart"
+}

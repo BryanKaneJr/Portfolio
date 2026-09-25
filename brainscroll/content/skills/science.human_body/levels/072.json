@@ -1,0 +1,254 @@
+{
+  "id": "level.science.human_body.072",
+  "skillId": "skill.science.human_body",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Germs",
+  "objective": "After this level you can compare bacteria, viruses and fungi.",
+  "summary": "Germs cause infectious disease. Bacteria are single cells, mostly harmless; fungi include molds and yeasts; viruses are not cells and multiply only inside living cells.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.defense_germ_kinds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.defense_virus_hijackers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.microscopes_cells",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.microbiome_residents",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.071"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "'Germ' isn't a species. It's a job title.",
+      "body": "Germs are the microbes behind infectious diseases, and the word covers very different things. The main kinds are bacteria, viruses, fungi and parasites. Meet the first three, because telling them apart changes how you fight them."
+    },
+    {
+      "id": "card.human_body.072.c2",
+      "type": "comparison",
+      "headline": "Three kinds of germ",
+      "items": [
+        {
+          "label": "Bacteria",
+          "points": [
+            "Living things made of a single cell",
+            "Multiply quickly; some give off toxins",
+            "Most types don't make you sick"
+          ]
+        },
+        {
+          "label": "Viruses",
+          "points": [
+            "Genetic material in a protein coat",
+            "Not a cell at all",
+            "Must invade a living cell to multiply"
+          ]
+        },
+        {
+          "label": "Fungi",
+          "points": [
+            "Mushrooms, molds, mildew and yeasts",
+            "Live in air, soil, water and on plants",
+            "Some live in you; athlete's foot is one"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The germ that slipped through the filter",
+      "body": "Leeuwenhoek first saw bacteria back in Level 9. Viruses were far too small for his lens. In 1892, Dmitry Ivanovsky found that a disease of tobacco plants passed through a filter fine enough to trap bacteria, so something smaller was carrying it. Most viruses measure from about 20 to a few hundred nanometers, and none can multiply outside a living cell. A virus is a set of instructions looking for a factory.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A germ that cannot copy itself without borrowing your cells. Rude, but clever."
+      }
+    },
+    {
+      "id": "card.human_body.072.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why telling them apart matters",
+      "body": "Built differently, fought differently. Antibiotics treat bacterial infections, but they don't work on viruses; for most viral infections, your immune system does the fighting. And 'kill every germ' was never the goal, because most bacteria don't make you sick. Some are downright useful, like the gut microbes from Level 8 that help break down your food."
+    },
+    {
+      "id": "card.human_body.072.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.072.q1"
+    },
+    {
+      "id": "card.human_body.072.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.072.q2"
+    },
+    {
+      "id": "card.human_body.072.c7",
+      "type": "recall",
+      "questionId": "question.human_body.072.q3"
+    },
+    {
+      "id": "card.human_body.072.c8",
+      "type": "checkpoint",
+      "headline": "Germs: sorted",
+      "learned": [
+        "Germs are microbes that cause infectious disease",
+        "Bacteria are single cells; most are harmless",
+        "Fungi include molds and yeasts",
+        "Viruses hijack cells and slip through bacterial filters",
+        "Antibiotics don't work on viruses"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.defense_germ_kinds"
+      ],
+      "sourceCardIds": [
+        "card.human_body.072.c2"
+      ],
+      "prompt": "Which group of germs includes molds and yeasts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bacteria",
+          "correct": false,
+          "rationale": "Bacteria are single cells, not molds or yeasts."
+        },
+        {
+          "id": "b",
+          "label": "Viruses",
+          "correct": false,
+          "rationale": "Viruses are genetic material in a protein coat."
+        },
+        {
+          "id": "c",
+          "label": "Fungi",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Red blood cells",
+          "correct": false,
+          "rationale": "Those are your own cells, not germs."
+        }
+      ],
+      "explanation": "Fungi include mushrooms, molds, mildew and yeasts.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.defense_virus_hijackers"
+      ],
+      "sourceCardIds": [
+        "card.human_body.072.c2",
+        "card.human_body.072.c3"
+      ],
+      "prompt": "Why does a virus have to get inside one of your cells?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To use the cell to make copies of itself",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To eat the food stored in the cell",
+          "correct": false,
+          "rationale": "Viruses don't eat; they copy themselves using the cell."
+        },
+        {
+          "id": "c",
+          "label": "To turn itself into a bacterium",
+          "correct": false,
+          "rationale": "Viruses stay viruses; they just hijack the cell."
+        },
+        {
+          "id": "d",
+          "label": "To hide from antibiotics in the blood",
+          "correct": false,
+          "rationale": "Antibiotics don't work on viruses anyway."
+        }
+      ],
+      "explanation": "Viruses can multiply only inside living cells, which they invade and use to make copies of themselves.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.defense_virus_hijackers",
+        "concept.human_body.microscopes_cells"
+      ],
+      "sourceCardIds": [
+        "card.human_body.072.c3",
+        "card.human_body.009.c4"
+      ],
+      "prompt": "Leeuwenhoek's lens revealed bacteria in Level 9. What 1892 finding showed viruses are smaller still?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A tobacco disease that only affected plants in sunlight",
+          "correct": false,
+          "rationale": "The finding was about size, not sunlight."
+        },
+        {
+          "id": "b",
+          "label": "Yeast cells that grew larger than bacteria",
+          "correct": false,
+          "rationale": "Yeasts are fungi, not viruses."
+        },
+        {
+          "id": "c",
+          "label": "Viruses that glowed under a stronger lens",
+          "correct": false,
+          "rationale": "Viruses were too small to see with those lenses."
+        },
+        {
+          "id": "d",
+          "label": "A tobacco disease that passed through a bacteria-trapping filter",
+          "correct": true
+        }
+      ],
+      "explanation": "Ivanovsky found the tobacco disease agent slipped through a filter that trapped bacteria, so it had to be smaller.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.medlineplus_infectious_diseases",
+    "source.brit_virus",
+    "source.medlineplus_bacterial_infections",
+    "source.medlineplus_fungal_infections",
+    "source.medlineplus_viral_infections",
+    "source.brit_leeuwenhoek",
+    "source.pmc_leeuwenhoek_fleas",
+    "source.nhgri_hmp_2012"
+  ],
+  "art": "body.germ"
+}

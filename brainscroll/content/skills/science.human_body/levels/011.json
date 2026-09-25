@@ -1,0 +1,221 @@
+{
+  "id": "level.science.human_body.011",
+  "skillId": "skill.science.human_body",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Skeleton",
+  "objective": "After this level you can explain what the skeleton does and how many bones an adult has.",
+  "summary": "An adult has 206 bones, 106 of them in the hands and feet. The axial skeleton guards the brain, heart and lungs; bones also anchor muscles, make blood cells and bank calcium.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.skeleton_bone_count",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.skeleton_jobs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.organ_systems",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.010"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Wiggle your fingers and toes. That's more than half your skeleton.",
+      "body": "Your hands and feet hold more bones than the whole rest of your body. Here's the count for an adult skeleton, how it splits into two teams, and the jobs bones do besides holding you up."
+    },
+    {
+      "id": "card.human_body.011.c2",
+      "type": "fact",
+      "fact": "An adult skeleton has 206 bones.",
+      "context": "Each hand has 27 bones and each foot has 26, so your hands and feet hold 106 of them. That leaves just 100 for everything else: skull, spine, ribs, arms, legs and hips. Your body clearly thinks fingers and toes deserve the fine print."
+    },
+    {
+      "id": "card.human_body.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two skeletons in one",
+      "body": "Anatomists split the 206 into two groups. The axial skeleton, 80 bones, is your central column: skull, spine and rib cage. It wraps around your brain, spinal cord, heart and lungs, so its big job is protection. The appendicular skeleton, 126 bones, is your arms and legs plus the shoulder and hip bones that attach them to the column. A bony vault in the middle, limbs bolted on the sides."
+    },
+    {
+      "id": "card.human_body.011.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Much more than a coat hanger",
+      "body": "Level 1 met the skeletal system as the frame that supports you. That's only job one. Bones give muscles something to pull on, which is how you move. They shield your organs. Red marrow inside some bones makes blood cells, and yellow marrow stores fat. Bone is also a mineral bank for calcium and phosphorus: about 99 percent of your body's calcium is held in your bones and teeth.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A frame, a shield, a bank and a blood factory. Your skeleton has more side jobs than anyone I know."
+      }
+    },
+    {
+      "id": "card.human_body.011.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.011.q1"
+    },
+    {
+      "id": "card.human_body.011.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.011.q2"
+    },
+    {
+      "id": "card.human_body.011.c7",
+      "type": "recall",
+      "questionId": "question.human_body.011.q3"
+    },
+    {
+      "id": "card.human_body.011.c8",
+      "type": "checkpoint",
+      "headline": "Skeleton: assembled",
+      "learned": [
+        "An adult has 206 bones",
+        "106 of them are in the hands and feet",
+        "Axial (80 bones) protects; appendicular (126) is the limbs",
+        "Bones support, protect, anchor muscles, make blood cells and store minerals"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.skeleton_bone_count"
+      ],
+      "sourceCardIds": [
+        "card.human_body.011.c2"
+      ],
+      "prompt": "How many bones does a typical adult skeleton have?",
+      "options": [
+        {
+          "id": "a",
+          "label": "80",
+          "correct": false,
+          "rationale": "That's only part of the skeleton."
+        },
+        {
+          "id": "b",
+          "label": "126",
+          "correct": false,
+          "rationale": "That's only part of the skeleton, too."
+        },
+        {
+          "id": "c",
+          "label": "206",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "300",
+          "correct": false,
+          "rationale": "That's far more than an adult skeleton has."
+        }
+      ],
+      "explanation": "An adult skeleton has 206 bones: 80 in the axial skeleton and 126 in the appendicular skeleton.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.skeleton_jobs"
+      ],
+      "sourceCardIds": [
+        "card.human_body.011.c4"
+      ],
+      "prompt": "Bones hold about 99 percent of your body's calcium. Which job of the skeleton does that show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Support",
+          "correct": false,
+          "rationale": "Support means holding the body up."
+        },
+        {
+          "id": "b",
+          "label": "Protection",
+          "correct": false,
+          "rationale": "Protection means shielding organs like the brain and heart."
+        },
+        {
+          "id": "c",
+          "label": "Movement",
+          "correct": false,
+          "rationale": "Movement comes from muscles pulling on bones."
+        },
+        {
+          "id": "d",
+          "label": "Storing minerals",
+          "correct": true
+        }
+      ],
+      "explanation": "Bone is a mineral bank: it stores calcium and phosphorus, about 99 percent of the body's calcium.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.skeleton_bone_count",
+        "concept.human_body.organ_systems"
+      ],
+      "sourceCardIds": [
+        "card.human_body.011.c3",
+        "card.human_body.001.c2"
+      ],
+      "prompt": "Level 1 met the skeletal system as your frame. Which part of it is built mainly to guard the brain, heart and lungs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The axial skeleton: skull, spine and rib cage",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The 106 bones of the hands and feet",
+          "correct": false,
+          "rationale": "Those are appendicular bones, built for grip and walking."
+        },
+        {
+          "id": "c",
+          "label": "The long bones of the arms and legs",
+          "correct": false,
+          "rationale": "Limb bones belong to the appendicular skeleton."
+        },
+        {
+          "id": "d",
+          "label": "The shoulder and hip bones",
+          "correct": false,
+          "rationale": "Those attach the limbs; they are appendicular."
+        }
+      ],
+      "explanation": "The axial skeleton, the skull, spine and rib cage, surrounds and protects the brain, spinal cord, heart and lungs.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_upper_limb",
+    "source.openstax_ap_lower_limb",
+    "source.openstax_ap_skeleton_divisions",
+    "source.statpearls_bone_physiology",
+    "source.openstax_ap_skeletal_functions",
+    "source.brit_bone",
+    "source.openstax_ap_body_organization"
+  ],
+  "art": "body.bone"
+}

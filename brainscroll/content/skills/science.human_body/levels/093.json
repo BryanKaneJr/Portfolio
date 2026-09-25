@@ -1,0 +1,237 @@
+{
+  "id": "level.science.human_body.093",
+  "skillId": "skill.science.human_body",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Sleep and Health",
+  "objective": "After this level you can explain why sleep matters for health.",
+  "summary": "CDC advice (from AASM): 9 to 12 hours of sleep at ages 6 to 12, 8 to 10 for teens, 7+ for adults. Sleep helps memory, growth, immunity and the heart.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.health_sleep_needs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.health_sleep_benefits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.health_activity_benefits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.092"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.093.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Only about 1 in 4 US high schoolers gets 8 hours of sleep on a school night.",
+      "body": "That's from the CDC's 2025 youth survey: 24 percent. How much sleep do experts recommend, and what is the body doing with it?"
+    },
+    {
+      "id": "card.human_body.093.c2",
+      "type": "comparison",
+      "headline": "CDC sleep recommendations by age",
+      "items": [
+        {
+          "label": "Ages 6 to 12",
+          "points": [
+            "9 to 12 hours per 24 hours"
+          ]
+        },
+        {
+          "label": "Teens, 13 to 17",
+          "points": [
+            "8 to 10 hours per 24 hours"
+          ]
+        },
+        {
+          "label": "Adults, 18 to 60",
+          "points": [
+            "7 or more hours"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.093.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the day gets filed",
+      "body": "These numbers come from sleep scientists at the American Academy of Sleep Medicine, and they're not about laziness. The NIH says sleep helps you learn and form long-term memories, and in children and teens it supports growth and development. Short on sleep, people struggle to focus and think clearly. So an all-nighter before a test trades away the very thing that helps the studying stick."
+    },
+    {
+      "id": "card.human_body.093.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A lighter shift for your heart",
+      "body": "The rest of the body cashes in too. During non-REM sleep your heart rate and blood pressure fall, so your heart doesn't work as hard. Some immune cells work harder while you sleep, and people who don't get enough may catch colds and other infections more easily. The CDC links enough sleep to lower risk of type 2 diabetes, heart disease, high blood pressure and stroke. Sleep is maintenance with the lights off.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Eight hours of doing nothing that is secretly doing everything."
+      }
+    },
+    {
+      "id": "card.human_body.093.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.093.q1"
+    },
+    {
+      "id": "card.human_body.093.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.093.q2"
+    },
+    {
+      "id": "card.human_body.093.c7",
+      "type": "recall",
+      "questionId": "question.human_body.093.q3"
+    },
+    {
+      "id": "card.human_body.093.c8",
+      "type": "checkpoint",
+      "headline": "Sleep: explained",
+      "learned": [
+        "CDC: 9 to 12 hours at 6 to 12, 8 to 10 for teens, 7+ for adults",
+        "Only 24% of US high schoolers get 8 hours",
+        "Sleep helps memory, growth and immune defenses",
+        "Heart rate and blood pressure fall in non-REM sleep"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.health_sleep_needs"
+      ],
+      "sourceCardIds": [
+        "card.human_body.093.c2"
+      ],
+      "prompt": "According to the CDC's sleep recommendations, how much sleep do teens aged 13 to 17 need per 24 hours?",
+      "options": [
+        {
+          "id": "a",
+          "label": "5 to 6 hours",
+          "correct": false,
+          "rationale": "Well below the recommendation."
+        },
+        {
+          "id": "b",
+          "label": "7 or more hours",
+          "correct": false,
+          "rationale": "That's the adult recommendation."
+        },
+        {
+          "id": "c",
+          "label": "8 to 10 hours",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "14 to 17 hours",
+          "correct": false,
+          "rationale": "That's for newborns."
+        }
+      ],
+      "explanation": "The CDC, following the American Academy of Sleep Medicine, recommends 8 to 10 hours for teens.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.health_sleep_benefits"
+      ],
+      "sourceCardIds": [
+        "card.human_body.093.c3"
+      ],
+      "prompt": "Why can pulling an all-nighter before a test backfire, according to the NIH's sleep research?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sleep helps form long-term memories",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Sleep makes the heart beat faster",
+          "correct": false,
+          "rationale": "Heart rate falls in non-REM sleep."
+        },
+        {
+          "id": "c",
+          "label": "Tests are always easier in the morning",
+          "correct": false,
+          "rationale": "The level made no claim about test timing."
+        },
+        {
+          "id": "d",
+          "label": "Sleep only matters for adults",
+          "correct": false,
+          "rationale": "Sleep also supports growth in children and teens."
+        }
+      ],
+      "explanation": "Sleep helps with learning and forming long-term memories, and too little makes it hard to focus.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.health_activity_benefits"
+      ],
+      "sourceCardIds": [
+        "card.human_body.092.c4"
+      ],
+      "prompt": "Sleep and exercise are linked. Which sleep-related benefit of regular activity did the WHO list for adults in Level 92?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Needing no sleep at all",
+          "correct": false,
+          "rationale": "No one gets that benefit."
+        },
+        {
+          "id": "b",
+          "label": "Only dreaming about sports",
+          "correct": false,
+          "rationale": "Not a WHO claim."
+        },
+        {
+          "id": "c",
+          "label": "Better sleep",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Sleeping 14 hours a night",
+          "correct": false,
+          "rationale": "That's a newborn's range."
+        }
+      ],
+      "explanation": "WHO lists better sleep among the benefits of physical activity for adults.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.cdc_yrbs_sleep",
+    "source.cdc_sleep_about",
+    "source.aasm_pediatric_sleep_2016",
+    "source.nhlbi_why_sleep",
+    "source.who_physical_activity",
+    "source.cdc_activity_benefits"
+  ],
+  "art": "astronomy.moon"
+}

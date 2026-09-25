@@ -1,0 +1,220 @@
+{
+  "id": "level.science.human_body.028",
+  "skillId": "skill.science.human_body",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How a Cut Heals",
+  "objective": "After this level you can explain how blood clots and how a cut heals.",
+  "summary": "A cut stops bleeding in three steps: the vessel narrows, platelets plug the gap and a fibrin mesh sets the clot. Then a scab, a few swollen days and about 3 weeks of rebuilding leave a scar.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.clotting_steps",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.wound_healing_stages",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.blood_components",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.027"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You cut your finger. Your blood starts the repair before you find a bandage.",
+      "body": "Blood usually starts to clot within a few minutes or less. Behind that is a fast three-step emergency response, followed by about 3 weeks of quiet rebuilding."
+    },
+    {
+      "id": "card.human_body.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Squeeze, then plug",
+      "body": "Stopping the bleeding takes three steps. First, the injured blood vessel narrows, slowing the flow. Second, the platelets from Level 24 arrive. At the damaged wall they turn spiky and sticky, grab onto it and pile onto one another into a plug. Picture a crowd jamming a doorway: not elegant, but nothing gets through."
+    },
+    {
+      "id": "card.human_body.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step three: the net",
+      "body": "A plug of platelets alone is flimsy, so the blood clots. Clotting factors, proteins in your blood, work with the platelets to build a tough mesh of fibrin threads that holds everything in place. We know how much this step matters from hemophilia, an inherited disorder in which the blood lacks enough of one clotting factor (factor VIII or IX), so it doesn't clot properly."
+    },
+    {
+      "id": "card.human_body.028.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then the slow rebuild",
+      "body": "The clot dries into a scab that shields the tissue underneath from germs. For about 2 to 5 days the area may be a little swollen, red and tender, as blood vessels open to bring in oxygen and nutrients and white blood cells fight germs. Over about 3 weeks, the body repairs broken vessels and fills the gap with new tissue. The scar left behind is smaller than the cut, but less strong and flexible than the skin around it.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "A clot, a scab, some swelling and weeks of rebuilding. Your blood runs its own repair crew, no appointment needed."
+      }
+    },
+    {
+      "id": "card.human_body.028.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.028.q1"
+    },
+    {
+      "id": "card.human_body.028.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.028.q2"
+    },
+    {
+      "id": "card.human_body.028.c7",
+      "type": "recall",
+      "questionId": "question.human_body.028.q3"
+    },
+    {
+      "id": "card.human_body.028.c8",
+      "type": "checkpoint",
+      "headline": "A cut: healed",
+      "learned": [
+        "Step 1: the injured vessel narrows",
+        "Step 2: sticky platelets form a plug",
+        "Step 3: clotting factors build a fibrin mesh",
+        "Scab, 2 to 5 swollen days, about 3 weeks of new tissue"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.clotting_steps"
+      ],
+      "sourceCardIds": [
+        "card.human_body.028.c3"
+      ],
+      "prompt": "What forms the tough mesh that holds a blood clot together?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Threads of fibrin",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Strands of hemoglobin",
+          "correct": false,
+          "rationale": "Hemoglobin carries oxygen in red cells."
+        },
+        {
+          "id": "c",
+          "label": "Layers of plasma water",
+          "correct": false,
+          "rationale": "Plasma is liquid; the mesh is solid threads."
+        },
+        {
+          "id": "d",
+          "label": "Chains of white blood cells",
+          "correct": false,
+          "rationale": "White cells fight germs; fibrin makes the mesh."
+        }
+      ],
+      "explanation": "Clotting factors work with platelets to build a mesh of fibrin threads.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.wound_healing_stages"
+      ],
+      "sourceCardIds": [
+        "card.human_body.028.c4"
+      ],
+      "prompt": "Why might a healing cut look a little swollen, red and tender for a few days?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The scab is slowly turning into skin",
+          "correct": false,
+          "rationale": "The scab protects; new tissue grows underneath."
+        },
+        {
+          "id": "b",
+          "label": "Platelets are leaking out of the wound",
+          "correct": false,
+          "rationale": "Platelets act at the start, forming the plug."
+        },
+        {
+          "id": "c",
+          "label": "Blood vessels open to bring oxygen and nutrients",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The fibrin mesh is being digested by germs",
+          "correct": false,
+          "rationale": "The swelling comes from the healing response."
+        }
+      ],
+      "explanation": "For about 2 to 5 days, blood vessels open to bring oxygen and nutrients, and white blood cells fight germs.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.clotting_steps",
+        "concept.human_body.blood_components"
+      ],
+      "sourceCardIds": [
+        "card.human_body.028.c2",
+        "card.human_body.024.c4"
+      ],
+      "prompt": "Level 24 said platelets are a tiny share of blood. What do they do first at a cut?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carry oxygen to the damaged skin",
+          "correct": false,
+          "rationale": "That's the red blood cells' job."
+        },
+        {
+          "id": "b",
+          "label": "Dissolve into plasma to thin the blood",
+          "correct": false,
+          "rationale": "They do the opposite: they stick."
+        },
+        {
+          "id": "c",
+          "label": "Become the scar tissue itself",
+          "correct": false,
+          "rationale": "New tissue grows later, over weeks."
+        },
+        {
+          "id": "d",
+          "label": "Stick to the damaged wall and form a plug",
+          "correct": true
+        }
+      ],
+      "explanation": "At a damaged vessel, platelets turn sticky, bind to the wall and clump into a plug.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_hemostasis",
+    "source.medlineplus_wound_healing",
+    "source.medlineplus_hemophilia",
+    "source.medlineplus_blood",
+    "source.openstax_ap_blood_overview"
+  ],
+  "art": "body.bandage"
+}

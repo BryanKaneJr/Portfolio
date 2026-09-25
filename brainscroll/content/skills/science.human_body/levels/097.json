@@ -1,0 +1,226 @@
+{
+  "id": "level.science.human_body.097",
+  "skillId": "skill.science.human_body",
+  "number": 97,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Surgery Then and Now",
+  "objective": "After this level you can explain how anesthesia and clean operating rooms changed surgery.",
+  "summary": "In 1846 ether made surgery painless. From 1865 Joseph Lister fought wound infection with carbolic acid, and today's operating rooms aim for asepsis, down to the gloves.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.health_surgery_anesthesia",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.health_surgery_clean",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.microscopes_cells",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.096"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.097.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "'Before whom in all time surgery was agony.'",
+      "body": "Those words are carved on the grave of William Morton, a Boston dentist. Two breakthroughs changed surgery for good: first taking away the pain, then keeping the germs out."
+    },
+    {
+      "id": "card.human_body.097.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ether Day, 1846",
+      "body": "On 16 October 1846, at Massachusetts General Hospital, Morton had a young housepainter named Edward Gilbert Abbott breathe ether while a surgeon removed a tumor from his neck. Abbott reported feeling no pain. Until then patients felt every cut, so surgeons had to work fast. Now they could slow down and be careful. The date became known as Ether Day."
+    },
+    {
+      "id": "card.human_body.097.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Surviving the operation, not the wound",
+      "body": "Painless surgery still had a killer problem. In Joseph Lister's ward in Glasgow, 45 to 50 percent of amputation patients died of sepsis, an infection, between 1861 and 1865. After reading Louis Pasteur's germ theory, Lister concluded that microorganisms caused it, the same kind of tiny life Leeuwenhoek first spotted in Level 9. From 1865 he cleaned instruments and wounds with carbolic acid, and deaths in his ward fell sharply."
+    },
+    {
+      "id": "card.human_body.097.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "From killing germs to keeping them out",
+      "body": "Modern operating rooms aim for asepsis, freedom from disease-causing germs: everything that touches the surgical field is sterilized, typically by steam under pressure in an autoclave. Even the gloves have a story. In 1889 at Johns Hopkins, surgeon William Halsted had thin rubber gloves made for nurse Caroline Hampton, whose hands were damaged by harsh disinfectants. Made to protect her skin, gloves were later linked to fewer infections.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A kindness for one nurse's hands turned into protection for millions of patients. Not bad for a pair of gloves."
+      }
+    },
+    {
+      "id": "card.human_body.097.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.097.q1"
+    },
+    {
+      "id": "card.human_body.097.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.097.q2"
+    },
+    {
+      "id": "card.human_body.097.c7",
+      "type": "recall",
+      "questionId": "question.human_body.097.q3"
+    },
+    {
+      "id": "card.human_body.097.c8",
+      "type": "checkpoint",
+      "headline": "Surgery: then and now",
+      "learned": [
+        "Ether Day, 16 October 1846: painless surgery",
+        "Lister's carbolic acid fought wound infection from 1865",
+        "Asepsis: sterilize everything that touches the surgical field",
+        "Rubber gloves began as a kindness to one nurse"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.097.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.health_surgery_anesthesia"
+      ],
+      "sourceCardIds": [
+        "card.human_body.097.c2"
+      ],
+      "prompt": "On Ether Day in 1846, what did William Morton demonstrate at Massachusetts General Hospital?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The first X-ray of a broken bone",
+          "correct": false,
+          "rationale": "Ether Day was about pain, not imaging."
+        },
+        {
+          "id": "b",
+          "label": "That ether could make surgery painless",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The first organ transplant",
+          "correct": false,
+          "rationale": "That came over a century later."
+        },
+        {
+          "id": "d",
+          "label": "Sterilizing tools with steam",
+          "correct": false,
+          "rationale": "That's asepsis, later in the century."
+        }
+      ],
+      "explanation": "Morton gave ether to Edward Gilbert Abbott during a tumor operation, and Abbott reported feeling no pain.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.097.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.health_surgery_clean"
+      ],
+      "sourceCardIds": [
+        "card.human_body.097.c3"
+      ],
+      "prompt": "Why did Joseph Lister start cleaning wounds and instruments with carbolic acid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To numb the pain of surgery",
+          "correct": false,
+          "rationale": "Ether handled the pain."
+        },
+        {
+          "id": "b",
+          "label": "To make wounds heal without stitches",
+          "correct": false,
+          "rationale": "His target was infection."
+        },
+        {
+          "id": "c",
+          "label": "To stop bleeding during operations",
+          "correct": false,
+          "rationale": "His concern was sepsis, not bleeding."
+        },
+        {
+          "id": "d",
+          "label": "He concluded microorganisms caused wound infections",
+          "correct": true
+        }
+      ],
+      "explanation": "Inspired by Pasteur's germ theory, Lister concluded microorganisms caused sepsis and used carbolic acid to kill them.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.097.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.microscopes_cells",
+        "concept.human_body.health_surgery_clean"
+      ],
+      "sourceCardIds": [
+        "card.human_body.009.c3",
+        "card.human_body.097.c3"
+      ],
+      "prompt": "Level 9 met the first person to see bacteria. How does Leeuwenhoek's discovery connect to Lister's surgery?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lister fought the kind of microbes Leeuwenhoek first saw",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Leeuwenhoek invented carbolic acid",
+          "correct": false,
+          "rationale": "He made microscopes, not antiseptics."
+        },
+        {
+          "id": "c",
+          "label": "Leeuwenhoek discovered ether",
+          "correct": false,
+          "rationale": "Ether came from Morton's demonstration."
+        },
+        {
+          "id": "d",
+          "label": "Bacteria were shown to be harmless",
+          "correct": false,
+          "rationale": "Lister's point was that microbes caused infection."
+        }
+      ],
+      "explanation": "Leeuwenhoek first saw bacteria in 1683; Lister concluded that microorganisms caused wound infections and set out to kill them.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.pmc_ether_day_history",
+    "source.brit_morton",
+    "source.masshist_ether_day",
+    "source.brit_lister",
+    "source.brit_leeuwenhoek",
+    "source.pmc_leeuwenhoek_fleas",
+    "source.brit_asepsis",
+    "source.bumc_hampton_gloves",
+    "source.brit_vesalius",
+    "source.openstax_bio_studying_cells",
+    "source.brit_cell_theory"
+  ],
+  "art": "body.stethoscope"
+}

@@ -1,0 +1,330 @@
+{
+  "id": "level.science.human_body.040",
+  "skillId": "skill.science.human_body",
+  "number": 40,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Breathing",
+  "objective": "After this level you can trace a breath of air from your nose to your cells and back out again.",
+  "summary": "The nose warms, moistens and filters air. Then down the bronchial tree to the air sacs, into the blood, to the cells' mitochondria, and back out as carbon dioxide.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.breathing_nose_conditioning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.lung_airways",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.lung_alveoli",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.breathing_cell_respiration",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.altitude_thin_air",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.smoking_disease_toll",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.breathing_out_passive",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.systems_teamwork",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.039"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.040.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 4 finale: follow one breath all the way in and back out.",
+      "body": "You've met every part of the trip. Now ride along with a single breath, starting at a doorway you've barely thought about: your nose."
+    },
+    {
+      "id": "card.human_body.040.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your nose is an air conditioner",
+      "body": "Before air reaches your lungs, your nose (and your mouth, when you breathe through it) warms and moistens it, because cold, dry air can irritate the lungs. Hairs just inside your nostrils block bigger bits of dirt, and the airways beyond keep working to remove debris and germs. By the time a breath reaches your chest, it has been warmed, dampened and filtered."
+    },
+    {
+      "id": "card.human_body.040.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The round trip",
+      "body": "Down the windpipe, out along the bronchial tree, through thousands of bronchioles to about 480 million air sacs. Oxygen crosses their thin walls into the blood and rides to your cells, where mitochondria use it to release energy from food. The exhaust, carbon dioxide, rides the blood back, crosses into the air sacs, and leaves as your diaphragm relaxes and your lungs spring back.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "One breath, two deliveries, zero paperwork. Your lungs run a very tidy courier service."
+      }
+    },
+    {
+      "id": "card.human_body.040.c4",
+      "type": "mcq",
+      "questionId": "question.human_body.040.q1"
+    },
+    {
+      "id": "card.human_body.040.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.040.q2"
+    },
+    {
+      "id": "card.human_body.040.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.040.q3"
+    },
+    {
+      "id": "card.human_body.040.c7",
+      "type": "recall",
+      "questionId": "question.human_body.040.q4"
+    },
+    {
+      "id": "card.human_body.040.c8",
+      "type": "recall",
+      "questionId": "question.human_body.040.q5"
+    },
+    {
+      "id": "card.human_body.040.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 4 complete",
+      "learned": [
+        "The nose warms, moistens and filters air",
+        "Down the bronchial tree to 480 million air sacs",
+        "Oxygen to the cells, carbon dioxide back out",
+        "Carbon dioxide drives the urge to breathe",
+        "Smoking damages airways and air sacs; asthma narrows airways"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.040.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.breathing_nose_conditioning"
+      ],
+      "sourceCardIds": [
+        "card.human_body.040.c2"
+      ],
+      "prompt": "Breathing recap: what does your nose do to air before it reaches your lungs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Warms, moistens and filters it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Adds extra oxygen to it",
+          "correct": false,
+          "rationale": "The nose conditions air; it doesn't add oxygen."
+        },
+        {
+          "id": "c",
+          "label": "Removes its carbon dioxide",
+          "correct": false,
+          "rationale": "Carbon dioxide is swapped in the air sacs."
+        },
+        {
+          "id": "d",
+          "label": "Cools and dries it",
+          "correct": false,
+          "rationale": "The opposite: it warms and moistens it."
+        }
+      ],
+      "explanation": "The nose warms and moistens incoming air, and nostril hairs block larger dirt.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.040.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.breathing_nose_conditioning"
+      ],
+      "sourceCardIds": [
+        "card.human_body.040.c2"
+      ],
+      "prompt": "Breathing recap: why does your nose bother warming and moistening the air you breathe in?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Moist air makes your voice louder",
+          "correct": false,
+          "rationale": "Voice comes from the vocal folds."
+        },
+        {
+          "id": "b",
+          "label": "Cold, dry air can irritate the lungs",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Warm air is richer in oxygen",
+          "correct": false,
+          "rationale": "The reason given is protecting the lungs."
+        },
+        {
+          "id": "d",
+          "label": "It helps the air sacs make mucus",
+          "correct": false,
+          "rationale": "The point is to avoid irritating the lungs."
+        }
+      ],
+      "explanation": "Cold, dry air can irritate the lungs, so the nose and mouth warm and moisten it first.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.040.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.lung_airways",
+        "concept.human_body.lung_alveoli"
+      ],
+      "sourceCardIds": [
+        "card.human_body.040.c3",
+        "card.human_body.032.c2"
+      ],
+      "prompt": "Breathing recap: which list follows a breath from the windpipe to where oxygen enters the blood?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bronchioles, bronchi, windpipe, alveoli",
+          "correct": false,
+          "rationale": "That runs partly backwards."
+        },
+        {
+          "id": "b",
+          "label": "Windpipe, alveoli, bronchi, bronchioles",
+          "correct": false,
+          "rationale": "The air sacs come last."
+        },
+        {
+          "id": "c",
+          "label": "Windpipe, bronchi, bronchioles, alveoli",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Bronchi, windpipe, alveoli, bronchioles",
+          "correct": false,
+          "rationale": "The windpipe comes first."
+        }
+      ],
+      "explanation": "Air goes down the windpipe, through the bronchial tubes and bronchioles, to the alveoli, where oxygen crosses into the blood.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.040.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.altitude_thin_air"
+      ],
+      "sourceCardIds": [
+        "card.human_body.036.c2"
+      ],
+      "prompt": "Breathing recap, from Level 36: at the height of Everest's summit, air pressure is about what share of its sea-level value?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10 percent",
+          "correct": false,
+          "rationale": "Too low."
+        },
+        {
+          "id": "b",
+          "label": "About 30 percent",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 60 percent",
+          "correct": false,
+          "rationale": "Too high."
+        },
+        {
+          "id": "d",
+          "label": "About 90 percent",
+          "correct": false,
+          "rationale": "Far too high."
+        }
+      ],
+      "explanation": "At the height of Everest's summit, air pressure is only about 30 percent of its sea-level value.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.040.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.smoking_disease_toll"
+      ],
+      "sourceCardIds": [
+        "card.human_body.038.c4"
+      ],
+      "prompt": "Breathing recap, from Level 38: what does the WHO say about safe levels of tobacco exposure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A few cigarettes a day are safe",
+          "correct": false,
+          "rationale": "WHO says no level of exposure is safe."
+        },
+        {
+          "id": "b",
+          "label": "Only other people's smoke is safe",
+          "correct": false,
+          "rationale": "Second-hand smoke causes lung cancer too."
+        },
+        {
+          "id": "c",
+          "label": "Pipes and cigars are safe",
+          "correct": false,
+          "rationale": "WHO says all forms of tobacco are harmful."
+        },
+        {
+          "id": "d",
+          "label": "There is no safe level",
+          "correct": true
+        }
+      ],
+      "explanation": "The WHO states that all forms of tobacco use are harmful and there is no safe level of exposure.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.nhlbi_breathing_benefits",
+    "source.nhlbi_respiratory_system",
+    "source.openstax_ap_breathing_process",
+    "source.nhlbi_body_controls_breathing",
+    "source.britannica_cellular_respiration",
+    "source.ajrccm_ochs_alveoli_2004",
+    "source.openstax_ap_respiratory_organs",
+    "source.openstax_ap_body_organization"
+  ],
+  "art": "body.lungs"
+}

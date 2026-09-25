@@ -1,0 +1,225 @@
+{
+  "id": "level.science.human_body.098",
+  "skillId": "skill.science.human_body",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Organ Transplants",
+  "objective": "After this level you can explain how organ transplants work and why matching matters.",
+  "summary": "The immune system can reject a donated organ. The 1954 twin kidney transplant worked because twins match; blood and tissue matching plus immunosuppressants help everyone else.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.health_transplant_rejection",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.health_transplant_first",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.dna_location",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.097"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Before a famous operation, two brothers were fingerprinted at a police station.",
+      "body": "Doctors needed proof that Richard and Ronald Herrick were truly identical twins, so they ran 17 tests. Why did being identical matter so much?"
+    },
+    {
+      "id": "card.human_body.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The body's ID check",
+      "body": "Your cells carry antigens, proteins on their surfaces. A donated organ carries someone else's, and the immune system can attack it. That's rejection. No two people have identical tissue antigens, except identical twins, whose tissues are genetically identical. That's why transplants between identical twins are almost never rejected. That's why the Herricks' 17 tests mattered so much."
+    },
+    {
+      "id": "card.human_body.098.c3",
+      "type": "fact",
+      "fact": "On 23 December 1954, Richard Herrick received a kidney from his identical twin, Ronald.",
+      "context": "Joseph Murray's team in Boston performed the first successful human organ transplant. Murray had learned from grafting skin that tissue from an identical twin isn't rejected. Richard lived eight more years, and Murray later shared the 1990 Nobel Prize for his transplant work."
+    },
+    {
+      "id": "card.human_body.098.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Matching everyone else",
+      "body": "Most people don't have a twin to ask. So before a transplant, doctors check blood type and tissue type in donor and recipient; the closer the match, the lower the risk of rejection. Most recipients then take immunosuppressant medicines for life to hold off the attack. Those drugs let Murray's team transplant a kidney from an unrelated donor in 1962. Today one organ donor can save up to 8 lives, and a living person can give a kidney, since people can live with one.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "One donor, up to eight lives. That is teamwork on a whole new level."
+      }
+    },
+    {
+      "id": "card.human_body.098.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.098.q1"
+    },
+    {
+      "id": "card.human_body.098.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.098.q2"
+    },
+    {
+      "id": "card.human_body.098.c7",
+      "type": "recall",
+      "questionId": "question.human_body.098.q3"
+    },
+    {
+      "id": "card.human_body.098.c8",
+      "type": "checkpoint",
+      "headline": "Transplants: explained",
+      "learned": [
+        "Rejection: the immune system attacks foreign antigens",
+        "Identical twins match, so 1954's kidney transplant worked",
+        "Blood and tissue matching plus immunosuppressants",
+        "One donor can save up to 8 lives"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.health_transplant_first"
+      ],
+      "sourceCardIds": [
+        "card.human_body.098.c3"
+      ],
+      "prompt": "The first successful human organ transplant, in December 1954, moved which organ between the Herrick twins?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A heart",
+          "correct": false,
+          "rationale": "Hearts came much later."
+        },
+        {
+          "id": "b",
+          "label": "A kidney",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A lung",
+          "correct": false,
+          "rationale": "It was a kidney."
+        },
+        {
+          "id": "d",
+          "label": "A liver",
+          "correct": false,
+          "rationale": "It was a kidney."
+        }
+      ],
+      "explanation": "On 23 December 1954, Joseph Murray's team transplanted Ronald Herrick's kidney into his identical twin Richard.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.health_transplant_rejection"
+      ],
+      "sourceCardIds": [
+        "card.human_body.098.c4",
+        "card.human_body.098.c2"
+      ],
+      "prompt": "Why do most transplant recipients take immunosuppressant medicines for the rest of their lives?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To keep the immune system from attacking the new organ",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To help the new organ grow bigger",
+          "correct": false,
+          "rationale": "Their job is to calm the immune system."
+        },
+        {
+          "id": "c",
+          "label": "To change the recipient's blood type",
+          "correct": false,
+          "rationale": "Blood type is matched beforehand, not changed."
+        },
+        {
+          "id": "d",
+          "label": "To fight off the donor's germs",
+          "correct": false,
+          "rationale": "They damp down the immune system, not boost it."
+        }
+      ],
+      "explanation": "The immune system can attack the donor organ's foreign antigens; immunosuppressants hold that attack off.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.dna_location",
+        "concept.human_body.health_transplant_rejection"
+      ],
+      "sourceCardIds": [
+        "card.human_body.005.c3",
+        "card.human_body.098.c2"
+      ],
+      "prompt": "Level 5 showed nearly every cell in one body carries the same DNA. Why could Ronald Herrick's kidney join Richard's body without rejection?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Kidneys have no antigens",
+          "correct": false,
+          "rationale": "All tissues carry antigens."
+        },
+        {
+          "id": "b",
+          "label": "Brothers always match perfectly",
+          "correct": false,
+          "rationale": "Only identical twins match like that."
+        },
+        {
+          "id": "c",
+          "label": "Identical twins are genetically identical, so their antigens match",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The kidney's DNA was removed first",
+          "correct": false,
+          "rationale": "Nothing was removed; the tissues already matched."
+        }
+      ],
+      "explanation": "Identical twins' tissues are genetically identical, so they carry the same tissue antigens and the immune system sees no stranger.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.countway_herrick_twins",
+    "source.medlineplus_transplant_rejection",
+    "source.harvard_gazette_first_transplant",
+    "source.brit_joseph_murray",
+    "source.hrsa_organ_donation_stats",
+    "source.nhsbt_kidney_transplant",
+    "source.medlineplus_cell",
+    "source.nhgri_mitochondria",
+    "source.medlineplus_dna",
+    "source.nhgri_intro_genomics"
+  ],
+  "art": "body.heart"
+}

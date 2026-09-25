@@ -1,0 +1,225 @@
+{
+  "id": "level.science.human_body.089",
+  "skillId": "skill.science.human_body",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Body Clock",
+  "objective": "After this level you can explain daily body rhythms and why jet lag happens.",
+  "summary": "Circadian rhythms run on about 24 hours, set by light and led by the SCN, which controls melatonin. Jet lag is the clock lagging local time, catching up 1 to 1.5 hours a day.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.body_clock_circadian",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.body_clock_jet_lag",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.puberty_hormone_relay",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.088"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Fly across an ocean and your body keeps the old time.",
+      "body": "Your phone switches time zones in a second. Your body can take days, because for a while your rhythms stay anchored to home time. There's a clock inside your brain, and it doesn't read the airline schedule."
+    },
+    {
+      "id": "card.human_body.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A rhythm for almost everything",
+      "body": "Circadian rhythms are the physical, mental and behavioral changes your body goes through over a 24-hour cycle. Nearly every tissue and organ has its own, shaping sleep patterns, hormone release, appetite and digestion, and body temperature. Light and dark set them more than anything else."
+    },
+    {
+      "id": "card.human_body.089.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The master clock",
+      "body": "Conducting them all is a master clock in the brain: a group of nerve cells called the suprachiasmatic nucleus, or SCN. It tracks how much light your eyes receive and controls the hormone melatonin. In the evening it has your brain make more melatonin, and you get sleepy. The clock's gears were uncovered in fruit flies, winning Jeffrey Hall, Michael Rosbash and Michael Young the 2017 Nobel Prize."
+    },
+    {
+      "id": "card.human_body.089.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why jet lag happens",
+      "body": "Jet lag is a temporary mismatch between your body clock and local time. Your clock adapts only about 1 hour a day after flying east and about 1.5 hours a day after flying west. West is easier because the inner clock runs slightly longer than 24 hours, so staying up later comes more naturally than going to bed earlier. Daylight helps it catch up.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Heading east? Your body clock would like a word, and several days to think about it."
+      }
+    },
+    {
+      "id": "card.human_body.089.c5",
+      "type": "fact",
+      "fact": "Teenage body clocks run late.",
+      "context": "In teens, melatonin stays high later at night and drops later in the morning than in children or adults. That may explain why so many teens stay up late and struggle to wake early. Blame the timing."
+    },
+    {
+      "id": "card.human_body.089.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.089.q1"
+    },
+    {
+      "id": "card.human_body.089.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.089.q2"
+    },
+    {
+      "id": "card.human_body.089.c8",
+      "type": "recall",
+      "questionId": "question.human_body.089.q3"
+    },
+    {
+      "id": "card.human_body.089.c9",
+      "type": "checkpoint",
+      "headline": "Body clock: set",
+      "learned": [
+        "Circadian rhythms run on about 24 hours, set mainly by light",
+        "The SCN master clock controls melatonin",
+        "Jet lag: about 1 hour a day east, 1.5 west",
+        "Teen body clocks run later"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.body_clock_circadian"
+      ],
+      "sourceCardIds": [
+        "card.human_body.089.c3"
+      ],
+      "prompt": "What is the name of the body's master clock in the brain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The prefrontal cortex",
+          "correct": false,
+          "rationale": "That's the planning area from Level 84."
+        },
+        {
+          "id": "b",
+          "label": "The pituitary",
+          "correct": false,
+          "rationale": "It's a gland in the puberty relay."
+        },
+        {
+          "id": "c",
+          "label": "The arrector pili",
+          "correct": false,
+          "rationale": "That's the goosebump muscle."
+        },
+        {
+          "id": "d",
+          "label": "The suprachiasmatic nucleus (SCN)",
+          "correct": true
+        }
+      ],
+      "explanation": "The master clock is a group of nerve cells called the suprachiasmatic nucleus, or SCN.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.body_clock_jet_lag"
+      ],
+      "sourceCardIds": [
+        "card.human_body.089.c4"
+      ],
+      "prompt": "Why is flying west usually easier on your body clock than flying east?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Planes fly faster going west",
+          "correct": false,
+          "rationale": "Flight speed doesn't set the clock."
+        },
+        {
+          "id": "b",
+          "label": "There's more daylight in the west",
+          "correct": false,
+          "rationale": "The reason is the clock's own length."
+        },
+        {
+          "id": "c",
+          "label": "Your inner clock runs slightly longer than 24 hours",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Melatonin stops in western time zones",
+          "correct": false,
+          "rationale": "Melatonin follows the light, wherever you are."
+        }
+      ],
+      "explanation": "Because the inner clock runs slightly longer than 24 hours, delaying it is easier than advancing it.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.human_body.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.body_clock_circadian",
+        "concept.human_body.puberty_hormone_relay"
+      ],
+      "sourceCardIds": [
+        "card.human_body.089.c5",
+        "card.human_body.084.c3"
+      ],
+      "prompt": "Puberty's changes typically begin between about 8 and 14, as Level 84 said. What happens to melatonin timing in the teen years?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It stays high later at night and drops later in the morning",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It stops being made altogether",
+          "correct": false,
+          "rationale": "Teens still make melatonin."
+        },
+        {
+          "id": "c",
+          "label": "It peaks at noon",
+          "correct": false,
+          "rationale": "It still rises at night."
+        },
+        {
+          "id": "d",
+          "label": "It runs earlier than in young children",
+          "correct": false,
+          "rationale": "It runs later."
+        }
+      ],
+      "explanation": "In teens, melatonin stays high later at night and drops later in the morning than in children and adults.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.cdc_yellowbook_jet_lag",
+    "source.nigms_circadian",
+    "source.nichd_puberty_about",
+    "source.nimh_teen_brain"
+  ],
+  "art": "astronomy.sun"
+}

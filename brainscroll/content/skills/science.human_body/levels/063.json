@@ -1,0 +1,225 @@
+{
+  "id": "level.science.human_body.063",
+  "skillId": "skill.science.human_body",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Seeing Color",
+  "objective": "After this level you can explain how we see color and what color blindness is.",
+  "summary": "Three cone types, blended by the brain, give color. Red-green color blindness affects about 1 in 12 men and 1 in 200 women (Northern European ancestry): its genes are on the X.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.senses_color_cones",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.senses_color_blindness",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.dna_location",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.062"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.063.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1794, a chemist reported that his own eyes saw color strangely.",
+      "body": "John Dalton told a Manchester society that he and his brother saw colors differently from other people. It was the first published account of color blindness. To see what went different for Dalton, first see how color works for you."
+    },
+    {
+      "id": "card.human_body.063.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three kinds of cone",
+      "body": "Your retina has two kinds of light-sensing cell. Rods handle dim light. Cones work in bright light and give you color. There are three types of cone, each with a pigment most sensitive to a particular range of wavelengths, and your brain combines the input from all three. Every color you have ever seen is your brain's blend of three readings.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Three dials, one mixing desk, and every sunset you have ever seen."
+      }
+    },
+    {
+      "id": "card.human_body.063.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it's mostly men",
+      "body": "The most common color vision deficiency makes red and green hard to tell apart. Among people of Northern European ancestry it affects about 1 in 12 men but only 1 in 200 women. The reason is in Level 5's chromosomes: the genes behind it sit on the X chromosome. Men have one X, so one copy is enough. Women have two, and need the gene on both."
+    },
+    {
+      "id": "card.human_body.063.c4",
+      "type": "fact",
+      "fact": "Dalton blamed a blue tint inside his eyes. His own eye proved him wrong.",
+      "context": "He guessed the jelly-like fluid in his eyes was tinted blue, and asked for them to be examined after his death. In 1844 they were: the fluid was colorless. In 1995, DNA from his preserved eye showed he lacked the gene for the green-sensitive cone pigment. He was right that his eyes differed, just wrong about why."
+    },
+    {
+      "id": "card.human_body.063.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.063.q1"
+    },
+    {
+      "id": "card.human_body.063.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.063.q2"
+    },
+    {
+      "id": "card.human_body.063.c7",
+      "type": "recall",
+      "questionId": "question.human_body.063.q3"
+    },
+    {
+      "id": "card.human_body.063.c8",
+      "type": "checkpoint",
+      "headline": "Color: decoded",
+      "learned": [
+        "Rods for dim light, cones for color",
+        "Three cone types, blended by the brain",
+        "Red-green is the most common color blindness",
+        "About 1 in 12 men, 1 in 200 women (Northern European ancestry)",
+        "Dalton described it first; DNA solved his case in 1995"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.senses_color_blindness"
+      ],
+      "sourceCardIds": [
+        "card.human_body.063.c3"
+      ],
+      "prompt": "Among people of Northern European ancestry, about how many men have red-green color blindness?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1 in 2",
+          "correct": false,
+          "rationale": "Far too common."
+        },
+        {
+          "id": "b",
+          "label": "About 1 in 12",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 1 in 50",
+          "correct": false,
+          "rationale": "Too rare for men."
+        },
+        {
+          "id": "d",
+          "label": "About 1 in 200",
+          "correct": false,
+          "rationale": "That's the figure for women."
+        }
+      ],
+      "explanation": "Red-green color blindness affects about 1 in 12 men and 1 in 200 women of Northern European ancestry.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.senses_color_cones"
+      ],
+      "sourceCardIds": [
+        "card.human_body.063.c2"
+      ],
+      "prompt": "How does your visual system produce the colors you see?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rods measure the color of dim light",
+          "correct": false,
+          "rationale": "Rods handle dim light, not color."
+        },
+        {
+          "id": "b",
+          "label": "Each cone detects every color by itself",
+          "correct": false,
+          "rationale": "Each type is most sensitive to one range of wavelengths."
+        },
+        {
+          "id": "c",
+          "label": "The iris tints light as it enters",
+          "correct": false,
+          "rationale": "The iris only controls how much light gets in."
+        },
+        {
+          "id": "d",
+          "label": "The brain blends signals from three cone types",
+          "correct": true
+        }
+      ],
+      "explanation": "Three types of cone each respond best to different wavelengths, and the brain combines their input into color.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.senses_color_blindness",
+        "concept.human_body.dna_location"
+      ],
+      "sourceCardIds": [
+        "card.human_body.063.c3",
+        "card.human_body.005.c3"
+      ],
+      "prompt": "Level 5 packed your DNA into chromosomes. Why is red-green color blindness far more common in men?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its genes are on the X, and men have one X",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Men have fewer cone cells than women do",
+          "correct": false,
+          "rationale": "The difference is in the genes, not cone numbers."
+        },
+        {
+          "id": "c",
+          "label": "Men's eye fluid is tinted slightly blue",
+          "correct": false,
+          "rationale": "Dalton's blue-tint idea turned out wrong."
+        },
+        {
+          "id": "d",
+          "label": "It's caused by genes on the Y chromosome",
+          "correct": false,
+          "rationale": "The genes involved are on the X chromosome."
+        }
+      ],
+      "explanation": "The genes behind red-green color blindness sit on the X chromosome: men have one X, so one copy is enough, while women need it on both.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sim_dalton_colour_blindness",
+    "source.britannica_john_dalton",
+    "source.medlineplus_color_vision_deficiency",
+    "source.nei_color_blindness_types",
+    "source.nei_color_blindness",
+    "source.nei_color_blindness_causes",
+    "source.medlineplus_cell",
+    "source.nhgri_mitochondria",
+    "source.medlineplus_dna",
+    "source.nhgri_intro_genomics"
+  ],
+  "art": "object.palette"
+}

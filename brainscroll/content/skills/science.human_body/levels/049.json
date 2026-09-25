@@ -1,0 +1,243 @@
+{
+  "id": "level.science.human_body.049",
+  "skillId": "skill.science.human_body",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Vitamins and Scurvy",
+  "objective": "After this level you can explain why vitamins matter, using scurvy as the example.",
+  "summary": "Without vitamin C the body can't make collagen properly, and scurvy follows. James Lind saw citrus work in 1747, but blamed scurvy on digestion and damp air; the Navy acted in 1795.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.scurvy_vitamin_c",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.scurvy_lind_trial",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.nutrients_micronutrients",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.048"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.049.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1747, a ship's surgeon saw citrus beat scurvy. The Navy acted 48 years later.",
+      "body": "It's often told as a quick triumph: a doctor tries lemons, sailors are saved. The real story is slower, and more interesting. First, what was scurvy doing to those sailors?"
+    },
+    {
+      "id": "card.human_body.049.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The missing ingredient",
+      "body": "Scurvy is what happens without enough vitamin C. Your body needs it to make collagen, the protein that holds skin, blood vessels, bones and cartilage together. Without it, connective tissue weakens: tiredness, aching joints, swollen and bleeding gums, loose teeth, wounds that won't heal. Signs can appear within about a month, and untreated scurvy can kill. Many animals make their own vitamin C. Humans can't; we lack a working enzyme to do it."
+    },
+    {
+      "id": "card.human_body.049.c3",
+      "type": "timeline",
+      "headline": "Twelve sailors, then decades",
+      "events": [
+        {
+          "when": "May 1747",
+          "label": "On HMS Salisbury, James Lind gives 12 sailors with scurvy six remedies, two men each"
+        },
+        {
+          "when": "Days later",
+          "label": "The pair given oranges and lemons recover fastest; one is fit for duty within about six days"
+        },
+        {
+          "when": "1753",
+          "label": "Lind's Treatise of the Scurvy reports the trial, without naming citrus the cure"
+        },
+        {
+          "when": "1795",
+          "label": "The Royal Navy makes lemon juice standard issue"
+        },
+        {
+          "when": "1932",
+          "label": "Vitamin C is identified as the factor that prevents scurvy"
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.049.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the lesson took 48 years",
+      "body": "Lind's comparison is seen as an early controlled clinical trial, but he didn't draw the lesson we see in it. He blamed scurvy mainly on damp air and a coarse diet the body failed to digest, not on a missing nutrient. He later recommended rob, a juice concentrate made by heating, and heat destroys vitamin C. The Admiralty adopted lemon juice in 1795, persuaded by Gilbert Blane. The evidence came early; the explanation came much later.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "A good experiment can still be misread by the person who ran it. Science keeps checking."
+      }
+    },
+    {
+      "id": "card.human_body.049.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.049.q1"
+    },
+    {
+      "id": "card.human_body.049.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.049.q2"
+    },
+    {
+      "id": "card.human_body.049.c7",
+      "type": "recall",
+      "questionId": "question.human_body.049.q3"
+    },
+    {
+      "id": "card.human_body.049.c8",
+      "type": "checkpoint",
+      "headline": "Scurvy: explained",
+      "learned": [
+        "Vitamin C is needed to make collagen",
+        "Humans can't make vitamin C",
+        "Lind's 1747 trial favored oranges and lemons",
+        "Lind blamed digestion and damp air; the Navy acted in 1795"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.scurvy_vitamin_c"
+      ],
+      "sourceCardIds": [
+        "card.human_body.049.c2"
+      ],
+      "prompt": "A lack of which vitamin causes scurvy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Vitamin A",
+          "correct": false,
+          "rationale": "Scurvy comes from missing vitamin C."
+        },
+        {
+          "id": "b",
+          "label": "Vitamin C",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Vitamin K",
+          "correct": false,
+          "rationale": "Gut bacteria help make vitamin K."
+        },
+        {
+          "id": "d",
+          "label": "Vitamin B12",
+          "correct": false,
+          "rationale": "Scurvy comes from missing vitamin C."
+        }
+      ],
+      "explanation": "Scurvy is caused by too little vitamin C, which the body needs to make collagen.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.scurvy_lind_trial"
+      ],
+      "sourceCardIds": [
+        "card.human_body.049.c4"
+      ],
+      "prompt": "James Lind saw citrus work in 1747. Why didn't he present it as the cure for scurvy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The sailors given citrus got worse",
+          "correct": false,
+          "rationale": "They recovered fastest."
+        },
+        {
+          "id": "b",
+          "label": "He saw scurvy mainly as a problem of damp air and digestion",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Citrus was unknown in Europe",
+          "correct": false,
+          "rationale": "Oranges and lemons were already aboard."
+        },
+        {
+          "id": "d",
+          "label": "The Navy banned his results",
+          "correct": false,
+          "rationale": "The Navy adopted lemon juice later, in 1795."
+        }
+      ],
+      "explanation": "Lind blamed scurvy mainly on damp air and a poorly digested diet, not a missing nutrient, and didn't declare citrus the cure.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.nutrients_micronutrients",
+        "concept.human_body.scurvy_vitamin_c"
+      ],
+      "sourceCardIds": [
+        "card.human_body.047.c4",
+        "card.human_body.049.c2"
+      ],
+      "prompt": "Level 47 called vitamins micronutrients. What does scurvy show about them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They matter only for energy",
+          "correct": false,
+          "rationale": "Vitamin C's job here is building collagen."
+        },
+        {
+          "id": "b",
+          "label": "The body makes all it needs",
+          "correct": false,
+          "rationale": "Humans can't make vitamin C."
+        },
+        {
+          "id": "c",
+          "label": "Needed in small amounts, yet critical for health",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They are needed in large amounts",
+          "correct": false,
+          "rationale": "Micro means small amounts."
+        }
+      ],
+      "explanation": "Vitamins are needed only in small amounts, but missing just one, vitamin C, weakens connective tissue throughout the body.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_vitamin_c",
+    "source.ods_vitamin_c",
+    "source.pmc_lykkesfeldt_vitamin_c",
+    "source.jll_lind_scurvy",
+    "source.hekint_lind_scurvy",
+    "source.pmj_bartholomew_lind",
+    "source.brit_james_lind",
+    "source.who_micronutrients"
+  ],
+  "art": "body.food-plate"
+}

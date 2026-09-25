@@ -1,0 +1,220 @@
+{
+  "id": "level.science.human_body.056",
+  "skillId": "skill.science.human_body",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Memory",
+  "objective": "After this level you can explain how memories are made and why we forget.",
+  "summary": "Henry Molaison lost his hippocampus and could not make new long-term memories, yet learned skills. Forgetting is fastest right after learning; spacing study helps.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.memory_hippocampus",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.memory_forgetting",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.brain_lobes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.055"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1953, one surgery stopped a man making new memories.",
+      "body": "Henry Molaison was 27 when surgeons operated to control his severe seizures. Afterward, he could meet you and chat, and minutes after you left the room, have no memory of the meeting. His loss showed science where new memories are made."
+    },
+    {
+      "id": "card.human_body.056.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The library was fine. The librarian was gone.",
+      "body": "Surgeons had removed tissue from each side of his brain, including much of the hippocampus. That small structure deep in the brain acts as a memory indexer: it sends new memories to the right part of the cerebrum for long-term storage and fetches them back. Molaison kept memories from before surgery, like scenes from his childhood. He just couldn't file new ones."
+    },
+    {
+      "id": "card.human_body.056.c3",
+      "type": "fact",
+      "fact": "He got better at a skill he never remembered practicing.",
+      "context": "Molaison practiced tracing patterns while watching his hand in a mirror. Over time he improved, yet each time he could not recall ever doing the task. Skills like this rely on different memory systems from the hippocampus. Memory, it turns out, isn't one thing."
+    },
+    {
+      "id": "card.human_body.056.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why you forget, and how to fight back",
+      "body": "In 1885, Hermann Ebbinghaus published results from testing his own memory with nonsense syllables. His forgetting curve showed that forgetting is fastest soon after learning, then slows. Later research found a fix: spacing study out over time beats cramming it into one session. It's one of the most replicated findings in psychology. Little and often wins.",
+      "mascot": {
+        "pose": "idea",
+        "line": "If this level fades a bit by tomorrow, that's Ebbinghaus's curve. Come back and nudge it."
+      }
+    },
+    {
+      "id": "card.human_body.056.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.056.q1"
+    },
+    {
+      "id": "card.human_body.056.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.056.q2"
+    },
+    {
+      "id": "card.human_body.056.c7",
+      "type": "recall",
+      "questionId": "question.human_body.056.q3"
+    },
+    {
+      "id": "card.human_body.056.c8",
+      "type": "checkpoint",
+      "headline": "Memory: filed",
+      "learned": [
+        "The hippocampus files new memories for long-term storage",
+        "Henry Molaison lost it and could not form new long-term memories",
+        "He still learned skills: memory is not one system",
+        "Forgetting is fastest soon after learning; spacing study helps"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.memory_hippocampus"
+      ],
+      "sourceCardIds": [
+        "card.human_body.056.c1",
+        "card.human_body.056.c2"
+      ],
+      "prompt": "After his 1953 surgery, what could Henry Molaison no longer do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Remember his childhood",
+          "correct": false,
+          "rationale": "His older memories stayed."
+        },
+        {
+          "id": "b",
+          "label": "Hold a conversation",
+          "correct": false,
+          "rationale": "He could meet people and chat."
+        },
+        {
+          "id": "c",
+          "label": "Learn any new skill at all",
+          "correct": false,
+          "rationale": "He improved at mirror tracing."
+        },
+        {
+          "id": "d",
+          "label": "Form new long-term memories",
+          "correct": true
+        }
+      ],
+      "explanation": "With much of his hippocampus removed, Molaison kept older memories but could not form new long-term ones.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.memory_forgetting"
+      ],
+      "sourceCardIds": [
+        "card.human_body.056.c4"
+      ],
+      "prompt": "You have a test in a week. Based on the spacing effect, which plan should help you remember the most?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Short study sessions spread over several days",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "One long session the night before",
+          "correct": false,
+          "rationale": "Cramming loses to spaced study."
+        },
+        {
+          "id": "c",
+          "label": "Reading it once, a week early",
+          "correct": false,
+          "rationale": "Forgetting is fastest soon after learning."
+        },
+        {
+          "id": "d",
+          "label": "Studying only after the test",
+          "correct": false,
+          "rationale": "Too late to help the test."
+        }
+      ],
+      "explanation": "Long-term memory is better when learning is spaced out over time rather than crammed into one session.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.memory_hippocampus",
+        "concept.human_body.brain_lobes"
+      ],
+      "sourceCardIds": [
+        "card.human_body.056.c2",
+        "card.human_body.054.c3"
+      ],
+      "prompt": "Level 54 said the temporal lobes help form memories. Which deep structure did Molaison's case show files new memories?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The cerebellum",
+          "correct": false,
+          "rationale": "It coordinates movement."
+        },
+        {
+          "id": "b",
+          "label": "The hippocampus",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The corpus callosum",
+          "correct": false,
+          "rationale": "It links the two hemispheres."
+        },
+        {
+          "id": "d",
+          "label": "The brainstem",
+          "correct": false,
+          "rationale": "It runs breathing and heart rate."
+        }
+      ],
+      "explanation": "The hippocampus acts as a memory indexer, sending new memories to the cerebrum for long-term storage.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brainfacts_patient_hm",
+    "source.ninds_brain_basics_know_your_brain",
+    "source.brit_hermann_ebbinghaus",
+    "source.plosone_murre_forgetting_curve",
+    "source.childdev_vlach_spacing_effect"
+  ],
+  "art": "technology.lightbulb"
+}

@@ -1,0 +1,246 @@
+{
+  "id": "level.science.human_body.083",
+  "skillId": "skill.science.human_body",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Twins",
+  "objective": "After this level you can explain the difference between identical and fraternal twins.",
+  "summary": "Identical twins come from one fertilized egg that splits and share their DNA; fraternal twins come from two eggs and are as alike as siblings. Even identical twins have different fingerprints.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.twins_two_kinds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.twins_genes_environment",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.inheritance_allele_pairs",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.dna_location",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.082"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Identical twins share their DNA. They don't share fingerprints.",
+      "body": "Twins come in two kinds, made in two different ways. And even the most identical pair shows that DNA isn't the whole story."
+    },
+    {
+      "id": "card.human_body.083.c2",
+      "type": "comparison",
+      "headline": "Two recipes for twins",
+      "items": [
+        {
+          "label": "Identical (monozygotic)",
+          "points": [
+            "One egg, fertilized by one sperm",
+            "The early embryo splits in two",
+            "Same DNA, always the same sex"
+          ]
+        },
+        {
+          "label": "Fraternal (dizygotic)",
+          "points": [
+            "Two eggs, each fertilized by a different sperm",
+            "About half their genes shared, like other siblings",
+            "Can be the same sex or not"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Which kind runs in families?",
+      "body": "Fraternal twins happen when more than one egg is released in one cycle, and that runs in families: the chance roughly doubles if a close relative, like a sister, has had fraternal twins. Identical twins mostly don't run in families, and they turn up in about 3 to 4 of every 1,000 births worldwide. Fraternal twins are about twice as common."
+    },
+    {
+      "id": "card.human_body.083.c4",
+      "type": "fact",
+      "fact": "Even identical twins have different fingerprints.",
+      "context": "Fingerprint ridges start forming in the third month of development and are finished by the sixth. Their fine details are shaped by conditions inside the womb, and two twins never get exactly the same conditions. Same recipe, slightly different ovens.",
+      "mascot": {
+        "pose": "idea",
+        "line": "So a fingerprint is part genes, part where you happened to float. Wonderfully personal."
+      }
+    },
+    {
+      "id": "card.human_body.083.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nature's own experiment",
+      "body": "Because identical twins are genetically identical, comparing them with fraternal twins helps scientists separate what comes from genes from what comes from environment. Even when raised in separate homes, identical twins turn out far more alike than fraternal twins. So when identical twins do differ, the environment is doing much of the work."
+    },
+    {
+      "id": "card.human_body.083.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.083.q1"
+    },
+    {
+      "id": "card.human_body.083.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.083.q2"
+    },
+    {
+      "id": "card.human_body.083.c8",
+      "type": "recall",
+      "questionId": "question.human_body.083.q3"
+    },
+    {
+      "id": "card.human_body.083.c9",
+      "type": "checkpoint",
+      "headline": "Twins: told apart",
+      "learned": [
+        "Identical: one fertilized egg splits, same DNA",
+        "Fraternal: two eggs, two sperm, sibling-level similarity",
+        "Fraternal twinning runs in families",
+        "Womb conditions give even identical twins different fingerprints"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.twins_two_kinds"
+      ],
+      "sourceCardIds": [
+        "card.human_body.083.c2"
+      ],
+      "prompt": "How do identical twins form?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One fertilized egg splits into two embryos",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Two eggs are fertilized by two sperm",
+          "correct": false,
+          "rationale": "That makes fraternal twins."
+        },
+        {
+          "id": "c",
+          "label": "One egg is fertilized by two sperm",
+          "correct": false,
+          "rationale": "Identical twins come from one egg and one sperm."
+        },
+        {
+          "id": "d",
+          "label": "Two embryos merge into one",
+          "correct": false,
+          "rationale": "The single embryo splits apart."
+        }
+      ],
+      "explanation": "Identical twins come from one egg fertilized by one sperm; the early embryo splits into two.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.human_body.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.twins_genes_environment"
+      ],
+      "sourceCardIds": [
+        "card.human_body.083.c4"
+      ],
+      "prompt": "Identical twins have the same DNA. Why are their fingerprints still different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One twin inherits the father's fingerprint genes",
+          "correct": false,
+          "rationale": "They share the same DNA."
+        },
+        {
+          "id": "b",
+          "label": "Fingerprints form after birth from touching things",
+          "correct": false,
+          "rationale": "The ridges form before birth."
+        },
+        {
+          "id": "c",
+          "label": "Fingerprints are copied from the mother",
+          "correct": false,
+          "rationale": "They're shaped in each twin's own development."
+        },
+        {
+          "id": "d",
+          "label": "Womb conditions shape the fine details of the ridges",
+          "correct": true
+        }
+      ],
+      "explanation": "Fingerprint ridges form from the third to the sixth month, and conditions in the womb shape their fine details.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.twins_two_kinds",
+        "concept.human_body.inheritance_allele_pairs"
+      ],
+      "sourceCardIds": [
+        "card.human_body.083.c2",
+        "card.human_body.082.c5"
+      ],
+      "prompt": "Using Level 82's idea of shuffled eggs and sperm, why are fraternal twins no more alike genetically than other siblings?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They share one egg but not one sperm",
+          "correct": false,
+          "rationale": "Fraternal twins come from two eggs."
+        },
+        {
+          "id": "b",
+          "label": "Each twin comes from a different egg and sperm, each with its own mix",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Their DNA changes after birth",
+          "correct": false,
+          "rationale": "They differ from the start."
+        },
+        {
+          "id": "d",
+          "label": "Fraternal twins inherit genes from one parent only",
+          "correct": false,
+          "rationale": "Every child gets chromosomes from both parents."
+        }
+      ],
+      "explanation": "Fraternal twins come from two eggs and two sperm, and each egg or sperm carries a different random mix of a parent's chromosomes.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_identical_twin",
+    "source.medlineplus_fingerprints",
+    "source.medlineplus_dna",
+    "source.medlineplus_twins"
+  ],
+  "art": "technology.dna"
+}

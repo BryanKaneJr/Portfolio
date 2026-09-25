@@ -1,0 +1,218 @@
+{
+  "id": "level.science.human_body.053",
+  "skillId": "skill.science.human_body",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Reflexes",
+  "objective": "After this level you can explain why some reflexes happen before you can think.",
+  "summary": "Reflexes take a shortcut through the spinal cord, so your hand leaves a hot stove before you register the pain. The knee jerk is a stretch reflex.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.reflex_arc",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.reflex_stretch",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.nervous_central_peripheral",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.052"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Touch a hot stove and your hand moves before you feel it.",
+      "body": "You pull away, typically before you have even registered the pain. So who made the decision, if it wasn't the thinking you?"
+    },
+    {
+      "id": "card.human_body.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A shortcut through the spine",
+      "body": "Sensors in your skin detect the heat. A signal races along a sensory fiber to your spinal cord, where it connects to a motor neuron. That neuron fires, your biceps contracts, and your hand is off the stove. Simple reflexes like this skip the brain's higher centers, the ones you use for deliberate moves. The spinal cord makes the call, and the brain gets the memo afterwards."
+    },
+    {
+      "id": "card.human_body.053.c3",
+      "type": "fact",
+      "fact": "The doctor's rubber hammer tests a stretch reflex.",
+      "context": "Tap the tendon below your kneecap and your leg kicks: that's the knee jerk. When a muscle is stretched, a sensor inside it makes the same muscle contract, helping keep muscles at a steady length. Here the sensory neuron connects straight to the motor neuron, which makes it very fast. It's why your head jerks back up when you nod off sitting up."
+    },
+    {
+      "id": "card.human_body.053.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Built for speed, down to the details",
+      "body": "The withdrawal reflex even clears its own path. While the biceps pulls your arm back, the spinal cord stops the opposing triceps from contracting, so the two muscles don't fight and the withdrawal is faster. Fewer steps, no committee meeting upstairs: that is how a reflex beats a thought.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Your spinal cord: not much of a thinker, but a brilliant bodyguard."
+      }
+    },
+    {
+      "id": "card.human_body.053.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.053.q1"
+    },
+    {
+      "id": "card.human_body.053.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.053.q2"
+    },
+    {
+      "id": "card.human_body.053.c7",
+      "type": "recall",
+      "questionId": "question.human_body.053.q3"
+    },
+    {
+      "id": "card.human_body.053.c8",
+      "type": "checkpoint",
+      "headline": "Reflexes: explained",
+      "learned": [
+        "Withdrawal reflex: skin, sensory fiber, spinal cord, motor neuron, muscle",
+        "The higher brain is skipped, so you move before you feel the pain",
+        "The knee jerk is a stretch reflex that keeps muscles at length",
+        "Stopping the opposing muscle makes the withdrawal faster"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.reflex_stretch"
+      ],
+      "sourceCardIds": [
+        "card.human_body.053.c3"
+      ],
+      "prompt": "A doctor taps the tendon below your kneecap and your leg kicks. What kind of reflex is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A withdrawal reflex",
+          "correct": false,
+          "rationale": "That is the hot-stove reflex that pulls a limb away."
+        },
+        {
+          "id": "b",
+          "label": "A stretch reflex",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A learned habit",
+          "correct": false,
+          "rationale": "Reflexes are built in, not learned."
+        },
+        {
+          "id": "d",
+          "label": "A voluntary kick",
+          "correct": false,
+          "rationale": "You did not decide to kick."
+        }
+      ],
+      "explanation": "The knee jerk is a stretch reflex: a stretched muscle is made to contract, helping keep it at a steady length.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.reflex_arc"
+      ],
+      "sourceCardIds": [
+        "card.human_body.053.c2",
+        "card.human_body.053.c1"
+      ],
+      "prompt": "Why can your hand leave a hot stove before you have registered the pain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pain signals travel faster than all others",
+          "correct": false,
+          "rationale": "The speed comes from the short route, not the signal."
+        },
+        {
+          "id": "b",
+          "label": "The skin moves the hand by itself",
+          "correct": false,
+          "rationale": "The skin only senses; muscles do the moving."
+        },
+        {
+          "id": "c",
+          "label": "The signal loops through the spinal cord without waiting for the brain",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The brain predicted the burn in advance",
+          "correct": false,
+          "rationale": "The brain is not in the loop for the reflex."
+        }
+      ],
+      "explanation": "In the withdrawal reflex, the sensory signal connects to a motor neuron in the spinal cord, skipping the higher brain centers.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.human_body.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.reflex_arc",
+        "concept.human_body.nervous_central_peripheral"
+      ],
+      "sourceCardIds": [
+        "card.human_body.053.c2",
+        "card.human_body.051.c2"
+      ],
+      "prompt": "Level 51 split the nervous system into central and peripheral. Where is the hot-stove reflex decided?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the spinal cord, part of the central nervous system",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "In a nerve in the hand, part of the peripheral system",
+          "correct": false,
+          "rationale": "The hand nerve only carries the signal."
+        },
+        {
+          "id": "c",
+          "label": "In the thinking parts of the brain",
+          "correct": false,
+          "rationale": "Simple reflexes skip the higher brain centers."
+        },
+        {
+          "id": "d",
+          "label": "In the heart",
+          "correct": false,
+          "rationale": "The heart pumps blood; it plays no part in the reflex."
+        }
+      ],
+      "explanation": "The sensory signal connects to a motor neuron in the spinal cord, which with the brain forms the central nervous system.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.oregonstate_ap_reflexes",
+    "source.openstax_ap_somatic_nervous_system_intro",
+    "source.openstax_ap_motor_responses"
+  ],
+  "art": "body.neuron"
+}

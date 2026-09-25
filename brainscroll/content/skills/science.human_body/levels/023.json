@@ -1,0 +1,241 @@
+{
+  "id": "level.science.human_body.023",
+  "skillId": "skill.science.human_body",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Blood Vessels",
+  "objective": "After this level you can compare arteries, veins and capillaries.",
+  "summary": "Arteries carry blood away from the heart; veins bring it back at low pressure, holding about two-thirds of it. Capillaries, a single cell layer thick, are where delivery happens.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.vessel_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.vessel_capillaries",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.heart_chambers",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.022"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Arteries aren't the \"oxygen\" ones. They're the \"away\" ones.",
+      "body": "You might guess that arteries carry oxygen-rich blood and veins carry the rest. The real rule is simpler, and it's all about which way the blood is heading."
+    },
+    {
+      "id": "card.human_body.023.c2",
+      "type": "comparison",
+      "headline": "Three kinds of road",
+      "items": [
+        {
+          "label": "Arteries",
+          "points": [
+            "Carry blood away from the heart",
+            "Thick walls; the big ones stretch with each push, then recoil"
+          ]
+        },
+        {
+          "label": "Veins",
+          "points": [
+            "Carry blood back to the heart",
+            "Lower pressure, thinner walls",
+            "Many, especially in the limbs, have one-way valves"
+          ]
+        },
+        {
+          "label": "Capillaries",
+          "points": [
+            "Link the smallest arteries to the smallest veins",
+            "Walls just one thin layer of cells"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.human_body.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The artery that breaks the color code",
+      "body": "Here's the proof that direction is the rule. The pulmonary arteries carry blood from your right ventricle to your lungs, and that blood is low in oxygen. They're still arteries, because they lead away from the heart. And the slow, low-pressure veins? At any moment they hold roughly two-thirds of your blood. Arteries are the express lanes; veins are the parking garage."
+    },
+    {
+      "id": "card.human_body.023.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Capillaries: where the delivery happens",
+      "body": "Arteries and veins are only roads. The drop-off happens in capillaries, vessels so narrow (about 8 to 10 micrometers) that red blood cells squeeze through in single file. Their walls are a single thin layer of cells, so oxygen and nutrients cross out to your tissues and wastes cross in. All the pumping from Level 21 exists to get blood to this doorstep.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Single file, no overtaking. The busiest lanes in your body are also the narrowest."
+      }
+    },
+    {
+      "id": "card.human_body.023.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.023.q1"
+    },
+    {
+      "id": "card.human_body.023.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.023.q2"
+    },
+    {
+      "id": "card.human_body.023.c7",
+      "type": "recall",
+      "questionId": "question.human_body.023.q3"
+    },
+    {
+      "id": "card.human_body.023.c8",
+      "type": "checkpoint",
+      "headline": "Blood vessels: mapped",
+      "learned": [
+        "Arteries carry blood away from the heart",
+        "Veins bring it back at low pressure, with valves",
+        "Veins hold about two-thirds of your blood",
+        "Capillaries, one cell layer thick, trade with the tissues"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.vessel_types"
+      ],
+      "sourceCardIds": [
+        "card.human_body.023.c2"
+      ],
+      "prompt": "What makes a blood vessel an artery?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It carries oxygen-rich blood",
+          "correct": false,
+          "rationale": "The pulmonary arteries carry oxygen-poor blood."
+        },
+        {
+          "id": "b",
+          "label": "It has one-way valves along it",
+          "correct": false,
+          "rationale": "Valves are a feature of many veins."
+        },
+        {
+          "id": "c",
+          "label": "Its wall is one cell layer thick",
+          "correct": false,
+          "rationale": "That describes capillaries."
+        },
+        {
+          "id": "d",
+          "label": "It carries blood away from the heart",
+          "correct": true
+        }
+      ],
+      "explanation": "Arteries are defined by direction: they carry blood away from the heart.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.human_body.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.vessel_capillaries"
+      ],
+      "sourceCardIds": [
+        "card.human_body.023.c4"
+      ],
+      "prompt": "Why do oxygen and nutrients leave the blood in capillaries, not in arteries?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Capillary walls are one thin layer of cells",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Capillaries are the widest vessels",
+          "correct": false,
+          "rationale": "They are the narrowest; red cells pass single file."
+        },
+        {
+          "id": "c",
+          "label": "Capillaries attach straight to the heart",
+          "correct": false,
+          "rationale": "They link the smallest arteries and veins."
+        },
+        {
+          "id": "d",
+          "label": "Arteries carry no oxygen at all",
+          "correct": false,
+          "rationale": "Most arteries carry oxygen-rich blood."
+        }
+      ],
+      "explanation": "Capillary walls are a single thin layer of cells, so oxygen, nutrients and wastes can cross between blood and tissues.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.vessel_types",
+        "concept.human_body.heart_chambers"
+      ],
+      "sourceCardIds": [
+        "card.human_body.023.c3",
+        "card.human_body.021.c3"
+      ],
+      "prompt": "Level 21's right ventricle pumps oxygen-poor blood to the lungs. Which vessels carry it there?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pulmonary veins",
+          "correct": false,
+          "rationale": "They bring oxygen-rich blood back from the lungs."
+        },
+        {
+          "id": "b",
+          "label": "Pulmonary arteries",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The venae cavae",
+          "correct": false,
+          "rationale": "They bring blood from the body into the right atrium."
+        },
+        {
+          "id": "d",
+          "label": "Capillaries of the legs",
+          "correct": false,
+          "rationale": "Those serve leg tissues, far from this route."
+        }
+      ],
+      "explanation": "The pulmonary arteries lead away from the right ventricle to the lungs, so they are arteries even though their blood is low in oxygen.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nhlbi_heart_blood_flow",
+    "source.openstax_ap_blood_vessels",
+    "source.brit_capillary",
+    "source.brit_malpighi"
+  ],
+  "art": "body.heart"
+}

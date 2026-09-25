@@ -1,0 +1,220 @@
+{
+  "id": "level.science.human_body.068",
+  "skillId": "skill.science.human_body",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Touch and Pain",
+  "objective": "After this level you can explain how the skin senses touch, heat and pain.",
+  "summary": "Skin sensors for touch, temperature, pain and chemicals crowd the fingertips. Chili and menthol led to the heat and cold sensors (2021 Nobel). Pain is a vital warning.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.senses_skin_receptors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.senses_heat_touch_sensors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.gene_basics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.067"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.068.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A chili pepper tricks a heat sensor in your mouth.",
+      "body": "The burn comes from a chemical, not a flame. Working out how it fools you earned a share of the 2021 Nobel Prize, and it shows how your skin turns touch, warmth and pain into signals."
+    },
+    {
+      "id": "card.human_body.068.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four families of sensor",
+      "body": "Your skin's sensors come in four families: for touch and pressure, for temperature, for pain and for chemicals. The most common, free nerve endings, respond to pain, hot and cold, and light touch. Touch sensors crowd your fingertips and lips and thin out on hairy skin like your arms, legs and torso. That's why you test a fabric with your fingertips, not your elbow."
+    },
+    {
+      "id": "card.human_body.068.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A chili, a mint and a Nobel Prize",
+      "body": "In the late 1990s, David Julius used capsaicin, the chemical that makes chilies burn, to find TRPV1, a sensor in nerve endings that switches on at painfully hot temperatures. Capsaicin flips the same switch. Julius and Ardem Patapoutian each used menthol to find a cold sensor, and Patapoutian found Piezo2, essential for touch and for Level 61's sense of body position. They shared the 2021 Nobel Prize.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Chili plays the heat sensor and mint plays the cold one. Your nerves fall for it every time."
+      }
+    },
+    {
+      "id": "card.human_body.068.c4",
+      "type": "fact",
+      "fact": "Pain is a warning light, and life without it is dangerous.",
+      "context": "Pain helps you avoid danger and injury. People born with a rare condition called congenital insensitivity to pain never feel it when they're hurt. They can tell hot from cold, but not that a drink is burning their tongue, so they suffer more injuries and may live shorter lives. One form comes from changes in a single gene, SCN9A."
+    },
+    {
+      "id": "card.human_body.068.c5",
+      "type": "mcq",
+      "questionId": "question.human_body.068.q1"
+    },
+    {
+      "id": "card.human_body.068.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.068.q2"
+    },
+    {
+      "id": "card.human_body.068.c7",
+      "type": "recall",
+      "questionId": "question.human_body.068.q3"
+    },
+    {
+      "id": "card.human_body.068.c8",
+      "type": "checkpoint",
+      "headline": "Touch: felt",
+      "learned": [
+        "Skin sensors for touch, temperature, pain and chemicals",
+        "Densest in fingertips and lips",
+        "Capsaicin led to the heat sensor; menthol to a cold sensor",
+        "Piezo2 is essential for touch (2021 Nobel Prize)",
+        "Pain is a warning; living without it is risky"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.senses_heat_touch_sensors"
+      ],
+      "sourceCardIds": [
+        "card.human_body.068.c3"
+      ],
+      "prompt": "What did David Julius use to track down the nerve sensor for painful heat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Menthol from mint",
+          "correct": false,
+          "rationale": "Menthol led to the cold sensor."
+        },
+        {
+          "id": "b",
+          "label": "Glutamate from broth",
+          "correct": false,
+          "rationale": "Glutamate gives the umami taste."
+        },
+        {
+          "id": "c",
+          "label": "Capsaicin from chili peppers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Calcium grains from the ear",
+          "correct": false,
+          "rationale": "Those help the inner ear feel gravity."
+        }
+      ],
+      "explanation": "Julius used capsaicin, the chemical that makes chilies burn, to find TRPV1, a sensor switched on by painful heat.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.senses_skin_receptors"
+      ],
+      "sourceCardIds": [
+        "card.human_body.068.c2"
+      ],
+      "prompt": "Why can your fingertips feel finer detail than the skin of your arm?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Touch sensors are packed more densely there",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Fingertips have no pain sensors to distract them",
+          "correct": false,
+          "rationale": "Fingertips have pain sensors too."
+        },
+        {
+          "id": "c",
+          "label": "Arm skin has no touch sensors at all",
+          "correct": false,
+          "rationale": "It has them, just fewer."
+        },
+        {
+          "id": "d",
+          "label": "Fingertips are warmer than arms",
+          "correct": false,
+          "rationale": "Density of sensors, not warmth, is the difference."
+        }
+      ],
+      "explanation": "Touch receptors are denser in hairless skin like the fingertips and lips, and sparser in hairy skin like the arms.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.senses_skin_receptors",
+        "concept.human_body.gene_basics"
+      ],
+      "sourceCardIds": [
+        "card.human_body.068.c4",
+        "card.human_body.006.c2"
+      ],
+      "prompt": "Level 6 described a gene as a stretch of DNA. What can changes in the single gene SCN9A cause?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Red-green color blindness",
+          "correct": false,
+          "rationale": "That involves genes on the X chromosome."
+        },
+        {
+          "id": "b",
+          "label": "A lifelong inability to feel pain",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Extra touch sensors in the fingertips",
+          "correct": false,
+          "rationale": "Receptor density is normal variation by body area."
+        },
+        {
+          "id": "d",
+          "label": "A loss of the umami taste",
+          "correct": false,
+          "rationale": "The condition takes away pain, not taste."
+        }
+      ],
+      "explanation": "Variants in SCN9A cause a rare form of congenital insensitivity to pain: people never feel pain when injured.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nobelprize_medicine_2021",
+    "source.openstax_bio_somatosensation",
+    "source.medlineplus_congenital_insensitivity_pain",
+    "source.medlineplus_gene",
+    "source.nhgri_gene"
+  ],
+  "art": "body.bandage"
+}

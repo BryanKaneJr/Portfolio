@@ -1,0 +1,227 @@
+{
+  "id": "level.science.human_body.085",
+  "skillId": "skill.science.human_body",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why We Age",
+  "objective": "After this level you can explain what happens to cells as we get older.",
+  "summary": "Normal cells divide only about 40 to 60 times, as telomeres shorten with each division. Senescent cells that stop dividing but linger spread inflammation, and damage builds up over time.",
+  "concepts": [
+    {
+      "conceptId": "concept.human_body.aging_division_limit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.aging_senescent_cells",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.human_body.cell_turnover",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.human_body.084"
+  ],
+  "cards": [
+    {
+      "id": "card.human_body.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your cells can only divide so many times.",
+      "body": "Scientists once believed cells grown in a dish could divide forever. In 1961 two researchers showed they can't, and that limit became one of the first clues to why bodies age."
+    },
+    {
+      "id": "card.human_body.085.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Hayflick limit",
+      "body": "In 1961 Leonard Hayflick and Paul Moorhead reported that normal human cells grown in a dish divide only about 40 to 60 times, then stop. That overturned the claim, made by Alexis Carrel, that cultured cells could keep dividing forever. The cap became known as the Hayflick limit, and Hayflick linked it to aging."
+    },
+    {
+      "id": "card.human_body.085.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A fuse on every chromosome",
+      "body": "Why the cap? Each chromosome ends in a telomere, a stretch of repeated DNA letters. Every time a cell divides, some of those repeats get cut off. Eventually the telomeres are too short for the cell to divide successfully. Remember Level 10's 330 billion cells replaced every day? Each division burns a little more fuse."
+    },
+    {
+      "id": "card.human_body.085.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cells that won't leave",
+      "body": "A cell that stops dividing but doesn't die is called senescent. Senescent cells never divide again, and they build up in almost all tissues as we age. Worse, they release harmful molecules that trigger inflammation and disrupt the cells around them, like a rotten apple spoiling the barrel. Researchers link them to many illnesses of aging.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Retired, but still sending grumpy memos to the neighbors. We've all met a cell like that."
+      }
+    },
+    {
+      "id": "card.human_body.085.c5",
+      "type": "fact",
+      "fact": "Aging is damage adding up.",
+      "context": "The WHO describes biological aging as the result of many kinds of molecular and cellular damage building up over time. Those changes are only loosely tied to age in years, which is why two people with the same birthday can age very differently."
+    },
+    {
+      "id": "card.human_body.085.c6",
+      "type": "mcq",
+      "questionId": "question.human_body.085.q1"
+    },
+    {
+      "id": "card.human_body.085.c7",
+      "type": "mcq",
+      "questionId": "question.human_body.085.q2"
+    },
+    {
+      "id": "card.human_body.085.c8",
+      "type": "recall",
+      "questionId": "question.human_body.085.q3"
+    },
+    {
+      "id": "card.human_body.085.c9",
+      "type": "checkpoint",
+      "headline": "Why we age: explained",
+      "learned": [
+        "Normal cells divide about 40 to 60 times (Hayflick, 1961)",
+        "Telomeres lose repeats at every division",
+        "Senescent cells linger and spread inflammation",
+        "Aging is molecular and cellular damage building up"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.human_body.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.human_body.aging_division_limit"
+      ],
+      "sourceCardIds": [
+        "card.human_body.085.c2"
+      ],
+      "prompt": "About how many times did Hayflick find that normal human cells in a dish divide before stopping?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 5 to 10",
+          "correct": false,
+          "rationale": "Far too few."
+        },
+        {
+          "id": "b",
+          "label": "About 40 to 60",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 400 to 600",
+          "correct": false,
+          "rationale": "Ten times too many."
+        },
+        {
+          "id": "d",
+          "label": "Without limit",
+          "correct": false,
+          "rationale": "That was Carrel's claim, which Hayflick overturned."
+        }
+      ],
+      "explanation": "Hayflick and Moorhead found normal human cells divide about 40 to 60 times, then stop.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.human_body.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.human_body.aging_senescent_cells"
+      ],
+      "sourceCardIds": [
+        "card.human_body.085.c4"
+      ],
+      "prompt": "A senescent cell has stopped dividing. How can it still harm the tissue around it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It divides faster than its neighbors",
+          "correct": false,
+          "rationale": "Senescent cells never divide again."
+        },
+        {
+          "id": "b",
+          "label": "It steals their telomeres",
+          "correct": false,
+          "rationale": "Telomeres stay on each cell's own chromosomes."
+        },
+        {
+          "id": "c",
+          "label": "It turns into a red blood cell",
+          "correct": false,
+          "rationale": "It stays in place and lingers."
+        },
+        {
+          "id": "d",
+          "label": "It releases molecules that trigger inflammation",
+          "correct": true
+        }
+      ],
+      "explanation": "Senescent cells release harmful molecules that trigger inflammation and disrupt neighboring cells.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.human_body.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.human_body.aging_division_limit",
+        "concept.human_body.cell_turnover"
+      ],
+      "sourceCardIds": [
+        "card.human_body.085.c3",
+        "card.human_body.010.c3"
+      ],
+      "prompt": "Level 10 said about 330 billion of your cells are replaced every day. What does each of those divisions do to a cell's telomeres?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Makes them longer",
+          "correct": false,
+          "rationale": "They get shorter, not longer."
+        },
+        {
+          "id": "b",
+          "label": "Leaves them unchanged",
+          "correct": false,
+          "rationale": "Some repeats are lost each time."
+        },
+        {
+          "id": "c",
+          "label": "Cuts off some of their repeats",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Copies them onto a new chromosome",
+          "correct": false,
+          "rationale": "Telomeres cap each chromosome's own ends."
+        }
+      ],
+      "explanation": "Every time a cell divides, some telomere repeats get cut off, until the cell can no longer divide successfully.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.asu_embryo_hayflick_limit",
+    "source.natmed_cell_turnover_2021",
+    "source.weizmann_cell_replacement",
+    "source.nhgri_telomere",
+    "source.nih_irp_cellular_aging",
+    "source.who_ageing_health"
+  ],
+  "art": "object.hourglass"
+}
