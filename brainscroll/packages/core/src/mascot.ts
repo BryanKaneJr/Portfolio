@@ -52,18 +52,18 @@ export const MASCOT_LINE_MAX = 140;
 
 /** His lines at fixed moments. Short, warm, never scolding. */
 export const DR_SCROLL_LINES = {
-  introHello: `Hi, I'm ${MASCOT_NAME}.`,
-  introLessons: 'Every level here is a short lesson with a few questions. Clear it, and that skill levels up for good.',
-  introPromise: "I'll pop in now and then with a tip. Mostly I'll stay out of your way.",
+  introHello: `Hi, I'm ${MASCOT_NAME}. Come in, sit down. We've got a lot to talk about.`,
+  introLessons: 'Here is how it works. Every level is a short lesson and a few questions. Clear it, and that skill levels up for good.',
+  introPromise: "I'll drop by now and then with a tip. Otherwise I stay out of your way. I'm old, not nosy.",
   introReply: 'Nice to meet you',
-  levelPerfect: 'First try on every question. Beautiful.',
-  levelStrong: "Nicely done. That one's yours now.",
-  levelReinforced: "You fixed every miss. That's exactly how it sticks.",
-  levelHeavilyReinforced: "Cleared! The tricky ones come back in Review, and they'll feel easier.",
-  levelMastery: "A mastery star! I'm framing this one.",
-  levelReplay: 'Good refresher. Knowledge likes a second visit.',
-  dailyComplete: "I'll save your spot for tomorrow.",
-  reviewEmpty: "Nothing to refresh. Your memory's in good shape.",
+  levelPerfect: "Every question, first try. Beautiful. I'm telling everybody.",
+  levelStrong: "Look at that. That one's yours now, and nobody takes it back.",
+  levelReinforced: "You went back and fixed every miss. That's how it sticks. That's the whole secret.",
+  levelHeavilyReinforced: "Cleared! The tricky ones come back in Review, and trust me, they'll feel easier.",
+  levelMastery: 'A mastery star! Hold on, I need to find a frame for this.',
+  levelReplay: 'A second visit. Good. Knowledge is like family: it likes it when you come back.',
+  dailyComplete: "That's plenty for today. Go, enjoy. I'll save your seat for tomorrow.",
+  reviewEmpty: "Nothing to refresh. Your memory's in great shape, so I'm taking a nap.",
 } as const;
 
 /**
@@ -71,10 +71,10 @@ export const DR_SCROLL_LINES = {
  * up, and can be dismissed. Inside lessons they use calm poses only.
  */
 export const DR_SCROLL_TIPS = {
-  'first-question': { pose: 'pointing', line: 'Pick an answer, then tap Check. Only your first try counts toward XP, so take your time.' },
-  'first-miss': { pose: 'explaining', line: 'Missing one costs you nothing. The cards that explain it are right above. Have another look.' },
-  'first-checkpoint': { pose: 'idea', line: "A checkpoint mixes the whole chapter. It's a look back, not a test you can fail." },
-  'first-review': { pose: 'thinking', line: "Review brings things back right before you'd forget them. It never uses your daily levels." },
+  'first-question': { pose: 'pointing', line: "Pick an answer, then tap Check. Only your first try counts toward XP, so no rush. Nobody's timing you." },
+  'first-miss': { pose: 'explaining', line: "Missing one costs you nothing. The cards that explain it are right up there. Take another look, I'll wait." },
+  'first-checkpoint': { pose: 'idea', line: "A checkpoint mixes the whole chapter together. It's a look back, not a test you can fail. Relax." },
+  'first-review': { pose: 'thinking', line: "Review brings things back right before you'd forget them, and it never touches your daily levels. Good deal, right?" },
 } as const satisfies Record<string, { pose: MascotPose; line: string }>;
 export type DrScrollTipId = keyof typeof DR_SCROLL_TIPS;
 export const DR_SCROLL_TIP_DISMISS = 'Got it';

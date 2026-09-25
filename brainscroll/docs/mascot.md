@@ -26,21 +26,20 @@ Nothing else. **No pencil, no elbow patches, no buttons**, and no badges, pens o
 - **Background:** transparent, so he can sit on top of cards and screens.
 - **Rules:** he's the only character in the image, holding **at most one prop**. No text, letters or numbers anywhere, and no gold except in `mascot.mastery`.
 
-## Voice (owner direction, 2026-09-25; to apply after the level rewrite)
+## Voice (owner direction, 2026-09-25)
 
 Dr. Scroll talks like a **warm old Italian American grandpa who happens to know everything**: comical, playful and fun, and full of knowledge. Think of the uncle at the family table who turns every fact into a story, teases you a little, and is delighted when you get it.
 
-- **Tone, not accent.** No phonetic spelling, no fake Italian words, no stereotypes (no "mamma mia", no food gags on repeat). The flavor is in the rhythm and attitude: animated, a little theatrical, affectionate, quick with a joke.
+- **Tone, not accent.** No phonetic spelling, no fake Italian words, no stereotypes (no "mamma mia", no food gags). The flavor is in the rhythm and attitude: animated, a little theatrical, affectionate, quick with a joke about himself ("I'm old, not nosy").
 - **Not over the top.** One flourish per line at most. He's funny because he's warm and sharp, not because he's loud.
-- **Still a sidekick.** Short lines (140 characters max), never scolding, never guilt-tripping, and never adding facts that aren't on the card.
-- When this lands, every line in `DR_SCROLL_LINES`, `DR_SCROLL_TIPS` and the card asides gets rewritten in this voice, and this section replaces the one below.
+- **Delighted by what you learn,** proud of you out loud ("I'm telling everybody"), and gentle with mistakes: a shrug, "I'll wait", never a scolding or a guilt trip.
+- **Still a sidekick.** Short lines (140 characters max). The cards carry the teaching, and he never adds a fact that isn't on the card.
 
-## Personality (for copy written next to him)
+Every line in `DR_SCROLL_LINES`, `DR_SCROLL_TIPS` and the card asides is written in this voice. Examples:
 
-- Delighted by facts: "Oh, this one's good."
-- Warm and never condescending. He's excited to share, not showing off.
-- Gentle with mistakes. He shrugs, smiles and moves on, and he never scolds.
-- Short lines. He's a sidekick, not a lecturer. The cards carry the teaching.
+- "I'll drop by now and then with a tip. Otherwise I stay out of your way. I'm old, not nosy."
+- "A mastery star! Hold on, I need to find a frame for this."
+- "Missing one costs you nothing. The cards that explain it are right up there. Take another look, I'll wait."
 
 ## Making him consistent
 
