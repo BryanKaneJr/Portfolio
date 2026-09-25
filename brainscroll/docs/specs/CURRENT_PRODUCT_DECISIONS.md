@@ -8,15 +8,15 @@ This file records product decisions made after parts of the converted DOCX speci
 
 BrainScroll is a learning app, not a quiz app. A normal level should feel like an interesting learning encounter followed by lightweight checks that reinforce the material.
 
-**Depth (owner decision, 2026-09-25):** learners should come away *interested, not just informed*. The writing is fleshed out: the story behind a fact, why it's surprising, how we know, what it connects to. A level should never feel like reading a fact on its own. This replaced the earlier 2–4 short cards of 100–250 words.
+**Depth (owner decision, 2026-09-25):** the goal is to make the concept being taught *memorable*. Priority order: **learn > interesting > fun**. Each card makes its one idea interesting (how we know it, why it happens, a concrete sense of scale) and never wanders into neighboring topics, however interesting: those get their own level. A level should never feel like reading a bare fact, and never like a tour of tangents. This replaced the earlier 2–4 short cards of 100–250 words.
 
 Typical normal level:
 
-- 3–5 fleshed-out learning/reading cards, each a real paragraph (up to about 150 words).
-- Roughly 300–500 words total, depending on topic.
+- 3–5 focused learning/reading cards, each one short paragraph (about 50–90 words).
+- Roughly 180–320 words total, depending on topic.
 - Optional image, map, timeline, diagram, comparison, or connection card.
 - 3 questions.
-- Roughly 4–7 minutes total.
+- Roughly 3–6 minutes total.
 
 The normal three questions should generally cover:
 

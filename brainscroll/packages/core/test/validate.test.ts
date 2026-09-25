@@ -23,7 +23,7 @@ function makeLevel(n: number, overrides: Record<string, unknown> = {}): Record<s
     explanation: 'The Sun is a star.',
     difficulty: 0.1,
   });
-  const body = 'The Sun is an ordinary star, the closest one to Earth, and every other star you can see is a distant sun of its own. '.repeat(4);
+  const body = 'The Sun is an ordinary star, the closest one to Earth, and every other star you can see is a distant sun of its own. '.repeat(3);
   return {
     id: `level.science.astronomy.${num}`,
     skillId: 'skill.science.astronomy',

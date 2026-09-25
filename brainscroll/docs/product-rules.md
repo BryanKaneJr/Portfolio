@@ -11,7 +11,7 @@ A social-media-shaped learning app where users level up real knowledge like an R
 1. **A released skill is a deterministic, ordered sequence of levels.** Levels are cleared in order; you can't skip ahead.
 2. **The base mastery band is Levels 1–100.** Level 100 is a meaningful mastery checkpoint (★ Mastery I).
 3. **Prestige continues upward** (101–200 = ★★ at 200, and so on). It adds a star and deeper material, and it never deletes, resets or devalues earlier progress.
-4. **BrainScroll is a learning app, not a quiz app.** A level is a 4–7 minute learning encounter: read something genuinely interesting (fleshed-out writing that leaves the learner interested, not just informed), understand it, answer a few light questions, gain XP, continue. **Questions support the learning. They are not the product.** A standard level has **3 questions**, and testing only grows at milestones (see *Level types* below).
+4. **BrainScroll is a learning app, not a quiz app.** A level is a 3–6 minute learning encounter: read one concept made memorable (priority: learn > interesting > fun, no tangents), understand it, answer a few light questions, gain XP, continue. **Questions support the learning. They are not the product.** A standard level has **3 questions**, and testing only grows at milestones (see *Level types* below).
 5. **Free accounts may complete 5 NEW levels per local calendar day.** Review, replays, the character sheet and skill browsing never consume the allowance.
    - *Launch experiment:* on a user's first local day the cap is 10 (`FIRST_DAY_NEW_LEVELS`).
    - The local day is computed **server-side** from the profile's IANA time zone, never from the device clock.
@@ -45,7 +45,7 @@ Testing is proportional to the moment. The type comes from the level number (`le
 
 | Type | Which levels | Shape | Questions | XP pool (top) |
 | --- | --- | --- | --- | --- |
-| **Regular** | Almost all of them | Hook → 3–5 fleshed-out learning cards (~300–500 words) → questions → level complete | **3**: recall, understanding, connection | 100 |
+| **Regular** | Almost all of them | Hook → 3–5 focused learning cards (~180–320 words) → questions → level complete | **3**: recall, understanding, connection | 100 |
 | **Checkpoint** | Every 10th level | Still teaches, then a slightly longer check across the chapter | **5** | 150 |
 | **Milestone** | Level 50 (150, 250 …) | A bigger synthesis moment | **7** | 250 |
 | **Mastery Challenge** | Level 100 (200, 300 …) | The fullest test in a tree; resolving it earns ★ | **10** | 500 |
