@@ -53,6 +53,11 @@
       "conceptId": "concept.astronomy.event_horizon",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.stellar_fates",
+      "role": "reinforce",
+      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -64,7 +69,7 @@
       "type": "text",
       "role": "hook",
       "headline": "Chapter 8 finale. From dead stars to living worlds.",
-      "body": "Here’s what stars leave behind, and where life might be waiting."
+      "body": "Level 70 said mass decides how a star ends. Here’s what each ending leaves behind, and how we learned to find things that barely want to be found."
     },
     {
       "id": "card.astronomy.080.c2",
@@ -89,7 +94,7 @@
           "label": "Black hole",
           "points": [
             "No surface at all",
-            "Only an event horizon"
+            "Only an event horizon, the point of no return"
           ]
         }
       ]
@@ -99,7 +104,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Listening and looking",
-      "body": "Pulsars announce neutron stars with radio pulses. Gravitational waves reveal black holes and neutron stars colliding. And transits and wobbles have uncovered thousands of worlds around other stars, some in their habitable zones. Each discovery came from reading a different kind of signal."
+      "body": "Each discovery in this chapter came from reading a different signal. Pulsars give away neutron stars with radio beams that sweep past Earth like a lighthouse. Gravitational waves, first caught by LIGO in 2015, revealed two black holes merging. And tiny dips and wobbles in starlight have uncovered thousands of worlds around other stars, some, like TRAPPIST-1’s, in their habitable zones. Dead stars and new worlds, found the same way: by paying very close attention."
     },
     {
       "id": "card.astronomy.080.c4",
@@ -230,7 +235,7 @@
         "card.astronomy.073.c2",
         "card.astronomy.074.c2"
       ],
-      "prompt": "Why can’t a black hole be photographed directly, only its shadow?",
+      "prompt": "Why can’t a black hole itself be photographed directly?",
       "options": [
         {
           "id": "a",
@@ -256,7 +261,7 @@
           "correct": true
         }
       ],
-      "explanation": "No light escapes the event horizon, so astronomers image the glowing gas around it and the dark shadow it casts.",
+      "explanation": "No light escapes from inside the event horizon, so there is no light from the black hole itself to photograph.",
       "difficulty": 0.35
     },
     {
@@ -347,7 +352,10 @@
     "source.brit_pulsar",
     "source.ligo",
     "source.nasa_exoplanets",
-    "source.nasa_trappist1"
+    "source.nasa_trappist1",
+    "source.brit_supernova",
+    "source.nasa_star_life_cycle",
+    "source.nasa_kepler_mission"
   ],
   "art": "astronomy.black-hole"
 }

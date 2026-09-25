@@ -23,6 +23,16 @@
       "conceptId": "concept.astronomy.uranus_discovery",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.em_spectrum",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.astronomy.sunlight_travel_time",
+      "role": "reinforce",
+      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -33,14 +43,15 @@
       "id": "card.astronomy.038.c1",
       "type": "text",
       "role": "hook",
-      "headline": "The farthest thing humans ever built is still sending messages home."
+      "headline": "The farthest thing humans ever built is still sending messages home.",
+      "body": "It left Earth in 1977, and it's still radioing home from farther away than anything else we've made."
     },
     {
       "id": "card.astronomy.038.c2",
       "type": "text",
       "role": "explain",
-      "headline": "The grand tour",
-      "body": "Voyager 1 and Voyager 2 launched in 1977. Between them they flew past Jupiter, Saturn, Uranus and Neptune. Voyager 2 is still the only spacecraft to have visited Uranus, in 1986, and Neptune, in 1989.",
+      "headline": "The only visitor",
+      "body": "Voyager 1 and Voyager 2 launched in 1977. Voyager 2 went where no spacecraft has gone before or since: it's still the only one to have visited Uranus, in 1986, and Neptune, in 1989. Remember Level 29? Herschel found Uranus as a faint dot in 1781. About two centuries later, Voyager 2 flew right past it. Every close-up of those two worlds comes from that single trip.",
       "callout": "Launched 1977"
     },
     {
@@ -48,13 +59,13 @@
       "type": "text",
       "role": "explain",
       "headline": "Into interstellar space",
-      "body": "In 2012 Voyager 1 crossed into interstellar space, the most distant human-made object. Each Voyager carries a Golden Record of sounds and images from Earth, a message for anyone who might one day find it."
+      "body": "Voyager 1 just kept going. In 2012 it crossed into interstellar space, and it's now the most distant human-made object. Each Voyager carries a Golden Record of sounds and images from Earth, a message in a bottle thrown into the biggest ocean there is. It's the farthest-flung mixtape ever made."
     },
     {
       "id": "card.astronomy.038.c4",
       "type": "fact",
       "fact": "Voyager 1’s radio signals take more than 20 hours to reach Earth.",
-      "context": "Traveling at the speed of light, each message from the edge of the solar system is almost a day old when it arrives, and the gap grows every year."
+      "context": "Radio waves travel at the speed of light, so every message from Voyager 1 is almost a day old when it lands. Remember the 8-minute-old Sun from Level 1? Voyager makes that look like live TV."
     },
     {
       "id": "card.astronomy.038.c5",
@@ -77,7 +88,7 @@
       "headline": "Robot explorers: logged",
       "learned": [
         "The Voyagers launched in 1977",
-        "They flew past all four giant planets",
+        "Voyager 1 is the most distant human-made object",
         "Voyager 2 alone visited Uranus and Neptune",
         "Voyager 1 reached interstellar space in 2012"
       ]
@@ -100,7 +111,7 @@
           "id": "a",
           "label": "Voyager 1",
           "correct": false,
-          "rationale": "Voyager 1 left the planets after Saturn."
+          "rationale": "Only Voyager 2 made that trip."
         },
         {
           "id": "b",
@@ -205,7 +216,10 @@
     }
   ],
   "sourceIds": [
-    "source.nasa_voyager"
+    "source.nasa_voyager",
+    "source.nasa_sun_facts",
+    "source.nasa_uranus_facts",
+    "source.nasa_ems"
   ],
   "art": "astronomy.rover"
 }

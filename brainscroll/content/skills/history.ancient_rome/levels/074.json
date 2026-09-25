@@ -23,6 +23,11 @@
       "conceptId": "concept.ancient_rome.roman_concrete",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.city_of_marble",
+      "role": "reinforce",
+      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -33,28 +38,29 @@
       "id": "card.ancient_rome.074.c1",
       "type": "text",
       "role": "hook",
-      "headline": "The largest unreinforced concrete dome in the world was built by the Romans."
+      "headline": "The largest unreinforced concrete dome in the world was built by the Romans.",
+      "body": "Remember the volcanic concrete from Level 73? This is what it could do at full stretch."
     },
     {
       "id": "card.ancient_rome.074.c2",
       "type": "text",
       "role": "explain",
-      "headline": "A perfect sphere",
-      "body": "Pantheon means “of all the gods.” Its dome, about 43 m across, is still the largest unreinforced concrete dome in the world. The height from the floor to the top of the dome equals its diameter, so a complete sphere would fit inside."
+      "headline": "A ball inside a building",
+      "body": "Pantheon means “of all the gods.” The building standing today is Hadrian’s rebuilding of Agrippa’s first Pantheon. Its dome, about 43 m across, is still the largest unreinforced concrete dome in the world. And the proportions are perfect: the height from the floor to the top of the dome equals its diameter. So a complete sphere 43 m wide would fit inside, resting on the floor."
     },
     {
       "id": "card.ancient_rome.074.c3",
       "type": "text",
       "role": "explain",
       "headline": "Light and lightness",
-      "body": "An open hole at the top, the oculus, about 8 m wide, is the building’s only source of natural light. The dome gets thinner toward the top, and lighter stone was mixed into the concrete higher up.",
+      "body": "Look up and there’s a hole in the roof. The oculus, about 8 m wide, is the building’s only source of natural light. The dome itself slims down as it rises: it gets thinner toward the top, and lighter stone was mixed into the concrete higher up. Less weight up high means less weight pressing down on everything below.",
       "callout": "Oculus: the open “eye” at the top"
     },
     {
       "id": "card.ancient_rome.074.c4",
       "type": "fact",
       "fact": "The Pantheon survived by changing religion.",
-      "context": "In 609 CE it became a Christian church, which helped it survive intact while other temples were stripped."
+      "context": "In 609 CE the temple “of all the gods” became a Christian church, which helped it survive intact. New job, same building."
     },
     {
       "id": "card.ancient_rome.074.c5",
@@ -134,33 +140,33 @@
       "sourceCardIds": [
         "card.ancient_rome.074.c3"
       ],
-      "prompt": "Why was the Pantheon’s dome made lighter toward the top?",
+      "prompt": "How did the Pantheon’s dome change as it rose?",
       "options": [
         {
           "id": "a",
-          "label": "To let in more light",
+          "label": "It got thicker toward the top",
           "correct": false,
-          "rationale": "The oculus does that."
+          "rationale": "It got thinner as it rose."
         },
         {
           "id": "b",
-          "label": "To save money on marble",
+          "label": "It switched to solid marble",
           "correct": false,
-          "rationale": "It was about weight."
+          "rationale": "It stayed concrete, with lighter stone mixed in."
         },
         {
           "id": "c",
-          "label": "To reduce the weight pressing down on it",
+          "label": "It got thinner, with lighter stone higher up",
           "correct": true
         },
         {
           "id": "d",
-          "label": "Because the builders ran out of stone",
+          "label": "It stayed the same all the way up",
           "correct": false,
-          "rationale": "It was deliberate."
+          "rationale": "It thinned and lightened as it rose."
         }
       ],
-      "explanation": "A thinner dome with lighter stone higher up puts less weight on the structure below.",
+      "explanation": "The dome gets thinner toward the top, and lighter stone was mixed into the concrete higher up.",
       "difficulty": 0.4
     },
     {

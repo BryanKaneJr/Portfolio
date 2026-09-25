@@ -23,6 +23,11 @@
       "conceptId": "concept.astronomy.galileo_observations",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.newton_gravity",
+      "role": "reinforce",
+      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -33,14 +38,15 @@
       "id": "card.astronomy.033.c1",
       "type": "text",
       "role": "hook",
-      "headline": "A telescope is a light bucket. Bigger bucket, more universe."
+      "headline": "A telescope is a light bucket. Bigger bucket, more universe.",
+      "body": "Catching light is the whole game. The more a telescope catches, the fainter the things it can show you. So how do you build a better bucket?"
     },
     {
       "id": "card.astronomy.033.c2",
       "type": "text",
       "role": "explain",
       "headline": "Lenses or mirrors",
-      "body": "Refracting telescopes, like Galileo’s, gather light with lenses. Reflecting telescopes gather it with curved mirrors. Isaac Newton built the first practical reflector in 1668.",
+      "body": "There are two ways to catch starlight. Refracting telescopes gather it with lenses. Reflecting telescopes gather it with a curved mirror. Isaac Newton built the first practical reflector in 1668, yes, the same Newton who later explained gravity. A lens you look through, or a mirror you look into: every telescope you'll meet picks one.",
       "callout": "Refractor = lens · Reflector = mirror"
     },
     {
@@ -48,13 +54,13 @@
       "type": "text",
       "role": "explain",
       "headline": "Why size matters",
-      "body": "A wider mirror or lens collects more light, so it can see fainter objects and show finer detail. That’s why astronomers keep building bigger telescopes. All the largest are reflectors: a huge lens would sag under its own weight, but a mirror can be supported from behind."
+      "body": "Think of a bucket in the rain: the wider the opening, the more it catches. A wider mirror or lens collects more light, so it can see fainter objects and show finer detail. That's why astronomers keep building bigger. And the giants are all reflectors, because a huge lens sags under its own weight, while a mirror can be supported from behind. Big lenses droop. Big mirrors get a backrest."
     },
     {
       "id": "card.astronomy.033.c4",
       "type": "fact",
       "fact": "The biggest optical telescopes today have mirrors about 10 meters across.",
-      "context": "Mirrors that size are built from many smaller segments fitted together. Telescopes with mirrors more than 30 meters wide are already under construction."
+      "context": "Mirrors that size are often built from many smaller segments fitted together, like floor tiles. And the next buckets are already under construction, with mirrors more than 30 meters wide. That's more than three times as wide as today's biggest."
     },
     {
       "id": "card.astronomy.033.c5",
@@ -174,7 +180,7 @@
         "card.astronomy.033.c3",
         "card.astronomy.025.c2"
       ],
-      "prompt": "From Level 25: Galileo’s telescope used lenses. Why could later, bigger telescopes see much fainter objects?",
+      "prompt": "From Level 25: Galileo turned his telescopes to the sky in 1609. Why could later, bigger telescopes see much fainter objects?",
       "options": [
         {
           "id": "a",
@@ -200,12 +206,13 @@
           "correct": true
         }
       ],
-      "explanation": "A larger aperture gathers more light, so bigger telescopes reveal fainter objects than Galileo’s small lenses could.",
+      "explanation": "A wider mirror or lens collects more light, so bigger telescopes reveal fainter objects.",
       "difficulty": 0.35
     }
   ],
   "sourceIds": [
-    "source.brit_telescope"
+    "source.brit_telescope",
+    "source.brit_newton"
   ],
   "art": "object.telescope"
 }

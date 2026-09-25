@@ -23,6 +23,16 @@
       "conceptId": "concept.astronomy.light_year",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.earth_orbit_year",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.astronomy.geocentric_reasons",
+      "role": "reinforce",
+      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -34,28 +44,28 @@
       "type": "text",
       "role": "hook",
       "headline": "Blink one eye, then the other. That jump is how we measure the stars.",
-      "body": "Hold a finger in front of your face and it seems to hop against the background. Stars do the same as Earth moves."
+      "body": "Hold up a finger and blink: it hops against the wall behind it. Now swap your two eyes for two spots on Earth’s orbit, and your finger for a nearby star. How far it hops tells you how far away it is."
     },
     {
       "id": "card.astronomy.061.c2",
       "type": "text",
       "role": "explain",
-      "headline": "A six-month baseline",
-      "body": "As Earth orbits the Sun, a nearby star appears to shift slightly against more distant stars. Measure the star in January and again in July, from opposite sides of Earth’s orbit, and that tiny shift reveals its distance."
+      "headline": "Earth is the head that moves",
+      "body": "Your eyes see your finger from two spots a few centimeters apart. Astronomers use two spots on Earth’s orbit around the Sun. Look at a nearby star, then look again half a year later from the far side of the orbit, and the star seems to shift slightly against the more distant stars behind it. That shift is called parallax. The star didn’t move. You did."
     },
     {
       "id": "card.astronomy.061.c3",
       "type": "text",
       "role": "explain",
       "headline": "Closer shifts more",
-      "body": "The closer a star is, the bigger its parallax shift. Astronomers even named a unit after it: a parsec, the distance at which the shift would be one arcsecond, is about 3.26 light-years.",
+      "body": "Try the finger trick with your arm stretched out. The hop shrinks. Stars work the same way: the closer the star, the bigger its parallax shift, so measuring the shift gives you its distance. Even for nearby stars the shift is so tiny that ancient observers never detected it. Astronomers still built a unit on it: a parsec, the distance at which the shift would be one arcsecond, is about 3.26 light-years.",
       "callout": "1 parsec ≈ 3.26 light-years"
     },
     {
       "id": "card.astronomy.061.c4",
       "type": "fact",
       "fact": "The Gaia spacecraft has measured more than a billion stars.",
-      "context": "This European Space Agency mission has mapped the positions and distances of stars across our galaxy using parallax."
+      "context": "The European Space Agency’s Gaia has mapped the positions and distances of more than a billion stars across our galaxy. It’s the finger trick from this level, done with extreme patience and no fingers."
     },
     {
       "id": "card.astronomy.061.c5",
@@ -191,7 +201,7 @@
         },
         {
           "id": "c",
-          "label": "The shift is tiny, needing very precise telescopes",
+          "label": "The shift is so tiny that it is very hard to detect",
           "correct": true
         },
         {
@@ -201,14 +211,16 @@
           "rationale": "Earth has always orbited the Sun."
         }
       ],
-      "explanation": "Stars are so far away that their parallax shifts are tiny. Only precise telescopic measurements could detect them.",
+      "explanation": "Even for nearby stars the parallax shift is tiny, far too small for ancient observers to detect.",
       "difficulty": 0.35
     }
   ],
   "sourceIds": [
     "source.brit_parallax",
     "source.brit_parsec",
-    "source.esa_gaia"
+    "source.esa_gaia",
+    "source.nasa_earth_perihelion",
+    "source.brit_copernicus"
   ],
   "art": "astronomy.star"
 }

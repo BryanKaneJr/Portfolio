@@ -23,6 +23,16 @@
       "conceptId": "concept.astronomy.retrograde_motion",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.earth_third_planet",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.astronomy.kepler_laws",
+      "role": "preview",
+      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -33,27 +43,28 @@
       "id": "card.astronomy.024.c1",
       "type": "text",
       "role": "hook",
-      "headline": "In 1543, one book quietly demoted Earth to “just another planet.”"
+      "headline": "In 1543, one book quietly demoted Earth to “just another planet.”",
+      "body": "Remember Ptolemy's motionless Earth at the center? Copernicus took the center seat away from us and gave it to the Sun."
     },
     {
       "id": "card.astronomy.024.c2",
       "type": "text",
       "role": "explain",
       "headline": "The Sun in the middle",
-      "body": "Nicolaus Copernicus published a model with the Sun at the center and Earth as one of several planets orbiting it. Earth’s daily spin explained the turning sky; its yearly orbit explained the Sun’s path through the stars."
+      "body": "Nicolaus Copernicus published a model with the Sun at the center and Earth as just one of the planets orbiting it. In one move, Earth went from the middle of everything to the third planet out, one of the crowd. A promotion for the Sun, a demotion for us. And the planets' strange backward loops were about to get a much simpler explanation."
     },
     {
       "id": "card.astronomy.024.c3",
       "type": "text",
       "role": "explain",
       "headline": "Loops without epicycles",
-      "body": "In this model, retrograde motion is simply Earth overtaking the outer planets. No extra circles are needed to cause it. Copernicus still assumed perfectly circular orbits, though, so his model needed some small circles of its own to match observations."
+      "body": "In the Sun-centered model, retrograde motion is simply Earth overtaking the slower outer planets, like passing a slower car on the highway (Level 16). No extra circles needed to cause it. But Copernicus kept one old habit: he assumed perfectly circular orbits. Real orbits aren't perfect circles, so his model still needed some small extra circles of its own to match observations. Old habits die hard."
     },
     {
       "id": "card.astronomy.024.c4",
       "type": "fact",
-      "fact": "Copernicus wasn’t the first.",
-      "context": "Aristarchus of Samos proposed a Sun-centered arrangement around 1,800 years earlier, but the idea didn’t catch on."
+      "fact": "Copernicus wasn't the first to put the Sun in the middle.",
+      "context": "Aristarchus of Samos proposed a Sun-centered arrangement around 1,800 years earlier. It didn't win: the Earth-centered view ruled for about 1,400 years instead. Being right, it turns out, isn't the same as being believed."
     },
     {
       "id": "card.astronomy.024.c5",
@@ -205,7 +216,11 @@
   ],
   "sourceIds": [
     "source.brit_copernicus",
-    "source.brit_aristarchus"
+    "source.brit_aristarchus",
+    "source.nasa_solar_system",
+    "source.nasa_skywatching_planets",
+    "source.brit_ptolemy",
+    "source.brit_kepler_laws"
   ],
   "art": "astronomy.orrery"
 }

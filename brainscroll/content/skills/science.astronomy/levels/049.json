@@ -23,6 +23,11 @@
       "conceptId": "concept.astronomy.seasons_tilt",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.giant_planets",
+      "role": "reinforce",
+      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -33,14 +38,15 @@
       "id": "card.astronomy.049.c1",
       "type": "text",
       "role": "hook",
-      "headline": "On Uranus, a single day at the pole can last 42 years."
+      "headline": "On Uranus, a single day at the pole can last 42 years.",
+      "body": "Uranus and Neptune, the two ice giants, are the oddballs of the family. One rolls around the Sun on its side. The other has the fastest winds in the solar system."
     },
     {
       "id": "card.astronomy.049.c2",
       "type": "text",
       "role": "explain",
       "headline": "A planet on its side",
-      "body": "Uranus is tilted about 98°, so it essentially rolls around the Sun on its side. Each pole gets about 42 years of continuous sunlight, followed by 42 years of darkness.",
+      "body": "Back in Level 5, Earth's lean of about 23.5° was enough to give you summer and winter. Uranus is tilted about 98°, so it essentially rolls around the Sun on its side. That makes for extreme seasons: each pole gets about 42 years of continuous sunlight, followed by 42 years of darkness. Be born at the start of a polar summer, and you'd be middle-aged by sunset.",
       "callout": "Tilt: ~98°"
     },
     {
@@ -48,13 +54,13 @@
       "type": "text",
       "role": "explain",
       "headline": "The windiest planet",
-      "body": "Neptune has the fastest winds in the solar system, over 2,000 km/h. It’s so far out that it takes about 165 years to orbit the Sun: it completed its first orbit since its discovery only in 2011. Voyager 2 remains the only spacecraft to have visited it."
+      "body": "Neptune has the fastest winds in the solar system, over 2,000 km/h. It's also so far out that one trip around the Sun takes about 165 years, which means it only finished its first full orbit since its discovery in 2011. And visitors are rare: Voyager 2 is the only spacecraft ever to drop by. Windy, remote, and hardly anyone calls."
     },
     {
       "id": "card.astronomy.049.c4",
       "type": "fact",
       "fact": "Methane makes Uranus and Neptune blue.",
-      "context": "Methane in their atmospheres absorbs red light, so the sunlight they reflect back looks blue."
+      "context": "Methane in their atmospheres absorbs red light. Take the red out of sunlight, and what bounces back to your eye looks blue. Two very different oddballs, painted with the same trick."
     },
     {
       "id": "card.astronomy.049.c5",
@@ -207,7 +213,9 @@
   "sourceIds": [
     "source.nasa_uranus_facts",
     "source.nasa_neptune_facts",
-    "source.nasa_voyager"
+    "source.nasa_voyager",
+    "source.nasa_planets_overview",
+    "source.nasa_spaceplace_seasons"
   ],
   "art": "astronomy.uranus-neptune"
 }

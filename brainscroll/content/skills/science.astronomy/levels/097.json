@@ -53,6 +53,11 @@
       "conceptId": "concept.astronomy.eratosthenes",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.parallax_method",
+      "role": "reinforce",
+      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -63,29 +68,30 @@
       "id": "card.astronomy.097.c1",
       "type": "text",
       "role": "hook",
-      "headline": "We can’t visit the stars. So how do we know so much about them?"
+      "headline": "We can’t visit the stars. So how do we know so much about them?",
+      "body": "We can visit only a few nearby worlds. Almost everything else we know, we read from the light and other signals that reach us."
     },
     {
       "id": "card.astronomy.097.c2",
       "type": "comparison",
-      "headline": "Discovery ← method",
+      "headline": "Every discovery has a method",
       "items": [
         {
           "label": "What stars are made of",
           "points": [
-            "Spectral lines in their light"
+            "Spectral lines in their light: each element leaves its own set"
           ]
         },
         {
           "label": "Distance to nearby stars",
           "points": [
-            "Parallax as Earth orbits"
+            "Parallax: a star’s slight shift as Earth orbits the Sun"
           ]
         },
         {
           "label": "Planets around other stars",
           "points": [
-            "Transits and wobbles"
+            "Transits (a dip in starlight) and wobbles (a star tugged back and forth)"
           ]
         }
       ]
@@ -95,14 +101,14 @@
       "type": "text",
       "role": "explain",
       "headline": "New windows",
-      "body": "Some discoveries needed entirely new signals. Stars at galaxies’ edges orbiting too fast revealed dark matter. Redshift in galaxies’ spectra revealed the expanding universe. And LIGO first detected gravitational waves in 2015, from merging black holes."
+      "body": "Some discoveries needed brand-new kinds of clues. Stars at galaxies’ edges orbit too fast for the visible matter to hold them, which gave away dark matter, something no one has ever seen. Redshift in galaxies’ light revealed the expanding universe. And in 2015 LIGO first detected gravitational waves from merging black holes: not light at all, but ripples in spacetime. Astronomy learned to feel the universe shake."
     },
     {
       "id": "card.astronomy.097.c4",
       "type": "text",
       "role": "explain",
       "headline": "Old tricks still work",
-      "body": "Some methods needed no telescope at all. Around 240 BCE, Eratosthenes estimated Earth’s size from the Sun’s noon angle in two cities. Careful measurement and reasoning, checked by others, is how astronomy has always worked."
+      "body": "And some clues needed no telescope at all. Around 240 BCE, Eratosthenes estimated Earth’s size by comparing the Sun’s noon angle in two Egyptian cities. A shadow, some geometry, and he had measured a planet without leaving it. From a shadow in Alexandria to a ripple in spacetime, it’s the same game: measure carefully, then reason carefully."
     },
     {
       "id": "card.astronomy.097.c5",
@@ -178,7 +184,7 @@
       "purpose": "understanding",
       "conceptIds": [
         "concept.astronomy.evidence_methods",
-        "concept.astronomy.stellar_parallax_proof"
+        "concept.astronomy.parallax_method"
       ],
       "sourceCardIds": [
         "card.astronomy.097.c2"
@@ -257,14 +263,14 @@
   "sourceIds": [
     "source.nasa_ems",
     "source.brit_spectroscopy",
-    "source.brit_bessel",
     "source.nasa_exoplanets",
     "source.nasa_dark_matter",
     "source.brit_vera_rubin",
     "source.brit_redshift",
     "source.brit_hubble_law",
     "source.ligo",
-    "source.brit_eratosthenes"
+    "source.brit_eratosthenes",
+    "source.brit_parallax"
   ],
   "art": "object.telescope"
 }

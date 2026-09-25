@@ -23,6 +23,11 @@
       "conceptId": "concept.astronomy.luminosity",
       "role": "reinforce",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.star_life_cycle",
+      "role": "reinforce",
+      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -33,14 +38,15 @@
       "id": "card.astronomy.063.c1",
       "type": "text",
       "role": "hook",
-      "headline": "Put every star on one chart and a hidden pattern jumps out."
+      "headline": "Put every star on one chart and a hidden pattern jumps out.",
+      "body": "Plot each star by two numbers, the way you might plot people by height and weight. You’d expect a random scatter. Instead, most stars fall into line."
     },
     {
       "id": "card.astronomy.063.c2",
       "type": "text",
       "role": "explain",
       "headline": "Luminosity versus temperature",
-      "body": "The Hertzsprung–Russell diagram plots stars by how luminous they are and how hot their surfaces are. It’s named after Ejnar Hertzsprung and Henry Norris Russell, who developed it independently in the early 1900s.",
+      "body": "The Hertzsprung–Russell diagram, or H–R diagram, plots stars by luminosity and surface temperature. More luminous stars sit higher up. Hotter stars sit farther left, which feels like a map with west on the right. Remember Level 9: blue stars are the hottest, so they land on the left and red ones on the right. Ejnar Hertzsprung and Henry Norris Russell developed the chart independently in the early 1900s. Two people, one great idea.",
       "callout": "Up = more luminous · Left = hotter"
     },
     {
@@ -48,7 +54,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Where the stars fall",
-      "body": "Most stars fall along a diagonal band called the main sequence. The Sun sits near its middle, though most stars are dimmer red dwarfs. Red giants sit in the upper right: cool but very luminous. White dwarfs sit in the lower left: hot but dim. A star’s place on the chart tells you what stage of life it’s in."
+      "body": "Most stars fall along a diagonal band called the main sequence. The Sun sits near its middle, which sounds average, but it isn’t: the most common stars are dim red dwarfs, so the Sun is hotter and brighter than most. Off the band live the oddballs. Red giants sit in the upper right: cool but very luminous. White dwarfs sit in the lower left: hot but dim. The Sun will visit both corners one day, red giant first, white dwarf last."
     },
     {
       "id": "card.astronomy.063.c4",
@@ -199,7 +205,8 @@
     }
   ],
   "sourceIds": [
-    "source.brit_hr_diagram"
+    "source.brit_hr_diagram",
+    "source.nasa_star_life_cycle"
   ],
   "art": "astronomy.star"
 }

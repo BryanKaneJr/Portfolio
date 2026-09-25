@@ -23,6 +23,16 @@
       "conceptId": "concept.astronomy.voyager_probes",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.kuiper_belt",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.astronomy.solar_system_scale",
+      "role": "reinforce",
+      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -33,14 +43,15 @@
       "id": "card.astronomy.055.c1",
       "type": "text",
       "role": "hook",
-      "headline": "The solar system’s true edge may be a shell of ice no one has ever seen."
+      "headline": "The solar system’s true edge may be a shell of ice no one has ever seen.",
+      "body": "Nobody has ever seen a single object in it. So why are astronomers fairly sure it's there? Follow the comets."
     },
     {
       "id": "card.astronomy.055.c2",
       "type": "text",
       "role": "explain",
       "headline": "A giant shell",
-      "body": "The Oort Cloud is thought to be a giant spherical shell of icy bodies surrounding the whole solar system, perhaps reaching 100,000 astronomical units from the Sun. That’s about 100,000 times the Earth–Sun distance.",
+      "body": "The Oort Cloud is thought to be a giant spherical shell of icy bodies surrounding the whole solar system. Not a doughnut like the Kuiper Belt: a shell, wrapped around everything, like the peel on an orange. It may reach as far as 100,000 astronomical units from the Sun. Neptune orbits at about 30 AU, so the Oort Cloud's outer edge could be more than 3,000 times farther out than the last planet.",
       "callout": "Up to ~100,000 AU"
     },
     {
@@ -48,13 +59,13 @@
       "type": "text",
       "role": "explain",
       "headline": "Known only from comets",
-      "body": "No object has ever been seen in the Oort Cloud itself. Astronomers infer it from comets that take thousands of years or more to orbit the Sun: their paths trace back to a distant shell all around us."
+      "body": "No object has ever been directly observed in the Oort Cloud. Astronomers infer it from comets that take thousands of years or more to orbit the Sun: trace their long paths back, and they point to a distant shell all around us. It's like guessing there's a bakery nearby because people keep walking past with fresh bread. The comets that return every few years come from the Kuiper Belt. The ones that take thousands of years come from here."
     },
     {
       "id": "card.astronomy.055.c4",
       "type": "fact",
       "fact": "Voyager 1 will take about 300 years to reach its inner edge.",
-      "context": "And that’s the fastest-moving, most distant spacecraft we have."
+      "context": "And Voyager 1, launched in 1977, is already the most distant human-made object. Our farthest traveler hasn't even reached the front porch."
     },
     {
       "id": "card.astronomy.055.c5",
@@ -205,7 +216,10 @@
     }
   ],
   "sourceIds": [
-    "source.nasa_oort_cloud"
+    "source.nasa_oort_cloud",
+    "source.nasa_voyager",
+    "source.nasa_neptune_facts",
+    "source.nasa_kuiper_belt"
   ],
   "art": "astronomy.comet"
 }

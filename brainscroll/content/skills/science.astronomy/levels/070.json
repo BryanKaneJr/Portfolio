@@ -43,6 +43,11 @@
       "conceptId": "concept.astronomy.parallax_method",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.star_life_cycle",
+      "role": "reinforce",
+      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -54,28 +59,28 @@
       "type": "text",
       "role": "hook",
       "headline": "Chapter 7 finale. One number decides a star’s whole life story.",
-      "body": "That number is its mass."
+      "body": "That number is its mass. Everything in this chapter, from nursery to final glow, follows from it."
     },
     {
       "id": "card.astronomy.070.c2",
       "type": "text",
       "role": "explain",
       "headline": "Two paths",
-      "body": "A star’s final fate depends mainly on its mass. A Sun-like star swells into a red giant, sheds a planetary nebula and ends as a white dwarf. A star far more massive than the Sun explodes as a supernova and leaves behind something much stranger: a neutron star or a black hole.",
+      "body": "A star’s final fate depends mainly on its mass. A Sun-like star takes the gentle road: it swells into a red giant, sheds a planetary nebula and settles down as a white dwarf. A star far more massive than the Sun takes the loud road: it explodes as a supernova and leaves behind something much stranger, a neutron star or a black hole. Same universe, very different retirement plans.",
       "callout": "Sun-like → white dwarf · Massive → neutron star or black hole"
     },
     {
       "id": "card.astronomy.070.c3",
       "type": "timeline",
-      "headline": "A Sun-like star’s life",
+      "headline": "A Sun-like star’s life, start to finish",
       "events": [
         {
           "when": "Birth",
-          "label": "Collapses from a cloud of gas and dust"
+          "label": "Collapses from a cold, dense cloud of gas and dust"
         },
         {
           "when": "Main sequence",
-          "label": "Fuses hydrogen for billions of years"
+          "label": "Fuses hydrogen into helium for billions of years"
         },
         {
           "when": "Red giant",
@@ -83,7 +88,7 @@
         },
         {
           "when": "The end",
-          "label": "Sheds a planetary nebula; a white dwarf remains"
+          "label": "Sheds a planetary nebula; a white dwarf remains and slowly cools"
         }
       ]
     },
@@ -215,33 +220,33 @@
       "sourceCardIds": [
         "card.astronomy.064.c3"
       ],
-      "prompt": "Why do massive stars live much shorter lives than small ones?",
+      "prompt": "Which stars have the shortest lives?",
       "options": [
         {
           "id": "a",
-          "label": "Their cores are hotter and denser, so they burn fuel faster",
+          "label": "The most massive, hottest and brightest ones",
           "correct": true
         },
         {
           "id": "b",
-          "label": "They start with far less fuel",
+          "label": "The smallest, coolest red dwarfs",
           "correct": false,
-          "rationale": "They start with far more."
+          "rationale": "Red dwarfs can shine for trillions of years."
         },
         {
           "id": "c",
-          "label": "They lose fuel to their planets",
+          "label": "Stars that have planets",
           "correct": false,
           "rationale": "Planets aren’t involved."
         },
         {
           "id": "d",
-          "label": "They are born later in the universe",
+          "label": "The youngest stars",
           "correct": false,
-          "rationale": "Birth time doesn’t set lifespan."
+          "rationale": "Age doesn’t set lifespan; mass does."
         }
       ],
-      "explanation": "More mass means a hotter, denser core and much faster fusion, so the fuel runs out sooner.",
+      "explanation": "More mass means a hotter, brighter star with a shorter life. The most massive last only a few million years.",
       "difficulty": 0.35
     },
     {
@@ -334,7 +339,8 @@
     "source.brit_main_sequence",
     "source.brit_red_giant",
     "source.brit_planetary_nebula",
-    "source.brit_white_dwarf"
+    "source.brit_white_dwarf",
+    "source.nasa_sun_facts"
   ],
   "art": "astronomy.nebula"
 }

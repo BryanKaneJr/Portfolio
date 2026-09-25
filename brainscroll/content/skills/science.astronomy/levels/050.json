@@ -53,6 +53,11 @@
       "conceptId": "concept.astronomy.sunlight_travel_time",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.earth_third_planet",
+      "role": "reinforce",
+      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -64,33 +69,33 @@
       "type": "text",
       "role": "hook",
       "headline": "Milestone: halfway to Mastery. Let’s put the whole solar system in one picture.",
-      "body": "Everything you’ve met so far, from the Sun to Neptune, is one family shaped by gravity."
+      "body": "Back in Level 1 you wrote Earth's address. Now zoom out and see the whole neighborhood at once, from the Sun to Neptune: one family of worlds, all held together by the Sun's gravity."
     },
     {
       "id": "card.astronomy.050.c2",
       "type": "text",
       "role": "explain",
       "headline": "How big is our neighborhood?",
-      "body": "Neptune, the outermost planet, orbits about 30 astronomical units from the Sun: about 4.5 billion km. Sunlight, which reaches Earth in about 8 minutes, takes about 4 hours to get out there.",
+      "body": "Neptune orbits about 30 astronomical units from the Sun, about 4.5 billion km. That number is too big to feel, so use light instead. Sunlight reaches Earth in about 8 minutes. To reach Neptune, it needs about 4 hours. Leave the Sun with the light at breakfast, and you'd arrive at Neptune around lunch.",
       "callout": "1 AU → 8 minutes · 30 AU → ~4 hours"
     },
     {
       "id": "card.astronomy.050.c3",
       "type": "comparison",
-      "headline": "Where the mass is",
+      "headline": "Where the mass is: one giant and a lot of crumbs",
       "items": [
         {
           "label": "The Sun",
           "points": [
             "About 99.8% of all the mass",
-            "Rules every orbit by gravity"
+            "Its gravity holds every planet and smaller body in orbit"
           ]
         },
         {
           "label": "Everything else",
           "points": [
-            "About 0.2% of the mass",
-            "Jupiter holds most of it"
+            "About 0.2%: planets, moons, asteroids and comets",
+            "Jupiter alone is more than twice all the other planets combined"
           ]
         }
       ]
@@ -423,7 +428,8 @@
   "sourceIds": [
     "source.nasa_neptune_facts",
     "source.nasa_sun_facts",
-    "source.nasa_jupiter_facts"
+    "source.nasa_jupiter_facts",
+    "source.nasa_solar_system"
   ],
   "art": "astronomy.orrery"
 }

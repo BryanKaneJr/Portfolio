@@ -63,6 +63,16 @@
       "conceptId": "concept.astronomy.sky_rises_east",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.ecliptic",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.astronomy.planets_wander",
+      "role": "reinforce",
+      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -74,21 +84,21 @@
       "type": "text",
       "role": "hook",
       "headline": "Chapter 2 finale. Everything in the sky moves for a reason.",
-      "body": "You now know the reason for almost all of it. Let’s put it together."
+      "body": "Sunrise, a wheeling sky, a looping Mars, the tide coming in. It can look like chaos up there. It's mostly a few simple motions, and you now know them."
     },
     {
       "id": "card.astronomy.020.c2",
       "type": "text",
       "role": "explain",
       "headline": "Spin, orbit, pull",
-      "body": "Earth’s spin gives day and night and sweeps the stars across the sky. Its orbit gives the year, the seasons and a changing night sky. And the Moon, circling us, brings phases, eclipses and tides.",
+      "body": "Earth's spin gives day and night and sweeps the Sun and stars from east to west. Earth's orbit gives the year and a night sky that changes with the seasons. The Moon, circling us, brings phases, eclipses and, with its gravity, tides. And the planets wander along the ecliptic, with Mars looping back whenever Earth overtakes it. A few motions, one very busy sky.",
       "callout": "Spin → day · Orbit → year · Moon → tides"
     },
     {
       "id": "card.astronomy.020.c3",
       "type": "fact",
       "fact": "Each star rises about 4 minutes earlier every night.",
-      "context": "Earth moves a little along its orbit each day, so the stars get a head start. Over a year those minutes add up to a whole different night sky."
+      "context": "Earth moves a little along its orbit each day, so each night the stars get a small head start. Four minutes is nothing on its own. But over a year those minutes add up to a whole different night sky, one season's constellations at a time."
     },
     {
       "id": "card.astronomy.020.c4",
@@ -257,7 +267,7 @@
       "sourceCardIds": [
         "card.astronomy.016.c3"
       ],
-      "prompt": "Mars appears to move backwards for a few weeks. What’s really happening?",
+      "prompt": "Mars appears to move backwards for a while. What’s really happening?",
       "options": [
         {
           "id": "a",
@@ -335,7 +345,8 @@
     "source.nasa_moon_phases",
     "source.nasa_eclipses",
     "source.nasa_spaceplace_constellations",
-    "source.nasa_moon_tides"
+    "source.nasa_moon_tides",
+    "source.nasa_skywatching_planets"
   ],
   "art": "astronomy.star-chart"
 }

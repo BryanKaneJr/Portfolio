@@ -28,14 +28,15 @@
       "id": "card.ancient_rome.061.c1",
       "type": "text",
       "role": "hook",
-      "headline": "A million people, one city, and hardly anyone had a kitchen or a bath at home."
+      "headline": "A million people, one city, and most of them had no bath at home.",
+      "body": "So where did all those Romans actually live? Mostly stacked on top of each other."
     },
     {
       "id": "card.ancient_rome.061.c2",
       "type": "text",
       "role": "explain",
       "headline": "Apartment life",
-      "body": "By the time of Augustus, Rome had perhaps around 1 million inhabitants. Most lived in insulae, crowded apartment blocks several stories high, usually without running water or private baths. The upper floors were the cheapest, and fire and collapse were constant dangers.",
+      "body": "By the time of Augustus, Rome had perhaps around 1 million people, the largest city in the Western world. Most of them lived in insulae: crowded apartment blocks several stories high, usually without running water or private baths. The upper floors were the cheapest, and fire and collapse were constant dangers. Do the math: the cheaper your room, the more floors between you and the street when a fire broke out.",
       "callout": "Insula: an apartment block"
     },
     {
@@ -43,13 +44,13 @@
       "type": "text",
       "role": "explain",
       "headline": "Houses and the Forum",
-      "body": "Wealthy Romans lived in a domus, a private house built around an open hall called the atrium. Public life centered on the Forum, with its temples, law courts, markets and platforms for speeches."
+      "body": "If you were rich, you skipped the stairs. Wealthy Romans lived in a domus, a private house built around an open hall called the atrium. Public life, for everyone, centered on the Forum, the once-marshy valley you met in Level 3. It packed temples, law courts, markets and platforms for speeches into one place. Picture a town square that was also the courthouse, the church and the mall."
     },
     {
       "id": "card.ancient_rome.061.c4",
       "type": "fact",
-      "fact": "Augustus gave Rome its first fire brigade.",
-      "context": "He created the vigiles, freedmen who fought fires and patrolled at night, and he limited new buildings to about 20 meters high."
+      "fact": "Augustus gave Rome a force of night-time firefighters.",
+      "context": "He created the vigiles, freedmen who fought fires and patrolled the streets at night. He also capped new buildings at about 20 meters high. Rome’s apartment blocks finally had a ceiling."
     },
     {
       "id": "card.ancient_rome.061.c5",
@@ -128,33 +129,33 @@
       "sourceCardIds": [
         "card.ancient_rome.061.c2"
       ],
-      "prompt": "Why were the upper floors of an insula the cheapest?",
+      "prompt": "In an insula, which floors were the cheapest?",
       "options": [
         {
           "id": "a",
-          "label": "They had the best views of the Forum",
+          "label": "The ground floor, by the street",
           "correct": false,
-          "rationale": "That would raise the price."
+          "rationale": "It was the upper floors."
         },
         {
           "id": "b",
-          "label": "Only enslaved people could live there",
+          "label": "The middle floors",
           "correct": false,
-          "rationale": "Anyone could rent them."
+          "rationale": "It was the upper floors."
         },
         {
           "id": "c",
-          "label": "The Senate paid part of the rent for them",
+          "label": "Every floor cost the same",
           "correct": false,
-          "rationale": "There was no such subsidy."
+          "rationale": "The upper floors were cheapest."
         },
         {
           "id": "d",
-          "label": "They were the hardest to escape in a fire",
+          "label": "The upper floors",
           "correct": true
         }
       ],
-      "explanation": "Upper floors were the most dangerous in a fire or collapse, and the least convenient, so they cost least.",
+      "explanation": "In insulae the upper floors were the cheapest, and fire and collapse were constant dangers.",
       "difficulty": 0.4
     },
     {
@@ -204,7 +205,8 @@
     "source.brit_insula",
     "source.brit_atrium",
     "source.brit_forum",
-    "source.brit_augustus"
+    "source.brit_augustus",
+    "source.brit_cloaca_maxima"
   ],
   "art": "rome.house"
 }
