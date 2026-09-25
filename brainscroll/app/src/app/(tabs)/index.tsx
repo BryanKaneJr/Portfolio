@@ -1,17 +1,17 @@
-import { Redirect, router, useFocusEffect } from 'expo-router';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { StyleSheet, View, type ScrollView } from 'react-native';
-import { Body, Button, Card, Emblem, Eyebrow, Icon, IconButton, Row, Screen, Stars, Title } from '@/components/ui';
+import { Redirect, router } from 'expo-router';
+import { useEffect, useRef, useState } from 'react';
+import { View, type ScrollView } from 'react-native';
+import { Body, Card, Emblem, Eyebrow, IconButton, Row, Screen, Stars, Title } from '@/components/ui';
 import { chaptersFor, getLevel, subjectName } from '@/content';
 import { LevelPath } from '@/components/LevelPath';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { useStartLevel } from '@/progress/useStartLevel';
-import { color, radius, space } from '@/theme/tokens';
+import { space } from '@/theme/tokens';
 
 /**
  * Home answers one question: what should I learn next? The current chapter's
- * level path owns the screen (the next level bounces); today's allowance and
- * review are secondary.
+ * level path owns the screen (the next level bounces); today's allowance is
+ * secondary. Due reviews are offered on the Skills tab, not here.
  */
 export default function HomeScreen() {
   const p = useProgress();
@@ -25,13 +25,6 @@ export default function HomeScreen() {
     // Only when it would sit low on the screen; a new learner sees their first chapter from the top.
     if (pathY !== null && stopY !== null && pathY + stopY > 360) scroll.current?.scrollTo({ y: pathY + stopY - 220, animated: false });
   }, [pathY, stopY]);
-  const { ready, refresh } = p;
-  // Reviews come due while the app sits open; re-check whenever Home is shown.
-  useFocusEffect(
-    useCallback(() => {
-      if (ready) void refresh().catch(() => {});
-    }, [ready, refresh]),
-  );
   if (!p.ready) return <Screen>{null}</Screen>;
   if (p.account?.status !== 'signed_in') return <Redirect href="/sign-in" />;
   if (!p.onboarded) return <Redirect href="/welcome" />;
@@ -59,30 +52,19 @@ export default function HomeScreen() {
     <Screen
       scrollRef={scroll}
       header={
-        <>
-          <Row gap={space.sm}>
-            <IconButton label="All skills" icon="back" onPress={() => router.navigate('/skills')} />
-            <Emblem value={skill.view.level} size="sm" />
-            <View style={{ flex: 1, gap: space.xxs }}>
-              <Eyebrow>
-                {subjectName(skill.subjectId)} · Today {today.used} / {today.cap ?? '∞'}
-              </Eyebrow>
-              <Title>
-                {skill.name} · Lv. {skill.view.level}
-              </Title>
-            </View>
-            <Stars count={skill.view.stars} />
-          </Row>
-          {v.reviewsDue > 0 && (
-            <Row gap={space.md} style={styles.review}>
-              <Icon name="book" tint={color.success} size={20} />
-              <Body style={{ flex: 1 }}>
-                {v.reviewsDue} {v.reviewsDue === 1 ? 'thing' : 'things'} worth refreshing
-              </Body>
-              <Button compact variant={today.dailyComplete ? 'primary' : 'secondary'} label="Start review" onPress={() => router.push('/review-session')} />
-            </Row>
-          )}
-        </>
+        <Row gap={space.sm}>
+          <IconButton label="All skills" icon="back" onPress={() => router.navigate('/skills')} />
+          <Emblem value={skill.view.level} size="sm" />
+          <View style={{ flex: 1, gap: space.xxs }}>
+            <Eyebrow>
+              {subjectName(skill.subjectId)} · Today {today.used} / {today.cap ?? '∞'}
+            </Eyebrow>
+            <Title>
+              {skill.name} · Lv. {skill.view.level}
+            </Title>
+          </View>
+          <Stars count={skill.view.stars} />
+        </Row>
       }>
       {p.error && (
         <Card variant="quiet">
@@ -121,7 +103,3 @@ export default function HomeScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  review: { backgroundColor: color.successSoft, borderRadius: radius.md, borderWidth: 2, borderColor: color.successLine, paddingLeft: space.md, paddingRight: space.xs, paddingVertical: space.xs },
-});

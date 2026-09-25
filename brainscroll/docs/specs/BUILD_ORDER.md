@@ -359,7 +359,7 @@ The app can feel game-like without pretending that completing a card equals mast
 
 ## Review entry points
 
-- Home: “12 things worth refreshing.”
+- Skills tab: “12 things worth refreshing.” (moved off Home, CURRENT_PRODUCT_DECISIONS.md §16)
 
 - After daily 5/5 completion: “Keep going with review.”
 

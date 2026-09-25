@@ -96,7 +96,9 @@ try {
   // Review: make everything due.
   sql(`update public.review_queue set due_at = now() - interval '1 minute'`);
   await home(page);
-  check(/worth refreshing/.test(await bodyText(page)), 'due concepts from the server surface on Home');
+  await page.getByRole('tab', { name: /Skills/ }).click();
+  await page.waitForTimeout(800);
+  check(/worth refreshing/.test(await bodyText(page)), 'due concepts from the server surface on the Skills tab');
   const seenBefore = Number(sql('select sum(seen_count) from public.user_concept_mastery'));
   await button(page, 'Start review').click();
   await checkButton(page).waitFor({ timeout: 10_000 });

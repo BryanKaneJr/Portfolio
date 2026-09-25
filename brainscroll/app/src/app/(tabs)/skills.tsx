@@ -6,6 +6,7 @@ import { levelByNumber, levelsForSkill, subjectName, subjects } from '@/content'
 import { SUBJECT_ICON } from '@/components/CharacterSheet';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { ChapterRail } from '@/components/ChapterRail';
+import { ReviewStrip } from '@/components/ReviewStrip';
 import { color, radius, space } from '@/theme/tokens';
 
 /**
@@ -21,6 +22,7 @@ export default function SkillsScreen() {
   return (
     <Screen>
       <ScreenHeader eyebrow="Your build" title="Skills" />
+      <ReviewStrip />
       {skills.map((s) => {
         const chapterStart = (s.view.band - 1) * MASTERY_BAND_SIZE + (s.view.chapter - 1) * 10 + 1;
         const published = levelsForSkill(s.id).length;
