@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet, TextInput, View, type TextInputProps, type View
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { color, layout, radius, space, type } from '@/theme/tokens';
 import { IconButton } from './button';
+import { SlideIn } from './motion';
 import { ProgressBar } from './progress';
 import { Eyebrow, H1 } from './text';
 
@@ -75,8 +76,10 @@ export function LessonShell({
       </View>
       <ScrollView ref={scrollRef} key={contentKey} contentContainerStyle={styles.lessonScroll}>
         <View style={styles.column}>
-          {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-          {children}
+          <SlideIn style={{ gap: space.lg }}>
+            {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+            {children}
+          </SlideIn>
         </View>
       </ScrollView>
       <View style={[styles.footer, { paddingBottom: Math.max(insets.bottom, space.lg) }, tint]}>

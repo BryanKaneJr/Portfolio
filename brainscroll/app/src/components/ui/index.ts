@@ -13,3 +13,4 @@ export * from './mascot';
 export { mascotArt } from './mascotArt';
 export * from './art';
 export * from './icon';
+export * from './motion';

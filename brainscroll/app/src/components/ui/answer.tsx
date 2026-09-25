@@ -1,8 +1,9 @@
 import type { MascotSpot } from '@brainscroll/core';
 import type { ReactNode } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import { color, layout, radius, space, type, fw } from '@/theme/tokens';
 import { DrScroll } from './mascot';
+import { SlideIn, usePop } from './motion';
 import { Eyebrow } from './text';
 
 export type AnswerState = 'idle' | 'selected' | 'correct' | 'eliminated' | 'locked';
@@ -14,7 +15,9 @@ export type AnswerState = 'idle' | 'selected' | 'correct' | 'eliminated' | 'lock
  */
 export function AnswerOption({ label, state, onPress, letter }: { label: string; state: AnswerState; onPress: () => void; letter: string }) {
   const disabled = state === 'correct' || state === 'eliminated' || state === 'locked';
+  const pop = usePop(state === 'selected' || state === 'correct' ? state : null, { from: 0.96 });
   return (
+    <Animated.View style={pop}>
     <Pressable
       accessibilityRole="radio"
       accessibilityLabel={label}
@@ -36,6 +39,7 @@ export function AnswerOption({ label, state, onPress, letter }: { label: string;
         {label}
       </Text>
     </Pressable>
+    </Animated.View>
   );
 }
 
@@ -46,23 +50,24 @@ export function AnswerOption({ label, state, onPress, letter }: { label: string;
  */
 export function FeedbackPanel({ tone, title, mascot, children }: { tone: 'success' | 'reinforce'; title: string; mascot?: MascotSpot; children?: ReactNode }) {
   const panel = <FeedbackBody tone={tone} title={title}>{children}</FeedbackBody>;
-  if (!mascot) return panel;
+  if (!mascot) return <SlideIn from="below">{panel}</SlideIn>;
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: space.md }}>
+    <SlideIn from="below" style={{ flexDirection: 'row', alignItems: 'flex-start', gap: space.md }}>
       <DrScroll spot={mascot} size="xs" />
       <View style={{ flex: 1 }}>{panel}</View>
-    </View>
+    </SlideIn>
   );
 }
 
 function FeedbackBody({ tone, title, children }: { tone: 'success' | 'reinforce'; title: string; children?: ReactNode }) {
   const success = tone === 'success';
+  const pop = usePop(title, { from: 0.4, delay: 80 });
   return (
     <View style={styles.feedback} accessibilityLiveRegion="polite">
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.sm }}>
-        <View style={[styles.badge, { backgroundColor: success ? color.success : color.dangerSoft, borderColor: success ? color.success : color.dangerLine }]}>
+        <Animated.View style={[styles.badge, pop, { backgroundColor: success ? color.success : color.dangerSoft, borderColor: success ? color.success : color.dangerLine }]}>
           <Text style={[styles.badgeGlyph, { color: success ? color.bgDeep : color.danger }]}>{success ? '✓' : '↻'}</Text>
-        </View>
+        </Animated.View>
         <Text style={[type.title, { color: success ? color.success : color.danger }]}>{title}</Text>
       </View>
       {children}

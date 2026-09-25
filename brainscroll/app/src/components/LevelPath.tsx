@@ -1,9 +1,9 @@
 import { MASTERY_BAND_SIZE } from '@brainscroll/core';
 import { useEffect, useState } from 'react';
 import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
-import { DrScroll, Eyebrow, H2, Icon, type IconName } from '@/components/ui';
+import { DrScroll, Eyebrow, H2, Icon, usePop, type IconName } from '@/components/ui';
 import { chapterFor, levelByNumber } from '@/content';
-import { useReduceMotion } from '@/theme/feedback';
+import { haptic, useReduceMotion } from '@/theme/feedback';
 import { color, depth, space, type } from '@/theme/tokens';
 
 type NodeState = 'done' | 'current' | 'locked';
@@ -26,6 +26,7 @@ export function LevelPath({
   nextNumber,
   resuming,
   dailyComplete,
+  justCleared,
   onOpen,
 }: {
   skillId: string;
@@ -35,6 +36,8 @@ export function LevelPath({
   nextNumber?: number;
   resuming: boolean;
   dailyComplete: boolean;
+  /** The level just cleared, whose node pops when Home comes back into view. */
+  justCleared?: number;
   onOpen: (levelId: string) => void;
 }) {
   const focus = nextNumber ?? Math.max(level, 1);
@@ -68,11 +71,19 @@ export function LevelPath({
                 state={state}
                 checkpoint={n % 10 === 0}
                 mastery={n % MASTERY_BAND_SIZE === 0}
+                celebrate={state === 'done' && n === justCleared}
                 title={lv?.title}
                 accessibilityLabel={
                   state === 'current' ? (dailyComplete ? 'Daily knowledge complete' : `${resuming ? 'Resume' : 'Start'} Level ${n}`) : undefined
                 }
-                onPress={lv && state !== 'locked' ? () => onOpen(lv.id) : undefined}
+                onPress={
+                  lv && state !== 'locked'
+                    ? () => {
+                        haptic.select();
+                        onOpen(lv.id);
+                      }
+                    : undefined
+                }
               />
             </View>
           );
@@ -93,8 +104,9 @@ export function LevelPath({
   );
 }
 
-function PathNode({ n, state, checkpoint, mastery, title, accessibilityLabel, onPress }: {
+function PathNode({ n, state, checkpoint, mastery, celebrate, title, accessibilityLabel, onPress }: {
   n: number;
+  celebrate?: boolean;
   state: NodeState;
   checkpoint: boolean;
   mastery: boolean;
@@ -108,9 +120,10 @@ function PathNode({ n, state, checkpoint, mastery, title, accessibilityLabel, on
   const edge = state === 'locked' ? color.border : gold ? color.masteryEdge : color.brandEdge;
   const iconName: IconName = checkpoint ? 'trophy' : state === 'done' ? 'check' : state === 'current' ? 'star' : 'lock';
   const tint = state === 'locked' ? color.textFaint : gold ? '#1A1305' : '#FFFFFF';
+  const pop = usePop(celebrate, { from: 0.5, delay: 250 });
   const label = accessibilityLabel ?? `Level ${n}${title ? `: ${title}` : ''}${state === 'done' ? ', cleared' : state === 'locked' ? ', locked' : ''}`;
   return (
-    <View style={state === 'current' ? styles.ring : undefined}>
+    <Animated.View style={[state === 'current' ? styles.ring : undefined, pop]}>
       <Pressable
         accessibilityRole="button"
         accessibilityLabel={label}
@@ -124,7 +137,7 @@ function PathNode({ n, state, checkpoint, mastery, title, accessibilityLabel, on
         ]}>
         <Icon name={iconName} tint={tint} size={state === 'current' ? 36 : 30} />
       </Pressable>
-    </View>
+    </Animated.View>
   );
 }
 

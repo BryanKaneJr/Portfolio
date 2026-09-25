@@ -40,6 +40,9 @@ export default function HomeScreen() {
   const next = nextId ? getLevel(nextId) : undefined;
   const resuming = nextId ? v.sessions[nextId] : undefined;
   const { today } = v;
+  // The level just finished pops on the path when Home comes back into view.
+  const last = p.lastSummary;
+  const justCleared = last && last.skillId === skill.id && !last.alreadyCompleted ? getLevel(last.levelId)?.number : undefined;
 
   return (
     <Screen>
@@ -75,6 +78,7 @@ export default function HomeScreen() {
           nextNumber={next.number}
           resuming={!!resuming}
           dailyComplete={today.dailyComplete}
+          justCleared={justCleared}
           onOpen={startLevel}
         />
       ) : (
