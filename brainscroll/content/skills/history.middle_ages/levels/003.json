@@ -1,0 +1,241 @@
+{
+  "id": "level.history.middle_ages.003",
+  "skillId": "skill.history.middle_ages",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "After Rome Fell",
+  "objective": "After this level you can describe the kingdoms that replaced the Western Roman Empire.",
+  "summary": "In 476 Odoacer deposed the last western emperor but ruled as king. Germanic kingdoms (Ostrogoths, Visigoths, Vandals, Franks, Anglo-Saxons) took over, often keeping Roman ways.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.fall_of_west_476",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.successor_kingdoms",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.medieval_span",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.middle_ages.medieval_name",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.002"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome’s western empire ended in 476. Its new ruler still bowed to an emperor.",
+      "body": "A Roman one, in Constantinople. Not much of a revolution. So what actually changed when Rome fell in the West, and who took over?"
+    },
+    {
+      "id": "card.middle_ages.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "476: a convenient line",
+      "body": "In 476 the Germanic commander Odoacer deposed Romulus Augustulus, the last emperor in the West. Then he didn’t crown himself emperor. He called himself king, and he recognized the eastern emperor, Zeno, as his overlord. That’s why 476 is traditionally the end of the Western Empire: it’s a tidy line drawn across a messy change. Nobody in Italy woke up the next morning and said, “Ah, the Middle Ages.” That name came centuries later."
+    },
+    {
+      "id": "card.middle_ages.003.c3",
+      "type": "comparison",
+      "headline": "A patchwork of kingdoms, around 500",
+      "items": [
+        {
+          "label": "Around the Mediterranean",
+          "points": [
+            "Ostrogoths in Italy",
+            "Visigoths in Spain, ruling from Toledo",
+            "Vandals in North Africa, ruling from Carthage"
+          ]
+        },
+        {
+          "label": "In the north",
+          "points": [
+            "Franks in northern Gaul",
+            "Angles, Saxons and Jutes settling in Britain"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.middle_ages.003.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Theodoric: a Goth running Rome’s paperwork",
+      "body": "In 489 the Ostrogoth king Theodoric invaded Italy. In 493 he killed Odoacer, and he ruled Italy until 526. Yet the old Roman civil service carried on more or less unchanged. Only Goths served in the army; Romans ran the government. Theodoric and his Goths were Arian Christians, not Catholics, like the Visigoths in Spain. New king, new army, same paperwork: that’s what the fall of Rome often looked like on the ground.",
+      "callout": "Goths held the swords; Romans held the pens"
+    },
+    {
+      "id": "card.middle_ages.003.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.003.q1"
+    },
+    {
+      "id": "card.middle_ages.003.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.003.q2"
+    },
+    {
+      "id": "card.middle_ages.003.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.003.q3"
+    },
+    {
+      "id": "card.middle_ages.003.c8",
+      "type": "checkpoint",
+      "headline": "After Rome: mapped",
+      "learned": [
+        "476 is the traditional end of the Western Empire",
+        "Odoacer ruled Italy as king, under the eastern emperor",
+        "Germanic kingdoms replaced Roman rule in the West",
+        "Theodoric kept the Roman civil service running"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.fall_of_west_476"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.003.c2"
+      ],
+      "prompt": "What did Odoacer do after deposing the last western emperor in 476?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Crowned himself emperor of the West",
+          "correct": false,
+          "rationale": "He avoided the imperial title."
+        },
+        {
+          "id": "b",
+          "label": "Moved the capital to Constantinople",
+          "correct": false,
+          "rationale": "Constantinople was already the eastern capital."
+        },
+        {
+          "id": "c",
+          "label": "Handed Italy back to the Senate",
+          "correct": false,
+          "rationale": "He kept power himself."
+        },
+        {
+          "id": "d",
+          "label": "Ruled Italy as king, not as emperor",
+          "correct": true
+        }
+      ],
+      "explanation": "Odoacer called himself king and recognized the eastern emperor, Zeno, as his overlord.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.fall_of_west_476"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.003.c2",
+        "card.middle_ages.003.c4"
+      ],
+      "prompt": "Why is 476 often treated as a convention rather than a clean break?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Roman ways of governing carried on under new kings",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The western emperor returned a year later",
+          "correct": false,
+          "rationale": "No western emperor returned."
+        },
+        {
+          "id": "c",
+          "label": "Nothing at all happened in 476",
+          "correct": false,
+          "rationale": "An emperor really was deposed."
+        },
+        {
+          "id": "d",
+          "label": "Historians cannot agree the year existed",
+          "correct": false,
+          "rationale": "The year isn’t in doubt, only its meaning."
+        }
+      ],
+      "explanation": "An emperor was deposed, but the new rulers kept much of Rome’s government, like the Roman civil service in Theodoric’s Italy.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.middle_ages.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.successor_kingdoms",
+        "concept.middle_ages.medieval_span"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.003.c3",
+        "card.middle_ages.001.c2"
+      ],
+      "prompt": "As the Middle Ages began around 500, which peoples ruled Spain and North Africa?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Franks in Spain, Saxons in North Africa",
+          "correct": false,
+          "rationale": "Franks and Saxons were further north."
+        },
+        {
+          "id": "b",
+          "label": "Visigoths in Spain, Vandals in North Africa",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Ostrogoths in Spain, Franks in North Africa",
+          "correct": false,
+          "rationale": "Ostrogoths held Italy."
+        },
+        {
+          "id": "d",
+          "label": "Vandals in Spain, Visigoths in North Africa",
+          "correct": false,
+          "rationale": "That swaps them."
+        }
+      ],
+      "explanation": "Around 500, the Visigoths ruled Spain from Toledo and the Vandals ruled North Africa from Carthage.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_odoacer",
+    "source.brit_romulus_augustulus",
+    "source.brit_theodoric",
+    "source.brit_visigoth",
+    "source.brit_north_africa_vandals",
+    "source.brit_franks",
+    "source.brit_anglo_saxon",
+    "source.brit_middle_ages"
+  ],
+  "art": "rome.ruins"
+}

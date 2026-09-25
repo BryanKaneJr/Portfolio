@@ -1,0 +1,222 @@
+{
+  "id": "level.history.middle_ages.008",
+  "skillId": "skill.history.middle_ages",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Rise of Islam",
+  "objective": "After this level you can describe how Islam began and spread in its first century.",
+  "summary": "Muhammad (born about 570) preached in Mecca; Muslims believe the Qur'an was revealed to him by God. After 622 and his death in 632, caliphs built an empire from Spain to the Indus.",
+  "concepts": [
+    {
+      "conceptId": "concept.middle_ages.islam_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.early_caliphate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.middle_ages.successor_kingdoms",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.middle_ages.byzantine_survival",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.middle_ages.007"
+  ],
+  "cards": [
+    {
+      "id": "card.middle_ages.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 622 Muhammad moved to Medina. Muslims still count their years from it.",
+      "body": "That journey from Mecca began a new calendar. By the early 8th century, the empire of his successors stretched from Spain to the Indus River. Here’s how that began."
+    },
+    {
+      "id": "card.middle_ages.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A prophet in Mecca",
+      "body": "Muhammad was born around 570 in Mecca, in Arabia. By tradition, in 610 he had a vision of the angel Gabriel. Muslims believe the Qur’an is the word of God, revealed to Muhammad in stages through Gabriel. In 622 he moved from Mecca to Medina. That move, the hijra, marks the start of the Islamic calendar. Your calendar counts from one starting point; this one counts from a journey."
+    },
+    {
+      "id": "card.middle_ages.008.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The successors",
+      "body": "Muhammad died in Medina in 632. The leaders who followed were called caliphs, from khalifah, “successor”. Under the first four caliphs, Arab Muslim armies beat the Byzantines at Yarmuk in 636, took Syria and Egypt from them, and defeated the armies of Persia. Remember Level 4? Byzantium lost Syria and Egypt, but Constantinople’s walls held against Arab attackers."
+    },
+    {
+      "id": "card.middle_ages.008.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "From Spain to the Indus",
+      "body": "The Umayyad caliphs, from 661, moved the capital from Medina to Damascus. Under them, Muslim forces took North Africa and, from 711, overran most of Spain, ending the Visigothic kingdom you met in Level 3. By the early 8th century the caliphate reached from Spain to Central Asia and the Indus valley. Conquered Christians and Jews, whom Muslims called People of the Book, could keep their religion as long as they paid taxes.",
+      "callout": "Within about a century of 632: from the Atlantic to the Indus"
+    },
+    {
+      "id": "card.middle_ages.008.c5",
+      "type": "mcq",
+      "questionId": "question.middle_ages.008.q1"
+    },
+    {
+      "id": "card.middle_ages.008.c6",
+      "type": "mcq",
+      "questionId": "question.middle_ages.008.q2"
+    },
+    {
+      "id": "card.middle_ages.008.c7",
+      "type": "recall",
+      "questionId": "question.middle_ages.008.q3"
+    },
+    {
+      "id": "card.middle_ages.008.c8",
+      "type": "checkpoint",
+      "headline": "Early Islam: known",
+      "learned": [
+        "Muhammad was born around 570 in Mecca",
+        "Muslims believe the Qur’an is God’s word, revealed to him",
+        "The hijra of 622 starts the Islamic calendar",
+        "Caliphs built an empire from Spain to the Indus"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.middle_ages.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.middle_ages.islam_origins"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.008.c2"
+      ],
+      "prompt": "What event does the Islamic calendar count its years from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Muhammad’s birth in Mecca, around 570",
+          "correct": false,
+          "rationale": "The calendar starts later."
+        },
+        {
+          "id": "b",
+          "label": "The first revelation, by tradition in 610",
+          "correct": false,
+          "rationale": "It starts from a journey."
+        },
+        {
+          "id": "c",
+          "label": "Muhammad’s move to Medina in 622",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Muhammad’s death in Medina in 632",
+          "correct": false,
+          "rationale": "It starts ten years before that."
+        }
+      ],
+      "explanation": "The hijra, Muhammad’s move from Mecca to Medina in 622, marks the start of the Islamic calendar.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.middle_ages.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.middle_ages.early_caliphate"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.008.c3"
+      ],
+      "prompt": "The leaders after Muhammad were called caliphs. What does the title mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Successor",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Conqueror",
+          "correct": false,
+          "rationale": "It names the role, not war."
+        },
+        {
+          "id": "c",
+          "label": "Prophet",
+          "correct": false,
+          "rationale": "Muhammad’s leaders were his successors."
+        },
+        {
+          "id": "d",
+          "label": "Emperor of Rome",
+          "correct": false,
+          "rationale": "That was the Byzantine title."
+        }
+      ],
+      "explanation": "Caliph comes from khalifah, “successor”: the caliphs led the community after Muhammad.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.middle_ages.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.middle_ages.early_caliphate",
+        "concept.middle_ages.successor_kingdoms"
+      ],
+      "sourceCardIds": [
+        "card.middle_ages.008.c4",
+        "card.middle_ages.003.c3"
+      ],
+      "prompt": "Which kingdom from Level 3 did Muslim forces overrun from 711?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Frankish kingdom in Gaul",
+          "correct": false,
+          "rationale": "The Franks kept Gaul."
+        },
+        {
+          "id": "b",
+          "label": "The Anglo-Saxon kingdoms of Britain",
+          "correct": false,
+          "rationale": "Britain was far from the caliphate."
+        },
+        {
+          "id": "c",
+          "label": "The Ostrogothic kingdom of Italy",
+          "correct": false,
+          "rationale": "That’s a different story."
+        },
+        {
+          "id": "d",
+          "label": "The Visigothic kingdom in Spain",
+          "correct": true
+        }
+      ],
+      "explanation": "From 711, Muslim forces overran most of Spain, ending the Visigothic kingdom ruled from Toledo.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_muhammad",
+    "source.brit_caliphate",
+    "source.openstax_arab_conquests",
+    "source.brit_visigoth",
+    "source.brit_byzantine"
+  ],
+  "art": "arts.pattern-tile"
+}

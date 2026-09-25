@@ -1,0 +1,222 @@
+{
+  "id": "level.science.animals.003",
+  "skillId": "skill.science.animals",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Backbone or Not",
+  "objective": "After this level you can tell vertebrates, which have backbones, from invertebrates.",
+  "summary": "Vertebrates (fish, amphibians, reptiles, birds, mammals) have a backbone around the spinal cord. They are about 1 in 20 known species; invertebrates are the rest, many with outer skeletons.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.vertebrate_backbone",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.invertebrate_majority",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.animal_groups_map",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.species_described_count",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.002"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Only about 1 in 20 known animal species has a backbone.",
+      "body": "Mammals, birds, reptiles, amphibians and fish: the animals on almost every poster. Together they're a thin slice of the kingdom. What exactly does a backbone do, and how does everyone else manage without one?"
+    },
+    {
+      "id": "card.animals.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your membership card runs down your back",
+      "body": "A vertebrate has a backbone: a column of bones called vertebrae, which partly encloses the central nervous system. Your spinal cord runs right through it. Vertebrates come in five familiar groups: fish, amphibians, reptiles, birds and mammals. Run a finger down the middle of your back. Those bumps are your membership card."
+    },
+    {
+      "id": "card.animals.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "No backbone, still sturdy",
+      "body": "Invertebrates are every animal without a backbone, from sponges and jellyfish to worms, snails, crabs and insects. Plenty of them still have a skeleton. They just wear it on the outside: most mollusks, crustaceans and insects have a hard outer skeleton that protects the body and gives muscles something to pull on. A beetle is a knight that never takes off its armor."
+    },
+    {
+      "id": "card.animals.003.c4",
+      "type": "fact",
+      "fact": "About 95 percent of known animal species are invertebrates.",
+      "context": "Of about 1.55 million described animal species in IUCN's 2025 table, only about 76,000 are vertebrates. Britannica rounds more cautiously: more than 90 percent of living animal species have no backbone. Either way, we're the minority. And Level 2's million insects? Every one of them is on the other side of this line.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "All those posters of lions and eagles, and the kingdom quietly belongs to the beetles."
+      }
+    },
+    {
+      "id": "card.animals.003.c5",
+      "type": "mcq",
+      "questionId": "question.animals.003.q1"
+    },
+    {
+      "id": "card.animals.003.c6",
+      "type": "mcq",
+      "questionId": "question.animals.003.q2"
+    },
+    {
+      "id": "card.animals.003.c7",
+      "type": "recall",
+      "questionId": "question.animals.003.q3"
+    },
+    {
+      "id": "card.animals.003.c8",
+      "type": "checkpoint",
+      "headline": "Backbones: sorted",
+      "learned": [
+        "A backbone is a column of vertebrae around the spinal cord",
+        "Vertebrates: fish, amphibians, reptiles, birds, mammals",
+        "Invertebrates: no backbone, often an outer skeleton",
+        "About 95% of described animal species are invertebrates"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.vertebrate_backbone"
+      ],
+      "sourceCardIds": [
+        "card.animals.003.c2"
+      ],
+      "prompt": "What does a vertebrate's backbone partly enclose?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The heart",
+          "correct": false,
+          "rationale": "The heart sits in the chest, not in the backbone."
+        },
+        {
+          "id": "b",
+          "label": "The stomach",
+          "correct": false,
+          "rationale": "The stomach is part of digestion."
+        },
+        {
+          "id": "c",
+          "label": "The lungs",
+          "correct": false,
+          "rationale": "The lungs sit in the chest."
+        },
+        {
+          "id": "d",
+          "label": "The central nervous system",
+          "correct": true
+        }
+      ],
+      "explanation": "The backbone, a column of vertebrae, partly encloses the central nervous system, including the spinal cord.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.invertebrate_majority"
+      ],
+      "sourceCardIds": [
+        "card.animals.003.c3"
+      ],
+      "prompt": "A crab has no backbone, yet its body is stiff and well protected. How?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has a hard outer skeleton",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It hides small vertebrae in its claws",
+          "correct": false,
+          "rationale": "Crabs have no vertebrae at all."
+        },
+        {
+          "id": "c",
+          "label": "It is really a vertebrate",
+          "correct": false,
+          "rationale": "Crabs are invertebrates: no backbone."
+        },
+        {
+          "id": "d",
+          "label": "Its muscles harden into bone",
+          "correct": false,
+          "rationale": "Its hard parts are an outer skeleton, not bone."
+        }
+      ],
+      "explanation": "Most crustaceans, like crabs, have a hard outer skeleton that protects the body and anchors muscles.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.invertebrate_majority",
+        "concept.animals.species_described_count"
+      ],
+      "sourceCardIds": [
+        "card.animals.003.c4",
+        "card.animals.002.c2"
+      ],
+      "prompt": "Level 2 counted about 1.5 million described animal species. Roughly how many of them are vertebrates?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 7,600",
+          "correct": false,
+          "rationale": "Ten times too few."
+        },
+        {
+          "id": "b",
+          "label": "About 76,000",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 760,000",
+          "correct": false,
+          "rationale": "That would be half; it's closer to 1 in 20."
+        },
+        {
+          "id": "d",
+          "label": "About 1.4 million",
+          "correct": false,
+          "rationale": "That's roughly the invertebrates."
+        }
+      ],
+      "explanation": "About 76,000 of IUCN's roughly 1.55 million described animal species are vertebrates, about 1 in 20.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_vertebrate",
+    "source.iucn_redlist_table1a_2025",
+    "source.brit_invertebrate"
+  ],
+  "art": "body.bone"
+}

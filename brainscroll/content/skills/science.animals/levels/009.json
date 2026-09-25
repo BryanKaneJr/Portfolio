@@ -1,0 +1,247 @@
+{
+  "id": "level.science.animals.009",
+  "skillId": "skill.science.animals",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Smallest and the Largest",
+  "objective": "After this level you can compare the smallest and largest animals alive.",
+  "summary": "The blue whale is the largest animal known to have lived. The smallest known vertebrate is the Brazilian flea toad (about 7.1 mm); male fairyfly wasps are the smallest adult insects.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.largest_animal",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.smallest_animals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.animal_traits",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.food_chain_levels",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.008"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The biggest animal ever is alive right now.",
+      "body": "Not a dinosaur. According to NOAA, the blue whale, a mammal swimming in today's oceans, is the largest animal known to have lived. So how big is that, and how small does an animal get at the other end of the scale?"
+    },
+    {
+      "id": "card.animals.009.c2",
+      "type": "fact",
+      "fact": "Blue whales can grow to about 33 meters long.",
+      "context": "That's NOAA's figure for the biggest, in the Antarctic: up to about 110 feet, weighing more than 150 metric tons. Yet they live almost entirely on krill, and the biggest may eat up to 6 tons of it a day. The largest animal ever runs on some of the smallest food in the sea.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Six tons of shrimp a day. And you thought your grocery bill was bad."
+      }
+    },
+    {
+      "id": "card.animals.009.c3",
+      "type": "comparison",
+      "headline": "Tiny, tinier, tiniest",
+      "items": [
+        {
+          "label": "Smallest vertebrate",
+          "points": [
+            "Brazilian flea toad, Brachycephalus pulex",
+            "Males average 7.1 mm long",
+            "Record confirmed in a 2024 study"
+          ]
+        },
+        {
+          "label": "Previous record",
+          "points": [
+            "Paedophryne amauensis, a frog",
+            "From Papua New Guinea",
+            "Males average about 7.7 mm"
+          ]
+        },
+        {
+          "label": "Smallest adult insect",
+          "points": [
+            "Fairyfly wasp Dicopomorpha echmepterygis",
+            "Males as small as 0.139 mm",
+            "Blind and wingless; described in 1997"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.009.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Smaller than a single cell",
+      "body": "A male fairyfly wasp is smaller than a paramecium, a living thing made of just one cell. Yet the wasp is a whole animal, built from many cells. Line it up against the biggest blue whale and the whale is more than 200,000 times longer. Same kingdom, same checklist from Level 1, wildly different sizes."
+    },
+    {
+      "id": "card.animals.009.c5",
+      "type": "mcq",
+      "questionId": "question.animals.009.q1"
+    },
+    {
+      "id": "card.animals.009.c6",
+      "type": "mcq",
+      "questionId": "question.animals.009.q2"
+    },
+    {
+      "id": "card.animals.009.c7",
+      "type": "recall",
+      "questionId": "question.animals.009.q3"
+    },
+    {
+      "id": "card.animals.009.c8",
+      "type": "checkpoint",
+      "headline": "Size: compared",
+      "learned": [
+        "Blue whale: largest animal known to have lived",
+        "Up to about 33 m and more than 150 metric tons",
+        "Smallest vertebrate: Brazilian flea toad, about 7.1 mm",
+        "Smallest adult insect: male fairyfly, as small as 0.139 mm"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.largest_animal"
+      ],
+      "sourceCardIds": [
+        "card.animals.009.c1"
+      ],
+      "prompt": "According to NOAA, what is the largest animal known to have lived?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The African elephant",
+          "correct": false,
+          "rationale": "It's the largest land animal today, far smaller than a blue whale."
+        },
+        {
+          "id": "b",
+          "label": "A giant long-necked dinosaur",
+          "correct": false,
+          "rationale": "NOAA ranks the blue whale above every known animal."
+        },
+        {
+          "id": "c",
+          "label": "The blue whale",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The whale shark",
+          "correct": false,
+          "rationale": "It's a fish, and much smaller."
+        }
+      ],
+      "explanation": "NOAA calls the blue whale the largest animal known to have lived on Earth.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.smallest_animals"
+      ],
+      "sourceCardIds": [
+        "card.animals.009.c3"
+      ],
+      "prompt": "Why did the Brazilian flea toad take the 'smallest vertebrate' title in 2024?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the first frog ever measured",
+          "correct": false,
+          "rationale": "Paedophryne amauensis was measured years earlier."
+        },
+        {
+          "id": "b",
+          "label": "Its males averaged smaller than the old record frog's",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is smaller than a fairyfly",
+          "correct": false,
+          "rationale": "The fairyfly, an insect, is far smaller."
+        },
+        {
+          "id": "d",
+          "label": "It has no backbone",
+          "correct": false,
+          "rationale": "It is a vertebrate, so it has one."
+        }
+      ],
+      "explanation": "Male flea toads average 7.1 mm, just under the 7.7 mm of the previous record holder, Paedophryne amauensis.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.largest_animal",
+        "concept.animals.food_chain_levels"
+      ],
+      "sourceCardIds": [
+        "card.animals.009.c2",
+        "card.animals.007.c1"
+      ],
+      "prompt": "The biggest blue whales may eat up to 6 tons of krill a day. Using Level 7's food chain, what do the krill eat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Phytoplankton",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Small fish",
+          "correct": false,
+          "rationale": "In that chain, krill eat single-celled phytoplankton."
+        },
+        {
+          "id": "c",
+          "label": "Blue whale waste",
+          "correct": false,
+          "rationale": "The chain runs phytoplankton, krill, whale."
+        },
+        {
+          "id": "d",
+          "label": "Nothing, they make their own food",
+          "correct": false,
+          "rationale": "Krill are animals; producers make food."
+        }
+      ],
+      "explanation": "In that ocean food chain, phytoplankton feed krill, and krill feed the blue whale.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_blue_whale",
+    "source.smithsonianmag_flea_toad",
+    "source.adw_dicopomorpha",
+    "source.openstax_bio_animal_features"
+  ],
+  "art": "animals.whale"
+}

@@ -1,0 +1,215 @@
+{
+  "id": "level.science.animals.002",
+  "skillId": "skill.science.animals",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Many Species?",
+  "objective": "After this level you can explain how many animal species are known and how many may exist.",
+  "summary": "About 1.5 million animal species have been described (IUCN, 2025). A 2011 estimate by Mora and colleagues puts all animal species at about 7.8 million, so most are still unnamed.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.species_described_count",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.species_estimated_total",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.animal_groups_map",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.001"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Scientists have named about 1.5 million animal species. Easy part.",
+      "body": "Every named species has a description behind it: someone found it, studied it and published it. But how do you count the animals nobody has found yet? One team came up with a clever answer, and it's humbling."
+    },
+    {
+      "id": "card.animals.002.c2",
+      "type": "fact",
+      "fact": "Named so far: about 1.5 million animal species.",
+      "context": "That's the IUCN Red List's 2025 tally of described animal species, and about 1 million of them are insects. IUCN itself warns that the figures aren't always up to date. So treat it as a snapshot, not a final score."
+    },
+    {
+      "id": "card.animals.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Counting the ones nobody has seen",
+      "body": "In 2011, Camilo Mora and colleagues spotted a pattern. Every species sits inside bigger groups, and those bigger groups are much better known. The number of groups at each level followed a steady relationship with the number of species, so the team used it to predict the total: about 8.7 million species of complex-celled life, give or take 1.3 million, and about 7.8 million of them animals."
+    },
+    {
+      "id": "card.animals.002.c4",
+      "type": "fact",
+      "fact": "Most animals have never been named.",
+      "context": "By Mora's estimate, about 86 percent of species on land and 91 percent in the ocean still await a description. Naming them all the traditional way could take up to 1,200 years and more than 300,000 taxonomists. It's an estimate, not a head count, but the message is hard to miss: you live on a planet you've mostly never met.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Somewhere out there, an animal nobody has named is having a perfectly normal Tuesday."
+      }
+    },
+    {
+      "id": "card.animals.002.c5",
+      "type": "mcq",
+      "questionId": "question.animals.002.q1"
+    },
+    {
+      "id": "card.animals.002.c6",
+      "type": "mcq",
+      "questionId": "question.animals.002.q2"
+    },
+    {
+      "id": "card.animals.002.c7",
+      "type": "recall",
+      "questionId": "question.animals.002.q3"
+    },
+    {
+      "id": "card.animals.002.c8",
+      "type": "checkpoint",
+      "headline": "Species: counted",
+      "learned": [
+        "About 1.5 million animal species described (IUCN, 2025)",
+        "About 1 million of them are insects",
+        "Mora's 2011 estimate: about 7.8 million animal species",
+        "Most species on land and at sea are still unnamed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.species_described_count"
+      ],
+      "sourceCardIds": [
+        "card.animals.002.c2"
+      ],
+      "prompt": "Roughly how many animal species had been described by 2025, according to the IUCN Red List's tally?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 15,000",
+          "correct": false,
+          "rationale": "Far too few for a whole kingdom."
+        },
+        {
+          "id": "b",
+          "label": "About 150,000",
+          "correct": false,
+          "rationale": "Ten times too few."
+        },
+        {
+          "id": "c",
+          "label": "About 1.5 million",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 15 million",
+          "correct": false,
+          "rationale": "More than even the estimates of all animals."
+        }
+      ],
+      "explanation": "IUCN's 2025 table lists about 1.55 million described animal species.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.species_estimated_total"
+      ],
+      "sourceCardIds": [
+        "card.animals.002.c3"
+      ],
+      "prompt": "How did Mora's team estimate the number of species nobody has found yet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They counted every animal in one forest",
+          "correct": false,
+          "rationale": "They used patterns in classification, not a field count."
+        },
+        {
+          "id": "b",
+          "label": "They asked museums for their best guesses",
+          "correct": false,
+          "rationale": "The estimate came from a numerical pattern."
+        },
+        {
+          "id": "c",
+          "label": "They sampled DNA from seawater",
+          "correct": false,
+          "rationale": "That wasn't the method in this study."
+        },
+        {
+          "id": "d",
+          "label": "They used how species counts track bigger groups",
+          "correct": true
+        }
+      ],
+      "explanation": "Counts of better-known higher groups follow a steady relationship with species numbers, which let the team predict the total.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.species_described_count",
+        "concept.animals.animal_groups_map"
+      ],
+      "sourceCardIds": [
+        "card.animals.002.c2",
+        "card.animals.001.c4"
+      ],
+      "prompt": "Level 1 put insects in the crowd without backbones. About how many of the described animal species are insects?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10,000",
+          "correct": false,
+          "rationale": "Far too few."
+        },
+        {
+          "id": "b",
+          "label": "About 100,000",
+          "correct": false,
+          "rationale": "Ten times too few."
+        },
+        {
+          "id": "c",
+          "label": "About 1 million",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 7.8 million",
+          "correct": false,
+          "rationale": "That's the estimate for all animals, named or not."
+        }
+      ],
+      "explanation": "About 1 million of IUCN's roughly 1.5 million described animal species are insects.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.iucn_redlist_table1a_2025",
+    "source.plosbio_mora_species_2011"
+  ],
+  "art": "animals.paw"
+}

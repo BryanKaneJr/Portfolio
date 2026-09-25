@@ -1,0 +1,231 @@
+{
+  "id": "level.science.animals.001",
+  "skillId": "skill.science.animals",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Animal Kingdom in One Level",
+  "objective": "After this level you can explain what makes an animal an animal and name the main groups.",
+  "summary": "An animal has many cells without walls, eats other living things and usually moves at some stage. Sponges qualify. The kingdom: five familiar groups and a vast crowd without backbones.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.animal_traits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.animal_groups_map",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.animals.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Sponges were long mistaken for plants.",
+      "body": "They have no muscles, and a grown sponge stays stuck to one spot for life. Only after someone noticed their small movements, in 1765, did people slowly accept sponges as animals. So what does it actually take to be an animal?"
+    },
+    {
+      "id": "card.animals.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The animal checklist",
+      "body": "Biologists use a short checklist. An animal is built from many cells, and unlike plants and fungi, those cells have no cell walls. It can't make its own food, so it eats other living or dead things. And most animals can move, at least at some stage of life. Fur, legs and a face are all optional. Eating someone else's lunch is not."
+    },
+    {
+      "id": "card.animals.001.c3",
+      "type": "fact",
+      "fact": "A sponge does all its traveling as a baby.",
+      "context": "Sponge larvae can swim. Then they settle, attach and stay put for good. The adult feeds by pulling water through its porous body, where tiny hairlike flagella stir up currents that bring in bacteria to eat. Many cells, no cell walls, eats other living things, moved at one stage of life: a sponge ticks every box on the checklist.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Swim once, then sit still forever. Honestly, a very relaxing life plan."
+      }
+    },
+    {
+      "id": "card.animals.001.c4",
+      "type": "comparison",
+      "headline": "The kingdom's main groups",
+      "items": [
+        {
+          "label": "Five groups you know",
+          "points": [
+            "Mammals and birds",
+            "Reptiles and amphibians",
+            "Fish"
+          ]
+        },
+        {
+          "label": "The crowd you overlook",
+          "points": [
+            "Insects, spiders and crabs",
+            "Snails, clams and squid",
+            "Worms, jellyfish, sea stars and sponges"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.001.c5",
+      "type": "mcq",
+      "questionId": "question.animals.001.q1"
+    },
+    {
+      "id": "card.animals.001.c6",
+      "type": "mcq",
+      "questionId": "question.animals.001.q2"
+    },
+    {
+      "id": "card.animals.001.c7",
+      "type": "mcq",
+      "questionId": "question.animals.001.q3"
+    },
+    {
+      "id": "card.animals.001.c8",
+      "type": "checkpoint",
+      "headline": "Animals: defined",
+      "learned": [
+        "Many cells, no cell walls",
+        "Eats other living or dead things",
+        "Most move, at least at some life stage",
+        "Sponges count: their larvae swim",
+        "Five familiar groups, plus a big crowd without backbones"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.animal_traits"
+      ],
+      "sourceCardIds": [
+        "card.animals.001.c2"
+      ],
+      "prompt": "According to the animal checklist, what do animal cells lack that plant and fungus cells have?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mitochondria",
+          "correct": false,
+          "rationale": "Not on the checklist; the missing piece is the wall."
+        },
+        {
+          "id": "b",
+          "label": "Walls",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Membranes",
+          "correct": false,
+          "rationale": "Every cell has one; animal cells lack walls."
+        },
+        {
+          "id": "d",
+          "label": "DNA",
+          "correct": false,
+          "rationale": "Animal cells carry DNA; what they lack is a wall."
+        }
+      ],
+      "explanation": "Animal cells have no cell walls, unlike the cells of plants and fungi.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.animal_traits"
+      ],
+      "sourceCardIds": [
+        "card.animals.001.c3",
+        "card.animals.001.c2"
+      ],
+      "prompt": "An adult sponge never leaves its spot. Why do biologists still count it as an animal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It grows roots like a plant",
+          "correct": false,
+          "rationale": "Sponges attach, but they don't grow roots."
+        },
+        {
+          "id": "b",
+          "label": "It has muscles hidden inside",
+          "correct": false,
+          "rationale": "Sponges lack muscle tissue."
+        },
+        {
+          "id": "c",
+          "label": "It eats other living things and swam when young",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It makes its own food from sunlight",
+          "correct": false,
+          "rationale": "That's what producers like plants do."
+        }
+      ],
+      "explanation": "Sponges are many-celled, eat bacteria they filter from water, and swim as larvae, so they tick every box on the checklist.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.animal_groups_map",
+        "concept.animals.animal_traits"
+      ],
+      "sourceCardIds": [
+        "card.animals.001.c4",
+        "card.animals.001.c2"
+      ],
+      "prompt": "Which of these belongs on the map of the animal kingdom?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A mushroom",
+          "correct": false,
+          "rationale": "It's a fungus, and fungus cells have walls."
+        },
+        {
+          "id": "b",
+          "label": "A jellyfish",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A seaweed",
+          "correct": false,
+          "rationale": "Seaweed makes its own food; animals must eat."
+        },
+        {
+          "id": "d",
+          "label": "A fern",
+          "correct": false,
+          "rationale": "It's a plant, with walled cells."
+        }
+      ],
+      "explanation": "Jellyfish are animals without backbones, part of the big crowd beside the five familiar groups.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_animal",
+    "source.openstax_bio_porifera",
+    "source.noaa_sponge",
+    "source.openstax_bio_animal_features",
+    "source.brit_vertebrate",
+    "source.brit_invertebrate"
+  ],
+  "art": "animals.paw"
+}

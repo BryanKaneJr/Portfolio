@@ -1,0 +1,214 @@
+{
+  "id": "level.history.ancient_egypt.003",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Black Land, Red Land",
+  "objective": "After this level you can explain the difference between the fertile valley and the desert around it.",
+  "summary": "Kemet, the black land, was the narrow strip of Nile silt where Egyptians farmed and lived. Deshret, the red desert, held their cemeteries and guarded their borders.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.black_red_land",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.nile_flood",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.002"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Ancient Egyptians named their country after its dirt.",
+      "body": "They called it Kemet, “the black land.” All around it lay a second land, Deshret, red and dry. Where one ended and the other began shaped where Egyptians lived, farmed and buried their dead."
+    },
+    {
+      "id": "card.ancient_egypt.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The black land",
+      "body": "Kemet meant the fertile land of the Nile valley, black with the silt the flood left behind (remember Level 2’s gift?). It was a thin green ribbon. Between Cairo and Aswan, the farmland is mostly just 8 to 16 km wide, and in places only a few hundred meters. At the widest of those usual stretches, you could walk from one edge to the other in an afternoon.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Black for life, red for desert. Egypt’s map came color-coded."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The red land",
+      "body": "Step off the black soil and you were in Deshret, “the red land”: the hot, dry desert. Cities could flourish only where there was water, in the valley, the Delta or a desert oasis. But the red land had its uses. Its dry climate made it an ideal place for cemeteries. Farm on the black, bury in the red."
+    },
+    {
+      "id": "card.ancient_egypt.003.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A wall made of sand",
+      "body": "The desert had one more job: it guarded Egypt. Deserts lay to the west and east, the Mediterranean to the north, and the First Cataract of the Nile at Aswan to the south. Historians call it a favorable and secure location. Egypt wasn’t cut off, though: it sat at the center of trade routes to western Asia, the Mediterranean and central Africa. It just had very good fences."
+    },
+    {
+      "id": "card.ancient_egypt.003.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.003.q1"
+    },
+    {
+      "id": "card.ancient_egypt.003.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.003.q2"
+    },
+    {
+      "id": "card.ancient_egypt.003.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.003.q3"
+    },
+    {
+      "id": "card.ancient_egypt.003.c8",
+      "type": "checkpoint",
+      "headline": "Black and red: sorted",
+      "learned": [
+        "Kemet, the black land: the fertile Nile valley",
+        "It was mostly just 8 to 16 km wide",
+        "Deshret, the red land: the desert, used for cemeteries",
+        "Deserts, sea and cataract gave Egypt secure borders"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.black_red_land"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.003.c2"
+      ],
+      "prompt": "Between Cairo and Aswan, how wide is the Nile valley’s farmland in most places?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Under 1 km",
+          "correct": false,
+          "rationale": "It narrows that much only in places."
+        },
+        {
+          "id": "b",
+          "label": "About 8 to 16 km",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 100 km",
+          "correct": false,
+          "rationale": "Far too wide: it’s a thin ribbon."
+        },
+        {
+          "id": "d",
+          "label": "About 500 km",
+          "correct": false,
+          "rationale": "That would be most of the country."
+        }
+      ],
+      "explanation": "The black land is mostly 8 to 16 km wide, and only a few hundred meters in places.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.black_red_land"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.003.c4"
+      ],
+      "prompt": "How did the red land help protect Egypt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its oases held Egypt’s main army",
+          "correct": false,
+          "rationale": "The protection came from the land itself."
+        },
+        {
+          "id": "b",
+          "label": "It was lined with walls built by the kings",
+          "correct": false,
+          "rationale": "The barrier was natural."
+        },
+        {
+          "id": "c",
+          "label": "It flooded every summer, trapping invaders",
+          "correct": false,
+          "rationale": "The flood reached only the black land."
+        },
+        {
+          "id": "d",
+          "label": "Deserts to the east and west made Egypt hard to reach",
+          "correct": true
+        }
+      ],
+      "explanation": "With deserts on two sides, the sea to the north and the cataract to the south, Egypt had a secure location.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.black_red_land",
+        "concept.ancient_egypt.nile_flood"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.003.c2",
+        "card.ancient_egypt.002.c3"
+      ],
+      "prompt": "From Level 2: why did Egyptians call their farmland “the black land”?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was covered in dark silt left by the flood",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was burned black before each planting",
+          "correct": false,
+          "rationale": "The color came from the river."
+        },
+        {
+          "id": "c",
+          "label": "Its crops were dark in color",
+          "correct": false,
+          "rationale": "It was the soil, not the plants."
+        },
+        {
+          "id": "d",
+          "label": "It lay in the shade of tall cliffs",
+          "correct": false,
+          "rationale": "The color came from what the flood left."
+        }
+      ],
+      "explanation": "Each year the flood left dark, fertile silt, which gave Kemet both its color and its name.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_nile_flooding",
+    "source.carnegie_egypt_nile",
+    "source.brit_nile_valley",
+    "source.met_egypt_educators"
+  ],
+  "art": "geo.desert"
+}

@@ -1,0 +1,370 @@
+{
+  "id": "level.science.animals.010",
+  "skillId": "skill.science.animals",
+  "number": 10,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: What Makes an Animal",
+  "objective": "After this level you can sort animals by backbone, body temperature and diet.",
+  "summary": "Three questions sort most animals: backbone or not, inside or outside heat, and what it eats. Some answers change with age: gray tree frog tadpoles eat algae and debris, while adults eat insects.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.diet_life_stage",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.animal_groups_map",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.largest_animal",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.diet_vs_classification",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.vertebrate_backbone",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.body_heat_source",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.diet_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.invertebrate_majority",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.species_estimated_total",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.keystone_species",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.009"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.010.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 1 finale: three questions sort almost any animal.",
+      "body": "Does it have a backbone? Does it make its own heat? What does it eat? This chapter gave you all three. Let's run a few animals through them, then meet one that changes an answer halfway through its life."
+    },
+    {
+      "id": "card.animals.010.c2",
+      "type": "comparison",
+      "headline": "Three animals, three questions",
+      "items": [
+        {
+          "label": "Blue whale",
+          "points": [
+            "Backbone: yes, a mammal",
+            "Heat: its own, an endotherm",
+            "Diet: almost only krill"
+          ]
+        },
+        {
+          "label": "Ochre sea star",
+          "points": [
+            "Backbone: none, an invertebrate",
+            "Heat: from outside, an ectotherm",
+            "Diet: carnivore, eats mussels"
+          ]
+        },
+        {
+          "label": "Giant panda",
+          "points": [
+            "Backbone: yes, a mammal",
+            "Heat: its own, an endotherm",
+            "Diet: mostly bamboo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.010.c3",
+      "type": "fact",
+      "fact": "A gray tree frog switches diets as it grows up.",
+      "context": "As tadpoles, gray tree frogs eat algae and bits of rotting debris in the water. Adults mainly hunt insects and their larvae. So the diet question depends on when you ask: algae and debris when young, insects when grown. The other two answers never change. A frog is an amphibian, so it has a backbone, and it takes its heat from outside.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Salad as a kid, bugs as a grown-up. Every frog has a coming-of-age story."
+      }
+    },
+    {
+      "id": "card.animals.010.c4",
+      "type": "mcq",
+      "questionId": "question.animals.010.q1"
+    },
+    {
+      "id": "card.animals.010.c5",
+      "type": "mcq",
+      "questionId": "question.animals.010.q2"
+    },
+    {
+      "id": "card.animals.010.c6",
+      "type": "mcq",
+      "questionId": "question.animals.010.q3"
+    },
+    {
+      "id": "card.animals.010.c7",
+      "type": "recall",
+      "questionId": "question.animals.010.q4"
+    },
+    {
+      "id": "card.animals.010.c8",
+      "type": "recall",
+      "questionId": "question.animals.010.q5"
+    },
+    {
+      "id": "card.animals.010.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "Animals: many cells, no cell walls, and they eat",
+        "About 1.5 million described; perhaps 7.8 million exist",
+        "Backbone or not; inside or outside heat; plant, meat or both",
+        "Energy flows up food chains, about 10% per step",
+        "Blue whale to fairyfly: one kingdom, huge range"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.010.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.diet_life_stage"
+      ],
+      "sourceCardIds": [
+        "card.animals.010.c3"
+      ],
+      "prompt": "What Makes an Animal recap: what do gray tree frog tadpoles eat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Insects and their larvae",
+          "correct": false,
+          "rationale": "That's the adult diet."
+        },
+        {
+          "id": "b",
+          "label": "Algae and rotting debris",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Small fish",
+          "correct": false,
+          "rationale": "Tadpoles graze in the water; adults hunt insects."
+        },
+        {
+          "id": "d",
+          "label": "Nothing until they become frogs",
+          "correct": false,
+          "rationale": "Tadpoles feed on algae and debris."
+        }
+      ],
+      "explanation": "Gray tree frog tadpoles eat algae and organic debris; adults switch to insects.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.010.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.diet_life_stage",
+        "concept.animals.diet_types"
+      ],
+      "sourceCardIds": [
+        "card.animals.010.c3",
+        "card.animals.006.c2"
+      ],
+      "prompt": "What Makes an Animal recap: why can't one diet label cover a gray tree frog's whole life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has no backbone",
+          "correct": false,
+          "rationale": "Frogs are amphibians, with backbones."
+        },
+        {
+          "id": "b",
+          "label": "It makes its own heat",
+          "correct": false,
+          "rationale": "Frogs take their heat from outside."
+        },
+        {
+          "id": "c",
+          "label": "It changes shape but eats the same",
+          "correct": false,
+          "rationale": "Its food changes too."
+        },
+        {
+          "id": "d",
+          "label": "Its food changes as it grows up",
+          "correct": true
+        }
+      ],
+      "explanation": "Tadpoles eat algae and debris, while adults hunt insects, so the diet answer depends on age.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.010.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.vertebrate_backbone",
+        "concept.animals.body_heat_source",
+        "concept.animals.diet_types"
+      ],
+      "sourceCardIds": [
+        "card.animals.010.c2",
+        "card.animals.003.c3",
+        "card.animals.005.c2"
+      ],
+      "prompt": "What Makes an Animal recap: which set of labels fits the ochre sea star?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Invertebrate, ectotherm, carnivore",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Vertebrate, ectotherm, herbivore",
+          "correct": false,
+          "rationale": "Sea stars have no backbone, and they eat mussels."
+        },
+        {
+          "id": "c",
+          "label": "Invertebrate, endotherm, carnivore",
+          "correct": false,
+          "rationale": "Invertebrates take their heat from outside."
+        },
+        {
+          "id": "d",
+          "label": "Vertebrate, endotherm, omnivore",
+          "correct": false,
+          "rationale": "Wrong on all three counts."
+        }
+      ],
+      "explanation": "No backbone, heat from its surroundings, and a diet of mussels: invertebrate, ectotherm, carnivore.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.animals.010.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.species_estimated_total"
+      ],
+      "sourceCardIds": [
+        "card.animals.002.c3"
+      ],
+      "prompt": "What Makes an Animal recap, from Level 2: about how many animal species did Mora's 2011 study estimate exist?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 780,000",
+          "correct": false,
+          "rationale": "Fewer than have already been named."
+        },
+        {
+          "id": "b",
+          "label": "About 1.5 million",
+          "correct": false,
+          "rationale": "That's roughly how many are described."
+        },
+        {
+          "id": "c",
+          "label": "About 7.8 million",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 78 million",
+          "correct": false,
+          "rationale": "Ten times the estimate."
+        }
+      ],
+      "explanation": "Mora and colleagues estimated about 7.8 million animal species, most still unnamed.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.010.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.keystone_species"
+      ],
+      "sourceCardIds": [
+        "card.animals.008.c4",
+        "card.animals.008.c3"
+      ],
+      "prompt": "What Makes an Animal recap, from Level 8: what showed that Paine's ochre sea star was a keystone species?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the largest animal on the shore",
+          "correct": false,
+          "rationale": "Size had nothing to do with it."
+        },
+        {
+          "id": "b",
+          "label": "Without it, mussels took over and variety fell",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It made its own food from sunlight",
+          "correct": false,
+          "rationale": "It eats mussels; it is a consumer."
+        },
+        {
+          "id": "d",
+          "label": "It lived longer than the other animals",
+          "correct": false,
+          "rationale": "The test was removing it."
+        }
+      ],
+      "explanation": "Removing the sea stars let mussels crowd out the other species, showing one predator held the community together.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_vertebrate",
+    "source.brit_invertebrate",
+    "source.brit_warm_bloodedness",
+    "source.brit_cold_bloodedness",
+    "source.smithsonian_zoo_giant_panda",
+    "source.brit_giant_panda",
+    "source.nas_paine_memoir",
+    "source.natgeo_keystone_species",
+    "source.noaa_blue_whale",
+    "source.smithsonian_zoo_gray_tree_frog"
+  ],
+  "art": "animals.paw"
+}

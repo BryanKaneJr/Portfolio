@@ -1,0 +1,218 @@
+{
+  "id": "level.science.animals.005",
+  "skillId": "skill.science.animals",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Warm- and Cold-Blooded",
+  "objective": "After this level you can explain how different animals control their body temperature.",
+  "summary": "Endotherms (mammals, birds) make their own heat; ectotherms take it from their surroundings and manage it by behavior. \"Cold-blooded\" is misleading, and inside heat costs food.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.body_heat_source",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.body_heat_cost",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.vertebrate_backbone",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.004"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some 'cold-blooded' lizards run hotter than some mammals.",
+      "body": "Britannica calls the words warm-blooded and cold-blooded imprecise and misleading, and that lizard is why. So if blood temperature isn't the real difference, what is?"
+    },
+    {
+      "id": "card.animals.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Inside heat, outside heat",
+      "body": "The real difference is where the heat comes from. Endotherms make most of it inside their bodies and hold a steady temperature whatever the weather: about 37 °C for mammals and about 40 °C for birds. Ectotherms absorb most of their heat from their surroundings; that includes fish, amphibians, reptiles and invertebrates. Endo means inside, ecto means outside. The name tells you where the furnace is."
+    },
+    {
+      "id": "card.animals.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A lizard's working day",
+      "body": "An ectotherm isn't helpless. A reptile basks in the sun or lies on a warm surface to heat up, then moves between sun and shade, or turns its body, to control how much heat it gains or loses. Its temperature still rises and falls with its surroundings more than yours does. It runs its thermostat with its feet."
+    },
+    {
+      "id": "card.animals.005.c4",
+      "type": "fact",
+      "fact": "Your steady warmth is paid for at every meal.",
+      "context": "Because reptiles don't keep a constant inside temperature, they have a low metabolic rate and need less food than warm-blooded animals of the same size. Many can survive long stretches without eating. Your 37 °C is a furnace that never switches off, and food is its fuel.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Next time you feel starving, you know who to blame. The furnace."
+      }
+    },
+    {
+      "id": "card.animals.005.c5",
+      "type": "mcq",
+      "questionId": "question.animals.005.q1"
+    },
+    {
+      "id": "card.animals.005.c6",
+      "type": "mcq",
+      "questionId": "question.animals.005.q2"
+    },
+    {
+      "id": "card.animals.005.c7",
+      "type": "recall",
+      "questionId": "question.animals.005.q3"
+    },
+    {
+      "id": "card.animals.005.c8",
+      "type": "checkpoint",
+      "headline": "Body heat: explained",
+      "learned": [
+        "Endotherms make heat inside; ectotherms take it from outside",
+        "Mammals about 37 °C, birds about 40 °C",
+        "Reptiles manage heat by basking and seeking shade",
+        "'Cold-blooded' is misleading; inside heat costs food"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.body_heat_source"
+      ],
+      "sourceCardIds": [
+        "card.animals.005.c2"
+      ],
+      "prompt": "What do the terms endotherm and ectotherm actually describe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How warm the blood is",
+          "correct": false,
+          "rationale": "Misleading: some lizards run hotter than some mammals."
+        },
+        {
+          "id": "b",
+          "label": "Where most body heat comes from",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Whether it lives on land or water",
+          "correct": false,
+          "rationale": "Both kinds live in both places."
+        },
+        {
+          "id": "d",
+          "label": "How fast the animal moves",
+          "correct": false,
+          "rationale": "The terms are about heat, not speed."
+        }
+      ],
+      "explanation": "Endotherms make most of their heat inside; ectotherms absorb it from their surroundings.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.body_heat_cost"
+      ],
+      "sourceCardIds": [
+        "card.animals.005.c4"
+      ],
+      "prompt": "A lizard and a mammal weigh about the same. Why does the lizard need less food?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It stores heat in its scales",
+          "correct": false,
+          "rationale": "Scales are not a heat bank."
+        },
+        {
+          "id": "b",
+          "label": "It makes food from sunlight",
+          "correct": false,
+          "rationale": "Only producers do that; lizards must eat."
+        },
+        {
+          "id": "c",
+          "label": "It skips keeping a steady inside temperature",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its blood is always cold",
+          "correct": false,
+          "rationale": "Basking lizards can be very warm."
+        }
+      ],
+      "explanation": "Without a constant inside temperature to fuel, reptiles have a low metabolic rate and need less food.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.body_heat_source",
+        "concept.animals.vertebrate_backbone"
+      ],
+      "sourceCardIds": [
+        "card.animals.005.c2",
+        "card.animals.003.c2"
+      ],
+      "prompt": "Of Level 3's five vertebrate groups, which two are endotherms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fish and amphibians",
+          "correct": false,
+          "rationale": "Both are ectotherms."
+        },
+        {
+          "id": "b",
+          "label": "Reptiles and birds",
+          "correct": false,
+          "rationale": "Reptiles are ectotherms."
+        },
+        {
+          "id": "c",
+          "label": "Mammals and birds",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Mammals and reptiles",
+          "correct": false,
+          "rationale": "Reptiles take their heat from outside."
+        }
+      ],
+      "explanation": "Mammals (about 37 °C) and birds (about 40 °C) make their own heat; fish, amphibians and reptiles are ectotherms.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_dinosaur_body_temperature",
+    "source.brit_warm_bloodedness",
+    "source.brit_cold_bloodedness",
+    "source.brit_why_reptiles_cold_blooded"
+  ],
+  "art": "nature.thermometer"
+}

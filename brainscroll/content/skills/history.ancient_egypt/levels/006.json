@@ -1,0 +1,215 @@
+{
+  "id": "level.history.ancient_egypt.006",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Two Lands",
+  "objective": "After this level you can explain why Egypt was two lands and how the double crown joined them.",
+  "summary": "Upper Egypt was the southern valley and Lower Egypt the northern Delta. Each had a crown, white and red, and kings wore both as the double crown.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.two_lands",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.nile_highway",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.005"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In ancient Egypt, Upper Egypt is in the south.",
+      "body": "It isn’t a mistake. Egypt was really two lands, and their names only make sense if you think like the river."
+    },
+    {
+      "id": "card.ancient_egypt.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Upstream and downstream",
+      "body": "Egyptians named their two lands by the Nile. Upper Egypt was upstream: the long, narrow valley in the south. Lower Egypt was downstream: the Delta in the north, where the river fans out into several branches before the sea. In late predynastic times, before there was one king, they were separate political lands. On a modern map, the “upper” half sits at the bottom."
+    },
+    {
+      "id": "card.ancient_egypt.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One head, two crowns",
+      "body": "Each land had its own crown. Upper Egypt’s white crown was tall and cone-shaped. Lower Egypt’s red crown was flat, with a rising back and a spiral curl in front. Kings often wore them combined as the double crown, a symbol of both lands united under one ruler. The royal title said it too: “King of Upper and Lower Egypt.” Two lands, one king, and a hat that told you so.",
+      "callout": "White crown + red crown = double crown"
+    },
+    {
+      "id": "card.ancient_egypt.006.c4",
+      "type": "fact",
+      "fact": "No real Egyptian crown has ever been found.",
+      "context": "We know the white, red and double crowns from works of art: statues, paintings and carvings of kings. But no actual crown has survived, so nobody knows for certain what they were made of. For some of the most famous hats in history, that’s quite a vanishing act.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Somewhere, maybe, the greatest hat in history is still waiting to be found."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.006.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.006.q1"
+    },
+    {
+      "id": "card.ancient_egypt.006.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.006.q2"
+    },
+    {
+      "id": "card.ancient_egypt.006.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.006.q3"
+    },
+    {
+      "id": "card.ancient_egypt.006.c8",
+      "type": "checkpoint",
+      "headline": "Two lands: joined",
+      "learned": [
+        "Upper Egypt: the southern valley, upstream",
+        "Lower Egypt: the northern Delta, downstream",
+        "White crown (Upper) + red crown (Lower) = double crown",
+        "No actual crown has survived"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.two_lands"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.006.c2"
+      ],
+      "prompt": "Which part of Egypt was “Lower Egypt”?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The narrow valley in the south",
+          "correct": false,
+          "rationale": "That was Upper Egypt."
+        },
+        {
+          "id": "b",
+          "label": "The oases of the western desert",
+          "correct": false,
+          "rationale": "The two lands were both on the Nile."
+        },
+        {
+          "id": "c",
+          "label": "The Delta in the north",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The land beyond the First Cataract",
+          "correct": false,
+          "rationale": "That lay outside Egypt."
+        }
+      ],
+      "explanation": "Lower Egypt was the northern Delta, downstream; Upper Egypt was the southern valley.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.two_lands"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.006.c3"
+      ],
+      "prompt": "What did it mean when a king wore the double crown?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He was going to war that day",
+          "correct": false,
+          "rationale": "The crown was about rule, not battle."
+        },
+        {
+          "id": "b",
+          "label": "He ruled both Upper and Lower Egypt",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He was a priest as well as a king",
+          "correct": false,
+          "rationale": "The two crowns stood for two lands."
+        },
+        {
+          "id": "d",
+          "label": "He shared power with a second king",
+          "correct": false,
+          "rationale": "One king wore both crowns."
+        }
+      ],
+      "explanation": "The double crown combined the white crown of Upper Egypt and the red crown of Lower Egypt: two lands, one king.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_egypt.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.two_lands",
+        "concept.ancient_egypt.nile_highway"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.006.c2",
+        "card.ancient_egypt.005.c2"
+      ],
+      "prompt": "From Level 5: the Nile flows north. Why is the south called “Upper Egypt”?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It had more people than the north",
+          "correct": false,
+          "rationale": "The name is about the river."
+        },
+        {
+          "id": "b",
+          "label": "Southern kings always ranked higher",
+          "correct": false,
+          "rationale": "The name comes from geography."
+        },
+        {
+          "id": "c",
+          "label": "It was the rainier half of Egypt",
+          "correct": false,
+          "rationale": "Egypt gets very little rain anywhere."
+        },
+        {
+          "id": "d",
+          "label": "It lies upstream on the Nile",
+          "correct": true
+        }
+      ],
+      "explanation": "Since the Nile flows north, the south is upstream, so it is “upper” Egypt.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_upper_egypt",
+    "source.brit_ancient_egypt",
+    "source.brit_crowns_egypt",
+    "source.met_egypt_educators",
+    "source.brit_nile_river"
+  ],
+  "art": "egypt.headdress"
+}

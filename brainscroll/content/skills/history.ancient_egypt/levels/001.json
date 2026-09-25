@@ -1,0 +1,228 @@
+{
+  "id": "level.history.ancient_egypt.001",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ancient Egypt in One Level",
+  "objective": "After this level you can describe the Old, Middle and New Kingdoms and roughly when each flourished.",
+  "summary": "Ancient Egypt lasted about 3,000 years. Its three great kingdoms, Old, Middle and New, were separated by Intermediate Periods when the land split.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.egypt_eras",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.egypt_span",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Cleopatra lived closer to the Moon landing than to the Great Pyramid.",
+      "body": "That’s how long ancient Egypt lasted. So how do you keep a story that long straight in your head? Start with the big shape."
+    },
+    {
+      "id": "card.ancient_egypt.001.c2",
+      "type": "timeline",
+      "headline": "Three kingdoms, about 3,000 years",
+      "events": [
+        {
+          "when": "About 3100–3000 BCE",
+          "label": "Upper and Lower Egypt become one kingdom"
+        },
+        {
+          "when": "About 2686–2160 BCE",
+          "label": "Old Kingdom: the age of the great pyramids"
+        },
+        {
+          "when": "About 2055–1650 BCE",
+          "label": "Middle Kingdom: Egypt is reunited"
+        },
+        {
+          "when": "About 1550–1069 BCE",
+          "label": "New Kingdom: Egypt becomes an empire"
+        },
+        {
+          "when": "30 BCE",
+          "label": "Egypt becomes a province of Rome"
+        }
+      ]
+    },
+    {
+      "id": "card.ancient_egypt.001.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Peaks and valleys",
+      "body": "Egypt’s story isn’t one smooth climb. Between the three kingdoms came the First, Second and Third Intermediate Periods, when the country split apart, often into local rule in Upper and Lower Egypt. Each time, the land was eventually pulled back together and a new great age began. Picture a mountain range: historians named the peaks Old, Middle and New. The valleys got the less glamorous name “Intermediate.”",
+      "callout": "Kingdom, split, kingdom, split, kingdom"
+    },
+    {
+      "id": "card.ancient_egypt.001.c4",
+      "type": "fact",
+      "fact": "Ancient Egypt lasted about 3,000 years.",
+      "context": "Count from the first kings, around 3100 to 3000 BCE, to 30 BCE, when Egypt became a province of Rome. That’s one civilization running for longer than the time between Cleopatra and you. Why it lasted so long is this chapter’s story, and it starts with a river."
+    },
+    {
+      "id": "card.ancient_egypt.001.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.001.q1"
+    },
+    {
+      "id": "card.ancient_egypt.001.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.001.q2"
+    },
+    {
+      "id": "card.ancient_egypt.001.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.001.q3"
+    },
+    {
+      "id": "card.ancient_egypt.001.c8",
+      "type": "checkpoint",
+      "headline": "Ancient Egypt: the big picture",
+      "learned": [
+        "Ancient Egypt lasted about 3,000 years",
+        "Old, Middle and New Kingdoms, in that order",
+        "Intermediate Periods: times when the land split",
+        "Egypt became a Roman province in 30 BCE"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.egypt_eras"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.001.c2"
+      ],
+      "prompt": "Which list puts ancient Egypt’s three great kingdoms in order, earliest first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Old, New, Middle",
+          "correct": false,
+          "rationale": "The Middle Kingdom came second."
+        },
+        {
+          "id": "b",
+          "label": "Middle, Old, New",
+          "correct": false,
+          "rationale": "The Old Kingdom came first."
+        },
+        {
+          "id": "c",
+          "label": "New, Middle, Old",
+          "correct": false,
+          "rationale": "That runs backwards."
+        },
+        {
+          "id": "d",
+          "label": "Old, Middle, New",
+          "correct": true
+        }
+      ],
+      "explanation": "Old Kingdom from about 2686 BCE, Middle Kingdom from about 2055 BCE, New Kingdom from about 1550 BCE.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_egypt.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.egypt_eras"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.001.c3"
+      ],
+      "prompt": "What happened in Egypt during its “Intermediate Periods”?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The country split, often into local rule",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Egypt fought long wars against Rome",
+          "correct": false,
+          "rationale": "Rome arrived only at the very end."
+        },
+        {
+          "id": "c",
+          "label": "The Nile stopped flooding for a century",
+          "correct": false,
+          "rationale": "The periods are about politics, not the river."
+        },
+        {
+          "id": "d",
+          "label": "Kings moved the capital to Greece",
+          "correct": false,
+          "rationale": "The capital never left Egypt."
+        }
+      ],
+      "explanation": "Between the kingdoms, central power broke down and the land was divided until it was reunited.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.egypt_span"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.001.c1",
+        "card.ancient_egypt.001.c4"
+      ],
+      "prompt": "Cleopatra lived closer in time to the Moon landing than to the building of the Great Pyramid. What does that show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cleopatra ordered the Great Pyramid built",
+          "correct": false,
+          "rationale": "It was over two thousand years old in her day."
+        },
+        {
+          "id": "b",
+          "label": "Ancient Egypt lasted a remarkably long time",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Great Pyramid is younger than people think",
+          "correct": false,
+          "rationale": "It is far older than Cleopatra."
+        },
+        {
+          "id": "d",
+          "label": "The Moon landing was in ancient times",
+          "correct": false,
+          "rationale": "It happened in 1969."
+        }
+      ],
+      "explanation": "Egyptian civilization ran for about 3,000 years, so even Cleopatra was a latecomer to it.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.oup_oxford_history_egypt",
+    "source.met_egypt_educators",
+    "source.brit_cleopatra",
+    "source.nasa_apollo11",
+    "source.brit_great_pyramid"
+  ],
+  "art": "geo.pyramids"
+}

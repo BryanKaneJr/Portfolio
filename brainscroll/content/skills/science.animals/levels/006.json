@@ -1,0 +1,245 @@
+{
+  "id": "level.science.animals.006",
+  "skillId": "skill.science.animals",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Animals Eat",
+  "objective": "After this level you can explain herbivores, carnivores and omnivores.",
+  "summary": "Herbivores eat mainly plants, carnivores mostly meat, omnivores both; teeth give it away. The giant panda is in the order Carnivora yet eats mostly bamboo.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.diet_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.diet_vs_classification",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.taxonomy_ranks",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.005"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The giant panda belongs to the meat-eaters' order. It eats bamboo.",
+      "body": "Up to 16 hours a day of it. So is a panda a carnivore or not? It depends on whether you're asking about its family tree or its dinner plate. Start with the plate."
+    },
+    {
+      "id": "card.animals.006.c2",
+      "type": "comparison",
+      "headline": "Three kinds of eater",
+      "items": [
+        {
+          "label": "Herbivore",
+          "points": [
+            "Eats mainly plants",
+            "From aphids to elephants",
+            "Wide molars grind leaves and grass"
+          ]
+        },
+        {
+          "label": "Carnivore",
+          "points": [
+            "Eats mostly meat",
+            "Strong jaws, long sharp teeth",
+            "Every cat, house cat to tiger, must eat meat"
+          ]
+        },
+        {
+          "label": "Omnivore",
+          "points": [
+            "Regularly eats plants and animals",
+            "Bears, raccoons and you",
+            "Can switch foods if one runs out"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.animals.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Read the teeth",
+      "body": "Teeth give a diet away. Wide molars grind leaves; long, sharp teeth grab and rip apart prey. A raccoon, an omnivore, carries both toolkits: sharp front teeth for ripping apart mice and large molars for chewing plants. Hand a biologist a skull and they're reading a menu.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Say cheese. Actually, say what you ate. Your teeth already did."
+      }
+    },
+    {
+      "id": "card.animals.006.c4",
+      "type": "fact",
+      "fact": "A plant eater with a meat eater's gut",
+      "context": "The giant panda is a mammal in the order Carnivora, in the bear family, and its digestive system is more like a carnivore's. It can't digest cellulose, the main stuff of bamboo, so it pushes a lot through: 70 to 100 pounds a day. Remember Level 4's ranks? 'Carnivora' is the panda's order. What it eats makes it mostly a plant eater."
+    },
+    {
+      "id": "card.animals.006.c5",
+      "type": "mcq",
+      "questionId": "question.animals.006.q1"
+    },
+    {
+      "id": "card.animals.006.c6",
+      "type": "mcq",
+      "questionId": "question.animals.006.q2"
+    },
+    {
+      "id": "card.animals.006.c7",
+      "type": "recall",
+      "questionId": "question.animals.006.q3"
+    },
+    {
+      "id": "card.animals.006.c8",
+      "type": "checkpoint",
+      "headline": "Diets: sorted",
+      "learned": [
+        "Herbivores eat mainly plants",
+        "Carnivores eat mostly meat",
+        "Omnivores regularly eat both",
+        "Teeth reveal the diet",
+        "The panda: order Carnivora, diet mostly bamboo"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.diet_types"
+      ],
+      "sourceCardIds": [
+        "card.animals.006.c2"
+      ],
+      "prompt": "What makes an animal an omnivore?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It eats only plants",
+          "correct": false,
+          "rationale": "That's a herbivore."
+        },
+        {
+          "id": "b",
+          "label": "It eats mostly meat",
+          "correct": false,
+          "rationale": "That's a carnivore."
+        },
+        {
+          "id": "c",
+          "label": "It regularly eats plants and animals",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It eats only at night",
+          "correct": false,
+          "rationale": "Diet labels are about food, not timing."
+        }
+      ],
+      "explanation": "Omnivores, like bears, raccoons and humans, regularly eat both plants and animals.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.diet_types"
+      ],
+      "sourceCardIds": [
+        "card.animals.006.c3",
+        "card.animals.006.c2"
+      ],
+      "prompt": "A skull has wide, grinding molars and no long, sharp teeth. What did the animal most likely eat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mostly plants",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Mostly meat",
+          "correct": false,
+          "rationale": "Meat eaters have long, sharp teeth."
+        },
+        {
+          "id": "c",
+          "label": "Plants and animals equally",
+          "correct": false,
+          "rationale": "An omnivore like a raccoon also has sharp front teeth."
+        },
+        {
+          "id": "d",
+          "label": "Nothing solid",
+          "correct": false,
+          "rationale": "Grinding molars are for chewing."
+        }
+      ],
+      "explanation": "Wide molars that grind leaves and grass are the mark of a herbivore.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.diet_vs_classification",
+        "concept.animals.taxonomy_ranks"
+      ],
+      "sourceCardIds": [
+        "card.animals.006.c4",
+        "card.animals.004.c4"
+      ],
+      "prompt": "Level 4's ranks put the giant panda in the order Carnivora. What does its actual diet make it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A strict carnivore, like its order",
+          "correct": false,
+          "rationale": "Its order is Carnivora, but it eats mostly bamboo."
+        },
+        {
+          "id": "b",
+          "label": "Mostly a plant eater",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "An omnivore that hunts daily",
+          "correct": false,
+          "rationale": "Pandas eat mostly bamboo, not prey."
+        },
+        {
+          "id": "d",
+          "label": "A filter feeder",
+          "correct": false,
+          "rationale": "That's how sponges eat."
+        }
+      ],
+      "explanation": "The panda's order is Carnivora, but bamboo makes up most of its diet: rank and diet answer different questions.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonian_zoo_giant_panda",
+    "source.brit_giant_panda",
+    "source.natgeo_herbivore",
+    "source.natgeo_carnivore",
+    "source.natgeo_omnivore"
+  ],
+  "art": "animals.lion"
+}

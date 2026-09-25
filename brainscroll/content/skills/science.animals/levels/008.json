@@ -1,0 +1,224 @@
+{
+  "id": "level.science.animals.008",
+  "skillId": "skill.science.animals",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ecosystems",
+  "objective": "After this level you can explain how animals, plants and places form an ecosystem.",
+  "summary": "An ecosystem is living things plus nonliving parts working together. When Robert Paine removed sea stars from a shore, mussels took over: the sea star was a keystone species.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.ecosystem_def",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.keystone_species",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.food_chain_levels",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.diet_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.007"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A scientist pried sea stars off rocks with a crowbar and tossed them in the sea.",
+      "body": "On purpose. It was an experiment on the coast of Washington State in the 1960s, and what happened next changed how ecologists think about the places animals live."
+    },
+    {
+      "id": "card.animals.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "More than a list of animals",
+      "body": "An ecosystem is a place where plants, animals and other organisms work together with the nonliving parts around them, such as rocks, temperature and humidity. It can be enormous, or as small as a tide pool, which is a complete, tiny ecosystem of its own. Every part depends on every other part, directly or indirectly. That's the claim. Paine went to test it."
+    },
+    {
+      "id": "card.animals.008.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The shore without its sea stars",
+      "body": "Robert Paine's carnivorous ochre sea stars ate mussels on the rocky shore of Mukkaw Bay. Within two years of removing them from one stretch, California mussels took over rock that had held anemones, sponges, barnacles, chitons, limpets and seaweeds. On nearby shore where the sea stars stayed, the mix survived. One hungry predator had been keeping room open for everyone else."
+    },
+    {
+      "id": "card.animals.008.c4",
+      "type": "fact",
+      "fact": "Some species hold the whole arch up.",
+      "context": "Paine called them keystone species. A keystone is the wedge-shaped stone at the top of an arch that keeps it from collapsing. Take out the sea star and the shore's variety fell apart. Think back to Level 7's food web: one predator near the top decided who got room at the bottom.",
+      "mascot": {
+        "pose": "idea",
+        "line": "One sea star, one crowbar, one idea that changed ecology."
+      }
+    },
+    {
+      "id": "card.animals.008.c5",
+      "type": "mcq",
+      "questionId": "question.animals.008.q1"
+    },
+    {
+      "id": "card.animals.008.c6",
+      "type": "mcq",
+      "questionId": "question.animals.008.q2"
+    },
+    {
+      "id": "card.animals.008.c7",
+      "type": "recall",
+      "questionId": "question.animals.008.q3"
+    },
+    {
+      "id": "card.animals.008.c8",
+      "type": "checkpoint",
+      "headline": "Ecosystems: explored",
+      "learned": [
+        "Living things plus nonliving parts, working together",
+        "A tide pool is a complete tiny ecosystem",
+        "Paine removed sea stars; mussels took over",
+        "A keystone species holds its ecosystem together"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.ecosystem_def"
+      ],
+      "sourceCardIds": [
+        "card.animals.008.c2"
+      ],
+      "prompt": "Which pair shows one living part and one nonliving part of an ecosystem?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mussels and barnacles",
+          "correct": false,
+          "rationale": "Both are living things."
+        },
+        {
+          "id": "b",
+          "label": "Rocks and temperature",
+          "correct": false,
+          "rationale": "Both are nonliving parts."
+        },
+        {
+          "id": "c",
+          "label": "Seaweed and humidity",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Sea stars and anemones",
+          "correct": false,
+          "rationale": "Both are living things."
+        }
+      ],
+      "explanation": "Ecosystems combine living parts, like seaweed, with nonliving parts such as rocks, temperature and humidity.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.keystone_species"
+      ],
+      "sourceCardIds": [
+        "card.animals.008.c3",
+        "card.animals.008.c4"
+      ],
+      "prompt": "After Paine removed the ochre sea stars, why did the shore lose so many kinds of life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The water got too warm",
+          "correct": false,
+          "rationale": "Nothing changed but the missing sea stars."
+        },
+        {
+          "id": "b",
+          "label": "The sea stars had been feeding the others",
+          "correct": false,
+          "rationale": "They ate mussels; they did not feed anyone."
+        },
+        {
+          "id": "c",
+          "label": "Barnacles ate the seaweed",
+          "correct": false,
+          "rationale": "The takeover came from mussels."
+        },
+        {
+          "id": "d",
+          "label": "Uneaten mussels took over the rock",
+          "correct": true
+        }
+      ],
+      "explanation": "Without the sea stars eating them, California mussels monopolized the rock and crowded out other species.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.keystone_species",
+        "concept.animals.diet_types"
+      ],
+      "sourceCardIds": [
+        "card.animals.008.c3",
+        "card.animals.006.c2"
+      ],
+      "prompt": "Paine's ochre sea star ate mussels. By Level 6's labels, what kind of eater is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A herbivore",
+          "correct": false,
+          "rationale": "Mussels are animals, not plants."
+        },
+        {
+          "id": "b",
+          "label": "A carnivore",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "An omnivore",
+          "correct": false,
+          "rationale": "It is described as carnivorous."
+        },
+        {
+          "id": "d",
+          "label": "A producer",
+          "correct": false,
+          "rationale": "Producers make their own food; sea stars eat."
+        }
+      ],
+      "explanation": "The ochre sea star is carnivorous: it eats mussels, which are animals.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.nas_paine_memoir",
+    "source.natgeo_keystone_species",
+    "source.natgeo_ecosystem",
+    "source.natgeo_food_chain"
+  ],
+  "art": "geo.rainforest"
+}

@@ -1,0 +1,216 @@
+{
+  "id": "level.history.ancient_egypt.005",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Boats on the Nile",
+  "objective": "After this level you can explain how the Nile served as Egypt's main road.",
+  "summary": "The Nile flows north and Egypt’s wind blows from the north, so boats drifted north on the current and sailed south with the wind, as far as the First Cataract.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.nile_highway",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.black_red_land",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.004"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On the Nile, going south meant hoisting a sail. Going north, you didn’t bother.",
+      "body": "The river gave Egypt one more gift: a two-way road. The trick was that the water and the wind moved in opposite directions."
+    },
+    {
+      "id": "card.ancient_egypt.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A road with two engines",
+      "body": "The Nile flows north, through northeastern Africa into the Mediterranean. So a boat heading north simply rode the current. Egypt’s wind usually blew the other way, from the north. Raise a sail, and that same wind pushed you south, upstream, against the current. Heading north, you went with the flow. Heading south, you let the wind do the rowing.",
+      "callout": "North: ride the current. South: raise the sail.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Free power both ways. Egypt’s river came with its own return ticket."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The rulebook in miniature",
+      "body": "An official named Meketre was buried at Thebes around 1985 BCE with a wooden model riverboat, now at the Met. On it, twelve oarsmen row downstream, north, and the mast is down, because heading north meant pulling against the north wind. Going south, the Met explains, the boat would have been sailed and the rowers could rest. Four thousand years later, the model still follows the traffic rules."
+    },
+    {
+      "id": "card.ancient_egypt.005.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Egypt’s main road",
+      "body": "The Nile was the easiest way to travel, and Egypt’s great highway for trade, mining expeditions and building projects. Since cities could flourish only by water, Egypt’s towns lined the road. Boats could run the river all the way south to Aswan and the First Cataract, a stretch of rock-strewn rapids that partly blocked the Nile. That was the end of the line, and Egypt’s southern border."
+    },
+    {
+      "id": "card.ancient_egypt.005.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.005.q1"
+    },
+    {
+      "id": "card.ancient_egypt.005.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.005.q2"
+    },
+    {
+      "id": "card.ancient_egypt.005.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.005.q3"
+    },
+    {
+      "id": "card.ancient_egypt.005.c8",
+      "type": "checkpoint",
+      "headline": "The river road: traveled",
+      "learned": [
+        "The Nile flows north to the Mediterranean",
+        "The wind blows from the north",
+        "North: ride the current. South: raise the sail",
+        "Boats ran south as far as the First Cataract at Aswan"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.nile_highway"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.005.c2"
+      ],
+      "prompt": "Which way does the Nile flow through Egypt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "South, toward central Africa",
+          "correct": false,
+          "rationale": "That’s the way the wind pushed boats."
+        },
+        {
+          "id": "b",
+          "label": "North, toward the Mediterranean",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "East, toward the Red Sea",
+          "correct": false,
+          "rationale": "The Nile runs north to the Mediterranean."
+        },
+        {
+          "id": "d",
+          "label": "It reverses with the seasons",
+          "correct": false,
+          "rationale": "The current always ran north."
+        }
+      ],
+      "explanation": "The Nile flows north into the Mediterranean, so boats heading north rode the current.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_egypt.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.nile_highway"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.005.c3",
+        "card.ancient_egypt.005.c2"
+      ],
+      "prompt": "Meketre’s model boat is being rowed north with its mast down. Why no sail?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sails were banned on boats for the dead",
+          "correct": false,
+          "rationale": "Going south, the same boat would have sailed."
+        },
+        {
+          "id": "b",
+          "label": "Egyptians hadn’t yet learned to use sails",
+          "correct": false,
+          "rationale": "They sailed south with the wind."
+        },
+        {
+          "id": "c",
+          "label": "Heading north, the wind blew against the boat",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The mast was only for flying flags",
+          "correct": false,
+          "rationale": "It carried a sail for trips south."
+        }
+      ],
+      "explanation": "The wind usually blew from the north, so northbound boats used the current and oars instead.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_egypt.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.nile_highway",
+        "concept.ancient_egypt.black_red_land"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.005.c4",
+        "card.ancient_egypt.003.c4"
+      ],
+      "prompt": "The First Cataract at Aswan partly blocked boats. What else was it for Egypt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The southern border",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The capital city",
+          "correct": false,
+          "rationale": "It was a frontier, not a capital."
+        },
+        {
+          "id": "c",
+          "label": "The start of the Delta",
+          "correct": false,
+          "rationale": "The Delta is in the far north."
+        },
+        {
+          "id": "d",
+          "label": "The source of the flood",
+          "correct": false,
+          "rationale": "The flood came from rains in Ethiopia."
+        }
+      ],
+      "explanation": "Along with the deserts and the sea, the rapids at Aswan marked the edge of Egypt.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_nile_river",
+    "source.met_egypt_educators",
+    "source.carnegie_egypt_nile",
+    "source.brit_nile_physiography"
+  ],
+  "art": "egypt.boat"
+}

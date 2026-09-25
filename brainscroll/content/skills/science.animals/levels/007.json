@@ -1,0 +1,218 @@
+{
+  "id": "level.science.animals.007",
+  "skillId": "skill.science.animals",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Food Chains and Webs",
+  "objective": "After this level you can explain how energy passes along a food chain.",
+  "summary": "Energy enters food chains through producers and passes up through consumers, about 10 percent per step, so most ecosystems have at most five levels. Chains overlap into webs.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.food_chain_levels",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.energy_ten_percent",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.diet_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.006"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A blue whale's dinner starts with sunlight.",
+      "body": "In one ocean food chain, single-celled phytoplankton feed tiny shrimp called krill, and krill are the blue whale's main food. So how does sunlight end up inside a whale, and why does so little of it make the trip?"
+    },
+    {
+      "id": "card.animals.007.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who eats whom",
+      "body": "A food chain starts with producers, which make their own food, nearly all by photosynthesis from sunlight, carbon dioxide and water. Primary consumers (herbivores) eat the producers. Secondary consumers eat them, tertiary consumers eat those, and apex predators sit on top. Decomposers such as fungi and bacteria finish the job, turning dead plants and wastes into nutrient-rich soil."
+    },
+    {
+      "id": "card.animals.007.c3",
+      "type": "fact",
+      "fact": "Only about 10 percent of the energy climbs each step.",
+      "context": "On average, each level passes on about 10 percent of its energy. The rest is lost: some food can't be digested, a lot escapes as heat, and some living things die without being eaten. Start with 1,000 units in plants, and about 100 reach the herbivores and about 10 the animals that eat them. That's why most ecosystems top out at five levels.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "A 90 percent tax at every step. No wonder the top of the chain is so exclusive."
+      }
+    },
+    {
+      "id": "card.animals.007.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chains tangle into webs",
+      "body": "Real animals rarely stick to one chain. All the overlapping chains in an ecosystem make up a food web. Level 6's omnivores are one reason: a bear eats berries, like a primary consumer, and salmon, like a higher one. Draw every arrow, and your neat line turns into a net."
+    },
+    {
+      "id": "card.animals.007.c5",
+      "type": "mcq",
+      "questionId": "question.animals.007.q1"
+    },
+    {
+      "id": "card.animals.007.c6",
+      "type": "mcq",
+      "questionId": "question.animals.007.q2"
+    },
+    {
+      "id": "card.animals.007.c7",
+      "type": "recall",
+      "questionId": "question.animals.007.q3"
+    },
+    {
+      "id": "card.animals.007.c8",
+      "type": "checkpoint",
+      "headline": "Food chains: traced",
+      "learned": [
+        "Producers make food; consumers eat",
+        "Primary, secondary, tertiary consumers, then apex predators",
+        "Decomposers recycle the dead",
+        "About 10% of energy passes up each step",
+        "Overlapping chains form a food web"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.food_chain_levels"
+      ],
+      "sourceCardIds": [
+        "card.animals.007.c2"
+      ],
+      "prompt": "In a food chain, what can producers do that consumers cannot?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Make their own food",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Eat other animals",
+          "correct": false,
+          "rationale": "That's what secondary consumers do."
+        },
+        {
+          "id": "c",
+          "label": "Break down dead things",
+          "correct": false,
+          "rationale": "That's the decomposers' job."
+        },
+        {
+          "id": "d",
+          "label": "Sit at the top of the chain",
+          "correct": false,
+          "rationale": "That's the apex predators."
+        }
+      ],
+      "explanation": "Producers make their own food, nearly all of them by photosynthesis.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.energy_ten_percent"
+      ],
+      "sourceCardIds": [
+        "card.animals.007.c3"
+      ],
+      "prompt": "Why do most ecosystems support no more than about five food-chain levels?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Predators refuse to eat each other",
+          "correct": false,
+          "rationale": "The limit comes from energy, not manners."
+        },
+        {
+          "id": "b",
+          "label": "Only about 10 percent of energy passes up each step",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Plants stop growing above five levels",
+          "correct": false,
+          "rationale": "Plants are the first level, not a ceiling."
+        },
+        {
+          "id": "d",
+          "label": "Decomposers eat the top levels",
+          "correct": false,
+          "rationale": "Decomposers recycle the dead at every level."
+        }
+      ],
+      "explanation": "With about 90 percent lost at each step, too little energy is left to support more levels.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.animals.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.food_chain_levels",
+        "concept.animals.diet_types"
+      ],
+      "sourceCardIds": [
+        "card.animals.007.c4",
+        "card.animals.006.c2"
+      ],
+      "prompt": "Level 6's omnivores eat both plants and animals. What does that do to a neat, single food chain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It breaks the chain completely",
+          "correct": false,
+          "rationale": "The chain still works; it just connects to others."
+        },
+        {
+          "id": "b",
+          "label": "It turns the omnivore into a producer",
+          "correct": false,
+          "rationale": "Omnivores still can't make their own food."
+        },
+        {
+          "id": "c",
+          "label": "It joins chains into a web",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It removes the decomposers",
+          "correct": false,
+          "rationale": "Decomposers stay part of every web."
+        }
+      ],
+      "explanation": "An omnivore feeds at more than one level, linking overlapping chains into a food web.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_food_chain",
+    "source.natgeo_ten_percent_rule",
+    "source.natgeo_omnivore"
+  ],
+  "art": "geo.savanna"
+}

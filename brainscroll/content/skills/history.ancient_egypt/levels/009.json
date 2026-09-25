@@ -1,0 +1,217 @@
+{
+  "id": "level.history.ancient_egypt.009",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Counting Egyptian Time",
+  "objective": "After this level you can explain dynasties and the Old, Middle and New Kingdoms.",
+  "summary": "Egyptians counted years by each king’s reign. Manetho sorted the kings into 30 dynasties, which historians group into kingdoms. Early dates are approximate.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.egypt_dynasties",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.egypt_eras",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.egypt_span",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.008"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "No ancient Egyptian ever wrote a date in “BCE.” They counted by kings.",
+      "body": "So how do we get from “year 5 of the king” to a date on a timeline? With a priest’s old list, a lot of detective work and one small, honest word: “about.”"
+    },
+    {
+      "id": "card.ancient_egypt.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Counting by kings",
+      "body": "Egyptians didn’t count years from one fixed starting point. They counted the years of each king’s reign, then started again with the next king. That works fine while you’re living through it. It gets tricky much later, because the few surviving king lists are broken in places, leave out some awkward rulers and sometimes list rival kings who ruled at the same time as if they took turns."
+    },
+    {
+      "id": "card.ancient_egypt.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Manetho’s dynasties",
+      "body": "Around 300 BCE, an Egyptian priest named Manetho wrote a history of Egypt in Greek. He sorted its rulers into 30 dynasties, grouping kings by things like family ties or where their main royal home was. His book is lost, surviving only in quotes by later writers, yet his 30 dynasties are still the basic framework. Historians then group the dynasties into the Old, Middle and New Kingdoms and the Intermediate Periods between them."
+    },
+    {
+      "id": "card.ancient_egypt.009.c4",
+      "type": "fact",
+      "fact": "Before 664 BCE, Egyptian dates are approximate.",
+      "context": "From 664 BCE on, Egyptian dates can be tied exactly to our calendar. Before that, experts’ dates can differ by decades or more. That’s why this chapter keeps saying “about,” and why Level 8 dated unification to around 3100 to 3000 BCE instead of picking a single year.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "“About” isn’t a dodge. It’s historians being honest."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.009.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.009.q1"
+    },
+    {
+      "id": "card.ancient_egypt.009.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.009.q2"
+    },
+    {
+      "id": "card.ancient_egypt.009.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.009.q3"
+    },
+    {
+      "id": "card.ancient_egypt.009.c8",
+      "type": "checkpoint",
+      "headline": "Egyptian time: counted",
+      "learned": [
+        "Egyptians counted years by each king’s reign",
+        "Manetho sorted the kings into 30 dynasties",
+        "Historians group dynasties into kingdoms",
+        "Dates before 664 BCE are approximate"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.egypt_dynasties"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.009.c3"
+      ],
+      "prompt": "Who first sorted Egypt’s kings into the 30 dynasties historians still use?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Herodotus, a Greek historian",
+          "correct": false,
+          "rationale": "He wrote about the Nile, not the dynasty system."
+        },
+        {
+          "id": "b",
+          "label": "Menes, the legendary first king",
+          "correct": false,
+          "rationale": "He is a figure in the lists, not their author."
+        },
+        {
+          "id": "c",
+          "label": "Narmer, on his palette",
+          "correct": false,
+          "rationale": "The palette shows a king, not a list."
+        },
+        {
+          "id": "d",
+          "label": "Manetho, an Egyptian priest",
+          "correct": true
+        }
+      ],
+      "explanation": "Around 300 BCE the priest Manetho wrote a history in Greek that divided the rulers into 30 dynasties.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.egypt_dynasties"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.009.c2"
+      ],
+      "prompt": "Why is it hard to turn Egyptian records into exact dates?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Egyptians never wrote numbers down",
+          "correct": false,
+          "rationale": "They counted years carefully."
+        },
+        {
+          "id": "b",
+          "label": "They counted years by each king’s reign, not from one fixed point",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "All their records were written in Greek",
+          "correct": false,
+          "rationale": "Only Manetho wrote in Greek, much later."
+        },
+        {
+          "id": "d",
+          "label": "Their year was only six months long",
+          "correct": false,
+          "rationale": "The problem is the starting point, not the year."
+        }
+      ],
+      "explanation": "Years restarted with each king, and the king lists have gaps and overlaps, so totals are uncertain.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_egypt.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.egypt_dynasties",
+        "concept.ancient_egypt.egypt_eras"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.009.c3",
+        "card.ancient_egypt.001.c2"
+      ],
+      "prompt": "How do Manetho’s dynasties fit with the Old, Middle and New Kingdoms from Level 1?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Historians group the dynasties into those kingdoms",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The kingdoms replaced the dynasties entirely",
+          "correct": false,
+          "rationale": "Both systems are still used together."
+        },
+        {
+          "id": "c",
+          "label": "Each kingdom was a single dynasty",
+          "correct": false,
+          "rationale": "Each kingdom spans several dynasties."
+        },
+        {
+          "id": "d",
+          "label": "The dynasties came after the kingdoms ended",
+          "correct": false,
+          "rationale": "They cover the same kings."
+        }
+      ],
+      "explanation": "Manetho’s dynasties are the building blocks; historians group them into kingdoms and Intermediate Periods.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.met_egypt_educators",
+    "source.brit_manetho",
+    "source.oup_oxford_history_egypt"
+  ],
+  "art": "object.hourglass"
+}

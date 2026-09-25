@@ -1,0 +1,228 @@
+{
+  "id": "level.history.ancient_egypt.004",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Farming by the Flood",
+  "objective": "After this level you can describe the farming year of flood, planting and harvest.",
+  "summary": "The Egyptian year had three seasons: Akhet (the flood), Peret (plowing and sowing) and Shemu (harvest and low water). Emmer wheat and barley were the main crops.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.flood_farming",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.black_red_land",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.003"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Egyptian year had three seasons, and every one was about the Nile.",
+      "body": "Not spring, summer, autumn and winter. Flood, emergence and low water. Here’s how a farmer’s year ran on the river’s clock."
+    },
+    {
+      "id": "card.ancient_egypt.004.c2",
+      "type": "timeline",
+      "headline": "Three seasons of four months",
+      "events": [
+        {
+          "when": "Akhet: inundation",
+          "label": "The flood covers the fields"
+        },
+        {
+          "when": "Peret: emergence",
+          "label": "The land comes out of the water; farmers plow and sow"
+        },
+        {
+          "when": "Shemu: low water",
+          "label": "Harvest, then a dry spell until the next flood"
+        }
+      ]
+    },
+    {
+      "id": "card.ancient_egypt.004.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Planting crew: sheep",
+      "body": "Once the flood drained off, the soil was soaked and freshly fertilized, ready for the plow. Farmers tilled it with a wooden plow pulled by an ox or a donkey. The seed went in from a funnel on the plow, or it was trodden into the soil by sheep. Yes, sheep. Some of Egypt’s planting crew walked on four legs and never asked for wages.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Best farmhands in Egypt: they worked for grass."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.004.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What grew in the mud",
+      "body": "The main crops were emmer wheat and six-rowed barley, with lentils, beans, onions and flax alongside. Flax mattered more than it looks: Egyptians wove it into linen. When the grain ripened, farmers cut it with sickles, then the river dropped to its lowest before rising again. One flood, one sowing, one harvest. A whole country planted in last summer’s mud."
+    },
+    {
+      "id": "card.ancient_egypt.004.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.004.q1"
+    },
+    {
+      "id": "card.ancient_egypt.004.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.004.q2"
+    },
+    {
+      "id": "card.ancient_egypt.004.c7",
+      "type": "recall",
+      "questionId": "question.ancient_egypt.004.q3"
+    },
+    {
+      "id": "card.ancient_egypt.004.c8",
+      "type": "checkpoint",
+      "headline": "The farming year: planted",
+      "learned": [
+        "Three seasons: Akhet (flood), Peret (emergence), Shemu (low water)",
+        "Farmers plowed and sowed in the wet silt",
+        "Sheep sometimes trod the seed into the soil",
+        "Main crops: emmer wheat and barley; flax made linen"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.flood_farming"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.004.c2"
+      ],
+      "prompt": "Which season of the Egyptian year was named for the Nile’s flood?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Peret",
+          "correct": false,
+          "rationale": "Peret was when the land emerged from the flood."
+        },
+        {
+          "id": "b",
+          "label": "Shemu",
+          "correct": false,
+          "rationale": "Shemu was the season of low water."
+        },
+        {
+          "id": "c",
+          "label": "Kemet",
+          "correct": false,
+          "rationale": "Kemet was the black land, not a season."
+        },
+        {
+          "id": "d",
+          "label": "Akhet",
+          "correct": true
+        }
+      ],
+      "explanation": "Akhet means the inundation, the four months when the flood covered the fields.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.flood_farming"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.004.c2",
+        "card.ancient_egypt.004.c3"
+      ],
+      "prompt": "Why did Egyptian farmers plow and sow during Peret?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was Egypt’s rainy season",
+          "correct": false,
+          "rationale": "Egypt gets very little rain in any season."
+        },
+        {
+          "id": "b",
+          "label": "The land had just come out of the flood, soaked and fertile",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The river was at its highest point",
+          "correct": false,
+          "rationale": "At its highest, the fields were underwater."
+        },
+        {
+          "id": "d",
+          "label": "The crops from Akhet were ready to harvest",
+          "correct": false,
+          "rationale": "Nothing grows under floodwater."
+        }
+      ],
+      "explanation": "As the flood drained away, it left wet, silt-rich soil that was ready for the plow.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.flood_farming",
+        "concept.ancient_egypt.black_red_land"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.004.c4",
+        "card.ancient_egypt.003.c2"
+      ],
+      "prompt": "From Level 3: in which land did Egypt’s emmer wheat and barley grow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Deshret, the red land",
+          "correct": false,
+          "rationale": "The desert couldn’t be farmed."
+        },
+        {
+          "id": "b",
+          "label": "The oases of the Western Desert only",
+          "correct": false,
+          "rationale": "The main farmland was along the river."
+        },
+        {
+          "id": "c",
+          "label": "Kemet, the black land of the Nile valley",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The rocky banks of the First Cataract",
+          "correct": false,
+          "rationale": "The crops needed the flood’s silt."
+        }
+      ],
+      "explanation": "Crops grew in the narrow strip of black, silt-covered land along the Nile.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_akhet",
+    "source.met_egypt_educators",
+    "source.brit_agriculture_nile",
+    "source.natgeo_nile_flooding",
+    "source.carnegie_egypt_nile"
+  ],
+  "art": "nature.wheat"
+}

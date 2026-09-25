@@ -1,0 +1,216 @@
+{
+  "id": "level.history.ancient_egypt.002",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Gift of the Nile",
+  "objective": "After this level you can explain why Egypt depended on the Nile's yearly flood.",
+  "summary": "Summer rains in Ethiopia made the Nile flood Egypt every year, leaving rich silt behind. Herodotus called Egypt “the gift of the river.”",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.nile_flood",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.egypt_span",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.001"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Egypt barely gets any rain. So how did it feed a great civilization?",
+      "body": "A little over an inch of rain falls on Cairo in a year, and less than that farther south. Yet Egypt fed a dense population and prosperous cities for about 3,000 years. The answer arrived every summer, from somewhere else."
+    },
+    {
+      "id": "card.ancient_egypt.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Someone else’s rain",
+      "body": "Far to the south, heavy summer monsoon rains pour onto the highlands of Ethiopia. They swell the Blue Nile, which does most of the work of bringing the flood downriver. Every year, roughly from July to October, the Nile rose and spread over Egypt’s fields. Egypt’s water supply depended on another country’s rainy season. Imagine your garden being watered by someone else’s storm."
+    },
+    {
+      "id": "card.ancient_egypt.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The black gift",
+      "body": "When the water drained away, it left a layer of dark, fertile silt on the fields: free fertilizer, delivered every year. But the flood had to be just right. Too low, and some fields stayed dry and people could go hungry. Too high, and it could wipe out whole villages. Egyptians didn’t want a big flood or a small one. They wanted a Goldilocks flood.",
+      "callout": "Too low: hunger. Too high: ruin. Just right: silt."
+    },
+    {
+      "id": "card.ancient_egypt.002.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Whose gift?",
+      "body": "The famous phrase “the gift of the Nile” comes from Herodotus, a Greek historian who visited Egypt in the 5th century BCE. He actually wrote “the gift of the river,” and he meant the land itself, built up from the Nile’s mud. Egyptians would have thanked someone else: they believed the flood was a gift of the gods. If it came too big or too small, they blamed an angry river or a king who had slipped in his duties.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Herodotus got the quote, the gods got the thanks, and the Ethiopian rain did the actual work."
+      }
+    },
+    {
+      "id": "card.ancient_egypt.002.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.002.q1"
+    },
+    {
+      "id": "card.ancient_egypt.002.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.002.q2"
+    },
+    {
+      "id": "card.ancient_egypt.002.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.002.q3"
+    },
+    {
+      "id": "card.ancient_egypt.002.c8",
+      "type": "checkpoint",
+      "headline": "The flood: understood",
+      "learned": [
+        "Egypt gets very little rain",
+        "Summer rains in Ethiopia made the Nile flood each year",
+        "The flood left fertile silt; too low or too high was a disaster",
+        "Herodotus called Egypt “the gift of the river”"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.nile_flood"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.002.c3"
+      ],
+      "prompt": "What did the Nile’s yearly flood leave on Egypt’s fields as it drained away?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A crust of white salt",
+          "correct": false,
+          "rationale": "The flood left fertile mud, not salt."
+        },
+        {
+          "id": "b",
+          "label": "A fresh layer of desert sand",
+          "correct": false,
+          "rationale": "The sand stayed in the desert."
+        },
+        {
+          "id": "c",
+          "label": "A layer of dark, fertile silt",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nothing but standing ponds",
+          "correct": false,
+          "rationale": "It left behind something far more useful."
+        }
+      ],
+      "explanation": "The receding flood left dark silt, a natural fertilizer for the next crop.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_egypt.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.nile_flood"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.002.c4"
+      ],
+      "prompt": "When Herodotus called Egypt “the gift of the river,” what did he mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The river had given Egypt its gold",
+          "correct": false,
+          "rationale": "He was talking about the ground itself."
+        },
+        {
+          "id": "b",
+          "label": "Egyptians had to pay a toll to use the Nile",
+          "correct": false,
+          "rationale": "He meant the opposite of a cost."
+        },
+        {
+          "id": "c",
+          "label": "The land itself was built up by the Nile",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Nile was a present from the Greeks",
+          "correct": false,
+          "rationale": "The Greeks were visitors, not givers."
+        }
+      ],
+      "explanation": "Herodotus meant that the land the Greeks sailed to had been built from the river’s deposits.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.nile_flood"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.002.c4",
+        "card.ancient_egypt.002.c2"
+      ],
+      "prompt": "Egyptians blamed a bad Nile flood on an angry river or a careless king. What really made the flood rise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Melting snow in the Sahara",
+          "correct": false,
+          "rationale": "The Sahara has no snowpack to melt."
+        },
+        {
+          "id": "b",
+          "label": "Summer monsoon rains in the Ethiopian highlands",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Winter storms on Egypt’s Mediterranean coast",
+          "correct": false,
+          "rationale": "Egypt’s own rain is tiny."
+        },
+        {
+          "id": "d",
+          "label": "Tides pushing in from the Red Sea",
+          "correct": false,
+          "rationale": "The flood came downriver from the south."
+        }
+      ],
+      "explanation": "Heavy summer rains in Ethiopia swelled the Blue Nile, which carried the flood north to Egypt.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_nile_climate",
+    "source.met_egypt_educators",
+    "source.carnegie_egypt_nile",
+    "source.natgeo_nile_flooding",
+    "source.perseus_herodotus_histories",
+    "source.oup_oxford_history_egypt"
+  ],
+  "art": "geo.river"
+}

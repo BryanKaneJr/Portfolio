@@ -1,0 +1,220 @@
+{
+  "id": "level.science.animals.004",
+  "skillId": "skill.science.animals",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Naming Animals",
+  "objective": "After this level you can explain scientific names and Linnaeus's system.",
+  "summary": "Linnaeus gave each species a two-part name, genus then species; animal names start from 1758. Species sit inside ranks from domain down, and close relatives share a genus.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.binomial_names",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.taxonomy_ranks",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.species_estimated_total",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.003"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Say 'robin' in London and in Boston, and you mean two different birds.",
+      "body": "Early colonists in America named their bird robin because its breast color reminded them of the smaller European robin. The American robin is about 25 cm long, the European one about 14 cm. Same word, different animals. Scientists needed a better system."
+    },
+    {
+      "id": "card.animals.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two words, one animal",
+      "body": "In the 1700s, Carl Linnaeus replaced long descriptive phrases with a two-part name for each species: first the genus, then the species. The European robin is Erithacus rubecula; the American robin is Turdus migratorius. Biologists everywhere accept the system, so a scientific name points to one species, wherever you are. Yours is Homo sapiens, and Linnaeus picked it himself."
+    },
+    {
+      "id": "card.animals.004.c3",
+      "type": "fact",
+      "fact": "Official animal names start in 1758.",
+      "context": "That's the year of the 10th edition of Linnaeus's Systema Naturae, the starting point for naming animals. Plants got their starting line a little earlier, with his Species Plantarum in 1753. Think of 1758 as day one of the official animal register.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "A whole kingdom, and it all starts with one very long book."
+      }
+    },
+    {
+      "id": "card.animals.004.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Boxes inside boxes",
+      "body": "Linnaeus also stacked species into ranks: kingdom, class, order, genus, species. Biologists later added more, and today's ladder runs domain, kingdom, phylum, class, order, family, genus, species. Close relatives share the lower rungs. Lions, tigers, leopards and jaguars all sit in the genus Panthera, so the tiger is Panthera tigris and the leopard Panthera pardus. The genus works like a surname."
+    },
+    {
+      "id": "card.animals.004.c5",
+      "type": "mcq",
+      "questionId": "question.animals.004.q1"
+    },
+    {
+      "id": "card.animals.004.c6",
+      "type": "mcq",
+      "questionId": "question.animals.004.q2"
+    },
+    {
+      "id": "card.animals.004.c7",
+      "type": "recall",
+      "questionId": "question.animals.004.q3"
+    },
+    {
+      "id": "card.animals.004.c8",
+      "type": "checkpoint",
+      "headline": "Names: decoded",
+      "learned": [
+        "Common names can mean different animals in different places",
+        "Scientific names: genus, then species",
+        "Animal names start from 1758",
+        "Ranks from domain down to species; relatives share a genus"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.binomial_names"
+      ],
+      "sourceCardIds": [
+        "card.animals.004.c2"
+      ],
+      "prompt": "In a two-part scientific name like Turdus migratorius, what does the first word name?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The person who found it",
+          "correct": false,
+          "rationale": "Names honor people sometimes, but the first word is the genus."
+        },
+        {
+          "id": "b",
+          "label": "The genus",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The country it lives in",
+          "correct": false,
+          "rationale": "Scientific names are not addresses."
+        },
+        {
+          "id": "d",
+          "label": "The class",
+          "correct": false,
+          "rationale": "Class is a much bigger rank than the first word."
+        }
+      ],
+      "explanation": "A scientific name gives the genus first, then the species.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.animals.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.binomial_names"
+      ],
+      "sourceCardIds": [
+        "card.animals.004.c1",
+        "card.animals.004.c2"
+      ],
+      "prompt": "Why is 'Erithacus rubecula' more useful than 'robin' when scientists in different countries compare notes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's shorter to say",
+          "correct": false,
+          "rationale": "It's actually longer."
+        },
+        {
+          "id": "b",
+          "label": "It describes the bird's size",
+          "correct": false,
+          "rationale": "The name doesn't give a size."
+        },
+        {
+          "id": "c",
+          "label": "It points to one species everywhere",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It lists where the bird lives",
+          "correct": false,
+          "rationale": "Scientific names are not range maps."
+        }
+      ],
+      "explanation": "'Robin' means different birds in Europe and America, but a scientific name refers to one species wherever it's used.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.animals.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.taxonomy_ranks",
+        "concept.animals.species_estimated_total"
+      ],
+      "sourceCardIds": [
+        "card.animals.004.c4",
+        "card.animals.002.c3"
+      ],
+      "prompt": "Level 2's species estimate leaned on the bigger groups that species sit inside. Which list gives three of those ranks, from biggest to smallest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Genus, family, order",
+          "correct": false,
+          "rationale": "That runs from smallest to biggest."
+        },
+        {
+          "id": "b",
+          "label": "Species, genus, kingdom",
+          "correct": false,
+          "rationale": "Species is the smallest rank, not a bigger group."
+        },
+        {
+          "id": "c",
+          "label": "Order, kingdom, family",
+          "correct": false,
+          "rationale": "Kingdom is bigger than order."
+        },
+        {
+          "id": "d",
+          "label": "Kingdom, phylum, class",
+          "correct": true
+        }
+      ],
+      "explanation": "Today's ladder runs domain, kingdom, phylum, class, order, family, genus, species; Mora's team used the better-known higher ranks.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_robin",
+    "source.brit_taxonomy",
+    "source.brit_linnaeus",
+    "source.brit_panthera",
+    "source.natgeo_carnivore"
+  ],
+  "art": "object.book"
+}
