@@ -1,7 +1,7 @@
 import { MASTERY_BAND_SIZE, subjectRank } from '@brainscroll/core';
 import { View } from 'react-native';
-import { Caption, Card, Chip, Emblem, Eyebrow, ProgressBar, Row, Screen, ScreenHeader, Stars, Title } from '@/components/ui';
-import { levelsForSkill, subjectName, subjects } from '@/content';
+import { Caption, Card, Chip, Emblem, Eyebrow, LevelArt, ProgressBar, Row, Screen, ScreenHeader, Stars, Title } from '@/components/ui';
+import { levelByNumber, levelsForSkill, subjectName, subjects } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { useStartLevel } from '@/progress/useStartLevel';
 import { ChapterRail } from '@/components/ChapterRail';
@@ -46,6 +46,7 @@ export default function SkillsScreen() {
                 </Caption>
               </View>
               <Stars count={s.view.stars} />
+              <LevelArt art={levelByNumber(s.id, s.view.nextLevel)?.art ?? levelByNumber(s.id, Math.max(s.view.level, 1))?.art} size={64} />
             </Row>
             <View style={{ gap: space.xs }}>
               <Eyebrow>

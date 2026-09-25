@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, Caption, DrScrollSays, Eyebrow, H1, ProgressBar } from '@/components/ui';
+import { Body, Button, Caption, DrScrollSays, Eyebrow, H1, LevelArt, ProgressBar } from '@/components/ui';
 import { levelByNumber, skills, subjects } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, layout, radius, space, type } from '@/theme/tokens';
@@ -60,8 +60,11 @@ export default function WelcomeScreen() {
                     disabled={!skill}
                     onPress={() => skill && setSkillId(skill.id)}
                     style={[styles.choice, selected && styles.choiceSelected, !skill && { opacity: 0.45 }]}>
-                    <Text style={styles.choiceTitle}>{skill ? `${subject.name} · ${skill.name}` : subject.name}</Text>
-                    <Text style={styles.choiceMeta}>{skill ? 'Available now' : 'Coming soon'}</Text>
+                    {skill && <LevelArt art={levelByNumber(skill.id, 1)?.art} size={52} />}
+                    <View style={{ flex: 1, gap: 2 }}>
+                      <Text style={styles.choiceTitle}>{skill ? `${subject.name} · ${skill.name}` : subject.name}</Text>
+                      <Text style={styles.choiceMeta}>{skill ? 'Available now' : 'Coming soon'}</Text>
+                    </View>
                   </Pressable>
                 );
               })}
@@ -112,7 +115,7 @@ const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: color.bg },
   top: { flexDirection: 'row', paddingHorizontal: layout.gutter, paddingTop: space.lg },
   body: { flex: 1, paddingHorizontal: layout.gutter, paddingTop: space.xxxl, gap: space.lg, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' },
-  choice: { borderWidth: 2, borderBottomWidth: 4, borderColor: color.border, backgroundColor: color.surface, borderRadius: radius.md, padding: space.lg, gap: 2, minHeight: layout.answerMinHeight },
+  choice: { flexDirection: 'row', alignItems: 'center', gap: space.md, borderWidth: 2, borderBottomWidth: 4, borderColor: color.border, backgroundColor: color.surface, borderRadius: radius.md, padding: space.lg, minHeight: layout.answerMinHeight },
   choiceSelected: { borderColor: color.brand, backgroundColor: color.brandSoft },
   choiceTitle: { ...type.bodyStrong, fontSize: 17, color: color.text },
   choiceMeta: { ...type.caption, color: color.textMuted },
