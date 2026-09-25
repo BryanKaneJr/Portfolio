@@ -275,3 +275,8 @@ BrainScroll requires an account before persistent learning progress begins.
 - **Enforcement:** anonymous sign-ins are off in the project, and the database refuses anonymous users (`20261001000000_accounts_required.sql`).
 
 See `docs/accounts.md`.
+
+## 15. A subject's level is the levels cleared in it
+
+Owner decision, 2026-09-25. A subject's attribute (History, Science, …) on the Profile and the Skills tab is simply the number of levels cleared across that subject's skills: Science with Astronomy at Level 6 is "Lv. 6". It is not a curve and it is not XP. XP only feeds the overall Knowledge Level.
+

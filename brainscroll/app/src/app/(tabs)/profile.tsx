@@ -25,7 +25,7 @@ export default function ProfileScreen() {
       name: sub.name,
       levels: skills.reduce((n, s) => n + s.view.level, 0),
       soon: skills.length === 0,
-      detail: skills.length ? skills.map((s) => `${s.name} Lv. ${s.view.level}${s.view.stars ? ` ${'★'.repeat(s.view.stars)}` : ''} · ${s.xp} XP`).join('  ·  ') : undefined,
+      detail: skills.length ? skills.map((s) => `${s.name} Lv. ${s.view.level}${s.view.stars ? ` ${'★'.repeat(s.view.stars)}` : ''}`).join('  ·  ') : undefined,
     };
   });
   const stars = v.skills.reduce((n, s) => n + s.view.stars, 0);
@@ -33,7 +33,7 @@ export default function ProfileScreen() {
   return (
     <Screen>
       <Eyebrow tone="brand">Character sheet</Eyebrow>
-      <View style={{ alignItems: 'center', gap: space.md, paddingBottom: space.lg }}>
+      <View style={{ alignItems: 'center', gap: space.md, paddingTop: space.sm, paddingBottom: space.lg }}>
         <SubjectRing stats={stats} knowledge={v.knowledgeLevel} />
         <H1>{name}</H1>
         <Chip>
@@ -57,12 +57,11 @@ export default function ProfileScreen() {
             </View>
           ))}
         </Row>
-        <Caption>Rare trophies you earn will show here. Earned from transparent requirements, never bought.</Caption>
       </View>
 
       <Card style={{ gap: space.xs }}>
         <Eyebrow>Attributes</Eyebrow>
-        {stats.map((st) => (
+        {[...stats.filter((st) => !st.soon), ...stats.filter((st) => st.soon)].map((st) => (
           <AttributeRow key={st.subjectId} stat={st} detail={st.detail} />
         ))}
       </Card>

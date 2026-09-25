@@ -1,4 +1,4 @@
-import { MASTERY_BAND_SIZE, subjectRank } from '@brainscroll/core';
+import { MASTERY_BAND_SIZE } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { View } from 'react-native';
 import { Body, Caption, Card, Chip, Emblem, Eyebrow, Icon, LevelArt, ProgressBar, Row, Screen, ScreenHeader, Stars, Title } from '@/components/ui';
@@ -10,7 +10,7 @@ import { color, radius, space } from '@/theme/tokens';
 
 /**
  * Skills you are leveling, not a course catalog. Each skill shows its level
- * emblem, subject rank, mastery stars, the active 10-level chapter and the
+ * emblem, subject level, mastery stars, the active 10-level chapter and the
  * road to the next ★. Never 100 equal dots.
  */
 export default function SkillsScreen() {
@@ -24,7 +24,7 @@ export default function SkillsScreen() {
       {skills.map((s) => {
         const chapterStart = (s.view.band - 1) * MASTERY_BAND_SIZE + (s.view.chapter - 1) * 10 + 1;
         const published = levelsForSkill(s.id).length;
-        const rank = subjectRank(skills.filter((k) => k.subjectId === s.subjectId).map((k) => k.view.level));
+        const subjectLevel = skills.filter((k) => k.subjectId === s.subjectId).reduce((n, k) => n + k.view.level, 0);
         const toStar = MASTERY_BAND_SIZE - (s.view.level % MASTERY_BAND_SIZE);
         return (
           <Card
@@ -40,7 +40,7 @@ export default function SkillsScreen() {
               <Emblem value={s.view.level} tone={s.view.stars > 0 ? 'mastery' : 'brand'} />
               <View style={{ flex: 1, gap: space.xxs }}>
                 <Eyebrow>
-                  {subjectName(s.subjectId)} · Rank {rank}
+                  {subjectName(s.subjectId)} · Lv. {subjectLevel}
                 </Eyebrow>
                 <Title>{s.name}</Title>
                 <Caption>

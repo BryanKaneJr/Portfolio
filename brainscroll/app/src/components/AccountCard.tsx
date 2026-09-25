@@ -36,10 +36,10 @@ export function AccountCard() {
 
   return (
     <Card>
-      <Label tone="success">Account</Label>
+      <Label>Account</Label>
       <Body>
         Signed in with {METHOD_NAME[a.method]}
-        {a.method === 'apple' || a.method === 'google' ? ` as ${accountLabel(a)}` : `: ${accountLabel(a)}`}.
+        {a.method === 'apple' || a.method === 'google' ? ` as ${accountLabel(a)}` : `: ${accountLabel(a)}`}
       </Body>
       <Body muted>Your progress is saved to this account. Sign in the same way on any device to pick up where you left off.</Body>
       <Button variant="secondary" label="Sign out" disabled={busy} onPress={() => void signOut()} />
