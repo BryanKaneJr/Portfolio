@@ -93,6 +93,8 @@ describe('checkQuality', () => {
   it('flags a prompt that contains its own answer, and feedback that gives away a later answer', () => {
     const prompt = level(1, [{ prompt: 'About 4.6 billion years: is that the Sun’s age?' }]);
     expect(run([prompt]).warnings).toContain('question.astronomy.001.q1: the prompt contains the correct answer "About 4.6 billion years"');
+    const partWord = level(1, [{ prompt: 'A lack of which vitamin causes scurvy?', options: [{ id: 'a', label: 'Vitamin C', correct: true }, { id: 'b', label: 'Vitamin A', correct: false }, { id: 'c', label: 'Vitamin K', correct: false }] }]);
+    expect(run([partWord]).warnings.join('\n')).not.toContain('contains the correct answer');
     const giveaway = level(1, [
       { explanation: 'Unlike the universe, which is about 13.8 billion years old.' },
       { prompt: 'How old is the universe?', options: [{ id: 'a', label: 'About 13.8 billion years', correct: true }, { id: 'b', label: 'About 4.6 billion years', correct: false }, { id: 'c', label: 'About 6,000 years', correct: false }] },

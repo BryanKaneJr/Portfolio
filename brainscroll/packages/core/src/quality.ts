@@ -24,6 +24,12 @@ const STOPWORDS = new Set(
   'a an the of to in on at for from by with and or but is are was were be been it its this that these those what which who whom why how when where does do did can could would should will your you we our they their them than then there as about into over under after before between why from level'.split(' '),
 );
 
+/** Whole-word match, so "vitamin c" isn't found inside "vitamin causes". */
+function containsPhrase(text: string, phrase: string): boolean {
+  const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(^|[^a-z0-9])${escaped}($|[^a-z0-9])`).test(text);
+}
+
 export function normalizeText(s: string): string {
   return s
     .toLowerCase()
@@ -116,7 +122,7 @@ export function checkQuality(
     const ordered = qOrder.map((id) => qById.get(id)).filter((q): q is Question => !!q);
     ordered.forEach((q, i) => {
       const answer = normalizeText(correctLabel(q));
-      if (answer.length >= 4 && normalizeText(q.prompt).includes(answer)) warn(q.id, `the prompt contains the correct answer "${correctLabel(q)}"`);
+      if (answer.length >= 4 && containsPhrase(normalizeText(q.prompt), answer)) warn(q.id, `the prompt contains the correct answer "${correctLabel(q)}"`);
       // An earlier question's feedback revealing a later answer makes the later one trivial.
       for (const earlier of ordered.slice(0, i)) {
         const feedback = normalizeText([earlier.explanation, ...earlier.options.map((o) => o.rationale ?? '')].join(' '));
