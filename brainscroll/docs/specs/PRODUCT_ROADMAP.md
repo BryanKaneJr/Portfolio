@@ -82,7 +82,7 @@ A level should usually take about 2-5 minutes and feel like a compact learning e
 
 - 1 short hook or setup card
 
-- 2-4 short explanation or visual cards (roughly 100-250 words in total)
+- 3-5 fleshed-out explanation or visual cards (roughly 300-500 words in total, written to interest, not just inform)
 
 - 1 connection to previously learned knowledge
 

@@ -24,14 +24,14 @@ Run `npm run validate:content`. **Errors** block import and publish. **Warnings*
 
 BrainScroll is a learning app first. A learner should finish a level thinking *"I just learned something interesting,"* not *"I just finished another test."*
 
-A **regular level** runs hook → 2–4 short learning cards (roughly 100–250 words) → **3 questions** → level complete. Checkpoints (every 10th level), milestones (Level 50) and the Level 100 Mastery Challenge test more. Review sessions size themselves to what's due.
+A **regular level** runs hook → 3–5 fleshed-out learning cards (roughly 300–500 words) → **3 questions** → level complete. See *Writing to interest* below: the goal is a learner who's interested, not just informed. Checkpoints (every 10th level), milestones (Level 50) and the Level 100 Mastery Challenge test more. Review sessions size themselves to what's due.
 
 | `type` | Levels | Questions (standard) | Learning cards (norm) | Learning words (norm) |
 | --- | --- | --- | --- | --- |
-| `regular` | everything else | **3** | 2–4 | 100–250 |
-| `checkpoint` | 10, 20, 30 … | **5** | 2–4 | 80–250 |
-| `milestone` | 50, 150, 250 … | **7** | 1–4 | 50–250 |
-| `mastery` | 100, 200, 300 … | **10** | 0–3 | 0–200 |
+| `regular` | everything else | **3** | 3–5 | 300–500 |
+| `checkpoint` | 10, 20, 30 … | **5** | 2–4 | 150–400 |
+| `milestone` | 50, 150, 250 … | **7** | 1–4 | 100–400 |
+| `mastery` | 100, 200, 300 … | **10** | 0–3 | 0–300 |
 
 The source of truth is `LEARNING_STRUCTURE` in `packages/core/src/constants.ts` (`questions.standard`). A **published** level must have exactly the standard number of questions. A draft that differs gets a **warning**; one outside the drafting tolerance (`questions.min`–`max`) is an **error**. Learning-card and word counts outside the norm are warnings. Each level declares `"type"`, and it must match its number (`levelTypeFor`).
 
@@ -72,15 +72,29 @@ Vary which option is correct across a skill. The validator warns when one letter
 
 ### Text budgets (mobile)
 
-Headline ≤ 80 chars · body ≤ 360 · question prompt ≤ 200 · answer ≤ 80 · explanation ≤ 300. **If a card doesn't fit, split the idea. Don't shrink the type.**
+Headline ≤ 80 chars · body ≤ 900 (a real paragraph) · question prompt ≤ 200 · answer ≤ 80 · explanation ≤ 300. **If a card doesn't fit, split the idea. Don't shrink the type.**
+
+## Writing to interest
+
+A learner should close a level **interested, not just informed**. A card that states a fact and stops is a flashcard; BrainScroll cards tell the story around it.
+
+For every card, ask what would make a curious friend lean in:
+
+- **Open with a hook, not a definition.** A question, a surprise, a scene, a problem people once had. "In 1543, a dying man published a book that moved the Sun" beats "Copernicus proposed heliocentrism."
+- **Tell how we know.** Who noticed, what they measured, what they got wrong first. Discovery is the most interesting part of most facts.
+- **Explain the why.** Don't stop at *what*: say why it happens or why it matters.
+- **Make scale concrete.** Turn big numbers into something you can picture ("if the Sun were a front door, Earth would be a nickel").
+- **Connect it** to the learner's life, to an earlier level, or to what comes next. End a card with a thread that pulls to the next one.
+- **Keep one idea per card**, told fully in one paragraph (about 60–150 words). Vary rhythm: a short sentence lands a point after a long one.
+- **Stay accurate.** Stories and analogies make facts vivid, but every factual statement is still a registered claim with a source. Analogies must be true to scale, and nothing is invented for color: no made-up quotes, scenes or motives.
 
 ## Editorial standard (Golden levels)
 
 | Dimension | Pass standard |
 | --- | --- |
 | Accuracy | Every factual claim is source-backed, with no unsupported AI filler |
-| Scope | One clear objective per level, not an encyclopedia dump |
-| Readability | Mobile-length cards |
+| Scope | One clear objective per level, told fully: a story with context, not a list of facts |
+| Readability | One paragraph per card, easy to read on a phone |
 | Questions | Three per regular level (recall, understanding, connection). One defensible answer, plausible distractors, a short explanation after the response. They reinforce the lesson and shouldn't feel like an exam |
 | Connection | Shows how the new knowledge relates to earlier knowledge |
 | Tone | Smart and conversational. Not childish, academic or preachy |

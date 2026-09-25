@@ -6,15 +6,17 @@ This file records product decisions made after parts of the converted DOCX speci
 
 ## 1. Learning first, testing second
 
-BrainScroll is a learning app, not a quiz app. A normal level should feel like a short, interesting learning encounter followed by lightweight checks that reinforce the material.
+BrainScroll is a learning app, not a quiz app. A normal level should feel like an interesting learning encounter followed by lightweight checks that reinforce the material.
+
+**Depth (owner decision, 2026-09-25):** learners should come away *interested, not just informed*. The writing is fleshed out: the story behind a fact, why it's surprising, how we know, what it connects to. A level should never feel like reading a fact on its own. This replaced the earlier 2–4 short cards of 100–250 words.
 
 Typical normal level:
 
-- 2–4 short learning/reading cards.
-- Roughly 100–250 words total, depending on topic.
+- 3–5 fleshed-out learning/reading cards, each a real paragraph (up to about 150 words).
+- Roughly 300–500 words total, depending on topic.
 - Optional image, map, timeline, diagram, comparison, or connection card.
 - 3 questions.
-- Roughly 2–5 minutes total.
+- Roughly 4–7 minutes total.
 
 The normal three questions should generally cover:
 

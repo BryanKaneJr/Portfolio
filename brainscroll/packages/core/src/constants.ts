@@ -51,7 +51,8 @@ export type XpEventType = 'LEVEL_COMPLETE' | 'QUESTION_CORRECT' | 'DELAYED_RECAL
 /** Mobile text budgets enforced by the content validator. */
 export const TEXT_BUDGET = {
   headline: 80,
-  body: 360,
+  /** Room for a real paragraph: story, context and the why, not a bare fact. */
+  body: 900,
   questionPrompt: 200,
   answerLabel: 80,
   explanation: 300,
@@ -151,13 +152,13 @@ export interface LearningStructure {
 export const LEVEL_TYPES = ['regular', 'checkpoint', 'milestone', 'mastery'] as const satisfies readonly LevelType[];
 
 export const LEARNING_STRUCTURE: Record<SessionType, LearningStructure> = {
-  /** The standard loop: hook, 2–4 short learning cards (100–250 words), 3 light questions. */
+  /** The standard loop: hook, 3–5 fleshed-out learning cards (300–500 words, written to interest, not just inform), 3 light questions. */
   regular: {
     firstAttemptXp: STANDARD_FIRST_ATTEMPT_XP,
     label: 'Level',
     questions: { standard: 3, min: 2, max: 4 },
-    learningCards: { min: 2, max: 4 },
-    learningWords: { min: 100, max: 250 },
+    learningCards: { min: 3, max: 5 },
+    learningWords: { min: 300, max: 500 },
     coverPurposes: true,
   },
   /** Every 10th level: still teaches, then a 5-question check across the chapter. */
@@ -166,7 +167,7 @@ export const LEARNING_STRUCTURE: Record<SessionType, LearningStructure> = {
     label: 'Checkpoint',
     questions: { standard: 5, min: 4, max: 6 },
     learningCards: { min: 2, max: 4 },
-    learningWords: { min: 80, max: 250 },
+    learningWords: { min: 150, max: 400 },
     coverPurposes: true,
   },
   /** Level 50 (and 150, 250 …): a bigger synthesis moment, 7 questions. */
@@ -175,7 +176,7 @@ export const LEARNING_STRUCTURE: Record<SessionType, LearningStructure> = {
     label: 'Milestone',
     questions: { standard: 7, min: 6, max: 8 },
     learningCards: { min: 1, max: 4 },
-    learningWords: { min: 50, max: 250 },
+    learningWords: { min: 100, max: 400 },
     coverPurposes: true,
   },
   /** Level 100 (and 200, 300 …): the Mastery Challenge, 10 questions. The fullest test in a tree. */
@@ -184,7 +185,7 @@ export const LEARNING_STRUCTURE: Record<SessionType, LearningStructure> = {
     label: 'Mastery Challenge',
     questions: { standard: 10, min: 8, max: 12 },
     learningCards: { min: 0, max: 3 },
-    learningWords: { min: 0, max: 200 },
+    learningWords: { min: 0, max: 300 },
     coverPurposes: false,
   },
   /** Spaced repetition: one question per concept due, capped per session. No learning cards. */

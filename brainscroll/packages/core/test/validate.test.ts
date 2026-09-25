@@ -23,7 +23,7 @@ function makeLevel(n: number, overrides: Record<string, unknown> = {}): Record<s
     explanation: 'The Sun is a star.',
     difficulty: 0.1,
   });
-  const body = 'The Sun is an ordinary star, the closest one to Earth, and every other star you can see is a distant sun of its own. '.repeat(2);
+  const body = 'The Sun is an ordinary star, the closest one to Earth, and every other star you can see is a distant sun of its own. '.repeat(4);
   return {
     id: `level.science.astronomy.${num}`,
     skillId: 'skill.science.astronomy',
@@ -40,6 +40,7 @@ function makeLevel(n: number, overrides: Record<string, unknown> = {}): Record<s
       { id: `card.astronomy.${num}.c1`, type: 'text', role: 'hook', headline: 'The Sun is a star.' },
       { id: `card.astronomy.${num}.c2`, type: 'text', role: 'explain', headline: 'An ordinary star', body },
       { id: `card.astronomy.${num}.c3`, type: 'fact', fact: 'The Sun is the closest star to Earth.', context: body },
+      { id: `card.astronomy.${num}.c8`, type: 'text', role: 'connect', headline: 'A star up close', body },
       { id: `card.astronomy.${num}.c4`, type: 'mcq', questionId: `question.astronomy.${num}.q1` },
       { id: `card.astronomy.${num}.c5`, type: 'mcq', questionId: `question.astronomy.${num}.q2` },
       { id: `card.astronomy.${num}.c6`, type: 'mcq', questionId: `question.astronomy.${num}.q3` },
@@ -60,7 +61,7 @@ function bundle(levels: Record<string, unknown>[] = [makeLevel(1)], verified = t
     concepts: [
       {
         where: 'concepts',
-        data: { id: CONCEPT, title: 'The Sun is a star', description: 'The Sun is a star.', difficulty: 0.05, facts: [{ id: FACT, text: 'The Sun is a star.', sourceIds: ['source.nasa_sun'], cardIds: ['card.astronomy.001.c2', 'card.astronomy.001.c3'] }] },
+        data: { id: CONCEPT, title: 'The Sun is a star', description: 'The Sun is a star.', difficulty: 0.05, facts: [{ id: FACT, text: 'The Sun is a star.', sourceIds: ['source.nasa_sun'], cardIds: ['card.astronomy.001.c2', 'card.astronomy.001.c3', 'card.astronomy.001.c8'] }] },
       },
     ],
     levels: levels.map((data, i) => ({ where: `l${i + 1}`, data })),
@@ -101,7 +102,7 @@ describe('validateContent', () => {
     const l = makeLevel(1);
     const learning = (l.cards as Record<string, unknown>[]).filter((c) => c.type !== 'mcq' && c.type !== 'recall');
     for (const c of learning) c.mascot = { pose: 'idea', line: 'Oh, this one is good.' };
-    expect(learning.length).toBe(4);
+    expect(learning.length).toBe(5);
     expect(issues(bundle([l]), 'warning').some((m) => m.includes('Dr. Scroll asides'))).toBe(true);
   });
 
@@ -113,7 +114,7 @@ describe('validateContent', () => {
 
   it('rejects a card pointing at a missing question', () => {
     const l = makeLevel(1);
-    (l.cards as Card[])[3]!.questionId = 'question.astronomy.001.q9';
+    (l.cards as Card[])[4]!.questionId = 'question.astronomy.001.q9';
     expect(issues(bundle([l]), 'error').some((m) => m.includes('missing question'))).toBe(true);
   });
 
@@ -128,7 +129,7 @@ describe('validateContent', () => {
 
   it('requires recall cards to test a concept taught earlier', () => {
     const l2 = makeLevel(2, { concepts: [{ conceptId: CONCEPT, role: 'recall' }] });
-    (l2.cards as Record<string, unknown>[])[3]!.type = 'recall';
+    (l2.cards as Record<string, unknown>[])[4]!.type = 'recall';
     // Level 2 recalls correctly, but teaches nothing new.
     expect(issues(bundle([makeLevel(1), l2]), 'error')).toEqual(['teaches no concept']);
   });
@@ -136,7 +137,7 @@ describe('validateContent', () => {
   it('lets only a Mastery Challenge teach nothing new', () => {
     const levels = Array.from({ length: 99 }, (_, i) => makeLevel(i + 1));
     const mastery = makeLevel(100, { concepts: [{ conceptId: CONCEPT, role: 'recall' }] });
-    (mastery.cards as Record<string, unknown>[])[3]!.type = 'recall';
+    (mastery.cards as Record<string, unknown>[])[4]!.type = 'recall';
     expect(issues(bundle([...levels, mastery]), 'error')).not.toContain('teaches no concept');
   });
 
@@ -220,7 +221,7 @@ describe('level structure by type', () => {
   it('warns when questions come before the learning content', () => {
     const l = makeLevel(1);
     const cards = l.cards as Record<string, unknown>[];
-    [cards[2], cards[3]] = [cards[3]!, cards[2]!];
+    [cards[3], cards[4]] = [cards[4]!, cards[3]!];
     expect(issues(bundle([l]), 'warning')).toContain('put the learning cards before the questions');
   });
 

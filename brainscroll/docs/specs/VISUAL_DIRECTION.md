@@ -90,7 +90,7 @@ Use a deep, calm base with a restrained luminous layer. Think premium reading ap
 
 *Use the familiar physics of a vertical feed, but every level has a beginning, an end and a saved place.*
 
-A level is a 2-5 minute learning encounter: a hook, 2-4 short learning cards, then 3 light questions (recall, understanding, connection), each followed by a short explanation, and completion. Reading and discovery are the main experience; the questions reinforce them. Longer checks are reserved for milestones: 5 questions at every 10th-level checkpoint, 7 at the Level 50 milestone, 10 at the Level 100 Mastery Challenge. The user never enters an endless algorithmic feed. Finishing the final card ends the level and awards real progression.
+A level is a 4-7 minute learning encounter: a hook, 3-5 fleshed-out learning cards, then 3 light questions (recall, understanding, connection), each followed by a short explanation, and completion. Reading and discovery are the main experience; the questions reinforce them. Longer checks are reserved for milestones: 5 questions at every 10th-level checkpoint, 7 at the Level 50 milestone, 10 at the Level 100 Mastery Challenge. The user never enters an endless algorithmic feed. Finishing the final card ends the level and awards real progression.
 
 | ROMAN HISTORY - LEVEL 18<br>2-5 minute finite learning encounter |
 | --- |
