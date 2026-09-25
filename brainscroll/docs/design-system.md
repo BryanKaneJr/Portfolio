@@ -69,6 +69,7 @@ If everything glows, nothing feels special. `glow.*`, `Halo`, `Emblem glowing`, 
 
 ## Deferred until real-device testing
 
+- **Depth:** tappable and important surfaces (buttons, cards, answer tiles, badges, stat tiles) stand on a 4 px bottom edge in a darker shade (`depth.edge`, `brandEdge`, `successEdge`, `masteryEdge`), with 2 px borders, never hairlines. Buttons collapse their edge when pressed. Level and skill badges are solid violet (gold for mastery) with white numerals. Numbers and statuses carry an icon (`Icon`: xp, knowledge, star, skills, today). The active tab sits in a violet-outlined box.
 - **Font:** Nunito (`@expo-google-fonts/nunito`), loaded at startup; the launch screen waits for it. It is rounded and friendly like Dr. Scroll and stays very legible at reading sizes. Custom fonts pick their weight by family, so styles take weight from `fw('700')` in `theme/tokens.ts`, never `fontWeight`.
 - **Icons:** icon-only buttons use `IconButton` with a named icon (`expo-symbols`: SF Symbols on iOS, Material on Android and web), never a text character.
 - **Animation timing:** exact durations and spring constants, the XP count-up curve, the halo's soft edge (a radial gradient needs an SVG or gradient dependency), and screen transitions.

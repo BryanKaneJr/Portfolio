@@ -1,7 +1,8 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Animated, Easing, StyleSheet, Text, View } from 'react-native';
 import { useReduceMotion } from '@/theme/feedback';
-import { color, glow, motion, radius, space, type } from '@/theme/tokens';
+import { color, depth, glow, motion, radius, space, type } from '@/theme/tokens';
+import { Icon, type IconName } from './icon';
 
 /**
  * Progression-mode primitives. These are where BrainScroll gets loud: glow,
@@ -69,10 +70,13 @@ export function Emblem({ value, caption, tone = 'brand', size = 'md', glowing }:
       <View
         style={[
           styles.emblem,
-          { width: dim, height: dim, borderRadius: dim * 0.32, borderColor: border, backgroundColor: tone === 'mastery' ? color.masterySoft : tone === 'brand' ? color.brandSoft : color.surface },
+          { width: dim, height: dim, borderRadius: dim * 0.32 },
+          tone === 'quiet'
+            ? { backgroundColor: color.surface, borderColor: border, borderWidth: depth.border, borderBottomWidth: depth.edge }
+            : { backgroundColor: tone === 'mastery' ? color.mastery : color.brand, borderBottomWidth: Math.round(dim / 14), borderBottomColor: tone === 'mastery' ? color.masteryEdge : color.brandEdge },
           glowing && (tone === 'mastery' ? glow.mastery : glow.brand),
         ]}>
-        <Text style={[type.number, { fontSize, color: tone === 'quiet' ? color.textMuted : color.text }]}>{value}</Text>
+        <Text style={[type.number, { fontSize, color: tone === 'quiet' ? color.textMuted : tone === 'mastery' ? '#1A1305' : '#FFFFFF' }]}>{value}</Text>
       </View>
       {caption && <Text style={[type.label, { color: color.textMuted }]}>{caption}</Text>}
     </View>
@@ -91,12 +95,15 @@ export function Stars({ count, size = 18 }: { count: number; size?: number }) {
 }
 
 /** A compact labeled number for secondary stats on progression screens. */
-export function StatTile({ label, value, tone = 'text' }: { label: string; value: string | number; tone?: 'text' | 'brand' | 'success' | 'mastery' }) {
+export function StatTile({ label, value, tone = 'text', icon }: { label: string; value: string | number; tone?: 'text' | 'brand' | 'success' | 'mastery'; icon?: IconName }) {
   const c = { text: color.text, brand: color.brand, success: color.success, mastery: color.mastery }[tone];
   return (
     <View style={styles.tile}>
       <Text style={[type.label, { color: color.textMuted }]}>{label}</Text>
-      <Text style={[type.number, { fontSize: 22, color: c }]}>{value}</Text>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.xs }}>
+        {icon && <Icon name={icon} tint={tone === 'text' ? color.textMuted : c} size={20} />}
+        <Text style={[type.number, { fontSize: 22, color: c }]}>{value}</Text>
+      </View>
     </View>
   );
 }
@@ -107,7 +114,7 @@ export function Halo({ tone = 'brand' }: { tone?: 'brand' | 'mastery' }) {
 }
 
 const styles = StyleSheet.create({
-  emblem: { alignItems: 'center', justifyContent: 'center', borderWidth: 2 },
-  tile: { flex: 1, backgroundColor: color.surface, borderRadius: radius.md, borderWidth: 1, borderColor: color.border, paddingVertical: space.md, paddingHorizontal: space.md, gap: space.xs, alignItems: 'center' },
+  emblem: { alignItems: 'center', justifyContent: 'center' },
+  tile: { flex: 1, backgroundColor: color.surface, borderRadius: radius.md, borderWidth: depth.border, borderBottomWidth: depth.edge, borderColor: color.border, paddingVertical: space.md, paddingHorizontal: space.md, gap: space.xs, alignItems: 'center' },
   halo: { position: 'absolute', alignSelf: 'center', top: 10, width: 200, height: 200, borderRadius: 100 },
 });

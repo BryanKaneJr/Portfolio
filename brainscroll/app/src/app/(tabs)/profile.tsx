@@ -35,9 +35,9 @@ export default function ProfileScreen() {
       </View>
 
       <Row gap={space.sm}>
-        <StatTile label="Total XP" value={v.totalXp} tone="brand" />
-        <StatTile label="Skills" value={v.skills.filter((s) => s.view.level > 0).length} />
-        <StatTile label="Stars" value={stars} tone={stars > 0 ? 'mastery' : 'text'} />
+        <StatTile label="Total XP" value={v.totalXp} tone="brand" icon="xp" />
+        <StatTile label="Skills" value={v.skills.filter((s) => s.view.level > 0).length} icon="skills" />
+        <StatTile label="Stars" value={stars} tone={stars > 0 ? 'mastery' : 'text'} icon="star" />
       </Row>
 
       <View style={{ gap: space.sm }}>

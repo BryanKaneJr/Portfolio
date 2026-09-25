@@ -20,14 +20,17 @@ export const color = {
   borderStrong: '#4B5D66',
   brand: '#7C5CFF', // Electric Violet: primary CTA, active level, progression
   brandPressed: '#6A4BEA',
+  brandEdge: '#5031C2', // the darker bottom edge that makes violet surfaces feel pressable
   brandSoft: 'rgba(124,92,255,0.14)',
   brandLine: 'rgba(124,92,255,0.45)',
   info: '#4DA3FF', // Bright Blue: information, secondary progress, current node
   success: '#39D98A', // Mint: correct, recall confirmed
   successSoft: 'rgba(57,217,138,0.12)',
+  successEdge: '#1F9C5E',
   successLine: 'rgba(57,217,138,0.55)',
   mastery: '#FFC857', // XP Gold: mastery stars, prestige ONLY
   masterySoft: 'rgba(255,200,87,0.12)',
+  masteryEdge: '#C28A1E',
   danger: '#FF6B6B', // Coral: incorrect/reinforcement; always restrained
   dangerSoft: 'rgba(255,107,107,0.10)',
   dangerLine: 'rgba(255,107,107,0.45)',
@@ -45,6 +48,13 @@ export const color = {
 } as const;
 
 export type ColorToken = keyof typeof color;
+
+/**
+ * Depth: tappable and important surfaces stand on a thick bottom edge in a
+ * darker shade (4 px), which collapses when pressed. This is what makes the UI
+ * feel physical rather than flat. Borders are 2 px, never hairlines.
+ */
+export const depth = { edge: 4, border: 2 } as const;
 
 export const radius = { xs: 6, sm: 10, md: 14, lg: 20, xl: 28, pill: 999 } as const;
 

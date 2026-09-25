@@ -133,7 +133,7 @@ try {
   check(sql('select count(*) from auth.users') === '1' && sql('select id from auth.users') === learnerId, 'signing in again finds the same account');
   check((await bodyText(page)).includes('Astronomy · Lv. 5'), 'after a reinstall, progress is back and onboarding is skipped');
   await profile();
-  check(new RegExp(`Total XP\\s*${xpBefore}\\b`, 'i').test(await bodyText(page)), `all ${xpBefore} XP came back with the account`);
+  check(new RegExp(`Total XP\\D{0,40}\\b${xpBefore}\\b`, 'i').test(await bodyText(page)), `all ${xpBefore} XP came back with the account`);
 
   // Google on the web: an OAuth redirect (PKCE) that comes back signed in to a separate, new account.
   await button(page, 'Sign out').click();

@@ -46,7 +46,7 @@ export default function HomeScreen() {
     <Screen>
       <Row style={{ justifyContent: 'space-between' }}>
         <Eyebrow tone="brand">BrainScroll</Eyebrow>
-        <Chip tone="brand">
+        <Chip tone="brand" icon="knowledge">
           <Caption tone="text">Knowledge Lv. {v.knowledgeLevel}</Caption>
         </Chip>
       </Row>

@@ -14,7 +14,7 @@ export function ProgressBar({ value, tone = 'brand', size = 'md' }: { value: num
     if (reduce) anim.setValue(pct);
     else Animated.timing(anim, { toValue: pct, duration: motion.slow, useNativeDriver: false }).start();
   }, [pct, reduce, anim]);
-  const height = { sm: 6, md: 8, lesson: 12 }[size];
+  const height = { sm: 8, md: 10, lesson: 16 }[size];
   return (
     <View
       style={[styles.track, { height }]}
@@ -42,6 +42,6 @@ export function Pips({ filled, total, tone = 'brand' }: { filled: number; total:
 const styles = StyleSheet.create({
   track: { borderRadius: radius.pill, backgroundColor: color.surfaceRaised, overflow: 'hidden', flex: 1 },
   fill: { height: '100%', borderRadius: radius.pill },
-  sheen: { position: 'absolute', top: 3, left: 8, right: 8, height: 3, borderRadius: radius.pill, backgroundColor: 'rgba(255,255,255,0.22)' },
-  pip: { flex: 1, height: 8, borderRadius: radius.pill },
+  sheen: { position: 'absolute', top: 4, left: 8, right: 8, height: 4, borderRadius: radius.pill, backgroundColor: 'rgba(255,255,255,0.22)' },
+  pip: { flex: 1, height: 10, borderRadius: radius.pill },
 });

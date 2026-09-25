@@ -110,10 +110,10 @@ export default function LevelCompleteScreen() {
                 style={{ width: '100%', minWidth: 300 }}
               />
               <Row>
-                <Chip tone="brand">
+                <Chip tone="brand" icon="knowledge">
                   <Caption tone="text">Knowledge Lv. {s.knowledgeLevel}</Caption>
                 </Chip>
-                <Chip>
+                <Chip icon="today">
                   <Caption>
                     Today {s.daily.used} / {s.daily.cap ?? '∞'}
                   </Caption>

@@ -1,15 +1,15 @@
-import { SymbolView, type SymbolViewProps } from 'expo-symbols';
 import type { ReactNode } from 'react';
 import { Pressable, StyleSheet, Text, type ViewStyle } from 'react-native';
 import { haptic } from '@/theme/feedback';
-import { color, layout, radius, space, type } from '@/theme/tokens';
+import { Icon, type IconName } from './icon';
+import { color, depth, layout, radius, space, type } from '@/theme/tokens';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'success' | 'mastery' | 'danger';
 
 /**
  * One obvious action per screen: `primary` (violet, filled). `success` is the
  * Continue after a correct answer; `mastery` is reserved for mastery moments.
- * Buttons depress on press (a 3 px "base" collapses) and are full-width by default.
+ * Buttons depress on press (their 4 px darker edge collapses) and are full-width by default.
  */
 export function Button({
   label,
@@ -43,7 +43,7 @@ export function Button({
         styles.base,
         compact && styles.compact,
         styles[v],
-        v !== 'ghost' && v !== 'disabled' && { borderBottomWidth: pressed ? 0 : 3, marginTop: pressed ? 3 : 0 },
+        v !== 'ghost' && v !== 'disabled' && (pressed ? { borderBottomWidth: v === 'secondary' || v === 'danger' ? depth.border : 0, transform: [{ translateY: depth.edge }] } : { borderBottomWidth: depth.edge }),
         pressed && v === 'ghost' && { opacity: 0.6 },
         style,
       ]}>
@@ -74,24 +74,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: space.xl,
   },
   compact: { minHeight: 44, paddingHorizontal: space.lg },
-  primary: { backgroundColor: color.brand, borderBottomColor: color.brandPressed },
-  secondary: { backgroundColor: color.surfaceRaised, borderWidth: 1, borderColor: color.border, borderBottomColor: color.borderStrong },
+  primary: { backgroundColor: color.brand, borderBottomColor: color.brandEdge },
+  secondary: { backgroundColor: color.surface, borderWidth: depth.border, borderColor: color.border },
   ghost: { backgroundColor: 'transparent' },
-  success: { backgroundColor: color.success, borderBottomColor: '#25B36E' },
-  mastery: { backgroundColor: color.mastery, borderBottomColor: '#D9A43C' },
+  success: { backgroundColor: color.success, borderBottomColor: color.successEdge },
+  mastery: { backgroundColor: color.mastery, borderBottomColor: color.masteryEdge },
   // Irreversible actions only (e.g. delete account). Outlined, never a filled red slab.
-  danger: { backgroundColor: color.dangerSoft, borderWidth: 1, borderColor: color.dangerLine, borderBottomColor: color.dangerLine },
-  disabled: { backgroundColor: color.surfaceRaised },
+  danger: { backgroundColor: color.dangerSoft, borderWidth: depth.border, borderColor: color.dangerLine },
+  disabled: { backgroundColor: color.surfaceRaised, marginBottom: depth.edge },
 });
 
-/** A quiet icon-sized control for top bars (close, report). */
-const ICONS = {
-  close: { ios: 'xmark', android: 'close', web: 'close' },
-  flag: { ios: 'flag', android: 'flag', web: 'flag' },
-} as const satisfies Record<string, SymbolViewProps['name']>;
-
 /** A quiet icon-only button (close, report). Always has a spoken label. */
-export function IconButton({ label, icon, onPress }: { label: string; icon: keyof typeof ICONS; onPress: () => void }) {
+export function IconButton({ label, icon, onPress }: { label: string; icon: IconName; onPress: () => void }) {
   return (
     <Pressable
       accessibilityRole="button"
@@ -99,7 +93,7 @@ export function IconButton({ label, icon, onPress }: { label: string; icon: keyo
       onPress={onPress}
       hitSlop={12}
       style={({ pressed }) => [iconStyles.hit, pressed && { opacity: 0.5 }]}>
-      <SymbolView name={ICONS[icon]} tintColor={color.textMuted} size={24} />
+      <Icon name={icon} tint={color.textMuted} size={24} />
     </Pressable>
   );
 }
