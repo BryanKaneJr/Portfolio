@@ -55,6 +55,7 @@ export default function RootLayout() {
           <Stack.Screen name="daily-complete" options={{ presentation: 'modal' }} />
           <Stack.Screen name="review-session" options={{ gestureEnabled: false }} />
           <Stack.Screen name="welcome" options={{ gestureEnabled: false }} />
+          <Stack.Screen name="skill/[id]" />
           <Stack.Screen name="sign-in" options={{ gestureEnabled: false, animation: 'fade' }} />
         </Stack>
         <LaunchSplash fontsReady={fontsLoaded || !!fontError} />

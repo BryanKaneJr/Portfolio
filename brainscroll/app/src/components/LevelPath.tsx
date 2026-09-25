@@ -2,7 +2,7 @@ import { MASTERY_BAND_SIZE } from '@brainscroll/core';
 import { useEffect, useState } from 'react';
 import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import { DrScroll, Eyebrow, H2, Icon, usePop, type IconName } from '@/components/ui';
-import { chapterFor, levelByNumber } from '@/content';
+import { chapterFor, levelByNumber, type Chapter } from '@/content';
 import { haptic, useReduceMotion } from '@/theme/feedback';
 import { color, depth, space, type } from '@/theme/tokens';
 
@@ -27,6 +27,9 @@ export function LevelPath({
   resuming,
   dailyComplete,
   justCleared,
+  chapter: forced,
+  mascot = true,
+  teaser = true,
   onOpen,
 }: {
   skillId: string;
@@ -38,10 +41,16 @@ export function LevelPath({
   dailyComplete: boolean;
   /** The level just cleared, whose node pops when Home comes back into view. */
   justCleared?: number;
+  /** Draw this chapter instead of the one holding the next level (the skill page shows them all). */
+  chapter?: Chapter;
+  /** Dr. Scroll beside the trail (only one chapter on a screen should have him). */
+  mascot?: boolean;
+  /** The "Next: Chapter N" line under the trail. */
+  teaser?: boolean;
   onOpen: (levelId: string) => void;
 }) {
   const focus = nextNumber ?? Math.max(level, 1);
-  const chapter = chapterFor(skillId, focus);
+  const chapter = forced ?? chapterFor(skillId, focus);
   const first = chapter?.levels[0] ?? Math.floor((focus - 1) / 10) * 10 + 1;
   const last = chapter?.levels[1] ?? first + 9;
   const numbers = Array.from({ length: last - first + 1 }, (_, i) => first + i);
@@ -89,10 +98,10 @@ export function LevelPath({
           );
         })}
         {/* He stands on the open side of the curve, beside levels 3–4. */}
-        <DrScroll spot="home.path" size="md" style={styles.mascot} />
+        {mascot && <DrScroll spot="home.path" size="md" style={styles.mascot} />}
       </View>
 
-      {nextChapter && (
+      {teaser && nextChapter && (
         <View style={styles.nextChapter}>
           <Icon name="lock" tint={color.textFaint} size={18} />
           <Text style={[type.bodyStrong, { color: color.textMuted, flexShrink: 1 }]}>

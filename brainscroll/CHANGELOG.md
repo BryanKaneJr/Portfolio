@@ -4,6 +4,8 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Each skill has its own path page.** Tapping a skill on the Skills tab opens its whole tree as stacked chapter paths, scrolled to the chapter you're in (with Dr. Scroll beside it), and makes it the skill Home follows. Before, the card jumped straight into the next level.
+- **Checkpoint trophy:** clearing a chapter's 10th level pops a big trophy badge at the top of Level Complete (gold on a mastery level).
 - **Review, Profile and Skills get pictures.** When concepts are due, Review opens with Dr. Scroll ("A few old friends came back to visit. Say hello before they wander off again.", new spot `review.ready`) and lists them as rows with a book icon. Profile's empty trophy slots show a trophy outline instead of the words "Trophy slot". Each Coming soon subject on Skills has its own icon.
 - **More pictures, less text:** the first-skill picker shows each skill's Level 1 art, and each Skills card shows the art of the level you're on.
 - **Motion pass.** Each lesson step slides in, the answer verdict rises into place with its badge popping, a picked answer gives a small spring, and when you return Home the level you just cleared pops on the path. Path nodes give a haptic tick. All of it is quick (about 0.2 s) and snaps into place with reduce motion.

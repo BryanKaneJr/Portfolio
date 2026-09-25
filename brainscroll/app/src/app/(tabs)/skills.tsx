@@ -1,9 +1,9 @@
 import { MASTERY_BAND_SIZE, subjectRank } from '@brainscroll/core';
+import { router } from 'expo-router';
 import { View } from 'react-native';
 import { Body, Caption, Card, Chip, Emblem, Eyebrow, Icon, LevelArt, ProgressBar, Row, Screen, ScreenHeader, Stars, Title, type IconName } from '@/components/ui';
 import { levelByNumber, levelsForSkill, subjectName, subjects } from '@/content';
-import { useProgress, useProgressView } from '@/progress/ProgressProvider';
-import { useStartLevel } from '@/progress/useStartLevel';
+import { useProgressView } from '@/progress/ProgressProvider';
 import { ChapterRail } from '@/components/ChapterRail';
 import { color, radius, space } from '@/theme/tokens';
 
@@ -13,9 +13,7 @@ import { color, radius, space } from '@/theme/tokens';
  * road to the next ★. Never 100 equal dots.
  */
 export default function SkillsScreen() {
-  const p = useProgress();
   const { skills } = useProgressView();
-  const startLevel = useStartLevel();
   const upcoming = subjects.filter((s) => !skills.some((k) => k.subjectId === s.id));
 
   return (
@@ -24,15 +22,14 @@ export default function SkillsScreen() {
       {skills.map((s) => {
         const chapterStart = (s.view.band - 1) * MASTERY_BAND_SIZE + (s.view.chapter - 1) * 10 + 1;
         const published = levelsForSkill(s.id).length;
-        const nextId = p.nextLevelId(s.id);
         const rank = subjectRank(skills.filter((k) => k.subjectId === s.subjectId).map((k) => k.view.level));
         const toStar = MASTERY_BAND_SIZE - (s.view.level % MASTERY_BAND_SIZE);
         return (
           <Card
             key={s.id}
             variant="plain"
-            accessibilityLabel={nextId ? `Continue ${s.name}` : s.name}
-            onPress={nextId ? () => startLevel(nextId) : undefined}
+            accessibilityLabel={`Open ${s.name}`}
+            onPress={() => router.push({ pathname: '/skill/[id]', params: { id: s.id } })}
             style={{ padding: space.xl, gap: space.lg }}>
             <Row gap={space.lg}>
               <Emblem value={s.view.level} tone={s.view.stars > 0 ? 'mastery' : 'brand'} />

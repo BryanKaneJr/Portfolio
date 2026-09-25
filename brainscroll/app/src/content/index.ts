@@ -63,3 +63,8 @@ export function getConcept(id: string) {
 export function chapterFor(skillId: string, levelNumber: number): Chapter | undefined {
   return bundle.chapters[skillId]?.find((c) => levelNumber >= c.levels[0] && levelNumber <= c.levels[1]);
 }
+
+/** Every chapter of a skill, in order (empty when its syllabus isn't shipped). */
+export function chaptersFor(skillId: string): Chapter[] {
+  return bundle.chapters[skillId] ?? [];
+}

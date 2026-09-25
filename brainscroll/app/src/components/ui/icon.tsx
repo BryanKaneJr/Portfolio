@@ -8,6 +8,7 @@ import { View, type ColorValue } from 'react-native';
  */
 const ICONS = {
   close: { ios: 'xmark', android: 'close', web: 'close' },
+  back: { ios: 'chevron.left', android: 'arrow_back', web: 'arrow_back' },
   flag: { ios: 'flag', android: 'flag', web: 'flag' },
   xp: { ios: 'bolt.fill', android: 'bolt', web: 'bolt' },
   knowledge: { ios: 'brain.head.profile', android: 'psychology', web: 'psychology' },

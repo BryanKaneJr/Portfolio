@@ -1,6 +1,6 @@
 import { DR_SCROLL_LINES, LEARNING_STRUCTURE, MASTERY_BAND_SIZE, skillProgressView, type CompletionOutcome } from '@brainscroll/core';
 import { Redirect, router } from 'expo-router';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   Button,
@@ -11,6 +11,7 @@ import {
   DrScrollSays,
   Emblem,
   Eyebrow,
+  Icon,
   Numeral,
   Pop,
   ProgressBar,
@@ -22,7 +23,7 @@ import {
 } from '@/components/ui';
 import { getConcept, getLevel, getSkill, levelByNumber } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
-import { color, layout, space } from '@/theme/tokens';
+import { color, depth, layout, space } from '@/theme/tokens';
 
 /**
  * Level Complete: the payoff, where the RPG layer comes forward. It animates
@@ -58,6 +59,13 @@ export default function LevelCompleteScreen() {
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep }} edges={['top']}>
       <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: layout.gutter, paddingVertical: space.xl, justifyContent: 'center' }}>
         <View style={{ width: '100%', maxWidth: layout.readingWidth, alignSelf: 'center', gap: space.xl, alignItems: 'center' }}>
+          {!s.alreadyCompleted && level.number % 10 === 0 && (
+            <Pop delay={100}>
+              <View style={[styles.trophy, mastery && styles.trophyGold]} accessibilityLabel={mastery ? 'Mastery trophy' : 'Checkpoint trophy'}>
+                <Icon name="trophy" tint={mastery ? '#1A1305' : '#FFFFFF'} size={56} />
+              </View>
+            </Pop>
+          )}
           <Eyebrow tone={mastery ? 'mastery' : 'success'}>
             {s.alreadyCompleted ? 'Replay complete' : mastery ? '★ Mastery star earned' : `${label} ${level.number} complete`}
           </Eyebrow>
@@ -172,3 +180,9 @@ function roman(n: number): string {
     }
   return out || 'I';
 }
+
+const styles = StyleSheet.create({
+  // A chapter's 10th level is a checkpoint: clearing it wins the path's trophy.
+  trophy: { width: 112, height: 108, borderRadius: 56, alignItems: 'center', justifyContent: 'center', backgroundColor: color.brand, borderBottomWidth: depth.edge + 2, borderBottomColor: color.brandEdge },
+  trophyGold: { backgroundColor: color.mastery, borderBottomColor: color.masteryEdge },
+});
