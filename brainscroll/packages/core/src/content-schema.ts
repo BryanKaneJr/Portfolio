@@ -238,7 +238,8 @@ export const ArtId = z.string().regex(/^[a-z]+\.[a-z0-9]+(?:-[a-z0-9]+)*$/, 'mus
 
 export const LevelConcept = z.object({
   conceptId: id('concept'),
-  role: z.enum(['teach', 'reinforce', 'recall']),
+  /** teach · reinforce · recall · preview (mentioned in passing before a later level teaches it fully). */
+  role: z.enum(['teach', 'reinforce', 'recall', 'preview']),
   weight: z.number().positive().max(1).default(1),
 });
 

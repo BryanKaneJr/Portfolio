@@ -26157,6 +26157,41 @@
           "conceptId": "concept.astronomy.milky_way_home",
           "role": "teach",
           "weight": 1
+        },
+        {
+          "conceptId": "concept.astronomy.dwarf_planets",
+          "role": "preview",
+          "weight": 0.3
+        },
+        {
+          "conceptId": "concept.astronomy.light_year",
+          "role": "preview",
+          "weight": 0.3
+        },
+        {
+          "conceptId": "concept.astronomy.astronomical_unit",
+          "role": "preview",
+          "weight": 0.3
+        },
+        {
+          "conceptId": "concept.astronomy.nearest_star",
+          "role": "preview",
+          "weight": 0.3
+        },
+        {
+          "conceptId": "concept.astronomy.milky_way_size",
+          "role": "preview",
+          "weight": 0.3
+        },
+        {
+          "conceptId": "concept.astronomy.milky_way_structure",
+          "role": "preview",
+          "weight": 0.3
+        },
+        {
+          "conceptId": "concept.astronomy.andromeda",
+          "role": "preview",
+          "weight": 0.3
         }
       ],
       "prerequisites": [],
@@ -26166,14 +26201,14 @@
           "type": "text",
           "role": "hook",
           "headline": "Every star you see at night is a sun. Ours is just the closest one.",
-          "body": "The Sun isn't a special kind of object. It's a star, and the nearest one to Earth. The others only look like dots because they're unimaginably farther away."
+          "body": "Go outside on a clear night and pick any star. That tiny point of light is a sun: a huge, glowing ball of gas like ours. It only looks like a pinprick because it's so far away. The Sun isn't a special kind of object at all. It's a star that happens to be very, very close to us."
         },
         {
           "id": "card.astronomy.001.c2",
           "type": "text",
           "role": "explain",
-          "headline": "Your address, zoomed out",
-          "body": "Start with Earth. It's the third of eight planets orbiting the Sun. The Sun and everything orbiting it make up our solar system.",
+          "headline": "Your address, starting at home",
+          "body": "If the universe had a postal service, your address would start with Earth. We're the third of eight planets circling the Sun: Mercury and Venus orbit inside us, and Mars, Jupiter, Saturn, Uranus and Neptune orbit farther out. Pluto used to be counted as the ninth. In 2006 astronomers tightened the definition of a planet, and Pluto, which shares its region of space with lots of other icy bodies, became a dwarf planet. The Sun and everything that orbits it make up our solar system. That's the next line of your address.",
           "callout": "Earth → planet 3 → the Sun's solar system"
         },
         {
@@ -26184,14 +26219,22 @@
           },
           "type": "fact",
           "fact": "Sunlight takes about 8 minutes to reach Earth.",
-          "context": "So when you look at the Sun (please don't, directly), you're seeing it as it was roughly eight minutes ago."
+          "context": "Light is the fastest thing there is, covering about 300,000 km every second. But the Sun is about 150 million km away, so even light needs around eight minutes to make the trip. That means you never see the Sun as it is right now, only as it was a few minutes ago. The delay grows with distance: light from the nearest other star, Proxima Centauri, set off more than four years before it reaches your eyes."
         },
         {
           "id": "card.astronomy.001.c4",
           "type": "text",
           "role": "explain",
           "headline": "Now zoom out much, much further",
-          "body": "The Sun is one of at least 100 billion stars in the Milky Way, a barred spiral galaxy. That faint band across a dark sky? That's our own galaxy, seen from the inside."
+          "body": "The Sun is one of at least 100 billion stars in the Milky Way, a barred spiral galaxy about 100,000 light-years across. We don't live anywhere near the middle. The Sun sits about 26,000 light-years from the center, out in a minor spiral arm. On a truly dark night, far from city lights, you can see a faint, milky band stretching across the sky. That glow is our own galaxy, seen from the inside."
+        },
+        {
+          "id": "card.astronomy.001.c9",
+          "type": "text",
+          "role": "connect",
+          "headline": "The full address",
+          "body": "Put it all together: Earth, the third planet, in the solar system of a star called the Sun, in the Milky Way galaxy. Each step out is enormously bigger than the last. And even the Milky Way has neighbors. The nearest large spiral galaxy, Andromeda, is about 2.5 million light-years away, so the light you'd see from it tonight set off about 2.5 million years ago. Next, we zoom back in to the star at the center of your address, and find out what it's really doing.",
+          "callout": "Earth → solar system → Milky Way"
         },
         {
           "id": "card.astronomy.001.c5",
@@ -26346,7 +26389,12 @@
       "sourceIds": [
         "source.nasa_sun_facts",
         "source.nasa_solar_system",
-        "source.nasa_milky_way"
+        "source.nasa_milky_way",
+        "source.nasa_planets_overview",
+        "source.iau_pluto",
+        "source.nasa_light_year",
+        "source.brit_au",
+        "source.nasa_galaxies"
       ],
       "art": "astronomy.earth"
     },
@@ -26380,6 +26428,21 @@
           "conceptId": "concept.astronomy.sun_is_a_star",
           "role": "recall",
           "weight": 0.5
+        },
+        {
+          "conceptId": "concept.astronomy.main_sequence_mass",
+          "role": "preview",
+          "weight": 0.3
+        },
+        {
+          "conceptId": "concept.astronomy.star_life_cycle",
+          "role": "preview",
+          "weight": 0.3
+        },
+        {
+          "conceptId": "concept.astronomy.hr_diagram",
+          "role": "preview",
+          "weight": 0.3
         }
       ],
       "prerequisites": [
@@ -26391,28 +26454,35 @@
           "type": "text",
           "role": "hook",
           "headline": "The Sun isn't on fire. It's doing something far stranger.",
-          "body": "There's no burning in the everyday sense. Deep in its core, the Sun squeezes atoms together."
+          "body": "It's easy to picture the Sun as a giant bonfire. But it has been shining for billions of years, and it isn't burning in the everyday sense at all. Deep in its core, it's squeezing atoms together instead."
         },
         {
           "id": "card.astronomy.002.c2",
           "type": "text",
           "role": "explain",
           "headline": "Nuclear fusion",
-          "body": "At about 15 million °C, the Sun's core squeezes hydrogen atoms so hard that they fuse into helium. Each fusion releases a tiny amount of energy, but the core does it an almost unimaginable number of times every second, and together they make the sunlight that reaches you.",
+          "body": "The Sun's core is about 15 million °C. At that heat, hydrogen atoms smash into each other so hard that they fuse into helium, and every fusion releases a tiny burst of energy. One burst is nothing. But the core does this an almost unimaginable number of times every second, and together those bursts make all the light and warmth the Sun gives off. The sunshine on your face started as that fusion, deep inside the star.",
           "callout": "Hydrogen → helium + energy"
         },
         {
           "id": "card.astronomy.002.c3",
           "type": "fact",
           "fact": "The Sun holds about 99.8% of the solar system's mass.",
-          "context": "Every planet, moon, asteroid and comet together makes up the remaining 0.2%. We're the crumbs."
+          "context": "Add up every planet, moon, asteroid and comet and you get the other 0.2%. Jupiter, Earth and everything else are the crumbs. NASA puts it this way: if the Sun were as tall as a typical front door, Earth would be about the size of a nickel. That overwhelming mass is why the Sun is in charge. Its gravity holds the whole solar system together, keeping every planet in its orbit."
         },
         {
           "id": "card.astronomy.002.c4",
           "type": "text",
           "role": "explain",
           "headline": "Middle-aged, not old",
-          "body": "The Sun formed about 4.6 billion years ago. That sounds ancient, but for a star like ours it's roughly the middle of its life. There's plenty of hydrogen left in its core to keep the fusion going for billions of years more."
+          "body": "The Sun formed about 4.6 billion years ago, which sounds ancient. But a star like ours spends about 10 billion years steadily fusing hydrogen, so the Sun is only around halfway through. In roughly 5 billion years, when the hydrogen in its core runs low, it will swell into a red giant, then shed its outer layers and end as a small, dim white dwarf. We'll follow that whole life story later in the tree."
+        },
+        {
+          "id": "card.astronomy.002.c9",
+          "type": "text",
+          "role": "connect",
+          "headline": "Every star is an engine like this",
+          "body": "Those other suns from Level 1 work the same way. A star spends most of its life fusing hydrogen into helium in its core, just as ours is doing right now. That doesn't make the Sun ordinary, though. It's actually hotter and brighter than most stars, because the most common stars in the galaxy are dim red dwarfs. So every star you see at night is shining the same basic way ours does: by nuclear fusion."
         },
         {
           "id": "card.astronomy.002.c5",
@@ -26562,7 +26632,10 @@
         }
       ],
       "sourceIds": [
-        "source.nasa_sun_facts"
+        "source.nasa_sun_facts",
+        "source.brit_main_sequence",
+        "source.nasa_star_life_cycle",
+        "source.brit_hr_diagram"
       ],
       "art": "astronomy.sun"
     },
@@ -26596,6 +26669,31 @@
           "conceptId": "concept.astronomy.earth_third_planet",
           "role": "reinforce",
           "weight": 0.5
+        },
+        {
+          "conceptId": "concept.astronomy.mercury_extremes",
+          "role": "preview",
+          "weight": 0.3
+        },
+        {
+          "conceptId": "concept.astronomy.venus_twin",
+          "role": "preview",
+          "weight": 0.3
+        },
+        {
+          "conceptId": "concept.astronomy.mars_water_past",
+          "role": "preview",
+          "weight": 0.3
+        },
+        {
+          "conceptId": "concept.astronomy.earth_protection",
+          "role": "preview",
+          "weight": 0.3
+        },
+        {
+          "conceptId": "concept.astronomy.giant_planets",
+          "role": "preview",
+          "weight": 0.3
         }
       ],
       "prerequisites": [
@@ -26606,14 +26704,15 @@
           "id": "card.astronomy.003.c1",
           "type": "text",
           "role": "hook",
-          "headline": "Mercury is closest to the Sun. So why is Venus hotter?"
+          "headline": "Mercury is closest to the Sun. So why is Venus hotter?",
+          "body": "Mercury sits closest to the Sun, so you'd expect it to be the hottest planet. It isn't. The answer is hiding in the air of its neighbor, Venus."
         },
         {
           "id": "card.astronomy.003.c2",
           "type": "text",
           "role": "explain",
           "headline": "The inner planets are rocky",
-          "body": "Mercury, Venus, Earth and Mars are small worlds of rock and metal. You could, in principle, stand on any of them. You wouldn't enjoy most of them.",
+          "body": "The four planets nearest the Sun, Mercury, Venus, Earth and Mars, are small worlds of rock and metal. You could, in principle, stand on any of them. You just wouldn't enjoy most of them. Mercury's surface bakes at about 430 °C in the day and plunges to about −180 °C at night. Stranger still, for a world that hot, it hides water ice in craters near its poles that are always in shadow and never see the Sun.",
           "callout": "Mercury · Venus · Earth · Mars"
         },
         {
@@ -26621,13 +26720,20 @@
           "type": "text",
           "role": "explain",
           "headline": "Venus: a runaway greenhouse",
-          "body": "Venus is wrapped in a thick carbon dioxide atmosphere that traps heat. Its surface is over 450 °C, hotter than Mercury, even though Mercury is closer to the Sun."
+          "body": "Venus is wrapped in a thick blanket of carbon dioxide. Sunlight gets in, but the heat can't easily escape, so it builds up and stays. The result is a surface over 450 °C, hotter than Mercury even though Mercury is closer to the Sun. The air is so dense that standing on the ground there would mean a pressure about 90 times what you feel on Earth. And Venus spins backwards compared with most planets, so there the Sun rises in the west."
         },
         {
           "id": "card.astronomy.003.c4",
           "type": "fact",
           "fact": "Mars is red because it's rusty.",
-          "context": "Iron oxide (the same stuff as rust) coats Martian dust and rocks, and fine red dust in its thin atmosphere tints the whole planet."
+          "context": "Iron oxide, the same compound as rust, coats Martian dust and rocks, and fine red dust in its thin atmosphere tints the whole planet. That air is mostly carbon dioxide, with less than 1% of Earth's surface pressure. Mars wasn't always this dry, though. Dried river valleys and ancient lake beds show that liquid water once flowed there. Today most of its water is frozen, in the polar ice caps and underground."
+        },
+        {
+          "id": "card.astronomy.003.c9",
+          "type": "text",
+          "role": "connect",
+          "headline": "And then there's us",
+          "body": "Between scorching Venus and frozen, rusty Mars sits the one rocky world where things went right. About 71% of Earth's surface is covered by water, and as far as we know, it's the only planet with life. Past Mars, the rocky worlds end. Next come the giants: Jupiter and Saturn, great balls of gas, and Uranus and Neptune, the ice giants. That's where we're headed in the next level."
         },
         {
           "id": "card.astronomy.003.c5",
@@ -26778,7 +26884,9 @@
       "sourceIds": [
         "source.nasa_planets_overview",
         "source.nasa_venus_facts",
-        "source.nasa_mars_facts"
+        "source.nasa_mars_facts",
+        "source.nasa_mercury_facts",
+        "source.nasa_earth_perihelion"
       ],
       "art": "astronomy.rocky-planets"
     },

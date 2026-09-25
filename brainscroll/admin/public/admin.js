@@ -317,7 +317,7 @@ function renderEdit() {
   out.append(h('div', { class: 'box' }, h('h3', {}, 'Concepts', h('button', { onclick: () => { l.concepts.push({ conceptId: conceptIds[0], role: 'recall', weight: 0.5 }); touch(true); } }, '+ concept')),
     ...l.concepts.map((c, i) => h('div', { class: 'row' },
       h('select', { onchange: (e) => { c.conceptId = e.target.value; touch(); } }, conceptIds.map((id) => h('option', { value: id, selected: id === c.conceptId ? 'selected' : undefined }, `${short(id)}: ${cmap.get(id).title}`))),
-      h('span', { class: 'narrow' }, select(c, 'role', ['teach', 'reinforce', 'recall'])),
+      h('span', { class: 'narrow' }, select(c, 'role', ['teach', 'reinforce', 'recall', 'preview'])),
       h('span', { class: 'narrow', style: 'width:80px' }, field(c, 'weight', { type: 'number' })),
       h('button', { class: 'narrow danger', onclick: () => { l.concepts.splice(i, 1); touch(true); } }, '✕')))));
 

@@ -165,6 +165,9 @@ export function checkQuality(
       const before = new Set(sorted.slice(0, i).flatMap((x) => x.concepts.filter((c) => c.role === 'teach').map((c) => c.conceptId)));
       for (const c of l.concepts) if (c.role === 'reinforce' && !before.has(c.conceptId) && !l.concepts.some((x) => x.conceptId === c.conceptId && x.role === 'teach'))
         warn(l.id, `reinforces ${c.conceptId}, which no earlier level teaches`);
+      // A preview promises a later lesson: some later level must actually teach it.
+      const later = new Set(sorted.slice(i + 1).flatMap((x) => x.concepts.filter((c) => c.role === 'teach').map((c) => c.conceptId)));
+      for (const c of l.concepts) if (c.role === 'preview' && !later.has(c.conceptId)) warn(l.id, `previews ${c.conceptId}, but no later level teaches it`);
     });
   }
   const usedConcepts = new Set(levels.flatMap((l) => l.concepts.map((c) => c.conceptId)));
