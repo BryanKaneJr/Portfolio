@@ -1,0 +1,217 @@
+{
+  "id": "level.geography.world_geography.001",
+  "skillId": "skill.geography.world_geography",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Planet Earth in One Level",
+  "objective": "After this level you can name Earth's continents and oceans and say how much of the surface is water.",
+  "summary": "About 71% of Earth's surface is water. The land splits into seven continents, and the water into five named oceans that are really one.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.water_planet",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.seven_continents",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.five_oceans",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.world_geography.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "We named our planet Earth. Most of it is water.",
+      "body": "About 71% of the surface is ocean. Spin a globe, stop it with a finger, and you'll land on water about seven times out of ten. Maybe we should have called it Ocean."
+    },
+    {
+      "id": "card.world_geography.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seven big pieces of land",
+      "body": "Everything that sticks up out of all that water is split into seven continents: Asia, Africa, North America, South America, Antarctica, Europe and Australia. People live on all of them, with one exception. Antarctica has no permanent population at all; the only people there are researchers and the staff who support them. Nobody grows up in Antarctica.",
+      "callout": "Asia · Africa · North America · South America · Antarctica · Europe · Australia"
+    },
+    {
+      "id": "card.world_geography.001.c3",
+      "type": "fact",
+      "fact": "Your old atlas may show four oceans. Most countries now count five.",
+      "context": "The classic four are the Atlantic, Pacific, Indian and Arctic. The fifth is the Southern Ocean, the water that encircles Antarctica. It's the newest named ocean, and National Geographic started recognizing it in 2021. So if you learned four, you weren't wrong. You were just early."
+    },
+    {
+      "id": "card.world_geography.001.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five names, one ocean",
+      "body": "Here's the twist: those five oceans aren't separate bodies of water. They all flow into each other. As NOAA, the US ocean agency, puts it, there is only one global ocean. The five names are like rooms in one big house. The walls are lines that people drew on maps, and the water ignores them completely.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "One ocean, five name tags. The water has never once read them."
+      }
+    },
+    {
+      "id": "card.world_geography.001.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.001.q1"
+    },
+    {
+      "id": "card.world_geography.001.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.001.q2"
+    },
+    {
+      "id": "card.world_geography.001.c7",
+      "type": "mcq",
+      "questionId": "question.world_geography.001.q3"
+    },
+    {
+      "id": "card.world_geography.001.c8",
+      "type": "checkpoint",
+      "headline": "Planet Earth: mapped",
+      "learned": [
+        "About 71% of Earth's surface is water",
+        "Land splits into seven continents",
+        "Antarctica has no permanent residents",
+        "Five named oceans, all one connected ocean"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.water_planet"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.001.c1"
+      ],
+      "prompt": "About how much of Earth's surface is covered by water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 30%",
+          "correct": false,
+          "rationale": "That's roughly how much is land."
+        },
+        {
+          "id": "b",
+          "label": "About 50%",
+          "correct": false,
+          "rationale": "Water wins by a lot more than half."
+        },
+        {
+          "id": "c",
+          "label": "About 71%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 90%",
+          "correct": false,
+          "rationale": "Too much: about 29% is land."
+        }
+      ],
+      "explanation": "About 71% of Earth's surface is water. Land is the smaller share.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.world_geography.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.five_oceans"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.001.c4"
+      ],
+      "prompt": "Why do ocean scientists say there is really just one ocean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only the Pacific counts as a true ocean",
+          "correct": false,
+          "rationale": "All five are named regions of the same water."
+        },
+        {
+          "id": "b",
+          "label": "The named oceans all flow into each other",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The other four are technically seas",
+          "correct": false,
+          "rationale": "They're oceans; they just share one connected body of water."
+        },
+        {
+          "id": "d",
+          "label": "Land walls split them into separate basins",
+          "correct": false,
+          "rationale": "No walls: the borders are lines drawn by people."
+        }
+      ],
+      "explanation": "The five named oceans are connected regions of one global ocean. The borders between them are drawn by people.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.seven_continents",
+        "concept.world_geography.five_oceans"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.001.c2",
+        "card.world_geography.001.c3"
+      ],
+      "prompt": "Which continent does the newest named ocean encircle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Australia",
+          "correct": false,
+          "rationale": "Australia sits between the Indian and Pacific Oceans."
+        },
+        {
+          "id": "b",
+          "label": "Asia",
+          "correct": false,
+          "rationale": "Asia borders the Pacific, Indian and Arctic Oceans."
+        },
+        {
+          "id": "c",
+          "label": "South America",
+          "correct": false,
+          "rationale": "It sits between the Atlantic and the Pacific."
+        },
+        {
+          "id": "d",
+          "label": "Antarctica",
+          "correct": true
+        }
+      ],
+      "explanation": "The Southern Ocean encircles Antarctica, the one continent with no permanent population.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_how_many_oceans",
+    "source.usgs_water_on_earth",
+    "source.natgeo_continent",
+    "source.natgeo_southern_ocean"
+  ],
+  "art": "object.globe"
+}

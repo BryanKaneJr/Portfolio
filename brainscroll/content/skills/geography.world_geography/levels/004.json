@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.world_geography.004",
+  "skillId": "skill.geography.world_geography",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Equator and the Tropics",
+  "objective": "After this level you can explain what the Equator, the tropics and the polar circles mark and why they sit where they do.",
+  "summary": "The Equator splits the hemispheres. Earth's 23.5° tilt sets the tropics, the only zone with an overhead Sun, and the polar circles, where days can last 24 hours.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.equator",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.tropics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.polar_circles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.latitude",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.003"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Twice a year in Hawaii, flagpoles lose their shadows at noon.",
+      "body": "The Sun stands straight overhead, and the shadow hides right under the pole. Anywhere else in the US? Never. A few imaginary lines on the globe explain why."
+    },
+    {
+      "id": "card.world_geography.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Equator: Earth's belt",
+      "body": "Start in the middle. The Equator is 0° latitude, exactly halfway between the North and South Poles, and it splits the planet into the Northern and Southern Hemispheres. Twice a year, at the equinoxes, the Sun passes directly over it. Every latitude you met in Level 3 is counted from this line."
+    },
+    {
+      "id": "card.world_geography.004.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The tropics: where the Sun turns around",
+      "body": "Earth's axis is tilted about 23.5°, so the spot where the noon Sun stands directly overhead drifts north and south through the year. It reaches the Tropic of Cancer, about 23.5° N, around June 21. Then it turns back and reaches the Tropic of Capricorn, about 23.5° S, around December 21. Between those lines lie the tropics, the only places where the Sun is ever directly overhead. Hawaii is inside. The rest of the US is not.",
+      "callout": "Overhead Sun zone: 23.5° N to 23.5° S"
+    },
+    {
+      "id": "card.world_geography.004.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The polar circles: days that last all day",
+      "body": "Now go about 23.5° from each pole: that same tilt again. You reach the Arctic Circle at about 66.5° N and the Antarctic Circle at about 66.5° S. On these lines the Sun stays up for a full day at least once a year, and stays down for a full day, too. Keep going toward a pole and it stretches to six months. Try explaining bedtime there in June."
+    },
+    {
+      "id": "card.world_geography.004.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.004.q1"
+    },
+    {
+      "id": "card.world_geography.004.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.004.q2"
+    },
+    {
+      "id": "card.world_geography.004.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.004.q3"
+    },
+    {
+      "id": "card.world_geography.004.c8",
+      "type": "checkpoint",
+      "headline": "Lines of light: learned",
+      "learned": [
+        "The Equator is 0°, halfway between the poles",
+        "The tropics sit at about 23.5° N and S",
+        "Only in the tropics is the Sun ever overhead",
+        "Polar circles at about 66.5° get 24-hour days"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.equator"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.004.c2"
+      ],
+      "prompt": "What does the Equator divide Earth into?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Eastern and Western Hemispheres",
+          "correct": false,
+          "rationale": "That's the prime meridian's job."
+        },
+        {
+          "id": "b",
+          "label": "The Northern and Southern Hemispheres",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The tropics and the polar circles",
+          "correct": false,
+          "rationale": "Those are zones on each side of it."
+        },
+        {
+          "id": "d",
+          "label": "Day and night halves",
+          "correct": false,
+          "rationale": "Day and night are set by the Sun, not a fixed line."
+        }
+      ],
+      "explanation": "The Equator, at 0° latitude, runs halfway between the poles and splits the Northern and Southern Hemispheres.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.world_geography.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.tropics"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.004.c3"
+      ],
+      "prompt": "Why do the tropics lie about 23.5° north and south of the Equator?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That's how far ocean currents carry warm water",
+          "correct": false,
+          "rationale": "Currents don't set these lines."
+        },
+        {
+          "id": "b",
+          "label": "The 1884 conference chose those latitudes",
+          "correct": false,
+          "rationale": "That conference chose the prime meridian."
+        },
+        {
+          "id": "c",
+          "label": "Earth's axis is tilted about 23.5°",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Mountains block the Sun beyond them",
+          "correct": false,
+          "rationale": "Mountains have nothing to do with it."
+        }
+      ],
+      "explanation": "Earth's tilt makes the overhead Sun drift up to about 23.5° north and south, so that's where the tropics sit.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.polar_circles",
+        "concept.world_geography.latitude"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.004.c4",
+        "card.world_geography.003.c2"
+      ],
+      "prompt": "Using Level 3's latitudes, which town could have a day when the Sun never sets?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A town at 10° N",
+          "correct": false,
+          "rationale": "Far too close to the Equator."
+        },
+        {
+          "id": "b",
+          "label": "A town at 23° S",
+          "correct": false,
+          "rationale": "That's near the Tropic of Capricorn, not a polar circle."
+        },
+        {
+          "id": "c",
+          "label": "A town at 45° N",
+          "correct": false,
+          "rationale": "Close, but still south of the Arctic Circle."
+        },
+        {
+          "id": "d",
+          "label": "A town at 70° N",
+          "correct": true
+        }
+      ],
+      "explanation": "70° N is north of the Arctic Circle (about 66.5° N), where the Sun stays up for at least one full day a year.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.bishop_museum_lahaina_noon",
+    "source.natgeo_equator",
+    "source.noaa_latitude",
+    "source.brit_arctic_circle",
+    "source.brit_tropic_of_cancer",
+    "source.natgeo_tropics",
+    "source.brit_tropic_of_capricorn",
+    "source.brit_antarctic_circle"
+  ],
+  "art": "object.globe"
+}

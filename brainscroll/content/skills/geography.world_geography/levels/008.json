@@ -1,0 +1,227 @@
+{
+  "id": "level.geography.world_geography.008",
+  "skillId": "skill.geography.world_geography",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Continents and Oceans by Size",
+  "objective": "After this level you can rank the seven continents and five oceans by size.",
+  "summary": "Asia is the biggest continent and Australia the smallest. The Pacific is the biggest ocean, larger than all land combined; the Arctic is the smallest.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.continent_sizes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.ocean_sizes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.mercator_projection",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.seven_continents",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.world_geography.five_oceans",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.007"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every continent could fit inside the Pacific Ocean at once.",
+      "body": "All seven of them from Level 1, packed together, and the Pacific would still have room. Time to rank the whole planet."
+    },
+    {
+      "id": "card.world_geography.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The land league table",
+      "body": "Line the continents up by size and Asia wins easily, holding almost a third of the world's land. Next come Africa, North America, South America, Antarctica and Europe. Australia comes last: the smallest continent, and the flattest one, too. Last place, but it still gets to be a whole continent.",
+      "callout": "Asia › Africa › North America › South America › Antarctica › Europe › Australia"
+    },
+    {
+      "id": "card.world_geography.008.c3",
+      "type": "fact",
+      "fact": "The Pacific covers about a third of Earth's surface.",
+      "context": "It's the largest and deepest ocean, and its area beats all the land on Earth combined. Then come the Atlantic, the Indian, the Southern and, smallest of all, the Arctic. Remember, they're really one connected ocean. The Pacific just claims the biggest share."
+    },
+    {
+      "id": "card.world_geography.008.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Don't trust the wall map",
+      "body": "On a Mercator map, Antarctica looks gigantic. In the real ranking it's fifth, behind Asia, Africa and both Americas. Mercator inflates places the farther they are from the Equator, and Antarctica is about as far as you can get. When size is the question, trust the ranking, not the poster."
+    },
+    {
+      "id": "card.world_geography.008.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.008.q1"
+    },
+    {
+      "id": "card.world_geography.008.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.008.q2"
+    },
+    {
+      "id": "card.world_geography.008.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.008.q3"
+    },
+    {
+      "id": "card.world_geography.008.c8",
+      "type": "checkpoint",
+      "headline": "Planet: ranked",
+      "learned": [
+        "Asia is the biggest continent, Australia the smallest",
+        "The Pacific covers about a third of Earth",
+        "The Pacific's area beats all land combined",
+        "The Arctic is the smallest ocean"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.continent_sizes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.008.c2"
+      ],
+      "prompt": "Which is the largest continent?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Africa",
+          "correct": false,
+          "rationale": "Africa is second."
+        },
+        {
+          "id": "b",
+          "label": "North America",
+          "correct": false,
+          "rationale": "North America is third."
+        },
+        {
+          "id": "c",
+          "label": "Antarctica",
+          "correct": false,
+          "rationale": "Antarctica is fifth."
+        },
+        {
+          "id": "d",
+          "label": "Asia",
+          "correct": true
+        }
+      ],
+      "explanation": "Asia is the largest continent, with almost a third of the world's land.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.world_geography.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.ocean_sizes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.008.c3"
+      ],
+      "prompt": "All the continents could fit inside the Pacific. What does that tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Pacific's area is bigger than all the land combined",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Pacific is the only ocean that's truly separate",
+          "correct": false,
+          "rationale": "All the oceans are connected."
+        },
+        {
+          "id": "c",
+          "label": "The continents sit on the Pacific's floor",
+          "correct": false,
+          "rationale": "Continents aren't part of the Pacific's floor."
+        },
+        {
+          "id": "d",
+          "label": "The Pacific is deeper than it is wide",
+          "correct": false,
+          "rationale": "It's by far wider than it is deep."
+        }
+      ],
+      "explanation": "The Pacific covers about a third of Earth's surface, more area than all the land on Earth.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.continent_sizes",
+        "concept.world_geography.mercator_projection"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.008.c4",
+        "card.world_geography.002.c3"
+      ],
+      "prompt": "From Level 2: Antarctica looks enormous on a Mercator map. Where does it really rank among the continents?",
+      "options": [
+        {
+          "id": "a",
+          "label": "First",
+          "correct": false,
+          "rationale": "That's Asia."
+        },
+        {
+          "id": "b",
+          "label": "Second",
+          "correct": false,
+          "rationale": "That's Africa."
+        },
+        {
+          "id": "c",
+          "label": "Fifth",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Seventh",
+          "correct": false,
+          "rationale": "That's Australia."
+        }
+      ],
+      "explanation": "Antarctica is fifth by size. Mercator inflates it because it's so far from the Equator.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_biggest_ocean",
+    "source.brit_pacific_ocean",
+    "source.natgeo_continent",
+    "source.noaa_how_many_oceans",
+    "source.brit_mercator_projection",
+    "source.natgeo_map_projection"
+  ],
+  "art": "geo.map"
+}

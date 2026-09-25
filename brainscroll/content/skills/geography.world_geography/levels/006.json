@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.world_geography.006",
+  "skillId": "skill.geography.world_geography",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Compass and Directions",
+  "objective": "After this level you can use the cardinal directions and explain how a compass finds north.",
+  "summary": "North, east, south and west come from Earth's spin. A compass needle lines up with Earth's magnetic field, but magnetic north isn't true north.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.cardinal_directions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.magnetic_compass",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.magnetic_north",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.longitude",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.005"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your compass doesn't point to the North Pole.",
+      "body": "It points somewhere nearby, and that somewhere keeps moving. The needle isn't broken. It's just loyal to a different north."
+    },
+    {
+      "id": "card.world_geography.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Directions for free, courtesy of the Sun",
+      "body": "North, east, south and west are the four cardinal directions, and east and west sit at right angles to north and south. The sky gives you a rough version for free: Earth spins toward the east, so the Sun rises roughly in the east and sets roughly in the west. Face the sunrise and north is on your left. Handy, but only roughly right, and no help at midnight.",
+      "callout": "N · E · S · W"
+    },
+    {
+      "id": "card.world_geography.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A needle that feels the planet",
+      "body": "A compass needle is a tiny magnet, and Earth behaves like a giant one. Let the needle swing freely and it lines up with Earth's magnetic field. That's the big upgrade over the Sun: it works at noon or midnight, under clear skies or thick clouds. You're holding a sensor for the whole planet's magnetism in your palm."
+    },
+    {
+      "id": "card.world_geography.006.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two norths",
+      "body": "Here's the catch. The Geographic North Pole sits at 90° N, the top of every meridian. The North Magnetic Pole is somewhere else, and it drifts over time. Your compass follows the magnetic one, so it's usually off from true north by an angle called magnetic declination. That angle changes depending on where you stand, so navigators look it up and correct for it."
+    },
+    {
+      "id": "card.world_geography.006.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.006.q1"
+    },
+    {
+      "id": "card.world_geography.006.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.006.q2"
+    },
+    {
+      "id": "card.world_geography.006.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.006.q3"
+    },
+    {
+      "id": "card.world_geography.006.c8",
+      "type": "checkpoint",
+      "headline": "Directions: found",
+      "learned": [
+        "The four cardinal directions: N, E, S, W",
+        "Earth spins east, so the Sun rises in the east",
+        "A compass needle is a magnet following Earth's field",
+        "Magnetic north isn't true north; the gap is declination"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.magnetic_compass"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.006.c3"
+      ],
+      "prompt": "What makes a compass needle swing toward north?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's a magnet lining up with Earth's magnetic field",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It's weighted to fall toward the pole",
+          "correct": false,
+          "rationale": "Gravity pulls down, not north."
+        },
+        {
+          "id": "c",
+          "label": "It follows the Sun's position",
+          "correct": false,
+          "rationale": "It works at midnight too."
+        },
+        {
+          "id": "d",
+          "label": "It picks up signals from satellites",
+          "correct": false,
+          "rationale": "That's GPS. A compass needs no signals."
+        }
+      ],
+      "explanation": "A compass needle is a small magnet, and it lines up with Earth's magnetic field.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.magnetic_north"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.006.c4"
+      ],
+      "prompt": "Your compass and your map's true north disagree by a few degrees. Why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The map was printed upside down",
+          "correct": false,
+          "rationale": "Maps are drawn with north at the top on purpose."
+        },
+        {
+          "id": "b",
+          "label": "Compasses only work at the Equator",
+          "correct": false,
+          "rationale": "They work almost everywhere."
+        },
+        {
+          "id": "c",
+          "label": "The needle is attracted to the Sun",
+          "correct": false,
+          "rationale": "The Sun doesn't steer a compass."
+        },
+        {
+          "id": "d",
+          "label": "Magnetic north isn't at the Geographic North Pole",
+          "correct": true
+        }
+      ],
+      "explanation": "The needle points toward magnetic north, which is not at 90° N. The difference is called magnetic declination.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.cardinal_directions",
+        "concept.world_geography.longitude"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.003.c3",
+        "card.world_geography.006.c2"
+      ],
+      "prompt": "From Level 3: which directions do the meridians of longitude run?",
+      "options": [
+        {
+          "id": "a",
+          "label": "East to west, around the globe",
+          "correct": false,
+          "rationale": "That's the parallels of latitude."
+        },
+        {
+          "id": "b",
+          "label": "North to south, from pole to pole",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Diagonally, northeast to southwest",
+          "correct": false,
+          "rationale": "Meridians aren't diagonal."
+        },
+        {
+          "id": "d",
+          "label": "In circles around the Equator",
+          "correct": false,
+          "rationale": "Circles parallel to the Equator are latitude lines."
+        }
+      ],
+      "explanation": "Meridians run north to south and meet at the poles, even though they measure how far east or west you are.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_sos_compass",
+    "source.brit_compass",
+    "source.noaa_ncei_magnetic_poles",
+    "source.natgeo_cardinal_directions",
+    "source.nasa_starchild_sunrise"
+  ],
+  "art": "geo.map"
+}

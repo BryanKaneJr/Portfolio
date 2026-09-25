@@ -1,0 +1,322 @@
+{
+  "id": "level.geography.world_geography.010",
+  "skillId": "skill.geography.world_geography",
+  "number": 10,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Reading the Planet",
+  "objective": "After this level you can use maps, coordinates, directions and time zones together to describe where any place is.",
+  "summary": "A place's antipode is directly opposite through Earth's center: same latitude in the other hemisphere, 180° of longitude away, about 12 hours apart.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.antipodes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.latitude",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.longitude",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.time_zones",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.water_planet",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.009"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.010.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Dig straight down from the US. You won't reach China.",
+      "body": "Kids have been promised China for generations. Grab a shovel (a very long one), and let's check the claim with everything from Chapter 1."
+    },
+    {
+      "id": "card.world_geography.010.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The point exactly opposite",
+      "body": "Your antipode is the spot on the far side of Earth where a straight line through the center would pop out. Finding it takes Level 3's coordinates. Keep your latitude number but switch hemispheres, so north becomes south. Then go 180° of longitude around. Start from almost anywhere in the contiguous US and you surface in the Indian Ocean. Sorry, China."
+    },
+    {
+      "id": "card.world_geography.010.c3",
+      "type": "fact",
+      "fact": "Most of the world's land sits opposite ocean.",
+      "context": "Only about 15% of land has land on its far side. That's no shock after Level 1: about 71% of Earth's surface is water. Spain is one lucky exception. Most of New Zealand's North Island lies exactly opposite it."
+    },
+    {
+      "id": "card.world_geography.010.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Opposite in time, too",
+      "body": "Your antipode is 180° of longitude away, and Earth turns 15° an hour, so it's about 12 hours off from you. When it's noon where you stand, it's midnight there. Planning to call your antipode? One of you is going to be in pajamas."
+    },
+    {
+      "id": "card.world_geography.010.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.010.q1"
+    },
+    {
+      "id": "card.world_geography.010.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.010.q2"
+    },
+    {
+      "id": "card.world_geography.010.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.010.q3"
+    },
+    {
+      "id": "card.world_geography.010.c8",
+      "type": "recall",
+      "questionId": "question.world_geography.010.q4"
+    },
+    {
+      "id": "card.world_geography.010.c9",
+      "type": "mcq",
+      "questionId": "question.world_geography.010.q5"
+    },
+    {
+      "id": "card.world_geography.010.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "Your antipode is directly opposite, through Earth's center",
+        "Same latitude, other hemisphere, 180° of longitude away",
+        "Antipodes are about 12 hours apart",
+        "Most land is opposite ocean: the US faces the Indian Ocean"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.010.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.antipodes"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.010.c2"
+      ],
+      "prompt": "What is a place's antipode?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The nearest point on the Equator",
+          "correct": false,
+          "rationale": "That's just straight north or south."
+        },
+        {
+          "id": "b",
+          "label": "The point exactly opposite it, through Earth's center",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The place with the same time zone",
+          "correct": false,
+          "rationale": "Antipodes are about 12 hours apart."
+        },
+        {
+          "id": "d",
+          "label": "The closest point on the prime meridian",
+          "correct": false,
+          "rationale": "Longitude matters, but the antipode is the far side of Earth."
+        }
+      ],
+      "explanation": "Your antipode is where a straight line through Earth's center would come out on the other side.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.010.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.antipodes",
+        "concept.world_geography.latitude",
+        "concept.world_geography.longitude"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.010.c2",
+        "card.world_geography.003.c2",
+        "card.world_geography.003.c3"
+      ],
+      "prompt": "A town sits at 30° N, 60° W. Where is its antipode?",
+      "options": [
+        {
+          "id": "a",
+          "label": "30° N, 120° E",
+          "correct": false,
+          "rationale": "The latitude must switch to the other hemisphere."
+        },
+        {
+          "id": "b",
+          "label": "30° S, 60° W",
+          "correct": false,
+          "rationale": "The longitude must move 180°."
+        },
+        {
+          "id": "c",
+          "label": "60° S, 30° E",
+          "correct": false,
+          "rationale": "The two numbers have been swapped."
+        },
+        {
+          "id": "d",
+          "label": "30° S, 120° E",
+          "correct": true
+        }
+      ],
+      "explanation": "Switch 30° N to 30° S, then go 180° around: 60° W becomes 120° E.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.world_geography.010.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.antipodes",
+        "concept.world_geography.time_zones"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.010.c4",
+        "card.world_geography.005.c2"
+      ],
+      "prompt": "From Level 5: why is your antipode about 12 hours off from you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's 180° away, and Earth turns 15° an hour",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It's always across the date line",
+          "correct": false,
+          "rationale": "The date line isn't what sets the 12 hours."
+        },
+        {
+          "id": "c",
+          "label": "It's in the opposite hemisphere",
+          "correct": false,
+          "rationale": "Switching hemispheres changes latitude, not the clock."
+        },
+        {
+          "id": "d",
+          "label": "Its time zones are twice as wide",
+          "correct": false,
+          "rationale": "All standard zones are 15° wide."
+        }
+      ],
+      "explanation": "180° divided by 15° an hour is 12 hours, so noon for you is about midnight at your antipode.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.world_geography.010.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.antipodes",
+        "concept.world_geography.water_planet"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.010.c3",
+        "card.world_geography.001.c1"
+      ],
+      "prompt": "From Level 1: why does most land have ocean at its antipode?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 71% of Earth's surface is water",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Continents drift away from each other",
+          "correct": false,
+          "rationale": "Drift is far too slow to explain it."
+        },
+        {
+          "id": "c",
+          "label": "The Equator is mostly ocean",
+          "correct": false,
+          "rationale": "The Equator doesn't decide antipodes."
+        },
+        {
+          "id": "d",
+          "label": "Maps exaggerate the size of oceans",
+          "correct": false,
+          "rationale": "The antipode rule doesn't depend on maps."
+        }
+      ],
+      "explanation": "With about 71% of the surface covered by water, the far side of most land is ocean. Only about 15% of land is opposite land.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.010.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.antipodes",
+        "concept.world_geography.latitude"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.010.c2",
+        "card.world_geography.010.c3",
+        "card.world_geography.003.c2"
+      ],
+      "prompt": "Which pair of places are antipodes of each other?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The US and China",
+          "correct": false,
+          "rationale": "That's the old myth: most of the US is opposite the Indian Ocean."
+        },
+        {
+          "id": "b",
+          "label": "London and Tokyo",
+          "correct": false,
+          "rationale": "Both are in the Northern Hemisphere."
+        },
+        {
+          "id": "c",
+          "label": "The North Pole and the South Pole",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Spain and Australia",
+          "correct": false,
+          "rationale": "Spain's opposite is New Zealand."
+        }
+      ],
+      "explanation": "90° N switches to 90° S: the two poles are exactly opposite each other.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brilliantmaps_antipodes",
+    "source.worldatlas_antipodes",
+    "source.noaa_how_many_oceans",
+    "source.usgs_water_on_earth",
+    "source.brit_standard_time"
+  ],
+  "art": "geo.map"
+}

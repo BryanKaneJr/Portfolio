@@ -1,0 +1,228 @@
+{
+  "id": "level.geography.world_geography.003",
+  "skillId": "skill.geography.world_geography",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Latitude and Longitude",
+  "objective": "After this level you can find any place on Earth using latitude and longitude.",
+  "summary": "Latitude measures north or south of the Equator, longitude east or west of the Greenwich prime meridian. Together they pin down one spot.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.latitude",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.longitude",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.coordinates",
+      "role": "teach",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.five_oceans",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.equator",
+      "role": "preview",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.002"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two numbers can find your front door. Or anywhere else on Earth.",
+      "body": "No street name, no city, no country. Just two numbers. Here's how the whole planet got a grid."
+    },
+    {
+      "id": "card.world_geography.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Latitude: how far north or south",
+      "body": "Picture rings around the globe, stacked like the rungs of a ladder from bottom to top. That's latitude. It measures how far north or south of the Equator you are: 0° at the Equator, up to 90° at the North or South Pole. The rings are parallel to each other, so they never meet. That's why they're called parallels.",
+      "callout": "0° at the Equator, 90° at the poles"
+    },
+    {
+      "id": "card.world_geography.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Longitude: how far east or west",
+      "body": "Now slice the globe like an orange, from pole to pole. Those lines are meridians, and they measure longitude: how far east or west you are, from 0° up to 180°. Unlike parallels, meridians all meet at the poles. But which slice is zero? Countries used to pick their own. In 1884 an international conference settled on one: the meridian through Greenwich, England."
+    },
+    {
+      "id": "card.world_geography.003.c4",
+      "type": "fact",
+      "fact": "At 0°, 0° there's nothing but ocean.",
+      "context": "Where the Equator crosses the prime meridian, you're bobbing in the Atlantic Ocean, in the Gulf of Guinea off West Africa. Yet mapping software sometimes gives records with missing locations exactly those coordinates, so mapmakers jokingly call the spot Null Island. Give a place two good numbers, a latitude and a longitude, and it lands exactly where it belongs.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Null Island: population zero, lost data plenty. I'd visit, but I'd need a boat and a very good excuse."
+      }
+    },
+    {
+      "id": "card.world_geography.003.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.003.q1"
+    },
+    {
+      "id": "card.world_geography.003.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.003.q2"
+    },
+    {
+      "id": "card.world_geography.003.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.003.q3"
+    },
+    {
+      "id": "card.world_geography.003.c8",
+      "type": "checkpoint",
+      "headline": "Grid: installed",
+      "learned": [
+        "Latitude: north or south of the Equator, 0° to 90°",
+        "Longitude: east or west of Greenwich, 0° to 180°",
+        "Greenwich became 0° longitude in 1884",
+        "0°, 0° is open ocean, nicknamed Null Island"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.latitude"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.003.c2"
+      ],
+      "prompt": "What does latitude measure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Distance east or west of Greenwich",
+          "correct": false,
+          "rationale": "That's longitude."
+        },
+        {
+          "id": "b",
+          "label": "Height above sea level",
+          "correct": false,
+          "rationale": "That's elevation, a different map measurement."
+        },
+        {
+          "id": "c",
+          "label": "Distance north or south of the Equator",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Time difference from Greenwich",
+          "correct": false,
+          "rationale": "Latitude is a position, not a time."
+        }
+      ],
+      "explanation": "Latitude runs from 0° at the Equator to 90° at each pole.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.world_geography.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.longitude"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.003.c3"
+      ],
+      "prompt": "Why did the 1884 meridian conference matter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It measured the length of the Equator",
+          "correct": false,
+          "rationale": "It set a starting line, not a measurement."
+        },
+        {
+          "id": "b",
+          "label": "It proved that meridians meet at the poles",
+          "correct": false,
+          "rationale": "That was already known from geometry."
+        },
+        {
+          "id": "c",
+          "label": "It moved the North Pole onto the map",
+          "correct": false,
+          "rationale": "The poles didn't need choosing."
+        },
+        {
+          "id": "d",
+          "label": "It gave everyone one shared zero for longitude",
+          "correct": true
+        }
+      ],
+      "explanation": "Before 1884, countries used their own prime meridians. The conference chose Greenwich, so longitude could be counted the same way everywhere.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.coordinates",
+        "concept.world_geography.five_oceans"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.003.c4"
+      ],
+      "prompt": "From Level 1's five oceans: in which one is the point 0° latitude, 0° longitude?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Pacific",
+          "correct": false,
+          "rationale": "The Pacific is on the other side of the world from Greenwich."
+        },
+        {
+          "id": "b",
+          "label": "The Atlantic",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Indian",
+          "correct": false,
+          "rationale": "The Indian Ocean lies east of Africa."
+        },
+        {
+          "id": "d",
+          "label": "The Southern",
+          "correct": false,
+          "rationale": "The Southern Ocean is far south, around Antarctica."
+        }
+      ],
+      "explanation": "0°, 0° is open water in the Atlantic, in the Gulf of Guinea off West Africa.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_latitude",
+    "source.noaa_longitude",
+    "source.brit_meridian_conference",
+    "source.geographyrealm_zero_zero"
+  ],
+  "art": "object.globe"
+}

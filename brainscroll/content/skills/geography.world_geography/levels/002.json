@@ -1,0 +1,223 @@
+{
+  "id": "level.geography.world_geography.002",
+  "skillId": "skill.geography.world_geography",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Every Map Is Wrong",
+  "objective": "After this level you can explain why every flat map distorts the round Earth and compare two common projections.",
+  "summary": "A round Earth can't be flattened without distortion. Mercator's map keeps compass lines straight but inflates the far north and south; equal-area maps keep sizes true.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.map_distortion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.mercator_projection",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.equal_area_projection",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.seven_continents",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.equator",
+      "role": "preview",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.001"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On many world maps, Greenland looks as big as Africa. Africa is 14 times bigger.",
+      "body": "Nobody drew it wrong on purpose. The mapmaker had an impossible job, and so does every mapmaker who ever lived."
+    },
+    {
+      "id": "card.world_geography.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The orange peel problem",
+      "body": "Peel an orange and try to press the peel flat on a table. It splits, stretches, or both. Maps have the same problem: Earth is round, paper is flat, and you can't get from one to the other without distorting something. A globe can keep size, shape, distance and direction all true at once. A flat map has to give some of them up."
+    },
+    {
+      "id": "card.world_geography.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Mercator's deal with sailors",
+      "body": "In 1569, Gerardus Mercator published a map built for navigation. On it, a straight line is a steady compass bearing: draw a line between two ports, hold that heading, and you're on course. The price was size. The farther a place is from the Equator, the more his map inflates it. Greenland sits far to the north, so it balloons.",
+      "callout": "Straight lines: great. Sizes: not so much."
+    },
+    {
+      "id": "card.world_geography.002.c4",
+      "type": "fact",
+      "fact": "Africa is about 14 times bigger than Greenland.",
+      "context": "On a Mercator map they look like rivals. An equal-area map fixes that: it shows every place at its true relative size, so Africa finally looks as huge as it is. The catch? Shapes come out stretched and squashed instead. No flat map wins at everything. Each one picks which truth to tell."
+    },
+    {
+      "id": "card.world_geography.002.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.002.q1"
+    },
+    {
+      "id": "card.world_geography.002.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.002.q2"
+    },
+    {
+      "id": "card.world_geography.002.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.002.q3"
+    },
+    {
+      "id": "card.world_geography.002.c8",
+      "type": "checkpoint",
+      "headline": "Map lies: exposed",
+      "learned": [
+        "Every flat map distorts something",
+        "Mercator's 1569 map keeps compass lines straight",
+        "It inflates places far from the Equator",
+        "Equal-area maps keep sizes true but bend shapes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.map_distortion"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.002.c2"
+      ],
+      "prompt": "Why does every flat world map distort something?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mapmakers copy old errors",
+          "correct": false,
+          "rationale": "The problem is geometry, not copying."
+        },
+        {
+          "id": "b",
+          "label": "A round surface can't be flattened perfectly",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Satellites can't photograph the poles",
+          "correct": false,
+          "rationale": "The problem exists even with perfect data."
+        },
+        {
+          "id": "d",
+          "label": "Continents move a little every year",
+          "correct": false,
+          "rationale": "Far too slowly to matter for a map."
+        }
+      ],
+      "explanation": "Earth is round and paper is flat. Like an orange peel, a sphere can't lie flat without stretching or tearing somewhere.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.mercator_projection"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.002.c3"
+      ],
+      "prompt": "Why does Greenland look so huge on a Mercator map?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's far from the Equator, where Mercator inflates size",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Mercator enlarges everything near the Equator",
+          "correct": false,
+          "rationale": "It's the other way around: the far north and south get enlarged."
+        },
+        {
+          "id": "c",
+          "label": "Its thick ice sheet is drawn as extra land",
+          "correct": false,
+          "rationale": "Ice has nothing to do with it; it's the projection."
+        },
+        {
+          "id": "d",
+          "label": "Mercator measured it wrong in 1569",
+          "correct": false,
+          "rationale": "His measurements weren't the issue; flattening the globe was."
+        }
+      ],
+      "explanation": "Mercator's map keeps compass bearings straight but inflates places more the farther they are from the Equator.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.world_geography.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.equal_area_projection",
+        "concept.world_geography.seven_continents"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.002.c4",
+        "card.world_geography.001.c2"
+      ],
+      "prompt": "You want to compare the true sizes of two continents from Level 1. Which kind of map should you use?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A Mercator map",
+          "correct": false,
+          "rationale": "It inflates places far from the Equator."
+        },
+        {
+          "id": "b",
+          "label": "A navigation chart",
+          "correct": false,
+          "rationale": "Charts are built for bearings, not true sizes."
+        },
+        {
+          "id": "c",
+          "label": "An equal-area map",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Any map, since all show size correctly",
+          "correct": false,
+          "rationale": "Every flat map distorts something."
+        }
+      ],
+      "explanation": "Equal-area maps show the true relative sizes of places, even though they distort shapes.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_map_projection",
+    "source.brit_mercator_projection"
+  ],
+  "art": "geo.map"
+}

@@ -1,0 +1,223 @@
+{
+  "id": "level.geography.world_geography.009",
+  "skillId": "skill.geography.world_geography",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Your Phone Knows Where You Are",
+  "objective": "After this level you can explain how satellites let a phone pinpoint its location.",
+  "summary": "GPS satellites broadcast their position and time. Your phone times the signals, turns them into distances, and uses four satellites to find itself.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.gps_satellites",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.gps_positioning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.latitude",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.longitude",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.008"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your phone never tells GPS satellites where it is. It just listens.",
+      "body": "The satellites only broadcast; your phone does all the math itself. That's also why the service is free for anyone, anywhere."
+    },
+    {
+      "id": "card.world_geography.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A sky full of clocks",
+      "body": "About 20,200 km up, at least 24 GPS satellites circle Earth, each one twice a day. They're spread out so that from almost anywhere, at least four are in view. Each carries a very precise atomic clock and keeps repeating the same message: here's where I am, and here's exactly what time it is."
+    },
+    {
+      "id": "card.world_geography.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Time becomes distance",
+      "body": "Your phone notes when each message arrives. The signal travels at the speed of light, so the delay tells your phone how far away that satellite is. Know how far you are from three satellites, and there's enough information to work out where you are. It's like counting the seconds between lightning and thunder to judge how far away a storm is, only with radio waves and far better clocks."
+    },
+    {
+      "id": "card.world_geography.009.c4",
+      "type": "fact",
+      "fact": "It takes four satellites, not three.",
+      "context": "The satellites' clocks are superb; the one in your phone isn't. At light speed, a tiny timing slip turns into a big miss. So your phone uses a fourth satellite to correct its own clock. The answer comes out as latitude, longitude and altitude: Level 3's two numbers, plus your height."
+    },
+    {
+      "id": "card.world_geography.009.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.009.q1"
+    },
+    {
+      "id": "card.world_geography.009.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.009.q2"
+    },
+    {
+      "id": "card.world_geography.009.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.009.q3"
+    },
+    {
+      "id": "card.world_geography.009.c8",
+      "type": "checkpoint",
+      "headline": "GPS: decoded",
+      "learned": [
+        "At least 24 GPS satellites broadcast position and time",
+        "Phones only listen; they never transmit to them",
+        "Signal travel time gives each distance",
+        "Four satellites: three for position, one for the clock"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.gps_positioning"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.009.c4"
+      ],
+      "prompt": "How many satellites does a GPS receiver need for a precise fix?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One",
+          "correct": false,
+          "rationale": "One distance only tells you you're somewhere on a huge sphere."
+        },
+        {
+          "id": "b",
+          "label": "Three",
+          "correct": false,
+          "rationale": "Three give a position, but the receiver's clock still needs fixing."
+        },
+        {
+          "id": "c",
+          "label": "Four",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Twenty-four",
+          "correct": false,
+          "rationale": "That's the size of the whole constellation."
+        }
+      ],
+      "explanation": "Four: three to find the position and a fourth to correct the error in the receiver's clock.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.world_geography.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.gps_satellites",
+        "concept.world_geography.gps_positioning"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.009.c3",
+        "card.world_geography.009.c2"
+      ],
+      "prompt": "GPS satellites never hear from your phone. So how does it find its distance to one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By measuring how strong the signal feels",
+          "correct": false,
+          "rationale": "Strength isn't what GPS uses; timing is."
+        },
+        {
+          "id": "b",
+          "label": "It times how long the signal took to arrive",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The satellite radios it back the answer",
+          "correct": false,
+          "rationale": "The signals are one-way; satellites don't know where you are."
+        },
+        {
+          "id": "d",
+          "label": "By bouncing its own signal off the satellite",
+          "correct": false,
+          "rationale": "Phones don't transmit to GPS satellites."
+        }
+      ],
+      "explanation": "The satellite's message says when it was sent. The delay, at the speed of light, gives the distance.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.gps_positioning",
+        "concept.world_geography.latitude",
+        "concept.world_geography.longitude"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.009.c4",
+        "card.world_geography.003.c2",
+        "card.world_geography.003.c3"
+      ],
+      "prompt": "Besides altitude, a GPS fix gives your position as which pair of numbers from Level 3?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Elevation and contour",
+          "correct": false,
+          "rationale": "Those describe height on a topographic map."
+        },
+        {
+          "id": "b",
+          "label": "Time zone and date",
+          "correct": false,
+          "rationale": "GPS knows the time, but position is two other numbers."
+        },
+        {
+          "id": "c",
+          "label": "Declination and bearing",
+          "correct": false,
+          "rationale": "Those are compass ideas from Level 6."
+        },
+        {
+          "id": "d",
+          "label": "Latitude and longitude",
+          "correct": true
+        }
+      ],
+      "explanation": "GPS gives latitude and longitude, plus altitude: the same grid from Level 3.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.gps_gov_overview",
+    "source.nasa_gps",
+    "source.gps_gov_space_segment",
+    "source.noaa_gps_tutorial"
+  ],
+  "art": "technology.satellite"
+}

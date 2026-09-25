@@ -1,0 +1,239 @@
+{
+  "id": "level.geography.world_geography.007",
+  "skillId": "skill.geography.world_geography",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Reading the Land",
+  "objective": "After this level you can read elevation on a map and name landforms like plateaus, valleys and deltas.",
+  "summary": "Heights are measured above sea level, and contour lines join points of equal height. Plateaus, valleys and deltas are three landforms to spot.",
+  "concepts": [
+    {
+      "conceptId": "concept.world_geography.elevation_contours",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.landforms",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.world_geography.latitude",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.world_geography.006"
+  ],
+  "cards": [
+    {
+      "id": "card.world_geography.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A flat sheet of paper can show you how steep a mountain is.",
+      "body": "No shading, no 3D glasses. Just a bunch of wiggly lines, if you know how to read them."
+    },
+    {
+      "id": "card.world_geography.007.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every height starts at the sea",
+      "body": "Every height on a map needs a zero, and the usual zero is mean sea level. So when you hear that Mount Everest, the world's highest mountain, stands about 8,849 m tall, that means 8,849 m above the sea. Your hometown has a number like that, too. It's just less likely to be on a postcard."
+    },
+    {
+      "id": "card.world_geography.007.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lines that never go up or down",
+      "body": "A topographic map draws contour lines, each one joining points at the same elevation. Walk along one and you'd never climb or descend. The trick is the spacing: lines bunched close together mean the ground rises fast, a steep slope. Lines spread far apart mean gentle ground. A cliff looks like a traffic jam of lines."
+    },
+    {
+      "id": "card.world_geography.007.c4",
+      "type": "comparison",
+      "headline": "Three shapes to spot on the land",
+      "items": [
+        {
+          "label": "Plateau",
+          "points": [
+            "Flat land raised up high",
+            "Rises sharply on at least one side"
+          ]
+        },
+        {
+          "label": "Valley",
+          "points": [
+            "Low land carved by water and ice",
+            "Rivers cut a V; glaciers grind a U"
+          ]
+        },
+        {
+          "label": "Delta",
+          "points": [
+            "Flat, low land at a river's mouth",
+            "Built from sediment the slowing river drops",
+            "Named for the triangle-shaped Greek letter Δ"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.world_geography.007.c5",
+      "type": "mcq",
+      "questionId": "question.world_geography.007.q1"
+    },
+    {
+      "id": "card.world_geography.007.c6",
+      "type": "mcq",
+      "questionId": "question.world_geography.007.q2"
+    },
+    {
+      "id": "card.world_geography.007.c7",
+      "type": "recall",
+      "questionId": "question.world_geography.007.q3"
+    },
+    {
+      "id": "card.world_geography.007.c8",
+      "type": "checkpoint",
+      "headline": "Land: readable",
+      "learned": [
+        "Heights are measured above sea level",
+        "Contour lines join points of equal elevation",
+        "Close contours mean a steep slope",
+        "Plateaus, valleys and deltas are landforms to spot"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.world_geography.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.world_geography.elevation_contours"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.007.c3"
+      ],
+      "prompt": "On a topographic map, what does a contour line connect?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Places at the same latitude",
+          "correct": false,
+          "rationale": "Those are the parallels."
+        },
+        {
+          "id": "b",
+          "label": "Points at the same elevation",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Towns in the same time zone",
+          "correct": false,
+          "rationale": "Time zones aren't drawn with contours."
+        },
+        {
+          "id": "d",
+          "label": "The fastest route between two points",
+          "correct": false,
+          "rationale": "Contours show height, not routes."
+        }
+      ],
+      "explanation": "Each contour line joins points at the same height. Close lines mean steep ground.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.world_geography.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.world_geography.landforms"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.007.c4"
+      ],
+      "prompt": "Why does a delta form at a river's mouth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Glaciers push rock down to the coast",
+          "correct": false,
+          "rationale": "Glaciers carve U-shaped valleys."
+        },
+        {
+          "id": "b",
+          "label": "Waves pile sand up against cliffs",
+          "correct": false,
+          "rationale": "Deltas are built by the river itself."
+        },
+        {
+          "id": "c",
+          "label": "The slowing river drops its sediment there",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Plates push the land up into a plateau",
+          "correct": false,
+          "rationale": "A plateau is raised land, not a river deposit."
+        }
+      ],
+      "explanation": "As a river slows near its mouth, the sediment it carries settles out and builds flat, low land.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.world_geography.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.world_geography.elevation_contours",
+        "concept.world_geography.latitude"
+      ],
+      "sourceCardIds": [
+        "card.world_geography.007.c3",
+        "card.world_geography.003.c2"
+      ],
+      "prompt": "Contour lines and Level 3's parallels are both lines on maps. What does a parallel join?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Points at the same elevation",
+          "correct": false,
+          "rationale": "That's a contour line."
+        },
+        {
+          "id": "b",
+          "label": "Points pole to pole",
+          "correct": false,
+          "rationale": "That's a meridian."
+        },
+        {
+          "id": "c",
+          "label": "Points at the same distance north or south of the Equator",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Points with the same clock time",
+          "correct": false,
+          "rationale": "That's roughly a time zone."
+        }
+      ],
+      "explanation": "A parallel joins places at the same latitude; a contour joins places at the same height.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.mgs_topographic_maps",
+    "source.sco_wisc_topographic_maps",
+    "source.brit_mount_everest",
+    "source.natgeo_plateau",
+    "source.natgeo_valleys",
+    "source.natgeo_delta"
+  ],
+  "art": "geo.mountains"
+}
