@@ -38,7 +38,7 @@ export function DrScroll({ size = 'md', style, ...placement }: Placement & { siz
   };
   return (
     <Animated.View testID={labelOf(placement)} style={[{ width: px, height: px }, bounce, style]} accessible={false} importantForAccessibility="no-hide-descendants">
-      <Image source={mascotArt(poseOf(placement), placement.spot)} style={{ width: px, height: px }} resizeMode="contain" accessibilityIgnoresInvertColors />
+      <Image source={mascotArt(poseOf(placement), placement.pose ? undefined : placement.spot)} style={{ width: px, height: px }} resizeMode="contain" accessibilityIgnoresInvertColors />
     </Animated.View>
   );
 }

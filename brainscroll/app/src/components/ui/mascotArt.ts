@@ -7,7 +7,8 @@ import type { ImageSourcePropType } from 'react-native';
  * Every place he appears asks for a SPOT (e.g. 'daily-complete'), and each spot
  * has a default POSE. The picture shown is the first that exists of:
  *
- *   1. SPOT_ART[spot]   one image for just that spot
+ *   1. SPOT_ART[spot]   one image for just that spot (skipped when the
+ *                       placement asks for a pose, e.g. a skill's costume)
  *   2. POSE_ART[pose]   the pose's image, shared by every spot using it
  *   3. the reference    until the pose art is made
  *
@@ -27,7 +28,7 @@ export const POSE_ART: Partial<Record<MascotPose, ImageSourcePropType>> = {
   'explaining': require('../../../assets/images/mascot/explaining.webp'),
   // 'chalkboard': require('../../../assets/images/mascot/chalkboard.webp'),
   'reading': require('../../../assets/images/mascot/reading.webp'),
-  // 'magnifier': require('../../../assets/images/mascot/magnifier.webp'),
+  'magnifier': require('../../../assets/images/mascot/magnifier.webp'),
   'surprised': require('../../../assets/images/mascot/surprised.webp'),
   'whisper': require('../../../assets/images/mascot/whisper.webp'),
   'waiting': require('../../../assets/images/mascot/waiting.webp'),
@@ -48,6 +49,44 @@ export const POSE_ART: Partial<Record<MascotPose, ImageSourcePropType>> = {
   'money': require('../../../assets/images/mascot/money.webp'),
   'arts': require('../../../assets/images/mascot/arts.webp'),
   'world-systems': require('../../../assets/images/mascot/world-systems.webp'),
+  'archaeologist': require('../../../assets/images/mascot/archaeologist.webp'),
+  'ballot': require('../../../assets/images/mascot/ballot.webp'),
+  'bicycle': require('../../../assets/images/mascot/bicycle.webp'),
+  'binoculars': require('../../../assets/images/mascot/binoculars.webp'),
+  'camera': require('../../../assets/images/mascot/camera.webp'),
+  'conducting': require('../../../assets/images/mascot/conducting.webp'),
+  'cooking': require('../../../assets/images/mascot/cooking.webp'),
+  'crown': require('../../../assets/images/mascot/crown.webp'),
+  'diving': require('../../../assets/images/mascot/diving.webp'),
+  'doctor': require('../../../assets/images/mascot/doctor.webp'),
+  'drums': require('../../../assets/images/mascot/drums.webp'),
+  'easel': require('../../../assets/images/mascot/easel.webp'),
+  'exercise': require('../../../assets/images/mascot/exercise.webp'),
+  'fishing': require('../../../assets/images/mascot/fishing.webp'),
+  'gardening': require('../../../assets/images/mascot/gardening.webp'),
+  'goggles': require('../../../assets/images/mascot/goggles.webp'),
+  'guitar': require('../../../assets/images/mascot/guitar.webp'),
+  'hard-hat': require('../../../assets/images/mascot/hard-hat.webp'),
+  'headphones': require('../../../assets/images/mascot/headphones.webp'),
+  'hiking': require('../../../assets/images/mascot/hiking.webp'),
+  'juggling-planets': require('../../../assets/images/mascot/juggling-planets.webp'),
+  'knight': require('../../../assets/images/mascot/knight.webp'),
+  'laptop': require('../../../assets/images/mascot/laptop.webp'),
+  'laurel': require('../../../assets/images/mascot/laurel.webp'),
+  'map': require('../../../assets/images/mascot/map.webp'),
+  'market-stall': require('../../../assets/images/mascot/market-stall.webp'),
+  'piano': require('../../../assets/images/mascot/piano.webp'),
+  'piggy-bank': require('../../../assets/images/mascot/piggy-bank.webp'),
+  'podium': require('../../../assets/images/mascot/podium.webp'),
+  'sailboat': require('../../../assets/images/mascot/sailboat.webp'),
+  'sculpting': require('../../../assets/images/mascot/sculpting.webp'),
+  'shopping': require('../../../assets/images/mascot/shopping.webp'),
+  'space-helmet': require('../../../assets/images/mascot/space-helmet.webp'),
+  'telescope': require('../../../assets/images/mascot/telescope.webp'),
+  'toga': require('../../../assets/images/mascot/toga.webp'),
+  'torch': require('../../../assets/images/mascot/torch.webp'),
+  'umbrella': require('../../../assets/images/mascot/umbrella.webp'),
+  'violin': require('../../../assets/images/mascot/violin.webp'),
 };
 
 export const SPOT_ART: Partial<Record<MascotSpot, ImageSourcePropType>> = {

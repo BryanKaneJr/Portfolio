@@ -11,6 +11,7 @@ export * from './shell';
 export * from './reward';
 export * from './mascot';
 export { mascotArt } from './mascotArt';
+export { TROPHY_ART, masteryBadge } from './badges';
 export * from './art';
 export * from './icon';
 export * from './motion';

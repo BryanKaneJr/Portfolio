@@ -37,8 +37,71 @@ export const MASCOT_POSES = [
   'money',
   'arts',
   'world-systems',
+  // Props and costumes: Dr. Scroll dressed for a topic.
+  'archaeologist',
+  'ballot',
+  'bicycle',
+  'binoculars',
+  'camera',
+  'conducting',
+  'cooking',
+  'crown',
+  'diving',
+  'doctor',
+  'drums',
+  'easel',
+  'exercise',
+  'fishing',
+  'gardening',
+  'goggles',
+  'guitar',
+  'hard-hat',
+  'headphones',
+  'hiking',
+  'juggling-planets',
+  'knight',
+  'laptop',
+  'laurel',
+  'map',
+  'market-stall',
+  'piano',
+  'piggy-bank',
+  'podium',
+  'sailboat',
+  'sculpting',
+  'shopping',
+  'space-helmet',
+  'telescope',
+  'toga',
+  'torch',
+  'umbrella',
+  'violin',
 ] as const;
 export type MascotPose = (typeof MASCOT_POSES)[number];
+
+/**
+ * The costume Dr. Scroll wears on each skill's map (spot `home.path`), so he
+ * looks like he belongs there: a telescope for Astronomy, a toga for Rome.
+ * Skills not listed keep the spot's default pose.
+ */
+export const SKILL_GUIDE_POSE: Readonly<Record<string, MascotPose>> = {
+  'skill.science.astronomy': 'telescope',
+  'skill.science.human_body': 'doctor',
+  'skill.science.chemistry': 'goggles',
+  'skill.science.animals': 'binoculars',
+  'skill.history.ancient_rome': 'toga',
+  'skill.history.ancient_egypt': 'archaeologist',
+  'skill.history.ancient_greece': 'laurel',
+  'skill.history.middle_ages': 'knight',
+  'skill.geography.world_geography': 'map',
+  'skill.geography.oceans': 'diving',
+  'skill.money.how_money_works': 'piggy-bank',
+  'skill.arts.art_history': 'easel',
+  'skill.arts.music': 'conducting',
+  'skill.arts.architecture': 'hard-hat',
+  'skill.world_systems.everyday_technology': 'laptop',
+  'skill.world_systems.government': 'ballot',
+};
 
 /** Calm poses allowed inside a lesson. Learning mode stays quiet; the big poses belong to progress screens. */
 export const QUIET_MASCOT_POSES = ['pointing', 'thinking', 'idea', 'explaining', 'magnifier', 'whisper', 'thumbs-up', 'oops', 'checkpoint'] as const satisfies readonly MascotPose[];

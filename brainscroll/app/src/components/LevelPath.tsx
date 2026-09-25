@@ -1,4 +1,4 @@
-import { MASTERY_BAND_SIZE } from '@brainscroll/core';
+import { MASTERY_BAND_SIZE, SKILL_GUIDE_POSE } from '@brainscroll/core';
 import { useEffect, useState } from 'react';
 import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path, Polygon } from 'react-native-svg';
@@ -136,7 +136,7 @@ export function LevelPath({
           );
         })}
         {mascot && points[6] && (
-          <DrScroll spot="home.path" size="md" style={{ position: 'absolute', left: width * POCKETS[1].x - 48, top: points[6].y - 48 }} />
+          <DrScroll spot="home.path" pose={SKILL_GUIDE_POSE[skillId]} size="md" style={{ position: 'absolute', left: width * POCKETS[1].x - 48, top: points[6].y - 48 }} />
         )}
 
         {numbers.map((n, i) => {

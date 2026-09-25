@@ -102,7 +102,7 @@ A character only works if he looks like the same person in every image.
 
 ### Topic scenes (Dr. Scroll doing things)
 
-Dr. Scroll taking part in a topic makes a lesson feel alive. Use one as a level's hook image, or where he appears beside a card. Each is one activity with one prop, and his look stays exactly the same. Pick the closest scene, and reuse them freely across trees.
+Dr. Scroll taking part in a topic makes a lesson feel alive. Use one as a level's hook image, or where he appears beside a card. Each is one activity with one prop, and his look stays exactly the same. Pick the closest scene, and reuse them freely across trees. All of them are wired in `mascotArt.ts`; each skill's map uses one as its costume (`SKILL_GUIDE_POSE`).
 
 | Image ID | Scene | Good for |
 | --- | --- | --- |
@@ -179,7 +179,7 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `loading` | `waiting` | Loading a level or the review queue (after a short delay) |
 | `error.load` | `tangled` | A level or screen that could not load (never about account or payment data) |
 | `level.locked` | `thinking` | Opening a level that is not unlocked yet |
-| `home.path` | `reading` | Home: beside the level path, reading along |
+| `home.path` | `reading` | Home: beside the level path. On a skill's map he wears that skill's costume (`SKILL_GUIDE_POSE` in core: a telescope on Astronomy, a toga on Rome, a map on World Geography, a piggy bank on How Money Works, an easel on Art History, a laptop on Everyday Technology); `reading` is the fallback |
 | `review.ready` | `review` | Review tab when concepts are due |
 | `not-found` | `tangled` | A link to something that does not exist |
 

@@ -1,6 +1,6 @@
 import { DR_SCROLL_LINES, LEARNING_STRUCTURE, MASTERY_BAND_SIZE, skillProgressView, type CompletionOutcome } from '@brainscroll/core';
 import { Redirect, router } from 'expo-router';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   Button,
@@ -12,6 +12,7 @@ import {
   Emblem,
   Eyebrow,
   Icon,
+  masteryBadge,
   Numeral,
   Pop,
   ProgressBar,
@@ -19,6 +20,7 @@ import {
   Row,
   Stars,
   Title,
+  TROPHY_ART,
   useCountUp,
 } from '@/components/ui';
 import { getConcept, getLevel, getSkill, levelByNumber } from '@/content';
@@ -61,9 +63,13 @@ export default function LevelCompleteScreen() {
         <View style={{ width: '100%', maxWidth: layout.readingWidth, alignSelf: 'center', gap: space.xl, alignItems: 'center' }}>
           {!s.alreadyCompleted && level.number % 10 === 0 && (
             <Pop delay={100}>
-              <View style={[styles.trophy, mastery && styles.trophyGold]} accessibilityLabel={mastery ? 'Mastery trophy' : 'Checkpoint trophy'}>
-                <Icon name="trophy" tint={mastery ? '#1A1305' : '#FFFFFF'} size={56} />
-              </View>
+              {mastery ? (
+                <Image source={masteryBadge(s.skillId) ?? TROPHY_ART} style={styles.badge} resizeMode="contain" accessibilityLabel={`${skill?.name ?? 'Skill'} mastery badge`} />
+              ) : (
+                <View style={styles.trophy} accessibilityLabel="Checkpoint trophy">
+                  <Icon name="trophy" tint="#FFFFFF" size={56} />
+                </View>
+              )}
             </Pop>
           )}
           <Eyebrow tone={mastery ? 'mastery' : 'success'}>
@@ -184,5 +190,6 @@ function roman(n: number): string {
 const styles = StyleSheet.create({
   // A chapter's 10th level is a checkpoint: clearing it wins the path's trophy.
   trophy: { width: 112, height: 108, borderRadius: 56, alignItems: 'center', justifyContent: 'center', backgroundColor: color.brand, borderBottomWidth: depth.edge + 2, borderBottomColor: color.brandEdge },
-  trophyGold: { backgroundColor: color.mastery, borderBottomColor: color.masteryEdge },
+  // Level 100·k: the skill's own gold badge (gold means mastery only).
+  badge: { width: 144, height: 144 },
 });

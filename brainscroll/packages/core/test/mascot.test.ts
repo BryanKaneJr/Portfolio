@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { EM_DASH } from '../src/editorial';
-import { DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES } from '../src/mascot';
+import { DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES, SKILL_GUIDE_POSE } from '../src/mascot';
 
 describe('Dr. Scroll', () => {
   it('has unique poses', () => {
@@ -20,6 +20,13 @@ describe('Dr. Scroll', () => {
     for (const [id, spot] of Object.entries(MASCOT_SPOTS)) {
       expect(MASCOT_POSES, id).toContain(spot.pose);
       if ('lesson' in spot && spot.lesson) expect(QUIET_MASCOT_POSES as readonly string[], id).toContain(spot.pose);
+    }
+  });
+
+  it('every skill guide wears a real, non-lesson costume', () => {
+    for (const [skill, pose] of Object.entries(SKILL_GUIDE_POSE)) {
+      expect(MASCOT_POSES, skill).toContain(pose);
+      expect(QUIET_MASCOT_POSES as readonly string[], skill).not.toContain(pose);
     }
   });
 
