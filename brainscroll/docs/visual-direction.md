@@ -35,7 +35,7 @@ Only one bright accent should dominate a screen. Glow is a reward effect, not de
 
 ## Key screens
 
-- **Home:** "loading a save file". One dominant Continue card, then today's progress (x / 5) and a few secondary subject stats.
+- **Home:** "loading a save file". The active skill's current chapter owns the screen as a winding level path: a violet chapter banner, then round raised nodes (cleared: violet with a check; next: bigger, ringed, with a bouncing "Start" bubble naming the level; later: locked; every 10th: a trophy, gold on a mastery level), with Dr. Scroll reading beside it and the next chapter teased below. Today's progress (x / 5) and review come after.
 - **Level scroll:** learning first. Hook → 2–5 focused learning cards → 3 light questions (recall, understanding, connection) → Level Complete. It's finite with a saved place and ends on a reward like "+100 XP · Perfect Recall · Level 19 unlocked", with the next level offered immediately.
 - **Questions:** large lettered answer cards. Tapping one selects it; **CHECK** grades it, so only checked answers count as attempts. Feedback appears in context, in the tinted footer, and is never a separate screen.
 - **A wrong answer:** a restrained coral note ("Not quite: That's Jupiter.") under the still-visible question, then **Take another look** with the question's source card inline, then the options again with the wrong pick crossed out. Choose until right, then "Reinforced · We'll bring this back later". There's no failure screen, no lives and no restart.

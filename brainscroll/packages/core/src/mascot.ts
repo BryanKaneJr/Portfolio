@@ -105,6 +105,7 @@ export const MASCOT_SPOTS = {
   'loading': { pose: 'waiting', where: 'Loading a level or the review queue (after a short delay)' },
   'error.load': { pose: 'tangled', where: 'A level or screen that could not load (never about account or payment data)' },
   'level.locked': { pose: 'thinking', where: 'Opening a level that is not unlocked yet' },
+  'home.path': { pose: 'reading', where: 'Home: beside the level path, reading along' },
   'not-found': { pose: 'tangled', where: 'A link to something that does not exist' },
 } as const satisfies Record<string, { pose: MascotPose; where: string; lesson?: boolean }>;
 export type MascotSpot = keyof typeof MASCOT_SPOTS;

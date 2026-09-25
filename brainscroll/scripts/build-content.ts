@@ -34,6 +34,10 @@ const bundle = {
   assets: content.assets,
   sources: content.sources.map(({ id, title, url, publisher, license }) => ({ id, title, url, publisher, license })),
   levels: [...content.levels].sort((a, b) => a.skillId.localeCompare(b.skillId) || a.number - b.number),
+  // Chapter titles for the level path, from each shipped skill's syllabus.
+  chapters: Object.fromEntries(
+    content.syllabi.filter((s) => shipped.some((k) => k.id === s.skillId)).map((s) => [s.skillId, s.chapters.map(({ number, title, levels }) => ({ number, title, levels }))]),
+  ),
 };
 const json = JSON.stringify(bundle, null, 2) + '\n';
 

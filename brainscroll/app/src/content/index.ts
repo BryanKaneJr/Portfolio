@@ -10,6 +10,14 @@ interface Bundle {
   skills: Skill[];
   concepts: { id: string; title: string; description: string }[];
   levels: Level[];
+  chapters: Record<string, Chapter[]>;
+}
+
+/** A 10-level chapter from the skill's syllabus: `levels` is [first, last]. */
+export interface Chapter {
+  number: number;
+  title: string;
+  levels: [number, number];
 }
 
 const bundle = raw as unknown as Bundle;
@@ -49,4 +57,9 @@ export function getCard(id: string): Card | undefined {
 
 export function getConcept(id: string) {
   return conceptById.get(id);
+}
+
+/** The chapter a level number falls in, when the skill's syllabus is shipped. */
+export function chapterFor(skillId: string, levelNumber: number): Chapter | undefined {
+  return bundle.chapters[skillId]?.find((c) => levelNumber >= c.levels[0] && levelNumber <= c.levels[1]);
 }

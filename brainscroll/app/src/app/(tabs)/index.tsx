@@ -1,17 +1,17 @@
-import { MASTERY_BAND_SIZE } from '@brainscroll/core';
 import { Redirect, router, useFocusEffect } from 'expo-router';
 import { useCallback } from 'react';
 import { View } from 'react-native';
-import { Body, Button, Caption, Card, Chip, Emblem, Eyebrow, H1, LevelArt, Pips, ProgressBar, Row, Screen, Stars, Title } from '@/components/ui';
+import { Body, Button, Caption, Card, Chip, Emblem, Eyebrow, Pips, ProgressBar, Row, Screen, Stars, Title } from '@/components/ui';
 import { getLevel, subjectName } from '@/content';
-import { ChapterRail } from '@/components/ChapterRail';
+import { LevelPath } from '@/components/LevelPath';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { useStartLevel } from '@/progress/useStartLevel';
 import { space } from '@/theme/tokens';
 
 /**
- * Home answers one question: what should I learn next? One dominant Continue
- * card owns the screen; today's allowance and review are secondary.
+ * Home answers one question: what should I learn next? The current chapter's
+ * level path owns the screen (the next level bounces); today's allowance and
+ * review are secondary.
  */
 export default function HomeScreen() {
   const p = useProgress();
@@ -40,7 +40,6 @@ export default function HomeScreen() {
   const next = nextId ? getLevel(nextId) : undefined;
   const resuming = nextId ? v.sessions[nextId] : undefined;
   const { today } = v;
-  const chapterStart = (skill.view.band - 1) * MASTERY_BAND_SIZE + (skill.view.chapter - 1) * 10 + 1;
 
   return (
     <Screen>
@@ -58,44 +57,31 @@ export default function HomeScreen() {
         </Card>
       )}
 
-      <Card variant="accent" style={{ padding: space.xl, gap: space.lg }}>
-        <Row gap={space.md}>
-          <Emblem value={skill.view.level} size="sm" />
-          <View style={{ flex: 1, gap: space.xxs }}>
-            <Eyebrow>{subjectName(skill.subjectId)}</Eyebrow>
-            <Title>
-              {skill.name} · Lv. {skill.view.level}
-            </Title>
-          </View>
-          <Stars count={skill.view.stars} />
-        </Row>
-
-        {next && <LevelArt art={next.art} size={128} style={{ alignSelf: 'center' }} />}
-        <View style={{ gap: space.xs }}>
-          <Eyebrow tone="brand">{resuming ? 'Pick up where you left off' : 'Continue learning'}</Eyebrow>
-          {next ? (
-            <>
-              <H1>{next.title}</H1>
-              <Caption>Level {next.number} · {next.objective.replace(/^After this level you can /, 'You’ll ')}</Caption>
-            </>
-          ) : (
-            <Body muted>You’ve cleared every published level. More are on the way.</Body>
-          )}
+      <Row gap={space.md}>
+        <Emblem value={skill.view.level} size="sm" />
+        <View style={{ flex: 1, gap: space.xxs }}>
+          <Eyebrow>{subjectName(skill.subjectId)}</Eyebrow>
+          <Title>
+            {skill.name} · Lv. {skill.view.level}
+          </Title>
         </View>
+        <Stars count={skill.view.stars} />
+      </Row>
 
-        <View style={{ gap: space.xs }}>
-          <ChapterRail start={chapterStart} level={skill.view.level} next={skill.view.nextLevel} />
-          <Caption>
-            Chapter {skill.view.chapter} · {skill.view.level % MASTERY_BAND_SIZE} / {MASTERY_BAND_SIZE} toward ★
-          </Caption>
-        </View>
-
-        {next && today.dailyComplete ? (
-          <Button variant="secondary" label="Daily knowledge complete" onPress={() => router.push('/daily-complete')} />
-        ) : next ? (
-          <Button label={resuming ? `Resume Level ${next.number}` : `Start Level ${next.number}`} onPress={() => startLevel(next.id)} />
-        ) : null}
-      </Card>
+      {next ? (
+        <LevelPath
+          skillId={skill.id}
+          level={skill.view.level}
+          nextNumber={next.number}
+          resuming={!!resuming}
+          dailyComplete={today.dailyComplete}
+          onOpen={startLevel}
+        />
+      ) : (
+        <Card>
+          <Body muted>You’ve cleared every published level. More are on the way.</Body>
+        </Card>
+      )}
 
       <Card>
         <Row style={{ justifyContent: 'space-between' }}>

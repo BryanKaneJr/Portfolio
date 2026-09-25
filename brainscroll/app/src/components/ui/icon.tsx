@@ -14,6 +14,10 @@ const ICONS = {
   star: { ios: 'star.fill', android: 'star', web: 'star' },
   skills: { ios: 'square.stack.3d.up.fill', android: 'layers', web: 'layers' },
   today: { ios: 'sun.max.fill', android: 'wb_sunny', web: 'wb_sunny' },
+  check: { ios: 'checkmark', android: 'check', web: 'check' },
+  lock: { ios: 'lock.fill', android: 'lock', web: 'lock' },
+  trophy: { ios: 'trophy.fill', android: 'emoji_events', web: 'emoji_events' },
+  book: { ios: 'book.fill', android: 'menu_book', web: 'menu_book' },
 } as const satisfies Record<string, SymbolViewProps['name']>;
 export type IconName = keyof typeof ICONS;
 

@@ -84,7 +84,7 @@ Use a deep, calm base with a restrained luminous layer. Think premium reading ap
 | GEOGRAPHY Rank 12 |
 | MONEY Rank 8 |
 
-**Design intent: the RPG is visible, but learning stays primary. One dominant Continue card should own the screen; subject stats, daily progress and the active Weekly Quest (post-MVP) are secondary, not a dashboard wall.**
+**Design intent: the RPG is visible, but learning stays primary. The current chapter's level path (with the next level called out) should own the screen; subject stats, daily progress and the active Weekly Quest (post-MVP) are secondary, not a dashboard wall.**
 
 ## 5. The Level Scroll: Finite by Design
 
