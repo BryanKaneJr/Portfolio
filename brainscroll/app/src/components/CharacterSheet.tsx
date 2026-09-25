@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle, Path } from 'react-native-svg';
-import { Caption, Emblem, Icon, type IconName } from '@/components/ui';
+import { Emblem, Icon, type IconName } from '@/components/ui';
 import { color, depth, fw, radius, space, subjectColor, type } from '@/theme/tokens';
 
 /** One subject's standing: the levels cleared across its skills. */
@@ -24,8 +24,8 @@ export const SUBJECT_ICON: Record<string, IconName> = {
 
 const tint = (subjectId: string) => subjectColor[subjectId] ?? color.textMuted;
 
-/** Notches filled in the current 10-level chapter: 6 cleared is 6, 10 cleared is a full bar. */
-const chapterNotches = (levels: number) => (levels === 0 ? 0 : levels % 10 || 10);
+/** Share of the current 100 levels: each level cleared adds 1%, and 100 is a full bar. */
+const barShare = (levels: number) => (levels === 0 ? 0 : (((levels - 1) % 100) + 1) / 100);
 
 const polar = (cx: number, cy: number, r: number, deg: number) => {
   const a = ((deg - 90) * Math.PI) / 180;
@@ -92,11 +92,9 @@ export function SubjectRing({ stats, knowledge }: { stats: SubjectStat[]; knowle
 /**
  * An attribute row, like an RPG stat: the subject's icon and name, its level
  * (the levels cleared across its skills; XP only feeds the Knowledge Level),
- * and a notched bar in its colour for the current 10-level chapter.
+ * and a bar in its colour that grows one step per level, 1 to 100.
  */
-export function AttributeRow({ stat, detail }: { stat: SubjectStat; detail?: string }) {
-  const notches = 10;
-  const filled = chapterNotches(stat.levels);
+export function AttributeRow({ stat }: { stat: SubjectStat }) {
   const c = tint(stat.subjectId);
   if (stat.soon) {
     return (
@@ -122,12 +120,9 @@ export function AttributeRow({ stat, detail }: { stat: SubjectStat; detail?: str
           <Text style={[type.bodyStrong, { color: color.text }]}>{stat.name}</Text>
           <Text style={[styles.rank, { color: c }]}>Lv. {stat.levels}</Text>
         </View>
-        <View style={styles.notches}>
-          {Array.from({ length: notches }, (_, i) => (
-            <View key={i} style={[styles.notch, { backgroundColor: i < filled ? c : color.surfaceRaised }]} />
-          ))}
+        <View style={styles.track}>
+          <View style={[styles.fill, { width: `${barShare(stat.levels) * 100}%`, backgroundColor: c }]} />
         </View>
-        {detail && <Caption>{detail}</Caption>}
       </View>
     </View>
   );
@@ -142,6 +137,6 @@ const styles = StyleSheet.create({
   rankPip: { position: 'absolute', right: -8, bottom: -6, minWidth: 20, height: 18, borderRadius: 9, paddingHorizontal: 4, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: color.bg },
   rankPipText: { ...fw('900'), fontSize: 10, color: color.bgDeep },
   rank: { ...fw('800'), fontSize: 14 },
-  notches: { flexDirection: 'row', gap: 3 },
-  notch: { flex: 1, height: 12, borderRadius: 3, transform: [{ skewX: '-12deg' }] },
+  track: { height: 12, borderRadius: 6, backgroundColor: color.surfaceRaised, overflow: 'hidden' },
+  fill: { height: '100%', borderRadius: 6 },
 });

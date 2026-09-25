@@ -18,14 +18,13 @@ export default function ProfileScreen() {
   const v = useProgressView();
   const name = account?.status !== 'signed_in' ? 'Learner' : account.email && !account.email.endsWith('privaterelay.appleid.com') ? capitalize(account.email.split('@')[0]) : 'Learner';
   // Every subject is an attribute, even before its first skill ships.
-  const stats: (SubjectStat & { detail?: string })[] = subjects.map((sub) => {
+  const stats: SubjectStat[] = subjects.map((sub) => {
     const skills = v.skills.filter((s) => s.subjectId === sub.id);
     return {
       subjectId: sub.id,
       name: sub.name,
       levels: skills.reduce((n, s) => n + s.view.level, 0),
       soon: skills.length === 0,
-      detail: skills.length ? skills.map((s) => `${s.name} Lv. ${s.view.level}${s.view.stars ? ` ${'★'.repeat(s.view.stars)}` : ''}`).join('  ·  ') : undefined,
     };
   });
   const stars = v.skills.reduce((n, s) => n + s.view.stars, 0);
@@ -62,7 +61,7 @@ export default function ProfileScreen() {
       <Card style={{ gap: space.xs }}>
         <Eyebrow>Attributes</Eyebrow>
         {[...stats.filter((st) => !st.soon), ...stats.filter((st) => st.soon)].map((st) => (
-          <AttributeRow key={st.subjectId} stat={st} detail={st.detail} />
+          <AttributeRow key={st.subjectId} stat={st} />
         ))}
       </Card>
 
