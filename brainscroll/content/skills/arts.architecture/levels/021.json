@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.architecture.021",
+  "skillId": "skill.arts.architecture",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hagia Sophia",
+  "objective": "After this level you can explain Hagia Sophia's floating dome.",
+  "summary": "Pendentives turn Hagia Sophia's square into a circle for its dome; 40 windows make it float and half domes brace it. The first dome partly fell in 558, and the new one was raised to push out less.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.hagia_sophia_pendentives",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.hagia_sophia_floating_dome",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.hagia_sophia_rebuilt_dome",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_dome",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.020"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Hagia Sophia's first dome fell in. The one that replaced it still stands.",
+      "body": "Justinian's great church in Constantinople went up between 532 and 537, under a dome so wide and bright it seemed to float. Twenty-one years later, part of it came down. How do you set a giant dome on a square church, and how do you keep it up there?"
+    },
+    {
+      "id": "card.architecture.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A circle on a square",
+      "body": "A dome needs a round rim to sit on, but Hagia Sophia was planned around a square. Its designers, Anthemius of Tralles, an architect and mathematician, and Isidorus of Miletus, a professor of physics, used pendentives: curved triangles of masonry filling each upper corner, so that the tops join into a circle. Two pairs of great arches meet on the pendentives, which carry the dome's load down four massive piers. Picture a round lid on a square box, with the corners filled in to catch it.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Square room, round dome. Good thing the job went to a mathematician and a physicist."
+      }
+    },
+    {
+      "id": "card.architecture.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Forty windows and two half domes",
+      "body": "Forty windows ring the base of the dome, so daylight breaks up the solid stone beneath it and the dome seems almost suspended. That's the delight. The firmness hides east and west, where two giant half domes join the arches and stretch the covered space lengthwise. Engineers treat a half dome like this as a buttress. Remember Level 5's dome, pushing outward all around its rim? The half domes help take that push."
+    },
+    {
+      "id": "card.architecture.021.c4",
+      "type": "fact",
+      "fact": "The second dome was built taller on purpose.",
+      "context": "After an earthquake, part of the first dome collapsed in 558. An account in ASCE's Civil Engineering magazine blames its shallow shape, which put its load on the walls instead of cleanly down the piers. Isidorus the Younger rebuilt it by 562, raising its crown by about 6 meters to reduce the sideways thrust, and adding 40 ribs. A steeper dome pushes out less."
+    },
+    {
+      "id": "card.architecture.021.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.021.q1"
+    },
+    {
+      "id": "card.architecture.021.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.021.q2"
+    },
+    {
+      "id": "card.architecture.021.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.021.q3"
+    },
+    {
+      "id": "card.architecture.021.c8",
+      "type": "checkpoint",
+      "headline": "Hagia Sophia: raised",
+      "learned": [
+        "Pendentives turn a square into a circle for the dome",
+        "Four great piers carry the load",
+        "40 windows make the dome seem to float; half domes brace it",
+        "The rebuilt dome (562) was raised to push out less"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.hagia_sophia_pendentives"
+      ],
+      "sourceCardIds": [
+        "card.architecture.021.c2"
+      ],
+      "prompt": "At Hagia Sophia, what are the pendentives?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Four towers standing outside the corners",
+          "correct": false,
+          "rationale": "The pendentives are inside, in the upper corners."
+        },
+        {
+          "id": "b",
+          "label": "Curved triangles that turn a square into a circle",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Iron rings hidden around the dome's base",
+          "correct": false,
+          "rationale": "That idea comes up at St. Peter's, not here."
+        },
+        {
+          "id": "d",
+          "label": "Windows cut around the rim of the dome",
+          "correct": false,
+          "rationale": "Those are the 40 windows, not the pendentives."
+        }
+      ],
+      "explanation": "Pendentives fill the upper corners of the square so their tops form a circle for the dome, and carry its load down to four piers.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.hagia_sophia_rebuilt_dome"
+      ],
+      "sourceCardIds": [
+        "card.architecture.021.c4"
+      ],
+      "prompt": "Why did Isidorus the Younger raise the crown of Hagia Sophia's rebuilt dome?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To make room for a second ring of windows",
+          "correct": false,
+          "rationale": "The change was structural, not about windows."
+        },
+        {
+          "id": "b",
+          "label": "To hide the pendentives from the floor",
+          "correct": false,
+          "rationale": "The pendentives stayed in view."
+        },
+        {
+          "id": "c",
+          "label": "To reduce the dome's sideways thrust",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To make the dome lighter than wood",
+          "correct": false,
+          "rationale": "It was still masonry; the shape was the fix."
+        }
+      ],
+      "explanation": "The first dome was too shallow and loaded the walls; raising the crown by about 6 meters reduced its lateral thrust.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.hagia_sophia_floating_dome",
+        "concept.architecture.stand_dome"
+      ],
+      "sourceCardIds": [
+        "card.architecture.021.c3",
+        "card.architecture.005.c2"
+      ],
+      "prompt": "Level 5's dome pushes outward all around its rim. What helps take that push at Hagia Sophia?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two giant half domes, acting as buttresses",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The forty windows around the dome's base",
+          "correct": false,
+          "rationale": "The windows let in light; they don't brace anything."
+        },
+        {
+          "id": "c",
+          "label": "A wooden frame left inside the dome",
+          "correct": false,
+          "rationale": "No frame stays inside; the half domes buttress it."
+        },
+        {
+          "id": "d",
+          "label": "Nothing: this dome pushes only straight down",
+          "correct": false,
+          "rationale": "Every dome pushes outward at its rim."
+        }
+      ],
+      "explanation": "East and west, two half domes join the arches and act as buttresses against the main dome's outward push.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_hagia_sophia",
+    "source.asce_hagia_sophia",
+    "source.brit_pendentive",
+    "source.mit_masonry_dome_equilibrium",
+    "source.brit_dome"
+  ],
+  "art": "rome.hagia-sophia"
+}

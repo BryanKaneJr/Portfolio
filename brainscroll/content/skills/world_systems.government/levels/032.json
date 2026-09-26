@@ -1,0 +1,233 @@
+{
+  "id": "level.world_systems.government.032",
+  "skillId": "skill.world_systems.government",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The U.S. Constitution",
+  "objective": "After this level you can explain the oldest written national constitution still in use.",
+  "summary": "Signed in Philadelphia in 1787 to replace the Articles of Confederation, the U.S. Constitution is the oldest written national constitution in use: seven articles, a supreme law.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.constitution_us_document",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.constitution_us_structure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.constitution_definition",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.social_contract_locke",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.031"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "The oldest written national constitution still in use fits on four pages.",
+      "body": "Britannica calls the U.S. Constitution the oldest written national constitution in use. All four pages of the original are on permanent display at the National Archives. And it opens with three words that say whose document it is: \"We the People.\"",
+      "id": "card.government.032.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Plan B, written in one summer",
+      "body": "It wasn't the country's first try. It replaced the Articles of Confederation, which had denied the national government essential powers like direct taxation. Remember Level 6? A government that can't tax is a ship with no fuel. So in the summer of 1787, delegates in Philadelphia drafted something stronger, and 39 of them signed it on 17 September 1787.",
+      "id": "card.government.032.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Seven articles, one supreme law",
+      "body": "The Constitution has seven articles. Article I gives lawmaking power to Congress, Article II gives executive power to a President, and Article III gives judicial power to a Supreme Court and lower courts. Then Article VI adds the line that makes it a constitution in Level 31's sense: it shall be \"the supreme Law of the Land.\"",
+      "id": "card.government.032.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Nine states to switch it on",
+      "body": "Signing wasn't enough. Article VII said the Constitution needed ratifying by nine states, and once they had, it took effect in 1789. Now look at that opening again. Level 7's Locke grounded government in the consent of the governed. This document begins with \"We the People\" and says they \"do ordain and establish\" it.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Notice who's doing the establishing in that sentence. Not a king. The people."
+      },
+      "id": "card.government.032.c4"
+    },
+    {
+      "type": "fact",
+      "fact": "Its first ten amendments, ratified in 1791, are called the Bill of Rights.",
+      "context": "The original articles mostly build the machinery of government. The Bill of Rights added guarantees for people, starting with the First Amendment: \"Congress shall make no law respecting an establishment of religion,\" plus protections for speech, the press, assembly and petition. Several levels in this chapter start right there.",
+      "id": "card.government.032.c5"
+    },
+    {
+      "id": "card.government.032.c6",
+      "type": "mcq",
+      "questionId": "question.government.032.q1"
+    },
+    {
+      "id": "card.government.032.c7",
+      "type": "mcq",
+      "questionId": "question.government.032.q2"
+    },
+    {
+      "id": "card.government.032.c8",
+      "type": "mcq",
+      "questionId": "question.government.032.q3"
+    },
+    {
+      "id": "card.government.032.c9",
+      "type": "checkpoint",
+      "headline": "U.S. Constitution: read",
+      "learned": [
+        "Signed in Philadelphia on 17 September 1787",
+        "The oldest written national constitution in use",
+        "Seven articles; Article VI makes it supreme law",
+        "The Bill of Rights: ten amendments, 1791"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.constitution_us_document"
+      ],
+      "sourceCardIds": [
+        "card.government.032.c1"
+      ],
+      "prompt": "How does Britannica describe the U.S. Constitution?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The very first constitution ever written",
+          "correct": false,
+          "rationale": "Britannica says the oldest still in use, not the first ever."
+        },
+        {
+          "id": "b",
+          "label": "The longest national constitution in the world",
+          "correct": false,
+          "rationale": "The original fits on four pages."
+        },
+        {
+          "id": "c",
+          "label": "The oldest written national constitution in use",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A collection of statutes and traditional practices",
+          "correct": false,
+          "rationale": "That's Level 31's description of the UK's constitution."
+        }
+      ],
+      "explanation": "Britannica calls the U.S. Constitution the oldest written national constitution in use.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.constitution_us_document"
+      ],
+      "sourceCardIds": [
+        "card.government.032.c2"
+      ],
+      "prompt": "Why did the United States replace the Articles of Confederation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were written in a foreign language",
+          "correct": false,
+          "rationale": "The problem was missing powers, not language."
+        },
+        {
+          "id": "b",
+          "label": "Britain's Parliament still had to approve them",
+          "correct": false,
+          "rationale": "The problem named is powers the Articles denied."
+        },
+        {
+          "id": "c",
+          "label": "They gave the President unlimited power",
+          "correct": false,
+          "rationale": "The problem was a national government that was too weak."
+        },
+        {
+          "id": "d",
+          "label": "They denied the national government powers like direct taxation",
+          "correct": true
+        }
+      ],
+      "explanation": "The Articles of Confederation denied the national government essential powers, such as direct taxation, so delegates drafted a stronger Constitution in 1787.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.constitution_us_structure",
+        "concept.government.constitution_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.032.c3",
+        "card.government.031.c2"
+      ],
+      "prompt": "Article VI calls the Constitution \"the supreme Law of the Land.\" Which Level 31 idea does that match?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A constitution is a set of unwritten practices",
+          "correct": false,
+          "rationale": "That's the UK's form, not what \"supreme\" means."
+        },
+        {
+          "id": "b",
+          "label": "Ordinary laws are made inside the constitution's framework",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A constitution can never be changed at all",
+          "correct": false,
+          "rationale": "Supreme doesn't mean frozen; the next level is all about change."
+        },
+        {
+          "id": "d",
+          "label": "A constitution applies only inside courtrooms",
+          "correct": false,
+          "rationale": "Supreme law applies across the land, not just in court."
+        }
+      ],
+      "explanation": "A constitution is a country's supreme law, and ordinary laws are made within its framework. Article VI says exactly that.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_constitution_united_states",
+    "source.archives_constitution",
+    "source.archives_constitution_transcript",
+    "source.idea_constitutional_amendment_procedures",
+    "source.brit_social_contract",
+    "source.iep_social_contract",
+    "source.archives_bill_of_rights_transcript"
+  ],
+  "art": "rome.scroll"
+}

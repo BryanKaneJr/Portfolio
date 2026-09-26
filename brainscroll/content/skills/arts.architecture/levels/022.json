@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.architecture.022",
+  "skillId": "skill.arts.architecture",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Great Mosques",
+  "objective": "After this level you can describe great mosques from Córdoba to Istanbul.",
+  "summary": "A mosque is built around the qibla, the direction of Mecca, marked by the mihrab. Córdoba's hall of columns grew by moving its qibla wall; Sinan based Istanbul's Süleymaniye on Hagia Sophia.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.mosque_qibla_mihrab",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.mosque_cordoba_growth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.mosque_suleymaniye_sinan",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.hagia_sophia_pendentives",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.021"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A mosque is designed around a direction.",
+      "body": "Before anyone chooses columns or domes, a mosque has to know one thing: which way Mecca lies. Everything else can change, and at Córdoba and Istanbul, it did."
+    },
+    {
+      "id": "card.architecture.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The wall that points to Mecca",
+      "body": "Muslims face Mecca to pray, and a mosque is built to match. That direction is the qibla, and the wall facing it holds the mihrab, a niche for the imam who leads the prayer. Beside it stands the minbar, a pulpit of steps for the preacher. Outside rises the minaret, the tower from which the muezzin gives the call to prayer five times each day. Think of a mosque as a building with a compass built in."
+    },
+    {
+      "id": "card.architecture.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Córdoba: a forest you can extend",
+      "body": "The Umayyad ruler Abd al-Rahman I built the Great Mosque of Córdoba, in Spain, in 784–786: a prayer hall roofed on rows of columns carrying arches. That plan grows easily. When the city's population grew, Abd al-Rahman II extended the hall southward, knocking down the old qibla wall and building a new one farther out. Extensions in the 9th and 10th centuries doubled the mosque's size, and today some 850 pillars hold up its roof. Need more room? Add more rows."
+    },
+    {
+      "id": "card.architecture.022.c4",
+      "type": "fact",
+      "fact": "Istanbul's grandest mosque took its cue from a church.",
+      "context": "Sinan was chief architect of the Ottoman Empire for about the last 40 years of his life. His Süleymaniye Mosque, built for Sultan Süleyman in 1550–1557, was based on the design of Level 21's Hagia Sophia. Sinan made the huge central dome the focal point around which the rest of the building was planned, with smaller domes and buttresses leading up to it. Same big idea, a new faith's building.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Good architects borrow. Great ones borrow, then build the thing a little better organized."
+      }
+    },
+    {
+      "id": "card.architecture.022.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.022.q1"
+    },
+    {
+      "id": "card.architecture.022.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.022.q2"
+    },
+    {
+      "id": "card.architecture.022.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.022.q3"
+    },
+    {
+      "id": "card.architecture.022.c8",
+      "type": "checkpoint",
+      "headline": "Great mosques: visited",
+      "learned": [
+        "The mihrab points to the qibla, the direction of Mecca",
+        "Minbar for the preacher; minaret for the call to prayer",
+        "Córdoba (784–786) grew by adding rows and moving its qibla wall",
+        "Sinan's Süleymaniye (1550–1557) was based on Hagia Sophia"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.mosque_qibla_mihrab"
+      ],
+      "sourceCardIds": [
+        "card.architecture.022.c2"
+      ],
+      "prompt": "In a mosque, what does the mihrab niche point toward?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The minaret, where the call to prayer is given",
+          "correct": false,
+          "rationale": "The minaret is a tower outside; the mihrab points to Mecca."
+        },
+        {
+          "id": "b",
+          "label": "The courtyard entrance",
+          "correct": false,
+          "rationale": "The mihrab is on the qibla wall, facing Mecca."
+        },
+        {
+          "id": "c",
+          "label": "The qibla, the direction of Mecca",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The tomb of the mosque's founder",
+          "correct": false,
+          "rationale": "The mihrab marks the direction of prayer."
+        }
+      ],
+      "explanation": "The mihrab, a niche for the imam, points to the qibla, the direction of Mecca that Muslims face in prayer.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.mosque_cordoba_growth"
+      ],
+      "sourceCardIds": [
+        "card.architecture.022.c3"
+      ],
+      "prompt": "How could Córdoba's Great Mosque keep being extended as the city grew?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its single dome could be raised higher each time",
+          "correct": false,
+          "rationale": "Córdoba's hall is rows of columns, not one dome."
+        },
+        {
+          "id": "b",
+          "label": "Its walls were wooden and easy to move",
+          "correct": false,
+          "rationale": "The builders knocked down and rebuilt the qibla wall in stone."
+        },
+        {
+          "id": "c",
+          "label": "It had no qibla wall to worry about",
+          "correct": false,
+          "rationale": "It did; the extension moved it."
+        },
+        {
+          "id": "d",
+          "label": "Its roof rested on rows of columns, so more rows could be added",
+          "correct": true
+        }
+      ],
+      "explanation": "Córdoba's prayer hall is roofed on rows of columns, so builders extended it by adding rows and building a new qibla wall farther out.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.mosque_suleymaniye_sinan",
+        "concept.architecture.hagia_sophia_pendentives"
+      ],
+      "sourceCardIds": [
+        "card.architecture.022.c4",
+        "card.architecture.021.c2"
+      ],
+      "prompt": "Sinan based the Süleymaniye on Level 21's Hagia Sophia. What sits at the center of both designs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A huge central dome",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A courtyard open to the sky",
+          "correct": false,
+          "rationale": "Both center on a great dome."
+        },
+        {
+          "id": "c",
+          "label": "A forest of some 850 columns",
+          "correct": false,
+          "rationale": "That's Córdoba's hall, not these two buildings."
+        },
+        {
+          "id": "d",
+          "label": "A single tall bell tower",
+          "correct": false,
+          "rationale": "Both are organized around a central dome."
+        }
+      ],
+      "explanation": "Hagia Sophia sets a great dome over its square; Sinan made the huge central dome the focal point of the Süleymaniye.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_mosque",
+    "source.brit_orientation",
+    "source.brit_mosque_cathedral_cordoba",
+    "source.mezquita_abd_al_rahman_ii",
+    "source.brit_sinan"
+  ],
+  "art": "arts.pattern-tile"
+}

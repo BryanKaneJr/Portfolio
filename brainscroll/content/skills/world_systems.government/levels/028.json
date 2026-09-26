@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.government.028",
+  "skillId": "skill.world_systems.government",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "A Free Press",
+  "objective": "After this level you can explain why a free press matters in a democracy.",
+  "summary": "Sweden's 1766 law, regarded as the first for press freedom, ended censorship and opened official documents. A free press informs the people who steer; Carlyle called it a Fourth Estate.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.free_press_sweden_1766",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.free_press_role",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.government_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.027"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1766, Sweden became the first country to free its press by law.",
+      "body": "On 2 December 1766, Sweden's parliament, the Riksdag, passed what is regarded as the world's first law supporting freedom of the press and freedom of information. What does a free press have to do with democracy? Quite a lot.",
+      "id": "card.government.028.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Two freedoms in one law",
+      "body": "Sweden's act abolished censorship of printed publications, including imports (academic and theological works were the exception). It also guaranteed public access to documents drawn up by government agencies. Two ideas in one law: you can publish without asking permission, and you can see what your government writes down.",
+      "id": "card.government.028.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "You can't steer blind",
+      "body": "Britannica defines press freedom as the right of media outlets to report news without government control, and it matters because it gives people informed access to information and opinions about political matters. Remember Level 1's ship: government means steering. In a democracy the people are meant to steer, and nobody steers well in the dark.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Voting without news is like reviewing a restaurant you've never eaten at."
+      },
+      "id": "card.government.028.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The Fourth Estate",
+      "body": "Thomas Carlyle wrote that Burke said there were Three Estates in Parliament, \"but, in the Reporters' Gallery yonder, there sat a Fourth Estate more important far than they all.\" The name stuck: the press is still called the Fourth Estate. Carlyle's point: the people reporting on Parliament held a power of their own.",
+      "id": "card.government.028.c4"
+    },
+    {
+      "id": "card.government.028.c5",
+      "type": "mcq",
+      "questionId": "question.government.028.q1"
+    },
+    {
+      "id": "card.government.028.c6",
+      "type": "mcq",
+      "questionId": "question.government.028.q2"
+    },
+    {
+      "id": "card.government.028.c7",
+      "type": "recall",
+      "questionId": "question.government.028.q3"
+    },
+    {
+      "id": "card.government.028.c8",
+      "type": "checkpoint",
+      "headline": "Press: free",
+      "learned": [
+        "Sweden 1766: the first press freedom law",
+        "It ended censorship and opened official documents",
+        "A free press reports without government control",
+        "Carlyle called the press gallery a Fourth Estate"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.free_press_sweden_1766"
+      ],
+      "sourceCardIds": [
+        "card.government.028.c1"
+      ],
+      "prompt": "Which country passed what is regarded as the world's first press freedom law, in 1766?",
+      "options": [
+        {
+          "id": "a",
+          "label": "France",
+          "correct": false,
+          "rationale": "It was Sweden's Riksdag."
+        },
+        {
+          "id": "b",
+          "label": "Sweden",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The United States",
+          "correct": false,
+          "rationale": "It was Sweden's Riksdag."
+        },
+        {
+          "id": "d",
+          "label": "Iceland",
+          "correct": false,
+          "rationale": "Iceland's Althing is Level 23's story; the 1766 law was Sweden's."
+        }
+      ],
+      "explanation": "On 2 December 1766, Sweden's Riksdag passed what is regarded as the world's first law supporting freedom of the press.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.government.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.free_press_role"
+      ],
+      "sourceCardIds": [
+        "card.government.028.c3"
+      ],
+      "prompt": "According to Britannica, why does press freedom matter for political life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It lets newspapers print without paying taxes",
+          "correct": false,
+          "rationale": "Taxes aren't the point; access to information is."
+        },
+        {
+          "id": "b",
+          "label": "It lets the government choose which news is true",
+          "correct": false,
+          "rationale": "Press freedom means reporting without government control."
+        },
+        {
+          "id": "c",
+          "label": "It gives people informed access to political information and opinions",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It guarantees every citizen a job in journalism",
+          "correct": false,
+          "rationale": "No such guarantee is described."
+        }
+      ],
+      "explanation": "Press freedom permits informed access to information and opinions about political matters.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.free_press_role",
+        "concept.government.government_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.028.c3",
+        "card.government.001.c1"
+      ],
+      "prompt": "Level 1 said \"government\" comes from a word for steering a ship. Why does this level link that picture to a free press?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Newspapers were first printed on ships",
+          "correct": false,
+          "rationale": "The link is information, not where papers were printed."
+        },
+        {
+          "id": "b",
+          "label": "Only sailors could vote in early democracies",
+          "correct": false,
+          "rationale": "Nothing in these levels says so."
+        },
+        {
+          "id": "c",
+          "label": "A free press should decide where the country goes",
+          "correct": false,
+          "rationale": "The people steer; the press informs them."
+        },
+        {
+          "id": "d",
+          "label": "People can't steer well without information",
+          "correct": true
+        }
+      ],
+      "explanation": "Government means steering, and in a democracy the people steer. A free press gives them the information to do it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_sweden_press_act_1766",
+    "source.unesco_sweden_press_1766",
+    "source.brit_freedom_of_press",
+    "source.etymonline_govern",
+    "source.gutenberg_carlyle_heroes"
+  ],
+  "art": "gov.newspaper"
+}

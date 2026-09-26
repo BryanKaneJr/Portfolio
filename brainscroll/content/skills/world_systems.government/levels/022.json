@@ -1,0 +1,240 @@
+{
+  "id": "level.world_systems.government.022",
+  "skillId": "skill.world_systems.government",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Magna Carta and Limits on Kings",
+  "objective": "After this level you can explain how Magna Carta limited royal power.",
+  "summary": "On 15 June 1215 King John agreed to Magna Carta, putting the king under the law: no imprisonment without lawful judgment, no tax without consent, and 25 barons to enforce it.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.magna_carta_king_under_law",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.magna_carta_key_clauses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.tax_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.021"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1215, England's rebel barons made their king promise to obey the law.",
+      "body": "Chapter 1 showed rulers making laws, all the way back to Hammurabi. This level is about the harder trick: making a ruler keep them. It happened in a meadow by the Thames, and it wasn't the king's idea.",
+      "id": "card.government.022.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A king under pressure",
+      "body": "On 15 June 1215, at Runnymede beside the River Thames, King John agreed to Magna Carta, Latin for \"Great Charter\", under pressure from rebellious barons. Its 63 clauses wrote down the liberties of \"free men\". Britannica sums up the big idea: the sovereign is subject to the rule of law. The king makes laws, and the laws bind the king.",
+      "id": "card.government.022.c2"
+    },
+    {
+      "type": "comparison",
+      "headline": "Two clauses about justice",
+      "items": [
+        {
+          "label": "Clause 39",
+          "points": [
+            "No free man seized, imprisoned, outlawed or exiled",
+            "Except by lawful judgment of his equals or the law of the land"
+          ]
+        },
+        {
+          "label": "Clause 40",
+          "points": [
+            "\"To no one will we sell, to no one deny or delay right or justice\"",
+            "Justice isn't for sale, even from a king"
+          ]
+        }
+      ],
+      "mascot": {
+        "pose": "pointing",
+        "line": "Clause 39 is the one people still quote. \"Lawful judgment\" is doing a lot of work there."
+      },
+      "id": "card.government.022.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "No tax without consent",
+      "body": "Remember Level 6: taxes are compulsory. Clause 12 added a condition. No \"scutage\" or \"aid\", payments the king demanded, could be levied without the kingdom's general consent, apart from three customary cases such as ransoming the king. Compulsory, yes, but only after the kingdom had agreed. Hold that thought for the next level.",
+      "id": "card.government.022.c4"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A charter with teeth",
+      "body": "Promises from kings were cheap, so clause 61 added enforcement. The barons would choose 25 of their number to watch over the charter. If the king broke it, they could seize his castles, lands and possessions until he made amends. A king who can lose his castles for breaking the rules is a king with limits.",
+      "id": "card.government.022.c5"
+    },
+    {
+      "id": "card.government.022.c6",
+      "type": "mcq",
+      "questionId": "question.government.022.q1"
+    },
+    {
+      "id": "card.government.022.c7",
+      "type": "mcq",
+      "questionId": "question.government.022.q2"
+    },
+    {
+      "id": "card.government.022.c8",
+      "type": "recall",
+      "questionId": "question.government.022.q3"
+    },
+    {
+      "id": "card.government.022.c9",
+      "type": "checkpoint",
+      "headline": "Magna Carta: sealed",
+      "learned": [
+        "1215: King John agreed to Magna Carta at Runnymede",
+        "The king is subject to the rule of law",
+        "Clause 39: no punishment without lawful judgment",
+        "Clause 12: no scutage or aid without consent",
+        "Clause 61: 25 barons could enforce it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.magna_carta_king_under_law"
+      ],
+      "sourceCardIds": [
+        "card.government.022.c2"
+      ],
+      "prompt": "Which English king agreed to Magna Carta at Runnymede in 1215?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Henry VIII",
+          "correct": false,
+          "rationale": "Henry VIII reigned about three centuries later."
+        },
+        {
+          "id": "b",
+          "label": "William the Conqueror",
+          "correct": false,
+          "rationale": "William arrived in 1066, long before Runnymede."
+        },
+        {
+          "id": "c",
+          "label": "King John",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Edward I",
+          "correct": false,
+          "rationale": "Edward I came later in the 13th century."
+        }
+      ],
+      "explanation": "King John agreed to Magna Carta at Runnymede on 15 June 1215, under pressure from rebellious barons.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.government.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.magna_carta_key_clauses"
+      ],
+      "sourceCardIds": [
+        "card.government.022.c5"
+      ],
+      "prompt": "What made Magna Carta's clause 61 more than a polite promise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "25 barons could seize the king's castles if he broke it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The pope promised to enforce it forever",
+          "correct": false,
+          "rationale": "Clause 61 put enforcement in the barons' hands."
+        },
+        {
+          "id": "c",
+          "label": "It let every free man vote for the king",
+          "correct": false,
+          "rationale": "No clause created votes for kings."
+        },
+        {
+          "id": "d",
+          "label": "It banned the king from owning castles",
+          "correct": false,
+          "rationale": "He kept his castles, unless he broke the charter."
+        }
+      ],
+      "explanation": "Clause 61 set up 25 barons who could seize the king's castles, lands and possessions until he made amends.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.magna_carta_key_clauses",
+        "concept.government.tax_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.022.c4",
+        "card.government.006.c2"
+      ],
+      "prompt": "Level 6 called taxes compulsory. What condition did Magna Carta's clause 12 add for \"scutage\" and \"aid\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They could be paid in grain instead of coin",
+          "correct": false,
+          "rationale": "Clause 12 is about consent, not what you pay with."
+        },
+        {
+          "id": "b",
+          "label": "Only barons would ever have to pay them",
+          "correct": false,
+          "rationale": "The clause limits the king, not who pays."
+        },
+        {
+          "id": "c",
+          "label": "They could be charged once a year at most",
+          "correct": false,
+          "rationale": "No yearly limit; the condition is consent."
+        },
+        {
+          "id": "d",
+          "label": "The kingdom's general consent first",
+          "correct": true
+        }
+      ],
+      "explanation": "Clause 12: no scutage or aid without the kingdom's general consent, apart from three customary cases.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_magna_carta",
+    "source.salisbury_magna_carta_translation",
+    "source.oecd_revenue_statistics_2025"
+  ],
+  "art": "rome.wax-seal"
+}

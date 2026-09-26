@@ -1,0 +1,247 @@
+{
+  "id": "level.arts.architecture.095",
+  "skillId": "skill.arts.architecture",
+  "number": 95,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Floating Buildings",
+  "objective": "After this level you can explain how buildings can float on water.",
+  "summary": "A floating house sinks until the water it pushes aside weighs as much as it does. Maasbommel's amphibious houses sit on hollow concrete bases and rise on mooring posts; in 2011 they floated.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.future_amphibious_houses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.future_floating_buoyancy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_loads",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_load_path",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.094"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.095.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2011, a Dutch river rose, and the houses on its banks rose with it.",
+      "body": "At Maasbommel in the Netherlands, 32 amphibious houses and 14 floating ones were built in 2004 and 2005 outside the river dikes. In 2011 the River Maas rose high enough for the amphibious houses to float for the first time. No problems were found. So how does a house built on concrete float?"
+    },
+    {
+      "id": "card.architecture.095.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Archimedes moves in",
+      "body": "A floating object sinks until the water it pushes aside weighs as much as it does; then the water's upward push holds it up. That's why a lump of clay sinks but the same clay shaped into a boat floats, and why steel ships float too. Shape does the work. So each amphibious house at Maasbommel stands on a large, hollow concrete cube: plenty of room to push water aside."
+    },
+    {
+      "id": "card.architecture.095.c3",
+      "type": "comparison",
+      "headline": "Amphibious or floating?",
+      "items": [
+        {
+          "label": "Amphibious",
+          "points": [
+            "Rests on a concrete foundation",
+            "Floats when the river rises"
+          ]
+        },
+        {
+          "label": "Floating",
+          "points": [
+            "A concrete barge",
+            "A relatively light timber frame on top"
+          ]
+        },
+        {
+          "label": "Both",
+          "points": [
+            "Slide up and down steel mooring posts",
+            "Can rise and fall up to 5.5 m",
+            "Flexible pipes keep them connected"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.architecture.095.c4",
+      "type": "fact",
+      "fact": "Carry in a piano, and the house sits lower.",
+      "context": "Level 2's load path ended in the soil. A floating house's path ends in water: the house settles until the water it displaces weighs as much as the house and everything in it. Add a live load, like Level 2's piano, and it sinks a little deeper until the balance returns. Floating homes keep the heavy concrete below and build light on top.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Every guest who walks in makes the house float a tiny bit lower. Please wipe your feet anyway."
+      }
+    },
+    {
+      "id": "card.architecture.095.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.095.q1"
+    },
+    {
+      "id": "card.architecture.095.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.095.q2"
+    },
+    {
+      "id": "card.architecture.095.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.095.q3"
+    },
+    {
+      "id": "card.architecture.095.c8",
+      "type": "checkpoint",
+      "headline": "Floating buildings: launched",
+      "learned": [
+        "A floating object displaces its own weight of water",
+        "Hollow concrete bases float, like a clay boat",
+        "Amphibious houses rest on land until floods lift them",
+        "Maasbommel's houses floated in 2011, as designed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.095.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.future_amphibious_houses"
+      ],
+      "sourceCardIds": [
+        "card.architecture.095.c1"
+      ],
+      "prompt": "What happened to Maasbommel's amphibious houses when the River Maas rose in 2011?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They floated for the first time, with no problems",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They were evacuated and dragged ashore",
+          "correct": false,
+          "rationale": "They floated right where they stood."
+        },
+        {
+          "id": "c",
+          "label": "Their foundations cracked under the water",
+          "correct": false,
+          "rationale": "No problems were found."
+        },
+        {
+          "id": "d",
+          "label": "They sank up to their rooftops",
+          "correct": false,
+          "rationale": "They rose with the river."
+        }
+      ],
+      "explanation": "In 2011 the river rose high enough for the amphibious houses to float for the first time, and no problems were found.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.095.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.future_floating_buoyancy"
+      ],
+      "sourceCardIds": [
+        "card.architecture.095.c2"
+      ],
+      "prompt": "Why can a house on a hollow concrete base float?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Concrete is lighter than water",
+          "correct": false,
+          "rationale": "A solid lump would sink; the hollow shape does the work."
+        },
+        {
+          "id": "b",
+          "label": "Steel posts hold it up above the river",
+          "correct": false,
+          "rationale": "The posts guide it; the water holds it up."
+        },
+        {
+          "id": "c",
+          "label": "It pushes aside water weighing as much as it does",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Air pumps keep lifting it from below",
+          "correct": false,
+          "rationale": "No pumps: just buoyancy."
+        }
+      ],
+      "explanation": "A floating object sinks until the water it displaces weighs as much as it does, like a clay boat or a steel ship.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.095.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.future_floating_buoyancy",
+        "concept.architecture.stand_loads"
+      ],
+      "sourceCardIds": [
+        "card.architecture.095.c4",
+        "card.architecture.002.c2"
+      ],
+      "prompt": "Level 2 calls a piano a live load. What happens when one is carried into a floating house?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nothing: floating houses ignore live loads",
+          "correct": false,
+          "rationale": "Every added load changes the balance."
+        },
+        {
+          "id": "b",
+          "label": "The house rises slightly",
+          "correct": false,
+          "rationale": "Extra weight pushes it down, not up."
+        },
+        {
+          "id": "c",
+          "label": "The house tips over",
+          "correct": false,
+          "rationale": "It simply settles deeper."
+        },
+        {
+          "id": "d",
+          "label": "The house settles a little lower in the water",
+          "correct": true
+        }
+      ],
+      "explanation": "The house sinks a little deeper until the water it displaces again weighs as much as the house and its contents.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.eea_maasbommel_amphibious",
+    "source.brit_archimedes_principle",
+    "source.openstax_archimedes",
+    "source.ugbg_maasbommel",
+    "source.mit_primary_loads",
+    "source.pnnl_continuous_load_path"
+  ],
+  "art": "geo.island"
+}

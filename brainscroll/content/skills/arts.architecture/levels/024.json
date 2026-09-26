@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.architecture.024",
+  "skillId": "skill.arts.architecture",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Gothic Cathedrals",
+  "objective": "After this level you can explain flying buttresses and pointed arches.",
+  "summary": "Pointed arches of different spans rise to one height; flying buttresses carry the vault's thrust across the aisle to outer piers, steadied by pinnacles.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.gothic_pointed_arch",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.gothic_flying_buttress",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch_thrust",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.romanesque_durham_ribs",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.023"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Gothic builders took the heavy supports and moved them outdoors.",
+      "body": "Level 23's churches held their vaults in with thick walls. At the abbey church of Saint-Denis near Paris, rebuilt about 1135 to 1144, builders combined the rib vault, the pointed arch and the flying buttress into one system. Here's how the pieces work."
+    },
+    {
+      "id": "card.architecture.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The adjustable arch",
+      "body": "A round arch is stuck with rigid geometry: its height is set by its width. That's awkward when vault ribs cross a rectangular bay, because the short sides, long sides and diagonals all want different heights. A pointed arch escapes the trap. Sharpen or relax the point, and arches of different spans rise to the same height, meeting neatly at the top. With pointed arches and rib vaults like Durham's, Gothic builders could cover far more complicated plans. Think of it as an arch that comes in adjustable sizes."
+    },
+    {
+      "id": "card.architecture.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A half arch in the air",
+      "body": "Gothic vaults still pushed outward, just as Level 4's thrust says they must, and the supports still had to be massive enough to resist it. The answer was the flying buttress: a half arch that springs from the upper part of the wall and carries the vault's thrust across the aisle to an outer pier. Level 4's massive supports are all still there. They've simply moved outdoors, clear of the wall."
+    },
+    {
+      "id": "card.architecture.024.c4",
+      "type": "fact",
+      "fact": "The little spires on top are there for their weight.",
+      "context": "A pier holding a flying buttress is often crowned with a pinnacle. It adds weight, and weight makes the pier more stable against the push arriving from the vault. The flying buttress itself evolved from simpler supports hidden from view, and its extra supporting power is what made the high ceilings of Gothic churches possible. Decoration, yes, but decoration with a job.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Next time you see a cathedral bristling with little spires, you'll know: those are paperweights."
+      }
+    },
+    {
+      "id": "card.architecture.024.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.024.q1"
+    },
+    {
+      "id": "card.architecture.024.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.024.q2"
+    },
+    {
+      "id": "card.architecture.024.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.024.q3"
+    },
+    {
+      "id": "card.architecture.024.c8",
+      "type": "checkpoint",
+      "headline": "Gothic: understood",
+      "learned": [
+        "Saint-Denis (about 1135–44) combined the Gothic elements",
+        "Pointed arches of different spans rise to one height",
+        "Flying buttresses carry the vault's thrust to outer piers",
+        "Pinnacles add weight to steady the piers"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.gothic_flying_buttress"
+      ],
+      "sourceCardIds": [
+        "card.architecture.024.c3"
+      ],
+      "prompt": "What does a Gothic flying buttress carry from the upper wall across the aisle to an outer pier?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rainwater running off the roof",
+          "correct": false,
+          "rationale": "Some carry gutters, but their job is the vault's thrust."
+        },
+        {
+          "id": "b",
+          "label": "The weight of the stained glass",
+          "correct": false,
+          "rationale": "The glass hangs in the wall; the buttress takes the vault's push."
+        },
+        {
+          "id": "c",
+          "label": "The outward thrust of the vault",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The bells of the tower",
+          "correct": false,
+          "rationale": "Bells hang in towers; buttresses take thrust."
+        }
+      ],
+      "explanation": "A flying buttress is a half arch carrying the thrust of a roof or vault from the upper wall to an outer pier.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.gothic_pointed_arch"
+      ],
+      "sourceCardIds": [
+        "card.architecture.024.c2"
+      ],
+      "prompt": "Why did Gothic builders prefer pointed arches for vaulting rectangular bays?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pointed arches have no outward thrust",
+          "correct": false,
+          "rationale": "They still push out; flying buttresses take it."
+        },
+        {
+          "id": "b",
+          "label": "Pointed arches need no stone at all",
+          "correct": false,
+          "rationale": "They're stone arches with a flexible shape."
+        },
+        {
+          "id": "c",
+          "label": "Pointed arches were cheaper to paint",
+          "correct": false,
+          "rationale": "The advantage is geometric."
+        },
+        {
+          "id": "d",
+          "label": "Arches of different spans can rise to the same height",
+          "correct": true
+        }
+      ],
+      "explanation": "A round arch's height is fixed by its width; pointed arches of different spans can rise to one height, so ribs meet neatly.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.gothic_flying_buttress",
+        "concept.architecture.stand_arch_thrust"
+      ],
+      "sourceCardIds": [
+        "card.architecture.024.c3",
+        "card.architecture.004.c3"
+      ],
+      "prompt": "Level 4 said an arch's supports must be massive to resist its thrust. Where did Gothic builders put that mass?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In outer piers linked to the wall by flying buttresses",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "In a forest of columns inside the nave",
+          "correct": false,
+          "rationale": "The supports moved outside the wall."
+        },
+        {
+          "id": "c",
+          "label": "Nowhere, because pointed arches have no thrust",
+          "correct": false,
+          "rationale": "The thrust remains; it is carried outward."
+        },
+        {
+          "id": "d",
+          "label": "Only in deeper foundations underground",
+          "correct": false,
+          "rationale": "The mass stands above ground, in outer piers."
+        }
+      ],
+      "explanation": "Flying buttresses carry the thrust across the aisle to outer piers, so the massive supports stand outside, clear of the wall.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_gothic_architecture",
+    "source.brit_early_gothic_architecture",
+    "source.durham_whs_architecture",
+    "source.brit_vault",
+    "source.brit_flying_buttress",
+    "source.brit_arch_architecture"
+  ],
+  "art": "arts.cathedral"
+}

@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.architecture.049",
+  "skillId": "skill.arts.architecture",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Modern House",
+  "objective": "After this level you can explain open plans and big windows.",
+  "summary": "The 1924 Rietveld Schröder House slid open by day and closed into three rooms at night. The Eameses built their 1949 home from catalog parts, its steel frame up in 16 hours.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.home_schroder_open_plan",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.home_eames_prefab",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_crystal_palace",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_frame_structure",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.048"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.049.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1924, a house in Utrecht let you open a corner into thin air.",
+      "body": "Truus Schröder asked the furniture designer Gerrit Rietveld to design her new home, and she played an important part in the design herself. On its upper floor, both panes of the corner window swing open, and the corner simply disappears. This house set out to open things up: rooms, walls, even corners."
+    },
+    {
+      "id": "card.architecture.049.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Walls that slide away",
+      "body": "The Schröders' upper floor was one open space by day. In the evening, the family used sliding walls to split it into three separate rooms. Call it an open plan with an off switch. The house, designed in 1924 and lived in until 1985, became a UNESCO World Heritage Site in 2000.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Open plan by day, bedrooms by night. The walls commute so the family doesn't have to."
+      }
+    },
+    {
+      "id": "card.architecture.049.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A house from a catalog",
+      "body": "In 1949, Charles and Ray Eames built their own home from prefabricated parts ordered out of industrial and commercial catalogs. Construction began in February, and after 16 hours the foundation and steel frame were complete. They moved in on Christmas Eve and lived there for the rest of their lives. Level 8's Crystal Palace pulled the same trick: factory-made parts, put up fast."
+    },
+    {
+      "id": "card.architecture.049.c4",
+      "type": "fact",
+      "fact": "A steel frame frees the walls.",
+      "context": "Remember Level 8: once a skeleton of columns and beams carries the floors, the outer wall bears only its own weight and hangs on the frame. The Eames House's steel frame was up within 16 hours, so its walls never had to carry the floors: the frame did. And Level 8 showed where that leads: a wall that carries only itself can be thin, even glass."
+    },
+    {
+      "id": "card.architecture.049.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.049.q1"
+    },
+    {
+      "id": "card.architecture.049.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.049.q2"
+    },
+    {
+      "id": "card.architecture.049.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.049.q3"
+    },
+    {
+      "id": "card.architecture.049.c8",
+      "type": "checkpoint",
+      "headline": "Modern houses: opened up",
+      "learned": [
+        "Rietveld Schröder House (1924): sliding walls, an open plan",
+        "Its corner window opens and the corner disappears",
+        "Eames House (1949): catalog parts, frame up in 16 hours",
+        "A frame carries the load, so walls are free"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.home_schroder_open_plan"
+      ],
+      "sourceCardIds": [
+        "card.architecture.049.c2"
+      ],
+      "prompt": "What could the Schröder family do with their upper floor each evening?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lower the ceiling to keep in heat",
+          "correct": false,
+          "rationale": "The walls moved, not the ceiling."
+        },
+        {
+          "id": "b",
+          "label": "Open the roof to the stars",
+          "correct": false,
+          "rationale": "It was the corner window that opened."
+        },
+        {
+          "id": "c",
+          "label": "Slide walls out to split it into three rooms",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Fold the whole floor into the attic",
+          "correct": false,
+          "rationale": "Sliding walls divided the open space."
+        }
+      ],
+      "explanation": "By day the upper floor was open; in the evening sliding walls split it into three separate rooms.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.home_eames_prefab"
+      ],
+      "sourceCardIds": [
+        "card.architecture.049.c3"
+      ],
+      "prompt": "How could the Eames House's foundation and steel frame be finished in just 16 hours?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was built from prefabricated parts ordered from catalogs",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was carved from a single block of concrete",
+          "correct": false,
+          "rationale": "It was assembled from ready-made parts."
+        },
+        {
+          "id": "c",
+          "label": "It had no foundation at all",
+          "correct": false,
+          "rationale": "The foundation and frame were both done in 16 hours."
+        },
+        {
+          "id": "d",
+          "label": "A giant crane lowered in a finished house",
+          "correct": false,
+          "rationale": "The parts came from catalogs and were assembled on site."
+        }
+      ],
+      "explanation": "The Eameses used prefabricated materials from industrial and commercial catalogs; construction began in February 1949 and after 16 hours the foundation and steel frame were done.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.home_eames_prefab",
+        "concept.architecture.stand_crystal_palace"
+      ],
+      "sourceCardIds": [
+        "card.architecture.049.c3",
+        "card.architecture.008.c3"
+      ],
+      "prompt": "What did the 1949 Eames House share with Level 8's Crystal Palace?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both were built of sun-dried brick",
+          "correct": false,
+          "rationale": "Both used factory-made parts, not brick."
+        },
+        {
+          "id": "b",
+          "label": "Both were designed by Joseph Paxton",
+          "correct": false,
+          "rationale": "Paxton designed only the Crystal Palace."
+        },
+        {
+          "id": "c",
+          "label": "Both took exactly six months to design",
+          "correct": false,
+          "rationale": "The shared idea is prefabrication."
+        },
+        {
+          "id": "d",
+          "label": "Prefabricated parts, put together fast on site",
+          "correct": true
+        }
+      ],
+      "explanation": "The Crystal Palace rose within six months from prefabricated iron and glass; the Eames House's steel frame went up in 16 hours from catalog parts.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.rietveldschroderhuis_home",
+    "source.brit_paxton",
+    "source.vam_paxton_sketch",
+    "source.eamesfoundation_csh8",
+    "source.brit_skyscraper"
+  ],
+  "art": "arch.modern-house"
+}

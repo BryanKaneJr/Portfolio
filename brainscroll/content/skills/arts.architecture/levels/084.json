@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.architecture.084",
+  "skillId": "skill.arts.architecture",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Parks",
+  "objective": "After this level you can explain why cities build parks.",
+  "summary": "Paxton's Birkenhead Park (1847), paid for by houses around it, inspired Olmsted. His Central Park, with Vaux (1858), is a hand-built landscape for a crowded city, with crosstown roads hidden below.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.cities_public_parks",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.cities_central_park",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_crystal_palace",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.083"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The man who sketched the Crystal Palace also built a park that changed cities.",
+      "body": "Remember Level 8's Joseph Paxton, doodling the Crystal Palace on blotting paper? He also designed Birkenhead Park, opened in 1847, the first public park in the UK created at public expense. Why would a city pay for grass?"
+    },
+    {
+      "id": "card.architecture.084.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A park that paid for itself",
+      "body": "Birkenhead didn't just spend money on its park. It made money around it: the park was paid for from the profit on house plots sold around its edge. Houses on the rim paid for the green in the middle. A park that financed itself, which is the kind of gardening accountants enjoy."
+    },
+    {
+      "id": "card.architecture.084.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The People's Garden",
+      "body": "In 1850, an American named Frederick Law Olmsted walked through Birkenhead Park. He wrote that democratic America had nothing comparable with this \"People's Garden.\" Eight years later, in 1858, Olmsted and the architect Calvert Vaux won the competition to design New York's Central Park with their Greensward plan."
+    },
+    {
+      "id": "card.architecture.084.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nature, built by hand",
+      "body": "Central Park was planned as New York's population boomed and many immigrants lived in crowded, unhealthy conditions. It looks wild, but every bit of it is man-made and built by hand; workers planted 500,000 trees, shrubs and vines. Even the traffic is designed: the Greensward plan hid the crosstown roads below the landscape, out of sight. The meadow is as much architecture as any building.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A park is a room with the ceiling left off. Someone still has to design the floor."
+      }
+    },
+    {
+      "id": "card.architecture.084.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.084.q1"
+    },
+    {
+      "id": "card.architecture.084.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.084.q2"
+    },
+    {
+      "id": "card.architecture.084.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.084.q3"
+    },
+    {
+      "id": "card.architecture.084.c8",
+      "type": "checkpoint",
+      "headline": "Parks: planted",
+      "learned": [
+        "Birkenhead Park (1847): first UK park at public expense",
+        "House plots around it paid for it",
+        "Olmsted's 'People's Garden' led to Central Park (1858)",
+        "A hand-built landscape; roads sunk out of sight"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.cities_public_parks"
+      ],
+      "sourceCardIds": [
+        "card.architecture.084.c3"
+      ],
+      "prompt": "What did Frederick Law Olmsted call Birkenhead Park after his 1850 visit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Emerald Necklace",
+          "correct": false,
+          "rationale": "That's a later Boston park system."
+        },
+        {
+          "id": "b",
+          "label": "The Greensward",
+          "correct": false,
+          "rationale": "That was the name of his Central Park plan."
+        },
+        {
+          "id": "c",
+          "label": "The Crystal Garden",
+          "correct": false,
+          "rationale": "Crystal Palace was Paxton's building, not Olmsted's name for the park."
+        },
+        {
+          "id": "d",
+          "label": "The People's Garden",
+          "correct": true
+        }
+      ],
+      "explanation": "Olmsted wrote that democratic America had nothing comparable with this \"People's Garden.\"",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.cities_central_park"
+      ],
+      "sourceCardIds": [
+        "card.architecture.084.c4"
+      ],
+      "prompt": "Why did Olmsted and Vaux's Greensward plan put Central Park's crosstown roads below the landscape?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To keep the traffic out of sight of park visitors",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To save money on paving",
+          "correct": false,
+          "rationale": "The aim was the visitors' experience, not savings."
+        },
+        {
+          "id": "c",
+          "label": "To let the subway use them",
+          "correct": false,
+          "rationale": "They're roads, hidden to keep traffic out of view."
+        },
+        {
+          "id": "d",
+          "label": "Because the land was too steep for roads",
+          "correct": false,
+          "rationale": "The land was reshaped by hand anyway."
+        }
+      ],
+      "explanation": "The Greensward plan hid the crosstown roads below the landscape, so traffic stayed out of sight of park visitors.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.cities_public_parks",
+        "concept.architecture.stand_crystal_palace"
+      ],
+      "sourceCardIds": [
+        "card.architecture.084.c1",
+        "card.architecture.008.c3"
+      ],
+      "prompt": "Parks: Joseph Paxton designed Birkenhead Park. Which Level 8 building did he first sketch on blotting paper?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chicago's Home Insurance Building",
+          "correct": false,
+          "rationale": "That was William Le Baron Jenney's."
+        },
+        {
+          "id": "b",
+          "label": "The Crystal Palace",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Rome's Pantheon",
+          "correct": false,
+          "rationale": "That's nearly 1,900 years old."
+        },
+        {
+          "id": "d",
+          "label": "Florence Cathedral's dome",
+          "correct": false,
+          "rationale": "That was Brunelleschi's."
+        }
+      ],
+      "explanation": "Paxton sketched the Crystal Palace on blotting paper during a railway board meeting; he also designed Birkenhead Park (1847).",
+      "difficulty": 0.15
+    }
+  ],
+  "sourceIds": [
+    "source.parksandgardens_birkenhead",
+    "source.neh_public_parking",
+    "source.cpc_central_park_history",
+    "source.brit_paxton",
+    "source.vam_paxton_sketch"
+  ],
+  "art": "plant.tree"
+}

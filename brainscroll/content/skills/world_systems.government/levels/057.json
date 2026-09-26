@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.government.057",
+  "skillId": "skill.world_systems.government",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Supreme Courts",
+  "objective": "After this level you can explain courts that decide what a constitution means.",
+  "summary": "Judicial review lets courts void unconstitutional laws: any U.S. court since Marbury v Madison (1803), special courts like Germany's. UK courts can only declare a law incompatible.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.constitutional_judicial_review",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.constitutional_germany_complaint",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.judges_independence",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.056"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2024, Germany's top constitutional court received 4,640 new cases.",
+      "body": "About 96% were constitutional complaints. Any person in Germany can lodge one, claiming that a public authority has violated their fundamental rights, and about two-thirds of the 2024 complaints came without a lawyer. Fewer than 2 in 100 succeed. But when one does, the court can declare a law void. How can a court overrule a law?",
+      "id": "card.government.057.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Judicial review",
+      "body": "A constitution is the rulebook for the people who make the rules. Judicial review is the power of courts to examine laws and government actions and declare those that break the constitution null and void. In the United States it goes back to Marbury v Madison in 1803, when Chief Justice John Marshall claimed that power for the courts. Lawmakers write the laws; courts check them against the rulebook.",
+      "id": "card.government.057.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Every court, or one special court?",
+      "body": "Countries split the job in two ways. In the U.S., any court can hear a claim that a law breaks the constitution. Many European countries, such as Germany and Austria, give that job to a special constitutional court instead. Germany's is the one those 4,640 cases went to.",
+      "id": "card.government.057.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "The UK's Supreme Court can't strike down an Act of Parliament.",
+      "context": "UK courts must apply Acts of Parliament even if they breach human rights. Higher courts can issue a declaration of incompatibility, but it doesn't change the law or stop it being enforced; Parliament decides whether to fix it. A German court can declare a law void. A UK court can raise a red flag, not show a red card.",
+      "id": "card.government.057.c4"
+    },
+    {
+      "id": "card.government.057.c5",
+      "type": "mcq",
+      "questionId": "question.government.057.q1"
+    },
+    {
+      "id": "card.government.057.c6",
+      "type": "mcq",
+      "questionId": "question.government.057.q2"
+    },
+    {
+      "id": "card.government.057.c7",
+      "type": "recall",
+      "questionId": "question.government.057.q3"
+    },
+    {
+      "id": "card.government.057.c8",
+      "type": "checkpoint",
+      "headline": "Supreme courts: the last word",
+      "learned": [
+        "Judicial review: courts can void unconstitutional laws",
+        "U.S.: Marbury v Madison, 1803",
+        "Germany: a special court anyone can petition",
+        "UK: a declaration, and Parliament decides"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.constitutional_judicial_review"
+      ],
+      "sourceCardIds": [
+        "card.government.057.c2"
+      ],
+      "prompt": "Which 1803 U.S. case established judicial review?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gideon v Wainwright",
+          "correct": false,
+          "rationale": "That 1963 case was about the right to a lawyer."
+        },
+        {
+          "id": "b",
+          "label": "Woolmington v DPP",
+          "correct": false,
+          "rationale": "That 1935 English case was about the burden of proof."
+        },
+        {
+          "id": "c",
+          "label": "Marbury v Madison",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Bushel's Case",
+          "correct": false,
+          "rationale": "That 1670 English case protected jurors."
+        }
+      ],
+      "explanation": "In Marbury v Madison (1803), Chief Justice John Marshall established judicial review in the United States.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.constitutional_judicial_review"
+      ],
+      "sourceCardIds": [
+        "card.government.057.c4"
+      ],
+      "prompt": "What happens when a UK court issues a declaration of incompatibility?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The law stays in force; Parliament decides whether to change it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The law is immediately struck down",
+          "correct": false,
+          "rationale": "UK courts can't strike down Acts of Parliament."
+        },
+        {
+          "id": "c",
+          "label": "The case goes to Germany's constitutional court",
+          "correct": false,
+          "rationale": "Each country's courts are separate."
+        },
+        {
+          "id": "d",
+          "label": "The judge who issued it must resign",
+          "correct": false,
+          "rationale": "Nothing of the kind; it's a normal power of higher courts."
+        }
+      ],
+      "explanation": "A declaration doesn't change the law or its enforcement; it signals the problem and leaves the fix to Parliament.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.constitutional_germany_complaint",
+        "concept.government.judges_independence"
+      ],
+      "sourceCardIds": [
+        "card.government.057.c1",
+        "card.government.052.c3",
+        "card.government.052.c4"
+      ],
+      "prompt": "Germany's constitutional court can declare a law void. Which Level 52 idea lets judges rule against the powerful without fear for their jobs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Trial by jury",
+          "correct": false,
+          "rationale": "Juries decide facts in trials; this is about judges' security."
+        },
+        {
+          "id": "b",
+          "label": "The cab-rank rule",
+          "correct": false,
+          "rationale": "That rule is about barristers taking cases."
+        },
+        {
+          "id": "c",
+          "label": "The presumption of innocence",
+          "correct": false,
+          "rationale": "That's about the burden of proof in criminal trials."
+        },
+        {
+          "id": "d",
+          "label": "Judicial independence, such as secure tenure",
+          "correct": true
+        }
+      ],
+      "explanation": "Independent judges, who can't be dismissed for unwelcome rulings and must decide free of pressure, can check even lawmakers.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.bverfg_annual_report_2024",
+    "source.bverfg_constitutional_complaint",
+    "source.brit_judicial_review",
+    "source.brit_marbury",
+    "source.citizensadvice_hr_courts",
+    "source.legislation_hra_s4",
+    "source.judiciary_uk_independence",
+    "source.hrlibrary_basic_principles_judiciary"
+  ],
+  "art": "gov.gavel"
+}

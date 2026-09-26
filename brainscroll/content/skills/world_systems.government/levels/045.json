@@ -1,0 +1,225 @@
+{
+  "id": "level.world_systems.government.045",
+  "skillId": "skill.world_systems.government",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Veto",
+  "objective": "After this level you can explain how a veto works.",
+  "summary": "A veto, Latin for \"I forbid\", is an executive's power to reject a bill. The US President has 10 days to sign or veto; Congress can override by two-thirds. Override rules vary by country.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.lawmaking_veto_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.lawmaking_veto_us_process",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.lawmaking_veto_override_world",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.lawmaking_bill_stages",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.044"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Veto\" is Latin for two words: \"I forbid.\"",
+      "body": "In ancient Rome it was the term for a protest by a tribune of the people against a measure of the Senate or the magistrates. Presidents today still use the same word to stop a bill in its tracks. How much power does that give them?",
+      "id": "card.government.045.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Sign it or send it back",
+      "body": "A veto is an executive's power to reject a bill, preventing it from becoming law. In the US, the President has 10 days (Sundays excepted) to sign a bill or return it to Congress with objections. Congress can override a veto, but only by a two-thirds vote in each chamber. And if Congress adjourns so the President can't return the bill, it's a pocket veto, which can't be overridden at all.",
+      "id": "card.government.045.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "Franklin D. Roosevelt vetoed 635 bills. Congress overrode 9.",
+      "context": "That's more vetoes than any other US president. Two-thirds of both chambers is a lot of agreement to find, and FDR's record shows it: nine overrides out of 635 tries.",
+      "id": "card.government.045.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Different countries, different bars",
+      "body": "Override rules vary. Two-thirds is most common, in countries such as Mexico, Ghana and the Philippines. Poland needs three-fifths; Brazil needs only an absolute majority in both chambers. International IDEA points out what a veto really does: if the president backs a bill, an ordinary majority passes it. If the president opposes it, lawmakers need a supermajority.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "One signature can change the math from half the room to two-thirds of it."
+      },
+      "id": "card.government.045.c4"
+    },
+    {
+      "id": "card.government.045.c5",
+      "type": "mcq",
+      "questionId": "question.government.045.q1"
+    },
+    {
+      "id": "card.government.045.c6",
+      "type": "mcq",
+      "questionId": "question.government.045.q2"
+    },
+    {
+      "id": "card.government.045.c7",
+      "type": "recall",
+      "questionId": "question.government.045.q3"
+    },
+    {
+      "id": "card.government.045.c8",
+      "type": "checkpoint",
+      "headline": "Veto: explained",
+      "learned": [
+        "Veto is Latin for \"I forbid\"",
+        "The US President has 10 days to sign or veto",
+        "Congress overrides by two-thirds of each chamber",
+        "Override bars vary from country to country"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.lawmaking_veto_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.045.c1"
+      ],
+      "prompt": "The word \"veto\" comes from Latin. What does it mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "I agree",
+          "correct": false,
+          "rationale": "The opposite: a veto blocks."
+        },
+        {
+          "id": "b",
+          "label": "I choose",
+          "correct": false,
+          "rationale": "Veto means forbidding, not choosing."
+        },
+        {
+          "id": "c",
+          "label": "I forbid",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "I delay",
+          "correct": false,
+          "rationale": "It's stronger than a delay: \"I forbid.\""
+        }
+      ],
+      "explanation": "Veto is Latin for \"I forbid\", the term for a Roman tribune's protest.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.lawmaking_veto_override_world"
+      ],
+      "sourceCardIds": [
+        "card.government.045.c4"
+      ],
+      "prompt": "According to International IDEA, how does a veto change the majority a bill needs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every bill then needs a unanimous vote",
+          "correct": false,
+          "rationale": "Overrides need a supermajority, not everyone."
+        },
+        {
+          "id": "b",
+          "label": "A bill the president opposes needs a supermajority",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A bill the president supports needs a supermajority",
+          "correct": false,
+          "rationale": "With the president's support, an ordinary majority is enough."
+        },
+        {
+          "id": "d",
+          "label": "It makes no difference to the numbers",
+          "correct": false,
+          "rationale": "It changes the bar from ordinary to supermajority."
+        }
+      ],
+      "explanation": "With the president's support an ordinary majority passes a bill; against a veto, lawmakers need a supermajority.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.government.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.lawmaking_veto_us_process",
+        "concept.government.lawmaking_bill_stages"
+      ],
+      "sourceCardIds": [
+        "card.government.045.c2",
+        "card.government.041.c4"
+      ],
+      "prompt": "A US bill has passed the House and the Senate in identical form. What can still stop it becoming law?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A presidential veto that Congress fails to override",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A second reading in the House of Lords",
+          "correct": false,
+          "rationale": "That's the UK Parliament, not Congress."
+        },
+        {
+          "id": "c",
+          "label": "A vote by the Supreme Court before signing",
+          "correct": false,
+          "rationale": "The next step is the President, not a court."
+        },
+        {
+          "id": "d",
+          "label": "Nothing: it becomes law automatically",
+          "correct": false,
+          "rationale": "It still goes to the President, who can veto it."
+        }
+      ],
+      "explanation": "After both chambers pass identical text, the bill goes to the President, who can veto it; Congress can override only by two-thirds of each chamber.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.etymonline_veto",
+    "source.brit_veto",
+    "source.constitution_annotated_veto",
+    "source.senate_veto_counts",
+    "source.idea_presidential_veto_primer",
+    "source.congress_how_our_laws_are_made"
+  ],
+  "art": "rome.raised-hand"
+}

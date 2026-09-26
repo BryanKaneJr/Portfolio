@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.government.062",
+  "skillId": "skill.world_systems.government",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Secret Ballot",
+  "objective": "After this level you can explain why voting is secret.",
+  "summary": "Open voting invited intimidation and bribery. Victoria introduced the modern secret ballot in 1856 and Britain followed in 1872. John Stuart Mill argued voting should be public.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.election_secret_ballot_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_mill_public_vote",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_udhr_will_of_people",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.061"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1843 New South Wales, you said your vote out loud. Often in a pub.",
+      "body": "At the New South Wales elections of 1843, voters told an officer, out loud, who they were voting for. Candidates handed out free drinks, and intimidation and bribery were everywhere. The fix came from Australia too.",
+      "id": "card.government.062.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Victoria's quiet revolution",
+      "body": "Victoria's secret ballot law took effect on 19 March 1856: the first modern secret ballot. The government printed the ballot papers, not the candidates. You marked yours in private, folded it and dropped it in a box. South Australia soon added a neat tweak: mark an X beside the candidate you want. That version is known as the Australian ballot.",
+      "id": "card.government.062.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "No witness, no threat",
+      "body": "The logic is simple: if nobody can see your vote, nobody can intimidate you or punish you for it. Britain's Ballot Act of 1872 ended open voting there, a system that had become known for bribery, intimidation and drunken disorder. In 1948 the UDHR from Level 61 wrote secrecy in: elections held by secret vote or equivalent free procedures.",
+      "id": "card.government.062.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The great dissenter",
+      "body": "Not everyone cheered. John Stuart Mill, in Considerations on Representative Government (1861), argued that a vote is power over others, so it's a trust held for the public. Like any public duty, he said, it should be done \"under the eye and criticism of the public.\" A secret ballot, he feared, invites people to vote for their own benefit instead.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Mill trusted voters to be brave in public. The pubs of 1843 suggest why others preferred a folded ballot."
+      },
+      "id": "card.government.062.c4"
+    },
+    {
+      "id": "card.government.062.c5",
+      "type": "mcq",
+      "questionId": "question.government.062.q1"
+    },
+    {
+      "id": "card.government.062.c6",
+      "type": "mcq",
+      "questionId": "question.government.062.q2"
+    },
+    {
+      "id": "card.government.062.c7",
+      "type": "recall",
+      "questionId": "question.government.062.q3"
+    },
+    {
+      "id": "card.government.062.c8",
+      "type": "checkpoint",
+      "headline": "Secret ballot: sealed",
+      "learned": [
+        "Open voting invited intimidation and bribery",
+        "Victoria, 1856: the first modern secret ballot",
+        "Britain adopted the secret ballot in 1872",
+        "Mill: voting is a public trust, best done in public"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.election_secret_ballot_origins"
+      ],
+      "sourceCardIds": [
+        "card.government.062.c2"
+      ],
+      "prompt": "Where was the modern secret ballot first used, in 1856?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Britain",
+          "correct": false,
+          "rationale": "Britain followed later, in 1872."
+        },
+        {
+          "id": "b",
+          "label": "Victoria, in Australia",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Athens",
+          "correct": false,
+          "rationale": "The modern secret ballot began in 1856, in Australia."
+        },
+        {
+          "id": "d",
+          "label": "The United States",
+          "correct": false,
+          "rationale": "It started in the Australian colony of Victoria."
+        }
+      ],
+      "explanation": "Victoria's secret ballot law took effect on 19 March 1856, the first modern secret ballot.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.election_secret_ballot_origins"
+      ],
+      "sourceCardIds": [
+        "card.government.062.c3"
+      ],
+      "prompt": "What problem does keeping each vote secret mainly solve?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It makes counting the votes much faster",
+          "correct": false,
+          "rationale": "Speed isn't the point; protection is."
+        },
+        {
+          "id": "b",
+          "label": "It allows more candidates to stand for office",
+          "correct": false,
+          "rationale": "Secrecy protects voters, not candidacies."
+        },
+        {
+          "id": "c",
+          "label": "Nobody can punish voters for their choice",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Voters no longer need to register first",
+          "correct": false,
+          "rationale": "Registration is a separate matter."
+        }
+      ],
+      "explanation": "If nobody can see your vote, nobody can intimidate you or punish you for it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.election_mill_public_vote",
+        "concept.government.election_udhr_will_of_people"
+      ],
+      "sourceCardIds": [
+        "card.government.062.c4",
+        "card.government.062.c3",
+        "card.government.061.c4"
+      ],
+      "prompt": "Mill wanted voting done \"under the eye and criticism of the public.\" What does the UDHR from Level 61 say instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Elections should be held by secret vote",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Votes should be announced out loud to an officer",
+          "correct": false,
+          "rationale": "That's the open voting of 1843."
+        },
+        {
+          "id": "c",
+          "label": "Only property owners should vote, in public",
+          "correct": false,
+          "rationale": "The UDHR says nothing like that."
+        },
+        {
+          "id": "d",
+          "label": "Each country may choose open voting if it likes",
+          "correct": false,
+          "rationale": "The UDHR names secret voting."
+        }
+      ],
+      "explanation": "The UDHR says elections shall be held by secret vote or by equivalent free voting procedures, the opposite of Mill's public vote.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.moad_secret_ballot",
+    "source.hop_1872_secret_ballot",
+    "source.un_udhr_elections",
+    "source.gutenberg_mill_representative_government"
+  ],
+  "art": "gov.ballot-box"
+}

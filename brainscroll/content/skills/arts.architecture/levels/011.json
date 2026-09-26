@@ -1,0 +1,229 @@
+{
+  "id": "level.arts.architecture.011",
+  "skillId": "skill.arts.architecture",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The First Buildings",
+  "objective": "After this level you can describe the earliest houses and temples.",
+  "summary": "Göbekli Tepe's pillar enclosures rose about 11,500 years ago, built by hunter-gatherers, and people lived there too. Çatalhöyük packed mud-brick houses with no streets.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.wonders_gobekli_tepe",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.wonders_first_houses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_building_timeline",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.010"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Which came first, the house or the temple?",
+      "body": "You'd bet on the house: settle down first, then build something grand for the gods. One of the oldest monumental sites ever found makes that bet look shaky. Here are the first buildings, and the arguments about them."
+    },
+    {
+      "id": "card.architecture.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A monument before farms",
+      "body": "Göbekli Tepe, in southeastern Turkey, was built by hunter-gatherers, before farming, beginning about 11,500 years ago. They raised T-shaped limestone pillars over 5 meters tall, some weighing up to 50 tons, in great round and oval enclosures. Its first excavator, Klaus Schmidt, read it as a ritual center: a place people gathered, but didn't live. A temple, in other words, with no town attached."
+    },
+    {
+      "id": "card.architecture.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then the hearths turned up",
+      "body": "Digs in recent years found hearths, domestic buildings and a big rainwater cistern cut into the bedrock. People seem to have lived at Göbekli Tepe after all, right beside the great enclosures. So the temple label is now argued over, and the honest answer to the hook may be: both at once. One trench can rewrite a textbook.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Archaeologists changing their minds when new evidence turns up: that's the system working."
+      }
+    },
+    {
+      "id": "card.architecture.011.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A town with no streets",
+      "body": "At Çatalhöyük, also in Turkey, people lived from about 6700 BCE in rectangular mud-brick houses packed wall to wall, with no streets in between. The rooftops were the streets. You walked across your neighbors' roofs, then climbed down a wooden ladder through an opening in your own ceiling. Old houses were filled in and rebuilt on top, over and over, until the town became a hill."
+    },
+    {
+      "id": "card.architecture.011.c5",
+      "type": "fact",
+      "fact": "Some of the oldest furniture on Earth is stone.",
+      "context": "At Skara Brae in Orkney, Scotland, a storm in 1850 uncovered a village about 5,000 years old, the best-preserved Neolithic settlement in Western Europe. Its houses still hold their stone dressers and box beds, right where their owners left them. Built-in furniture, long before flat-pack."
+    },
+    {
+      "id": "card.architecture.011.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.011.q1"
+    },
+    {
+      "id": "card.architecture.011.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.011.q2"
+    },
+    {
+      "id": "card.architecture.011.c8",
+      "type": "mcq",
+      "questionId": "question.architecture.011.q3"
+    },
+    {
+      "id": "card.architecture.011.c9",
+      "type": "checkpoint",
+      "headline": "First buildings: found",
+      "learned": [
+        "Göbekli Tepe: pillar enclosures about 11,500 years old, built by hunter-gatherers",
+        "Its temple label is argued over: people lived there too",
+        "Çatalhöyük: mud-brick houses, no streets, entry through the roof",
+        "Skara Brae: stone dressers and box beds, about 5,000 years old"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.wonders_first_houses"
+      ],
+      "sourceCardIds": [
+        "card.architecture.011.c4"
+      ],
+      "prompt": "How did people get into their houses at Çatalhöyük?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Through a front door on a narrow street",
+          "correct": false,
+          "rationale": "There were no streets between the houses."
+        },
+        {
+          "id": "b",
+          "label": "Down a ladder through an opening in the roof",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Up a ramp to a door on the second floor",
+          "correct": false,
+          "rationale": "Entry was from the roof, climbing down."
+        },
+        {
+          "id": "d",
+          "label": "Through tunnels under the neighboring houses",
+          "correct": false,
+          "rationale": "People moved across the roofs, not under them."
+        }
+      ],
+      "explanation": "Çatalhöyük's houses were packed wall to wall with no streets, so people walked across the roofs and climbed down a wooden ladder into their homes.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.wonders_gobekli_tepe"
+      ],
+      "sourceCardIds": [
+        "card.architecture.011.c2",
+        "card.architecture.011.c3"
+      ],
+      "prompt": "Why is \"temple\" now argued over as the right label for Göbekli Tepe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its pillars turned out to be natural rock",
+          "correct": false,
+          "rationale": "People carved and raised them."
+        },
+        {
+          "id": "b",
+          "label": "It was found to be only about 500 years old",
+          "correct": false,
+          "rationale": "It dates back about 11,500 years."
+        },
+        {
+          "id": "c",
+          "label": "Its builders were farmers, not hunter-gatherers",
+          "correct": false,
+          "rationale": "It was built by hunter-gatherers, before farming."
+        },
+        {
+          "id": "d",
+          "label": "Digs found hearths, houses and a cistern there",
+          "correct": true
+        }
+      ],
+      "explanation": "Schmidt read it as a ritual center where no one lived; recent digs found hearths, domestic buildings and a cistern, so people seem to have lived there too.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.wonders_first_houses",
+        "concept.architecture.stand_building_timeline"
+      ],
+      "sourceCardIds": [
+        "card.architecture.011.c4",
+        "card.architecture.001.c4"
+      ],
+      "prompt": "Level 1's timeline says sun-dried mud brick goes back at least 6,000 years. How do Çatalhöyük's houses fit that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They're mud brick from about 6700 BCE, older still",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They were fired brick, which came before mud brick",
+          "correct": false,
+          "rationale": "Çatalhöyük's houses were mud brick, and fired brick came later."
+        },
+        {
+          "id": "c",
+          "label": "They date from 1850, when a storm uncovered them",
+          "correct": false,
+          "rationale": "That storm uncovered Skara Brae, and it didn't build anything."
+        },
+        {
+          "id": "d",
+          "label": "They were stone, so mud brick doesn't apply",
+          "correct": false,
+          "rationale": "They were rectangular mud-brick houses."
+        }
+      ],
+      "explanation": "Çatalhöyük's mud-brick houses go back to about 6700 BCE, comfortably inside \"at least 6,000 years.\"",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_gobekli_tepe",
+    "source.unesco_gobekli_tepe",
+    "source.archaeologymag_gobekli_2021",
+    "source.brit_catalhuyuk",
+    "source.catalhoyuk_architecture",
+    "source.hes_skara_brae",
+    "source.brit_brick"
+  ],
+  "art": "arts.stonehenge"
+}

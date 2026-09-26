@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.architecture.056",
+  "skillId": "skill.arts.architecture",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Canals",
+  "objective": "After this level you can explain the Suez and Panama canals.",
+  "summary": "Suez is an open cut with no locks. De Lesseps's sea-level plan failed at Panama. The US built locks up to Gatun Lake, fought the mosquitoes under Gorgas, and opened the canal in 1914.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.marvel_canal_locks",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_panama_disease",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_dam_shape",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.055"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The man behind the Suez Canal tried the same plan in Panama, and it failed.",
+      "body": "Ferdinand de Lesseps had led the building of the Suez Canal, opened in 1869. In 1881 his company began a canal across Panama. By 1889 it had collapsed. Why did a plan that worked in Egypt fail in Central America?"
+    },
+    {
+      "id": "card.architecture.056.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Suez: a ditch between two seas",
+      "body": "The Suez Canal is an open cut with no locks. It links the Mediterranean to the Red Sea, running through lakes along the way such as Lake Timsah and the Bitter Lakes. Ships simply sail through. De Lesseps wanted Panama the same way: a sea-level canal. He refused to adopt a plan with locks."
+    },
+    {
+      "id": "card.architecture.056.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Panama: a staircase for ships",
+      "body": "When the United States took over in 1904, its engineers judged that digging all the way down to sea level would take too long and cost too much. So they built locks. A series of three locks lifts ships 85 feet (26 meters) to Gatun Lake, made by damming the Chagres River. The locks fill by gravity, without pumps: the lake's own water does the lifting.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Can't dig the hill away? Make the ships climb it instead."
+      }
+    },
+    {
+      "id": "card.architecture.056.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The real enemy was a mosquito",
+      "body": "Yellow fever and malaria had badly depleted the French workforce. The Americans put William Gorgas in charge of health. Knowing mosquitoes carried both diseases, his teams drained swamps and standing water, oiled water to kill larvae, and screened hospital wards. The last canal worker to die of yellow fever caught it late in 1906, and the canal opened in August 1914."
+    },
+    {
+      "id": "card.architecture.056.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.056.q1"
+    },
+    {
+      "id": "card.architecture.056.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.056.q2"
+    },
+    {
+      "id": "card.architecture.056.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.056.q3"
+    },
+    {
+      "id": "card.architecture.056.c8",
+      "type": "checkpoint",
+      "headline": "Canals: cut",
+      "learned": [
+        "Suez: an open cut, no locks",
+        "De Lesseps's sea-level plan failed at Panama (1881-89)",
+        "The US built locks up to Gatun Lake",
+        "Gorgas fought the mosquitoes; opened 1914"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.marvel_canal_locks"
+      ],
+      "sourceCardIds": [
+        "card.architecture.056.c2",
+        "card.architecture.056.c3"
+      ],
+      "prompt": "What did the American builders of the Panama Canal use that de Lesseps had refused?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Locks that lift ships up to a lake",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A sea-level cut like Suez",
+          "correct": false,
+          "rationale": "That was de Lesseps's own plan."
+        },
+        {
+          "id": "c",
+          "label": "Tunnels under the mountains",
+          "correct": false,
+          "rationale": "The canal is open to the sky."
+        },
+        {
+          "id": "d",
+          "label": "Railways to carry ships overland",
+          "correct": false,
+          "rationale": "Ships sail through the locks."
+        }
+      ],
+      "explanation": "De Lesseps insisted on a sea-level canal; the US engineers built locks that lift ships 85 feet to Gatun Lake.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.marvel_panama_disease"
+      ],
+      "sourceCardIds": [
+        "card.architecture.056.c4"
+      ],
+      "prompt": "Why did draining swamps and oiling standing water help build the Panama Canal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It gave the locks more water",
+          "correct": false,
+          "rationale": "Gatun Lake supplies the locks."
+        },
+        {
+          "id": "b",
+          "label": "It made the swampy ground firm enough for the digging machines",
+          "correct": false,
+          "rationale": "The aim was health, not the ground."
+        },
+        {
+          "id": "c",
+          "label": "It attacked the mosquitoes that carried yellow fever and malaria",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It kept the dredgers from rusting",
+          "correct": false,
+          "rationale": "The aim was to kill mosquito larvae."
+        }
+      ],
+      "explanation": "Gorgas knew mosquitoes carried yellow fever and malaria; removing their breeding water cut the diseases that had depleted the French workforce.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.marvel_canal_locks",
+        "concept.architecture.marvel_dam_shape"
+      ],
+      "sourceCardIds": [
+        "card.architecture.056.c3",
+        "card.architecture.055.c2"
+      ],
+      "prompt": "Panama's Gatun Lake was made by damming the Chagres River. From Level 55, where does a dam like that face its greatest water pressure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "At the top, where waves hit",
+          "correct": false,
+          "rationale": "Pressure grows with depth, so the top feels the least."
+        },
+        {
+          "id": "b",
+          "label": "In the middle, halfway down",
+          "correct": false,
+          "rationale": "It keeps growing all the way down."
+        },
+        {
+          "id": "c",
+          "label": "Nowhere: pressure is the same at every depth",
+          "correct": false,
+          "rationale": "Pressure increases with depth."
+        },
+        {
+          "id": "d",
+          "label": "At the bottom, where the water is deepest",
+          "correct": true
+        }
+      ],
+      "explanation": "Water pressure increases with depth, so a dam faces its greatest push at the bottom, which is why dams are thickest there.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.pbs_panama_canal",
+    "source.brit_panama_canal",
+    "source.brit_suez_canal",
+    "source.lindahall_gorgas",
+    "source.schoolphysics_liquid_pressure",
+    "source.asce_hoover_dam"
+  ],
+  "art": "money.container-ship"
+}

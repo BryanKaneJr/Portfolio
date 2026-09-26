@@ -1,0 +1,225 @@
+{
+  "id": "level.world_systems.government.011",
+  "skillId": "skill.world_systems.government",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Monarchy",
+  "objective": "After this level you can explain how monarchies work.",
+  "summary": "Monarchy means rule of one: a monarch who is head of state, usually by inheritance. Malaysia elects its ruler; Louis XIV claimed absolute power by divine right.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.monarchy_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.monarchy_absolute",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.weber_three_authorities",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.social_contract_hobbes",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.010"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Malaysia's king changes every five years. His fellow rulers elect him.",
+      "body": "Malaysia's head of state, officially the paramount ruler, is elected from among nine hereditary state rulers for a five-year term. That makes him unusual. In most monarchies, nobody votes for the monarch at all. So what makes a monarchy a monarchy?",
+      "id": "card.government.011.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Rule of one",
+      "body": "The name gives it away. Monarchy comes from the Greek monarkhia, literally \"ruling of one\". Britannica defines it as a system based on the undivided rule of a single person. That person, the monarch, is head of state and usually gets the job by heredity. You don't apply for a throne. You're born next in line for it.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "No CV, no interview. For most thrones, the only application form is a birth certificate."
+      },
+      "id": "card.government.011.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why people went along with it",
+      "body": "Remember Weber's three roots of authority from Level 3? A monarch who inherits the throne was his example of traditional authority: power accepted because things have always been done this way. Many monarchs had something extra on their side. Britannica notes that successful and popular monarchs were believed to have a sacred right to rule.",
+      "id": "card.government.011.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Louis XIV of France is the textbook absolute monarch.",
+      "context": "Absolutism means unlimited, centralized authority, held especially by a monarch. Louis XIV, who reigned from 1643 to 1715, is Britannica's most familiar example. Its favorite defense was the divine right of kings: kings got their authority from God, so they answered to no one on Earth. That's more than seven decades of answering to no one.",
+      "id": "card.government.011.c4"
+    },
+    {
+      "id": "card.government.011.c5",
+      "type": "mcq",
+      "questionId": "question.government.011.q1"
+    },
+    {
+      "id": "card.government.011.c6",
+      "type": "mcq",
+      "questionId": "question.government.011.q2"
+    },
+    {
+      "id": "card.government.011.c7",
+      "type": "recall",
+      "questionId": "question.government.011.q3"
+    },
+    {
+      "id": "card.government.011.c8",
+      "type": "checkpoint",
+      "headline": "Monarchy: crowned",
+      "learned": [
+        "Monarchy means rule of one, usually by inheritance",
+        "Malaysia elects its ruler for five years",
+        "Inherited thrones rest on traditional authority",
+        "Louis XIV ruled as an absolute monarch by divine right"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.monarchy_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.011.c2"
+      ],
+      "prompt": "Monarchy: the Greek word monarkhia literally means what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ruling of the many",
+          "correct": false,
+          "rationale": "That would be closer to democracy."
+        },
+        {
+          "id": "b",
+          "label": "Ruling by the rich",
+          "correct": false,
+          "rationale": "Rule by the wealthy is a different word, and a later level."
+        },
+        {
+          "id": "c",
+          "label": "Ruling of one",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ruling by God",
+          "correct": false,
+          "rationale": "That's theocracy, coming up in Level 15."
+        }
+      ],
+      "explanation": "Monarchy comes from the Greek monarkhia, \"ruling of one\", from monos (alone) and arkhein (to rule).",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.monarchy_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.011.c1",
+        "card.government.011.c2"
+      ],
+      "prompt": "Why is Malaysia's paramount ruler unusual among monarchs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He is elected for five years instead of inheriting the throne",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He holds absolute power by divine right",
+          "correct": false,
+          "rationale": "Nothing in the level says so; what stands out is how he's chosen."
+        },
+        {
+          "id": "c",
+          "label": "He is chosen by a vote of all Malaysian citizens",
+          "correct": false,
+          "rationale": "Only the nine hereditary state rulers elect him."
+        },
+        {
+          "id": "d",
+          "label": "He shares the throne with a second king",
+          "correct": false,
+          "rationale": "There is one paramount ruler at a time."
+        }
+      ],
+      "explanation": "Most monarchs inherit the throne for life. Malaysia's is elected from among nine hereditary rulers for a five-year term.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.monarchy_absolute",
+        "concept.government.social_contract_hobbes"
+      ],
+      "sourceCardIds": [
+        "card.government.011.c4",
+        "card.government.007.c2"
+      ],
+      "prompt": "Absolute monarchy: Hobbes (Level 7) and the divine right of kings both backed an all-powerful ruler. Where did each say that power came from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both said it came from God",
+          "correct": false,
+          "rationale": "Hobbes grounded the sovereign's power in people's agreement, not God."
+        },
+        {
+          "id": "b",
+          "label": "Hobbes: people handing over their freedom; divine right: God",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Hobbes: God; divine right: an agreement among people",
+          "correct": false,
+          "rationale": "That's the wrong way round."
+        },
+        {
+          "id": "d",
+          "label": "Both said it came from winning a war",
+          "correct": false,
+          "rationale": "Neither grounds it in conquest."
+        }
+      ],
+      "explanation": "Hobbes had people hand their freedom to a sovereign in exchange for peace. The divine right of kings said kings got their authority from God.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_yang_di_pertuan_agong",
+    "source.etymonline_monarchy",
+    "source.brit_monarchy",
+    "source.openstax_sociology_power_authority",
+    "source.brit_absolutism"
+  ],
+  "art": "medieval.crown"
+}

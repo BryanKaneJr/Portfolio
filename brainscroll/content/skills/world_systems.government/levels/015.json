@@ -1,0 +1,225 @@
+{
+  "id": "level.world_systems.government.015",
+  "skillId": "skill.world_systems.government",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rule by Religion",
+  "objective": "After this level you can explain theocracy.",
+  "summary": "Theocracy is government by divine guidance or divinely guided officials. The pope holds every branch of power in Vatican City; Iran's supreme leader is a jurist above an elected president.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.theocracy_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.theocracy_vatican_iran",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.monarchy_absolute",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.monarchy_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.014"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "The world's smallest country announces its new ruler with smoke.",
+      "body": "When cardinals elect a pope in the Sistine Chapel, they burn the ballots. Black smoke means no decision yet. White smoke means a new pope. And the winner doesn't only lead a church. He runs a country, with every branch of its government in his hands.",
+      "id": "card.government.015.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Government by divine guidance",
+      "body": "Theocracy comes from the Greek theokratia, \"rule of God\", a word attributed to the historian Josephus. Britannica defines it as government by divine guidance or by officials regarded as divinely guided. Often the leaders are clergy and the law rests on religious law. Level 11's divine right put God behind a king. Theocracy puts religion at the center of the state itself.",
+      "id": "card.government.015.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "In Vatican City, one person holds all three powers.",
+      "context": "At 0.44 square kilometers, Vatican City is the world's smallest fully independent state. The pope holds absolute executive, legislative and judicial powers there: he makes the laws, carries them out and judges them. He gets the job by election. Cardinals under 80 vote, and a winner needs a two-thirds majority.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Smallest country, biggest job description: lawmaker, executive and top judge, all in one."
+      },
+      "id": "card.government.015.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Iran: a religious leader above elected offices",
+      "body": "Britannica names three present-day theocracies: Saudi Arabia, Iran and the Vatican. Iran mixes religious and elected offices. Since 1979, its head of state has been a supreme leader, a jurist of Islamic law chosen by the Assembly of Experts, whose members are directly elected every eight years. Iran's president and legislature are directly elected too, but the supreme leader can approve or dismiss the president and commands the armed forces.",
+      "id": "card.government.015.c4"
+    },
+    {
+      "id": "card.government.015.c5",
+      "type": "mcq",
+      "questionId": "question.government.015.q1"
+    },
+    {
+      "id": "card.government.015.c6",
+      "type": "mcq",
+      "questionId": "question.government.015.q2"
+    },
+    {
+      "id": "card.government.015.c7",
+      "type": "recall",
+      "questionId": "question.government.015.q3"
+    },
+    {
+      "id": "card.government.015.c8",
+      "type": "checkpoint",
+      "headline": "Theocracy: examined",
+      "learned": [
+        "Theocracy: government by divine guidance",
+        "Leaders are often clergy, applying religious law",
+        "The pope holds all three powers in Vatican City",
+        "Iran's supreme leader stands above an elected president"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.theocracy_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.015.c2"
+      ],
+      "prompt": "How does Britannica define theocracy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Government by the wealthy few",
+          "correct": false,
+          "rationale": "That's oligarchy, from Level 14."
+        },
+        {
+          "id": "b",
+          "label": "Government by an elected assembly of all citizens",
+          "correct": false,
+          "rationale": "That's closer to direct democracy."
+        },
+        {
+          "id": "c",
+          "label": "Government by one ruler who inherits the throne",
+          "correct": false,
+          "rationale": "That's hereditary monarchy."
+        },
+        {
+          "id": "d",
+          "label": "Government by divine guidance or divinely guided officials",
+          "correct": true
+        }
+      ],
+      "explanation": "Theocracy is government by divine guidance or by officials regarded as divinely guided.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.theocracy_vatican_iran"
+      ],
+      "sourceCardIds": [
+        "card.government.015.c3"
+      ],
+      "prompt": "What powers does the pope hold within Vatican City?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only religious authority; Italy runs the state",
+          "correct": false,
+          "rationale": "Vatican City is fully independent, and the pope governs it."
+        },
+        {
+          "id": "b",
+          "label": "Absolute executive, legislative and judicial powers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only ceremonial duties, like Sweden's King",
+          "correct": false,
+          "rationale": "Sweden's King has no political power; the pope has all of it in Vatican City."
+        },
+        {
+          "id": "d",
+          "label": "Only the power to appoint cardinals",
+          "correct": false,
+          "rationale": "His powers there cover lawmaking, government and courts."
+        }
+      ],
+      "explanation": "Britannica: the pope holds absolute executive, legislative and judicial powers within Vatican City.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.theocracy_vatican_iran",
+        "concept.government.monarchy_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.015.c3",
+        "card.government.011.c1"
+      ],
+      "prompt": "Rule by religion: how are the pope and Level 11's Malaysian paramount ruler chosen alike?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both are elected by a small group instead of inheriting",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Both are chosen by a vote of the whole population",
+          "correct": false,
+          "rationale": "Cardinals elect the pope; nine rulers elect Malaysia's."
+        },
+        {
+          "id": "c",
+          "label": "Both inherit the post from a parent",
+          "correct": false,
+          "rationale": "Neither inherits: both are elected."
+        },
+        {
+          "id": "d",
+          "label": "Both are appointed by a parliament",
+          "correct": false,
+          "rationale": "Neither is chosen by a parliament."
+        }
+      ],
+      "explanation": "Cardinals under 80 elect the pope; Malaysia's nine hereditary rulers elect the paramount ruler. Neither inherits the post.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.pbs_papal_conclave",
+    "source.brit_vatican_city",
+    "source.etymonline_theocracy",
+    "source.brit_theocracy",
+    "source.brit_absolutism",
+    "source.brit_supreme_leader_iran"
+  ],
+  "art": "rome.altar-flame"
+}

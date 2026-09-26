@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.architecture.017",
+  "skillId": "skill.arts.architecture",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Colosseum",
+  "objective": "After this level you can explain how the Colosseum handled about 50,000 people.",
+  "summary": "The Colosseum: a freestanding oval of travertine, tufa and concrete vaults ringed by arcades. 76 numbered entrances, class zones and vomitoria moved its crowds.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.wonders_colosseum_structure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.wonders_colosseum_crowds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.016"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Up to 50,000 people, one building, and every ticket numbered.",
+      "body": "Getting that many people in, seated and out again is a design problem. The Colosseum solved it with a ring of arches and a lot of numbers."
+    },
+    {
+      "id": "card.architecture.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A mountain made of arches",
+      "body": "The Colosseum is a freestanding oval about 189 by 156 m. A framework of travertine stone carries it, with walls of volcanic tufa and concrete, and inside runs a honeycomb of barrel and groin vaults. Outside, three stories of arcades wrap all the way around, framed by engaged columns in the Doric, Ionic and Corinthian orders. It's Level 4's Roman arch, repeated around and around."
+    },
+    {
+      "id": "card.architecture.017.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Find your number",
+      "body": "The Colosseum had at least 80 entrances at ground level. Seventy-six were numbered, and tickets were sold for each, so your ticket told you which arch to walk through. Inside, the seats were split into zones by class, with wooden seats and standing room at the very top for women and the poor. Your gate, your zone, your seat: a plan any stadium today would recognize."
+    },
+    {
+      "id": "card.architecture.017.c4",
+      "type": "fact",
+      "fact": "A vomitorium is for crowds, not for being sick.",
+      "context": "A vomitorium is an entrance passage that pierces the banks of seats in a theater, amphitheater or stadium. The name comes from the Latin vomere, 'to vomit', because the passages disgorged the spectators. So the word describes crowds leaving, not dinner coming back.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Tell someone this at the next big game. They'll never look at the exit signs the same way."
+      }
+    },
+    {
+      "id": "card.architecture.017.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.017.q1"
+    },
+    {
+      "id": "card.architecture.017.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.017.q2"
+    },
+    {
+      "id": "card.architecture.017.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.017.q3"
+    },
+    {
+      "id": "card.architecture.017.c8",
+      "type": "checkpoint",
+      "headline": "The Colosseum: seated",
+      "learned": [
+        "A freestanding oval, about 189 by 156 m",
+        "Travertine frame, tufa and concrete, barrel and groin vaults",
+        "Three stories of arcades framed by Greek orders",
+        "Numbered entrances, class zones and vomitoria"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.wonders_colosseum_crowds"
+      ],
+      "sourceCardIds": [
+        "card.architecture.017.c3"
+      ],
+      "prompt": "How did a Colosseum ticket help you find your way in?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It showed a map of the tunnels under the arena",
+          "correct": false,
+          "rationale": "It carried a number matching an entrance."
+        },
+        {
+          "id": "b",
+          "label": "It matched one of the numbered entrance arches",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It named a guard who would lead you in",
+          "correct": false,
+          "rationale": "The numbered arch did the guiding."
+        },
+        {
+          "id": "d",
+          "label": "It let you use any entrance you liked",
+          "correct": false,
+          "rationale": "Each ticket was for a numbered entrance."
+        }
+      ],
+      "explanation": "Seventy-six of the Colosseum's entrances were numbered, and tickets were sold for each one.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.wonders_colosseum_crowds"
+      ],
+      "sourceCardIds": [
+        "card.architecture.017.c4"
+      ],
+      "prompt": "What was a vomitorium in a Roman amphitheater?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A room for being sick after a feast",
+          "correct": false,
+          "rationale": "The name refers to crowds pouring out."
+        },
+        {
+          "id": "b",
+          "label": "A drain for rain from the seating",
+          "correct": false,
+          "rationale": "It was a passage for people."
+        },
+        {
+          "id": "c",
+          "label": "A cage for animals below the arena",
+          "correct": false,
+          "rationale": "It pierced the banks of seats."
+        },
+        {
+          "id": "d",
+          "label": "A passage through the seats that let crowds pour out",
+          "correct": true
+        }
+      ],
+      "explanation": "A vomitorium is an entrance piercing the banks of seats; its name comes from how it disgorged the spectators.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.wonders_colosseum_structure",
+        "concept.architecture.stand_arch"
+      ],
+      "sourceCardIds": [
+        "card.architecture.017.c2",
+        "card.architecture.004.c2"
+      ],
+      "prompt": "The Colosseum's outer walls are three stories of stone arcades. Which Level 4 idea lets each arch carry its load?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Steel bars take the stretch inside the stone",
+          "correct": false,
+          "rationale": "There is no steel in the Colosseum."
+        },
+        {
+          "id": "b",
+          "label": "Its wedge-shaped stones are squeezed together",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The columns hold up a flat stone lintel",
+          "correct": false,
+          "rationale": "The arcades are arches; the columns frame them."
+        },
+        {
+          "id": "d",
+          "label": "Reed matting holds the courses together",
+          "correct": false,
+          "rationale": "That's the Aqar Quf ziggurat."
+        }
+      ],
+      "explanation": "In an arch, weight forces the wedge-shaped voussoirs together, keeping the stone in compression.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_colosseum",
+    "source.whe_colosseum",
+    "source.mw_vomitory",
+    "source.brit_arch_architecture"
+  ],
+  "art": "rome.colosseum"
+}

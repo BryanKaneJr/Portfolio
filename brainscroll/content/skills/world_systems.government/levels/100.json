@@ -1,0 +1,568 @@
+{
+  "id": "level.world_systems.government.100",
+  "skillId": "skill.world_systems.government",
+  "number": 100,
+  "type": "mastery",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mastery Challenge: How Government Works",
+  "objective": "After this level you can demonstrate command of How Government Works Levels 1–99 across the whole tree.",
+  "summary": "Questions from why governments exist to your own part in one: authority, taxes, the social contract, citizenship, duties, local councils, news and the civil service. Every question can be corrected.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.government_definition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.power_vs_authority",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.public_goods_free_riders",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.volunteering_definition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.tax_definition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.social_contract_hobbes",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.duties_rights_responsibilities",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.citizenship_birth_rules",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.levels_canada",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.duties_compulsory_voting_australia",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.newsreading_reliability_signs",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.weber_three_authorities",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.myth_civil_service",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.099"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "The How Government Works Mastery Challenge.",
+      "body": "Ten questions, from why governments exist to your own part in one. Level 1 began with a sailor's word for steering a ship; now you're the one at the helm. Take your time: every question can be corrected.",
+      "id": "card.government.100.c1"
+    },
+    {
+      "id": "card.government.100.c2",
+      "type": "recall",
+      "questionId": "question.government.100.q1"
+    },
+    {
+      "id": "card.government.100.c3",
+      "type": "recall",
+      "questionId": "question.government.100.q2"
+    },
+    {
+      "id": "card.government.100.c4",
+      "type": "recall",
+      "questionId": "question.government.100.q3"
+    },
+    {
+      "id": "card.government.100.c5",
+      "type": "recall",
+      "questionId": "question.government.100.q4"
+    },
+    {
+      "id": "card.government.100.c6",
+      "type": "recall",
+      "questionId": "question.government.100.q5"
+    },
+    {
+      "id": "card.government.100.c7",
+      "type": "recall",
+      "questionId": "question.government.100.q6"
+    },
+    {
+      "id": "card.government.100.c8",
+      "type": "recall",
+      "questionId": "question.government.100.q7"
+    },
+    {
+      "id": "card.government.100.c9",
+      "type": "recall",
+      "questionId": "question.government.100.q8"
+    },
+    {
+      "id": "card.government.100.c10",
+      "type": "recall",
+      "questionId": "question.government.100.q9"
+    },
+    {
+      "id": "card.government.100.c11",
+      "type": "recall",
+      "questionId": "question.government.100.q10"
+    },
+    {
+      "id": "card.government.100.c12",
+      "type": "checkpoint",
+      "headline": "How Government Works: mastered",
+      "learned": [
+        "Why governments exist and how they're paid for",
+        "Authority, law and the social contract",
+        "Citizenship, rights and responsibilities",
+        "Taking part: councils, representatives and the news"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.100.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.government_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.001.c1"
+      ],
+      "prompt": "Mastery: the word \"government\" goes back to a Greek verb for which everyday job?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Steering a ship",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Counting a harvest",
+          "correct": false,
+          "rationale": "The root is nautical, not agricultural."
+        },
+        {
+          "id": "c",
+          "label": "Guarding a gate",
+          "correct": false,
+          "rationale": "Not the root: it's steering."
+        },
+        {
+          "id": "d",
+          "label": "Writing a law",
+          "correct": false,
+          "rationale": "Laws came later; the word means steering."
+        }
+      ],
+      "explanation": "Through Latin gubernare, \"govern\" comes from the Greek kybernan: to steer or pilot a ship.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.100.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.power_vs_authority"
+      ],
+      "sourceCardIds": [
+        "card.government.003.c3"
+      ],
+      "prompt": "A robber and a traffic officer can both make you stop. What does only the officer have, in Weber's terms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "More physical strength",
+          "correct": false,
+          "rationale": "Strength is power, not authority."
+        },
+        {
+          "id": "b",
+          "label": "Authority: power people accept as legitimate",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Charisma that people admire",
+          "correct": false,
+          "rationale": "Charisma is one source of authority, but acceptance is the key."
+        },
+        {
+          "id": "d",
+          "label": "A weapon",
+          "correct": false,
+          "rationale": "The robber may have one too. That's power."
+        }
+      ],
+      "explanation": "Authority is accepted power: people follow it because they see it as legitimate.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.government.100.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.public_goods_free_riders",
+        "concept.government.volunteering_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.005.c3",
+        "card.government.094.c2"
+      ],
+      "prompt": "Level 5's free riders and Level 94's volunteers are near opposites. Why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both are paid by government",
+          "correct": false,
+          "rationale": "Neither is: free riders pay nothing, volunteers give for free."
+        },
+        {
+          "id": "b",
+          "label": "Free riders give time; volunteers give money",
+          "correct": false,
+          "rationale": "It's the other way round, roughly."
+        },
+        {
+          "id": "c",
+          "label": "Free riders take without paying; volunteers give without being required",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both are required by law",
+          "correct": false,
+          "rationale": "Volunteer work is non-compulsory by definition."
+        }
+      ],
+      "explanation": "Free riders enjoy a public good without paying; volunteers give unpaid time that no one can make them give.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.government.100.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.tax_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.006.c2"
+      ],
+      "prompt": "You pay a bus fare and a tax. By the OECD's definition, what makes the tax different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is optional, like a tip",
+          "correct": false,
+          "rationale": "Taxes are compulsory."
+        },
+        {
+          "id": "b",
+          "label": "It buys you one specific service",
+          "correct": false,
+          "rationale": "That's the fare. Taxes are unrequited."
+        },
+        {
+          "id": "c",
+          "label": "It is always a fixed amount",
+          "correct": false,
+          "rationale": "Taxes vary with what they fall on."
+        },
+        {
+          "id": "d",
+          "label": "It is compulsory and buys nothing in particular",
+          "correct": true
+        }
+      ],
+      "explanation": "Taxes are compulsory and unrequited: what you get back isn't in proportion to what you paid, unlike a fare.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.government.100.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.social_contract_hobbes",
+        "concept.government.duties_rights_responsibilities"
+      ],
+      "sourceCardIds": [
+        "card.government.092.c2",
+        "card.government.007.c1"
+      ],
+      "prompt": "Canada's citizenship guide says rights come with responsibilities. Which Level 7 idea says much the same?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The social contract, setting out rights and duties of each side",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Weber's charismatic authority",
+          "correct": false,
+          "rationale": "That's about a leader's personal qualities."
+        },
+        {
+          "id": "c",
+          "label": "The free rider problem",
+          "correct": false,
+          "rationale": "That's about public goods, not duties."
+        },
+        {
+          "id": "d",
+          "label": "Hammurabi's eye for an eye",
+          "correct": false,
+          "rationale": "That's a penalty, not a rights-and-duties bargain."
+        }
+      ],
+      "explanation": "A social contract sets out the rights and duties of ruled and rulers: rights with responsibilities attached.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.government.100.q6",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.citizenship_birth_rules"
+      ],
+      "sourceCardIds": [
+        "card.government.091.c3"
+      ],
+      "prompt": "A baby born abroad to a Japanese mother is a Japanese citizen. Which rule is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Jus soli, the right of the soil",
+          "correct": false,
+          "rationale": "The baby was born abroad, so birthplace isn't the reason."
+        },
+        {
+          "id": "b",
+          "label": "Jus sanguinis, the right of blood",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Naturalization",
+          "correct": false,
+          "rationale": "Naturalization is for people who apply later."
+        },
+        {
+          "id": "d",
+          "label": "The general will",
+          "correct": false,
+          "rationale": "That's Rousseau, not a citizenship rule."
+        }
+      ],
+      "explanation": "Japan uses descent: a child is Japanese if the father or mother is a Japanese national at birth.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.government.100.q7",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.levels_canada"
+      ],
+      "sourceCardIds": [
+        "card.government.008.c3",
+        "card.government.097.c4"
+      ],
+      "prompt": "A council meeting in Canada is debating water supply and public transit. Which level of government is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Federal",
+          "correct": false,
+          "rationale": "The federal level handles things like defence and currency."
+        },
+        {
+          "id": "b",
+          "label": "Provincial or territorial",
+          "correct": false,
+          "rationale": "Provinces run schools and hospitals."
+        },
+        {
+          "id": "c",
+          "label": "Municipal",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "International",
+          "correct": false,
+          "rationale": "These are local services."
+        }
+      ],
+      "explanation": "Canada's municipal governments handle local services like water supply, transit, parks, waste and local roads.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.government.100.q8",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.duties_compulsory_voting_australia"
+      ],
+      "sourceCardIds": [
+        "card.government.092.c1"
+      ],
+      "prompt": "Which country made voting at federal elections a legal duty in 1924?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Canada",
+          "correct": false,
+          "rationale": "Canada's guide lists voting as a responsibility; the 1924 law was Australia's."
+        },
+        {
+          "id": "b",
+          "label": "Japan",
+          "correct": false,
+          "rationale": "Japan appeared in Level 91 for citizenship, not voting."
+        },
+        {
+          "id": "c",
+          "label": "Australia",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The United Kingdom",
+          "correct": false,
+          "rationale": "Not the example: it was Australia."
+        }
+      ],
+      "explanation": "Australia made voting at federal elections compulsory in 1924.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.government.100.q9",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.newsreading_reliability_signs"
+      ],
+      "sourceCardIds": [
+        "card.government.095.c4"
+      ],
+      "prompt": "A newspaper piece is clearly labeled \"Comment\". By the journalism codes in Level 95, what is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A correction of an earlier error",
+          "correct": false,
+          "rationale": "Corrections fix mistakes; this is opinion."
+        },
+        {
+          "id": "b",
+          "label": "Opinion, kept distinct from factual reporting",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A breach of the code",
+          "correct": false,
+          "rationale": "Labeled comment is exactly what the codes ask for."
+        },
+        {
+          "id": "d",
+          "label": "An advertisement",
+          "correct": false,
+          "rationale": "Ads are a different category."
+        }
+      ],
+      "explanation": "Both codes ask outlets to label commentary and distinguish comment from fact. The label tells you it's opinion.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.government.100.q10",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.weber_three_authorities",
+        "concept.government.myth_civil_service"
+      ],
+      "sourceCardIds": [
+        "card.government.098.c3",
+        "card.government.003.c4"
+      ],
+      "prompt": "UK civil servants serve any elected government equally well. Which of Weber's kinds of authority does that reflect?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Traditional",
+          "correct": false,
+          "rationale": "Traditional authority rests on custom, like inherited thrones."
+        },
+        {
+          "id": "b",
+          "label": "Charismatic",
+          "correct": false,
+          "rationale": "Charisma belongs to a person, not an office."
+        },
+        {
+          "id": "c",
+          "label": "None: civil servants hold only power",
+          "correct": false,
+          "rationale": "They work within legal-rational authority."
+        },
+        {
+          "id": "d",
+          "label": "Legal-rational",
+          "correct": true
+        }
+      ],
+      "explanation": "Legal-rational authority belongs to the office, not the person, so civil servants serve whoever holds office.",
+      "difficulty": 0.5
+    }
+  ],
+  "sourceIds": [
+    "source.etymonline_govern",
+    "source.openstax_sociology_power_authority",
+    "source.sep_weber",
+    "source.openstax_public_goods",
+    "source.ilo_volunteer_manual",
+    "source.oecd_revenue_statistics_2025",
+    "source.brit_social_contract",
+    "source.ircc_discover_canada_rights",
+    "source.brit_jus_soli",
+    "source.moj_japan_nationality",
+    "source.elections_canada_levels",
+    "source.aec_compulsory_voting",
+    "source.spj_code_of_ethics",
+    "source.ipso_editors_code",
+    "source.govuk_civil_service_code"
+  ],
+  "art": "gov.mastery"
+}

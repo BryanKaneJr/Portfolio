@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.architecture.064",
+  "skillId": "skill.arts.architecture",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Wind and Tall Buildings",
+  "objective": "After this level you can explain how tall buildings resist the wind.",
+  "summary": "Vortices shed from alternate sides push a tower across the wind and, in time with its sway, rock it harder. Changing shape confuses the wind; dampers like Taipei 101's steady it.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.sky_wind_vortex",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_wind_shaping",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_loads",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.063"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Near the top of Taipei 101 hangs a steel ball weighing 660 metric tons.",
+      "body": "It's suspended between the 87th and 92nd floors, in the middle of the building, and its job is to keep the tower steady in strong winds. Why would a skyscraper need to hang a giant ball inside itself? Because wind does something sneaky to tall buildings."
+    },
+    {
+      "id": "card.architecture.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pushed across the wind",
+      "body": "Level 2 called wind a sideways live load. Here's the sneaky part. As wind flows past a tall building, swirls of air called vortices form and break away, first from one side, then the other. Each one tugs the building. So it gets pushed and pulled across the wind's direction, not just along it."
+    },
+    {
+      "id": "card.architecture.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pushing the swing",
+      "body": "Think of pushing a child on a swing: time your pushes to the swing's natural rhythm and it goes higher and higher. If the vortices break away in time with a building's own natural sway, they rock it harder the same way. At a minimum, life on the upper floors gets uncomfortable.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Swings are lovely in a playground. Much less lovely in an office."
+      }
+    },
+    {
+      "id": "card.architecture.064.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Confuse the wind",
+      "body": "So engineers break the rhythm. Change a tower's shape as it rises and the vortices lose their coherence: the wind, in engineers' words, becomes confused. Softened corners and openings for the wind to blow through help too, and designs are tested in wind tunnels. When shape isn't enough, a damper like Taipei 101's steel ball steadies the sway."
+    },
+    {
+      "id": "card.architecture.064.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.064.q1"
+    },
+    {
+      "id": "card.architecture.064.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.064.q2"
+    },
+    {
+      "id": "card.architecture.064.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.064.q3"
+    },
+    {
+      "id": "card.architecture.064.c8",
+      "type": "checkpoint",
+      "headline": "Wind: tamed",
+      "learned": [
+        "Wind is a sideways live load",
+        "Vortices shed from alternate sides push a tower across the wind",
+        "In time with its sway, like a swing, they rock it harder",
+        "Shape changes confuse the wind; dampers steady it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.sky_wind_shaping"
+      ],
+      "sourceCardIds": [
+        "card.architecture.064.c1",
+        "card.architecture.064.c4"
+      ],
+      "prompt": "What hangs between the 87th and 92nd floors of Taipei 101, and why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A water tank, for fighting fires",
+          "correct": false,
+          "rationale": "It's a steel sphere, and its job is steadiness."
+        },
+        {
+          "id": "b",
+          "label": "A 660-metric-ton steel sphere, to steady the tower in wind",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A spare elevator motor, for emergencies",
+          "correct": false,
+          "rationale": "It's a steel sphere that steadies the building."
+        },
+        {
+          "id": "d",
+          "label": "A glass viewing pod, for tourists",
+          "correct": false,
+          "rationale": "It's a steel sphere, not a lookout."
+        }
+      ],
+      "explanation": "Taipei 101's 660-metric-ton steel sphere is a damper that keeps the tower steady in strong winds.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.sky_wind_vortex"
+      ],
+      "sourceCardIds": [
+        "card.architecture.064.c2",
+        "card.architecture.064.c3"
+      ],
+      "prompt": "Why can wind make a tall building sway across the wind's direction, not just along it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The building's weight shifts from side to side",
+          "correct": false,
+          "rationale": "Weight doesn't move around; the air does."
+        },
+        {
+          "id": "b",
+          "label": "Wind blows from two directions at once",
+          "correct": false,
+          "rationale": "It's one wind, shedding swirls from alternate sides."
+        },
+        {
+          "id": "c",
+          "label": "Vortices break away from alternate sides, tugging it back and forth",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The foundation slides a little in the soil",
+          "correct": false,
+          "rationale": "The sway comes from the air flowing past."
+        }
+      ],
+      "explanation": "Vortices shed alternately from each side push and pull the building across the wind; in time with its sway, they rock it harder.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.architecture.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.stand_loads",
+        "concept.architecture.sky_wind_vortex"
+      ],
+      "sourceCardIds": [
+        "card.architecture.002.c2",
+        "card.architecture.064.c2"
+      ],
+      "prompt": "Level 2 sorted loads into dead loads and live loads. Which is the wind that rocks a skyscraper?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A dead load, because it's always blowing",
+          "correct": false,
+          "rationale": "Dead loads are permanent parts like floors and pipes."
+        },
+        {
+          "id": "b",
+          "label": "A live load that pushes sideways",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Neither: wind isn't counted as a load",
+          "correct": false,
+          "rationale": "Weather counts as a live load."
+        },
+        {
+          "id": "d",
+          "label": "A dead load, because it pushes down",
+          "correct": false,
+          "rationale": "Wind pushes sideways, and it comes and goes."
+        }
+      ],
+      "explanation": "Weather counts as a live load, and wind pushes sideways rather than down.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_taipei_101",
+    "source.mit_primary_loads",
+    "source.physicstoday_vortices_tall_buildings"
+  ],
+  "art": "nature.hurricane"
+}

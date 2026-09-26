@@ -1,0 +1,256 @@
+{
+  "id": "level.arts.architecture.069",
+  "skillId": "skill.arts.architecture",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Race to the Top",
+  "objective": "After this level you can explain the race to build the tallest building.",
+  "summary": "The Chrysler Building won 1929's race with a secret spire; the CTBUH counts spires, not antennas, which let the Petronas Towers pass the Sears Tower in 1998. The title moved from New York to Dubai.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.sky_race_chrysler",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_race_height_rules",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_race_timeline",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_esb_design",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.sky_burj_record",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.068"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.069.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On October 23, 1929, a secret spire rose out of the Chrysler Building.",
+      "body": "It had been assembled inside the building's crown in five sections. Then it was hoisted into place in about 90 minutes. The Chrysler Building was racing another tower for the title of the world's tallest, and this was the winning move."
+    },
+    {
+      "id": "card.architecture.069.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The rival downtown",
+      "body": "The rival was 40 Wall Street, rising at the same time downtown. The Chrysler's architect, William Van Alen, kept his trump card hidden until the last moment, and the finished tower stood 1,046 feet tall. The victory didn't last. Built between 1928 and 1930, it held the record only until the Empire State Building opened in 1931."
+    },
+    {
+      "id": "card.architecture.069.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What counts as the top?",
+      "body": "A race needs rules. In 1998 the Petronas Twin Towers in Kuala Lumpur took the title from Chicago's Sears Tower, even though the Sears roof was more than 200 feet higher. The Petronas spires were counted as part of the architecture. Today the CTBUH measures to a building's architectural top: spires count, antennas don't.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Moral of the story: if you're racing, wear a pointy hat, not an antenna."
+      }
+    },
+    {
+      "id": "card.architecture.069.c4",
+      "type": "timeline",
+      "headline": "The title moves around the world",
+      "events": [
+        {
+          "when": "1930",
+          "label": "New York: the Chrysler Building, with its secret spire"
+        },
+        {
+          "when": "1931",
+          "label": "New York: the Empire State Building, tallest until 1971"
+        },
+        {
+          "when": "1973",
+          "label": "Chicago: the Sears Tower passes New York's World Trade Center"
+        },
+        {
+          "when": "1998",
+          "label": "Kuala Lumpur: the Petronas Towers, spires and all"
+        },
+        {
+          "when": "2004",
+          "label": "Taipei: Taipei 101, 508 meters"
+        },
+        {
+          "when": "2010",
+          "label": "Dubai: Burj Khalifa, 828 meters, tallest as of 2026"
+        }
+      ]
+    },
+    {
+      "id": "card.architecture.069.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.069.q1"
+    },
+    {
+      "id": "card.architecture.069.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.069.q2"
+    },
+    {
+      "id": "card.architecture.069.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.069.q3"
+    },
+    {
+      "id": "card.architecture.069.c8",
+      "type": "checkpoint",
+      "headline": "The race: run",
+      "learned": [
+        "1929: the Chrysler's secret spire beat 40 Wall Street",
+        "The Empire State took the title in 1931",
+        "CTBUH: spires count, antennas don't",
+        "The title moved from New York to Chicago, Asia and Dubai"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.sky_race_chrysler"
+      ],
+      "sourceCardIds": [
+        "card.architecture.069.c1"
+      ],
+      "prompt": "How did the Chrysler Building win its 1929 race for the world's tallest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It added three floors in a single night",
+          "correct": false,
+          "rationale": "The trick was a spire, not extra floors."
+        },
+        {
+          "id": "b",
+          "label": "It bolted a radio antenna to its roof",
+          "correct": false,
+          "rationale": "It was a spire, assembled in secret inside."
+        },
+        {
+          "id": "c",
+          "label": "Its rival's top floors were torn down",
+          "correct": false,
+          "rationale": "The rival stood; the Chrysler outgrew it."
+        },
+        {
+          "id": "d",
+          "label": "A spire assembled in secret inside was hoisted up in about 90 minutes",
+          "correct": true
+        }
+      ],
+      "explanation": "Van Alen's spire was assembled inside the crown in five sections and hoisted into place in about 90 minutes on October 23, 1929.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.sky_race_height_rules"
+      ],
+      "sourceCardIds": [
+        "card.architecture.069.c3"
+      ],
+      "prompt": "Why did the Petronas Towers outrank the Sears Tower in 1998, despite a lower roof?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their spires counted as architecture; antennas don't",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They had more floors than the Sears Tower",
+          "correct": false,
+          "rationale": "It came down to spires versus antennas."
+        },
+        {
+          "id": "c",
+          "label": "Height is measured from sea level",
+          "correct": false,
+          "rationale": "It's measured to the architectural top."
+        },
+        {
+          "id": "d",
+          "label": "The Sears Tower's antennas had been removed",
+          "correct": false,
+          "rationale": "The antennas were there; they just don't count."
+        }
+      ],
+      "explanation": "The CTBUH measures to the architectural top: the Petronas spires counted, and the Sears Tower's antennas didn't.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.sky_race_timeline",
+        "concept.architecture.sky_burj_record"
+      ],
+      "sourceCardIds": [
+        "card.architecture.069.c4"
+      ],
+      "prompt": "On this chapter's race-to-the-top timeline, which tower held the title between the Petronas Towers and Burj Khalifa?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Sears Tower",
+          "correct": false,
+          "rationale": "It lost the title to the Petronas Towers in 1998."
+        },
+        {
+          "id": "b",
+          "label": "Taipei 101",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Empire State Building",
+          "correct": false,
+          "rationale": "Its reign ended in 1971."
+        },
+        {
+          "id": "d",
+          "label": "The Chrysler Building",
+          "correct": false,
+          "rationale": "It led only from 1930 to 1931."
+        }
+      ],
+      "explanation": "Taipei 101 (2004, 508 m) came between the Petronas Towers (1998) and Burj Khalifa (2010).",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.skyscrapermuseum_chrysler",
+    "source.brit_chrysler_building",
+    "source.brit_petronas_towers",
+    "source.ctbuh_height_criteria",
+    "source.brit_empire_state_building",
+    "source.brit_world_trade_center",
+    "source.brit_taipei_101",
+    "source.ctbuh_burj_khalifa"
+  ],
+  "art": "geo.skyline"
+}

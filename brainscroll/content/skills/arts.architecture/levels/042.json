@@ -1,0 +1,216 @@
+{
+  "id": "level.arts.architecture.042",
+  "skillId": "skill.arts.architecture",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Igloos",
+  "objective": "After this level you can explain how snow houses stay warm.",
+  "summary": "Iglu means house in Inuktitut. Snow blocks climb an inward-leaning spiral into a dome. Compressed snow insulates, tiered floors hold the warmest air, and a lamp does the rest.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.home_igloo",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.home_igloo_warmth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_dome_hoops",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.041"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "An experienced builder can raise a house of snow in one to two hours.",
+      "body": "In Inuktitut, iglu simply means \"house\". The snow iglu, the igloo, was a winter home and hunting-ground shelter of Inuit in Canada and Greenland. So how do you build a warm house out of something frozen?"
+    },
+    {
+      "id": "card.architecture.042.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A spiral of snow",
+      "body": "Builders pick hard, compact snow and cut large blocks with a knife of whalebone or metal. The top of the first ring is shaved into a slope: the first rung of a spiral. More blocks climb that spiral, each leaning inward, until they close into a dome, with the builder working from inside. Remember Level 5? A dome can rise ring by ring with no frame. An igloo is that trick, in snow.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Level 5's dome, rebuilt from snow in an afternoon. Engineers call that a good day."
+      }
+    },
+    {
+      "id": "card.architecture.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why snow, not ice",
+      "body": "Hard-packed snow is a good insulator, so the walls hold in body heat and the heat of an oil lamp called a qulliq. Solid ice would do worse: it holds heat less well than compressed snow. Some igloos have tiered floors, so people sleep up high, where it's warmer. Even melting helps: warm inside, bitter cold outside, and any thawing patch freezes again, making the walls stronger."
+    },
+    {
+      "id": "card.architecture.042.c4",
+      "type": "fact",
+      "fact": "Inside an igloo, it's often just above freezing.",
+      "context": "That sounds chilly, and it is. Inuit traditionally kept their fur-lined clothes on indoors during the day. But with several people inside and a lamp burning, an igloo can reach about 15°C. The lamp was the heart of the home, where people cooked, ate, warmed up and talked. Not toasty, but home."
+    },
+    {
+      "id": "card.architecture.042.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.042.q1"
+    },
+    {
+      "id": "card.architecture.042.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.042.q2"
+    },
+    {
+      "id": "card.architecture.042.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.042.q3"
+    },
+    {
+      "id": "card.architecture.042.c8",
+      "type": "checkpoint",
+      "headline": "Igloos: warmed up",
+      "learned": [
+        "Iglu means house in Inuktitut",
+        "Snow blocks climb an inward-leaning spiral into a dome",
+        "Compressed snow insulates better than ice",
+        "Tiered floors and a lamp: often just above freezing, up to about 15°C"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.home_igloo"
+      ],
+      "sourceCardIds": [
+        "card.architecture.042.c1"
+      ],
+      "prompt": "What does the Inuktitut word iglu mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Snow",
+          "correct": false,
+          "rationale": "It's the word for a house, of any material."
+        },
+        {
+          "id": "b",
+          "label": "House",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Dome",
+          "correct": false,
+          "rationale": "The dome is the shape; the word means house."
+        },
+        {
+          "id": "d",
+          "label": "Winter",
+          "correct": false,
+          "rationale": "Iglu is the word for a house."
+        }
+      ],
+      "explanation": "Iglu means 'house' in Inuktitut; the snow iglu is the igloo.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.home_igloo_warmth"
+      ],
+      "sourceCardIds": [
+        "card.architecture.042.c3"
+      ],
+      "prompt": "Why are igloos built from blocks of hard snow rather than solid ice?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ice is too heavy to lift",
+          "correct": false,
+          "rationale": "Weight isn't the reason given; heat is."
+        },
+        {
+          "id": "b",
+          "label": "Ice melts faster indoors",
+          "correct": false,
+          "rationale": "The point is insulation: snow holds heat better."
+        },
+        {
+          "id": "c",
+          "label": "Compressed snow holds in heat better than solid ice",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Snow is easier to see through",
+          "correct": false,
+          "rationale": "Clear ice is the one used for windows."
+        }
+      ],
+      "explanation": "Hard snow walls are good insulators that keep in body heat and lamp heat; solid ice doesn't retain heat as well as compressed snow.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.home_igloo",
+        "concept.architecture.stand_dome_hoops"
+      ],
+      "sourceCardIds": [
+        "card.architecture.042.c2",
+        "card.architecture.005.c3"
+      ],
+      "prompt": "Like Level 5's domes, an igloo rises without a wooden frame. How do its blocks manage it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They hang from a central pole until the snow freezes",
+          "correct": false,
+          "rationale": "No pole: the blocks support themselves."
+        },
+        {
+          "id": "b",
+          "label": "They climb a spiral, leaning inward until they close into a dome",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They're stacked straight up, then bent inward",
+          "correct": false,
+          "rationale": "Snow blocks can't bend; each is set leaning in."
+        },
+        {
+          "id": "d",
+          "label": "They rest on a hidden frame of whalebone",
+          "correct": false,
+          "rationale": "Whalebone is for the knife, not a frame."
+        }
+      ],
+      "explanation": "The first ring is shaved into a sloping rung; blocks follow the spiral inward to a dome, just as Level 5's domes rise ring by ring without centering.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.tce_igloo",
+    "source.brit_igloo"
+  ],
+  "art": "arch.igloo"
+}

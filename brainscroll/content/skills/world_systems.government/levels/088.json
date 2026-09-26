@@ -1,0 +1,225 @@
+{
+  "id": "level.world_systems.government.088",
+  "skillId": "skill.world_systems.government",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Refugees",
+  "objective": "After this level you can explain refugees and the right to asylum.",
+  "summary": "Nansen's 1922 passport helped refugees with no country. The 1951 Convention defines refugees and forbids returning them to danger. Most displaced people stay inside their country.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.refugee_nansen",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.refugee_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.refugee_non_refoulement",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.sovereignty_montevideo_statehood",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.087"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1922, a polar explorer created a passport for people with no country.",
+      "body": "In 1921 the League of Nations made Fridtjof Nansen its first High Commissioner for Refugees, to help people fleeing Russia after the revolution. Many had lost their nationality. His \"Nansen passport\" let them travel to other countries to look for work; about 450,000 people used one. Nansen received the Nobel Peace Prize in 1922.",
+      "id": "card.government.088.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Who counts as a refugee",
+      "body": "Today's rule comes from the 1951 Refugee Convention. A refugee is someone outside their own country who can't or won't return to its protection because of a well-founded fear of being persecuted for their race, religion, nationality, membership of a particular social group or political opinion. And UNHCR says refugee status is declaratory: you're a refugee from the moment you meet the criteria, before any official says so.",
+      "id": "card.government.088.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "The core rule: no sending refugees back into danger.",
+      "context": "It's called non-refoulement. Article 33 of the 1951 Convention says a refugee must not be expelled or returned to a territory where their life or freedom would be threatened, and UNHCR calls it one of the most fundamental principles of international law. Asylum is the protection a state grants to someone fleeing persecution or serious harm, and UNHCR says seeking it is a human right.",
+      "id": "card.government.088.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Most people forced from home never cross a border.",
+      "context": "UNHCR's Global Trends report counted 117.8 million people forcibly displaced at the end of 2025. Of them, 41.6 million were refugees and 68.7 million were displaced inside their own countries. Because the 1951 definition requires being outside your own country, those 68.7 million aren't refugees in law, even though they fled home too.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Same fear, same journey, different side of a border, different legal word."
+      },
+      "id": "card.government.088.c4"
+    },
+    {
+      "id": "card.government.088.c5",
+      "type": "mcq",
+      "questionId": "question.government.088.q1"
+    },
+    {
+      "id": "card.government.088.c6",
+      "type": "mcq",
+      "questionId": "question.government.088.q2"
+    },
+    {
+      "id": "card.government.088.c7",
+      "type": "recall",
+      "questionId": "question.government.088.q3"
+    },
+    {
+      "id": "card.government.088.c8",
+      "type": "checkpoint",
+      "headline": "Refugees: protected",
+      "learned": [
+        "Nansen's 1922 passport helped people with no country",
+        "1951 Convention: outside your country, fearing persecution",
+        "Non-refoulement: no return to danger",
+        "End-2025: 117.8 million displaced, 41.6 million refugees"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.refugee_nansen"
+      ],
+      "sourceCardIds": [
+        "card.government.088.c1"
+      ],
+      "prompt": "What did the Nansen passport of 1922 give refugees who had lost their nationality?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Automatic citizenship in Norway",
+          "correct": false,
+          "rationale": "It was a travel document, not citizenship."
+        },
+        {
+          "id": "b",
+          "label": "A travel document for seeking work abroad",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A free passage home to Russia",
+          "correct": false,
+          "rationale": "It helped them travel onward to find work, not go back."
+        },
+        {
+          "id": "d",
+          "label": "A seat in the League of Nations",
+          "correct": false,
+          "rationale": "Individuals didn't get seats; states did."
+        }
+      ],
+      "explanation": "The Nansen passport let refugees who had lost their nationality travel to other countries to look for work.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.refugee_non_refoulement"
+      ],
+      "sourceCardIds": [
+        "card.government.088.c3"
+      ],
+      "prompt": "What does the principle of non-refoulement forbid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Granting asylum to more than one family member",
+          "correct": false,
+          "rationale": "It says nothing about family size."
+        },
+        {
+          "id": "b",
+          "label": "Refugees working in their host country",
+          "correct": false,
+          "rationale": "It's about sending people back, not work."
+        },
+        {
+          "id": "c",
+          "label": "Countries sharing refugee data with the UN",
+          "correct": false,
+          "rationale": "Data sharing isn't the subject."
+        },
+        {
+          "id": "d",
+          "label": "Returning refugees to where their life or freedom is threatened",
+          "correct": true
+        }
+      ],
+      "explanation": "Under Article 33 of the 1951 Convention, a refugee must not be expelled or returned to a territory where their life or freedom would be threatened.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.refugee_definition",
+        "concept.government.sovereignty_montevideo_statehood"
+      ],
+      "sourceCardIds": [
+        "card.government.088.c2",
+        "card.government.081.c4"
+      ],
+      "prompt": "UNHCR says refugee status is declaratory. Which Level 81 rule about states works the same way?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A state needs a defined territory",
+          "correct": false,
+          "rationale": "That's a qualification, not a rule about recognition."
+        },
+        {
+          "id": "b",
+          "label": "A state must be a member of the UN",
+          "correct": false,
+          "rationale": "That's not one of Montevideo's rules."
+        },
+        {
+          "id": "c",
+          "label": "A state's existence doesn't depend on recognition",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A state needs a permanent population",
+          "correct": false,
+          "rationale": "True, but it isn't about recognition."
+        }
+      ],
+      "explanation": "Just as Montevideo's Article 3 says a state exists whether or not others recognize it, a refugee is a refugee from the moment they meet the criteria.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.icrc_nansen",
+    "source.conversation_nansen_passport",
+    "source.unhcr_1951_convention",
+    "source.umn_refugee_convention_text",
+    "source.unhcr_help_asylum_refugee_status",
+    "source.unhcr_global_trends_2025",
+    "source.avalon_montevideo_convention"
+  ],
+  "art": "geo.people"
+}

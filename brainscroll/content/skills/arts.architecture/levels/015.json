@@ -1,0 +1,248 @@
+{
+  "id": "level.arts.architecture.015",
+  "skillId": "skill.arts.architecture",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Seven Wonders",
+  "objective": "After this level you can name the Seven Wonders of the ancient world.",
+  "summary": "The Seven Wonders: two tombs, two statues, a temple, gardens and a lighthouse. Fire, earthquakes and stone recycling took six; the oldest, the pyramids, survives.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.wonders_seven_list",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.wonders_seven_fates",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_frame_structure",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.014"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Ancient travelers had a must-see list. Six of its seven sights are gone.",
+      "body": "One of the best-known versions was written by the Greek writer Antipater of Sidon in the 2nd century BCE. Here's the list, how six of its wonders fell, and which one is still standing."
+    },
+    {
+      "id": "card.architecture.015.c2",
+      "type": "comparison",
+      "headline": "Seven Wonders, three kinds",
+      "items": [
+        {
+          "label": "Tombs",
+          "points": [
+            "The Pyramids of Giza",
+            "The Mausoleum at Halicarnassus"
+          ]
+        },
+        {
+          "label": "Statues",
+          "points": [
+            "Phidias's Statue of Zeus at Olympia",
+            "The Colossus of Rhodes"
+          ]
+        },
+        {
+          "label": "Temple, gardens, lighthouse",
+          "points": [
+            "The Temple of Artemis at Ephesus",
+            "The Hanging Gardens of Babylon",
+            "The Pharos (lighthouse) of Alexandria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.architecture.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fire, earthquakes and borrowed stone",
+      "body": "The Temple of Artemis was burned in 356 BCE by a man named Herostratus, rebuilt, and later wrecked by invading Goths. The Colossus of Rhodes, shaped bronze plates fastened to an iron framework, was toppled by an earthquake about 226 BCE, little more than half a century after it was finished. The Mausoleum probably fell to an earthquake centuries later, and its stones went into local buildings. Flames, tremors, and neighbors who needed good stone."
+    },
+    {
+      "id": "card.architecture.015.c4",
+      "type": "fact",
+      "fact": "The Hanging Gardens may never have hung in Babylon.",
+      "context": "Tradition says King Nebuchadnezzar II built them for his wife, Amytis, who missed the green mountains of her homeland. It's a lovely legend, but no certain trace of the gardens has been found at Babylon. One modern theory puts them at Nineveh instead, built by King Sennacherib. The list's great mystery is a wonder that might not have been where everyone said."
+    },
+    {
+      "id": "card.architecture.015.c5",
+      "type": "fact",
+      "fact": "The last wonder standing is the oldest.",
+      "context": "The Pyramids of Giza are the oldest of the seven and the only one still substantially in existence. The Mausoleum did leave us a word, though. Artemisia built it for her husband, Mausolus, and every grand tomb since has been a mausoleum.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Level 13 showed you the inside of the survivor. Solid stone ages well."
+      }
+    },
+    {
+      "id": "card.architecture.015.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.015.q1"
+    },
+    {
+      "id": "card.architecture.015.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.015.q2"
+    },
+    {
+      "id": "card.architecture.015.c8",
+      "type": "mcq",
+      "questionId": "question.architecture.015.q3"
+    },
+    {
+      "id": "card.architecture.015.c9",
+      "type": "checkpoint",
+      "headline": "Seven Wonders: listed",
+      "learned": [
+        "Tombs, statues, a temple, gardens and a lighthouse",
+        "Artemis burned; the Colossus fell in an earthquake",
+        "The Hanging Gardens: no certain trace at Babylon",
+        "Only the oldest, the Pyramids of Giza, still stands"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.wonders_seven_list"
+      ],
+      "sourceCardIds": [
+        "card.architecture.015.c2"
+      ],
+      "prompt": "Which of these was NOT one of the Seven Wonders of the ancient world?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Colossus of Rhodes",
+          "correct": false,
+          "rationale": "It was on the list, as one of the two statues."
+        },
+        {
+          "id": "b",
+          "label": "The Temple of Artemis at Ephesus",
+          "correct": false,
+          "rationale": "It was on the list, the one temple."
+        },
+        {
+          "id": "c",
+          "label": "The ziggurat at Ur",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Mausoleum at Halicarnassus",
+          "correct": false,
+          "rationale": "It was on the list, as one of the two tombs."
+        }
+      ],
+      "explanation": "The seven: the Pyramids of Giza, the Hanging Gardens, the Statue of Zeus, the Temple of Artemis, the Mausoleum, the Colossus and the Pharos.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.wonders_seven_fates"
+      ],
+      "sourceCardIds": [
+        "card.architecture.015.c3"
+      ],
+      "prompt": "Which of the Seven Wonders was toppled by an earthquake only decades after it was finished?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Colossus of Rhodes",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Temple of Artemis",
+          "correct": false,
+          "rationale": "It was burned by Herostratus, then destroyed by Goths."
+        },
+        {
+          "id": "c",
+          "label": "The Pyramids of Giza",
+          "correct": false,
+          "rationale": "They are the one wonder still standing."
+        },
+        {
+          "id": "d",
+          "label": "The Statue of Zeus at Olympia",
+          "correct": false,
+          "rationale": "The earthquake that struck decades after completion hit Rhodes."
+        }
+      ],
+      "explanation": "The Colossus of Rhodes was toppled by an earthquake about 226 BCE, little more than half a century after it was finished.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.wonders_seven_fates",
+        "concept.architecture.stand_frame_structure"
+      ],
+      "sourceCardIds": [
+        "card.architecture.015.c3",
+        "card.architecture.008.c2"
+      ],
+      "prompt": "The Colossus of Rhodes was bronze plates fastened to an iron framework. Which Level 8 idea does that echo?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A keystone locking wedge-shaped blocks",
+          "correct": false,
+          "rationale": "That's Level 4's arch."
+        },
+        {
+          "id": "b",
+          "label": "An inner skeleton carries the load; the skin wraps it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Posts holding up a horizontal lintel",
+          "correct": false,
+          "rationale": "That's Level 3's post and lintel."
+        },
+        {
+          "id": "d",
+          "label": "Hoop forces squeezing a dome's rings",
+          "correct": false,
+          "rationale": "That's Level 5's dome."
+        }
+      ],
+      "explanation": "Like a frame building, where a skeleton carries the load and the wall just wraps it, the Colossus hung its bronze skin on an iron framework.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_seven_wonders",
+    "source.brit_temple_artemis",
+    "source.brit_colossus_rhodes",
+    "source.brit_mausoleum_halicarnassus",
+    "source.brit_hanging_gardens",
+    "source.brit_skyscraper"
+  ],
+  "art": "geo.lighthouse"
+}

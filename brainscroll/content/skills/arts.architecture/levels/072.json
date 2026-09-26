@@ -1,0 +1,231 @@
+{
+  "id": "level.arts.architecture.072",
+  "skillId": "skill.arts.architecture",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Frank Lloyd Wright",
+  "objective": "After this level you can explain Fallingwater and buildings that fit their landscape.",
+  "summary": "Wright set Fallingwater over a waterfall on concrete cantilevers echoing the rock ledges. Cantilevers are stretched on top, and the terraces sagged until steel cables fixed them.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.masters_wright_fallingwater",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.masters_wright_cantilever",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.masters_wright_fallingwater_sag",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_reinforced_concrete",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_beam_bending",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.071"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A family wanted to look at their waterfall. Wright built their house over it.",
+      "body": "The Kaufmanns loved the falls on Bear Run, in Pennsylvania, and expected a house facing them, where they could admire the water from afar. Frank Lloyd Wright cantilevered the house directly over the falls instead. He designed it in 1935 as the family's weekend retreat, and it was finished in 1937. It's called Fallingwater."
+    },
+    {
+      "id": "card.architecture.072.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A house that belongs to its rocks",
+      "body": "Wright called his approach organic architecture: a building in harmony with its site, joining people and nature. At Fallingwater he echoed the rock ledges along the stream. The house is a stack of concrete trays, each anchored to a central chimney built of local sandstone. Outside, the ledges are stone. The ones you stand on are concrete. From the living room, the stream isn't a view. It's underneath you."
+    },
+    {
+      "id": "card.architecture.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The cantilever: a beam held at one end",
+      "body": "A cantilever is a beam supported at only one end, with the other end free. (A diving board is one.) It bends the opposite way from Level 3's lintel. A lintel is stretched along its underside; a loaded cantilever is stretched along its upper half and squeezed along its lower half. Concrete handles stretching badly, so Fallingwater's concrete terraces carry steel reinforcing rods inside.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Top stretched, bottom squeezed: the lintel's problem, upside down."
+      }
+    },
+    {
+      "id": "card.architecture.072.c4",
+      "type": "fact",
+      "fact": "Fallingwater's terraces sagged.",
+      "context": "By 1955 the Kaufmanns had measured them tilting down about four inches. Decades later, in 2001 and 2002, engineers anchored bundles of high-strength steel cable into the concrete below the house, ran them along the big beams under the living room and tightened them. The sagging stopped. Level 7's lesson, applied late: when concrete is stretched, steel has to take the tension."
+    },
+    {
+      "id": "card.architecture.072.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.072.q1"
+    },
+    {
+      "id": "card.architecture.072.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.072.q2"
+    },
+    {
+      "id": "card.architecture.072.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.072.q3"
+    },
+    {
+      "id": "card.architecture.072.c8",
+      "type": "checkpoint",
+      "headline": "Fallingwater: anchored",
+      "learned": [
+        "Wright built Fallingwater over the falls (1935-37)",
+        "Organic architecture: buildings in harmony with their site",
+        "A cantilever is held at one end and stretched along its top",
+        "Sagging terraces were fixed with tightened steel cables in 2001-02"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.masters_wright_fallingwater"
+      ],
+      "sourceCardIds": [
+        "card.architecture.072.c1",
+        "card.architecture.072.c2"
+      ],
+      "prompt": "Where did Frank Lloyd Wright place Fallingwater in relation to the falls on Bear Run?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Across the stream, facing the falls",
+          "correct": false,
+          "rationale": "That's what the Kaufmanns expected."
+        },
+        {
+          "id": "b",
+          "label": "Directly over the falls, on cantilevers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Downstream, out of sight of the falls",
+          "correct": false,
+          "rationale": "Wright built right over the water."
+        },
+        {
+          "id": "d",
+          "label": "On the hilltop above the valley",
+          "correct": false,
+          "rationale": "He put the house over the falls themselves."
+        }
+      ],
+      "explanation": "The Kaufmanns expected a house facing the falls; Wright cantilevered Fallingwater directly over them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.masters_wright_cantilever"
+      ],
+      "sourceCardIds": [
+        "card.architecture.072.c3"
+      ],
+      "prompt": "In a loaded cantilever like Fallingwater's terraces, which part of the beam is stretched?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The underside, just like a lintel",
+          "correct": false,
+          "rationale": "A cantilever bends the opposite way."
+        },
+        {
+          "id": "b",
+          "label": "Nothing: a cantilever is only squeezed",
+          "correct": false,
+          "rationale": "Every loaded beam has a stretched side."
+        },
+        {
+          "id": "c",
+          "label": "The upper half of the beam",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only the free end",
+          "correct": false,
+          "rationale": "The stretch runs along the upper half."
+        }
+      ],
+      "explanation": "A loaded cantilever's upper half is in tension and its lower half in compression, the reverse of a lintel.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.masters_wright_fallingwater_sag",
+        "concept.architecture.stand_reinforced_concrete"
+      ],
+      "sourceCardIds": [
+        "card.architecture.072.c4",
+        "card.architecture.007.c4"
+      ],
+      "prompt": "Fallingwater's concrete terraces sagged for decades. Why did the 2001-2002 repair use tightened steel cables?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Steel takes tension, which concrete resists poorly",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Steel cables are lighter than the concrete",
+          "correct": false,
+          "rationale": "Weight wasn't the point; tension was."
+        },
+        {
+          "id": "c",
+          "label": "The cables hold the house to the waterfall",
+          "correct": false,
+          "rationale": "They were tightened along the beams."
+        },
+        {
+          "id": "d",
+          "label": "Concrete is weak when squeezed",
+          "correct": false,
+          "rationale": "Concrete handles squeezing well; stretching is its problem."
+        }
+      ],
+      "explanation": "Concrete resists compression well but not tension; tightened steel cables took the tension and stopped the sag.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.fallingwater_designing",
+    "source.brit_fallingwater",
+    "source.brit_cantilever",
+    "source.brit_bridge_engineering",
+    "source.fallingwater_preservation",
+    "source.brit_reinforced_concrete"
+  ],
+  "art": "arch.modern-house"
+}

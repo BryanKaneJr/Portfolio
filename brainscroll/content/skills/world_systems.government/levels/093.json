@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.government.093",
+  "skillId": "skill.world_systems.government",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Speaking to Your Representative",
+  "objective": "After this level you can explain how to contact elected officials.",
+  "summary": "A UK MP represents everyone in the constituency, voters or not. Write with your address, visit a surgery, or sign a petition: 10,000 signatures earn a UK government reply, 100,000 a debate.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.representative_contact",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.representative_petitions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.weber_three_authorities",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.092"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Your representative works for you, even if you voted for someone else.",
+      "body": "Take the UK. MPs are elected to represent the interests and concerns of all the people who live in their constituency, whether they voted for them or not. So the job includes you. The question is how to get their attention.",
+      "id": "card.government.093.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Step one: find your person",
+      "body": "In the UK, each MP represents one area, called a constituency, and can normally only take up issues raised by the people who live there, their constituents. So start with your address. Find out who represents it, then put that address in your letter or email. It tells the office you're one of theirs, not a stranger from across the country.",
+      "id": "card.government.093.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Step two: go and talk",
+      "body": "Most MPs also hold surgeries in their constituency: sessions where you can meet them and talk through a problem. Remember Level 3's legal-rational authority, which belongs to the office and not the person? That's why this works. You're not begging a favor from a stranger. You're using an office that exists partly to hear you.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Bring your address, your problem and one clear ask."
+      },
+      "id": "card.government.093.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "In the UK, 100,000 signatures get a petition considered for debate.",
+      "context": "UK Parliament petitions get a government response at 10,000 signatures and are considered for debate at 100,000. Canada's House of Commons sets a lower bar: an e-petition with at least 500 signatures is presented, and the government responds within 45 days. One letter speaks for you. A petition speaks for a crowd.",
+      "id": "card.government.093.c4"
+    },
+    {
+      "id": "card.government.093.c5",
+      "type": "mcq",
+      "questionId": "question.government.093.q1"
+    },
+    {
+      "id": "card.government.093.c6",
+      "type": "mcq",
+      "questionId": "question.government.093.q2"
+    },
+    {
+      "id": "card.government.093.c7",
+      "type": "recall",
+      "questionId": "question.government.093.q3"
+    },
+    {
+      "id": "card.government.093.c8",
+      "type": "checkpoint",
+      "headline": "Your representative: contacted",
+      "learned": [
+        "UK MPs represent everyone in their constituency",
+        "Include your address: MPs handle constituents' issues",
+        "Surgeries let you meet your MP in person",
+        "UK petitions: 10,000 for a reply, 100,000 for debate"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.representative_petitions"
+      ],
+      "sourceCardIds": [
+        "card.government.093.c4"
+      ],
+      "prompt": "On the UK Parliament petitions site, what happens when a petition reaches 100,000 signatures?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It becomes law automatically",
+          "correct": false,
+          "rationale": "Petitions don't make law; they get attention."
+        },
+        {
+          "id": "b",
+          "label": "It is considered for debate in Parliament",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It gets only a written reply from government",
+          "correct": false,
+          "rationale": "That happens at 10,000 signatures."
+        },
+        {
+          "id": "d",
+          "label": "It is sent straight to the courts",
+          "correct": false,
+          "rationale": "Courts don't handle petitions."
+        }
+      ],
+      "explanation": "At 10,000 signatures the government responds; at 100,000 the petition is considered for debate.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.representative_contact"
+      ],
+      "sourceCardIds": [
+        "card.government.093.c2"
+      ],
+      "prompt": "Why is it worth including your address when you write to your UK MP?",
+      "options": [
+        {
+          "id": "a",
+          "label": "MPs answer only letters sent by post",
+          "correct": false,
+          "rationale": "Email works too; the address is about who you are."
+        },
+        {
+          "id": "b",
+          "label": "It lets the MP visit you at home",
+          "correct": false,
+          "rationale": "It's about showing you're a constituent."
+        },
+        {
+          "id": "c",
+          "label": "MPs normally take up issues only from their own constituents",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The law requires every letter to carry an address",
+          "correct": false,
+          "rationale": "It's practical, not a legal rule."
+        }
+      ],
+      "explanation": "An MP can normally only deal with issues raised by people living in the constituency, so your address shows you're one of them.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.representative_contact",
+        "concept.government.weber_three_authorities"
+      ],
+      "sourceCardIds": [
+        "card.government.093.c3",
+        "card.government.003.c4"
+      ],
+      "prompt": "Level 3 said legal-rational authority belongs to the office, not the person. How does that help you at an MP's surgery?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The MP can ignore you if you're not a fan",
+          "correct": false,
+          "rationale": "The office serves all constituents, not just supporters."
+        },
+        {
+          "id": "b",
+          "label": "You meet the office, which exists to serve constituents",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The MP's charisma decides whether to help",
+          "correct": false,
+          "rationale": "That would be charismatic authority, not the office."
+        },
+        {
+          "id": "d",
+          "label": "Only people who inherited a title may attend",
+          "correct": false,
+          "rationale": "That's traditional authority, and surgeries are open to constituents."
+        }
+      ],
+      "explanation": "The surgery belongs to the office of MP. Whoever holds it, the office exists to hear the people it represents.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ukparliament_mps_role",
+    "source.ukparliament_surgeries",
+    "source.ukparliament_petitions_help",
+    "source.ourcommons_epetitions_guide",
+    "source.openstax_sociology_power_authority",
+    "source.sep_weber"
+  ],
+  "art": "geo.speech-bubbles"
+}

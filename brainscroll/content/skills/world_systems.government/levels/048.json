@@ -1,0 +1,228 @@
+{
+  "id": "level.world_systems.government.048",
+  "skillId": "skill.world_systems.government",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Unjust Laws",
+  "objective": "After this level you can explain how laws can be unjust and how they get repealed.",
+  "summary": "Thinkers disagree about what to do with a law you believe is unjust. Thoreau and King argued for civil disobedience; Plato's Socrates chose to obey. The legal route out of a law is repeal.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.lawmaking_unjust_civil_disobedience",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.lawmaking_unjust_obey_or_repeal",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.social_contract_hobbes",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.047"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1846, a writer spent a night in jail rather than pay a tax.",
+      "body": "Henry David Thoreau refused to pay his poll tax in Concord, Massachusetts, in protest against slavery and the Mexican-American War. His night in a cell opens a long argument: what should you do about a law you believe is unjust? Thinkers have given very different answers.",
+      "id": "card.government.048.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Thoreau: don't be the tool",
+      "body": "Thoreau turned the experience into an essay, \"Resistance to Civil Government\" (1849), later known as \"Civil Disobedience.\" If a law requires you to be \"the agent of injustice to another,\" he wrote, \"then, I say, break the law.\" The essay went on to influence Gandhi and Martin Luther King Jr.",
+      "id": "card.government.048.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "King: break it openly",
+      "body": "In his Letter from Birmingham Jail (1963), King argued that people have a moral responsibility to obey just laws and to disobey unjust ones. But not in secret: one who breaks an unjust law, he wrote, must do so \"openly, lovingly, and with a willingness to accept the penalty.\" He'd been arrested for parading without a permit. A permit rule is fine in itself, he argued; it becomes unjust when used to maintain segregation.",
+      "id": "card.government.048.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Socrates: stay and obey",
+      "body": "In Plato's Crito, Socrates makes the opposite choice. Awaiting execution, he refuses a chance to escape, though he thinks his sentence unjust. By living in Athens all his life, he argues, he had implicitly agreed to obey its laws. Sound like Level 7's social contract? It's the same idea, told as a prison conversation.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Thoreau, King and Socrates: three answers to one hard question. You get to weigh them."
+      },
+      "id": "card.government.048.c4"
+    },
+    {
+      "type": "fact",
+      "fact": "South Africa's parliament repealed its race-classification law in 1991.",
+      "context": "The Population Registration Act of 1950 had classified all South Africans by race. It ended through the lawmaking process you've followed all chapter: a new act repealed it.",
+      "id": "card.government.048.c5"
+    },
+    {
+      "id": "card.government.048.c6",
+      "type": "mcq",
+      "questionId": "question.government.048.q1"
+    },
+    {
+      "id": "card.government.048.c7",
+      "type": "mcq",
+      "questionId": "question.government.048.q2"
+    },
+    {
+      "id": "card.government.048.c8",
+      "type": "recall",
+      "questionId": "question.government.048.q3"
+    },
+    {
+      "id": "card.government.048.c9",
+      "type": "checkpoint",
+      "headline": "Unjust laws: weighed",
+      "learned": [
+        "Thoreau: break a law that makes you unjust to others",
+        "King: disobey unjust laws openly, accepting the penalty",
+        "Socrates chose to obey, citing an implicit agreement",
+        "South Africa repealed its race-classification law in 1991"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.lawmaking_unjust_civil_disobedience"
+      ],
+      "sourceCardIds": [
+        "card.government.048.c1"
+      ],
+      "prompt": "Why did Henry David Thoreau spend a night in jail in 1846?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He was caught stealing from a shop",
+          "correct": false,
+          "rationale": "His offense was a protest, not a theft."
+        },
+        {
+          "id": "b",
+          "label": "He led an illegal parade",
+          "correct": false,
+          "rationale": "That was King's charge, in 1963."
+        },
+        {
+          "id": "c",
+          "label": "He refused to pay his poll tax in protest",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He published a banned newspaper",
+          "correct": false,
+          "rationale": "He refused a tax; the essay came later."
+        }
+      ],
+      "explanation": "Thoreau refused to pay his poll tax in protest against slavery and the Mexican-American War.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.lawmaking_unjust_civil_disobedience"
+      ],
+      "sourceCardIds": [
+        "card.government.048.c3"
+      ],
+      "prompt": "In his Letter from Birmingham Jail, how did King say an unjust law must be broken?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Secretly, so no one is punished",
+          "correct": false,
+          "rationale": "He said the opposite: openly."
+        },
+        {
+          "id": "b",
+          "label": "Openly, lovingly, and willing to accept the penalty",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only after a court has approved it",
+          "correct": false,
+          "rationale": "He didn't make it depend on a court."
+        },
+        {
+          "id": "d",
+          "label": "Only by lawmakers, never by citizens",
+          "correct": false,
+          "rationale": "He wrote about individuals who break unjust laws."
+        }
+      ],
+      "explanation": "King wrote that one who breaks an unjust law must do so \"openly, lovingly, and with a willingness to accept the penalty.\"",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.lawmaking_unjust_obey_or_repeal",
+        "concept.government.social_contract_hobbes"
+      ],
+      "sourceCardIds": [
+        "card.government.048.c4",
+        "card.government.007.c1"
+      ],
+      "prompt": "In the Crito, Socrates says living in Athens meant he had implicitly agreed to its laws. Which Level 7 idea does that echo?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The social contract",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The free rider problem",
+          "correct": false,
+          "rationale": "That was Level 5's puzzle about public goods."
+        },
+        {
+          "id": "c",
+          "label": "Charismatic authority",
+          "correct": false,
+          "rationale": "Weber's type is about a leader's personal qualities."
+        },
+        {
+          "id": "d",
+          "label": "The general strike",
+          "correct": false,
+          "rationale": "Not an idea from Level 7."
+        }
+      ],
+      "explanation": "A social contract is an actual or hypothetical agreement setting out rights and duties; Socrates's implicit agreement with Athens is one version.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.walden_civil_disobedience",
+    "source.brit_civil_disobedience_thoreau",
+    "source.utexas_mlk_birmingham_letter",
+    "source.kinginstitute_birmingham_letter",
+    "source.brit_crito",
+    "source.brit_population_registration_act",
+    "source.brit_social_contract"
+  ],
+  "art": "rome.broken-chains"
+}

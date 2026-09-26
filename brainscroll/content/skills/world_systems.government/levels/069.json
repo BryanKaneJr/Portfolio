@@ -1,0 +1,223 @@
+{
+  "id": "level.world_systems.government.069",
+  "skillId": "skill.world_systems.government",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Spotting Misinformation",
+  "objective": "After this level you can spot misleading claims about politics.",
+  "summary": "Misinformation, disinformation and malinformation differ by truth and intent. Fact checkers read laterally. Caulfield's SIFT: Stop, Investigate the source, Find better coverage, Trace.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.election_misinfo_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_lateral_reading",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_sift_method",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_margin_of_error",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.068"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Who judges a website best: a historian, a Stanford student or a fact checker?",
+      "body": "Sam Wineburg and Sarah McGrew put 10 PhD historians, 10 professional fact checkers and 25 Stanford undergraduates in front of live websites on social and political issues. One group was far better and faster. Its trick works on any election claim you'll ever meet.",
+      "id": "card.government.069.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Three kinds of bad information",
+      "body": "First, some words. In a 2017 report for the Council of Europe, Claire Wardle and Hossein Derakhshan separated three things. Misinformation is false but shared without meaning harm. Disinformation is false and shared knowingly to cause harm. Malinformation is genuine, but shared to cause harm. Same shape, different intent.",
+      "id": "card.government.069.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Read sideways",
+      "body": "The historians and students often fell for official-looking logos and domain names. They read vertically, staying on a site to judge it. The fact checkers read laterally: after a quick scan, they left the site and opened new tabs to see what others said about it. They reached better-founded conclusions in a fraction of the time. Don't ask a website whether it's trustworthy. Ask everyone else.",
+      "id": "card.government.069.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "SIFT before you share",
+      "body": "Mike Caulfield turned this into four moves, SIFT. Stop: when you hit a post, ask whether you know the source before reading or sharing. Investigate the source. Find better coverage. Trace claims, quotes and media back to their original context, because much of what we see online has been stripped of it, like a clip that leaves out what happened just before.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Four moves, a few minutes, and no need to be an expert. That's the whole point of SIFT."
+      },
+      "id": "card.government.069.c4"
+    },
+    {
+      "id": "card.government.069.c5",
+      "type": "mcq",
+      "questionId": "question.government.069.q1"
+    },
+    {
+      "id": "card.government.069.c6",
+      "type": "mcq",
+      "questionId": "question.government.069.q2"
+    },
+    {
+      "id": "card.government.069.c7",
+      "type": "recall",
+      "questionId": "question.government.069.q3"
+    },
+    {
+      "id": "card.government.069.c8",
+      "type": "checkpoint",
+      "headline": "Misinformation: spotted",
+      "learned": [
+        "Mis-, dis- and malinformation differ by truth and intent",
+        "Fact checkers read laterally, not vertically",
+        "Logos and domain names can fool experts",
+        "SIFT: Stop, Investigate, Find, Trace"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.election_misinfo_types"
+      ],
+      "sourceCardIds": [
+        "card.government.069.c2"
+      ],
+      "prompt": "In Wardle and Derakhshan's terms, what is false information shared knowingly to cause harm?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Misinformation",
+          "correct": false,
+          "rationale": "Misinformation is false but shared without meaning harm."
+        },
+        {
+          "id": "b",
+          "label": "Malinformation",
+          "correct": false,
+          "rationale": "Malinformation is genuine information shared to harm."
+        },
+        {
+          "id": "c",
+          "label": "Disinformation",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A margin of error",
+          "correct": false,
+          "rationale": "That's polling, not information disorder."
+        }
+      ],
+      "explanation": "Disinformation is false information knowingly shared to cause harm.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.election_lateral_reading"
+      ],
+      "sourceCardIds": [
+        "card.government.069.c3"
+      ],
+      "prompt": "What did the fact checkers do that the historians and students didn't?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Read every page of the site very carefully",
+          "correct": false,
+          "rationale": "That's reading vertically, which fooled the others."
+        },
+        {
+          "id": "b",
+          "label": "Trusted sites with official-looking logos",
+          "correct": false,
+          "rationale": "Logos fooled the historians and students."
+        },
+        {
+          "id": "c",
+          "label": "Left the site to see what others said",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Refused to use search engines at all",
+          "correct": false,
+          "rationale": "They opened new tabs to search."
+        }
+      ],
+      "explanation": "Fact checkers read laterally: after a quick scan they left the site and opened new tabs to check it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.election_sift_method",
+        "concept.government.election_margin_of_error"
+      ],
+      "sourceCardIds": [
+        "card.government.069.c4",
+        "card.government.066.c4"
+      ],
+      "prompt": "A post says a candidate is \"clearly ahead\" by 2 points in a poll with a plus or minus 3 margin. Using SIFT and Level 66, what's the best move?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Share it quickly, before it becomes old news",
+          "correct": false,
+          "rationale": "SIFT starts with Stop."
+        },
+        {
+          "id": "b",
+          "label": "Trace it to the poll: 2 points is within the margin",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Trust it if the post has a professional logo",
+          "correct": false,
+          "rationale": "Logos fooled the historians and students."
+        },
+        {
+          "id": "d",
+          "label": "Assume the other candidate is really ahead",
+          "correct": false,
+          "rationale": "The poll can't tell you that either."
+        }
+      ],
+      "explanation": "Trace the claim to the original poll; the margin on a lead is about 6 points, so a 2-point lead is too close to call.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eric_wineburg_mcgrew_lateral_reading",
+    "source.coe_information_disorder_2017",
+    "source.hapgood_sift"
+  ],
+  "art": "object.magnifier"
+}

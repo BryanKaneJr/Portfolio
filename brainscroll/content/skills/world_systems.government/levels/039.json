@@ -1,0 +1,238 @@
+{
+  "id": "level.world_systems.government.039",
+  "skillId": "skill.world_systems.government",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Civil Rights",
+  "objective": "After this level you can explain civil rights movements and what they won.",
+  "summary": "Civil rights guarantee equal treatment under the law and usually need government action. The US movement won the 1964 and 1965 Acts; South Africa ended apartheid.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.civil_rights_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.civil_rights_us_movement",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.civil_rights_apartheid_end",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.rights_voting_amendments",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.constitution_us_structure",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.038"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "On 1 December 1955, a 43-year-old woman refused to give up her bus seat.",
+      "body": "Rosa Parks was arrested in Montgomery, Alabama, for refusing to give up her seat to a white passenger. What followed was the Montgomery bus boycott, which lasted about a year, led by an organisation that chose a young minister as its president: Martin Luther King Jr.",
+      "id": "card.government.039.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Rights that need the government to act",
+      "body": "Britannica defines civil rights as guarantees of equal social opportunities and equal protection under the law, regardless of race, religion or other personal characteristics. It draws a neat contrast. Civil liberties are secured by restraining government, like Level 32's First Amendment, which begins \"Congress shall make no law.\" Civil rights usually need positive government action, often new legislation.",
+      "id": "card.government.039.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "From a bus seat to a national law",
+      "body": "The boycott ended with a legal win: a federal court found segregation on publicly operated buses unconstitutional, and the U.S. Supreme Court affirmed it. Then came legislation. On 2 July 1964, President Lyndon B. Johnson signed the Civil Rights Act, which banned discrimination based on race, color, religion, sex or national origin in places like restaurants and hotels, and at work.",
+      "id": "card.government.039.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A promise kept 95 years late",
+      "body": "Remember Level 37's 15th Amendment of 1870? Southern states had long kept Black citizens from voting anyway, with tools like literacy tests. After state troopers attacked peaceful marchers in Selma, Alabama, national attention helped persuade Congress to act. The Voting Rights Act, signed on 6 August 1965, outlawed literacy tests as a condition of voting. It enforced the 15th Amendment, 95 years after its ratification.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A right on paper and a right in practice can be a lifetime apart."
+      },
+      "id": "card.government.039.c4"
+    },
+    {
+      "type": "fact",
+      "fact": "South Africa's apartheid laws were repealed in the early 1990s.",
+      "context": "Apartheid, Afrikaans for \"apartness,\" was formally set up in 1948. Its laws classified people by race, and pass laws controlled where nonwhite South Africans could be. After repeal under President F. W. de Klerk, the 1994 elections produced a government led by Nelson Mandela. Level 40 picks up the story.",
+      "id": "card.government.039.c5"
+    },
+    {
+      "id": "card.government.039.c6",
+      "type": "mcq",
+      "questionId": "question.government.039.q1"
+    },
+    {
+      "id": "card.government.039.c7",
+      "type": "mcq",
+      "questionId": "question.government.039.q2"
+    },
+    {
+      "id": "card.government.039.c8",
+      "type": "mcq",
+      "questionId": "question.government.039.q3"
+    },
+    {
+      "id": "card.government.039.c9",
+      "type": "checkpoint",
+      "headline": "Civil rights: won",
+      "learned": [
+        "Civil rights: equal protection, regardless of race or religion",
+        "They usually need government action, often laws",
+        "Parks, the boycott, the 1964 and 1965 Acts",
+        "South Africa repealed apartheid; Mandela led in 1994"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.civil_rights_us_movement"
+      ],
+      "sourceCardIds": [
+        "card.government.039.c3"
+      ],
+      "prompt": "The Civil Rights Act of 1964 banned discrimination based on what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Race and color, but not religion or sex",
+          "correct": false,
+          "rationale": "It also covered religion, sex and national origin."
+        },
+        {
+          "id": "b",
+          "label": "Race, color, religion, sex or national origin",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Property ownership and income level",
+          "correct": false,
+          "rationale": "That was Britain's old voting rule from Level 37."
+        },
+        {
+          "id": "d",
+          "label": "Age, disability and income level",
+          "correct": false,
+          "rationale": "Those aren't the categories the 1964 Act listed."
+        }
+      ],
+      "explanation": "The Civil Rights Act, signed on 2 July 1964, banned discrimination based on race, color, religion, sex or national origin.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.civil_rights_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.039.c2"
+      ],
+      "prompt": "How does Britannica contrast civil liberties with civil rights?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Liberties are for citizens; rights are for visitors",
+          "correct": false,
+          "rationale": "The contrast is restraint versus action."
+        },
+        {
+          "id": "b",
+          "label": "They are two names for exactly the same thing",
+          "correct": false,
+          "rationale": "Britannica draws a clear line between them."
+        },
+        {
+          "id": "c",
+          "label": "Liberties come from courts; rights come from kings",
+          "correct": false,
+          "rationale": "The contrast is restraint versus action."
+        },
+        {
+          "id": "d",
+          "label": "Liberties restrain government; rights usually need government action",
+          "correct": true
+        }
+      ],
+      "explanation": "Civil liberties are secured by restraining government; civil rights usually require positive government action, often legislation.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.civil_rights_us_movement",
+        "concept.government.rights_voting_amendments"
+      ],
+      "sourceCardIds": [
+        "card.government.039.c4",
+        "card.government.037.c3"
+      ],
+      "prompt": "The Voting Rights Act of 1965 was built to enforce which amendment from Level 37?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The 15th, ratified 95 years earlier",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The 26th, on voting at 18",
+          "correct": false,
+          "rationale": "That came later, in 1971."
+        },
+        {
+          "id": "c",
+          "label": "The 24th, on poll taxes",
+          "correct": false,
+          "rationale": "The Act enforced the 15th Amendment."
+        },
+        {
+          "id": "d",
+          "label": "The 27th, on congressional pay",
+          "correct": false,
+          "rationale": "That's Level 33's story, not voting."
+        }
+      ],
+      "explanation": "The Voting Rights Act enforced the 15th Amendment (1870), which bars denying the vote on account of race.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.loc_civil_rights_era",
+    "source.brit_civil_rights",
+    "source.archives_bill_of_rights_transcript",
+    "source.archives_civil_rights_act",
+    "source.archives_voting_rights_act",
+    "source.archives_amendments_11_27",
+    "source.brit_apartheid"
+  ],
+  "art": "rome.broken-chains"
+}

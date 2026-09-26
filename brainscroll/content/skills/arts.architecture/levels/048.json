@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.architecture.048",
+  "skillId": "skill.arts.architecture",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Row Houses and Apartments",
+  "objective": "After this level you can explain how cities stacked homes to save space.",
+  "summary": "Row houses share side walls; Bath's Royal Crescent put 30 behind one palace front. Crowding pushed cities up into apartments, and Paris flats got smaller higher up.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.home_row_house",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.home_apartment_stacking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.home_roman_insula",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.047"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.048.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Bath's Royal Crescent looks like one palace. It's 30 houses.",
+      "body": "John Wood the Younger designed it, and building began in 1767: a great curve of attached townhouses behind one unified front. Cities have two ways to fit more homes onto less land. Line them up, or stack them."
+    },
+    {
+      "id": "card.architecture.048.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Line them up",
+      "body": "A row house is one of a series of houses joined by shared side walls into one continuous group. The Royal Crescent's unified, palace-like front was the first such design in English town architecture. Behind it, each original buyer bought a length of the front and had their own architect build the house to order, so the backs don't match. All the grandeur is on the front; the backs are a jumble.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A palace at the front, a patchwork at the back. Houses have a good side too."
+      }
+    },
+    {
+      "id": "card.architecture.048.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stack them up",
+      "body": "When crowding and rising land values make one-family houses impractical, cities build up instead, and the apartment house grows in importance. Remember Level 46? In the Roman Empire's crowded great cities, the private house had given way to the insula for all but the very wealthy. Later cities faced the same squeeze with the same answer: more floors."
+    },
+    {
+      "id": "card.architecture.048.c4",
+      "type": "fact",
+      "fact": "In old Paris, money lived downstairs.",
+      "context": "In a typical 19th-century Paris apartment building of four or five stories, the apartments got smaller with each story up, and so did the tenants' means. Rome's insulae had a similar ladder: piped water reached only the lower apartments. In both cities, climbing the stairs meant climbing down the social ladder."
+    },
+    {
+      "id": "card.architecture.048.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.048.q1"
+    },
+    {
+      "id": "card.architecture.048.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.048.q2"
+    },
+    {
+      "id": "card.architecture.048.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.048.q3"
+    },
+    {
+      "id": "card.architecture.048.c8",
+      "type": "checkpoint",
+      "headline": "Cities: lined up and stacked",
+      "learned": [
+        "Row houses share side walls",
+        "Royal Crescent (from 1767): 30 houses, one palace front",
+        "Crowding and land values push cities to build up",
+        "Paris: smaller, cheaper flats the higher you climbed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.home_row_house"
+      ],
+      "sourceCardIds": [
+        "card.architecture.048.c2"
+      ],
+      "prompt": "What makes a group of houses a row of row houses?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shared side walls joining them into one continuous group",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A single shared roof over all of them",
+          "correct": false,
+          "rationale": "The defining feature is the shared side walls."
+        },
+        {
+          "id": "c",
+          "label": "Identical backs built by one architect",
+          "correct": false,
+          "rationale": "At the Royal Crescent, the backs don't match."
+        },
+        {
+          "id": "d",
+          "label": "Apartments stacked one above another",
+          "correct": false,
+          "rationale": "That's an apartment house."
+        }
+      ],
+      "explanation": "A row house is one of a series of houses connected by shared side walls, forming a continuous group.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.home_row_house"
+      ],
+      "sourceCardIds": [
+        "card.architecture.048.c2"
+      ],
+      "prompt": "Why don't the backs of the Royal Crescent's houses match?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The rear walls were rebuilt after a fire",
+          "correct": false,
+          "rationale": "The mismatch dates from how the houses were sold."
+        },
+        {
+          "id": "b",
+          "label": "Each buyer's own architect built the house behind the shared front",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Wood ran out halfway through",
+          "correct": false,
+          "rationale": "The backs differ because each buyer built their own."
+        },
+        {
+          "id": "d",
+          "label": "The backs were added in the 20th century",
+          "correct": false,
+          "rationale": "They were built by the original buyers."
+        }
+      ],
+      "explanation": "Each original buyer bought a length of the unified front and had their own architect build the house behind it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.home_apartment_stacking",
+        "concept.architecture.home_roman_insula"
+      ],
+      "sourceCardIds": [
+        "card.architecture.048.c4",
+        "card.architecture.046.c4"
+      ],
+      "prompt": "Level 46's insula and a 19th-century Paris apartment building: what did living higher up mean in both?",
+      "options": [
+        {
+          "id": "a",
+          "label": "More space and more money",
+          "correct": false,
+          "rationale": "It was the other way round."
+        },
+        {
+          "id": "b",
+          "label": "Private water and a garden",
+          "correct": false,
+          "rationale": "Water reached only Rome's lower floors."
+        },
+        {
+          "id": "c",
+          "label": "Worse living: no piped water in Rome, smaller flats in Paris",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nothing: every floor was the same",
+          "correct": false,
+          "rationale": "Both buildings ranked their floors."
+        }
+      ],
+      "explanation": "Rome's piped water reached only an insula's lower apartments, and Paris apartments got smaller, with poorer tenants, with each story up.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_royal_crescent",
+    "source.no1royalcrescent_history",
+    "source.brit_row_house",
+    "source.countrylife_royal_crescent",
+    "source.brit_apartment_house",
+    "source.brit_insula_apartment_block"
+  ],
+  "art": "rome.insula"
+}

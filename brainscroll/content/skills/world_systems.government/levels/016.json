@@ -1,0 +1,216 @@
+{
+  "id": "level.world_systems.government.016",
+  "skillId": "skill.world_systems.government",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Direct Democracy",
+  "objective": "After this level you can explain government where citizens vote on everything themselves.",
+  "summary": "In direct democracy citizens decide issues themselves, as in the Swiss Landsgemeinde and New England town meetings. Large states make it hard, so it mostly works inside representative systems.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.direct_democracy_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.direct_democracy_assemblies",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.social_contract_rousseau",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.015"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Once a year, voters in two Swiss cantons make their laws by raising a hand.",
+      "body": "In the cantons of Glarus and Appenzell Innerrhoden, voters gather in the open air for the Landsgemeinde and vote on laws and taxes by a show of hands. No representatives in between. Just you, your neighbors and your right arm.",
+      "id": "card.government.016.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Cutting out the middle",
+      "body": "That's direct democracy: citizens make the decisions themselves instead of electing officials to decide for them. Britannica puts the contrast simply. In a representative democracy you vote for people; in a direct democracy you often vote on the issue itself. It's the closest thing to Level 7's Rousseau in practice: laws people make together, for themselves.",
+      "id": "card.government.016.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "New England towns govern themselves the same way.",
+      "context": "A town meeting is an assembly of a town's qualified voters. Together they elect officials and school boards, and debate and vote on taxes and spending. Imagine your town's budget decided not by a council but by whoever turns up, one hand at a time.",
+      "id": "card.government.016.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The catch: size",
+      "body": "So why doesn't every country work this way? Britannica notes the long-standing argument that direct democracy can't work across the space and time of large modern states. Picture a whole country trying to fit into one town square. Today it mostly lives inside representative systems, as specific tools rather than the whole machine. And the square has another price: critics complain a secret ballot is impossible when everyone can see your hand.",
+      "id": "card.government.016.c4"
+    },
+    {
+      "id": "card.government.016.c5",
+      "type": "mcq",
+      "questionId": "question.government.016.q1"
+    },
+    {
+      "id": "card.government.016.c6",
+      "type": "mcq",
+      "questionId": "question.government.016.q2"
+    },
+    {
+      "id": "card.government.016.c7",
+      "type": "recall",
+      "questionId": "question.government.016.q3"
+    },
+    {
+      "id": "card.government.016.c8",
+      "type": "checkpoint",
+      "headline": "Direct democracy: hands up",
+      "learned": [
+        "Direct democracy: citizens decide issues themselves",
+        "Glarus and Appenzell Innerrhoden vote by show of hands",
+        "New England town meetings vote on taxes and spending",
+        "Size is the catch, so it mostly works inside representative systems"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.direct_democracy_assemblies"
+      ],
+      "sourceCardIds": [
+        "card.government.016.c1"
+      ],
+      "prompt": "How do voters decide at the Landsgemeinde in Glarus and Appenzell Innerrhoden?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By electing a parliament to decide for them",
+          "correct": false,
+          "rationale": "The point of the Landsgemeinde is deciding in person."
+        },
+        {
+          "id": "b",
+          "label": "By mailing in a secret ballot",
+          "correct": false,
+          "rationale": "Voting is open, by raised hands."
+        },
+        {
+          "id": "c",
+          "label": "By a show of hands at an open-air assembly",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By letting the cantonal council vote in private",
+          "correct": false,
+          "rationale": "Voters decide themselves, in the open."
+        }
+      ],
+      "explanation": "Once a year, voters gather in the open air and vote on laws and taxes by a show of hands.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.direct_democracy_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.016.c4"
+      ],
+      "prompt": "Why does direct democracy today mostly work inside representative systems?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is hard to run across the scale of a large modern state",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Citizens are not allowed to vote on issues anywhere",
+          "correct": false,
+          "rationale": "Glarus shows they can, on a small scale."
+        },
+        {
+          "id": "c",
+          "label": "It was abolished everywhere in the 1800s",
+          "correct": false,
+          "rationale": "The Landsgemeinde and town meetings still run."
+        },
+        {
+          "id": "d",
+          "label": "Representatives are required by every constitution",
+          "correct": false,
+          "rationale": "The limit given is size, not a universal rule."
+        }
+      ],
+      "explanation": "Britannica notes the argument that direct democracy can't work across the space and time of large modern states, so today it mostly works as specific tools.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.direct_democracy_definition",
+        "concept.government.social_contract_rousseau"
+      ],
+      "sourceCardIds": [
+        "card.government.016.c2",
+        "card.government.007.c4"
+      ],
+      "prompt": "Direct democracy: which Level 7 thinker argued that legitimate laws come from people agreeing together on laws for the common good?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Thomas Hobbes",
+          "correct": false,
+          "rationale": "Hobbes had people hand their freedom to an all-powerful sovereign."
+        },
+        {
+          "id": "b",
+          "label": "John Locke",
+          "correct": false,
+          "rationale": "Locke stressed natural rights and consent, not the general will."
+        },
+        {
+          "id": "c",
+          "label": "Max Weber",
+          "correct": false,
+          "rationale": "Weber defined power, authority and the state."
+        },
+        {
+          "id": "d",
+          "label": "Jean-Jacques Rousseau",
+          "correct": true
+        }
+      ],
+      "explanation": "Rousseau's general will: people agree together to live by laws aimed at the common good, laws they make for themselves.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.swissinfo_landsgemeinde",
+    "source.eda_direct_democracy",
+    "source.brit_direct_democracy",
+    "source.iep_social_contract",
+    "source.brit_social_contract",
+    "source.brit_town_meeting"
+  ],
+  "art": "rome.raised-hand"
+}

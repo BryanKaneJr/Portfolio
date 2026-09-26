@@ -1,0 +1,247 @@
+{
+  "id": "level.world_systems.government.078",
+  "skillId": "skill.world_systems.government",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Deficits and Debt",
+  "objective": "After this level you can explain government deficits and debt.",
+  "summary": "A deficit is spending above revenue in a year; borrowing to cover deficits builds debt. The IMF expects global public debt to pass 100% of GDP by 2029. Views on limits differ.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.debt_deficit_balance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.debt_levels_views",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.budget_word_bag",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.077"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Global public debt is heading for its highest level since 1948.",
+      "body": "That's the IMF's projection: government debt worldwide rising above 100% of world GDP by 2029. How does a government end up owing more than a year's worth of everything its economy produces? One year at a time.",
+      "id": "card.government.078.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The yearly gap",
+      "body": "Level 71's budget has two sides. When spending beats revenue, the gap is a deficit; the reverse is a surplus. To cover a deficit, a government borrows, mostly by selling bonds: 79.3% of OECD public debt takes that form. Run deficits year after year and they pile up as debt.",
+      "id": "card.government.078.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "In 2023, only six OECD countries ran a surplus.",
+      "context": "The average OECD government ran a deficit of 4.6% of GDP. Norway led the small surplus club at 16.5%.",
+      "id": "card.government.078.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Big debts, different risks",
+      "body": "Among the G20, Canada, China, France, Italy, Japan, the UK and the US have debts above 100% of GDP, or soon will. The IMF rates their risk as moderate, thanks to deep markets for their bonds. Meanwhile 55 countries are in or near debt distress, often with debts below 60%. The size of a debt isn't the whole story; its cost matters too.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Owing a lot isn't the same as being in trouble. Who lends to you, and at what price, matters."
+      },
+      "id": "card.government.078.c4"
+    },
+    {
+      "type": "comparison",
+      "headline": "How much debt is too much? Three answers",
+      "items": [
+        {
+          "label": "The IMF",
+          "points": [
+            "Keep debt at safer levels",
+            "Build buffers for severe shocks"
+          ]
+        },
+        {
+          "label": "The OECD",
+          "points": [
+            "Sustainable deficits can fund public investment",
+            "And cushion recessions, pandemics and disasters"
+          ]
+        },
+        {
+          "label": "Germany's rule",
+          "points": [
+            "A 'debt brake' caps the structural deficit at 0.35% of GDP",
+            "Since 2025, defence above 1% of GDP is exempt"
+          ]
+        }
+      ],
+      "id": "card.government.078.c5"
+    },
+    {
+      "id": "card.government.078.c6",
+      "type": "mcq",
+      "questionId": "question.government.078.q1"
+    },
+    {
+      "id": "card.government.078.c7",
+      "type": "mcq",
+      "questionId": "question.government.078.q2"
+    },
+    {
+      "id": "card.government.078.c8",
+      "type": "recall",
+      "questionId": "question.government.078.q3"
+    },
+    {
+      "id": "card.government.078.c9",
+      "type": "checkpoint",
+      "headline": "Debt: explained",
+      "learned": [
+        "Deficit: spending above revenue in a year",
+        "Borrowing to cover deficits builds debt",
+        "IMF: global debt above 100% of GDP by 2029",
+        "The IMF, the OECD and Germany's rule differ on limits"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.debt_deficit_balance"
+      ],
+      "sourceCardIds": [
+        "card.government.078.c2"
+      ],
+      "prompt": "In a government's yearly accounts, when is the fiscal balance a deficit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "When spending is greater than revenue",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "When revenue is greater than spending",
+          "correct": false,
+          "rationale": "That's a surplus."
+        },
+        {
+          "id": "c",
+          "label": "When the debt has been fully repaid",
+          "correct": false,
+          "rationale": "Repaying debt doesn't define a yearly deficit."
+        },
+        {
+          "id": "d",
+          "label": "When taxes are cut to zero",
+          "correct": false,
+          "rationale": "A deficit is about spending versus revenue, whatever the tax level."
+        }
+      ],
+      "explanation": "The fiscal balance is revenue minus spending; when spending is greater, it's a deficit.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.debt_levels_views"
+      ],
+      "sourceCardIds": [
+        "card.government.078.c4"
+      ],
+      "prompt": "Why does the IMF rate the fiscal risk of high-debt G20 countries like Japan as only moderate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their debts are secretly small",
+          "correct": false,
+          "rationale": "Their debts are above, or near, 100% of GDP."
+        },
+        {
+          "id": "b",
+          "label": "They never borrow abroad",
+          "correct": false,
+          "rationale": "The IMF's reason is the depth of their bond markets."
+        },
+        {
+          "id": "c",
+          "label": "They have deep, liquid markets for their bonds",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Their debts don't charge interest",
+          "correct": false,
+          "rationale": "Government debt carries interest; cost matters."
+        }
+      ],
+      "explanation": "Deep, liquid bond markets and broad policy choices mean the IMF sees their fiscal risk as moderate despite debts above 100% of GDP.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.government.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.debt_deficit_balance",
+        "concept.government.budget_word_bag"
+      ],
+      "sourceCardIds": [
+        "card.government.078.c2",
+        "card.government.071.c2"
+      ],
+      "prompt": "Level 71 showed a budget has a collecting side and a spending side. How does government debt grow from that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spending above collections is borrowed, and the borrowing piles up",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Collections above spending are borrowed by banks",
+          "correct": false,
+          "rationale": "Extra collections are a surplus, not debt."
+        },
+        {
+          "id": "c",
+          "label": "Auditors add a fee to every budget",
+          "correct": false,
+          "rationale": "Audit checks spending; it doesn't create debt."
+        },
+        {
+          "id": "d",
+          "label": "Debt grows only when taxes rise",
+          "correct": false,
+          "rationale": "Debt grows from deficits, not from tax rises."
+        }
+      ],
+      "explanation": "When spending exceeds what's collected, the government borrows to cover the deficit, and year after year the borrowing becomes debt.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.imf_fiscal_monitor_2025_foreword",
+    "source.oecd_gaag_2025",
+    "source.sipri_milex_2025",
+    "source.unicef_budget_cycles_2016",
+    "source.etymonline_budget"
+  ],
+  "art": "money.chart-down"
+}

@@ -1,0 +1,216 @@
+{
+  "id": "level.world_systems.government.068",
+  "skillId": "skill.world_systems.government",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Counting the Votes",
+  "objective": "After this level you can explain how votes are counted and checked.",
+  "summary": "UK counts are watched by candidates' agents, recounts can be requested and ties go to lots. India's VVPAT slips and Philip Stark's risk-limiting audits let counts be checked.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.election_count_transparency",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_count_verification",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.power_vs_authority",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.067"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In a UK election, an exact tie is settled by drawing lots.",
+      "body": "If two candidates tie and one more vote would decide it, the returning officer must decide between them by lot. But that only happens after every ballot has been counted, and checked, with witnesses watching. This level is about the witnesses.",
+      "id": "card.government.068.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Counting in the open",
+      "body": "At UK elections, each candidate can appoint counting agents to watch the verification and the count, and the process is meant to be transparent. If an agent doubts the result, they can ask for a recount. The returning officer must consider it, can refuse only an unreasonable request, and any recount happens in full view of everyone there.",
+      "id": "card.government.068.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A paper trail for machines",
+      "body": "Machines count fast, but can you check them? In India, a VVPAT printer beside each voting machine shows the voter a paper slip with their candidate's name and symbol for 7 seconds. Then it drops into a sealed box. Those slips can be counted, so the machine's tally has something to answer to.",
+      "id": "card.government.068.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Checking without recounting everything",
+      "body": "In 2007 the statistician Philip Stark developed the risk-limiting audit. Officials hand-check randomly chosen paper ballots. If the sample doesn't confirm the result, the audit grows, up to a full hand count that replaces the reported result. It has been tested in California, Ohio and Denmark. As Stark puts it, \"unlike voters, ballots have to reply, and have to reply truthfully.\"",
+      "id": "card.government.068.c4"
+    },
+    {
+      "id": "card.government.068.c5",
+      "type": "mcq",
+      "questionId": "question.government.068.q1"
+    },
+    {
+      "id": "card.government.068.c6",
+      "type": "mcq",
+      "questionId": "question.government.068.q2"
+    },
+    {
+      "id": "card.government.068.c7",
+      "type": "recall",
+      "questionId": "question.government.068.q3"
+    },
+    {
+      "id": "card.government.068.c8",
+      "type": "checkpoint",
+      "headline": "The count: checked",
+      "learned": [
+        "UK counts are watched by candidates' agents",
+        "Recounts can be requested; ties go to drawing lots",
+        "India's VVPAT slip gives machines a paper trail",
+        "Risk-limiting audits hand-check random ballots"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.election_count_transparency"
+      ],
+      "sourceCardIds": [
+        "card.government.068.c2"
+      ],
+      "prompt": "At a UK election count, who can candidates appoint to watch the verification and counting?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Counting agents",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Opinion pollsters",
+          "correct": false,
+          "rationale": "Pollsters survey voters; they don't watch counts."
+        },
+        {
+          "id": "c",
+          "label": "The other candidates' families",
+          "correct": false,
+          "rationale": "The role is counting agents."
+        },
+        {
+          "id": "d",
+          "label": "Nobody: counts are held in private",
+          "correct": false,
+          "rationale": "Counts are meant to be transparent."
+        }
+      ],
+      "explanation": "Candidates can appoint counting agents to observe the verification and count.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.election_count_verification"
+      ],
+      "sourceCardIds": [
+        "card.government.068.c4"
+      ],
+      "prompt": "In a risk-limiting audit, what happens if the random sample of ballots doesn't confirm the result?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The reported result stands anyway",
+          "correct": false,
+          "rationale": "The audit must grow instead."
+        },
+        {
+          "id": "b",
+          "label": "The election is automatically rerun",
+          "correct": false,
+          "rationale": "The audit expands; there's no automatic rerun."
+        },
+        {
+          "id": "c",
+          "label": "It grows, up to a full hand count",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The machines are switched off",
+          "correct": false,
+          "rationale": "The check is done by hand on paper ballots."
+        }
+      ],
+      "explanation": "If the sample doesn't confirm the outcome, the audit expands up to a full hand count, which replaces the reported result.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.election_count_transparency",
+        "concept.government.power_vs_authority"
+      ],
+      "sourceCardIds": [
+        "card.government.068.c2",
+        "card.government.003.c3"
+      ],
+      "prompt": "Level 3 said authority is power people accept as legitimate. How does counting in front of every candidate's agents help the winner?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It makes the count go faster and cost less",
+          "correct": false,
+          "rationale": "Watching doesn't speed things up; it builds trust."
+        },
+        {
+          "id": "b",
+          "label": "Agents can add votes they think were missed",
+          "correct": false,
+          "rationale": "Agents watch and may request a recount; they don't add votes."
+        },
+        {
+          "id": "c",
+          "label": "It lets the winner skip any recount request",
+          "correct": false,
+          "rationale": "Recounts can still be requested."
+        },
+        {
+          "id": "d",
+          "label": "Every side can watch, so the result is easier to accept",
+          "correct": true
+        }
+      ],
+      "explanation": "Authority is accepted power. When every candidate's agents can watch the count, the result is easier for all sides to accept.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.electoral_commission_uk_equality_votes",
+    "source.electoral_commission_uk_counting_agents",
+    "source.electoral_commission_uk_recounts",
+    "source.ceo_manipur_vvpat_faq",
+    "source.stark_rla_introduction"
+  ],
+  "art": "gov.ballot-box"
+}

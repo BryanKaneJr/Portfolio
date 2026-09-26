@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.government.042",
+  "skillId": "skill.world_systems.government",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Debate",
+  "objective": "After this level you can explain how lawmakers debate a bill.",
+  "summary": "Second reading debates a bill's principles, under rules that keep argument on ideas. The US Senate's filibuster shows debate also needs a way to end: cloture.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.lawmaking_debate_rules",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.lawmaking_filibuster_cloture",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.lawmaking_bill_stages",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.041"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In the House of Commons, MPs aren't allowed to call each other by name.",
+      "body": "Instead they say things like \"the honourable Member for\" someone's constituency. It sounds stuffy, but the rule has a job: to guard against personality in debate. Argue with the idea, not the person. That rule is a clue to what debate is for.",
+      "id": "card.government.042.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Arguing about the big idea",
+      "body": "Remember second reading from Level 41? That's where the big argument happens. The Commons debates a bill's general principles: should this law exist at all? The fine print waits for committee. A second reading debate is less about commas and more about whether the whole idea deserves to go further.",
+      "id": "card.government.042.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Mind your language",
+      "body": "Debate only works if people keep talking, so some words are off limits. Alleging that another member has lied is almost always out of order. The Speaker tells a member who uses unparliamentary language to withdraw it, and refusing can get them suspended. You can say a colleague is wrong as often as you like. Just not that they're lying.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Wrong is allowed. Liar is not. A useful rule for family dinners too."
+      },
+      "id": "card.government.042.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "How do you stop a talker?",
+      "body": "The US Senate allows extended debate, so senators can use long speeches to delay a bill. That's a filibuster, from a Dutch word for \"freebooter\" and the Spanish \"filibusteros\": pirates raiding the Caribbean. In 1917 the Senate adopted cloture, a way to end debate with a two-thirds vote. In 1975 it lowered the bar to three-fifths of senators, usually 60 of 100. Every chamber needs an answer to one question: when does talking stop and voting start?",
+      "id": "card.government.042.c4"
+    },
+    {
+      "id": "card.government.042.c5",
+      "type": "mcq",
+      "questionId": "question.government.042.q1"
+    },
+    {
+      "id": "card.government.042.c6",
+      "type": "mcq",
+      "questionId": "question.government.042.q2"
+    },
+    {
+      "id": "card.government.042.c7",
+      "type": "recall",
+      "questionId": "question.government.042.q3"
+    },
+    {
+      "id": "card.government.042.c8",
+      "type": "checkpoint",
+      "headline": "Debate: decoded",
+      "learned": [
+        "Second reading debates a bill's general principles",
+        "MPs avoid names to keep debate off personalities",
+        "Accusing a member of lying is out of order",
+        "Senate cloture ends a filibuster with 60 votes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.lawmaking_filibuster_cloture"
+      ],
+      "sourceCardIds": [
+        "card.government.042.c4"
+      ],
+      "prompt": "Since 1975, how many US senators does it usually take to invoke cloture and end debate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A simple majority, 51 of 100",
+          "correct": false,
+          "rationale": "Cloture needs more than a simple majority."
+        },
+        {
+          "id": "b",
+          "label": "Three-fifths, usually 60 of 100",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Two-thirds, about 67 of 100",
+          "correct": false,
+          "rationale": "That was the 1917 rule, lowered in 1975."
+        },
+        {
+          "id": "d",
+          "label": "All 100 senators",
+          "correct": false,
+          "rationale": "No rule requires every senator to agree."
+        }
+      ],
+      "explanation": "In 1975 the Senate lowered the cloture bar from two-thirds to three-fifths of senators, usually 60 of 100.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.lawmaking_debate_rules"
+      ],
+      "sourceCardIds": [
+        "card.government.042.c1"
+      ],
+      "prompt": "Why do MPs in the Commons say \"the honourable Member for\" a place instead of using each other's names?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To guard against personality in debate",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Because MPs' names are kept secret",
+          "correct": false,
+          "rationale": "MPs' names are public; the rule is about debate."
+        },
+        {
+          "id": "c",
+          "label": "To save time during long debates",
+          "correct": false,
+          "rationale": "The formal phrase is actually longer."
+        },
+        {
+          "id": "d",
+          "label": "Because the Speaker forgets their names",
+          "correct": false,
+          "rationale": "The rule is about keeping debate on ideas."
+        }
+      ],
+      "explanation": "The rule exists to guard against personality in debate: argue with the idea, not the person.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.lawmaking_debate_rules",
+        "concept.government.lawmaking_bill_stages"
+      ],
+      "sourceCardIds": [
+        "card.government.042.c2",
+        "card.government.041.c3"
+      ],
+      "prompt": "Which stage of a UK bill's journey is the main debate on its general principles?",
+      "options": [
+        {
+          "id": "a",
+          "label": "First reading",
+          "correct": false,
+          "rationale": "First reading is a formality with no debate."
+        },
+        {
+          "id": "b",
+          "label": "Committee stage",
+          "correct": false,
+          "rationale": "Committee stage examines the text line by line."
+        },
+        {
+          "id": "c",
+          "label": "Royal Assent",
+          "correct": false,
+          "rationale": "Royal Assent comes after all the debating is done."
+        },
+        {
+          "id": "d",
+          "label": "Second reading",
+          "correct": true
+        }
+      ],
+      "explanation": "Second reading is the debate on a bill's general principles; committee stage handles the details.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.erskinemay_modes_of_address",
+    "source.ukparliament_passage_of_bill",
+    "source.ukparliament_unparliamentary_language",
+    "source.senate_filibusters_cloture"
+  ],
+  "art": "rome.rostra"
+}

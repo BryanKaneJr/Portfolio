@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.architecture.043",
+  "skillId": "skill.arts.architecture",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Yurts and Tents",
+  "objective": "After this level you can explain the portable homes of nomads.",
+  "summary": "The Mongol ger is a felt-covered wooden home that families take down, move and rebuild. Its roof poles meet in a compression ring; a tension band holds their outward push.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.home_ger",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.home_ger_forces",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch_thrust",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_tension_compression",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.042"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.043.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some families can pack up their whole house and move it.",
+      "body": "In Mongolia, the traditional home is the ger, the round home that the West calls a yurt. It's light enough for nomads to carry, flexible enough to fold and pack, and sturdy enough to take apart and put back together. Wherever the herds find good pasture, the house follows, on horseback or a small wagon."
+    },
+    {
+      "id": "card.architecture.043.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wood, felt and rope",
+      "body": "A ger is a round structure: a wall, roof poles and a peaked roof on a painted wooden frame. Over it go covers of white felt and canvas, tightened with ropes of animal hair. Felt suits the cold, dry steppe, and families add extra layers when the temperature drops. The whole thing can stand up to Mongolia's fierce spring winds. And the name? Ger simply means \"dwelling\"."
+    },
+    {
+      "id": "card.architecture.043.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A ring that squeezes, a band that pulls",
+      "body": "The roof is quiet engineering. Its poles meet in a center ring that holds them in compression. Where they meet the wall, they push outward: Level 4's thrust again. A band of rope, woven cloth or wire cable around the top of the wall holds them in tension. Squeeze in the middle, pull around the edge, and a yurt roof can span its room without inside posts, trusses or beams.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "A band around the top holding everything in? Level 5's Florence dome would recognize that move."
+      }
+    },
+    {
+      "id": "card.architecture.043.c4",
+      "type": "fact",
+      "fact": "Taking down and putting up a ger is always a family job.",
+      "context": "Children learn by watching their elders. Men traditionally carve the wood, while women and men paint, sew, stitch and make felt, and cutting wool and making felt are usually done together. In 2013, UNESCO added the craftsmanship of the Mongol ger to its Representative List of the Intangible Cultural Heritage of Humanity. The house moves; the know-how stays in the family."
+    },
+    {
+      "id": "card.architecture.043.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.043.q1"
+    },
+    {
+      "id": "card.architecture.043.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.043.q2"
+    },
+    {
+      "id": "card.architecture.043.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.043.q3"
+    },
+    {
+      "id": "card.architecture.043.c8",
+      "type": "checkpoint",
+      "headline": "Gers: packed up",
+      "learned": [
+        "The ger: portable, round, wood under felt and canvas",
+        "Ger means dwelling; families take it down and rebuild it",
+        "Center ring in compression; wall-top band in tension",
+        "Mongol ger craftsmanship: UNESCO intangible heritage (2013)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.home_ger"
+      ],
+      "sourceCardIds": [
+        "card.architecture.043.c2"
+      ],
+      "prompt": "What covers the wooden frame of a traditional Mongol ger?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Blocks of hard-packed snow",
+          "correct": false,
+          "rationale": "That's an igloo."
+        },
+        {
+          "id": "b",
+          "label": "Sun-dried mud bricks",
+          "correct": false,
+          "rationale": "Mud is too heavy to move; the ger must travel."
+        },
+        {
+          "id": "c",
+          "label": "Sheets of birch bark",
+          "correct": false,
+          "rationale": "The ger's covers are felt and canvas."
+        },
+        {
+          "id": "d",
+          "label": "White felt and canvas, tightened with ropes",
+          "correct": true
+        }
+      ],
+      "explanation": "A ger's painted wooden frame is covered with white felt and canvas and tightened with ropes of animal hair.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.home_ger_forces"
+      ],
+      "sourceCardIds": [
+        "card.architecture.043.c3"
+      ],
+      "prompt": "In a yurt, what job does the band around the top of the wall do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It holds the roof poles in tension against their outward push",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It squeezes the center ring shut",
+          "correct": false,
+          "rationale": "The center ring is in compression; the band works at the wall."
+        },
+        {
+          "id": "c",
+          "label": "It keeps the felt from blowing away",
+          "correct": false,
+          "rationale": "Its structural job is resisting the poles' outward thrust."
+        },
+        {
+          "id": "d",
+          "label": "It carries the roof's weight down a central post",
+          "correct": false,
+          "rationale": "The band lets the roof span without inside posts."
+        }
+      ],
+      "explanation": "Where the roof poles meet the wall they push outward; the tension band holds them against this push, while the center ring holds them in compression.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.home_ger_forces",
+        "concept.architecture.stand_arch_thrust"
+      ],
+      "sourceCardIds": [
+        "card.architecture.043.c3",
+        "card.architecture.004.c3"
+      ],
+      "prompt": "Level 4's arch pushes outward at its feet. Where do a yurt's roof poles push outward?",
+      "options": [
+        {
+          "id": "a",
+          "label": "At the center ring at the top",
+          "correct": false,
+          "rationale": "Up there the poles are squeezed together."
+        },
+        {
+          "id": "b",
+          "label": "Where they meet the top of the wall",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Into the ground below the door",
+          "correct": false,
+          "rationale": "The push happens at the wall top, where the band holds it."
+        },
+        {
+          "id": "d",
+          "label": "Nowhere: the felt carries the roof",
+          "correct": false,
+          "rationale": "The poles do push outward; the band resists it."
+        }
+      ],
+      "explanation": "Like an arch's thrust at its supports, a yurt's roof poles push outward where they meet the wall, and a tension band holds them in.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.unesco_ich_mongol_ger",
+    "source.brit_yurt",
+    "source.yurtinfo_yurt_faq"
+  ],
+  "art": "arch.yurt"
+}

@@ -1,0 +1,223 @@
+{
+  "id": "level.arts.architecture.063",
+  "skillId": "skill.arts.architecture",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Empire State Building",
+  "objective": "After this level you can explain how it went up in about a year.",
+  "summary": "The 102-story Empire State Building went up in about 410 days (1930-31), its frame rising 4.5 stories a week, thanks to overlapping design and building and just-in-time deliveries.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.sky_esb_record",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_esb_methods",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_esb_design",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_chicago_rebuild",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.062"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.063.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Empire State Building took about 410 days.",
+      "body": "Work began on March 17, 1930. On May 1, 1931, President Herbert Hoover pressed a button in Washington, D.C., to open it. That's a 102-story skyscraper in a little over a year. How do you build that fast?"
+    },
+    {
+      "id": "card.architecture.063.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four and a half stories a week",
+      "body": "The steel framework rose at about four and a half stories per week. Picture it: in the time it takes you to get through one week of school, the tower grew four floors, with half a floor to spare. The architects were Shreve, Lamb & Harmon, and the builders were Starrett Bros. & Eken."
+    },
+    {
+      "id": "card.architecture.063.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Building before the drawings were done",
+      "body": "The speed came from planning, not magic. Construction began before the design was finished, so builders worked while Level 9's drawings were still being made. Foundations were dug while the old Waldorf-Astoria hotel on the site was still being torn down. Deliveries arrived just in time, so little had to be stored, and railway tracks on site moved materials around. Here's an analogy: an assembly line where the factory grows upward."
+    },
+    {
+      "id": "card.architecture.063.c4",
+      "type": "fact",
+      "fact": "It was the world's tallest building until 1971.",
+      "context": "It's one of the best examples of Art Deco design, and it rose 1,250 feet (381 meters) with its spire. That spire had an ambitious first job: it was meant to be a mooring station for airships.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Parking your airship on the roof: a very 1930s idea of convenience."
+      }
+    },
+    {
+      "id": "card.architecture.063.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.063.q1"
+    },
+    {
+      "id": "card.architecture.063.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.063.q2"
+    },
+    {
+      "id": "card.architecture.063.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.063.q3"
+    },
+    {
+      "id": "card.architecture.063.c8",
+      "type": "checkpoint",
+      "headline": "Empire State: finished",
+      "learned": [
+        "About 410 days, March 1930 to May 1931",
+        "The frame rose about 4.5 stories a week",
+        "Design, demolition and building overlapped; deliveries came just in time",
+        "Art Deco, 1,250 feet, tallest until 1971"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.sky_esb_design"
+      ],
+      "sourceCardIds": [
+        "card.architecture.063.c4"
+      ],
+      "prompt": "What was the Empire State Building's spire first meant to be?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A radio antenna for early television",
+          "correct": false,
+          "rationale": "The card says it was meant for airships."
+        },
+        {
+          "id": "b",
+          "label": "A lightning rod for the whole block",
+          "correct": false,
+          "rationale": "Its intended job involved airships."
+        },
+        {
+          "id": "c",
+          "label": "A mooring station for airships",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A lookout post for fire wardens",
+          "correct": false,
+          "rationale": "It was meant for docking airships."
+        }
+      ],
+      "explanation": "The spire was originally intended to serve as a mooring station for airships.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.sky_esb_methods"
+      ],
+      "sourceCardIds": [
+        "card.architecture.063.c3"
+      ],
+      "prompt": "Which choice helped the Empire State Building go up in about a year?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Waiting until every drawing was finished",
+          "correct": false,
+          "rationale": "They started before the design was complete."
+        },
+        {
+          "id": "b",
+          "label": "Starting construction before the design was finished",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Storing a year of materials on site first",
+          "correct": false,
+          "rationale": "Deliveries came just in time, so little was stored."
+        },
+        {
+          "id": "d",
+          "label": "Clearing the old hotel before digging began",
+          "correct": false,
+          "rationale": "Digging went on while the old hotel was still coming down."
+        }
+      ],
+      "explanation": "Construction overlapped with design, digging overlapped with demolition, and deliveries came just in time.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.sky_esb_record",
+        "concept.architecture.sky_chicago_rebuild"
+      ],
+      "sourceCardIds": [
+        "card.architecture.063.c1",
+        "card.architecture.061.c2"
+      ],
+      "prompt": "Level 61's earliest Chicago skyscrapers were 8 to 10 stories. How many stories did the Empire State Building have when it opened in 1931?",
+      "options": [
+        {
+          "id": "a",
+          "label": "16",
+          "correct": false,
+          "rationale": "Far fewer than it had."
+        },
+        {
+          "id": "b",
+          "label": "40",
+          "correct": false,
+          "rationale": "Far too few for this tower."
+        },
+        {
+          "id": "c",
+          "label": "102",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "210",
+          "correct": false,
+          "rationale": "Far more than it had."
+        }
+      ],
+      "explanation": "The Empire State Building opened with 102 stories, about ten times the first skyscrapers' height in stories.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_empire_state_building",
+    "source.esbnyc_history",
+    "source.esbnyc_fact_sheet",
+    "source.b1m_empire_state_speed"
+  ],
+  "art": "geo.skyline"
+}

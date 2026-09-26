@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.architecture.013",
+  "skillId": "skill.arts.architecture",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Pyramids of Giza",
+  "objective": "After this level you can explain how the pyramids were engineered.",
+  "summary": "The Great Pyramid used limestone for bulk and granite for the King's Chamber. Five compartments above its flat ceiling, topped by a gabled roof, help carry the weight.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.wonders_pyramid_stones",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.wonders_relieving_chambers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_beam_bending",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.012"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Deep inside the Great Pyramid, a flat stone ceiling holds up a mountain.",
+      "body": "The pyramid is some 2.3 million blocks, about 5.75 million tons of stone, finished about 4,500 years ago. A flat stone ceiling is Level 3's lintel, and Level 3 showed how badly stone takes stretching. So how has that ceiling held?"
+    },
+    {
+      "id": "card.architecture.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The right stone for each job",
+      "body": "The Great Pyramid's builders chose stone by job. The core is yellowish limestone blocks. The outer casing and the inner passages used finer, light-colored limestone. And the burial chamber, the King's Chamber, is built of huge granite blocks: lined with granite, and roofed with it. Plain stone for the bulk, fine stone for the finish, granite for the room that mattered most."
+    },
+    {
+      "id": "card.architecture.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five rooms stacked on a ceiling",
+      "body": "Directly above the King's Chamber sit five low compartments, stacked one on another and separated by massive horizontal granite slabs. They were probably built to shield the chamber's ceiling, diverting the immense thrust of the masonry above. Here's an analogy: a stack of trays held over a cake, so the weight lands on the trays first."
+    },
+    {
+      "id": "card.architecture.013.c4",
+      "type": "fact",
+      "fact": "The top compartment has a pointed roof.",
+      "context": "The highest of the five compartments has a gabled roof: huge limestone blocks set in leaning pairs, like the two sides of a house roof, helping to bear the weight above. Remember Level 3: a flat stone beam is stretched along its underside. Leaning blocks press against each other instead, a bit like Level 4's arch wedges. A flat ceiling, a stack of slabs, and a point on top.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Five spare rooms nobody was ever meant to visit. Some of the hardest-working rooms in history."
+      }
+    },
+    {
+      "id": "card.architecture.013.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.013.q1"
+    },
+    {
+      "id": "card.architecture.013.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.013.q2"
+    },
+    {
+      "id": "card.architecture.013.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.013.q3"
+    },
+    {
+      "id": "card.architecture.013.c8",
+      "type": "checkpoint",
+      "headline": "The Great Pyramid: opened up",
+      "learned": [
+        "Limestone core, finer limestone casing, a granite King's Chamber",
+        "Five compartments above it, separated by granite slabs",
+        "They probably shield the flat ceiling from the weight above",
+        "A gabled roof of leaning limestone blocks tops the stack"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.wonders_pyramid_stones"
+      ],
+      "sourceCardIds": [
+        "card.architecture.013.c2"
+      ],
+      "prompt": "Which stone lines and roofs the King's Chamber in the Great Pyramid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Yellowish limestone",
+          "correct": false,
+          "rationale": "That was used for the core."
+        },
+        {
+          "id": "b",
+          "label": "Fine, light-colored limestone",
+          "correct": false,
+          "rationale": "That was used for the casing and the passages."
+        },
+        {
+          "id": "c",
+          "label": "Granite",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Sun-dried mud brick",
+          "correct": false,
+          "rationale": "The chamber is built of huge granite blocks."
+        }
+      ],
+      "explanation": "The core is yellowish limestone and the casing finer limestone, but the King's Chamber is built of huge granite blocks, lined and roofed with granite.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.wonders_relieving_chambers"
+      ],
+      "sourceCardIds": [
+        "card.architecture.013.c3"
+      ],
+      "prompt": "What were the five compartments above the King's Chamber probably for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Storing the king's treasure",
+          "correct": false,
+          "rationale": "They were built to protect the ceiling, not to store things."
+        },
+        {
+          "id": "b",
+          "label": "Shielding the chamber's ceiling from the weight above",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Letting fresh air into the chamber",
+          "correct": false,
+          "rationale": "Their job was structural."
+        },
+        {
+          "id": "d",
+          "label": "Hiding the king's body from robbers",
+          "correct": false,
+          "rationale": "The burial chamber is below them."
+        }
+      ],
+      "explanation": "Separated by massive granite slabs, the compartments probably shielded the King's Chamber ceiling by diverting the thrust of the masonry above.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.wonders_relieving_chambers",
+        "concept.architecture.stand_beam_bending"
+      ],
+      "sourceCardIds": [
+        "card.architecture.013.c1",
+        "card.architecture.013.c4",
+        "card.architecture.003.c3"
+      ],
+      "prompt": "Level 3 showed that a loaded stone beam is stretched along its underside. Why is that a worry in the King's Chamber?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Granite can't be squeezed at all",
+          "correct": false,
+          "rationale": "Stone is strong when squeezed; stretching is the weak spot."
+        },
+        {
+          "id": "b",
+          "label": "The chamber has no ceiling, only an open shaft",
+          "correct": false,
+          "rationale": "It is roofed with granite."
+        },
+        {
+          "id": "c",
+          "label": "Its walls are made of mud brick",
+          "correct": false,
+          "rationale": "It is lined with granite."
+        },
+        {
+          "id": "d",
+          "label": "Its flat stone ceiling is a lintel under a mountain",
+          "correct": true
+        }
+      ],
+      "explanation": "A flat stone ceiling works like a lintel, stretched underneath; with millions of tons above, the builders added slab-separated compartments and a gabled roof over it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_great_pyramid",
+    "source.brit_pyramid_architecture",
+    "source.aeo_kings_chamber",
+    "source.brit_bridge_engineering",
+    "source.brit_arch_architecture"
+  ],
+  "art": "geo.pyramids"
+}

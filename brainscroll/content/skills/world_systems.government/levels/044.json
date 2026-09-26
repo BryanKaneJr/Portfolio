@@ -1,0 +1,227 @@
+{
+  "id": "level.world_systems.government.044",
+  "skillId": "skill.world_systems.government",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Lobbying",
+  "objective": "After this level you can explain lobbying and why it is controversial.",
+  "summary": "Lobbying, named after legislative lobbies, is trying to influence government. Supporters and critics disagree about it; rules mainly require registration and disclosure.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.lobbying_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.lobbying_debate_regulation",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.043"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Lobbying is named after a room.",
+      "body": "People who wanted something from lawmakers used to wait in the lobbies outside the chamber to catch them. Britannica traces the word to constituents meeting their representatives in the lobby of England's House of Commons in the 17th century. Today the word covers far more than a hallway chat.",
+      "id": "card.government.044.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Who lobbies?",
+      "body": "Lobbying means trying to influence government decisions and public policy. It isn't only big companies. Trade associations, labor unions, charities, universities, religious organizations, local governments and citizen groups all lobby. So do you, in a small way, if you ever contact a lawmaker about a bill.",
+      "id": "card.government.044.c2"
+    },
+    {
+      "type": "comparison",
+      "headline": "Why people argue about it",
+      "items": [
+        {
+          "label": "The case for",
+          "points": [
+            "The OECD: it gives lawmakers valuable insights and data",
+            "Supporters: it's central to representative democracy"
+          ]
+        },
+        {
+          "label": "The case against",
+          "points": [
+            "The OECD: abuse lets special interests monopolize influence",
+            "Critics: it can entrench access for elites"
+          ]
+        }
+      ],
+      "mascot": {
+        "pose": "thinking",
+        "line": "Same activity, two readings. Knowing both sides is how you join the argument well."
+      },
+      "id": "card.government.044.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Letting in the daylight",
+      "body": "The OECD's answer is transparency: in 2010 it adopted the first international standard on transparency and integrity in lobbying. In the US, the Lobbying Disclosure Act of 1995 makes lobbyists register with Congress and report on their lobbying. In the EU, since 1 July 2021, lobbyists must be in a transparency register before activities such as meeting Commissioners. The common idea: everyone should be able to see who is talking to whom.",
+      "id": "card.government.044.c4"
+    },
+    {
+      "id": "card.government.044.c5",
+      "type": "mcq",
+      "questionId": "question.government.044.q1"
+    },
+    {
+      "id": "card.government.044.c6",
+      "type": "mcq",
+      "questionId": "question.government.044.q2"
+    },
+    {
+      "id": "card.government.044.c7",
+      "type": "mcq",
+      "questionId": "question.government.044.q3"
+    },
+    {
+      "id": "card.government.044.c8",
+      "type": "checkpoint",
+      "headline": "Lobbying: unpacked",
+      "learned": [
+        "Lobbying tries to influence government decisions",
+        "The word comes from the lobbies outside chambers",
+        "Supporters and critics disagree about its effects",
+        "The US and EU require lobbyists to register"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.lobbying_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.044.c1"
+      ],
+      "prompt": "Where does the word \"lobbying\" come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The lobbies where people waited to meet lawmakers",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A Latin word meaning \"to bribe\"",
+          "correct": false,
+          "rationale": "It's named after a room, not a Latin verb."
+        },
+        {
+          "id": "c",
+          "label": "The name of the first lobbyist",
+          "correct": false,
+          "rationale": "No person gave it a name; a place did."
+        },
+        {
+          "id": "d",
+          "label": "A French word for \"petition\"",
+          "correct": false,
+          "rationale": "The word comes from the lobbies outside legislative chambers."
+        }
+      ],
+      "explanation": "Lobbying is named after the lobbies outside legislative chambers, like the House of Commons lobby, where people gathered to meet lawmakers.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.lobbying_debate_regulation"
+      ],
+      "sourceCardIds": [
+        "card.government.044.c3"
+      ],
+      "prompt": "The OECD sees both a benefit and a risk in lobbying. Which pair matches its view?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It raises taxes, but it slows down courts",
+          "correct": false,
+          "rationale": "Neither is what the OECD describes."
+        },
+        {
+          "id": "b",
+          "label": "It speeds up elections, but it confuses voters",
+          "correct": false,
+          "rationale": "The OECD's concern is policy making, not elections."
+        },
+        {
+          "id": "c",
+          "label": "Insights and data for policy, but abuse can let special interests dominate",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Free advice for citizens, but lawmakers must pay for it",
+          "correct": false,
+          "rationale": "That isn't the trade-off the OECD names."
+        }
+      ],
+      "explanation": "The OECD says lobbying can bring valuable insights and data, but abuse such as special interests monopolizing influence can lead to worse policies.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.lobbying_debate_regulation"
+      ],
+      "sourceCardIds": [
+        "card.government.044.c4"
+      ],
+      "prompt": "How do both the US Lobbying Disclosure Act and the EU's transparency register handle lobbying?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They ban all contact between lobbyists and lawmakers",
+          "correct": false,
+          "rationale": "Neither is a ban; both are about visibility."
+        },
+        {
+          "id": "b",
+          "label": "They require lobbyists to register so their activity can be seen",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They let only charities lobby",
+          "correct": false,
+          "rationale": "Businesses, unions and others can still lobby."
+        },
+        {
+          "id": "d",
+          "label": "They make lawmakers pay lobbyists for advice",
+          "correct": false,
+          "rationale": "Neither rule does anything of the kind."
+        }
+      ],
+      "explanation": "Both rely on transparency: the US requires registration and reports; the EU makes registration a condition for activities like meetings.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_lobbying",
+    "source.etymonline_lobby",
+    "source.oecd_lobbying_recommendation",
+    "source.house_lobbying_disclosure_act",
+    "source.europarl_transparency_register_2021"
+  ],
+  "art": "money.handshake"
+}

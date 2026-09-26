@@ -1,0 +1,234 @@
+{
+  "id": "level.world_systems.government.071",
+  "skillId": "skill.world_systems.government",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Government Budgets",
+  "objective": "After this level you can explain how a government plans its spending.",
+  "summary": "A budget, once a leather bag, is a government's plan for what it collects and spends. It runs through four overlapping stages: prepare, approve, carry out and audit.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.budget_word_bag",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.budget_cycle_stages",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.tax_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.070"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1733, a pamphlet mocked Britain's top minister for opening his bag.",
+      "body": "The pamphlet was called The Budget Opened, and it attacked Robert Walpole's tax plans, likening him to a quack selling cures. The insult stuck. By the 1760s, 'budget' was simply the word for a government's money plans.",
+      "id": "card.government.071.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A plan in a bag",
+      "body": "The word comes from Old French bougette, a small leather bag: picture a finance minister opening his wallet to reveal his plans. Britain's chancellor still holds up a red box on Budget Day. Inside is a plan with two sides: the money the government expects to collect, much of it Level 6's compulsory taxes, and the money it intends to spend over the coming year.",
+      "id": "card.government.071.c2"
+    },
+    {
+      "type": "timeline",
+      "headline": "Four stages, every year",
+      "events": [
+        {
+          "when": "1. Prepare",
+          "label": "The executive, the government of the day, puts the plan together"
+        },
+        {
+          "when": "2. Approve",
+          "label": "The legislature debates it, amends it and votes on it"
+        },
+        {
+          "when": "3. Carry out",
+          "label": "The government collects the money and spends it"
+        },
+        {
+          "when": "4. Audit",
+          "label": "Auditors check what was actually spent, and whether it worked"
+        }
+      ],
+      "id": "card.government.071.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "At any moment, a government is juggling three budgets at once.",
+      "context": "While the executive prepares next year's budget, ministries are carrying out this year's, and the national audit office is checking last year's. It works like a school year: next year's timetable gets planned while this year's classes run and last year's exams are still being marked.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Three budgets, one government, no days off. Somebody really should budget some rest."
+      },
+      "id": "card.government.071.c4"
+    },
+    {
+      "id": "card.government.071.c5",
+      "type": "mcq",
+      "questionId": "question.government.071.q1"
+    },
+    {
+      "id": "card.government.071.c6",
+      "type": "mcq",
+      "questionId": "question.government.071.q2"
+    },
+    {
+      "id": "card.government.071.c7",
+      "type": "recall",
+      "questionId": "question.government.071.q3"
+    },
+    {
+      "id": "card.government.071.c8",
+      "type": "checkpoint",
+      "headline": "Budgets: planned",
+      "learned": [
+        "'Budget' began as a small leather bag",
+        "A budget sets out what's collected and spent",
+        "Prepare, approve, carry out, audit",
+        "Three budgets are in play at any moment"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.budget_word_bag"
+      ],
+      "sourceCardIds": [
+        "card.government.071.c2"
+      ],
+      "prompt": "The word \"budget\" comes from an Old French word for what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A royal treasury",
+          "correct": false,
+          "rationale": "Close in spirit, but the word meant something you could carry."
+        },
+        {
+          "id": "b",
+          "label": "A counting table",
+          "correct": false,
+          "rationale": "That's closer to the root of 'exchequer'; budget was a bag."
+        },
+        {
+          "id": "c",
+          "label": "A small leather bag",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A sealed letter",
+          "correct": false,
+          "rationale": "Letters were sealed; budgets were carried in a bag."
+        }
+      ],
+      "explanation": "Budget comes from Old French bougette, a small leather bag, pictured as the minister's wallet of plans.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.budget_cycle_stages"
+      ],
+      "sourceCardIds": [
+        "card.government.071.c4"
+      ],
+      "prompt": "While a finance ministry drafts next year's budget, what is usually happening to last year's budget?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Auditors are checking how it was actually spent",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is being debated for the first time",
+          "correct": false,
+          "rationale": "Debate happens before a budget is carried out, not after."
+        },
+        {
+          "id": "c",
+          "label": "It is thrown away and forgotten",
+          "correct": false,
+          "rationale": "Last year's budget still has to be audited."
+        },
+        {
+          "id": "d",
+          "label": "It is being spent all over again",
+          "correct": false,
+          "rationale": "Money is spent once, in the year the budget covers."
+        }
+      ],
+      "explanation": "Budget cycles overlap: next year's is prepared while this year's is carried out and last year's is audited.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.budget_word_bag",
+        "concept.government.tax_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.071.c2",
+        "card.government.006.c2"
+      ],
+      "prompt": "Level 6 said taxes are compulsory and unrequited. Where do they sit in a government budget?",
+      "options": [
+        {
+          "id": "a",
+          "label": "On the spending side, as a gift to taxpayers",
+          "correct": false,
+          "rationale": "Taxes are money coming in, not going out."
+        },
+        {
+          "id": "b",
+          "label": "On the collecting side, not tied to any one service",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Outside the budget, in a separate account",
+          "correct": false,
+          "rationale": "The budget covers what the government collects, taxes included."
+        },
+        {
+          "id": "d",
+          "label": "On the audit side, as a fine",
+          "correct": false,
+          "rationale": "Audit checks spending; taxes aren't fines."
+        }
+      ],
+      "explanation": "A budget sets out what a government collects and spends. Taxes are on the collecting side, and being unrequited they don't buy any one thing.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.worldwidewords_budget",
+    "source.etymonline_budget",
+    "source.unicef_budget_cycles_2016",
+    "source.oecd_revenue_statistics_2025"
+  ],
+  "art": "money.capitol"
+}

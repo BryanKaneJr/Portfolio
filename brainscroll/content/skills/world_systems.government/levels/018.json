@@ -1,0 +1,225 @@
+{
+  "id": "level.world_systems.government.018",
+  "skillId": "skill.world_systems.government",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Federal or Unitary?",
+  "objective": "After this level you can explain how power can be split between the center and the regions.",
+  "summary": "Federal systems split power between center and regions under a hard-to-change constitution; unitary states keep it at the center and delegate it, as the UK does with Scotland.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.federal_system",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.unitary_system",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.levels_canada",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.nation_vs_state",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.017"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "The United States is federal. Yet each of its states, inside, is unitary.",
+      "body": "Britannica points it out: the federal United States is made of states that each run as unitary governments, with counties and cities created by state law. How can one country be both? Because federal and unitary describe how power is shared out across the map, and you can do it differently on each floor.",
+      "id": "card.government.018.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Federal: power split by contract",
+      "body": "Federalism unites separate states or regions in one system while each keeps its own integrity. The split is usually written into a constitution that can be changed only by extraordinary procedures, so neither level can simply grab the other's powers. The United States, Switzerland, Canada, Australia, Germany, India and Brazil work this way. Level 8's Canadian provinces running schools and hospitals? That's federalism at work.",
+      "id": "card.government.018.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Unitary: power on loan from the center",
+      "body": "In a unitary state, most or all governing power sits with the central government. It delegates authority to regions and towns and channels decisions down to them. Britannica calls France the classic example of a centralized administrative system. Local councils still exist and still matter. Their powers are simply on loan.",
+      "id": "card.government.018.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "The UK hands power to Scotland but stays a unitary state.",
+      "context": "The UK Parliament's Scotland Act 1998 set up the Scottish Parliament, which opened in 1999. Yet the UK Parliament can still legislate for all parts of the UK, including devolved areas. Britannica's summary: Britain decentralizes power in practice though not in constitutional principle. Remember Level 9's UK, one state made of four parts?",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Devolved power is a bit like a borrowed bike. You ride it every day, but the owner still has the spare key."
+      },
+      "id": "card.government.018.c4"
+    },
+    {
+      "id": "card.government.018.c5",
+      "type": "mcq",
+      "questionId": "question.government.018.q1"
+    },
+    {
+      "id": "card.government.018.c6",
+      "type": "mcq",
+      "questionId": "question.government.018.q2"
+    },
+    {
+      "id": "card.government.018.c7",
+      "type": "recall",
+      "questionId": "question.government.018.q3"
+    },
+    {
+      "id": "card.government.018.c8",
+      "type": "checkpoint",
+      "headline": "Federal vs unitary: mapped",
+      "learned": [
+        "Federal: power split by a hard-to-change constitution",
+        "Unitary: the center holds power and delegates it",
+        "France is the classic centralized state",
+        "The UK devolves power but its Parliament stays sovereign"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.federal_system"
+      ],
+      "sourceCardIds": [
+        "card.government.018.c2"
+      ],
+      "prompt": "In a federal system, what usually protects the split of power between the center and the regions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A written constitution that only extraordinary procedures can change",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The central government's goodwill",
+          "correct": false,
+          "rationale": "In a federation neither level can simply take the other's powers."
+        },
+        {
+          "id": "c",
+          "label": "A yearly vote in each region",
+          "correct": false,
+          "rationale": "The split is fixed in the constitution, not re-voted each year."
+        },
+        {
+          "id": "d",
+          "label": "The monarch's personal decision",
+          "correct": false,
+          "rationale": "Federalism rests on a constitution, not a ruler's choice."
+        }
+      ],
+      "explanation": "Federal power-sharing is usually written into a constitution that can be changed only by extraordinary procedures.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.unitary_system"
+      ],
+      "sourceCardIds": [
+        "card.government.018.c4"
+      ],
+      "prompt": "Scotland has had its own parliament since 1999. Why is the UK still a unitary state?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Scotland's parliament can overrule the UK Parliament",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "b",
+          "label": "The UK has no regional governments at all",
+          "correct": false,
+          "rationale": "Scotland's parliament is a regional body."
+        },
+        {
+          "id": "c",
+          "label": "The UK Parliament can still legislate for all parts of the UK",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its constitution guarantees Scotland's powers forever",
+          "correct": false,
+          "rationale": "That guarantee is what a federation has, and the UK doesn't."
+        }
+      ],
+      "explanation": "The UK devolves power in practice, but the UK Parliament can still legislate for all parts of the UK, including devolved areas.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.federal_system",
+        "concept.government.levels_canada"
+      ],
+      "sourceCardIds": [
+        "card.government.018.c2",
+        "card.government.008.c3"
+      ],
+      "prompt": "Power across the map: in Level 8, Canada's provinces ran education and hospitals. Which kind of system does Canada have?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Unitary",
+          "correct": false,
+          "rationale": "Canada appears on Britannica's list of federal countries."
+        },
+        {
+          "id": "b",
+          "label": "Federal",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Neither: provinces are just branches of Ottawa",
+          "correct": false,
+          "rationale": "Provinces have their own constitutional responsibilities."
+        },
+        {
+          "id": "d",
+          "label": "Direct democracy",
+          "correct": false,
+          "rationale": "That's about how citizens decide, not how power is split across the map."
+        }
+      ],
+      "explanation": "Canada is federal: its provinces hold their own responsibilities, like schools and hospitals.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_unitary_state",
+    "source.brit_federalism",
+    "source.elections_canada_levels",
+    "source.ukgov_scotland_devolution",
+    "source.ifg_sewel_convention",
+    "source.brit_united_kingdom"
+  ],
+  "art": "geo.map"
+}

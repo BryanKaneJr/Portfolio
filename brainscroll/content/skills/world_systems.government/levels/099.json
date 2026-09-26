@@ -1,0 +1,226 @@
+{
+  "id": "level.world_systems.government.099",
+  "skillId": "skill.world_systems.government",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How to Disagree Well",
+  "objective": "After this level you can argue about politics without falling out.",
+  "summary": "Mill: know the other side at its strongest. Dennett's Rapoport rules: restate, agree, credit, then criticize. Graham: aim at the central point, not the person.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.disagree_mill_other_side",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.disagree_good_faith_methods",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.aristotle_political_animal",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.098"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"He who knows only his own side of the case, knows little of that.\"",
+      "body": "John Stuart Mill wrote that in On Liberty, in 1859. It's a bold claim: being sure you're right isn't the same as knowing why. This level is about arguing with people you disagree with, and still being on speaking terms afterwards.",
+      "id": "card.government.099.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Know their best case",
+      "body": "Mill's reasoning: if you can't answer the other side's reasons, or don't even know them, you have no ground for preferring either opinion. And he wanted those reasons heard from people who actually believe them, in their most plausible and persuasive form. A cartoon of your opponent is easy to beat. It's also not who you're arguing with.",
+      "id": "card.government.099.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Four steps before the rebuttal",
+      "body": "Philosopher Daniel Dennett, drawing on game theorist Anatol Rapoport, gave a recipe in 2013. First, restate the other view so well its holder says, \"Thanks, I wish I'd thought of putting it that way.\" Second, list where you agree. Third, mention anything you learned from them. Only then, criticize. By step four, they're actually listening.",
+      "id": "card.government.099.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Aim high on the ladder",
+      "body": "Paul Graham's 2008 essay How to Disagree ranks replies from worst to best. At the bottom: name-calling, then ad hominem (attacking the person), then responding to tone. At the top: refuting the central point. Low rungs are about the person. High rungs are about the argument.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Next time you're tempted to mock the messenger, climb a rung."
+      },
+      "id": "card.government.099.c4"
+    },
+    {
+      "type": "text",
+      "role": "connect",
+      "headline": "Political animals, still",
+      "body": "Level 10's Aristotle said humans are by nature political animals: we live in communities, so we're bound to disagree inside them. The aim isn't a world without arguments. It's arguments that leave the community standing.",
+      "id": "card.government.099.c5"
+    },
+    {
+      "id": "card.government.099.c6",
+      "type": "mcq",
+      "questionId": "question.government.099.q1"
+    },
+    {
+      "id": "card.government.099.c7",
+      "type": "mcq",
+      "questionId": "question.government.099.q2"
+    },
+    {
+      "id": "card.government.099.c8",
+      "type": "recall",
+      "questionId": "question.government.099.q3"
+    },
+    {
+      "id": "card.government.099.c9",
+      "type": "checkpoint",
+      "headline": "Disagreeing: done well",
+      "learned": [
+        "Mill: knowing only your side means knowing little",
+        "Hear the other side at its most persuasive",
+        "Rapoport's rules: restate, agree, credit, then criticize",
+        "Graham: refute the central point, not the person"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.disagree_good_faith_methods"
+      ],
+      "sourceCardIds": [
+        "card.government.099.c3"
+      ],
+      "prompt": "In Rapoport's rules, as Dennett set them out, what must come before any criticism?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A vote on who is right",
+          "correct": false,
+          "rationale": "No vote; the steps are about understanding."
+        },
+        {
+          "id": "b",
+          "label": "Restating their view fairly, noting agreement and what you learned",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Pointing out the other person's tone",
+          "correct": false,
+          "rationale": "Tone-policing is low on Graham's ladder."
+        },
+        {
+          "id": "d",
+          "label": "Quoting an expert who agrees with you",
+          "correct": false,
+          "rationale": "The rules start with the other person's view."
+        }
+      ],
+      "explanation": "Restate their view so well they wish they'd put it that way, list agreements, mention what you learned, and only then criticize.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.disagree_mill_other_side"
+      ],
+      "sourceCardIds": [
+        "card.government.099.c2"
+      ],
+      "prompt": "Why did Mill think you need to know the other side's reasons?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So you can quote them back as a joke",
+          "correct": false,
+          "rationale": "He wanted them heard in their strongest form."
+        },
+        {
+          "id": "b",
+          "label": "Because the other side is always right",
+          "correct": false,
+          "rationale": "He didn't say that; he said you can't judge without them."
+        },
+        {
+          "id": "c",
+          "label": "Because the law required it in 1859",
+          "correct": false,
+          "rationale": "It was an argument, not a law."
+        },
+        {
+          "id": "d",
+          "label": "Without answering them, you have no ground to prefer your view",
+          "correct": true
+        }
+      ],
+      "explanation": "Mill argued that if you can't refute the other side's reasons, or don't know them, you have no ground for preferring either opinion.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.aristotle_political_animal",
+        "concept.government.disagree_mill_other_side"
+      ],
+      "sourceCardIds": [
+        "card.government.099.c5",
+        "card.government.010.c1"
+      ],
+      "prompt": "Level 10's Aristotle called humans political animals. How does that fit this level's advice on disagreeing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Living in communities means we will disagree, so do it well",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Animals can't argue, so people shouldn't either",
+          "correct": false,
+          "rationale": "He meant we're made for community, not silence."
+        },
+        {
+          "id": "c",
+          "label": "Only a beast or a god needs to argue",
+          "correct": false,
+          "rationale": "He said only a beast or a god lives outside a community."
+        },
+        {
+          "id": "d",
+          "label": "Politics should be left to philosophers",
+          "correct": false,
+          "rationale": "Nothing in this level says so."
+        }
+      ],
+      "explanation": "If we're made to live in communities, disagreement comes with it; the point is to argue in ways that keep the community together.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_mill_on_liberty",
+    "source.philosophybreak_mill_dennett",
+    "source.paulgraham_how_to_disagree",
+    "source.sep_aristotle_politics"
+  ],
+  "art": "geo.speech-bubbles"
+}

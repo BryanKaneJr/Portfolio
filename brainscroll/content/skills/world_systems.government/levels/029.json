@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.government.029",
+  "skillId": "skill.world_systems.government",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Protest and Free Speech",
+  "objective": "After this level you can explain the right to speak out and protest.",
+  "summary": "Speakers' Corner lets anyone speak lawfully, after 1866's torn-down railings. The 1966 UN Covenant protects expression (Article 19) and peaceful assembly (Article 21), within necessary laws.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.free_speech_speakers_corner",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.free_speech_iccpr",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.law_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.028"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In one corner of a London park, anyone can stand up and talk about anything.",
+      "body": "It's Speakers' Corner in Hyde Park. You can turn up unannounced and speak on any subject, as long as the police consider your speech lawful. That last condition is this whole level in miniature: a right to speak out, with edges.",
+      "id": "card.government.029.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Won by pulling down railings",
+      "body": "In 1866 the government suppressed a Reform League meeting in Hyde Park that was demanding a wider right to vote. Finding the park locked, demonstrators tore up hundreds of yards of railings to get in. Then in 1872 the Parks Regulation Act set out rules under which people could meet and speak freely in the park. The protest came first; the rules followed.",
+      "id": "card.government.029.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Written into international law",
+      "body": "The International Covenant on Civil and Political Rights, adopted by the UN General Assembly on 16 December 1966, protects both halves of protest. Article 19: everyone has the right to hold opinions without interference, and to freedom of expression, including to seek, receive and impart information and ideas. Article 21: \"The right of peaceful assembly shall be recognized.\" Speaking out, and gathering to do it.",
+      "id": "card.government.029.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The edges",
+      "body": "Neither right is unlimited. Restrictions must be set by law and be necessary, for example to respect the rights or reputations of others, or to protect national security, public order, or public health or morals. Notice the key word in Article 21: peaceful. And remember Level 4: a law is a rule the community recognizes as binding. Here, law is what marks where the megaphone stops.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A right with edges is still a right. The argument is always about where the edges go."
+      },
+      "id": "card.government.029.c4"
+    },
+    {
+      "id": "card.government.029.c5",
+      "type": "mcq",
+      "questionId": "question.government.029.q1"
+    },
+    {
+      "id": "card.government.029.c6",
+      "type": "mcq",
+      "questionId": "question.government.029.q2"
+    },
+    {
+      "id": "card.government.029.c7",
+      "type": "recall",
+      "questionId": "question.government.029.q3"
+    },
+    {
+      "id": "card.government.029.c8",
+      "type": "checkpoint",
+      "headline": "Speech: spoken",
+      "learned": [
+        "Speakers' Corner: anyone may speak, if lawful",
+        "1866 railings came down; an 1872 act followed",
+        "UN Covenant 1966: Article 19 expression, 21 assembly",
+        "Limits must be set by law and be necessary"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.free_speech_iccpr"
+      ],
+      "sourceCardIds": [
+        "card.government.029.c3"
+      ],
+      "prompt": "Which article of the International Covenant on Civil and Political Rights recognizes the right of peaceful assembly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Article 12",
+          "correct": false,
+          "rationale": "Clause 12 was Magna Carta's tax rule; assembly is Article 21."
+        },
+        {
+          "id": "b",
+          "label": "Article 19",
+          "correct": false,
+          "rationale": "Article 19 covers opinion and expression."
+        },
+        {
+          "id": "c",
+          "label": "Article 21",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Article 39",
+          "correct": false,
+          "rationale": "Clause 39 was Magna Carta's; assembly is Article 21."
+        }
+      ],
+      "explanation": "Article 21: \"The right of peaceful assembly shall be recognized.\"",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.free_speech_iccpr"
+      ],
+      "sourceCardIds": [
+        "card.government.029.c4"
+      ],
+      "prompt": "Under the UN Covenant, when may freedom of expression be restricted?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whenever a government finds the speech annoying",
+          "correct": false,
+          "rationale": "Restrictions must be set by law and be necessary."
+        },
+        {
+          "id": "b",
+          "label": "When a law provides for it and it's necessary, e.g. to protect others' rights",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Never, under any circumstances",
+          "correct": false,
+          "rationale": "The Covenant allows some limits, set by law."
+        },
+        {
+          "id": "d",
+          "label": "Only during elections",
+          "correct": false,
+          "rationale": "Elections aren't the test; law and necessity are."
+        }
+      ],
+      "explanation": "Restrictions must be provided by law and necessary, for example to respect others' rights or reputations, or to protect public order.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.free_speech_speakers_corner",
+        "concept.government.law_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.029.c1",
+        "card.government.004.c2"
+      ],
+      "prompt": "At Speakers' Corner you may speak if the police consider it lawful. Using Level 4's definition, what sets that limit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rules the community recognizes as binding, enforced by an authority",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Whatever the loudest speaker decides",
+          "correct": false,
+          "rationale": "Volume isn't law."
+        },
+        {
+          "id": "c",
+          "label": "The crowd's applause on the day",
+          "correct": false,
+          "rationale": "Applause doesn't make a rule binding."
+        },
+        {
+          "id": "d",
+          "label": "Each speaker's own household rules",
+          "correct": false,
+          "rationale": "Level 4 separated household rules from laws."
+        }
+      ],
+      "explanation": "Level 4: law is the rules of conduct a community recognizes as binding, enforced through a controlling authority.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.royalparks_speakers_corner",
+    "source.un_iccpr",
+    "source.brit_law"
+  ],
+  "art": "gov.megaphone"
+}

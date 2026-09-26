@@ -1,0 +1,228 @@
+{
+  "id": "level.world_systems.government.064",
+  "skillId": "skill.world_systems.government",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Drawing the Map",
+  "objective": "After this level you can explain voting districts and gerrymandering.",
+  "summary": "District lines can decide results. Canada redraws after each census with independent commissions. Gerrymandering packs and cracks voters; geography alone can also create bias.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.election_redistricting",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_gerrymandering",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_fptp",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.063"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Same voters. Same votes. Move the lines, and you change the winner.",
+      "body": "Picture 100 voters, split 50-50 between two parties, divided into four districts. Draw the lines one way and each party wins two seats. Draw them another way and either party can win three. Nobody changed their vote. Only the map moved.",
+      "id": "card.government.064.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why maps get redrawn",
+      "body": "Level 63's first-past-the-post elects one member per district, so where the lines fall matters. People move, so lines must move too. Canada redraws its federal districts after every 10-year census. Since 1964, independent commissions do the drawing, one per province, each chaired by a judge, and sitting lawmakers can't serve on them.",
+      "id": "card.government.064.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Meet the gerrymander",
+      "body": "In 1812, Massachusetts governor Elbridge Gerry signed a bill creating oddly shaped districts that helped his party. A cartoon in the Boston Gazette drew one as a salamander-like monster: the \"Gerry-mander.\" The name stuck. Gerrymandering means deliberately drawing district lines to help or hurt a particular political interest.",
+      "id": "card.government.064.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Packing and cracking",
+      "body": "Two moves do most of the work. Packing crowds a group's voters into as few districts as possible, so they win a few seats by landslides. Cracking spreads them thinly across many districts, so they lose narrowly almost everywhere. Either way, that group ends up with fewer seats than its votes suggest.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Packing wastes votes in a pile. Cracking scatters them like crumbs."
+      },
+      "id": "card.government.064.c4"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Proving it is harder",
+      "body": "Nicholas Stephanopoulos and Eric McGhee (2015) proposed the efficiency gap: count each party's \"wasted\" votes, those for losers and those beyond what a winner needed, and compare. But Jowei Chen and Jonathan Rodden (2013) found that when one party's voters cluster in cities, even maps drawn without intent can short it seats. Geography can gerrymander by accident.",
+      "id": "card.government.064.c5"
+    },
+    {
+      "id": "card.government.064.c6",
+      "type": "mcq",
+      "questionId": "question.government.064.q1"
+    },
+    {
+      "id": "card.government.064.c7",
+      "type": "mcq",
+      "questionId": "question.government.064.q2"
+    },
+    {
+      "id": "card.government.064.c8",
+      "type": "recall",
+      "questionId": "question.government.064.q3"
+    },
+    {
+      "id": "card.government.064.c9",
+      "type": "checkpoint",
+      "headline": "The map: drawn",
+      "learned": [
+        "District lines can change who wins",
+        "Canada: independent commissions redraw after each census",
+        "Gerrymander: after Elbridge Gerry, 1812",
+        "Packing and cracking waste a group's votes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.election_gerrymandering"
+      ],
+      "sourceCardIds": [
+        "card.government.064.c3"
+      ],
+      "prompt": "Who gave his name to the gerrymander?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A Canadian judge who drew fair districts",
+          "correct": false,
+          "rationale": "Canada's judges chair independent commissions; the name comes from Massachusetts."
+        },
+        {
+          "id": "b",
+          "label": "A cartoonist for a London newspaper",
+          "correct": false,
+          "rationale": "The cartoon ran in the Boston Gazette."
+        },
+        {
+          "id": "c",
+          "label": "A salamander expert",
+          "correct": false,
+          "rationale": "The salamander was only the district's shape."
+        },
+        {
+          "id": "d",
+          "label": "Elbridge Gerry, governor of Massachusetts in 1812",
+          "correct": true
+        }
+      ],
+      "explanation": "In 1812 Governor Elbridge Gerry signed a bill creating oddly shaped districts; a cartoon called one the Gerry-mander.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.election_gerrymandering"
+      ],
+      "sourceCardIds": [
+        "card.government.064.c4"
+      ],
+      "prompt": "A map-drawer spreads one party's voters thinly across many districts so it loses narrowly almost everywhere. What is that called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Packing",
+          "correct": false,
+          "rationale": "Packing crowds voters into a few districts."
+        },
+        {
+          "id": "b",
+          "label": "Cracking",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A recount",
+          "correct": false,
+          "rationale": "A recount checks votes; it doesn't draw maps."
+        },
+        {
+          "id": "d",
+          "label": "Proportional representation",
+          "correct": false,
+          "rationale": "PR matches seats to votes rather than drawing districts."
+        }
+      ],
+      "explanation": "Cracking spreads a group's voters thinly across many districts, so they lose narrowly almost everywhere.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.election_redistricting",
+        "concept.government.election_fptp"
+      ],
+      "sourceCardIds": [
+        "card.government.064.c2",
+        "card.government.063.c2"
+      ],
+      "prompt": "Why do district lines matter so much under Level 63's first-past-the-post?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each district elects one member, so lines pick who wins",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Seats are shared out by national vote share",
+          "correct": false,
+          "rationale": "That's proportional representation."
+        },
+        {
+          "id": "c",
+          "label": "Voters rank every candidate in the whole country",
+          "correct": false,
+          "rationale": "FPTP uses one choice in a local district."
+        },
+        {
+          "id": "d",
+          "label": "The lines never change once they are drawn",
+          "correct": false,
+          "rationale": "Canada redraws after every census."
+        }
+      ],
+      "explanation": "Under FPTP each district elects just one member, so where the lines fall shapes who wins the seats.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.mit_election_lab_redistricting",
+    "source.idea_electoral_system_design",
+    "source.elections_canada_boundaries_readjustment",
+    "source.massmoments_gerrymander",
+    "source.uchicago_lr_efficiency_gap",
+    "source.qjps_chen_rodden_unintentional_gerrymandering"
+  ],
+  "art": "geo.map"
+}

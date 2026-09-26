@@ -1,0 +1,224 @@
+{
+  "id": "level.world_systems.government.013",
+  "skillId": "skill.world_systems.government",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Dictatorship",
+  "objective": "After this level you can explain dictatorships and how they keep power.",
+  "summary": "A dictatorship is absolute power without effective limits, kept by force, terror and propaganda. Rome's dictator was a six-month emergency job; totalitarian states want all of life.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.dictatorship_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.dictatorship_totalitarianism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.power_vs_authority",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.social_contract_locke",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.012"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In ancient Rome, \"dictator\" was a job with a six-month limit.",
+      "body": "The Roman Republic appointed a dictator only in a crisis: a temporary magistrate with extraordinary powers, for at most six months. Then the job ended. Britannica's verdict on the modern kind is blunt: today's dictators resemble ancient tyrants, not ancient dictators.",
+      "id": "card.government.013.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Power with no brakes",
+      "body": "Britannica defines dictatorship as government in which one person or a small group holds absolute power without effective constitutional limits. The Roman version had brakes built in: a crisis to solve and a clock running. The modern version removes them. Nothing on the list can actually stop the ruler, and no deadline sends him home.",
+      "id": "card.government.013.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "How dictators hold on",
+      "body": "Modern dictators typically take power by force or fraud, Britannica notes, then keep it through intimidation, terror and the suppression of basic civil liberties. They also use mass propaganda to keep public support. Put that in Level 3's terms. Fear gives them power; propaganda is the effort to make it look like authority, power that people accept.",
+      "id": "card.government.013.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Some dictatorships want your whole life, not just your obedience.",
+      "context": "That's totalitarianism: government that permits no individual freedom and tries to put every part of life under the state. Benito Mussolini coined the term for Italy's fascist state: \"all within the state, none outside the state, none against the state.\" Stalin's Soviet Union and Nazi Germany are Britannica's other classic cases.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "An ordinary dictator wants you quiet. A totalitarian one wants your hobbies, your clubs and your thoughts too."
+      },
+      "id": "card.government.013.c4"
+    },
+    {
+      "id": "card.government.013.c5",
+      "type": "mcq",
+      "questionId": "question.government.013.q1"
+    },
+    {
+      "id": "card.government.013.c6",
+      "type": "mcq",
+      "questionId": "question.government.013.q2"
+    },
+    {
+      "id": "card.government.013.c7",
+      "type": "recall",
+      "questionId": "question.government.013.q3"
+    },
+    {
+      "id": "card.government.013.c8",
+      "type": "checkpoint",
+      "headline": "Dictatorship: dismantled",
+      "learned": [
+        "Rome's dictator was a six-month emergency office",
+        "Dictatorship: absolute power without effective limits",
+        "Force, terror and propaganda keep dictators in power",
+        "Totalitarian states try to control every part of life"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.dictatorship_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.013.c1"
+      ],
+      "prompt": "In the Roman Republic, how long could a dictator hold office at most?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Six months",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Five years",
+          "correct": false,
+          "rationale": "Far too long: the Roman office was capped at six months."
+        },
+        {
+          "id": "c",
+          "label": "Until he chose to retire",
+          "correct": false,
+          "rationale": "The office had a fixed limit."
+        },
+        {
+          "id": "d",
+          "label": "For life",
+          "correct": false,
+          "rationale": "Life terms are what the Roman office was designed to avoid."
+        }
+      ],
+      "explanation": "A Roman dictator was a temporary crisis magistrate whose term lasted at most six months.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.dictatorship_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.013.c3"
+      ],
+      "prompt": "According to Britannica, why do modern dictators rely on mass propaganda?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To prepare the country for free elections",
+          "correct": false,
+          "rationale": "Propaganda serves the dictator's hold on power, not elections."
+        },
+        {
+          "id": "b",
+          "label": "To limit their own powers under the constitution",
+          "correct": false,
+          "rationale": "Dictatorship means power without effective constitutional limits."
+        },
+        {
+          "id": "c",
+          "label": "To keep up public support",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To hand power back after six months",
+          "correct": false,
+          "rationale": "That was the Roman office, not the modern dictator."
+        }
+      ],
+      "explanation": "Dictators keep power through intimidation, terror and suppressing civil liberties, and use mass propaganda to sustain public support.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.dictatorship_totalitarianism",
+        "concept.government.social_contract_locke"
+      ],
+      "sourceCardIds": [
+        "card.government.013.c4",
+        "card.government.007.c3"
+      ],
+      "prompt": "Totalitarianism's slogan \"none outside the state\" clashes most with which Level 7 idea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hobbes: an all-powerful sovereign keeps the peace",
+          "correct": false,
+          "rationale": "Hobbes's sovereign is all-powerful too, so there's little clash."
+        },
+        {
+          "id": "b",
+          "label": "Locke: people have natural rights even without government",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Weber: authority is power people accept",
+          "correct": false,
+          "rationale": "That's Level 3, and it isn't about rights outside the state."
+        },
+        {
+          "id": "d",
+          "label": "Taxes are compulsory and unrequited",
+          "correct": false,
+          "rationale": "That's Level 6's definition of a tax."
+        }
+      ],
+      "explanation": "Locke argued people have rights to life, liberty and property that exist before and outside government. Totalitarianism leaves nothing outside the state.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_dictatorship",
+    "source.livius_dictator",
+    "source.openstax_sociology_power_authority",
+    "source.sep_weber",
+    "source.brit_totalitarianism"
+  ],
+  "art": "rome.fasces"
+}

@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.architecture.047",
+  "skillId": "skill.arts.architecture",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Timber Frames",
+  "objective": "After this level you can explain building with wood, from log cabins to half-timbered towns.",
+  "summary": "Log houses stack whole trees crossed at the corners, from Vitruvius's Colchians to New Sweden (1638). In timber frames the frame carries the load; wattle and daub fills in.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.home_log_building",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.home_timber_frame",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_frame_structure",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.vitruvian_triad",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.046"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About 2,000 years ago, Vitruvius described a log house.",
+      "body": "Among the Colchians, where forests were plentiful, he wrote, people laid whole trees flat, crossed them at the corners, and stacked them up into walls around a dwelling, filling the gaps with chips and mud. Colchis lay at the eastern end of the Black Sea, in what is now western Georgia. Wood can make a house two ways: stack it, or frame it."
+    },
+    {
+      "id": "card.architecture.047.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stack the trees",
+      "body": "A log cabin is that method in its simplest form: four log walls joined at the corners into one room, which builders called a pen. Scandinavians brought the log cabin to America when they settled New Sweden, around Delaware Bay, in 1638. Swedish builders stuffed the gaps with chinking, such as moss and clay. One Finnish-built cabin of 1638 to 1643, the Nothnagle Log House in New Jersey, is still standing."
+    },
+    {
+      "id": "card.architecture.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Or build a skeleton",
+      "body": "Timber-framed houses do the opposite. In a medieval timber-framed building, the frame of timbers is the load-bearing structure, and the spaces between the timbers only need filling to keep the weather out. A common filling was wattle and daub: small timbers woven into a lattice, then daubed with mud, dung, water and straw. Sound familiar? It's Level 8's frame building, where the skeleton carries the floors and the walls hold only themselves.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Bones and skin, Level 8 called it. Here the skin is mud and straw. Charming, and slightly smelly."
+      }
+    },
+    {
+      "id": "card.architecture.047.c4",
+      "type": "fact",
+      "fact": "In colonial America, the two ways of building met.",
+      "context": "Scandinavian settlers brought log building to New Sweden in 1638. English settlers preferred frame construction and didn't take up log building until the 18th century. Later, Welsh and Scots-Irish settlers carried the log cabin inland to the western frontier. Same forests, different traditions: people built the way they had learned back home."
+    },
+    {
+      "id": "card.architecture.047.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.047.q1"
+    },
+    {
+      "id": "card.architecture.047.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.047.q2"
+    },
+    {
+      "id": "card.architecture.047.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.047.q3"
+    },
+    {
+      "id": "card.architecture.047.c8",
+      "type": "checkpoint",
+      "headline": "Timber: framed and stacked",
+      "learned": [
+        "Vitruvius described Colchian log houses",
+        "Log cabins: stacked logs, one pen, chinked gaps",
+        "New Sweden brought the log cabin to America in 1638",
+        "Timber frames carry the load; wattle and daub fills in"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.home_log_building"
+      ],
+      "sourceCardIds": [
+        "card.architecture.047.c2"
+      ],
+      "prompt": "Who brought the log cabin to America, and when?",
+      "options": [
+        {
+          "id": "a",
+          "label": "English settlers in Plymouth, 1620",
+          "correct": false,
+          "rationale": "English settlers preferred frame construction."
+        },
+        {
+          "id": "b",
+          "label": "Scandinavian settlers of New Sweden, 1638",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Roman builders, about 2,000 years ago",
+          "correct": false,
+          "rationale": "Vitruvius described log houses, but not in America."
+        },
+        {
+          "id": "d",
+          "label": "Welsh settlers on the frontier, 1800s",
+          "correct": false,
+          "rationale": "They carried cabins inland later."
+        }
+      ],
+      "explanation": "Scandinavians introduced the log cabin to America when they settled New Sweden, around Delaware Bay, in 1638.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.home_timber_frame"
+      ],
+      "sourceCardIds": [
+        "card.architecture.047.c3"
+      ],
+      "prompt": "In a medieval timber-framed house, what job does the wattle-and-daub filling do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It carries the weight of the floors above",
+          "correct": false,
+          "rationale": "The frame carries the load."
+        },
+        {
+          "id": "b",
+          "label": "It holds the timbers together like glue",
+          "correct": false,
+          "rationale": "The frame is the structure; the filling just fills."
+        },
+        {
+          "id": "c",
+          "label": "It keeps the weather out between the load-bearing timbers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It fireproofs the frame",
+          "correct": false,
+          "rationale": "Its job is keeping out the weather."
+        }
+      ],
+      "explanation": "In timber-framed buildings, the frame is the load-bearing structure; the spaces between timbers are filled, often with wattle and daub, to keep the weather out.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.home_timber_frame",
+        "concept.architecture.stand_frame_structure"
+      ],
+      "sourceCardIds": [
+        "card.architecture.047.c3",
+        "card.architecture.008.c2"
+      ],
+      "prompt": "Level 8 compared load-bearing walls with frames. Which is a medieval timber-framed house?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A frame: timbers carry the load, the filling just fills",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Load-bearing: the mud walls carry the floors",
+          "correct": false,
+          "rationale": "The wattle and daub carries nothing but itself."
+        },
+        {
+          "id": "c",
+          "label": "Neither: it's held up by an arch",
+          "correct": false,
+          "rationale": "No arch here; timbers form a skeleton."
+        },
+        {
+          "id": "d",
+          "label": "Load-bearing: logs are stacked into walls",
+          "correct": false,
+          "rationale": "That's the log cabin, the other way to build."
+        }
+      ],
+      "explanation": "As in Level 8's frame buildings, the timber skeleton carries the loads and the infill only fills the spaces, keeping out the weather.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.iet_vitruvius_1511",
+    "source.gutenberg_vitruvius_morgan",
+    "source.brit_colchis",
+    "source.egp_log_cabins",
+    "source.brit_skyscraper",
+    "source.wealddown_wattle_daub"
+  ],
+  "art": "medieval.town"
+}

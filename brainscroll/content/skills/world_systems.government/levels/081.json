@@ -1,0 +1,228 @@
+{
+  "id": "level.world_systems.government.081",
+  "skillId": "skill.world_systems.government",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Sovereignty",
+  "objective": "After this level you can explain what makes a country independent.",
+  "summary": "Sovereignty is a state's final say over its own affairs. Westphalia (1648) is seen as the start of the state system; Montevideo (1933) lists four tests for a state.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.sovereignty_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.sovereignty_montevideo_statehood",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.government_first_governments",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.nation_vs_state",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.080"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "On 9 July 2011, the world gained a brand-new country.",
+      "body": "South Sudan became independent that day, the newest country on Earth, and five days later the UN admitted it as a member state. Remember Level 1's 193 UN members? South Sudan is the newest of them. So what exactly did it gain that day? In one word: sovereignty.",
+      "id": "card.government.081.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The final say",
+      "body": "Britannica defines sovereignty as the ultimate power or authority in a state's decision-making and in keeping order. Put simply, a sovereign state has the final say over its own affairs: which laws apply, who runs things, how order is kept. It's the difference between owning your house and renting a room in someone else's.",
+      "id": "card.government.081.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "Modern sovereignty is often traced to a peace deal of 1648.",
+      "context": "The Peace of Westphalia, negotiated in the German towns of Munster and Osnabruck, ended the Thirty Years' War. It recognized the full territorial sovereignty of the empire's member states, including the right to make their own treaties. Many scholars see it as the foundation of the modern system of independent, equal states: lots of separate houses instead of one landlord.",
+      "id": "card.government.081.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A four-point checklist",
+      "body": "How do you recognize a state? The Montevideo Convention, signed in 1933, lists four qualifications: a permanent population, a defined territory, a government, and the capacity to enter into relations with other states. Level 9's state already had territory and laws; the fourth test looks outward. And Article 3 adds a twist: a state's existence doesn't depend on other states recognizing it.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Population, territory, government, relations: four boxes on one checklist."
+      },
+      "id": "card.government.081.c4"
+    },
+    {
+      "id": "card.government.081.c5",
+      "type": "mcq",
+      "questionId": "question.government.081.q1"
+    },
+    {
+      "id": "card.government.081.c6",
+      "type": "mcq",
+      "questionId": "question.government.081.q2"
+    },
+    {
+      "id": "card.government.081.c7",
+      "type": "recall",
+      "questionId": "question.government.081.q3"
+    },
+    {
+      "id": "card.government.081.c8",
+      "type": "checkpoint",
+      "headline": "Sovereignty: defined",
+      "learned": [
+        "Sovereignty: a state's final say over its own affairs",
+        "Westphalia (1648) is seen as the start of the state system",
+        "Montevideo's four tests: people, land, government, relations",
+        "South Sudan, independent in 2011, is the newest UN member"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.sovereignty_montevideo_statehood"
+      ],
+      "sourceCardIds": [
+        "card.government.081.c4"
+      ],
+      "prompt": "Which of these is one of the Montevideo Convention's four qualifications for a state?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A seat at the United Nations",
+          "correct": false,
+          "rationale": "UN membership isn't on the list; Article 3 even says recognition isn't required."
+        },
+        {
+          "id": "b",
+          "label": "A defined territory",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "An official national language",
+          "correct": false,
+          "rationale": "Language isn't one of the four; territory is."
+        },
+        {
+          "id": "d",
+          "label": "A written constitution",
+          "correct": false,
+          "rationale": "The list doesn't mention constitutions."
+        }
+      ],
+      "explanation": "The four are a permanent population, a defined territory, a government and the capacity to enter into relations with other states.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.sovereignty_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.081.c3",
+        "card.government.081.c2"
+      ],
+      "prompt": "Why is the Peace of Westphalia linked to the idea of sovereignty?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It created the United Nations to keep the peace",
+          "correct": false,
+          "rationale": "The UN came nearly three centuries later, in 1945."
+        },
+        {
+          "id": "b",
+          "label": "It placed all of Europe under a single emperor",
+          "correct": false,
+          "rationale": "The opposite: it strengthened separate states."
+        },
+        {
+          "id": "c",
+          "label": "It set out the four Montevideo tests for a state",
+          "correct": false,
+          "rationale": "Those date from 1933."
+        },
+        {
+          "id": "d",
+          "label": "It recognized states' full authority over their own lands",
+          "correct": true
+        }
+      ],
+      "explanation": "The 1648 settlement recognized the full territorial sovereignty of the empire's member states, and many scholars see it as the foundation of the system of sovereign states.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.sovereignty_definition",
+        "concept.government.government_first_governments"
+      ],
+      "sourceCardIds": [
+        "card.government.081.c1",
+        "card.government.001.c5"
+      ],
+      "prompt": "Level 1 counted 193 UN member states. Where does South Sudan fit in that count?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is the newest of them, admitted in 2011",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is one of the UN's founding members from 1945",
+          "correct": false,
+          "rationale": "South Sudan only became independent in 2011."
+        },
+        {
+          "id": "c",
+          "label": "It is not a member, only an observer",
+          "correct": false,
+          "rationale": "The UN admitted it as a member state in July 2011."
+        },
+        {
+          "id": "d",
+          "label": "It is counted as part of Sudan's seat",
+          "correct": false,
+          "rationale": "It has its own seat since its 2011 admission."
+        }
+      ],
+      "explanation": "South Sudan became independent on 9 July 2011 and was admitted to the UN on 14 July 2011, the newest member state.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.un_peacekeeping_south_sudan_independence",
+    "source.un_south_sudan_member",
+    "source.un_member_states",
+    "source.brit_sovereignty",
+    "source.brit_peace_of_westphalia",
+    "source.brit_montevideo_convention",
+    "source.avalon_montevideo_convention",
+    "source.brit_nation_state"
+  ],
+  "art": "object.flag"
+}

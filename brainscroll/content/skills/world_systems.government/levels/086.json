@@ -1,0 +1,241 @@
+{
+  "id": "level.world_systems.government.086",
+  "skillId": "skill.world_systems.government",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "War and Peace",
+  "objective": "After this level you can explain how wars start and how they end.",
+  "summary": "Clausewitz saw war as politics by other means. Rules on starting wars tightened from 1907 to 1945. An armistice stops a war; a peace treaty ends it.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.war_starting_rules",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.war_ending_armistice",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.treaty_kadesh",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.085"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "On 11 November 1918, the guns fell silent. The war wasn't over yet.",
+      "body": "That day's armistice stopped the fighting on the Western Front, but the First World War formally ended only with the Treaty of Versailles, signed on 28 June 1919. Stopping a war and ending one turn out to be different steps. So is starting one.",
+      "id": "card.government.086.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Politics by other means",
+      "body": "Why do wars start? One classic answer comes from the Prussian general Carl von Clausewitz, whose book On War appeared in 1832, after his death. He argued that war is a continuation of state policy by other means. In his view, war isn't a break from politics: it's a tool governments pick up to pursue political goals.",
+      "id": "card.government.086.c2"
+    },
+    {
+      "type": "timeline",
+      "headline": "Rules for starting a war",
+      "events": [
+        {
+          "when": "1907",
+          "label": "Hague Convention III: no fighting without a declaration of war or an ultimatum"
+        },
+        {
+          "when": "1928",
+          "label": "Kellogg-Briand Pact: war renounced as a tool of national policy, with no way to enforce it"
+        },
+        {
+          "when": "1945",
+          "label": "UN Charter: members must not threaten or use force against other states"
+        },
+        {
+          "when": "Still today",
+          "label": "The Charter keeps the right of self-defence if an armed attack occurs"
+        }
+      ],
+      "id": "card.government.086.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Stopping versus ending",
+      "body": "An armistice stops the fighting while the terms of peace are worked out. A peace treaty formally ends the war, as Versailles did after 1918's armistice. Sometimes the second step never comes: the Korean War armistice of 27 July 1953 stopped the fighting, but it was not a permanent peace treaty. Level 83's Kadesh tablet was the full kind: a peace treaty.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Armistice: the guns stop. Peace treaty: the argument is settled on paper."
+      },
+      "id": "card.government.086.c4"
+    },
+    {
+      "id": "card.government.086.c5",
+      "type": "mcq",
+      "questionId": "question.government.086.q1"
+    },
+    {
+      "id": "card.government.086.c6",
+      "type": "mcq",
+      "questionId": "question.government.086.q2"
+    },
+    {
+      "id": "card.government.086.c7",
+      "type": "recall",
+      "questionId": "question.government.086.q3"
+    },
+    {
+      "id": "card.government.086.c8",
+      "type": "checkpoint",
+      "headline": "War and peace: traced",
+      "learned": [
+        "Clausewitz: war continues state policy by other means",
+        "1907, 1928, 1945: rules on starting wars tightened",
+        "The UN Charter bans force but keeps self-defence",
+        "An armistice stops fighting; a peace treaty ends a war"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.war_ending_armistice"
+      ],
+      "sourceCardIds": [
+        "card.government.086.c1",
+        "card.government.086.c4"
+      ],
+      "prompt": "What did the armistice of 11 November 1918 do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It formally ended the First World War",
+          "correct": false,
+          "rationale": "The Treaty of Versailles did that, in 1919."
+        },
+        {
+          "id": "b",
+          "label": "It started the First World War",
+          "correct": false,
+          "rationale": "It came at the end, not the start."
+        },
+        {
+          "id": "c",
+          "label": "It stopped the fighting before a peace treaty",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It founded the United Nations",
+          "correct": false,
+          "rationale": "The UN came in 1945."
+        }
+      ],
+      "explanation": "The armistice stopped the fighting on the Western Front; the Treaty of Versailles formally ended the war in 1919.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.war_starting_rules"
+      ],
+      "sourceCardIds": [
+        "card.government.086.c3"
+      ],
+      "prompt": "What was the main weakness of the 1928 Kellogg-Briand Pact?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only two countries ever signed it",
+          "correct": false,
+          "rationale": "Many countries signed it."
+        },
+        {
+          "id": "b",
+          "label": "There was no way to enforce it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It required a declaration before every war",
+          "correct": false,
+          "rationale": "That was the 1907 Hague Convention."
+        },
+        {
+          "id": "d",
+          "label": "It banned self-defence against attack",
+          "correct": false,
+          "rationale": "It didn't; and the UN Charter keeps that right."
+        }
+      ],
+      "explanation": "The pact renounced war as a tool of national policy, but there was no way to enforce it, and it did not prevent World War II.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.war_ending_armistice",
+        "concept.government.treaty_kadesh"
+      ],
+      "sourceCardIds": [
+        "card.government.086.c4",
+        "card.government.083.c1"
+      ],
+      "prompt": "War and peace chapter: how does Level 83's Kadesh tablet differ from the 1953 Korean War armistice?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Kadesh was a peace treaty; the 1953 deal only stopped the fighting",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Kadesh only paused the fighting; Korea's was a full peace treaty",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "c",
+          "label": "Both were declarations of war",
+          "correct": false,
+          "rationale": "Both came at the end of fighting, not the start."
+        },
+        {
+          "id": "d",
+          "label": "Neither was ever put in writing",
+          "correct": false,
+          "rationale": "Both were written agreements."
+        }
+      ],
+      "explanation": "The Kadesh treaty is the oldest known peace treaty; the Korean War armistice stopped the fighting but was not a permanent peace treaty.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nationaltrust_armistice",
+    "source.brit_treaty_of_versailles",
+    "source.brit_clausewitz",
+    "source.avalon_hague_iii",
+    "source.state_history_kellogg_briand",
+    "source.un_charter_chapter_1",
+    "source.un_charter_chapter_7",
+    "source.nara_korean_armistice",
+    "source.un_kadesh_treaty_replica"
+  ],
+  "art": "gov.dove"
+}

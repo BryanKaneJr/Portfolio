@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.government.055",
+  "skillId": "skill.world_systems.government",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Lawyers",
+  "objective": "After this level you can explain what lawyers do on each side of a case.",
+  "summary": "A prosecutor brings the case for the state; a defence lawyer tests it. England's cab-rank rule keeps lawyers open to all; Gideon v Wainwright (1963) gave poor U.S. defendants a lawyer.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.lawyers_two_sides",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.lawyers_gideon_right_to_counsel",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.presumption_innocence",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.054"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A prisoner's handwritten petition changed who gets a lawyer.",
+      "body": "In 1961 Clarence Earl Gideon was charged with breaking into a Florida pool hall. He couldn't afford a lawyer and asked the judge for one. Florida only appointed lawyers in capital cases, so Gideon defended himself, and lost. From prison he sent the Supreme Court a handwritten petition.",
+      "id": "card.government.055.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Two sides, two jobs",
+      "body": "A criminal trial has a lawyer on each side. The prosecutor brings the case for the state. In England and Wales that's the Crown Prosecution Service, independent of the police, which decides which police-investigated cases go to court and then prosecutes them. The defence lawyer represents the accused and tests every piece of evidence. Level 54's golden thread needs someone to pull on it.",
+      "id": "card.government.055.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The cab-rank rule",
+      "body": "How can a lawyer defend someone accused of something terrible? In England, barristers follow the cab-rank rule: like a taxi at the front of the rank, they must generally take a suitable case whatever they think of the client or the cause. The point, says the Bar Standards Board, is that everyone can get legal representation. Defending someone isn't endorsing them. It's making sure the case gets tested.",
+      "id": "card.government.055.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Same man, same charge, different result.",
+      "context": "In 1963 the Supreme Court ruled unanimously that states must provide a lawyer to defendants in felony cases who can't afford one. Gideon got a retrial, this time with a lawyer, who discredited the prosecution's key witness. The jury acquitted him. The big difference was the person standing next to him.",
+      "mascot": {
+        "pose": "idea",
+        "line": "One handwritten letter, one retrial, one very different verdict."
+      },
+      "id": "card.government.055.c4"
+    },
+    {
+      "id": "card.government.055.c5",
+      "type": "mcq",
+      "questionId": "question.government.055.q1"
+    },
+    {
+      "id": "card.government.055.c6",
+      "type": "mcq",
+      "questionId": "question.government.055.q2"
+    },
+    {
+      "id": "card.government.055.c7",
+      "type": "recall",
+      "questionId": "question.government.055.q3"
+    },
+    {
+      "id": "card.government.055.c8",
+      "type": "checkpoint",
+      "headline": "Lawyers: both sides",
+      "learned": [
+        "Prosecutors bring the case for the state",
+        "Defence lawyers test it for the accused",
+        "Cab-rank rule: legal help for everyone",
+        "Gideon (1963): a lawyer for those who can't pay"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.lawyers_two_sides"
+      ],
+      "sourceCardIds": [
+        "card.government.055.c2"
+      ],
+      "prompt": "In England and Wales, which body decides which police-investigated cases go to court and prosecutes them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The police force that investigated",
+          "correct": false,
+          "rationale": "The CPS is independent of the police and makes that call."
+        },
+        {
+          "id": "b",
+          "label": "The Crown Prosecution Service",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The jury, before the trial starts",
+          "correct": false,
+          "rationale": "Juries decide guilt at trial, not which cases are brought."
+        },
+        {
+          "id": "d",
+          "label": "The Bar Standards Board",
+          "correct": false,
+          "rationale": "The BSB regulates barristers; it doesn't prosecute."
+        }
+      ],
+      "explanation": "The Crown Prosecution Service, independent of the police, decides which cases go to court and prosecutes them.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.lawyers_two_sides"
+      ],
+      "sourceCardIds": [
+        "card.government.055.c3"
+      ],
+      "prompt": "Why must an English barrister generally take a suitable case whatever they think of the client?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Because barristers are paid by the prosecution",
+          "correct": false,
+          "rationale": "They're not; the rule is about access."
+        },
+        {
+          "id": "b",
+          "label": "Because barristers must agree with their clients",
+          "correct": false,
+          "rationale": "The rule means their opinion doesn't decide it."
+        },
+        {
+          "id": "c",
+          "label": "So that everyone can get legal representation",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "So that trials can be finished faster",
+          "correct": false,
+          "rationale": "Speed isn't the purpose of the cab-rank rule."
+        }
+      ],
+      "explanation": "The cab-rank rule ensures everyone can have access to legal representation, regardless of the barrister's views.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.lawyers_gideon_right_to_counsel",
+        "concept.government.presumption_innocence"
+      ],
+      "sourceCardIds": [
+        "card.government.055.c4",
+        "card.government.055.c2",
+        "card.government.054.c2"
+      ],
+      "prompt": "Gideon was acquitted once he had a lawyer. How does a defence lawyer help protect Level 54's presumption of innocence?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By proving the client is innocent",
+          "correct": false,
+          "rationale": "The accused never has to prove innocence."
+        },
+        {
+          "id": "b",
+          "label": "By deciding the verdict with the judge",
+          "correct": false,
+          "rationale": "Verdicts belong to the jury or court, not the lawyer."
+        },
+        {
+          "id": "c",
+          "label": "By choosing which cases the state brings",
+          "correct": false,
+          "rationale": "That's the prosecutor's decision."
+        },
+        {
+          "id": "d",
+          "label": "By testing the prosecution's evidence, which must prove guilt",
+          "correct": true
+        }
+      ],
+      "explanation": "The prosecution must prove guilt; a defence lawyer tests that evidence, as Gideon's lawyer did with the key witness.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.uscourts_gideon",
+    "source.brit_gideon",
+    "source.cps_about",
+    "source.bsb_cab_rank",
+    "source.cambridge_woolmington"
+  ],
+  "art": "gov.gavel"
+}

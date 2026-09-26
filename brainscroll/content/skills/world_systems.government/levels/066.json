@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.government.066",
+  "skillId": "skill.world_systems.government",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Polls",
+  "objective": "After this level you can explain opinion polls and their margin of error.",
+  "summary": "The 1936 Literary Digest poll's 2.4 million biased replies lost to Gallup's scientific sample. A plus or minus 3 margin needs about 1,067 random interviews; a lead's margin is about double.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.election_poll_sampling",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_margin_of_error",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_fptp",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.065"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1936, 2.4 million people answered a magazine's poll. It still got it wrong.",
+      "body": "The Literary Digest mailed about 10 million straw ballots, got 2.4 million back and predicted Alf Landon would beat Franklin Roosevelt. Roosevelt won easily. How can so many answers be so wrong?",
+      "id": "card.government.066.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Big isn't the same as fair",
+      "body": "The Digest drew its names from phone lists, car registrations and club memberships. During the Depression, those leaned heavily toward the well-off, and only about a quarter of those mailed replied. George Gallup used more systematic, scientific sampling and publicly predicted that Roosevelt would win handily. A poll is only as good as who's in it.",
+      "id": "card.government.066.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The margin of error",
+      "body": "A well-chosen sample works like a spoonful from a well-stirred pot of soup. A simple random sample of 1,067 people has a margin of error of about plus or minus 3 points. That means if you ran the same survey 100 times, the result would land within 3 points of the true value about 95 times.",
+      "id": "card.government.066.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Read the lead, not just the number",
+      "body": "Here's the trap. The margin on the gap between two candidates is roughly double: a 3-point margin becomes about 6 points for the lead. So a 5-point lead could really be anywhere from -1 to +11. And sampling is only one source of error; question wording and who answers matter too.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Next time a headline says \"surges ahead by 2\", check the margin before you believe the surge."
+      },
+      "id": "card.government.066.c4"
+    },
+    {
+      "id": "card.government.066.c5",
+      "type": "mcq",
+      "questionId": "question.government.066.q1"
+    },
+    {
+      "id": "card.government.066.c6",
+      "type": "mcq",
+      "questionId": "question.government.066.q2"
+    },
+    {
+      "id": "card.government.066.c7",
+      "type": "recall",
+      "questionId": "question.government.066.q3"
+    },
+    {
+      "id": "card.government.066.c8",
+      "type": "checkpoint",
+      "headline": "Polls: read properly",
+      "learned": [
+        "1936: 2.4 million biased replies lost to a scientific sample",
+        "Plus or minus 3 points: about 1,067 random interviews",
+        "The margin on a lead is roughly double",
+        "Sampling is only one source of polling error"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.election_poll_sampling"
+      ],
+      "sourceCardIds": [
+        "card.government.066.c2"
+      ],
+      "prompt": "Why did the 1936 Literary Digest poll get the result wrong despite 2.4 million replies?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its sample leaned to the well-off; few replied",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It asked far too few people to be reliable",
+          "correct": false,
+          "rationale": "It had millions of replies; the problem was who they were."
+        },
+        {
+          "id": "c",
+          "label": "Roosevelt withdrew from the race early",
+          "correct": false,
+          "rationale": "Roosevelt ran and won easily."
+        },
+        {
+          "id": "d",
+          "label": "Its ballots were miscounted by machines",
+          "correct": false,
+          "rationale": "The problem was the sample, not the counting."
+        }
+      ],
+      "explanation": "The Digest's names came from phone lists, car registrations and club memberships, which leaned to the well-off, and only about a quarter replied.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.election_margin_of_error"
+      ],
+      "sourceCardIds": [
+        "card.government.066.c4"
+      ],
+      "prompt": "A poll with a margin of error of plus or minus 3 points shows Candidate A ahead by 2. What's the best reading?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A is clearly winning and will stay ahead",
+          "correct": false,
+          "rationale": "A 2-point lead is well inside the margin on a lead."
+        },
+        {
+          "id": "b",
+          "label": "B must really be ahead, hidden by the margin",
+          "correct": false,
+          "rationale": "The poll can't say that either."
+        },
+        {
+          "id": "c",
+          "label": "The poll is worthless and should be ignored",
+          "correct": false,
+          "rationale": "It's useful; it just can't separate these two."
+        },
+        {
+          "id": "d",
+          "label": "Too close to call: a lead's margin is about 6",
+          "correct": true
+        }
+      ],
+      "explanation": "The margin on the gap between two candidates is roughly double, about 6 points, so a 2-point lead is too close to call.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.election_poll_sampling",
+        "concept.government.election_fptp"
+      ],
+      "sourceCardIds": [
+        "card.government.066.c1",
+        "card.government.063.c1",
+        "card.government.063.c2"
+      ],
+      "prompt": "Polls usually measure national vote share. Level 63's New Zealand shows why that can't tell you who wins under first-past-the-post. Why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Polls are always wrong about elections",
+          "correct": false,
+          "rationale": "Good polls work; the issue is how votes become seats."
+        },
+        {
+          "id": "b",
+          "label": "Seats are won district by district",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "FPTP ignores total votes entirely",
+          "correct": false,
+          "rationale": "It counts votes, district by district."
+        },
+        {
+          "id": "d",
+          "label": "New Zealand banned all election polling",
+          "correct": false,
+          "rationale": "Nothing like that happened."
+        }
+      ],
+      "explanation": "Under FPTP each district elects its own winner, so in 1978 and 1981 Labour won more votes but National won more seats.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.emory_statistical_blunders",
+    "source.gallup_first_gallup_poll",
+    "source.pew_margin_of_error_2016"
+  ],
+  "art": "money.chart-up"
+}

@@ -1,0 +1,370 @@
+{
+  "id": "level.arts.architecture.020",
+  "skillId": "skill.arts.architecture",
+  "number": 20,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Ancient Wonders",
+  "objective": "After this level you can compare the great buildings of Egypt, Greece and Rome.",
+  "summary": "Egypt and Greece built trabeated: columns and stone lintels. Rome built arcuated: arches, vaults and domes, spanning farther but pushing outward.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.wonders_trabeated_arcuated",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.wonders_ziggurat_form",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.wonders_colosseum_crowds",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.wonders_hypostyle_hall",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.wonders_parthenon_clamps",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.wonders_colosseum_structure",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.wonders_pantheon_cracks",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.wonders_relieving_chambers",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_beam_bending",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch_thrust",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.019"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.020.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Ancient Wonders finale: from Karnak to the Pantheon, beams gave way to arches.",
+      "body": "Egypt and Greece set stone lintels on columns. Rome filled its bridges, aqueducts and great buildings with arches. Two old words sum up the whole chapter."
+    },
+    {
+      "id": "card.architecture.020.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Trabeated and arcuated",
+      "body": "A trabeated building is designed with horizontal beams or lintels: Level 3's posts and lintels. An arcuated one has arches: Level 4's wedges. Beams are simple, but stone ones must stay short. Arches of small blocks span much wider openings, but they push outward, so their supports must be massive. The great temples in this chapter each pick a side.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Trabeated: beams. Arcuated: arches. Two fancy words, one very old argument."
+      }
+    },
+    {
+      "id": "card.architecture.020.c3",
+      "type": "comparison",
+      "headline": "Ancient Wonders: three ways to hold up stone",
+      "items": [
+        {
+          "label": "Egypt",
+          "points": [
+            "Karnak: 134 columns under stone lintels, inside (Level 14)",
+            "The Great Pyramid: slabs and a pointed roof over a flat ceiling (Level 13)"
+          ]
+        },
+        {
+          "label": "Greece",
+          "points": [
+            "The Parthenon: columns and lintels, outside (Level 16)",
+            "No mortar: hand-trimmed blocks and iron clamps"
+          ]
+        },
+        {
+          "label": "Rome",
+          "points": [
+            "Arcades and aqueduct bridges: arches (Levels 17–18)",
+            "The Pantheon: a cracked dome standing as arches (Level 19)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.architecture.020.c4",
+      "type": "mcq",
+      "questionId": "question.architecture.020.q1"
+    },
+    {
+      "id": "card.architecture.020.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.020.q2"
+    },
+    {
+      "id": "card.architecture.020.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.020.q3"
+    },
+    {
+      "id": "card.architecture.020.c7",
+      "type": "recall",
+      "questionId": "question.architecture.020.q4"
+    },
+    {
+      "id": "card.architecture.020.c8",
+      "type": "recall",
+      "questionId": "question.architecture.020.q5"
+    },
+    {
+      "id": "card.architecture.020.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 2 complete",
+      "learned": [
+        "Trabeated: beams and lintels; arcuated: arches",
+        "Egypt and Greece: columns carrying stone lintels",
+        "Rome: arches, vaults and a concrete dome",
+        "Mass, reeds, lead and cracks: each wonder solved its own problem"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.020.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.wonders_trabeated_arcuated"
+      ],
+      "sourceCardIds": [
+        "card.architecture.020.c2"
+      ],
+      "prompt": "In Ancient Wonders terms, what does 'trabeated' describe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Built with arches",
+          "correct": false,
+          "rationale": "That's arcuated."
+        },
+        {
+          "id": "b",
+          "label": "Built solid, with no rooms inside",
+          "correct": false,
+          "rationale": "That describes a ziggurat."
+        },
+        {
+          "id": "c",
+          "label": "Built with horizontal beams or lintels",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Built without any mortar",
+          "correct": false,
+          "rationale": "That describes how the Parthenon was built, not the word."
+        }
+      ],
+      "explanation": "Trabeated means designed or constructed with horizontal beams or lintels; arcuated means having arches.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.020.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.wonders_trabeated_arcuated"
+      ],
+      "sourceCardIds": [
+        "card.architecture.020.c2"
+      ],
+      "prompt": "Why could Rome's arcuated buildings span wider openings than Egypt's and Greece's trabeated temples?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Roman stone was stronger when stretched",
+          "correct": false,
+          "rationale": "All stone is weak when stretched; arches avoid stretching it."
+        },
+        {
+          "id": "b",
+          "label": "Arches of small blocks span farther than short stone lintels",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Lintels push outward and need huge supports",
+          "correct": false,
+          "rationale": "That outward push, thrust, belongs to arches."
+        },
+        {
+          "id": "d",
+          "label": "Greek and Egyptian temples had no roofs",
+          "correct": false,
+          "rationale": "Both roofed their temples with stone lintels."
+        }
+      ],
+      "explanation": "Stone lintels must stay short, while arches made of small blocks can span much wider openings, at the price of outward thrust.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.020.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.wonders_trabeated_arcuated",
+        "concept.architecture.wonders_hypostyle_hall"
+      ],
+      "sourceCardIds": [
+        "card.architecture.020.c3",
+        "card.architecture.014.c2"
+      ],
+      "prompt": "Ancient Wonders recap: Karnak and the Parthenon are both trabeated. Where does each put its columns?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both put all their columns outside",
+          "correct": false,
+          "rationale": "Karnak's fill its hall inside."
+        },
+        {
+          "id": "b",
+          "label": "Karnak's fill the inside; the Parthenon's ring the outside",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Karnak's ring the outside; the Parthenon's fill the inside",
+          "correct": false,
+          "rationale": "It's the other way around."
+        },
+        {
+          "id": "d",
+          "label": "Neither uses columns: both use arches",
+          "correct": false,
+          "rationale": "Both use columns and stone lintels."
+        }
+      ],
+      "explanation": "Egyptian temple interiors and Greek temple exteriors are both lined with columns carrying stone lintels.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.020.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.wonders_ziggurat_form"
+      ],
+      "sourceCardIds": [
+        "card.architecture.012.c2"
+      ],
+      "prompt": "Ancient Wonders recap: which structure had no internal chambers at all, only a temple on its top?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Great Pyramid",
+          "correct": false,
+          "rationale": "It holds the King's Chamber and five compartments."
+        },
+        {
+          "id": "b",
+          "label": "The Pantheon",
+          "correct": false,
+          "rationale": "It is one great domed room."
+        },
+        {
+          "id": "c",
+          "label": "Karnak's Great Hypostyle Hall",
+          "correct": false,
+          "rationale": "It is a vast roofed hall."
+        },
+        {
+          "id": "d",
+          "label": "A Mesopotamian ziggurat",
+          "correct": true
+        }
+      ],
+      "explanation": "A ziggurat was a solid stepped tower with no internal chambers; staircases led to a temple on its flat top.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.020.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.wonders_colosseum_crowds"
+      ],
+      "sourceCardIds": [
+        "card.architecture.017.c3"
+      ],
+      "prompt": "Ancient Wonders recap: how many of the Colosseum's entrances were numbered for ticket holders?",
+      "options": [
+        {
+          "id": "a",
+          "label": "4",
+          "correct": false,
+          "rationale": "Far more than that were numbered."
+        },
+        {
+          "id": "b",
+          "label": "12",
+          "correct": false,
+          "rationale": "That was the number of giant central columns at Karnak."
+        },
+        {
+          "id": "c",
+          "label": "76",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "134",
+          "correct": false,
+          "rationale": "That's the number of columns in Karnak's hall."
+        }
+      ],
+      "explanation": "The Colosseum had at least 80 entrances, and 76 of them were numbered, with tickets sold for each.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.mw_trabeated",
+    "source.mw_arcuated",
+    "source.brit_post_lintel",
+    "source.brit_arch_architecture",
+    "source.memphis_hypostyle_architecture",
+    "source.brit_great_pyramid",
+    "source.aeo_kings_chamber",
+    "source.smithsonianmag_parthenon_mysteries",
+    "source.brit_colosseum",
+    "source.whe_colosseum",
+    "source.brit_aqueduct",
+    "source.artbulletin_pantheon_structure",
+    "source.brit_ziggurat"
+  ],
+  "art": "geo.pyramids"
+}

@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.architecture.079",
+  "skillId": "skill.arts.architecture",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Guggenheim Bilbao",
+  "objective": "After this level you can explain how one museum changed a city.",
+  "summary": "Gehry's 1997 museum used aerospace software and titanium skin. Its crowds gave rise to the 'Bilbao effect', which critic Witold Rybczynski argued rarely repeats.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.masters_bilbao_design",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.masters_bilbao_effect",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.masters_sydney_spherical_solution",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.078"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.079.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Can one building turn a city around? Bilbao bet a museum on it.",
+      "body": "The city of Bilbao grew on iron, steel and shipbuilding, and it went through a severe economic crisis in the 1970s and 1980s. In 1997 it opened a new art museum designed by Frank Gehry, a joint venture of the Guggenheim Foundation and the Basque regional government."
+    },
+    {
+      "id": "card.architecture.079.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Designed with aerospace software",
+      "body": "Gehry's curves were mathematically complex, so his team used CATIA, software first built for the aerospace industry, to turn his design into a structure and help the builders. Then the skin. Gehry chose titanium after watching how a sample pinned up outside his office behaved. About 33,000 thin titanium sheets now cover the museum, and they change color with the weather and the light.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "A test sample, pinned up and watched through the seasons. Very high-tech, and very patient."
+      }
+    },
+    {
+      "id": "card.architecture.079.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Bilbao effect",
+      "body": "The museum drew about 20 million visitors in its first 20 years, and the former industrial city became a major tourist destination. People began to talk of a Bilbao effect: the idea that one iconic building can transform a city's fortunes."
+    },
+    {
+      "id": "card.architecture.079.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The skeptic",
+      "body": "The critic Witold Rybczynski wasn't convinced. In 2011 he argued that nobody had checked whether eye-catching museum architecture really brings the crowds, and that it doesn't, pointing to museums in Seattle and Denver. His title for it: the Bilbao anomaly. One spectacular success, in other words, doesn't make a rule."
+    },
+    {
+      "id": "card.architecture.079.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.079.q1"
+    },
+    {
+      "id": "card.architecture.079.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.079.q2"
+    },
+    {
+      "id": "card.architecture.079.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.079.q3"
+    },
+    {
+      "id": "card.architecture.079.c8",
+      "type": "checkpoint",
+      "headline": "Bilbao: transformed?",
+      "learned": [
+        "Gehry's museum opened in 1997 in a struggling industrial city",
+        "CATIA aerospace software and about 33,000 titanium sheets",
+        "About 20 million visitors in 20 years: the 'Bilbao effect'",
+        "Rybczynski: one success doesn't make a rule"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.masters_bilbao_design"
+      ],
+      "sourceCardIds": [
+        "card.architecture.079.c2"
+      ],
+      "prompt": "What did Gehry's team use to turn his complex curves for the Guggenheim Bilbao into a buildable structure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "CATIA, software first built for aerospace",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Hanging models of weighted cords",
+          "correct": false,
+          "rationale": "That's Gaudí's method, Level 71."
+        },
+        {
+          "id": "c",
+          "label": "A single sphere, like Utzon's",
+          "correct": false,
+          "rationale": "That was the Sydney Opera House."
+        },
+        {
+          "id": "d",
+          "label": "Hand drawings only",
+          "correct": false,
+          "rationale": "The complexity called for CATIA software."
+        }
+      ],
+      "explanation": "Because the design was mathematically complex, Gehry's team used CATIA, aerospace software, to design and build it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.masters_bilbao_effect"
+      ],
+      "sourceCardIds": [
+        "card.architecture.079.c3",
+        "card.architecture.079.c4"
+      ],
+      "prompt": "What is the 'Bilbao effect', and what did Witold Rybczynski say about it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A titanium finish; he said it fades",
+          "correct": false,
+          "rationale": "The effect is about cities, not metal."
+        },
+        {
+          "id": "b",
+          "label": "One building transforming a city; he said it rarely repeats",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A tax on tourists; he said it was too high",
+          "correct": false,
+          "rationale": "It names a building's impact on a city."
+        },
+        {
+          "id": "d",
+          "label": "A flood risk; he said museums must be raised",
+          "correct": false,
+          "rationale": "That's the Farnsworth House problem."
+        }
+      ],
+      "explanation": "The Bilbao effect is the idea that one iconic building can transform a city; Rybczynski argued eye-catching museums don't reliably bring the crowds.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.masters_bilbao_design",
+        "concept.architecture.masters_sydney_spherical_solution"
+      ],
+      "sourceCardIds": [
+        "card.architecture.079.c2",
+        "card.architecture.076.c2"
+      ],
+      "prompt": "Utzon's sphere in Sydney and Gehry's software in Bilbao solved the same kind of problem. Which?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Keeping out floodwater",
+          "correct": false,
+          "rationale": "Neither was about water."
+        },
+        {
+          "id": "b",
+          "label": "Paying for the building",
+          "correct": false,
+          "rationale": "Both were about geometry."
+        },
+        {
+          "id": "c",
+          "label": "Turning dramatic curves into parts that can be built",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Choosing a color for the roof",
+          "correct": false,
+          "rationale": "Both were about making curves buildable."
+        }
+      ],
+      "explanation": "Both turned curves that were hard to describe into buildable parts: Utzon by using one sphere, Gehry with CATIA software.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.euronews_guggenheim_bilbao_20",
+    "source.brit_guggenheim_bilbao",
+    "source.guggenheim_bilbao_construction",
+    "source.rybczynski_bilbao_anomaly"
+  ],
+  "art": "arts.frame"
+}

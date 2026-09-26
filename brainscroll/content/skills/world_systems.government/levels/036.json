@@ -1,0 +1,235 @@
+{
+  "id": "level.world_systems.government.036",
+  "skillId": "skill.world_systems.government",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Privacy",
+  "objective": "After this level you can explain the right to privacy.",
+  "summary": "Warren and Brandeis called privacy 'the right to be let alone' in 1890. It's in the UN Declaration, built by US courts from the Bill of Rights, and extended to data by the EU.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.privacy_let_alone",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.privacy_data_protection",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.udhr_adoption",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.constitution_us_structure",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.035"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1890, two lawyers warned that cameras were invading private life.",
+      "body": "\"Instantaneous photographs and newspaper enterprise have invaded the sacred precincts of private and domestic life,\" wrote Samuel Warren and Louis Brandeis in the Harvard Law Review. Their answer was a right with a wonderfully plain name: \"the right to be let alone.\" Swap the camera for a phone and it could have been written this morning.",
+      "id": "card.government.036.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Written into the world's list",
+      "body": "Level 34's Declaration took the idea global. Article 12 says no one shall be subjected to arbitrary interference with their privacy, family, home or correspondence, nor to attacks on their honour and reputation. Notice the word \"arbitrary.\" The promise isn't that nobody may ever look. It's that nobody may pry on a whim.",
+      "id": "card.government.036.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The missing word in the U.S. Constitution",
+      "body": "Search the U.S. Constitution for \"privacy\" and you won't find it. Courts built the right from parts of Level 32's Bill of Rights, especially the First, Fourth and Fifth Amendments. The Fourth protects people \"in their persons, houses, papers, and effects\" against unreasonable searches and seizures, and requires warrants based on probable cause. In 1965 the Supreme Court described a \"zone of privacy\" formed by these guarantees.",
+      "id": "card.government.036.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Your data, your rights",
+      "body": "Today much of your private life is data. In the European Union, data protection is a fundamental right under Article 8 of the Charter of Fundamental Rights, and the General Data Protection Regulation (GDPR) has applied since 25 May 2018. You can ask an organisation whether it holds personal data about you and, in some cases, have it erased: the so-called right to be forgotten.",
+      "id": "card.government.036.c4"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "When rights collide",
+      "body": "Privacy often has to be weighed against other things people value. The EU's right to erasure doesn't apply where processing the data is needed for freedom of expression, a legal obligation or legal claims. And Britannica points to the USA PATRIOT Act of 2001, which widened federal access to business records in terrorism investigations, as an example of the tension between privacy and national security.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Rights don't live alone. Sometimes they have to share the room."
+      },
+      "id": "card.government.036.c5"
+    },
+    {
+      "id": "card.government.036.c6",
+      "type": "mcq",
+      "questionId": "question.government.036.q1"
+    },
+    {
+      "id": "card.government.036.c7",
+      "type": "mcq",
+      "questionId": "question.government.036.q2"
+    },
+    {
+      "id": "card.government.036.c8",
+      "type": "mcq",
+      "questionId": "question.government.036.q3"
+    },
+    {
+      "id": "card.government.036.c9",
+      "type": "checkpoint",
+      "headline": "Privacy: protected",
+      "learned": [
+        "\"The right to be let alone\": Warren and Brandeis, 1890",
+        "Article 12 bars arbitrary interference",
+        "US courts built privacy from the Bill of Rights",
+        "The EU's GDPR gives rights over your data"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.privacy_let_alone"
+      ],
+      "sourceCardIds": [
+        "card.government.036.c1"
+      ],
+      "prompt": "What did Warren and Brandeis call the right to privacy in 1890?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The right to be forgotten",
+          "correct": false,
+          "rationale": "That's the EU's modern name for erasing data."
+        },
+        {
+          "id": "b",
+          "label": "The zone of privacy",
+          "correct": false,
+          "rationale": "That's the Supreme Court's phrase from 1965."
+        },
+        {
+          "id": "c",
+          "label": "The right to be let alone",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The right to a secret ballot",
+          "correct": false,
+          "rationale": "Their phrase was about being let alone."
+        }
+      ],
+      "explanation": "Warren and Brandeis described the right to privacy as \"the right to be let alone.\"",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.privacy_data_protection"
+      ],
+      "sourceCardIds": [
+        "card.government.036.c5",
+        "card.government.036.c4"
+      ],
+      "prompt": "Why isn't the EU's right to be forgotten absolute?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It gives way when data is needed for free expression or legal claims",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It applies only to people living outside the EU",
+          "correct": false,
+          "rationale": "It's an EU right for people whose data is held."
+        },
+        {
+          "id": "c",
+          "label": "It lapses automatically after 25 May 2018",
+          "correct": false,
+          "rationale": "That's when the GDPR started applying, not when it ended."
+        },
+        {
+          "id": "d",
+          "label": "It covers paper letters but never digital data",
+          "correct": false,
+          "rationale": "It's about personal data, including online."
+        }
+      ],
+      "explanation": "Erasure doesn't apply where processing is needed for freedom of expression, a legal obligation or legal claims. Privacy is weighed against other rights.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.privacy_let_alone",
+        "concept.government.constitution_us_structure"
+      ],
+      "sourceCardIds": [
+        "card.government.036.c3",
+        "card.government.032.c5"
+      ],
+      "prompt": "The U.S. Constitution never uses the word \"privacy.\" Where did courts find the right?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In a 1992 amendment about privacy",
+          "correct": false,
+          "rationale": "No amendment names privacy; 1992 brought the pay amendment."
+        },
+        {
+          "id": "b",
+          "label": "In Bill of Rights amendments such as the Fourth",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In the Articles of Confederation",
+          "correct": false,
+          "rationale": "Those were replaced in 1789."
+        },
+        {
+          "id": "d",
+          "label": "In an order signed by the President each year",
+          "correct": false,
+          "rationale": "Courts drew it from the Bill of Rights."
+        }
+      ],
+      "explanation": "Courts drew privacy protections from the Bill of Rights, especially the First, Fourth and Fifth Amendments.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.hlr_warren_brandeis_1890",
+    "source.brit_rights_of_privacy",
+    "source.un_udhr",
+    "source.archives_bill_of_rights_transcript",
+    "source.brit_constitution_united_states",
+    "source.ec_data_protection",
+    "source.ec_data_protection_individuals"
+  ],
+  "art": "object.padlock"
+}

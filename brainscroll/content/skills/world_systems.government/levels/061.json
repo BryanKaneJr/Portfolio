@@ -1,0 +1,228 @@
+{
+  "id": "level.world_systems.government.061",
+  "skillId": "skill.world_systems.government",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Elections?",
+  "objective": "After this level you can explain what elections are for.",
+  "summary": "Schumpeter: elections are a contest for votes that picks who rules. Popper: they let the ruled dismiss rulers without bloodshed. UDHR Article 21 bases authority on the will of the people.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.election_purpose_choose_remove",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_udhr_will_of_people",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.power_vs_authority",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.social_contract_locke",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.060"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Every few years, whole countries can fire their government. Nobody gets hurt.",
+      "body": "Swapping the people in charge of a country, peacefully and on a schedule, is an odd thing when you stop to think about it. So what exactly are elections for? An economist, a philosopher and the United Nations each gave an answer.",
+      "id": "card.government.061.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Schumpeter: a contest for your vote",
+      "body": "In 1942 the economist Joseph Schumpeter gave a blunt answer. Democracy, he wrote, is a method in which people win the power to decide through a \"competitive struggle for the people's vote.\" Citizens don't really rule, in his view: elections are a fairly peaceful way of keeping or changing those who do. Think of a job interview where the whole country sits on the panel.",
+      "id": "card.government.061.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Popper: the power to fire",
+      "body": "The philosopher Karl Popper, author of The Open Society and Its Enemies (1945), shifted the question. \"The people do not rule anywhere,\" he wrote; governments rule. What matters is that the ruled can dismiss their rulers without bloodshed, for example through general elections. For Popper, the test of a democracy isn't who wins. It's whether today's winners can be voted out tomorrow.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Hired by vote, fired by vote. Either way, nobody needs a sword."
+      },
+      "id": "card.government.061.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The UN: where authority comes from",
+      "body": "In 1948 the Universal Declaration of Human Rights put a third answer in writing. Article 21 says the will of the people shall be the basis of the authority of government, expressed in periodic and genuine elections. Remember Level 3? Authority is power people accept as legitimate. Elections measure that acceptance again and again instead of assuming it. Locke's consent of the governed, on a timetable.",
+      "id": "card.government.061.c4"
+    },
+    {
+      "id": "card.government.061.c5",
+      "type": "mcq",
+      "questionId": "question.government.061.q1"
+    },
+    {
+      "id": "card.government.061.c6",
+      "type": "mcq",
+      "questionId": "question.government.061.q2"
+    },
+    {
+      "id": "card.government.061.c7",
+      "type": "recall",
+      "questionId": "question.government.061.q3"
+    },
+    {
+      "id": "card.government.061.c8",
+      "type": "checkpoint",
+      "headline": "Elections: explained",
+      "learned": [
+        "Schumpeter: a competitive struggle for the people's vote",
+        "Popper: the ruled can dismiss rulers without bloodshed",
+        "UDHR Article 21: the will of the people is the basis of authority",
+        "Elections measure consent, again and again"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.election_purpose_choose_remove"
+      ],
+      "sourceCardIds": [
+        "card.government.061.c3"
+      ],
+      "prompt": "What did Karl Popper treat as the test of a democracy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The ruled can remove rulers without bloodshed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The people rule directly, day to day, on everything",
+          "correct": false,
+          "rationale": "Popper said the people do not rule anywhere."
+        },
+        {
+          "id": "c",
+          "label": "The wisest candidate always wins the election",
+          "correct": false,
+          "rationale": "His test was about removal, not picking the best."
+        },
+        {
+          "id": "d",
+          "label": "Every new law is passed by a referendum",
+          "correct": false,
+          "rationale": "Popper's test was dismissing rulers, not referendums."
+        }
+      ],
+      "explanation": "For Popper, what matters is that the ruled can get rid of their rulers without bloodshed, for example through general elections.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.election_purpose_choose_remove"
+      ],
+      "sourceCardIds": [
+        "card.government.061.c2"
+      ],
+      "prompt": "In Schumpeter's view of democracy, what do voters actually do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Write, debate and pass every law themselves",
+          "correct": false,
+          "rationale": "Schumpeter said citizens don't really rule."
+        },
+        {
+          "id": "b",
+          "label": "Choose who rules, by a contest for votes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Confirm a ruler already chosen by tradition",
+          "correct": false,
+          "rationale": "His method is a competitive struggle, not inheritance."
+        },
+        {
+          "id": "d",
+          "label": "Take turns running the government's ministries",
+          "correct": false,
+          "rationale": "In his view leaders rule; voters pick them."
+        }
+      ],
+      "explanation": "Schumpeter saw democracy as a competitive struggle for the people's vote: voters keep or change those who rule.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.election_udhr_will_of_people",
+        "concept.government.power_vs_authority"
+      ],
+      "sourceCardIds": [
+        "card.government.061.c4",
+        "card.government.003.c3"
+      ],
+      "prompt": "Level 3 said authority is power people accept as legitimate. What does UDHR Article 21 make the basis of government's authority?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The strength and loyalty of the army",
+          "correct": false,
+          "rationale": "That's power, and Article 21 names something else."
+        },
+        {
+          "id": "b",
+          "label": "The oldest royal family's line of succession",
+          "correct": false,
+          "rationale": "Article 21 doesn't mention inheritance."
+        },
+        {
+          "id": "c",
+          "label": "The will of the people, shown in elections",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The founding charter of the ruling party",
+          "correct": false,
+          "rationale": "Article 21 points to the people, not a party."
+        }
+      ],
+      "explanation": "Article 21 says the will of the people is the basis of government's authority, expressed in periodic and genuine elections.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_popper_political",
+    "source.pmc_schumpeter_institutions",
+    "source.sep_democracy_elections",
+    "source.un_udhr_elections",
+    "source.openstax_sociology_power_authority",
+    "source.sep_weber",
+    "source.brit_social_contract",
+    "source.iep_social_contract"
+  ],
+  "art": "gov.ballot-box"
+}

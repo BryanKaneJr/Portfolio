@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.government.076",
+  "skillId": "skill.world_systems.government",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Roads and Bridges",
+  "objective": "After this level you can explain how governments build and maintain infrastructure.",
+  "summary": "Genoa's bridge collapse showed that infrastructure must be maintained. Governments pay for roads with taxes, road-user taxes like the US fuel tax, or public-private partnerships.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.infra_genoa_maintenance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.infra_paying",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.public_goods_free_riders",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.075"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "On 14 August 2018, a motorway bridge in Genoa fell.",
+      "body": "The Morandi bridge had carried traffic since 1967. When it collapsed, 43 people died. A bridge is built once, but it has to be looked after for as long as it stands.",
+      "id": "card.government.076.c1"
+    },
+    {
+      "type": "fact",
+      "fact": "Genoa's new bridge came with its own robots.",
+      "context": "The San Giorgio bridge, designed by Renzo Piano, opened in August 2020. Four robots run along it, checking for weathering and erosion. It's maintenance built into the design: the dull, never-finished job that decides whether infrastructure lasts.",
+      "id": "card.government.076.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Who pays? Often, the drivers",
+      "body": "In 1956 the United States set up the Highway Trust Fund to help build the Interstate highways, paid for by taxes on road users, such as fuel taxes. The people who use the roads pay at the pump. The catch: the federal gas tax has been 18.4 cents a gallon since 1993, and since the late 2000s Congress has had to top the fund up repeatedly.",
+      "id": "card.government.076.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Or bring in a partner",
+      "body": "Another route is a public-private partnership, or PPP. In the OECD's definition, it's a long-term deal in which a private company funds and delivers a public service, like a road, and shares the risks. The European Court of Auditors agreed in 2018 that PPPs can speed delivery and keep up maintenance. But when it checked 12 EU-backed PPPs, seven of nine finished projects ran late, by up to 52 months.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Build, pay, maintain, check. Every road you drive on went through all four."
+      },
+      "id": "card.government.076.c4"
+    },
+    {
+      "id": "card.government.076.c5",
+      "type": "mcq",
+      "questionId": "question.government.076.q1"
+    },
+    {
+      "id": "card.government.076.c6",
+      "type": "mcq",
+      "questionId": "question.government.076.q2"
+    },
+    {
+      "id": "card.government.076.c7",
+      "type": "recall",
+      "questionId": "question.government.076.q3"
+    },
+    {
+      "id": "card.government.076.c8",
+      "type": "checkpoint",
+      "headline": "Infrastructure: maintained",
+      "learned": [
+        "Genoa's 1967 bridge fell in 2018, killing 43",
+        "Its replacement has inspection robots",
+        "US highways run on road-user taxes like fuel tax",
+        "PPPs: private partners fund and deliver, with mixed results"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.infra_genoa_maintenance"
+      ],
+      "sourceCardIds": [
+        "card.government.076.c2"
+      ],
+      "prompt": "What was built into Genoa's San Giorgio bridge to help with maintenance?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A toll booth at each end",
+          "correct": false,
+          "rationale": "Tolls raise money; the maintenance feature is the robots."
+        },
+        {
+          "id": "b",
+          "label": "Robots that run along it checking for weathering and erosion",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A second deck for spare traffic",
+          "correct": false,
+          "rationale": "It has no spare deck; its robots check the structure."
+        },
+        {
+          "id": "d",
+          "label": "Solar panels to pay for repairs",
+          "correct": false,
+          "rationale": "The maintenance feature is its inspection robots."
+        }
+      ],
+      "explanation": "Four robots run along the San Giorgio bridge, checking it for weathering and erosion.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.infra_paying"
+      ],
+      "sourceCardIds": [
+        "card.government.076.c3"
+      ],
+      "prompt": "How was the US Highway Trust Fund designed to pay for roads?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From taxes on road users, such as fuel taxes",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "From tickets sold to every driver each year",
+          "correct": false,
+          "rationale": "There's no yearly ticket; users pay through fuel and other taxes."
+        },
+        {
+          "id": "c",
+          "label": "From loans by foreign governments",
+          "correct": false,
+          "rationale": "It was designed as a user-supported fund, not foreign loans."
+        },
+        {
+          "id": "d",
+          "label": "From profits of state-owned car makers",
+          "correct": false,
+          "rationale": "The fund's money comes from road-user taxes."
+        }
+      ],
+      "explanation": "Created in 1956, the Highway Trust Fund is user-supported: road users pay taxes such as fuel taxes, and the money goes to highways.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.infra_paying",
+        "concept.government.public_goods_free_riders"
+      ],
+      "sourceCardIds": [
+        "card.government.076.c3",
+        "card.government.005.c3"
+      ],
+      "prompt": "Level 5's free riders enjoy what others pay for. How does a fuel tax keep drivers from free riding on roads?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It bans drivers who haven't paid",
+          "correct": false,
+          "rationale": "Nobody is banned; payment is built into buying fuel."
+        },
+        {
+          "id": "b",
+          "label": "It charges only people without cars",
+          "correct": false,
+          "rationale": "Road users pay, not non-drivers."
+        },
+        {
+          "id": "c",
+          "label": "It lets drivers choose whether to pay",
+          "correct": false,
+          "rationale": "A choice to pay would invite free riding."
+        },
+        {
+          "id": "d",
+          "label": "Drivers pay a little every time they fill up",
+          "correct": true
+        }
+      ],
+      "explanation": "Because the tax is collected at the pump, everyone who drives on the roads chips in as they use them.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.aljazeera_genoa_bridge_2026",
+    "source.fhwa_highway_trust_fund",
+    "source.oecd_ppp_recommendation_2012",
+    "source.eca_ppp_2018",
+    "source.openstax_public_goods"
+  ],
+  "art": "technology.bridge"
+}

@@ -1,0 +1,226 @@
+{
+  "id": "level.arts.architecture.074",
+  "skillId": "skill.arts.architecture",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Bauhaus",
+  "objective": "After this level you can explain Bauhaus design.",
+  "summary": "Gropius's Bauhaus (1919-33) taught art and craft together, aimed design at factories, gave us Breuer's bicycle-inspired steel chair and built a Dessau home whose fittings came from its own workshops.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.masters_bauhaus_school",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.masters_bauhaus_breuer_chair",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.masters_bauhaus_dessau_building",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_frame_structure",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.073"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.074.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "At the Bauhaus, every workshop had two teachers: an artist and a craftsman.",
+      "body": "Walter Gropius founded the school in Weimar, Germany, in 1919, by combining an academy of arts with a school of arts and crafts. Two teachers per workshop was the whole idea in miniature."
+    },
+    {
+      "id": "card.architecture.074.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Art, meet the factory",
+      "body": "The Bauhaus set out to end the split between art and craft by training students equally in both. In each workshop, an artist called the Form Master taught theory while a craftsman taught technique. Then Gropius pointed the work at mass manufacture rather than one-off handmade pieces. The goal wasn't a single beautiful chair. It was a beautiful chair a factory could make thousands of."
+    },
+    {
+      "id": "card.architecture.074.c3",
+      "type": "fact",
+      "fact": "A famous Bauhaus chair began with a bicycle.",
+      "context": "Marcel Breuer designed his tubular steel club chair in 1925, the year he became master of the school's cabinet-making workshop. The curved handlebars of his bicycle had shown him that bent steel tube was light, strong and suited to industrial production, just what the Bauhaus wanted. Today the chair is often called the Wassily chair.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Next time you park your bike, look at the handlebars. That's a chair, waiting."
+      }
+    },
+    {
+      "id": "card.architecture.074.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A school that furnished itself",
+      "body": "In 1925 the Bauhaus moved to Dessau, and Gropius's office designed its new building, which opened in December 1926. Its workshop wing wears a steel and glass facade drawn around it like a curtain, so you can see into the workshops from outside. Inside, the lamps and tubular steel furniture came from the school's own workshops; Gropius designed the door handles. The school moved to Berlin in 1932, and the Nazi regime forced it to close in 1933."
+    },
+    {
+      "id": "card.architecture.074.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.074.q1"
+    },
+    {
+      "id": "card.architecture.074.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.074.q2"
+    },
+    {
+      "id": "card.architecture.074.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.074.q3"
+    },
+    {
+      "id": "card.architecture.074.c8",
+      "type": "checkpoint",
+      "headline": "The Bauhaus: in session",
+      "learned": [
+        "Founded by Gropius in Weimar in 1919",
+        "Art and craft taught together, by two teachers per workshop",
+        "Design aimed at mass manufacture: Breuer's bicycle-inspired chair",
+        "Dessau (1926): glass workshop wing, fittings from its own workshops"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.masters_bauhaus_school"
+      ],
+      "sourceCardIds": [
+        "card.architecture.074.c1",
+        "card.architecture.074.c2"
+      ],
+      "prompt": "In a Bauhaus workshop, who taught alongside the craftsman?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An engineer from a local factory",
+          "correct": false,
+          "rationale": "The partner was an artist."
+        },
+        {
+          "id": "b",
+          "label": "A senior student",
+          "correct": false,
+          "rationale": "Both teachers were masters."
+        },
+        {
+          "id": "c",
+          "label": "An artist called the Form Master",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "No one: craftsmen taught alone",
+          "correct": false,
+          "rationale": "Every workshop had two teachers."
+        }
+      ],
+      "explanation": "Each workshop paired an artist, the Form Master, who taught theory, with a craftsman, who taught technique.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.masters_bauhaus_breuer_chair",
+        "concept.architecture.masters_bauhaus_school"
+      ],
+      "sourceCardIds": [
+        "card.architecture.074.c3",
+        "card.architecture.074.c2"
+      ],
+      "prompt": "Why did Marcel Breuer's tubular steel chair suit the Bauhaus so well?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was carved by hand, one at a time",
+          "correct": false,
+          "rationale": "The Bauhaus aimed at mass manufacture."
+        },
+        {
+          "id": "b",
+          "label": "Bent steel tube suited factory production",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It copied a traditional wooden design",
+          "correct": false,
+          "rationale": "It was inspired by bicycle handlebars."
+        },
+        {
+          "id": "d",
+          "label": "It was built from leftover building steel",
+          "correct": false,
+          "rationale": "Its steel tube came from the bicycle idea."
+        }
+      ],
+      "explanation": "Breuer saw bent tubular steel, like his bicycle's handlebars, as suited to industrial production, the Bauhaus goal.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.masters_bauhaus_dessau_building",
+        "concept.architecture.stand_frame_structure"
+      ],
+      "sourceCardIds": [
+        "card.architecture.074.c4",
+        "card.architecture.008.c2"
+      ],
+      "prompt": "The Bauhaus workshop wing in Dessau is wrapped in glass. According to Level 8, what makes a glass outer wall possible?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A frame carries the floors, so the wall holds only itself",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Glass is stronger than brick",
+          "correct": false,
+          "rationale": "The wall can be glass because it carries nothing."
+        },
+        {
+          "id": "c",
+          "label": "The workshops had no floors above them",
+          "correct": false,
+          "rationale": "The wing has three storeys."
+        },
+        {
+          "id": "d",
+          "label": "The glass is filled with steel bars",
+          "correct": false,
+          "rationale": "The frame, not the glass, does the carrying."
+        }
+      ],
+      "explanation": "In a frame building a skeleton carries the floors and the outer wall bears only its own weight, so it can be glass.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_bauhaus",
+    "source.harvard_breuer_b3",
+    "source.pompidou_wassily_chair",
+    "source.bauhaus_dessau_building"
+  ],
+  "art": "arts.shapes"
+}

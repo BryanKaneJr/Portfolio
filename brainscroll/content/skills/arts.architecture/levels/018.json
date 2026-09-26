@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.architecture.018",
+  "skillId": "skill.arts.architecture",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Aqueducts",
+  "objective": "After this level you can explain how aqueducts carried water downhill over long distances.",
+  "summary": "Aqueducts ran on gravity, so the slope had to hold: Nîmes's fell only 25 to 34 cm per km. Surveyors leveled with a chorobates; arches crossed valleys.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.wonders_aqueduct_gradient",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.wonders_aqueduct_surveying",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.017"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One Roman aqueduct fell only about 25 to 34 cm every kilometer.",
+      "body": "It carried water about 50 km to Nîmes, in southern France, and surveys differ on the exact slope. Either way, it's gentle: less than the height of a bowling pin per kilometer. Gravity did all the work, so that slope had to hold across hills and valleys. How do you build that?"
+    },
+    {
+      "id": "card.architecture.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Downhill, mostly underground",
+      "body": "Roman aqueducts moved water by gravity alone, so the channel had to keep its slope wherever the land went. Mostly, that meant underground. Of the roughly 420 km of aqueducts serving Rome, only about 50 km crossed valleys on stone arches; the rest ran in conduits below ground. The famous arches are the rare places where the valley dropped away and the water couldn't."
+    },
+    {
+      "id": "card.architecture.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A spirit level as long as a room",
+      "body": "To hold a slope, you first need to know what level is. Level 1's Vitruvius described the tool: the chorobates, a straightedge about twenty feet long on two legs, with plumb lines hanging beside marked lines. When the plumb lines matched their marks, it stood level. On a windy day you could pour water into a groove along its top and read the level off the water instead.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A plumb line and a bit of water. Sometimes the best tools are the ones with nothing to break."
+      }
+    },
+    {
+      "id": "card.architecture.018.c4",
+      "type": "fact",
+      "fact": "The Pont du Gard stands without mortar.",
+      "context": "Where the Nîmes aqueduct crossed the Gard River, the Romans built the Pont du Gard: three tiers of arches, with the water channel along the top. It was built without mortar. Level 4 explains how that works: weight presses each arch's wedge-shaped stones together, keeping the whole curve in compression."
+    },
+    {
+      "id": "card.architecture.018.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.018.q1"
+    },
+    {
+      "id": "card.architecture.018.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.018.q2"
+    },
+    {
+      "id": "card.architecture.018.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.018.q3"
+    },
+    {
+      "id": "card.architecture.018.c8",
+      "type": "checkpoint",
+      "headline": "Aqueducts: flowing",
+      "learned": [
+        "Gravity only: the slope had to hold all the way",
+        "Nîmes aqueduct: a drop of just 25 to 34 cm per km",
+        "Rome: about 50 km of arches out of about 420 km",
+        "Chorobates: plumb lines or water show level"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.wonders_aqueduct_gradient"
+      ],
+      "sourceCardIds": [
+        "card.architecture.018.c1"
+      ],
+      "prompt": "On average, how far did the Nîmes aqueduct drop over each kilometer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Less than half a meter",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "About 3 m",
+          "correct": false,
+          "rationale": "Far too steep: estimates are 25 to 34 cm."
+        },
+        {
+          "id": "c",
+          "label": "About 30 m",
+          "correct": false,
+          "rationale": "Far too steep: estimates are 25 to 34 cm."
+        },
+        {
+          "id": "d",
+          "label": "About 300 m",
+          "correct": false,
+          "rationale": "That would be a cliff: estimates are 25 to 34 cm."
+        }
+      ],
+      "explanation": "The Nîmes aqueduct ran about 50 km with an average gradient estimated at 25 to 34 cm per kilometer.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.wonders_aqueduct_surveying"
+      ],
+      "sourceCardIds": [
+        "card.architecture.018.c3"
+      ],
+      "prompt": "How did a Roman chorobates show a surveyor that it was level?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A bubble settled in the middle of a glass tube",
+          "correct": false,
+          "rationale": "It used plumb lines, or water in a groove."
+        },
+        {
+          "id": "b",
+          "label": "Its plumb lines hung exactly on their marked lines",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A sighting on the North Star lined up",
+          "correct": false,
+          "rationale": "It used plumb lines against marked lines."
+        },
+        {
+          "id": "d",
+          "label": "A weight on a spring pointed to zero",
+          "correct": false,
+          "rationale": "It used plumb lines, or water in a groove."
+        }
+      ],
+      "explanation": "When the chorobates' plumb lines matched their marked lines, it stood level; in wind, water in a groove on top showed the level.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.wonders_aqueduct_gradient",
+        "concept.architecture.stand_arch"
+      ],
+      "sourceCardIds": [
+        "card.architecture.018.c4",
+        "card.architecture.004.c2"
+      ],
+      "prompt": "The Pont du Gard's arches were built without mortar. What keeps their stones in place?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Iron clamps sealed with lead",
+          "correct": false,
+          "rationale": "That's the Parthenon's method."
+        },
+        {
+          "id": "b",
+          "label": "Hidden steel bars",
+          "correct": false,
+          "rationale": "Romans didn't use steel reinforcement."
+        },
+        {
+          "id": "c",
+          "label": "Weight squeezing the wedge-shaped stones together",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Layers of reed matting between courses",
+          "correct": false,
+          "rationale": "That's the Aqar Quf ziggurat."
+        }
+      ],
+      "explanation": "In an arch, weight forces the wedge-shaped stones together instead of apart, so the curve stays in compression.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.pontdugard_monument",
+    "source.whe_pont_du_gard",
+    "source.brit_aqueduct",
+    "source.brit_pont_du_gard",
+    "source.brit_masonry",
+    "source.lacuscurtius_vitruvius_book8",
+    "source.brit_arch_architecture"
+  ],
+  "art": "rome.aqueduct"
+}

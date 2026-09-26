@@ -1,0 +1,234 @@
+{
+  "id": "level.arts.architecture.096",
+  "skillId": "skill.arts.architecture",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Building on the Moon",
+  "objective": "After this level you can explain plans for bases on the Moon.",
+  "summary": "The Moon has no shielding air and wild temperature swings. A pressurized habitat is mainly in tension. ESA's 2013 study proposed a printed regolith catenary dome over an inflatable.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.future_moon_environment",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.future_moon_tension",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.future_lunar_printed_base",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_hanging_chain",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_tension_compression",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.095"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.096.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On the Moon, the biggest push on a building comes from inside it.",
+      "body": "A Moon base has to hold Earth-level air pressure where there's no atmosphere outside. That outward push is several orders of magnitude bigger than the gravity and weather loads on buildings on Earth. It turns Chapter 1's rules inside out."
+    },
+    {
+      "id": "card.architecture.096.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A tough building site",
+      "body": "The Moon has only a very thin atmosphere, so nothing blocks the Sun's radiation or incoming meteoroids. In full sunlight its surface reaches about 127 °C; in darkness it drops to about -173 °C. That's a swing of about 300 degrees between sunlight and shadow. Gravity is one-sixth of Earth's, so everything weighs less, but that's the only easy part."
+    },
+    {
+      "id": "card.architecture.096.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The inside-out building",
+      "body": "On Earth, gravity squeezes buildings: Level 2's compression. A pressurized Moon habitat is mainly in tension instead, its walls pushed outward and stretched by the air inside. Here's an analogy: a balloon's skin, pulled tight by the air it holds. To protect it, engineers suggest a thick outer layer of regolith, the Moon's loose, broken soil and rock, to dampen temperature swings and shield against radiation."
+    },
+    {
+      "id": "card.architecture.096.c4",
+      "type": "fact",
+      "fact": "In 2013, ESA tested printing a Moon base from Moon soil.",
+      "context": "ESA and partners including the architects Foster + Partners studied whether a 3D printer could build a lunar base from regolith. The design: an inflatable, pressurized dome to shelter astronauts, covered by a robot-printed regolith shell. The shell was a weight-bearing catenary dome with hollow, closed cells like bird bones. A catenary is a hanging chain's curve: flip it and you get Level 10's arch. The team printed a 1.5-tonne demonstration block. It was a study, not a base.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Hooke's hanging chain, from 1675 all the way to the Moon. Good ideas travel well."
+      }
+    },
+    {
+      "id": "card.architecture.096.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.096.q1"
+    },
+    {
+      "id": "card.architecture.096.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.096.q2"
+    },
+    {
+      "id": "card.architecture.096.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.096.q3"
+    },
+    {
+      "id": "card.architecture.096.c8",
+      "type": "checkpoint",
+      "headline": "Moon building: mapped",
+      "learned": [
+        "No shielding air; about 127 °C to -173 °C",
+        "Air pressure pushes out, so habitats are mainly in tension",
+        "Regolith cover could shield and steady temperatures",
+        "ESA, 2013: printed regolith catenary dome over an inflatable"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.future_lunar_printed_base"
+      ],
+      "sourceCardIds": [
+        "card.architecture.096.c4"
+      ],
+      "prompt": "In ESA's 2013 lunar base study, what would the robot printer build the shell from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Concrete shipped up from Earth",
+          "correct": false,
+          "rationale": "The study's printer used regolith, found on the Moon."
+        },
+        {
+          "id": "b",
+          "label": "Regolith, the Moon's loose soil and rock",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Blocks of ice cut from craters",
+          "correct": false,
+          "rationale": "The shell was printed from regolith."
+        },
+        {
+          "id": "d",
+          "label": "Steel panels bolted together",
+          "correct": false,
+          "rationale": "The shell was printed, not bolted."
+        }
+      ],
+      "explanation": "ESA and Foster + Partners studied printing a regolith shell over an inflatable dome.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.future_moon_tension",
+        "concept.architecture.future_moon_environment"
+      ],
+      "sourceCardIds": [
+        "card.architecture.096.c3",
+        "card.architecture.096.c1",
+        "card.architecture.096.c2"
+      ],
+      "prompt": "Why is a pressurized Moon habitat mainly in tension, unlike a building on Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Moon gravity pulls it upward",
+          "correct": false,
+          "rationale": "Gravity still pulls down, just more weakly."
+        },
+        {
+          "id": "b",
+          "label": "Meteoroids pull on its roof",
+          "correct": false,
+          "rationale": "Impacts don't pull; the air inside pushes."
+        },
+        {
+          "id": "c",
+          "label": "Its walls are made of stretched rope",
+          "correct": false,
+          "rationale": "The tension comes from air pressure, not the material."
+        },
+        {
+          "id": "d",
+          "label": "Air inside pushes out, with almost none outside",
+          "correct": true
+        }
+      ],
+      "explanation": "With almost no atmosphere outside, the air inside pushes the walls outward and stretches them: tension.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.future_lunar_printed_base",
+        "concept.architecture.stand_hanging_chain"
+      ],
+      "sourceCardIds": [
+        "card.architecture.096.c4",
+        "card.architecture.010.c2"
+      ],
+      "prompt": "Foster + Partners shaped ESA's printed lunar shell as a catenary dome. Which Level 10 idea does that shape use?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A dome's lower rings stretch like barrel hoops",
+          "correct": false,
+          "rationale": "That's Level 5's tie-ring problem."
+        },
+        {
+          "id": "b",
+          "label": "A beam is squeezed on top, stretched below",
+          "correct": false,
+          "rationale": "That's Level 3's bending beam."
+        },
+        {
+          "id": "c",
+          "label": "A hanging chain, flipped, stands as an arch",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A frame carries floors so walls can be glass",
+          "correct": false,
+          "rationale": "That's Level 8's frame."
+        }
+      ],
+      "explanation": "A catenary is a hanging chain's curve; Hooke showed that, turned upside down, it stands as an arch in compression.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.structuremag_space_architecture",
+    "source.nasa_moon_facts",
+    "source.brit_bridge_engineering",
+    "source.brit_building_construction",
+    "source.plusmaths_catenary",
+    "source.mit_hooke_hanging_chain",
+    "source.esa_lunar_base_3d_printing"
+  ],
+  "art": "astronomy.moon"
+}

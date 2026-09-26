@@ -1,0 +1,242 @@
+{
+  "id": "level.world_systems.government.084",
+  "skillId": "skill.world_systems.government",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The United Nations",
+  "objective": "After this level you can explain what the UN does and does not do.",
+  "summary": "Founded in 1945 to prevent war, the UN gives every member one vote in the General Assembly; the Security Council's five permanent members hold a veto. It is not a world government.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.un_founding_charter",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.un_general_assembly",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.un_security_council",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.government_first_governments",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.treaty_sign_ratify",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.083"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "The UN's founding document opens with a promise about war.",
+      "body": "Its first words set the mission: \"to save succeeding generations from the scourge of war, which twice in our lifetime has brought untold sorrow to mankind.\" Everything the UN does, and everything it can't do, makes more sense once you know it began with that sentence.",
+      "id": "card.government.084.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Signed in San Francisco",
+      "body": "Delegates from 50 countries spent two months in San Francisco in 1945 drawing up the UN Charter. The UN came into existence on 24 October 1945, once China, France, the Soviet Union, the UK, the US and most other signers had ratified it. Ratified: Level 83's step, the one that turns a signature into a binding promise.",
+      "id": "card.government.084.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "One country, one vote",
+      "body": "In the General Assembly, all 193 members sit together and each has one vote, so Tuvalu's vote counts exactly as much as India's. The Charter calls this the sovereign equality of all its members: Level 81's idea, written into the rules. The Assembly makes recommendations to states, and important questions need a two-thirds majority.",
+      "id": "card.government.084.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Fifteen seats, five vetoes",
+      "body": "Keeping the peace is mainly the Security Council's job. It has 15 members, 5 of them permanent: China, France, Russia, the UK and the US. Unlike the Assembly's recommendations, its decisions bind every UN member. A decision needs nine votes, including all five permanent members, so a single no from any one of them blocks it. That's the veto.",
+      "id": "card.government.084.c4"
+    },
+    {
+      "type": "fact",
+      "fact": "The UN is not a world government.",
+      "context": "In its own words, the UN is neither a supra-state nor a government of governments. It has no army and levies no taxes, and it depends on what its member states are willing to do. Back to Level 1's ship: the UN isn't a captain for every vessel. It's where the captains meet.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "193 captains, one meeting room, no admiral."
+      },
+      "id": "card.government.084.c5"
+    },
+    {
+      "id": "card.government.084.c6",
+      "type": "mcq",
+      "questionId": "question.government.084.q1"
+    },
+    {
+      "id": "card.government.084.c7",
+      "type": "mcq",
+      "questionId": "question.government.084.q2"
+    },
+    {
+      "id": "card.government.084.c8",
+      "type": "recall",
+      "questionId": "question.government.084.q3"
+    },
+    {
+      "id": "card.government.084.c9",
+      "type": "checkpoint",
+      "headline": "The UN: mapped",
+      "learned": [
+        "The UN began in 1945 to save future generations from war",
+        "General Assembly: 193 members, one vote each",
+        "Security Council: 15 seats, 5 permanent with a veto",
+        "The UN has no army or taxes: not a world government"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.un_security_council"
+      ],
+      "sourceCardIds": [
+        "card.government.084.c4"
+      ],
+      "prompt": "How many permanent members does the UN Security Council have?",
+      "options": [
+        {
+          "id": "a",
+          "label": "3",
+          "correct": false,
+          "rationale": "There are five: China, France, Russia, the UK and the US."
+        },
+        {
+          "id": "b",
+          "label": "5",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "10",
+          "correct": false,
+          "rationale": "Ten is the number of non-permanent seats."
+        },
+        {
+          "id": "d",
+          "label": "15",
+          "correct": false,
+          "rationale": "Fifteen is the Council's total membership."
+        }
+      ],
+      "explanation": "The Security Council has 15 members, 5 of them permanent: China, France, Russia, the UK and the US.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.un_founding_charter"
+      ],
+      "sourceCardIds": [
+        "card.government.084.c5"
+      ],
+      "prompt": "Why is the UN described as not being a world government?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has no army or taxes and relies on its members",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It has no members from Africa or South America",
+          "correct": false,
+          "rationale": "All 193 member states belong, from every continent."
+        },
+        {
+          "id": "c",
+          "label": "It only meets once every ten years",
+          "correct": false,
+          "rationale": "The UN works all year; that isn't the reason."
+        },
+        {
+          "id": "d",
+          "label": "Its decisions are secret and never published",
+          "correct": false,
+          "rationale": "Openness isn't the issue; power is."
+        }
+      ],
+      "explanation": "The UN calls itself neither a supra-state nor a government of governments: it has no army, levies no taxes and depends on its members.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.un_general_assembly",
+        "concept.government.government_first_governments"
+      ],
+      "sourceCardIds": [
+        "card.government.084.c3",
+        "card.government.001.c5"
+      ],
+      "prompt": "Level 1 met giant India and tiny Tuvalu. How do their votes compare in the UN General Assembly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "India's vote counts more because of its population",
+          "correct": false,
+          "rationale": "Population doesn't weigh votes in the Assembly."
+        },
+        {
+          "id": "b",
+          "label": "Tuvalu may speak but has no vote",
+          "correct": false,
+          "rationale": "Every member has a vote."
+        },
+        {
+          "id": "c",
+          "label": "They count equally: one vote each",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only India votes, as a permanent member",
+          "correct": false,
+          "rationale": "India isn't a permanent member, and that's the Security Council anyway."
+        }
+      ],
+      "explanation": "Every member has one vote in the General Assembly, reflecting the Charter's sovereign equality of members.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.un_charter_preamble",
+    "source.un_history",
+    "source.un_main_bodies",
+    "source.un_ga_background",
+    "source.un_charter_chapter_1",
+    "source.un_charter_chapter_5",
+    "source.un_library_sc_membership",
+    "source.un_model_un_structure",
+    "source.un_member_states",
+    "source.un_treaty_collection_glossary",
+    "source.un_vienna_convention_law_of_treaties"
+  ],
+  "art": "object.globe"
+}

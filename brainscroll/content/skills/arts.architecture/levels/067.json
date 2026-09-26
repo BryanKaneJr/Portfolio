@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.architecture.067",
+  "skillId": "skill.arts.architecture",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Building a Skyscraper",
+  "objective": "After this level you can describe the steps from foundation to top.",
+  "summary": "A skyscraper starts with a pit and piles to bedrock; a concrete core climbs first, the steel frame follows, floors go on steel decking, and the outer wall and fit-out overlap.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.sky_build_sequence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_build_core_first",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_load_path",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.066"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A skyscraper starts by going down.",
+      "body": "Before anything rises, builders dig a pit to hold the foundation. Then the tower grows in layers, and several of those layers are being built at the same time. Here's the order, from the bottom up."
+    },
+    {
+      "id": "card.architecture.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Down to rock",
+      "body": "Piles, which are vertical beams, are sunk through the soil until they're embedded in the bedrock. That's where Level 2's load path ends. A continuous path carries the loads from the roof down through the building to the foundation, and into the ground that holds it all up. For a piled tower, that ground is rock."
+    },
+    {
+      "id": "card.architecture.067.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The core goes first",
+      "body": "Many towers are built core-first. A concrete core, holding the stairways, elevators and utility risers, is cast inside a self-climbing form: a giant mold that climbs as the core rises. The steel framing follows once the forms have climbed clear. Here's an analogy: the spine grows first, and the rest of the skeleton catches up."
+    },
+    {
+      "id": "card.architecture.067.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Frame, floor, skin",
+      "body": "Cranes lift each steel beam into place, where skilled workers bolt or weld it. Thin corrugated steel decking goes down on the beams, and about 5 to 10 cm of concrete is poured on top to make a floor. Panels of glass, metal or stone are bolted to the frame as the outer wall, then come wiring, pipes and elevators. All of it overlaps: frame at the top, walls and wiring lower down.",
+      "mascot": {
+        "pose": "idea",
+        "line": "One tower, several building sites, stacked. It's a layer cake baked from the bottom up."
+      }
+    },
+    {
+      "id": "card.architecture.067.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.067.q1"
+    },
+    {
+      "id": "card.architecture.067.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.067.q2"
+    },
+    {
+      "id": "card.architecture.067.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.067.q3"
+    },
+    {
+      "id": "card.architecture.067.c8",
+      "type": "checkpoint",
+      "headline": "Skyscraper: built",
+      "learned": [
+        "Dig a pit; sink piles to bedrock",
+        "Core-first: a concrete core climbs in a self-climbing form",
+        "Beams by crane; floors of steel decking and concrete",
+        "Outer wall and fit-out follow; phases overlap"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.sky_build_sequence"
+      ],
+      "sourceCardIds": [
+        "card.architecture.067.c4"
+      ],
+      "prompt": "How is a floor usually made on a skyscraper's steel beams?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Thick stone slabs laid across the beams",
+          "correct": false,
+          "rationale": "Stone is too heavy; the floor is decking and concrete."
+        },
+        {
+          "id": "b",
+          "label": "Wooden planks nailed to the beams",
+          "correct": false,
+          "rationale": "The floor is steel decking with concrete on top."
+        },
+        {
+          "id": "c",
+          "label": "Glass panels bolted to the beams",
+          "correct": false,
+          "rationale": "Glass goes on the outer wall, not the floor."
+        },
+        {
+          "id": "d",
+          "label": "Corrugated steel decking with concrete poured on top",
+          "correct": true
+        }
+      ],
+      "explanation": "Steel decking is laid on the beams and about 5 to 10 cm of concrete is poured on it to complete the floor.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.sky_build_core_first"
+      ],
+      "sourceCardIds": [
+        "card.architecture.067.c3"
+      ],
+      "prompt": "In core-first construction, what is the self-climbing form?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A crane that lifts steel beams to the top",
+          "correct": false,
+          "rationale": "Cranes lift beams; the form shapes the concrete core."
+        },
+        {
+          "id": "b",
+          "label": "A giant mold the concrete core is cast in, climbing as it rises",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A temporary elevator for the workers",
+          "correct": false,
+          "rationale": "The core will hold elevators; the form is the mold."
+        },
+        {
+          "id": "d",
+          "label": "A glass panel system for the outer wall",
+          "correct": false,
+          "rationale": "That's the curtain wall, added later."
+        }
+      ],
+      "explanation": "The core is cast in a self-climbing form, a giant mold, and the steel framing follows once it climbs clear.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.sky_build_sequence",
+        "concept.architecture.stand_load_path"
+      ],
+      "sourceCardIds": [
+        "card.architecture.067.c2",
+        "card.architecture.002.c3"
+      ],
+      "prompt": "Level 2's load path ends in the ground. Where does a piled skyscraper's load path end?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the bedrock, where the piles are embedded",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "At the top of the concrete core",
+          "correct": false,
+          "rationale": "The core carries loads down; the path ends below."
+        },
+        {
+          "id": "c",
+          "label": "In the outer glass wall",
+          "correct": false,
+          "rationale": "The curtain wall holds only itself."
+        },
+        {
+          "id": "d",
+          "label": "In the basement floor slab",
+          "correct": false,
+          "rationale": "The piles carry the load on down into bedrock."
+        }
+      ],
+      "explanation": "Piles are sunk through the soil until embedded in bedrock, where the tower's load path ends.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.madehow_skyscraper",
+    "source.pnnl_continuous_load_path",
+    "source.bdc_core_first"
+  ],
+  "art": "technology.crane"
+}

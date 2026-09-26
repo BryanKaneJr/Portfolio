@@ -1,0 +1,226 @@
+{
+  "id": "level.arts.architecture.099",
+  "skillId": "skill.arts.architecture",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How to Look at a Building",
+  "objective": "After this level you can use a simple method to read any building.",
+  "summary": "Read a building in three steps: stand back and ask what it is for; find how it stands; read its changes, then ask what delights you. Firmness, commodity, delight still works.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.future_reading_buildings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_frame_structure",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.vitruvian_triad",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch_thrust",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.098"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "That bricked-up window on an old building is a clue.",
+      "body": "Historic England's guide to recording buildings tells investigators to note blocked doorways, windows and fireplaces, along with joints in the masonry. Buildings change, and they keep the evidence. Here's a simple way to read any building, using Chapter 1 and this one."
+    },
+    {
+      "id": "card.architecture.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 1: Stand back",
+      "body": "Start with a quick overview, Historic England advises: work out what the building is for and its main phases, so you see it as a working whole, not a pile of parts. Ask what it tells you about its origins, form, function, date and development. What it's for is Level 1's commodity: usefulness to the people who use it."
+    },
+    {
+      "id": "card.architecture.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 2: Find how it stands",
+      "body": "Next, ask how it stands. Do thick walls carry the floors, or does a frame? A wall of glass is a giveaway: in a frame building, a skeleton of columns and beams carries the floors, and the outer wall bears only its own weight (Level 8). Spot an arch? Look for the massive supports resisting its outward thrust (Level 4)."
+    },
+    {
+      "id": "card.architecture.099.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 3: Read the changes, then enjoy it",
+      "body": "Then look for the story. Historic England's clues to a building's phases include masonry joints, architectural styles, the plan, decoration, and fixtures and fittings. A seam where the stonework or brickwork changes may mark a later addition. Finally, ask what delights you. Firmness, commodity, delight: Vitruvius's three conditions still make a fine checklist.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Once you start spotting bricked-up windows, you can't stop. Consider yourself warned."
+      }
+    },
+    {
+      "id": "card.architecture.099.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.099.q1"
+    },
+    {
+      "id": "card.architecture.099.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.099.q2"
+    },
+    {
+      "id": "card.architecture.099.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.099.q3"
+    },
+    {
+      "id": "card.architecture.099.c8",
+      "type": "checkpoint",
+      "headline": "Reading buildings: learned",
+      "learned": [
+        "Stand back: what is it for, and what are its phases?",
+        "Find how it stands: walls, frame, arches",
+        "Read the changes: joints, blocked openings, styles",
+        "Firmness, commodity, delight: still a checklist"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.future_reading_buildings"
+      ],
+      "sourceCardIds": [
+        "card.architecture.099.c2"
+      ],
+      "prompt": "Historic England's guide says an investigation of a building should start with what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lifting floorboards to inspect the joists",
+          "correct": false,
+          "rationale": "Start with an overview, not invasive work."
+        },
+        {
+          "id": "b",
+          "label": "A quick overview of its functions and main phases",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Measuring every window to the millimeter",
+          "correct": false,
+          "rationale": "Detail comes after the overview."
+        },
+        {
+          "id": "d",
+          "label": "Picking out its prettiest detail",
+          "correct": false,
+          "rationale": "Delight comes last in this method."
+        }
+      ],
+      "explanation": "Start with a quick overview, identifying functions and main phases, so you see the building as a working whole.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.future_reading_buildings"
+      ],
+      "sourceCardIds": [
+        "card.architecture.099.c4"
+      ],
+      "prompt": "You spot a seam in an old wall where the masonry suddenly changes. What might it tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The wall is about to fall down",
+          "correct": false,
+          "rationale": "A joint is a clue to history, not a warning by itself."
+        },
+        {
+          "id": "b",
+          "label": "The building has a frame and glass walls",
+          "correct": false,
+          "rationale": "That's a different clue, from Level 8."
+        },
+        {
+          "id": "c",
+          "label": "The wall was built or changed in different phases",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The bricks were fired in a kiln",
+          "correct": false,
+          "rationale": "Firing doesn't leave seams in a wall."
+        }
+      ],
+      "explanation": "Historic England lists masonry joints as evidence of phasing: parts built or altered at different times.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.stand_frame_structure",
+        "concept.architecture.future_reading_buildings"
+      ],
+      "sourceCardIds": [
+        "card.architecture.099.c3",
+        "card.architecture.008.c2"
+      ],
+      "prompt": "Reading a building: its outer walls are all glass. Using Level 8, what is most likely carrying its floors?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The glass walls themselves",
+          "correct": false,
+          "rationale": "Glass walls in a frame bear only their own weight."
+        },
+        {
+          "id": "b",
+          "label": "Thick stone walls hidden inside",
+          "correct": false,
+          "rationale": "The giveaway points to a frame, not load-bearing walls."
+        },
+        {
+          "id": "c",
+          "label": "The roof, hanging them from above",
+          "correct": false,
+          "rationale": "The floors rest on the frame."
+        },
+        {
+          "id": "d",
+          "label": "A skeleton frame of columns and beams",
+          "correct": true
+        }
+      ],
+      "explanation": "In a frame building, a skeleton of columns and beams carries the floors, so the outer wall can be glass.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.he_understanding_historic_buildings",
+    "source.sep_architecture_tradition",
+    "source.brit_architecture",
+    "source.brit_arch_architecture",
+    "source.brit_skyscraper",
+    "source.pnnl_continuous_load_path"
+  ],
+  "art": "object.magnifier"
+}

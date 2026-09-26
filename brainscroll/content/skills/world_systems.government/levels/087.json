@@ -1,0 +1,232 @@
+{
+  "id": "level.world_systems.government.087",
+  "skillId": "skill.world_systems.government",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "International Courts",
+  "objective": "After this level you can explain courts that judge countries and war crimes.",
+  "summary": "Nuremberg held that people commit crimes against international law. The ICJ settles disputes between consenting states; the ICC tries individuals as a court of last resort.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.intl_court_icj",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.intl_court_icc",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.un_general_assembly",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.un_security_council",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.086"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1946, a court ruled that crimes are committed by people, not abstractions.",
+      "body": "The International Military Tribunal at Nuremberg, run by the US, UK, Soviet Union and France, tried 22 leading Nazi officials. Its judgment put it plainly: \"Crimes against international law are committed by men, not by abstract entities.\" A state can't stand in the dock. The people who act in its name can.",
+      "id": "card.government.087.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Two courts, one city",
+      "body": "The Hague in the Netherlands hosts two very different international courts. The first is the International Court of Justice, which sits in the Peace Palace. It's the UN's principal judicial organ, and the only one of the UN's six main organs not based in New York. Its 15 judges are elected for nine-year terms by the General Assembly and the Security Council, Level 84's two big bodies.",
+      "id": "card.government.087.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Countries versus countries",
+      "body": "Only states can be parties in cases at the ICJ. And a state can't simply be dragged in: the Court's jurisdiction rests on the consent of the states involved. So the ICJ is where countries bring legal disputes with each other, and it also gives advisory opinions when UN bodies ask for one. Think of it as a court for arguments between sovereigns.",
+      "id": "card.government.087.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "People in the dock",
+      "body": "The second court, the International Criminal Court, works the other way round: it tries individuals. Set up by a treaty called the Rome Statute, it deals with genocide, war crimes, crimes against humanity and the crime of aggression committed since 1 July 2002. It's a court of last resort, meant to complement national courts, not replace them. Nuremberg set the precedent that people answer for such crimes.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "ICJ: country against country. ICC: a person in the dock. One letter apart, worlds apart."
+      },
+      "id": "card.government.087.c4"
+    },
+    {
+      "id": "card.government.087.c5",
+      "type": "mcq",
+      "questionId": "question.government.087.q1"
+    },
+    {
+      "id": "card.government.087.c6",
+      "type": "mcq",
+      "questionId": "question.government.087.q2"
+    },
+    {
+      "id": "card.government.087.c7",
+      "type": "recall",
+      "questionId": "question.government.087.q3"
+    },
+    {
+      "id": "card.government.087.c8",
+      "type": "checkpoint",
+      "headline": "International courts: in session",
+      "learned": [
+        "Nuremberg: crimes are committed by people",
+        "ICJ: the UN's court for disputes between states",
+        "ICJ cases need the states' consent",
+        "ICC: tries individuals, as a court of last resort"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.intl_court_icj"
+      ],
+      "sourceCardIds": [
+        "card.government.087.c3"
+      ],
+      "prompt": "Who can be the parties in a case at the International Court of Justice?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Individuals accused of war crimes",
+          "correct": false,
+          "rationale": "That's the International Criminal Court."
+        },
+        {
+          "id": "b",
+          "label": "Companies with cross-border disputes",
+          "correct": false,
+          "rationale": "Companies can't be parties at the ICJ."
+        },
+        {
+          "id": "c",
+          "label": "Any person who files a complaint",
+          "correct": false,
+          "rationale": "Individuals can't bring cases there."
+        },
+        {
+          "id": "d",
+          "label": "Only states",
+          "correct": true
+        }
+      ],
+      "explanation": "Only states may be parties in cases before the ICJ, and its jurisdiction rests on their consent.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.intl_court_icc"
+      ],
+      "sourceCardIds": [
+        "card.government.087.c4"
+      ],
+      "prompt": "What does it mean that the ICC is a court of last resort?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It hears appeals from the ICJ's decisions",
+          "correct": false,
+          "rationale": "The two courts are separate; the ICC doesn't review the ICJ."
+        },
+        {
+          "id": "b",
+          "label": "It only sits when the UN is at war",
+          "correct": false,
+          "rationale": "It isn't tied to UN wars."
+        },
+        {
+          "id": "c",
+          "label": "It complements national courts rather than replacing them",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It can only try heads of state",
+          "correct": false,
+          "rationale": "It tries individuals, whoever they are."
+        }
+      ],
+      "explanation": "The ICC seeks to complement national courts, not replace them, stepping in as a court of last resort.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.intl_court_icj",
+        "concept.government.un_general_assembly",
+        "concept.government.un_security_council"
+      ],
+      "sourceCardIds": [
+        "card.government.087.c2",
+        "card.government.084.c3",
+        "card.government.084.c4"
+      ],
+      "prompt": "Level 84 met the UN's General Assembly and Security Council. What job do they share at the ICJ?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They elect its 15 judges",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They hear appeals against its rulings",
+          "correct": false,
+          "rationale": "No appeal runs to them; they elect the judges."
+        },
+        {
+          "id": "c",
+          "label": "They choose which states must appear",
+          "correct": false,
+          "rationale": "Jurisdiction rests on the states' own consent."
+        },
+        {
+          "id": "d",
+          "label": "They pay each judge's salary directly",
+          "correct": false,
+          "rationale": "Not the shared job named here: they elect the judges."
+        }
+      ],
+      "explanation": "ICJ judges are elected for nine-year terms by the General Assembly and the Security Council.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ushmm_nuremberg_imt",
+    "source.avalon_nuremberg_judgment_law",
+    "source.icj_the_court",
+    "source.un_main_bodies",
+    "source.icj_statute",
+    "source.icj_basis_jurisdiction",
+    "source.icc_about_the_court",
+    "source.un_ga_background",
+    "source.un_charter_chapter_5",
+    "source.un_library_sc_membership"
+  ],
+  "art": "gov.gavel"
+}

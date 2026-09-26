@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.architecture.014",
+  "skillId": "skill.arts.architecture",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Egyptian Temples",
+  "objective": "After this level you can describe Karnak and its forest of columns.",
+  "summary": "Karnak's Great Hypostyle Hall: 134 columns under stone lintels, a tall lit central aisle. Egyptian temples ran from gateway to a dark, raised sanctuary.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.wonders_hypostyle_hall",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.wonders_egypt_temple_plan",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_beam_bending",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.013"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Almost all of Notre-Dame cathedral could fit inside one hall at Karnak.",
+      "body": "Karnak's Great Hypostyle Hall covers nearly an acre. Walk in, though, and it won't feel like a big open space. It feels like a forest. Why fill a room with columns?"
+    },
+    {
+      "id": "card.architecture.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Under pillars",
+      "body": "Hypostyle means 'under pillars': a room whose roof rests on columns. The interiors of Egyptian temples were lined with columns covered by stone lintels. And Level 3 showed why stone lintels stay short: stone is weak when stretched. Short beams mean crowded posts. At Karnak, that means 134 columns under one roof."
+    },
+    {
+      "id": "card.architecture.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A tall aisle with windows",
+      "body": "The columns aren't all alike. Down the middle stand 12 giants about 20 m tall, topped with open papyrus flowers. The other 122, about 14 m tall, end in closed buds. The height difference left room for clerestory windows: huge stone grilles high up beside the central aisle. They were the hall's only daylight. With its stone roof on, it stood in twilight even at midday."
+    },
+    {
+      "id": "card.architecture.014.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A walk back to the beginning of the world",
+      "body": "An Egyptian temple ran in a line: a pylon gateway, an open court, the hypostyle hall, then the sanctuary with the god's statue. The court may have been as far as anyone but priests could go. The papyrus columns recalled the marshes around the mound of creation. The sanctuary was the darkest, most enclosed room, with the highest floor: the mound itself. Every step in was darker, higher and more exclusive.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A building that gets quieter and darker the closer you get to its heart. Very dramatic. Very on purpose."
+      }
+    },
+    {
+      "id": "card.architecture.014.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.014.q1"
+    },
+    {
+      "id": "card.architecture.014.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.014.q2"
+    },
+    {
+      "id": "card.architecture.014.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.014.q3"
+    },
+    {
+      "id": "card.architecture.014.c8",
+      "type": "checkpoint",
+      "headline": "Karnak: explored",
+      "learned": [
+        "Hypostyle means 'under pillars'",
+        "Karnak: 134 columns, because stone lintels stay short",
+        "Taller central columns made room for clerestory windows",
+        "Gateway, court, hall, sanctuary: darker and higher inside"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.wonders_hypostyle_hall"
+      ],
+      "sourceCardIds": [
+        "card.architecture.014.c2"
+      ],
+      "prompt": "What does the word 'hypostyle' literally mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Great hall",
+          "correct": false,
+          "rationale": "It describes the columns, not the size."
+        },
+        {
+          "id": "b",
+          "label": "Under pillars",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "House of the god",
+          "correct": false,
+          "rationale": "It describes a room whose roof rests on columns."
+        },
+        {
+          "id": "d",
+          "label": "Open to the sky",
+          "correct": false,
+          "rationale": "A hypostyle hall is roofed."
+        }
+      ],
+      "explanation": "Hypostyle means 'under pillars': an interior space whose roof rests on columns.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.wonders_egypt_temple_plan"
+      ],
+      "sourceCardIds": [
+        "card.architecture.014.c4"
+      ],
+      "prompt": "Walking from the gateway of an Egyptian temple toward its sanctuary, how did the rooms change?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They grew brighter and more open",
+          "correct": false,
+          "rationale": "The sanctuary was the darkest room."
+        },
+        {
+          "id": "b",
+          "label": "The floor sank below ground level",
+          "correct": false,
+          "rationale": "The sanctuary had the highest floor."
+        },
+        {
+          "id": "c",
+          "label": "They grew darker and more enclosed, with the floor rising",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They ended in a big open courtyard",
+          "correct": false,
+          "rationale": "The open court came near the start."
+        }
+      ],
+      "explanation": "The sanctuary was the darkest, most enclosed part of the temple, with the highest floor, recreating the mound of creation.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.wonders_hypostyle_hall",
+        "concept.architecture.stand_beam_bending"
+      ],
+      "sourceCardIds": [
+        "card.architecture.014.c2",
+        "card.architecture.003.c3"
+      ],
+      "prompt": "Using Level 3's lintels, why does Karnak's Great Hypostyle Hall need so many columns?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Egyptian builders had never seen a lintel",
+          "correct": false,
+          "rationale": "The hall's roof rests on stone lintels."
+        },
+        {
+          "id": "b",
+          "label": "The columns held up floors of rooms above",
+          "correct": false,
+          "rationale": "It is one hall under one roof."
+        },
+        {
+          "id": "c",
+          "label": "Each king had to add a column of his own",
+          "correct": false,
+          "rationale": "The columns are there to carry the short stone roof beams."
+        },
+        {
+          "id": "d",
+          "label": "Stone roof beams must stay short, so posts crowd in",
+          "correct": true
+        }
+      ],
+      "explanation": "Stone is weak when stretched, so stone lintels stay short, and short beams need closely spaced columns: 134 of them at Karnak.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.memphis_hypostyle_architecture",
+    "source.brit_hypostyle_hall",
+    "source.brit_post_lintel",
+    "source.ees_egypt_temples"
+  ],
+  "art": "egypt.temple"
+}

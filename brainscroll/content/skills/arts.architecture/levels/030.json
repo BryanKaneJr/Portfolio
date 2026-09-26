@@ -1,0 +1,364 @@
+{
+  "id": "level.arts.architecture.030",
+  "skillId": "skill.arts.architecture",
+  "number": 30,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Temples and Churches",
+  "objective": "After this level you can compare how different faiths shaped their holy buildings.",
+  "summary": "Holy buildings face somewhere: churches usually east (Old St. Peter's west), mosques toward Mecca, Angkor Wat west. Domes, stone skeletons and sacred mountains were three ways to raise a holy roof.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.sacred_orientation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.hagia_sophia_pendentives",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.pagoda_loose_stories",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.angkor_temple_mountain",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.mosque_qibla_mihrab",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.st_peters_dome_repair",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.gothic_flying_buttress",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.gothic_pointed_arch",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.hindu_temple_mountain_tower",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.029"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.030.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 3 finale: every building in this chapter points somewhere.",
+      "body": "Domes, spires, towers and moats all mattered. But before builders laid a stone, most of them had already decided which way the building would face."
+    },
+    {
+      "id": "card.architecture.030.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Which way to face",
+      "body": "Orientation, from Latin oriens, \"the rising sun\", is a building's position on the east-west axis. Christian churches have usually been built with the apse or high altar at the east end, though Rome's Old St. Peter's faced west. Mosques follow a different rule: the mihrab faces Mecca, whatever direction that is (Level 22). And while the other temples around it face east, Angkor Wat faces west. A holy building has a front door, but it also has a direction."
+    },
+    {
+      "id": "card.architecture.030.c3",
+      "type": "comparison",
+      "headline": "Temples and Churches: three ways to raise a holy roof",
+      "items": [
+        {
+          "label": "Domes",
+          "points": [
+            "Hagia Sophia: pendentives turn a square into a circle (Level 21)",
+            "St. Peter's: checked with a hanging chain, bound in iron (Level 29)"
+          ]
+        },
+        {
+          "label": "Stone skeletons",
+          "points": [
+            "Pointed arches and ribs carry the vault (Level 24)",
+            "Flying buttresses take the thrust outside (Level 24)"
+          ]
+        },
+        {
+          "label": "Sacred mountains",
+          "points": [
+            "Angkor Wat's towers are Meru's peaks (Level 26)",
+            "Kandariya Mahadeva's towers refer to Meru too (Level 28)"
+          ]
+        }
+      ],
+      "mascot": {
+        "pose": "explaining",
+        "line": "Three answers to one question: how do you make a building feel closer to heaven?"
+      }
+    },
+    {
+      "id": "card.architecture.030.c4",
+      "type": "mcq",
+      "questionId": "question.architecture.030.q1"
+    },
+    {
+      "id": "card.architecture.030.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.030.q2"
+    },
+    {
+      "id": "card.architecture.030.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.030.q3"
+    },
+    {
+      "id": "card.architecture.030.c7",
+      "type": "recall",
+      "questionId": "question.architecture.030.q4"
+    },
+    {
+      "id": "card.architecture.030.c8",
+      "type": "recall",
+      "questionId": "question.architecture.030.q5"
+    },
+    {
+      "id": "card.architecture.030.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 3 complete",
+      "learned": [
+        "Churches usually face east; mosques face Mecca; Angkor Wat faces west",
+        "Pendentives set Hagia Sophia's dome on a square",
+        "Pointed arches, ribs and flying buttresses opened Gothic walls to glass",
+        "Angkor Wat and Hindu temple towers model Mount Meru",
+        "Pagodas ride out quakes with independent stories"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.030.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.sacred_orientation"
+      ],
+      "sourceCardIds": [
+        "card.architecture.030.c2"
+      ],
+      "prompt": "Temples and Churches recap: where have Christian churches usually placed the apse or high altar?",
+      "options": [
+        {
+          "id": "a",
+          "label": "At the east end",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "At the west end",
+          "correct": false,
+          "rationale": "Old St. Peter's did, but it was the exception."
+        },
+        {
+          "id": "c",
+          "label": "Facing Mecca",
+          "correct": false,
+          "rationale": "That's the rule for a mosque's mihrab."
+        },
+        {
+          "id": "d",
+          "label": "In the middle, under the dome",
+          "correct": false,
+          "rationale": "The usual rule puts the apse or altar at the east end."
+        }
+      ],
+      "explanation": "Churches have usually been oriented with the apse or high altar at the east end; orientation comes from Latin oriens, the rising sun.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.030.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.sacred_orientation",
+        "concept.architecture.mosque_qibla_mihrab"
+      ],
+      "sourceCardIds": [
+        "card.architecture.030.c2",
+        "card.architecture.022.c2"
+      ],
+      "prompt": "Temples and Churches recap: why doesn't every mosque's mihrab face the same compass direction?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It follows the rising sun",
+          "correct": false,
+          "rationale": "That's the church tradition of facing east."
+        },
+        {
+          "id": "b",
+          "label": "It faces Mecca, wherever the mosque stands",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Each builder chose a direction for the view",
+          "correct": false,
+          "rationale": "The mihrab marks the qibla, the direction of Mecca."
+        },
+        {
+          "id": "d",
+          "label": "It points to the nearest minaret",
+          "correct": false,
+          "rationale": "The minaret is for the call to prayer; the mihrab faces Mecca."
+        }
+      ],
+      "explanation": "Mosques are oriented so the mihrab faces Mecca, so the compass direction depends on where the mosque is.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.030.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.sacred_orientation",
+        "concept.architecture.angkor_temple_mountain"
+      ],
+      "sourceCardIds": [
+        "card.architecture.030.c2",
+        "card.architecture.026.c2"
+      ],
+      "prompt": "Temples and Churches recap: Angkor Wat models Mount Meru. Unlike the temples around it, which way does it face?",
+      "options": [
+        {
+          "id": "a",
+          "label": "North",
+          "correct": false,
+          "rationale": "It faces west."
+        },
+        {
+          "id": "b",
+          "label": "East",
+          "correct": false,
+          "rationale": "That's the direction the other temples around it face."
+        },
+        {
+          "id": "c",
+          "label": "South",
+          "correct": false,
+          "rationale": "It faces west."
+        },
+        {
+          "id": "d",
+          "label": "West",
+          "correct": true
+        }
+      ],
+      "explanation": "The other temples in the area face east; Angkor Wat faces west.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.030.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.hagia_sophia_pendentives"
+      ],
+      "sourceCardIds": [
+        "card.architecture.021.c2"
+      ],
+      "prompt": "Temples and Churches recap: what turns Hagia Sophia's square plan into a circle for its dome?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Flying buttresses",
+          "correct": false,
+          "rationale": "Those carry Gothic vault thrust outside."
+        },
+        {
+          "id": "b",
+          "label": "Pendentives in the four upper corners",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A ring of iron chains",
+          "correct": false,
+          "rationale": "Iron rings strengthened St. Peter's dome."
+        },
+        {
+          "id": "d",
+          "label": "A shinbashira in the middle",
+          "correct": false,
+          "rationale": "That's a pagoda's central pillar."
+        }
+      ],
+      "explanation": "Pendentives, curved triangles in the upper corners, join into a circle for the dome.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.030.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.pagoda_loose_stories"
+      ],
+      "sourceCardIds": [
+        "card.architecture.027.c3"
+      ],
+      "prompt": "Temples and Churches recap: at the Hōryū-ji pagoda, what ties the five stories together?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The central pillar, bolted to every floor",
+          "correct": false,
+          "rationale": "The pillar carries only the spire."
+        },
+        {
+          "id": "b",
+          "label": "Iron staples in every joint",
+          "correct": false,
+          "rationale": "That was Notre-Dame's stonework."
+        },
+        {
+          "id": "c",
+          "label": "No column: each story is its own framework",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Stone walls running floor to floor",
+          "correct": false,
+          "rationale": "The pagoda is wood, with independent stories."
+        }
+      ],
+      "explanation": "No column ties the stories together; each is an independent framework, and the joints can rub and slide.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_orientation",
+    "source.whe_angkor_wat",
+    "source.brit_mosque",
+    "source.brit_pendentive",
+    "source.mit_hooke_hanging_chain",
+    "source.mit_masonry_dome_equilibrium",
+    "source.mactutor_poleni",
+    "source.durham_whs_architecture",
+    "source.brit_vault",
+    "source.brit_flying_buttress",
+    "source.brit_early_gothic_architecture",
+    "source.brit_angkor_wat",
+    "source.asianart_kandariya",
+    "source.brit_north_indian_temple"
+  ],
+  "art": "arts.cathedral"
+}

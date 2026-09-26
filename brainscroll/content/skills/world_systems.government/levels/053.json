@@ -1,0 +1,231 @@
+{
+  "id": "level.world_systems.government.053",
+  "skillId": "skill.world_systems.government",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Juries",
+  "objective": "After this level you can explain how juries work.",
+  "summary": "Juries of ordinary citizens, picked at random, decide guilt while the judge handles the law. Bushel's Case (1670) ruled jurors can't be punished for their verdict; Japan mixes citizens and judges.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.jury_how_it_works",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.jury_bushels_case",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.judges_role",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.052"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1670, a London jury was locked up without food for saying \"not guilty\".",
+      "body": "The defendants were two Quakers, William Penn and William Mead, charged over preaching. The jurors acquitted them anyway. They were held without food, then fined and jailed for their verdict. One juror, Edward Bushel, refused to accept that. What he won still matters to every jury today.",
+      "id": "card.government.053.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Twelve people you've never met",
+      "body": "Here's how it works in England and Wales today. In a Crown Court trial, a jury of 12 members of the public decides whether the defendant is guilty. They're chosen at random from the electoral register; nobody volunteers. The judge handles the law, directs the jury and passes sentence. It's a lottery nobody enters on purpose.",
+      "id": "card.government.053.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Bushel's Case: the verdict is the jury's",
+      "body": "Bushel challenged his imprisonment, and in 1670 Chief Justice John Vaughan agreed with him: jurors cannot be punished for their verdict. The court judges the law; the jury judges the facts. Why does it matter? If jurors can be jailed for the wrong answer, the jury is just the judge with twelve extra chairs.",
+      "id": "card.government.053.c3"
+    },
+    {
+      "type": "comparison",
+      "headline": "One idea, different designs",
+      "items": [
+        {
+          "label": "England and Wales",
+          "points": [
+            "Grew up in medieval England, spread with the Empire",
+            "12 citizens decide guilt; the judge handles the law"
+          ]
+        },
+        {
+          "label": "Japan, since 2009",
+          "points": [
+            "6 citizens sit with 3 professional judges",
+            "Together they decide guilt and sentence"
+          ]
+        }
+      ],
+      "id": "card.government.053.c4"
+    },
+    {
+      "id": "card.government.053.c5",
+      "type": "mcq",
+      "questionId": "question.government.053.q1"
+    },
+    {
+      "id": "card.government.053.c6",
+      "type": "mcq",
+      "questionId": "question.government.053.q2"
+    },
+    {
+      "id": "card.government.053.c7",
+      "type": "recall",
+      "questionId": "question.government.053.q3"
+    },
+    {
+      "id": "card.government.053.c8",
+      "type": "checkpoint",
+      "headline": "Juries: sworn in",
+      "learned": [
+        "12 citizens, picked at random, decide guilt",
+        "The judge handles the law and the sentence",
+        "Bushel's Case: no punishing jurors for verdicts",
+        "Japan mixes citizens and judges on one panel"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.jury_how_it_works"
+      ],
+      "sourceCardIds": [
+        "card.government.053.c2"
+      ],
+      "prompt": "How are jurors chosen in England and Wales?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They apply and are interviewed",
+          "correct": false,
+          "rationale": "Nobody volunteers; the register picks you."
+        },
+        {
+          "id": "b",
+          "label": "The judge picks people they trust",
+          "correct": false,
+          "rationale": "That would undo the point of a jury."
+        },
+        {
+          "id": "c",
+          "label": "Each side's lawyer picks six",
+          "correct": false,
+          "rationale": "Jurors come from the register, not the lawyers."
+        },
+        {
+          "id": "d",
+          "label": "At random from the electoral register",
+          "correct": true
+        }
+      ],
+      "explanation": "Jurors in England and Wales are chosen randomly from the electoral register.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.jury_bushels_case"
+      ],
+      "sourceCardIds": [
+        "card.government.053.c3"
+      ],
+      "prompt": "Why was Bushel's Case (1670) so important for juries?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It established that jurors can't be punished for their verdict",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It cut juries from 12 members to 6",
+          "correct": false,
+          "rationale": "Crown Court juries still have 12."
+        },
+        {
+          "id": "c",
+          "label": "It allowed judges to overrule acquittals",
+          "correct": false,
+          "rationale": "It did the opposite: the verdict belongs to the jury."
+        },
+        {
+          "id": "d",
+          "label": "It made jury service voluntary",
+          "correct": false,
+          "rationale": "It was about punishing jurors, not choosing them."
+        }
+      ],
+      "explanation": "Chief Justice Vaughan ruled jurors cannot be punished for their verdict: the court judges the law, the jury the facts.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.jury_how_it_works",
+        "concept.government.judges_role"
+      ],
+      "sourceCardIds": [
+        "card.government.053.c2",
+        "card.government.052.c2"
+      ],
+      "prompt": "In a Crown Court trial, how is the work split between the jury and Level 52's judge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The judge decides guilt; the jury decides the sentence",
+          "correct": false,
+          "rationale": "It's the other way round for guilt, and the judge sentences."
+        },
+        {
+          "id": "b",
+          "label": "The jury decides guilt; the judge handles the law and the sentence",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The jury writes the law; the judge applies it",
+          "correct": false,
+          "rationale": "Neither writes the law in a trial."
+        },
+        {
+          "id": "d",
+          "label": "Both vote together on guilt and sentence",
+          "correct": false,
+          "rationale": "That describes Japan's mixed panel, not England's."
+        }
+      ],
+      "explanation": "The jury decides whether the defendant is guilty; the judge resolves legal issues, directs the jury and imposes sentence.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.encyclopedia_bushells_case",
+    "source.judiciary_uk_crown_court",
+    "source.govuk_jury_service",
+    "source.brit_jury",
+    "source.jfba_justice_reform",
+    "source.moj_japan_saiban_in"
+  ],
+  "art": "money.scale"
+}

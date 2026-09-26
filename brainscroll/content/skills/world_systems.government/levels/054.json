@@ -1,0 +1,215 @@
+{
+  "id": "level.world_systems.government.054",
+  "skillId": "skill.world_systems.government",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Innocent Until Proven Guilty",
+  "objective": "After this level you can explain the presumption of innocence.",
+  "summary": "The accused doesn't have to prove innocence: the prosecution must prove guilt beyond reasonable doubt. Woolmington v DPP (1935) called it the golden thread; the UDHR made it a human right.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.presumption_innocence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.jury_how_it_works",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.053"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1935, a conviction fell because the judge put the burden on the wrong side.",
+      "body": "Reginald Woolmington said the gun that killed his wife went off by accident. His trial judge told the jury that, once the killing was proved, it was up to Woolmington to prove it was an accident. The House of Lords quashed his conviction. Not because anyone proved him innocent, but because nobody should have had to.",
+      "id": "card.government.054.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The golden thread",
+      "body": "Viscount Sankey's judgment gave the principle its famous name. Running through the web of English criminal law, he said, is one golden thread: it is the duty of the prosecution to prove the prisoner's guilt. The accused doesn't have to prove anything. Accusing is the easy part; proving is the prosecution's job.",
+      "id": "card.government.054.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Beyond reasonable doubt",
+      "body": "How sure must a jury be? In criminal cases, the prosecution has to prove guilt beyond reasonable doubt; if a reasonable doubt remains, the accused goes free. The system is tilted on purpose. In the 1760s William Blackstone put it in one line: it is better that ten guilty persons escape than that one innocent suffer.",
+      "id": "card.government.054.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "It's written into the Universal Declaration of Human Rights.",
+      "context": "Article 11 of the 1948 Declaration says everyone charged with a penal offence has the right to be presumed innocent until proved guilty. The golden thread of an English courtroom is also a promise made to the whole world.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Innocent until proven guilty isn't a guess about anyone. It's a rule about who has to do the proving."
+      },
+      "id": "card.government.054.c4"
+    },
+    {
+      "id": "card.government.054.c5",
+      "type": "mcq",
+      "questionId": "question.government.054.q1"
+    },
+    {
+      "id": "card.government.054.c6",
+      "type": "mcq",
+      "questionId": "question.government.054.q2"
+    },
+    {
+      "id": "card.government.054.c7",
+      "type": "recall",
+      "questionId": "question.government.054.q3"
+    },
+    {
+      "id": "card.government.054.c8",
+      "type": "checkpoint",
+      "headline": "Presumed innocent",
+      "learned": [
+        "The prosecution must prove guilt",
+        "Woolmington (1935): the golden thread",
+        "Beyond reasonable doubt, or acquittal",
+        "Article 11 of the UDHR makes it a right"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.presumption_innocence"
+      ],
+      "sourceCardIds": [
+        "card.government.054.c2"
+      ],
+      "prompt": "Under the presumption of innocence, who has to prove the case in a criminal trial?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The accused must prove their innocence",
+          "correct": false,
+          "rationale": "That was exactly the mistake in Woolmington's trial."
+        },
+        {
+          "id": "b",
+          "label": "The judge must investigate and decide",
+          "correct": false,
+          "rationale": "The judge doesn't prove anything; the prosecution does."
+        },
+        {
+          "id": "c",
+          "label": "The prosecution must prove guilt",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Whoever speaks first must prove their story",
+          "correct": false,
+          "rationale": "The burden always sits with the prosecution."
+        }
+      ],
+      "explanation": "The golden thread: it is the duty of the prosecution to prove the prisoner's guilt.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.presumption_innocence"
+      ],
+      "sourceCardIds": [
+        "card.government.054.c3"
+      ],
+      "prompt": "Blackstone wrote that it's better that ten guilty persons escape than that one innocent suffer. What does that say about the justice system?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That most accused people are guilty anyway",
+          "correct": false,
+          "rationale": "It's about which mistake is worse, not how many are guilty."
+        },
+        {
+          "id": "b",
+          "label": "That it is built to avoid convicting the innocent, even at a cost",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "That ten guilty people must be freed for every conviction",
+          "correct": false,
+          "rationale": "It's a way of weighing errors, not a quota."
+        },
+        {
+          "id": "d",
+          "label": "That punishment should be as light as possible",
+          "correct": false,
+          "rationale": "It's about proof, not sentence length."
+        }
+      ],
+      "explanation": "The system is tilted on purpose: a reasonable doubt means acquittal, because convicting an innocent person is the worse error.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.presumption_innocence",
+        "concept.government.jury_how_it_works"
+      ],
+      "sourceCardIds": [
+        "card.government.054.c3",
+        "card.government.053.c2"
+      ],
+      "prompt": "Level 53's jurors decide whether a defendant is guilty. What must they do if the prosecution leaves a reasonable doubt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ask the defendant to prove their innocence",
+          "correct": false,
+          "rationale": "The accused never has to prove innocence."
+        },
+        {
+          "id": "b",
+          "label": "Let the judge decide instead",
+          "correct": false,
+          "rationale": "Guilt is the jury's decision in a Crown Court trial."
+        },
+        {
+          "id": "c",
+          "label": "Convict, but ask for a lighter sentence",
+          "correct": false,
+          "rationale": "A reasonable doubt means no conviction at all."
+        },
+        {
+          "id": "d",
+          "label": "Acquit the defendant",
+          "correct": true
+        }
+      ],
+      "explanation": "Guilt must be proved beyond reasonable doubt; if a reasonable doubt remains, the accused is acquitted.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.cambridge_woolmington",
+    "source.lii_preponderance",
+    "source.avalon_blackstone_bk4ch27",
+    "source.un_udhr",
+    "source.judiciary_uk_crown_court",
+    "source.govuk_jury_service"
+  ],
+  "art": "money.scale"
+}

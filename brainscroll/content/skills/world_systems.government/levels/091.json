@@ -1,0 +1,238 @@
+{
+  "id": "level.world_systems.government.091",
+  "skillId": "skill.world_systems.government",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Citizenship",
+  "objective": "After this level you can explain what citizenship means.",
+  "summary": "Citizenship is a two-way bond with a state: allegiance for protection. Most people get it at birth by soil (jus soli) or blood (jus sanguinis); adults can naturalize.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.citizenship_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.citizenship_birth_rules",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.citizenship_naturalization",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.nation_vs_state",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.090"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "You probably never applied for your first citizenship.",
+      "body": "If you hold one, a country's law may have settled it the day you were born, using one of two old rules: where you were born, or who your parents were. First, though: what exactly did you get?",
+      "id": "card.government.091.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A two-way deal",
+      "body": "Britannica defines citizenship as the relationship between an individual and a state to which the individual owes allegiance and in turn is entitled to its protection. Read that as a trade. You owe the state loyalty; the state owes you protection. Remember Level 9's state, with its territory, laws and means of enforcing them? Citizenship is your membership card for one.",
+      "id": "card.government.091.c2"
+    },
+    {
+      "type": "comparison",
+      "headline": "Two rules for newborns",
+      "items": [
+        {
+          "label": "Right of the soil (jus soli)",
+          "points": [
+            "Born on the territory? You're a citizen, whoever your parents are",
+            "The basis in nearly every country in the Western Hemisphere"
+          ]
+        },
+        {
+          "label": "Right of blood (jus sanguinis)",
+          "points": [
+            "Citizenship passes from a parent, wherever you're born",
+            "Japan: a child is Japanese if the father or mother is"
+          ]
+        }
+      ],
+      "id": "card.government.091.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Adults can join too. Canada asks for 1,095 days first.",
+      "context": "Becoming a citizen by applying is called naturalization. Britannica lists the usual requirements: a period of residence, language skills and knowledge of the country. Canada's version is at least 1,095 days (3 years) physically in Canada within the last 5, plus a citizenship test for applicants aged 18 to 54. Citizenship by birth is luck. Naturalization is homework.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Born into it or studied for it: both routes end with the same membership card."
+      },
+      "id": "card.government.091.c4"
+    },
+    {
+      "id": "card.government.091.c5",
+      "type": "mcq",
+      "questionId": "question.government.091.q1"
+    },
+    {
+      "id": "card.government.091.c6",
+      "type": "mcq",
+      "questionId": "question.government.091.q2"
+    },
+    {
+      "id": "card.government.091.c7",
+      "type": "recall",
+      "questionId": "question.government.091.q3"
+    },
+    {
+      "id": "card.government.091.c8",
+      "type": "checkpoint",
+      "headline": "Citizenship: granted",
+      "learned": [
+        "Citizenship: allegiance to a state, protection in return",
+        "Jus soli: citizenship by birthplace",
+        "Jus sanguinis: citizenship from a parent",
+        "Naturalization: Canada asks 1,095 days and a test"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.citizenship_birth_rules"
+      ],
+      "sourceCardIds": [
+        "card.government.091.c3"
+      ],
+      "prompt": "Under the rule called jus soli, what makes a newborn a citizen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A parent's citizenship, wherever the baby is born",
+          "correct": false,
+          "rationale": "That's jus sanguinis, the right of blood."
+        },
+        {
+          "id": "b",
+          "label": "Being born on the country's territory",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Passing a test on the country's history",
+          "correct": false,
+          "rationale": "Tests are for naturalization, not newborns."
+        },
+        {
+          "id": "d",
+          "label": "Living in the country for three years",
+          "correct": false,
+          "rationale": "That's a naturalization rule, as in Canada."
+        }
+      ],
+      "explanation": "Jus soli, the right of the soil, grants citizenship to anyone born on a state's territory, whoever the parents are.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.citizenship_naturalization"
+      ],
+      "sourceCardIds": [
+        "card.government.091.c4"
+      ],
+      "prompt": "An adult born and raised in Japan moves to Canada and wants Canadian citizenship. Which route fits?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Jus soli, since Canada uses birthplace",
+          "correct": false,
+          "rationale": "They weren't born in Canada, so birthplace doesn't help."
+        },
+        {
+          "id": "b",
+          "label": "Jus sanguinis, through Japanese parents",
+          "correct": false,
+          "rationale": "That passes on Japanese citizenship, not Canadian."
+        },
+        {
+          "id": "c",
+          "label": "Nothing: citizenship can only come at birth",
+          "correct": false,
+          "rationale": "Adults can become citizens by applying."
+        },
+        {
+          "id": "d",
+          "label": "Naturalization: time in Canada, then a test",
+          "correct": true
+        }
+      ],
+      "explanation": "Naturalization is citizenship by application. Canada asks for 1,095 days in the country within 5 years, plus a test for ages 18 to 54.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.citizenship_definition",
+        "concept.government.nation_vs_state"
+      ],
+      "sourceCardIds": [
+        "card.government.091.c2",
+        "card.government.009.c2"
+      ],
+      "prompt": "Level 9 told nations apart from states. In Britannica's definition, citizenship is a relationship with which one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A state, which owes its citizens protection",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A nation, meaning a shared culture or language",
+          "correct": false,
+          "rationale": "A shared identity isn't what you owe allegiance to here."
+        },
+        {
+          "id": "c",
+          "label": "A family, which passes on its name",
+          "correct": false,
+          "rationale": "Parents can pass on citizenship, but the bond is with the state."
+        },
+        {
+          "id": "d",
+          "label": "A political party you choose to join",
+          "correct": false,
+          "rationale": "Citizenship isn't party membership."
+        }
+      ],
+      "explanation": "Citizenship ties a person to a state: allegiance one way, protection the other.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_citizenship",
+    "source.brit_jus_soli",
+    "source.moj_japan_nationality",
+    "source.ircc_citizenship_eligibility",
+    "source.brit_nation_state"
+  ],
+  "art": "object.flag"
+}

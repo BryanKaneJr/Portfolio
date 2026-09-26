@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.architecture.062",
+  "skillId": "skill.arts.architecture",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Elevators Mattered",
+  "objective": "After this level you can explain how safe elevators made tall buildings possible.",
+  "summary": "Otis's 1854 safety brake and the 1857 passenger elevator made buildings over four or five stories practical, and turned the attic of the poor into the prized penthouse.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.sky_elevator_safety",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_elevator_floor_value",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_chicago_rebuild",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.061"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A few seconds in 1854 decided which floor would be the best one.",
+      "body": "At New York's Crystal Palace, Elisha Otis rode his raised elevator platform in front of a crowd and had its rope cut. The platform held. That little stunt ended up changing what buildings looked like, and who lived at the top."
+    },
+    {
+      "id": "card.architecture.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A brake the rope switches on",
+      "body": "Otis's safety device gripped the guide rails the moment the hoist rope lost its tension, so a snapped rope set the brake all by itself. In 1857 the first safe passenger elevator went into the E.V. Haughwout store in New York City. It made buildings of more than four or five stories practical. Before that, the limit on a building's height was your legs."
+    },
+    {
+      "id": "card.architecture.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The top floor gets promoted",
+      "body": "Before elevators, the attic was an awkward climb, the retreat of the poor. New York's Equitable Life Assurance Building, finished in 1870, is said to be the city's first office building with a passenger elevator, and it made its upper floors as convenient as the lower ones, and even more desirable. By the 1920s the old attic had become the sought-after penthouse.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Same top floor, same view. The only thing that changed was the ride up."
+      }
+    },
+    {
+      "id": "card.architecture.062.c4",
+      "type": "fact",
+      "fact": "The elevator helped draw the modern city.",
+      "context": "By opening the way to higher buildings, the elevator played a decisive role in creating the urban geography of many modern cities. Remember Level 61's first skyscrapers, with steel frames and elevators? The frame let a building stand tall. The elevator made its upper floors worth having."
+    },
+    {
+      "id": "card.architecture.062.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.062.q1"
+    },
+    {
+      "id": "card.architecture.062.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.062.q2"
+    },
+    {
+      "id": "card.architecture.062.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.062.q3"
+    },
+    {
+      "id": "card.architecture.062.c8",
+      "type": "checkpoint",
+      "headline": "Elevators: going up",
+      "learned": [
+        "Otis, 1854: the rope was cut and the platform held",
+        "His brake gripped the guide rails when the rope went slack",
+        "1857: safe passenger elevators made 5+ story buildings practical",
+        "Elevators turned the attic into the penthouse"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.sky_elevator_safety"
+      ],
+      "sourceCardIds": [
+        "card.architecture.062.c2"
+      ],
+      "prompt": "What did the 1857 passenger elevator in New York's Haughwout store make practical?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Iron and glass exhibition halls",
+          "correct": false,
+          "rationale": "The Crystal Palace was where Otis demonstrated, not what the elevator made practical."
+        },
+        {
+          "id": "b",
+          "label": "Buildings of more than four or five stories",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Houses with deep basements",
+          "correct": false,
+          "rationale": "It was about going up, not down."
+        },
+        {
+          "id": "d",
+          "label": "Brick walls thicker at the bottom",
+          "correct": false,
+          "rationale": "Thick walls were the old way to go tall, not the elevator's gift."
+        }
+      ],
+      "explanation": "The first safe passenger elevator (1857) made buildings of more than four or five stories practical.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.sky_elevator_floor_value"
+      ],
+      "sourceCardIds": [
+        "card.architecture.062.c3"
+      ],
+      "prompt": "Why did the top floor go from the attic of the poor to the sought-after penthouse?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Elevators made upper floors as easy to reach as lower ones",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "New laws banned homes on lower floors",
+          "correct": false,
+          "rationale": "No law did it; the elevator did."
+        },
+        {
+          "id": "c",
+          "label": "Top floors were rebuilt with thicker walls",
+          "correct": false,
+          "rationale": "Walls weren't the change; access was."
+        },
+        {
+          "id": "d",
+          "label": "Stairs in new buildings were made shorter",
+          "correct": false,
+          "rationale": "The elevator replaced the climb."
+        }
+      ],
+      "explanation": "Once elevators made upper floors convenient, they became even more desirable than the lower ones.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.sky_elevator_floor_value",
+        "concept.architecture.sky_chicago_rebuild"
+      ],
+      "sourceCardIds": [
+        "card.architecture.062.c4",
+        "card.architecture.061.c2"
+      ],
+      "prompt": "Level 61's earliest Chicago skyscrapers had steel frames, elevators and new foundations. What did the elevator add that a frame alone couldn't?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Resistance to fire",
+          "correct": false,
+          "rationale": "Fire resistance isn't what the elevator gave."
+        },
+        {
+          "id": "b",
+          "label": "A way to carry the floors' weight",
+          "correct": false,
+          "rationale": "That's the frame's job."
+        },
+        {
+          "id": "c",
+          "label": "Upper floors that people wanted to reach",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Deeper foundations in soft soil",
+          "correct": false,
+          "rationale": "Foundations are a separate part of the list."
+        }
+      ],
+      "explanation": "The frame let a building stand tall; the elevator made its upper floors worth having, shaping modern cities.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_elisha_otis",
+    "source.brit_elevator",
+    "source.brit_skyscraper",
+    "source.skyscrapermuseum_equitable_1870",
+    "source.the_lifted_review",
+    "source.cac_great_chicago_fire"
+  ],
+  "art": "geo.skyline"
+}

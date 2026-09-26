@@ -1,0 +1,269 @@
+{
+  "id": "level.world_systems.government.038",
+  "skillId": "skill.world_systems.government",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Women's Suffrage",
+  "objective": "After this level you can explain how women won the vote.",
+  "summary": "New Zealand gave women the vote in 1893 after Kate Sheppard's petition. Britain's suffragists and suffragettes split on tactics; the US and Switzerland followed in 1920 and 1971.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.women_suffrage_new_zealand",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.women_suffrage_uk_tactics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.women_suffrage_us_swiss",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.rights_voting_amendments",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.037"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "The first country where women won the vote? New Zealand, in 1893.",
+      "body": "On 19 September 1893, New Zealand women were granted the vote. That made New Zealand the first self-governing country in the world to give women the vote in parliamentary elections. It didn't happen by chance.",
+      "id": "card.government.038.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "31,872 signatures and a seven-year push",
+      "body": "Kate Sheppard of the Women's Christian Temperance Union led a seven-year campaign: public meetings, telegrams and letters to politicians, and a steady stream of pamphlets. Its climax was the 1893 petition, with 31,872 signatures, the largest ever gathered in Australasia. It was reportedly carried to Parliament in a wheelbarrow.",
+      "id": "card.government.038.c2"
+    },
+    {
+      "type": "comparison",
+      "headline": "Britain: one goal, two methods",
+      "items": [
+        {
+          "label": "Suffragists",
+          "points": [
+            "Millicent Fawcett's NUWSS, formed in 1897",
+            "Lobbied Parliament, marched peacefully, petitioned, held meetings"
+          ]
+        },
+        {
+          "label": "Suffragettes",
+          "points": [
+            "Led by Emmeline and Christabel Pankhurst",
+            "Believed only radical action would force a change in the law",
+            "From 1906 to 1914: window-smashing and fires; many went to prison"
+          ]
+        }
+      ],
+      "mascot": {
+        "pose": "thinking",
+        "line": "Same goal, two very different roads to it."
+      },
+      "id": "card.government.038.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "British women over 30 first voted in a general election in 1918.",
+      "context": "More than 8 million of them. Men and women still voted under different rules, though. It took until 1928 for every man and woman over 21 to get the vote on equal terms: ten more years.",
+      "id": "card.government.038.c4"
+    },
+    {
+      "type": "timeline",
+      "headline": "One idea, spreading slowly",
+      "events": [
+        {
+          "when": "1893",
+          "label": "New Zealand: women get the vote"
+        },
+        {
+          "when": "1918",
+          "label": "Britain: women over 30 vote"
+        },
+        {
+          "when": "1920",
+          "label": "US: 19th Amendment bars denying the vote on account of sex"
+        },
+        {
+          "when": "1928",
+          "label": "Britain: women and men vote on equal terms"
+        },
+        {
+          "when": "1959",
+          "label": "Switzerland: male voters reject women's suffrage"
+        },
+        {
+          "when": "1971",
+          "label": "Switzerland: women win the right to vote and stand for election"
+        }
+      ],
+      "id": "card.government.038.c5"
+    },
+    {
+      "id": "card.government.038.c6",
+      "type": "mcq",
+      "questionId": "question.government.038.q1"
+    },
+    {
+      "id": "card.government.038.c7",
+      "type": "mcq",
+      "questionId": "question.government.038.q2"
+    },
+    {
+      "id": "card.government.038.c8",
+      "type": "mcq",
+      "questionId": "question.government.038.q3"
+    },
+    {
+      "id": "card.government.038.c9",
+      "type": "checkpoint",
+      "headline": "Women's suffrage: won",
+      "learned": [
+        "New Zealand first, on 19 September 1893",
+        "Kate Sheppard's petition: 31,872 signatures",
+        "Britain: suffragists lobbied, suffragettes took radical action",
+        "US 1920; Switzerland 1971"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.women_suffrage_new_zealand"
+      ],
+      "sourceCardIds": [
+        "card.government.038.c1"
+      ],
+      "prompt": "Which was the first self-governing country to give women the vote in parliamentary elections?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The United Kingdom",
+          "correct": false,
+          "rationale": "British women over 30 first voted in 1918."
+        },
+        {
+          "id": "b",
+          "label": "The United States",
+          "correct": false,
+          "rationale": "The 19th Amendment came in 1920."
+        },
+        {
+          "id": "c",
+          "label": "Switzerland",
+          "correct": false,
+          "rationale": "Swiss women won the federal vote in 1971."
+        },
+        {
+          "id": "d",
+          "label": "New Zealand",
+          "correct": true
+        }
+      ],
+      "explanation": "New Zealand women were granted the vote on 19 September 1893, a world first for a self-governing country.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.women_suffrage_uk_tactics"
+      ],
+      "sourceCardIds": [
+        "card.government.038.c3"
+      ],
+      "prompt": "What divided Britain's suffragists from its suffragettes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their methods: peaceful lobbying versus radical action",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Their goal: only suffragettes wanted women to vote",
+          "correct": false,
+          "rationale": "Both wanted the vote; their methods differed."
+        },
+        {
+          "id": "c",
+          "label": "Their country: suffragists came from New Zealand",
+          "correct": false,
+          "rationale": "Both groups were British."
+        },
+        {
+          "id": "d",
+          "label": "Their leader: both groups followed Millicent Fawcett",
+          "correct": false,
+          "rationale": "The suffragettes were led by the Pankhursts."
+        }
+      ],
+      "explanation": "Fawcett's suffragists used law-abiding methods; the Pankhursts' suffragettes believed only radical action would force a change in the law.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.women_suffrage_us_swiss",
+        "concept.government.rights_voting_amendments"
+      ],
+      "sourceCardIds": [
+        "card.government.038.c5",
+        "card.government.037.c3"
+      ],
+      "prompt": "The 19th Amendment follows the pattern of Level 37's 15th. On account of what does it bar denying the vote?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Race",
+          "correct": false,
+          "rationale": "That's the 15th Amendment."
+        },
+        {
+          "id": "b",
+          "label": "Sex",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Age, for those 18 or older",
+          "correct": false,
+          "rationale": "That's the 26th Amendment."
+        },
+        {
+          "id": "d",
+          "label": "Failure to pay a poll tax",
+          "correct": false,
+          "rationale": "That's the 24th Amendment."
+        }
+      ],
+      "explanation": "Like the 15th (race) and 26th (age), the 19th Amendment names one ground: it bars denying the vote on account of sex.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ccc_nz_womens_suffrage",
+    "source.londonmuseum_fawcett_suffragist",
+    "source.archives_amendments_11_27",
+    "source.parlament_ch_women_suffrage"
+  ],
+  "art": "gov.ballot-box"
+}

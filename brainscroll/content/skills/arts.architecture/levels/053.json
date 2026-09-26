@@ -1,0 +1,233 @@
+{
+  "id": "level.arts.architecture.053",
+  "skillId": "skill.arts.architecture",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Eiffel Tower",
+  "objective": "After this level you can explain how the Eiffel Tower was built and why people first hated it.",
+  "summary": "Engineers Koechlin and Nouguier conceived it, Sauvestre dressed it, artists called it monstrous. About 18,000 prefabricated iron pieces rose by 1889, and radio saved it from demolition.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.marvel_eiffel_protest",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_eiffel_design",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_eiffel_radio",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_crystal_palace",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.vitruvian_triad",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.052"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1887, Paris's leading artists protested against a tower that barely existed.",
+      "body": "On February 14, 1887, the newspaper Le Temps printed their protest against \"the useless and monstrous Eiffel Tower\". The signers included the architect Charles Garnier and the composer Charles Gounod. So why was it built, how did it go up, and how did something so hated survive?"
+    },
+    {
+      "id": "card.architecture.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An engineers' sketch, dressed by an architect",
+      "body": "The idea came in 1884 from two engineers in Gustave Eiffel's company, Maurice Koechlin and Émile Nouguier: a gigantic metal pylon 300 meters tall. To make it more acceptable to the public, the architect Stephen Sauvestre added the great decorative arches between its feet, glass-walled rooms and stone pedestals. The tower was built for Paris's 1889 International Exposition, marking 100 years since the French Revolution."
+    },
+    {
+      "id": "card.architecture.053.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A kit of 18,000 pieces",
+      "body": "Each of the tower's roughly 18,000 wrought-iron pieces was designed in advance, traced to a tenth of a millimeter, and pre-assembled into sections about 5 meters long before going up. Some 2.5 million rivets hold them together, and the whole tower rose in about two years, from 1887 to 1889. It's Level 8's Crystal Palace trick, prefabricated parts, carried 300 meters into the sky.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "A tenth of a millimeter, 18,000 times over. Somewhere a draftsman deserves a very long nap."
+      }
+    },
+    {
+      "id": "card.architecture.053.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Saved by being useful",
+      "body": "Eiffel's permit ran for only 20 years, so after 1909 the tower's future was uncertain. His answer was to make it useful. In 1898 the first wireless telegraph trials linked the tower with the Panthéon, and its value for radio won Eiffel a 70-year extension starting in 1910. Level 1's Vitruvius would approve: commodity, being useful to people, rescued the building critics said had no delight."
+    },
+    {
+      "id": "card.architecture.053.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.053.q1"
+    },
+    {
+      "id": "card.architecture.053.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.053.q2"
+    },
+    {
+      "id": "card.architecture.053.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.053.q3"
+    },
+    {
+      "id": "card.architecture.053.c8",
+      "type": "checkpoint",
+      "headline": "Eiffel Tower: raised",
+      "learned": [
+        "1887 protest: 'useless and monstrous'",
+        "Idea: Koechlin and Nouguier; dressing: Sauvestre",
+        "About 18,000 prefabricated iron pieces, 2.5 million rivets",
+        "Radio won it a 70-year reprieve"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.marvel_eiffel_protest"
+      ],
+      "sourceCardIds": [
+        "card.architecture.053.c1"
+      ],
+      "prompt": "In 1887, how did the artists' protest printed in Le Temps describe the planned Eiffel Tower?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Too small for a world's fair",
+          "correct": false,
+          "rationale": "They objected to it existing at all, not its size."
+        },
+        {
+          "id": "b",
+          "label": "Useless and monstrous",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A copy of London's Crystal Palace",
+          "correct": false,
+          "rationale": "The protest attacked its looks and uselessness."
+        },
+        {
+          "id": "d",
+          "label": "Too costly ever to be finished",
+          "correct": false,
+          "rationale": "The protest was about looks and use, not cost."
+        }
+      ],
+      "explanation": "Artists including Charles Garnier and Charles Gounod protested against 'the useless and monstrous Eiffel Tower'.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.marvel_eiffel_radio"
+      ],
+      "sourceCardIds": [
+        "card.architecture.053.c4"
+      ],
+      "prompt": "Why was the Eiffel Tower kept after its 20-year permit ran out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The artists who protested changed their minds",
+          "correct": false,
+          "rationale": "The level doesn't say the protesters changed their minds; radio saved it."
+        },
+        {
+          "id": "b",
+          "label": "Its value for radio won a 70-year extension",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It was too heavy to take down",
+          "correct": false,
+          "rationale": "Weight wasn't the reason."
+        },
+        {
+          "id": "d",
+          "label": "It had become the entrance to a new exposition",
+          "correct": false,
+          "rationale": "It was built for the 1889 Exposition; radio saved it later."
+        }
+      ],
+      "explanation": "Wireless telegraphy made the tower useful, and that value won Eiffel a 70-year extension from 1910.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.marvel_eiffel_design",
+        "concept.architecture.stand_crystal_palace"
+      ],
+      "sourceCardIds": [
+        "card.architecture.053.c3",
+        "card.architecture.008.c3"
+      ],
+      "prompt": "What building method did the Eiffel Tower share with Level 8's Crystal Palace?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Thick load-bearing walls of cut stone",
+          "correct": false,
+          "rationale": "Both are iron frames, not stone walls."
+        },
+        {
+          "id": "b",
+          "label": "Concrete poured in a single giant block",
+          "correct": false,
+          "rationale": "Both are iron, not concrete."
+        },
+        {
+          "id": "c",
+          "label": "A hanging chain's shape turned upside down",
+          "correct": false,
+          "rationale": "That's Hooke's arch idea from Level 10."
+        },
+        {
+          "id": "d",
+          "label": "Parts made in advance, then assembled on site",
+          "correct": true
+        }
+      ],
+      "explanation": "The Crystal Palace went up fast from prefabricated glass and iron parts; the Eiffel Tower's 18,000 pieces were made in advance too.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.jstor_daily_eiffel_protest",
+    "source.history_eiffel_tower_saved",
+    "source.toureiffel_history",
+    "source.brit_eiffel_tower",
+    "source.brit_paxton",
+    "source.vam_paxton_sketch",
+    "source.sep_architecture_tradition",
+    "source.brit_architecture"
+  ],
+  "art": "arch.iron-tower"
+}

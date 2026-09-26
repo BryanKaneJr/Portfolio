@@ -1,0 +1,230 @@
+{
+  "id": "level.world_systems.government.092",
+  "skillId": "skill.world_systems.government",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rights and Responsibilities",
+  "objective": "After this level you can explain the duties that come with rights.",
+  "summary": "Rights come with responsibilities. Some are legal duties, like obeying the law and jury service when called; others are civic. Australia turned voting into a legal duty in 1924.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.duties_rights_responsibilities",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.duties_compulsory_voting_australia",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.citizenship_definition",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.social_contract_hobbes",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.tax_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.091"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In Australia, skipping an election can land you a penalty.",
+      "body": "Since 1924, voting at Australian federal elections has been a legal duty, not just a right. Miss it without a valid and sufficient reason and you face a penalty. That raises a bigger question: what do citizens owe in return for their rights?",
+      "id": "card.government.092.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Rights come with responsibilities",
+      "body": "Canada's official citizenship guide puts it in one line: in Canada, rights come with responsibilities. It's an old idea. Level 7's social contract set out the rights and duties of each side, and Level 91's citizenship trades allegiance for protection. You don't just hold rights. You help keep up the system that protects them.",
+      "id": "card.government.092.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Must, and should",
+      "body": "The guide's list includes obeying the law, serving on a jury, voting in elections, helping others in your community, and protecting heritage and the environment. Some are enforced by law. If you're called for jury duty, the guide says, you are legally required to serve. Level 6's taxes belong with the musts too: they're compulsory. Voting is on the list as well. Whether the law makes you do it depends on the country.",
+      "id": "card.government.092.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Australia's turnout jumped from under 60% to over 91%.",
+      "context": "In 1922, fewer than 60% of eligible Australians voted in the federal election. Voting became compulsory in 1924, and at the 1925 election turnout rose to over 91%. Same country, same kind of election, one change to the rule. Whether voting should be a legal must or a civic should is a choice each country makes for itself.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Same duty on the list, two very different rules behind it."
+      },
+      "id": "card.government.092.c4"
+    },
+    {
+      "id": "card.government.092.c5",
+      "type": "mcq",
+      "questionId": "question.government.092.q1"
+    },
+    {
+      "id": "card.government.092.c6",
+      "type": "mcq",
+      "questionId": "question.government.092.q2"
+    },
+    {
+      "id": "card.government.092.c7",
+      "type": "recall",
+      "questionId": "question.government.092.q3"
+    },
+    {
+      "id": "card.government.092.c8",
+      "type": "checkpoint",
+      "headline": "Rights and duties: balanced",
+      "learned": [
+        "In Canada's words, rights come with responsibilities",
+        "Jury service when called is legally required",
+        "Taxes are a legal duty; helping others is civic",
+        "Australia made federal voting compulsory in 1924"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.duties_compulsory_voting_australia"
+      ],
+      "sourceCardIds": [
+        "card.government.092.c4"
+      ],
+      "prompt": "Australia made federal voting compulsory in 1924. What happened to turnout at the next election, in 1925?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It fell below 50%",
+          "correct": false,
+          "rationale": "The opposite: it rose sharply."
+        },
+        {
+          "id": "b",
+          "label": "It stayed just under 60%",
+          "correct": false,
+          "rationale": "Under 60% was 1922, before the change."
+        },
+        {
+          "id": "c",
+          "label": "It rose to over 91%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It reached exactly 100%",
+          "correct": false,
+          "rationale": "High, but not everyone: over 91%."
+        }
+      ],
+      "explanation": "Turnout was under 60% in 1922; after voting became compulsory in 1924, the 1925 election saw over 91%.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.duties_rights_responsibilities"
+      ],
+      "sourceCardIds": [
+        "card.government.092.c3"
+      ],
+      "prompt": "Canada's citizenship guide lists several responsibilities. Which one does it say the law requires of you when you're called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Serving on a jury",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Helping others in your community",
+          "correct": false,
+          "rationale": "That's a civic responsibility, not a legal requirement."
+        },
+        {
+          "id": "c",
+          "label": "Protecting heritage and the environment",
+          "correct": false,
+          "rationale": "Valued, but the guide doesn't call it legally required."
+        },
+        {
+          "id": "d",
+          "label": "Volunteering at a food bank",
+          "correct": false,
+          "rationale": "Volunteering is a choice, not a legal duty."
+        }
+      ],
+      "explanation": "Discover Canada says that when you're called to serve on a jury, you are legally required to serve.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.duties_rights_responsibilities",
+        "concept.government.tax_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.092.c3",
+        "card.government.006.c2"
+      ],
+      "prompt": "Level 6 defined taxes as compulsory payments. In this level's terms, what kind of responsibility is paying them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A civic \"should\" that is up to you",
+          "correct": false,
+          "rationale": "Taxes are compulsory, so they aren't optional."
+        },
+        {
+          "id": "b",
+          "label": "A right rather than a responsibility",
+          "correct": false,
+          "rationale": "Paying taxes is something you owe, not something you're owed."
+        },
+        {
+          "id": "c",
+          "label": "A duty that only jurors carry",
+          "correct": false,
+          "rationale": "Everyone pays taxes, not just jurors."
+        },
+        {
+          "id": "d",
+          "label": "A legal duty that the law enforces",
+          "correct": true
+        }
+      ],
+      "explanation": "Taxes are compulsory, so like jury service when called, they're a legal duty, not a civic choice.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ircc_discover_canada_rights",
+    "source.aec_compulsory_voting",
+    "source.peo_electoral_act_1924",
+    "source.brit_citizenship",
+    "source.brit_social_contract",
+    "source.oecd_revenue_statistics_2025"
+  ],
+  "art": "money.scale"
+}

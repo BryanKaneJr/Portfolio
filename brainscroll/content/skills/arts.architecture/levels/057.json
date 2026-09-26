@@ -1,0 +1,217 @@
+{
+  "id": "level.arts.architecture.057",
+  "skillId": "skill.arts.architecture",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Lighthouses",
+  "objective": "After this level you can explain how lighthouses guided ships.",
+  "summary": "Smeaton's 1759 Eddystone tower, oak-shaped and dovetailed, outlasted its rock. Fresnel's 1822 lens focused light into a beam, and each light signs itself by flash pattern and daymark.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.marvel_eddystone_smeaton",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_fresnel_lens",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_light_signatures",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.056"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first Eddystone lighthouse was swept away, and its builder with it.",
+      "body": "Henry Winstanley finished it in 1698: the first lighthouse built on a small rock in the open sea. A storm in 1703 destroyed it and killed him. The next tower, John Rudyerd's, stood for 47 years until it burned in 1755. How do you build a tower the sea can't beat?"
+    },
+    {
+      "id": "card.architecture.057.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Built like an oak",
+      "body": "John Smeaton's answer, finished in 1759, was Cornish granite, modeled on the shape of an oak tree for strength. He locked the stones together with dovetailed joints, and used a quick-setting cement that could stand up to salty seawater. It worked: his tower was replaced in 1882 only because the rock beneath it cracked. Its upper part now stands on Plymouth Hoe. The tower outlasted its own foundation.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "When the rock gives up before your building does, you've done your job."
+      }
+    },
+    {
+      "id": "card.architecture.057.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A lens that catches stray light",
+      "body": "A lamp shines in every direction, so most of its light never reaches a ship. In 1822 Augustin Fresnel completed a lens design that focuses rays that would normally scatter into a single, intense beam. Large first-order Fresnel lenses shine up to 21 miles out to sea. Same lamp, far more reach."
+    },
+    {
+      "id": "card.architecture.057.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every lighthouse signs its name",
+      "body": "Seeing a light isn't enough: a sailor needs to know which one it is. At night, each lighthouse flashes its own pattern, called its characteristic, listed in light lists and on charts. Today's Eddystone light gives two flashes every 10 seconds. By day, lighthouses wear painted daymarks: Cape Hatteras has black and white spiral stripes, Bodie Island bands, and Cape Lookout a checkerboard."
+    },
+    {
+      "id": "card.architecture.057.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.057.q1"
+    },
+    {
+      "id": "card.architecture.057.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.057.q2"
+    },
+    {
+      "id": "card.architecture.057.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.057.q3"
+    },
+    {
+      "id": "card.architecture.057.c8",
+      "type": "checkpoint",
+      "headline": "Lighthouses: lit",
+      "learned": [
+        "Eddystone: two towers lost to storm and fire",
+        "Smeaton (1759): granite, oak-shaped, dovetailed",
+        "Fresnel's 1822 lens focuses light into a beam",
+        "Flash patterns by night, daymarks by day"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.marvel_eddystone_smeaton"
+      ],
+      "sourceCardIds": [
+        "card.architecture.057.c2"
+      ],
+      "prompt": "What did John Smeaton model his 1759 Eddystone lighthouse on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A ship's mast",
+          "correct": false,
+          "rationale": "Smeaton looked to a tree, not a ship."
+        },
+        {
+          "id": "b",
+          "label": "An oak tree",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Pharos of Alexandria",
+          "correct": false,
+          "rationale": "His model was an oak tree."
+        },
+        {
+          "id": "d",
+          "label": "A Gothic church spire",
+          "correct": false,
+          "rationale": "His model was an oak tree."
+        }
+      ],
+      "explanation": "Smeaton built his granite tower on the shape of an oak tree, for strength.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.marvel_fresnel_lens"
+      ],
+      "sourceCardIds": [
+        "card.architecture.057.c3"
+      ],
+      "prompt": "How did Fresnel's lens let lighthouses shine so far?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It focused rays that would scatter into one intense beam",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It burned a much bigger and brighter fire inside the lamp",
+          "correct": false,
+          "rationale": "Same lamp, better lens."
+        },
+        {
+          "id": "c",
+          "label": "It colored the light red",
+          "correct": false,
+          "rationale": "Color isn't what gave it reach."
+        },
+        {
+          "id": "d",
+          "label": "It made the lamp flash faster",
+          "correct": false,
+          "rationale": "Flashing identifies a light; focusing gives reach."
+        }
+      ],
+      "explanation": "Fresnel's lens gathered light that would normally scatter and focused it into a single, intense beam, visible up to 21 miles out.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.marvel_light_signatures"
+      ],
+      "sourceCardIds": [
+        "card.architecture.057.c4"
+      ],
+      "prompt": "A lighthouse's painted daymark does by day what which feature does by night?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The dovetail joints in its granite blocks",
+          "correct": false,
+          "rationale": "Joints hold the tower together; they don't identify it."
+        },
+        {
+          "id": "b",
+          "label": "Its foundation rock",
+          "correct": false,
+          "rationale": "The rock doesn't identify the light."
+        },
+        {
+          "id": "c",
+          "label": "Its flash pattern, called its characteristic",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its storm shutters",
+          "correct": false,
+          "rationale": "Identification comes from the light's pattern."
+        }
+      ],
+      "explanation": "By night each lighthouse is identified by its characteristic flash pattern; by day, by its painted daymark.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.asce_eddystone",
+    "source.trinityhouse_eddystone",
+    "source.nps_fresnel_lens",
+    "source.nps_caha_aids_navigation"
+  ],
+  "art": "geo.lighthouse"
+}

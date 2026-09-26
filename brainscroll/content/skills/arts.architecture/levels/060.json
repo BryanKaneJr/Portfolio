@@ -1,0 +1,362 @@
+{
+  "id": "level.arts.architecture.060",
+  "skillId": "skill.arts.architecture",
+  "number": 60,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Engineering Marvels",
+  "objective": "After this level you can explain how engineers span rivers, dig tunnels and hold back water.",
+  "summary": "Galloping Gertie twisted apart in the wind in 1940 because its designers hadn't given that force a path. Every marvel in this chapter finds each force and gives it a way to the ground.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.marvel_tacoma_narrows",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_tunnel_ring_arch",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.marvel_dam_shape",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.marvel_brooklyn_caissons",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.marvel_forth_cantilever",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.marvel_bridge_types",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.marvel_foundation_types",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.marvel_quake_base_isolation",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.059"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.060.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 6 finale: four months after it opened, a bridge twisted itself apart.",
+      "body": "The Tacoma Narrows Bridge in Washington State, nicknamed Galloping Gertie, opened on July 1, 1940. On November 7, 1940, in a wind of about 42 mph, it tore apart. No people died, because the bridge had been closed to traffic in time. What went wrong?"
+    },
+    {
+      "id": "card.architecture.060.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The force nobody gave a path",
+      "body": "Its deck was narrow, just two lanes, and stiffened by solid plate girders instead of open trusses. Those girders didn't absorb the wind's gusts, and the deck began to twist, each swing larger than the last. The replacement, opened in 1950, used a web truss, and the collapse spurred research into how wind acts on bridges. Later suspension bridges were designed with its lessons.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Every marvel in this chapter is a list of forces, each with a path. Gertie's list was missing one."
+      }
+    },
+    {
+      "id": "card.architecture.060.c3",
+      "type": "comparison",
+      "headline": "Engineering Marvels: every force needs a path",
+      "items": [
+        {
+          "label": "Across a gap",
+          "points": [
+            "Beams bend, arches push, cables hang (Level 51)",
+            "Arch dams push the water into the valley sides (Level 55)"
+          ]
+        },
+        {
+          "label": "Rock and water",
+          "points": [
+            "A tunnel is an arch that goes all the way round (Level 54)",
+            "Water pushes hardest at depth, so dams thicken at the base (Level 55)"
+          ]
+        },
+        {
+          "label": "The ground itself",
+          "points": [
+            "Piles carry loads down to firm ground (Level 58)",
+            "Base isolators let the ground move beneath (Level 59)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.architecture.060.c4",
+      "type": "mcq",
+      "questionId": "question.architecture.060.q1"
+    },
+    {
+      "id": "card.architecture.060.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.060.q2"
+    },
+    {
+      "id": "card.architecture.060.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.060.q3"
+    },
+    {
+      "id": "card.architecture.060.c7",
+      "type": "recall",
+      "questionId": "question.architecture.060.q4"
+    },
+    {
+      "id": "card.architecture.060.c8",
+      "type": "recall",
+      "questionId": "question.architecture.060.q5"
+    },
+    {
+      "id": "card.architecture.060.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 6 complete",
+      "learned": [
+        "Beams, arches, cables and cantilevers carry bridges",
+        "Tunnels are arches all the way round; dams thicken with depth",
+        "Foundations and isolators handle the ground itself",
+        "Tacoma Narrows: give every force, even wind, a path"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.060.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.marvel_tacoma_narrows"
+      ],
+      "sourceCardIds": [
+        "card.architecture.060.c1"
+      ],
+      "prompt": "What brought down the first Tacoma Narrows Bridge in November 1940?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An earthquake shaking the ground under its towers",
+          "correct": false,
+          "rationale": "Wind, not an earthquake, destroyed it."
+        },
+        {
+          "id": "b",
+          "label": "A ship striking a pier",
+          "correct": false,
+          "rationale": "Nothing hit it; the wind did it."
+        },
+        {
+          "id": "c",
+          "label": "Wind of about 42 mph that set its deck twisting",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its cables rusting through",
+          "correct": false,
+          "rationale": "It failed four months after opening, in the wind."
+        }
+      ],
+      "explanation": "In a wind of about 42 mph, Galloping Gertie's deck twisted in ever larger swings until it tore apart.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.060.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.marvel_tacoma_narrows"
+      ],
+      "sourceCardIds": [
+        "card.architecture.060.c2"
+      ],
+      "prompt": "What was wrong with Galloping Gertie's deck?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its narrow deck had solid girders that didn't absorb gusts",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was too heavy for its towers",
+          "correct": false,
+          "rationale": "Weight wasn't the problem; wind was."
+        },
+        {
+          "id": "c",
+          "label": "It was built on soft ground, like the tower at Pisa",
+          "correct": false,
+          "rationale": "The failure was in the deck, in the wind."
+        },
+        {
+          "id": "d",
+          "label": "It had no cables at all",
+          "correct": false,
+          "rationale": "It was a suspension bridge, hung from cables."
+        }
+      ],
+      "explanation": "The narrow two-lane deck had solid plate girders instead of open trusses; they didn't absorb the gusts, so it twisted.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.060.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.marvel_tunnel_ring_arch",
+        "concept.architecture.marvel_dam_shape",
+        "concept.architecture.stand_arch"
+      ],
+      "sourceCardIds": [
+        "card.architecture.060.c3",
+        "card.architecture.054.c4",
+        "card.architecture.055.c3"
+      ],
+      "prompt": "Engineering Marvels recap: which Chapter 1 shape do both a tunnel's lining and an arch dam borrow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The post and lintel",
+          "correct": false,
+          "rationale": "Lintels bend; tunnels and arch dams stay in compression."
+        },
+        {
+          "id": "b",
+          "label": "The cantilever",
+          "correct": false,
+          "rationale": "Cantilevers belong to bridges like the Forth."
+        },
+        {
+          "id": "c",
+          "label": "The steel frame",
+          "correct": false,
+          "rationale": "Frames hold up buildings, not dams."
+        },
+        {
+          "id": "d",
+          "label": "The arch",
+          "correct": true
+        }
+      ],
+      "explanation": "A tunnel is a continuous arch that goes all the way round, and an arch dam's curve passes the water's push into the valley sides.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.060.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.marvel_brooklyn_caissons"
+      ],
+      "sourceCardIds": [
+        "card.architecture.052.c2"
+      ],
+      "prompt": "Engineering Marvels recap: what kept the East River out of the Brooklyn Bridge's caissons while workers dug?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pumps running day and night",
+          "correct": false,
+          "rationale": "Air pressure, not pumping, kept the water out."
+        },
+        {
+          "id": "b",
+          "label": "Compressed air pumped into the boxes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A frozen ice wall",
+          "correct": false,
+          "rationale": "The boxes held compressed air."
+        },
+        {
+          "id": "d",
+          "label": "Clay packed around the edges",
+          "correct": false,
+          "rationale": "The boxes held compressed air."
+        }
+      ],
+      "explanation": "Compressed air pumped into the bottomless boxes kept the water out while workers dug.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.060.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.marvel_forth_cantilever"
+      ],
+      "sourceCardIds": [
+        "card.architecture.051.c4"
+      ],
+      "prompt": "Engineering Marvels recap: what is a cantilever, the Forth Bridge's building block?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A beam supported at one end only",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A curved cable in tension",
+          "correct": false,
+          "rationale": "That's a suspension cable."
+        },
+        {
+          "id": "c",
+          "label": "A wedge-shaped arch stone",
+          "correct": false,
+          "rationale": "That's a voussoir."
+        },
+        {
+          "id": "d",
+          "label": "A tube sunk into a trench",
+          "correct": false,
+          "rationale": "That's an immersed-tube tunnel section."
+        }
+      ],
+      "explanation": "A cantilever is a beam supported at one end only, like a diving board; the Forth Bridge joins three of them.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.historylink_tacoma",
+    "source.wsdot_tacoma_collapse",
+    "source.brit_tacoma_narrows",
+    "source.brit_bridge_engineering",
+    "source.brit_suspension_bridge",
+    "source.brit_dam",
+    "source.hsw_tunnels",
+    "source.schoolphysics_liquid_pressure",
+    "source.uwe_foundation_types",
+    "source.utah_capitol_tour_cards",
+    "source.uh_engines_caisson_disease",
+    "source.brit_cantilever",
+    "source.brit_arch_architecture"
+  ],
+  "art": "technology.bridge"
+}

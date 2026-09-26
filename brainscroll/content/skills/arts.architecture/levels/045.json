@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.architecture.045",
+  "skillId": "skill.arts.architecture",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Houses on Stilts",
+  "objective": "After this level you can explain why some houses stand on stilts.",
+  "summary": "Rumah panggung on the Musi River stand 1 to 2 m up so floods flow beneath. Alpine pile houses date from about 5000 to 500 BC. Every stilt is a post in compression.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.home_stilt_reasons",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.home_pile_dwellings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_tension_compression",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_load_path",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.044"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some of Europe's oldest villages stood on stilts.",
+      "body": "Around the Alps, from about 5000 to 500 BC, people built wooden houses on piles in or near water: on lakes, on river banks and in bogs. Why would anyone lift a house off the ground? A river community in Indonesia still gives the answer."
+    },
+    {
+      "id": "card.architecture.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Let the flood pass underneath",
+      "body": "Along the Musi River in South Sumatra, communities build traditional stilt houses called rumah panggung. Raised about 1 to 2 m, they stay safe when floodwater reaches an adult's knees or waist, because the water flows under the floor instead of through the living room. The open space below also lets in air and light, cutting the damp that rots wooden houses. One move, two problems solved."
+    },
+    {
+      "id": "card.architecture.045.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Standing on legs",
+      "body": "Stilts are Level 2's load path made visible. The whole house, and everyone in it, pushes down through the posts into the ground, so every stilt is in compression, like any post carrying weight. The Alpine builders planted theirs firmly: they burned each pile's end to a point, drove it deep into the mud, packed heavy stones around it and laid a platform of tree trunks and branches on top."
+    },
+    {
+      "id": "card.architecture.045.c4",
+      "type": "fact",
+      "fact": "Archaeologists still debate where the Alpine pile houses stood.",
+      "context": "In the mid-1800s, the Swiss archaeologist Ferdinand Keller argued they stood on platforms out over the lake water. Researchers now think they may have been built over swampy shore instead. Either way, the wet ground preserved their wood so well that 111 sites in six countries became a UNESCO World Heritage Site in 2011.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Over the water or over the mud? Either way, nobody's feet got wet at dinner."
+      }
+    },
+    {
+      "id": "card.architecture.045.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.045.q1"
+    },
+    {
+      "id": "card.architecture.045.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.045.q2"
+    },
+    {
+      "id": "card.architecture.045.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.045.q3"
+    },
+    {
+      "id": "card.architecture.045.c8",
+      "type": "checkpoint",
+      "headline": "Stilts: raised",
+      "learned": [
+        "Rumah panggung: raised 1 to 2 m on the Musi River",
+        "Floods flow under; air under the floor fights damp",
+        "Stilts are posts in compression",
+        "Alpine pile dwellings: about 5000 to 500 BC, UNESCO 2011"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.home_pile_dwellings"
+      ],
+      "sourceCardIds": [
+        "card.architecture.045.c1"
+      ],
+      "prompt": "Around the Alps, roughly when did people build houses on piles?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 50,000 to 10,000 BC",
+          "correct": false,
+          "rationale": "Too early; these were farming communities."
+        },
+        {
+          "id": "b",
+          "label": "About 5000 to 500 BC",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 500 to 1500 CE",
+          "correct": false,
+          "rationale": "Far too late for these prehistoric sites."
+        },
+        {
+          "id": "d",
+          "label": "About 1700 to 1900 CE",
+          "correct": false,
+          "rationale": "That's when they were studied, not built."
+        }
+      ],
+      "explanation": "The prehistoric pile dwellings around the Alps date from about 5000 to 500 BC.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.home_stilt_reasons"
+      ],
+      "sourceCardIds": [
+        "card.architecture.045.c2"
+      ],
+      "prompt": "Why do rumah panggung along the Musi River stay safe in floods?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their walls are sealed watertight",
+          "correct": false,
+          "rationale": "The water isn't kept out of the walls; it passes below."
+        },
+        {
+          "id": "b",
+          "label": "They float up when the river rises",
+          "correct": false,
+          "rationale": "They stand on stilts; they don't float."
+        },
+        {
+          "id": "c",
+          "label": "They're built far from the river",
+          "correct": false,
+          "rationale": "They stand along the riverbank."
+        },
+        {
+          "id": "d",
+          "label": "Floodwater flows beneath the raised floor",
+          "correct": true
+        }
+      ],
+      "explanation": "Raised about 1 to 2 m, rumah panggung let floodwater flow beneath the floor, staying safe when water reaches knee or waist height.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.home_pile_dwellings",
+        "concept.architecture.stand_tension_compression"
+      ],
+      "sourceCardIds": [
+        "card.architecture.045.c3",
+        "card.architecture.002.c4"
+      ],
+      "prompt": "Level 2 named two basic forces. Which one is a stilt holding up a house under?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tension, like a hanging cable",
+          "correct": false,
+          "rationale": "Cables hang loads; a stilt carries weight down."
+        },
+        {
+          "id": "b",
+          "label": "Neither, since stilts only resist wind",
+          "correct": false,
+          "rationale": "Stilts carry the house's weight to the ground."
+        },
+        {
+          "id": "c",
+          "label": "Compression, like any post carrying weight",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Tension on top, compression below",
+          "correct": false,
+          "rationale": "Beams bend; a post is simply squeezed."
+        }
+      ],
+      "explanation": "A post carrying weight down to the ground is squeezed, in compression; every stilt carries the house down its load path.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.palafittes_pile_dwellings",
+    "source.jamba_stilt_houses_south_sumatra",
+    "source.pnnl_continuous_load_path",
+    "source.brit_bridge_engineering",
+    "source.brit_lake_dwellings"
+  ],
+  "art": "arch.stilt-house"
+}

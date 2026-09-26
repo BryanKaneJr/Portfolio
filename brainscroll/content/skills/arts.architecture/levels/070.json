@@ -1,0 +1,363 @@
+{
+  "id": "level.arts.architecture.070",
+  "skillId": "skill.arts.architecture",
+  "number": 70,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Skyscrapers",
+  "objective": "After this level you can explain what makes skyscrapers possible and how they stay up.",
+  "summary": "'Skyscraper' was a sail before it was a building (1888, Chicago). New York's 1916 zoning, after the Equitable's shadow, shaped wedding-cake towers. Frames, elevators and wind strategies do the rest.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.sky_word_origin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_zoning_setbacks",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_esb_record",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.sky_safety_falls",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.sky_glass_tower_rise",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.sky_curtain_wall",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.sky_elevator_safety",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.sky_wind_shaping",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_frame_structure",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.069"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.070.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Skyscrapers recap: before it was a building, a skyscraper was a sail.",
+      "body": "In 1794, a skyscraper was a light sail at the very top of a ship's mast. Here's how the word climbed onto buildings, and how one city's law gave its skyline a shape."
+    },
+    {
+      "id": "card.architecture.070.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A word for tall things",
+      "body": "The word was used for all sorts of high-reaching things, even a racehorse, before it was first recorded for a very tall city building in 1888, in a Chicago context. That's the Chicago of Level 61's Chicago school. Other languages chose the same picture: German says Wolkenkratzer, \"cloud scraper,\" and French says gratte-ciel, \"scrape-sky.\""
+    },
+    {
+      "id": "card.architecture.070.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The law that stepped the skyline",
+      "body": "In 1915, New York's Equitable Building rose straight up, with no setbacks, to 538 feet, and cast a seven-acre shadow over its neighbors. The city answered with its 1916 Zoning Resolution, the nation's first comprehensive zoning ordinance, which controlled the size and shape of buildings. It fostered slender towers and tiered \"wedding cake\" buildings. Those steps began with a shadow, not with the wind.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Next time you see a stepped New York tower, you're looking at a law, drawn in stone."
+      }
+    },
+    {
+      "id": "card.architecture.070.c4",
+      "type": "comparison",
+      "headline": "Skyscrapers: what it takes to stand, rise and stay put",
+      "items": [
+        {
+          "label": "Stand",
+          "points": [
+            "A steel frame carries the floors (Level 61)",
+            "The glass or stone skin just hangs on it (Level 66)"
+          ]
+        },
+        {
+          "label": "Rise",
+          "points": [
+            "Otis's brake made elevators safe (Level 62)",
+            "After 1857, more than five stories became practical"
+          ]
+        },
+        {
+          "label": "Stay put",
+          "points": [
+            "Shape changes confuse the wind (Levels 64-65)",
+            "Dampers like Taipei 101's steel ball steady the sway"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.architecture.070.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.070.q1"
+    },
+    {
+      "id": "card.architecture.070.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.070.q2"
+    },
+    {
+      "id": "card.architecture.070.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.070.q3"
+    },
+    {
+      "id": "card.architecture.070.c8",
+      "type": "recall",
+      "questionId": "question.architecture.070.q4"
+    },
+    {
+      "id": "card.architecture.070.c9",
+      "type": "recall",
+      "questionId": "question.architecture.070.q5"
+    },
+    {
+      "id": "card.architecture.070.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 7 complete",
+      "learned": [
+        "A frame to stand, an elevator to rise, a shape to beat the wind",
+        "Sullivan: form ever follows function",
+        "Built fast: the Empire State in about 410 days",
+        "New York's 1916 law stepped its towers; CTBUH counts spires",
+        "'Skyscraper' was a sail before it was a building"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.070.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.sky_word_origin"
+      ],
+      "sourceCardIds": [
+        "card.architecture.070.c1"
+      ],
+      "prompt": "Skyscrapers recap: what was a 'skyscraper' in 1794?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A very tall office building in Chicago",
+          "correct": false,
+          "rationale": "That meaning came in 1888."
+        },
+        {
+          "id": "b",
+          "label": "A light sail at the top of a ship's mast",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A church spire in London",
+          "correct": false,
+          "rationale": "It was a sailing word first."
+        },
+        {
+          "id": "d",
+          "label": "A kind of high-flying kite",
+          "correct": false,
+          "rationale": "It was a sail at the top of a mast."
+        }
+      ],
+      "explanation": "In 1794 a skyscraper was a light sail at the top of a mast; the building sense dates from 1888 in Chicago.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.070.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.sky_zoning_setbacks"
+      ],
+      "sourceCardIds": [
+        "card.architecture.070.c3"
+      ],
+      "prompt": "Skyscrapers recap: why do many New York towers from after 1916 step back like wedding cakes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To confuse the wind, like Burj Khalifa",
+          "correct": false,
+          "rationale": "Those steps were required by a zoning law."
+        },
+        {
+          "id": "b",
+          "label": "Steel couldn't yet be built straight up that high",
+          "correct": false,
+          "rationale": "The Equitable Building had already gone straight up."
+        },
+        {
+          "id": "c",
+          "label": "The 1916 Zoning Resolution controlled buildings' size and shape",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To make room for airship mooring masts",
+          "correct": false,
+          "rationale": "The cause was a zoning law after the Equitable's shadow."
+        }
+      ],
+      "explanation": "After the Equitable Building's seven-acre shadow, the 1916 Zoning Resolution controlled the size and shape of buildings, fostering tiered towers.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.070.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.sky_zoning_setbacks",
+        "concept.architecture.sky_wind_shaping"
+      ],
+      "sourceCardIds": [
+        "card.architecture.070.c3",
+        "card.architecture.065.c4"
+      ],
+      "prompt": "Skyscrapers recap: New York's wedding-cake towers and Burj Khalifa both step back as they rise. What's different about why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both step back only for decoration",
+          "correct": false,
+          "rationale": "Each has a practical reason."
+        },
+        {
+          "id": "b",
+          "label": "Both step back to save on steel",
+          "correct": false,
+          "rationale": "Neither card gives cost as the reason."
+        },
+        {
+          "id": "c",
+          "label": "New York's steps confuse the wind; Burj Khalifa's let in light",
+          "correct": false,
+          "rationale": "New York's came from a zoning law; Burj Khalifa's confuse the wind."
+        },
+        {
+          "id": "d",
+          "label": "New York's steps came from a zoning law; Burj Khalifa's confuse the wind",
+          "correct": true
+        }
+      ],
+      "explanation": "New York's 1916 law, answering the Equitable's shadow, shaped its setbacks; Burj Khalifa's spiral setbacks break up the wind's vortices.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.architecture.070.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.sky_esb_record"
+      ],
+      "sourceCardIds": [
+        "card.architecture.063.c1"
+      ],
+      "prompt": "Skyscrapers recap: about how long did the Empire State Building take, from start of work to opening?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 410 days",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "About 10 years",
+          "correct": false,
+          "rationale": "It took a little over a year."
+        },
+        {
+          "id": "c",
+          "label": "About 6 months",
+          "correct": false,
+          "rationale": "That's closer to the Crystal Palace."
+        },
+        {
+          "id": "d",
+          "label": "About 45 days",
+          "correct": false,
+          "rationale": "It was one year and 45 days, about 410 days in all."
+        }
+      ],
+      "explanation": "Work began on March 17, 1930, and the building opened on May 1, 1931: about 410 days.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.070.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.sky_glass_tower_rise"
+      ],
+      "sourceCardIds": [
+        "card.architecture.066.c3"
+      ],
+      "prompt": "Skyscrapers recap: which 1952 building was the first commercial building in New York City with a glass curtain wall?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Empire State Building",
+          "correct": false,
+          "rationale": "That's a 1931 Art Deco tower clad in stone."
+        },
+        {
+          "id": "b",
+          "label": "The Chrysler Building",
+          "correct": false,
+          "rationale": "That's a 1930 Art Deco tower."
+        },
+        {
+          "id": "c",
+          "label": "Lever House",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Equitable Building",
+          "correct": false,
+          "rationale": "That 1915 tower led to the 1916 zoning law."
+        }
+      ],
+      "explanation": "Lever House (1952), designed by Gordon Bunshaft of SOM, was New York's first commercial building with a glass curtain wall.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.etymonline_skyscraper",
+    "source.nycdcp_zoning_handbook",
+    "source.brit_skyscraper",
+    "source.brit_curtain_wall",
+    "source.brit_elevator",
+    "source.brit_elisha_otis",
+    "source.physicstoday_vortices_tall_buildings",
+    "source.brit_taipei_101"
+  ],
+  "art": "geo.skyline"
+}

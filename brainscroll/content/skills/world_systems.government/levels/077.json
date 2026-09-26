@@ -1,0 +1,237 @@
+{
+  "id": "level.world_systems.government.077",
+  "skillId": "skill.world_systems.government",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Corruption",
+  "objective": "After this level you can explain corruption and how countries fight it.",
+  "summary": "Corruption is the abuse of entrusted power for private gain. Hong Kong's ICAC, set up in 1974, fought it with enforcement, prevention and education; Transparency International measures perceptions.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.corruption_definition_cpi",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.corruption_hong_kong_icac",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.power_vs_authority",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.076"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In early-1970s Hong Kong, you might have to bribe an ambulance crew.",
+      "body": "Crews asked for 'tea money' before picking up a sick person. Bribes smoothed the way to public housing and school places too. A public service came with a private price tag.",
+      "id": "card.government.077.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Borrowed power, misused",
+      "body": "Transparency International defines corruption as the abuse of entrusted power for private gain. Every word matters. Entrusted: the power was lent to an official by the public. Abuse: it was used for something it wasn't lent for. Private gain: the official pockets the benefit. Remember Level 3? Authority is power people accept. Corruption quietly turns it into a price list.",
+      "id": "card.government.077.c2"
+    },
+    {
+      "type": "timeline",
+      "headline": "How Hong Kong fought back",
+      "events": [
+        {
+          "when": "June 1973",
+          "label": "Police chief superintendent Peter Godber, under investigation, slips out of Hong Kong"
+        },
+        {
+          "when": "1973",
+          "label": "Public outcry, and a judge-led inquiry"
+        },
+        {
+          "when": "February 1974",
+          "label": "The Independent Commission Against Corruption is set up"
+        },
+        {
+          "when": "1975",
+          "label": "Godber is brought back, convicted and jailed for four years"
+        }
+      ],
+      "id": "card.government.077.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "The ICAC fought corruption three ways: enforcement, prevention and education.",
+      "context": "Catch the corrupt, fix the systems that tempt them, and bring the public on side. It also stood apart from any government department, because corruption was worst in the police force itself. You can't ask the suspects to run the investigation.",
+      "id": "card.government.077.c4"
+    },
+    {
+      "type": "fact",
+      "fact": "Denmark tops the 2025 Corruption Perceptions Index, with 89 out of 100.",
+      "context": "Transparency International scores 182 countries and territories on perceived public-sector corruption, from 0 (highly corrupt) to 100 (very clean). In 2025 the global average fell to 42, and 122 countries scored below 50. It was Denmark's eighth year in a row at the top.",
+      "id": "card.government.077.c5"
+    },
+    {
+      "id": "card.government.077.c6",
+      "type": "mcq",
+      "questionId": "question.government.077.q1"
+    },
+    {
+      "id": "card.government.077.c7",
+      "type": "mcq",
+      "questionId": "question.government.077.q2"
+    },
+    {
+      "id": "card.government.077.c8",
+      "type": "recall",
+      "questionId": "question.government.077.q3"
+    },
+    {
+      "id": "card.government.077.c9",
+      "type": "checkpoint",
+      "headline": "Corruption: exposed",
+      "learned": [
+        "Corruption: abuse of entrusted power for private gain",
+        "Hong Kong set up the independent ICAC in 1974",
+        "Enforcement, prevention and education",
+        "CPI 2025: average 42; Denmark top with 89"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.corruption_definition_cpi"
+      ],
+      "sourceCardIds": [
+        "card.government.077.c2"
+      ],
+      "prompt": "How does Transparency International define corruption?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Any law that people disagree with",
+          "correct": false,
+          "rationale": "Disagreeing with a law isn't corruption."
+        },
+        {
+          "id": "b",
+          "label": "The abuse of entrusted power for private gain",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Spending more than the budget allows",
+          "correct": false,
+          "rationale": "Overspending is a budget problem, not in itself corruption."
+        },
+        {
+          "id": "d",
+          "label": "Any gift between two friends",
+          "correct": false,
+          "rationale": "A gift between friends involves no entrusted power."
+        }
+      ],
+      "explanation": "Corruption is the abuse of entrusted power for private gain.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.corruption_hong_kong_icac"
+      ],
+      "sourceCardIds": [
+        "card.government.077.c4"
+      ],
+      "prompt": "Why was Hong Kong's anti-corruption commission set up apart from any government department?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Corruption was worst in the police, so they couldn't investigate themselves",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The police had too few officers to spare",
+          "correct": false,
+          "rationale": "Staffing wasn't the reason; independence was."
+        },
+        {
+          "id": "c",
+          "label": "Judges wanted to run it themselves",
+          "correct": false,
+          "rationale": "It was an independent commission, not a court."
+        },
+        {
+          "id": "d",
+          "label": "It was cheaper to run separately",
+          "correct": false,
+          "rationale": "Cost wasn't the point; trust was."
+        }
+      ],
+      "explanation": "Corruption was particularly serious in the police force, so an independent body was needed to investigate it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.corruption_definition_cpi",
+        "concept.government.power_vs_authority"
+      ],
+      "sourceCardIds": [
+        "card.government.077.c2",
+        "card.government.003.c3"
+      ],
+      "prompt": "Level 3 said authority is power people accept as legitimate. In those terms, what does a corrupt official do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Refuses to use any power at all",
+          "correct": false,
+          "rationale": "Corruption is misuse of power, not refusing to use it."
+        },
+        {
+          "id": "b",
+          "label": "Hands their power back to the public",
+          "correct": false,
+          "rationale": "Giving power back isn't abuse."
+        },
+        {
+          "id": "c",
+          "label": "Wins power in a fair election",
+          "correct": false,
+          "rationale": "Winning a fair election is how authority is gained, not abused."
+        },
+        {
+          "id": "d",
+          "label": "Uses power the public entrusted to them for private gain",
+          "correct": true
+        }
+      ],
+      "explanation": "Authority is power people accept; corruption abuses that entrusted power for private gain.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.icac_history",
+    "source.ti_what_is_corruption",
+    "source.ti_cpi_2025",
+    "source.openstax_sociology_power_authority",
+    "source.sep_weber"
+  ],
+  "art": "money.banknote"
+}

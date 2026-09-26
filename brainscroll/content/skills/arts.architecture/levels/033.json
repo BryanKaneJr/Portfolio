@@ -1,0 +1,238 @@
+{
+  "id": "level.arts.architecture.033",
+  "skillId": "skill.arts.architecture",
+  "number": 33,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Palaces",
+  "objective": "After this level you can explain what palaces were for.",
+  "summary": "Palace comes from Rome's Palatine Hill. It is a royal home, often a seat of government too. Western palaces tend to be one building; East Asian ones, many pavilions.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.palace_word_origin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.palace_functions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.palace_plans",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.castles_defensive_design",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.032"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.033.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every palace is named after one hill in Rome.",
+      "body": "The word comes from the Palatine Hill, where Rome's emperors built their homes. So what turns a big house into a palace?"
+    },
+    {
+      "id": "card.architecture.033.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Home, office and throne room",
+      "body": "Augustus had his house on the Palatine. Later, Nero built a splendid residence on the same hill, and the hill's name stuck to the buildings. Today a palace is a royal residence that is sometimes also a seat of government or a religious centre. So a palace is where a ruler sleeps, and often also where the ruling gets done. Think of it as a home with the office downstairs."
+    },
+    {
+      "id": "card.architecture.033.c3",
+      "type": "fact",
+      "fact": "A palace is power you can walk into.",
+      "context": "In Rome and Constantinople, palaces reached their peak as centres of power. Compare Level 31's castles: also rulers' homes, but strongholds first. A palace's walls can hold a government as well as a household.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Castle: keep them out. Palace: let them in, and make sure they are impressed."
+      }
+    },
+    {
+      "id": "card.architecture.033.c4",
+      "type": "comparison",
+      "headline": "Two ways to plan a palace",
+      "items": [
+        {
+          "label": "One great building",
+          "points": [
+            "Typical of Western Europe after the Middle Ages",
+            "Everything under one roof"
+          ]
+        },
+        {
+          "label": "Many buildings",
+          "points": [
+            "Typical of East Asia, like Beijing's Forbidden City",
+            "Low, decorated wooden pavilions",
+            "Set in vast walled gardens"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.architecture.033.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.033.q1"
+    },
+    {
+      "id": "card.architecture.033.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.033.q2"
+    },
+    {
+      "id": "card.architecture.033.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.033.q3"
+    },
+    {
+      "id": "card.architecture.033.c8",
+      "type": "checkpoint",
+      "headline": "Palaces: explained",
+      "learned": [
+        "Named after Rome's Palatine Hill",
+        "A royal home, often also a seat of government",
+        "Palaces were centres of power in Rome and Constantinople",
+        "West: one building; East Asia: many pavilions in walled gardens"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.033.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.palace_word_origin"
+      ],
+      "sourceCardIds": [
+        "card.architecture.033.c1",
+        "card.architecture.033.c2"
+      ],
+      "prompt": "Where does the word palace come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rome's Palatine Hill, where emperors built homes",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Chinese name of Beijing's Forbidden City",
+          "correct": false,
+          "rationale": "The word is Latin, from Rome."
+        },
+        {
+          "id": "c",
+          "label": "A Greek word meaning \"chief builder\"",
+          "correct": false,
+          "rationale": "That's architect (Level 1)."
+        },
+        {
+          "id": "d",
+          "label": "Versailles, the first building called a palace",
+          "correct": false,
+          "rationale": "The word is far older than Versailles."
+        }
+      ],
+      "explanation": "The word derives from Rome's Palatine Hill, where Augustus's house stood and Nero later built a splendid residence.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.palace_plans"
+      ],
+      "sourceCardIds": [
+        "card.architecture.033.c4"
+      ],
+      "prompt": "How does an East Asian palace like Beijing's differ in plan from a Western European palace after the Middle Ages?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is one tall tower instead of one wide hall",
+          "correct": false,
+          "rationale": "It is many low buildings."
+        },
+        {
+          "id": "b",
+          "label": "It stands in open parkland, with no walls around",
+          "correct": false,
+          "rationale": "Its gardens are walled."
+        },
+        {
+          "id": "c",
+          "label": "It is dug into a hillside, mostly underground",
+          "correct": false,
+          "rationale": "Its pavilions stand in gardens."
+        },
+        {
+          "id": "d",
+          "label": "Many low wooden pavilions in walled gardens",
+          "correct": true
+        }
+      ],
+      "explanation": "Western palaces after the Middle Ages tended to be single buildings; East Asian palaces are many low, decorated wooden pavilions within vast walled gardens.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.033.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.palace_functions",
+        "concept.architecture.castles_defensive_design"
+      ],
+      "sourceCardIds": [
+        "card.architecture.033.c2",
+        "card.architecture.031.c1"
+      ],
+      "prompt": "Level 31's castles were generally the homes of kings or lords. Besides a royal home, what else can a palace be?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A tunnel dug to attack an enemy's walls",
+          "correct": false,
+          "rationale": "That's a mine (Level 31)."
+        },
+        {
+          "id": "b",
+          "label": "A seat of government or a religious centre",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A lighthouse guiding ships into harbour",
+          "correct": false,
+          "rationale": "Palaces house rulers, not lamps."
+        },
+        {
+          "id": "d",
+          "label": "Only a lodge for royal hunting trips",
+          "correct": false,
+          "rationale": "A palace is a royal residence and often much more."
+        }
+      ],
+      "explanation": "A palace is a royal residence and sometimes also a seat of government or a religious centre.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_palace_summary",
+    "source.etymonline_palace",
+    "source.brit_castle_architecture"
+  ],
+  "art": "medieval.crown"
+}

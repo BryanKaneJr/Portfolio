@@ -1,0 +1,232 @@
+{
+  "id": "level.world_systems.government.059",
+  "skillId": "skill.world_systems.government",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Prisons and Punishment",
+  "objective": "After this level you can explain the purposes of punishment and the debates about it.",
+  "summary": "About 11.7 million people were in prison in 2023. Punishment aims at retribution, deterrence, incapacitation or rehabilitation; Kant, Bentham and Beccaria argued over why.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.punishment_prison_numbers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.punishment_purposes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.punishment_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.presumption_innocence",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.058"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "About 11.7 million people were in prison worldwide in 2023.",
+      "body": "That's the UN Office on Drugs and Crime's count. Around 30 per cent of them, more than 3.7 million people, hadn't been sentenced: they were in pre-trial detention. So what is prison for? Your answer changes what a prison should look like.",
+      "id": "card.government.059.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Four reasons to punish",
+      "body": "Four aims come up again and again. Retribution: the offender pays for the wrong done. Deterrence: the threat of punishment discourages crime. Incapacitation: someone locked up can't reoffend outside. Rehabilitation: reform, so the person returns as a law-abiding citizen. A single prison sentence can try to do all four at once, and they don't always pull the same way.",
+      "id": "card.government.059.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Deserved, or useful?",
+      "body": "Philosophers split on the deepest question. Retributivists such as Immanuel Kant argue punishment is justified because the wrongdoer deserves it, whatever its effects. Jeremy Bentham took the other side: all punishment is in itself evil, he wrote, justified only as far as it prevents some greater evil. The debate is still going, and it shapes real sentences.",
+      "id": "card.government.059.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Getting caught matters more than the length of the sentence.",
+      "context": "That was Cesare Beccaria's argument in On Crimes and Punishments (1764): the certainty of punishment deters more than its severity. A speed camera you know is there changes your driving more than a huge fine you'll probably never get.",
+      "id": "card.government.059.c4"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Norway's answer",
+      "body": "Norway's prison service follows a principle of normality: the punishment is the loss of liberty, and no other rights are removed by the sentencing court. Life inside should resemble life outside as much as possible. It's a system built around the rehabilitation aim. Countries weigh the four aims differently, and that's where the debate lives.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Same four aims everywhere. The argument is over the mix."
+      },
+      "id": "card.government.059.c5"
+    },
+    {
+      "id": "card.government.059.c6",
+      "type": "mcq",
+      "questionId": "question.government.059.q1"
+    },
+    {
+      "id": "card.government.059.c7",
+      "type": "mcq",
+      "questionId": "question.government.059.q2"
+    },
+    {
+      "id": "card.government.059.c8",
+      "type": "recall",
+      "questionId": "question.government.059.q3"
+    },
+    {
+      "id": "card.government.059.c9",
+      "type": "checkpoint",
+      "headline": "Punishment: weighed",
+      "learned": [
+        "About 11.7 million people in prison in 2023",
+        "Four aims: retribution, deterrence, incapacitation, rehabilitation",
+        "Kant: deserved; Bentham: only if useful",
+        "Beccaria: certainty beats severity"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.punishment_purposes"
+      ],
+      "sourceCardIds": [
+        "card.government.059.c2"
+      ],
+      "prompt": "Which aim of punishment is about reforming offenders so they return as law-abiding citizens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Retribution",
+          "correct": false,
+          "rationale": "Retribution is about paying for the wrong done."
+        },
+        {
+          "id": "b",
+          "label": "Deterrence",
+          "correct": false,
+          "rationale": "Deterrence discourages crime by threat."
+        },
+        {
+          "id": "c",
+          "label": "Incapacitation",
+          "correct": false,
+          "rationale": "Incapacitation stops reoffending by removing the person."
+        },
+        {
+          "id": "d",
+          "label": "Rehabilitation",
+          "correct": true
+        }
+      ],
+      "explanation": "Rehabilitation aims to reform offenders so they can return as law-abiding citizens.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.punishment_debate"
+      ],
+      "sourceCardIds": [
+        "card.government.059.c3"
+      ],
+      "prompt": "Kant and Bentham disagreed about why we punish. Which pair matches their views?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Kant: only to deter; Bentham: because it's deserved",
+          "correct": false,
+          "rationale": "That's the two views swapped."
+        },
+        {
+          "id": "b",
+          "label": "Kant: because it's deserved; Bentham: only if it prevents a greater evil",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both: punishment should be abolished",
+          "correct": false,
+          "rationale": "Neither argued that."
+        },
+        {
+          "id": "d",
+          "label": "Kant: to rehabilitate; Bentham: to keep prisons full",
+          "correct": false,
+          "rationale": "Neither matches their arguments."
+        }
+      ],
+      "explanation": "Kant was a retributivist; Bentham held that punishment is itself an evil, justified only if it prevents a greater one.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.punishment_prison_numbers",
+        "concept.government.presumption_innocence"
+      ],
+      "sourceCardIds": [
+        "card.government.059.c1",
+        "card.government.054.c4"
+      ],
+      "prompt": "Around 30 per cent of the world's prisoners haven't been sentenced. Which Level 54 principle makes that worth thinking about?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Judicial review",
+          "correct": false,
+          "rationale": "That's about laws and constitutions."
+        },
+        {
+          "id": "b",
+          "label": "The cab-rank rule",
+          "correct": false,
+          "rationale": "That's about barristers taking cases."
+        },
+        {
+          "id": "c",
+          "label": "The presumption of innocence",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Policing by consent",
+          "correct": false,
+          "rationale": "That's about where police power comes from."
+        }
+      ],
+      "explanation": "People in pre-trial detention haven't been proved guilty, and everyone charged has the right to be presumed innocent until proved guilty.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.unodc_prison_matters_2025",
+    "source.brit_punishment",
+    "source.sep_legal_punishment",
+    "source.brit_beccaria",
+    "source.kriminalomsorgen_about",
+    "source.un_udhr"
+  ],
+  "art": "object.padlock"
+}

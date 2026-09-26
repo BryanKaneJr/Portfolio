@@ -1,0 +1,226 @@
+{
+  "id": "level.world_systems.government.051",
+  "skillId": "skill.world_systems.government",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Courts",
+  "objective": "After this level you can explain what courts do.",
+  "summary": "Courts settle disputes without force: they find the facts and apply the law. Valencia's Water Tribunal has done it at a cathedral door since al-Andalus.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.courts_purpose",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.courts_valencia_water_tribunal",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.government_first_governments",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.law_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.050"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Every Thursday at noon, a court meets on a cathedral doorstep.",
+      "body": "In Valencia, Spain, eight judges in farmers' blouses gather at the cathedral door to settle quarrels over irrigation water. The farmers who come before them elect them. The tribunal goes back to al-Andalus, between the 9th and 13th centuries, and UNESCO listed it as world heritage in 2009. Why do people keep bringing their fights to it? Because that is exactly what a court is for.",
+      "id": "card.government.051.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A referee instead of a fist",
+      "body": "Picture two farmers, one canal and a dry summer. Without a court, Britannica notes, people settle disputes by force. A court is a person or body with the authority to hear and resolve disputes, and its first job is keeping the peace as an impartial, authoritative judge. Remember Level 1's Sumer, where sharing river water needed a central authority? Valencia's farmers found theirs on a church step.",
+      "id": "card.government.051.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Two questions, in order",
+      "body": "Every trial court answers two questions: what happened, and what does the law say about it? It works out the facts, then applies the law to them. Did the farmer open his gate out of turn? That's a fact. What follows when someone does? That's law, Level 4's rule backed by authority. In Valencia it all happens out loud, in Valencian, with the verdict given on the spot. No paperwork required, and no time to lose your temper.",
+      "id": "card.government.051.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "The judge from the farmers' own canal has to sit out.",
+      "context": "To keep the Water Tribunal impartial, the syndic of the canal the disputing farmers belong to takes no part in the deliberation. And there's no appeal: the sentence is final. Most court systems add a second layer instead, appeal courts, whose job is to check whether the trial court applied the law correctly.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Nobody gets to judge their own canal. Hold on to that idea; it comes back more than once."
+      },
+      "id": "card.government.051.c4"
+    },
+    {
+      "id": "card.government.051.c5",
+      "type": "mcq",
+      "questionId": "question.government.051.q1"
+    },
+    {
+      "id": "card.government.051.c6",
+      "type": "mcq",
+      "questionId": "question.government.051.q2"
+    },
+    {
+      "id": "card.government.051.c7",
+      "type": "recall",
+      "questionId": "question.government.051.q3"
+    },
+    {
+      "id": "card.government.051.c8",
+      "type": "checkpoint",
+      "headline": "Courts: in session",
+      "learned": [
+        "Courts resolve disputes instead of force",
+        "They find the facts, then apply the law",
+        "Appeal courts check the law was applied correctly",
+        "Valencia's farmers still hold court each Thursday"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.courts_valencia_water_tribunal"
+      ],
+      "sourceCardIds": [
+        "card.government.051.c1"
+      ],
+      "prompt": "Where does Valencia's Water Tribunal hold its weekly sessions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In Spain's parliament in Madrid",
+          "correct": false,
+          "rationale": "It meets in Valencia, not Madrid."
+        },
+        {
+          "id": "b",
+          "label": "At the door of Valencia Cathedral",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In UNESCO's offices in Paris",
+          "correct": false,
+          "rationale": "UNESCO listed it; it doesn't host it."
+        },
+        {
+          "id": "d",
+          "label": "On the banks of a different canal each week",
+          "correct": false,
+          "rationale": "It has one fixed place: the cathedral door."
+        }
+      ],
+      "explanation": "The Water Tribunal meets every Thursday at noon at the door of Valencia Cathedral.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.government.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.courts_valencia_water_tribunal"
+      ],
+      "sourceCardIds": [
+        "card.government.051.c4"
+      ],
+      "prompt": "Why does the syndic from the disputing farmers' own canal stay out of the Water Tribunal's decision?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He is usually too busy irrigating",
+          "correct": false,
+          "rationale": "It's a rule, not a matter of schedules."
+        },
+        {
+          "id": "b",
+          "label": "Only UNESCO may judge that canal",
+          "correct": false,
+          "rationale": "UNESCO lists the tribunal; it doesn't judge cases."
+        },
+        {
+          "id": "c",
+          "label": "To keep the tribunal impartial",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Because he will hear the appeal later",
+          "correct": false,
+          "rationale": "There is no appeal from the Water Tribunal."
+        }
+      ],
+      "explanation": "The syndic of the litigants' canal takes no part in the deliberation, so no one judges a case involving their own community.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.courts_purpose",
+        "concept.government.government_first_governments"
+      ],
+      "sourceCardIds": [
+        "card.government.051.c2",
+        "card.government.001.c4"
+      ],
+      "prompt": "Level 1's Sumer and Valencia's Water Tribunal both deal with shared water. What do they show about why we need courts and authorities?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Water disputes can only be settled by kings",
+          "correct": false,
+          "rationale": "Valencia's judges are elected farmers."
+        },
+        {
+          "id": "b",
+          "label": "Sharing a resource needs an accepted authority to settle disputes without force",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Farmers always prefer to settle disputes by force",
+          "correct": false,
+          "rationale": "The point is the opposite: courts replace force."
+        },
+        {
+          "id": "d",
+          "label": "Courts exist mainly to collect water taxes",
+          "correct": false,
+          "rationale": "Courts hear and resolve disputes; they don't collect taxes."
+        }
+      ],
+      "explanation": "In Sumer, sharing river water needed a central authority; a court is an authority that resolves disputes so people don't settle them by force.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.fao_valencia_water_court",
+    "source.unesco_valencia_water_tribunal",
+    "source.tribunal_aguas_operation",
+    "source.brit_court",
+    "source.uscourts_court_role",
+    "source.brit_government",
+    "source.brit_law"
+  ],
+  "art": "gov.gavel"
+}

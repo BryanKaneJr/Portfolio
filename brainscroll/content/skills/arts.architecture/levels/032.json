@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.architecture.032",
+  "skillId": "skill.arts.architecture",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Great Wall",
+  "objective": "After this level you can explain how the Great Wall of China was built over centuries.",
+  "summary": "Not one wall: Qin joined older walls around 220 BCE; the Ming built the best-preserved one. Rammed earth to granite, it blends into the land, so it is hard to see from orbit.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.greatwall_many_builders",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.greatwall_local_materials",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.greatwall_space_myth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_roman_concrete",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.031"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You can't see the Great Wall from the Moon. And it isn't one wall.",
+      "body": "It was built by a series of governments over about 2,000 years, not as one long, unbroken stretch. NASA says it isn't visible from the Moon at all. So how do you build a wall across centuries, and why is it so hard to spot?"
+    },
+    {
+      "id": "card.architecture.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Joined up, then rebuilt",
+      "body": "Border walls were already standing when Qin Shi Huang, first emperor of a unified China, had them joined into one around 220 BCE. Most of that wall was rammed earth and wood. Much later, the Ming dynasty (1368-1644) built the most extensive and best-preserved version, adding watchtowers and platforms. Most familiar photos of the wall show Ming work. Add up every section ever built and you get about 21,196 km."
+    },
+    {
+      "id": "card.architecture.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Built from what was there",
+      "body": "There's no single Great Wall recipe. Some sections are rammed earth: soil packed hard. Others are brick, and elsewhere builders used quarried granite or even marble blocks. The Ming improved their mortar too. Researchers at Zhejiang University found sticky rice mixed into its lime. Level 7's Romans mixed lime with volcanic ash; the Ming reached for the rice pot."
+    },
+    {
+      "id": "card.architecture.032.c4",
+      "type": "fact",
+      "fact": "The Great Wall hides in its own landscape.",
+      "context": "The wall looks a lot like the stone and soil around it, so it's hard to make out with the human eye even from low Earth orbit. NASA puts it plainly: it isn't visible from the Moon, and it's difficult or impossible to see from Earth orbit without high-powered lenses.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Thousands of kilometres long, and still camouflaged. That takes talent."
+      }
+    },
+    {
+      "id": "card.architecture.032.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.032.q1"
+    },
+    {
+      "id": "card.architecture.032.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.032.q2"
+    },
+    {
+      "id": "card.architecture.032.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.032.q3"
+    },
+    {
+      "id": "card.architecture.032.c8",
+      "type": "checkpoint",
+      "headline": "The Great Wall: surveyed",
+      "learned": [
+        "Built by many governments over about 2,000 years",
+        "Qin joined walls around 220 BCE; the Ming built the best-preserved wall",
+        "Rammed earth, brick, granite, even marble; sticky rice in Ming mortar",
+        "Not visible from the Moon; hard to see even from orbit"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.greatwall_many_builders"
+      ],
+      "sourceCardIds": [
+        "card.architecture.032.c2"
+      ],
+      "prompt": "Which dynasty built the most extensive and best-preserved version of the Great Wall?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Qin dynasty, around 220 BCE",
+          "correct": false,
+          "rationale": "The Qin joined older walls; the best-preserved wall is later."
+        },
+        {
+          "id": "b",
+          "label": "The Ming dynasty (1368-1644)",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "No dynasty: it was all built in one reign",
+          "correct": false,
+          "rationale": "It was built by many governments over about 2,000 years."
+        },
+        {
+          "id": "d",
+          "label": "The Roman Empire",
+          "correct": false,
+          "rationale": "Rome built its own walls, not China's."
+        }
+      ],
+      "explanation": "The Ming dynasty built the most extensive and best-preserved version and added watchtowers and platforms.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.greatwall_space_myth"
+      ],
+      "sourceCardIds": [
+        "card.architecture.032.c4"
+      ],
+      "prompt": "Why is the Great Wall so hard to spot with the eye from low Earth orbit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is too narrow to show up next to roads and rivers",
+          "correct": false,
+          "rationale": "Width is not the reason given."
+        },
+        {
+          "id": "b",
+          "label": "Clouds almost always cover the whole of northern China",
+          "correct": false,
+          "rationale": "Weather is not the reason given."
+        },
+        {
+          "id": "c",
+          "label": "It looks a lot like the stone and soil around it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Most of it was pulled down again by the Ming",
+          "correct": false,
+          "rationale": "The Ming built the best-preserved version."
+        }
+      ],
+      "explanation": "The wall looks a lot like the surrounding stone and soil, so it is difficult to make out even from low Earth orbit.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.greatwall_local_materials",
+        "concept.architecture.stand_roman_concrete"
+      ],
+      "sourceCardIds": [
+        "card.architecture.032.c3",
+        "card.architecture.007.c2"
+      ],
+      "prompt": "Great Wall builders and Level 7's Romans both started with lime. What did each mix in?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ming: volcanic ash; Romans: sticky rice",
+          "correct": false,
+          "rationale": "That's swapped."
+        },
+        {
+          "id": "b",
+          "label": "Both used steel bars",
+          "correct": false,
+          "rationale": "Steel reinforcement is modern (Level 7)."
+        },
+        {
+          "id": "c",
+          "label": "Both used only water",
+          "correct": false,
+          "rationale": "Each added a special ingredient."
+        },
+        {
+          "id": "d",
+          "label": "Ming: sticky rice; Romans: volcanic ash",
+          "correct": true
+        }
+      ],
+      "explanation": "Researchers found sticky rice in Ming lime mortar; Roman concrete mixed lime with volcanic ash and chunks of volcanic rock.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonian_great_wall_facts",
+    "source.nasa_great_wall",
+    "source.natgeo_edu_great_wall",
+    "source.brit_great_wall",
+    "source.lbl_roman_seawater_concrete"
+  ],
+  "art": "rome.wall"
+}

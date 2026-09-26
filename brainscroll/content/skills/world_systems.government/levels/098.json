@@ -1,0 +1,225 @@
+{
+  "id": "level.world_systems.government.098",
+  "skillId": "skill.world_systems.government",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Myths About Government",
+  "objective": "After this level you can debunk common myths about how government works.",
+  "summary": "Three myths checked against the rules: a higher tax bracket taxes only the income inside it; UK civil servants serve any elected government; MPs represent everyone in their area.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.myth_tax_brackets",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.myth_civil_service",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.representative_contact",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.weber_three_authorities",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.097"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Get a raise, jump a tax bracket, take home less. Sound right?",
+      "body": "You may have heard it. It's wrong, at least for income tax in the US and the UK. This level checks three common beliefs about government against the actual rules.",
+      "id": "card.government.098.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Myth 1: a higher bracket taxes everything",
+      "body": "Income taxes in the US and the UK use brackets (the UK calls them bands). Each rate applies only to the part of your income inside its bracket. Cross into a higher one and only the income above the line pays the higher rate. Everything below is taxed exactly as before. Your earlier dollars and pounds never notice.",
+      "id": "card.government.098.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Myth 2: new government, new staff",
+      "body": "When a new party takes power, does it bring in its own officials? In the UK, the civil service is built on the opposite idea. Its code requires civil servants to serve the government, whatever its political persuasion, and to serve different governments equally well. They must not let their own political views decide their advice. The politicians at the top change; the code expects the staff to serve whoever wins.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Rules differ between countries. Checking the actual rule beats repeating the rumor."
+      },
+      "id": "card.government.098.c3"
+    },
+    {
+      "type": "text",
+      "role": "connect",
+      "headline": "Myth 3: your representative only works for their voters",
+      "body": "Level 93 already busted this one. UK MPs are elected to represent everyone who lives in their constituency, whether they voted for them or not. Winning an election puts someone in an office, and Level 3's legal-rational authority belongs to the office, not to its fan club.",
+      "id": "card.government.098.c4"
+    },
+    {
+      "id": "card.government.098.c5",
+      "type": "mcq",
+      "questionId": "question.government.098.q1"
+    },
+    {
+      "id": "card.government.098.c6",
+      "type": "mcq",
+      "questionId": "question.government.098.q2"
+    },
+    {
+      "id": "card.government.098.c7",
+      "type": "recall",
+      "questionId": "question.government.098.q3"
+    },
+    {
+      "id": "card.government.098.c8",
+      "type": "checkpoint",
+      "headline": "Myths: checked",
+      "learned": [
+        "A higher bracket taxes only the income inside it",
+        "UK civil servants serve any elected government",
+        "They keep their own politics out of their advice",
+        "MPs represent everyone in their constituency"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.myth_tax_brackets"
+      ],
+      "sourceCardIds": [
+        "card.government.098.c2"
+      ],
+      "prompt": "Under US or UK income tax brackets, what happens when your income crosses into a higher bracket?",
+      "options": [
+        {
+          "id": "a",
+          "label": "All your income is taxed at the higher rate",
+          "correct": false,
+          "rationale": "That's the myth."
+        },
+        {
+          "id": "b",
+          "label": "You stop paying tax on the lower part",
+          "correct": false,
+          "rationale": "The lower part is taxed as before."
+        },
+        {
+          "id": "c",
+          "label": "Only the income above the line pays the higher rate",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Your whole tax bill is cut in half",
+          "correct": false,
+          "rationale": "Nothing like that happens."
+        }
+      ],
+      "explanation": "Brackets are marginal: each rate applies only to the income inside its bracket.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.myth_civil_service"
+      ],
+      "sourceCardIds": [
+        "card.government.098.c3"
+      ],
+      "prompt": "What does the UK Civil Service Code expect of civil servants when a new party forms the government?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To resign so the party can appoint its supporters",
+          "correct": false,
+          "rationale": "The code expects them to serve the new government."
+        },
+        {
+          "id": "b",
+          "label": "To serve it as well as they served the last one",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "To follow their own political views in their advice",
+          "correct": false,
+          "rationale": "The code forbids that."
+        },
+        {
+          "id": "d",
+          "label": "To wait until the next election before helping",
+          "correct": false,
+          "rationale": "They serve the government of the day."
+        }
+      ],
+      "explanation": "The code requires serving the government, whatever its political persuasion, and serving different governments equally well.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.representative_contact"
+      ],
+      "sourceCardIds": [
+        "card.government.098.c4",
+        "card.government.093.c1"
+      ],
+      "prompt": "Myth: \"My MP only works for the people who voted for them.\" What does Level 93's rule say instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "MPs represent only their party's members",
+          "correct": false,
+          "rationale": "They represent everyone in the constituency."
+        },
+        {
+          "id": "b",
+          "label": "MPs represent the whole country equally",
+          "correct": false,
+          "rationale": "They represent their own constituency."
+        },
+        {
+          "id": "c",
+          "label": "MPs represent only people over 18",
+          "correct": false,
+          "rationale": "All the people who live there."
+        },
+        {
+          "id": "d",
+          "label": "MPs represent everyone living in their constituency",
+          "correct": true
+        }
+      ],
+      "explanation": "UK MPs are elected to represent all the people who live in their constituency, whether they voted for them or not.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_tax_brackets",
+    "source.govuk_income_tax_rates",
+    "source.govuk_civil_service_code",
+    "source.ukparliament_mps_role",
+    "source.openstax_sociology_power_authority",
+    "source.sep_weber"
+  ],
+  "art": "object.magnifier"
+}

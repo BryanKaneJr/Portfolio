@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.government.046",
+  "skillId": "skill.world_systems.government",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Regulations",
+  "objective": "After this level you can explain how government agencies write detailed rules.",
+  "summary": "Laws often leave details to ministers and agencies. UK secondary legislation fills in Acts; US agencies write regulations under authority from Congress through notice and comment, which is not a vote.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.lawmaking_regulations_uk_secondary",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.lawmaking_regulations_us_rulemaking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.power_vs_authority",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.045"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Parliament passes the Act. Then ministers write thousands of rules under it.",
+      "body": "In the UK, about 3,500 statutory instruments are made each year, and only about 1,000 of them need to be considered by Parliament. They're law too. So who writes them, and who keeps them in check?",
+      "id": "card.government.046.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Filling in the details",
+      "body": "An Act often sets out the big idea and leaves the fine print to someone else. That fine print is secondary legislation: law made by ministers or other bodies under powers given to them by an Act of Parliament. It fills in the details that make an Act work in daily life. If the Act is the recipe's title, the regulations are the measurements.",
+      "id": "card.government.046.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Where US agencies get the power",
+      "body": "The US works the same way. Agencies get their authority to issue regulations from laws enacted by Congress, and they must not go beyond it. The Administrative Procedure Act of 1946 sets an open process: an agency publishes a proposed rule in the Federal Register, takes public comments, then publishes a final rule, which goes into the Code of Federal Regulations.",
+      "id": "card.government.046.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Comments count, but they're not votes",
+      "body": "Anyone can comment on a proposed federal rule. But it isn't a ballot: an agency may not base its final rule on how many comments are for or against. It must reason from the record. As the EPA puts it, one well-supported comment is often more informative than a thousand form letters.",
+      "mascot": {
+        "pose": "idea",
+        "line": "One good argument beats a thousand copies of the same one."
+      },
+      "id": "card.government.046.c4"
+    },
+    {
+      "id": "card.government.046.c5",
+      "type": "mcq",
+      "questionId": "question.government.046.q1"
+    },
+    {
+      "id": "card.government.046.c6",
+      "type": "mcq",
+      "questionId": "question.government.046.q2"
+    },
+    {
+      "id": "card.government.046.c7",
+      "type": "recall",
+      "questionId": "question.government.046.q3"
+    },
+    {
+      "id": "card.government.046.c8",
+      "type": "checkpoint",
+      "headline": "Regulations: filled in",
+      "learned": [
+        "Acts often leave details to ministers and agencies",
+        "UK secondary legislation is made under an Act",
+        "US agencies need authority from Congress",
+        "Public comments are weighed, not counted"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.lawmaking_regulations_uk_secondary"
+      ],
+      "sourceCardIds": [
+        "card.government.046.c2"
+      ],
+      "prompt": "In the UK, what is secondary legislation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A bill that failed at second reading",
+          "correct": false,
+          "rationale": "It's not a failed bill; it's law made under an Act."
+        },
+        {
+          "id": "b",
+          "label": "Law made by ministers under powers given by an Act",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A law passed by the House of Lords alone",
+          "correct": false,
+          "rationale": "It's made by ministers or other bodies, not by one House."
+        },
+        {
+          "id": "d",
+          "label": "Advice that nobody has to follow",
+          "correct": false,
+          "rationale": "Secondary legislation is law."
+        }
+      ],
+      "explanation": "Secondary legislation is law made by ministers or other bodies under powers given to them by an Act of Parliament.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.lawmaking_regulations_us_rulemaking"
+      ],
+      "sourceCardIds": [
+        "card.government.046.c4"
+      ],
+      "prompt": "Why can't a US agency simply adopt the rule that gets the most supportive public comments?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Comments are secret, so no one can count them",
+          "correct": false,
+          "rationale": "Comments are public; counting just isn't the test."
+        },
+        {
+          "id": "b",
+          "label": "Only members of Congress may comment",
+          "correct": false,
+          "rationale": "Anyone can comment on a proposed rule."
+        },
+        {
+          "id": "c",
+          "label": "The President counts the comments instead",
+          "correct": false,
+          "rationale": "No one decides by counting comments."
+        },
+        {
+          "id": "d",
+          "label": "Rulemaking isn't a vote; the agency must reason from the record",
+          "correct": true
+        }
+      ],
+      "explanation": "An agency may not base its final rule on the number of comments for or against; it must reason from the record.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.lawmaking_regulations_us_rulemaking",
+        "concept.government.power_vs_authority"
+      ],
+      "sourceCardIds": [
+        "card.government.046.c3",
+        "card.government.003.c3"
+      ],
+      "prompt": "Level 3 called authority power that people accept as legitimate. What gives a US agency its authority to issue regulations?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The number of public comments it receives",
+          "correct": false,
+          "rationale": "Comments inform a rule; they don't authorize it."
+        },
+        {
+          "id": "b",
+          "label": "The personal charisma of the agency's head",
+          "correct": false,
+          "rationale": "That would be Weber's charismatic authority, not the source here."
+        },
+        {
+          "id": "c",
+          "label": "A law enacted by Congress",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Code of Federal Regulations itself",
+          "correct": false,
+          "rationale": "The Code records final rules; it doesn't grant the power."
+        }
+      ],
+      "explanation": "Agencies get their authority to issue regulations from laws enacted by Congress, and must not go beyond it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ukparliament_secondary_legislation",
+    "source.ofr_rulemaking_guide",
+    "source.epa_commenting_dockets",
+    "source.openstax_sociology_power_authority",
+    "source.sep_weber"
+  ],
+  "art": "object.book"
+}

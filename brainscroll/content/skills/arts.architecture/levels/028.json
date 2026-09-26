@@ -1,0 +1,242 @@
+{
+  "id": "level.arts.architecture.028",
+  "skillId": "skill.arts.architecture",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hindu Temples",
+  "objective": "After this level you can describe the towers of Hindu temples and what they represent.",
+  "summary": "The garbhagriha, the deity's small sanctuary, sits under the tower. Kandariya Mahadeva's towers refer to Mount Meru; northern towers curve, southern ones step.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.hindu_temple_garbhagriha",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.hindu_temple_mountain_tower",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.hindu_temple_nagara_dravida",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.angkor_temple_mountain",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.027"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A Hindu temple's tallest tower stands over its smallest room.",
+      "body": "From outside you see a soaring tower, sometimes a whole range of them. Underneath the highest peak is a small chamber for the deity. The tower and the room are one idea, told in stone."
+    },
+    {
+      "id": "card.architecture.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The womb house",
+      "body": "The heart of a Hindu temple is the garbhagriha, often translated \"womb house\". It's the innermost and most sacred sanctuary, housing the main image or emblem of the temple's deity, and it's small. Over it rises the temple's tower: in northern India a shikhara, in the south a pyramidal vimana. The holiest room sits at the foot of the tallest peak, like a cave under a mountain."
+    },
+    {
+      "id": "card.architecture.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A mountain range for Shiva",
+      "body": "At Khajuraho, the 11th-century Kandariya Mahadeva Temple is dedicated to Shiva, represented by a linga in the womb chamber at its heart. Its steeply rising towers and mountain-like form refer to Mount Meru, the mythical source of creation. Many miniature shrines climb its spire, pulling your eye upward peak by peak. Sound familiar? Level 26's Angkor Wat built the same mountain.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Two temples, thousands of kilometers apart, both reaching for the same mountain."
+      }
+    },
+    {
+      "id": "card.architecture.028.c4",
+      "type": "comparison",
+      "headline": "Two ways to build the mountain",
+      "items": [
+        {
+          "label": "North India (Nagara)",
+          "points": [
+            "A shikhara tower, usually curved in outline",
+            "Smaller towers over the halls in front"
+          ]
+        },
+        {
+          "label": "South India (Dravida)",
+          "points": [
+            "A vimana: a pyramid of receding stories",
+            "Thanjavur's Brihadishvara (1003–1010): over 60 meters",
+            "Later, gateways (gopuras) grew to dominate"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.architecture.028.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.028.q1"
+    },
+    {
+      "id": "card.architecture.028.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.028.q2"
+    },
+    {
+      "id": "card.architecture.028.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.028.q3"
+    },
+    {
+      "id": "card.architecture.028.c8",
+      "type": "checkpoint",
+      "headline": "Hindu temples: climbed",
+      "learned": [
+        "The garbhagriha, \"womb house\", holds the deity",
+        "The tower rises over it: shikhara or vimana",
+        "Kandariya Mahadeva's towers refer to Mount Meru",
+        "Brihadishvara's vimana (1003–1010) is over 60 meters"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.hindu_temple_garbhagriha"
+      ],
+      "sourceCardIds": [
+        "card.architecture.028.c2"
+      ],
+      "prompt": "What is the garbhagriha of a Hindu temple?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The great hall where worshippers gather",
+          "correct": false,
+          "rationale": "That's a hall in front; the garbhagriha is the small inner sanctuary."
+        },
+        {
+          "id": "b",
+          "label": "The gateway tower in the outer wall",
+          "correct": false,
+          "rationale": "That's a gopura."
+        },
+        {
+          "id": "c",
+          "label": "The innermost sanctuary, housing the deity's image",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A water tank outside the temple",
+          "correct": false,
+          "rationale": "The garbhagriha is the sanctuary at the temple's heart."
+        }
+      ],
+      "explanation": "The garbhagriha, \"womb house\", is the innermost, most sacred sanctuary, housing the main image or emblem of the deity.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.hindu_temple_nagara_dravida"
+      ],
+      "sourceCardIds": [
+        "card.architecture.028.c4"
+      ],
+      "prompt": "How does a southern (Dravida) Hindu temple tower differ from a northern shikhara?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is a pyramid of receding stories",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is a dome set on pendentives",
+          "correct": false,
+          "rationale": "That's Hagia Sophia's approach."
+        },
+        {
+          "id": "c",
+          "label": "It stands apart from the sanctuary",
+          "correct": false,
+          "rationale": "Both towers rise over the sanctuary."
+        },
+        {
+          "id": "d",
+          "label": "It is made of wood, like a pagoda",
+          "correct": false,
+          "rationale": "Brihadishvara's vimana is stone."
+        }
+      ],
+      "explanation": "Northern shikharas usually curve; a southern vimana rises as a pyramid of gradually receding stories.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.hindu_temple_mountain_tower",
+        "concept.architecture.angkor_temple_mountain"
+      ],
+      "sourceCardIds": [
+        "card.architecture.028.c3",
+        "card.architecture.026.c2"
+      ],
+      "prompt": "The Kandariya Mahadeva Temple and Level 26's Angkor Wat both give their towers the form of which mountain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mount Kulen",
+          "correct": false,
+          "rationale": "That's where Angkor's sandstone was quarried."
+        },
+        {
+          "id": "b",
+          "label": "Mount Fuji",
+          "correct": false,
+          "rationale": "Neither temple refers to Fuji."
+        },
+        {
+          "id": "c",
+          "label": "Mount Olympus",
+          "correct": false,
+          "rationale": "That's from Greek myth, not Hindu cosmology."
+        },
+        {
+          "id": "d",
+          "label": "Mount Meru",
+          "correct": true
+        }
+      ],
+      "explanation": "Angkor Wat's five towers stand for Meru's peaks, and Kandariya Mahadeva's rising towers refer to Mount Meru.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_garbhagriha",
+    "source.brit_north_indian_temple",
+    "source.brit_south_indian_temple",
+    "source.asianart_kandariya",
+    "source.brit_angkor_wat",
+    "source.whe_angkor_wat",
+    "source.brit_brihadishvara"
+  ],
+  "art": "arts.step-pyramid"
+}

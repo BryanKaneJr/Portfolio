@@ -1,0 +1,224 @@
+{
+  "id": "level.world_systems.government.072",
+  "skillId": "skill.world_systems.government",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Where Tax Money Goes",
+  "objective": "After this level you can describe what governments spend the most on.",
+  "summary": "OECD governments spent 42.6% of GDP in 2023. The biggest slice is social protection (pensions and benefits), then health; the size of that slice varies widely between countries.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.spending_size_oecd",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.spending_by_function",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.tax_levels_oecd",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.071"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "If government spending were a pizza, which slice would be biggest?",
+      "body": "Defence? Schools? Roads? Take a guess before you scroll. In every EU country the answer is the same, and it's none of those.",
+      "id": "card.government.072.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "First, the size of the pizza",
+      "body": "Across OECD countries, government spending averaged 42.6% of GDP in 2023. That's measured against GDP, the value of everything an economy produces in a year. Some countries go well past it: in 2024 Finland, France and Austria each spent more than half. Level 6's taxes, about a third of GDP, pay for much of it.",
+      "id": "card.government.072.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Ten standard slices",
+      "body": "To compare countries fairly, statisticians cut spending into ten standard functions, known as COFOG: general public services, defence, public order and safety, economic affairs, health, education, social protection and a few smaller ones. Social protection is the one nobody guesses. It covers pensions, plus benefits for people who are sick, disabled or out of work.",
+      "id": "card.government.072.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "The biggest slice is social protection: 13.4% of GDP across the OECD in 2023.",
+      "context": "Health came second at 8.4%, and education averaged 4.9%. The smallest slice was environmental protection, at 0.5%. In the EU, social protection alone took 40% of all government spending in 2024. Governments spend more on looking after people than on anything else.",
+      "id": "card.government.072.c4"
+    },
+    {
+      "type": "fact",
+      "fact": "Same slice, very different sizes: from 7.9% of GDP to 25.7%.",
+      "context": "That was the range for social protection in 2023, from the United States to Finland. The OECD puts the gap down to different institutional models, meaning how much each country chooses to run through the state. How big the slice should be is a political choice, and countries make it very differently.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Same recipe, very different portions. That's why comparing countries is so revealing."
+      },
+      "id": "card.government.072.c5"
+    },
+    {
+      "id": "card.government.072.c6",
+      "type": "mcq",
+      "questionId": "question.government.072.q1"
+    },
+    {
+      "id": "card.government.072.c7",
+      "type": "mcq",
+      "questionId": "question.government.072.q2"
+    },
+    {
+      "id": "card.government.072.c8",
+      "type": "recall",
+      "questionId": "question.government.072.q3"
+    },
+    {
+      "id": "card.government.072.c9",
+      "type": "checkpoint",
+      "headline": "Spending: sliced",
+      "learned": [
+        "OECD governments spent 42.6% of GDP in 2023",
+        "Spending is sorted into ten functions",
+        "Social protection is the biggest slice, health next",
+        "Its size ranges from 7.9% to 25.7% of GDP"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.spending_by_function"
+      ],
+      "sourceCardIds": [
+        "card.government.072.c4"
+      ],
+      "prompt": "Across OECD countries in 2023, which function took the largest share of government spending?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Defence",
+          "correct": false,
+          "rationale": "Defence is one of the ten functions, but far from the biggest."
+        },
+        {
+          "id": "b",
+          "label": "Environmental protection",
+          "correct": false,
+          "rationale": "That was the smallest slice, at 0.5% of GDP."
+        },
+        {
+          "id": "c",
+          "label": "Education",
+          "correct": false,
+          "rationale": "Education averaged 4.9% of GDP, well behind."
+        },
+        {
+          "id": "d",
+          "label": "Social protection",
+          "correct": true
+        }
+      ],
+      "explanation": "Social protection, mainly pensions and benefits, was the largest area at 13.4% of GDP, ahead of health at 8.4%.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.spending_by_function"
+      ],
+      "sourceCardIds": [
+        "card.government.072.c3"
+      ],
+      "prompt": "What does government spending on \"social protection\" mainly pay for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Police, courts and prisons",
+          "correct": false,
+          "rationale": "That's public order and safety, a separate function."
+        },
+        {
+          "id": "b",
+          "label": "School buildings and teachers",
+          "correct": false,
+          "rationale": "That's education, a separate function."
+        },
+        {
+          "id": "c",
+          "label": "Pensions and benefits for sickness, disability and unemployment",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Tanks, ships and soldiers",
+          "correct": false,
+          "rationale": "That's defence, a separate function."
+        }
+      ],
+      "explanation": "Social protection covers pensions plus benefits for people who are sick, disabled or out of work.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.spending_size_oecd",
+        "concept.government.tax_levels_oecd"
+      ],
+      "sourceCardIds": [
+        "card.government.072.c2",
+        "card.government.006.c4"
+      ],
+      "prompt": "Level 6 put OECD taxes at about a third of GDP. Roughly how much did OECD governments spend in 2023?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About a tenth of GDP",
+          "correct": false,
+          "rationale": "Far too low; spending averaged 42.6% of GDP."
+        },
+        {
+          "id": "b",
+          "label": "About a fifth of GDP",
+          "correct": false,
+          "rationale": "Still too low; spending was above taxes' third."
+        },
+        {
+          "id": "c",
+          "label": "A little over two-fifths of GDP",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nearly all of GDP",
+          "correct": false,
+          "rationale": "Far too high; even Finland spent under 60%."
+        }
+      ],
+      "explanation": "Government spending averaged 42.6% of GDP across the OECD in 2023, while taxes came to about a third.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.oecd_gaag_2025",
+    "source.eurostat_cofog",
+    "source.oecd_revenue_statistics_2025",
+    "source.imf_gdp_basics"
+  ],
+  "art": "money.receipt"
+}

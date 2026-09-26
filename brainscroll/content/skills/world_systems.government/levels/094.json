@@ -1,0 +1,224 @@
+{
+  "id": "level.world_systems.government.094",
+  "skillId": "skill.world_systems.government",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Volunteering",
+  "objective": "After this level you can explain how volunteers help their communities.",
+  "summary": "Volunteering is unpaid, non-compulsory work, formal or informal. About 862 million people volunteer monthly, and some public services, like NSW's fire brigades, run largely on volunteers.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.volunteering_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.volunteering_scale",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.public_services",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.tax_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.093"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "One Australian state's fire service runs on about 70,000 volunteers.",
+      "body": "The NSW Rural Fire Service in New South Wales has about 70,000 volunteer members and is widely described as the largest volunteer fire service in the world. Fire protection is on Level 5's list of public services. Here, a huge force of unpaid people helps provide it.",
+      "id": "card.government.094.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Unpaid, and unforced",
+      "body": "The International Labour Organization defines volunteer work as unpaid, non-compulsory work: time people give without pay, either through an organization or directly for others outside their own household. Compare Level 6's taxes, which are compulsory. Taxes are what everyone must give. Volunteering is what people choose to give.",
+      "id": "card.government.094.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Mostly without a uniform",
+      "body": "Formal volunteering happens through an organization, like a fire brigade. Informal volunteering is arranged directly between people: shopping for a sick neighbor, fixing a friend's fence. Worldwide, more than twice as many people volunteer informally as formally. So most volunteering happens without any roster or badge at all.",
+      "id": "card.government.094.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "About 862 million people volunteer every month.",
+      "context": "That's the estimate in UN Volunteers' 2022 State of the World's Volunteerism Report, counting people aged 15 and over. By definition, nobody is made to give that time, and nobody is paid for it. It's a workforce no budget pays for.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Not every public good comes out of a tax bill."
+      },
+      "id": "card.government.094.c4"
+    },
+    {
+      "id": "card.government.094.c5",
+      "type": "mcq",
+      "questionId": "question.government.094.q1"
+    },
+    {
+      "id": "card.government.094.c6",
+      "type": "mcq",
+      "questionId": "question.government.094.q2"
+    },
+    {
+      "id": "card.government.094.c7",
+      "type": "recall",
+      "questionId": "question.government.094.q3"
+    },
+    {
+      "id": "card.government.094.c8",
+      "type": "checkpoint",
+      "headline": "Volunteering: counted",
+      "learned": [
+        "Volunteer work is unpaid and non-compulsory",
+        "Informal volunteering is more than twice as common as formal",
+        "About 862 million people volunteer monthly",
+        "NSW's fire service runs on about 70,000 volunteers"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.volunteering_scale"
+      ],
+      "sourceCardIds": [
+        "card.government.094.c4"
+      ],
+      "prompt": "According to UN Volunteers' 2022 report, about how many people aged 15 and over volunteer each month?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 86 million",
+          "correct": false,
+          "rationale": "Ten times too low."
+        },
+        {
+          "id": "b",
+          "label": "About 862 million",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 2.1 billion",
+          "correct": false,
+          "rationale": "That's Level 5's figure for people lacking safe water."
+        },
+        {
+          "id": "d",
+          "label": "About 6 billion",
+          "correct": false,
+          "rationale": "Far too high: that's most of humanity."
+        }
+      ],
+      "explanation": "The 2022 State of the World's Volunteerism Report estimated 862 million monthly volunteers aged 15 and over.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.volunteering_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.094.c3"
+      ],
+      "prompt": "You shop every week for an elderly neighbor, unpaid and without joining any group. What kind of volunteering is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Formal volunteering",
+          "correct": false,
+          "rationale": "Formal volunteering goes through an organization."
+        },
+        {
+          "id": "b",
+          "label": "Paid care work",
+          "correct": false,
+          "rationale": "You're not paid, so it isn't paid work."
+        },
+        {
+          "id": "c",
+          "label": "Informal volunteering",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Not volunteering at all",
+          "correct": false,
+          "rationale": "Unpaid, non-compulsory help for someone outside your household counts."
+        }
+      ],
+      "explanation": "Help arranged directly between people, not through an organization, is informal volunteering, the most common kind.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.volunteering_definition",
+        "concept.government.tax_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.094.c2",
+        "card.government.006.c2"
+      ],
+      "prompt": "Level 6 defined taxes as compulsory payments. What sets volunteering apart, in the ILO's definition?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is always organized by government",
+          "correct": false,
+          "rationale": "It can be done through any organization, or directly."
+        },
+        {
+          "id": "b",
+          "label": "It is only done by trained professionals",
+          "correct": false,
+          "rationale": "Anyone can volunteer."
+        },
+        {
+          "id": "c",
+          "label": "It must be done for your own household",
+          "correct": false,
+          "rationale": "The ILO definition excludes your own household."
+        },
+        {
+          "id": "d",
+          "label": "It is unpaid and not compulsory",
+          "correct": true
+        }
+      ],
+      "explanation": "Taxes are compulsory; volunteer work is unpaid and non-compulsory, given by choice.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nsw_rfs_about",
+    "source.ilo_volunteer_manual",
+    "source.unv_swvr_2022_ch2",
+    "source.openstax_amgov_what_is_government",
+    "source.oecd_revenue_statistics_2025"
+  ],
+  "art": "money.handshake"
+}

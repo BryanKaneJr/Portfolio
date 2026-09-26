@@ -1,0 +1,221 @@
+{
+  "id": "level.world_systems.government.085",
+  "skillId": "skill.world_systems.government",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The European Union",
+  "objective": "After this level you can explain how the EU works.",
+  "summary": "The EU began with six countries pooling coal and steel to make war impossible. Today 27 members share lawmaking: the Commission proposes; Parliament and Council adopt.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.eu_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.eu_lawmaking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.sovereignty_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.084"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "It started with coal, steel and a plan to make war impossible.",
+      "body": "On 9 May 1950, French foreign minister Robert Schuman proposed pooling Western Europe's coal and steel industries. His aim was to make war between France and Germany \"not merely unthinkable, but materially impossible.\" Today's European Union grew from that idea.",
+      "id": "card.government.085.c1"
+    },
+    {
+      "type": "fact",
+      "fact": "Six countries went first, in 1951.",
+      "context": "Belgium, France, Germany, Italy, Luxembourg and the Netherlands signed a treaty to run their coal and steel industries jointly, so no single country could make the weapons of war to turn against the others. The goal was to end the bloody conflicts that had culminated in the Second World War. That first step led to today's European Union of 27 countries.",
+      "id": "card.government.085.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Laws made in a triangle",
+      "body": "Everything the EU does rests on treaties its member countries agreed to voluntarily and democratically. Lawmaking runs through a triangle. The European Commission proposes a law. Two bodies adopt it: the European Parliament, directly elected by EU citizens, and the Council of the EU, where ministers from each member government sit. The member countries then put it into practice, and the Commission checks that they do.",
+      "id": "card.government.085.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Sharing the final say",
+      "body": "Remember Level 81: sovereignty means having the final say. EU members agreed, by treaty, to make some of their laws together, through a Parliament and a Council they all share, instead of each deciding alone. The final say hasn't vanished: in treaties they chose to sign, the members agreed to share some of it.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Not one house, not 27 separate ones: more like a shared kitchen with house rules."
+      },
+      "id": "card.government.085.c4"
+    },
+    {
+      "id": "card.government.085.c5",
+      "type": "mcq",
+      "questionId": "question.government.085.q1"
+    },
+    {
+      "id": "card.government.085.c6",
+      "type": "mcq",
+      "questionId": "question.government.085.q2"
+    },
+    {
+      "id": "card.government.085.c7",
+      "type": "recall",
+      "questionId": "question.government.085.q3"
+    },
+    {
+      "id": "card.government.085.c8",
+      "type": "checkpoint",
+      "headline": "The EU: explained",
+      "learned": [
+        "Schuman (1950): pool coal and steel to end war",
+        "Six countries went first in 1951; today there are 27",
+        "Commission proposes; Parliament and Council adopt",
+        "Members agreed by treaty to decide some laws together"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.eu_origins"
+      ],
+      "sourceCardIds": [
+        "card.government.085.c1",
+        "card.government.085.c2"
+      ],
+      "prompt": "Which industries did the six founding countries first agree to run together?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Oil and gas",
+          "correct": false,
+          "rationale": "Not oil and gas: the plan named coal and steel."
+        },
+        {
+          "id": "b",
+          "label": "Farming and fishing",
+          "correct": false,
+          "rationale": "Those came later; the first step was coal and steel."
+        },
+        {
+          "id": "c",
+          "label": "Banking and insurance",
+          "correct": false,
+          "rationale": "Finance wasn't the first step."
+        },
+        {
+          "id": "d",
+          "label": "Coal and steel",
+          "correct": true
+        }
+      ],
+      "explanation": "Schuman proposed pooling coal and steel, and six countries signed a treaty to run them jointly in 1951.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.eu_lawmaking"
+      ],
+      "sourceCardIds": [
+        "card.government.085.c3"
+      ],
+      "prompt": "In the EU's lawmaking triangle, what is the European Commission's role?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It proposes new EU laws",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is directly elected by EU citizens",
+          "correct": false,
+          "rationale": "That's the European Parliament."
+        },
+        {
+          "id": "c",
+          "label": "It seats ministers from each member government",
+          "correct": false,
+          "rationale": "That's the Council of the EU."
+        },
+        {
+          "id": "d",
+          "label": "It alone adopts every EU law",
+          "correct": false,
+          "rationale": "Laws are adopted by the Parliament and the Council."
+        }
+      ],
+      "explanation": "The Commission proposes new laws; the Parliament and the Council adopt them.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.eu_lawmaking",
+        "concept.government.sovereignty_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.085.c4",
+        "card.government.081.c2"
+      ],
+      "prompt": "How does EU membership fit Level 81's idea of sovereignty as having the final say?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Members stop being states once they join",
+          "correct": false,
+          "rationale": "They remain states; they share some decisions."
+        },
+        {
+          "id": "b",
+          "label": "Members agreed by treaty to decide some laws together",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Membership has no effect on national decisions",
+          "correct": false,
+          "rationale": "EU laws adopted together apply across members."
+        },
+        {
+          "id": "d",
+          "label": "Only the largest member keeps its sovereignty",
+          "correct": false,
+          "rationale": "Every member agreed to the same treaties."
+        }
+      ],
+      "explanation": "EU members agreed, by treaty, to make some laws together through shared institutions instead of each alone.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.eu_history_1945_59",
+    "source.eu_schuman_declaration",
+    "source.eu_countries",
+    "source.eu_aims_values",
+    "source.eu_types_institutions",
+    "source.brit_sovereignty"
+  ],
+  "art": "object.flag"
+}

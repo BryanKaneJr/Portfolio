@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.architecture.026",
+  "skillId": "skill.arts.architecture",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Angkor Wat",
+  "objective": "After this level you can describe the temple city of Angkor.",
+  "summary": "Angkor Wat (12th century, for Vishnu) models the Hindu cosmos: towers for Mount Meru, a moat for the oceans, in a Khmer capital built around water.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.angkor_temple_mountain",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.angkor_water_city",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.angkor_sandstone_canals",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.025"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The temple on Cambodia's flag is a model of the universe.",
+      "body": "Angkor Wat appears on the Cambodian flag, and Britannica calls it the world's largest religious structure, covering some 400 acres. Its builders weren't just making a big temple. They were building a map of the cosmos you could walk into."
+    },
+    {
+      "id": "card.architecture.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A mountain in stone",
+      "body": "The Khmer king Suryavarman II built Angkor Wat in the 12th century and dedicated it to the Hindu god Vishnu. Its five central towers stand for the peaks of Mount Meru, the sacred mountain of Hindu cosmology. Its enormous moat, about 200 meters wide, suggests the oceans at the edge of the world. So when you walk in over the moat, you've symbolically crossed the ocean to reach the mountain of the gods.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Most buildings have a floor plan. This one has a cosmology."
+      }
+    },
+    {
+      "id": "card.architecture.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A temple in a city of water",
+      "body": "Angkor was the capital of the Khmer Empire from the 9th to the 15th century. One of its most notable features was a vast system of reservoirs, canals and moats. They watered the fields, and they also stood for the cosmic waters. So Angkor Wat's moat wasn't a one-off. The temple was one piece of a whole city built around water, practical and symbolic at once."
+    },
+    {
+      "id": "card.architecture.026.c4",
+      "type": "fact",
+      "fact": "The stone may have arrived by canal.",
+      "context": "Angkor Wat is built on laterite encased in sandstone quarried in the Kulen Hills. In 2012, Etsuo Uchida and Ichita Shimoda of Waseda University used satellite images to trace canals from more than 50 quarries at the foot of Mount Kulen to Angkor: a route less than half as long as the overland one once assumed. If you're moving a mountain's worth of stone, float it."
+    },
+    {
+      "id": "card.architecture.026.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.026.q1"
+    },
+    {
+      "id": "card.architecture.026.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.026.q2"
+    },
+    {
+      "id": "card.architecture.026.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.026.q3"
+    },
+    {
+      "id": "card.architecture.026.c8",
+      "type": "checkpoint",
+      "headline": "Angkor Wat: mapped",
+      "learned": [
+        "Built by Suryavarman II in the 12th century, for Vishnu",
+        "Five towers: the peaks of Mount Meru; the moat: the oceans",
+        "Angkor, the Khmer capital, was built around water",
+        "A 2012 study traced a canal route for the sandstone"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.angkor_temple_mountain"
+      ],
+      "sourceCardIds": [
+        "card.architecture.026.c2"
+      ],
+      "prompt": "What do Angkor Wat's five central towers stand for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The five Khmer kings who built it",
+          "correct": false,
+          "rationale": "One king, Suryavarman II, built it; the towers are Meru's peaks."
+        },
+        {
+          "id": "b",
+          "label": "The peaks of Mount Meru",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The five oceans of the world",
+          "correct": false,
+          "rationale": "The moat stands for the oceans; the towers are mountain peaks."
+        },
+        {
+          "id": "d",
+          "label": "The quarries in the Kulen Hills",
+          "correct": false,
+          "rationale": "That's where the sandstone came from."
+        }
+      ],
+      "explanation": "The five central towers symbolize the peaks of Mount Meru, the sacred mountain of Hindu cosmology.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.angkor_sandstone_canals"
+      ],
+      "sourceCardIds": [
+        "card.architecture.026.c4"
+      ],
+      "prompt": "According to the 2012 Waseda study, why was moving Angkor's sandstone easier than once thought?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The stone was quarried right beside the temple",
+          "correct": false,
+          "rationale": "The quarries were at the foot of Mount Kulen, farther away."
+        },
+        {
+          "id": "b",
+          "label": "Elephants could carry the blocks overnight",
+          "correct": false,
+          "rationale": "The study found canals, not a faster animal."
+        },
+        {
+          "id": "c",
+          "label": "The blocks were made of light brick instead",
+          "correct": false,
+          "rationale": "Angkor Wat is sandstone over laterite."
+        },
+        {
+          "id": "d",
+          "label": "Canals gave a much shorter route from the quarries",
+          "correct": true
+        }
+      ],
+      "explanation": "Satellite images revealed canals from quarries at Mount Kulen to Angkor, a route less than half as long as the overland one.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.angkor_water_city",
+        "concept.architecture.angkor_temple_mountain"
+      ],
+      "sourceCardIds": [
+        "card.architecture.026.c3",
+        "card.architecture.026.c2"
+      ],
+      "prompt": "Angkor Wat's moat stands for the oceans. How does it fit into the city of Angkor around it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was one part of a vast system of reservoirs, canals and moats",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was the city's only source of water",
+          "correct": false,
+          "rationale": "Angkor had a whole network of reservoirs and canals."
+        },
+        {
+          "id": "c",
+          "label": "It was dug later, as a defense against invaders",
+          "correct": false,
+          "rationale": "The moat is part of the temple's design and the city's water system."
+        },
+        {
+          "id": "d",
+          "label": "It was purely decorative, holding no water",
+          "correct": false,
+          "rationale": "It's a real moat in a city built around water."
+        }
+      ],
+      "explanation": "Angkor had a vast system of reservoirs, canals and moats, for irrigation and symbolism; Angkor Wat's moat was one piece of it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_angkor_wat",
+    "source.whe_angkor_wat",
+    "source.brit_angkor",
+    "source.jas_angkor_sandstone_quarries"
+  ],
+  "art": "arts.step-pyramid"
+}

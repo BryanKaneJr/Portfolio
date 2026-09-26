@@ -1,0 +1,227 @@
+{
+  "id": "level.arts.architecture.016",
+  "skillId": "skill.arts.architecture",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Parthenon",
+  "objective": "After this level you can explain the Parthenon's hidden curves.",
+  "summary": "The Parthenon's base curves, its columns swell and lean inward. Built without mortar, its blocks were hand-fitted and joined with lead-sealed iron clamps.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.wonders_parthenon_refinements",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.wonders_parthenon_clamps",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.wonders_hypostyle_hall",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_post_lintel",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.015"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Parthenon has few truly straight lines. It still took precision to build.",
+      "body": "Athena's temple in Athens was designed by Ictinus and Callicrates and built from 447 BCE in about eight or nine years. Outside, it's a ring of columns carrying stone lintels. Look closer and almost nothing is quite straight."
+    },
+    {
+      "id": "card.architecture.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nothing quite straight",
+      "body": "The Parthenon's base curves gently upward toward the middle. Its columns taper, but also swell slightly partway up, a bulge called entasis. They aren't vertical either: they slope imperceptibly inward. And the corner columns are a little thicker than the rest. The classic explanation is that each tweak corrects a trick of the eye, such as a row of straight columns looking thin in the middle. That explanation is still debated."
+    },
+    {
+      "id": "card.architecture.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "No mortar, no gaps",
+      "body": "The Parthenon was built without mortar, so there was nothing to fill a bad fit: every block had to be trimmed by hand. The joints are all but invisible, even under a magnifying glass. Neighboring blocks were locked together with iron clamps set in carved grooves, and the builders poured molten lead over them, sealing the iron away."
+    },
+    {
+      "id": "card.architecture.016.c4",
+      "type": "fact",
+      "fact": "In 1898, a restoration began cracking the marble.",
+      "context": "From 1898, the architect Nikolaos Balanos restored the Parthenon with iron clamps, but left off the lead coating. Rain swelled the bare iron, and the swelling cracked the marble. Today's restorers are replacing his clamps with titanium, which won't corrode. The ancient builders had the better trick all along: wrap the iron.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Skipping one step of an ancient recipe. We've all done it with flat-pack furniture."
+      }
+    },
+    {
+      "id": "card.architecture.016.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.016.q1"
+    },
+    {
+      "id": "card.architecture.016.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.016.q2"
+    },
+    {
+      "id": "card.architecture.016.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.016.q3"
+    },
+    {
+      "id": "card.architecture.016.c8",
+      "type": "checkpoint",
+      "headline": "The Parthenon: measured",
+      "learned": [
+        "Base curves up; columns swell (entasis) and lean inward",
+        "Corner columns thicker; the reason is still debated",
+        "No mortar: blocks trimmed by hand, clamped with lead-sealed iron",
+        "1898 iron clamps without lead cracked the marble; now titanium"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.wonders_parthenon_refinements"
+      ],
+      "sourceCardIds": [
+        "card.architecture.016.c2"
+      ],
+      "prompt": "Which of these is one of the Parthenon's built-in refinements?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its corner columns are thinner than the rest",
+          "correct": false,
+          "rationale": "They are slightly thicker."
+        },
+        {
+          "id": "b",
+          "label": "Its columns slope slightly inward",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its base is perfectly flat",
+          "correct": false,
+          "rationale": "The base curves upward toward the middle."
+        },
+        {
+          "id": "d",
+          "label": "Its roof is a concrete dome",
+          "correct": false,
+          "rationale": "That's Rome's Pantheon."
+        }
+      ],
+      "explanation": "The Parthenon's base curves up, its columns swell (entasis) and slope inward, and its corner columns are thicker.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.wonders_parthenon_clamps"
+      ],
+      "sourceCardIds": [
+        "card.architecture.016.c3",
+        "card.architecture.016.c4"
+      ],
+      "prompt": "Why did Balanos's iron clamps crack the Parthenon's marble when the ancient clamps hadn't?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He used bronze, which was too soft",
+          "correct": false,
+          "rationale": "His clamps were iron."
+        },
+        {
+          "id": "b",
+          "label": "He added mortar, which expanded",
+          "correct": false,
+          "rationale": "The problem was bare iron swelling in the rain."
+        },
+        {
+          "id": "c",
+          "label": "He used titanium, which rusts",
+          "correct": false,
+          "rationale": "Titanium won't corrode; it's today's fix."
+        },
+        {
+          "id": "d",
+          "label": "He left off the lead, so rain swelled the iron",
+          "correct": true
+        }
+      ],
+      "explanation": "The ancient builders sealed their iron clamps under molten lead; Balanos's bare iron swelled in the rain and cracked the marble.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.wonders_hypostyle_hall",
+        "concept.architecture.stand_post_lintel"
+      ],
+      "sourceCardIds": [
+        "card.architecture.016.c1",
+        "card.architecture.014.c2",
+        "card.architecture.003.c2"
+      ],
+      "prompt": "Karnak's Great Hypostyle Hall and the Parthenon carry their stone in the same basic way. Which way?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Columns holding up stone lintels",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Concrete domes on thick walls",
+          "correct": false,
+          "rationale": "Neither building has a dome."
+        },
+        {
+          "id": "c",
+          "label": "Arches of wedge-shaped stones",
+          "correct": false,
+          "rationale": "Both are built on columns and lintels."
+        },
+        {
+          "id": "d",
+          "label": "A solid core with no rooms inside",
+          "correct": false,
+          "rationale": "That's a ziggurat."
+        }
+      ],
+      "explanation": "Both use Level 3's post-and-lintel system: Karnak's columns fill its interior, while the Parthenon's ring its outside.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_parthenon",
+    "source.smithsonianmag_parthenon_mysteries",
+    "source.irishtimes_parthenon_refinements",
+    "source.smithsonianmag_parthenon_curves",
+    "source.archaeologymag_acropolis_2015",
+    "source.brit_post_lintel"
+  ],
+  "art": "rome.temple"
+}

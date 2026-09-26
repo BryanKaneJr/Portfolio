@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.architecture.052",
+  "skillId": "skill.arts.architecture",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Brooklyn Bridge",
+  "objective": "After this level you can explain how the Brooklyn Bridge was built.",
+  "summary": "Caissons dug out under compressed air gave workers the bends. John Roebling designed the bridge; Washington directed it by telescope, Emily relayed his orders. It opened in 1883 on steel cables.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.marvel_brooklyn_caissons",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_brooklyn_roeblings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_brooklyn_record",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_bridge_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.051"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Brooklyn Bridge's chief engineer watched it rise through a telescope.",
+      "body": "From his bedroom window in Brooklyn, Washington Roebling followed work he could no longer visit. How did the man in charge end up stuck at home? The answer starts at the bottom of the East River."
+    },
+    {
+      "id": "card.architecture.052.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Digging from inside a box",
+      "body": "The bridge's two towers stand on caissons: huge bottomless boxes sunk to the riverbed. Compressed air was pumped in to keep the water out, and inside, workers dug away the sediment so the box sank deeper. Then the caissons were filled with concrete to become the towers' foundations. It's like pushing an upside-down cup into a bath: the trapped air keeps the inside dry."
+    },
+    {
+      "id": "card.architecture.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The bends, and a family business",
+      "body": "Coming up too fast from that pressurized air let nitrogen bubbles form in the workers' blood: caisson disease, now called the bends. In 1872 it struck Washington Roebling. He had taken over from his father, John A. Roebling, the bridge's designer, who died of tetanus in 1869 after a ferry crushed his toes. So Washington watched through his telescope, and his wife, Emily Warren Roebling, carried his directions to the engineers on the bridge.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Designer, son, daughter-in-law. Some families pass down a watch. This one passed down a bridge."
+      }
+    },
+    {
+      "id": "card.architecture.052.c4",
+      "type": "fact",
+      "fact": "1883: the longest span in the world, hung on steel.",
+      "context": "The bridge opened on May 24, 1883. Its 486-meter (1,595-foot) main span was the longest in the world when it opened, and it was the first bridge to use steel for its cable wire. It's a suspension bridge, so that deck hangs from cables in tension. Emily Roebling rode in the first carriage across, carrying a rooster as a symbol of victory."
+    },
+    {
+      "id": "card.architecture.052.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.052.q1"
+    },
+    {
+      "id": "card.architecture.052.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.052.q2"
+    },
+    {
+      "id": "card.architecture.052.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.052.q3"
+    },
+    {
+      "id": "card.architecture.052.c8",
+      "type": "checkpoint",
+      "headline": "Brooklyn Bridge: built",
+      "learned": [
+        "Caissons: bottomless boxes dug out under compressed air",
+        "Coming up too fast caused the bends",
+        "John designed it; Washington directed it; Emily carried the orders",
+        "1883: longest span, first steel cable wire"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.marvel_brooklyn_roeblings"
+      ],
+      "sourceCardIds": [
+        "card.architecture.052.c3"
+      ],
+      "prompt": "While Washington Roebling was confined to his Brooklyn bedroom, who carried his directions to the bridge's engineers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His father, John A. Roebling",
+          "correct": false,
+          "rationale": "John Roebling died in 1869, before Washington fell ill."
+        },
+        {
+          "id": "b",
+          "label": "The Forth Bridge's Benjamin Baker",
+          "correct": false,
+          "rationale": "Baker built the Forth Bridge in Scotland."
+        },
+        {
+          "id": "c",
+          "label": "A telegraph line to each tower",
+          "correct": false,
+          "rationale": "The directions went by Emily, in person."
+        },
+        {
+          "id": "d",
+          "label": "His wife, Emily Warren Roebling",
+          "correct": true
+        }
+      ],
+      "explanation": "Emily Warren Roebling carried her husband's directions to the engineers on the bridge.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.marvel_brooklyn_caissons"
+      ],
+      "sourceCardIds": [
+        "card.architecture.052.c3"
+      ],
+      "prompt": "What caused the caisson disease that struck Brooklyn Bridge workers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Breathing concrete dust inside the sunken boxes",
+          "correct": false,
+          "rationale": "The illness came from pressure, not dust."
+        },
+        {
+          "id": "b",
+          "label": "Nitrogen bubbles in the blood after leaving compressed air",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Cold river water leaking into the caissons",
+          "correct": false,
+          "rationale": "Compressed air kept the water out."
+        },
+        {
+          "id": "d",
+          "label": "Tetanus from injuries on the ferry",
+          "correct": false,
+          "rationale": "Tetanus killed John Roebling; it isn't caisson disease."
+        }
+      ],
+      "explanation": "Workers breathed compressed air in the caissons; coming up too fast let nitrogen bubbles form in their blood.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.marvel_brooklyn_record",
+        "concept.architecture.marvel_bridge_types"
+      ],
+      "sourceCardIds": [
+        "card.architecture.052.c4",
+        "card.architecture.051.c3"
+      ],
+      "prompt": "The Brooklyn Bridge's deck hangs from steel cables. As Level 51 showed for suspension bridges, what force are those cables in?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tension: they are stretched",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Compression: they are squeezed",
+          "correct": false,
+          "rationale": "Towers are squeezed; hanging cables are stretched."
+        },
+        {
+          "id": "c",
+          "label": "No force, since the towers carry everything",
+          "correct": false,
+          "rationale": "The cables carry the deck's weight to the towers."
+        },
+        {
+          "id": "d",
+          "label": "Bending, like a beam",
+          "correct": false,
+          "rationale": "Bending is how a beam works."
+        }
+      ],
+      "explanation": "In a suspension bridge the deck hangs from cables in tension, which pass the load to the towers and anchorages.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_brooklyn_bridge",
+    "source.mcny_brooklyn_bridge",
+    "source.uh_engines_caisson_disease",
+    "source.brit_suspension_bridge",
+    "source.brit_bridge_engineering"
+  ],
+  "art": "technology.bridge"
+}

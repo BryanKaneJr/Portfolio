@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.government.043",
+  "skillId": "skill.world_systems.government",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Committees",
+  "objective": "After this level you can explain what committees do.",
+  "summary": "Committees do lawmaking's detailed work. In Congress most bills die in committee; the rest get hearings and mark-up. In the UK, select committees also shadow each government department.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.lawmaking_committees_bills",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.lawmaking_select_committees",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.lawmaking_bill_stages",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.042"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Want to see where laws are really made? Skip the big chamber.",
+      "body": "In 1885 Woodrow Wilson wrote: \"Congress in session is Congress on public exhibition, whilst Congress in its committee-rooms is Congress at work.\" The speeches are the show. The committee room is the workshop.",
+      "id": "card.government.043.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Where bills go to wait",
+      "body": "No chamber can study every bill together, so each one is referred to a committee with its own area of policy, such as agriculture or education. And that's where most bills die. They're never reported out to the whole House or Senate. For a bill, getting introduced is easy. Getting out of committee is the hard part.",
+      "id": "card.government.043.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Hearings, then mark-up",
+      "body": "A bill that does get attention usually starts with a public hearing, where the committee hears witnesses representing different viewpoints. Then comes the mark-up session: members go through the bill and vote on amendments. Finally the committee reports the bill to the full chamber, or tables it, which ends the story. It's the line-by-line work Level 41's committee stage promised.",
+      "id": "card.government.043.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "In the UK, a committee shadows every government department.",
+      "context": "The House of Commons has a select committee for each department, examining its spending, policies and administration. Committees can question ministers and officials in public. So committees don't only shape new laws; they also keep an eye on how government runs.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "A committee for every department. Somebody is always taking notes."
+      },
+      "id": "card.government.043.c4"
+    },
+    {
+      "id": "card.government.043.c5",
+      "type": "mcq",
+      "questionId": "question.government.043.q1"
+    },
+    {
+      "id": "card.government.043.c6",
+      "type": "mcq",
+      "questionId": "question.government.043.q2"
+    },
+    {
+      "id": "card.government.043.c7",
+      "type": "recall",
+      "questionId": "question.government.043.q3"
+    },
+    {
+      "id": "card.government.043.c8",
+      "type": "checkpoint",
+      "headline": "Committees: at work",
+      "learned": [
+        "Wilson called committee rooms \"Congress at work\"",
+        "Most US bills die in committee",
+        "Hearings, then mark-up with amendments",
+        "UK select committees shadow each department"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.lawmaking_committees_bills"
+      ],
+      "sourceCardIds": [
+        "card.government.043.c2"
+      ],
+      "prompt": "In the US Congress, what happens to most bills after they are referred to committee?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They pass straight to the President",
+          "correct": false,
+          "rationale": "They would still need both chambers first."
+        },
+        {
+          "id": "b",
+          "label": "They are rewritten by lobbyists",
+          "correct": false,
+          "rationale": "That isn't how committees work."
+        },
+        {
+          "id": "c",
+          "label": "They die there, never reported out",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They are all sent to the Senate",
+          "correct": false,
+          "rationale": "Most never leave the committee at all."
+        }
+      ],
+      "explanation": "Most bills die in committee: they are never reported out to the whole House or Senate.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.lawmaking_committees_bills"
+      ],
+      "sourceCardIds": [
+        "card.government.043.c1"
+      ],
+      "prompt": "What did Woodrow Wilson mean by calling Congress in its committee-rooms \"Congress at work\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Committees meet longer hours than the full chamber",
+          "correct": false,
+          "rationale": "His point was about where the real work happens."
+        },
+        {
+          "id": "b",
+          "label": "The detailed lawmaking happens in committees",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Committee members are paid more",
+          "correct": false,
+          "rationale": "Pay has nothing to do with it."
+        },
+        {
+          "id": "d",
+          "label": "Floor debates are banned in Congress",
+          "correct": false,
+          "rationale": "Floor sessions happen; he called them a public exhibition."
+        }
+      ],
+      "explanation": "Wilson contrasted the public show of floor sessions with the real work done in committee rooms.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.lawmaking_committees_bills",
+        "concept.government.lawmaking_bill_stages"
+      ],
+      "sourceCardIds": [
+        "card.government.043.c3",
+        "card.government.041.c3"
+      ],
+      "prompt": "A US committee's mark-up session is most like which stage of a UK bill's journey?",
+      "options": [
+        {
+          "id": "a",
+          "label": "First reading",
+          "correct": false,
+          "rationale": "First reading is a formality with no debate or amendments."
+        },
+        {
+          "id": "b",
+          "label": "Royal Assent",
+          "correct": false,
+          "rationale": "Royal Assent is the final approval, not detailed work."
+        },
+        {
+          "id": "c",
+          "label": "Ping-pong between the Houses",
+          "correct": false,
+          "rationale": "Ping-pong settles disagreements between the Houses."
+        },
+        {
+          "id": "d",
+          "label": "Committee stage, going line by line",
+          "correct": true
+        }
+      ],
+      "explanation": "Both are where lawmakers go through the text in detail and vote on amendments.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_wilson_congressional_government",
+    "source.house_in_committee",
+    "source.northwestern_law_leg_process",
+    "source.ukparliament_select_committees",
+    "source.ukparliament_passage_of_bill"
+  ],
+  "art": "rome.curule-chair"
+}

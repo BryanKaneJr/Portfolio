@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.architecture.076",
+  "skillId": "skill.arts.architecture",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Sydney Opera House",
+  "objective": "After this level you can describe its sail-like roofs and how they were built.",
+  "summary": "Utzon's winning shells took years to make buildable, until every shell was cut from one sphere, so the roof could be made of standard parts. Utzon resigned in 1966; the building opened in 1973.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.masters_sydney_spherical_solution",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.masters_sydney_utzon_departure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.masters_gaudi_barcelona",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.075"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1957, Jørn Utzon won a competition with a roof nobody knew how to build.",
+      "body": "The Danish architect's design beat 233 entries in the international competition for a Sydney opera house. It showed a cluster of sail-like shells rising over the harbor. Beautiful, and for years, impossible."
+    },
+    {
+      "id": "card.architecture.076.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every shell, cut from one sphere",
+      "body": "To build a shell, the engineers at Arup needed its shape as mathematics. From 1958 to 1962, Utzon's team tried parabolas, then ellipses, and neither worked. By late 1961 Utzon saw the key: every shell could be cut from the surface of a single sphere. One shared curve meant the roof could be split into standard parts, prefabricated and assembled on site. Picture every piece of a peel coming from the same ball.",
+      "mascot": {
+        "pose": "idea",
+        "line": "When every curve is different, nothing repeats. Make them all one curve, and suddenly you have a kit."
+      }
+    },
+    {
+      "id": "card.architecture.076.c3",
+      "type": "fact",
+      "fact": "The famous orange story is a myth.",
+      "context": "Popular legend says Utzon peeled an orange and saw the roof. The Sydney Opera House itself calls that a popular myth. An orange can show how the geometry works, but the breakthrough was Utzon noticing that the shells were so alike that one form, a sphere, could produce them all."
+    },
+    {
+      "id": "card.architecture.076.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The architect who never came back",
+      "body": "The shells were solved; the politics were not. In February 1966, after a dispute with the New South Wales government, Utzon resigned, and a team led by Peter Hall took over the design. Utzon left Australia that April and never returned to see his building finished. It was completed in 1973 and joined UNESCO's World Heritage List in 2007."
+    },
+    {
+      "id": "card.architecture.076.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.076.q1"
+    },
+    {
+      "id": "card.architecture.076.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.076.q2"
+    },
+    {
+      "id": "card.architecture.076.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.076.q3"
+    },
+    {
+      "id": "card.architecture.076.c8",
+      "type": "checkpoint",
+      "headline": "The Opera House: roofed",
+      "learned": [
+        "Utzon won the 1957 competition with sail-like shells",
+        "Every shell is cut from one sphere, so parts could be standard",
+        "The orange eureka story is a myth",
+        "Utzon resigned in 1966; the building was completed in 1973"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.masters_sydney_spherical_solution"
+      ],
+      "sourceCardIds": [
+        "card.architecture.076.c2"
+      ],
+      "prompt": "What was Utzon's key idea for building the Sydney Opera House shells?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cut every shell from the surface of one sphere",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Hang the shells from steel cables",
+          "correct": false,
+          "rationale": "The shells are built up from parts, not hung."
+        },
+        {
+          "id": "c",
+          "label": "Carve each shell from a single block",
+          "correct": false,
+          "rationale": "They were made of standard prefabricated parts."
+        },
+        {
+          "id": "d",
+          "label": "Inflate the shells like balloons",
+          "correct": false,
+          "rationale": "The answer was geometry: one sphere."
+        }
+      ],
+      "explanation": "By late 1961, Utzon saw that every shell could be derived from the surface of a single sphere.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.masters_sydney_spherical_solution"
+      ],
+      "sourceCardIds": [
+        "card.architecture.076.c2"
+      ],
+      "prompt": "Why did the spherical solution make the Opera House roof buildable?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spheres are the lightest shape to build",
+          "correct": false,
+          "rationale": "The point was one shared curve, not lightness."
+        },
+        {
+          "id": "b",
+          "label": "It let the roof be split into standard, prefabricated parts",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It removed the need for any engineers",
+          "correct": false,
+          "rationale": "Arup's engineers built it."
+        },
+        {
+          "id": "d",
+          "label": "It let each shell be a different shape",
+          "correct": false,
+          "rationale": "The shells share one geometry."
+        }
+      ],
+      "explanation": "With one shared spherical geometry, the shells could be split into standard parts, prefabricated and assembled on site.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.masters_sydney_utzon_departure",
+        "concept.architecture.masters_gaudi_barcelona"
+      ],
+      "sourceCardIds": [
+        "card.architecture.076.c4",
+        "card.architecture.071.c1"
+      ],
+      "prompt": "Gaudí died before the Sagrada Família was finished. Why did Utzon never see his Opera House completed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He died before construction began",
+          "correct": false,
+          "rationale": "He lived long after it opened."
+        },
+        {
+          "id": "b",
+          "label": "The building was never finished",
+          "correct": false,
+          "rationale": "It was completed in 1973."
+        },
+        {
+          "id": "c",
+          "label": "He resigned in 1966 and never returned to Australia",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He was building the Sagrada Família instead",
+          "correct": false,
+          "rationale": "He left after a dispute with the government."
+        }
+      ],
+      "explanation": "Utzon resigned in February 1966 after a dispute with the New South Wales government, left that April and never returned.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_sydney_opera_house",
+    "source.nla_designing_opera_house",
+    "source.soh_spherical_solution",
+    "source.soh_utzon_departs"
+  ],
+  "art": "arch.opera-house"
+}

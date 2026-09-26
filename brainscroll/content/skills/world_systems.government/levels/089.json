@@ -1,0 +1,249 @@
+{
+  "id": "level.world_systems.government.089",
+  "skillId": "skill.world_systems.government",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Problems Without Borders",
+  "objective": "After this level you can explain problems no country can solve alone, like climate change.",
+  "summary": "Ozone and climate cross every border, and countries are tempted to free ride. The Montreal Protocol was ratified by all; under Paris each country sets its own plan.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.borderless_collective_action",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.borderless_montreal_protocol",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.borderless_paris_agreement",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.public_goods_free_riders",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.un_founding_charter",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.088"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "One treaty has been ratified by every country. It's about the sky.",
+      "body": "The Montreal Protocol, signed in 1987, set out to phase out the chemicals that were depleting the ozone layer. It became the first treaty in UN history to be ratified by every country. Why would a treaty about chemicals need the whole world on board?",
+      "id": "card.government.089.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Problems that ignore passports",
+      "body": "Some problems don't stop at the border. The UN calls climate change a global emergency that goes beyond national borders and needs international cooperation. As an OpenStax economics textbook puts it, no nation by itself can cut greenhouse gas emissions enough to solve global warming without the cooperation of other nations. The atmosphere has no customs checkpoint.",
+      "id": "card.government.089.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Free riders, planet-sized",
+      "body": "Remember Level 5's free riders, who enjoy a public good while letting others pay? Political scientists describe climate change the same way: a collective action problem, where a country can benefit from free riding on other countries' efforts. At home, a law can require everyone to chip in. Between sovereign countries there's no world government to do that (Level 84), so they make treaties instead.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Level 5's free rider, now wearing a flag."
+      },
+      "id": "card.government.089.c3"
+    },
+    {
+      "type": "comparison",
+      "headline": "Two treaties, two designs",
+      "items": [
+        {
+          "label": "Montreal Protocol (1987)",
+          "points": [
+            "Phases out the chemicals that deplete the ozone layer",
+            "99% of those chemicals phased out so far",
+            "Ozone over Antarctica projected back to 1980 levels around 2066"
+          ]
+        },
+        {
+          "label": "Paris Agreement (2015)",
+          "points": [
+            "Goal: warming well below 2°C, pursuing 1.5°C",
+            "Each country sets its own plan, called an NDC",
+            "Countries submit updated plans every five years"
+          ]
+        }
+      ],
+      "id": "card.government.089.c4"
+    },
+    {
+      "id": "card.government.089.c5",
+      "type": "mcq",
+      "questionId": "question.government.089.q1"
+    },
+    {
+      "id": "card.government.089.c6",
+      "type": "mcq",
+      "questionId": "question.government.089.q2"
+    },
+    {
+      "id": "card.government.089.c7",
+      "type": "recall",
+      "questionId": "question.government.089.q3"
+    },
+    {
+      "id": "card.government.089.c8",
+      "type": "checkpoint",
+      "headline": "Problems without borders: shared",
+      "learned": [
+        "Some problems cross every border",
+        "Countries are tempted to free ride on others' efforts",
+        "Montreal Protocol: ratified by every country",
+        "Paris Agreement: each country sets its own plan"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.borderless_montreal_protocol"
+      ],
+      "sourceCardIds": [
+        "card.government.089.c1"
+      ],
+      "prompt": "What makes the Montreal Protocol stand out among UN treaties?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the first ratified by every country",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was the first to create a world government",
+          "correct": false,
+          "rationale": "No treaty has created a world government."
+        },
+        {
+          "id": "c",
+          "label": "It was the first signed by only one country",
+          "correct": false,
+          "rationale": "A treaty needs at least two parties."
+        },
+        {
+          "id": "d",
+          "label": "It was the first to ban all air travel",
+          "correct": false,
+          "rationale": "It targets ozone-depleting chemicals."
+        }
+      ],
+      "explanation": "The Montreal Protocol was the first treaty in UN history to be ratified by every country.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.borderless_paris_agreement"
+      ],
+      "sourceCardIds": [
+        "card.government.089.c4"
+      ],
+      "prompt": "How does the Paris Agreement handle each country's share of climate action?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The UN sets one identical target for every country",
+          "correct": false,
+          "rationale": "Targets aren't set centrally; each country sets its own."
+        },
+        {
+          "id": "b",
+          "label": "Only the largest economies have to act",
+          "correct": false,
+          "rationale": "Every party submits a plan."
+        },
+        {
+          "id": "c",
+          "label": "Each country sets its own plan, updated every five years",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Countries vote on each other's national plans",
+          "correct": false,
+          "rationale": "There's no such vote; plans are national."
+        }
+      ],
+      "explanation": "Under the Paris Agreement, each country sets out its own nationally determined contribution and submits an updated one every five years.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.borderless_collective_action",
+        "concept.government.public_goods_free_riders"
+      ],
+      "sourceCardIds": [
+        "card.government.089.c3",
+        "card.government.005.c3"
+      ],
+      "prompt": "Level 5 defined free riding. How does it show up in climate change between countries?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Countries charge each other for clean air",
+          "correct": false,
+          "rationale": "No one sells clean air; that's the problem."
+        },
+        {
+          "id": "b",
+          "label": "The UN taxes countries that pollute most",
+          "correct": false,
+          "rationale": "The UN levies no taxes."
+        },
+        {
+          "id": "c",
+          "label": "Only landlocked countries are affected",
+          "correct": false,
+          "rationale": "Climate change goes beyond every border."
+        },
+        {
+          "id": "d",
+          "label": "A country can benefit from others' cuts without its own",
+          "correct": true
+        }
+      ],
+      "explanation": "Climate change is a collective action problem: a country can free ride on other countries' efforts, as Level 5's free rider enjoys a public good without paying.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.unep_ozone_montreal_protocol",
+    "source.unep_ozone_facts",
+    "source.un_paris_agreement",
+    "source.unfccc_paris_agreement",
+    "source.openstax_econ_international_environment",
+    "source.openstax_polisci_collective_action",
+    "source.openstax_public_goods",
+    "source.un_model_un_structure"
+  ],
+  "art": "nature.thermometer"
+}

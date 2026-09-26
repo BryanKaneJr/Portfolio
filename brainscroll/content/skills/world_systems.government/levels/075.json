@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.government.075",
+  "skillId": "skill.world_systems.government",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pensions",
+  "objective": "After this level you can explain how pensions support older people.",
+  "summary": "Public pensions cost OECD countries 8.1% of GDP, about 18% of government spending. More older people per worker is pushing retirement ages up, as in Denmark's move to 70.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.pension_public_spending",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.pension_ageing_age",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.spending_by_function",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.074"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "The world's first state pension started at 70. Denmark is heading back there.",
+      "body": "Germany's 1889 scheme set the pension age at 70, and lowered it to 65 in 1916. In May 2025, Denmark's parliament confirmed its pension age will reach 70 from 2040, the highest in Europe. Why would a country turn the clock back more than a century?",
+      "id": "card.government.075.c1"
+    },
+    {
+      "type": "fact",
+      "fact": "Public pensions cost OECD countries 8.1% of GDP on average.",
+      "context": "That's up from 6.7% in 2000, and it's about 18% of all government spending. Pensions are a big part of Level 72's biggest slice, social protection. The range is wide: Greece and Italy spend around 16% of GDP, Iceland and Ireland under 3%. In Iceland, as in Australia, compulsory workplace schemes carry much of the load.",
+      "id": "card.government.075.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "More grandparents per worker",
+      "body": "Here's the squeeze. Across the OECD, there were 22 people aged 65 or over for every 100 aged 20 to 64 in 2000. By 2025 there were 33, and the projection for 2050 is 52. The OECD treats this ratio as a stand-in for potential pensioners per potential contributor. Each step up means fewer shoulders under each pension.",
+      "id": "card.government.075.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Working longer, and arguing about it",
+      "body": "One response is a later retirement age. Under laws already passed, the OECD's average normal retirement age for men will rise from 64.7 to 66.4 for people starting work in 2024. Denmark shows both sides of the debate. Its government said the rise was needed to afford proper welfare for future generations; unions protested it as unjust.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Bismarck's 70 is back in fashion. History does love a sequel."
+      },
+      "id": "card.government.075.c4"
+    },
+    {
+      "id": "card.government.075.c5",
+      "type": "mcq",
+      "questionId": "question.government.075.q1"
+    },
+    {
+      "id": "card.government.075.c6",
+      "type": "mcq",
+      "questionId": "question.government.075.q2"
+    },
+    {
+      "id": "card.government.075.c7",
+      "type": "recall",
+      "questionId": "question.government.075.q3"
+    },
+    {
+      "id": "card.government.075.c8",
+      "type": "checkpoint",
+      "headline": "Pensions: explained",
+      "learned": [
+        "Germany's first pension age was 70, in 1889",
+        "Public pensions: 8.1% of GDP across the OECD",
+        "65+ per 100 working-age: 22, 33, then 52 by 2050",
+        "Retirement ages are rising, and argued over"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.pension_public_spending"
+      ],
+      "sourceCardIds": [
+        "card.government.075.c1"
+      ],
+      "prompt": "At what age did Germany's 1889 state pension first pay out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "60",
+          "correct": false,
+          "rationale": "Much lower than the original age."
+        },
+        {
+          "id": "b",
+          "label": "65",
+          "correct": false,
+          "rationale": "Germany lowered the age to 65 only in 1916."
+        },
+        {
+          "id": "c",
+          "label": "70",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "75",
+          "correct": false,
+          "rationale": "Higher than the original age."
+        }
+      ],
+      "explanation": "Germany's 1889 scheme set the pension age at 70; it was lowered to 65 in 1916.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.pension_ageing_age"
+      ],
+      "sourceCardIds": [
+        "card.government.075.c3"
+      ],
+      "prompt": "Why does a rising number of people aged 65+ per 100 of working age put pressure on pensions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Older people stop paying any taxes at all",
+          "correct": false,
+          "rationale": "That isn't the point of the ratio; it counts people."
+        },
+        {
+          "id": "b",
+          "label": "There are more potential pensioners for each potential contributor",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Pensions are paid only to people under 65",
+          "correct": false,
+          "rationale": "Pensions go to older people, which is why the ratio matters."
+        },
+        {
+          "id": "d",
+          "label": "Working-age people are paid more",
+          "correct": false,
+          "rationale": "The ratio says nothing about pay."
+        }
+      ],
+      "explanation": "The OECD uses this ratio as a stand-in for potential pensioners per potential contributor: 22 in 2000, 33 in 2025, 52 projected for 2050.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.pension_public_spending",
+        "concept.government.spending_by_function"
+      ],
+      "sourceCardIds": [
+        "card.government.075.c2",
+        "card.government.072.c3"
+      ],
+      "prompt": "Level 72's biggest slice of government spending was social protection. How do public pensions fit in?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are counted under defence",
+          "correct": false,
+          "rationale": "Defence is a separate function."
+        },
+        {
+          "id": "b",
+          "label": "They are counted under education",
+          "correct": false,
+          "rationale": "Education is a separate function."
+        },
+        {
+          "id": "c",
+          "label": "They are paid outside government",
+          "correct": false,
+          "rationale": "Public pensions are government spending."
+        },
+        {
+          "id": "d",
+          "label": "They are a big part of social protection",
+          "correct": true
+        }
+      ],
+      "explanation": "Social protection covers pensions and benefits; public pensions alone take about 18% of government spending on average.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ssa_age65",
+    "source.oecd_pag_2025",
+    "source.cnn_denmark_retirement_2025",
+    "source.oecd_gaag_2025"
+  ],
+  "art": "money.piggy-bank"
+}

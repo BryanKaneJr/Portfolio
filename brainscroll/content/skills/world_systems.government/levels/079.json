@@ -1,0 +1,238 @@
+{
+  "id": "level.world_systems.government.079",
+  "skillId": "skill.world_systems.government",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Military",
+  "objective": "After this level you can explain what militaries do and who controls them.",
+  "summary": "Militaries carry the state's force for defence, under the control of elected civilians and parliaments. The world spent $2887 billion on them in 2025; how much is enough is debated.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.military_civilian_control",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.military_spending_sipri",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.weber_state_definition",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.public_goods_free_riders",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.budget_cycle_stages",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.078"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Costa Rica has had no army since 1949.",
+      "body": "Its constitution abolishes the army as a permanent institution, and keeps the police forces needed for public order. UNESCO notes the money went into social development, especially health and education. So what are armies for, and who decides what they do?",
+      "id": "card.government.079.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The state's force, with a leash",
+      "body": "Remember Level 9's Weber? A state claims the monopoly of legitimate force within its territory. The military is the heaviest part of that force, and it provides Level 5's classic public good, national defence. That makes one question vital: who holds the leash?",
+      "id": "card.government.079.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Civilians in charge",
+      "body": "In a democracy, the armed forces answer to democratically elected authorities, overseen by the courts, the media and civil society. Civilians decide the military's missions, size, budget and purchases; commanders decide how to carry the missions out. Parliaments add laws, hearings and control of the purse, so Level 71's approval stage applies to tanks too.",
+      "id": "card.government.079.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "The world spent $2887 billion on the military in 2025.",
+      "context": "That's SIPRI's count, equal to 2.5% of global GDP and 6.9% of the average government's spending. The five biggest spenders, the United States, China, Russia, Germany and India, made up 58% of it.",
+      "id": "card.government.079.c4"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "How much is enough?",
+      "body": "Every country answers for itself, and NATO's members answered together. In 2014 they aimed for 2% of GDP by 2024; in June 2025 they agreed on 5% by 2035, at least 3.5% of it for core defence. SIPRI, which tracks the spending, warns the looser part of the target could invite 'creative accounting', with non-military projects relabelled as defence.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Watch the labels as well as the totals. What counts as defence is itself a choice."
+      },
+      "id": "card.government.079.c5"
+    },
+    {
+      "id": "card.government.079.c6",
+      "type": "mcq",
+      "questionId": "question.government.079.q1"
+    },
+    {
+      "id": "card.government.079.c7",
+      "type": "mcq",
+      "questionId": "question.government.079.q2"
+    },
+    {
+      "id": "card.government.079.c8",
+      "type": "recall",
+      "questionId": "question.government.079.q3"
+    },
+    {
+      "id": "card.government.079.c9",
+      "type": "checkpoint",
+      "headline": "The military: controlled",
+      "learned": [
+        "Costa Rica's 1949 constitution abolished its army",
+        "Elected civilians decide missions and budgets",
+        "World military spending: $2887 billion in 2025",
+        "NATO's target rose from 2% to 5% of GDP"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.military_spending_sipri"
+      ],
+      "sourceCardIds": [
+        "card.government.079.c4"
+      ],
+      "prompt": "According to SIPRI, about what share of world GDP went on the military in 2025?",
+      "options": [
+        {
+          "id": "a",
+          "label": "0.5%",
+          "correct": false,
+          "rationale": "Too low; world spending was $2887 billion."
+        },
+        {
+          "id": "b",
+          "label": "2.5%",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "10%",
+          "correct": false,
+          "rationale": "Too high; it was 2.5% of global GDP."
+        },
+        {
+          "id": "d",
+          "label": "25%",
+          "correct": false,
+          "rationale": "Far too high; it was 2.5%."
+        }
+      ],
+      "explanation": "World military spending of $2887 billion in 2025 equalled 2.5% of global GDP.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.military_civilian_control"
+      ],
+      "sourceCardIds": [
+        "card.government.079.c3"
+      ],
+      "prompt": "Under civilian control of the military, who decides the military's missions and budget?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The most senior generals",
+          "correct": false,
+          "rationale": "Commanders decide how to carry missions out, not what they are."
+        },
+        {
+          "id": "b",
+          "label": "Foreign allies",
+          "correct": false,
+          "rationale": "Each country's own elected authorities decide."
+        },
+        {
+          "id": "c",
+          "label": "The soldiers, by vote",
+          "correct": false,
+          "rationale": "Soldiers don't vote on missions or budgets."
+        },
+        {
+          "id": "d",
+          "label": "Democratically elected civilian authorities",
+          "correct": true
+        }
+      ],
+      "explanation": "Civilian authorities decide missions, size, budget and purchases; the military decides how to carry missions out.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.military_civilian_control",
+        "concept.government.weber_state_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.079.c1",
+        "card.government.009.c3"
+      ],
+      "prompt": "Level 9's Weber defined the state by its monopoly of legitimate force. What does Costa Rica keep that still holds that force?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A secret reserve army",
+          "correct": false,
+          "rationale": "Its constitution abolishes the army as a permanent institution."
+        },
+        {
+          "id": "b",
+          "label": "Police forces for public order",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Foreign troops on loan",
+          "correct": false,
+          "rationale": "The constitution provides for police, not foreign troops."
+        },
+        {
+          "id": "d",
+          "label": "Private security firms only",
+          "correct": false,
+          "rationale": "The state keeps its own police forces."
+        }
+      ],
+      "explanation": "Costa Rica's constitution abolishes the army but provides for the police forces needed to keep public order.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.constitute_costa_rica",
+    "source.unesco_costa_rica_army",
+    "source.dcaf_democratic_control",
+    "source.sipri_milex_2025",
+    "source.openstax_public_goods",
+    "source.sep_weber",
+    "source.unicef_budget_cycles_2016"
+  ],
+  "art": "rome.legion"
+}

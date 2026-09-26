@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.architecture.027",
+  "skillId": "skill.arts.architecture",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pagodas",
+  "objective": "After this level you can explain how tall wooden pagodas survive earthquakes.",
+  "summary": "Pagodas grew from the stupa. At Hōryū-ji each story is its own frame, the joints can slide, and the central pillar carries only the spire.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.pagoda_stupa_origin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.pagoda_loose_stories",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.pagoda_central_pillar",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.026"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Tall, thin and wooden sounds like the wrong recipe for earthquake country.",
+      "body": "Yet engineers studying Japan's Hōryū-ji pagoda found no historical record of a five-story pagoda toppling in an earthquake. After the 1995 Kobe earthquake, no serious damage to old wooden pagodas nearby was reported. What do they know that a stiff tower doesn't?"
+    },
+    {
+      "id": "card.architecture.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A tower built for relics",
+      "body": "A pagoda is a Buddhist tower that grew out of the stupa, a domed monument first built in ancient India to house relics. Five-story pagodas were built to enshrine remains of the Buddha. The form reached Japan from India by way of China, with Buddhism, in the 6th century. The pagoda at Hōryū-ji, in Nara, was rebuilt around 711 after a fire, and it's regarded as Japan's oldest wooden pagoda."
+    },
+    {
+      "id": "card.architecture.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five stories that don't hold hands",
+      "body": "In the Hōryū-ji pagoda, no column ties the stories together: each is its own framework, set on the one below. Even the ground-floor columns aren't fixed to the foundation. Researchers credit the pagoda's survival to friction and sliding in its many wooden joints, and to its deep eaves, which work like a balancing toy. A stiff tower fights a quake. A pagoda shimmies.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Sometimes the strongest move is not to hold on too tightly. Pagodas figured that out a long time ago."
+      }
+    },
+    {
+      "id": "card.architecture.027.c4",
+      "type": "fact",
+      "fact": "The central pillar holds up almost nothing.",
+      "context": "Down the middle runs the shinbashira, the central column. At Hōryū-ji it supports only the ornamental spire on top, independently of the main structure. So what is it for? One explanation: when a quake makes the heavy roofs try to slide sideways, the pole won't let any of them move very far. It's less a backbone than a bouncer."
+    },
+    {
+      "id": "card.architecture.027.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.027.q1"
+    },
+    {
+      "id": "card.architecture.027.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.027.q2"
+    },
+    {
+      "id": "card.architecture.027.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.027.q3"
+    },
+    {
+      "id": "card.architecture.027.c8",
+      "type": "checkpoint",
+      "headline": "Pagodas: steadied",
+      "learned": [
+        "Pagodas grew from the stupa, built for relics",
+        "Hōryū-ji's pagoda was rebuilt around 711",
+        "Its stories are independent; its joints can slide",
+        "The central pillar carries only the spire"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.pagoda_central_pillar"
+      ],
+      "sourceCardIds": [
+        "card.architecture.027.c4"
+      ],
+      "prompt": "At the Hōryū-ji pagoda, what does the central pillar, the shinbashira, hold up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every floor of the pagoda",
+          "correct": false,
+          "rationale": "The stories rest on each other, not on the pillar."
+        },
+        {
+          "id": "b",
+          "label": "Only the ornamental spire on top",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The foundation stones",
+          "correct": false,
+          "rationale": "It stands on a base stone; it doesn't hold it up."
+        },
+        {
+          "id": "d",
+          "label": "The deep eaves of the first story",
+          "correct": false,
+          "rationale": "The eaves belong to the stories, not the pillar."
+        }
+      ],
+      "explanation": "At Hōryū-ji the shinbashira supports only the spire on top, independently of the main structure.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.pagoda_loose_stories"
+      ],
+      "sourceCardIds": [
+        "card.architecture.027.c3"
+      ],
+      "prompt": "Which features do researchers credit for helping wooden pagodas ride out earthquakes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Steel rods tying every story together",
+          "correct": false,
+          "rationale": "No column ties the stories together."
+        },
+        {
+          "id": "b",
+          "label": "Columns bolted deep into the bedrock",
+          "correct": false,
+          "rationale": "The ground-floor columns aren't even fixed to the foundation."
+        },
+        {
+          "id": "c",
+          "label": "Friction and sliding in their wooden joints",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Thick stone walls on the lower floors",
+          "correct": false,
+          "rationale": "Pagodas like Hōryū-ji's are built of wood."
+        }
+      ],
+      "explanation": "Researchers point to friction and sliding in the many wooden joints, plus the balancing-toy effect of the deep eaves.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.pagoda_stupa_origin"
+      ],
+      "sourceCardIds": [
+        "card.architecture.027.c2"
+      ],
+      "prompt": "Pagodas grew out of the stupas of ancient India. What were both built to hold?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sacred relics",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Bells for calling monks",
+          "correct": false,
+          "rationale": "Stupas and pagodas were built to house relics."
+        },
+        {
+          "id": "c",
+          "label": "Grain stores for the temple",
+          "correct": false,
+          "rationale": "Their purpose was sacred: relics."
+        },
+        {
+          "id": "d",
+          "label": "Water tanks for firefighting",
+          "correct": false,
+          "rationale": "They enshrine relics."
+        }
+      ],
+      "explanation": "The stupa was built to house relics, and five-story pagodas were built to enshrine remains of the Buddha.",
+      "difficulty": 0.15
+    }
+  ],
+  "sourceIds": [
+    "source.wcee_horyuji_pagoda",
+    "source.brit_pagoda",
+    "source.uh_engines_pagoda"
+  ],
+  "art": "geo.pagoda"
+}

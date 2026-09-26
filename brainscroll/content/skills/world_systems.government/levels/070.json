@@ -1,0 +1,359 @@
+{
+  "id": "level.world_systems.government.070",
+  "skillId": "skill.world_systems.government",
+  "number": 70,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Elections",
+  "objective": "After this level you can explain how elections turn votes into power.",
+  "summary": "The IPU's 1994 Declaration on free and fair elections lists this chapter's ideas: authority from the people, a secret and equal vote, fair campaigns and an honest, observed count.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.election_ipu_free_fair",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_purpose_choose_remove",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.election_secret_ballot_origins",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.election_gerrymandering",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.election_poll_sampling",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.election_proportional",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.election_ranked_choice",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.election_referendum_debate",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.power_vs_authority",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.069"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1994, the Inter-Parliamentary Union wrote a checklist for fair elections.",
+      "body": "On 26 March 1994 in Paris, the Inter-Parliamentary Council unanimously adopted the IPU's Declaration on Criteria for Free and Fair Elections. Read it now and it looks like this chapter's table of contents.",
+      "id": "card.government.070.c1"
+    },
+    {
+      "type": "comparison",
+      "headline": "The checklist, level by level",
+      "items": [
+        {
+          "label": "Where power comes from",
+          "points": [
+            "Authority only from the will of the people",
+            "Elections at regular intervals (Level 61)"
+          ]
+        },
+        {
+          "label": "How you vote",
+          "points": [
+            "The right to vote in secret is absolute (Level 62)",
+            "Every vote of equivalent weight (Level 64)"
+          ]
+        },
+        {
+          "label": "The race and the count",
+          "points": [
+            "Campaigns on an equal basis (Level 65)",
+            "An honest count, with party agents and observers (Level 68)"
+          ]
+        }
+      ],
+      "id": "card.government.070.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "From a ballot to power",
+      "body": "Follow one vote through this chapter. It's cast in secret, turned into seats by a voting system and a district map, fought over in a campaign and counted in the open. What comes out is Level 3's authority: power people accept as legitimate. And Popper's point makes it complete: the ruled can dismiss their rulers without bloodshed, so next time the same vote can take that power away.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Ten levels, and you can follow a vote from the ballot box all the way to power."
+      },
+      "id": "card.government.070.c3"
+    },
+    {
+      "id": "card.government.070.c4",
+      "type": "mcq",
+      "questionId": "question.government.070.q1"
+    },
+    {
+      "id": "card.government.070.c5",
+      "type": "recall",
+      "questionId": "question.government.070.q2"
+    },
+    {
+      "id": "card.government.070.c6",
+      "type": "recall",
+      "questionId": "question.government.070.q3"
+    },
+    {
+      "id": "card.government.070.c7",
+      "type": "recall",
+      "questionId": "question.government.070.q4"
+    },
+    {
+      "id": "card.government.070.c8",
+      "type": "recall",
+      "questionId": "question.government.070.q5"
+    },
+    {
+      "id": "card.government.070.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 7 complete",
+      "learned": [
+        "IPU, 1994: criteria for free and fair elections",
+        "Authority from the will of the people, at regular intervals",
+        "Secret, equal votes; fair campaigns; an honest count",
+        "Elections both grant power and take it back"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.070.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.election_ipu_free_fair"
+      ],
+      "sourceCardIds": [
+        "card.government.070.c2"
+      ],
+      "prompt": "According to the IPU's 1994 Declaration, which voting right is absolute?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The right to vote in secret",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The right to a recount on demand",
+          "correct": false,
+          "rationale": "Recounts are a UK counting rule, not the Declaration's absolute right."
+        },
+        {
+          "id": "c",
+          "label": "The right to vote by ranking",
+          "correct": false,
+          "rationale": "The Declaration doesn't choose a voting system."
+        },
+        {
+          "id": "d",
+          "label": "The right to vote in public",
+          "correct": false,
+          "rationale": "It's secrecy that the Declaration makes absolute."
+        }
+      ],
+      "explanation": "The Declaration says the right to vote in secret is absolute and shall not be restricted in any manner.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.070.q2",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.election_gerrymandering",
+        "concept.government.election_secret_ballot_origins",
+        "concept.government.election_poll_sampling",
+        "concept.government.election_proportional"
+      ],
+      "sourceCardIds": [
+        "card.government.064.c3",
+        "card.government.062.c2",
+        "card.government.066.c1",
+        "card.government.063.c3"
+      ],
+      "prompt": "Elections checkpoint: which list puts these in order, oldest first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Victoria ballot → Gerry-mander → Digest poll → NZ MMP vote",
+          "correct": false,
+          "rationale": "The Gerry-mander (1812) is older than Victoria's ballot (1856)."
+        },
+        {
+          "id": "b",
+          "label": "Gerry-mander → Victoria ballot → Digest poll → NZ MMP vote",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Gerry-mander → Digest poll → Victoria ballot → NZ MMP vote",
+          "correct": false,
+          "rationale": "Victoria's ballot (1856) came before the Digest poll (1936)."
+        },
+        {
+          "id": "d",
+          "label": "Digest poll → Gerry-mander → NZ MMP vote → Victoria ballot",
+          "correct": false,
+          "rationale": "The 1936 poll is the second-newest of these."
+        }
+      ],
+      "explanation": "The Gerry-mander (1812), Victoria's secret ballot (1856), the Literary Digest poll (1936), New Zealand's first MMP election (1996).",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.government.070.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.election_ranked_choice"
+      ],
+      "sourceCardIds": [
+        "card.government.063.c4"
+      ],
+      "prompt": "Back to Level 63: under the Alternative Vote used for Australia's House of Representatives, what happens if nobody has a majority?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The candidate with the most first choices wins anyway",
+          "correct": false,
+          "rationale": "That's first-past-the-post."
+        },
+        {
+          "id": "b",
+          "label": "Seats are shared out by vote share",
+          "correct": false,
+          "rationale": "That's proportional representation."
+        },
+        {
+          "id": "c",
+          "label": "The last are eliminated and votes transferred",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The election is held again a month later",
+          "correct": false,
+          "rationale": "The count continues with transferred votes instead."
+        }
+      ],
+      "explanation": "Under the Alternative Vote, the least successful candidates are eliminated and their votes transferred until someone has a majority.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.070.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.election_ipu_free_fair",
+        "concept.government.election_gerrymandering"
+      ],
+      "sourceCardIds": [
+        "card.government.070.c2",
+        "card.government.064.c4"
+      ],
+      "prompt": "The IPU Declaration says every vote should carry equivalent weight. Which Level 64 practice most directly works against that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Counting in front of candidates' agents",
+          "correct": false,
+          "rationale": "Open counting supports fair elections."
+        },
+        {
+          "id": "b",
+          "label": "Packing and cracking district voters",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Printing ballot papers by the government",
+          "correct": false,
+          "rationale": "That's the Victorian secret ballot, not a threat."
+        },
+        {
+          "id": "d",
+          "label": "Ranking candidates by preference",
+          "correct": false,
+          "rationale": "Ranking is a voting method, not a way to skew districts."
+        }
+      ],
+      "explanation": "Packing and cracking leave a group with fewer seats than its votes suggest, so its votes weigh less.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.070.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.election_referendum_debate",
+        "concept.government.election_purpose_choose_remove"
+      ],
+      "sourceCardIds": [
+        "card.government.067.c1",
+        "card.government.061.c3"
+      ],
+      "prompt": "In 1988 Chile's Pinochet lost a referendum, and his regime collapsed soon after. Which Level 61 thinker's test of democracy does that peaceful removal echo?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Joseph Schumpeter's",
+          "correct": false,
+          "rationale": "Schumpeter stressed competing for votes; dismissal without bloodshed is Popper's test."
+        },
+        {
+          "id": "b",
+          "label": "John Stuart Mill's",
+          "correct": false,
+          "rationale": "Mill argued about public voting, not dismissing rulers."
+        },
+        {
+          "id": "c",
+          "label": "Maurice Duverger's",
+          "correct": false,
+          "rationale": "Duverger studied voting systems and party numbers."
+        },
+        {
+          "id": "d",
+          "label": "Karl Popper's",
+          "correct": true
+        }
+      ],
+      "explanation": "Popper's test is whether the ruled can dismiss their rulers without bloodshed.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ipu_free_fair_elections_1994",
+    "source.openstax_sociology_power_authority",
+    "source.sep_weber",
+    "source.iep_popper_political"
+  ],
+  "art": "gov.ballot-box"
+}

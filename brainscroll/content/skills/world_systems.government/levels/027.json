@@ -1,0 +1,221 @@
+{
+  "id": "level.world_systems.government.027",
+  "skillId": "skill.world_systems.government",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Political Parties",
+  "objective": "After this level you can explain why political parties form.",
+  "summary": "Washington warned against parties in 1796, yet they formed: groups organized to win and use power that recruit candidates, organize voters, govern and oppose. Whig and Tory began as insults.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.party_definition_functions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.party_whig_tory",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.power_vs_authority",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.026"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "George Washington warned against political parties. Parties formed anyway.",
+      "body": "In his Farewell Address of 1796, Washington warned against \"the baneful effects of the spirit of party\". Yet in the 19th century, modern parties took shape across Europe and the United States. If they're so worrying, why do they keep appearing?",
+      "id": "card.government.027.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What a party is",
+      "body": "Britannica defines a political party as a group of persons organized to acquire and exercise political power. Remember Level 3: Weber called power the ability to exercise your will over others. A party is people deciding to pursue that together, in the open, under one name.",
+      "id": "card.government.027.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why parties form",
+      "body": "One candidate can't run a country, and one lawmaker alone can't pass much. Parties recruit candidates, organize voters at elections, form governments and keep them going. And the side that loses doesn't vanish: parties give those out of power an organized opposition. Those are jobs somebody has to do, and parties grew up doing them.",
+      "id": "card.government.027.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Britain's first party names began as insults.",
+      "context": "\"Whig\" and \"Tory\" were terms of abuse, hurled in 1679 during the fight over excluding James, Duke of York, from the throne. Tory first meant an Irish outlaw or robber; Whig probably came from a Scottish word for a horse drover. The parties then adopted the insults as their own names.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Being called a bandit and replying \"great, that's our name now\" is a very political move."
+      },
+      "id": "card.government.027.c4"
+    },
+    {
+      "id": "card.government.027.c5",
+      "type": "mcq",
+      "questionId": "question.government.027.q1"
+    },
+    {
+      "id": "card.government.027.c6",
+      "type": "mcq",
+      "questionId": "question.government.027.q2"
+    },
+    {
+      "id": "card.government.027.c7",
+      "type": "recall",
+      "questionId": "question.government.027.q3"
+    },
+    {
+      "id": "card.government.027.c8",
+      "type": "checkpoint",
+      "headline": "Parties: formed",
+      "learned": [
+        "Washington warned against the spirit of party",
+        "A party organizes to win and use political power",
+        "Parties recruit, organize voters, govern and oppose",
+        "Whig and Tory started life as insults"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.party_definition_functions"
+      ],
+      "sourceCardIds": [
+        "card.government.027.c1"
+      ],
+      "prompt": "In his 1796 Farewell Address, what did George Washington warn Americans against?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The spirit of party",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Holding any elections",
+          "correct": false,
+          "rationale": "He warned about parties, not elections."
+        },
+        {
+          "id": "c",
+          "label": "A free press",
+          "correct": false,
+          "rationale": "His warning was about the spirit of party."
+        },
+        {
+          "id": "d",
+          "label": "Writing laws down",
+          "correct": false,
+          "rationale": "His warning was about the spirit of party."
+        }
+      ],
+      "explanation": "Washington warned against \"the baneful effects of the spirit of party\".",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.party_whig_tory"
+      ],
+      "sourceCardIds": [
+        "card.government.027.c4"
+      ],
+      "prompt": "What does the story of the party names \"Whig\" and \"Tory\" show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both were chosen by a royal committee",
+          "correct": false,
+          "rationale": "They were insults thrown by opponents, not royal choices."
+        },
+        {
+          "id": "b",
+          "label": "Both came from ancient Greek words",
+          "correct": false,
+          "rationale": "Tory is Irish in origin and Whig probably Scottish."
+        },
+        {
+          "id": "c",
+          "label": "Insults thrown at rivals were adopted as party names",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both parties were founded in the United States",
+          "correct": false,
+          "rationale": "These were Britain's first party names."
+        }
+      ],
+      "explanation": "\"Whig\" and \"Tory\" began as terms of abuse in 1679, and the parties adopted them as their own names.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.party_definition_functions",
+        "concept.government.power_vs_authority"
+      ],
+      "sourceCardIds": [
+        "card.government.027.c2",
+        "card.government.003.c2"
+      ],
+      "prompt": "A party is organized to acquire and exercise political power. Using Weber's definition from Level 3, what is that power?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Power people accept as legitimate",
+          "correct": false,
+          "rationale": "That's Weber's authority, not power."
+        },
+        {
+          "id": "b",
+          "label": "A written list of rights",
+          "correct": false,
+          "rationale": "That isn't Weber's definition of power."
+        },
+        {
+          "id": "c",
+          "label": "Wealth held by the party's members",
+          "correct": false,
+          "rationale": "Weber's power is about will, not wealth."
+        },
+        {
+          "id": "d",
+          "label": "The ability to exercise your will over others",
+          "correct": true
+        }
+      ],
+      "explanation": "Weber defined power as the ability to exercise your will over others; a party organizes to win and use it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.senate_washington_farewell",
+    "source.brit_political_party",
+    "source.openstax_sociology_power_authority",
+    "source.openstax_amgov_parties",
+    "source.brit_tory_party",
+    "source.etymonline_tory",
+    "source.etymonline_whig"
+  ],
+  "art": "geo.people"
+}

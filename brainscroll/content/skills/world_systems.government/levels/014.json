@@ -1,0 +1,225 @@
+{
+  "id": "level.world_systems.government.014",
+  "skillId": "skill.world_systems.government",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rule by the Few",
+  "objective": "After this level you can explain oligarchy.",
+  "summary": "Oligarchy is rule by a privileged few for their own ends. Venice's Great Council closed to a hereditary group; Michels argued every organization drifts toward rule by a few.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.oligarchy_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.oligarchy_venice",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.oligarchy_iron_law",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.monarchy_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.013"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Venice called itself a republic. A closed club of families ran it.",
+      "body": "Over about a century from 1297, Venice's Great Council, the body where sovereignty lay, was closed to everyone outside a fixed hereditary group. From the 1390s, new families stopped getting in at all. Rule by one is monarchy. What do you call rule by a locked room of a few?",
+      "id": "card.government.014.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Rule of the few",
+      "body": "Oligarchy comes from the Greek oligos, \"few\", and arkhein, \"to rule\". Britannica defines it as government by the few, especially power used by a small privileged group for corrupt or selfish ends. Aristotle drew the line against aristocracy, rule by the best. When the few rule for themselves, it's oligarchy, and those few are typically the wealthy.",
+      "id": "card.government.014.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "Venice's oligarchy lasted into the late 18th century.",
+      "context": "Its head of state, the doge, had immense prestige but was increasingly bound by his councils. Real power sat with the Great Council, and the Great Council belonged to the old families. Stable? For centuries. Open? Only if you were born into the right family.",
+      "id": "card.government.014.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The iron law",
+      "body": "In the early 20th century, the sociologist Robert Michels made a bolder claim. His iron law of oligarchy says every organization, even one committed to democratic ideals, ends up ruled by an elite few. Leaders gain expertise, central authority and control of the bureaucracy and resources, and use them to dominate the members. Think of any club you've joined. Who actually decides?",
+      "mascot": {
+        "pose": "idea",
+        "line": "Next time your group chat \"votes\" on a plan, count how many people actually chose it."
+      },
+      "id": "card.government.014.c4"
+    },
+    {
+      "id": "card.government.014.c5",
+      "type": "mcq",
+      "questionId": "question.government.014.q1"
+    },
+    {
+      "id": "card.government.014.c6",
+      "type": "mcq",
+      "questionId": "question.government.014.q2"
+    },
+    {
+      "id": "card.government.014.c7",
+      "type": "recall",
+      "questionId": "question.government.014.q3"
+    },
+    {
+      "id": "card.government.014.c8",
+      "type": "checkpoint",
+      "headline": "Oligarchy: few hands",
+      "learned": [
+        "Oligarchy: rule by a privileged few",
+        "Aristotle: aristocracy is rule by the best; oligarchy serves itself",
+        "Venice's Great Council closed to a hereditary group",
+        "Michels: every organization drifts toward rule by a few"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.oligarchy_iron_law"
+      ],
+      "sourceCardIds": [
+        "card.government.014.c4"
+      ],
+      "prompt": "What does Robert Michels's iron law of oligarchy claim?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every organization ends up ruled by an elite few",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Only monarchies can be stable for long",
+          "correct": false,
+          "rationale": "Michels was writing about organizations of every kind."
+        },
+        {
+          "id": "c",
+          "label": "The wealthy always lose power in the end",
+          "correct": false,
+          "rationale": "His claim runs the other way: power concentrates."
+        },
+        {
+          "id": "d",
+          "label": "Democratic groups never need leaders",
+          "correct": false,
+          "rationale": "He argued leaders inevitably come to dominate."
+        }
+      ],
+      "explanation": "Michels argued that every organization, even a democratic one, ends up ruled by an elite few.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.oligarchy_venice"
+      ],
+      "sourceCardIds": [
+        "card.government.014.c1",
+        "card.government.014.c3"
+      ],
+      "prompt": "Why is Venice a textbook oligarchy, even though it called itself a republic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its doge held absolute power by divine right",
+          "correct": false,
+          "rationale": "The doge was increasingly bound by his councils."
+        },
+        {
+          "id": "b",
+          "label": "Every citizen voted in its Great Council",
+          "correct": false,
+          "rationale": "The Great Council was closed to outsiders."
+        },
+        {
+          "id": "c",
+          "label": "It was ruled by clergy under religious law",
+          "correct": false,
+          "rationale": "That would be a theocracy."
+        },
+        {
+          "id": "d",
+          "label": "Real power sat with a council closed to all but a hereditary group",
+          "correct": true
+        }
+      ],
+      "explanation": "Sovereignty lay with the Great Council, which over about a century from 1297 closed to all but a fixed hereditary group.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.oligarchy_definition",
+        "concept.government.monarchy_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.014.c2",
+        "card.government.011.c2"
+      ],
+      "prompt": "Rule by the few: judging by their Greek roots, what separates oligarchy from Level 11's monarchy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Oligarchy is rule by God; monarchy is rule by one",
+          "correct": false,
+          "rationale": "Rule by God is theocracy."
+        },
+        {
+          "id": "b",
+          "label": "Monarchy is rule by one; oligarchy is rule by a few",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Monarchy is always elected; oligarchy never is",
+          "correct": false,
+          "rationale": "Most monarchs inherit the throne."
+        },
+        {
+          "id": "d",
+          "label": "They mean the same thing in Greek",
+          "correct": false,
+          "rationale": "Monos means alone; oligos means few."
+        }
+      ],
+      "explanation": "Monarkhia is the ruling of one; oligarchy comes from oligos, few, plus arkhein, to rule.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_italy_venice_14th_century",
+    "source.etymonline_oligarchy",
+    "source.brit_oligarchy",
+    "source.sep_aristotle_politics",
+    "source.brit_iron_law_of_oligarchy"
+  ],
+  "art": "rome.curule-chair"
+}

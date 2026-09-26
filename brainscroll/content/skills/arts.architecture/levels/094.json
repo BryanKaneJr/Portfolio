@@ -1,0 +1,237 @@
+{
+  "id": "level.arts.architecture.094",
+  "skillId": "skill.arts.architecture",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "3D-Printed Houses",
+  "objective": "After this level you can explain how houses can be printed layer by layer.",
+  "summary": "A concrete printer builds walls layer by layer with no formwork. The mix must flow, then carry the layers above. Steel reinforcement is hard to add. Eindhoven's first printed home got tenants in 2021.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.future_printed_house",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.future_print_formwork",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.future_print_buildability",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.future_print_reinforcement",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_reinforced_concrete",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.093"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.094.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On 30 April 2021, a couple got the keys to a house shaped like a boulder.",
+      "body": "It was the first 3D-printed concrete home in the Netherlands, in Eindhoven, and it met all of the country's strict building rules. Nobody poured its walls into a mold. A machine built them up, layer by layer."
+    },
+    {
+      "id": "card.architecture.094.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "No mold needed",
+      "body": "Ordinary concrete needs formwork: a temporary structure that holds the wet mix in shape until it hardens. It's the concrete cousin of Level 4's centering, the wooden frame that holds up an arch until the keystone is set. Formwork can take more than half the resources of a concrete structure. A construction printer skips it. Following a digital design, it squeezes concrete through a nozzle and builds the wall layer by layer."
+    },
+    {
+      "id": "card.architecture.094.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Runny enough to squeeze, stiff enough to stack",
+      "body": "That makes the mix a balancing act. It has to flow well enough to push through the nozzle, then be strong enough to carry the weight of every layer printed on top of it without deforming. Engineers call this buildability. Here's an analogy: toothpaste that slides out of the tube but keeps its shape on the brush."
+    },
+    {
+      "id": "card.architecture.094.c4",
+      "type": "fact",
+      "fact": "Printing still has Level 7's problem.",
+      "context": "Concrete is weak when stretched, so builders usually cast steel bars inside to take the tension. In a printed wall that's hard: building layer by layer makes conventional steel reinforcement difficult to add, and the joints between layers are weaker than solid cast concrete. The Eindhoven house was printed as 24 separate elements in a factory, then trucked to the site and set on a foundation.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Every layer line on a printed wall is a joint. Engineers keep a close eye on those."
+      }
+    },
+    {
+      "id": "card.architecture.094.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.094.q1"
+    },
+    {
+      "id": "card.architecture.094.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.094.q2"
+    },
+    {
+      "id": "card.architecture.094.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.094.q3"
+    },
+    {
+      "id": "card.architecture.094.c8",
+      "type": "checkpoint",
+      "headline": "Printed houses: layered",
+      "learned": [
+        "Formwork holds wet concrete; printing skips it",
+        "The mix must flow, then carry the layers above",
+        "Steel reinforcement and layer joints are the hard parts",
+        "Eindhoven, 2021: 24 printed elements, one home"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.future_printed_house"
+      ],
+      "sourceCardIds": [
+        "card.architecture.094.c4",
+        "card.architecture.094.c1"
+      ],
+      "prompt": "How was the 2021 Eindhoven printed house put together?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Poured on site into wooden formwork",
+          "correct": false,
+          "rationale": "It was printed, with no formwork."
+        },
+        {
+          "id": "b",
+          "label": "Printed as 24 elements, then set on a foundation",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Printed in one piece right on the building site",
+          "correct": false,
+          "rationale": "Its pieces were printed in a factory and trucked in."
+        },
+        {
+          "id": "d",
+          "label": "Stacked from factory-made fired bricks",
+          "correct": false,
+          "rationale": "Its walls are printed concrete."
+        }
+      ],
+      "explanation": "Its 24 concrete elements were printed layer by layer at a plant, trucked to Eindhoven and placed on a foundation.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.future_print_buildability"
+      ],
+      "sourceCardIds": [
+        "card.architecture.094.c3"
+      ],
+      "prompt": "Why must 3D-printing concrete be stiff once it leaves the nozzle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So the nozzle never clogs",
+          "correct": false,
+          "rationale": "Inside the nozzle it must flow; stiffness matters afterwards."
+        },
+        {
+          "id": "b",
+          "label": "So it dries to a brighter color",
+          "correct": false,
+          "rationale": "Color has nothing to do with it."
+        },
+        {
+          "id": "c",
+          "label": "So the house needs no foundation",
+          "correct": false,
+          "rationale": "Printed houses still sit on foundations."
+        },
+        {
+          "id": "d",
+          "label": "So it can carry the layers printed on top",
+          "correct": true
+        }
+      ],
+      "explanation": "Buildability: the mix must flow through the nozzle, then support the weight of later layers without deforming.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.future_print_reinforcement",
+        "concept.architecture.stand_reinforced_concrete"
+      ],
+      "sourceCardIds": [
+        "card.architecture.094.c4",
+        "card.architecture.007.c4"
+      ],
+      "prompt": "Level 7's concrete beams hide steel bars to take the tension. Why is that harder in a 3D-printed wall?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Printed concrete is already strong in tension",
+          "correct": false,
+          "rationale": "It isn't; that's why it needs help."
+        },
+        {
+          "id": "b",
+          "label": "Layer-by-layer printing makes steel hard to add",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Steel melts inside fresh printed concrete",
+          "correct": false,
+          "rationale": "The problem is the printing process, not melting."
+        },
+        {
+          "id": "d",
+          "label": "Printers can only print steel, not concrete",
+          "correct": false,
+          "rationale": "Construction printers extrude concrete."
+        }
+      ],
+      "explanation": "Concrete needs steel to take tension, but building layer by layer makes conventional reinforcement difficult to add.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.tue_milestone_first_resident",
+    "source.brit_arch_architecture",
+    "source.pmc_3d_printed_formwork",
+    "source.pmc_reinforcement_3d_printed_concrete",
+    "source.pmc_buildable_printing_concrete",
+    "source.brit_reinforced_concrete",
+    "source.brit_concrete"
+  ],
+  "art": "technology.3d-printer"
+}

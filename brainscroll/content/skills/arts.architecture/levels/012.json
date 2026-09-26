@@ -1,0 +1,231 @@
+{
+  "id": "level.arts.architecture.012",
+  "skillId": "skill.arts.architecture",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ziggurats",
+  "objective": "After this level you can explain Mesopotamian ziggurats.",
+  "summary": "A ziggurat was a solid stepped tower of mud brick in a waterproof skin of baked brick and bitumen, with weeper holes. At Aqar Quf, reed layers reinforce the core.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.wonders_ziggurat_form",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.wonders_ziggurat_skin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.wonders_ziggurat_reeds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_reinforced_concrete",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_brick",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.011"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A ziggurat is a giant tower you can't go inside.",
+      "body": "Staircases climbed its sides to a temple on the top. Inside there was nothing at all: no rooms, no corridors, just brick. So how do you keep a solid mountain of mud brick standing?"
+    },
+    {
+      "id": "card.architecture.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A mountain with no rooms",
+      "body": "A ziggurat was a stepped temple tower of ancient Mesopotamia, usually square or rectangular, with no internal chambers. About 25 are known. The best known, at Ur, dates to about 2100 BCE, under King Ur-Nammu. Three staircases led up to a temple on its flat top. All that brick was, in effect, one enormous pedestal.",
+      "callout": "Legend check: the Tower of Babel is popularly linked to Babylon's ziggurat. Linked, not proven."
+    },
+    {
+      "id": "card.architecture.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A raincoat with vents",
+      "body": "Every ziggurat had a core of mud brick and a skin of baked brick. At Ur, the core took several million sun-dried bricks. The facing bricks were mortared with bitumen, a natural tar, to make a waterproof surface: Level 6's kiln-fired brick, hard and strong, doing the weather work. The skin was also pierced by weeper holes that let water evaporate from the core. A raincoat, with vents."
+    },
+    {
+      "id": "card.architecture.012.c4",
+      "type": "fact",
+      "fact": "Some ziggurats were reinforced with reeds.",
+      "context": "At Aqar Quf in Iraq, after every eight or nine courses of bricks, the builders laid a layer of reed matting bedded in sand and gravel. Plaited reed ropes run right through the tower from side to side as reinforcement, and the matting kept the structure from slumping sideways when it got wet. Here's an analogy: Level 7's steel bars do a similar job inside concrete today.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Reeds: cheap, local, and still holding a tower together. Not bad for a plant."
+      }
+    },
+    {
+      "id": "card.architecture.012.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.012.q1"
+    },
+    {
+      "id": "card.architecture.012.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.012.q2"
+    },
+    {
+      "id": "card.architecture.012.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.012.q3"
+    },
+    {
+      "id": "card.architecture.012.c8",
+      "type": "checkpoint",
+      "headline": "Ziggurats: climbed",
+      "learned": [
+        "A ziggurat: a solid stepped tower with a temple on top",
+        "Ur (about 2100 BCE): three staircases",
+        "Mud-brick core, baked-brick skin in bitumen, weeper holes",
+        "Aqar Quf: reed matting and reed ropes as reinforcement"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.wonders_ziggurat_form"
+      ],
+      "sourceCardIds": [
+        "card.architecture.012.c2"
+      ],
+      "prompt": "What was inside a Mesopotamian ziggurat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A maze of burial chambers",
+          "correct": false,
+          "rationale": "Ziggurats had no internal chambers."
+        },
+        {
+          "id": "b",
+          "label": "A great hall for worshippers",
+          "correct": false,
+          "rationale": "The temple sat on the top, not inside."
+        },
+        {
+          "id": "c",
+          "label": "Storerooms for the city's grain",
+          "correct": false,
+          "rationale": "There were no rooms inside at all."
+        },
+        {
+          "id": "d",
+          "label": "Nothing: it was solid brick",
+          "correct": true
+        }
+      ],
+      "explanation": "A ziggurat had no internal chambers: a solid stepped tower with a temple on its flat top.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.wonders_ziggurat_skin"
+      ],
+      "sourceCardIds": [
+        "card.architecture.012.c3"
+      ],
+      "prompt": "What were the weeper holes in the Ur ziggurat's brick skin for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Letting water evaporate from the mud-brick core",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Letting daylight into rooms inside",
+          "correct": false,
+          "rationale": "There were no rooms inside."
+        },
+        {
+          "id": "c",
+          "label": "Holding scaffolding poles during building",
+          "correct": false,
+          "rationale": "They let water out of the core."
+        },
+        {
+          "id": "d",
+          "label": "Letting priests signal the city below",
+          "correct": false,
+          "rationale": "They were for water, not signals."
+        }
+      ],
+      "explanation": "The baked-brick skin was waterproofed with bitumen, and weeper holes let water evaporate from the mud-brick core.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.wonders_ziggurat_reeds",
+        "concept.architecture.stand_reinforced_concrete"
+      ],
+      "sourceCardIds": [
+        "card.architecture.012.c4",
+        "card.architecture.007.c4"
+      ],
+      "prompt": "The plaited reed ropes inside the Aqar Quf ziggurat act as reinforcement. What does that job in Level 7's modern concrete?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Volcanic ash",
+          "correct": false,
+          "rationale": "That was an ingredient of Roman concrete, not reinforcement."
+        },
+        {
+          "id": "b",
+          "label": "Portland cement",
+          "correct": false,
+          "rationale": "Cement is the binder that glues concrete together."
+        },
+        {
+          "id": "c",
+          "label": "Steel bars",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Lime clasts",
+          "correct": false,
+          "rationale": "Those may help Roman concrete heal cracks."
+        }
+      ],
+      "explanation": "In reinforced concrete, steel bars take the tension; at Aqar Quf, reed ropes ran through the brick as reinforcement.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ziggurat",
+    "source.brit_ziggurat_ur",
+    "source.brit_brick",
+    "source.penn_aqar_quf",
+    "source.uh_engines_ziggurats",
+    "source.brit_reinforced_concrete"
+  ],
+  "art": "arts.step-pyramid"
+}

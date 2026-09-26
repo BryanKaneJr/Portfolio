@@ -1,0 +1,222 @@
+{
+  "id": "level.world_systems.government.056",
+  "skillId": "skill.world_systems.government",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Criminal and Civil Law",
+  "objective": "After this level you can compare criminal and civil cases.",
+  "summary": "Criminal cases are brought by the state and can end in punishment; civil cases settle disputes between people or organisations, usually with damages, and need only 'more likely than not'.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.criminal_civil_difference",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.presumption_innocence",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.lawyers_two_sides",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.055"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Acquitted in 1995. Found liable in 1997. Same man, same two deaths.",
+      "body": "In 1995 a jury acquitted O.J. Simpson of murdering Nicole Brown Simpson and Ronald Goldman. In 1997 a different jury, in a civil trial, found him liable for their deaths and ordered him to pay $33.5 million in damages to the families. A contradiction? No. Two different kinds of case, asking two different questions.",
+      "id": "card.government.056.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Criminal: the state brings the case",
+      "body": "A criminal case is about an alleged crime. It comes to court when the state decides to prosecute; in England and Wales that decision is usually the Crown Prosecution Service's. If the accused is convicted, the sentence can be prison, community punishment or a fine. The victim isn't suing anyone. The state is the one asking for punishment.",
+      "id": "card.government.056.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Civil: people versus people",
+      "body": "A civil case is a dispute between people, businesses or organisations: damaged goods, say, or an unpaid debt. Nobody goes to prison for losing. The winner may get damages, meaning money, or a court order telling someone to do or stop doing something. It's less \"you broke the law\" and more \"you owe me\".",
+      "id": "card.government.056.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Two different bars",
+      "body": "Here's the key. Criminal guilt must be proved beyond reasonable doubt. A civil claim needs only to be more likely than not: the balance of probabilities, anything over 50%. So a jury can have a reasonable doubt that Simpson committed murder, while another decides it's more likely than not he was responsible. Same facts, two bars, two answers.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Higher stakes, higher bar. Liberty needs more proof than money."
+      },
+      "id": "card.government.056.c4"
+    },
+    {
+      "id": "card.government.056.c5",
+      "type": "mcq",
+      "questionId": "question.government.056.q1"
+    },
+    {
+      "id": "card.government.056.c6",
+      "type": "mcq",
+      "questionId": "question.government.056.q2"
+    },
+    {
+      "id": "card.government.056.c7",
+      "type": "recall",
+      "questionId": "question.government.056.q3"
+    },
+    {
+      "id": "card.government.056.c8",
+      "type": "checkpoint",
+      "headline": "Criminal vs civil",
+      "learned": [
+        "Criminal: the state prosecutes a crime",
+        "Civil: parties settle a dispute",
+        "Criminal: beyond reasonable doubt",
+        "Civil: more likely than not"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.criminal_civil_difference"
+      ],
+      "sourceCardIds": [
+        "card.government.056.c3"
+      ],
+      "prompt": "What does the winning side usually get in a civil case?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Damages (money) or a court order",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A prison sentence for the other side",
+          "correct": false,
+          "rationale": "Nobody goes to prison for losing a civil case."
+        },
+        {
+          "id": "c",
+          "label": "The right to prosecute the other side",
+          "correct": false,
+          "rationale": "Prosecution belongs to criminal cases."
+        },
+        {
+          "id": "d",
+          "label": "A criminal record for the other side",
+          "correct": false,
+          "rationale": "Civil cases don't create criminal convictions."
+        }
+      ],
+      "explanation": "In a civil case, the winner may get damages (money) or a court order.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.criminal_civil_difference"
+      ],
+      "sourceCardIds": [
+        "card.government.056.c4",
+        "card.government.056.c1"
+      ],
+      "prompt": "How could O.J. Simpson be acquitted in a criminal trial but found liable in a civil one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The civil trial found new DNA evidence",
+          "correct": false,
+          "rationale": "The key difference is the standard of proof."
+        },
+        {
+          "id": "b",
+          "label": "The civil case needed only \"more likely than not\", a lower bar",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The criminal verdict was overturned on appeal",
+          "correct": false,
+          "rationale": "The acquittal stood; the civil case was separate."
+        },
+        {
+          "id": "d",
+          "label": "Civil juries don't need to hear evidence",
+          "correct": false,
+          "rationale": "Civil juries weigh evidence too, just against a lower bar."
+        }
+      ],
+      "explanation": "Criminal guilt needs proof beyond reasonable doubt; civil liability needs only the balance of probabilities.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.criminal_civil_difference",
+        "concept.government.presumption_innocence"
+      ],
+      "sourceCardIds": [
+        "card.government.056.c4",
+        "card.government.054.c3"
+      ],
+      "prompt": "Level 54's standard, proof beyond reasonable doubt, applies to which kind of case?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Civil cases over debts",
+          "correct": false,
+          "rationale": "Civil cases use the balance of probabilities."
+        },
+        {
+          "id": "b",
+          "label": "Every case that reaches a court",
+          "correct": false,
+          "rationale": "Civil cases use a lower standard."
+        },
+        {
+          "id": "c",
+          "label": "Only cases with a jury of 12",
+          "correct": false,
+          "rationale": "The standard depends on the kind of case, not the jury."
+        },
+        {
+          "id": "d",
+          "label": "Criminal cases, where the state seeks punishment",
+          "correct": true
+        }
+      ],
+      "explanation": "Beyond reasonable doubt is the criminal standard; civil cases need only the balance of probabilities.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_oj_simpson",
+    "source.judiciary_uk_criminal",
+    "source.judiciary_uk_civil",
+    "source.lii_preponderance",
+    "source.cambridge_woolmington",
+    "source.cps_about"
+  ],
+  "art": "object.book"
+}

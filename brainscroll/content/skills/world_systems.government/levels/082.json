@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.government.082",
+  "skillId": "skill.world_systems.government",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Diplomacy",
+  "objective": "After this level you can explain how ambassadors and diplomats work.",
+  "summary": "Embassies represent, protect, negotiate and report. The 1961 Vienna Convention makes embassies inviolable and diplomats immune, but the host can send any diplomat home.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.diplomacy_missions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.diplomacy_immunity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.sovereignty_montevideo_statehood",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.081"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Police can go almost anywhere in a city. An embassy's door stops them.",
+      "body": "Under the Vienna Convention on Diplomatic Relations, an embassy's premises are inviolable: the host country's officials may not enter without the consent of the head of the mission. Why would a sovereign country accept a door it can't open on its own soil?",
+      "id": "card.government.082.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What an embassy is for",
+      "body": "An embassy is one country's permanent office inside another. The Vienna Convention lists its jobs: represent its country, protect its interests and citizens, negotiate with the host government, report home on what's happening, and promote friendly relations. None of it is forced: diplomatic relations are set up by mutual consent. Level 81's fourth test for a state was the capacity to enter into relations with other states. Embassies are that capacity at work.",
+      "id": "card.government.082.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "Protecting envoys is an ancient rule, written down in 1961.",
+      "context": "The Vienna Convention's preamble recalls that peoples of all nations from ancient times have recognized the status of diplomats. The Convention itself, signed on 18 April 1961, wrote down rules that had been stable for over 200 years, and almost all states are now parties. Diplomacy's rulebook was mostly copied out, not invented.",
+      "id": "card.government.082.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Can't arrest you, can send you home",
+      "body": "A diplomat can't be arrested or detained, and is immune from the host country's criminal courts. That sounds like a license to misbehave, but the Convention says immunity isn't there to benefit individuals: it lets missions do their work without coercion or harassment. Diplomats must still respect local laws. And the host holds a trump card: it can declare any diplomat persona non grata, at any time, without saying why, and the sending country must recall them.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "The host can't arrest a diplomat, but it can always show them the door."
+      },
+      "id": "card.government.082.c4"
+    },
+    {
+      "id": "card.government.082.c5",
+      "type": "mcq",
+      "questionId": "question.government.082.q1"
+    },
+    {
+      "id": "card.government.082.c6",
+      "type": "mcq",
+      "questionId": "question.government.082.q2"
+    },
+    {
+      "id": "card.government.082.c7",
+      "type": "recall",
+      "questionId": "question.government.082.q3"
+    },
+    {
+      "id": "card.government.082.c8",
+      "type": "checkpoint",
+      "headline": "Diplomacy: decoded",
+      "learned": [
+        "Embassies represent, protect, negotiate and report",
+        "Diplomatic relations are set up by mutual consent",
+        "Embassies are inviolable; diplomats can't be arrested",
+        "The host can declare any diplomat persona non grata"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.diplomacy_immunity"
+      ],
+      "sourceCardIds": [
+        "card.government.082.c1"
+      ],
+      "prompt": "Under the Vienna Convention, when may the host country's officials enter an embassy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whenever a crime has been reported there",
+          "correct": false,
+          "rationale": "A report doesn't open the door; consent does."
+        },
+        {
+          "id": "b",
+          "label": "Only once a local court issues a warrant",
+          "correct": false,
+          "rationale": "No warrant is enough; the premises are inviolable."
+        },
+        {
+          "id": "c",
+          "label": "Only with the consent of the head of the mission",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Never, even if they are invited in",
+          "correct": false,
+          "rationale": "Consent from the head of the mission lets them in."
+        }
+      ],
+      "explanation": "Embassy premises are inviolable: the host's officials may not enter without the consent of the head of the mission.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.diplomacy_immunity"
+      ],
+      "sourceCardIds": [
+        "card.government.082.c4"
+      ],
+      "prompt": "According to the Vienna Convention, what is diplomatic immunity for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Putting diplomats above the host country's laws",
+          "correct": false,
+          "rationale": "Diplomats must still respect local laws."
+        },
+        {
+          "id": "b",
+          "label": "Rewarding diplomats for long public service",
+          "correct": false,
+          "rationale": "It isn't a personal reward; the Convention says so."
+        },
+        {
+          "id": "c",
+          "label": "Letting the home country avoid paying fines",
+          "correct": false,
+          "rationale": "Money isn't the point; the work of the mission is."
+        },
+        {
+          "id": "d",
+          "label": "Letting missions work free of coercion",
+          "correct": true
+        }
+      ],
+      "explanation": "The Convention says immunities exist not to benefit individuals but so missions can do their work representing their states.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.diplomacy_missions",
+        "concept.government.sovereignty_montevideo_statehood"
+      ],
+      "sourceCardIds": [
+        "card.government.082.c2",
+        "card.government.081.c4"
+      ],
+      "prompt": "Which of Level 81's four tests for statehood do embassies put into practice?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A permanent population",
+          "correct": false,
+          "rationale": "Embassies look outward, to other states."
+        },
+        {
+          "id": "b",
+          "label": "The capacity to enter into relations with other states",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A defined territory",
+          "correct": false,
+          "rationale": "Territory is the land a state controls; embassies handle relations."
+        },
+        {
+          "id": "d",
+          "label": "A government able to keep order at home",
+          "correct": false,
+          "rationale": "That test is about ruling at home, not dealing abroad."
+        }
+      ],
+      "explanation": "Embassies are how a state enters into relations with other states, Montevideo's fourth qualification.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.un_vienna_convention_diplomatic_relations",
+    "source.un_avl_vienna_diplomatic_relations",
+    "source.brit_diplomatic_immunity",
+    "source.brit_montevideo_convention",
+    "source.avalon_montevideo_convention"
+  ],
+  "art": "money.handshake"
+}

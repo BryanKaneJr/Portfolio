@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.architecture.091",
+  "skillId": "skill.arts.architecture",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Green Buildings",
+  "objective": "After this level you can explain how buildings can save energy.",
+  "summary": "The first Passive House (Darmstadt, 1991) keeps heat in with insulation, good windows and airtightness. Overhangs admit winter sun. Heat recovery swaps air but keeps the warmth.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.future_passive_house",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.future_passive_solar",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.future_heat_recovery",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.090"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.091.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1991, four families moved into a house that barely needs heating.",
+      "body": "The row of four homes in Darmstadt, Germany, was the world's first Passive House, and the family of Wolfgang Feist, who developed the idea, lived in one of them. The trick is three plain ideas: keep the heat in, let the sun help, and never throw warm air away."
+    },
+    {
+      "id": "card.architecture.091.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wrap it like a flask",
+      "body": "The Passive House Institute lists five principles: very good insulation, highly energy-efficient windows, airtightness, no thermal bridges, and ventilation with heat recovery. The Darmstadt pioneers even had triple-glazed windows made specially for the job. Here's an analogy: a vacuum flask keeps tea hot for hours without heating it at all. It simply lets almost nothing escape."
+    },
+    {
+      "id": "card.architecture.091.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Let the sun do some of the work",
+      "body": "Passive solar design uses the building itself, its windows, walls and floors, to collect and store the sun's heat. The US Department of Energy advises main windows facing within 30 degrees of true south. Then a roof overhang does something clever. The high summer sun hits the overhang and leaves the window in shade; the low winter sun slips underneath and warms the room. Heavy floors and walls, called thermal mass, store that warmth."
+    },
+    {
+      "id": "card.architecture.091.c4",
+      "type": "fact",
+      "fact": "Fresh air, without throwing the heat away.",
+      "context": "An airtight house still has to breathe. A heat recovery ventilator sends stale air out and fresh air in through a heat exchanger, where heat moves from the warmer stream to the cooler one. In winter, the warm air leaving your house warms the cold air coming in; in summer it works the other way round. The Darmstadt homes had four ventilation units doing exactly this.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Out goes the stale air, in comes the fresh air, and the warmth stays home. Tidy."
+      }
+    },
+    {
+      "id": "card.architecture.091.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.091.q1"
+    },
+    {
+      "id": "card.architecture.091.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.091.q2"
+    },
+    {
+      "id": "card.architecture.091.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.091.q3"
+    },
+    {
+      "id": "card.architecture.091.c8",
+      "type": "checkpoint",
+      "headline": "Green buildings: switched on",
+      "learned": [
+        "First Passive House: Darmstadt, 1991",
+        "Insulation, good windows and airtightness keep heat in",
+        "Overhangs shade summer sun and admit winter sun",
+        "Heat recovery: outgoing air warms incoming air"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.future_passive_house"
+      ],
+      "sourceCardIds": [
+        "card.architecture.091.c1"
+      ],
+      "prompt": "Where was the world's first Passive House, finished in 1991?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chicago, United States",
+          "correct": false,
+          "rationale": "Chicago gave us the steel skeleton in Level 8."
+        },
+        {
+          "id": "b",
+          "label": "Darmstadt, Germany",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Milan, Italy",
+          "correct": false,
+          "rationale": "Milan's towers of trees come in the next level."
+        },
+        {
+          "id": "d",
+          "label": "London, England",
+          "correct": false,
+          "rationale": "London's glass landmark was the Crystal Palace."
+        }
+      ],
+      "explanation": "The first Passive House, a row of four homes, was finished in Darmstadt-Kranichstein, Germany, in 1991.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.future_passive_solar"
+      ],
+      "sourceCardIds": [
+        "card.architecture.091.c3"
+      ],
+      "prompt": "Why does a fixed roof overhang above a south-facing window help in both summer and winter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It carries the wall above, like a stone lintel",
+          "correct": false,
+          "rationale": "It shades the window; it isn't there to carry the wall."
+        },
+        {
+          "id": "b",
+          "label": "It keeps rain off, so the glass stays warm",
+          "correct": false,
+          "rationale": "It works with the sun's angle, not the rain."
+        },
+        {
+          "id": "c",
+          "label": "It blocks sunlight all year round",
+          "correct": false,
+          "rationale": "Then the room would lose its winter warmth."
+        },
+        {
+          "id": "d",
+          "label": "It shades high summer sun, admits low winter sun",
+          "correct": true
+        }
+      ],
+      "explanation": "The summer sun rides high and hits the overhang; the low winter sun slips underneath and warms the room.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.future_heat_recovery",
+        "concept.architecture.future_passive_house"
+      ],
+      "sourceCardIds": [
+        "card.architecture.091.c4",
+        "card.architecture.091.c2"
+      ],
+      "prompt": "An airtight Passive House still needs fresh air. How does it avoid losing its heat with the stale air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It keeps windows shut and skips fresh air",
+          "correct": false,
+          "rationale": "Everyone needs fresh air; it is swapped, not skipped."
+        },
+        {
+          "id": "b",
+          "label": "It burns extra fuel to reheat the new air",
+          "correct": false,
+          "rationale": "That's the waste heat recovery avoids."
+        },
+        {
+          "id": "c",
+          "label": "A heat exchanger lets outgoing air warm incoming air",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its thick walls soak up the stale air",
+          "correct": false,
+          "rationale": "Thermal mass stores heat, not air."
+        }
+      ],
+      "explanation": "Ventilation with heat recovery is one of the five principles: outgoing warm air passes its heat to the incoming fresh air.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ipha_first_passive_house",
+    "source.phi_what_is_passive_house",
+    "source.doe_passive_solar_guide",
+    "source.pnnl_basc_balanced_hrv"
+  ],
+  "art": "technology.solar-panel"
+}

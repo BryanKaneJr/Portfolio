@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.architecture.083",
+  "skillId": "skill.arts.architecture",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Walls and Gates",
+  "objective": "After this level you can explain why cities built walls and what happened when they came down.",
+  "summary": "Walls gave towns security, paid for by taxes like murage, with gates for carts and walkers. As cities grew, walls cramped them; many came down and became boulevards, like Vienna's Ringstrasse.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.cities_town_walls",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.cities_walls_to_boulevards",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.082"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The word boulevard once meant the top of a city wall.",
+      "body": "It comes from French for the flat top of a rampart, a garbled borrowing of Middle Dutch bolwerc, the same word that gave English bulwark. So how does a wall turn into a wide, leafy street?"
+    },
+    {
+      "id": "card.architecture.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Security you paid for",
+      "body": "Fears of invasion, uprising and civil war made medieval town walls seem a necessary security. They weren't cheap: English towns could get royal permission to collect a tax called murage to pay for work on their walls. Carts and people came and went through the gates. A main gate could have several archways: a big one for carts and wagons, and one or two smaller ones for people on foot."
+    },
+    {
+      "id": "card.architecture.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The wall becomes the problem",
+      "body": "But a wall doesn't grow when the town does. As cities filled up, walls caused overcrowding, blocked out air and light, and led to very poor sanitation. By the 18th century, walls and gates looked like an obstacle to growth and traffic, and gates were often pulled down as too narrow. It's a belt the town has outgrown, and nobody can loosen it."
+    },
+    {
+      "id": "card.architecture.083.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wall down, boulevard up",
+      "body": "In the late 17th century, Louis XIV had an old Paris wall razed and replaced with a wide tree-lined promenade: a boulevard, for strolling along the line of the old wall. Vienna did it on a grand scale. On 20 December 1857, Emperor Franz Joseph ordered the city walls torn down for the Ringstrasse, a ring-shaped boulevard whose first section opened in 1865. The ring road is the ghost of the ring wall.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Next time you see a ring road hugging an old town, look for the wall it replaced."
+      }
+    },
+    {
+      "id": "card.architecture.083.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.083.q1"
+    },
+    {
+      "id": "card.architecture.083.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.083.q2"
+    },
+    {
+      "id": "card.architecture.083.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.083.q3"
+    },
+    {
+      "id": "card.architecture.083.c8",
+      "type": "checkpoint",
+      "headline": "Walls and gates: opened",
+      "learned": [
+        "Walls meant security; murage taxes paid for them",
+        "Gates: a big arch for carts, small ones for walkers",
+        "Walls cramped growing cities and choked traffic",
+        "Boulevards and the Ringstrasse replaced walls"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.cities_walls_to_boulevards"
+      ],
+      "sourceCardIds": [
+        "card.architecture.083.c1"
+      ],
+      "prompt": "What did the French word boulevard originally mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A market square",
+          "correct": false,
+          "rationale": "It's military, not commercial."
+        },
+        {
+          "id": "b",
+          "label": "The top surface of a rampart",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A road for horse-drawn carriages",
+          "correct": false,
+          "rationale": "That came later, once the walls were gone."
+        },
+        {
+          "id": "d",
+          "label": "A royal hunting park",
+          "correct": false,
+          "rationale": "The word comes from fortification."
+        }
+      ],
+      "explanation": "Boulevard first meant the top surface of a rampart, from Middle Dutch bolwerc, which also gave English bulwark.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.cities_walls_to_boulevards"
+      ],
+      "sourceCardIds": [
+        "card.architecture.083.c3"
+      ],
+      "prompt": "Walls and Gates: why did growing cities come to see their walls as a problem?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Walls were too expensive to heat",
+          "correct": false,
+          "rationale": "Walls weren't heated; the problem was space."
+        },
+        {
+          "id": "b",
+          "label": "Crossbows made them useless overnight",
+          "correct": false,
+          "rationale": "The source points to growth and crowding instead."
+        },
+        {
+          "id": "c",
+          "label": "They cramped growing cities and choked traffic",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Kings banned walls in the Middle Ages",
+          "correct": false,
+          "rationale": "Kings often allowed taxes to build them."
+        }
+      ],
+      "explanation": "Walls caused overcrowding, blocked air and light and led to poor sanitation; by the 18th century they hindered growth and traffic.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.cities_town_walls",
+        "concept.architecture.stand_arch"
+      ],
+      "sourceCardIds": [
+        "card.architecture.083.c2",
+        "card.architecture.004.c4"
+      ],
+      "prompt": "A medieval main gate had a big archway for wagons. Why did Level 4 say an arch can span a wider opening than a stone lintel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's built from small blocks, not one massive stone",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Arches are always built with steel inside",
+          "correct": false,
+          "rationale": "Medieval gates were stone; the trick is small wedge-shaped blocks."
+        },
+        {
+          "id": "c",
+          "label": "It carries no weight, so it can be any width",
+          "correct": false,
+          "rationale": "They carry weight, squeezed into compression."
+        },
+        {
+          "id": "d",
+          "label": "Its keystone is lighter than any stone lintel",
+          "correct": false,
+          "rationale": "Span comes from the small blocks, not a light keystone."
+        }
+      ],
+      "explanation": "A stone lintel must be one massive piece and stays short; an arch of small blocks can span much wider openings, big enough for wagons.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.etymonline_boulevard",
+    "source.mw_history_boulevard",
+    "source.buildinghistory_town_walls",
+    "source.brit_urban_planning",
+    "source.habsburger_ringstrasse",
+    "source.brit_arch_architecture"
+  ],
+  "art": "rome.wall"
+}

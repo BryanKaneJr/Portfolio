@@ -1,0 +1,228 @@
+{
+  "id": "level.world_systems.government.021",
+  "skillId": "skill.world_systems.government",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Democracy's Roots",
+  "objective": "After this level you can trace democracy from Athens to today.",
+  "summary": "Democracy is Greek for rule by the people. Cleisthenes' Athens (508-507 BCE) tied rights to where you lived, though only free adult men took part; Lincoln restated the idea in 1863.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.democracy_athens_roots",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.democracy_lincoln_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.government_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.020"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Every time you say \"democracy\", you're speaking ancient Greek.",
+      "body": "The word is a two-part sentence about who's in charge, and it has been in use for about 2,500 years. This level follows it from the city that coined it to a famous speech that put it into plain English.",
+      "id": "card.government.021.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "People plus rule",
+      "body": "Democracy comes from the Greek demokratia, coined in the middle of the 5th century BCE from demos, \"people\", and kratos, \"rule\". Level 1 said government is about who gets the authority to decide for everyone. Democracy's answer is right there in the name: the people do.",
+      "id": "card.government.021.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Cleisthenes redraws the map",
+      "body": "In Athens, the statesman Cleisthenes is regarded as the founder of democracy. His reforms, approved in 508–507 BCE, changed one big thing: political rights would depend on your deme, or township, not your family or clan. Ten new local tribes replaced four old kinship ones. Suddenly what counted was your address, not your grandfather.",
+      "id": "card.government.021.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Athens' \"people\" meant only its free adult men.",
+      "context": "Britannica notes that democracy was historically a minority affair: in ancient Athens, all free adult males. Women, enslaved people and resident foreigners were excluded. The demos was real, but it was a club with a strict door policy.",
+      "id": "card.government.021.c4"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Of, by and for the people",
+      "body": "On 19 November 1863, dedicating a cemetery for Union soldiers at Gettysburg, Abraham Lincoln resolved that \"government of the people, by the people, for the people, shall not perish from the earth.\" That's demokratia unpacked into three little phrases: the people own it, run it, and are its point.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Of, by, for. Three tiny words, and the old Greek one still fits inside them."
+      },
+      "id": "card.government.021.c5"
+    },
+    {
+      "id": "card.government.021.c6",
+      "type": "mcq",
+      "questionId": "question.government.021.q1"
+    },
+    {
+      "id": "card.government.021.c7",
+      "type": "mcq",
+      "questionId": "question.government.021.q2"
+    },
+    {
+      "id": "card.government.021.c8",
+      "type": "recall",
+      "questionId": "question.government.021.q3"
+    },
+    {
+      "id": "card.government.021.c9",
+      "type": "checkpoint",
+      "headline": "Democracy: rooted",
+      "learned": [
+        "Democracy: Greek demos (people) + kratos (rule)",
+        "Cleisthenes tied Athenian rights to the local deme",
+        "Only free adult men counted as Athens' people",
+        "Lincoln: government of, by and for the people"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.democracy_athens_roots"
+      ],
+      "sourceCardIds": [
+        "card.government.021.c2"
+      ],
+      "prompt": "In the Greek word demokratia, what do demos and kratos mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "People and rule",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "City and law",
+          "correct": false,
+          "rationale": "Close in spirit, but demos is people and kratos is rule."
+        },
+        {
+          "id": "c",
+          "label": "Vote and money",
+          "correct": false,
+          "rationale": "Neither part means vote or money."
+        },
+        {
+          "id": "d",
+          "label": "Many and few",
+          "correct": false,
+          "rationale": "Those sound like numbers; the parts mean people and rule."
+        }
+      ],
+      "explanation": "Democracy comes from demos, \"people\", and kratos, \"rule\": rule by the people.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.government.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.democracy_athens_roots"
+      ],
+      "sourceCardIds": [
+        "card.government.021.c3"
+      ],
+      "prompt": "After Cleisthenes' reforms, what did an Athenian's political rights depend on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Which noble family they were born into",
+          "correct": false,
+          "rationale": "That's exactly what the reforms moved away from."
+        },
+        {
+          "id": "b",
+          "label": "How much land they owned",
+          "correct": false,
+          "rationale": "Wealth isn't the basis the reforms set."
+        },
+        {
+          "id": "c",
+          "label": "Their rank in the army",
+          "correct": false,
+          "rationale": "Military rank isn't the basis the reforms set."
+        },
+        {
+          "id": "d",
+          "label": "Membership of their local deme, or township",
+          "correct": true
+        }
+      ],
+      "explanation": "Cleisthenes based political rights on the deme, a township, instead of family or clan.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.democracy_lincoln_definition",
+        "concept.government.government_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.021.c5",
+        "card.government.001.c2"
+      ],
+      "prompt": "Level 1 said government decides who gets authority to choose for everyone. How does Lincoln's Gettysburg phrase answer that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A single wise ruler should hold it",
+          "correct": false,
+          "rationale": "That's closer to monarchy than to \"by the people\"."
+        },
+        {
+          "id": "b",
+          "label": "The people themselves hold it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Soldiers who win battles hold it",
+          "correct": false,
+          "rationale": "Lincoln honored soldiers, but his answer is the people."
+        },
+        {
+          "id": "d",
+          "label": "No one should hold any authority",
+          "correct": false,
+          "rationale": "He wanted government to endure, not vanish."
+        }
+      ],
+      "explanation": "Government \"of the people, by the people, for the people\" puts authority with the people: democracy's answer.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_democracy",
+    "source.etymonline_democracy",
+    "source.brit_government",
+    "source.openstax_amgov_what_is_government",
+    "source.brit_cleisthenes",
+    "source.worldhistory_athenian_democracy",
+    "source.loc_gettysburg_address"
+  ],
+  "art": "rome.temple"
+}

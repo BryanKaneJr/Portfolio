@@ -1,0 +1,217 @@
+{
+  "id": "level.world_systems.government.073",
+  "skillId": "skill.world_systems.government",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Public Schools",
+  "objective": "After this level you can explain how public schools are run and paid for.",
+  "summary": "Who runs a school and who pays for it are separate questions. Dutch private schools get equal state funding; countries also differ in which level of government pays.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.schools_public_private",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.schools_who_pays",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.levels_canada",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.072"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Who runs your school, and who pays for it? The answers needn't match.",
+      "body": "In the Netherlands, the state funds public schools and private schools equally. The private ones are usually run by foundations based on a religion or other beliefs. So a Dutch school can be private and still paid for by taxes.",
+      "id": "card.government.073.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Run by whom, paid by whom",
+      "body": "The OECD sorts schools by who controls them. Public schools are typically funded and regulated by government. Private schools are run by a private body, and they come in two kinds. Government-dependent private schools get more than half their money from public sources; independent ones live mainly on fees and donations. Dutch private schools are almost all the first kind.",
+      "id": "card.government.073.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "OECD governments spend about 2.2% of GDP on primary and lower secondary schools.",
+      "context": "That's the 2022 average; Iceland spent the most, 3.2%. Rich doesn't automatically mean a bigger share. Luxembourg spends among the most per pupil, yet less than the average share of GDP, because its GDP per person is among the highest.",
+      "id": "card.government.073.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Which level of government pays?",
+      "body": "Remember Level 8's layers? For upper secondary schools, Greece, Iceland and New Zealand fund everything from the centre. In Spain, the regions provide and manage over 80% of the public money; in Switzerland, the cantons spend 94%. It's the same idea as Level 8's Canada, where the provinces run education. Same school corridors, very different paymasters.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Next time you see a school, ask two questions: who runs it, and who signs the cheques?"
+      },
+      "id": "card.government.073.c4"
+    },
+    {
+      "id": "card.government.073.c5",
+      "type": "mcq",
+      "questionId": "question.government.073.q1"
+    },
+    {
+      "id": "card.government.073.c6",
+      "type": "mcq",
+      "questionId": "question.government.073.q2"
+    },
+    {
+      "id": "card.government.073.c7",
+      "type": "recall",
+      "questionId": "question.government.073.q3"
+    },
+    {
+      "id": "card.government.073.c8",
+      "type": "checkpoint",
+      "headline": "Schools: funded",
+      "learned": [
+        "Running a school and paying for it are separate",
+        "Dutch private schools get equal state funding",
+        "OECD average: 2.2% of GDP on basic schooling",
+        "Some countries fund schools centrally, others by region"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.schools_public_private"
+      ],
+      "sourceCardIds": [
+        "card.government.073.c2"
+      ],
+      "prompt": "In the OECD's terms, what makes a private school \"government-dependent\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It must teach the national curriculum",
+          "correct": false,
+          "rationale": "The definition is about money, not the curriculum."
+        },
+        {
+          "id": "b",
+          "label": "It gets more than half its money from public sources",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its head teacher is a civil servant",
+          "correct": false,
+          "rationale": "It's about funding, not who the head teacher works for."
+        },
+        {
+          "id": "d",
+          "label": "It charges no fees at all",
+          "correct": false,
+          "rationale": "Fees aren't the test; the public share of funding is."
+        }
+      ],
+      "explanation": "A government-dependent private school gets more than half its funding from public sources; an independent one relies mainly on private money.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.schools_who_pays"
+      ],
+      "sourceCardIds": [
+        "card.government.073.c3"
+      ],
+      "prompt": "Luxembourg spends among the most per pupil, yet less than the OECD average share of GDP. How can both be true?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has very few schools",
+          "correct": false,
+          "rationale": "The number of schools doesn't explain the gap."
+        },
+        {
+          "id": "b",
+          "label": "Its pupils pay most of the costs",
+          "correct": false,
+          "rationale": "Its schools are publicly funded like most in the OECD."
+        },
+        {
+          "id": "c",
+          "label": "It spends nothing on primary schools",
+          "correct": false,
+          "rationale": "It does spend on primary schools, generously per pupil."
+        },
+        {
+          "id": "d",
+          "label": "Its GDP per person is among the highest",
+          "correct": true
+        }
+      ],
+      "explanation": "With GDP per person among the highest, even generous spending per pupil is a smaller share of Luxembourg's economy.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.government.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.schools_who_pays",
+        "concept.government.levels_canada"
+      ],
+      "sourceCardIds": [
+        "card.government.073.c4",
+        "card.government.008.c3"
+      ],
+      "prompt": "Level 8 said Canada's provinces run education. Which country's upper secondary schools are funded most like that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "New Zealand",
+          "correct": false,
+          "rationale": "New Zealand funds these schools fully from the centre."
+        },
+        {
+          "id": "b",
+          "label": "Iceland",
+          "correct": false,
+          "rationale": "Iceland funds these schools fully from the centre."
+        },
+        {
+          "id": "c",
+          "label": "Greece",
+          "correct": false,
+          "rationale": "Greece funds these schools fully from the centre."
+        },
+        {
+          "id": "d",
+          "label": "Spain",
+          "correct": true
+        }
+      ],
+      "explanation": "In Spain the regions provide and manage over 80% of public money for upper secondary schools, like Canada's provinces running education.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.govnl_public_private_schools",
+    "source.oecd_eag_2025",
+    "source.elections_canada_levels"
+  ],
+  "art": "object.book"
+}

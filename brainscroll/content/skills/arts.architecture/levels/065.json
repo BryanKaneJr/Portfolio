@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.architecture.065",
+  "skillId": "skill.arts.architecture",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Burj Khalifa",
+  "objective": "After this level you can describe the world's tallest building.",
+  "summary": "Burj Khalifa (2010, 828 m, CTBUH tallest as of 2026), by SOM's Adrian Smith and William F. Baker: a Y plan from a desert flower, a buttressed core, and spiral setbacks that confuse the wind.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.sky_burj_record",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_burj_form",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_wind_shaping",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.064"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The world's tallest building takes its shape from a desert flower.",
+      "body": "As of 2026, the Council on Tall Buildings and Urban Habitat (CTBUH) ranks Dubai's Burj Khalifa, completed in 2010, as the tallest building in the world: 828 meters. Its shape isn't just decoration. It's how the tower stands up to the wind."
+    },
+    {
+      "id": "card.architecture.065.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A flower in plan",
+      "body": "The firm Skidmore, Owings & Merrill (SOM) designed it, with Adrian Smith as architect and William F. Baker as structural engineer, and it formally opened on January 4, 2010. Look down on it and you see a Y: three wings around a center, an abstract version of the local Hymenocallis flower, drawing on patterns of Islamic architecture. The Y also points views out toward the Arabian Gulf."
+    },
+    {
+      "id": "card.architecture.065.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A core with three buttresses",
+      "body": "At the middle stands a six-sided concrete core. Each wing has its own concrete core and perimeter columns, and the three wings brace the center from three sides: a buttressed core. Here's an analogy: a camera tripod, whose spread legs keep the top from tipping whichever way it's nudged.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Three wings, one core. Teamwork, but in concrete."
+      }
+    },
+    {
+      "id": "card.architecture.065.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Confusing the wind, at full height",
+      "body": "Remember Level 64's trick? As the tower rises, its wings step back in a spiral. So the wind meets a different building shape at each tier, and its vortices can never gather into a rhythm. SOM calls it confusing the wind, and wind-tunnel tests backed the plan. The Y shape itself also cuts the wind forces on the tower."
+    },
+    {
+      "id": "card.architecture.065.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.065.q1"
+    },
+    {
+      "id": "card.architecture.065.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.065.q2"
+    },
+    {
+      "id": "card.architecture.065.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.065.q3"
+    },
+    {
+      "id": "card.architecture.065.c8",
+      "type": "checkpoint",
+      "headline": "Burj Khalifa: topped",
+      "learned": [
+        "Tallest as of 2026 (CTBUH): 828 m, completed 2010",
+        "Designed by SOM: Adrian Smith and William F. Baker",
+        "Y plan from the Hymenocallis flower; a buttressed core",
+        "Spiral setbacks confuse the wind"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.sky_burj_record"
+      ],
+      "sourceCardIds": [
+        "card.architecture.065.c1"
+      ],
+      "prompt": "As of 2026, how tall is Burj Khalifa by the CTBUH's measure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "381 meters",
+          "correct": false,
+          "rationale": "That's the Empire State Building with its spire."
+        },
+        {
+          "id": "b",
+          "label": "508 meters",
+          "correct": false,
+          "rationale": "That's Taipei 101."
+        },
+        {
+          "id": "c",
+          "label": "452 meters",
+          "correct": false,
+          "rationale": "That's the Petronas Towers."
+        },
+        {
+          "id": "d",
+          "label": "828 meters",
+          "correct": true
+        }
+      ],
+      "explanation": "The CTBUH ranks Burj Khalifa, completed in 2010, as the world's tallest building at 828 meters.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.sky_burj_form"
+      ],
+      "sourceCardIds": [
+        "card.architecture.065.c3"
+      ],
+      "prompt": "In Burj Khalifa's buttressed core, what braces the six-sided central core?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Three wings, each with its own core and columns",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Steel cables anchored in the desert",
+          "correct": false,
+          "rationale": "The bracing comes from the wings, not cables."
+        },
+        {
+          "id": "c",
+          "label": "A heavy steel ball near the top",
+          "correct": false,
+          "rationale": "That's Taipei 101's damper."
+        },
+        {
+          "id": "d",
+          "label": "Thick brick walls at the base",
+          "correct": false,
+          "rationale": "That's the old load-bearing way."
+        }
+      ],
+      "explanation": "Each of the three wings has its own concrete core and perimeter columns, and together they brace the hexagonal center.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.sky_wind_shaping",
+        "concept.architecture.sky_burj_form"
+      ],
+      "sourceCardIds": [
+        "card.architecture.065.c4",
+        "card.architecture.064.c4"
+      ],
+      "prompt": "Level 64 showed that changing shape with height confuses the wind. How does Burj Khalifa do it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It hangs a steel ball near its top",
+          "correct": false,
+          "rationale": "That's Taipei 101's damper, not a shape change."
+        },
+        {
+          "id": "b",
+          "label": "Its wings step back in a spiral, changing shape at each tier",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It rotates slowly to face into the wind",
+          "correct": false,
+          "rationale": "Its shape changes with height; the building doesn't turn."
+        },
+        {
+          "id": "d",
+          "label": "Its glass walls open to let the wind through",
+          "correct": false,
+          "rationale": "The strategy is stepping the wings back."
+        }
+      ],
+      "explanation": "The wings step back in a spiral, so the wind meets a different shape at each tier and its vortices never coalesce.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ctbuh_burj_khalifa",
+    "source.brit_burj_khalifa",
+    "source.som_burj_khalifa",
+    "source.physicstoday_vortices_tall_buildings"
+  ],
+  "art": "geo.skyline"
+}

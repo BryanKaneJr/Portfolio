@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.architecture.054",
+  "skillId": "skill.arts.architecture",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tunnels",
+  "objective": "After this level you can explain how tunnels are dug through rock and under water.",
+  "summary": "Through rock, tunnellers drill, blast and clear in a cycle. Under water, prefabricated tubes are floated out and sunk into a trench. Either way, a tunnel is an arch that goes all the way round.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.marvel_tunnel_drill_blast",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_tunnel_immersed_tube",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_tunnel_ring_arch",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.053"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some tunnels under the sea were built in a factory on land.",
+      "body": "The Øresund Tunnel between Denmark and Sweden is made of 20 giant elements, manufactured at a tunnel factory in Denmark and then sunk into place. How you build a tunnel depends on what's in the way: hard rock or open water."
+    },
+    {
+      "id": "card.architecture.054.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Through rock: drill, blast, repeat",
+      "body": "In hard rock, tunnellers work in a cycle. Drill holes into the rock face, load them with explosives, blast, clear the fumes, haul away the broken rock (called muck), and start again. The Mont Cenis Tunnel through the Alps (1857-71) pioneered rail-mounted drill carriages and compressed-air drills to speed up the drilling. A drill-and-blast tunnel moves forward one blast at a time."
+    },
+    {
+      "id": "card.architecture.054.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Under water: sink a tube",
+      "body": "Under a river or strait, engineers can build the tunnel first and bury it after. In an immersed-tube tunnel, long prefabricated sections are floated to the site, sunk into a trench dredged in the bottom, and covered over. The Detroit River Railroad Tunnel (1906-10) was the first, and since 1950 it has been the preferred way to tunnel under water. Each Øresund element weighs 55,000 tons, and a tunnel was chosen there so planes at Copenhagen Airport and big ships could pass freely."
+    },
+    {
+      "id": "card.architecture.054.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "An arch that goes all the way round",
+      "body": "Once it's open, a tunnel has one job: not getting crushed. The ground presses on it from every side, not just from above. So a tunnel's basic shape is a continuous arch: the curve of Level 4, carried all the way round. Just as an arch's wedges squeeze together under weight, a tunnel's ring is pressed together by the ground around it.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A bridge arch holds up a road. A tunnel arch holds up a mountain. Same trick, bigger audience."
+      }
+    },
+    {
+      "id": "card.architecture.054.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.054.q1"
+    },
+    {
+      "id": "card.architecture.054.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.054.q2"
+    },
+    {
+      "id": "card.architecture.054.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.054.q3"
+    },
+    {
+      "id": "card.architecture.054.c8",
+      "type": "checkpoint",
+      "headline": "Tunnels: dug",
+      "learned": [
+        "Rock: drill, blast, clear the muck, repeat",
+        "Mont Cenis (1857-71) pioneered air drills",
+        "Water: sink prefabricated tubes into a trench",
+        "A tunnel is an arch that goes all the way round"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.marvel_tunnel_immersed_tube"
+      ],
+      "sourceCardIds": [
+        "card.architecture.054.c3"
+      ],
+      "prompt": "How is an immersed-tube tunnel, like the Øresund Tunnel, built?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A boring machine grinds its way through the seabed",
+          "correct": false,
+          "rationale": "Immersed tubes aren't bored at all."
+        },
+        {
+          "id": "b",
+          "label": "Sections are floated out, sunk into a trench and covered",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Holes are drilled and blasted through undersea rock",
+          "correct": false,
+          "rationale": "That's drill and blast, used through hard rock."
+        },
+        {
+          "id": "d",
+          "label": "A finished bridge is lowered onto the seabed",
+          "correct": false,
+          "rationale": "The sections are built as tunnel, not bridge."
+        }
+      ],
+      "explanation": "Long prefabricated sections are floated to the site, sunk into a trench dredged in the bottom, and covered over.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.marvel_tunnel_drill_blast"
+      ],
+      "sourceCardIds": [
+        "card.architecture.054.c2"
+      ],
+      "prompt": "Why does a drill-and-blast tunnel advance in a repeating cycle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each blast leaves broken rock to clear before the next drilling",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Explosives can only be used once a year",
+          "correct": false,
+          "rationale": "Blasting happens every cycle."
+        },
+        {
+          "id": "c",
+          "label": "The tunnel is poured in concrete sections that must cool",
+          "correct": false,
+          "rationale": "That's Hoover Dam's cooling problem, not tunnelling."
+        },
+        {
+          "id": "d",
+          "label": "Each section is floated in by boat",
+          "correct": false,
+          "rationale": "That's an immersed tube."
+        }
+      ],
+      "explanation": "Tunnellers drill holes, load explosives, blast, clear the fumes and the muck, then start again at the new face.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.marvel_tunnel_ring_arch",
+        "concept.architecture.stand_arch"
+      ],
+      "sourceCardIds": [
+        "card.architecture.054.c4",
+        "card.architecture.004.c2"
+      ],
+      "prompt": "A tunnel is basically a continuous arch. As with Level 4's arch, what does the surrounding pressure do to its ring?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stretches it apart, like a hanging cable",
+          "correct": false,
+          "rationale": "Stretching is tension, what a hanging cable feels."
+        },
+        {
+          "id": "b",
+          "label": "Bends it like a beam",
+          "correct": false,
+          "rationale": "An arch avoids bending by staying in compression."
+        },
+        {
+          "id": "c",
+          "label": "Squeezes it together, in compression",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nothing: tunnels carry no load",
+          "correct": false,
+          "rationale": "The ground presses on a tunnel from every side."
+        }
+      ],
+      "explanation": "Weight on an arch forces its parts together, keeping it in compression; a tunnel's arch goes all the way round, so the ground presses the ring together.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_tunnel",
+    "source.oresundsbron_tunnel",
+    "source.hsw_tunnels",
+    "source.brit_arch_architecture",
+    "source.brit_masonry"
+  ],
+  "art": "technology.crane"
+}

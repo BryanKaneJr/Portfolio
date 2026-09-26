@@ -1,0 +1,223 @@
+{
+  "id": "level.arts.architecture.044",
+  "skillId": "skill.arts.architecture",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mud and Adobe",
+  "objective": "After this level you can explain why thick earth walls suit hot places.",
+  "summary": "Taos Pueblo's adobe is earth, water and straw, never fired. Thick earth walls store heat, so rooms peak hours later. Water is adobe's enemy, so walls are replastered with mud.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.home_adobe",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.home_thermal_mass",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_brick",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_building_timeline",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.043"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.044.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Taos Pueblo's earth homes rose between about 1000 and 1450 CE.",
+      "body": "They're the multi-storied adobe homes of the people of Taos Pueblo in northern New Mexico, whose native language is Tiwa. Each home is owned by a family, which keeps it up in the traditional way, and the Pueblo has been a UNESCO World Heritage Site since 1992. Mud isn't a lesser material. In the right climate, it's the smart one."
+    },
+    {
+      "id": "card.architecture.044.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Earth, water, straw",
+      "body": "Adobe is earth mixed with water and straw, either poured into forms or shaped into sun-dried bricks. Level 1's timeline started here: sun-dried mud brick is one of the first building materials. The straw doesn't make the bricks stronger, but it helps them shrink evenly as they dry. At Taos, big timbers called vigas, hauled down from the mountain forests, hold up the roof of each story."
+    },
+    {
+      "id": "card.architecture.044.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A wall that stores heat",
+      "body": "Heavy walls have high thermal mass: they can store a lot of heat. When the midday sun beats on a thick earth wall, the heat soaks in slowly, so the room inside reaches its peak a few hours after the air outside. The effect is strongest where days and nights differ most in temperature. Here's an analogy: the wall works like a sponge for heat, soaking it up slowly and letting it go slowly.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Same sun, same day. The wall just shows up to the heat a few hours late, on purpose."
+      }
+    },
+    {
+      "id": "card.architecture.044.c4",
+      "type": "fact",
+      "fact": "Water is adobe's great enemy.",
+      "context": "Adobe is never fired in a kiln, so it never permanently hardens. It swells and shrinks with its water content, and the wetter it gets, the weaker it is. So adobe buildings last by shedding water and being cared for. At Taos, the outside walls are kept up by replastering them with thick layers of mud and straw. The plaster bonds so well because it's made of the same stuff as the wall."
+    },
+    {
+      "id": "card.architecture.044.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.044.q1"
+    },
+    {
+      "id": "card.architecture.044.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.044.q2"
+    },
+    {
+      "id": "card.architecture.044.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.044.q3"
+    },
+    {
+      "id": "card.architecture.044.c8",
+      "type": "checkpoint",
+      "headline": "Adobe: kept cool",
+      "learned": [
+        "Taos Pueblo: multi-story adobe homes, about 1000 to 1450 CE",
+        "Adobe: earth, water and straw, never fired",
+        "High thermal mass stores heat; rooms peak hours later",
+        "Water weakens adobe; mud replastering protects it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.home_adobe"
+      ],
+      "sourceCardIds": [
+        "card.architecture.044.c2"
+      ],
+      "prompt": "What is the adobe of Taos Pueblo made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Earth mixed with water and straw",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Kiln-fired clay bricks",
+          "correct": false,
+          "rationale": "Adobe is never fired in a kiln."
+        },
+        {
+          "id": "c",
+          "label": "Lime and volcanic ash",
+          "correct": false,
+          "rationale": "That's Level 7's Roman concrete."
+        },
+        {
+          "id": "d",
+          "label": "Cut blocks of local stone",
+          "correct": false,
+          "rationale": "Adobe is earth, not stone."
+        }
+      ],
+      "explanation": "Taos Pueblo is made entirely of adobe: earth mixed with water and straw, poured into forms or made into sun-dried bricks.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.home_thermal_mass"
+      ],
+      "sourceCardIds": [
+        "card.architecture.044.c3"
+      ],
+      "prompt": "Why does a room behind a thick earth wall stay cooler at midday?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Earth reflects all the sunlight away",
+          "correct": false,
+          "rationale": "The wall absorbs heat; it just stores it slowly."
+        },
+        {
+          "id": "b",
+          "label": "The wall stores heat slowly, so the room peaks hours later",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Straw in the wall blows cool air inside",
+          "correct": false,
+          "rationale": "Straw only helps the bricks dry evenly."
+        },
+        {
+          "id": "d",
+          "label": "Earth walls stop heat from ever getting in",
+          "correct": false,
+          "rationale": "The heat does get in, a few hours later."
+        }
+      ],
+      "explanation": "High thermal mass lets heavy walls store heat, so the inside temperature peaks a few hours after the outdoor peak.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.home_adobe",
+        "concept.architecture.stand_brick"
+      ],
+      "sourceCardIds": [
+        "card.architecture.044.c4",
+        "card.architecture.006.c4"
+      ],
+      "prompt": "Level 6's bricks were fired in a kiln. Why does unfired adobe have to be kept dry?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Water makes it expand into fired brick",
+          "correct": false,
+          "rationale": "Only a kiln fires brick; water weakens adobe."
+        },
+        {
+          "id": "b",
+          "label": "Wet adobe attracts termites",
+          "correct": false,
+          "rationale": "The problem given is strength, not insects."
+        },
+        {
+          "id": "c",
+          "label": "It never permanently hardens, and grows weaker the wetter it gets",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Water dissolves the straw inside",
+          "correct": false,
+          "rationale": "The earth itself weakens as its water content rises."
+        }
+      ],
+      "explanation": "Firing gives brick strength and hardness; unfired adobe never permanently hardens, swells and shrinks with water, and weakens as it gets wetter.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.taospueblo_about",
+    "source.brit_brick",
+    "source.nps_preservation_brief_adobe",
+    "source.pnnl_basc_thermal_mass"
+  ],
+  "art": "egypt.house"
+}

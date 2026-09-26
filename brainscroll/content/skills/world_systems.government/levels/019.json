@@ -1,0 +1,221 @@
+{
+  "id": "level.world_systems.government.019",
+  "skillId": "skill.world_systems.government",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "When Government Fails",
+  "objective": "After this level you can explain what happens when a state collapses.",
+  "summary": "A failed state loses control of its territory and the monopoly of legitimate force and can barely provide services. Somalia collapsed in 1991; the Fragile States Index tracks the pressures.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.failed_state_somalia",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.failed_state_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.weber_state_definition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.social_contract_hobbes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.018"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1991, Somalia's government fell. No government replaced it.",
+      "body": "That year President Mohamed Siad Barre was overthrown in a popular uprising. What followed, in Britannica's words, was state collapse under rival warlords, and more than three decades of civil war. Every kind of government in this chapter assumes a state that works. What happens when it doesn't?",
+      "id": "card.government.019.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Flunking Weber's test",
+      "body": "Britannica describes a failed state as one that can't project authority over its territory and people, or protect its borders. It can't keep a monopoly on the legitimate use of violence, and it provides only minimal public services. Remember Weber's definition of the state from Level 9: the monopoly of legitimate force within a territory. A failed state is what losing that monopoly looks like.",
+      "id": "card.government.019.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What failure costs",
+      "body": "Level 7's Hobbes imagined life without government as a war of all against all, \"solitary, poor, nasty, brutish and short.\" Failed states show the real costs. Britannica lists crumbling infrastructure, flourishing corruption, and worsening basic measures such as infant mortality and literacy. Level 5's public services, it turns out, are what a working state quietly delivers every day.",
+      "id": "card.government.019.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Failure comes in degrees, and it can be spotted early.",
+      "context": "The Fund for Peace's Fragile States Index scores countries on twelve indicators, including state legitimacy, public services, and refugees and internally displaced people. The point isn't a pass-or-fail stamp. It's spotting the pressures pushing a state toward the brink, while there's still time to act.",
+      "id": "card.government.019.c4"
+    },
+    {
+      "id": "card.government.019.c5",
+      "type": "mcq",
+      "questionId": "question.government.019.q1"
+    },
+    {
+      "id": "card.government.019.c6",
+      "type": "mcq",
+      "questionId": "question.government.019.q2"
+    },
+    {
+      "id": "card.government.019.c7",
+      "type": "recall",
+      "questionId": "question.government.019.q3"
+    },
+    {
+      "id": "card.government.019.c8",
+      "type": "checkpoint",
+      "headline": "Failed states: examined",
+      "learned": [
+        "Somalia's state collapsed in 1991",
+        "Failed states lose the monopoly of legitimate force",
+        "Services, infrastructure and basic health suffer",
+        "The Fragile States Index tracks twelve pressures"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.failed_state_somalia"
+      ],
+      "sourceCardIds": [
+        "card.government.019.c1"
+      ],
+      "prompt": "What happened to Somalia's government in 1991?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It became a constitutional monarchy",
+          "correct": false,
+          "rationale": "No king was involved: the state collapsed."
+        },
+        {
+          "id": "b",
+          "label": "Its president was overthrown and the state collapsed",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It merged into a federation with its neighbors",
+          "correct": false,
+          "rationale": "Somalia descended into collapse, not union."
+        },
+        {
+          "id": "d",
+          "label": "It held its first open-air assembly",
+          "correct": false,
+          "rationale": "That's Level 16's Switzerland."
+        }
+      ],
+      "explanation": "President Siad Barre was overthrown in a popular uprising, and Somalia descended into state collapse under rival warlords.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.failed_state_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.019.c2"
+      ],
+      "prompt": "Which of these is a sign of a failed state, according to Britannica?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It holds elections only every eight years",
+          "correct": false,
+          "rationale": "Election timing isn't the test."
+        },
+        {
+          "id": "b",
+          "label": "Its head of state is a monarch",
+          "correct": false,
+          "rationale": "Monarchies can be perfectly functional states."
+        },
+        {
+          "id": "c",
+          "label": "It delegates power to regions",
+          "correct": false,
+          "rationale": "That's how unitary states normally work."
+        },
+        {
+          "id": "d",
+          "label": "It can't keep a monopoly on the legitimate use of violence",
+          "correct": true
+        }
+      ],
+      "explanation": "A failed state can't project authority over its territory, can't keep a monopoly on the legitimate use of violence, and provides only minimal services.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.failed_state_definition",
+        "concept.government.weber_state_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.019.c2",
+        "card.government.009.c3"
+      ],
+      "prompt": "When government fails, a state loses its monopoly of legitimate force. Whose definition of the state from Level 9 does it fail?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Aristotle's",
+          "correct": false,
+          "rationale": "Aristotle called humans political animals; the monopoly definition is Weber's."
+        },
+        {
+          "id": "b",
+          "label": "Madison's",
+          "correct": false,
+          "rationale": "Madison wrote about republics and representation."
+        },
+        {
+          "id": "c",
+          "label": "Max Weber's",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Adolphe Thiers's",
+          "correct": false,
+          "rationale": "Thiers described a king who reigns but does not govern."
+        }
+      ],
+      "explanation": "Weber defined the state as a community that successfully claims the monopoly of the legitimate use of physical force within a territory.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_somalia_1991",
+    "source.brit_failed_state",
+    "source.sep_weber",
+    "source.sep_hobbes_moral",
+    "source.brit_social_contract",
+    "source.ffp_fragile_states_indicators"
+  ],
+  "art": "rome.ruins"
+}

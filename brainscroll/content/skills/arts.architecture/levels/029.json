@@ -1,0 +1,249 @@
+{
+  "id": "level.arts.architecture.029",
+  "skillId": "skill.arts.architecture",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "St. Peter's Basilica",
+  "objective": "After this level you can describe the Renaissance church and its dome.",
+  "summary": "St. Peter's rose from 1506 to 1626 around Michelangelo's dome. In 1743 it was cracking; Poleni checked it with a hanging chain and iron rings went on.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.st_peters_rebuilding",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.st_peters_dome_repair",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_hanging_chain",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_florence_dome",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.028"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.029.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1743, Michelangelo's dome was cracking. A mathematician reached for a chain.",
+      "body": "St. Peter's dome in Rome, finished in 1590, seemed near to collapsing, so Pope Benedict XIV summoned the mathematician Giovanni Poleni to find out. His main tool came straight out of Level 10. First, how the church got its dome."
+    },
+    {
+      "id": "card.architecture.029.c2",
+      "type": "timeline",
+      "headline": "St. Peter's: 120 years from first stone to consecration",
+      "events": [
+        {
+          "when": "315–326",
+          "label": "Constantine builds a basilica on the site of Saint Peter's tomb"
+        },
+        {
+          "when": "1506",
+          "label": "Julius II lays the first stone of a new basilica, to Bramante's plan"
+        },
+        {
+          "when": "1546",
+          "label": "The aged Michelangelo becomes chief architect"
+        },
+        {
+          "when": "1590",
+          "label": "The dome, modified from Michelangelo's design, is finished under della Porta"
+        },
+        {
+          "when": "From 1605",
+          "label": "Carlo Maderno lengthens the nave"
+        },
+        {
+          "when": "1626",
+          "label": "Urban VIII consecrates the basilica"
+        }
+      ]
+    },
+    {
+      "id": "card.architecture.029.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A church planned around its dome",
+      "body": "Bramante planned a Greek cross, four equal arms around a large central vault. Michelangelo kept the Greek cross and designed a new dome as the dominant element of the whole building. Later, Carlo Maderno stretched the nave into a Latin cross, making the main structure 187 meters long. According to Britannica, it stayed the largest church in the world until 1989, when a basilica in Yamoussoukro, Côte d'Ivoire, overtook it."
+    },
+    {
+      "id": "card.architecture.029.c4",
+      "type": "fact",
+      "fact": "Poleni checked the dome with a hanging chain, and bound it in iron.",
+      "context": "In 1748 Poleni put Level 10's idea to work. He divided the dome into slices, hung a chain with 32 unequal weights matching the weight of each part, and showed that the chain's curve fitted within the masonry. Verdict: safe. With the architect Luigi Vanvitelli he also proposed large iron rings to strengthen the dome, and they were fitted by 1748. Remember Level 5's Florence dome and its hidden hoops? Same cure.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "A chain, some weights and a very good idea from 1675. Engineering doesn't always need a supercomputer."
+      }
+    },
+    {
+      "id": "card.architecture.029.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.029.q1"
+    },
+    {
+      "id": "card.architecture.029.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.029.q2"
+    },
+    {
+      "id": "card.architecture.029.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.029.q3"
+    },
+    {
+      "id": "card.architecture.029.c8",
+      "type": "checkpoint",
+      "headline": "St. Peter's: domed",
+      "learned": [
+        "Begun 1506 to Bramante's plan; consecrated 1626",
+        "Michelangelo (from 1546) designed the dome, finished 1590",
+        "Poleni checked the cracked dome with a hanging chain",
+        "Iron rings were fitted by 1748"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.st_peters_rebuilding"
+      ],
+      "sourceCardIds": [
+        "card.architecture.029.c2"
+      ],
+      "prompt": "Who became chief architect of the new St. Peter's in 1546?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Donato Bramante",
+          "correct": false,
+          "rationale": "Bramante drew the 1506 plan."
+        },
+        {
+          "id": "b",
+          "label": "Carlo Maderno",
+          "correct": false,
+          "rationale": "Maderno lengthened the nave, from 1605."
+        },
+        {
+          "id": "c",
+          "label": "Michelangelo",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Giovanni Poleni",
+          "correct": false,
+          "rationale": "Poleni, a mathematician, examined the dome in 1743."
+        }
+      ],
+      "explanation": "In 1546 Paul III made the aged Michelangelo chief architect; he designed the dome.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.st_peters_dome_repair"
+      ],
+      "sourceCardIds": [
+        "card.architecture.029.c4"
+      ],
+      "prompt": "How did Poleni show in 1748 that St. Peter's cracked dome was safe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He loaded it with sandbags until it held",
+          "correct": false,
+          "rationale": "He used a model: a weighted hanging chain."
+        },
+        {
+          "id": "b",
+          "label": "A weighted chain's curve fitted within the masonry",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He rebuilt it with a taller crown",
+          "correct": false,
+          "rationale": "That was Hagia Sophia's fix in 562."
+        },
+        {
+          "id": "d",
+          "label": "He measured the cracks for fifty years",
+          "correct": false,
+          "rationale": "His proof came from the hanging chain."
+        }
+      ],
+      "explanation": "He hung a chain with weights matching slices of the dome and showed its curve fitted within the masonry.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.st_peters_dome_repair",
+        "concept.architecture.stand_florence_dome"
+      ],
+      "sourceCardIds": [
+        "card.architecture.029.c4",
+        "card.architecture.005.c4"
+      ],
+      "prompt": "Level 5's Florence dome is bound with tie rings. What was fitted to strengthen St. Peter's dome by 1748?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Flying buttresses on every side",
+          "correct": false,
+          "rationale": "St. Peter's got iron rings, not buttresses."
+        },
+        {
+          "id": "b",
+          "label": "Large iron rings",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A second ring of forty windows",
+          "correct": false,
+          "rationale": "The fix was iron rings."
+        },
+        {
+          "id": "d",
+          "label": "Wooden centering left in place",
+          "correct": false,
+          "rationale": "Centering is temporary; the fix was iron rings."
+        }
+      ],
+      "explanation": "Poleni and Vanvitelli proposed large iron rings, fitted by 1748: hoops holding the dome in, like Florence's tie rings.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.mactutor_poleni",
+    "source.brit_st_peters",
+    "source.wga_st_peters",
+    "source.mit_hooke_hanging_chain",
+    "source.mit_masonry_dome_equilibrium",
+    "source.plusmaths_catenary"
+  ],
+  "art": "rome.dome"
+}

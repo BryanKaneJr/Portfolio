@@ -1,0 +1,234 @@
+{
+  "id": "level.world_systems.government.023",
+  "skillId": "skill.world_systems.government",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Parliaments",
+  "objective": "After this level you can explain how parliaments work.",
+  "summary": "A parliament is a place for talking that makes laws, controls taxes and holds government to account. Iceland's Althing (about 930) has one chamber; the UK's Parliament has two.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.parliament_althing_chambers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.parliament_jobs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.magna_carta_key_clauses",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.022"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Iceland's Althing met at the same site for more than eight centuries.",
+      "body": "Iceland's Althing was founded at Thingvellir around 930 and met there until 1798. Britannica counts it among the oldest national parliaments in the world. So what exactly is a parliament for? The name gives the first clue.",
+      "id": "card.government.023.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A place for talking",
+      "body": "Parliament comes from the Old French parlement, \"a speaking, talk\", from parler, \"to speak\". That's the core of it: a room (or, in Iceland's case, a site) where a country's representatives argue things out in the open before anything is decided. Kings could simply give orders; a parliament has to talk things through first.",
+      "id": "card.government.023.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Laws, money, scrutiny",
+      "body": "Take the UK Parliament. Its main job is making laws. Its elected House of Commons has the sole right to impose taxes and decide funding for government services: Level 22's \"no tax without consent\", now given by elected members. And a prime minister must keep a Commons majority to stay in office, so the government's decisions face constant scrutiny and debate.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Make the laws, hold the purse, question the government. That's the job description."
+      },
+      "id": "card.government.023.c3"
+    },
+    {
+      "type": "comparison",
+      "headline": "One chamber or two?",
+      "items": [
+        {
+          "label": "Two chambers (bicameral)",
+          "points": [
+            "UK: the elected House of Commons",
+            "and the House of Lords, mainly appointed"
+          ]
+        },
+        {
+          "label": "One chamber (unicameral)",
+          "points": [
+            "Iceland's Althing",
+            "One house does all the work"
+          ]
+        }
+      ],
+      "id": "card.government.023.c4"
+    },
+    {
+      "id": "card.government.023.c5",
+      "type": "mcq",
+      "questionId": "question.government.023.q1"
+    },
+    {
+      "id": "card.government.023.c6",
+      "type": "mcq",
+      "questionId": "question.government.023.q2"
+    },
+    {
+      "id": "card.government.023.c7",
+      "type": "recall",
+      "questionId": "question.government.023.q3"
+    },
+    {
+      "id": "card.government.023.c8",
+      "type": "checkpoint",
+      "headline": "Parliaments: in session",
+      "learned": [
+        "Parliament comes from parler, \"to speak\"",
+        "Iceland's Althing dates from around 930",
+        "Parliaments make laws, control taxes and scrutinize",
+        "Bicameral: two chambers; unicameral: one"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.parliament_althing_chambers"
+      ],
+      "sourceCardIds": [
+        "card.government.023.c2"
+      ],
+      "prompt": "The name \"parliament\" grew from which Old French verb, and what did it mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Parler: to speak",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Parer: to protect",
+          "correct": false,
+          "rationale": "Parliament's root is about speaking, not protecting."
+        },
+        {
+          "id": "c",
+          "label": "Partir: to divide",
+          "correct": false,
+          "rationale": "Dividing isn't the root; talking is."
+        },
+        {
+          "id": "d",
+          "label": "Payer: to pay",
+          "correct": false,
+          "rationale": "Parliaments do handle money, but the root means to speak."
+        }
+      ],
+      "explanation": "Parliament comes from Old French parlement, \"a speaking, talk\", from parler, \"to speak\".",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.parliament_jobs"
+      ],
+      "sourceCardIds": [
+        "card.government.023.c3"
+      ],
+      "prompt": "Why must a UK prime minister pay close attention to the House of Commons?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Commons chooses the monarch",
+          "correct": false,
+          "rationale": "The Commons doesn't choose the monarch."
+        },
+        {
+          "id": "b",
+          "label": "The Commons writes every court verdict",
+          "correct": false,
+          "rationale": "Courts, not the Commons, give verdicts."
+        },
+        {
+          "id": "c",
+          "label": "They need a Commons majority to stay in office",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Commons sets the prime minister's salary alone",
+          "correct": false,
+          "rationale": "That's not the reason given here."
+        }
+      ],
+      "explanation": "A UK prime minister must keep the support of a majority in the House of Commons to remain in office.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.parliament_jobs",
+        "concept.government.magna_carta_key_clauses"
+      ],
+      "sourceCardIds": [
+        "card.government.023.c3",
+        "card.government.022.c4"
+      ],
+      "prompt": "How does the House of Commons' sole right to impose taxes echo Magna Carta's clause 12?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both let the king tax whenever he likes",
+          "correct": false,
+          "rationale": "Both do the opposite: they limit who can impose taxes."
+        },
+        {
+          "id": "b",
+          "label": "Both abolish taxes altogether",
+          "correct": false,
+          "rationale": "Neither abolishes taxes; both require consent."
+        },
+        {
+          "id": "c",
+          "label": "Both make taxes voluntary for each person",
+          "correct": false,
+          "rationale": "Taxes stay compulsory; consent comes first."
+        },
+        {
+          "id": "d",
+          "label": "Both require consent before taxes are raised",
+          "correct": true
+        }
+      ],
+      "explanation": "Clause 12 required the kingdom's general consent for scutage and aid; today elected Commons members give that consent.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_althing",
+    "source.etymonline_parliament",
+    "source.brit_parliament",
+    "source.salisbury_magna_carta_translation",
+    "source.brit_magna_carta"
+  ],
+  "art": "rome.curia"
+}

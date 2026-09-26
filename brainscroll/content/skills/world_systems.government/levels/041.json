@@ -1,0 +1,243 @@
+{
+  "id": "level.world_systems.government.041",
+  "skillId": "skill.world_systems.government",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How a Bill Becomes Law",
+  "objective": "After this level you can trace a bill from idea to law.",
+  "summary": "A bill is a proposed law. It passes readings and committee in both Houses, which must agree every word before Royal Assent makes it an Act; US chambers pass identical text.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.lawmaking_bill_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.lawmaking_bill_stages",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.law_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.040"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A bill's \"first reading\" doesn't involve reading it.",
+      "body": "In the UK House of Commons, first reading is a formality: the bill's short title is read out, it's ordered to be printed, and that's it. No debate, no vote. So where does the real work happen? Follow one bill from idea to law.",
+      "id": "card.government.041.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Bill in, Act out",
+      "body": "A bill is a proposal for a new law, or for a change to an existing one, put before Parliament for debate. It isn't law yet. It's a draft asking permission. Only after it clears every stage and receives Royal Assent does it become an Act of Parliament. Think of the bill as the caterpillar and the Act as the butterfly.",
+      "id": "card.government.041.c2"
+    },
+    {
+      "type": "timeline",
+      "headline": "One bill's journey through Westminster",
+      "events": [
+        {
+          "when": "First reading",
+          "label": "The short title is read out; no debate"
+        },
+        {
+          "when": "Second reading",
+          "label": "A debate on the bill's general principles"
+        },
+        {
+          "when": "Committee stage",
+          "label": "Line-by-line examination of the text"
+        },
+        {
+          "when": "Report and third reading",
+          "label": "Final changes, then a last look"
+        },
+        {
+          "when": "The other House",
+          "label": "The same stages all over again"
+        },
+        {
+          "when": "Royal Assent",
+          "label": "The bill becomes an Act"
+        }
+      ],
+      "id": "card.government.041.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Every word agreed",
+      "body": "Both Houses must agree the exact wording. If the Lords change something the Commons won't accept, the bill bounces back and forth between them, a process nicknamed ping-pong, until they settle. The US works the same way: the House and the Senate must pass a bill in identical form before it goes to the President to be signed. A law is born only when both chambers agree on every word.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Ping-pong in Parliament: the only game where the ball is a bill."
+      },
+      "id": "card.government.041.c4"
+    },
+    {
+      "id": "card.government.041.c5",
+      "type": "mcq",
+      "questionId": "question.government.041.q1"
+    },
+    {
+      "id": "card.government.041.c6",
+      "type": "mcq",
+      "questionId": "question.government.041.q2"
+    },
+    {
+      "id": "card.government.041.c7",
+      "type": "recall",
+      "questionId": "question.government.041.q3"
+    },
+    {
+      "id": "card.government.041.c8",
+      "type": "checkpoint",
+      "headline": "Bill to law: traced",
+      "learned": [
+        "A bill is a proposed law; an Act is the finished law",
+        "First reading is a formality; second reading debates principles",
+        "Committee stage goes line by line",
+        "Both Houses must agree every word"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.lawmaking_bill_stages"
+      ],
+      "sourceCardIds": [
+        "card.government.041.c1"
+      ],
+      "prompt": "In the UK House of Commons, what happens at a bill's first reading?",
+      "options": [
+        {
+          "id": "a",
+          "label": "MPs debate every clause of the bill",
+          "correct": false,
+          "rationale": "Detailed work comes later, in committee."
+        },
+        {
+          "id": "b",
+          "label": "Its short title is read out, with no debate",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The monarch signs it into law",
+          "correct": false,
+          "rationale": "Royal Assent is the last step, not the first."
+        },
+        {
+          "id": "d",
+          "label": "The Lords vote on whether to accept it",
+          "correct": false,
+          "rationale": "First reading in the Commons has no vote at all."
+        }
+      ],
+      "explanation": "First reading in the Commons is a formality: the short title is read out and the bill is ordered to be printed.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.lawmaking_bill_stages"
+      ],
+      "sourceCardIds": [
+        "card.government.041.c4"
+      ],
+      "prompt": "Why can a bill bounce back and forth between the Commons and the Lords before Royal Assent?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Lords must read it aloud several times",
+          "correct": false,
+          "rationale": "Readings are stages, not the reason for ping-pong."
+        },
+        {
+          "id": "b",
+          "label": "Each House gets to pass its own version into law",
+          "correct": false,
+          "rationale": "Only one agreed text can become law."
+        },
+        {
+          "id": "c",
+          "label": "The monarch sends it back for rewording",
+          "correct": false,
+          "rationale": "The back-and-forth is between the two Houses."
+        },
+        {
+          "id": "d",
+          "label": "Both Houses must agree its exact wording",
+          "correct": true
+        }
+      ],
+      "explanation": "Both Houses must agree the exact text, so disagreements go back and forth (ping-pong) until they settle.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.lawmaking_bill_definition",
+        "concept.government.law_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.041.c2",
+        "card.government.004.c2"
+      ],
+      "prompt": "Level 4 said a law binds a whole community and is enforced. When does a UK bill gain that force?",
+      "options": [
+        {
+          "id": "a",
+          "label": "When its short title is first read out",
+          "correct": false,
+          "rationale": "At first reading it's still only a proposal."
+        },
+        {
+          "id": "b",
+          "label": "When it passes its committee stage",
+          "correct": false,
+          "rationale": "Several stages still remain after committee."
+        },
+        {
+          "id": "c",
+          "label": "When it receives Royal Assent and becomes an Act",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "When a newspaper first reports on it",
+          "correct": false,
+          "rationale": "Publicity doesn't make a bill law."
+        }
+      ],
+      "explanation": "A bill is only a proposal. After Royal Assent it becomes an Act of Parliament: law that binds the community.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ukparliament_glossary_bills",
+    "source.ukparliament_passage_of_bill",
+    "source.congress_how_our_laws_are_made",
+    "source.brit_law"
+  ],
+  "art": "rome.scroll"
+}

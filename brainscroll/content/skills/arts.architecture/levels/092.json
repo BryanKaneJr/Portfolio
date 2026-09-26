@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.architecture.092",
+  "skillId": "skill.arts.architecture",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Living Walls",
+  "objective": "After this level you can explain green roofs and planted walls.",
+  "summary": "Green roofs come light (extensive) or heavy (intensive, with trees). Patrick Blanc's walls grow on felt with no soil. Milan's Vertical Forest holds 800 trees, tied down against the wind.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.future_green_roof",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.future_living_wall",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.future_vertical_forest",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_loads",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.091"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two towers in Milan hold 800 trees on their balconies.",
+      "body": "Stefano Boeri's Vertical Forest, built from 2007 to 2014, packs greenery equal to about five hectares of parkland onto two apartment towers. Planting a building is harder than it sounds. Soil is heavy, and a tree high up has to stand up to the wind."
+    },
+    {
+      "id": "card.architecture.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two kinds of green roof",
+      "body": "A green roof is a layer of plants grown on a rooftop, and it comes in two weights. An extensive roof uses hardy plants in just 2 to 4 inches of growing medium: light, and needing little care. An intensive roof can be a whole park with trees, and it's heavier, so the building needs more structural support. Both earn their keep: their surfaces stay cooler than an ordinary roof, and they reduce and filter the rainwater running off it."
+    },
+    {
+      "id": "card.architecture.092.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A garden with no soil",
+      "body": "The botanist Patrick Blanc grows his living walls without any soil. A metal frame holds a 1 cm sheet of PVC, and on that goes a layer of felt. Plant roots grow on and inside the felt, and water with added nutrients trickles down from the top. The whole thing, plants and frame included, weighs under 30 kg per square metre, so it can go on any wall. One covers the Quai Branly museum in Paris, completed in 2004."
+    },
+    {
+      "id": "card.architecture.092.c4",
+      "type": "fact",
+      "fact": "Milan's trees wear seatbelts.",
+      "context": "Level 2 said wind is a live load that pushes sideways, and a tree on a balcony catches plenty of it. The engineers at Arup ran two wind tunnel test campaigns. Medium and large trees are tied on with safety cables in case a trunk breaks, and the biggest trees in the windiest spots sit in steel cages that hold their root-balls down.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Seatbelts for trees. Nobody wants one dropping in from upstairs."
+      }
+    },
+    {
+      "id": "card.architecture.092.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.092.q1"
+    },
+    {
+      "id": "card.architecture.092.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.092.q2"
+    },
+    {
+      "id": "card.architecture.092.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.092.q3"
+    },
+    {
+      "id": "card.architecture.092.c8",
+      "type": "checkpoint",
+      "headline": "Living walls: planted",
+      "learned": [
+        "Extensive roofs are light; intensive roofs hold trees and weigh more",
+        "Green roofs stay cooler and slow rainwater",
+        "Blanc's walls grow on felt, with no soil",
+        "Milan's Vertical Forest: 800 trees, cabled and caged against wind"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.future_living_wall"
+      ],
+      "sourceCardIds": [
+        "card.architecture.092.c3"
+      ],
+      "prompt": "What do the roots in Patrick Blanc's soil-free living walls grow in?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Deep trays of garden soil",
+          "correct": false,
+          "rationale": "His walls use no soil at all."
+        },
+        {
+          "id": "b",
+          "label": "Tanks of standing water",
+          "correct": false,
+          "rationale": "Water trickles down; the roots hold on to felt."
+        },
+        {
+          "id": "c",
+          "label": "A layer of felt on a PVC sheet",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Holes drilled into the bricks",
+          "correct": false,
+          "rationale": "The garden sits on a frame, not in the wall itself."
+        }
+      ],
+      "explanation": "Blanc's wall is a metal frame, a PVC sheet and felt; the roots grow on and inside the felt.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.future_green_roof"
+      ],
+      "sourceCardIds": [
+        "card.architecture.092.c2"
+      ],
+      "prompt": "Why does an intensive green roof need more structural support than an extensive one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is heavier: it can hold a park with trees",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its plants need extra sunlight",
+          "correct": false,
+          "rationale": "Sunlight adds no weight."
+        },
+        {
+          "id": "c",
+          "label": "It sheds more rainwater onto the walls",
+          "correct": false,
+          "rationale": "Green roofs reduce runoff."
+        },
+        {
+          "id": "d",
+          "label": "It uses only 2 to 4 inches of growing medium",
+          "correct": false,
+          "rationale": "That thin layer is the light, extensive kind."
+        }
+      ],
+      "explanation": "Intensive roofs can be whole parks with trees; they are heavier, so the building needs more support.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.future_vertical_forest",
+        "concept.architecture.stand_loads"
+      ],
+      "sourceCardIds": [
+        "card.architecture.092.c4",
+        "card.architecture.002.c2"
+      ],
+      "prompt": "Level 2 says wind pushes sideways. How are the Vertical Forest's biggest trees in the windiest spots held in place?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Glass walls built around each tree",
+          "correct": false,
+          "rationale": "No glass boxes: cables and cages do the job."
+        },
+        {
+          "id": "b",
+          "label": "Steel cages that restrain their root-balls",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They are cut back to stumps every autumn",
+          "correct": false,
+          "rationale": "They keep growing; the cages hold them."
+        },
+        {
+          "id": "d",
+          "label": "Extra soil piled around the trunks",
+          "correct": false,
+          "rationale": "Soil alone isn't the answer; steel cages were added."
+        }
+      ],
+      "explanation": "After wind tunnel tests, Arup gave medium and large trees safety cables and put the largest, most exposed trees in steel cages.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.epa_green_roofs",
+    "source.boeri_vertical_forest",
+    "source.arup_bosco_verticale",
+    "source.blanc_vertical_garden",
+    "source.blanc_quai_branly",
+    "source.mit_primary_loads"
+  ],
+  "art": "plant.tree"
+}

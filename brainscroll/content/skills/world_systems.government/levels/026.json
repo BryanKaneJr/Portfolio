@@ -1,0 +1,239 @@
+{
+  "id": "level.world_systems.government.026",
+  "skillId": "skill.world_systems.government",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checks and Balances",
+  "objective": "After this level you can explain how the branches limit each other.",
+  "summary": "Checks and balances let each branch block the others: power checking power. The Federalist No. 51 explains why; South Korea's 2016-2017 impeachment shows two branches checking a president.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.checks_balances_principle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.checks_korea_impeachment",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.separation_powers_montesquieu",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.025"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"If men were angels, no government would be necessary.\"",
+      "body": "So says The Federalist No. 51, published in 1788 and generally credited to James Madison. People aren't angels, and neither are the people who govern them. The same essay offers a remedy in one line: \"Ambition must be made to counteract ambition.\"",
+      "id": "card.government.026.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Power checking power",
+      "body": "Level 25 split government into branches. Checks and balances make the branches watch each other. Britannica defines it as separate branches empowered to prevent actions by other branches and induced to share power. Montesquieu put it in seven words: power should be a check to power. Nobody gets to be the only grown-up in the room.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Angels would need none of this. Everyone else gets checks."
+      },
+      "id": "card.government.026.c2"
+    },
+    {
+      "type": "comparison",
+      "headline": "Who checks whom",
+      "items": [
+        {
+          "label": "Lawmakers check leaders",
+          "points": [
+            "Only the US Congress can appropriate funds",
+            "A parliament can pass a no-confidence vote"
+          ]
+        },
+        {
+          "label": "Leaders check lawmakers",
+          "points": [
+            "A cabinet can ordinarily dissolve parliament"
+          ]
+        },
+        {
+          "label": "Courts check both",
+          "points": [
+            "Courts review whether government actions are constitutional"
+          ]
+        }
+      ],
+      "id": "card.government.026.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A check in action: South Korea",
+      "body": "On 9 December 2016, South Korea's National Assembly voted by an overwhelming margin to impeach President Park Geun-hye. The decision then went to the Constitutional Court. On 10 March 2017 the court unanimously upheld it, and she became the first democratically elected South Korean president removed from office. Lawmakers acted, judges confirmed: two branches checking the third.",
+      "id": "card.government.026.c4"
+    },
+    {
+      "id": "card.government.026.c5",
+      "type": "mcq",
+      "questionId": "question.government.026.q1"
+    },
+    {
+      "id": "card.government.026.c6",
+      "type": "mcq",
+      "questionId": "question.government.026.q2"
+    },
+    {
+      "id": "card.government.026.c7",
+      "type": "recall",
+      "questionId": "question.government.026.q3"
+    },
+    {
+      "id": "card.government.026.c8",
+      "type": "checkpoint",
+      "headline": "Checks: balanced",
+      "learned": [
+        "Checks and balances: branches can block each other",
+        "Madison: if men were angels, no government needed",
+        "Montesquieu: power should be a check to power",
+        "South Korea 2016-17: assembly impeached, court upheld"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.checks_balances_principle"
+      ],
+      "sourceCardIds": [
+        "card.government.026.c1"
+      ],
+      "prompt": "Which line from The Federalist No. 51 explains why government needs controls at all?",
+      "options": [
+        {
+          "id": "a",
+          "label": "\"Man was born free, and he is everywhere in chains\"",
+          "correct": false,
+          "rationale": "That's Rousseau, from Level 7."
+        },
+        {
+          "id": "b",
+          "label": "\"If men were angels, no government would be necessary\"",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "\"Government of the people, by the people, for the people\"",
+          "correct": false,
+          "rationale": "That's Lincoln at Gettysburg, from Level 21."
+        },
+        {
+          "id": "d",
+          "label": "\"Every man invested with power is apt to abuse it\"",
+          "correct": false,
+          "rationale": "That's Montesquieu, from Level 25."
+        }
+      ],
+      "explanation": "The Federalist No. 51 says: \"If men were angels, no government would be necessary.\"",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.checks_korea_impeachment"
+      ],
+      "sourceCardIds": [
+        "card.government.026.c4"
+      ],
+      "prompt": "In South Korea's 2016–2017 impeachment of President Park, which two institutions both acted?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The president's cabinet and the army",
+          "correct": false,
+          "rationale": "Neither removed her; lawmakers and judges did."
+        },
+        {
+          "id": "b",
+          "label": "The National Assembly and the Constitutional Court",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The United Nations and the National Assembly",
+          "correct": false,
+          "rationale": "It was a domestic process: assembly then court."
+        },
+        {
+          "id": "d",
+          "label": "Voters in a referendum and the police",
+          "correct": false,
+          "rationale": "No referendum was involved; lawmakers and judges acted."
+        }
+      ],
+      "explanation": "The National Assembly voted to impeach on 9 December 2016, and the Constitutional Court unanimously upheld it on 10 March 2017.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.checks_balances_principle",
+        "concept.government.separation_powers_montesquieu"
+      ],
+      "sourceCardIds": [
+        "card.government.026.c2",
+        "card.government.025.c2"
+      ],
+      "prompt": "How do checks and balances build on Level 25's separation of powers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They merge the branches back into one",
+          "correct": false,
+          "rationale": "They keep the branches separate but watchful."
+        },
+        {
+          "id": "b",
+          "label": "They let one branch do all three jobs in an emergency",
+          "correct": false,
+          "rationale": "That would undo separation, not build on it."
+        },
+        {
+          "id": "c",
+          "label": "They abolish the courts to save time",
+          "correct": false,
+          "rationale": "Courts are one of the checks."
+        },
+        {
+          "id": "d",
+          "label": "Each separate branch can block actions by the others",
+          "correct": true
+        }
+      ],
+      "explanation": "Separation splits power into branches; checks and balances empower each branch to prevent actions by the others.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.loc_federalist_51",
+    "source.brit_checks_and_balances",
+    "source.uchicago_montesquieu_spirit_of_laws",
+    "source.brit_separation_of_powers",
+    "source.brit_park_geun_hye"
+  ],
+  "art": "money.scale"
+}

@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.architecture.031",
+  "skillId": "skill.arts.architecture",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Castles",
+  "objective": "After this level you can explain how castles were designed for defense.",
+  "summary": "Castles were lords' homes built to be attacked. Mining under a wall brought Rochester's corner down in 1215, so towers turned round, and projecting towers and machicolations covered the wall's foot.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.castles_defensive_design",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.castles_mining",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.castles_round_towers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_load_path",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.030"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1215, a king brought down a castle tower with the fat of 40 pigs.",
+      "body": "A castle was generally the home of a king or lord, built as a stronghold, ready to be attacked. Rochester Castle's keep is the tallest such building to survive in Europe, and King John wanted it. So in 1215 his men went underneath it."
+    },
+    {
+      "id": "card.architecture.031.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dig, prop, burn",
+      "body": "The most powerful way to attack a castle wall was mining. Attackers dug a tunnel beneath it and held up the roof with wooden props. Then they set the props on fire, and the masonry above collapsed. At Rochester, the miners went for the keep's south-east corner turret, and the burning pig fat fired their props. Down came the corner. Remember Level 2's load path? A mine takes away the bottom of it."
+    },
+    {
+      "id": "card.architecture.031.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lose the corners",
+      "body": "Square towers had a weak spot: their corners. Miners could tunnel under a corner, fill the hole with wood and light it, and the tower would partly collapse. So builders changed the shape. Towers projecting from castle walls were square at first but later round, and many rectangular keeps were replaced with circular ones. Rochester tells the story in stone: the square turret John's miners destroyed was rebuilt semicircular.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "No corners, no easy place to start digging. Sometimes the best defense is geometry."
+      }
+    },
+    {
+      "id": "card.architecture.031.c4",
+      "type": "fact",
+      "fact": "Castle towers stick out from the wall on purpose.",
+      "context": "From a tower that protrudes, defenders can shoot along the wall's face and foot, where attackers try to dig. Towers also rose higher than the wall, for extra range. Later came machicolations: permanent stone galleries overhanging the wall top, with openings to drop missiles on anyone directly below. Each of these shapes answers an attack."
+    },
+    {
+      "id": "card.architecture.031.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.031.q1"
+    },
+    {
+      "id": "card.architecture.031.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.031.q2"
+    },
+    {
+      "id": "card.architecture.031.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.031.q3"
+    },
+    {
+      "id": "card.architecture.031.c8",
+      "type": "checkpoint",
+      "headline": "Castles: defended",
+      "learned": [
+        "A castle was a lord's or king's home, built to be attacked",
+        "Mining: tunnel, wooden props, fire, collapse",
+        "Round towers had no corners to undermine",
+        "Projecting towers and machicolations covered the wall's foot"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.castles_defensive_design"
+      ],
+      "sourceCardIds": [
+        "card.architecture.031.c4"
+      ],
+      "prompt": "Why did castle builders make towers protrude from the wall?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To hold up the roof of the miners' tunnels below",
+          "correct": false,
+          "rationale": "That's what miners' props did."
+        },
+        {
+          "id": "b",
+          "label": "So defenders could shoot along the wall's face and foot",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "To carry rainwater off the wall-walk to the moat",
+          "correct": false,
+          "rationale": "It's about firing lines, not drainage."
+        },
+        {
+          "id": "d",
+          "label": "To let the curtain wall be built thinner and cheaper",
+          "correct": false,
+          "rationale": "Towers add stone; they give defenders a line of fire."
+        }
+      ],
+      "explanation": "Towers protruding from the wall let defenders bring flanking fire along its face and foot, and they rose higher than the wall for range.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.castles_round_towers"
+      ],
+      "sourceCardIds": [
+        "card.architecture.031.c3"
+      ],
+      "prompt": "Why did castle towers and keeps change from square to round?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Round towers were quicker to build from timber",
+          "correct": false,
+          "rationale": "They were stone; the change was about mining."
+        },
+        {
+          "id": "b",
+          "label": "Round towers could hold more soldiers",
+          "correct": false,
+          "rationale": "Space wasn't the reason."
+        },
+        {
+          "id": "c",
+          "label": "Kings thought round towers looked grander",
+          "correct": false,
+          "rationale": "It was a defensive change, not a fashion."
+        },
+        {
+          "id": "d",
+          "label": "Square corners were easy places for miners to undermine",
+          "correct": true
+        }
+      ],
+      "explanation": "Miners could tunnel under a corner and fire it; round towers were less vulnerable to undermining.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.castles_mining",
+        "concept.architecture.stand_load_path"
+      ],
+      "sourceCardIds": [
+        "card.architecture.031.c2",
+        "card.architecture.002.c3"
+      ],
+      "prompt": "At Rochester in 1215, burning props brought a corner of the keep down. In Level 2's terms, what had the miners removed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The support at the bottom, where weight reaches the ground",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The live load of the soldiers standing on the walls",
+          "correct": false,
+          "rationale": "The people weren't the target; the support was."
+        },
+        {
+          "id": "c",
+          "label": "The roof, where the load path begins at the top",
+          "correct": false,
+          "rationale": "They dug beneath the wall, not over it."
+        },
+        {
+          "id": "d",
+          "label": "The keystone locking an arch over the keep's door",
+          "correct": false,
+          "rationale": "Rochester's corner fell because its support burned away."
+        }
+      ],
+      "explanation": "A load path carries weight down to the foundation and soil. A mine burned away the support under the wall, so the masonry above collapsed.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_castle_architecture",
+    "source.eh_rochester_castle_history",
+    "source.brit_military_tech_castle",
+    "source.eh_castles_through_time",
+    "source.herefordshire_later_stone_castles",
+    "source.pnnl_continuous_load_path"
+  ],
+  "art": "medieval.castle"
+}

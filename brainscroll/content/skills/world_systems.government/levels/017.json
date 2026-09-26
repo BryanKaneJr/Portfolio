@@ -1,0 +1,225 @@
+{
+  "id": "level.world_systems.government.017",
+  "skillId": "skill.world_systems.government",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Republics",
+  "objective": "After this level you can explain representative government.",
+  "summary": "A republic, from res publica, is ruled by representatives of the citizens, with no hereditary monarch. Madison argued representation lets self-government reach a large country.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.republic_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.republic_madison",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.direct_democracy_definition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.oligarchy_venice",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.016"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 509 BCE, Rome swapped its king for two officials elected every year.",
+      "body": "Britannica dates the Roman Republic from 509 BCE, when the Romans replaced their monarchy with elected magistrates. At the top stood two consuls, elected each year. And the Romans gave their new state a name you still use.",
+      "id": "card.government.017.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The public thing",
+      "body": "That name was res publica, Latin for \"the public thing\", and it gave us the word republic. Britannica defines a republic as a state ruled by representatives of the citizen body. Today the word is used for any government whose head of state isn't a hereditary monarch. The idea in one line: the state belongs to the public, not to a royal family.",
+      "id": "card.government.017.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why send representatives?",
+      "body": "Level 16 left a problem: a whole country won't fit in one square. In Federalist No. 10, in 1787, James Madison offered an answer. A republic, he wrote, delegates government to a small number of citizens elected by the rest, so it can stretch over far more people and territory than a pure democracy. He also hoped representatives would \"refine and enlarge the public views\". Representation is how self-government scales up.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Direct democracy: everyone in the room. Republic: everyone chooses who goes in the room."
+      },
+      "id": "card.government.017.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "A republic isn't automatically a democracy, and a democracy needn't be a republic.",
+      "context": "Res publica once covered any non-tyrannical state, oligarchies included. Level 14's Venice called itself a republic while a closed set of families ran it. And Level 12's Sweden became a parliamentary democracy with its King still on the throne. The label tells you there's no hereditary monarch in charge. It doesn't tell you who really decides.",
+      "id": "card.government.017.c4"
+    },
+    {
+      "id": "card.government.017.c5",
+      "type": "mcq",
+      "questionId": "question.government.017.q1"
+    },
+    {
+      "id": "card.government.017.c6",
+      "type": "mcq",
+      "questionId": "question.government.017.q2"
+    },
+    {
+      "id": "card.government.017.c7",
+      "type": "recall",
+      "questionId": "question.government.017.q3"
+    },
+    {
+      "id": "card.government.017.c8",
+      "type": "checkpoint",
+      "headline": "Republics: represented",
+      "learned": [
+        "Rome replaced its monarchy with elected magistrates in 509 BCE",
+        "Res publica: the public thing, with no hereditary monarch",
+        "Madison: representatives let a republic span a large country",
+        "A republic isn't automatically a democracy"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.republic_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.017.c2"
+      ],
+      "prompt": "Republics: what does the Latin res publica mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The rule of one",
+          "correct": false,
+          "rationale": "That's the meaning of monarchy."
+        },
+        {
+          "id": "b",
+          "label": "The public thing",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The will of God",
+          "correct": false,
+          "rationale": "That's closer to theocracy."
+        },
+        {
+          "id": "d",
+          "label": "The power of the few",
+          "correct": false,
+          "rationale": "That's oligarchy."
+        }
+      ],
+      "explanation": "Res publica is Latin for \"the public thing\", the root of the word republic.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.republic_madison"
+      ],
+      "sourceCardIds": [
+        "card.government.017.c3"
+      ],
+      "prompt": "In Federalist No. 10, what did Madison say lets a republic reach more people than a pure democracy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Letting every citizen vote on every law in person",
+          "correct": false,
+          "rationale": "That's the pure democracy he contrasted it with."
+        },
+        {
+          "id": "b",
+          "label": "Giving the head of state unlimited power",
+          "correct": false,
+          "rationale": "Madison's answer was representation, not a strong ruler."
+        },
+        {
+          "id": "c",
+          "label": "Delegating government to a few citizens elected by the rest",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Choosing leaders by inheritance to avoid elections",
+          "correct": false,
+          "rationale": "A republic has no hereditary monarch."
+        }
+      ],
+      "explanation": "Madison: a republic delegates government to a small number of citizens elected by the rest, so it can span more citizens and territory.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.republic_definition",
+        "concept.government.oligarchy_venice"
+      ],
+      "sourceCardIds": [
+        "card.government.017.c4",
+        "card.government.014.c1"
+      ],
+      "prompt": "How could Level 14's Venice be a republic and an oligarchy at the same time?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It had a hereditary king who shared power",
+          "correct": false,
+          "rationale": "Venice had no hereditary monarch; it had an elected doge bound by councils."
+        },
+        {
+          "id": "b",
+          "label": "It let all citizens vote directly on its laws",
+          "correct": false,
+          "rationale": "Power sat with a closed council, not all citizens."
+        },
+        {
+          "id": "c",
+          "label": "It was a theocracy ruled by clergy",
+          "correct": false,
+          "rationale": "Venice's Great Council was run by noble families, not clergy."
+        },
+        {
+          "id": "d",
+          "label": "Res publica once covered any non-tyrannical state, oligarchies included",
+          "correct": true
+        }
+      ],
+      "explanation": "Res publica once covered any non-tyrannical state, including oligarchies, and Venice's Great Council was closed to a hereditary group.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_roman_republic",
+    "source.brit_republic",
+    "source.avalon_federalist_10",
+    "source.brit_direct_democracy",
+    "source.brit_italy_venice_14th_century",
+    "source.riksdagen_instrument_of_government_50"
+  ],
+  "art": "rome.curia"
+}

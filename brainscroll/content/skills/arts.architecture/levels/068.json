@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.architecture.068",
+  "skillId": "skill.arts.architecture",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Safety on Site",
+  "objective": "After this level you can explain how construction workers are kept safe.",
+  "summary": "The 1932 'Lunch atop a Skyscraper' photo shows the old risks. Falls are construction's leading killer; US fall protection starts at six feet. Hard hats began as miners' canvas helmets.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.sky_safety_lunch",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_safety_falls",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.sky_hard_hat",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.067"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.068.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Eleven men ate lunch on a steel beam, 850 feet above New York.",
+      "body": "The photo was taken on September 20, 1932, high on the RCA Building at Rockefeller Center. It's one of the most famous pictures of building work ever made. Today it's also a lesson in exactly what not to do."
+    },
+    {
+      "id": "card.architecture.068.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Staged, but real",
+      "body": "The men were real ironworkers, used to walking the girders of the very building they were putting up. The scene was posed: they were humoring a photographer who was drumming up excitement about the project. So the danger in the picture wasn't invented. It was their everyday workplace, with a camera added."
+    },
+    {
+      "id": "card.architecture.068.c3",
+      "type": "fact",
+      "fact": "Falls are the leading cause of death in construction.",
+      "context": "That's from the US Occupational Safety and Health Administration (OSHA). In 2024 there were 389 fatal falls to a lower level out of 1,034 construction deaths: more than a third. So US rules require fall protection in construction from six feet up, about the height of a tall person. It comes in layers: guardrails and toe-boards around open edges, safety harnesses and lines, and safety nets.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Six feet up is already high enough to need protecting. The lunch beam was a little higher."
+      }
+    },
+    {
+      "id": "card.architecture.068.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The hat came from a mine",
+      "body": "After World War I, Edward W. Bullard made a helmet for miners at risk from falling debris, inspired by the steel \"doughboy\" helmets soldiers had worn. It was heavy canvas steamed into shape with glue, so he called it the Hard Boiled Hat. The idea spread to big building jobs, and Hoover Dam became the first project where employers required hard hats."
+    },
+    {
+      "id": "card.architecture.068.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.068.q1"
+    },
+    {
+      "id": "card.architecture.068.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.068.q2"
+    },
+    {
+      "id": "card.architecture.068.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.068.q3"
+    },
+    {
+      "id": "card.architecture.068.c8",
+      "type": "checkpoint",
+      "headline": "Safety: secured",
+      "learned": [
+        "The 1932 lunch photo: real ironworkers, 850 feet up",
+        "Falls are construction's leading cause of death",
+        "US fall protection starts at six feet: rails, harnesses, nets",
+        "The hard hat began as a miner's steamed-canvas helmet"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.sky_safety_lunch"
+      ],
+      "sourceCardIds": [
+        "card.architecture.068.c1",
+        "card.architecture.068.c2"
+      ],
+      "prompt": "The famous 1932 photo of ironworkers eating lunch on a beam was taken on which building?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Empire State Building",
+          "correct": false,
+          "rationale": "That opened in 1931; the photo was at Rockefeller Center."
+        },
+        {
+          "id": "b",
+          "label": "The RCA Building at Rockefeller Center",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Chrysler Building",
+          "correct": false,
+          "rationale": "The photo was taken at Rockefeller Center."
+        },
+        {
+          "id": "d",
+          "label": "Chicago's Home Insurance Building",
+          "correct": false,
+          "rationale": "That was a 10-story building in 1880s Chicago."
+        }
+      ],
+      "explanation": "On September 20, 1932, 11 ironworkers posed on a beam 850 feet up the RCA Building at Rockefeller Center.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.sky_safety_falls"
+      ],
+      "sourceCardIds": [
+        "card.architecture.068.c3"
+      ],
+      "prompt": "Why do guardrails, harnesses and nets sit at the center of construction safety?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Falls are the leading cause of death in construction",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They make building sites faster to build",
+          "correct": false,
+          "rationale": "They're there to stop falls, not to save time."
+        },
+        {
+          "id": "c",
+          "label": "They're needed only above the 50th floor",
+          "correct": false,
+          "rationale": "US rules require fall protection from six feet up."
+        },
+        {
+          "id": "d",
+          "label": "They stop tools from being stolen",
+          "correct": false,
+          "rationale": "They protect people from falling."
+        }
+      ],
+      "explanation": "OSHA says falls are the leading cause of construction deaths, so fall protection is required from six feet up.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.sky_hard_hat"
+      ],
+      "sourceCardIds": [
+        "card.architecture.068.c4"
+      ],
+      "prompt": "Where did the hard hat worn on today's building sites come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Firefighters' leather helmets",
+          "correct": false,
+          "rationale": "It came from a helmet for miners."
+        },
+        {
+          "id": "b",
+          "label": "Racing drivers' crash helmets",
+          "correct": false,
+          "rationale": "It began as a miner's helmet after World War I."
+        },
+        {
+          "id": "c",
+          "label": "A miner's canvas helmet modeled on army helmets",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Medieval knights' iron helmets",
+          "correct": false,
+          "rationale": "It was inspired by World War I army helmets."
+        }
+      ],
+      "explanation": "Bullard's steamed-canvas Hard Boiled Hat, inspired by WWI doughboy helmets, was made for miners before spreading to construction.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonian_lunch_skyscraper",
+    "source.osha_stop_falls",
+    "source.osha_fall_protection",
+    "source.nihf_edward_bullard",
+    "source.smithsonian_hard_hat"
+  ],
+  "art": "arch.hard-hat"
+}

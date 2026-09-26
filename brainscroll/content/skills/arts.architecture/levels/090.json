@@ -1,0 +1,330 @@
+{
+  "id": "level.arts.architecture.090",
+  "skillId": "skill.arts.architecture",
+  "number": 90,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Cities",
+  "objective": "After this level you can explain how streets, walls, parks and transport shape a city.",
+  "summary": "Barcelona tore down its walls and Cerdà spread a chamfered grid, with gardens in each block, over the old field of fire. Speculators filled the gardens; Cerdà gave us the word urbanization.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.cities_cerda_eixample",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.cities_walls_to_boulevards",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.cities_uruk",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.cities_metroland",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.cities_grid_plan",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.cities_public_parks",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.cities_public_squares",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.089"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.090.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 9 finale: the man who redrew Barcelona invented the word urbanization.",
+      "body": "Ildefons Cerdà is credited with coining it, in his General Theory of Urbanization (1867). His Barcelona pulls this whole chapter together: walls, grids, squares, gardens and traffic."
+    },
+    {
+      "id": "card.architecture.090.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Walls down, grid out",
+      "body": "Barcelona's new district, the Eixample, was built on open land left clear to give a field of fire from the city walls. Level 83 showed walls cramping growing cities. In 1859, the engineer Ildefons Cerdà drew up a grid plan to extend Barcelona beyond its old walls, and it won royal approval. Level 82's grid, laid over the old killing ground."
+    },
+    {
+      "id": "card.architecture.090.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Corners cut, gardens planned",
+      "body": "Cerdà cut the corners of his blocks at 45 degrees so traffic could see along the crossing streets. Every crossing became a small open space, a bit like Level 85's squares. His blocks were also meant to leave open space and gardens in the middle, Level 84's idea of green for everyone, tucked inside every block.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Look at Barcelona from above: all those clipped corners are Cerdà's."
+      }
+    },
+    {
+      "id": "card.architecture.090.c4",
+      "type": "fact",
+      "fact": "Then the gardens filled up.",
+      "context": "The plan was not fully carried out: within 30 years the open areas had been built over and building density tripled. Birkenhead's houses paid for its park; in Barcelona, the buildings won and the gardens lost. A plan is a promise, and every city decides how much of it to keep."
+    },
+    {
+      "id": "card.architecture.090.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.090.q1"
+    },
+    {
+      "id": "card.architecture.090.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.090.q2"
+    },
+    {
+      "id": "card.architecture.090.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.090.q3"
+    },
+    {
+      "id": "card.architecture.090.c8",
+      "type": "recall",
+      "questionId": "question.architecture.090.q4"
+    },
+    {
+      "id": "card.architecture.090.c9",
+      "type": "recall",
+      "questionId": "question.architecture.090.q5"
+    },
+    {
+      "id": "card.architecture.090.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 9 complete",
+      "learned": [
+        "Uruk: the first cities kept books",
+        "Grids divide land; walls came down for boulevards",
+        "Parks and squares give the city shared rooms",
+        "Subways and cars stretched cities into suburbs",
+        "Cerdà's Barcelona: a plan is a promise"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.090.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.cities_cerda_eixample"
+      ],
+      "sourceCardIds": [
+        "card.architecture.090.c3"
+      ],
+      "prompt": "Why did Cerdà cut the corners of Barcelona's blocks at 45 degrees?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So traffic could see along the crossing streets",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To save expensive stone on every corner building",
+          "correct": false,
+          "rationale": "The chamfers were about the crossings, not stone."
+        },
+        {
+          "id": "c",
+          "label": "To follow the curved line of the old city walls",
+          "correct": false,
+          "rationale": "The walls were gone; the corners served traffic."
+        },
+        {
+          "id": "d",
+          "label": "To copy the corners of Manhattan's 1811 grid",
+          "correct": false,
+          "rationale": "Manhattan's blocks keep square corners."
+        }
+      ],
+      "explanation": "Cerdà's chamfered corners gave traffic a view along the crossing streets, and turned each crossing into a small open space.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.090.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.cities_cerda_eixample"
+      ],
+      "sourceCardIds": [
+        "card.architecture.090.c4"
+      ],
+      "prompt": "What happened to the gardens planned inside the Eixample's blocks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They became Barcelona's first public parks",
+          "correct": false,
+          "rationale": "Most never survived as gardens."
+        },
+        {
+          "id": "b",
+          "label": "They were built over; density tripled",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They were dug out for a subway line",
+          "correct": false,
+          "rationale": "They were filled with buildings."
+        },
+        {
+          "id": "d",
+          "label": "They are all still open gardens today",
+          "correct": false,
+          "rationale": "The plan wasn't carried out completely."
+        }
+      ],
+      "explanation": "Within 30 years the open areas were built over and building density tripled: the plan was not fully carried out.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.090.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.cities_cerda_eixample",
+        "concept.architecture.cities_walls_to_boulevards"
+      ],
+      "sourceCardIds": [
+        "card.architecture.090.c2",
+        "card.architecture.083.c3"
+      ],
+      "prompt": "Cities recap: the Eixample was built on land once kept clear for the city walls. Why, as Level 83 showed, did walls like Barcelona's come down?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were too beautiful to keep closed",
+          "correct": false,
+          "rationale": "The reasons were practical."
+        },
+        {
+          "id": "b",
+          "label": "They drew too many tourists into the old town",
+          "correct": false,
+          "rationale": "Tourism wasn't the issue."
+        },
+        {
+          "id": "c",
+          "label": "They cramped cities and blocked traffic",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Kings needed their stone for new palaces",
+          "correct": false,
+          "rationale": "Level 83 points to crowding and traffic."
+        }
+      ],
+      "explanation": "As cities grew, walls caused overcrowding and poor sanitation and blocked traffic, so many came down; Barcelona's cleared land became the Eixample.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.090.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.cities_uruk"
+      ],
+      "sourceCardIds": [
+        "card.architecture.081.c4"
+      ],
+      "prompt": "Cities recap: the earliest tablets from Uruk were mostly what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Poems about Gilgamesh",
+          "correct": false,
+          "rationale": "The epic was written down much later."
+        },
+        {
+          "id": "b",
+          "label": "Maps of the city walls",
+          "correct": false,
+          "rationale": "They were lists of goods."
+        },
+        {
+          "id": "c",
+          "label": "Letters between kings",
+          "correct": false,
+          "rationale": "The first writing was bookkeeping."
+        },
+        {
+          "id": "d",
+          "label": "Lists and ledgers of goods",
+          "correct": true
+        }
+      ],
+      "explanation": "The earliest Sumerian writing is Uruk's picture-sign tablets: ledgers of goods with numerals and names.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.090.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.cities_metroland"
+      ],
+      "sourceCardIds": [
+        "card.architecture.086.c4"
+      ],
+      "prompt": "Cities recap: what was 'Metro-land'?",
+      "options": [
+        {
+          "id": "a",
+          "label": "London's first underground line, opened 1863",
+          "correct": false,
+          "rationale": "That was the Metropolitan Railway itself, in 1863."
+        },
+        {
+          "id": "b",
+          "label": "The railway's name for the countryside on its line",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A children's theme park in New York's Central Park",
+          "correct": false,
+          "rationale": "Metro-land was in London."
+        },
+        {
+          "id": "d",
+          "label": "A Paris district built on its demolished walls",
+          "correct": false,
+          "rationale": "That's a boulevard story."
+        }
+      ],
+      "explanation": "From 1915 the Metropolitan Railway sold the countryside along its line as Metro-land, and from 1919 built housing estates there.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.barcelonawalks_cerda_urbanisation",
+    "source.enciclopedia_cat_cerda",
+    "source.brit_barcelona",
+    "source.buildinghistory_town_walls",
+    "source.brit_urban_planning",
+    "source.brit_cuneiform",
+    "source.ltm_metro_land"
+  ],
+  "art": "geo.skyline"
+}

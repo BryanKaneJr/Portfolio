@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.government.067",
+  "skillId": "skill.world_systems.government",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Referendums",
+  "objective": "After this level you can explain direct votes on a single question.",
+  "summary": "A referendum puts one question to voters; an initiative starts with a citizens' petition. New Zealand chose MMP by referendum in 1993. Bulmer weighs benefits and risks; questions must be clear.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.election_referendum_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_referendum_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_proportional",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.066"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1988, Chile's ruler called a vote to keep himself in power. He lost.",
+      "body": "Augusto Pinochet, Chile's authoritarian ruler, held a referendum to extend his term. He unexpectedly lost, and his regime collapsed shortly after. One yes-or-no question turned out to be very powerful. So who gets to ask it?",
+      "id": "card.government.067.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "One question, straight to the voters",
+      "body": "A referendum gives people a direct vote on a specific issue, sent to them by a parliament, president or government. A citizens' initiative works the other way round: the people start it, usually with a petition signed by a set number of people. Results can be binding or only advisory, though advisory votes are usually treated as binding in practice, especially if decisive.",
+      "id": "card.government.067.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Voters choose the rules",
+      "body": "Remember Level 63's New Zealand? It settled its voting-system argument by asking the voters. In a binding referendum in 1993, 53.9% chose MMP over first-past-the-post. The people chose the method that would count their own votes.",
+      "id": "card.government.067.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Worth it? The debate",
+      "body": "Elliot Bulmer's primer for International IDEA weighs both sides. For: you vote on one measure on its merits, not a party's whole package. Against: voters may react to unrelated things, like how popular the leaders are; frequent votes cause fatigue; rulers can use referendums to fake legitimacy. The Venice Commission adds a rule: the question must be clear, not misleading, and must not suggest an answer.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Try it: \"Do you agree with the sensible plan to fix the roads?\" The Venice Commission would send that one back."
+      },
+      "id": "card.government.067.c4"
+    },
+    {
+      "id": "card.government.067.c5",
+      "type": "mcq",
+      "questionId": "question.government.067.q1"
+    },
+    {
+      "id": "card.government.067.c6",
+      "type": "mcq",
+      "questionId": "question.government.067.q2"
+    },
+    {
+      "id": "card.government.067.c7",
+      "type": "recall",
+      "questionId": "question.government.067.q3"
+    },
+    {
+      "id": "card.government.067.c8",
+      "type": "checkpoint",
+      "headline": "Referendums: decided",
+      "learned": [
+        "Referendum: a direct vote on a question put by government",
+        "Initiative: started by citizens' petition",
+        "New Zealand chose MMP by referendum in 1993",
+        "Benefits and risks; questions must be clear and fair"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.election_referendum_types"
+      ],
+      "sourceCardIds": [
+        "card.government.067.c2"
+      ],
+      "prompt": "What makes a citizens' initiative different from a referendum?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is always advisory",
+          "correct": false,
+          "rationale": "Both can be binding or advisory."
+        },
+        {
+          "id": "b",
+          "label": "Only parliament may vote in it",
+          "correct": false,
+          "rationale": "The electorate votes in both."
+        },
+        {
+          "id": "c",
+          "label": "It is started by the people, usually through a petition",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It asks several unrelated questions at once",
+          "correct": false,
+          "rationale": "That's not the difference."
+        }
+      ],
+      "explanation": "A referendum is sent to voters by governing institutions; an initiative is started by the people, typically by petition.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.election_referendum_debate"
+      ],
+      "sourceCardIds": [
+        "card.government.067.c4"
+      ],
+      "prompt": "Which is a criticism of referendums listed in Bulmer's IDEA primer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Voters may react to unrelated things, like leaders' popularity",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They let people vote on one measure on its merits",
+          "correct": false,
+          "rationale": "That's listed as a benefit."
+        },
+        {
+          "id": "c",
+          "label": "They always favour whoever wrote the question",
+          "correct": false,
+          "rationale": "That isn't one of his listed criticisms."
+        },
+        {
+          "id": "d",
+          "label": "They are illegal under the Venice Commission",
+          "correct": false,
+          "rationale": "The Commission sets standards, not bans."
+        }
+      ],
+      "explanation": "Bulmer notes voters may be swayed by unrelated factors, frequent votes cause fatigue, and rulers can fake legitimacy.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.election_referendum_types",
+        "concept.government.election_proportional"
+      ],
+      "sourceCardIds": [
+        "card.government.067.c3",
+        "card.government.063.c3"
+      ],
+      "prompt": "Level 63's New Zealand switched to MMP. How was that switch finally decided?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By a court ruling",
+          "correct": false,
+          "rationale": "Voters decided it."
+        },
+        {
+          "id": "b",
+          "label": "By the Royal Commission alone",
+          "correct": false,
+          "rationale": "The Commission recommended; voters decided."
+        },
+        {
+          "id": "c",
+          "label": "By an agreement with Germany",
+          "correct": false,
+          "rationale": "MMP was modelled on Germany's system, not agreed with it."
+        },
+        {
+          "id": "d",
+          "label": "By a binding referendum in 1993",
+          "correct": true
+        }
+      ],
+      "explanation": "In a binding referendum in 1993, 53.9% of New Zealand voters chose MMP over first-past-the-post.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.idea_direct_democracy_primer",
+    "source.teara_electoral_reform_referendums",
+    "source.venice_commission_referendums_code"
+  ],
+  "art": "rome.raised-hand"
+}

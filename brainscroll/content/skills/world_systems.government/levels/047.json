@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.government.047",
+  "skillId": "skill.world_systems.government",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Local Laws",
+  "objective": "After this level you can explain city and town rules.",
+  "summary": "Byelaws are local laws a council makes for its own area, using powers from a higher government. Canada's municipalities are \"creatures\" of the provinces; US states follow Dillon's Rule or home rule.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.lawmaking_local_byelaws",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.lawmaking_local_granted_powers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.levels_canada",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.046"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Your city might have a law about ear piercing.",
+      "body": "Leeds, in England, does. Its council's byelaws cover hairdressers and barbers, ear piercing, pleasure fairs, the employment of children and the city's parks. So who gets to make rules like these, and how far can they go?",
+      "id": "card.government.047.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Laws with a postcode",
+      "body": "A byelaw is a local law made by a local authority, and it applies only within that area. The council doesn't invent the power to make it: it uses powers granted by Acts of Parliament. Sound familiar? It's Level 46's delegated power again, handed down one more floor, from Parliament to the town hall.",
+      "id": "card.government.047.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Creatures of the province",
+      "body": "Remember Level 8's Canadian municipalities, running water supply, parks and local roads? Their power comes from above. Canada's Constitution Act, 1867 gives provinces power over municipal institutions, and courts have called municipalities \"creatures\" of the provincial legislature. They have only the powers provincial law gives them.",
+      "id": "card.government.047.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Two American answers",
+      "body": "US states differ on how much power to hand down. Under Dillon's Rule, from two 1868 decisions by Iowa judge John F. Dillon, a local government may act only where the state has granted it the power. Home rule, which emerged in the early 1900s, delegates broader power from the state to its towns and cities. Either way, a local law lives inside a bigger government's law.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Ask what a city may do, and the answer starts with who gave it the power."
+      },
+      "id": "card.government.047.c4"
+    },
+    {
+      "id": "card.government.047.c5",
+      "type": "mcq",
+      "questionId": "question.government.047.q1"
+    },
+    {
+      "id": "card.government.047.c6",
+      "type": "mcq",
+      "questionId": "question.government.047.q2"
+    },
+    {
+      "id": "card.government.047.c7",
+      "type": "recall",
+      "questionId": "question.government.047.q3"
+    },
+    {
+      "id": "card.government.047.c8",
+      "type": "checkpoint",
+      "headline": "Local laws: mapped",
+      "learned": [
+        "Byelaws are local laws for one area",
+        "Councils use powers granted from above",
+        "Canada's municipalities are \"creatures\" of provinces",
+        "US states use Dillon's Rule or home rule"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.lawmaking_local_byelaws"
+      ],
+      "sourceCardIds": [
+        "card.government.047.c2"
+      ],
+      "prompt": "What is a byelaw in the UK?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A national law that applies only on weekends",
+          "correct": false,
+          "rationale": "Byelaws are defined by place, not time."
+        },
+        {
+          "id": "b",
+          "label": "A local law a local authority makes for its own area",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A rule a private club makes for its members",
+          "correct": false,
+          "rationale": "Byelaws here are made by local authorities."
+        },
+        {
+          "id": "d",
+          "label": "A draft law waiting for Royal Assent",
+          "correct": false,
+          "rationale": "That's a bill."
+        }
+      ],
+      "explanation": "A byelaw is a local law made by a local authority that applies only within its area, using powers granted by Acts of Parliament.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.lawmaking_local_granted_powers"
+      ],
+      "sourceCardIds": [
+        "card.government.047.c4"
+      ],
+      "prompt": "Under Dillon's Rule, when may a US city government act?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whenever its voters approve in a referendum",
+          "correct": false,
+          "rationale": "The test is the state's grant of power."
+        },
+        {
+          "id": "b",
+          "label": "Whenever no court has objected",
+          "correct": false,
+          "rationale": "The rule looks to the state, not the courts' silence."
+        },
+        {
+          "id": "c",
+          "label": "Only when Congress passes a law for it",
+          "correct": false,
+          "rationale": "Under Dillon's Rule the grant comes from the state."
+        },
+        {
+          "id": "d",
+          "label": "Only where the state has granted it the power",
+          "correct": true
+        }
+      ],
+      "explanation": "Dillon's Rule limits local governments to powers the state has granted, expressly or by clear implication.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.lawmaking_local_granted_powers",
+        "concept.government.levels_canada"
+      ],
+      "sourceCardIds": [
+        "card.government.047.c3",
+        "card.government.008.c3"
+      ],
+      "prompt": "Level 8's Canadian municipalities run water supply, parks and local roads. Where does their power come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The provinces, through provincial law",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Their own independent constitutions",
+          "correct": false,
+          "rationale": "Municipalities have only the powers provincial law gives them."
+        },
+        {
+          "id": "c",
+          "label": "The United Nations",
+          "correct": false,
+          "rationale": "Local powers come from within Canada."
+        },
+        {
+          "id": "d",
+          "label": "The monarch, directly",
+          "correct": false,
+          "rationale": "The Constitution Act gives provinces power over municipalities."
+        }
+      ],
+      "explanation": "Canada's Constitution Act, 1867 gives provinces power over municipal institutions, so municipalities have only the powers provincial law confers.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.leeds_byelaws",
+    "source.bodleian_byelaws",
+    "source.irpp_municipalities_status",
+    "source.nlc_delegation_of_power",
+    "source.elections_canada_levels"
+  ],
+  "art": "medieval.town"
+}

@@ -1,0 +1,212 @@
+{
+  "id": "level.arts.architecture.082",
+  "skillId": "skill.arts.architecture",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Grid Cities",
+  "objective": "After this level you can explain grid street plans from ancient cities to New York.",
+  "summary": "Grids are ancient (Mohenjo-daro), named for Hippodamus and used by Roman towns and Penn's Philadelphia. New York's 1811 grid was chosen because right-angled houses are cheapest.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.cities_grid_plan",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.cities_manhattan_grid",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.081"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1811, New York drew a grid over Manhattan, all the way to 155th Street.",
+      "body": "Look at a map of Manhattan today and you're looking at that decision. The commissioners who drew it later explained why, in one refreshingly blunt sentence. But first: they didn't invent the grid. Not even close."
+    },
+    {
+      "id": "card.architecture.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Older than the Greeks",
+      "body": "Mohenjo-daro, the largest city of the Indus civilization (about 2600 to 1900 BCE), was laid out with remarkable regularity in about a dozen blocks. Much later, the Greek planner Hippodamus of Miletus, who laid out Athens's port of Piraeus, gave his name to grid plans. He didn't invent them; he just got the credit, like a band covering a song so well that people forget the original."
+    },
+    {
+      "id": "card.architecture.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Easy to measure, easy to divide",
+      "body": "Many Roman towns were laid out on a grid, with two main streets crossing at right angles. In 1682, William Penn gave Philadelphia a grid, and the idea traveled west with American pioneers for a practical reason: it was the simplest way to divide surveyed land. A grid turns a wild landscape into lots you can number, measure and hand out.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Right angles: loved by surveyors, landowners, and anyone who has ever tried to give directions."
+      }
+    },
+    {
+      "id": "card.architecture.082.c4",
+      "type": "fact",
+      "fact": "New York chose squares because squares are cheap.",
+      "context": "The 1811 commissioners wrote that straight-sided, right-angled houses \"are the most cheap to build, and the most convenient to live in.\" No grand theory, no symbolism: a city is mostly homes, and boxy homes are the thriftiest. Manhattan's grid is a cost estimate you can walk around in."
+    },
+    {
+      "id": "card.architecture.082.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.082.q1"
+    },
+    {
+      "id": "card.architecture.082.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.082.q2"
+    },
+    {
+      "id": "card.architecture.082.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.082.q3"
+    },
+    {
+      "id": "card.architecture.082.c8",
+      "type": "checkpoint",
+      "headline": "Grid cities: laid out",
+      "learned": [
+        "Mohenjo-daro: regular blocks, about 2600 to 1900 BCE",
+        "Hippodamus got the name, not the invention",
+        "Roman towns: two main streets at right angles",
+        "Grids divide land simply; boxy houses are cheapest"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.cities_grid_plan"
+      ],
+      "sourceCardIds": [
+        "card.architecture.082.c3"
+      ],
+      "prompt": "Why did William Penn's 1682 grid for Philadelphia spread west with American pioneers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It copied the street layout of ancient Roman towns",
+          "correct": false,
+          "rationale": "Roman towns used grids too, but that's not why it spread."
+        },
+        {
+          "id": "b",
+          "label": "It was the only plan American surveyors were taught",
+          "correct": false,
+          "rationale": "Surveyors knew other plans; the grid was simply the easiest."
+        },
+        {
+          "id": "c",
+          "label": "It made every street easier to defend in wartime",
+          "correct": false,
+          "rationale": "Grids weren't chosen for defense here."
+        },
+        {
+          "id": "d",
+          "label": "It was the simplest way to divide surveyed land",
+          "correct": true
+        }
+      ],
+      "explanation": "Penn's grid traveled west because it was the simplest method of dividing surveyed territory.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.cities_manhattan_grid"
+      ],
+      "sourceCardIds": [
+        "card.architecture.082.c4"
+      ],
+      "prompt": "What reason did New York's 1811 commissioners give for their right-angled plan?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Right-angled houses are cheapest to build",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Grids are easier to defend against attack",
+          "correct": false,
+          "rationale": "Their stated reason was cost and convenience."
+        },
+        {
+          "id": "c",
+          "label": "It copied Hippodamus's plan of Piraeus",
+          "correct": false,
+          "rationale": "They didn't cite Hippodamus."
+        },
+        {
+          "id": "d",
+          "label": "Diagonal streets were forbidden by law",
+          "correct": false,
+          "rationale": "No such rule; they chose rectangles for cost."
+        }
+      ],
+      "explanation": "The commissioners said straight-sided, right-angled houses are the most cheap to build and the most convenient to live in.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.cities_grid_plan"
+      ],
+      "sourceCardIds": [
+        "card.architecture.082.c2"
+      ],
+      "prompt": "Grid Cities: what does Mohenjo-daro's regular layout show about Hippodamus of Miletus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He copied it from an Indus trader he met",
+          "correct": false,
+          "rationale": "There's no record of that."
+        },
+        {
+          "id": "b",
+          "label": "Grids existed long before his name was attached",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He designed Mohenjo-daro himself, as a young man",
+          "correct": false,
+          "rationale": "Mohenjo-daro is some 2,000 years older."
+        },
+        {
+          "id": "d",
+          "label": "Grids were invented later, by the Romans",
+          "correct": false,
+          "rationale": "Mohenjo-daro's blocks are far older than Rome."
+        }
+      ],
+      "explanation": "Mohenjo-daro (about 2600 to 1900 BCE) was laid out in regular blocks; Hippodamus, in the 5th century BCE, gave his name to grids but didn't invent them.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.gotham_grid_misconceptions",
+    "source.mcny_greatest_grid_1811",
+    "source.brit_mohenjo_daro",
+    "source.brit_hippodamus",
+    "source.brit_urban_planning"
+  ],
+  "art": "rome.grid-city"
+}

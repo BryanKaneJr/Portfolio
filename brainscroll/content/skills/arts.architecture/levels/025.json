@@ -1,0 +1,230 @@
+{
+  "id": "level.arts.architecture.025",
+  "skillId": "skill.arts.architecture",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Walls of Light",
+  "objective": "After this level you can explain how Gothic builders filled churches with light.",
+  "summary": "A Gothic cathedral is a stone skeleton, so walls became windows: Chartres's tall clerestory, thin bar tracery, and iron hidden in the stone from the 1160s.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.gothic_glass_walls",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.gothic_tracery",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.gothic_iron_reinforcement",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_frame_structure",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.gothic_flying_buttress",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.024"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A Gothic cathedral is Level 8's glass building, done in stone.",
+      "body": "Once ribs and buttresses carried the vault, the wall between them had far less to do. Gothic builders turned it into windows. Three things made that work: a skeleton, stone lace and some hidden iron."
+    },
+    {
+      "id": "card.architecture.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A skeleton with windows",
+      "body": "Level 8's frame building splits the jobs: a skeleton carries the floors, and the outer wall only holds itself. A Gothic cathedral works the same way in stone. Ribs, piers and flying buttresses do the carrying, so the wall between them can open into larger windows. At Chartres, mainly built after 1194, the architect dropped the gallery level and used specially designed flying buttresses to enlarge the clerestory, the windowed wall rising above the aisle roofs. After Chartres, great churches were meant to be dominated by glass set high up."
+    },
+    {
+      "id": "card.architecture.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stone lace",
+      "body": "Even a window needs stone to hold its glass. Early Gothic windows used plate tracery: openings cut through a solid slab of stone, as at Chartres in the 12th century. Then came bar tracery, developed after 1220, with early examples at Reims Cathedral: thin upright stone bars dividing the glass. Thinner stone, more glass. The window stopped being a hole in a wall and started being the wall."
+    },
+    {
+      "id": "card.architecture.025.c4",
+      "type": "fact",
+      "fact": "Notre-Dame was held together with iron from the start.",
+      "context": "The 2019 fire let researchers sample Notre-Dame de Paris's iron staples, and a 2023 study dated those in its galleries to about the 1160s, the first phase of building. That makes Notre-Dame the first known Gothic cathedral to use iron massively as a real building material. By the mid-13th century, builders were embedding iron chain links at the tops of walls, as at the Sainte-Chapelle. Walls of glass, it turns out, had iron in their bones.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Stone gets the credit, glass gets the photos, and the iron quietly holds everything together."
+      }
+    },
+    {
+      "id": "card.architecture.025.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.025.q1"
+    },
+    {
+      "id": "card.architecture.025.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.025.q2"
+    },
+    {
+      "id": "card.architecture.025.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.025.q3"
+    },
+    {
+      "id": "card.architecture.025.c8",
+      "type": "checkpoint",
+      "headline": "Walls of light: explained",
+      "learned": [
+        "Ribs, piers and buttresses carry the vault, like a frame",
+        "Chartres (after 1194) enlarged its clerestory",
+        "Bar tracery: thin stone bars instead of a pierced slab",
+        "Notre-Dame used iron staples from the 1160s"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.gothic_iron_reinforcement"
+      ],
+      "sourceCardIds": [
+        "card.architecture.025.c4"
+      ],
+      "prompt": "According to the 2023 study, what did Notre-Dame's builders use massively from the 1160s, a first for a Gothic cathedral?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Iron, as staples in the stonework",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Steel beams in the roof",
+          "correct": false,
+          "rationale": "It was iron staples in the masonry."
+        },
+        {
+          "id": "c",
+          "label": "Reinforced concrete in the vaults",
+          "correct": false,
+          "rationale": "Reinforced concrete came centuries later."
+        },
+        {
+          "id": "d",
+          "label": "Colored glass in every window",
+          "correct": false,
+          "rationale": "The study was about iron in the stonework."
+        }
+      ],
+      "explanation": "Staples in the galleries date to about the 1160s, making Notre-Dame the first known Gothic cathedral to use iron massively as a building material.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.gothic_tracery"
+      ],
+      "sourceCardIds": [
+        "card.architecture.025.c3"
+      ],
+      "prompt": "Why could Gothic windows with bar tracery hold more glass than those with plate tracery?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bar tracery used colored stone instead of glass",
+          "correct": false,
+          "rationale": "Bar tracery holds glass; it isn't made of it."
+        },
+        {
+          "id": "b",
+          "label": "Thin stone bars replaced openings cut in a solid slab",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Bar tracery was made of iron, not stone",
+          "correct": false,
+          "rationale": "It is thin stone bars."
+        },
+        {
+          "id": "d",
+          "label": "Plate tracery windows had no stone at all",
+          "correct": false,
+          "rationale": "Plate tracery is a slab of stone with openings cut in."
+        }
+      ],
+      "explanation": "Plate tracery cut openings through a stone slab; bar tracery divides the window with thin stone bars, so more of it is glass.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.gothic_glass_walls",
+        "concept.architecture.stand_frame_structure"
+      ],
+      "sourceCardIds": [
+        "card.architecture.025.c2",
+        "card.architecture.008.c2"
+      ],
+      "prompt": "In Level 8's frame building, a skeleton carries the floors. What plays the skeleton's part in a Gothic cathedral?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The stained-glass windows",
+          "correct": false,
+          "rationale": "The windows fill the spaces the skeleton frees."
+        },
+        {
+          "id": "b",
+          "label": "The tracery in each window",
+          "correct": false,
+          "rationale": "Tracery holds the glass, not the vault."
+        },
+        {
+          "id": "c",
+          "label": "The lead strips between the glass",
+          "correct": false,
+          "rationale": "Those join pieces of glass; they carry no vault."
+        },
+        {
+          "id": "d",
+          "label": "Ribs, piers and flying buttresses",
+          "correct": true
+        }
+      ],
+      "explanation": "Ribs, piers and flying buttresses carry the vault, so the wall between them, like a frame building's outer wall, can open into glass.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_early_gothic_architecture",
+    "source.brit_gothic_architecture",
+    "source.brit_clerestory",
+    "source.brit_skyscraper",
+    "source.brit_tracery",
+    "source.plosone_notre_dame_iron"
+  ],
+  "art": "arts.stained-glass"
+}

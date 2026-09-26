@@ -1,0 +1,215 @@
+{
+  "id": "level.world_systems.government.052",
+  "skillId": "skill.world_systems.government",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Judges",
+  "objective": "After this level you can explain what judges do and why their independence matters.",
+  "summary": "Judges keep trials fair, rule on the law and pass sentence. After James II replaced judges, the Act of Settlement (1701) made their jobs safe; the UN's 1985 principles went global.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.judges_role",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.judges_independence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.courts_valencia_water_tribunal",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.051"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1686, a king replaced judges until he got the ruling he wanted.",
+      "body": "James II of England wanted the power to excuse people from the Test Oath, which holders of public office had to take. After a number of judges had been replaced, the court in Godden v Hales found in the king's favour. The judges' names changed; the answer changed with them. That's the problem this level is about.",
+      "id": "card.government.052.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The referee, not a player",
+      "body": "What does a judge actually do? In an English Crown Court trial, the judge makes sure the trial is fair, resolves the legal questions, directs the jury on the law and, if there's a conviction, imposes the sentence. The judge doesn't take a side. A referee who is secretly on one team isn't a referee; he's a very well-dressed player.",
+      "id": "card.government.052.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "1701: the job becomes safe",
+      "body": "England's answer came in the Act of Settlement of 1701. Senior judges would now hold office during good behaviour, not at the monarch's pleasure, and only both Houses of Parliament together could remove them. Their salaries had to be fixed too, so nobody could squeeze them with money. A judge who can't be fired for the wrong answer can afford to give the right one.",
+      "id": "card.government.052.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Independent judges are now a worldwide standard.",
+      "context": "The UN's 1985 Basic Principles on the Independence of the Judiciary say judges must decide impartially, on the facts and the law, free of improper pressures or threats from anyone. It's Level 51's Water Tribunal rule, scaled up: there, the syndic of the disputing farmers' canal sits out, so nobody judges their own case.",
+      "id": "card.government.052.c4"
+    },
+    {
+      "id": "card.government.052.c5",
+      "type": "mcq",
+      "questionId": "question.government.052.q1"
+    },
+    {
+      "id": "card.government.052.c6",
+      "type": "mcq",
+      "questionId": "question.government.052.q2"
+    },
+    {
+      "id": "card.government.052.c7",
+      "type": "recall",
+      "questionId": "question.government.052.q3"
+    },
+    {
+      "id": "card.government.052.c8",
+      "type": "checkpoint",
+      "headline": "Judges: independent",
+      "learned": [
+        "Judges keep trials fair and rule on the law",
+        "They direct juries and pass sentence",
+        "1701: no more dismissal at the king's pleasure",
+        "The UN's 1985 principles made it a global standard"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.judges_independence"
+      ],
+      "sourceCardIds": [
+        "card.government.052.c3"
+      ],
+      "prompt": "What did England's Act of Settlement of 1701 change for senior judges?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were elected by the public",
+          "correct": false,
+          "rationale": "The Act didn't create judicial elections."
+        },
+        {
+          "id": "b",
+          "label": "They had to be approved by the Pope",
+          "correct": false,
+          "rationale": "Nothing of the kind; Parliament gained the power of removal."
+        },
+        {
+          "id": "c",
+          "label": "They held office during good behaviour, not at the monarch's pleasure",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They could only serve for one year",
+          "correct": false,
+          "rationale": "The point was security of office, not short terms."
+        }
+      ],
+      "explanation": "Judges held office during good behaviour; only both Houses of Parliament could remove them, and their salaries were fixed.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.judges_role"
+      ],
+      "sourceCardIds": [
+        "card.government.052.c2"
+      ],
+      "prompt": "In an English Crown Court trial, which of these is the judge's job?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Directing the jury on the law and passing sentence",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Bringing the case against the accused",
+          "correct": false,
+          "rationale": "Someone else brings the case; the judge doesn't take a side."
+        },
+        {
+          "id": "c",
+          "label": "Representing the accused person",
+          "correct": false,
+          "rationale": "That's a lawyer's role, not the judge's."
+        },
+        {
+          "id": "d",
+          "label": "Choosing which side should win before the trial",
+          "correct": false,
+          "rationale": "A judge must stay impartial."
+        }
+      ],
+      "explanation": "The judge ensures a fair trial, resolves legal issues, directs the jury on the law and imposes sentence.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.judges_independence",
+        "concept.government.courts_valencia_water_tribunal"
+      ],
+      "sourceCardIds": [
+        "card.government.052.c4",
+        "card.government.051.c4"
+      ],
+      "prompt": "Level 51's Water Tribunal benches the syndic from the disputing farmers' canal. Which principle of the UN's 1985 Basic Principles does that match?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Judges must be paid a fixed salary",
+          "correct": false,
+          "rationale": "Salaries were the Act of Settlement's concern."
+        },
+        {
+          "id": "b",
+          "label": "Judges must be professional lawyers",
+          "correct": false,
+          "rationale": "Valencia's judges are farmers, and that's not the principle at stake."
+        },
+        {
+          "id": "c",
+          "label": "Judges must always give written reasons",
+          "correct": false,
+          "rationale": "Valencia's verdicts are oral."
+        },
+        {
+          "id": "d",
+          "label": "Judges must decide impartially, free of improper influence",
+          "correct": true
+        }
+      ],
+      "explanation": "Both aim at impartiality: no one should judge a case in which they have a stake.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_james_ii",
+    "source.judiciary_uk_crown_court",
+    "source.judiciary_uk_independence",
+    "source.hrlibrary_basic_principles_judiciary",
+    "source.tribunal_aguas_operation"
+  ],
+  "art": "gov.gavel"
+}

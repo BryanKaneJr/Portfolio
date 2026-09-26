@@ -1,0 +1,230 @@
+{
+  "id": "level.arts.architecture.059",
+  "skillId": "skill.arts.architecture",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Earthquake-Proof Buildings",
+  "objective": "After this level you can explain how buildings are designed to survive earthquakes.",
+  "summary": "Falling buildings are an earthquake's real danger. Unreinforced brick collapses even in small quakes; retrofits tie roofs to walls, and base isolators let the ground move beneath a building.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.marvel_quake_brick_danger",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_quake_retrofit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_quake_base_isolation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_reinforced_concrete",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_beam_bending",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.058"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.059.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Earthquakes don't kill people, buildings do.\"",
+      "body": "That saying opens FEMA's page on seismic building codes. It turns earthquake safety into an architecture problem: if the building stays up, the people inside can get out. So which buildings fall, and how do engineers keep them standing?"
+    },
+    {
+      "id": "card.architecture.059.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The most dangerous building on the block",
+      "body": "Unreinforced masonry means brick walls with little or no steel inside. Remember Level 3: brick and stone are brittle and weak when stretched. In an earthquake, unreinforced brick buildings often collapse both inward and outward, and even relatively small quakes can badly damage them. A pile of bricks is only a wall while nothing shakes it."
+    },
+    {
+      "id": "card.architecture.059.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tie it together",
+      "body": "The fix for old brick buildings starts at the top. Retrofits strengthen the connection between the roof and the walls, so walls and roof support each other instead of falling separately, and they brace chimneys. The goal is modest and life-saving: keep the building intact long enough for people to exit safely."
+    },
+    {
+      "id": "card.architecture.059.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Or let the ground move without you",
+      "body": "Between 2004 and 2008, the Utah State Capitol was fitted with 265 base isolators: layers of rubber and steel around a lead core, set between the building and the ground. In a quake the ground can shift the Capitol up to two feet sideways while the building stays relatively still, and the heated lead turns putty-like, soaking up energy. The seismic impact drops by roughly 75 to 80 percent.",
+      "mascot": {
+        "pose": "idea",
+        "line": "The ground dances; the Capitol politely declines."
+      }
+    },
+    {
+      "id": "card.architecture.059.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.059.q1"
+    },
+    {
+      "id": "card.architecture.059.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.059.q2"
+    },
+    {
+      "id": "card.architecture.059.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.059.q3"
+    },
+    {
+      "id": "card.architecture.059.c8",
+      "type": "checkpoint",
+      "headline": "Earthquakes: survived",
+      "learned": [
+        "'Earthquakes don't kill people, buildings do'",
+        "Unreinforced brick: little or no steel, dangerous in quakes",
+        "Retrofits tie roof to walls so people can get out",
+        "Base isolators let the ground move beneath the building"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.marvel_quake_base_isolation"
+      ],
+      "sourceCardIds": [
+        "card.architecture.059.c4"
+      ],
+      "prompt": "What are the Utah State Capitol's 265 base isolators made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Solid granite blocks",
+          "correct": false,
+          "rationale": "Stone would pass the shaking straight up."
+        },
+        {
+          "id": "b",
+          "label": "Steel springs sitting in tanks of oil",
+          "correct": false,
+          "rationale": "They are rubber, steel and lead."
+        },
+        {
+          "id": "c",
+          "label": "Layers of rubber and steel around a lead core",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Wooden rollers",
+          "correct": false,
+          "rationale": "They are rubber, steel and lead."
+        }
+      ],
+      "explanation": "Each isolator is alternating layers of rubber and steel with a lead core, set between the building and the ground.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.marvel_quake_retrofit"
+      ],
+      "sourceCardIds": [
+        "card.architecture.059.c3"
+      ],
+      "prompt": "Why do earthquake retrofits strengthen the connection between an old brick building's roof and walls?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So walls and roof support each other instead of falling separately",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To make the roof lighter so there is less weight to fall",
+          "correct": false,
+          "rationale": "The retrofit connects parts; it doesn't lighten them."
+        },
+        {
+          "id": "c",
+          "label": "To let the walls sway freely",
+          "correct": false,
+          "rationale": "Loose walls are the danger."
+        },
+        {
+          "id": "d",
+          "label": "To keep rain out",
+          "correct": false,
+          "rationale": "The goal is keeping the building standing in a quake."
+        }
+      ],
+      "explanation": "Tying roof and walls together lets them support each other, keeping the building intact so people can exit.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.marvel_quake_brick_danger",
+        "concept.architecture.stand_reinforced_concrete"
+      ],
+      "sourceCardIds": [
+        "card.architecture.059.c2",
+        "card.architecture.007.c4"
+      ],
+      "prompt": "Unreinforced brick has little or no steel inside. From Level 7, what job does steel do inside reinforced concrete?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It squeezes the concrete tighter",
+          "correct": false,
+          "rationale": "Concrete already handles squeezing well."
+        },
+        {
+          "id": "b",
+          "label": "It takes the tension, the stretching",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It keeps the concrete cool as it sets",
+          "correct": false,
+          "rationale": "Cooling pipes did that at Hoover Dam."
+        },
+        {
+          "id": "d",
+          "label": "It makes the wall lighter",
+          "correct": false,
+          "rationale": "Steel adds strength, not lightness."
+        }
+      ],
+      "explanation": "In reinforced concrete, steel bars take the tension and the concrete takes the compression; brick without steel is left weak when stretched.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.fema_seismic_codes",
+    "source.fema_urm_brick",
+    "source.utah_capitol_tour_cards",
+    "source.brit_post_lintel",
+    "source.brit_reinforced_concrete"
+  ],
+  "art": "geo.earth-layers"
+}

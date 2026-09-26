@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.architecture.058",
+  "skillId": "skill.arts.architecture",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Foundations",
+  "objective": "After this level you can explain why foundations matter, using the Leaning Tower of Pisa.",
+  "summary": "Foundations hand the load to the ground: shallow ones spread it, piles reach firm soil. Pisa's tower, on a shallow footing in soft ground, leaned by 1178; engineers pulled it back about 45 cm.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.marvel_foundation_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_pisa_lean",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_pisa_rescue",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_load_path",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.057"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Leaning Tower of Pisa began leaning when it was two floors tall.",
+      "body": "Work began in 1173 on a bell tower for Pisa's cathedral. By 1178, with construction up to the second floor, it was already tipping. The trouble wasn't in the stonework. It was underneath."
+    },
+    {
+      "id": "card.architecture.058.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the load path ends",
+      "body": "Level 2's load path ends in the soil, and a foundation's job is to hand the building over to it. Shallow foundations sit near the surface and spread the load over the soil. Where the soil is weak, piles, long slender columns, carry the load down through it to firmer soil or rock. Pisa's tower stands on a footing only three meters deep, in soft ground that settled unevenly beneath it."
+    },
+    {
+      "id": "card.architecture.058.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Saved by a war",
+      "body": "Then war between Italian city-states stopped the work for nearly a century. That pause helped prevent an early collapse: it gave the foundation time to stabilize. When work resumed, the engineer Giovanni di Simone made the new stories slightly taller on the short side to correct the tilt. It backfired, and the tower sank further. It was finished in the 14th century, leaning all the way.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Fixing a lean by adding weight to the sinking side. We've all had days like that."
+      }
+    },
+    {
+      "id": "card.architecture.058.c4",
+      "type": "fact",
+      "fact": "Engineers straightened it by about 45 cm, on purpose.",
+      "context": "In 1990 the tower closed because its foundations were close to failing. Engineers including Imperial College's John Burland removed 38 cubic meters of soil from under its raised side, letting it settle back toward straight. It reopened in 2001, about 45 cm straighter, back where it stood in 1838. In 2008 engineers announced it had stopped moving. They fixed the tower by fixing the ground."
+    },
+    {
+      "id": "card.architecture.058.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.058.q1"
+    },
+    {
+      "id": "card.architecture.058.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.058.q2"
+    },
+    {
+      "id": "card.architecture.058.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.058.q3"
+    },
+    {
+      "id": "card.architecture.058.c8",
+      "type": "checkpoint",
+      "headline": "Foundations: settled",
+      "learned": [
+        "A foundation hands the load path to the ground",
+        "Shallow foundations spread load; piles reach firm ground",
+        "Pisa: a 3 m footing in soft ground, leaning by 1178",
+        "Soil removal pulled it back about 45 cm"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.marvel_pisa_rescue"
+      ],
+      "sourceCardIds": [
+        "card.architecture.058.c4"
+      ],
+      "prompt": "How did engineers straighten the Leaning Tower of Pisa between 1990 and 2001?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They removed soil from under its raised side",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They added weight to its leaning side",
+          "correct": false,
+          "rationale": "Adding weight on the short side is what di Simone did, and it backfired."
+        },
+        {
+          "id": "c",
+          "label": "They rebuilt its upper stories straight",
+          "correct": false,
+          "rationale": "The stonework stayed; they fixed the ground."
+        },
+        {
+          "id": "d",
+          "label": "They jacked it up on steel piles",
+          "correct": false,
+          "rationale": "They removed soil rather than lifting the tower."
+        }
+      ],
+      "explanation": "They removed 38 cubic meters of soil from under the raised side, and the tower settled back about 45 cm.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.marvel_pisa_lean"
+      ],
+      "sourceCardIds": [
+        "card.architecture.058.c3"
+      ],
+      "prompt": "Why did the near-century pause in building probably save the Leaning Tower of Pisa?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Workers used the time to add piles",
+          "correct": false,
+          "rationale": "Nothing was added during the pause."
+        },
+        {
+          "id": "b",
+          "label": "It gave the foundation time to stabilize under the weight",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The lean reversed itself while no one was building",
+          "correct": false,
+          "rationale": "The lean didn't reverse; the ground firmed up."
+        },
+        {
+          "id": "d",
+          "label": "The top floors were taken down",
+          "correct": false,
+          "rationale": "Work stopped; nothing was taken down."
+        }
+      ],
+      "explanation": "The pause helped prevent an early collapse by giving the foundation time to stabilize before more weight went on.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.marvel_foundation_types",
+        "concept.architecture.stand_load_path"
+      ],
+      "sourceCardIds": [
+        "card.architecture.058.c2",
+        "card.architecture.002.c3"
+      ],
+      "prompt": "Level 2's load path ends in the soil beneath a building. Where that soil is weak, what do piles do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spread the load wide across the surface of the soil",
+          "correct": false,
+          "rationale": "That's what shallow foundations do."
+        },
+        {
+          "id": "b",
+          "label": "Stretch the building to lighten it",
+          "correct": false,
+          "rationale": "Foundations don't change a building's weight."
+        },
+        {
+          "id": "c",
+          "label": "Pump water out of the soil",
+          "correct": false,
+          "rationale": "Piles carry load; they don't drain soil."
+        },
+        {
+          "id": "d",
+          "label": "Carry the load down through the weak soil to firmer soil or rock",
+          "correct": true
+        }
+      ],
+      "explanation": "A load path runs from the roof to the foundation and into the soil; piles carry it down through weak soil to firmer soil or rock.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_leaning_tower_pisa",
+    "source.imperial_pisa_burland",
+    "source.geoengineer_pisa_tilt",
+    "source.uwe_foundation_types",
+    "source.pnnl_continuous_load_path"
+  ],
+  "art": "arch.brick"
+}

@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.architecture.035",
+  "skillId": "skill.arts.architecture",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Alhambra",
+  "objective": "After this level you can describe the Alhambra's courtyards and carvings.",
+  "summary": "Behind plain rammed-earth fortress walls, the Nasrids' Alhambra turns inward: rooms around courtyards like the Court of the Myrtles, water brought from the Darro, and walls of tile and carved stucco.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.alhambra_fortress_palace",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.alhambra_courtyards_water",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.alhambra_carved_stucco",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.greatwall_local_materials",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.034"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "From outside, the Alhambra looks like a fortress. Step inside.",
+      "body": "Its highly ornate rooms and patios contrast with the plain walls of the fortress outside. Built on a plateau above Granada, chiefly between 1238 and 1358 by the Nasrid dynasty, its name means 'the red' in Arabic, probably after the reddish rammed earth of those outer walls."
+    },
+    {
+      "id": "card.architecture.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rooms around a pool",
+      "body": "A dark, winding passage leads you into the Court of the Myrtles. At its centre lies a large reflecting pool set in marble paving, and the palace around it appears again in the still water. Rooms open onto the courtyard, and the palace comes with its own mirror."
+    },
+    {
+      "id": "card.architecture.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Water on a hilltop",
+      "body": "The Royal Canal took water from the Darro river 11 km upstream, and it made the hill habitable. The Nasrids then brought the sound, sight and coolness of water everywhere: into gardens, courtyards, marble canals and even indoors. Plumbing, raised to poetry.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Fountains indoors. Medieval air conditioning, with a soundtrack."
+      }
+    },
+    {
+      "id": "card.architecture.035.c4",
+      "type": "fact",
+      "fact": "Above eye level, the Alhambra's walls are carved plaster.",
+      "context": "Geometric tiles cover the lower walls. Above them, carved stucco (plaster) runs in bands and panels of curving patterns and calligraphy. The stucco of the Comares facade was once painted in brilliant colours; only traces remain. The plain fortress outside was just the wrapping paper."
+    },
+    {
+      "id": "card.architecture.035.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.035.q1"
+    },
+    {
+      "id": "card.architecture.035.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.035.q2"
+    },
+    {
+      "id": "card.architecture.035.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.035.q3"
+    },
+    {
+      "id": "card.architecture.035.c8",
+      "type": "checkpoint",
+      "headline": "The Alhambra: explored",
+      "learned": [
+        "'The red': rammed-earth fortress walls outside",
+        "Rooms turn inward to courtyards like the Court of the Myrtles",
+        "A royal canal brought river water to the hill",
+        "Tiles below, carved stucco above"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.alhambra_courtyards_water"
+      ],
+      "sourceCardIds": [
+        "card.architecture.035.c2"
+      ],
+      "prompt": "What lies at the centre of the Alhambra's Court of the Myrtles?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A large reflecting pool set in marble",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A tall watchtower with arrow loops",
+          "correct": false,
+          "rationale": "The court is built around water."
+        },
+        {
+          "id": "c",
+          "label": "A throne raised on a marble terrace",
+          "correct": false,
+          "rationale": "That's more like Beijing's Hall of Supreme Harmony."
+        },
+        {
+          "id": "d",
+          "label": "A stone keep with a round corner turret",
+          "correct": false,
+          "rationale": "The centre is a pool."
+        }
+      ],
+      "explanation": "The Court of the Myrtles is centred on a large reflecting pool set in marble paving, which reflects the palace.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.alhambra_carved_stucco",
+        "concept.architecture.alhambra_fortress_palace"
+      ],
+      "sourceCardIds": [
+        "card.architecture.035.c4",
+        "card.architecture.035.c1"
+      ],
+      "prompt": "Behind the Alhambra's plain fortress walls, what covers its walls above the tiles?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bare reddish rammed earth, left unpainted",
+          "correct": false,
+          "rationale": "That's the outside walls."
+        },
+        {
+          "id": "b",
+          "label": "Mirrors on arches facing tall windows",
+          "correct": false,
+          "rationale": "That's Versailles, later in this chapter."
+        },
+        {
+          "id": "c",
+          "label": "Carved stucco: patterns and calligraphy",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Semiprecious stones inlaid in marble",
+          "correct": false,
+          "rationale": "The Alhambra carved plaster."
+        }
+      ],
+      "explanation": "Inside, geometric tiles cover the lower walls and carved stucco, in bands of curving patterns and calligraphy, covers the surfaces above.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.alhambra_fortress_palace",
+        "concept.architecture.greatwall_local_materials"
+      ],
+      "sourceCardIds": [
+        "card.architecture.035.c1",
+        "card.architecture.032.c3"
+      ],
+      "prompt": "The Alhambra's red outer walls share a material with parts of the Great Wall (Level 32). What is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Quarried marble blocks",
+          "correct": false,
+          "rationale": "The Alhambra's red walls are earth."
+        },
+        {
+          "id": "b",
+          "label": "Lime and sticky-rice mortar",
+          "correct": false,
+          "rationale": "That was in Ming mortar, not the Alhambra's walls."
+        },
+        {
+          "id": "c",
+          "label": "An encased steel frame",
+          "correct": false,
+          "rationale": "Neither wall is steel."
+        },
+        {
+          "id": "d",
+          "label": "Rammed earth",
+          "correct": true
+        }
+      ],
+      "explanation": "The Alhambra's outer walls are reddish rammed earth, which also makes up some sections of the Great Wall.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_alhambra",
+    "source.smarthistory_alhambra",
+    "source.alhambra_patronato_royal_canal",
+    "source.natgeo_edu_great_wall"
+  ],
+  "art": "arts.pattern-tile"
+}

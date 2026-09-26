@@ -1,0 +1,224 @@
+{
+  "id": "level.world_systems.government.049",
+  "skillId": "skill.world_systems.government",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Laws Around the World",
+  "objective": "After this level you can compare the main legal traditions of the world.",
+  "summary": "Civil law starts from written codes descended from Roman law; common law builds on precedent. Customary and Muslim law and mixed systems, like bijural Canada, complete the map.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.lawmaking_legal_traditions_civil_common",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.lawmaking_legal_traditions_mixed_world",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.hammurabi_code",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.048"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Move from Ottawa to Montreal, and your contracts switch legal families.",
+      "body": "Canada is bijural. In Quebec, private law follows the civil law tradition, set out mainly in the Civil Code of Quebec. The rest of Canada uses common law. Same country, two ways of thinking about law. What's the difference?",
+      "id": "card.government.049.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Civil law: start with the code",
+      "body": "Civil law, the tradition of continental Europe, traces back to Roman law as compiled under Emperor Justinian. Its heart is a comprehensive written code. France's Napoleonic Code of 1804 became a model for many nations. Today civil law runs across continental Europe, much of Latin America, and parts of Asia and Africa. Like Hammurabi's stone from Level 4, the law starts as a written text.",
+      "id": "card.government.049.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Common law: start with the cases",
+      "body": "Common law grew up in medieval England from judges' decisions, recorded in reports of decided cases. Judges follow earlier decisions, called precedent, so similar cases are decided alike. It's the basis of law in the United States and most Commonwealth countries. In civil law, you open the code. In common law, you open the case reports.",
+      "id": "card.government.049.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Custom, religion and mixtures",
+      "body": "JuriGlobe, a University of Ottawa project, sorts the world's legal systems into five categories: civil law, common law, customary law, Muslim law and mixed systems. Most Muslim-majority countries use Western-style criminal codes but keep sharia mainly for family law, such as marriage, divorce and inheritance; Turkey replaced it with secular codes. And mixtures are common: South Africa and Scotland blend civil and common law, while Ghana and Kenya blend common and customary law.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Few countries fit one box neatly. The map of law is a patchwork."
+      },
+      "id": "card.government.049.c4"
+    },
+    {
+      "id": "card.government.049.c5",
+      "type": "mcq",
+      "questionId": "question.government.049.q1"
+    },
+    {
+      "id": "card.government.049.c6",
+      "type": "mcq",
+      "questionId": "question.government.049.q2"
+    },
+    {
+      "id": "card.government.049.c7",
+      "type": "recall",
+      "questionId": "question.government.049.q3"
+    },
+    {
+      "id": "card.government.049.c8",
+      "type": "checkpoint",
+      "headline": "Legal traditions: compared",
+      "learned": [
+        "Civil law starts from written codes",
+        "Common law builds on judges' precedents",
+        "Sharia mostly governs family law where used",
+        "Many countries, like Canada, mix traditions"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.lawmaking_legal_traditions_mixed_world"
+      ],
+      "sourceCardIds": [
+        "card.government.049.c1"
+      ],
+      "prompt": "In bijural Canada, which province's private law follows the civil law tradition?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ontario",
+          "correct": false,
+          "rationale": "Ontario uses common law."
+        },
+        {
+          "id": "b",
+          "label": "British Columbia",
+          "correct": false,
+          "rationale": "British Columbia uses common law."
+        },
+        {
+          "id": "c",
+          "label": "Alberta",
+          "correct": false,
+          "rationale": "Alberta uses common law."
+        },
+        {
+          "id": "d",
+          "label": "Quebec",
+          "correct": true
+        }
+      ],
+      "explanation": "Quebec's private law follows the civil law tradition, set out mainly in the Civil Code of Quebec; the rest of Canada uses common law.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.lawmaking_legal_traditions_civil_common"
+      ],
+      "sourceCardIds": [
+        "card.government.049.c2",
+        "card.government.049.c3"
+      ],
+      "prompt": "What is the main difference between the civil law and common law traditions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Civil law starts from written codes; common law builds on judges' precedents",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Civil law covers only crimes; common law covers only contracts",
+          "correct": false,
+          "rationale": "Both traditions cover many areas of law."
+        },
+        {
+          "id": "c",
+          "label": "Civil law comes from England; common law from Rome",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "d",
+          "label": "Civil law has no judges; common law has no written laws",
+          "correct": false,
+          "rationale": "Both have judges and written laws."
+        }
+      ],
+      "explanation": "Civil law systems rest on comprehensive written codes; common law relies on judge-made precedent.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.lawmaking_legal_traditions_civil_common",
+        "concept.government.hammurabi_code"
+      ],
+      "sourceCardIds": [
+        "card.government.049.c2",
+        "card.government.004.c1"
+      ],
+      "prompt": "Level 4's Hammurabi had his laws engraved on a stone slab. Which legal tradition shares that starting point of a written code?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Common law",
+          "correct": false,
+          "rationale": "Common law builds mainly on judges' decisions."
+        },
+        {
+          "id": "b",
+          "label": "Civil law",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Customary law",
+          "correct": false,
+          "rationale": "Customary law rests on custom, not a single written code."
+        },
+        {
+          "id": "d",
+          "label": "No tradition uses written law",
+          "correct": false,
+          "rationale": "Civil law is built on written codes."
+        }
+      ],
+      "explanation": "Civil law starts from comprehensive written codes, like the Napoleonic Code; Hammurabi also set his laws down in writing.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.justice_canada_bijuralism",
+    "source.brit_civil_law",
+    "source.brit_common_law",
+    "source.juriglobe_legal_systems",
+    "source.brit_sharia",
+    "source.juriglobe_mixed_systems",
+    "source.louvre_code_of_hammurabi",
+    "source.brit_code_of_hammurabi"
+  ],
+  "art": "object.globe"
+}

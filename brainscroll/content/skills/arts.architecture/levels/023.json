@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.architecture.023",
+  "skillId": "skill.arts.architecture",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Round Arches and Thick Walls",
+  "objective": "After this level you can describe Romanesque churches.",
+  "summary": "Barrel vaults are rows of arches pushing out all along, so walls were thick. Groin vaults gather the push at four corners; Durham (1093) added stone ribs.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.romanesque_barrel_vault",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.romanesque_groin_vault",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.romanesque_durham_ribs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch_thrust",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.022"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Put a stone ceiling on a church, and the walls have to wrestle it.",
+      "body": "Romanesque builders roofed their churches with stone vaults. Level 4 already warned what arches do: they push outward. So how do you hold a stone ceiling up without it shoving the walls apart?"
+    },
+    {
+      "id": "card.architecture.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A tunnel made of arches",
+      "body": "Romanesque churches used round arches for windows, doors and arcades, and many roofed the nave with a barrel vault: in effect a continuous row of arches, deep enough to cover a room, like half a tunnel. Every one of those arches pushes out, so a barrel vault must be held in along its entire length by heavy walls with few openings. That's why these churches have massive piers and walls with few windows. Big holes would weaken the very walls doing the holding."
+    },
+    {
+      "id": "card.architecture.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cross two tunnels",
+      "body": "Cross two barrel vaults at right angles and you get a groin vault. Repeated in a row, groin vaults can cover a long rectangular space. The trick is where the push goes: it gathers at the four corners, so only those points need buttressing, and the wall between them no longer has to be massive. Here's an analogy: a table carries its top on four legs, not on solid sides."
+    },
+    {
+      "id": "card.architecture.023.c4",
+      "type": "fact",
+      "fact": "Durham Cathedral's ceiling hides a stone skeleton.",
+      "context": "Durham Cathedral in England, begun in 1093, is an outstanding Romanesque church. Its builders set stone ribs, forming pointed arches, to support the vault: the earliest known example. The ribs carry the vault at critical points, so the stone filling between them could be thinner and lighter. The vault has stood for 900 years. Next level, Gothic builders take that skeleton and run.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Look up in an old church. If you see stone ribs crossing the ceiling, you're looking at its skeleton."
+      }
+    },
+    {
+      "id": "card.architecture.023.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.023.q1"
+    },
+    {
+      "id": "card.architecture.023.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.023.q2"
+    },
+    {
+      "id": "card.architecture.023.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.023.q3"
+    },
+    {
+      "id": "card.architecture.023.c8",
+      "type": "checkpoint",
+      "headline": "Romanesque: vaulted",
+      "learned": [
+        "A barrel vault is a row of arches, pushing out all along",
+        "So Romanesque walls were massive, with few windows",
+        "A groin vault gathers its push at four corners",
+        "Durham (begun 1093): the earliest known stone rib vault"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.romanesque_durham_ribs"
+      ],
+      "sourceCardIds": [
+        "card.architecture.023.c4"
+      ],
+      "prompt": "What did Durham Cathedral's builders set under its vault, the earliest known example of the idea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Iron chains hidden in the walls",
+          "correct": false,
+          "rationale": "Durham's innovation was stone ribs."
+        },
+        {
+          "id": "b",
+          "label": "Stone ribs forming pointed arches",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A wooden ceiling painted to look like stone",
+          "correct": false,
+          "rationale": "The vault is stone, carried on stone ribs."
+        },
+        {
+          "id": "d",
+          "label": "Four pendentives under a dome",
+          "correct": false,
+          "rationale": "That's Hagia Sophia, not Durham."
+        }
+      ],
+      "explanation": "Durham (begun 1093) is the earliest known example of stone ribs forming pointed arches to support a vault.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.romanesque_groin_vault"
+      ],
+      "sourceCardIds": [
+        "card.architecture.023.c3"
+      ],
+      "prompt": "Why could the walls under a row of groin vaults be thinner than under a barrel vault?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Groin vaults are made of wood, not stone",
+          "correct": false,
+          "rationale": "They're stone; the difference is where the push goes."
+        },
+        {
+          "id": "b",
+          "label": "Groin vaults push only straight down",
+          "correct": false,
+          "rationale": "They still push out, but only at the corners."
+        },
+        {
+          "id": "c",
+          "label": "Their push gathers at four corners, so only those need buttressing",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Groin vaults are always much smaller",
+          "correct": false,
+          "rationale": "In a row they can cover long spaces."
+        }
+      ],
+      "explanation": "A groin vault's thrust gathers at its four corners, so the wall between them no longer has to be massive.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.romanesque_barrel_vault",
+        "concept.architecture.stand_arch_thrust"
+      ],
+      "sourceCardIds": [
+        "card.architecture.023.c2",
+        "card.architecture.004.c3"
+      ],
+      "prompt": "Level 4 showed that an arch pushes outward at its feet. Why must a barrel vault have heavy walls along its whole length?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is a row of arches, each pushing outward",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It needs thick walls to keep the church warm",
+          "correct": false,
+          "rationale": "The walls are there to hold in the thrust."
+        },
+        {
+          "id": "c",
+          "label": "It pushes outward only at its two ends",
+          "correct": false,
+          "rationale": "Each arch in the row pushes, all along its length."
+        },
+        {
+          "id": "d",
+          "label": "Its windows are too heavy for thin walls",
+          "correct": false,
+          "rationale": "It has few windows, so the walls stay strong."
+        }
+      ],
+      "explanation": "A barrel vault is a continuous series of arches, so it thrusts outward all along its length and needs heavy walls to hold it in.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_arch_architecture",
+    "source.brit_romanesque_architecture",
+    "source.brit_vault",
+    "source.brit_durham_cathedral",
+    "source.durham_whs_architecture"
+  ],
+  "art": "arts.cathedral"
+}

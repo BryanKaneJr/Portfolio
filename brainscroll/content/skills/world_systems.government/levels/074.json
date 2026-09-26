@@ -1,0 +1,238 @@
+{
+  "id": "level.world_systems.government.074",
+  "skillId": "skill.world_systems.government",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Healthcare Systems",
+  "objective": "After this level you can compare the main ways countries pay for healthcare.",
+  "summary": "Countries pay for healthcare through tax-funded government schemes, compulsory insurance or out of pocket, in different mixes. The US spent 17.2% of GDP on health in 2024; the OECD average, 9.3%.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.health_financing_models",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.health_spending_levels",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.public_services",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.073"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Every country pays its doctors. The question is whose pocket pays.",
+      "body": "Nobody gets healthcare for free: nurses, scanners and medicines all cost money. What differs from country to country is the route the money takes, and the OECD sorts those routes into a few big pipes.",
+      "id": "card.government.074.c1"
+    },
+    {
+      "type": "comparison",
+      "headline": "Three ways to pay the doctor",
+      "items": [
+        {
+          "label": "Government schemes",
+          "points": [
+            "Care based on where you live, funded mostly by taxes",
+            "80%+ of spending in Sweden, Norway, Denmark, UK"
+          ]
+        },
+        {
+          "label": "Compulsory insurance",
+          "points": [
+            "Funded by contributions from employers and employees",
+            "Over three-quarters in France, Germany, Japan"
+          ]
+        },
+        {
+          "label": "Out of pocket",
+          "points": [
+            "Patients pay directly",
+            "Over a third of spending in Mexico, Chile, Latvia, Greece"
+          ]
+        }
+      ],
+      "id": "card.government.074.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Pipes, not boxes",
+      "body": "Most countries mix the pipes rather than pick one. In a government scheme, you're covered because you live there, and the bill goes to the taxpayer. In compulsory insurance, you're covered because contributions are paid for you, usually by you and your employer together. Neither is free; they differ in who writes the cheque and how. Out-of-pocket payments are the leftover, and in some countries it's a big leftover.",
+      "id": "card.government.074.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "The United States spent 17.2% of GDP on health in 2024, the most in the OECD.",
+      "context": "The OECD average was 9.3%, and Germany came next at 12.3%. Across the OECD, health also took 15.1% of all government spending in 2023. Which system works best is argued fiercely. The WHO's stated goal for all of them is universal health coverage: the care people need, when they need it, without financial hardship.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Different pipes, same patient. Compare what goes in and what comes out."
+      },
+      "id": "card.government.074.c4"
+    },
+    {
+      "id": "card.government.074.c5",
+      "type": "mcq",
+      "questionId": "question.government.074.q1"
+    },
+    {
+      "id": "card.government.074.c6",
+      "type": "mcq",
+      "questionId": "question.government.074.q2"
+    },
+    {
+      "id": "card.government.074.c7",
+      "type": "recall",
+      "questionId": "question.government.074.q3"
+    },
+    {
+      "id": "card.government.074.c8",
+      "type": "checkpoint",
+      "headline": "Healthcare: compared",
+      "learned": [
+        "Government schemes: funded mostly by taxes",
+        "Compulsory insurance: employer and employee contributions",
+        "Out of pocket: over a third in some countries",
+        "US 17.2% of GDP in 2024; OECD average 9.3%"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.health_financing_models"
+      ],
+      "sourceCardIds": [
+        "card.government.074.c2"
+      ],
+      "prompt": "In France, Germany and Japan, how is most health spending financed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mostly by patients paying at the door",
+          "correct": false,
+          "rationale": "Out-of-pocket payments are large in Mexico or Greece, not here."
+        },
+        {
+          "id": "b",
+          "label": "Charities and private donations",
+          "correct": false,
+          "rationale": "Donations are a tiny share; this is insurance."
+        },
+        {
+          "id": "c",
+          "label": "Compulsory insurance funded by employer and employee contributions",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Fees charged to foreign visitors",
+          "correct": false,
+          "rationale": "Visitors don't fund national health systems."
+        }
+      ],
+      "explanation": "In these countries, more than three-quarters of health spending goes through compulsory health insurance funded by contributions.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.health_spending_levels"
+      ],
+      "sourceCardIds": [
+        "card.government.074.c4"
+      ],
+      "prompt": "In 2024, how did US health spending compare with the OECD average as a share of GDP?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was about the same",
+          "correct": false,
+          "rationale": "The US spent 17.2% against an average of 9.3%."
+        },
+        {
+          "id": "b",
+          "label": "It was a little lower",
+          "correct": false,
+          "rationale": "The US spent the most in the OECD."
+        },
+        {
+          "id": "c",
+          "label": "It was nearly twice as high",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It was ten times as high",
+          "correct": false,
+          "rationale": "Far too high; 17.2% is less than twice 9.3%."
+        }
+      ],
+      "explanation": "The US spent 17.2% of GDP on health in 2024; the OECD average was 9.3%, so the US spent nearly twice the average share.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.health_financing_models",
+        "concept.government.public_services"
+      ],
+      "sourceCardIds": [
+        "card.government.074.c2",
+        "card.government.005.c2"
+      ],
+      "prompt": "Level 5 described public services as open to all and paid for by taxes. Which health model fits that best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Government schemes based on where you live",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Paying out of pocket at each visit",
+          "correct": false,
+          "rationale": "Out-of-pocket care isn't paid for by taxes."
+        },
+        {
+          "id": "c",
+          "label": "Voluntary private insurance",
+          "correct": false,
+          "rationale": "Voluntary insurance is bought privately, not tax-funded."
+        },
+        {
+          "id": "d",
+          "label": "Charity hospitals",
+          "correct": false,
+          "rationale": "Charity isn't a tax-funded public service."
+        }
+      ],
+      "explanation": "Government health schemes cover people based on residency and are funded mostly by taxes, just like Level 5's public services.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.oecd_hag_2025",
+    "source.who_uhc_factsheet",
+    "source.openstax_amgov_what_is_government"
+  ],
+  "art": "body.stethoscope"
+}

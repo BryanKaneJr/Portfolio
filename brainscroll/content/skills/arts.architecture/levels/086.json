@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.architecture.086",
+  "skillId": "skill.arts.architecture",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Subways",
+  "objective": "After this level you can explain how subways changed cities.",
+  "summary": "London's Metropolitan Railway (1863) ran steam trains through cut-and-cover trenches; electric deep tubes followed in 1890. The railway then sold 'Metro-land' and built suburbs for its commuters.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.cities_first_subway",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.cities_metroland",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.085"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1863, Londoners rode steam trains under the streets.",
+      "body": "The world's first underground railway, London's Metropolitan Railway, opened on 10 January 1863, hauled by steam locomotives. Picture a smoky train in a tunnel. How did they build it, and what did it do to the city above?"
+    },
+    {
+      "id": "card.architecture.086.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dig up the street, then put it back",
+      "body": "The Metropolitan was built by cut and cover. Workers dug trenches along the streets, gave them brick sides, and roofed them over with iron girders or a brick arch. Then the street went back on top. It's the way you'd bury a garden hose: dig a trench, lay it in, cover it up. Just with a train, and a very inconvenienced London."
+    },
+    {
+      "id": "card.architecture.086.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Deeper, and electric",
+      "body": "Cut and cover meant digging up whole streets. In 1890 London opened the first electric underground railway, the first deep \"tube,\" dug by tunnelling instead of trenching. A deep tunnel runs far below the streets instead of in a trench just under them, so the street above can stay put."
+    },
+    {
+      "id": "card.architecture.086.c4",
+      "type": "fact",
+      "fact": "A railway that grew its own passengers.",
+      "context": "In 1915 the Metropolitan Railway began selling the countryside along its line as \"Metro-land,\" a place for commuters to live. From 1919, a company it set up built housing estates on spare land the railway owned. The trains didn't just serve the suburbs; they created them. Build the line, then build the homes that fill the trains.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Clever business: sell the house, then sell the ticket to work. Twice a day."
+      }
+    },
+    {
+      "id": "card.architecture.086.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.086.q1"
+    },
+    {
+      "id": "card.architecture.086.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.086.q2"
+    },
+    {
+      "id": "card.architecture.086.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.086.q3"
+    },
+    {
+      "id": "card.architecture.086.c8",
+      "type": "checkpoint",
+      "headline": "Subways: running",
+      "learned": [
+        "Metropolitan Railway, 1863: steam trains underground",
+        "Cut and cover: trench, brick sides, roof, street back on",
+        "1890: the first electric deep tube",
+        "Metro-land: the railway built its own suburbs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.cities_first_subway"
+      ],
+      "sourceCardIds": [
+        "card.architecture.086.c1"
+      ],
+      "prompt": "What powered the trains on London's Metropolitan Railway when it opened in 1863?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Electric motors",
+          "correct": false,
+          "rationale": "Electric underground trains came in 1890."
+        },
+        {
+          "id": "b",
+          "label": "Horses",
+          "correct": false,
+          "rationale": "It was a railway with locomotives."
+        },
+        {
+          "id": "c",
+          "label": "Steam locomotives",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Cable winches",
+          "correct": false,
+          "rationale": "The Metropolitan used steam locomotives."
+        }
+      ],
+      "explanation": "The Metropolitan Railway opened on 10 January 1863 with steam locomotives.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.cities_metroland"
+      ],
+      "sourceCardIds": [
+        "card.architecture.086.c4"
+      ],
+      "prompt": "Why did the Metropolitan Railway market 'Metro-land' and build housing estates along its line?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To create commuters who would ride its trains",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To stop Londoners moving out of the city center",
+          "correct": false,
+          "rationale": "It did the opposite: it encouraged a move outward."
+        },
+        {
+          "id": "c",
+          "label": "To grow food for London's markets on spare land",
+          "correct": false,
+          "rationale": "It was selling homes for commuters."
+        },
+        {
+          "id": "d",
+          "label": "Because the law forced railways to build houses",
+          "correct": false,
+          "rationale": "It was the railway's own marketing idea."
+        }
+      ],
+      "explanation": "Metro-land sold the countryside along the line as a place for commuters, and from 1919 the railway's company built estates on its spare land.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.cities_first_subway",
+        "concept.architecture.stand_arch"
+      ],
+      "sourceCardIds": [
+        "card.architecture.086.c2",
+        "card.architecture.004.c2"
+      ],
+      "prompt": "Some Metropolitan Railway trenches were roofed with a brick arch. As Level 4 explained, how does an arch carry the street above?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its bricks are stretched, so it works in tension",
+          "correct": false,
+          "rationale": "An arch keeps its blocks in compression."
+        },
+        {
+          "id": "b",
+          "label": "Weight squeezes its wedge-shaped blocks together",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Steel bars hidden inside take all of the load",
+          "correct": false,
+          "rationale": "A brick arch needs no steel."
+        },
+        {
+          "id": "d",
+          "label": "The trains below push it upward and hold it up",
+          "correct": false,
+          "rationale": "The arch carries weight down, not the train."
+        }
+      ],
+      "explanation": "Weight pressing down forces an arch's wedge-shaped blocks together, keeping them in compression, so a brick arch can carry a street.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_subway",
+    "source.londonmuseum_underground_history",
+    "source.ltm_metro_land",
+    "source.brit_arch_architecture",
+    "source.brit_masonry"
+  ],
+  "art": "technology.train"
+}

@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.government.095",
+  "skillId": "skill.world_systems.government",
+  "number": 95,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Reading the News Well",
+  "objective": "After this level you can judge whether a news story is reliable.",
+  "summary": "Many shared links are never read. Journalists' own codes give readers clues: headlines backed by the text, clearly identified sources, labeled opinion, and prompt corrections.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.newsreading_headlines",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.newsreading_reliability_signs",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.094"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In one study, most shared news links were never even clicked.",
+      "body": "In 2016, researchers at Columbia University and France's Inria found that 59% of the news links shared on Twitter in their sample were never clicked. Plenty of headlines travel without their stories. So how do you judge the story itself? Journalists' own rulebooks offer clues.",
+      "id": "card.government.095.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Clue 1: the headline isn't the story",
+      "body": "The UK's Editors' Code, enforced by the press regulator IPSO, tells the press not to publish misleading information, including headlines not supported by the text. That rule exists because the problem does. A headline is a pitch, written short. Read far enough to see whether the story actually backs it up.",
+      "id": "card.government.095.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Clue 2: who says so?",
+      "body": "The US Society of Professional Journalists' Code of Ethics tells reporters to identify sources clearly, so the public can judge how reliable they are and why they're talking. A trustworthy story shows its workings: named people, documents, data. If you can't tell how the reporter knows something, you can't check it either.",
+      "id": "card.government.095.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Clue 3: news or opinion?",
+      "body": "Both codes draw the same line. The SPJ says to label advocacy and commentary. The UK code says the press, while free to campaign, must distinguish clearly between comment, conjecture and fact. Opinion isn't a flaw; it's a different product. Check the label before you treat an argument as a report.",
+      "id": "card.government.095.c4"
+    },
+    {
+      "type": "fact",
+      "fact": "A correction is a good sign, not a bad one.",
+      "context": "The SPJ tells journalists to correct mistakes promptly and prominently. The UK code says significant inaccuracies must be corrected promptly and with due prominence. An outlet that runs corrections is showing you it checks its own work.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Headline, sources, label, corrections. Four quick checks before you share."
+      },
+      "id": "card.government.095.c5"
+    },
+    {
+      "id": "card.government.095.c6",
+      "type": "mcq",
+      "questionId": "question.government.095.q1"
+    },
+    {
+      "id": "card.government.095.c7",
+      "type": "mcq",
+      "questionId": "question.government.095.q2"
+    },
+    {
+      "id": "card.government.095.c8",
+      "type": "mcq",
+      "questionId": "question.government.095.q3"
+    },
+    {
+      "id": "card.government.095.c9",
+      "type": "checkpoint",
+      "headline": "The news: read well",
+      "learned": [
+        "59% of shared links in one study went unclicked",
+        "Headlines must be backed by the story",
+        "Good reporting identifies its sources",
+        "Opinion is labeled; mistakes get corrected"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.095.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.newsreading_headlines"
+      ],
+      "sourceCardIds": [
+        "card.government.095.c1"
+      ],
+      "prompt": "In the 2016 Columbia and Inria study, what share of the shared news links in the sample were never clicked?",
+      "options": [
+        {
+          "id": "a",
+          "label": "9%",
+          "correct": false,
+          "rationale": "Far more went unclicked."
+        },
+        {
+          "id": "b",
+          "label": "29%",
+          "correct": false,
+          "rationale": "Still too low."
+        },
+        {
+          "id": "c",
+          "label": "59%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "89%",
+          "correct": false,
+          "rationale": "Too high: it was 59%."
+        }
+      ],
+      "explanation": "The researchers found 59% of the news links shared on Twitter in their sample were never clicked.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.095.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.newsreading_reliability_signs"
+      ],
+      "sourceCardIds": [
+        "card.government.095.c5"
+      ],
+      "prompt": "Why is a published correction a good sign about a news outlet, according to journalists' codes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It proves the outlet has never made a mistake",
+          "correct": false,
+          "rationale": "A correction means it did, and fixed it."
+        },
+        {
+          "id": "b",
+          "label": "The codes ask outlets to fix mistakes promptly and prominently",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Corrections are paid advertisements",
+          "correct": false,
+          "rationale": "Corrections aren't ads."
+        },
+        {
+          "id": "d",
+          "label": "It means the story was only opinion",
+          "correct": false,
+          "rationale": "Corrections fix errors of fact in any story."
+        }
+      ],
+      "explanation": "Both the SPJ code and the UK Editors' Code expect mistakes to be corrected promptly and prominently, so corrections show an outlet checking itself.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.095.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.newsreading_headlines"
+      ],
+      "sourceCardIds": [
+        "card.government.095.c1",
+        "card.government.095.c2"
+      ],
+      "prompt": "How does the finding about unclicked links connect to the UK code's rule on headlines?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Many people see only the headline, so it must match the story",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Headlines don't matter because nobody reads them",
+          "correct": false,
+          "rationale": "The opposite: headlines are often all people see."
+        },
+        {
+          "id": "c",
+          "label": "The code bans sharing links on social media",
+          "correct": false,
+          "rationale": "The code is about what the press publishes."
+        },
+        {
+          "id": "d",
+          "label": "Unclicked stories don't need to be accurate",
+          "correct": false,
+          "rationale": "Accuracy rules apply to every story."
+        }
+      ],
+      "explanation": "When headlines travel without their stories, a headline not supported by the text misleads many readers, which is why the code forbids it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sej_twitter_link_clicks",
+    "source.ipso_editors_code",
+    "source.spj_code_of_ethics"
+  ],
+  "art": "gov.newspaper"
+}

@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.architecture.037",
+  "skillId": "skill.arts.architecture",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Versailles",
+  "objective": "After this level you can describe Versailles and its Hall of Mirrors.",
+  "summary": "Louis XIV turned a hunting lodge into an immense palace that from 1682 held the whole court, keeping nobles under his eye. Its Hall of Mirrors (1678-84) boasted 357 mirrors when mirrors were a luxury.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.versailles_power_palace",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.versailles_hall_mirrors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.forbidden_city_history",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.036"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Versailles started as a hunting lodge.",
+      "body": "It was built for Louis XIII in the 1620s. His son Louis XIV transformed it, between 1661 and 1710, into an immense palace. Why would a king need that much house?"
+    },
+    {
+      "id": "card.architecture.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Room for everyone who mattered",
+      "body": "From 1682 Versailles was the official royal residence, with room to house the whole court. That was the point. Under the king's watchful eye, the nobility could no longer plot against the throne; the great lords were kept eager to serve and please him. The best way to watch your rivals is to invite them to move in.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A palace big enough for every rival. Very generous. Very watchful."
+      }
+    },
+    {
+      "id": "card.architecture.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Hall of Mirrors",
+      "body": "Jules Hardouin-Mansart built it from 1678 to 1684, replacing an open terrace onto the garden. The gallery runs more than 70 metres, with 17 arches of mirrors facing 17 windows: 357 mirrors in all. Overhead, Charles Le Brun's 30 ceiling paintings tell the story of Louis XIV's reign. Guess who's the hero."
+    },
+    {
+      "id": "card.architecture.037.c4",
+      "type": "fact",
+      "fact": "A wall of mirrors was a wall of money.",
+      "context": "At the time, mirrors were a great luxury, and Venice held a monopoly on making them. This hall showed that France's new mirror manufacture could rival Venice. Courtiers crossed it daily, so every walk to work was a small advertisement."
+    },
+    {
+      "id": "card.architecture.037.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.037.q1"
+    },
+    {
+      "id": "card.architecture.037.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.037.q2"
+    },
+    {
+      "id": "card.architecture.037.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.037.q3"
+    },
+    {
+      "id": "card.architecture.037.c8",
+      "type": "checkpoint",
+      "headline": "Versailles: toured",
+      "learned": [
+        "A hunting lodge turned immense palace by Louis XIV",
+        "From 1682 it held the whole court",
+        "Nobles close by could not plot against the king",
+        "Hall of Mirrors: 357 mirrors, a boast of French wealth"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.versailles_power_palace"
+      ],
+      "sourceCardIds": [
+        "card.architecture.037.c1"
+      ],
+      "prompt": "What was Versailles before Louis XIV transformed it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A Roman frontier fort",
+          "correct": false,
+          "rationale": "It was a royal building from the 1620s."
+        },
+        {
+          "id": "b",
+          "label": "A hunting lodge for Louis XIII",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A Venetian mirror factory",
+          "correct": false,
+          "rationale": "The mirrors came later, for the hall."
+        },
+        {
+          "id": "d",
+          "label": "A medieval monastery",
+          "correct": false,
+          "rationale": "It began as a hunting lodge."
+        }
+      ],
+      "explanation": "Versailles began as a hunting lodge for Louis XIII in the 1620s; Louis XIV transformed it from 1661 to 1710.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.versailles_hall_mirrors"
+      ],
+      "sourceCardIds": [
+        "card.architecture.037.c4",
+        "card.architecture.037.c3"
+      ],
+      "prompt": "Why were the 357 mirrors of the Hall of Mirrors a boast when they were installed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mirrors were cheap, so using many showed thrift",
+          "correct": false,
+          "rationale": "The opposite: mirrors were a great luxury."
+        },
+        {
+          "id": "b",
+          "label": "They were made in Venice, the best source",
+          "correct": false,
+          "rationale": "They showed French makers could rival Venice."
+        },
+        {
+          "id": "c",
+          "label": "They were a luxury, and showed French makers could rival Venice",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They replaced windows the palace could not afford",
+          "correct": false,
+          "rationale": "The hall has 17 windows facing the mirrors."
+        }
+      ],
+      "explanation": "Mirrors were then a great luxury, and the hall showed that France's new manufacture could rival the Venetian monopoly.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.versailles_power_palace",
+        "concept.architecture.forbidden_city_history"
+      ],
+      "sourceCardIds": [
+        "card.architecture.037.c2",
+        "card.architecture.034.c1"
+      ],
+      "prompt": "Beijing's Forbidden City (Level 34) barred most subjects. What did Versailles do with France's nobles?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Barred them from the palace too",
+          "correct": false,
+          "rationale": "Versailles pulled nobles in."
+        },
+        {
+          "id": "b",
+          "label": "Housed the court so nobles stayed under the king's eye",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sent them to guard the Great Wall",
+          "correct": false,
+          "rationale": "That wall is in China."
+        },
+        {
+          "id": "d",
+          "label": "Made them build the Hall of Mirrors by hand",
+          "correct": false,
+          "rationale": "Hardouin-Mansart designed it; nobles were courtiers."
+        }
+      ],
+      "explanation": "From 1682 Versailles housed the whole court; under the king's watchful eye, the nobility could no longer plot against the throne.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_versailles",
+    "source.versailles_louis_xiv",
+    "source.versailles_hall_of_mirrors",
+    "source.brit_forbidden_city"
+  ],
+  "art": "medieval.crown"
+}

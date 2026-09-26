@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.architecture.088",
+  "skillId": "skill.arts.architecture",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Housing for Everyone",
+  "objective": "After this level you can explain informal settlements and public housing.",
+  "summary": "UN-Habitat counts over 1.1 billion people in slums or informal settlements. Vienna's Karl-Marx-Hof and Aravena's 'half of a good house' show two answers: city-built homes and homes families finish.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.cities_informal_settlements",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.cities_public_housing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.cities_incremental_housing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.cities_public_parks",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.087"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "More than 1.1 billion people live in slums or informal settlements.",
+      "body": "That's UN-Habitat's count. It's a design problem, but not one about beautiful buildings. It's about whether a home is safe, big enough and truly yours. Architects have tried very different answers."
+    },
+    {
+      "id": "card.architecture.088.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What counts as a slum?",
+      "body": "UN-Habitat counts a household as a slum household if it lacks one or more of five things: durable housing, enough living space, improved water, improved sanitation, or secure tenure (the right to stay). Informal settlements are areas where residents lack that secure tenure, basic services are often missing, and homes may not meet planning and building rules. A roof isn't enough. You also need the right to keep it."
+    },
+    {
+      "id": "card.architecture.088.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A palace for tenants",
+      "body": "One answer is for the city to build. Vienna's Karl-Marx-Hof, designed by Karl Ehn in the Red Vienna social housing era (1919 to 1934), is about 1,100 meters long and originally held 1,382 apartments. Yet only about 18% of its site was built on. The rest is courtyards and green space, alongside laundries, baths and kindergartens. A very long building, wrapped around a lot of garden."
+    },
+    {
+      "id": "card.architecture.088.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Half of a good house",
+      "body": "Another answer: build half, and let families finish it. Alejandro Aravena's firm ELEMENTAL designs social housing it calls \"half of a good house,\" leaving room for residents to finish their homes themselves. According to the Pritzker Prize, this \"incremental housing\" lets social housing be built on more expensive land, closer to jobs and opportunity. Aravena won the 2016 Pritzker Architecture Prize.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Half a house in the right place can beat a whole house in the wrong one."
+      }
+    },
+    {
+      "id": "card.architecture.088.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.088.q1"
+    },
+    {
+      "id": "card.architecture.088.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.088.q2"
+    },
+    {
+      "id": "card.architecture.088.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.088.q3"
+    },
+    {
+      "id": "card.architecture.088.c8",
+      "type": "checkpoint",
+      "headline": "Housing for everyone: explained",
+      "learned": [
+        "Over 1.1 billion people in slums or informal settlements",
+        "Five tests, including secure tenure",
+        "Karl-Marx-Hof: about 18% built, the rest green",
+        "Aravena's 'half of a good house'"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.cities_informal_settlements"
+      ],
+      "sourceCardIds": [
+        "card.architecture.088.c2"
+      ],
+      "prompt": "Which of these is one of UN-Habitat's five tests for a slum household?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A private garden of any size",
+          "correct": false,
+          "rationale": "Gardens aren't on the list."
+        },
+        {
+          "id": "b",
+          "label": "Secure tenure, the right to stay",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A view of a park or the sea",
+          "correct": false,
+          "rationale": "The list is about safety, space and services."
+        },
+        {
+          "id": "d",
+          "label": "A parking space for a car",
+          "correct": false,
+          "rationale": "Not on the list."
+        }
+      ],
+      "explanation": "UN-Habitat's five: durable housing, enough living space, improved water, improved sanitation and secure tenure.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.cities_incremental_housing"
+      ],
+      "sourceCardIds": [
+        "card.architecture.088.c4"
+      ],
+      "prompt": "According to the Pritzker Prize, what does ELEMENTAL's 'incremental housing' make possible?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Social housing on pricier land, closer to jobs",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Towers taller than any other method allows",
+          "correct": false,
+          "rationale": "It's about finishing homes over time."
+        },
+        {
+          "id": "c",
+          "label": "Houses that never need any repairs or upkeep",
+          "correct": false,
+          "rationale": "Residents finish and extend them."
+        },
+        {
+          "id": "d",
+          "label": "Homes built without water or sanitation lines",
+          "correct": false,
+          "rationale": "Those are essentials it keeps."
+        }
+      ],
+      "explanation": "Building 'half of a good house' lets social housing go on more expensive land closer to economic opportunity; residents finish the rest.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.cities_public_housing",
+        "concept.architecture.cities_public_parks"
+      ],
+      "sourceCardIds": [
+        "card.architecture.088.c3",
+        "card.architecture.084.c2"
+      ],
+      "prompt": "Like Level 84's Birkenhead Park, ringed by house plots, Vienna's Karl-Marx-Hof arranged its homes around what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A new railway station",
+          "correct": false,
+          "rationale": "Its flats wrap courtyards and green space."
+        },
+        {
+          "id": "b",
+          "label": "A stretch of old city wall",
+          "correct": false,
+          "rationale": "Walls were long gone in 1920s Vienna."
+        },
+        {
+          "id": "c",
+          "label": "A multi-story car park",
+          "correct": false,
+          "rationale": "Only about 18% was built on; the rest is green."
+        },
+        {
+          "id": "d",
+          "label": "Courtyards and green space",
+          "correct": true
+        }
+      ],
+      "explanation": "Only about 18% of Karl-Marx-Hof's site was built on, leaving courtyards and green space; Birkenhead Park's green was ringed by homes.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.un_news_slums_2026",
+    "source.unhabitat_adequate_housing_module",
+    "source.wieninfo_karl_marx_hof",
+    "source.pritzker_aravena_2016",
+    "source.parksandgardens_birkenhead"
+  ],
+  "art": "rome.insula"
+}

@@ -1,0 +1,228 @@
+{
+  "id": "level.arts.architecture.041",
+  "skillId": "skill.arts.architecture",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Makes a Home",
+  "objective": "After this level you can explain how climate shapes the way people build houses.",
+  "summary": "Vitruvius: houses must suit their climate, sheltered in the north, open in the hot south. Roofs slope to shed rain, flat where it's dry. Vernacular: how communities house themselves.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.home_climate_vitruvius",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.home_roof_climate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.home_vernacular",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.architect_role",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.vitruvian_triad",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.040"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A house built for Egypt would be wrong in Spain. Vitruvius said so.",
+      "body": "Remember Level 1's Vitruvius, whose book on architecture is about 2,000 years old? He opens its sixth book with climate as the thing that decides the style of a house: one style for Egypt, another for Spain, another for Pontus, another for Rome. This chapter tours the world's homes to see how right he was."
+    },
+    {
+      "id": "card.architecture.041.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Shut in, or open up",
+      "body": "His rule was simple. In the cold north, houses should be roofed over and sheltered as much as possible, turned toward the warm side. In hot southern countries, they should be built more in the open and face north. You do the same with curtains and windows. Vitruvius wanted the building itself to do it, to \"amend by art what nature, if left to herself, would mar.\"",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Level 1's commodity, in practice: a house is only useful if it works in its own weather."
+      }
+    },
+    {
+      "id": "card.architecture.041.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Read the roof",
+      "body": "Roofs tell the same story. The earliest ones were probably thatched with straw, leaves, branches or reeds, and they were usually set at a slope, or pitch, so rain could drain off. But flat roofs have long been common in the Middle East and the American Southwest, anywhere the climate is arid and draining water matters less. A flat roof is a bet that it won't rain much. In dry places, it's a safe bet."
+    },
+    {
+      "id": "card.architecture.041.c4",
+      "type": "fact",
+      "fact": "ICOMOS has a name for homes like these: vernacular building.",
+      "context": "ICOMOS, the international council on monuments and sites, defines it as \"the traditional and natural way by which communities house themselves.\" Its 1999 charter says you can spot it by a way of building shared across a community, a local character that answers the environment, and know-how passed on informally, from builder to builder. Level 1's architect hands over drawings. Here the plan lives in the tradition."
+    },
+    {
+      "id": "card.architecture.041.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.041.q1"
+    },
+    {
+      "id": "card.architecture.041.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.041.q2"
+    },
+    {
+      "id": "card.architecture.041.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.041.q3"
+    },
+    {
+      "id": "card.architecture.041.c8",
+      "type": "checkpoint",
+      "headline": "Homes: climate first",
+      "learned": [
+        "Vitruvius: climate decides the style of a house",
+        "Cold north: sheltered; hot south: open and facing north",
+        "Pitched roofs shed rain; flat roofs suit arid places",
+        "Vernacular: how communities house themselves"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.home_roof_climate"
+      ],
+      "sourceCardIds": [
+        "card.architecture.041.c3"
+      ],
+      "prompt": "Where have flat roofs long been widely used?",
+      "options": [
+        {
+          "id": "a",
+          "label": "On rainy tropical coasts",
+          "correct": false,
+          "rationale": "Heavy rain calls for a sloped roof that drains."
+        },
+        {
+          "id": "b",
+          "label": "In snowy mountain valleys",
+          "correct": false,
+          "rationale": "Flat roofs suit dry climates, not wet or snowy ones."
+        },
+        {
+          "id": "c",
+          "label": "In arid places like the Middle East and the American Southwest",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only on modern city skyscrapers",
+          "correct": false,
+          "rationale": "Flat roofs are an old tradition in dry regions."
+        }
+      ],
+      "explanation": "Flat roofs have historically been widely used in the Middle East, the American Southwest and anywhere the climate is arid, where draining water off the roof matters less.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.home_climate_vitruvius"
+      ],
+      "sourceCardIds": [
+        "card.architecture.041.c2"
+      ],
+      "prompt": "What did Vitruvius advise for houses in hot southern countries?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Build more in the open and face north",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Roof them over and seal them against the cold",
+          "correct": false,
+          "rationale": "That was his advice for the cold north."
+        },
+        {
+          "id": "c",
+          "label": "Build them only from fired brick",
+          "correct": false,
+          "rationale": "His advice was about openness and orientation, not material."
+        },
+        {
+          "id": "d",
+          "label": "Face them south to catch the sun",
+          "correct": false,
+          "rationale": "In the hot south he wanted them turned away from the sun, toward the north."
+        }
+      ],
+      "explanation": "Vitruvius said houses in the cold north should be sheltered and face a warm exposure, while those in the hot south should be more open and face north or north-east.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.home_vernacular",
+        "concept.architecture.architect_role"
+      ],
+      "sourceCardIds": [
+        "card.architecture.041.c4",
+        "card.architecture.001.c3"
+      ],
+      "prompt": "Level 1's architect hands builders drawings. How does the ICOMOS charter say vernacular building know-how is passed on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Through drawings with technical specifications",
+          "correct": false,
+          "rationale": "That's the architect's route from Level 1."
+        },
+        {
+          "id": "b",
+          "label": "Through a government building licence",
+          "correct": false,
+          "rationale": "The charter points to informal transmission."
+        },
+        {
+          "id": "c",
+          "label": "Only through old books like Vitruvius's",
+          "correct": false,
+          "rationale": "The charter says the expertise passes on informally."
+        },
+        {
+          "id": "d",
+          "label": "Informally, within the community",
+          "correct": true
+        }
+      ],
+      "explanation": "The 1999 ICOMOS charter recognizes vernacular building partly by traditional expertise in design and construction that is transmitted informally, unlike an architect's drawings.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.iet_vitruvius_1511",
+    "source.gutenberg_vitruvius_morgan",
+    "source.brit_roof",
+    "source.icomos_vernacular_charter"
+  ],
+  "art": "rome.house"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "level.world_systems.government.058",
+  "skillId": "skill.world_systems.government",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Police",
+  "objective": "After this level you can explain what police do and the limits on their power.",
+  "summary": "London's 1829 police were unarmed and deliberately unmilitary; British policing rests on public consent. The law limits police power: detention time limits, rights in custody, the Miranda warnings.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.police_consent",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.police_limits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.weber_state_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.057"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "London's first modern police carried no guns and wore blue on purpose.",
+      "body": "In 1829 the Metropolitan Police Act, sponsored by Home Secretary Robert Peel, set up a professional police force for London. Its officers carried truncheons, handcuffs and a rattle to call for help. Their blue tailcoats and top hats were chosen to show they were not soldiers. Why work so hard not to look like an army?",
+      "id": "card.government.058.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Policing by consent",
+      "body": "Because the idea was to police with the public, not against it. The first of the British policing principles is to prevent crime and disorder, as an alternative to repression by military force. The UK Home Office calls it policing by consent: police power comes from the common consent of the public. In its words, the police are the public and the public are the police.",
+      "id": "card.government.058.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Powers, with limits",
+      "body": "Police have real power over people, so the law draws lines. In England and Wales, police can generally hold someone for up to 24 hours before they must charge or release them; longer needs approval for a serious crime. People in custody have the right to free legal advice and to tell someone where they are. In the U.S., Miranda v Arizona (1966) requires police to tell suspects in custody of their right to stay silent and to have a lawyer before questioning.",
+      "id": "card.government.058.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Only about 4 in 100 police officers in England and Wales are armed.",
+      "context": "Home Office figures show 6,558 armed officers on 31 March 2026, 4.0% of all police officers. The rest patrol without a gun, nearly two centuries after the first bobbies set out with a truncheon and a rattle.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Different countries make different choices here. It's a policy, not a law of nature."
+      },
+      "id": "card.government.058.c4"
+    },
+    {
+      "id": "card.government.058.c5",
+      "type": "mcq",
+      "questionId": "question.government.058.q1"
+    },
+    {
+      "id": "card.government.058.c6",
+      "type": "mcq",
+      "questionId": "question.government.058.q2"
+    },
+    {
+      "id": "card.government.058.c7",
+      "type": "recall",
+      "questionId": "question.government.058.q3"
+    },
+    {
+      "id": "card.government.058.c8",
+      "type": "checkpoint",
+      "headline": "Police: on patrol",
+      "learned": [
+        "1829: London's unarmed, blue-coated police",
+        "Policing by consent: power from the public",
+        "Limits: time in custody, right to a lawyer",
+        "Only about 4 in 100 officers in England and Wales are armed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.police_limits"
+      ],
+      "sourceCardIds": [
+        "card.government.058.c3"
+      ],
+      "prompt": "In England and Wales, how long can police generally hold someone before they must charge or release them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Up to 6 hours",
+          "correct": false,
+          "rationale": "The general limit is longer: 24 hours."
+        },
+        {
+          "id": "b",
+          "label": "Up to 24 hours",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Up to 30 days",
+          "correct": false,
+          "rationale": "Far too long; the general limit is 24 hours."
+        },
+        {
+          "id": "d",
+          "label": "As long as the investigation needs",
+          "correct": false,
+          "rationale": "The law sets a time limit."
+        }
+      ],
+      "explanation": "Police can generally hold someone for up to 24 hours before charging or releasing them; longer needs approval for a serious crime.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.police_consent"
+      ],
+      "sourceCardIds": [
+        "card.government.058.c2"
+      ],
+      "prompt": "What does \"policing by consent\" mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Police need a suspect's permission to arrest them",
+          "correct": false,
+          "rationale": "Consent here means the public's, not the suspect's."
+        },
+        {
+          "id": "b",
+          "label": "Police are elected by each street",
+          "correct": false,
+          "rationale": "It's about where police power comes from, not elections."
+        },
+        {
+          "id": "c",
+          "label": "Police power rests on the public's common consent",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Police can only act if a court agrees first",
+          "correct": false,
+          "rationale": "It's about public consent, not court approval."
+        }
+      ],
+      "explanation": "Police power comes from the common consent of the public: the police are the public and the public are the police.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.police_consent",
+        "concept.government.weber_state_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.058.c2",
+        "card.government.009.c3"
+      ],
+      "prompt": "Level 9's Max Weber said the state claims a monopoly on the legitimate use of force. How do the police fit that idea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They use force on the state's behalf, and it's accepted as legitimate",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They compete with the state for the use of force",
+          "correct": false,
+          "rationale": "They're part of the state, not rivals."
+        },
+        {
+          "id": "c",
+          "label": "They prove that states have no monopoly on force",
+          "correct": false,
+          "rationale": "Police are the state's way of exercising it."
+        },
+        {
+          "id": "d",
+          "label": "They make force unnecessary, so the idea no longer applies",
+          "correct": false,
+          "rationale": "Police still use force, within legal limits."
+        }
+      ],
+      "explanation": "The state claims the monopoly of legitimate force; police exercise it for the state, and policing by consent is about keeping it accepted.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_bobby",
+    "source.govuk_policing_by_consent",
+    "source.govuk_custody_time",
+    "source.govuk_custody_rights",
+    "source.brit_miranda",
+    "source.homeoffice_firearms_2026",
+    "source.sep_weber"
+  ],
+  "art": "gov.badge"
+}

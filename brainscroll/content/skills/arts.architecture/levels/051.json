@@ -1,0 +1,234 @@
+{
+  "id": "level.arts.architecture.051",
+  "skillId": "skill.arts.architecture",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Bridges",
+  "objective": "After this level you can explain the main kinds of bridge.",
+  "summary": "Beam bridges bend and arch bridges push, while suspension decks hang from curved cables and cable-stayed decks from straight ones. The Forth Bridge (1890) balances on three steel cantilevers.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.marvel_bridge_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_cable_stayed",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_forth_cantilever",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch_thrust",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_tension_compression",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.050"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.051.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1887, two engineers turned themselves into a bridge.",
+      "body": "John Fowler and Benjamin Baker sat side by side with their arms held out, and between them sat the engineer Kaichi Watanabe, suspended in the middle. They were showing how their bridge over Scotland's Firth of Forth would work. Every bridge answers the same question: how do you carry weight across a gap? Here are the main answers."
+    },
+    {
+      "id": "card.architecture.051.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Beams and arches, taken outdoors",
+      "body": "The two oldest answers come straight from Chapter 1. A beam bridge carries weight by bending: squeezed on top, stretched underneath, just like Level 3's lintel. An arch bridge carries weight mainly by squeezing, in compression, so it needs strong foundations to take its push, Level 4's thrust. A plank over a stream is a beam bridge. A stone curve over a river is an arch."
+    },
+    {
+      "id": "card.architecture.051.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two ways to hang a road",
+      "body": "For longer spans, engineers hang the road. In a suspension bridge the deck hangs from curved cables in tension, which carry the load to towers and to anchorages at each end. Remember Level 10's hanging chain? That's the cable. A cable-stayed bridge skips the big curve: nearly straight diagonal cables run from the deck directly to the towers. France's Millau Viaduct, opened in 2004, is one, strung across the whole Tarn valley by architect Norman Foster and engineer Michel Virlogeux."
+    },
+    {
+      "id": "card.architecture.051.c4",
+      "type": "fact",
+      "fact": "The Forth Bridge (1890) balances on three giant cantilevers.",
+      "context": "A cantilever is a beam supported at one end only, like a diving board. Fowler and Baker's bridge joins three cantilevers with two suspended spans, and it was the world's first major steel structure. In their 1887 human model, Watanabe sat where a suspended span goes, the men's arms were in tension and their sticks in compression. It became a UNESCO World Heritage Site in 2015.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Best engineering diagram ever made: three people and not a single equation."
+      }
+    },
+    {
+      "id": "card.architecture.051.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.051.q1"
+    },
+    {
+      "id": "card.architecture.051.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.051.q2"
+    },
+    {
+      "id": "card.architecture.051.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.051.q3"
+    },
+    {
+      "id": "card.architecture.051.c8",
+      "type": "checkpoint",
+      "headline": "Bridges: spanned",
+      "learned": [
+        "Beams bend; arches push into strong foundations",
+        "Suspension decks hang from curved cables in tension",
+        "Cable-stayed: straight cables straight to the towers",
+        "Forth Bridge (1890): three steel cantilevers"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.marvel_forth_cantilever"
+      ],
+      "sourceCardIds": [
+        "card.architecture.051.c4",
+        "card.architecture.051.c1"
+      ],
+      "prompt": "In the 1887 human model of the Forth Bridge, what did Kaichi Watanabe, seated in the middle, stand for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The anchorage at one end of a cable",
+          "correct": false,
+          "rationale": "Anchorages hold a suspension bridge's cables at the ends."
+        },
+        {
+          "id": "b",
+          "label": "A suspended span between two cantilevers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The keystone at the top of an arch",
+          "correct": false,
+          "rationale": "The Forth Bridge uses cantilevers, not a stone arch."
+        },
+        {
+          "id": "d",
+          "label": "A curved cable holding up the deck",
+          "correct": false,
+          "rationale": "The Forth Bridge doesn't hang from curved cables."
+        }
+      ],
+      "explanation": "Fowler and Baker were the cantilevers, arms in tension and sticks in compression; Watanabe sat where a suspended span joins them.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.marvel_cable_stayed"
+      ],
+      "sourceCardIds": [
+        "card.architecture.051.c3"
+      ],
+      "prompt": "How does a cable-stayed bridge differ from a suspension bridge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its deck rests on a row of stone arches",
+          "correct": false,
+          "rationale": "Both kinds hang the deck from cables."
+        },
+        {
+          "id": "b",
+          "label": "Its cables are squeezed rather than stretched",
+          "correct": false,
+          "rationale": "Cables work in tension: they're stretched."
+        },
+        {
+          "id": "c",
+          "label": "Straight cables run from the deck to the towers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It has no towers, only cables to the shore",
+          "correct": false,
+          "rationale": "The cables run to towers."
+        }
+      ],
+      "explanation": "A suspension deck hangs from big curved cables running to anchorages; a cable-stayed deck is held by nearly straight cables running directly to the towers.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.marvel_bridge_types",
+        "concept.architecture.stand_arch_thrust"
+      ],
+      "sourceCardIds": [
+        "card.architecture.051.c2",
+        "card.architecture.004.c3"
+      ],
+      "prompt": "Why does an arch bridge need strong foundations, just like Level 4's arches?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It carries weight in compression and pushes outward into its supports",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its deck hangs from cables that pull the foundations up",
+          "correct": false,
+          "rationale": "That describes a suspension bridge's anchorages."
+        },
+        {
+          "id": "c",
+          "label": "It bends, stretching its underside",
+          "correct": false,
+          "rationale": "Bending belongs to beam bridges."
+        },
+        {
+          "id": "d",
+          "label": "It is always made of one massive stone",
+          "correct": false,
+          "rationale": "Arches are built of many small blocks."
+        }
+      ],
+      "explanation": "An arch carries its load mainly in compression and pushes outward at its feet (thrust), so its supports must be strong enough to resist that push.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_bridge_engineering",
+    "source.brit_suspension_bridge",
+    "source.brit_cable_stayed_bridge",
+    "source.brit_millau_viaduct",
+    "source.dezeen_millau_viaduct",
+    "source.brit_cantilever",
+    "source.hes_forth_bridge",
+    "source.glasgow_forth_watanabe",
+    "source.engineeringcom_forth_human_cantilever"
+  ],
+  "art": "technology.bridge"
+}

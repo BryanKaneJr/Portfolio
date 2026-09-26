@@ -1,0 +1,243 @@
+{
+  "id": "level.arts.architecture.055",
+  "skillId": "skill.arts.architecture",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Dams",
+  "objective": "After this level you can explain how dams hold back so much water.",
+  "summary": "Water pushes harder with depth, so dams thicken at the base. Gravity dams use weight, arch dams push into valley sides, embankments are earth or rock. Hoover Dam rose in cooled columns.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.marvel_dam_shape",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_hoover_dam",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.054"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Poured in one go, Hoover Dam would have taken 125 years to cool.",
+      "body": "Setting concrete gives off heat. Engineers calculated that a single giant pour would have stayed hot for 125 years, and the stresses would have cracked the dam. That was one problem. The first was bigger: how does a wall of concrete hold back a whole lake?"
+    },
+    {
+      "id": "card.architecture.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Deeper water pushes harder",
+      "body": "Water pressure increases with depth. Poke two holes in a full plastic bottle and water squirts faster from the lower one. So a dam must be thickest at the bottom, where the push is greatest. Hoover Dam is 660 feet thick at its base and just 45 feet at its crest: less a wall than a wedge."
+    },
+    {
+      "id": "card.architecture.055.c3",
+      "type": "comparison",
+      "headline": "Three ways to hold back a lake",
+      "items": [
+        {
+          "label": "Gravity dam",
+          "points": [
+            "Holds back water entirely by its own weight",
+            "Weight alone does the work"
+          ]
+        },
+        {
+          "label": "Arch dam",
+          "points": [
+            "Built in a narrow gorge",
+            "Its curve passes the water's push into the valley sides, like Level 4's arch"
+          ]
+        },
+        {
+          "label": "Embankment dam",
+          "points": [
+            "A huge mound of earth or rock fill",
+            "Suits wide valleys; increasingly common"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.architecture.055.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Built in blocks, chilled with pipes",
+      "body": "Hoover Dam, finished in 1936, is an arch-gravity dam: its weight and its arch action both carry the water. To beat the heat, it went up as separate columns rising in five-foot lifts. Steel pipes inside the concrete carried river water, then chilled water from a refrigeration plant. After 582 miles of pipe, the cooling was done by March 1935.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A dam with air conditioning on the inside. Just not for people."
+      }
+    },
+    {
+      "id": "card.architecture.055.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.055.q1"
+    },
+    {
+      "id": "card.architecture.055.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.055.q2"
+    },
+    {
+      "id": "card.architecture.055.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.055.q3"
+    },
+    {
+      "id": "card.architecture.055.c8",
+      "type": "checkpoint",
+      "headline": "Dams: holding",
+      "learned": [
+        "Water pushes harder with depth, so dams thicken at the base",
+        "Gravity: weight; arch: into the valley sides; embankment: earth or rock",
+        "Hoover is arch-gravity: both at once",
+        "Poured in cooled columns, not one 125-year block"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.marvel_hoover_dam"
+      ],
+      "sourceCardIds": [
+        "card.architecture.055.c1",
+        "card.architecture.055.c4"
+      ],
+      "prompt": "Why was Hoover Dam built as separate columns threaded with cooling pipes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To let the river keep flowing between the columns",
+          "correct": false,
+          "rationale": "The columns were joined into one dam."
+        },
+        {
+          "id": "b",
+          "label": "One pour would have taken 125 years to cool, and cracked",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Concrete could only be delivered in small trucks",
+          "correct": false,
+          "rationale": "Delivery wasn't the problem; heat was."
+        },
+        {
+          "id": "d",
+          "label": "To make the dam lighter so it could float",
+          "correct": false,
+          "rationale": "A dam relies on weight, not floating."
+        }
+      ],
+      "explanation": "Setting concrete makes heat; one pour would have taken 125 years to cool and cracked, so it rose in columns cooled by pipes.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.marvel_dam_shape"
+      ],
+      "sourceCardIds": [
+        "card.architecture.055.c2"
+      ],
+      "prompt": "Why is Hoover Dam 660 feet thick at its base but only 45 feet at its crest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The top carries a road, which must be narrow",
+          "correct": false,
+          "rationale": "The shape follows the water's push, not the road."
+        },
+        {
+          "id": "b",
+          "label": "Water pressure increases with depth, so the push is greatest at the bottom",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Concrete was running out by the time they reached the top",
+          "correct": false,
+          "rationale": "The shape was designed, not rationed."
+        },
+        {
+          "id": "d",
+          "label": "Thinner tops let spare water spill over",
+          "correct": false,
+          "rationale": "The taper is about pressure, not spilling."
+        }
+      ],
+      "explanation": "Water pushes harder the deeper it gets, so a dam must be thickest at the bottom.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.marvel_dam_shape",
+        "concept.architecture.stand_arch"
+      ],
+      "sourceCardIds": [
+        "card.architecture.055.c3",
+        "card.architecture.004.c3"
+      ],
+      "prompt": "An arch dam in a narrow gorge works like Level 4's arch. Where does its curve send the water's push?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Straight down into the riverbed only",
+          "correct": false,
+          "rationale": "The curve sends the push sideways into the valley walls."
+        },
+        {
+          "id": "b",
+          "label": "Up into the air",
+          "correct": false,
+          "rationale": "Water pushes on the dam; it can't push the load upward."
+        },
+        {
+          "id": "c",
+          "label": "Into the valley sides, like an arch's thrust",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Into cables anchored on the shore at both ends",
+          "correct": false,
+          "rationale": "Cables belong to suspension bridges."
+        }
+      ],
+      "explanation": "An arch passes its load into massive supports; an arch dam passes the water's push into the valley sides.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.usbr_hoover_concrete",
+    "source.usbr_hoover_faqs",
+    "source.asce_hoover_dam",
+    "source.schoolphysics_liquid_pressure",
+    "source.brit_dam",
+    "source.brit_arch_architecture"
+  ],
+  "art": "technology.dam"
+}

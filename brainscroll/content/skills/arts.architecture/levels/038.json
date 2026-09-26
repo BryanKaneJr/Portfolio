@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.architecture.038",
+  "skillId": "skill.arts.architecture",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Machu Picchu",
+  "objective": "After this level you can explain how the Inca built with stone and no mortar.",
+  "summary": "Machu Picchu's main walls are blocks fitted almost perfectly and held by gravity, not mortar. They can move in place in quakes, and half or more of the effort is underground.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.machupicchu_dry_stone",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.machupicchu_earthquakes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.machupicchu_foundations",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_load_path",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.037"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "At Machu Picchu, when an earthquake hits, only the restorations fall.",
+      "body": "That's how Yale archaeologist Richard Burger puts it. The Inca estate, probably built in the mid-15th century for the ruler Pachacuti, stands on main walls held together by gravity, not mortar. How does that work?"
+    },
+    {
+      "id": "card.architecture.038.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Held together by gravity",
+      "body": "The builders joined massive stone blocks almost perfectly, beside and on top of each other, with nothing in between. Some blocks are polygonal, each shaped exactly for its place in the wall; one famous stone in Cusco has 12 sides. The Inca knew about mortar. A few small structures on the site use it. They just left it out of the biggest walls."
+    },
+    {
+      "id": "card.architecture.038.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Walls that can shrug",
+      "body": "Those walls are thousands of interlocking, irregular blocks, and it's suggested that this makes them tougher in earthquakes: the stones can move in place. In a massive earthquake in 1650, many Spanish colonial buildings in Cusco collapsed, while the Inca walls there and at Machu Picchu were unharmed. One honest caveat from historian Stella Nair: the evidence is anecdotal, without actual seismic research.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A great story with a footnote. The footnote is part of the lesson."
+      }
+    },
+    {
+      "id": "card.architecture.038.c4",
+      "type": "fact",
+      "fact": "Most of the work is buried.",
+      "context": "Engineer Kenneth Wright estimates the Inca spent about 50 to 60 percent of their building effort underground, on foundations and site preparation. Under the main plaza, his team found topsoil over sandy gravel over a drainage layer of granite chips left from stone cutting. With about 76 inches of rain a year, Wright says, without good drainage there would be no Machu Picchu."
+    },
+    {
+      "id": "card.architecture.038.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.038.q1"
+    },
+    {
+      "id": "card.architecture.038.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.038.q2"
+    },
+    {
+      "id": "card.architecture.038.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.038.q3"
+    },
+    {
+      "id": "card.architecture.038.c8",
+      "type": "checkpoint",
+      "headline": "Machu Picchu: examined",
+      "learned": [
+        "An Inca estate, probably for Pachacuti",
+        "Main walls held by gravity and a precise fit, no mortar",
+        "Interlocking blocks can move in place; the evidence is anecdotal",
+        "Half or more of the effort is underground"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.machupicchu_dry_stone"
+      ],
+      "sourceCardIds": [
+        "card.architecture.038.c2",
+        "card.architecture.038.c1"
+      ],
+      "prompt": "What holds Machu Picchu's biggest walls together?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lime mortar mixed with sticky rice",
+          "correct": false,
+          "rationale": "That was the Ming in China."
+        },
+        {
+          "id": "b",
+          "label": "Steel bars hidden inside each block",
+          "correct": false,
+          "rationale": "The Inca had no steel."
+        },
+        {
+          "id": "c",
+          "label": "Gravity and a near-perfect fit",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Wooden pegs driven through the blocks",
+          "correct": false,
+          "rationale": "The blocks simply rest on each other."
+        }
+      ],
+      "explanation": "The blocks are joined almost perfectly beside and on top of each other and held by gravity; the biggest walls use no mortar.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.machupicchu_earthquakes"
+      ],
+      "sourceCardIds": [
+        "card.architecture.038.c3"
+      ],
+      "prompt": "Why might Machu Picchu's mortarless walls cope well with earthquakes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their interlocking blocks can move in place",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They were built far from any fault or quake zone",
+          "correct": false,
+          "rationale": "Cusco nearby was hit hard in 1650."
+        },
+        {
+          "id": "c",
+          "label": "Mortar was poured in after each quake",
+          "correct": false,
+          "rationale": "The main walls have no mortar."
+        },
+        {
+          "id": "d",
+          "label": "Seismic research has proven they cannot fall",
+          "correct": false,
+          "rationale": "Nair notes the evidence is anecdotal."
+        }
+      ],
+      "explanation": "The walls are thousands of interlocking, irregular blocks, and it is suggested this helps because the stones can move in place.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.machupicchu_foundations",
+        "concept.architecture.stand_load_path"
+      ],
+      "sourceCardIds": [
+        "card.architecture.038.c4",
+        "card.architecture.002.c3"
+      ],
+      "prompt": "Kenneth Wright found about 50 to 60 percent of the effort at Machu Picchu is underground. Which part of Level 2's load path is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The roof, where the load path begins",
+          "correct": false,
+          "rationale": "The underground work is at the other end."
+        },
+        {
+          "id": "b",
+          "label": "The live loads, like visiting crowds",
+          "correct": false,
+          "rationale": "Foundations are permanent structure."
+        },
+        {
+          "id": "c",
+          "label": "The wind load pushing on the walls",
+          "correct": false,
+          "rationale": "This is about what is below ground."
+        },
+        {
+          "id": "d",
+          "label": "The foundation and soil at its end",
+          "correct": true
+        }
+      ],
+      "explanation": "A load path runs from the roof through the walls to the foundation and into the soil; the Inca put huge effort into foundations and site preparation.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_machu_picchu",
+    "source.history_machu_picchu_construction",
+    "source.pbs_nova_wright_inca",
+    "source.pnnl_continuous_load_path"
+  ],
+  "art": "geo.mountains"
+}

@@ -1,0 +1,240 @@
+{
+  "id": "level.world_systems.government.024",
+  "skillId": "skill.world_systems.government",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Presidents and Prime Ministers",
+  "objective": "After this level you can compare presidential and parliamentary systems.",
+  "summary": "Parliaments choose prime ministers and can remove them by a no-confidence vote, as in 1979; presidents are elected for fixed terms and are also head of state. France mixes the two.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.executive_parliamentary_presidential",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.executive_confidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.parliament_jobs",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.023"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "On 28 March 1979, a British government lost a vote by one: 311 to 310.",
+      "body": "The House of Commons passed a motion of no confidence in Prime Minister James Callaghan's government, and he asked for a general election. A US president can't be sent packing by a vote like that. Why the difference? It comes down to where the leader's power comes from.",
+      "id": "card.government.024.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Prime ministers: chosen by parliament",
+      "body": "In a parliamentary system, the head of government, the prime minister, is selected by the legislature. Usually the party or coalition with the most seats forms the government. And what parliament gives, it can take away: a prime minister can be removed whenever they lose the confidence of a majority of parliament. That's the 1979 story.",
+      "id": "card.government.024.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Presidents: elected for a fixed term",
+      "body": "In a presidential system, the head of government is popularly elected to a fixed term and doesn't depend on the legislature for power. The United States is the classic case. There's a second hat, too. The head of state is a ceremonial role; the head of government has real power. A president wears both. In parliamentary systems they're split, like Germany's president and chancellor.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Two hats: one for ribbon-cutting, one for running things. Some leaders wear both at once."
+      },
+      "id": "card.government.024.c3"
+    },
+    {
+      "type": "comparison",
+      "headline": "Three ways to pick a leader",
+      "items": [
+        {
+          "label": "Parliamentary",
+          "points": [
+            "Prime minister chosen by the legislature",
+            "UK, Germany, India, Japan"
+          ]
+        },
+        {
+          "label": "Presidential",
+          "points": [
+            "President elected for a fixed term",
+            "United States"
+          ]
+        },
+        {
+          "label": "Semi-presidential",
+          "points": [
+            "Elected president plus a prime minister chosen by the legislature",
+            "France: both wield power"
+          ]
+        }
+      ],
+      "id": "card.government.024.c4"
+    },
+    {
+      "id": "card.government.024.c5",
+      "type": "mcq",
+      "questionId": "question.government.024.q1"
+    },
+    {
+      "id": "card.government.024.c6",
+      "type": "mcq",
+      "questionId": "question.government.024.q2"
+    },
+    {
+      "id": "card.government.024.c7",
+      "type": "recall",
+      "questionId": "question.government.024.q3"
+    },
+    {
+      "id": "card.government.024.c8",
+      "type": "checkpoint",
+      "headline": "Leaders: sorted",
+      "learned": [
+        "Parliamentary: the legislature selects the prime minister",
+        "Lose parliament's confidence and a PM can be removed",
+        "Presidential: elected for a fixed term",
+        "A president is head of state and of government",
+        "France is semi-presidential"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.executive_confidence"
+      ],
+      "sourceCardIds": [
+        "card.government.024.c1"
+      ],
+      "prompt": "By what margin did the UK Commons pass its 1979 no-confidence motion in Callaghan's government?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By 1 vote",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "By 10 votes",
+          "correct": false,
+          "rationale": "Much closer: 311 to 310."
+        },
+        {
+          "id": "c",
+          "label": "By 100 votes",
+          "correct": false,
+          "rationale": "Far closer than that: a single vote."
+        },
+        {
+          "id": "d",
+          "label": "It was unanimous",
+          "correct": false,
+          "rationale": "It was one of the narrowest votes possible: 311 to 310."
+        }
+      ],
+      "explanation": "The motion passed 311 votes to 310, a margin of one, and Callaghan asked for a general election.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.executive_parliamentary_presidential"
+      ],
+      "sourceCardIds": [
+        "card.government.024.c3"
+      ],
+      "prompt": "In a presidential system like the United States, who is head of state?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A monarch with a ceremonial role",
+          "correct": false,
+          "rationale": "In a presidential system the president holds this role."
+        },
+        {
+          "id": "b",
+          "label": "The leader of the largest party in the legislature",
+          "correct": false,
+          "rationale": "That describes a prime minister's route to power."
+        },
+        {
+          "id": "c",
+          "label": "The chief judge of the highest court",
+          "correct": false,
+          "rationale": "Judges aren't heads of state here."
+        },
+        {
+          "id": "d",
+          "label": "The president, who is also head of government",
+          "correct": true
+        }
+      ],
+      "explanation": "In presidential systems one person wears both hats: the president is head of state and head of government.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.executive_confidence",
+        "concept.government.parliament_jobs"
+      ],
+      "sourceCardIds": [
+        "card.government.024.c2",
+        "card.government.023.c3"
+      ],
+      "prompt": "Level 23 said a UK prime minister needs a Commons majority. In a parliamentary system, what can happen to a PM who loses it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nothing until their fixed term runs out",
+          "correct": false,
+          "rationale": "Fixed terms are a presidential feature."
+        },
+        {
+          "id": "b",
+          "label": "They can be removed from power",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They automatically become head of state",
+          "correct": false,
+          "rationale": "Losing confidence removes power; it doesn't add a role."
+        },
+        {
+          "id": "d",
+          "label": "The courts choose a new prime minister",
+          "correct": false,
+          "rationale": "Courts don't choose prime ministers."
+        }
+      ],
+      "explanation": "A prime minister can be removed whenever they lose the confidence of a majority of parliament.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.commonslibrary_confidence_motions",
+    "source.openstax_polisci_regimes",
+    "source.brit_parliamentary_system"
+  ],
+  "art": "money.capitol"
+}

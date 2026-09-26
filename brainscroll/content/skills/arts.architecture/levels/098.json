@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.architecture.098",
+  "skillId": "skill.arts.architecture",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Design for Everyone",
+  "objective": "After this level you can explain how buildings are made usable for everyone.",
+  "summary": "Curb cuts, won by disabled activists, help everyone. Universal design means usable by all people without special adaptation. US rules cap ramps at 1:12.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.future_curb_cut",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.future_universal_design",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.future_ramp_slope",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.vitruvian_triad",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.097"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1972, Berkeley cut a slope into one curb. Then everyone used it.",
+      "body": "Pressed by disabled activists, the city installed its first official curb cut at an intersection on Telegraph Avenue. (The very first curb cuts had appeared in Kalamazoo, Michigan, in 1945.) Then parents with strollers, workers pushing heavy carts and travelers wheeling luggage headed for them too."
+    },
+    {
+      "id": "card.architecture.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Designed for all, from the start",
+      "body": "The architect Ronald Mace coined a name for that way of thinking: universal design. NC State's Center for Universal Design, founded in 1989 under his guidance, defines it as design usable by all people, to the greatest extent possible, without the need for adaptation or specialized design. Its seven principles, published in 1997, start with Equitable Use: the same way of using a place for everyone, identical whenever possible, with nobody singled out."
+    },
+    {
+      "id": "card.architecture.098.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The one-in-twelve rule",
+      "body": "Some of it is plain arithmetic. The 2010 ADA Standards, the US accessibility rules, say a ramp run can be no steeper than 1:12: every inch of rise needs at least 12 inches of ramp. So a 6-inch step becomes a 6-foot ramp. Try it in your head with the front steps of your home.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Twelve to one: gentle enough for wheels, and your knees will quietly thank you too."
+      }
+    },
+    {
+      "id": "card.architecture.098.c4",
+      "type": "fact",
+      "fact": "Commodity, for everyone.",
+      "context": "Level 1's Vitruvius said good building needs commodity: usefulness to the people who use it. Universal design asks which people, and answers: all of them, as far as possible, without special adaptations. The curb cut shows why it pays. Built for wheelchair users, it helps parents with strollers, workers with carts and travelers with suitcases too."
+    },
+    {
+      "id": "card.architecture.098.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.098.q1"
+    },
+    {
+      "id": "card.architecture.098.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.098.q2"
+    },
+    {
+      "id": "card.architecture.098.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.098.q3"
+    },
+    {
+      "id": "card.architecture.098.c8",
+      "type": "checkpoint",
+      "headline": "Design for everyone: open",
+      "learned": [
+        "Berkeley's 1972 curb cut helped far more than wheelchair users",
+        "Universal design: usable by all, without adaptation",
+        "Ronald Mace's seven principles start with Equitable Use",
+        "US ramps: no steeper than 1:12"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.future_ramp_slope"
+      ],
+      "sourceCardIds": [
+        "card.architecture.098.c3"
+      ],
+      "prompt": "Under the 2010 ADA Standards, what is the steepest slope allowed for a ramp run?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1:4",
+          "correct": false,
+          "rationale": "Far too steep; the limit is 1:12."
+        },
+        {
+          "id": "b",
+          "label": "1:8",
+          "correct": false,
+          "rationale": "Still too steep; one in twelve is the limit."
+        },
+        {
+          "id": "c",
+          "label": "1:12",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "1:20",
+          "correct": false,
+          "rationale": "That gentler slope is allowed, but it isn't the limit."
+        }
+      ],
+      "explanation": "Ramp runs may be no steeper than 1:12: one unit of rise for every 12 of run.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.future_curb_cut"
+      ],
+      "sourceCardIds": [
+        "card.architecture.098.c1",
+        "card.architecture.098.c4"
+      ],
+      "prompt": "Why is the curb cut the classic example of universal design?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the first US law about buildings",
+          "correct": false,
+          "rationale": "It's a piece of design, not a law."
+        },
+        {
+          "id": "b",
+          "label": "Built for wheelchair users, it helps many others",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It removed the need for sidewalks",
+          "correct": false,
+          "rationale": "Sidewalks stay; only the curb is sloped."
+        },
+        {
+          "id": "d",
+          "label": "Ronald Mace designed the first one",
+          "correct": false,
+          "rationale": "Berkeley's came from activists pressing the city."
+        }
+      ],
+      "explanation": "Curb cuts made for wheelchair users also help parents with strollers, workers with carts and travelers with luggage.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.future_universal_design",
+        "concept.architecture.vitruvian_triad"
+      ],
+      "sourceCardIds": [
+        "card.architecture.098.c4",
+        "card.architecture.001.c2"
+      ],
+      "prompt": "Universal design widens which of Vitruvius's three conditions of good building from Level 1?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Firmness: making buildings stronger",
+          "correct": false,
+          "rationale": "Universal design is about users, not strength."
+        },
+        {
+          "id": "b",
+          "label": "Delight: making buildings more beautiful",
+          "correct": false,
+          "rationale": "It is about use, not beauty."
+        },
+        {
+          "id": "c",
+          "label": "Venustas: the Latin word for beauty",
+          "correct": false,
+          "rationale": "Venustas is delight, not usefulness."
+        },
+        {
+          "id": "d",
+          "label": "Commodity: usefulness to the people using it",
+          "correct": true
+        }
+      ],
+      "explanation": "Commodity means usefulness to the people who use a building; universal design makes that mean all people.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ssir_curb_cut_effect",
+    "source.ncsu_universal_design",
+    "source.ada_2010_standards",
+    "source.sep_architecture_tradition",
+    "source.brit_architecture"
+  ],
+  "art": "arch.blueprint"
+}

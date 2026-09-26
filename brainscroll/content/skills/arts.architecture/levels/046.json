@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.architecture.046",
+  "skillId": "skill.arts.architecture",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Roman Homes",
+  "objective": "After this level you can describe Roman houses and apartment blocks.",
+  "summary": "The rich Roman domus opened to the sky through its atrium. Everyone else lived in insulae: brick-and-concrete blocks of five or more stories, with less water higher up.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.home_roman_domus",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.home_roman_insula",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_roman_concrete",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.045"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In the Roman Empire's great cities, a house of your own was for the rich.",
+      "body": "Crowding meant that by early imperial times, the private house had given way to the insula, a shared apartment block, for everyone but the very wealthy. So there were two ways to live in Rome: the rich family's domus, and everyone else's insula."
+    },
+    {
+      "id": "card.architecture.046.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A house around a hole in the roof",
+      "body": "A wealthy Roman's house centered on the atrium, an open central court. Above it, an opening in the roof, the compluvium, let the rain in. Below it, a marble basin, the impluvium, caught the water. Larger houses added a colonnaded court farther in, the peristyle, with the family's private rooms clustered around it. Rain, delivered to the living room on purpose."
+    },
+    {
+      "id": "card.architecture.046.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "An island of apartments",
+      "body": "Insula is Latin for \"island\": a block rising from the street. Insulae were built of brick covered with concrete and were often five or more stories high, despite a height limit of about 21 m under the emperor Augustus. At street level were workshops and shops. Above them, homes reached by a shared staircase, taking light and air from the street and an inner court."
+    },
+    {
+      "id": "card.architecture.046.c4",
+      "type": "fact",
+      "fact": "In an insula, the higher you lived, the harder life got.",
+      "context": "Piped water reached only the lower apartments, so people upstairs had to use public facilities. Many insulae were cheaply built, and collapse and fire were constant dangers. Picture carrying every bucket of water up five flights, in a building that might burn. Nobody was bragging about the penthouse.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Top floor, great views, no water, fire risk. The listing would need creative writing."
+      }
+    },
+    {
+      "id": "card.architecture.046.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.046.q1"
+    },
+    {
+      "id": "card.architecture.046.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.046.q2"
+    },
+    {
+      "id": "card.architecture.046.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.046.q3"
+    },
+    {
+      "id": "card.architecture.046.c8",
+      "type": "checkpoint",
+      "headline": "Roman homes: toured",
+      "learned": [
+        "Most people in Roman cities lived in insulae",
+        "Domus: atrium, compluvium above, impluvium below, peristyle",
+        "Insulae: brick and concrete, often five or more stories",
+        "Upper floors: no piped water, more danger"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.home_roman_domus"
+      ],
+      "sourceCardIds": [
+        "card.architecture.046.c2"
+      ],
+      "prompt": "In a Roman domus, what was the impluvium?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The opening in the roof above the atrium",
+          "correct": false,
+          "rationale": "That's the compluvium."
+        },
+        {
+          "id": "b",
+          "label": "The family's private dining room",
+          "correct": false,
+          "rationale": "The impluvium was a basin for rainwater."
+        },
+        {
+          "id": "c",
+          "label": "A basin under the roof opening that caught rainwater",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The shop at the front of the house",
+          "correct": false,
+          "rationale": "The impluvium sat in the atrium, catching rain."
+        }
+      ],
+      "explanation": "Rain fell through the compluvium, the opening in the roof, into the impluvium, a marble basin in the atrium below.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.home_roman_insula"
+      ],
+      "sourceCardIds": [
+        "card.architecture.046.c4"
+      ],
+      "prompt": "Why was life harder on an insula's upper floors?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Piped water reached only the lower apartments",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The law banned families above the third floor",
+          "correct": false,
+          "rationale": "The problem was water and safety, not a ban."
+        },
+        {
+          "id": "c",
+          "label": "Upper floors had no windows at all",
+          "correct": false,
+          "rationale": "Homes took light from the street and a court."
+        },
+        {
+          "id": "d",
+          "label": "Only shops were allowed upstairs",
+          "correct": false,
+          "rationale": "Shops were at street level."
+        }
+      ],
+      "explanation": "Water reached only the lower apartments, so upper residents relied on public facilities, and collapse and fire were constant dangers.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.home_roman_insula",
+        "concept.architecture.stand_roman_concrete"
+      ],
+      "sourceCardIds": [
+        "card.architecture.046.c3",
+        "card.architecture.007.c2"
+      ],
+      "prompt": "Rome's insulae were brick covered with concrete. Besides lime, what went into Level 7's Roman concrete?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Portland cement and steel bars",
+          "correct": false,
+          "rationale": "That's modern reinforced concrete."
+        },
+        {
+          "id": "b",
+          "label": "Sand and fired clay tiles only",
+          "correct": false,
+          "rationale": "The Roman recipe used volcanic material."
+        },
+        {
+          "id": "c",
+          "label": "Mud, straw and water",
+          "correct": false,
+          "rationale": "That's adobe, from Level 44."
+        },
+        {
+          "id": "d",
+          "label": "Volcanic ash and chunks of volcanic rock",
+          "correct": true
+        }
+      ],
+      "explanation": "Insulae were built of brick covered with concrete, and Roman concrete mixed lime with volcanic ash and chunks of volcanic rock.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_apartment_house",
+    "source.brit_atrium",
+    "source.brit_domus",
+    "source.brit_insula_apartment_block"
+  ],
+  "art": "rome.house"
+}

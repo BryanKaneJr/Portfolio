@@ -1,0 +1,240 @@
+{
+  "id": "level.world_systems.government.097",
+  "skillId": "skill.world_systems.government",
+  "number": 97,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Local Government Up Close",
+  "objective": "After this level you can describe how a city or town council works.",
+  "summary": "Cities use designs like council-manager and mayor-council. English council meetings are public, agendas out five clear days ahead; India's gram sabha includes every village voter.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.localcouncil_forms",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.localcouncil_public_access",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.levels_canada",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.levels_india_panchayats",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.096"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In an Indian village, every voter belongs to the local assembly.",
+      "body": "India's gram sabha is made up of everyone on the village panchayat's electoral roll, and it approves development plans before the panchayat carries them out. Remember Level 8's panchayats? This is the room they answer to. A big city can't fit every voter in one room, though. So how does an elected council run one?",
+      "id": "card.government.097.c1"
+    },
+    {
+      "type": "comparison",
+      "headline": "Who runs the city day to day? Two US designs",
+      "items": [
+        {
+          "label": "Council-manager",
+          "points": [
+            "Elected council makes policy and sets the budget",
+            "It appoints a professional city manager to run daily operations"
+          ]
+        },
+        {
+          "label": "Mayor-council",
+          "points": [
+            "Mayor elected separately, often full-time",
+            "Mayor has major administrative and budget powers; council legislates"
+          ]
+        }
+      ],
+      "id": "card.government.097.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Open doors, published papers",
+      "body": "In England, the Local Government Act 1972 says a council meeting is open to the public, except when the public is lawfully kept out, for example for confidential matters. The agenda and reports must be open for inspection at least five clear days before. So you can read what's coming, then walk in and watch it being decided.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Five clear days is plenty of time to read an agenda. Few people do."
+      },
+      "id": "card.government.097.c3"
+    },
+    {
+      "type": "text",
+      "role": "connect",
+      "headline": "What's on the agenda?",
+      "body": "So what will you actually hear about? Level 8's list for Canada's municipal governments is a good guide: fire protection, local police, public transit, parks, waste management, water supply and local roads. National politics gets the headlines. Your council decides whether the bins get emptied on time.",
+      "id": "card.government.097.c4"
+    },
+    {
+      "id": "card.government.097.c5",
+      "type": "mcq",
+      "questionId": "question.government.097.q1"
+    },
+    {
+      "id": "card.government.097.c6",
+      "type": "mcq",
+      "questionId": "question.government.097.q2"
+    },
+    {
+      "id": "card.government.097.c7",
+      "type": "recall",
+      "questionId": "question.government.097.q3"
+    },
+    {
+      "id": "card.government.097.c8",
+      "type": "checkpoint",
+      "headline": "Local government: up close",
+      "learned": [
+        "Council-manager: the council hires a city manager",
+        "Mayor-council: a separately elected mayor runs things",
+        "English council meetings are open; agendas five clear days ahead",
+        "India's gram sabha includes every village voter"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.097.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.localcouncil_public_access"
+      ],
+      "sourceCardIds": [
+        "card.government.097.c3"
+      ],
+      "prompt": "In England, how far ahead must a council's agenda be open to public inspection?",
+      "options": [
+        {
+          "id": "a",
+          "label": "At least one clear day",
+          "correct": false,
+          "rationale": "Longer: at least five clear days."
+        },
+        {
+          "id": "b",
+          "label": "At least five clear days",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "At least one month",
+          "correct": false,
+          "rationale": "Shorter than that: five clear days."
+        },
+        {
+          "id": "d",
+          "label": "Only after the meeting",
+          "correct": false,
+          "rationale": "It must be open before the meeting."
+        }
+      ],
+      "explanation": "The Local Government Act 1972 requires the agenda and reports to be open for inspection at least five clear days before the meeting.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.097.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.localcouncil_forms"
+      ],
+      "sourceCardIds": [
+        "card.government.097.c2"
+      ],
+      "prompt": "In a US city with the council-manager form, who runs day-to-day operations?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The mayor, elected separately from the council",
+          "correct": false,
+          "rationale": "That's the mayor-council form."
+        },
+        {
+          "id": "b",
+          "label": "A committee of all residents",
+          "correct": false,
+          "rationale": "Residents elect the council; they don't run operations."
+        },
+        {
+          "id": "c",
+          "label": "The state governor",
+          "correct": false,
+          "rationale": "City operations are run locally."
+        },
+        {
+          "id": "d",
+          "label": "A professional city manager appointed by the council",
+          "correct": true
+        }
+      ],
+      "explanation": "The council makes policy and sets the budget, then appoints a professional city manager to run daily operations.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.097.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.localcouncil_public_access",
+        "concept.government.levels_india_panchayats"
+      ],
+      "sourceCardIds": [
+        "card.government.097.c1",
+        "card.government.008.c4"
+      ],
+      "prompt": "Level 8 introduced India's village panchayats. What is the gram sabha's role alongside a village panchayat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's the national parliament's village office",
+          "correct": false,
+          "rationale": "It's the village's own voters, not a national body."
+        },
+        {
+          "id": "b",
+          "label": "All village voters, who approve plans before the panchayat acts",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A court that hears the village's legal cases",
+          "correct": false,
+          "rationale": "It approves plans; it isn't a court."
+        },
+        {
+          "id": "d",
+          "label": "A tax office that collects village taxes",
+          "correct": false,
+          "rationale": "Its role here is approving development plans."
+        }
+      ],
+      "explanation": "The gram sabha is everyone on the village electoral roll, and it approves development plans before the panchayat carries them out.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ies_gram_sabha",
+    "source.ies_panchayati_raj",
+    "source.nlc_forms_local_government",
+    "source.legislation_lga1972_s100a",
+    "source.legislation_lga1972_s100b",
+    "source.elections_canada_levels"
+  ],
+  "art": "medieval.town"
+}

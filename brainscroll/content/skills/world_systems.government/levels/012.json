@@ -1,0 +1,214 @@
+{
+  "id": "level.world_systems.government.012",
+  "skillId": "skill.world_systems.government",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Kings Who Reign but Do Not Rule",
+  "objective": "After this level you can explain constitutional monarchy.",
+  "summary": "In a constitutional monarchy the monarch is a symbolic head of state who reigns but does not govern. Sweden made its King's role entirely ceremonial in 1974; Japan's Emperor is a symbol.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.constitutional_monarchy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.constitutional_monarchy_sweden_japan",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.monarchy_absolute",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.011"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Sweden has a king. He has no political power at all.",
+      "body": "Under Sweden's 1974 Instrument of Government, the King is still head of state, but he has no political power; his role is entirely ceremonial. A king who can't govern sounds like a contradiction. It's actually one of the most common kinds of monarchy.",
+      "id": "card.government.012.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Reigns, but does not govern",
+      "body": "Britannica defines constitutional monarchy as a system where a monarch shares power with a constitutionally organized government and acts as a symbolic head of state. The French politician Adolphe Thiers put it in five words: the king \"reigns but does not govern.\" Not every king liked the idea. France's Louis-Philippe, who took the throne in 1830, refused to settle for that symbolic role.",
+      "id": "card.government.012.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "Sweden gave up royal power in two big steps.",
+      "context": "In 1809, Sweden abolished royal absolutism: the King and the Riksdag, Sweden's parliament, were meant to share power. The 1974 Instrument of Government finished the job. The King stayed head of state, with a role that is entirely ceremonial. Level 11's Louis XIV would have found the job description baffling.",
+      "id": "card.government.012.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Japan's Emperor: a living symbol",
+      "body": "Japan's constitution makes the Emperor \"the symbol of the State and of the unity of the people\" and gives him no powers related to government. Britannica lists Japan alongside the United Kingdom, Belgium, Norway and Thailand as constitutional monarchies. So a crown can mean very different things: Louis XIV's unlimited power, or a symbol a whole country shares.",
+      "id": "card.government.012.c4"
+    },
+    {
+      "id": "card.government.012.c5",
+      "type": "mcq",
+      "questionId": "question.government.012.q1"
+    },
+    {
+      "id": "card.government.012.c6",
+      "type": "mcq",
+      "questionId": "question.government.012.q2"
+    },
+    {
+      "id": "card.government.012.c7",
+      "type": "recall",
+      "questionId": "question.government.012.q3"
+    },
+    {
+      "id": "card.government.012.c8",
+      "type": "checkpoint",
+      "headline": "Constitutional monarchy: explained",
+      "learned": [
+        "The monarch reigns but does not govern",
+        "Sweden ended royal absolutism in 1809",
+        "Since 1974, Sweden's King is purely ceremonial",
+        "Japan's Emperor is a symbol with no governing powers"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.constitutional_monarchy"
+      ],
+      "sourceCardIds": [
+        "card.government.012.c2"
+      ],
+      "prompt": "Adolphe Thiers summed up the monarch's role in a constitutional monarchy how?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The king governs but does not reign",
+          "correct": false,
+          "rationale": "Thiers put it the other way round."
+        },
+        {
+          "id": "b",
+          "label": "The king rules by the grace of God",
+          "correct": false,
+          "rationale": "That's the divine right of kings from Level 11."
+        },
+        {
+          "id": "c",
+          "label": "The king is elected every five years",
+          "correct": false,
+          "rationale": "That's Malaysia's arrangement, not Thiers's phrase."
+        },
+        {
+          "id": "d",
+          "label": "The king reigns but does not govern",
+          "correct": true
+        }
+      ],
+      "explanation": "Thiers's phrase for a strictly symbolic monarch: one who \"reigns but does not govern\".",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.constitutional_monarchy_sweden_japan"
+      ],
+      "sourceCardIds": [
+        "card.government.012.c3"
+      ],
+      "prompt": "What did Sweden's 1974 Instrument of Government do to the King's role?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It abolished the monarchy entirely",
+          "correct": false,
+          "rationale": "The King is still head of state."
+        },
+        {
+          "id": "b",
+          "label": "It made his role entirely ceremonial",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It restored the power he lost in 1809",
+          "correct": false,
+          "rationale": "The opposite: it removed his remaining political power."
+        },
+        {
+          "id": "d",
+          "label": "It made the King an elected official",
+          "correct": false,
+          "rationale": "Sweden's King isn't elected."
+        }
+      ],
+      "explanation": "The King remained head of state, but with no political power; his role became entirely ceremonial.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.constitutional_monarchy",
+        "concept.government.monarchy_absolute"
+      ],
+      "sourceCardIds": [
+        "card.government.012.c2",
+        "card.government.011.c4"
+      ],
+      "prompt": "Kings who reign but do not rule: what separates a constitutional monarch from Level 11's absolute monarch?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only the absolute monarch is head of state",
+          "correct": false,
+          "rationale": "Both are heads of state."
+        },
+        {
+          "id": "b",
+          "label": "The constitutional monarch claims power from God",
+          "correct": false,
+          "rationale": "That was the absolute monarch's defense."
+        },
+        {
+          "id": "c",
+          "label": "One is a symbol; the other holds unlimited power",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only the absolute monarch inherits the throne",
+          "correct": false,
+          "rationale": "Inheritance isn't the difference; power is."
+        }
+      ],
+      "explanation": "An absolute monarch holds unlimited, centralized authority. A constitutional monarch is a symbolic head of state while a constitutional government governs.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.riksdagen_instrument_of_government_50",
+    "source.brit_monarchy",
+    "source.brit_history_france_1815_1940",
+    "source.kunaicho_emperor"
+  ],
+  "art": "medieval.crown"
+}

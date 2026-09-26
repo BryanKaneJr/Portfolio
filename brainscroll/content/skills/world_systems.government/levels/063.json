@@ -1,0 +1,250 @@
+{
+  "id": "level.world_systems.government.063",
+  "skillId": "skill.world_systems.government",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Voting Systems",
+  "objective": "After this level you can compare winner-take-all and proportional voting.",
+  "summary": "FPTP elects each district's top vote-getter; PR matches seats to votes; ranked systems transfer preferences. New Zealand moved to MMP. Arrow showed every system trades something.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.election_fptp",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_proportional",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_ranked_choice",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.062"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1978, one New Zealand party won the most votes. The other one won power.",
+      "body": "It happened again in 1981. Both times Labour won more votes nationwide, but National won more seats and kept governing, and criticism of the voting system grew. How can that happen? It depends on how votes turn into seats.",
+      "id": "card.government.063.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "First past the post",
+      "body": "In first-past-the-post, used in the UK, Canada, India and the United States, each district elects one member: whoever gets the most votes, majority or not. Win lots of districts narrowly and you can take more seats with fewer votes. In the 1950s the political scientist Maurice Duverger observed that this system tends to squeeze politics into two big parties.",
+      "id": "card.government.063.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Proportional representation",
+      "body": "Proportional representation aims straight at New Zealand's problem: a party's share of the votes becomes a matching share of seats. Districts elect several members; in Israel and the Netherlands the whole country is one district. New Zealand switched. A Royal Commission recommended Germany's mixed system (MMP) in 1986, and from 1996 voters got two votes: one for a local MP, one for a party.",
+      "id": "card.government.063.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Ranked choice",
+      "body": "Ranked systems ask for more than one choice. Australia's House of Representatives uses the Alternative Vote: rank the candidates, and if nobody has a majority, the least successful are eliminated and their votes pass to next preferences until someone does. Ireland's Single Transferable Vote uses rankings in districts that elect several members, keeping results fairly proportional.",
+      "id": "card.government.063.c4"
+    },
+    {
+      "type": "comparison",
+      "headline": "Every system gives something up",
+      "items": [
+        {
+          "label": "First past the post",
+          "points": [
+            "Simple, with a clear local member",
+            "Often single-party governments",
+            "Can shut smaller parties out"
+          ]
+        },
+        {
+          "label": "Proportional",
+          "points": [
+            "Few wasted votes; smaller parties get in",
+            "Critics: coalitions and fragmented parties"
+          ]
+        },
+        {
+          "label": "Arrow's warning",
+          "points": [
+            "1951: no way of combining rankings meets every fairness condition at once",
+            "It won him a Nobel Prize in 1972"
+          ]
+        }
+      ],
+      "mascot": {
+        "pose": "idea",
+        "line": "The IDEA handbook's trade-offs plus Arrow's proof: choosing a voting system means choosing which flaw you can live with."
+      },
+      "id": "card.government.063.c5"
+    },
+    {
+      "id": "card.government.063.c6",
+      "type": "mcq",
+      "questionId": "question.government.063.q1"
+    },
+    {
+      "id": "card.government.063.c7",
+      "type": "mcq",
+      "questionId": "question.government.063.q2"
+    },
+    {
+      "id": "card.government.063.c8",
+      "type": "mcq",
+      "questionId": "question.government.063.q3"
+    },
+    {
+      "id": "card.government.063.c9",
+      "type": "checkpoint",
+      "headline": "Voting systems: compared",
+      "learned": [
+        "FPTP: most votes in each district wins the seat",
+        "Duverger: FPTP tends toward two big parties",
+        "PR: seats match vote shares; coalitions are common",
+        "Ranked systems transfer votes by preference"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.election_fptp"
+      ],
+      "sourceCardIds": [
+        "card.government.063.c2"
+      ],
+      "prompt": "Under first-past-the-post, who wins a district's seat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only a candidate with over half the votes",
+          "correct": false,
+          "rationale": "FPTP needs the most votes, not a majority."
+        },
+        {
+          "id": "b",
+          "label": "The candidate with the most votes, even without a majority",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Parties share the seat by vote share",
+          "correct": false,
+          "rationale": "One member per district; no sharing."
+        },
+        {
+          "id": "d",
+          "label": "Whoever leads after preferences are transferred",
+          "correct": false,
+          "rationale": "That's the Alternative Vote."
+        }
+      ],
+      "explanation": "In first-past-the-post, each district elects the candidate with more votes than any other, majority or not.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.election_proportional"
+      ],
+      "sourceCardIds": [
+        "card.government.063.c5"
+      ],
+      "prompt": "According to the trade-offs in this level, what do critics most often say proportional systems lead to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Coalitions and fragmented parties",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Smaller parties being shut out",
+          "correct": false,
+          "rationale": "That's the usual criticism of FPTP."
+        },
+        {
+          "id": "c",
+          "label": "Large numbers of wasted votes",
+          "correct": false,
+          "rationale": "PR is praised for wasting very few votes."
+        },
+        {
+          "id": "d",
+          "label": "A strict two-party system",
+          "correct": false,
+          "rationale": "Duverger linked two parties to FPTP."
+        }
+      ],
+      "explanation": "PR wastes few votes and lets smaller parties in, but critics say it tends to bring coalitions and fragmented parties.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.election_fptp",
+        "concept.government.election_proportional"
+      ],
+      "sourceCardIds": [
+        "card.government.063.c1",
+        "card.government.063.c3"
+      ],
+      "prompt": "New Zealand's 1978 and 1981 results (more votes, fewer seats) fed criticism of its system. What did the country eventually adopt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A second round of voting in each district",
+          "correct": false,
+          "rationale": "New Zealand chose a proportional system instead."
+        },
+        {
+          "id": "b",
+          "label": "A ban on third parties",
+          "correct": false,
+          "rationale": "New Zealand made its system more proportional, not less."
+        },
+        {
+          "id": "c",
+          "label": "Presidential elections",
+          "correct": false,
+          "rationale": "The change was to how Parliament is elected."
+        },
+        {
+          "id": "d",
+          "label": "Germany's mixed member proportional system, MMP",
+          "correct": true
+        }
+      ],
+      "explanation": "A Royal Commission recommended Germany's MMP in 1986, and New Zealand first voted under it in 1996.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nzhistory_royal_commission_electoral",
+    "source.idea_electoral_system_design",
+    "source.oxford_reference_duverger_law",
+    "source.nzhistory_first_mmp_election",
+    "source.aec_preferential_voting",
+    "source.sep_arrows_theorem"
+  ],
+  "art": "gov.ballot-box"
+}
