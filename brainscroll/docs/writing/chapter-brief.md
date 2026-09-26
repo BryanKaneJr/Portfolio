@@ -44,7 +44,7 @@ Keep it light: one step of reasoning, the same word budgets, answers still state
 
 ## Dr. Scroll: a teacher, not a comedian
 
-Dr. Scroll's card asides (`"mascot": { "pose", "line" }`) are optional, at most two per level, and rarer is better. When a level has one, make it a **teaching move**:
+Dr. Scroll's card asides (`"mascot": { "pose", "line" }`) are optional, at most one per level, and rarer is better (about a third of levels). When a level has one, make it a **teaching move**:
 
 - **Keep this:** "If you remember one thing from this level, make it this."
 - **Don't memorize the detail:** "You don't need the exact date. Remember the order."

@@ -107,8 +107,8 @@ export const SKILL_GUIDE_POSE: Readonly<Record<string, MascotPose>> = {
 export const QUIET_MASCOT_POSES = ['pointing', 'thinking', 'idea', 'explaining', 'magnifier', 'whisper', 'thumbs-up', 'oops', 'checkpoint'] as const satisfies readonly MascotPose[];
 export type QuietMascotPose = (typeof QUIET_MASCOT_POSES)[number];
 
-/** Most a level should use: he stays special. More is a validator warning. */
-export const MAX_MASCOT_ASIDES_PER_LEVEL = 2;
+/** Most a level should use (owner call, 2026-09-26): he speaks rarely, as a teacher. More is a validator warning. */
+export const MAX_MASCOT_ASIDES_PER_LEVEL = 1;
 
 /** Longest line he says in one bubble. He's a sidekick, not a lecturer. */
 export const MASCOT_LINE_MAX = 140;

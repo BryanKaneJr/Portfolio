@@ -118,7 +118,7 @@ A learning card (never a question card) can carry an optional Dr. Scroll aside: 
 
 - **Poses:** calm ones only: `pointing`, `thinking`, `idea`, `explaining`, `magnifier`, `whisper`, `thumbs-up`, `oops`. Anything louder is a validation error.
 - **The line:** at most 140 characters, in his voice (warm, delighted, never scolding). It reacts to the card. **It never adds a new fact**, because asides aren't in the claim ledger and aren't fact-checked.
-- **How often:** at most 2 per level (more is a warning), and most levels need none. He stays special.
+- **How often:** at most one per level (more is a warning), and most levels need none: about a third of levels carry one. He stays special.
 - **What for:** a teaching move, not just a reaction: "keep this", "don't memorize the detail, remember the order", "people mix these two up", or "this connects to Level N / sets up what's next". A joke is welcome when it carries the point. Details in `docs/writing/chapter-brief.md`.
 - The content admin has a "Dr. Scroll" pose picker and a "Says" field on every learning card. See `docs/mascot.md`.
 
