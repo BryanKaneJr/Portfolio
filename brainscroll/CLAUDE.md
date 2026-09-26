@@ -19,6 +19,8 @@ Read `docs/product-rules.md` before changing anything that touches progression, 
 
 - **No em dashes (U+2014) in anything BrainScroll-authored**: curriculum, UI copy, docs, errors, comments, generated content. Rewrite the sentence (comma, colon, semicolon, parentheses, period or conjunction); never substitute mechanically. Only verbatim source quotes (`supportingQuote`) and source title/publisher/URL are exempt. `validate:content` and `lint:copy` (both in `check`) enforce it; see `docs/content-guide.md` "Editorial rules".
 
+- **Never send the owner's personal details anywhere.** Scripts, fact-checkers and agents that make web requests must not put an email address, name or username in a User-Agent, query string, header or payload. Use `User-Agent: BrainScroll content review` (no contact address). This applies to briefs you write for subagents too: tell them.
+
 - The server owns completion, XP, the daily allowance and entitlements. The client animates results returned by `complete_level`; it never computes awards itself.
 - XP is an immutable ledger (`xp_events`) with a unique `(user_id, idempotency_key)`. Never add a mutable XP counter as the source of truth.
 - Visible skill level = highest canonical level cleared. It is never derived from XP.
