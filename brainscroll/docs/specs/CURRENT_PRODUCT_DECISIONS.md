@@ -286,7 +286,7 @@ A subject masters like a skill band: clearing 100 levels in it earns a ★ after
 
 Owner decisions, 2026-09-25.
 
-- **Home is the World Map** of the subjects, RPG-inspired: each subject is an island showing its landmark and your level in it (a ring filling toward Lv. 100, gold with ★ once mastered). The subject you're playing flies a flag, with Dr. Scroll beside it. A Current Quest card (your skill, its level, the next level) continues where you left off.
+- **Home is the World Map** of the subjects, RPG-inspired: each subject is an island showing its landmark and your level in it (a ring filling toward Lv. 100, gold with ★ once mastered). The subject you're playing flies a flag, with Dr. Scroll beside it. A Current Quest card (your skill, its level, the next level) continues where you left off. Under it, **Choose for me** (substance audit idea 2, owner: "Rewrite the weak links, then do Choose For Me", 2026-09-26) offers one other skill with its next level: never the current one, a different subject, usually one you haven't started and sometimes one you left partway. "Pick again" moves on, and Start opens that level directly. It's smart randomness (`chooseForMe` in core), not a recommender, and it hides once today's new levels are used.
 - **Tapping a subject** opens its skill's map. A subject with more than one playable skill opens its region first, to pick the skill. The skill map's back arrow returns to the region or the World Map.
 - **Due reviews** ("N things worth refreshing", Start review) are offered on the World Map, the category page. A skill's map shows only its bar and its map. The Review tab and Daily Knowledge Complete still offer review.
 

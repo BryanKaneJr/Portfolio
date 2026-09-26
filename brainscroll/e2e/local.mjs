@@ -138,6 +138,7 @@ try {
   // A second skill: choosing it on the Skills tab makes Home follow it.
   await page.getByRole('tab', { name: /Skills/ }).click();
   await page.waitForTimeout(600);
+  check((await exactButton(page, 'Choose for me').count()) === 0, 'Choose for me is hidden once today\'s new levels are used');
   // Choosing a skill makes it the one Home follows, and Home shows its map.
   await button(page, 'Open Ancient Rome').click();
   await page.waitForTimeout(800);
@@ -163,6 +164,21 @@ try {
   check(/Hi, I'm Dr\. Scroll/.test(await bodyText(page)), 'a new account on the same device gets its own onboarding');
   await onboard(page, { start: false });
   check((await bodyText(page)).includes('Astronomy · Lv. 0'), 'and none of the first account\'s progress');
+  // Choose For Me: another skill, usually new, from another subject; straight into its next level.
+  await exactButton(page, 'Choose for me').click();
+  await page.waitForTimeout(600);
+  const pickName = async () => (await bodyText(page)).match(/Chosen for you · new\s*([^\n]+)/i)?.[1]?.trim();
+  const pick1 = await pickName();
+  check(!!pick1 && pick1 !== 'Astronomy' && /Start Level 1/i.test(await bodyText(page)), `Choose for me offers another skill's next level (${pick1})`);
+  await exactButton(page, 'Pick again').click();
+  await page.waitForTimeout(600);
+  const pick2 = await pickName();
+  check(!!pick2 && pick2 !== pick1, `"Pick again" offers a different one (${pick2})`);
+  await exactButton(page, 'Start Level 1').click();
+  await page.waitForTimeout(1000);
+  check((await page.getByRole('button', { name: 'Report a problem' }).count()) > 0, 'Start drops straight into the level');
+  await home(page);
+  check((await bodyText(page)).includes(`${pick2} · Lv. 0`), 'and that skill becomes the Current Quest');
   await profile();
   check((await bodyText(page)).includes('Signed in with your phone number: +15 •••• 0100'), 'Profile shows the phone account, masked');
   await button(page, 'Sign out').click();

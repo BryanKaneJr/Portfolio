@@ -26,6 +26,7 @@ export const ANALYTICS_EVENTS = {
   purchase_started: { plan: 'string' },
   subscription_started: { plan: 'string' },
   purchase_restored: { found: 'boolean' },
+  choose_for_me_started: { skill_id: 'string', kind: 'string', picks: 'number' },
 } as const satisfies Record<string, Record<string, PropType>>;
 
 export type AnalyticsEventName = keyof typeof ANALYTICS_EVENTS;

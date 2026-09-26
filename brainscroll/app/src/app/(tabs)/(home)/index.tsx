@@ -1,6 +1,7 @@
 import { Redirect, router } from 'expo-router';
 import { View } from 'react-native';
 import { Body, Button, Card, Caption, Emblem, Eyebrow, LevelArt, Row, Screen, Title } from '@/components/ui';
+import { ChooseForMe } from '@/components/ChooseForMe';
 import { ReviewStrip } from '@/components/ReviewStrip';
 import { WorldMap, type Region } from '@/components/WorldMap';
 import { levelByNumber, levelMeta, subjects } from '@/content';
@@ -13,7 +14,8 @@ import { space } from '@/theme/tokens';
  * Home is the World Map (owner direction: RPG-inspired, a map of the
  * categories first). Every subject is an island showing your level in it; the
  * one you're playing flies a flag. The Current Quest card continues where you
- * left off, and due reviews wait just above it.
+ * left off, and due reviews wait just above it. "Choose for me" sits under it
+ * for when you don't know what to learn next.
  */
 export default function WorldScreen() {
   const p = useProgress();
@@ -75,6 +77,7 @@ export default function WorldScreen() {
           <Button label="Continue" onPress={() => router.push({ pathname: '/skill/[id]', params: { id: current.id } })} />
         </Card>
       )}
+      <ChooseForMe />
       <WorldMap regions={regions} hereId={current?.subjectId} onOpen={openSubject} />
     </Screen>
   );
