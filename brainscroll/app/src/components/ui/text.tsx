@@ -3,7 +3,7 @@ import { Text, type TextStyle } from 'react-native';
 import { color, type } from '@/theme/tokens';
 
 type Tone = 'text' | 'muted' | 'faint' | 'brand' | 'success' | 'danger' | 'mastery' | 'info' | 'plum';
-const toneColor = (t: Tone) => ({ text: color.text, muted: color.textMuted, faint: color.textFaint, brand: color.brand, success: color.success, danger: color.danger, mastery: color.mastery, info: color.info, plum: color.plum })[t];
+const toneColor = (t: Tone) => ({ text: color.text, muted: color.textMuted, faint: color.textFaint, brand: color.brandText, success: color.success, danger: color.danger, mastery: color.mastery, info: color.info, plum: color.plum })[t];
 
 interface TextProps {
   children: ReactNode;

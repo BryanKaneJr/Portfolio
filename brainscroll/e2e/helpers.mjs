@@ -55,14 +55,14 @@ export async function onboard(page, { start, skill = 'Astronomy' }) {
   await button(page, 'Nice to meet you').click();
   await page.getByRole('radio', { name: new RegExp(skill) }).click();
   await button(page, 'Continue').click();
-  await button(page, start ? 'Start Your Cosmic Address' : 'Look around first').click();
+  await button(page, start ? 'Start Your Cosmic Address' : 'See the world map').click();
   await page.waitForTimeout(800);
 }
 
 /**
  * Plays the open level to the end. Questions are select → CHECK. `pick(i)`
  * chooses the FIRST attempt at question i. After a miss the level shows "Take
- * another look" (the source cards, under the prompt) and the player must choose
+ * another look" (the source cards, under the choices) and the player must choose
  * again; we try the remaining options in order until one is right.
  * Returns how many questions needed another look.
  */

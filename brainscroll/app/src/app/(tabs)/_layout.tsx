@@ -32,7 +32,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: color.brand,
+        tabBarActiveTintColor: color.brandText,
         tabBarInactiveTintColor: color.textMuted,
         tabBarStyle: { backgroundColor: color.bg, borderTopColor: color.border, height: 72 + insets.bottom, paddingTop: space.sm, borderTopWidth: depth.border },
         tabBarIconStyle: { width: 52, height: 36 },

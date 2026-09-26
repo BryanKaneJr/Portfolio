@@ -1,12 +1,12 @@
 import { MASTERY_BAND_SIZE, subjectAttribute } from '@brainscroll/core';
 import { router } from 'expo-router';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 import { Body, Caption, Card, Chip, Emblem, Eyebrow, Icon, LevelArt, ProgressBar, Row, Screen, ScreenHeader, Stars, Title } from '@/components/ui';
 import { levelByNumber, levelsForSkill, subjectName, subjects } from '@/content';
 import { SUBJECT_ICON } from '@/components/CharacterSheet';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { ChapterRail } from '@/components/ChapterRail';
-import { color, radius, space } from '@/theme/tokens';
+import { color, radius, space, type } from '@/theme/tokens';
 
 /**
  * Skills you are leveling, not a course catalog. Each skill shows its level
@@ -14,8 +14,11 @@ import { color, radius, space } from '@/theme/tokens';
  * road to the next ★. Never 100 equal dots.
  */
 export default function SkillsScreen() {
-  const { setActiveSkill } = useProgress();
-  const { skills } = useProgressView();
+  const { setActiveSkill, activeSkillId } = useProgress();
+  const { skills: all } = useProgressView();
+  // The skill you're playing first, then others in progress (furthest along first), then untouched ones.
+  const rank = (s: (typeof all)[number]) => (s.id === activeSkillId ? 0 : s.view.level > 0 ? 1 : 2);
+  const skills = [...all].sort((a, b) => rank(a) - rank(b) || b.view.level - a.view.level);
   const upcoming = subjects.filter((s) => !skills.some((k) => k.subjectId === s.id));
 
   return (
@@ -63,6 +66,11 @@ export default function SkillsScreen() {
                 {toStar} {toStar === 1 ? 'level' : 'levels'} to ★ Mastery · {published} levels available
               </Caption>
             </View>
+            {/* A visible cue that the whole card opens the map (UX review C6). */}
+            <Row gap={space.xs} style={{ justifyContent: 'flex-end' }}>
+              <Text style={[type.label, { color: color.brandText }]}>View skill map</Text>
+              <Icon name="forward" tint={color.brandText} size={18} />
+            </Row>
           </Card>
         );
       })}

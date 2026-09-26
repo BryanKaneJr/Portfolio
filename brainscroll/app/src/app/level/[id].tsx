@@ -111,11 +111,7 @@ export default function LevelScreen() {
         setSession((s) => (s ? { ...s, attempts: { ...s.attempts, [qid]: [...(s.attempts[qid] ?? []), attempt] } } : s));
         setSelected(undefined);
         if (r.correct) haptic.correct();
-        else {
-          haptic.incorrect();
-          // The evidence appears right under the prompt: bring it into view.
-          scrollRef.current?.scrollTo({ y: 0, animated: true });
-        }
+        else haptic.incorrect();
       })
       .catch(() => setError("Couldn't check that answer. Try again."))
       .finally(() => {

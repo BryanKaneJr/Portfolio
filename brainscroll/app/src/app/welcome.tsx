@@ -1,7 +1,7 @@
-import { DAILY_FREE_NEW_LEVELS, DR_SCROLL_LINES, VOICE } from '@brainscroll/core';
+import { DAILY_FREE_NEW_LEVELS, DR_SCROLL_LINES, FIRST_DAY_NEW_LEVELS, VOICE } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
 import { Body, Button, Caption, DrScrollSays, Eyebrow, H1, LevelArt, ProgressBar } from '@/components/ui';
@@ -19,7 +19,8 @@ export default function WelcomeScreen() {
   const { finishOnboarding, setActiveSkill } = useProgress();
   const [step, setStep] = useState(0);
   const playable = skills.filter((s) => levelByNumber(s.id, 1));
-  const [skillId, setSkillId] = useState(playable[0]?.id);
+  // No default: the learner picks deliberately, and Continue waits for it.
+  const [skillId, setSkillId] = useState<string | undefined>();
   const firstLevel = skillId ? levelByNumber(skillId, 1) : undefined;
 
   const start = () => {
@@ -35,7 +36,8 @@ export default function WelcomeScreen() {
         <ProgressBar value={(step + 1) / STEPS} size="lesson" />
       </View>
 
-      <View style={styles.body}>
+      {/* Scrolls, so every skill stays reachable on short screens and at large text sizes. */}
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.body}>
         {step === 0 && (
           <DrScrollSays
             spot="onboarding.hello"
@@ -48,27 +50,30 @@ export default function WelcomeScreen() {
           <>
             <Eyebrow>Pick your first skill</Eyebrow>
             <H1>What do you want to level first?</H1>
-            <View style={{ gap: space.sm }}>
-              {subjects.map((subject) => {
-                const skill = playable.find((s) => s.subjectId === subject.id);
-                const selected = skill?.id === skillId;
-                return (
-                  <Pressable
-                    key={subject.id}
-                    accessibilityRole="radio"
-                    accessibilityState={{ selected, disabled: !skill }}
-                    disabled={!skill}
-                    onPress={() => skill && setSkillId(skill.id)}
-                    style={[styles.choice, selected && styles.choiceSelected, !skill && { opacity: 0.45 }]}>
-                    {skill && <LevelArt art={levelByNumber(skill.id, 1)?.art} size={52} />}
-                    <View style={{ flex: 1, gap: 2 }}>
-                      <Text style={styles.choiceTitle}>{skill ? `${subject.name} · ${skill.name}` : subject.name}</Text>
-                      <Text style={styles.choiceMeta}>{skill ? 'Available now' : 'Coming soon'}</Text>
-                    </View>
-                  </Pressable>
-                );
-              })}
-            </View>
+            {subjects.map((subject) => {
+              const mine = playable.filter((s) => s.subjectId === subject.id);
+              if (mine.length === 0) return null;
+              return (
+                <View key={subject.id} style={{ gap: space.sm }}>
+                  <Text style={styles.subject}>{subject.name}</Text>
+                  {mine.map((skill) => {
+                    const selected = skill.id === skillId;
+                    return (
+                      <Pressable
+                        key={skill.id}
+                        accessibilityRole="radio"
+                        accessibilityState={{ selected }}
+                        accessibilityLabel={`${subject.name}: ${skill.name}`}
+                        onPress={() => setSkillId(skill.id)}
+                        style={[styles.choice, selected && styles.choiceSelected]}>
+                        <LevelArt art={levelByNumber(skill.id, 1)?.art} size={52} />
+                        <Text style={[styles.choiceTitle, { flex: 1 }]}>{skill.name}</Text>
+                      </Pressable>
+                    );
+                  })}
+                </View>
+              );
+            })}
           </>
         )}
 
@@ -76,12 +81,15 @@ export default function WelcomeScreen() {
           <>
             <Eyebrow>The deal</Eyebrow>
             <H1>{DAILY_FREE_NEW_LEVELS} new levels a day. Free, forever.</H1>
+            {FIRST_DAY_NEW_LEVELS > DAILY_FREE_NEW_LEVELS && (
+              <Body>Today is a bonus: your first day gets {FIRST_DAY_NEW_LEVELS}, so you can find your feet.</Body>
+            )}
             <Body>After that, we’ll tell you you’re done. Seriously. Go outside.</Body>
             <Body>Review is unlimited, wrong answers never cost you anything, and progress never resets.</Body>
             <Caption>{VOICE.fairness}</Caption>
           </>
         )}
-      </View>
+      </ScrollView>
 
       <View style={styles.footer}>
         {step < STEPS - 1 ? (
@@ -95,7 +103,7 @@ export default function WelcomeScreen() {
             <Button label={firstLevel ? `Start ${firstLevel.title}` : 'Let’s go'} onPress={start} />
             <Button
               variant="secondary"
-              label="Look around first"
+              label="See the world map"
               onPress={() => {
                 finishOnboarding();
                 if (skillId) setActiveSkill(skillId);
@@ -114,10 +122,10 @@ const STEPS = 3;
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: color.bg },
   top: { flexDirection: 'row', paddingHorizontal: layout.gutter, paddingTop: space.lg },
-  body: { flex: 1, paddingHorizontal: layout.gutter, paddingTop: space.xxxl, gap: space.lg, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' },
+  body: { paddingHorizontal: layout.gutter, paddingTop: space.xxxl, paddingBottom: space.xl, gap: space.lg, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' },
+  subject: { ...type.label, color: color.textMuted, marginTop: space.xs },
   choice: { flexDirection: 'row', alignItems: 'center', gap: space.md, borderWidth: 2, borderBottomWidth: 4, borderColor: color.border, backgroundColor: color.surface, borderRadius: radius.md, padding: space.lg, minHeight: layout.answerMinHeight },
   choiceSelected: { borderColor: color.brand, backgroundColor: color.brandSoft },
   choiceTitle: { ...type.bodyStrong, fontSize: 17, color: color.text },
-  choiceMeta: { ...type.caption, color: color.textMuted },
-  footer: { paddingHorizontal: layout.gutter, paddingBottom: space.xl, gap: space.sm, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' },
+  footer: { paddingHorizontal: layout.gutter, paddingTop: space.md, paddingBottom: space.xl, borderTopWidth: 1, borderTopColor: color.border, gap: space.sm, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' },
 });

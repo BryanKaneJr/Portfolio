@@ -1,12 +1,15 @@
 import { AccountError, ACCOUNT_ERROR_TEXT, maskPhone, normalizeEmail, SIGN_IN_METHOD_LABEL, VOICE, type OtpTarget } from '@brainscroll/core';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppleSignInButton } from '@/auth/AppleSignInButton';
-import { Body, Button, Caption, Display, DrScroll, Eyebrow, Field, H1 } from '@/components/ui';
+import { Body, Button, Caption, Display, DrScroll, Eyebrow, Field, H1, Icon } from '@/components/ui';
 import { DEV_CODE } from '@/progress/localBackend';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, layout, space } from '@/theme/tokens';
+
+/** Seconds before "Send a new code" can be tapped again. */
+const RESEND_COOLDOWN_S = 30;
 
 type Step = { kind: 'choose' } | { kind: 'enter'; channel: OtpTarget['channel'] } | { kind: 'code'; target: OtpTarget };
 
@@ -26,11 +29,21 @@ export default function SignInScreen() {
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
   const [busy, setBusy] = useState(false);
+  // Which action is in flight, so its button can say so ("Sending…").
+  const [pending, setPending] = useState<'send' | 'verify' | null>(null);
+  // Seconds until "Send a new code" is allowed again.
+  const [cooldown, setCooldown] = useState(0);
+  useEffect(() => {
+    if (cooldown <= 0) return;
+    const t = setTimeout(() => setCooldown((c) => c - 1), 1000);
+    return () => clearTimeout(t);
+  }, [cooldown]);
   const [error, setError] = useState<string | null>(null);
   const methods = p.signInMethods;
 
-  const run = async (fn: () => Promise<void>) => {
+  const run = async (fn: () => Promise<void>, what: 'send' | 'verify' | null = null) => {
     setBusy(true);
+    setPending(what);
     setError(null);
     try {
       await fn();
@@ -39,6 +52,7 @@ export default function SignInScreen() {
       if (!(e instanceof AccountError && e.code === 'CANCELLED')) setError(message(e));
     } finally {
       setBusy(false);
+      setPending(null);
     }
   };
   const back = () => {
@@ -69,10 +83,10 @@ export default function SignInScreen() {
                   <Button variant="secondary" label={SIGN_IN_METHOD_LABEL.google} disabled={busy} onPress={() => void run(() => p.signInWithProvider('google'))} />
                 )}
                 {methods.includes('phone') && (
-                  <Button variant="secondary" label={SIGN_IN_METHOD_LABEL.phone} disabled={busy} onPress={() => setStep({ kind: 'enter', channel: 'phone' })} />
+                  <Button variant="secondary" icon={<Icon name="phone" tint={color.text} size={20} />} label={SIGN_IN_METHOD_LABEL.phone} disabled={busy} onPress={() => setStep({ kind: 'enter', channel: 'phone' })} />
                 )}
                 {methods.includes('email') && (
-                  <Button variant="secondary" label={SIGN_IN_METHOD_LABEL.email} disabled={busy} onPress={() => setStep({ kind: 'enter', channel: 'email' })} />
+                  <Button variant="secondary" icon={<Icon name="mail" tint={color.text} size={20} />} label={SIGN_IN_METHOD_LABEL.email} disabled={busy} onPress={() => setStep({ kind: 'enter', channel: 'email' })} />
                 )}
                 {p.ready && methods.length === 0 && <Body tone="danger">No sign-in method is set up for this build yet.</Body>}
               </View>
@@ -99,14 +113,15 @@ export default function SignInScreen() {
                 <Field label="Email" value={email} onChangeText={setEmail} placeholder="you@example.com" keyboardType="email-address" autoComplete="email" textContentType="emailAddress" autoFocus />
               )}
               <Button
-                label="Send code"
+                label={pending === 'send' ? 'Sending…' : 'Send code'}
                 disabled={busy || !(step.channel === 'phone' ? phone : email)}
                 onPress={() =>
                   void run(async () => {
                     const t = target(step.channel);
                     await p.sendCode(t);
                     setStep({ kind: 'code', target: t });
-                  })
+                    setCooldown(RESEND_COOLDOWN_S);
+                  }, 'send')
                 }
               />
               <Button variant="ghost" label="Use another way" disabled={busy} onPress={back} />
@@ -119,8 +134,29 @@ export default function SignInScreen() {
               <H1>Enter your code</H1>
               <Body muted>We sent it to {sendTo(step.target)}.</Body>
               <Field label="Code" value={code} onChangeText={setCode} placeholder="123456" keyboardType="number-pad" textContentType="oneTimeCode" autoComplete="one-time-code" maxLength={10} autoFocus />
-              <Button label="Continue" disabled={busy || !code} onPress={() => void run(() => p.verifyCode(step.target, code))} />
-              <Button variant="secondary" label="Send a new code" disabled={busy} onPress={() => void run(() => p.sendCode(step.target))} />
+              <Button label={pending === 'verify' ? 'Verifying…' : 'Continue'} disabled={busy || !code} onPress={() => void run(() => p.verifyCode(step.target, code), 'verify')} />
+              <Button
+                variant="secondary"
+                label={pending === 'send' ? 'Sending…' : cooldown > 0 ? `Send a new code in ${cooldown}` : 'Send a new code'}
+                disabled={busy || cooldown > 0}
+                onPress={() =>
+                  void run(async () => {
+                    await p.sendCode(step.target);
+                    setCooldown(RESEND_COOLDOWN_S);
+                  }, 'send')
+                }
+              />
+              {/* Straight back to the field, with what was typed kept, to fix a typo. */}
+              <Button
+                variant="ghost"
+                label={step.target.channel === 'phone' ? 'Change number' : 'Change email'}
+                disabled={busy}
+                onPress={() => {
+                  setCode('');
+                  setError(null);
+                  setStep({ kind: 'enter', channel: step.target.channel });
+                }}
+              />
               <Button variant="ghost" label="Use another way" disabled={busy} onPress={back} />
             </>
           )}

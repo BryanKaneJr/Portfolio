@@ -98,8 +98,10 @@ export default function LevelCompleteScreen() {
                 <Emblem value={levelShown} tone={mastery ? 'mastery' : 'brand'} glowing={leveledUp} />
                 <View style={{ flex: 1, gap: space.xs }}>
                   <Eyebrow tone={mastery ? 'mastery' : leveledUp ? 'brand' : 'muted'}>{leveledUp ? 'Level up' : 'Skill'}</Eyebrow>
-                  <Title>
-                    {skill?.name} Lv. {s.alreadyCompleted ? s.skillLevel : `${s.skillLevelBefore} → ${s.skillLevel}`}
+                  <Title>{skill?.name}</Title>
+                  {/* Its own unbreakable line, so "0 → 1" never splits (UX review P1). */}
+                  <Title numberOfLines={1} style={{ color: mastery ? color.mastery : color.brandText }}>
+                    {`Lv.\u00a0${s.alreadyCompleted ? s.skillLevel : `${s.skillLevelBefore}\u00a0→\u00a0${s.skillLevel}`}`}
                   </Title>
                   <Stars count={view.stars} />
                 </View>

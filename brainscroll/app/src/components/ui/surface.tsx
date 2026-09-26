@@ -43,7 +43,7 @@ export function Divider() {
 /** Small rounded label for statuses ("2 / 5 today"). */
 export function Chip({ children, tone = 'muted', icon }: { children: ReactNode; tone?: 'muted' | 'brand' | 'success' | 'mastery'; icon?: IconName }) {
   const c = { muted: color.border, brand: color.brandLine, success: color.successLine, mastery: color.mastery }[tone];
-  const tint = { muted: color.textMuted, brand: color.brand, success: color.success, mastery: color.mastery }[tone];
+  const tint = { muted: color.textMuted, brand: color.brandText, success: color.success, mastery: color.mastery }[tone];
   return (
     <View style={[styles.chip, { borderColor: c }]}>
       {icon && <Icon name={icon} tint={tint} size={16} />}

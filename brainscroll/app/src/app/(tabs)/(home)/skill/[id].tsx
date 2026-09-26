@@ -5,6 +5,7 @@ import { Body, Card, Emblem, Eyebrow, IconButton, Row, Screen, Stars, Title } fr
 import { chaptersFor, getLevel, subjectName } from '@/content';
 import { LevelPath } from '@/components/LevelPath';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
+import { todayLabel } from '@/progress/todayLabel';
 import { useCurrentSkill } from '@/progress/useCurrentSkill';
 import { useStartLevel } from '@/progress/useStartLevel';
 import { space } from '@/theme/tokens';
@@ -65,7 +66,7 @@ export default function SkillMapScreen() {
           <Emblem value={skill.view.level} size="sm" />
           <View style={{ flex: 1, gap: space.xxs }}>
             <Eyebrow>
-              {subjectName(skill.subjectId)} · Today {today.used} / {today.cap ?? '∞'}
+              {subjectName(skill.subjectId)} · {todayLabel(today)}
             </Eyebrow>
             <Title>
               {skill.name} · Lv. {skill.view.level}

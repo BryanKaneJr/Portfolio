@@ -70,7 +70,7 @@ export function DrScrollSays({ lines, size, layout = 'row', action, style, ...pl
           ))}
         </View>
         {action && (
-          <Pressable accessibilityRole="button" accessibilityLabel={action.label} onPress={action.onPress} hitSlop={8} style={styles.action}>
+          <Pressable accessibilityRole="button" accessibilityLabel={action.label} onPress={action.onPress} hitSlop={12} style={({ pressed }) => [styles.action, pressed && { opacity: 0.7 }]}>
             <Text style={[type.bodyStrong, { color: color.plum }]}>{action.label}</Text>
           </Pressable>
         )}
@@ -110,5 +110,6 @@ const styles = StyleSheet.create({
   tail: { position: 'absolute', width: TAIL * 2, height: TAIL * 2, backgroundColor: BUBBLE_BG, borderColor: color.plumLine, transform: [{ rotate: '45deg' }] },
   tailLeft: { left: -TAIL - 1, bottom: space.lg, borderLeftWidth: 1.5, borderBottomWidth: 1.5 },
   tailUp: { top: -TAIL - 1, alignSelf: 'center', borderLeftWidth: 1.5, borderTopWidth: 1.5 },
-  action: { alignSelf: 'flex-start', paddingTop: space.xs },
+  // A small pill button, so the tip's dismiss reads as a button (UX review P6).
+  action: { alignSelf: 'flex-end', marginTop: space.xs, paddingHorizontal: space.md, paddingVertical: space.xs, borderRadius: radius.pill, borderWidth: 1.5, borderColor: color.plumLine, backgroundColor: color.plumSoft },
 });

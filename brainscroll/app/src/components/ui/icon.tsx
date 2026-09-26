@@ -9,6 +9,7 @@ import { View, type ColorValue } from 'react-native';
 const ICONS = {
   close: { ios: 'xmark', android: 'close', web: 'close' },
   back: { ios: 'chevron.left', android: 'arrow_back', web: 'arrow_back' },
+  forward: { ios: 'chevron.right', android: 'chevron_right', web: 'chevron_right' },
   flag: { ios: 'flag', android: 'flag', web: 'flag' },
   xp: { ios: 'bolt.fill', android: 'bolt', web: 'bolt' },
   knowledge: { ios: 'brain.head.profile', android: 'psychology', web: 'psychology' },
@@ -21,6 +22,8 @@ const ICONS = {
   book: { ios: 'book.fill', android: 'menu_book', web: 'menu_book' },
   map: { ios: 'map.fill', android: 'map', web: 'map' },
   shield: { ios: 'shield.fill', android: 'shield', web: 'shield' },
+  phone: { ios: 'phone.fill', android: 'call', web: 'call' },
+  mail: { ios: 'envelope.fill', android: 'mail', web: 'mail' },
   // Subjects
   geography: { ios: 'globe.americas.fill', android: 'public', web: 'public' },
   money: { ios: 'dollarsign.circle.fill', android: 'payments', web: 'payments' },

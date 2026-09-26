@@ -21,6 +21,10 @@ export const color = {
   brand: '#7C5CFF', // Electric Violet: primary CTA, active level, progression
   brandPressed: '#6A4BEA',
   brandEdge: '#5031C2', // the darker bottom edge that makes violet surfaces feel pressable
+  // Brand violet as TEXT on dark surfaces: #7C5CFF is only 3.87:1 on bg, below
+  // WCAG AA for normal text. This tint passes on bg (7.3:1), surface (6.0:1)
+  // and surfaceRaised (4.9:1). Fills, borders and buttons keep `brand`.
+  brandText: '#AE9DFF',
   brandSoft: 'rgba(124,92,255,0.14)',
   brandLine: 'rgba(124,92,255,0.45)',
   info: '#4DA3FF', // Bright Blue: information, secondary progress, current node

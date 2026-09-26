@@ -136,7 +136,7 @@ export const DR_SCROLL_LINES = {
  */
 export const DR_SCROLL_TIPS = {
   'first-question': { pose: 'pointing', line: "Pick an answer, then tap Check. Only your first try counts toward XP, so no rush. Nobody's timing you." },
-  'first-miss': { pose: 'explaining', line: "Missing one costs you nothing. The cards that explain it are right up there. Take another look, I'll wait." },
+  'first-miss': { pose: 'explaining', line: "Missing one costs you nothing. The cards that explain it are right under the choices. Take another look, I'll wait." },
   'first-checkpoint': { pose: 'idea', line: "A checkpoint mixes the whole chapter together. It's a look back, not a test you can fail. Relax." },
   'first-review': { pose: 'thinking', line: "Review brings things back right before you'd forget them, and it never touches your daily levels. Good deal, right?" },
 } as const satisfies Record<string, { pose: MascotPose; line: string }>;

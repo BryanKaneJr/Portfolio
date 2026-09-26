@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   rail: { width: 14, alignItems: 'center' },
   dot: { width: 12, height: 12, borderRadius: radius.pill, backgroundColor: color.brand, marginTop: 5 },
   line: { flex: 1, width: 2, backgroundColor: color.border, marginTop: space.xs },
-  when: { ...type.label, color: color.brand },
+  when: { ...type.label, color: color.brandText },
   compareItem: { backgroundColor: color.surface, borderRadius: radius.md, borderWidth: 1, borderColor: color.border, padding: space.lg, gap: space.xs },
   compareLabel: { color: color.text, fontSize: 18, ...fw('700'), marginBottom: space.xxs },
   comparePoint: { ...type.body, color: color.textReading },

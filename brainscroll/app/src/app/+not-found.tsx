@@ -9,7 +9,7 @@ export default function NotFoundScreen() {
       <Screen>
         <DrScroll spot="not-found" size="md" />
         <Title>This level doesn’t exist.</Title>
-        <Link href="/" style={{ color: color.brand }}>
+        <Link href="/" style={{ color: color.brandText }}>
           <Body>Back to Home</Body>
         </Link>
       </Screen>

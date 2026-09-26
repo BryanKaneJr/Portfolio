@@ -16,7 +16,7 @@ If everything glows, nothing feels special. `glow.*`, `Halo`, `Emblem glowing`, 
 
 ## Tokens (`theme/tokens.ts`)
 
-- **Colour:** `bg`, `bgDeep`, `surface`, `surfaceRaised`, `surfacePressed`, `border(Strong)`; `brand` (+`Pressed`, `Soft`, `Line`); `success`, `danger`, `mastery` (each with `Soft`/`Line` tints); `info`; `plum` (+`Deep`, `Soft`, `Line`); `text`, `textReading` (paragraphs, a touch softer), `textMuted`, `textFaint`; `scrim`.
+- **Colour:** `bg`, `bgDeep`, `surface`, `surfaceRaised`, `surfacePressed`, `border(Strong)`; `brand` (+`Pressed`, `Soft`, `Line`) for fills, borders and buttons, and `brandText` (`#AE9DFF`) for violet **text** on dark surfaces, since `brand` itself is only 3.87:1 on `bg`, below WCAG AA for normal text; `success`, `danger`, `mastery` (each with `Soft`/`Line` tints); `info`; `plum` (+`Deep`, `Soft`, `Line`); `text`, `textReading` (paragraphs, a touch softer), `textMuted`, `textFaint`; `scrim`.
 - **Bow Tie Plum (`plum`) is Dr. Scroll's colour**, taken from his bow tie. Anything he says wears it: speech-bubble borders, tip actions ("Got it"), and the "Did you know" label on fact cards (fun facts are his territory). It never marks an action or progress: those stay brand violet, and gold stays mastery-only. `plum` text passes contrast on `surface` (5.3:1); use `plumDeep` for fills.
 - **Type scale:**
   - `hero` 56 / `display` 40 / `h1` 30 / `h2` 24 / `title` 20: progression and structure
@@ -61,7 +61,7 @@ If everything glows, nothing feels special. `glow.*`, `Halo`, `Emblem glowing`, 
 - **Correct:** the card turns mint, the footer tints mint with "Correct" plus the explanation, and a mint CONTINUE. A success haptic plays.
 - **Wrong (teaching, not punishment):**
   - The pick is crossed out and the footer tints a restrained coral: "Not quite" plus the rationale.
-  - **Take another look** appears directly under the prompt with the question's canonical source cards (compact rendering), and the view scrolls to it.
+  - **Take another look** appears directly under the answer choices with the question's canonical source cards (compact rendering). The view doesn't jump, so the choices stay where the learner's thumb is.
   - The learner chooses again and checks; the answer is never revealed.
   - After correction the footer reads "Got it: reinforced · We'll bring this back later".
 - **Level Complete:** outcome headline (Perfect Recall / Strong recall / Knowledge reinforced / Level cleared) → XP count-up with halo → the skill emblem counting up the level and progress toward the next ★ → one line of detail (first try, Knowledge Level, today) → the next step. Mastery turns the moment gold ("★ Mastery star earned").

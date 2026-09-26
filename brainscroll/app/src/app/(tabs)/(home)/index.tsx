@@ -5,6 +5,7 @@ import { ReviewStrip } from '@/components/ReviewStrip';
 import { WorldMap, type Region } from '@/components/WorldMap';
 import { getLevel, levelByNumber, subjects } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
+import { todayLabel } from '@/progress/todayLabel';
 import { useCurrentSkill } from '@/progress/useCurrentSkill';
 import { space } from '@/theme/tokens';
 
@@ -46,7 +47,7 @@ export default function WorldScreen() {
           <Emblem value={v.knowledgeLevel} size="sm" />
           <View style={{ flex: 1, gap: space.xxs }}>
             <Eyebrow>
-              World map · Today {today.used} / {today.cap ?? '∞'}
+              World map · {todayLabel(today)}
             </Eyebrow>
             <Title>Knowledge Lv. {v.knowledgeLevel}</Title>
           </View>

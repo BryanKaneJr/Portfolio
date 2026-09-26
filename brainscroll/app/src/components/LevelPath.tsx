@@ -15,6 +15,8 @@ const ROW = 108; // vertical distance between waypoints
 const TOP = 84; // room above the first waypoint when the "Start" callout is there
 const TOP_PLAIN = space.md;
 const SIZE = { done: 72, locked: 72, current: 84, boss: 96 } as const;
+/** Underside of a cleared waypoint: a step below brandEdge. */
+const CLEARED_EDGE = '#3A2491';
 const EDGE = 7; // the darker underside that makes a waypoint stand up
 const CALLOUT = 72; // extra room above the next level (past the first) for its callout
 /**
@@ -245,8 +247,11 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, label, onPress }
   onPress?: () => void;
 }) {
   const locked = state === 'locked';
-  const fill = locked ? color.surfaceRaised : gold ? color.mastery : color.brand;
-  const edge = locked ? color.border : gold ? color.masteryEdge : color.brandEdge;
+  // Cleared waypoints sit a shade darker, so the bright, ringed next level is
+  // the strongest thing on the map (UX review P4).
+  const done = state === 'done' && !gold;
+  const fill = locked ? color.surfaceRaised : gold ? color.mastery : done ? color.brandEdge : color.brand;
+  const edge = locked ? color.border : gold ? color.masteryEdge : done ? CLEARED_EDGE : color.brandEdge;
   const ink = locked ? color.textFaint : gold ? '#1A1305' : '#FFFFFF';
   const pop = usePop(celebrate, { from: 0.5, delay: 250 });
   const face = size - EDGE;
@@ -337,7 +342,7 @@ function StartBubble({ label, title, x, bottom, width }: { label: string; title:
       importantForAccessibility="no-hide-descendants"
       accessibilityElementsHidden
       style={[styles.bubble, { width: w, left, bottom: undefined, top: bottom - 64, transform: [{ translateY: bob.interpolate({ inputRange: [0, 1], outputRange: [0, -6] }) }] }]}>
-      <Text style={[type.label, { color: color.brand, textAlign: 'center' }]}>{label}</Text>
+      <Text style={[type.label, { color: color.brandText, textAlign: 'center' }]}>{label}</Text>
       <Text numberOfLines={1} style={[type.bodyStrong, { color: color.text, textAlign: 'center' }]}>
         {title}
       </Text>

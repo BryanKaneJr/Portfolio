@@ -73,10 +73,7 @@ export default function ReviewSessionScreen() {
         setSelected(undefined);
         if (r.correct && r.attemptCount <= 1) setFirstTry((c) => c + 1);
         if (r.correct) haptic.correct();
-        else {
-          haptic.incorrect();
-          scrollRef.current?.scrollTo({ y: 0, animated: true });
-        }
+        else haptic.incorrect();
       })
       .catch(() => setUnreachable((m) => ({ ...m, [qid]: true })))
       .finally(() => {

@@ -39,7 +39,7 @@ Every line in `DR_SCROLL_LINES`, `DR_SCROLL_TIPS` and the card asides is written
 
 - "I'll drop by now and then with a tip. Otherwise I stay out of your way. I'm old, not nosy."
 - "A mastery star! Hold on, I need to find a frame for this."
-- "Missing one costs you nothing. The cards that explain it are right up there. Take another look, I'll wait."
+- "Missing one costs you nothing. The cards that explain it are right under the choices. Take another look, I'll wait."
 
 ## Making him consistent
 

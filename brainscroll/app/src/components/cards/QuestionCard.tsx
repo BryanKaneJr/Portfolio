@@ -12,7 +12,7 @@ import { LearningCard } from './LearningCard';
  *   - Right → the card turns mint and the footer says so; CONTINUE.
  *   - Wrong → the pick is crossed out, the footer says "Not quite", and
  *     "Take another look" shows the question's source cards right under the
- *     prompt. Choose again until right. No lives, no restart, no failure screen,
+ *     choices, which stay in view. Choose again until right. No lives, no restart, no failure screen,
  *     and the answer is never simply revealed.
  *
  * Only the first CHECK counts toward XP (recorded server-side when online);
@@ -45,14 +45,6 @@ export function QuestionCard({
         <H2>{question.prompt}</H2>
       </View>
 
-      {s.needsAnotherLook && (
-        <EvidenceBlock>
-          {sourceCards.map((c) => (
-            <LearningCard key={c.id} card={c} compact />
-          ))}
-        </EvidenceBlock>
-      )}
-
       <View style={{ gap: space.md }} accessibilityRole="radiogroup">
         {question.options.map((o) => {
           const state: AnswerState =
@@ -60,6 +52,15 @@ export function QuestionCard({
           return <AnswerOption key={o.id} letter={o.id} label={o.label} state={state} onPress={() => onSelect(o.id)} />;
         })}
       </View>
+
+      {/* Under the choices, so a miss never pushes them off screen (UX review C2). */}
+      {s.needsAnotherLook && (
+        <EvidenceBlock>
+          {sourceCards.map((c) => (
+            <LearningCard key={c.id} card={c} compact />
+          ))}
+        </EvidenceBlock>
+      )}
     </View>
   );
 }
@@ -94,7 +95,7 @@ export function QuestionFeedback({ attempts }: { attempts: AttemptView[] }) {
   if (s.lastWrong)
     return (
       <FeedbackPanel tone="reinforce" mascot="feedback.wrong" title="Not quite">
-        <Body>{s.lastWrong.rationale ?? 'That one doesn’t fit.'} Take another look above, then choose again.</Body>
+        <Body>{s.lastWrong.rationale ?? 'That one doesn’t fit.'} Take another look below, then choose again.</Body>
       </FeedbackPanel>
     );
   return null;
