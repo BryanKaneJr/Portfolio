@@ -196,7 +196,7 @@ Writer-placed card asides (`mascot` on a learning card) aren't spots; their pose
 - **Reactions:** a small thumbs-up or kind shrug beside answer feedback, and one line on Level Complete, Daily Complete and the empty Review tab.
 - **One-time tips** (`DrScrollTip`): first question, first miss, first checkpoint and first review. Each shows once per account and can be dismissed. Tips are the one place he appears before an answer, because they explain how the app works.
 
-- **Card asides:** a learning card can carry `mascot: { pose, line }` (calm poses only, no new facts, at most 2 per level). Rules in `docs/content-guide.md` under "Dr. Scroll asides". Astronomy Level 1's fact card has the first one.
+- **Card asides:** a learning card can carry `mascot: { pose, line }` (calm poses only, no new facts, at most 2 per level), used as a teaching move: what to keep, what not to memorize, a common mix-up, or a connection. Rules in `docs/content-guide.md` under "Dr. Scroll asides". Astronomy Level 1's fact card has the first one.
 
 **Rules for every placement:**
 

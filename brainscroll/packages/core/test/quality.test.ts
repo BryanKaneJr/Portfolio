@@ -75,6 +75,16 @@ describe('checkQuality', () => {
     expect(r.warnings).toEqual([]);
   });
 
+  it('from Level 61, wants a connection question that draws on an earlier chapter', () => {
+    const arc = (w: string[]) => w.filter((x) => x.includes('draws on an earlier chapter'));
+    const inChapter = level(65, [{ purpose: 'connection', sourceCardIds: ['card.astronomy.063.c2'] }]);
+    expect(arc(run([inChapter]).warnings)).toEqual(['level.science.astronomy.065: no connection question draws on an earlier chapter (from Level 61 one should; see docs/writing/chapter-brief.md)']);
+    const reaching = level(65, [{ purpose: 'connection', sourceCardIds: ['card.astronomy.065.c2', 'card.astronomy.012.c2'] }]);
+    expect(arc(run([reaching]).warnings)).toEqual([]);
+    expect(arc(run([level(45, [{ purpose: 'connection' }])]).warnings)).toEqual([]);
+    expect(arc(run([level(70, [{}], { type: 'checkpoint' })]).warnings)).toEqual([]);
+  });
+
   it('flags a number on a card that no claim on that card backs', () => {
     const r = run([level(1)], [concept(['card.astronomy.001.c2'], 'The Sun is about 4.5 billion years old.')]);
     expect(r.warnings).toContain('card.astronomy.001.c2: number 4.6 is not in any claim on this card (unsupported or mismatched figure)');

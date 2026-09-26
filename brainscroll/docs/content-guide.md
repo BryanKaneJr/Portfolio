@@ -119,6 +119,7 @@ A learning card (never a question card) can carry an optional Dr. Scroll aside: 
 - **Poses:** calm ones only: `pointing`, `thinking`, `idea`, `explaining`, `magnifier`, `whisper`, `thumbs-up`, `oops`. Anything louder is a validation error.
 - **The line:** at most 140 characters, in his voice (warm, delighted, never scolding). It reacts to the card. **It never adds a new fact**, because asides aren't in the claim ledger and aren't fact-checked.
 - **How often:** at most 2 per level (more is a warning), and most levels need none. He stays special.
+- **What for:** a teaching move, not just a reaction: "keep this", "don't memorize the detail, remember the order", "people mix these two up", or "this connects to Level N / sets up what's next". A joke is welcome when it carries the point. Details in `docs/writing/chapter-brief.md`.
 - The content admin has a "Dr. Scroll" pose picker and a "Says" field on every learning card. See `docs/mascot.md`.
 
 ## Editorial rules (all BrainScroll-authored text)
@@ -152,6 +153,8 @@ En dashes in ranges (Levels 1–100) and hyphens in compound words are fine.
 - **Generating content with AI:** put this rule in the prompt ("Never use em dashes (U+2014); rewrite the sentence with a comma, colon, semicolon, parentheses, a period or a conjunction"), then run the validator. Don't post-process dashes away mechanically.
 
 ## Level bands (every 1–100 tree)
+
+What each band is for. How writers turn this into questions (the understanding arc: how → why → connect → reason) is in `docs/writing/chapter-brief.md`; from Level 61 the validator warns when a regular level's connection question doesn't draw on an earlier chapter.
 
 | Band | Purpose |
 | --- | --- |

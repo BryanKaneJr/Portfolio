@@ -136,6 +136,15 @@ export function checkQuality(
       if (!q.sourceCardIds.some((c) => conceptFacts.has(c)))
         warn(q.id, 'none of its sourceCardIds states a claim of the concepts it tests; the "Take another look" cards may not contain the answer');
     });
+
+    // The understanding arc (docs/writing/chapter-brief.md): from Level 61, a
+    // regular level's connection question draws on an earlier chapter.
+    if (level.type === 'regular' && level.number > 60) {
+      const chapterStart = Math.floor((level.number - 1) / 10) * 10 + 1;
+      const levelOfCard = (id: string) => Number(/\.(\d{3})\.c\d+$/.exec(id)?.[1] ?? 0);
+      const reaches = level.questions.some((q) => q.purpose === 'connection' && q.sourceCardIds.some((c) => levelOfCard(c) > 0 && levelOfCard(c) < chapterStart));
+      if (!reaches) warn(level.id, 'no connection question draws on an earlier chapter (from Level 61 one should; see docs/writing/chapter-brief.md)');
+    }
   }
 
   // ── Across the skill ───────────────────────────────────────────────────────
