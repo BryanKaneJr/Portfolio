@@ -17,6 +17,12 @@ export const MAX_CARDS_PER_LEVEL = 16;
 export const NEAR_DUPLICATE_THRESHOLD = 0.75;
 /** Share of a skill's questions where the right answer is conspicuously the longest option before we warn. */
 export const LONGEST_ANSWER_MAX_SHARE = 0.25;
+/**
+ * A chapter-end recap line opens with a question word, so it reads as
+ * something the learner can explain ("How arches carry weight.") and the map
+ * can say "You know how arches carry weight." (docs/writing/chapter-brief.md).
+ */
+export const RECAP_OPENING = /^(How|Why|What|When|Where|Which|Who) /;
 /** How much longer (ratio) the right answer must be than every distractor to count as a length tell. */
 export const LONGEST_ANSWER_RATIO = 1.3;
 
@@ -145,6 +151,13 @@ export function checkQuality(
       const reaches = level.questions.some((q) => q.purpose === 'connection' && q.sourceCardIds.some((c) => levelOfCard(c) > 0 && levelOfCard(c) < chapterStart));
       if (!reaches) warn(level.id, 'no connection question draws on an earlier chapter (from Level 61 one should; see docs/writing/chapter-brief.md)');
     }
+
+    // A chapter's last level: its recap is the proof shown on Level Complete.
+    if (level.number % 10 === 0)
+      for (const card of level.cards)
+        if (card.type === 'checkpoint')
+          for (const line of card.learned)
+            if (!RECAP_OPENING.test(line)) warn(card.id, `recap line "${line}" should open with How, Why, What, When, Where, Which or Who (it's shown as proof of what the learner can explain; see docs/writing/chapter-brief.md)`);
   }
 
   // ── Across the skill ───────────────────────────────────────────────────────

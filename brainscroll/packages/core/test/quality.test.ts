@@ -85,6 +85,18 @@ describe('checkQuality', () => {
     expect(arc(run([level(70, [{}], { type: 'checkpoint' })]).warnings)).toEqual([]);
   });
 
+  it("wants a chapter's last recap to read as what the learner can explain", () => {
+    const recap = (n: number, learned: string[]) => {
+      const l = level(n);
+      return { ...l, cards: [...l.cards, { id: `card.astronomy.${String(n).padStart(3, '0')}.c9`, type: 'checkpoint' as const, headline: 'Done', learned }] };
+    };
+    const opening = (w: string[]) => w.filter((x) => x.includes('should open with How'));
+    expect(opening(run([recap(10, ['How old the Sun is, and how we know.', 'The Sun is old.'])]).warnings)).toEqual([
+      'card.astronomy.010.c9: recap line "The Sun is old." should open with How, Why, What, When, Where, Which or Who (it\'s shown as proof of what the learner can explain; see docs/writing/chapter-brief.md)',
+    ]);
+    expect(opening(run([recap(9, ['The Sun is old.'])]).warnings)).toEqual([]);
+  });
+
   it('flags a number on a card that no claim on that card backs', () => {
     const r = run([level(1)], [concept(['card.astronomy.001.c2'], 'The Sun is about 4.5 billion years old.')]);
     expect(r.warnings).toContain('card.astronomy.001.c2: number 4.6 is not in any claim on this card (unsupported or mismatched figure)');

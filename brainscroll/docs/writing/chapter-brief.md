@@ -60,7 +60,7 @@ The chapter's 10th level is its checkpoint: a fresh angle on the chapter plus qu
 - Good: "Why Rome's founding story is legend, and what archaeology shows instead."
 - Weak: "Romulus founded Rome in 753 BCE."
 
-Three or four lines, each ≤ 120 characters, each backed by what the chapter actually taught.
+Three or four lines, each ≤ 110 characters, one sentence ending in a period, each backed by what the whole chapter taught (not just its last level). **Every line opens with How, Why, What, When, Where, Which or Who**: the skill map turns the first line into "By Level 20, you'll know how …" and "You know how …", so make the first line the chapter's biggest idea. The validator warns on any other opening.
 
 ## Content rules
 

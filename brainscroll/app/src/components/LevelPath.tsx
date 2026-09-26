@@ -1,4 +1,4 @@
-import { MASTERY_BAND_SIZE, SKILL_GUIDE_POSE } from '@brainscroll/core';
+import { MASTERY_BAND_SIZE, RECAP_OPENING, SKILL_GUIDE_POSE } from '@brainscroll/core';
 import { useEffect, useState } from 'react';
 import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path, Polygon } from 'react-native-svg';
@@ -226,10 +226,17 @@ function ChapterBanner({ chapter, first, last, level }: { chapter?: Chapter; fir
           Chapter {chapter?.number ?? Math.ceil(lo / 10)} · Levels {lo}–{hi}
         </Eyebrow>
         {chapter && <Title>{chapter.title}</Title>}
-        {meaning && <Caption>{level >= hi ? `You know: ${meaning}` : `By Level ${hi}: ${meaning}`}</Caption>}
+        {meaning && <Caption>{knows(meaning, level >= hi, hi)}</Caption>}
       </View>
     </View>
   );
+}
+
+/** "You know how …" / "By Level 20, you'll know why …" from a recap line that opens with How, Why, What… */
+function knows(line: string, cleared: boolean, by: number) {
+  const phrase = RECAP_OPENING.test(line) ? line.charAt(0).toLowerCase() + line.slice(1) : null;
+  if (cleared) return phrase ? `You know ${phrase}` : `You know: ${line}`;
+  return phrase ? `By Level ${by}, you'll know ${phrase}` : `By Level ${by}: ${line}`;
 }
 
 /** Pointy-top hexagon corners inside a box of `w` × `h`, starting at the top. */
